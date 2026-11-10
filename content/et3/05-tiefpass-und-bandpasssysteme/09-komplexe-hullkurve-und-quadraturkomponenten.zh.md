@@ -1,6 +1,8 @@
 ---
 title: 第 8 阶段：复包络与正交分量
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / 低通与带通系统
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / 低通与带通系统
+adresse: elektrotechnik/3-semester/signale-und-systeme/tiefpass-und-bandpasssysteme
+knoten: 第 5 章：低通与带通系统
 order: 3250900
 summary: 对系统成立的，对信号也成立：带通信号是搭载在载波上的低通信号。本阶段给出写出这一关系的几种不同方式。
 tags: 复包络, 复载波, 正交分量, 包络
@@ -18,7 +20,7 @@ lang: zh
 <span class="anker" id="gl-8-1"></span>
 $$h(t)=\operatorname{Re}\bigl\{h_T(t)\,\mathrm{e}^{\mathrm{j}2\pi f_0t}\bigr\},\qquad s(t)=\operatorname{Re}\bigl\{s_T(t)\,\mathrm{e}^{\mathrm{j}2\pi f_0t}\bigr\}. \tag{8.1}$$
 
-$s_T(t)$ 称为__复包络__，$\mathrm{e}^{\mathrm{j}2\pi f_0t}$ 称为__复载波__。二者乘积的一半就是[第 3 部分](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)中的解析分量 $s_+(t)=\frac12s_T(t)\mathrm{e}^{\mathrm{j}2\pi f_0t}$，因此 $s_T=2s_+\mathrm{e}^{-\mathrm{j}2\pi f_0t}$。
+$s_T(t)$ 称为__复包络__，$\mathrm{e}^{\mathrm{j}2\pi f_0t}$ 称为__复载波__。二者乘积的一半就是[第 3 章](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)中的解析分量 $s_+(t)=\frac12s_T(t)\mathrm{e}^{\mathrm{j}2\pi f_0t}$，因此 $s_T=2s_+\mathrm{e}^{-\mathrm{j}2\pi f_0t}$。
 
 :::satz 定理 8.1 (正交表示)
 <span class="anker" id="satz-8-1"></span>
@@ -34,7 +36,7 @@ $$\begin{aligned} s(t)&=s_{Tr}(t)\cos(2\pi f_0t)-s_{Ti}(t)\sin(2\pi f_0t),\\ s_{
 ⁠**如何理解：**$s_{Tr}$ 和 $s_{Ti}$ 合称__正交分量__（分别为同相分量和正交分量）：一个调制载波的余弦，另一个调制载波的正弦。$|s_T|$ 是__包络__，即在示波器上看到的信号“轮廓”；$\varphi_T$ 是载波的相位偏移。若复包络为实数（对称情形），则 $s(t)=s_T(t)\cos(2\pi f_0t)$：一个调幅余弦。
 
 :::herleitung 正交分量
-式 [(8.2)](#gl-8-2)：$\operatorname{Re}\{(s_{Tr}+\mathrm{j} s_{Ti})(\cos+\mathrm{j}\sin)\}=s_{Tr}\cos-s_{Ti}\sin$。对于式 [(8.3)](#gl-8-3)：$2s_+=s+\mathrm{j}\hat s$（[第 3 部分](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)），因此
+式 [(8.2)](#gl-8-2)：$\operatorname{Re}\{(s_{Tr}+\mathrm{j} s_{Ti})(\cos+\mathrm{j}\sin)\}=s_{Tr}\cos-s_{Ti}\sin$。对于式 [(8.3)](#gl-8-3)：$2s_+=s+\mathrm{j}\hat s$（[第 3 章](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)），因此
 
 $$s_T=(s+\mathrm{j}\hat s)(\cos-\mathrm{j}\sin)=(s\cos+\hat s\sin)+\mathrm{j}(\hat s\cos-s\sin).$$
 :::

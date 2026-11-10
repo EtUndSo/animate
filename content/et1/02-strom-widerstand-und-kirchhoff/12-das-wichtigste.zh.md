@@ -1,6 +1,8 @@
 ---
 title: 要点
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 电流、电阻与基尔霍夫定律
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 电流、电阻与基尔霍夫定律
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff
+knoten: 第 2 章：电流、电阻与基尔霍夫定律
 order: 1121200
 summary: 为什么电子缓慢爬行，电流却立刻出现， 以及为什么电路网络服从守恒定律
 tags: 漂移速度, 电流密度, 分压器
@@ -103,4 +105,4 @@ E 系列：$w=(\sqrt[N]{10})^i$；温度：$R(\vartheta)=R(\vartheta_0)(1+\alpha
 </ul>
 :::
 
-**[第 3 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html)预告。** 节点几乎不储存电荷。由两块大极板构成的电容器正好相反：它储存电荷和能量。
+**[第 3 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html)预告。** 节点几乎不储存电荷。由两块大极板构成的电容器正好相反：它储存电荷和能量。

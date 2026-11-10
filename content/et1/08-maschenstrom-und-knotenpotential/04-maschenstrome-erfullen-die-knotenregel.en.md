@@ -1,6 +1,8 @@
 ---
 title: Stage 2: Mesh currents satisfy the node rule
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / Mesh Current and Node Voltage Analysis
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / Mesh Current and Node Voltage Analysis
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/maschenstrom-und-knotenpotentialverfahren
+knoten: Chapter 8: Mesh Current and Node Voltage Analysis
 order: 1180400
 summary: We are looking for m quantities from which all branch currents follow.
 tags: windows
@@ -35,7 +37,7 @@ The node rule is then satisfied for all values of the $I_\mu$. Conversely, every
 :::
 
 :::herleitung Why this always works
-⁠*Node rule.* In a mesh, every node is connected to exactly two branches ([Part 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)). Its current counts once flowing in and once flowing out at the node, and the contributions cancel.
+⁠*Node rule.* In a mesh, every node is connected to exactly two branches ([Chapter 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)). Its current counts once flowing in and once flowing out at the node, and the contributions cancel.
 
 ⁠*Completeness.* Choose a tree. Each link branch closes exactly one mesh; let its mesh current be the current of this link branch. If you subtract all these circulating currents from the given distribution, the remainder still satisfies the node rule and is zero in all link branches. It can flow only in the tree. But the tree has an end, a node with only one tree branch. There the node rule forces the current to zero. Delete this branch and repeat. The remainder is zero everywhere.
 :::

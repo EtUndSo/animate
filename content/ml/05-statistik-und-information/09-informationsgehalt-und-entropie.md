@@ -1,7 +1,8 @@
 ---
 title: Informationsgehalt und Entropie
 pfad: Informatik / Machine Learning / Mathematische Grundlagen / Statistik und Information
-knoten: Grundlagen 5: Statistik und Information
+adresse: informatik/machine-learning/mathematische-grundlagen/statistik-und-information
+knoten: Kapitel 5: Statistik und Information
 nachschlagen: ja
 order: 15250900
 summary: Ein seltenes Ereignis überrascht mehr als ein häufiges.
@@ -45,14 +46,14 @@ Es sei $I(A)=f(P(A))$ mit einer Funktion $f$, die fällt und für unabhängige E
 :::
 
 :::hintergrund Shannon und das Bit
-Der amerikanische Ingenieur Claude Shannon hat 1948 in seiner Arbeit „A Mathematical Theory of Communication“ die Informationstheorie begründet, die die Nachrichtentechnik bis heute trägt. Den Namen bit für die Einheit zur Basis $2$ übernahm er nach eigener Angabe von seinem Kollegen John Tukey. Shannon begründete seine Formeln mit Forderungen wie den obigen, schrieb aber selbst, dass diese Forderungen für seine Theorie nicht nötig seien: Die eigentliche Rechtfertigung der Definitionen liege in ihren Folgerungen. Die wichtigste dieser Folgerungen zeigt Unterabschnitt [8.3](#stufe-8-3).
+Der amerikanische Mathematiker und Ingenieur Claude Shannon hat 1948 in seiner Arbeit „A Mathematical Theory of Communication“ die Informationstheorie begründet, auf der bis heute das Speichern, Komprimieren und Übertragen aller Daten beruht. Den Namen bit für die Einheit zur Basis $2$ übernahm er nach eigener Angabe von seinem Kollegen John Tukey. Shannon begründete seine Formeln mit Forderungen wie den obigen, schrieb aber selbst, dass diese Forderungen für seine Theorie nicht nötig seien: Die eigentliche Rechtfertigung der Definitionen liege in ihren Folgerungen. Die wichtigste dieser Folgerungen zeigt Unterabschnitt [8.3](#stufe-8-3).
 :::
 
 ### Die Entropie
 
 <span class="anker" id="stufe-8-2"></span>
 
-Ein Zufallsexperiment mit $K$ möglichen Ergebnissen liefert bei jeder Durchführung eine Überraschung. Wie groß ist sie im Mittel? Hat das Ergebnis $k$ die Wahrscheinlichkeit $p_k$ und den Informationsgehalt $\log_2(1/p_k)$, so ist der Erwartungswert nach [Grundlagen 4, Abschnitt 7.2](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/erwartungswert-und-varianz.html#stufe-7-2), die mit $p_k$ gewichtete Summe. Die Wahrscheinlichkeiten schreibt man wie in [Grundlagen 4, Abschnitt 7.1](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/erwartungswert-und-varianz.html#stufe-7-1), als Vektor $\mathbf{p}=(p_1,\dots,p_K)^{\top}$ mit $p_k\ge0$ und $\sum_kp_k=1$.
+Ein Zufallsexperiment mit $K$ möglichen Ergebnissen liefert bei jeder Durchführung eine Überraschung. Wie groß ist sie im Mittel? Hat das Ergebnis $k$ die Wahrscheinlichkeit $p_k$ und den Informationsgehalt $\log_2(1/p_k)$, so ist der Erwartungswert nach [Kapitel 4, Abschnitt 7.2](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/erwartungswert-und-varianz.html#stufe-7-2), die mit $p_k$ gewichtete Summe. Die Wahrscheinlichkeiten schreibt man wie in [Kapitel 4, Abschnitt 7.1](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/erwartungswert-und-varianz.html#stufe-7-1), als Vektor $\mathbf{p}=(p_1,\dots,p_K)^{\top}$ mit $p_k\ge0$ und $\sum_kp_k=1$.
 
 :::definition Definition 8.2 (Entropie)
 <span class="anker" id="satz-8-2"></span>
@@ -65,7 +66,7 @@ $$H(\mathbf{p})=\sum_{k=1}^Kp_k\log_2\frac1{p_k}\quad\text{bit}. \tag{8.2}$$
 Summanden mit $p_k=0$ lässt man weg. Mit $\ln$ statt $\log_2$ misst man die Entropie in nat.
 :::
 
-Das Weglassen ist sinnvoll, weil $p\log_2(1/p)$ für $p\to0$ gegen null geht: Ein Ergebnis, das nie eintritt, trägt zur mittleren Überraschung nichts bei. Viele Texte schreiben die Entropie einer Zufallsvariablen $X$ als $H(X)$. Das kursive $H$ mit einer Verteilung als Argument ist eine Zahl; es hat nichts mit der fett geschriebenen Hesse-Matrix $\mathbf{H}_f$ aus [Grundlagen 3, Abschnitt 8](/wissen/informatik/machine-learning/mathematische-grundlagen/ableitung-gradient-und-kettenregel/die-hesse-matrix-und-die-quadratische-naherung.html#stufe-8), zu tun, die zu einer Funktion $f$ gehört.
+Das Weglassen ist sinnvoll, weil $p\log_2(1/p)$ für $p\to0$ gegen null geht: Ein Ergebnis, das nie eintritt, trägt zur mittleren Überraschung nichts bei. Viele Texte schreiben die Entropie einer Zufallsvariablen $X$ als $H(X)$. Das kursive $H$ mit einer Verteilung als Argument ist eine Zahl; es hat nichts mit der fett geschriebenen Hesse-Matrix $\mathbf{H}_f$ aus [Kapitel 3, Abschnitt 8](/wissen/informatik/machine-learning/mathematische-grundlagen/ableitung-gradient-und-kettenregel/die-hesse-matrix-und-die-quadratische-naherung.html#stufe-8), zu tun, die zu einer Funktion $f$ gehört.
 
 :::satz Satz 8.3 (Die Entropie ist nicht negativ)
 <span class="anker" id="satz-8-3"></span>
@@ -122,8 +123,8 @@ Die Kraft-Ungleichung sieht man am Baum. Ein Codewort der Länge $l$ belegt ein 
 
 ⁠**Kurz gesagt:** Die Entropie ist die kleinste mittlere Codelänge, die ein Präfixcode erreichen kann; erreicht wird sie, wenn jedes Codewort so lang ist wie der Informationsgehalt seines Zeichens.
 
-:::hintergrund Die Entropie in der Nachrichtentechnik
-In der Nachrichtentechnik heißt das Verdichten einer Quelle auf möglichst wenige Binärziffern Quellencodierung. Der Satz sagt, wie weit man dabei gehen kann: bis zur Entropie, nicht weiter. Ein Verfahren, das für jede Verteilung den Präfixcode mit der kleinsten mittleren Länge findet, gab David Huffman 1952 an. Es fasst immer die zwei seltensten Zeichen zu einem neuen Zeichen zusammen und baut so den Baum von unten auf. Exakt erreicht wird die Entropie nur, wenn alle Wahrscheinlichkeiten Zweierpotenzen sind, sonst müssten die Codewörter gebrochene Längen haben. Fasst man aber viele Zeichen zu Blöcken zusammen und codiert die Blöcke, kommt man der Entropie je Zeichen beliebig nahe; Unterabschnitt [8.4](#stufe-8-4) rechnet ein Beispiel.
+:::hintergrund Die Entropie beim Komprimieren von Dateien
+Das Verdichten einer Nachricht auf möglichst wenige Binärziffern heißt Quellencodierung; jedes Programm, das Dateien komprimiert, etwa zu einer ZIP-Datei, tut genau das. Der Satz sagt, wie weit man dabei gehen kann: bis zur Entropie, nicht weiter. Ein Verfahren, das für jede Verteilung den Präfixcode mit der kleinsten mittleren Länge findet, gab David Huffman 1952 an; es steckt bis heute im Verfahren, mit dem ZIP-Dateien gepackt werden. Es fasst immer die zwei seltensten Zeichen zu einem neuen Zeichen zusammen und baut so den Baum von unten auf. Exakt erreicht wird die Entropie nur, wenn alle Wahrscheinlichkeiten Zweierpotenzen sind, sonst müssten die Codewörter gebrochene Längen haben. Fasst man aber viele Zeichen zu Blöcken zusammen und codiert die Blöcke, kommt man der Entropie je Zeichen beliebig nahe; Unterabschnitt [8.4](#stufe-8-4) rechnet ein Beispiel.
 :::
 
 ### Die binäre Entropie
@@ -155,7 +156,7 @@ $$H_{\mathrm b}'(\theta)=\frac1{\ln2}\bigl(-\ln\theta-1+\ln(1-\theta)+1\bigr)=\l
 Für $\theta<\tfrac12$ ist $(1-\theta)/\theta>1$ und die Ableitung positiv, für $\theta>\tfrac12$ negativ. Nach dem Satz über den Vorzeichenwechsel in Unterabschnitt [5.1](die-maximum-likelihood-schatzung.html#stufe-5-1) liegt bei $\tfrac12$ der höchste Punkt, mit $H_{\mathrm b}(\tfrac12)=\tfrac12+\tfrac12=1$.
 :::
 
-Dieselbe Stelle hatte schon die Varianz $\theta(1-\theta)$ der Bernoulli-Verteilung als größten Wert, nach [Grundlagen 4, Abschnitt 8.1](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/wichtige-verteilungen.html#stufe-8-1): Ein Ja-Nein-Ausgang ist am unsichersten, wenn beide Ausgänge gleich wahrscheinlich sind. Die verbogene Münze mit $\theta=0{,}7$ hat $H_{\mathrm b}(0{,}7)\approx0{,}881$ bit.
+Dieselbe Stelle hatte schon die Varianz $\theta(1-\theta)$ der Bernoulli-Verteilung als größten Wert, nach [Kapitel 4, Abschnitt 8.1](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/wichtige-verteilungen.html#stufe-8-1): Ein Ja-Nein-Ausgang ist am unsichersten, wenn beide Ausgänge gleich wahrscheinlich sind. Die verbogene Münze mit $\theta=0{,}7$ hat $H_{\mathrm b}(0{,}7)\approx0{,}881$ bit.
 
 ::::beispiel [Rechenbeispiel]
 Für eine Münze mit $\theta=0{,}9$ ist $H_{\mathrm b}(0{,}9)\approx0{,}469$ bit. Ein Präfixcode für einzelne Würfe braucht aber mindestens eine Ziffer je Wurf, denn es gibt nur zwei Zeichen. Fasst man je zwei Würfe zu einem Block zusammen, so haben die vier Blöcke KK, KZ, ZK, ZZ die Wahrscheinlichkeiten $0{,}81$, $0{,}09$, $0{,}09$, $0{,}01$. Der Präfixcode $0$, $10$, $110$, $111$ hat die mittlere Länge $0{,}81\cdot1+0{,}09\cdot2+0{,}09\cdot3+0{,}01\cdot3=1{,}29$ Ziffern je Block, also $0{,}645$ je Wurf. Mit längeren Blöcken kommt man der Entropie $0{,}469$ immer näher.

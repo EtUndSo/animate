@@ -1,6 +1,8 @@
 ---
 title: Das Wichtigste
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Strom, Widerstand und Kirchhoff
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Strom, Widerstand und Kirchhoff
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff
+knoten: Kapitel 2: Strom, Widerstand und Kirchhoff
 order: 1121200
 summary: Warum Elektronen kriechen, der Strom aber sofort da ist, und warum Netze Erhaltungssätzen gehorchen
 tags: Driftgeschwindigkeit, Stromdichte, Spannungsteiler
@@ -103,7 +105,7 @@ Belastet: $U_2/U=(R_2\parallel R_\mathrm L)/(R_1+R_2\parallel R_\mathrm L)$, Feh
 </ul>
 :::
 
-**Ausblick auf [Teil 3](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html).** Ein Knoten speichert fast keine Ladung. Der Kondensator aus zwei großen Platten tut das Gegenteil: Er speichert Ladung und Energie.
+**Ausblick auf [Kapitel 3](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html).** Ein Knoten speichert fast keine Ladung. Der Kondensator aus zwei großen Platten tut das Gegenteil: Er speichert Ladung und Energie.
 
 **Ein Prinzip hinter allen Ergebnissen.** Zwei Erhaltungssätze und ein Gleichgewicht tragen das Kapitel: Ladung geht nicht verloren, Energie geht nicht verloren, und im Leiter halten sich Antrieb durch das Feld und Bremsen durch Stöße die Waage.
 

@@ -1,6 +1,8 @@
 ---
 title: Stufe 1: Das verzerrungsfreie System
-pfad: Elektrotechnik / 3. Semester / Signale und Systeme / Tiefpass- und Bandpasssysteme
+pfad: Elektrotechnik / 3. Semester / ET3 – Grundgebiete der Elektrotechnik 3: Signale und Systeme / Tiefpass- und Bandpasssysteme
+adresse: elektrotechnik/3-semester/signale-und-systeme/tiefpass-und-bandpasssysteme
+knoten: Kapitel 5: Tiefpass- und Bandpasssysteme
 order: 3250200
 summary: Was genau soll eine „gute“ Übertragung leisten?
 tags: Phasenlaufzeit, Gruppenlaufzeit

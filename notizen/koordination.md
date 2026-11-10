@@ -17,6 +17,7 @@ Der User: „wir müssen den Verbrauch senken ohne dabei die Qualität zu beeinf
 1. **Schreib-Agent (Phase 1):** liest die Quellen ganz, recherchiert, schreibt das Heft samt Lösungen, TikZ-Abbildungen, Code und `rechnung_kap<N>.py`. Den Code testet er beim Schreiben. Zum Schluss schreibt er die Übergabe `uebergabe_kap<N>.md` und berichtet. PDF, Szenen und Konverter macht er nicht.
 2. **Prüf-Agent (Phase 2), frisch gestartet:** liest Auftrag, Leitfaden, WISSEN-Datei des Hefts, Übergabe, die Zusammenfassungen der früheren Hefte und das ganze Heft samt Lösungen. Dann:
    - Satz-für-Satz-Prüfung nach UEBERARBEITUNG §7 und Korrekturen;
+   - Beispiele und Wortwahl (§2b): keine Elektrotechnik außerhalb der ET-Module, keine seltenen oder komisch klingenden Wörter;
    - PDF und `pdf_pruefen.py`;
    - Abgleich aller Code-Blöcke mit echter Ausführung;
    - Editor-Szenen mit Kontaktblatt;
@@ -26,6 +27,23 @@ Der User: „wir müssen den Verbrauch senken ohne dabei die Qualität zu beeinf
    Seine frischen Augen sind zugleich eine unabhängige Durchsicht. Die Quellen braucht er nicht ganz, denn ob nichts Wichtiges fehlt, prüft er an der WISSEN-Datei. Einzelne Aussagen schlägt er gezielt nach.
 
 Phase 2 startet erst nach dem Bericht von Phase 1. Es arbeitet also weiterhin nur ein Schreib-Agent zur Zeit.
+
+**Viele Abbildungen (seit 10.11.2026, erstmals Linux 2 mit 31 Szenen):** Ab etwa 15 Szenen teilt sich Phase 2 in zwei frische Agenten nacheinander, damit keiner die Szenenarbeit mit dem ganzen Heft im Kontext macht.
+- **2a Prüfen:** Satz-für-Satz-Prüfung, Beispiele und Wortwahl, Code-Abgleich, `rechnung_kap<N>.py`, Korrekturen, `zusammenfassung_kap<N>.md`.
+- **2b Abbildungen und Bau:**
+  - Szenen nach der Tabelle der Übergabe (samt `s.tr` in sechs Sprachen), Export `--animiert`, Kontaktblätter;
+  - PDF und `pdf_pruefen`;
+  - Konverter, Themenkarte, build_wissen, URL-Prüfung.
+
+  Das Heft liest der Agent nur an den Stellen der Abbildungen.
+- **Ab etwa 30 Szenen** (erstmals Linux 3 mit 41) teilt sich 2b noch einmal, nacheinander:
+  - 2b-1 baut die Szenen der ersten Hälfte der Abschnitte;
+  - 2b-2 baut die zweite Hälfte, dann PDF, Konverter, Themenkarte und Build.
+
+  2a liefert dazu die endgültige Abbildungsliste, nach Abschnitten in zwei Hälften geteilt.
+- **Kontaktblätter** (seit 10.11.2026 repariert):
+  - Website-Bilder: `python tools/szenen_ansehen.py <blatt.png> <modul/szene …> --lang <sprache>` exportiert mit `--animiert` (die `.anim.svg` bleibt aktuell) und fotografiert die `.svg`; mit `--ohne-export` nur die fertigen Dateien, etwa nach dem Export aller Sprachen. Der Vorschau-Server ist nicht nötig.
+  - Heft-Bilder: `python tools/kontaktblatt_pdf.py <Heftordner>/abb/<sprache> <Ausgabeordner> [präfix | name1,name2,…]` aus den Vektor-PDFs, ohne Präfix alle; prüft, was wirklich im Heft steht.
 
 ## Auftrag an einen Schreib-Agenten (Phase 1) bzw. Prüf-Agenten (Phase 2)
 Nach dem Muster der bisherigen Aufträge, mit folgenden Teilen:
@@ -49,6 +67,9 @@ Nach dem Muster der bisherigen Aufträge, mit folgenden Teilen:
 3. **Nacharbeit:** Fehlende Makros selbst in `praeambel.tex` ergänzen und danach `python tools/praeambel_sync.py <heftordner>` ausführen. Die Sprachpräambeln sind Kopien, ohne diesen Schritt bauen die Übersetzungen nicht. Bezeichnungen, die spätere Hefte übernehmen müssen, im Arbeitsstand unter „Hinweise …“ festhalten.
 4. **Stand eintragen:** Tabelle im Arbeitsstand und das Gedächtnis der Reihe.
 5. **Dem User berichten,** knapp: Umfang, Prüfergebnisse, inhaltliche Höhepunkte, Korrekturen, was gerade läuft, was als Nächstes kommt.
+   - Dazu immer, ob er **jetzt committen und pushen** kann. Der User: „sag mir dann immer, wann ich comitten und pushen soll“.
+   - **Sicher ist es,** wenn kein Agent Dateien im Repo ändert, build_wissen ohne Warnung lief und die Menge der Artikel-URLs geprüft ist.
+   - **Sonst ausdrücklich abraten** und den Grund nennen.
 6. **Das nächste Heft beauftragen,** in der Reihenfolge aus dem Arbeitsstand. Endgültige Hefte in die Übersetzung einreihen.
 
 ## Abbrüche und Sitzungswechsel

@@ -1,6 +1,8 @@
 ---
 title: Stage 2: Even, monotonic, bounded
-pfad: Electrical Engineering / 1st Semester / Higher Mathematics 1 / Functions and Polynomials
+pfad: Electrical Engineering / 1st Semester / HöMa1 – Higher Mathematics 1 / Functions and Polynomials
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/funktionen-und-polynome
+knoten: Chapter 3: Functions and Polynomials
 order: 1230400
 summary: The definition says what a function is, but not what it looks like.
 tags: even, odd, monotonically increasing, strictly monotonically increasing, monotonically decreasing, strictly monotonically decreasing, bounded

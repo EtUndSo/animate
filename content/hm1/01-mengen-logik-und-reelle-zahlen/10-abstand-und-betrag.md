@@ -1,6 +1,8 @@
 ---
 title: Stufe 8: Abstand und Betrag
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Mengen, Logik und reelle Zahlen
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Mengen, Logik und reelle Zahlen
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen
+knoten: Kapitel 1: Mengen, Logik und reelle Zahlen
 order: 1211000
 summary: Grenzwerte messen, wie nah zwei Zahlen beieinanderliegen.
 tags: Abstand, Absolutbetrag, Dreiecksungleichung, untere Dreiecksungleichung

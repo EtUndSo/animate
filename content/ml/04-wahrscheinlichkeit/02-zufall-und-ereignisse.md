@@ -1,7 +1,8 @@
 ---
 title: Zufall und Ereignisse
 pfad: Informatik / Machine Learning / Mathematische Grundlagen / Wahrscheinlichkeit
-knoten: Grundlagen 4: Wahrscheinlichkeit
+adresse: informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit
+knoten: Kapitel 4: Wahrscheinlichkeit
 nachschlagen: ja
 order: 15240200
 summary: Bevor man mit Unsicherheit rechnen kann, muss man aufschreiben, was alles geschehen kann.
@@ -62,7 +63,7 @@ In der Grundmenge $\Omega=\{1,\dots,6\}$ sei $A=\{2,4,6\}$ und $B=\{5,6\}$. Dann
 
 <span class="anker" id="stufe-1-2"></span>
 
-Ein Würfelwurf, eine Messung mit Rauschen und die Auswahl der Wohnungen für einen Datensatz haben etwas gemeinsam: Man weiß, welche Ausgänge möglich sind, aber nicht, welcher eintritt. Will man darüber rechnen, schreibt man zuerst alle möglichen Ausgänge auf.
+Ein Würfelwurf, eine Messung mit zufälligem Fehler und die Auswahl der Wohnungen für einen Datensatz haben etwas gemeinsam: Man weiß, welche Ausgänge möglich sind, aber nicht, welcher eintritt. Will man darüber rechnen, schreibt man zuerst alle möglichen Ausgänge auf.
 
 :::definition Definition 1.1 (Zufallsexperiment, Ergebnis, Ergebnisraum)
 <span class="anker" id="satz-1-1"></span>
@@ -72,7 +73,7 @@ Ein __Zufallsexperiment__ ist ein Vorgang, dessen Ausgang man vorher nicht siche
 
 Ein Ergebnis wird oft $\omega$ genannt. Beim Aufschreiben muss jeder mögliche Ausgang genau einem Ergebnis entsprechen: Es darf keines fehlen, und zwei Ergebnisse dürfen nicht gleichzeitig eintreten. Wie fein man unterscheidet, legt man selbst fest. Wer beim Würfeln nur wissen will, ob eine Sechs fällt, kommt mit $\Omega=\{\text{Sechs},\ \text{keine Sechs}\}$ aus.
 
-Es gibt drei Arten von Ergebnisräumen. Ein Würfelwurf hat endlich viele Ergebnisse. Zählt man, wie oft man würfeln muss, bis die erste Sechs fällt, so ist $\Omega=\{1,2,3,\dots\}$: unendlich viele Ergebnisse, die man aber durchnummerieren kann; eine solche Menge heißt __abzählbar unendlich__. Misst man eine Spannung, so kann im Prinzip jede reelle Zahl herauskommen, und $\Omega=\mathbb{R}$ lässt sich nicht mehr durchnummerieren.
+Es gibt drei Arten von Ergebnisräumen. Ein Würfelwurf hat endlich viele Ergebnisse. Zählt man, wie oft man würfeln muss, bis die erste Sechs fällt, so ist $\Omega=\{1,2,3,\dots\}$: unendlich viele Ergebnisse, die man aber durchnummerieren kann; eine solche Menge heißt __abzählbar unendlich__. Misst man eine Temperatur, so kann im Prinzip jede reelle Zahl herauskommen, und $\Omega=\mathbb{R}$ lässt sich nicht mehr durchnummerieren.
 
 ::::beispiel [Rechenbeispiel]
 Beim Wurf zweier unterscheidbarer Würfel, eines roten und eines blauen, ist ein Ergebnis ein Paar $(a,\,b)$ aus der Augenzahl $a$ des roten und $b$ des blauen Würfels. Also ist
@@ -88,7 +89,7 @@ Die Ergebnisse $(1,\,2)$ und $(2,\,1)$ sind verschieden: Einmal zeigt der rote W
 
 <span class="anker" id="stufe-1-3"></span>
 
-Meist interessiert nicht das genaue Ergebnis, sondern eine Aussage darüber: „Die Augenzahl ist gerade“, „die Spannung liegt über $5\,\mathrm V$“, „das Bauteil ist defekt“. Jede solche Aussage trifft auf manche Ergebnisse zu und auf andere nicht. Man kann sie deshalb durch die Menge der Ergebnisse ersetzen, auf die sie zutrifft.
+Meist interessiert nicht das genaue Ergebnis, sondern eine Aussage darüber: „Die Augenzahl ist gerade“, „die Temperatur liegt über $30$ Grad“, „das Bauteil ist defekt“. Jede solche Aussage trifft auf manche Ergebnisse zu und auf andere nicht. Man kann sie deshalb durch die Menge der Ergebnisse ersetzen, auf die sie zutrifft.
 
 :::definition Definition 1.2 (Ereignis)
 <span class="anker" id="satz-1-2"></span>

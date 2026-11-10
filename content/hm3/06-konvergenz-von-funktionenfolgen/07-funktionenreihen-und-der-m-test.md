@@ -1,6 +1,8 @@
 ---
 title: Stufe 5: Funktionenreihen und der M-Test
-pfad: Elektrotechnik / 3. Semester / Höhere Mathematik 3 / Konvergenz von Funktionenfolgen
+pfad: Elektrotechnik / 3. Semester / HöMa3 – Höhere Mathematik 3 / Konvergenz von Funktionenfolgen
+adresse: elektrotechnik/3-semester/hohere-mathematik-3/konvergenz-von-funktionenfolgen
+knoten: Kapitel 6: Konvergenz von Funktionenfolgen
 order: 3160700
 summary: Für unendliche Summen von Funktionen fehlt ein Test, der gleichmäßige Konvergenz zeigt, ohne dass man die Summe kennt.
 tags: Funktionenreihe
@@ -18,7 +20,7 @@ Für unendliche Summen von Funktionen fehlt ein Test, der gleichmäßige Konverg
 <span class="anker" id="gl-5-1"></span>
 $$f(x)=\sum_{k=0}^\infty g_k(x),\qquad\text{mit den Partialsummen}\quad f_n(x)=\sum_{k=0}^ng_k(x). \tag{5.1}$$
 
-Sie konvergiert punktweise oder gleichmäßig, wenn die Folge $f_n$ das tut. Der Abstand zwischen $f_n$ und $f$ ist der Rest der Reihe. Deckelt man jedes Glied durch eine Zahl $M_k$, die nicht von $x$ abhängt, ist dieser Rest an allen Stellen zugleich klein (Abb. [5](#abb-5)). Das ist die Majoranten-Idee aus [Teil 2](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/integralrechnung-im-rn/integralrechnung-im-rn.html), jetzt für Summen.
+Sie konvergiert punktweise oder gleichmäßig, wenn die Folge $f_n$ das tut. Der Abstand zwischen $f_n$ und $f$ ist der Rest der Reihe. Deckelt man jedes Glied durch eine Zahl $M_k$, die nicht von $x$ abhängt, ist dieser Rest an allen Stellen zugleich klein (Abb. [5](#abb-5)). Das ist die Majoranten-Idee aus [Kapitel 2](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/integralrechnung-im-rn/integralrechnung-im-rn.html), jetzt für Summen.
 
 :::abbildung hm3/k6mtest 5
 Links die Partialsummen $f_1$, $f_2$, $f_4$ der Reihe $\sum_{k\ge1}x^k/k^2$ und ihre Summe $f$. Rechts die Deckel $M_k=1/k^2$. Der Rest nach $k=3$ (rot) beschränkt $|f-f_3|$ an jeder Stelle.

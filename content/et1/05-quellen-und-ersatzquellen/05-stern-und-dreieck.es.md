@@ -1,6 +1,8 @@
 ---
 title: Etapa 3: Estrella y triángulo
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Fuentes y fuentes equivalentes
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Fuentes y fuentes equivalentes
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen
+knoten: Capítulo 5: Fuentes y fuentes equivalentes
 order: 1150500
 summary: Un puente no equilibrado no tiene ni grupos ni simetría.
 tags: triángulo, estrella, elementos adyacentes, cuadripolos, red en \pi, red en T, atenuadores
@@ -53,7 +55,7 @@ $$R_\mathrm{AB}=4\,\Omega+(4\,\Omega+20\,\Omega)\parallel(8\,\Omega+16\,\Omega)=
 
 ⁠**Comprobación** en los terminales 1, 2 con el terminal 3 abierto: la estrella tiene $4+4=8\,\Omega$; el triángulo, $10\,\Omega\parallel40\,\Omega=8\,\Omega$. **Casos límite:** Tres resistencias de triángulo iguales dan una estrella con un tercio del valor. Para $R_{12}\to0$, $R_{10}$ y $R_{20}$ tienden a cero, y $R_{30}$ pasa a ser $R_{23}\parallel R_{31}$, que es exactamente lo que es el triángulo cortocircuitado.
 
-**$\pi$ y T.** En los __cuadripolos__ ([Parte 6](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html)), el triángulo y la estrella se dibujan de modo que una entrada quede a la izquierda y una salida a la derecha. El triángulo se llama entonces __red en $\pi$__; la estrella, __red en T__. Las fórmulas y las reglas no cambian. En ingeniería de telecomunicaciones se construyen así __atenuadores__, que debilitan una señal en un factor fijo y presentan la misma resistencia de entrada en ambos pares de terminales (adaptación de potencia, [Parte 7](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad/leistung-und-anpassung.html)). También los filtros de bobinas y condensadores se pueden construir en una u otra forma.
+**$\pi$ y T.** En los __cuadripolos__ ([capítulo 6](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html)), el triángulo y la estrella se dibujan de modo que una entrada quede a la izquierda y una salida a la derecha. El triángulo se llama entonces __red en $\pi$__; la estrella, __red en T__. Las fórmulas y las reglas no cambian. En ingeniería de telecomunicaciones se construyen así __atenuadores__, que debilitan una señal en un factor fijo y presentan la misma resistencia de entrada en ambos pares de terminales (adaptación de potencia, [capítulo 7](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad/leistung-und-anpassung.html)). También los filtros de bobinas y condensadores se pueden construir en una u otra forma.
 
 :::frage ¿Qué triángulo debo convertir?
 Cualquiera cuya conversión cree grupos. En un puente sirve también el triángulo inferior, o incluso una estrella convertida en triángulo. El resultado siempre es el mismo.

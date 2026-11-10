@@ -1,6 +1,8 @@
 ---
 title: Stufe 9: Aufladen über einen Widerstand
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Der Kondensator
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Der Kondensator
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator
+knoten: Kapitel 3: Der Kondensator
 order: 1131000
 summary: An einer Spannungsquelle hängt der Ladestrom von der Kondensatorspannung ab, und die hängt vom Ladestrom ab.
 tags: Kurzschluss, Unterbrechung, Differenzialgleichung
@@ -21,7 +23,7 @@ Der Strom bringt Ladung, $u_C$ steigt. Nach der Maschenregel bleibt für $R$ wen
 Links der RC-Kreis mit Zählpfeilen, Maschenregel $U_0=u_R+u_C$. Stellung 1 lädt, Stellung 2 entlädt. Rechts die beiden Ersatzbilder: Bei $t=0$ wirkt der leere Kondensator wie ein Draht, nach langer Zeit der volle wie offene Klemmen.
 :::
 
-**Die Gleichung.** Die Maschenregel ([Teil 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)) lautet $U_0=u_R+u_C$. Mit dem ohmschen Gesetz $u_R=R\,i$ und mit $i=C\,\mathrm{d} u_C/\mathrm{d} t$ aus [(3.1)](strom-und-spannung-am-kondensator.html#gl-3-1) folgt
+**Die Gleichung.** Die Maschenregel ([Kapitel 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)) lautet $U_0=u_R+u_C$. Mit dem ohmschen Gesetz $u_R=R\,i$ und mit $i=C\,\mathrm{d} u_C/\mathrm{d} t$ aus [(3.1)](strom-und-spannung-am-kondensator.html#gl-3-1) folgt
 
 <span class="anker" id="gl-9-1"></span>
 $$U_0=R\,C\,\frac{\mathrm{d} u_C}{\mathrm{d} t}+u_C. \tag{9.1}$$

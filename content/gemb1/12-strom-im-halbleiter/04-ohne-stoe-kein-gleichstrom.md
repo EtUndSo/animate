@@ -1,6 +1,8 @@
 ---
 title: Stufe 2: Ohne Stöße kein Gleichstrom
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Strom im Halbleiter
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Strom im Halbleiter
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/strom-im-halbleiter
+knoten: Kapitel 12: Strom im Halbleiter
 order: 4220400
 summary: Nach (1.2) wächst k im Feld immer weiter.
 tags: Bloch-Schwingung, Störstellenstreuung, Legierungsstreuung, elastische Streuung, inelastische Streuung, Streuzeit, Streurate
@@ -36,7 +38,7 @@ Links ohne Stöße: $k$ springt am Zonenrand von $\pi/a$ nach $-\pi/a$, $v$ pend
 Ein Stoß ist ein plötzlicher Übergang eines Ladungsträgers von $k$ nach $k'$. Ladungsträger streuen an Gitterschwingungen (Phononen), am Coulomb-Potential von Verunreinigungen und Dotierstoffen (__Störstellenstreuung__ an ionisierten Atomen), an der unregelmäßigen Atomfolge von Kristallen aus mehreren Atomsorten (__Legierungsstreuung__), an Fehlstellen und anderen Defekten im Gitter und an anderen Elektronen. Ändert sich nur der Impuls bei gleicher Energie, heißt das __elastische Streuung__, ändert sich auch die Energie, __inelastische Streuung__.
 :::
 
-⁠**So liest man das:** Die Rümpfe selbst sind kein Hindernis wie im Gasmodell. Die Welle wird zwar an jedem Rumpf etwas gestreut, doch alle Teilwellen setzen sich zur Bloch-Funktion zusammen, die ungestört weiterläuft ([Teil 8](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/vom-atom-zum-band/vom-atom-zum-band.html)). Streuen kann nur, was die Periode stört: Ein schwingender Rumpf sitzt neben seinem Platz, ein Dotieratom trägt eine andere Ladung. Am schweren Ion prallt das Elektron elastisch ab, mit einem Phonon tauscht es Energie aus. Stöße zweier Elektronen lassen die Summe ihrer $k$ gleich und ändern in einem Parabelband den Strom nicht.
+⁠**So liest man das:** Die Rümpfe selbst sind kein Hindernis wie im Gasmodell. Die Welle wird zwar an jedem Rumpf etwas gestreut, doch alle Teilwellen setzen sich zur Bloch-Funktion zusammen, die ungestört weiterläuft ([Kapitel 8](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/vom-atom-zum-band/vom-atom-zum-band.html)). Streuen kann nur, was die Periode stört: Ein schwingender Rumpf sitzt neben seinem Platz, ein Dotieratom trägt eine andere Ladung. Am schweren Ion prallt das Elektron elastisch ab, mit einem Phonon tauscht es Energie aus. Stöße zweier Elektronen lassen die Summe ihrer $k$ gleich und ändern in einem Parabelband den Strom nicht.
 
 :::satz Satz 2.3 (Matthiessensche Regel)
 <span class="anker" id="satz-2-3"></span>
@@ -68,7 +70,7 @@ Drei Prozesse haben $\tau=0{,}5$ ps, 1,5 ps und 6 ps. Berechne $\tau_\text
 
 <li>
 
-Weil $\mu\propto\tau$ ist ([Teil 1](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/welle-teilchen-und-schrodinger-gleichung/welle-teilchen-und-schroedinger-gleichung.html)), gilt dasselbe für Kehrwerte von Beweglichkeiten. Zwei Mechanismen allein ergäben 900 und $300\,\mathrm{cm^2/(V\,s)}$. Wie groß ist $\mu$ zusammen?
+Weil $\mu\propto\tau$ ist ([Kapitel 1](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/welle-teilchen-und-schrodinger-gleichung/welle-teilchen-und-schroedinger-gleichung.html)), gilt dasselbe für Kehrwerte von Beweglichkeiten. Zwei Mechanismen allein ergäben 900 und $300\,\mathrm{cm^2/(V\,s)}$. Wie groß ist $\mu$ zusammen?
 
 </li>
 

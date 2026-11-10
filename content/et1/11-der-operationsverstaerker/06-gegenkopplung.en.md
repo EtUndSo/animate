@@ -1,6 +1,8 @@
 ---
 title: Stage 4: Negative feedback
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / The Operational Amplifier
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / The Operational Amplifier
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker
+knoten: Chapter 11: The Operational Amplifier
 order: 1210600
 summary: Without feedback the op amp is a switch.
 tags: Feedback, positive feedback, non-inverting amplifier, voltage follower
@@ -40,7 +42,7 @@ With the divider, $\beta=R_1/(R_1+R_2)$, so $G\approx1+R_2/R_1$.
 :::herleitung The loop in equilibrium and in motion
 Equilibrium: $U_\mathrm{A}=A\,U_\mathrm{D}$ and $U_\mathrm{D}=U_\mathrm{E}-\beta\,U_\mathrm{A}$. Substituting gives $U_\mathrm{D}=U_\mathrm{E}-A\beta\,U_\mathrm{D}$, and from this [(4.1)](#gl-4-1). Differentiating $G$ with respect to $A$ gives $\mathrm{d} G/\mathrm{d} A=1/(1+A\beta)^2$; dividing by $G$ yields [(4.2)](#gl-4-2).
 
-Motion: inside the op amp, a current proportional to $U_\mathrm{D}$ charges a capacitance. The output therefore cannot jump but runs after its target value: $\tau\,\mathrm{d} U_\mathrm{A}/\mathrm{d} t=A\,U_\mathrm{D}-U_\mathrm{A}$, here with $\tau=A/(2\pi f_\mathrm{T})=15.9$ ms. This is the equation of the RC circuit from [Part 3](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html). With $U_\mathrm{D}=U_\mathrm{E}-\beta\,U_\mathrm{A}$ it becomes
+Motion: inside the op amp, a current proportional to $U_\mathrm{D}$ charges a capacitance. The output therefore cannot jump but runs after its target value: $\tau\,\mathrm{d} U_\mathrm{A}/\mathrm{d} t=A\,U_\mathrm{D}-U_\mathrm{A}$, here with $\tau=A/(2\pi f_\mathrm{T})=15.9$ ms. This is the equation of the RC circuit from [Chapter 3](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html). With $U_\mathrm{D}=U_\mathrm{E}-\beta\,U_\mathrm{A}$ it becomes
 
 $$\tau\,\frac{\mathrm{d} U_\mathrm{A}}{\mathrm{d} t}=A\,U_\mathrm{E}-(1+A\beta)\,U_\mathrm{A}.$$
 
@@ -67,7 +69,7 @@ A change in $A$ of 300 % shifts $G$ by 0.0075 %. You trade gain for accuracy
 
 **Input and output.** At the plus input only $U_\mathrm{D}=50$ µ V lies across $r_\mathrm{e}$, so 50 pA flows, one two-millionth of the divider current of 100 µ A. The input resistance thus rises to $r_\mathrm{e}(1+A\beta)=20$ G$\Omega$. At the output, the loop acts against any loading: if a load pulls $U_\mathrm{A}$ down a little, $U_\mathrm{D}$ grows, and the internal voltage rises until the loss is almost compensated. The output resistance falls to $r_\mathrm{a}/(1+A\beta)=3.75$ m$\Omega$.
 
-**The voltage follower.** With $R_2=0$ and $R_1\to\infty$, the output is connected directly to the minus input, $\beta=1$, $G=A/(1+A)=0.99999$. This __voltage follower__ does not amplify but isolates: input resistance 100 G$\Omega$, output resistance 0.75 m$\Omega$. A voltmeter of 1 M$\Omega$ on a source with 1 V and 100 k$\Omega$ internal resistance shows 0.909 V ([Part 4](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-und-spannung-messen/strom-und-spannung-messen.html)). With a voltage follower in front it shows 0.99999 V.
+**The voltage follower.** With $R_2=0$ and $R_1\to\infty$, the output is connected directly to the minus input, $\beta=1$, $G=A/(1+A)=0.99999$. This __voltage follower__ does not amplify but isolates: input resistance 100 G$\Omega$, output resistance 0.75 m$\Omega$. A voltmeter of 1 M$\Omega$ on a source with 1 V and 100 k$\Omega$ internal resistance shows 0.909 V ([Chapter 4](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-und-spannung-messen/strom-und-spannung-messen.html)). With a voltage follower in front it shows 0.99999 V.
 
 :::abbildung et1/k11nichtinv 6
 Left, the non-inverting amplifier with potentials in the reference model. The minus input is only 50 µ V below the plus input. Right, the voltage follower as the limiting case $\beta=1$.

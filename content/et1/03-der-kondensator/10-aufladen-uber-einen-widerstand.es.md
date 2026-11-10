@@ -1,6 +1,8 @@
 ---
 title: Etapa 9: Carga a través de una resistencia
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / El condensador
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / El condensador
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator
+knoten: Capítulo 3: El condensador
 order: 1131000
 summary: En una fuente de tensión, la corriente de carga depende de la tensión del condensador, y esta depende de la corriente de carga.
 tags: cortocircuito, circuito abierto, ecuación diferencial
@@ -21,7 +23,7 @@ La corriente lleva carga, y $u_C$ sube. Por la ley de mallas queda menos para $R
 Izquierda, el circuito RC con flechas de referencia, ley de mallas $U_0=u_R+u_C$. La posición 1 carga, la posición 2 descarga. Derecha, los dos circuitos equivalentes: en $t=0$, el condensador vacío actúa como un cable; tras mucho tiempo, el lleno actúa como unos terminales abiertos.
 :::
 
-**La ecuación.** La ley de mallas ([Parte 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)) dice $U_0=u_R+u_C$. Con la ley de Ohm $u_R=R\,i$ y con $i=C\,\mathrm{d} u_C/\mathrm{d} t$ de [(3.1)](strom-und-spannung-am-kondensator.html#gl-3-1) resulta
+**La ecuación.** La ley de mallas ([capítulo 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)) dice $U_0=u_R+u_C$. Con la ley de Ohm $u_R=R\,i$ y con $i=C\,\mathrm{d} u_C/\mathrm{d} t$ de [(3.1)](strom-und-spannung-am-kondensator.html#gl-3-1) resulta
 
 <span class="anker" id="gl-9-1"></span>
 $$U_0=R\,C\,\frac{\mathrm{d} u_C}{\mathrm{d} t}+u_C. \tag{9.1}$$

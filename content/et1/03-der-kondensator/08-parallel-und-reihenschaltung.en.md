@@ -1,6 +1,8 @@
 ---
 title: Stage 7: Parallel and series connection
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / The Capacitor
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / The Capacitor
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator
+knoten: Chapter 3: The Capacitor
 order: 1130800
 summary: Several capacitors can be treated like one.
 tags: island

@@ -1,6 +1,8 @@
 ---
-title: Von Grund auf: Was aus Teil 4 gebraucht wird
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Chemische Bindung
+title: Von Grund auf: Was aus Kapitel 4 gebraucht wird
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Chemische Bindung
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/chemische-bindung
+knoten: Kapitel 5: Chemische Bindung
 order: 4150200
 summary: Warum Atome zusammenhalten und was die Art des Zusammenhalts über ein Material verrät
 tags: Valenzelektronen, Edelgaskonfiguration, Oktett-Regel, Kation, Anion, Coulomb-Energie

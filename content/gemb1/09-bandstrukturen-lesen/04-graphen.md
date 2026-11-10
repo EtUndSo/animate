@@ -1,6 +1,8 @@
 ---
 title: Stufe 2: Graphen
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Bandstrukturen lesen
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Bandstrukturen lesen
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/bandstrukturen-lesen
+knoten: Kapitel 9: Bandstrukturen lesen
 order: 4190400
 summary: Bisher enthielt die Zelle ein Atom.
 tags: Dirac-Punkt, Halbmetall
@@ -13,7 +15,7 @@ lang: de
 Bisher enthielt die Zelle ein Atom. Graphen hat zwei. Diese Stufe führt das Rezept für die Wabe durch. Das Ergebnis sind zwei Bänder, die sich an einzelnen Punkten berühren.
 :::
 
-**Die Idee.** Graphen ist eine Lage Kohlenstoff in Wabenform ([Teil 6](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/kristallgitter/kristallgitter.html)). Die Atome sind gleich, ihre Umgebungen nicht, deshalb enthält die primitive Zelle, eine Raute, die Atome A und B. Drei Elektronen je Atom bilden das Gerüst aus sp$^2$-Bindungen. Das vierte sitzt im p$_z$-Orbital senkrecht zur Lage. Dieses hat oben und unten verschiedene Vorzeichen, die sp$^2$-Orbitale nicht, also heben sich die Kopplungen zwischen beiden auf, und die p$_z$-Orbitale bilden ein System für sich. Jedes A hüpft zu drei B. Die drei Wege überlagern sich, und an besonderen $\boldsymbol k$ löschen sie sich aus.
+**Die Idee.** Graphen ist eine Lage Kohlenstoff in Wabenform ([Kapitel 6](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/kristallgitter/kristallgitter.html)). Die Atome sind gleich, ihre Umgebungen nicht, deshalb enthält die primitive Zelle, eine Raute, die Atome A und B. Drei Elektronen je Atom bilden das Gerüst aus sp$^2$-Bindungen. Das vierte sitzt im p$_z$-Orbital senkrecht zur Lage. Dieses hat oben und unten verschiedene Vorzeichen, die sp$^2$-Orbitale nicht, also heben sich die Kopplungen zwischen beiden auf, und die p$_z$-Orbitale bilden ein System für sich. Jedes A hüpft zu drei B. Die drei Wege überlagern sich, und an besonderen $\boldsymbol k$ löschen sie sich aus.
 
 **Das Rezept für die Wabe.** A sitzt im Ursprung, B bei $(a_\mathrm{CC},0)$ (Abb. [2](#abb-2)).
 

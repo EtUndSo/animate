@@ -1,6 +1,8 @@
 ---
 title: Stufe 6: Punkte, Ebenen und Richtungen
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Kristallgitter
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Kristallgitter
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/kristallgitter
+knoten: Kapitel 6: Kristallgitter
 order: 4160800
 summary: Kristalle spalten längs bestimmter Ebenen, und Ätzmittel greifen sie je nach Ebene verschieden schnell an.
 tags: Netzebenen, Bragg-Gleichung

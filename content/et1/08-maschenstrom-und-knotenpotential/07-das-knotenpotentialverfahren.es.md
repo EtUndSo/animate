@@ -1,6 +1,8 @@
 ---
 title: Etapa 5: El análisis por nudos
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Análisis por mallas y por nudos
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Análisis por mallas y por nudos
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/maschenstrom-und-knotenpotentialverfahren
+knoten: Capítulo 8: Análisis por mallas y por nudos
 order: 1180700
 summary: La ley de las mallas ya está resuelta; quedan k-1 leyes de los nudos con k-1 incógnitas.
 tags: conductancia de acoplamiento
@@ -24,7 +26,7 @@ El método tiene cuatro pasos:
 
 <li>
 
-Convertir las fuentes de tensión reales en fuentes de corriente reales: $I_\mathrm q=U_\mathrm q/R$, la misma resistencia en paralelo ([Parte 5](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)).
+Convertir las fuentes de tensión reales en fuentes de corriente reales: $I_\mathrm q=U_\mathrm q/R$, la misma resistencia en paralelo ([capítulo 5](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)).
 
 </li>
 
@@ -84,7 +86,7 @@ $I_{\mathrm q\mu}$ es la suma de las corrientes de fuente en el nudo, positiva s
 En el nudo $\mu$ sale por cada conductancia $G_a$ hacia el vecino $\nu$ la corriente $G_a\,(U_\mu-U_\nu)$, y hacia el nudo de referencia $G_a\,U_\mu$. La suma de estas corrientes es igual a la $I_{\mathrm q\mu}$ inyectada. Al ordenar queda delante de $U_\mu$ la suma de todos los $G_a$ y delante de $U_\nu$ menos la suma de las conductancias entre $\mu$ y $\nu$. El nudo $\nu$ recibe el mismo elemento, porque una conductancia no conoce dirección. Por eso $\mathbf Y$ es simétrica.
 :::
 
-⁠**Cómo leerlo:** La fila $\mu$ es la ley de los nudos: a la izquierda están todas las corrientes que salen por conductancias, a la derecha lo que las fuentes empujan hacia dentro. La columna $\nu$ dice: si se mantiene el nudo $\nu$ a 1 V y todos los demás a 0 V, hay que inyectar en el nudo $\nu$ la corriente $Y_{\nu\nu}$ y extraer en cada vecino $\mu$ la corriente $-Y_{\mu\nu}$. Eso es exactamente el ensayo de cortocircuito de la [Parte 6](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html). **Validez:** La red contiene conductancias y fuentes de corriente fijas. Una fuente de tensión ideal no encaja, porque no tiene conductancia finita (etapa [9](die-modifizierte-knotenanalyse.html#stufe-9)).
+⁠**Cómo leerlo:** La fila $\mu$ es la ley de los nudos: a la izquierda están todas las corrientes que salen por conductancias, a la derecha lo que las fuentes empujan hacia dentro. La columna $\nu$ dice: si se mantiene el nudo $\nu$ a 1 V y todos los demás a 0 V, hay que inyectar en el nudo $\nu$ la corriente $Y_{\nu\nu}$ y extraer en cada vecino $\mu$ la corriente $-Y_{\mu\nu}$. Eso es exactamente el ensayo de cortocircuito del [capítulo 6](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html). **Validez:** La red contiene conductancias y fuentes de corriente fijas. Una fuente de tensión ideal no encaja, porque no tiene conductancia finita (etapa [9](die-modifizierte-knotenanalyse.html#stufe-9)).
 
 :::abbildung et1/k8yspalte 5
 Izquierda: la red modelo para el análisis por nudos; la batería se ha convertido en fuente de corriente. Derecha: se han quitado las fuentes, el nudo 1 está a 1 V y el nudo 2 a 0 V. Por $G_1$, $G_2$, $G_3$ salen $1+0{,}25+0{,}5=1{,}75$ mA, que es $Y_{11}$. Los 0,5 mA llegan al nudo 2 y hay que extraerlos allí, que es $Y_{21}=-0{,}5$ mS.
@@ -111,7 +113,7 @@ Las corrientes de malla tienen un sentido que se elige, y por tanto también dos
 :::
 
 :::frage Tras la conversión, por $R_5$ circulan en el esquema de mallas 2 mA hacia arriba y en la red original 2 mA hacia abajo. ¿Qué es lo correcto?
-La red original. Las fuentes equivalentes solo coinciden en los terminales ([Parte 5](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)). En el nudo 2 y en la masa ambas formas dan lo mismo; en el interior de la fuente la corriente significa cosas distintas. Por eso las magnitudes internas se calculan en la red original a partir de las tensiones en los terminales.
+La red original. Las fuentes equivalentes solo coinciden en los terminales ([capítulo 5](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)). En el nudo 2 y en la masa ambas formas dan lo mismo; en el interior de la fuente la corriente significa cosas distintas. Por eso las magnitudes internas se calculan en la red original a partir de las tensiones en los terminales.
 :::
 
 :::aufgabe Ejercicio 6 ★★ Tres nudos y una referencia

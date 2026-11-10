@@ -1,7 +1,8 @@
 ---
 title: Angles et similarité
 pfad: Informatique / Apprentissage automatique / Fondements mathématiques / Vecteurs et matrices
-knoten: Fondements 1 : Vecteurs et matrices
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Chapitre 1 : Vecteurs et matrices
 nachschlagen: ja
 order: 15210600
 summary: Deux vecteurs peuvent pointer dans des directions semblables, même s’ils ont des longueurs différentes.
@@ -59,11 +60,11 @@ et en prenant la racine, on obtient (N3).
 ⁠**En bref :** En valeur absolue, le produit scalaire vaut au plus le produit des longueurs, et il lui est égal si et seulement si les vecteurs se trouvent sur une même droite passant par l’origine.
 
 :::hintergrund Pourquoi le produit scalaire reconnaît les motifs : l’énoncé précis
-Dans la sous-section [2.4](das-skalarprodukt.html#stufe-2-4), la comparaison avec un motif était une image intuitive : le produit scalaire $\mathbf{w}^{\top}\mathbf{x}$ est grand lorsque le signal suit le motif. L’inégalité de Cauchy-Schwarz en fait un énoncé précis. Si l’on ne compare que des signaux de même longueur $\lVert\mathbf{x}\rVert$, $\mathbf{w}^{\top}\mathbf{x}$ est toujours compris entre $-\lVert\mathbf{w}\rVert\,\lVert\mathbf{x}\rVert$ et $+\lVert\mathbf{w}\rVert\,\lVert\mathbf{x}\rVert$. La plus grande valeur est atteinte exactement par le signal qui est un multiple positif du motif, la plus petite par le multiple négatif. Parmi tous les signaux de même énergie, la comparaison réagit donc le plus fortement au motif lui-même.
+Dans la sous-section [2.4](das-skalarprodukt.html#stufe-2-4), la comparaison avec un motif était une image intuitive : le produit scalaire $\mathbf{w}^{\top}\mathbf{x}$ est grand lorsque la série temporelle suit le motif. L’inégalité de Cauchy-Schwarz en fait un énoncé précis. Si l’on ne compare que des séries temporelles de même longueur $\lVert\mathbf{x}\rVert$, $\mathbf{w}^{\top}\mathbf{x}$ est toujours compris entre $-\lVert\mathbf{w}\rVert\,\lVert\mathbf{x}\rVert$ et $+\lVert\mathbf{w}\rVert\,\lVert\mathbf{x}\rVert$. La plus grande valeur est atteinte exactement par la série temporelle qui est un multiple positif du motif, la plus petite par le multiple négatif. Parmi toutes les séries temporelles de même longueur, la comparaison réagit donc le plus fortement au motif lui-même.
 
-⁠**Exemple de calcul :** Le motif alterné $\mathbf{w}=(1,-1,1,-1)^{\top}$ a pour longueur $2$. Parmi tous les signaux de longueur $2$, $\mathbf{x}=\mathbf{w}$ donne la plus grande valeur, $4=2\cdot2$, le signal $(2,0,0,0)^{\top}$ seulement $2$, et $\mathbf{x}=-\mathbf{w}$ la plus petite valeur, $-4$.
+⁠**Exemple de calcul :** Le motif alterné $\mathbf{w}=(1,-1,1,-1)^{\top}$ a pour longueur $2$. Parmi toutes les séries temporelles de longueur $2$, $\mathbf{x}=\mathbf{w}$ donne la plus grande valeur, $4=2\cdot2$, la série temporelle $(2,0,0,0)^{\top}$ seulement $2$, et $\mathbf{x}=-\mathbf{w}$ la plus petite valeur, $-4$.
 
-En télécommunications, c’est le fondement du récepteur à corrélation et du filtre adapté (*matched filter*). Un tel filtre a pour réponse impulsionnelle le signal émis renversé dans le temps ; à l’instant d’échantillonnage, il calcule ainsi exactement le produit scalaire du signal reçu et du signal émis. Que ce filtre maximise le rapport signal sur bruit se démontre précisément à l’aide de cette inégalité.
+Toute recherche qui décrit des textes ou des images par des vecteurs exploite le même énoncé : parmi tous les vecteurs de même longueur, celui qui donne le plus grand produit scalaire avec la requête est celui qui est un multiple positif de la requête. Pour que la longueur ne fausse pas le résultat, on ramène au préalable tous les vecteurs à la même longueur.
 :::
 
 ### L’angle entre deux vecteurs
@@ -134,23 +135,23 @@ $(1,\,2,\,2)^{\top}$ et $(2,\,0,\,-1)^{\top}$ sont orthogonaux, car $2+0-2=0$. L
 ::::
 
 ::::beispiel [Exemple de calcul 2] deux motifs qui ne se gênent pas
-Le motif constant $\mathbf 1=(1,\,1,\,1,\,1)^{\top}$ et le motif alterné $\mathbf{w}=(1,\,-1,\,1,\,-1)^{\top}$ de la sous-section [2.4](das-skalarprodukt.html#stufe-2-4) sont orthogonaux, $\mathbf 1^{\top}\mathbf{w}=0$. Un signal composé de $2$ fois le motif constant et de $1$ fois le motif alterné est $\mathbf{x}=2\cdot\mathbf 1+\mathbf{w}=(3,\,1,\,3,\,1)^{\top}$. La comparaison avec le motif constant donne $\mathbf 1^{\top}\mathbf{x}=8=2\cdot4$, la comparaison avec le motif alterné $\mathbf{w}^{\top}\mathbf{x}=4=1\cdot4$ (Fig. [23](#abb-23)). Chaque comparaison trouve exactement sa propre part, multipliée par $\lVert\mathbf 1\rVert^2=\lVert\mathbf{w}\rVert^2=4$ ; l’autre part ne la perturbe pas.
+Le motif constant $\mathbf 1=(1,\,1,\,1,\,1)^{\top}$ et le motif alterné $\mathbf{w}=(1,\,-1,\,1,\,-1)^{\top}$ de la sous-section [2.4](das-skalarprodukt.html#stufe-2-4) sont orthogonaux, $\mathbf 1^{\top}\mathbf{w}=0$. Une série temporelle composée de $2$ fois le motif constant et de $1$ fois le motif alterné est $\mathbf{x}=2\cdot\mathbf 1+\mathbf{w}=(3,\,1,\,3,\,1)^{\top}$. La comparaison avec le motif constant donne $\mathbf 1^{\top}\mathbf{x}=8=2\cdot4$, la comparaison avec le motif alterné $\mathbf{w}^{\top}\mathbf{x}=4=1\cdot4$ (Fig. [23](#abb-23)). Chaque comparaison trouve exactement sa propre part, multipliée par $\lVert\mathbf 1\rVert^2=\lVert\mathbf{w}\rVert^2=4$ ; l’autre part ne la perturbe pas.
 
 :::abbildung ml/k1rortho 23
-Les deux motifs sont orthogonaux (en haut). La comparaison du signal $\mathbf{x}=2\cdot\mathbf 1+\mathbf{w}$ avec chaque motif fournit la part de ce motif, multipliée par $4$.
+Les deux motifs sont orthogonaux (en haut). La comparaison de la série temporelle $\mathbf{x}=2\cdot\mathbf 1+\mathbf{w}$ avec chaque motif fournit la part de ce motif, multipliée par $4$.
 :::
 ::::
 
 ⁠**En bref :** Orthogonal signifie produit scalaire nul ; des flèches orthogonales sont perpendiculaires, et le théorème de Pythagore s’applique à elles.
 
 :::hintergrund Pourquoi des motifs orthogonaux ne se gênent pas, et quel rapport avec les coefficients de Fourier
-Si un signal est une combinaison linéaire $\mathbf{x}=\alpha\,\mathbf 1+\beta\,\mathbf{w}$ de deux motifs orthogonaux, alors, d’après les règles de calcul,
+Si une série temporelle est une combinaison linéaire $\mathbf{x}=\alpha\,\mathbf 1+\beta\,\mathbf{w}$ de deux motifs orthogonaux, alors, d’après les règles de calcul,
 
 $$\mathbf 1^{\top}\mathbf{x}=\alpha\,\mathbf 1^{\top}\mathbf 1+\beta\,\mathbf 1^{\top}\mathbf{w}=\alpha\,\lVert\mathbf 1\rVert^2+0 ,\qquad\text{donc}\qquad \alpha=\frac{\mathbf 1^{\top}\mathbf{x}}{\lVert\mathbf 1\rVert^2} .$$
 
 La comparaison avec un motif ne mesure donc que la part de ce motif, parce que la contribution de l’autre motif disparaît avec le facteur $\mathbf 1^{\top}\mathbf{w}=0$. Si les motifs n’étaient pas orthogonaux, chaque comparaison compterait aussi un morceau de l’autre part.
 
-C’est exactement ainsi que sont construits les coefficients d’une série de Fourier. Pour un signal $s(t)$ de période $T$ et $\omega_0=2\pi/T$, on a
+C’est exactement ainsi que sont construits les coefficients d’une série de Fourier, qui décompose une courbe périodique, par exemple le son d’une note tenue, en oscillations cosinus et sinus. Pour une fonction $s(t)$ de période $T$ et $\omega_0=2\pi/T$, on a
 
 $$a_k=\frac{2}{T}\int_0^Ts(t)\cos(k\omega_0t)\,\mathrm{d} t=\frac{\int_0^Ts(t)\cos(k\omega_0t)\,\mathrm{d} t}{\int_0^T\cos^2(k\omega_0t)\,\mathrm{d} t}\qquad(k\ge1),$$
 

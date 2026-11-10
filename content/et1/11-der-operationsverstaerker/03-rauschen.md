@@ -1,6 +1,8 @@
 ---
 title: Stufe 1: Rauschen
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Der Operationsverstärker
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Der Operationsverstärker
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker
+knoten: Kapitel 11: Der Operationsverstärker
 order: 1210300
 summary: Ein Sensor liefert Millivolt, und jeder Leiter erzeugt eine zufällige Störspannung.
 tags: Rauschspannungsdichte, Signal-Rausch-Verhältnis, Dezibel, Boltzmann-Konstante, Thermisches Rauschen, Schrotrauschen, 1/f-Rauschen, weißes Rauschen

@@ -1,6 +1,8 @@
 ---
 title: Etapa 5: Curva característica, ruptura y diodos especiales
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Semiconductores y diodos
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Semiconductores y diodos
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden
+knoten: Capítulo 9: Semiconductores y diodos
 order: 1190700
 summary: La ecuación está lista.
 tags: ánodo, cátodo, efecto avalancha, efecto Zener, ruptura, capacidad de unión, fotones, efecto fotoeléctrico interno
@@ -23,7 +25,7 @@ Estructura, símbolo de circuito con flechas de referencia y curva característi
 
 **Diodo Zener.** Está hecho para funcionar en ruptura y tiene una tensión $U_\mathrm Z$ exactamente definida (fig. [7](#abb-7) izquierda). En sentido directo se comporta como un diodo pn. Más allá de $U_\mathrm Z$ la curva característica es casi vertical, y su pequeña resistencia es $r_\mathrm Z=\Delta U/\Delta I$. Una resistencia en serie absorbe las fluctuaciones de la fuente: la tensión en el componente apenas cambia, la corriente sí. Con $r_\mathrm Z=10\,\Omega$, un cambio de corriente de 18 mA causa solo 0,18 V.
 
-**Diodo varicap.** La zona sin portadores es una capa aislante entre dos regiones conductoras, es decir, un condensador ([Parte 3](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html)) de área $A$ y separación $w$. La __capacidad de unión__ disminuye con la tensión inversa $U_\mathrm R=-U$, porque la zona crece:
+**Diodo varicap.** La zona sin portadores es una capa aislante entre dos regiones conductoras, es decir, un condensador ([capítulo 3](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html)) de área $A$ y separación $w$. La __capacidad de unión__ disminuye con la tensión inversa $U_\mathrm R=-U$, porque la zona crece:
 
 <span class="anker" id="gl-5-1"></span>
 $$C_\mathrm{j}=\frac{\varepsilon A}{w}=\frac{C_0}{\sqrt{1+U_\mathrm R/U_\mathrm{D0}}}. \tag{5.1}$$

@@ -1,7 +1,8 @@
 ---
 title: Maximum Likelihood und KL-Divergenz
 pfad: Informatik / Machine Learning / Mathematische Grundlagen / Statistik und Information
-knoten: Grundlagen 5: Statistik und Information
+adresse: informatik/machine-learning/mathematische-grundlagen/statistik-und-information
+knoten: Kapitel 5: Statistik und Information
 nachschlagen: ja
 order: 15251200
 summary: Die Maximum-Likelihood-Schätzung aus Abschnitt 5 und die KL-Divergenz aus Abschnitt 9 beantworten verschiedene Fragen: die nach dem Parameter, der die Daten am wahrscheinlichsten macht, und die nach dem Mehraufwand durch eine falsche Verteilung.
@@ -19,7 +20,7 @@ Die Maximum-Likelihood-Schätzung aus Abschnitt [5](die-maximum-likelihood-scha
 
 <span class="anker" id="stufe-11-1"></span>
 
-Nach [Grundlagen 4, Abschnitt 7.7](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/erwartungswert-und-varianz.html#stufe-7-7), gibt die empirische Verteilung eines Datensatzes jedem der $N$ Datenpunkte die Wahrscheinlichkeit $1/N$. Fallen die Daten in $K$ Kategorien und kommt die Kategorie $k$ genau $N_k$-mal vor, so hat die empirische Verteilung die Wahrscheinlichkeiten
+Nach [Kapitel 4, Abschnitt 7.7](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/erwartungswert-und-varianz.html#stufe-7-7), gibt die empirische Verteilung eines Datensatzes jedem der $N$ Datenpunkte die Wahrscheinlichkeit $1/N$. Fallen die Daten in $K$ Kategorien und kommt die Kategorie $k$ genau $N_k$-mal vor, so hat die empirische Verteilung die Wahrscheinlichkeiten
 
 <span class="anker" id="gl-11-1"></span>
 $$\hat p_k=\frac{N_k}N,\qquad\hat{\mathbf{p}}=(\hat p_1,\dots,\hat p_K)^{\top} . \tag{11.1}$$
@@ -27,7 +28,7 @@ $$\hat p_k=\frac{N_k}N,\qquad\hat{\mathbf{p}}=(\hat p_1,\dots,\hat p_K)^{\top} .
 Sie besteht aus den relativen Häufigkeiten. Das Modell gebe der Kategorie $k$ die Wahrscheinlichkeit $q_k(\boldsymbol{\theta})$; zusammen bilden sie die Verteilung $\mathbf{q}(\boldsymbol{\theta})$.
 
 ::::beispiel [Rechenbeispiel]
-Für die zehn Würfe der verbogenen Münze mit den Kategorien Kopf und Zahl ist $\hat{\mathbf{p}}=(0{,}7;\ 0{,}3)^{\top}$ und im Bernoulli-Modell $\mathbf{q}(\theta)=(\theta,\ 1-\theta)^{\top}$. Von $20$ Bauteilen, die wie im Beispiel der kategorischen Verteilung in [Grundlagen 4, Abschnitt 8.2](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/wichtige-verteilungen.html#stufe-8-2), rot, grün oder blau sind, seien $12$ rot, $5$ grün und $3$ blau. Ihre empirische Verteilung ist $\hat{\mathbf{p}}=(0{,}6;\ 0{,}25;\ 0{,}15)^{\top}$.
+Für die zehn Würfe der verbogenen Münze mit den Kategorien Kopf und Zahl ist $\hat{\mathbf{p}}=(0{,}7;\ 0{,}3)^{\top}$ und im Bernoulli-Modell $\mathbf{q}(\theta)=(\theta,\ 1-\theta)^{\top}$. Von $20$ Bauteilen, die wie im Beispiel der kategorischen Verteilung in [Kapitel 4, Abschnitt 8.2](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/wichtige-verteilungen.html#stufe-8-2), rot, grün oder blau sind, seien $12$ rot, $5$ grün und $3$ blau. Ihre empirische Verteilung ist $\hat{\mathbf{p}}=(0{,}6;\ 0{,}25;\ 0{,}15)^{\top}$.
 ::::
 
 ⁠**Kurz gesagt:** Die empirische Verteilung eines Datensatzes mit $K$ Kategorien besteht aus den relativen Häufigkeiten $N_k/N$.
@@ -94,14 +95,14 @@ Für die verbogene Münze ist $H(\hat{\mathbf{p}})=0{,}611$ nat, die Kreuzentrop
 ⁠**Kurz gesagt:** Maximum Likelihood wählt das Modell, das von der empirischen Verteilung der Daten die kleinste KL-Divergenz hat.
 
 :::hintergrund Warum beide Fragen dieselbe Antwort haben
-Die Zerlegung [(11.3)](#gl-11-3) trennt die mittlere Überraschung des Modells über die Daten in zwei Teile. $H(\hat{\mathbf{p}})$ ist die Überraschung, die bleibt, selbst wenn das Modell die Häufigkeiten in den Daten genau trifft; sie ist eine Eigenschaft der Daten, und keine Wahl des Parameters kann sie verkleinern. $D_{\mathrm{KL}}(\hat{\mathbf{p}}\,\|\,\mathbf{q}(\boldsymbol{\theta}))$ ist die zusätzliche Überraschung, weil das Modell die Häufigkeiten anders erwartet, als sie sind; nur sie hängt vom Parameter ab. Dieselbe Trennung in einen unbeeinflussbaren und einen beeinflussbaren Teil hat [Grundlagen 2, Abschnitt 3.4](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/die-beste-naherungslosung.html#stufe-3-4), bei der besten Näherungslösung gesehen: Dort zerfiel das Fehlerquadrat nach Pythagoras in das senkrechte Residuum und einen Teil im Spaltenraum. Hier tritt an die Stelle von Pythagoras die Zerlegung der Kreuzentropie, und an die Stelle des rechten Winkels die Gibbs-Ungleichung, die den beeinflussbaren Teil nie negativ werden lässt.
+Die Zerlegung [(11.3)](#gl-11-3) trennt die mittlere Überraschung des Modells über die Daten in zwei Teile. $H(\hat{\mathbf{p}})$ ist die Überraschung, die bleibt, selbst wenn das Modell die Häufigkeiten in den Daten genau trifft; sie ist eine Eigenschaft der Daten, und keine Wahl des Parameters kann sie verkleinern. $D_{\mathrm{KL}}(\hat{\mathbf{p}}\,\|\,\mathbf{q}(\boldsymbol{\theta}))$ ist die zusätzliche Überraschung, weil das Modell die Häufigkeiten anders erwartet, als sie sind; nur sie hängt vom Parameter ab. Dieselbe Trennung in einen unbeeinflussbaren und einen beeinflussbaren Teil hat [Kapitel 2, Abschnitt 3.4](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/die-beste-naherungslosung.html#stufe-3-4), bei der besten Näherungslösung gesehen: Dort zerfiel das Fehlerquadrat nach Pythagoras in das senkrechte Residuum und einen Teil im Spaltenraum. Hier tritt an die Stelle von Pythagoras die Zerlegung der Kreuzentropie, und an die Stelle des rechten Winkels die Gibbs-Ungleichung, die den beeinflussbaren Teil nie negativ werden lässt.
 :::
 
 ### Die kategorische Verteilung
 
 <span class="anker" id="stufe-11-4"></span>
 
-Für die kategorische Verteilung aus [Grundlagen 4, Abschnitt 8.2](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/wichtige-verteilungen.html#stufe-8-2), mit freien Wahrscheinlichkeiten $\theta_1,\dots,\theta_K$ ist der Maximum-Likelihood-Schätzer mit Ableitungen mühsam zu finden, weil die Wahrscheinlichkeiten nicht unabhängig voneinander sind: Sie müssen sich zu $1$ summieren. Mit dem Satz des vorigen Unterabschnitts braucht man keine Ableitung.
+Für die kategorische Verteilung aus [Kapitel 4, Abschnitt 8.2](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/wichtige-verteilungen.html#stufe-8-2), mit freien Wahrscheinlichkeiten $\theta_1,\dots,\theta_K$ ist der Maximum-Likelihood-Schätzer mit Ableitungen mühsam zu finden, weil die Wahrscheinlichkeiten nicht unabhängig voneinander sind: Sie müssen sich zu $1$ summieren. Mit dem Satz des vorigen Unterabschnitts braucht man keine Ableitung.
 
 :::satz Satz 11.3 (Maximum Likelihood für die kategorische Verteilung)
 <span class="anker" id="satz-11-3"></span>
@@ -134,7 +135,7 @@ $$-\frac1N\,\ell(\mu,\sigma^2)=\tfrac12\ln(2\pi\sigma^2)+\frac1{2\sigma^2}\cdot\
 Für einen festen Wert von $\sigma^2$ ist der erste Summand eine Konstante, und der zweite ist bis auf den positiven Faktor $1/(2\sigma^2)$ die mittlere quadratische Abweichung der Daten von $\mu$. Unter dem Normalverteilungsmodell heißt „die Likelihood maximieren“ also dasselbe wie „die mittlere quadratische Abweichung minimieren“: Beide haben dieselbe Lösung, auch wenn ihre Werte verschieden sind. Auch hier nennt man die mittlere negative Log-Likelihood eine Kreuzentropie zwischen der empirischen Verteilung und dem Modell, im Sinn des Hintergrund-Kastens unten.
 
 ::::beispiel [Rechenbeispiel]
-Für die vier Spannungen mit $\bar x=5{,}0\,\mathrm V$ und $\hat\sigma^2_{\mathrm{ML}}=0{,}05\,\mathrm V^2$ ist der kleinste Wert von [(11.6)](#gl-11-6) gleich $\tfrac12\ln(2\pi\cdot0{,}05)+\tfrac12=\tfrac12\ln(2\pi\mathrm{e}\cdot0{,}05)\approx-0{,}079$ nat. Er ist negativ, weil die angepasste Normalverteilung schmal ist: Ihre Dichte ist an zwei der vier Messwerte etwa $1{,}61$ und an den beiden anderen etwa $0{,}73$, und die Logarithmen dieser Werte sind im Mittel positiv. Zugleich ist er nach [(10.3)](die-grote-entropie.html#gl-10-3) die differentielle Entropie der angepassten Normalverteilung (Aufgabe [48](#aufg-48)).
+Für die vier Wägungen mit $\bar x=5{,}0\,\mathrm{kg}$ und $\hat\sigma^2_{\mathrm{ML}}=0{,}05\,\mathrm{kg}^2$ ist der kleinste Wert von [(11.6)](#gl-11-6) gleich $\tfrac12\ln(2\pi\cdot0{,}05)+\tfrac12=\tfrac12\ln(2\pi\mathrm{e}\cdot0{,}05)\approx-0{,}079$ nat. Er ist negativ, weil die angepasste Normalverteilung schmal ist: Ihre Dichte ist an zwei der vier Messwerte etwa $1{,}61$ und an den beiden anderen etwa $0{,}73$, und die Logarithmen dieser Werte sind im Mittel positiv. Zugleich ist er nach [(10.3)](die-grote-entropie.html#gl-10-3) die differentielle Entropie der angepassten Normalverteilung (Aufgabe [48](#aufg-48)).
 ::::
 
 ⁠**Kurz gesagt:** Bei normalverteilten Daten mit fester Varianz ist Maximum Likelihood dasselbe wie die kleinste mittlere quadratische Abweichung; die mittlere negative Log-Likelihood heißt auch dann Kreuzentropie zum Modell.
@@ -231,6 +232,6 @@ Deute das Ergebnis mit [(10.3)](die-grote-entropie.html#gl-10-3). Was sagt es ü
 :::loesung
 (a) Mit $\mu=\bar x$ ist der Ausdruck $g(v)=\tfrac12\ln(2\pi v)+\frac{\hat\sigma^2_N}{2v}$ mit $v=\sigma^2$, denn $\frac1N\sum_i(x_i-\bar x)^2=\hat\sigma^2_N$. Die Ableitung $g'(v)=\frac1{2v}-\frac{\hat\sigma^2_N}{2v^2}=\frac{v-\hat\sigma^2_N}{2v^2}$ ist negativ für $v<\hat\sigma^2_N$ und positiv danach, das Minimum liegt also bei $\hat\sigma^2_N$, und dort ist $g=\tfrac12\ln(2\pi\hat\sigma^2_N)+\tfrac12=\tfrac12\ln(2\pi\mathrm{e}\,\hat\sigma^2_N)$.
 
-(b) Nach [(10.3)](die-grote-entropie.html#gl-10-3) ist das die differentielle Entropie der angepassten Normalverteilung $\mathcal N(\bar x,\hat\sigma^2_N)$. Die kleinste mittlere Überraschung, die das Normalverteilungsmodell über die Daten haben kann, ist also so groß wie die Ausbreitung der Daten, gemessen mit der Entropie. Daten mit kleiner Streuung lassen sich mit einer schmalen Dichte beschreiben, deren Werte groß sind; ihre mittlere negative Log-Likelihood ist klein und kann negativ werden, wie bei den vier Spannungen mit $-0{,}079$ nat.
+(b) Nach [(10.3)](die-grote-entropie.html#gl-10-3) ist das die differentielle Entropie der angepassten Normalverteilung $\mathcal N(\bar x,\hat\sigma^2_N)$. Die kleinste mittlere Überraschung, die das Normalverteilungsmodell über die Daten haben kann, ist also so groß wie die Ausbreitung der Daten, gemessen mit der Entropie. Daten mit kleiner Streuung lassen sich mit einer schmalen Dichte beschreiben, deren Werte groß sind; ihre mittlere negative Log-Likelihood ist klein und kann negativ werden, wie bei den vier Wägungen mit $-0{,}079$ nat.
 :::
 :::

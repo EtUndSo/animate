@@ -1,7 +1,8 @@
 ---
 title: Ganze Zahlen und Rechenoperatoren
 pfad: Informatik / Programmieren / Python / Werte, Typen und Variablen
-knoten: Python 2: Werte, Typen und Variablen
+adresse: informatik/programmieren/python/werte-typen-und-variablen
+knoten: Kapitel 2: Werte, Typen und Variablen
 order: 6030300
 summary: Ganze Zahlen sind der einfachste Zahlentyp von Python.
 tags: Operator, Operanden, Ganzzahldivision, Rest, Rangfolge
@@ -18,7 +19,7 @@ Ganze Zahlen sind der einfachste Zahlentyp von Python. Dieser Abschnitt zeigt, w
 
 <span class="anker" id="stufe-2-1"></span>
 
-Stückzahlen, Zählerstände, Abtastnummern, Adressen: Vieles in der Technik ist ganzzahlig. Dort will man exakt rechnen, ohne jede Rundung, auch wenn die Zahlen sehr groß werden.
+Stückzahlen, Punktestände, Seitenzahlen, Kontonummern: Vieles im Alltag ist ganzzahlig. Dort will man exakt rechnen, ohne jede Rundung, auch wenn die Zahlen sehr groß werden.
 
 **Ziffern, so viele wie nötig.** Auf Papier schreibt man eine ganze Zahl mit so vielen Ziffern, wie sie braucht. Eine dreistellige Zahl braucht drei Ziffern, eine dreißigstellige dreißig. Genau so geht Python mit ganzen Zahlen um.
 
@@ -70,7 +71,7 @@ Ausgerechnet ist die Zahl; nur die Anzeige scheitert. Die Meldung nennt den Weg,
 
 <span class="anker" id="stufe-2-2"></span>
 
-Python 1 hat die Zeichen `+ - * / **` Rechenzeichen genannt ([Programmieren, Python 1, Abschnitt 4.4](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/der-interaktive-modus.html#stufe-4-4)). Python kennt weitere solche Zeichen, und es gibt einen allgemeinen Namen für sie.
+[Kapitel 1](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/programme-und-der-python-interpreter.html) hat die Zeichen `+ - * / **` Rechenzeichen genannt ([Kapitel 1, Abschnitt 4.4](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/der-interaktive-modus.html#stufe-4-4)). Python kennt weitere solche Zeichen, und es gibt einen allgemeinen Namen für sie.
 
 **Eine kleine Maschine.** Ein Rechenzeichen nimmt Werte entgegen und gibt einen neuen Wert heraus, wie eine kleine Maschine mit Eingängen und einem Ausgang.
 
@@ -113,7 +114,7 @@ Python hat sieben arithmetische Operatoren:
 
 <span class="anker" id="stufe-2-3"></span>
 
-Spannung durch Widerstand, Strecke durch Zeit: Die gewöhnliche Division braucht man ständig, und sie soll das Ergebnis liefern, das man aus der Mathematik kennt.
+Preis durch Gewicht, Strecke durch Zeit: Die gewöhnliche Division braucht man ständig, und sie soll das Ergebnis liefern, das man aus der Mathematik kennt.
 
 :::definition Definition 2.3 (Division)
 <span class="anker" id="satz-2-3"></span>
@@ -122,7 +123,7 @@ Der Operator `/` teilt den linken Operanden durch den rechten. Das Ergebnis ist 
 :::
 
 ::::beispiel
-Das erklärt die Beobachtung aus Python 1, dass `12 / 4` die Antwort `3.0` liefert:
+Das erklärt die Beobachtung aus [Kapitel 1](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/programme-und-der-python-interpreter.html), dass `12 / 4` die Antwort `3.0` liefert:
 
 ```console
 >>> 7 / 2
@@ -145,7 +146,7 @@ Durch null teilen geht nicht; Python meldet einen `ZeroDivisionError`. Teilt man
 ⁠**Kurz gesagt:** `/` teilt wie in der Mathematik und liefert immer einen `float`.
 
 :::hintergrund Warum `/` auch bei ganzen Zahlen einen `float` liefert
-In den alten Versionen 2.x der Sprache Python ergab `7 / 2` die ganze Zahl 3, wie in C: Bei zwei ganzen Zahlen wurde ganzzahlig geteilt, bei Gleitkommazahlen gewöhnlich. Das Ergebnis hing also davon ab, welchen Typ die Werte gerade hatten, und nicht davon, was der Programmierer meinte. Eine Rechnung wie „Summe der Messwerte durch ihre Anzahl“ lieferte mit Messwerten `4.0` und `5.0` den Wert 4,5, mit denselben Messwerten als `4` und `5` still den Wert 4. Weil man in Python nirgends festlegt, welchen Typ ein Wert haben muss, gerieten ganze Zahlen leicht in solche Rechnungen.
+In den alten Versionen 2.x der Sprache Python ergab `7 / 2` die ganze Zahl 3, wie in C: Bei zwei ganzen Zahlen wurde ganzzahlig geteilt, bei Gleitkommazahlen gewöhnlich. Das Ergebnis hing also davon ab, welchen Typ die Werte gerade hatten, und nicht davon, was der Programmierer meinte. Eine Rechnung wie „Summe der Noten durch ihre Anzahl“ lieferte mit den Noten `4.0` und `5.0` den Wert 4,5, mit denselben Noten als `4` und `5` still den Wert 4. Weil man in Python nirgends festlegt, welchen Typ ein Wert haben muss, gerieten ganze Zahlen leicht in solche Rechnungen.
 
 Mit Python 3.0 (2008) wurde die Bedeutung deshalb getrennt: `/` teilt immer wie in der Mathematik, und wer ganzzahlig teilen will, schreibt dafür einen eigenen Operator. Ein Ausdruck bedeutet seitdem dasselbe, egal ob ganze Zahlen oder Gleitkommazahlen in ihn hineinkommen.
 :::
@@ -236,7 +237,7 @@ In C rundet die ganzzahlige Division Richtung null: Dort ist $-7/2=-3$, und dami
 
 <li>
 
-⁠**Winkel:** Eine Phase von $-90^\circ$ ist dieselbe wie $270^\circ$. `-90 % 360` ergibt 270, jeder Winkel landet im Bereich von $0^\circ$ bis unter $360^\circ$.
+⁠**Winkel:** Eine Drehung um $-90^\circ$ endet in derselben Richtung wie eine Drehung um $270^\circ$. `-90 % 360` ergibt 270, jeder Winkel landet im Bereich von $0^\circ$ bis unter $360^\circ$.
 
 </li>
 
@@ -249,7 +250,7 @@ Hat man sich für diesen Rest entschieden, liegt der Quotient fest: Nach [(2.1)]
 
 <span class="anker" id="stufe-2-5"></span>
 
-Zehnerpotenzen für Einheitenvorsätze, Zweierpotenzen für Speichergrößen, Quadrate für Leistungen: Potenzen kommen in fast jeder technischen Rechnung vor. Python 1 hat `**` mit positiven ganzen Exponenten benutzt und `2 ** 0.5` für die Wurzel. Für den Typ des Ergebnisses, für negative Exponenten und für Minuszeichen in der Nähe gelten eigene Regeln.
+Zehnerpotenzen für sehr große und sehr kleine Zahlen, Zweierpotenzen für Speichergrößen, Quadrate für Flächen, Zinseszinsen: Potenzen kommen in vielen Rechnungen vor. [Kapitel 1](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/programme-und-der-python-interpreter.html) hat `**` mit positiven ganzen Exponenten benutzt und `2 ** 0.5` für die Wurzel. Für den Typ des Ergebnisses, für negative Exponenten und für Minuszeichen in der Nähe gelten eigene Regeln.
 
 :::definition Definition 2.6 (Potenz)
 <span class="anker" id="satz-2-6"></span>
@@ -430,7 +431,7 @@ Auffällig ist $-17\,/\!/\,5=-4$ und nicht $-3$: Python rundet Richtung $-\infty
 :::aufgabe Aufgabe 6 ★★ Sekunden in Tage, Stunden, Minuten
 <span class="anker" id="aufg-6"></span>
 
-Eine Messung läuft $100\,000$ s.
+Ein Laptop läuft seit $100\,000$ s ohne Neustart.
 
 <ol class="al">
 
@@ -498,10 +499,10 @@ $82\,800\,\mathrm s=23\,\mathrm h$, die Uhrzeit ist also 23:00:00 am Vortag. Das
 :::
 :::
 
-:::aufgabe Aufgabe 7 ★ Phasenwinkel in den Bereich von $0^\circ$ bis $360^\circ$
+:::aufgabe Aufgabe 7 ★ Winkel in den Bereich von $0^\circ$ bis $360^\circ$
 <span class="anker" id="aufg-7"></span>
 
-Ein Programm berechnet Phasenwinkel in Grad, die außerhalb von $0^\circ$ bis $360^\circ$ liegen können. Bringe $-90^\circ$, $450^\circ$, $-450^\circ$ und $720^\circ$ mit einem Operator in diesen Bereich. Welches Ergebnis hättest du für $-90^\circ$ bekommen, wenn `%` wie in C rechnen würde?
+Ein Programm für eine Kompass-Anzeige berechnet Richtungen in Grad, die außerhalb von $0^\circ$ bis $360^\circ$ liegen können. Bringe $-90^\circ$, $450^\circ$, $-450^\circ$ und $720^\circ$ mit einem Operator in diesen Bereich. Welches Ergebnis hättest du für $-90^\circ$ bekommen, wenn `%` wie in C rechnen würde?
 
 :::loesung
 Der Rest bei der Division durch 360 liegt immer im Bereich von 0 bis 359:

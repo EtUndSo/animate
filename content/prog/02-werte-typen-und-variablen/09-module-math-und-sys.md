@@ -1,7 +1,8 @@
 ---
 title: Module: `math` und `sys`
 pfad: Informatik / Programmieren / Python / Werte, Typen und Variablen
-knoten: Python 2: Werte, Typen und Variablen
+adresse: informatik/programmieren/python/werte-typen-und-variablen
+knoten: Kapitel 2: Werte, Typen und Variablen
 order: 6030900
 summary: Quadratwurzel, Sinus, Logarithmus, die Grenzen des Typs float : Python bringt dafür fertige Funktionen und Werte mit, sortiert in Module.
 tags: Modul
@@ -53,7 +54,7 @@ Traceback (most recent call last):
 NameError: name 'sqrt' is not defined
 ```
 
-`math.sqrt(2)` liefert denselben `float` wie `2 ** 0.5` in Python 1 ([Programmieren, Python 1, Abschnitt 4.5](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/der-interaktive-modus.html#stufe-4-5)). Ein `import` gilt bis zum Ende der Sitzung oder des Skripts; im Skript steht er üblicherweise ganz oben.
+`math.sqrt(2)` liefert denselben `float` wie `2 ** 0.5` in [Kapitel 1, Abschnitt 4.5](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/der-interaktive-modus.html#stufe-4-5). Ein `import` gilt bis zum Ende der Sitzung oder des Skripts; im Skript steht er üblicherweise ganz oben.
 ::::
 
 ⁠**Kurz gesagt:** `import modul` lädt ein Modul und bindet seinen Namen; `modul.name` greift auf seinen Inhalt zu.
@@ -77,7 +78,7 @@ Für technische Rechnungen braucht man die Funktionen vom Taschenrechner: Wurzel
 | `math.floor(x)`, `math.ceil(x)` | nach unten, nach oben zur ganzen Zahl |
 
 ::::beispiel
-Ein Zehnerlogarithmus, eine Entladekurve nach einer Zeitkonstante und ein Sinus:
+Ein Zehnerlogarithmus, ein Wert der Exponentialfunktion und ein Sinus:
 
 ```console
 >>> math.log10(1000)
@@ -90,7 +91,7 @@ Ein Zehnerlogarithmus, eine Entladekurve nach einer Zeitkonstante und ein Sinus:
 1.2246467991473532e-16
 ```
 
-Ein Kondensator ist nach einer Zeitkonstante auf $\mathrm{e}^{-1}\approx36{,}8\,\%$ seiner Anfangsspannung entladen. Die letzten beiden Zeilen zeigen wieder Rundungsfehler: $\sin30^\circ$ ist $0{,}5$, und $\sin\pi$ ist 0. Aber weder $30^\circ$ im Bogenmaß noch $\pi$ selbst ist als `float` exakt; `math.pi` ist nur der `float`, der $\pi$ am nächsten liegt.
+$\mathrm{e}^{-1}\approx36{,}8\,\%$ kommt etwa beim Abkühlen vor: Der Temperaturunterschied zwischen einem heißen Tee und dem Zimmer schrumpft näherungsweise wie eine Exponentialfunktion und ist nach einer bestimmten Zeit auf $\mathrm{e}^{-1}$ seines Anfangswerts gesunken. Die letzten beiden Zeilen zeigen wieder Rundungsfehler: $\sin30^\circ$ ist $0{,}5$, und $\sin\pi$ ist 0. Aber weder $30^\circ$ im Bogenmaß noch $\pi$ selbst ist als `float` exakt; `math.pi` ist nur der `float`, der $\pi$ am nächsten liegt.
 ::::
 
 ⁠**Kurz gesagt:** `math` enthält die Funktionen des Taschenrechners für `float`; Winkel stehen im Bogenmaß.
@@ -114,7 +115,7 @@ True
 False
 >>> math.isclose(1e-20, 0.0, abs_tol=1e-12)
 True
->>> math.isclose(4520, 4700, rel_tol=0.05)
+>>> math.isclose(718, 750, rel_tol=0.05)
 True
 >>> math.isclose(math.nan, math.nan)
 False
@@ -127,7 +128,7 @@ True
 ⁠**Kurz gesagt:** `math.isclose` ist der fertige Toleranzvergleich mit $r=10^{-9}$ und ohne absolute Toleranz.
 
 :::hintergrund Warum gerade $10^{-9}$, und warum keine absolute Toleranz voreingestellt ist
-Die Voreinstellung $10^{-9}$ verlangt etwa neun gleiche Dezimalstellen, rund die Hälfte der knapp 16, die ein `float` hat. Damit bleibt Platz für die Rundungsfehler vieler Rechenschritte, und echte Unterschiede fallen trotzdem auf. Eine absolute Toleranz lässt sich dagegen nicht für alle Fälle sinnvoll voreinstellen, weil sie eine Einheit hat: $10^{-9}$ wäre für Spannungen in Volt winzig, für Kapazitäten in Farad aber größer als jeder übliche Kondensator. Deshalb ist sie 0, und wer mit 0 vergleicht, muss sich selbst überlegen, welche Größenordnung „praktisch null“ ist.
+Die Voreinstellung $10^{-9}$ verlangt etwa neun gleiche Dezimalstellen, rund die Hälfte der knapp 16, die ein `float` hat. Damit bleibt Platz für die Rundungsfehler vieler Rechenschritte, und echte Unterschiede fallen trotzdem auf. Eine absolute Toleranz lässt sich dagegen nicht für alle Fälle sinnvoll voreinstellen, weil sie eine Einheit hat: Derselbe Zahlenwert $10^{-9}$ ist für Geldbeträge in Euro winzig, für Entfernungen in Lichtjahren aber fast $9500\,\mathrm{km}$ (Unterabschnitt [7.4](wahrheitswerte-und-vergleiche.html#stufe-7-4)). Deshalb ist sie 0, und wer mit 0 vergleicht, muss sich selbst überlegen, welche Größenordnung „praktisch null“ ist.
 :::
 
 ### Die Grenzen des Typs `float`, fertig: `sys.float_info`
@@ -186,7 +187,7 @@ Decimal('0.3')
 Decimal('0.1000000000000000055511151231257827021181583404541015625')
 ```
 
-Beide Typen sind deutlich langsamer als `float`, weil der Prozessor sie nicht direkt kann. Für Messwerte, die ohnehin nur wenige gültige Stellen haben, ist `float` die richtige Wahl; exakte Typen braucht man etwa für Geldbeträge.
+Beide Typen sind deutlich langsamer als `float`, weil der Prozessor sie nicht direkt kann. Für gemessene Größen wie Längen oder Temperaturen, die ohnehin nur wenige gültige Stellen haben, ist `float` die richtige Wahl; exakte Typen braucht man etwa für Geldbeträge.
 :::
 
 ### Aufgaben zu Abschnitt [8](#stufe-8)
@@ -221,19 +222,19 @@ Bei $x=10^{200}$ ist schon $x^2=10^{400}$ größer als der größte `float`: `x 
 :::aufgabe Aufgabe 30 ★★ Pegel in Dezibel
 <span class="anker" id="aufg-30"></span>
 
-Ein Verstärker macht aus $20\,\mathrm{mV}$ am Eingang $1{,}2\,\mathrm V$ am Ausgang. Die Spannungsverstärkung in Dezibel ist $20\log_{10}(U_\mathrm{aus}/U_\mathrm{ein})$.
+Schall besteht aus kleinen, schnellen Schwankungen des Luftdrucks. Ihre Stärke heißt Schalldruck und wird in Pascal (Pa) gemessen. Ein Gespräch erzeugt in einem Meter Abstand etwa $0{,}02\,\mathrm{Pa}$, ein Rasenmäher aus der Nähe etwa $1{,}2\,\mathrm{Pa}$. Um wie viel Dezibel der laute Schall lauter ist, sagt $20\log_{10}(p_\mathrm{laut}/p_\mathrm{leise})$.
 
 <ol class="al">
 
 <li>
 
-Berechne sie mit Variablen und `math.log10`.
+Berechne den Unterschied mit Variablen und `math.log10`.
 
 </li>
 
 <li>
 
-Ein Tiefpass schwächt eine Spannung um $3\,\mathrm{dB}$. Um welchen Faktor? Löse $20\log_{10}x=-3$ nach $x$ auf und rechne mit `10 ** (...)`. Vergleiche mit $1/\sqrt2$.
+Fahren auf einer Straße nur noch halb so viele Autos, sinkt der Lärm um etwa $3\,\mathrm{dB}$. Um welchen Faktor sinkt der Schalldruck? Löse $20\log_{10}x=-3$ nach $x$ auf und rechne mit `10 ** (...)`. Vergleiche mit $1/\sqrt2$.
 
 </li>
 
@@ -244,13 +245,13 @@ Ein Tiefpass schwächt eine Spannung um $3\,\mathrm{dB}$. Um welchen Faktor? Lö
 
 ```console
 >>> import math
->>> u_ein = 0.02
->>> u_aus = 1.2
->>> 20 * math.log10(u_aus / u_ein)
+>>> p_leise = 0.02
+>>> p_laut = 1.2
+>>> 20 * math.log10(p_laut / p_leise)
 35.56302500767287
 ```
 
-Die Verstärkung ist 60, das sind $35{,}6\,\mathrm{dB}$.
+Der Schalldruck des Rasenmähers ist 60-mal so groß, das sind $35{,}6\,\mathrm{dB}$ mehr.
 
 (b) $20\log_{10}x=-3$ ergibt $x=10^{-3/20}$:
 
@@ -261,7 +262,7 @@ Die Verstärkung ist 60, das sind $35{,}6\,\mathrm{dB}$.
 0.7071067811865475
 ```
 
-$-3\,\mathrm{dB}$ ist ein Faktor $0{,}708$, fast genau $1/\sqrt2\approx0{,}707$. Deshalb heißt die Grenzfrequenz eines Tiefpasses, bei der die Spannung auf $1/\sqrt2$ gefallen ist, auch 3-dB-Grenzfrequenz; genau sind es $20\log_{10}(1/\sqrt2)\approx-3{,}01\,\mathrm{dB}$.
+$-3\,\mathrm{dB}$ ist ein Faktor $0{,}708$, fast genau $1/\sqrt2\approx0{,}707$. Das passt zu den halb so vielen Autos: Die Energie, die der Schall je Sekunde durch eine Fläche trägt, wächst mit dem Quadrat des Schalldrucks, und $(1/\sqrt2)^2=\frac12$. Halbe Energie heißt also Schalldruck mal $1/\sqrt2$; genau sind das $20\log_{10}(1/\sqrt2)\approx-3{,}01\,\mathrm{dB}$.
 :::
 :::
 

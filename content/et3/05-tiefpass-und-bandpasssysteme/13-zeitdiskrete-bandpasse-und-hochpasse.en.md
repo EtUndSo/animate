@@ -1,6 +1,8 @@
 ---
 title: Stage 12: Discrete-time bandpass and highpass filters
-pfad: Electrical Engineering / 3rd Semester / Signals and Systems / Lowpass and Bandpass Systems
+pfad: Electrical Engineering / 3rd Semester / ET3 – Fundamentals of Electrical Engineering 3: Signals and Systems / Lowpass and Bandpass Systems
+adresse: elektrotechnik/3-semester/signale-und-systeme/tiefpass-und-bandpasssysteme
+knoten: Chapter 5: Lowpass and Bandpass Systems
 order: 3251300
 summary: Digital bandpass and highpass filters are obtained from a lowpass by modulation.
 tags: highpass
@@ -30,7 +32,7 @@ $$h_{\mathrm{HP}}(n)=(-1)^n\,h_{\mathrm{TP}}(n). \tag{12.2}$$
 :::aufgabe Exercise 11 ★ Highpass from the moving average
 <span class="anker" id="aufg-11"></span>
 
-The moving average $h_{\mathrm{TP}}=\frac13(1,1,1)$ ([Part 4](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme/abtastung-und-zeitdiskrete-systeme.html)) is a simple lowpass.
+The moving average $h_{\mathrm{TP}}=\frac13(1,1,1)$ ([Chapter 4](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme/abtastung-und-zeitdiskrete-systeme.html)) is a simple lowpass.
 
 <ol class="al">
 

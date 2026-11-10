@@ -1,6 +1,8 @@
 ---
 title: 第 1 阶段：集合与命题
-pfad: 电气工程 / 第 1 学期 / 高等数学 1 / 集合、逻辑与实数
+pfad: 电气工程 / 第 1 学期 / HöMa1 – 高等数学 1 / 集合、逻辑与实数
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen
+knoten: 第 1 章：集合、逻辑与实数
 order: 1210300
 summary: 公理谈论“具有某种性质的所有数”和“如果，那么”。本阶段提供表达这些内容的语言，以及一种证明集合与命题规则的可靠方法。
 tags: 韦恩图, 元素, 子集, 超集, 并集, 交集, 差集, 补集

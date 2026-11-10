@@ -1,6 +1,8 @@
 ---
 title: Das Wichtigste
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Folgen und Grenzwerte
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Folgen und Grenzwerte
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/folgen-und-grenzwerte
+knoten: Kapitel 4: Folgen und Grenzwerte
 order: 1241100
 summary: Was „beliebig nah“ heißt und warum die reellen Zahlen keine Lücke haben dürfen
 tags: 

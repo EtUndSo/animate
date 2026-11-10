@@ -1,6 +1,8 @@
 ---
 title: Stufe 2: Das Wasserstoffatom
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Atome und Orbitale
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Atome und Orbitale
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/atome-und-orbitale
+knoten: Kapitel 4: Atome und Orbitale
 order: 4140400
 summary: Der Trichter steht.
 tags: Grundzustand, Hauptquantenzahl, Ionisierungsenergie, Bohr-Radius, Bohrschen Atommodell, radiale Wahrscheinlichkeitsdichte
@@ -13,7 +15,7 @@ lang: de
 Der Trichter steht. Diese Stufe findet den tiefsten Zustand, erklärt, warum das Elektron nicht in den Kern stürzt, und nennt alle erlaubten Energien.
 :::
 
-**Die Idee.** Zwei Beiträge arbeiten gegeneinander. Zieht sich die Welle auf einen Radius $a$ zusammen, sinkt die potentielle Energie wie $-1/a$. Zugleich wird die Welle stärker gekrümmt, und die kinetische Energie steigt wie $1/a^2$, denn Einsperren kostet Energie ([Teil 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html)). Für die Wellenform $\psi\propto\mathrm{e}^{-r/a}$ gilt genau
+**Die Idee.** Zwei Beiträge arbeiten gegeneinander. Zieht sich die Welle auf einen Radius $a$ zusammen, sinkt die potentielle Energie wie $-1/a$. Zugleich wird die Welle stärker gekrümmt, und die kinetische Energie steigt wie $1/a^2$, denn Einsperren kostet Energie ([Kapitel 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html)). Für die Wellenform $\psi\propto\mathrm{e}^{-r/a}$ gilt genau
 
 <span class="anker" id="gl-2-1"></span>
 $$E(a)=\frac{\hbar^2}{2m_0a^2}-\frac{e^2}{4\pi\varepsilon_0a}. \tag{2.1}$$

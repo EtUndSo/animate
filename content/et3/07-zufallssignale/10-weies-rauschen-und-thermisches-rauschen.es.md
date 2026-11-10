@@ -1,6 +1,8 @@
 ---
 title: Etapa 9: Ruido blanco y ruido térmico
-pfad: Ingeniería eléctrica / 3.er semestre / Señales y sistemas / Señales aleatorias
+pfad: Ingeniería eléctrica / 3.er semestre / ET3 – Fundamentos de ingeniería eléctrica 3: señales y sistemas / Señales aleatorias
+adresse: elektrotechnik/3-semester/signale-und-systeme/zufallssignale
+knoten: Capítulo 7: Señales aleatorias
 order: 3271000
 summary: El modelo más importante de las perturbaciones: ruido con la misma densidad espectral de potencia en todas las frecuencias.
 tags: ruido blanco

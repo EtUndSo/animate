@@ -1,6 +1,8 @@
 ---
 title: Etapa 7: El potencial
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Carga, campo y potencial
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Carga, campo y potencial
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial
+knoten: Capítulo 1: Carga, campo y potencial
 order: 1110900
 summary: Si el trabajo solo depende del inicio y del final, basta un único número por lugar para calcularlo.
 tags: superficies equipotenciales

@@ -1,6 +1,8 @@
 ---
 title: 第 6 阶段：运算规则（定理）
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / 傅里叶级数与变换
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / 傅里叶级数与变换
+adresse: elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation
+knoten: 第 3 章：傅里叶级数与变换
 order: 3230700
 summary: 不必每次都重新计算积分，而是使用规则：信号被平移、压缩、求导或调制时，频谱会怎样变化？每条规则都可以由该运算对单个振荡的作用推出。
 tags: 能量谱密度

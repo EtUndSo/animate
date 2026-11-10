@@ -1,6 +1,8 @@
 ---
 title: 第 11 阶段：带通中的相位时延与群时延
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / 低通与带通系统
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / 低通与带通系统
+adresse: elektrotechnik/3-semester/signale-und-systeme/tiefpass-und-bandpasssysteme
+knoten: 第 5 章：低通与带通系统
 order: 3251200
 summary: 为什么有两种时延？因为载波和包络可以被延迟不同的时间。
 tags: 时延失真

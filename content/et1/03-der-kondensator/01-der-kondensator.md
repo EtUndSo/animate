@@ -1,7 +1,9 @@
 ---
 title: Überblick: Der Kondensator
 kurz: Überblick
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Der Kondensator
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Der Kondensator
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator
+knoten: Kapitel 3: Der Kondensator
 order: 1130100
 summary: Wie Strom in einen Isolator fließt und wo danach die Energie steckt
 tags: Kondensator, Elektrode, Dielektrikum, Kapazität, Plattenkondensator, RC-Kreis
@@ -23,7 +25,7 @@ Jede Platte ist eine __Elektrode__, der Isolator dazwischen heißt __Dielektriku
 
 <li>
 
-⁠**Plattenpaar aus [Teil 1](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html):** quadratische Platten mit 10 cm Kantenlänge (Fläche $A=100$ cm$^2$), Abstand $d=3$ mm, Luft dazwischen, 9 V Spannung. Das Feld beträgt $E=3$ kV/m.
+⁠**Plattenpaar aus [Kapitel 1](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html):** quadratische Platten mit 10 cm Kantenlänge (Fläche $A=100$ cm$^2$), Abstand $d=3$ mm, Luft dazwischen, 9 V Spannung. Das Feld beträgt $E=3$ kV/m.
 
 </li>
 

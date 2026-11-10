@@ -1,6 +1,8 @@
 ---
 title: Stufe 5: Besetzung und Ladungsneutralität
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Eigenhalbleiter und Dotierung
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Eigenhalbleiter und Dotierung
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/eigenhalbleiter-und-dotierung
+knoten: Kapitel 11: Eigenhalbleiter und Dotierung
 order: 4210700
 summary: Im dotierten Kristall gilt n=p nicht mehr.
 tags: Deltafunktion
@@ -33,7 +35,7 @@ $$\begin{aligned} f_\mathrm D&=\frac1{1+\frac12\exp\frac{E_\mathrm D-E_\mathrm F
 :::herleitung Woher die Faktoren kommen
 Ein Platz im Band hat zwei Zustände, leer oder besetzt, mit dem Verhältnis $\mathrm{e}^{-(E-E_\mathrm F)/(k_\mathrm BT)}$. Der Donator hat drei: leer oder besetzt mit Spin auf oder Spin ab. Ein zweites Elektron kommt nicht hinein, die Coulomb-Abstoßung würde viel mehr kosten als $\Delta E_\mathrm D$. Also zählt „besetzt“ doppelt: $f_\mathrm D/(1-f_\mathrm D)=2\,\mathrm{e}^{-(E_\mathrm D-E_\mathrm F)/(k_\mathrm BT)}$. Auflösen ergibt [(5.2)](#gl-5-2). Mit $y=\frac12\exp\frac{E_\mathrm D-E_\mathrm F}{k_\mathrm BT}$ ist $1-f_\mathrm D=\frac{1+y}{1+y}-\frac1{1+y}=\frac y{1+y}=\frac1{1+1/y}$, und das ist der Bruch für $N_\mathrm D^+$.
 
-Beim Akzeptor zählt das gebundene Loch: $f_\mathrm A=1/\bigl(1+\frac1{g_\mathrm A}\exp\frac{E_\mathrm F-E_\mathrm A}{k_\mathrm BT}\bigr)$ ist die Besetzung mit einem Loch, also die neutrale Form. Es hat die zwei Spinrichtungen. In Si, Ge und GaAs hat es zusätzlich die Wahl zwischen dem Band der leichten und dem der schweren Löcher ([Teil 9](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/bandstrukturen-lesen/bandstrukturen-lesen.html)). Darum ist dort $g_\mathrm A=4$. Zählt man nur den Spin, ist $g_\mathrm A=2$.
+Beim Akzeptor zählt das gebundene Loch: $f_\mathrm A=1/\bigl(1+\frac1{g_\mathrm A}\exp\frac{E_\mathrm F-E_\mathrm A}{k_\mathrm BT}\bigr)$ ist die Besetzung mit einem Loch, also die neutrale Form. Es hat die zwei Spinrichtungen. In Si, Ge und GaAs hat es zusätzlich die Wahl zwischen dem Band der leichten und dem der schweren Löcher ([Kapitel 9](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/bandstrukturen-lesen/bandstrukturen-lesen.html)). Darum ist dort $g_\mathrm A=4$. Zählt man nur den Spin, ist $g_\mathrm A=2$.
 :::
 
 Für $E_\mathrm D-E_\mathrm F>3k_\mathrm BT$ ist der Exponentialterm klein, und $1/(1+\varepsilon)\approx1-\varepsilon$ ergibt

@@ -1,6 +1,8 @@
 ---
 title: 第 7 阶段：矩形、si 函数与三角形
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / 傅里叶级数与变换
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / 傅里叶级数与变换
+adresse: elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation
+knoten: 第 3 章：傅里叶级数与变换
 order: 3230800
 summary: 有三个变换对经常出现。借助上述定理，它们都可以由一次计算得到。
 tags: 

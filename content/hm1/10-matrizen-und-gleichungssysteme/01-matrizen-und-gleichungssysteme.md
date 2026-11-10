@@ -1,7 +1,9 @@
 ---
 title: Überblick: Matrizen und lineare Gleichungssysteme
 kurz: Überblick
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Matrizen und lineare Gleichungssysteme
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Matrizen und lineare Gleichungssysteme
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/matrizen-und-lineare-gleichungssysteme
+knoten: Kapitel 10: Matrizen und lineare Gleichungssysteme
 order: 1300100
 summary: Eine Matrix ist eine lineare Abbildung in Zahlen, ein Gleichungssystem fragt rückwärts nach ihr
 tags: lineare Abbildung, Matrix, Kern, Bild, Rang, Matrizenprodukt, lineares Gleichungssystem, Gauß-Algorithmus

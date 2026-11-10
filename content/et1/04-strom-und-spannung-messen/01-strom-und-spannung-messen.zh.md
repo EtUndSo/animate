@@ -1,7 +1,9 @@
 ---
 title: 概览: 电流与电压的测量
 kurz: 概览
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 电流与电压的测量
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 电流与电压的测量
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-und-spannung-messen
+knoten: 第 4 章：电流与电压的测量
 order: 1140100
 summary: 为什么每台测量仪表都会改变电路 以及如何仍然测得准确
 tags: 内阻, 表头, 量程
@@ -13,7 +15,7 @@ lang: zh
 一个分压器上本应有 3 V，测量仪表却显示 2.73 V。分压器没有问题，读数也没有错：它显示的是仪表接入之后实际存在的电压。因为测量仪表是一个具有__内阻__的元件，内阻就是其接线端之间的电阻。问题是：**为什么每台测量仪表都会改变被测电路，误差有多大，为什么电桥比单独一台仪表测得更准确？**
 
 
-**所有结论背后的同一个原理。** 对电路来说，测量仪表就是多出来的一个电阻。所有误差都来自与[第 2 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)相同的规律：基尔霍夫电压定律、基尔霍夫电流定律、欧姆定律。
+**所有结论背后的同一个原理。** 对电路来说，测量仪表就是多出来的一个电阻。所有误差都来自与[第 2 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)相同的规律：基尔霍夫电压定律、基尔霍夫电流定律、欧姆定律。
 
 | 结论 | 来源 |
 |---|---|

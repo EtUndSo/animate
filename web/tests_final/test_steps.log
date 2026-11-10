@@ -1,0 +1,5 @@
+group_by_step OK: [2, 1]
+sequential duration OK: 3.0
+parallel duration OK: 2.0 | a end: 1.0 | b front: 0.0
+
+STEP TESTS PASSED

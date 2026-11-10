@@ -1,0 +1,1791 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 68,
+  "nextAnimId": 76,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{\\$ find rezepte -name \"*.txt\"}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.17,
+     "position": [
+      -2.0505,
+      1.8,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -3.0,
+      1.2,
+      0
+     ],
+     "width": 0.26,
+     "height": 0.17,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#e3eefb",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o3",
+    "type": "Text",
+    "props": {
+     "text": "rezepte",
+     "position": [
+      -2.8,
+      1.2,
+      0
+     ],
+     "font_size": 20,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Line",
+    "props": {
+     "start": [
+      -3.0,
+      1.1099999999999999,
+      0
+     ],
+     "end": [
+      -3.0,
+      0.84,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o5",
+    "type": "Line",
+    "props": {
+     "start": [
+      -3.0,
+      0.84,
+      0
+     ],
+     "end": [
+      -2.8000000000000003,
+      0.84,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o6",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.66,
+      0.84,
+      0
+     ],
+     "width": 0.26,
+     "height": 0.17,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#e3eefb",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o7",
+    "type": "Text",
+    "props": {
+     "text": "kuchen",
+     "position": [
+      -2.46,
+      0.84,
+      0
+     ],
+     "font_size": 20,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Line",
+    "props": {
+     "start": [
+      -2.66,
+      0.75,
+      0
+     ],
+     "end": [
+      -2.66,
+      0.48,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o9",
+    "type": "Line",
+    "props": {
+     "start": [
+      -2.66,
+      0.48,
+      0
+     ],
+     "end": [
+      -2.4099999999999997,
+      0.48,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o10",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.32,
+      0.48,
+      0
+     ],
+     "width": 0.15,
+     "height": 0.2,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o11",
+    "type": "Text",
+    "props": {
+     "text": "apfelkuchen.txt",
+     "position": [
+      -2.1199999999999997,
+      0.48,
+      0
+     ],
+     "font_size": 20,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Line",
+    "props": {
+     "start": [
+      -2.66,
+      0.75,
+      0
+     ],
+     "end": [
+      -2.66,
+      0.12,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o13",
+    "type": "Line",
+    "props": {
+     "start": [
+      -2.66,
+      0.12,
+      0
+     ],
+     "end": [
+      -2.4099999999999997,
+      0.12,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o14",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.32,
+      0.12,
+      0
+     ],
+     "width": 0.15,
+     "height": 0.2,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o15",
+    "type": "Text",
+    "props": {
+     "text": "kaesekuchen.txt",
+     "position": [
+      -2.1199999999999997,
+      0.12,
+      0
+     ],
+     "font_size": 20,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o16",
+    "type": "Line",
+    "props": {
+     "start": [
+      -3.0,
+      1.1099999999999999,
+      0
+     ],
+     "end": [
+      -3.0,
+      -0.24,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o17",
+    "type": "Line",
+    "props": {
+     "start": [
+      -3.0,
+      -0.24,
+      0
+     ],
+     "end": [
+      -2.75,
+      -0.24,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o18",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.66,
+      -0.24,
+      0
+     ],
+     "width": 0.15,
+     "height": 0.2,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o19",
+    "type": "Text",
+    "props": {
+     "text": "zettel.txt",
+     "position": [
+      -2.46,
+      -0.24,
+      0
+     ],
+     "font_size": 20,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o20",
+    "type": "Line",
+    "props": {
+     "start": [
+      -3.0,
+      1.1099999999999999,
+      0
+     ],
+     "end": [
+      -3.0,
+      -0.6,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o21",
+    "type": "Line",
+    "props": {
+     "start": [
+      -3.0,
+      -0.6,
+      0
+     ],
+     "end": [
+      -2.8000000000000003,
+      -0.6,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o22",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.66,
+      -0.6,
+      0
+     ],
+     "width": 0.26,
+     "height": 0.17,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#e3eefb",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o23",
+    "type": "Text",
+    "props": {
+     "text": "suppen",
+     "position": [
+      -2.46,
+      -0.6,
+      0
+     ],
+     "font_size": 20,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o24",
+    "type": "Line",
+    "props": {
+     "start": [
+      -2.66,
+      -0.69,
+      0
+     ],
+     "end": [
+      -2.66,
+      -0.96,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o25",
+    "type": "Line",
+    "props": {
+     "start": [
+      -2.66,
+      -0.96,
+      0
+     ],
+     "end": [
+      -2.4099999999999997,
+      -0.96,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o26",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.32,
+      -0.96,
+      0
+     ],
+     "width": 0.15,
+     "height": 0.2,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o27",
+    "type": "Text",
+    "props": {
+     "text": "kuerbissuppe.txt",
+     "position": [
+      -2.1199999999999997,
+      -0.96,
+      0
+     ],
+     "font_size": 20,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o28",
+    "type": "Circle",
+    "props": {
+     "radius": 0.11,
+     "center": [
+      -0.62,
+      1.2,
+      0
+     ],
+     "color": "#7f7f7f",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o29",
+    "type": "Text",
+    "props": {
+     "text": "1",
+     "position": [
+      -0.62,
+      1.2,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o30",
+    "type": "Circle",
+    "props": {
+     "radius": 0.11,
+     "center": [
+      -0.62,
+      0.84,
+      0
+     ],
+     "color": "#7f7f7f",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o31",
+    "type": "Text",
+    "props": {
+     "text": "2",
+     "position": [
+      -0.62,
+      0.84,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o32",
+    "type": "Circle",
+    "props": {
+     "radius": 0.11,
+     "center": [
+      -0.62,
+      0.48,
+      0
+     ],
+     "color": "#7f7f7f",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o33",
+    "type": "Text",
+    "props": {
+     "text": "3",
+     "position": [
+      -0.62,
+      0.48,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o34",
+    "type": "Circle",
+    "props": {
+     "radius": 0.11,
+     "center": [
+      -0.62,
+      0.12,
+      0
+     ],
+     "color": "#7f7f7f",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o35",
+    "type": "Text",
+    "props": {
+     "text": "4",
+     "position": [
+      -0.62,
+      0.12,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o36",
+    "type": "Circle",
+    "props": {
+     "radius": 0.11,
+     "center": [
+      -0.62,
+      -0.24,
+      0
+     ],
+     "color": "#7f7f7f",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o37",
+    "type": "Text",
+    "props": {
+     "text": "5",
+     "position": [
+      -0.62,
+      -0.24,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o38",
+    "type": "Circle",
+    "props": {
+     "radius": 0.11,
+     "center": [
+      -0.62,
+      -0.6,
+      0
+     ],
+     "color": "#7f7f7f",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o39",
+    "type": "Text",
+    "props": {
+     "text": "6",
+     "position": [
+      -0.62,
+      -0.6,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o40",
+    "type": "Circle",
+    "props": {
+     "radius": 0.11,
+     "center": [
+      -0.62,
+      -0.96,
+      0
+     ],
+     "color": "#7f7f7f",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o41",
+    "type": "Text",
+    "props": {
+     "text": "7",
+     "position": [
+      -0.62,
+      -0.96,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o42",
+    "type": "Mark",
+    "props": {
+     "center": [
+      -0.2,
+      1.2,
+      0
+     ],
+     "kind": "cross",
+     "size": 0.16,
+     "color": "#c82828",
+     "stroke_width": 3.5
+    }
+   },
+   {
+    "id": "o43",
+    "type": "Mark",
+    "props": {
+     "center": [
+      -0.2,
+      0.84,
+      0
+     ],
+     "kind": "cross",
+     "size": 0.16,
+     "color": "#c82828",
+     "stroke_width": 3.5
+    }
+   },
+   {
+    "id": "o44",
+    "type": "Line",
+    "props": {
+     "start": [
+      -0.30000000000000004,
+      0.485,
+      0
+     ],
+     "end": [
+      -0.225,
+      0.40499999999999997,
+      0
+     ],
+     "color": "#00823c",
+     "stroke_width": 4,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o45",
+    "type": "Line",
+    "props": {
+     "start": [
+      -0.225,
+      0.40499999999999997,
+      0
+     ],
+     "end": [
+      -0.1,
+      0.57,
+      0
+     ],
+     "color": "#00823c",
+     "stroke_width": 4,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o46",
+    "type": "Line",
+    "props": {
+     "start": [
+      -0.30000000000000004,
+      0.125,
+      0
+     ],
+     "end": [
+      -0.225,
+      0.044999999999999984,
+      0
+     ],
+     "color": "#00823c",
+     "stroke_width": 4,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o47",
+    "type": "Line",
+    "props": {
+     "start": [
+      -0.225,
+      0.044999999999999984,
+      0
+     ],
+     "end": [
+      -0.1,
+      0.21000000000000002,
+      0
+     ],
+     "color": "#00823c",
+     "stroke_width": 4,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o48",
+    "type": "Line",
+    "props": {
+     "start": [
+      -0.30000000000000004,
+      -0.235,
+      0
+     ],
+     "end": [
+      -0.225,
+      -0.315,
+      0
+     ],
+     "color": "#00823c",
+     "stroke_width": 4,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o49",
+    "type": "Line",
+    "props": {
+     "start": [
+      -0.225,
+      -0.315,
+      0
+     ],
+     "end": [
+      -0.1,
+      -0.14999999999999997,
+      0
+     ],
+     "color": "#00823c",
+     "stroke_width": 4,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o50",
+    "type": "Mark",
+    "props": {
+     "center": [
+      -0.2,
+      -0.6,
+      0
+     ],
+     "kind": "cross",
+     "size": 0.16,
+     "color": "#c82828",
+     "stroke_width": 3.5
+    }
+   },
+   {
+    "id": "o51",
+    "type": "Line",
+    "props": {
+     "start": [
+      -0.30000000000000004,
+      -0.955,
+      0
+     ],
+     "end": [
+      -0.225,
+      -1.035,
+      0
+     ],
+     "color": "#00823c",
+     "stroke_width": 4,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o52",
+    "type": "Line",
+    "props": {
+     "start": [
+      -0.225,
+      -1.035,
+      0
+     ],
+     "end": [
+      -0.1,
+      -0.87,
+      0
+     ],
+     "color": "#00823c",
+     "stroke_width": 4,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o53",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.85,
+      0.25,
+      0
+     ],
+     "width": 2.95,
+     "height": 1.45,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#f6f6f4",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o54",
+    "type": "Text",
+    "props": {
+     "text": "@ausgabe",
+     "position": [
+      1.85,
+      1.15,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o55",
+    "type": "Text",
+    "props": {
+     "text": "rezepte/kuchen/apfelkuchen.txt",
+     "position": [
+      0.5,
+      0.7,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o56",
+    "type": "Text",
+    "props": {
+     "text": "rezepte/kuchen/kaesekuchen.txt",
+     "position": [
+      0.5,
+      0.41999999999999993,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o57",
+    "type": "Text",
+    "props": {
+     "text": "rezepte/zettel.txt",
+     "position": [
+      0.5,
+      0.1399999999999999,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o58",
+    "type": "Text",
+    "props": {
+     "text": "rezepte/suppen/kuerbissuppe.txt",
+     "position": [
+      0.5,
+      -0.14000000000000012,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o59",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -3.25,
+      1.2,
+      0
+     ],
+     "radius": 0.07,
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o60",
+    "type": "Circle",
+    "props": {
+     "radius": 0.11,
+     "center": [
+      -3.2,
+      -1.38,
+      0
+     ],
+     "color": "#7f7f7f",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o61",
+    "type": "Text",
+    "props": {
+     "text": "1",
+     "position": [
+      -3.2,
+      -1.38,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o62",
+    "type": "Text",
+    "props": {
+     "text": "@folge",
+     "position": [
+      -2.95,
+      -1.38,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o63",
+    "type": "Line",
+    "props": {
+     "start": [
+      -3.3000000000000003,
+      -1.675,
+      0
+     ],
+     "end": [
+      -3.225,
+      -1.755,
+      0
+     ],
+     "color": "#00823c",
+     "stroke_width": 4,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o64",
+    "type": "Line",
+    "props": {
+     "start": [
+      -3.225,
+      -1.755,
+      0
+     ],
+     "end": [
+      -3.1,
+      -1.5899999999999999,
+      0
+     ],
+     "color": "#00823c",
+     "stroke_width": 4,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o65",
+    "type": "Text",
+    "props": {
+     "text": "@ja",
+     "position": [
+      -2.95,
+      -1.68,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o66",
+    "type": "Mark",
+    "props": {
+     "center": [
+      -3.2,
+      -1.98,
+      0
+     ],
+     "kind": "cross",
+     "size": 0.16,
+     "color": "#c82828",
+     "stroke_width": 3.5
+    }
+   },
+   {
+    "id": "o67",
+    "type": "Text",
+    "props": {
+     "text": "@nein",
+     "position": [
+      -2.95,
+      -1.98,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#111111"
+    }
+   }
+  ],
+  "animations": [
+   {
+    "id": "a1",
+    "type": "FadeIn",
+    "target": "o1",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a2",
+    "type": "FadeIn",
+    "target": "o2",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a3",
+    "type": "FadeIn",
+    "target": "o3",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a4",
+    "type": "FadeIn",
+    "target": "o4",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a5",
+    "type": "FadeIn",
+    "target": "o5",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a6",
+    "type": "FadeIn",
+    "target": "o6",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a7",
+    "type": "FadeIn",
+    "target": "o7",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a8",
+    "type": "FadeIn",
+    "target": "o8",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a9",
+    "type": "FadeIn",
+    "target": "o9",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a10",
+    "type": "FadeIn",
+    "target": "o10",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a11",
+    "type": "FadeIn",
+    "target": "o11",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a12",
+    "type": "FadeIn",
+    "target": "o12",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a13",
+    "type": "FadeIn",
+    "target": "o13",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a14",
+    "type": "FadeIn",
+    "target": "o14",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a15",
+    "type": "FadeIn",
+    "target": "o15",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a16",
+    "type": "FadeIn",
+    "target": "o16",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a17",
+    "type": "FadeIn",
+    "target": "o17",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a18",
+    "type": "FadeIn",
+    "target": "o18",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a19",
+    "type": "FadeIn",
+    "target": "o19",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a20",
+    "type": "FadeIn",
+    "target": "o20",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a21",
+    "type": "FadeIn",
+    "target": "o21",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a22",
+    "type": "FadeIn",
+    "target": "o22",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a23",
+    "type": "FadeIn",
+    "target": "o23",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a24",
+    "type": "FadeIn",
+    "target": "o24",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a25",
+    "type": "FadeIn",
+    "target": "o25",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a26",
+    "type": "FadeIn",
+    "target": "o26",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a27",
+    "type": "FadeIn",
+    "target": "o27",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a28",
+    "type": "GrowFromCenter",
+    "target": "o53",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a29",
+    "type": "FadeIn",
+    "target": "o54",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a30",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a31",
+    "type": "FadeIn",
+    "target": "o59",
+    "run_time": 0.35,
+    "step": 2
+   },
+   {
+    "id": "a32",
+    "type": "FadeIn",
+    "target": "o28",
+    "run_time": 0.35,
+    "step": 3
+   },
+   {
+    "id": "a33",
+    "type": "FadeIn",
+    "target": "o29",
+    "run_time": 0.35,
+    "step": 3
+   },
+   {
+    "id": "a34",
+    "type": "FadeIn",
+    "target": "o42",
+    "run_time": 0.35,
+    "step": 3
+   },
+   {
+    "id": "a35",
+    "type": "MoveTo",
+    "target": "o59",
+    "run_time": 0.35,
+    "step": 4,
+    "point": [
+     -2.91,
+     0.84,
+     0
+    ]
+   },
+   {
+    "id": "a36",
+    "type": "FadeIn",
+    "target": "o30",
+    "run_time": 0.35,
+    "step": 5
+   },
+   {
+    "id": "a37",
+    "type": "FadeIn",
+    "target": "o31",
+    "run_time": 0.35,
+    "step": 5
+   },
+   {
+    "id": "a38",
+    "type": "FadeIn",
+    "target": "o43",
+    "run_time": 0.35,
+    "step": 5
+   },
+   {
+    "id": "a39",
+    "type": "MoveTo",
+    "target": "o59",
+    "run_time": 0.35,
+    "step": 6,
+    "point": [
+     -2.57,
+     0.48,
+     0
+    ]
+   },
+   {
+    "id": "a40",
+    "type": "FadeIn",
+    "target": "o32",
+    "run_time": 0.35,
+    "step": 7
+   },
+   {
+    "id": "a41",
+    "type": "FadeIn",
+    "target": "o33",
+    "run_time": 0.35,
+    "step": 7
+   },
+   {
+    "id": "a42",
+    "type": "FadeIn",
+    "target": "o44",
+    "run_time": 0.35,
+    "step": 7
+   },
+   {
+    "id": "a43",
+    "type": "FadeIn",
+    "target": "o45",
+    "run_time": 0.35,
+    "step": 7
+   },
+   {
+    "id": "a44",
+    "type": "FadeIn",
+    "target": "o55",
+    "run_time": 0.35,
+    "step": 7
+   },
+   {
+    "id": "a45",
+    "type": "MoveTo",
+    "target": "o59",
+    "run_time": 0.35,
+    "step": 8,
+    "point": [
+     -2.57,
+     0.12,
+     0
+    ]
+   },
+   {
+    "id": "a46",
+    "type": "FadeIn",
+    "target": "o34",
+    "run_time": 0.35,
+    "step": 9
+   },
+   {
+    "id": "a47",
+    "type": "FadeIn",
+    "target": "o35",
+    "run_time": 0.35,
+    "step": 9
+   },
+   {
+    "id": "a48",
+    "type": "FadeIn",
+    "target": "o46",
+    "run_time": 0.35,
+    "step": 9
+   },
+   {
+    "id": "a49",
+    "type": "FadeIn",
+    "target": "o47",
+    "run_time": 0.35,
+    "step": 9
+   },
+   {
+    "id": "a50",
+    "type": "FadeIn",
+    "target": "o56",
+    "run_time": 0.35,
+    "step": 9
+   },
+   {
+    "id": "a51",
+    "type": "MoveTo",
+    "target": "o59",
+    "run_time": 0.35,
+    "step": 10,
+    "point": [
+     -2.91,
+     -0.24,
+     0
+    ]
+   },
+   {
+    "id": "a52",
+    "type": "FadeIn",
+    "target": "o36",
+    "run_time": 0.35,
+    "step": 11
+   },
+   {
+    "id": "a53",
+    "type": "FadeIn",
+    "target": "o37",
+    "run_time": 0.35,
+    "step": 11
+   },
+   {
+    "id": "a54",
+    "type": "FadeIn",
+    "target": "o48",
+    "run_time": 0.35,
+    "step": 11
+   },
+   {
+    "id": "a55",
+    "type": "FadeIn",
+    "target": "o49",
+    "run_time": 0.35,
+    "step": 11
+   },
+   {
+    "id": "a56",
+    "type": "FadeIn",
+    "target": "o57",
+    "run_time": 0.35,
+    "step": 11
+   },
+   {
+    "id": "a57",
+    "type": "MoveTo",
+    "target": "o59",
+    "run_time": 0.35,
+    "step": 12,
+    "point": [
+     -2.91,
+     -0.6,
+     0
+    ]
+   },
+   {
+    "id": "a58",
+    "type": "FadeIn",
+    "target": "o38",
+    "run_time": 0.35,
+    "step": 13
+   },
+   {
+    "id": "a59",
+    "type": "FadeIn",
+    "target": "o39",
+    "run_time": 0.35,
+    "step": 13
+   },
+   {
+    "id": "a60",
+    "type": "FadeIn",
+    "target": "o50",
+    "run_time": 0.35,
+    "step": 13
+   },
+   {
+    "id": "a61",
+    "type": "MoveTo",
+    "target": "o59",
+    "run_time": 0.35,
+    "step": 14,
+    "point": [
+     -2.57,
+     -0.96,
+     0
+    ]
+   },
+   {
+    "id": "a62",
+    "type": "FadeIn",
+    "target": "o40",
+    "run_time": 0.35,
+    "step": 15
+   },
+   {
+    "id": "a63",
+    "type": "FadeIn",
+    "target": "o41",
+    "run_time": 0.35,
+    "step": 15
+   },
+   {
+    "id": "a64",
+    "type": "FadeIn",
+    "target": "o51",
+    "run_time": 0.35,
+    "step": 15
+   },
+   {
+    "id": "a65",
+    "type": "FadeIn",
+    "target": "o52",
+    "run_time": 0.35,
+    "step": 15
+   },
+   {
+    "id": "a66",
+    "type": "FadeIn",
+    "target": "o58",
+    "run_time": 0.35,
+    "step": 15
+   },
+   {
+    "id": "a67",
+    "type": "FadeOut",
+    "target": "o59",
+    "run_time": 0.4,
+    "step": 16
+   },
+   {
+    "id": "a68",
+    "type": "FadeIn",
+    "target": "o60",
+    "run_time": 0.6,
+    "step": 17
+   },
+   {
+    "id": "a69",
+    "type": "FadeIn",
+    "target": "o61",
+    "run_time": 0.6,
+    "step": 17
+   },
+   {
+    "id": "a70",
+    "type": "FadeIn",
+    "target": "o62",
+    "run_time": 0.6,
+    "step": 17
+   },
+   {
+    "id": "a71",
+    "type": "FadeIn",
+    "target": "o63",
+    "run_time": 0.6,
+    "step": 17
+   },
+   {
+    "id": "a72",
+    "type": "FadeIn",
+    "target": "o64",
+    "run_time": 0.6,
+    "step": 17
+   },
+   {
+    "id": "a73",
+    "type": "FadeIn",
+    "target": "o65",
+    "run_time": 0.6,
+    "step": 17
+   },
+   {
+    "id": "a74",
+    "type": "FadeIn",
+    "target": "o66",
+    "run_time": 0.6,
+    "step": 17
+   },
+   {
+    "id": "a75",
+    "type": "FadeIn",
+    "target": "o67",
+    "run_time": 0.6,
+    "step": 17
+   }
+  ],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "ausgabe": {
+    "de": "Ausgabe",
+    "en": "output",
+    "es": "salida",
+    "zh": "输出",
+    "fr": "sortie",
+    "tr": "çıktı"
+   },
+   "folge": {
+    "de": "Reihenfolge, in der find die Einträge besucht",
+    "en": "order in which find visits the entries",
+    "es": "orden en que find visita las entradas",
+    "zh": "find 访问各条目的顺序",
+    "fr": "ordre dans lequel find visite les entrées",
+    "tr": "find'ın girdileri ziyaret sırası"
+   },
+   "ja": {
+    "de": "Test bestanden: Pfad wird ausgegeben",
+    "en": "test passed: path is printed",
+    "es": "prueba superada: se imprime la ruta",
+    "zh": "测试通过：输出路径",
+    "fr": "test réussi : le chemin est affiché",
+    "tr": "test geçti: yol yazdırılır"
+   },
+   "nein": {
+    "de": "Test nicht bestanden",
+    "en": "test failed",
+    "es": "prueba no superada",
+    "zh": "测试未通过",
+    "fr": "test échoué",
+    "tr": "test geçmedi"
+   }
+  }
+ }
+}

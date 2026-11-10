@@ -1,0 +1,688 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 25,
+  "nextAnimId": 32,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.65,
+      0.85,
+      0
+     ],
+     "width": 2.9,
+     "height": 1.45,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#f6f6f4",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Text",
+    "props": {
+     "text": "@verlauf",
+     "position": [
+      -1.65,
+      1.45,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o3",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.65,
+      0.63,
+      0
+     ],
+     "width": 2.7,
+     "height": 0.25,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#eb6834",
+     "fill_color": "#ffffff",
+     "fill_opacity": 0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o4",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{1  uname -r}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.16,
+     "position": [
+      -2.488,
+      1.17,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o5",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{2  whoami}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.16,
+     "position": [
+      -2.572,
+      0.9,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o6",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{3  uname -m}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.16,
+     "position": [
+      -2.488,
+      0.63,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o7",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{4  head -n 1 /etc/os-release}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.16,
+     "position": [
+      -1.774,
+      0.36,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o8",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      0.05,
+      0.36,
+      0
+     ],
+     "end": [
+      0.05,
+      1.17,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.11,
+     "font_size": 26,
+     "color": "#eb6834",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o9",
+    "type": "Text",
+    "props": {
+     "text": "@richtung",
+     "position": [
+      0.2,
+      0.7649999999999999,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#eb6834"
+    }
+   },
+   {
+    "id": "o10",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{(reverse-i-search)`}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.17,
+     "position": [
+      -2.1021,
+      -0.35,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o11",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{':}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.17,
+     "position": [
+      -1.165,
+      -0.35,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o12",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{u':}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.17,
+     "position": [
+      -1.1204,
+      -0.35,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o13",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{un':}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.17,
+     "position": [
+      -1.0757,
+      -0.35,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o14",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{uname -m}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.17,
+     "position": [
+      -0.5403,
+      -0.35,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o15",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{uname -m}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.17,
+     "position": [
+      -0.451,
+      -0.35,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o16",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{uname -r}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.17,
+     "position": [
+      -0.451,
+      -0.35,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o17",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.55,
+      -0.85,
+      0
+     ],
+     "width": 0.85,
+     "height": 0.34,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#f1f1f1",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o18",
+    "type": "Text",
+    "props": {
+     "text": "@strgr",
+     "position": [
+      -2.55,
+      -0.85,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o19",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.75,
+      -0.85,
+      0
+     ],
+     "width": 0.4,
+     "height": 0.34,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#f1f1f1",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o20",
+    "type": "Text",
+    "props": {
+     "text": "u",
+     "position": [
+      -1.75,
+      -0.85,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o21",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.2,
+      -0.85,
+      0
+     ],
+     "width": 0.4,
+     "height": 0.34,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#f1f1f1",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o22",
+    "type": "Text",
+    "props": {
+     "text": "n",
+     "position": [
+      -1.2,
+      -0.85,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o23",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.35,
+      -0.85,
+      0
+     ],
+     "width": 0.85,
+     "height": 0.34,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#f1f1f1",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o24",
+    "type": "Text",
+    "props": {
+     "text": "@strgr",
+     "position": [
+      -0.35,
+      -0.85,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   }
+  ],
+  "animations": [
+   {
+    "id": "a1",
+    "type": "GrowFromCenter",
+    "target": "o1",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a2",
+    "type": "FadeIn",
+    "target": "o2",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a3",
+    "type": "FadeIn",
+    "target": "o4",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a4",
+    "type": "FadeIn",
+    "target": "o5",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a5",
+    "type": "FadeIn",
+    "target": "o6",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a6",
+    "type": "FadeIn",
+    "target": "o7",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a7",
+    "type": "Create",
+    "target": "o8",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a8",
+    "type": "FadeIn",
+    "target": "o9",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a9",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a10",
+    "type": "GrowFromCenter",
+    "target": "o17",
+    "run_time": 0.5,
+    "step": 3
+   },
+   {
+    "id": "a11",
+    "type": "FadeIn",
+    "target": "o18",
+    "run_time": 0.5,
+    "step": 3
+   },
+   {
+    "id": "a12",
+    "type": "FadeIn",
+    "target": "o10",
+    "run_time": 0.5,
+    "step": 3
+   },
+   {
+    "id": "a13",
+    "type": "FadeIn",
+    "target": "o11",
+    "run_time": 0.5,
+    "step": 3
+   },
+   {
+    "id": "a14",
+    "type": "GrowFromCenter",
+    "target": "o19",
+    "run_time": 0.8,
+    "step": 4
+   },
+   {
+    "id": "a15",
+    "type": "FadeIn",
+    "target": "o20",
+    "run_time": 0.8,
+    "step": 4
+   },
+   {
+    "id": "a16",
+    "type": "FadeIn",
+    "target": "o12",
+    "run_time": 0.8,
+    "step": 4
+   },
+   {
+    "id": "a17",
+    "type": "FadeIn",
+    "target": "o14",
+    "run_time": 0.8,
+    "step": 4
+   },
+   {
+    "id": "a18",
+    "type": "FadeIn",
+    "target": "o3",
+    "run_time": 0.8,
+    "step": 4
+   },
+   {
+    "id": "a19",
+    "type": "FadeOut",
+    "target": "o11",
+    "run_time": 0.4,
+    "step": 4
+   },
+   {
+    "id": "a20",
+    "type": "GrowFromCenter",
+    "target": "o21",
+    "run_time": 0.8,
+    "step": 5
+   },
+   {
+    "id": "a21",
+    "type": "FadeIn",
+    "target": "o22",
+    "run_time": 0.8,
+    "step": 5
+   },
+   {
+    "id": "a22",
+    "type": "FadeIn",
+    "target": "o13",
+    "run_time": 0.8,
+    "step": 5
+   },
+   {
+    "id": "a23",
+    "type": "FadeIn",
+    "target": "o15",
+    "run_time": 0.8,
+    "step": 5
+   },
+   {
+    "id": "a24",
+    "type": "FadeOut",
+    "target": "o12",
+    "run_time": 0.4,
+    "step": 5
+   },
+   {
+    "id": "a25",
+    "type": "FadeOut",
+    "target": "o14",
+    "run_time": 0.4,
+    "step": 5
+   },
+   {
+    "id": "a26",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 6
+   },
+   {
+    "id": "a27",
+    "type": "GrowFromCenter",
+    "target": "o23",
+    "run_time": 0.9,
+    "step": 7
+   },
+   {
+    "id": "a28",
+    "type": "FadeIn",
+    "target": "o24",
+    "run_time": 0.9,
+    "step": 7
+   },
+   {
+    "id": "a29",
+    "type": "FadeIn",
+    "target": "o16",
+    "run_time": 0.9,
+    "step": 7
+   },
+   {
+    "id": "a30",
+    "type": "FadeOut",
+    "target": "o15",
+    "run_time": 0.5,
+    "step": 7
+   },
+   {
+    "id": "a31",
+    "type": "MoveTo",
+    "target": "o3",
+    "run_time": 0.9,
+    "step": 7,
+    "point": [
+     -1.65,
+     1.17,
+     0
+    ]
+   }
+  ],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "verlauf": {
+    "de": "Verlauf",
+    "en": "history",
+    "es": "historial",
+    "zh": "历史记录",
+    "fr": "historique",
+    "tr": "geçmiş"
+   },
+   "richtung": {
+    "de": "sucht von der jüngsten\nzur ältesten Zeile",
+    "en": "searches from the newest\nto the oldest line",
+    "es": "busca de la línea más reciente\na la más antigua",
+    "zh": "从最新的一行\n查到最旧的一行",
+    "fr": "cherche de la ligne la plus récente\nà la plus ancienne",
+    "tr": "en yeni satırdan\nen eskiye arar"
+   },
+   "strgr": {
+    "de": "Strg+R",
+    "en": "Ctrl+R",
+    "es": "Ctrl+R",
+    "zh": "Ctrl+R",
+    "fr": "Ctrl+R",
+    "tr": "Ctrl+R"
+   }
+  }
+ }
+}

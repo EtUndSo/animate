@@ -1,6 +1,8 @@
 ---
 title: Stufe 3: Zwei Näherungen für die Ladung
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Der p-n-Übergang
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Der p-n-Übergang
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/der-p-n-ubergang
+knoten: Kapitel 14: Der p-n-Übergang
 order: 4240500
 summary: Die Poisson-Gleichung braucht rho(x) .
 tags: Debye-Länge
@@ -30,7 +32,7 @@ Für $|\Delta n|\ll n_0$ klingt eine Störung im n-Halbleiter exponentiell ab:
 $$\Delta n(x)=\Delta n(0)\,\mathrm{e}^{-x/L_\mathrm{Deb}},\qquad L_\mathrm{Deb}=\sqrt{D_\mathrm n\tau_\varepsilon}=\sqrt{\frac{\varepsilon_0\varepsilon_\mathrm rk_\mathrm BT}{e^2n_0}},\qquad\tau_\varepsilon=\frac{\varepsilon_0\varepsilon_\mathrm r}{\sigma}. \tag{3.1}$$
 :::
 
-⁠**So liest man das:** Die __Debye-Länge__ $L_\mathrm{Deb}$ ist die Abschirmlänge: So weit reicht eine kleine Störung in den Kristall. $\tau_\varepsilon$ ist die dielektrische Relaxationszeit aus [Teil 13](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/diffusion-rekombination-und-grundgleichungen/diffusion-rekombination-grundgleichungen.html), $\sigma=e\,n_0\mu_\mathrm n$ die Leitfähigkeit. Bei $n_0=10^{16}\,\mathrm{cm^{-3}}$ ist $L_\mathrm{Deb}=41$ nm, bei $5\cdot10^{16}\,\mathrm{cm^{-3}}$ sind es 18 nm. Für p-Halbleiter steht $p_0$ statt $n_0$.
+⁠**So liest man das:** Die __Debye-Länge__ $L_\mathrm{Deb}$ ist die Abschirmlänge: So weit reicht eine kleine Störung in den Kristall. $\tau_\varepsilon$ ist die dielektrische Relaxationszeit aus [Kapitel 13](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/diffusion-rekombination-und-grundgleichungen/diffusion-rekombination-grundgleichungen.html), $\sigma=e\,n_0\mu_\mathrm n$ die Leitfähigkeit. Bei $n_0=10^{16}\,\mathrm{cm^{-3}}$ ist $L_\mathrm{Deb}=41$ nm, bei $5\cdot10^{16}\,\mathrm{cm^{-3}}$ sind es 18 nm. Für p-Halbleiter steht $p_0$ statt $n_0$.
 
 :::herleitung Abschirmung
 Das Gleichgewicht verlangt $j_\mathrm n=0$ mit $n\approx n_0$ im Driftterm:

@@ -1,6 +1,8 @@
 ---
 title: Etapa 1: Energía y potencia
-pfad: Ingeniería eléctrica / 3.er semestre / Señales y sistemas / Funciones de correlación
+pfad: Ingeniería eléctrica / 3.er semestre / ET3 – Fundamentos de ingeniería eléctrica 3: señales y sistemas / Funciones de correlación
+adresse: elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen
+knoten: Capítulo 6: Funciones de correlación
 order: 3260200
 summary: Antes de comparar señales hace falta una medida de su «tamaño».
 tags: energía de la señal, señal de energía, potencia, señal de potencia

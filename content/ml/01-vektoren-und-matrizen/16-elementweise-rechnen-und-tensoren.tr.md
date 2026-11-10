@@ -1,7 +1,8 @@
 ---
 title: Eleman eleman hesap ve tensörler
 pfad: Bilgisayar Bilimleri / Makine Öğrenmesi / Matematiksel Temeller / Vektörler ve Matrisler
-knoten: Temeller 1: Vektörler ve Matrisler
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Bölüm 1: Vektörler ve Matrisler
 nachschlagen: ja
 order: 15211600
 summary: Vektörler ve matrislerle yapılan her hesap bir matris çarpımı değildir.
@@ -110,7 +111,7 @@ $4\times4$ pikselli ve üç renk kanallı renkli bir görüntü, şekli $3\times
 ⁠**Kısacası:** Bir tensör, eksen sayısı istenildiği kadar olabilen bir sayı dizisidir; skaler, vektör ve matris $0$, $1$ ve $2$ eksenli durumlardır.
 
 :::hintergrund Fizikteki tensör başka bir şeydir
-Fizikte ve elektrik mühendisliğinde bir tensör, örneğin bir malzemenin gerilme tensörü ya da bir kristalin dielektrik geçirgenlik tensörü, bir sayı dizisinden fazlasıdır. Orada tensöre, koordinat sistemi döndürüldüğünde elemanlarının nasıl değiştiğini söyleyen bir kural da dahildir; tensörü yalnızca elemanları oluşturmaz. Makine öğrenmesinde bu kural yoktur: Orada bir tensör yalnızca çok boyutlu bir sayı dizisidir. Sözcük aynıdır, kavram farklıdır.
+Fizikte bir tensör, örneğin bir cismi her eksen etrafında döndürmenin ne kadar zor olduğunu belirten eylemsizlik tensörü ya da yük altındaki bir kirişin her doğrultuda ne kadar çekildiğini veya bastırıldığını betimleyen tensör, bir sayı dizisinden fazlasıdır. Orada tensöre, koordinat sistemi döndürüldüğünde elemanlarının nasıl değiştiğini söyleyen bir kural da dahildir; tensörü yalnızca elemanları oluşturmaz. Makine öğrenmesinde bu kural yoktur: Orada bir tensör yalnızca çok boyutlu bir sayı dizisidir. Sözcük aynıdır, kavram farklıdır.
 :::
 
 ### Tensör olarak görüntüler

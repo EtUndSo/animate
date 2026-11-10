@@ -1,6 +1,8 @@
 ---
 title: Stufe 3: Polarkoordinaten
-pfad: Elektrotechnik / 3. Semester / Höhere Mathematik 3 / Koordinatentransformationen
+pfad: Elektrotechnik / 3. Semester / HöMa3 – Höhere Mathematik 3 / Koordinatentransformationen
+adresse: elektrotechnik/3-semester/hohere-mathematik-3/koordinatentransformationen
+knoten: Kapitel 4: Koordinatentransformationen
 order: 3140500
 summary: Kreise werden zu Rechtecken.
 tags: Polarkoordinaten, Gauß-Integral

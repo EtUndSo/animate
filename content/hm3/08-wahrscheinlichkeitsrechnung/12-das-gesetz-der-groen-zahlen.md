@@ -1,6 +1,8 @@
 ---
 title: Stufe 11: Das Gesetz der großen Zahlen
-pfad: Elektrotechnik / 3. Semester / Höhere Mathematik 3 / Wahrscheinlichkeitsrechnung
+pfad: Elektrotechnik / 3. Semester / HöMa3 – Höhere Mathematik 3 / Wahrscheinlichkeitsrechnung
+adresse: elektrotechnik/3-semester/hohere-mathematik-3/wahrscheinlichkeitsrechnung
+knoten: Kapitel 8: Wahrscheinlichkeitsrechnung
 order: 3181200
 summary: Warum liefert das Mitteln vieler Messungen einen stabilen Wert, obwohl jede einzelne streut?
 tags: konvergieren stochastisch, identisch verteilt, i.i.d., fast sicher, punktweise fast sicher, Monte-Carlo-Integration

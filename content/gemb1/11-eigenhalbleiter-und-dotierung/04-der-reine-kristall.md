@@ -1,8 +1,10 @@
 ---
 title: Stufe 2: Der reine Kristall
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Eigenhalbleiter und Dotierung
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Eigenhalbleiter und Dotierung
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/eigenhalbleiter-und-dotierung
+knoten: Kapitel 11: Eigenhalbleiter und Dotierung
 order: 4210400
-summary: Teil 10 liefert n und p für eine gegebene Fermi-Energie.
+summary: Kapitel 10 liefert n und p für eine gegebene Fermi-Energie.
 tags: Generation, Rekombination, Lebensdauer, intrinsische Ladungsträgerdichte, intrinsische Fermi-Energie, mittlere effektive Zustandsdichte, Arrhenius-Darstellung, entartet
 lang: de
 ---
@@ -10,7 +12,7 @@ lang: de
 <span class="anker" id="stufe-2"></span>
 
 :::zweck
-[Teil 10](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/zustandsdichte-und-fermi-verteilung/zustandsdichte-und-fermi-verteilung.html) liefert $n$ und $p$ für eine gegebene Fermi-Energie. Im reinen Kristall ist sie nicht frei wählbar. Diese Stufe bestimmt sie und berechnet daraus die Dichte der Ladungsträger.
+[Kapitel 10](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/zustandsdichte-und-fermi-verteilung/zustandsdichte-und-fermi-verteilung.html) liefert $n$ und $p$ für eine gegebene Fermi-Energie. Im reinen Kristall ist sie nicht frei wählbar. Diese Stufe bestimmt sie und berechnet daraus die Dichte der Ladungsträger.
 :::
 
 **Die Idee.** Wärme hebt laufend Elektronen aus dem Valenz- ins Leitungsband, das heißt __Generation__. Jedes hinterlässt einen freien Platz. Ein Nachbarelektron rückt nach, dadurch wandert der Platz: Das Loch bewegt sich wie ein freies Teilchen mit der Ladung $+e$. Trifft ein Elektron ein Loch, fällt es zurück und gibt seine Energie an das Gitter ab, das heißt __Rekombination__. Die mittlere Zeit dazwischen ist die __Lebensdauer__ $\tau_\mathrm{rec}$. Im Gleichgewicht laufen beide Vorgänge gleich oft ab: Die Dichte ist konstant, das Gleichgewicht ist dynamisch. Weil Elektronen und Löcher nur paarweise entstehen, ist ihre Zahl gleich. Diese eine Bedingung legt $E_\mathrm F$ fest.

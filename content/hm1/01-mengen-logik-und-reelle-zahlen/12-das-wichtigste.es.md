@@ -1,6 +1,8 @@
 ---
 title: Lo esencial
-pfad: Ingeniería eléctrica / 1.er semestre / Matemáticas superiores 1 / Conjuntos, lógica y números reales
+pfad: Ingeniería eléctrica / 1.er semestre / HöMa1 – Matemáticas superiores 1 / Conjuntos, lógica y números reales
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen
+knoten: Capítulo 1: Conjuntos, lógica y números reales
 order: 1211200
 summary: Qué hay que suponer sobre los números y por qué la raíz cuadrada de 2 no es una fracción
 tags: 

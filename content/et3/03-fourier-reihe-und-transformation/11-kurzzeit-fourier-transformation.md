@@ -1,6 +1,8 @@
 ---
 title: Stufe 10: Kurzzeit-Fourier-Transformation
-pfad: Elektrotechnik / 3. Semester / Signale und Systeme / Fourier-Reihe und -Transformation
+pfad: Elektrotechnik / 3. Semester / ET3 – Grundgebiete der Elektrotechnik 3: Signale und Systeme / Fourier-Reihe und -Transformation
+adresse: elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation
+knoten: Kapitel 3: Fourier-Reihe und -Transformation
 order: 3231100
 summary: Das Spektrum S(f) beschreibt ein Signal über alle Zeiten.
 tags: Hann-Fenster, Spektrogramm

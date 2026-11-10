@@ -9,7 +9,7 @@ Jedes Heft entsteht nacheinander durch zwei Agenten. Deine Nachricht sagt dir, w
 
 **Phase 1, Schreib-Agent:**
 - „Zuerst lesen“: alle Quellen ganz.
-- Recherche, dann das ganze Heft schreiben: Hauptdatei, Stufen, Lösungen, TikZ-Abbildungen, Code unter `code\kap<N>\` (jedes Programm beim Schreiben einmal unter Windows und Linux ausführen; die echte Ausgabe ins Heft) und `rechnung_kap<N>.py` (ausgeführt, 0 Fehler).
+- Recherche, dann das ganze Heft schreiben: Hauptdatei, Stufen, Lösungen, Abbildungen als `\szenenabb{<szene>}{…}{…}` (kein TikZ; die Szene baut Phase 2 nach deiner Beschreibung in der Übergabe, siehe „Abbildungen“), Code unter `code\kap<N>\` (jedes Programm beim Schreiben einmal unter Windows und Linux ausführen; die echte Ausgabe ins Heft) und `rechnung_kap<N>.py` (ausgeführt, 0 Fehler).
 - Kein PDF-Bau, keine Editor-Szenen, kein Konverter, keine Themenkarte. Die Satz-für-Satz-Prüfung macht Phase 2. Du schreibst trotzdem so sorgfältig, als gäbe es keine zweite Prüfung.
 - **Übergabe** `uebergabe_kap<N>.md` im Heftordner, 1–2 Seiten:
   - Gliederung;
@@ -36,6 +36,10 @@ Jedes Heft entsteht nacheinander durch zwei Agenten. Deine Nachricht sagt dir, w
   Die übrigen Quellen liest du nur gezielt, wenn eine Aussage zu prüfen ist.
 - **Arbeiten:**
   - Selbstprüfung nach „Bauen und prüfen“ (UEBERARBEITUNG §7) und Korrekturen;
+  - **Beispiele und Wortwahl** (User, 09.11.2026):
+    - jedes Beispiel, jede Metapher und Anwendung muss ohne Elektrotechnik verständlich sein (Abschnitt „Aufbau des Hefts“), sonst ersetzen;
+    - selten gebrauchte oder komisch klingende Wörter (z. B. „Messplatz“) durch übliche Formulierungen ersetzen;
+    - im Bericht aufzählen;
   - PDF und `pdf_pruefen.py`;
   - Abgleich aller Code-Blöcke mit echter Ausführung (`heft_pruefen.py`);
   - `rechnung_kap<N>.py`;
@@ -77,6 +81,13 @@ Alles, was du liest, schreibst oder ausgibst, bleibt in deinem Kontext und wird 
    - `ZUSAMMENFASSUNG.md`: die Entscheidungen des Users.
    - `QUELLEN.md`.
    - die Dateien in `Notizen\`, die dein Heft betreffen (Belegstellen, Prüfprotokolle, Hauptquellen-Exzerpte deiner Teile).
+4a. **Reihe Linux: die Shotts-Kapitel deines Hefts ganz** (User, 09.11.2026: „Ja, Shotts-Kapitel ganz lesen“).
+   - William Shotts, *The Linux Command Line*, 7. Internet-Ausgabe 25.12A.
+   - Welche Kapitel, steht im Lernpfad-Eintrag unter „Hauptquellen“.
+   - Das PDF ist frei (https://linuxcommand.org/tlcl.php). Liegt es noch nicht unter `C:\Bücher\EtUndSo\Linux\Recherche\Material\`, lade es dorthin.
+   - Lies die Kapitel aus dem Text (z. B. `pdftotext` bzw. PyMuPDF in eine Textdatei im Scratch), nicht als Seitenbilder.
+   - Lizenz CC BY-NC-ND: nur lesen und daraus lernen, nichts übernehmen; alles in eigenen Worten und mit eigenen Beispielen.
+   - Im Lese-Nachweis stehen die Kapitel mit Seitenzahlen.
 5. Die fertigen früheren Hefte der Reihe über ihre Zusammenfassungen `zusammenfassung_kap<N>.md` im Heftordner. Ihre Begriffe, Bezeichnungen, Datensätze und Beispiele übernimmst du; Einzelstellen liest du bei Bedarf im Heft nach.
 
 **Neue Pflichtlieferung:** Am Ende schreibst du `zusammenfassung_kap<N>.md` für dein Heft, auf Deutsch, etwa 2–4 Seiten. Sie ist für spätere Agenten gedacht, nicht für Leser. Inhalt:
@@ -91,26 +102,28 @@ Alles, was du liest, schreibst oder ausgibst, bleibt in deinem Kontext und wird 
 |---|---|---|---|
 | cyber | `C:\Bücher\EtUndSo\Cybersecurity\Arbeitshefte` | `C:\Bücher\EtUndSo\Cybersecurity\Recherche` | `tools/szenen/cyber_teil<N>.py`, Namen `cyber/k<N>name` |
 | ml | `C:\Bücher\EtUndSo\MachineLearning\Arbeitshefte` | `C:\Bücher\EtUndSo\MachineLearning\Recherche` | `tools/szenen/ml_teil<N>.py`, Namen `ml/k<N>name` |
-| prog | `C:\Bücher\EtUndSo\Programmieren\Arbeitshefte` | `C:\Bücher\EtUndSo\Programmieren\Recherche` | `tools/szenen/prog_teil<N>.py`, Namen `prog/k<N>name` (Python N = Kap N, C ab Kap 101, C++ ab Kap 201) |
+| prog | `C:\Bücher\EtUndSo\Programmieren\Arbeitshefte` | `C:\Bücher\EtUndSo\Programmieren\Recherche` | `tools/szenen/prog_teil<N>.py`, Namen `prog/k<N>name` (Python, Kapitel N = Kap N; C ab Kap 101, C++ ab Kap 201) |
 | linux | `C:\Bücher\EtUndSo\Linux\Arbeitshefte` | `C:\Bücher\EtUndSo\Linux\Recherche` | `tools/szenen/linux_teil<N>.py`, Namen `linux/k<N>name` |
 
-**Nummern:** Dateien, Szenen, Labels und der Umwandler (`--kap N`) zählen immer nach der **Lernpfad-Nummer** T<NN>: `Kap<N>_<Name>`, `kap<N>_stufen.tex`, `ml_teil<N>.py`, `ml/k<N>name`, `fig:k<N>…`. Angezeigt wird:
-- Cybersecurity: Teil N = T<NN> (Teil 1 = T01).
-- Machine Learning: T01–T06 als „Grundlagen 1–6“, ab T08 als „Teil N“ mit **N = Lernpfad-Nummer − 7** (Teil 1 = T08 = `Kap8_Lernen`, Szenen `ml/k8…`, Datei `ml_teil8.py`).
+**Nummern:** Dateien, Szenen, Labels und der Umwandler (`--kap N`) zählen immer nach der **Lernpfad-Nummer** T<NN>: `Kap<N>_<Name>`, `kap<N>_stufen.tex`, `ml_teil<N>.py`, `ml/k<N>name`, `fig:k<N>…`. Angezeigt wird überall „Kapitel N“, gezählt im Bereich (Benennung seit 09.11.2026, Wunsch des Users; Formen aller Sprachen in `notizen/kapitel_umstellung.md`):
+- Cybersecurity: Kapitel N = T<NN> (Kapitel 1 = T01).
+- Machine Learning: T01–T06 im Bereich „Mathematische Grundlagen“ als Kapitel 1–6, ab T08 im ML-Pfad als Kapitel N mit **N = Lernpfad-Nummer − 7** (Kapitel 1 = T08 = `Kap8_Lernen`, Szenen `ml/k8…`, Datei `ml_teil8.py`).
+- Programmieren: Python Kapitel N = `Kap<N>`, C Kapitel N = `Kap<100+N>`, C++ Kapitel N = `Kap<200+N>`; Linux und Kommandozeile: Kapitel N = `Kap<N>`.
+- Im Baum der Website steht „Kapitel N: Titel“, der Überblicksartikel heißt „Überblick: <Titel>“ (ohne Nummer).
 
-Der Dateiname `Kap<N>_<Name>` steht in `tools/heft_zu_artikel.py` unter `MODULE["cyber"]` bzw. `MODULE["ml"]` und muss exakt stimmen; dort steht auch, welcher Bereich welche Nummern hat (`"bereiche"`).
+Der Dateiname `Kap<N>_<Name>` steht in `tools/heft_zu_artikel.py` unter `MODULE["cyber"]` bzw. `MODULE["ml"]` und muss exakt stimmen; dort steht auch, welcher Bereich welche Nummern hat (`"bereiche"`). Der Heft-Titel (Titelblock) soll dem deutschen Titel dort entsprechen, denn aus ihm entstehen Seitenbaum und Adresse. Wählst du einen anderen, besseren Titel, nenne ihn in der Übergabe; Phase 2b passt dann den Eintrag in allen sechs Sprachen an, bevor sie den Konverter laufen lässt (seit 10.11.2026, Linux 4).
 
 **Machine Learning: Grundlagen und Pfad** (Entscheidung des Users, 05.11.2026). Der User: „Wir sollten die mathematischen Grundlagen bei ML als solche markieren, also eher als Nachschlagwerk … Sonst verbringt man Wochen damit diese zu lernen obwohl man sie erst sehr spät oder gar nicht braucht.“
-- **Mathematische Grundlagen:** Die Lernpfad-Hefte T01–T06 heißen „Grundlagen 1–6“ und bilden einen eigenen Bereich „Mathematische Grundlagen (zum Nachschlagen)“.
-  - Untereinander verweisen sie mit „Grundlagen N, Abschnitt M“ (umgestellt am 06.11.2026 in Grundlagen 1–5 und allen Übersetzungen). Titelzeile: „Mathematische Grundlagen für Machine Learning, Grundlagen~N. Stand: …“.
+- **Mathematische Grundlagen:** Die Lernpfad-Hefte T01–T06 bilden als Kapitel 1–6 einen eigenen Bereich „Mathematische Grundlagen (zum Nachschlagen)“, Kurzname „Grundlagen“.
+  - Untereinander verweisen sie mit „Kapitel~N, Abschnitt~M“, aus dem ML-Pfad und anderen Bereichen mit „Grundlagen, Kapitel~N, Abschnitt~M“ (seit 09.11.2026). Titelzeile: „Arbeitsheft Machine Learning, Mathematische Grundlagen, Kapitel~N. Stand: …“.
   - Spätere ML-Hefte nennen sie nicht (keine Vorgriffe). Die Website zeigt unter jedem Grundlagen-Artikel automatisch einen Block „Verwendet in“ mit den ML-Artikeln, die ihn oder einen seiner Abschnitte verlinken. Damit das klappt, muss der Verweis genau die Wendung unten haben.
-- **Der ML-Pfad** beginnt mit T08 „Lernen aus Daten“: **ML-Teil N = Lernpfad-Heft T(N+7)**. T07 (Python/NumPy) entfällt im Pfad, weil Python im Bereich „Programmieren“ erklärt wird (siehe „Nichts doppelt erklären“). Die Titelzeile lautet „Arbeitsheft Machine Learning, Teil~N“, Rückverweise auf frühere Pfad-Hefte „Teil N, Abschnitt M“.
+- **Der ML-Pfad** beginnt mit T08 „Lernen aus Daten“: **ML-Kapitel N = Lernpfad-Heft T(N+7)**. T07 (Python/NumPy) entfällt im Pfad, weil Python im Bereich „Programmieren“ erklärt wird (siehe „Nichts doppelt erklären“). Die Titelzeile lautet „Arbeitsheft Machine Learning, Kapitel~N“, Rückverweise auf frühere Pfad-Hefte „Kapitel~N, Abschnitt~M“, aus anderen Bereichen „Machine Learning, Kapitel~N, …“.
 - **Jedes ML-Pfad-Heft setzt die Grundlagen nicht voraus.** Wo es Mathematik braucht, steht zu Beginn des Abschnitts „Was du dafür brauchst“:
   - jedes benötigte Grundlagen-Thema in einer kurzen, selbsttragenden Zusammenfassung (Definition, eine Formel, ein Mini-Beispiel);
-  - dazu der Verweis „ausführlich: Grundlagen N, Abschnitt M“, auf der Website ein Link.
+  - dazu der Verweis „ausführlich: Grundlagen, Kapitel~N, Abschnitt~M“, auf der Website ein Link.
 
   Wer die Grundlagen kennt, überspringt das; wer nicht, kann trotzdem weiterlesen oder gezielt nachschlagen. Nimm nur auf, was das Heft wirklich braucht, und genau dort, wo es gebraucht wird.
-- **Optimierung (T06 = Grundlagen 6)** entsteht erst kurz bevor ein Pfad-Heft sie braucht, vor dem Gradientenabstieg.
+- **Optimierung (T06 = Grundlagen, Kapitel 6)** entsteht erst kurz bevor ein Pfad-Heft sie braucht, vor dem Gradientenabstieg.
 
 **Nichts doppelt erklären** (Vorgabe des Users, 06.11.2026). Der User: „darauf achten, dass wir Inhalte nicht mehrfach auf der Webseite vollständig erklären … einen separaten Bereich haben … in den ML-Artikeln darauf verweisen und das Wissen als gekannt voraussetzen. Dann nur noch das Programmieren, das zu dem Inhalt passt.“
 - **Ein Ort pro Thema:** Jedes Thema wird auf der Website genau einmal vollständig erklärt, im passenden Bereich. Welcher das ist, steht in `notizen/themenkarte.md` (je Zeile ein Abschnitt mit seiner Verweis-Wendung). Vor dem Schreiben suchst du dort jeden Begriff deines Lernpfad-Eintrags mit Grep (nicht die ganze Datei lesen). Nach dem Heft erzeugst du sie mit `python tools/themenkarte.py` neu; Themen, die zu einem anderen Bereich gehören und dort noch kein Heft haben, trägst du von Hand im Teil „Zuständigkeiten und geplante Themen“ ein.
@@ -119,7 +132,7 @@ Der Dateiname `Kap<N>_<Name>` steht in `tools/heft_zu_artikel.py` unter `MODULE[
   - **Linux und Kommandozeile:** Shell, Dateien, Rechte, Prozesse.
 
   ML und Cybersecurity setzen beides voraus.
-- **Fachhefte setzen voraus und verweisen:** Ein Fachheft erklärt nur, was zu seinem Inhalt gehört. Ein ML-Heft programmiert das Modell, ein Cybersecurity-Heft Sockets und Bytes. Vorausgesetztes Wissen bekommt höchstens ein bis drei Sätze und einen Verweis mit Link („ausführlich: Programmieren, Python N, Abschnitt M“).
+- **Fachhefte setzen voraus und verweisen:** Ein Fachheft erklärt nur, was zu seinem Inhalt gehört. Ein ML-Heft programmiert das Modell, ein Cybersecurity-Heft Sockets und Bytes. Vorausgesetztes Wissen bekommt höchstens ein bis drei Sätze und einen Verweis mit Link („ausführlich: Python, Kapitel~N, Abschnitt~M“).
 - **Mathematik:** Für die ML-Grundlagen gilt dasselbe gegenüber den Mathematik-Modulen (HöMa). Was dort vollständig erklärt ist, etwa Beweise und Herleitungen, steht in den Grundlagen nur noch als Kurzfassung mit Link.
 
 ## Quellen und Recherche
@@ -132,14 +145,19 @@ Der Dateiname `Kap<N>_<Name>` steht in `tools/heft_zu_artikel.py` unter `MODULE[
 ## Aufbau des Hefts
 - **Gliederung:** Die Begriffsliste des Lernpfad-Eintrags gibt die Reihenfolge vor. Fasse sie zu thematischen `\section` zusammen (je etwa drei bis acht Begriffe, ein Abschnitt = ein abgeschlossenes Thema, auf der Website ein Artikel). Jeder Begriff bekommt ein eigenes `\subsection` mit Wozu, Anschauung, Definition, einfachstem Beispiel und „Kurz gesagt“ (§2). Weicht die WISSEN-Datei in der Reihenfolge ab, gilt der Lernpfad; ist eine Umstellung didaktisch nötig, begründe sie im Bericht.
 - **Anfang:** `\section*{Worum es geht}` (mit `\addcontentsline`) nennt nur die Frage des Hefts und ihren Nutzen in Alltagsworten, keine Ergebnisse und keine Begriffe, die erst später kommen. Danach `\paragraph{So arbeitest du mit dem Heft.}` mit den Kastenarten, die das Heft wirklich benutzt (Hintergrund, Herleitung/Beweis, Achtung) und dem Hinweis auf Aufgaben und Lösungen; auf der Website wird er durch einen festen Text ersetzt.
-- **Was der Leser mitbringt:** ET-Studierende etwa im 5. Semester (Mathematik bis HöMa 3, Signale und Systeme, etwas Programmierung), ohne Vorwissen in deiner Reihe. Er kennt nur die früheren Teile der Reihe. Was er darüber hinaus braucht, steht als „Was du dafür brauchst: …“ zu Beginn des Abschnitts (§2).
-- **Verweise:** Rückverweise sind erwünscht. Keine Vorgriffe auf spätere Teile, auch nicht im Hintergrund-Kasten (§4). Der Umwandler macht aus genau diesen Wendungen Links auf Artikel und Abschnitt (mit `~`, Nummer M mit Punkt):
-  - Cybersecurity und ML-Pfad: frühere Hefte „Teil~N“ bzw. „Teil~N, Abschnitt~M“ (ML: Teil N = T(N+7));
-  - ML-Grundlagen: „Grundlagen~N, Abschnitt~M“, mehrere „Grundlagen~N, Abschnitte~M und~K“, das ganze Heft „Grundlagen~N“; erlaubt in den Grundlagen und im ML-Pfad;
-  - gemeinsame Bereiche, aus jeder Zusatzreihe: „Programmieren, Python~N, Abschnitt~M“ (später „Programmieren, C~N …“, „Programmieren, C++~N …“) und „Linux~N, Abschnitt~M“;
-  - andere Formen („Abschn.“, „Kapitel 3“, „Python~2“ ohne „Programmieren,“) bleiben Text ohne Link. Gibt es das Ziel noch nicht, bleibt der Verweis Text; fehlt nur der Abschnitt, meldet der Umwandler „Verweise auf fehlende Abschnitte“. Wendungen der Übersetzungen: `notizen/heft_uebersetzung.md`.
+- **Was der Leser mitbringt** (geändert 09.11.2026): Die Leser kommen aus allen Richtungen: Informatik, andere Studiengänge, Schule, Beruf, ohne Studium. Er kennt nur die früheren Teile der Reihe, keine Elektrotechnik.
+- **Beispiele, Metaphern und Anschauungen, die jeder kennt** (User, 09.11.2026): „Wir sollten bei Themen außerhalb von Elektrotechnik nicht auf Elektrotechnik verweisen, denn Personen aus z.B. Informatik könnten es nicht kennen. Deshalb sollten wir immer allgemeine Beispiele/Metaphern/Anschauungen nutzen, die jeder kennt, egal ob er studiert hat oder nicht.“
+  - **Keine Elektrotechnik:** In Programmieren, Linux, Cybersecurity und ML keine Spannungen, Ströme, Widerstände, Dioden, Messplätze oder Schaltungen als Beispiel oder Anwendung.
+  - **Stattdessen Alltag:** Einkauf, Noten, Temperaturen, Wege und Zeiten, Konto und Zinsen, Sport, Kochen, Spiele, Texte, Fotos.
+  - **Lernpfad und WISSEN-Datei:** Schlagen sie eine Anwendung aus der Elektrotechnik vor, ersetzt du sie durch eine gleichwertige allgemeine.
+- **Seltene Wörter:** Wörter, die im Alltag kaum vorkommen oder komisch klingen, z. B. „Messplatz“, ersetzt du durch übliche Formulierungen. Fachbegriffe des Themas bleiben und werden erklärt. Was er darüber hinaus braucht, steht als „Was du dafür brauchst: …“ zu Beginn des Abschnitts (§2).
+- **Verweise** (Benennung seit 09.11.2026, Formen aller Sprachen in `notizen/kapitel_umstellung.md`): Rückverweise sind erwünscht. Keine Vorgriffe auf spätere Kapitel, auch nicht im Hintergrund-Kasten (§4). Der Umwandler macht aus genau diesen Wendungen Links auf Artikel und Abschnitt (mit `~`, Nummer M mit Punkt):
+  - im selben Bereich: „Kapitel~N“, „Kapitel~N, Abschnitt~M“, mehrere „Kapitel~N, Abschnitte~M und~K“ (ML-Pfad: Kapitel N = T(N+7); in den Grundlagen zählen die Grundlagen);
+  - in einen anderen Bereich oder ein anderes Modul: „<Kurzname>, Kapitel~N, Abschnitt~M“ mit den Kurznamen Python, C, C++, Linux, Cybersecurity, Machine Learning (ML-Pfad), Grundlagen (ML-Mathematik), ET1, ET3, GEMB1, HöMa1, HöMa3; z. B. „ausführlich: Python, Kapitel~2, Abschnitt~4.1“, „Linux, Kapitel~2“, „Grundlagen, Kapitel~1, Abschnitt~13.5“, „HöMa1, Kapitel~5, Abschnitt~8“;
+  - nicht mehr: „Teil~N“, „Grundlagen~N“, „Programmieren, Python~N“, „Linux~N“ (der Umwandler erkennt sie nur noch übergangsweise). „Python~3“ und „Linux~6.8“ allein sind Versionen, keine Verweise;
+  - andere Formen („Abschn.“, „Kap.~3“) bleiben Text ohne Link. Gibt es das Ziel noch nicht, bleibt der Verweis Text; fehlt nur der Abschnitt, meldet der Umwandler „Verweise auf fehlende Abschnitte“.
 - **Beispiele** (seit 09.11.2026) stehen immer im Kasten `\begin{beispiel}{Titel}…\end{beispiel}`, nie als `\paragraph{Beispiel: …}` oder `\textbf{Beispiel:}`. Auf der Website sind sie zugeklappt. Was dazugehört und wo der Kasten endet, steht in UEBERARBEITUNG §2a.
-- **Ende:** kernbox „Das Wichtigste bis hier“, kernbox „Die Antwort in drei Sätzen“, Prinzip-Tabelle mit Abschnittsverweisen (ML ab Teil 2 = T09: „Modell + Verlust + Optimierung + Prüfung“), dann `\section{Lösungen}` aus `kap<N>_loesungen.tex`.
+- **Ende:** kernbox „Das Wichtigste bis hier“, kernbox „Die Antwort in drei Sätzen“, Prinzip-Tabelle mit Abschnittsverweisen (ML-Pfad ab Kapitel 2 = T09: „Modell + Verlust + Optimierung + Prüfung“), dann `\section{Lösungen}` aus `kap<N>_loesungen.tex`.
 - **Keine Quellenverweise im Heft:** keine Buch-, Kurs-, Uni- oder Kapitelangaben, kein „nach X“, kein Literaturverzeichnis. Gesetze, Standards, Organisationen (StGB, RFC, NIST, BSI, CVE) und die Namen von Prinzipien (Kerckhoffs, Saltzer und Schroeder) dürfen als Inhalt vorkommen. Links auf Übungsplattformen (pwn.college, OverTheWire, PortSwigger Web Security Academy, CryptoHack usw.) sind als Übungsumgebungen erlaubt.
 - **Ton:** seriös und professionell, aber nicht steif; der Ton der Musterhefte trifft es. Aufgaben sprechen den Leser mit du an.
 
@@ -162,20 +180,40 @@ Der Dateiname `Kap<N>_<Name>` steht in `tools/heft_zu_artikel.py` unter `MODULE[
 - **Code in Szenen:** In `s.formel` bleibt Code in `\texttt{…}` oder `\mathtt{…}` unverändert (`4.0` bleibt `4.0`); nur Zahlen außerhalb davon bekommen in de/es/fr/tr das Dezimalkomma.
 - **Übungsumgebung der Leser:** Die Leser richten sich ihre Umgebung selbst ein, nach den Anleitungen in den Heften (Live-USB-Stick oder VM ab Teil 3, isoliertes Labor in späteren Teilen; Python-Umgebung im Bereich „Programmieren“). Die Website stellt nie selbst eine Umgebung bereit: keine Online-Terminals, keine eingebetteten Sandboxes, kein ausführbarer Code auf der Seite (Entscheidung des Users vom 04.11.2026, wegen der Sicherheitsrisiken). Externe Übungsplattformen dürfen verlinkt werden.
 - **Alles Ausführbare wird getestet**, bevor es ins Heft kommt. Diese Testumgebung gibt es nur auf dem Rechner des Users, für dich:
-  - **Linux:** Ubuntu 26.04 LTS unter WSL 2, Benutzer `student` mit sudo ohne Passwort, systemd läuft; installiert sind u. a. gcc 15, gdb, Python 3.14, nmap, nc, tcpdump, openssl, binutils, strace, ltrace, xxd, tree, iproute2, dig, shellcheck, Manpages. Aufruf aus dem Bash-Tool: `MSYS_NO_PATHCONV=1 wsl.exe -d Ubuntu-26.04 --exec bash -c '…'` (nur mit `--exec` bleiben `$`-Variablen erhalten), längere Abläufe als Skript im Scratchpad über `/mnt/c/…` starten. Arbeite in `/home/student/<reihe>k<N>/`; nichts außerhalb davon dauerhaft verändern, keine Dienste nach außen öffnen, Scans und Netzversuche nur gegen `localhost` oder eigene Container/VMs.
+  - **Linux:** Ubuntu 26.04 LTS unter WSL 2, Benutzer `student` mit sudo ohne Passwort, systemd läuft; installiert sind u. a. gcc 15, gdb, Python 3.14, nmap, nc, tcpdump, openssl, binutils, strace, ltrace, xxd, tree, iproute2, dig, shellcheck, Manpages. Aufruf aus dem Bash-Tool: `MSYS_NO_PATHCONV=1 wsl.exe -d Ubuntu-26.04 --exec bash -c '…'` (nur mit `--exec` bleiben `$`-Variablen erhalten). **Immer mit `--exec`, nie Eingaben per Pipe an `wsl.exe` ohne `--exec`:** Das startet die Anmelde-Shell und kann Ubuntus einmalige Abfrage „Help improve Ubuntu“ auslösen, die deine Eingabe dann als Antwort liest (passiert 10.11.2026). Längere Abläufe als Skript im Scratchpad über `/mnt/c/…` starten. Arbeite in `/home/student/<reihe>k<N>/`; nichts außerhalb davon dauerhaft verändern, keine Dienste nach außen öffnen, Scans und Netzversuche nur gegen `localhost` oder eigene Container/VMs.
   - **Achtung, uutils:** Ubuntu 26.04 nutzt für die meisten coreutils, etwa `ls`, `cat`, `date`, die Rust-Neuimplementierung *uutils coreutils* und für `sudo` *sudo-rs*. Ausnahmen laut Paket-Changelog, geprüft bei der Recherche am 06.11.2026: `cp`, `mv`, `rm`, `df` und `true` sind GNU. Die GNU-Fassungen der übrigen heißen `gnuls` usw. uutils ist ein einziges Programm, das am Aufrufnamen erkennt, welches Werkzeug es spielt; eine umbenannte Kopie (z. B. von `date`) scheitert deshalb. Ausgaben stimmen meist überein, Fehlermeldungen und seltene Optionen können abweichen. Schreib im Heft, was auf einem gewöhnlichen Linux (GNU, z. B. Kali oder Debian) und auf Ubuntu 26.04 gleichermaßen gilt; wo beide sich unterscheiden und es für den Leser zählt, nenne es.
   - **Windows:** Python 3.13 mit NumPy 2.3 und scikit-learn 1.9 (kein PyTorch), MinGW gcc/g++/gdb (Windows-ABI, nicht für Linux-Assembler), CMake, Git Bash.
   - **Python unter Linux (seit 06.11.2026, vom User erlaubt):** venv `~/venvs/hefte` in WSL mit NumPy 2.5, Matplotlib 3.11, pytest 9.2 und Jupyter (Python 3.14). Aufruf: `~/venvs/hefte/bin/python`. Weitere Pakete installierst du nur in diese venv. Für Linux 1, 9 und 11 darfst du eine Test-VM bzw. einen nur lokal erreichbaren SSH-Server einrichten; sonst gilt „nichts installieren“.
   - Getesteten Code legst du unter `<Heftordner>\code\kap<N>\` ab, Zahlen prüft `rechnung_kap<N>.py` (erste Zeilen `import sys; sys.stdout.reconfigure(encoding="utf-8")`). Ausgaben im Heft sind echte Ausgaben (Benutzername `student`, Rechnername neutral, z. B. `labor`); was sich nicht testen ließ, nennst du im Bericht.
 
 ## Abbildungen
-- Jede neue Abbildung: TikZ im Heft in `abb` (im Kasten: `center` mit `\captionof{figure}`), Label `fig:k<N>name`, und eine Editor-Szene mit demselben Namen (`<reihe>/k<N>name`) in `tools/szenen/<reihe>_teil<N>.py` (Gerüst liegt bereit; N ist die Lernpfad-Nummer, ML-Pfad Teil 1 also `ml_teil8.py`, `ml/k8…`). Stil wie `tools/szenen/et3_teil2.py` (Klasse `Block` für Kästen und Pfeile, `Szene.achsen` für Diagramme), Wörter über `s.tr` in vier Sprachen. TikZ-Stile der Präambel: `blk`, `geraet`, `zelle`, `fluss`, `kn`.
+- **Jede neue Abbildung ist nur eine Editor-Szene** (Entscheidung des User vom 09.11.2026, kein TikZ mehr):
+  - Im Heft steht `\szenenabb{k<N><name>}{<Bildunterschrift>}{fig:k<N><name>}`, **ohne** `<reihe>/`: Die Präambel lädt `abb/de/k<N><name>.pdf`, der Konverter setzt die Reihe selbst davor. Das PDF zeigt das Endbild der Szene, die Website die Animation.
+  - Die Szene heißt `<reihe>/k<N><name>` und steht in `tools/szenen/<reihe>_teil<N>.py` (Gerüst liegt bereit; N ist die Lernpfad-Nummer, ML-Pfad Teil 1 also `ml_teil8.py`, `ml/k8…`).
+  - Stil wie `tools/szenen/et3_teil2.py` (Klasse `Block` für Kästen und Pfeile, `Szene.achsen` für Diagramme), Wörter über `s.tr` in allen sechs Sprachen.
+  - Anleitung: `notizen/animationen.md`.
+  - Vorhandene TikZ-Abbildungen älterer Hefte bleiben.
+- **Animation ist der Normalfall** (User, 09.11.2026: „immer Animationen für Grafiken … Button …, um die Animation zu stoppen und zu starten“), nach `notizen/animationen.md` §5:
+  - Die Zeitachse baut den Gedankengang in der Reihenfolge des Texts auf: erst der Rahmen (Achsen, Kästen), dann das Neue, zuletzt Beschriftung und Betonung. Helfer: `s.zeichnen`, `s.einblenden`, `s.umformen`, `s.betonen`, `s.ausblenden`, `s.pause`, `with s.gleichzeitig()` usw.
+  - Ein Schritt zeigt einen Gedanken (0,5–1,5 s) und ist ein Haltepunkt für den Leser. Vor einem neuen Gedanken steht `s.pause(0.6)`. Die ganze Animation dauert möglichst unter 15 s.
+  - Das Endbild muss allein verständlich sein, denn es steht im PDF und erscheint bei „Bewegung reduzieren“. Hilfsobjekte blendest du am Ende aus.
+  - Statisch bleibt eine Szene nur, wenn Bewegung nichts erklärt.
+  - Kamerafahrten in 3D gehen noch nicht, die Kamera bleibt fest.
+  - Export mit `python tools/export_szenen.py <namen> --animiert` in allen Sprachen. Keine Warnung „Endbild weicht ab“, Datei möglichst unter 300 KB. Für Formeln `einblenden` oder `zeilenweise` statt `schreiben`.
 - Im Repo `C:\Users\info\PycharmProjects\pythonanimation`: `python tools/szenen/<reihe>_teil<N>.py`, dann `python tools/export_szenen.py <namen>` (immer mit Namen). Jedes Bild höchstens 548 px breit; das Skript warnt sonst. Mit `python tools/szenen_ansehen.py <out.png> <name>` siehst du dir jedes Bild an.
 - Abbildungen zeigen den Begriff selbst (Anschauung vor der Formel), nicht Dekoration.
-- **Summen, Produkte und Skalarprodukte mit konkreten Zahlen** bekommen eine Editor-Abbildung, die die Rechnung Schritt für Schritt ausführt (UEBERARBEITUNG §6). Dafür gibt es `s.summe`, `s.produkt`, `s.skalarprodukt` und `s.formel` in `tools/szenen_lib.py`, Beispiele in `tools/szenen/beispiel_summen.py`. Im Heft steht dieselbe Rechnung als `align*` in einer `abb`-Umgebung mit Label `fig:k<N><name>`.
+- **Anzahl je Artikel** (User, 09.11.2026): „längenabhängig …, mit 5 als Maxium, 1 als Minimum“.
+  - Ein Artikel ist ein `\section`, auf der Website eine Seite.
+  - Er hat mindestens 1 und höchstens 5 Abbildungen, Rechenbilder mitgezählt.
+  - **Soll** = das Größere aus „eine je etwa 450 Wörter Haupttext“ und „Zahl der neuen Begriffe“, begrenzt auf 1 bis 5.
+  - Zugeklappte Kästen zählen halb zur Länge, ebenso Rechenbilder darin.
+- **Summen, Produkte und Skalarprodukte mit konkreten Zahlen** bekommen ein Rechenbild, das die Rechnung Schritt für Schritt ausführt (UEBERARBEITUNG §6).
+  - `s.summe`, `s.produkt`, `s.skalarprodukt` laufen von selbst Zeile für Zeile ab. Wo kein Operator passt, nimm `s.formel(..., zeilenweise=True)`.
+  - Beispiele stehen in `tools/szenen/beispiel_summen.py`.
+  - Im Heft steht das Rechenbild als `\szenenabb` wie jede andere Abbildung.
 
 ## Dateien
-`Kap<N>_<Name>.tex` (Hauptdatei wie `C:\Bücher\ET3\Arbeitshefte\Kap2_Laplace.tex`: `\input{praeambel}`, Titelblock mit `\LARGE` und `\large`, Zeile „Arbeitsheft Cybersecurity, Teil~N. Stand: <heutiges Datum>“ bzw. „Arbeitsheft Machine Learning, Teil~N. …“ (ML-Pfad, N = Anzeige-Nummer) bzw. „Mathematische Grundlagen für Machine Learning, Grundlagen~N. …“, Inhaltsverzeichnis, `\input` der Teile), `kap<N>_stufen.tex` (bei Bedarf `kap<N>_stufen_b.tex`), `kap<N>_loesungen.tex`, optional `rechnung_kap<N>.py` und `code\kap<N>\`.
+`Kap<N>_<Name>.tex` (Hauptdatei wie `C:\Bücher\ET3\Arbeitshefte\Kap2_Laplace.tex`: `\input{praeambel}`, Titelblock mit `\LARGE` und `\large`, Zeile „Arbeitsheft <Bereich>, Kapitel~N. Stand: <heutiges Datum>“ mit N = Anzeige-Nummer im Bereich und <Bereich> = „Cybersecurity“, „Machine Learning“ (ML-Pfad), „Machine Learning, Mathematische Grundlagen“, „Programmieren, Python“ (später „Programmieren, C“, „Programmieren, C++“) bzw. „Linux und Kommandozeile“ (`TITELZEILE` in `tools/heft_zu_artikel.py`), Inhaltsverzeichnis, `\input` der Teile), `kap<N>_stufen.tex` (bei Bedarf `kap<N>_stufen_b.tex`), `kap<N>_loesungen.tex`, optional `rechnung_kap<N>.py` und `code\kap<N>\`.
 
 ## Bauen und prüfen
 - **PDF:** im Heftordner `pdflatex -interaction=nonstopmode Kap<N>_<Name>.tex` dreimal. `grep -c '^!'` muss 0 sein, keine Overfull-hbox-Meldungen. Danach aux/log/out/toc löschen.

@@ -1,6 +1,8 @@
 ---
 title: Radialsymmetrische Funktionen und Felder
-pfad: Elektrotechnik / 3. Semester / Höhere Mathematik 3 / Differentialrechnung für Vektorfelder
+pfad: Elektrotechnik / 3. Semester / HöMa3 – Höhere Mathematik 3 / Differentialrechnung für Vektorfelder
+adresse: elektrotechnik/3-semester/hohere-mathematik-3/differentialrechnung-fur-vektorfelder
+knoten: Kapitel 1: Differentialrechnung für Vektorfelder
 order: 3110300
 summary: Viele Funktionen und Felder hängen nur vom Abstand zu einem Punkt ab, zum Beispiel das Potential und das Feld einer Punktladung.
 tags: Stammfunktion, Kugelfläche, radialsymmetrisch, Profil, radiale Einheitsvektor, Coulomb-Potential, Zentralfeld, radialsymmetrisches Vektorfeld

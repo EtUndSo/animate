@@ -1,0 +1,41 @@
+  OK   DataCurve renders (36 draw ops)
+  OK   Band renders (33 draw ops)
+  OK   Stem renders (43 draw ops)
+  OK   PointCloud renders (61 draw ops)
+  OK   TextBox renders (36 draw ops)
+  OK   TextBox renders (34 draw ops)
+  OK   Brace renders (33 draw ops)
+  OK   Mark renders (33 draw ops)
+  OK   Shape renders (35 draw ops)
+  OK   Table renders (52 draw ops)
+  OK   Component renders (46 draw ops)
+  OK   Device renders (42 draw ops)
+  OK   Wire renders (33 draw ops)
+  OK   Node renders (34 draw ops)
+  OK   Ellipse renders (32 draw ops)
+  OK   LabeledArrow renders (39 draw ops)
+  OK   LabeledArrow renders (33 draw ops)
+  OK   TangentLine renders (38 draw ops)
+  OK   LoopArrow renders (33 draw ops)
+  OK   Text renders (34 draw ops)
+  OK   all new objects together
+  OK   dash pattern reaches the canvas painter
+  OK   dash pattern reaches the SVG
+  OK   rich text in SVG (tspan with dy shift)
+  OK   each kind of Component
+  OK   each kind of Device
+  OK   log x: equal decade spacing
+  OK   log axis labels 10^{k}
+  OK   log plot of 1/x is a straight line
+  OK   panel binding: dot on (a) left, dot on (b) right
+  OK   parameter k=2 used in k*x (slope 2 in data units)
+  OK   richtext U_{GS}
+  OK   richtext 10^{-16}
+  OK   richtext nested e^{U/U_T}
+  OK   richtext two lines
+  OK   Marker at the intersection x^2 = U0 - x
+  OK   Marker x from a parameter, y on the curve
+  OK   semi-log tangent: 1/(U_T ln10) decades per volt
+  OK   CurveFamily: 3 curves + 3 labels from explicit values
+  OK   SVG export is well-formed XML
+ALL OK

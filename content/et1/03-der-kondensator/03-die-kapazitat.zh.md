@@ -1,6 +1,8 @@
 ---
 title: 第 2 阶段：电容
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 电容器
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 电容器
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator
+knoten: 第 3 章：电容器
 order: 1130300
 summary: 一定的电压能在极板上维持多少电荷？答案是每个元件的一个数值。
 tags: 
@@ -13,7 +15,7 @@ lang: zh
 一定的电压能在极板上维持多少电荷？答案是每个元件的一个数值。
 :::
 
-**基本思路。** 如果两块极板上的电荷都加倍，每份电荷就贡献两倍的电场。根据[第 1 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)的叠加原理，电场在每一处都加倍，而形状不变（图 [2](#abb-2) 左）。电压是电场从一块极板到另一块极板的积分，所以也加倍。因此 $Q$ 与 $U$ 成正比。它们的比值与当前有多少电荷无关，只取决于形状、间距和材料。
+**基本思路。** 如果两块极板上的电荷都加倍，每份电荷就贡献两倍的电场。根据[第 1 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)的叠加原理，电场在每一处都加倍，而形状不变（图 [2](#abb-2) 左）。电压是电场从一块极板到另一块极板的积分，所以也加倍。因此 $Q$ 与 $U$ 成正比。它们的比值与当前有多少电荷无关，只取决于形状、间距和材料。
 
 :::definition 定义 2.1 (电容)
 <span class="anker" id="satz-2-1"></span>

@@ -1,7 +1,8 @@
 ---
 title: Die Maximum-a-posteriori-Schätzung
 pfad: Informatik / Machine Learning / Mathematische Grundlagen / Statistik und Information
-knoten: Grundlagen 5: Statistik und Information
+adresse: informatik/machine-learning/mathematische-grundlagen/statistik-und-information
+knoten: Kapitel 5: Statistik und Information
 nachschlagen: ja
 order: 15250800
 summary: Der Posterior enthält alles, was man nach den Daten über den Parameter weiß.
@@ -67,7 +68,7 @@ Man kann die Rechnung auch rückwärts lesen. Wer zur Log-Likelihood einen Straf
 
 <span class="anker" id="stufe-7-3"></span>
 
-Dieselbe Idee funktioniert bei stetigen Daten. Ein Sensor misst eine Spannung mit einem unbekannten Versatz $\mu$; jede Messung ist $x_i=\mu+\nu_i$ mit Rauschen $\nu_i\sim\mathcal N(0,\sigma^2)$ wie in [Grundlagen 4, Abschnitt 8.7](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/wichtige-verteilungen.html#stufe-8-7), und die Standardabweichung $\sigma$ des Rauschens ist bekannt. Aus dem Datenblatt weiß man außerdem, dass der Versatz solcher Sensoren um $0$ streut, mit einer Standardabweichung $\tau$. Das ist ein Prior $\mu\sim\mathcal N(\mu_0,\tau^2)$ mit $\mu_0=0$.
+Dieselbe Idee funktioniert bei stetigen Daten. Eine neue Küchenwaage zeigt ohne Last nicht genau $0$ an, sondern einen unbekannten Versatz $\mu$; jede Wägung ohne Last ist $x_i=\mu+\nu_i$ mit Rauschen $\nu_i\sim\mathcal N(0,\sigma^2)$ wie in [Kapitel 4, Abschnitt 8.7](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/wichtige-verteilungen.html#stufe-8-7), und die Standardabweichung $\sigma$ des Rauschens ist bekannt. Aus den Angaben des Herstellers weiß man außerdem, dass der Versatz solcher Waagen um $0$ streut, mit einer Standardabweichung $\tau$. Das ist ein Prior $\mu\sim\mathcal N(\mu_0,\tau^2)$ mit $\mu_0=0$.
 
 :::satz Satz 7.2 (MAP-Schätzer mit Gauß-Prior)
 <span class="anker" id="satz-7-2"></span>
@@ -79,23 +80,23 @@ $$\hat\mu_{\mathrm{MAP}}=\frac{\dfrac N{\sigma^2}\,\bar x+\dfrac1{\tau^2}\,\mu_0
 :::
 
 :::herleitung MAP-Schätzer mit Gauß-Prior
-Nach [(5.4)](die-maximum-likelihood-schatzung.html#gl-5-4) und [Grundlagen 4, Abschnitt 8.5](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/wichtige-verteilungen.html#stufe-8-5), ist bis auf Summanden, die nicht von $\mu$ abhängen,
+Nach [(5.4)](die-maximum-likelihood-schatzung.html#gl-5-4) und [Kapitel 4, Abschnitt 8.5](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/wichtige-verteilungen.html#stufe-8-5), ist bis auf Summanden, die nicht von $\mu$ abhängen,
 
 $$\ell(\mu)+\ln p(\mu)=-\frac1{2\sigma^2}\sum_{i=1}^N(x_i-\mu)^2-\frac1{2\tau^2}(\mu-\mu_0)^2 .$$
 
 Die Ableitung nach $\mu$ ist $\frac1{\sigma^2}\sum_i(x_i-\mu)-\frac1{\tau^2}(\mu-\mu_0)=\frac N{\sigma^2}(\bar x-\mu)-\frac1{\tau^2}(\mu-\mu_0)$. Sie fällt mit wachsendem $\mu$ und ist null, wenn $\mu\,\bigl(\frac N{\sigma^2}+\frac1{\tau^2}\bigr)=\frac N{\sigma^2}\bar x+\frac1{\tau^2}\mu_0$ ist. Nach dem Satz über den Vorzeichenwechsel ist das der höchste Punkt.
 :::
 
-Der MAP-Schätzer ist ein gewichtetes Mittel aus dem Mittelwert der Messungen und dem Erwartungswert des Priors. Die Gewichte sind die Kehrwerte der Varianzen: $N/\sigma^2$ ist der Kehrwert von $\operatorname{Var}(\bar X)=\sigma^2/N$, und $1/\tau^2$ der Kehrwert der Prior-Varianz. Der Prior wirkt also wie eine zusätzliche Messung mit der Varianz $\tau^2$, genau wie bei den zwei Messgeräten in Aufgabe [5](wie-gut-ist-ein-schatzer.html#aufg-5). Der Strafterm $-(\mu-\mu_0)^2/(2\tau^2)$ ist quadratisch: Er bestraft den Abstand von $\mu_0$ umso stärker, je kleiner $\tau$ ist.
+Der MAP-Schätzer ist ein gewichtetes Mittel aus dem Mittelwert der Messungen und dem Erwartungswert des Priors. Die Gewichte sind die Kehrwerte der Varianzen: $N/\sigma^2$ ist der Kehrwert von $\operatorname{Var}(\bar X)=\sigma^2/N$, und $1/\tau^2$ der Kehrwert der Prior-Varianz. Der Prior wirkt also wie eine zusätzliche Messung mit der Varianz $\tau^2$, genau wie bei den zwei Waagen in Aufgabe [5](wie-gut-ist-ein-schatzer.html#aufg-5). Der Strafterm $-(\mu-\mu_0)^2/(2\tau^2)$ ist quadratisch: Er bestraft den Abstand von $\mu_0$ umso stärker, je kleiner $\tau$ ist.
 
 ::::beispiel [Rechenbeispiel]
-Es sei $\sigma=2\,\mathrm{mV}$, $\tau=1\,\mathrm{mV}$ und $\mu_0=0$. Aus $N=4$ Messungen ergibt sich $\bar x=1{,}5\,\mathrm{mV}$. Die Gewichte sind $N/\sigma^2=4/4=1\,\mathrm{mV}^{-2}$ und $1/\tau^2=1\,\mathrm{mV}^{-2}$, also ist $\hat\mu_{\mathrm{MAP}}=\frac{1\cdot1{,}5+1\cdot0}{1+1}=0{,}75\,\mathrm{mV}$. Mit $N=36$ Messungen und demselben Mittelwert ist das Gewicht der Daten $9$, und $\hat\mu_{\mathrm{MAP}}=\frac{9\cdot1{,}5}{9+1}=1{,}35\,\mathrm{mV}$. Mit wachsender Zahl der Messungen rückt der MAP-Schätzer an den Maximum-Likelihood-Schätzer $\bar x$ heran.
+Es sei $\sigma=2\,\mathrm g$, $\tau=1\,\mathrm g$ und $\mu_0=0$. Aus $N=4$ Messungen ergibt sich $\bar x=1{,}5\,\mathrm g$. Die Gewichte sind $N/\sigma^2=4/4=1\,\mathrm g^{-2}$ und $1/\tau^2=1\,\mathrm g^{-2}$, also ist $\hat\mu_{\mathrm{MAP}}=\frac{1\cdot1{,}5+1\cdot0}{1+1}=0{,}75\,\mathrm g$. Mit $N=36$ Messungen und demselben Mittelwert ist das Gewicht der Daten $9$, und $\hat\mu_{\mathrm{MAP}}=\frac{9\cdot1{,}5}{9+1}=1{,}35\,\mathrm g$. Mit wachsender Zahl der Messungen rückt der MAP-Schätzer an den Maximum-Likelihood-Schätzer $\bar x$ heran.
 ::::
 
 ⁠**Kurz gesagt:** Mit einem Gauß-Prior ist der MAP-Schätzer des Erwartungswerts ein Mittel aus Messmittelwert und Prior-Erwartungswert, gewichtet mit den Kehrwerten der Varianzen.
 
 :::hintergrund Auch der Posterior ist normal
-Der Logarithmus von Likelihood mal Prior ist im Beispiel eine nach unten geöffnete Parabel in $\mu$. Ergänzt man quadratisch wie in [Grundlagen 2, Abschnitt 5.4](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/quadratische-formen.html#stufe-5-4), so schreibt er sich als $-\frac1{2s^2}(\mu-\hat\mu_{\mathrm{MAP}})^2$ plus eine Konstante, mit $\frac1{s^2}=\frac N{\sigma^2}+\frac1{\tau^2}$. Der Posterior ist also die Normalverteilung $\mathcal N(\hat\mu_{\mathrm{MAP}},s^2)$: Die Normalverteilung ist zu sich selbst konjugiert. Bei ihr fallen Gipfel und Erwartungswert zusammen, MAP-Schätzer und Posterior-Mittelwert sind hier gleich. Die Kehrwerte der Varianzen addieren sich: Jede Informationsquelle macht den Posterior schmaler. Im Beispiel mit $N=4$ ist $1/s^2=2\,\mathrm{mV}^{-2}$, also $s\approx0{,}71\,\mathrm{mV}$, schmaler als der Standardfehler $1\,\mathrm{mV}$ des Mittelwerts allein und als die Prior-Standardabweichung $1\,\mathrm{mV}$.
+Der Logarithmus von Likelihood mal Prior ist im Beispiel eine nach unten geöffnete Parabel in $\mu$. Ergänzt man quadratisch wie in [Kapitel 2, Abschnitt 5.4](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/quadratische-formen.html#stufe-5-4), so schreibt er sich als $-\frac1{2s^2}(\mu-\hat\mu_{\mathrm{MAP}})^2$ plus eine Konstante, mit $\frac1{s^2}=\frac N{\sigma^2}+\frac1{\tau^2}$. Der Posterior ist also die Normalverteilung $\mathcal N(\hat\mu_{\mathrm{MAP}},s^2)$: Die Normalverteilung ist zu sich selbst konjugiert. Bei ihr fallen Gipfel und Erwartungswert zusammen, MAP-Schätzer und Posterior-Mittelwert sind hier gleich. Die Kehrwerte der Varianzen addieren sich: Jede Informationsquelle macht den Posterior schmaler. Im Beispiel mit $N=4$ ist $1/s^2=2\,\mathrm g^{-2}$, also $s\approx0{,}71\,\mathrm g$, schmaler als der Standardfehler $1\,\mathrm g$ des Mittelwerts allein und als die Prior-Standardabweichung $1\,\mathrm g$.
 :::
 
 ### Drei Schätzer im Vergleich
@@ -268,6 +269,6 @@ Wo liegt ihr Gipfel? Was lernt man daraus über die Aussage „der Prior bevorzu
 :::loesung
 (a) Mit $\theta=\sigma(\eta)$ und $\mathrm{d}\theta/\mathrm{d}\eta=\sigma(\eta)(1-\sigma(\eta))$ ist nach dem Variablenwechsel $p_\eta(\eta)=1\cdot\sigma(\eta)(1-\sigma(\eta))$.
 
-(b) Nach [Grundlagen 3, Abschnitt 2.4](/wissen/informatik/machine-learning/mathematische-grundlagen/ableitung-gradient-und-kettenregel/die-kettenregel.html#stufe-2-4), ist $\sigma(1-\sigma)$ am größten bei $\eta=0$, mit dem Wert $\tfrac14$. Die Dichte von $\eta$ hat also einen Gipfel bei $\eta=0$, also bei $\theta=\tfrac12$, obwohl die Dichte von $\theta$ überall gleich ist. „Keine Vorliebe“ ist keine Eigenschaft eines Priors allein, sondern hängt davon ab, mit welcher Größe man den Parameter beschreibt.
+(b) Nach [Kapitel 3, Abschnitt 2.4](/wissen/informatik/machine-learning/mathematische-grundlagen/ableitung-gradient-und-kettenregel/die-kettenregel.html#stufe-2-4), ist $\sigma(1-\sigma)$ am größten bei $\eta=0$, mit dem Wert $\tfrac14$. Die Dichte von $\eta$ hat also einen Gipfel bei $\eta=0$, also bei $\theta=\tfrac12$, obwohl die Dichte von $\theta$ überall gleich ist. „Keine Vorliebe“ ist keine Eigenschaft eines Priors allein, sondern hängt davon ab, mit welcher Größe man den Parameter beschreibt.
 :::
 :::

@@ -1,6 +1,8 @@
 ---
 title: Stage 1: Why $\mathrm{e}^{pt}$ in particular
-pfad: Electrical Engineering / 3rd Semester / Signals and Systems / Laplace Transform
+pfad: Electrical Engineering / 3rd Semester / ET3 – Fundamentals of Electrical Engineering 3: Signals and Systems / Laplace Transform
+adresse: elektrotechnik/3-semester/signale-und-systeme/laplace-transformation
+knoten: Chapter 2: Laplace Transform
 order: 3220200
 summary: If you insert e pt into the convolution integral, the result is H(p)\,e pt : e pt is an eigenfunction.
 tags: growth rate, frequency

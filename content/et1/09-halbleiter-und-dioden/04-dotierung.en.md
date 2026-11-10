@@ -1,6 +1,8 @@
 ---
 title: Stage 2: Doping
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / Semiconductors and Diodes
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / Semiconductors and Diodes
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden
+knoten: Chapter 9: Semiconductors and Diodes
 order: 1190400
 summary: Pure silicon has too few charge carriers, and their number depends strongly on temperature.
 tags: valence electrons, covalent bond, donor, acceptor, n-region, p-region, majority carrier, minority carrier

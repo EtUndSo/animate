@@ -1,6 +1,8 @@
 ---
 title: 第 3 阶段：阻抗形式与开路试验
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 二端口网络
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 二端口网络
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore
+knoten: 第 6 章：二端口网络
 order: 1160500
 summary: 第一种选择：电流是原因。本阶段说明，为什么开路的端口能逐个显露这四个数。
 tags: Z 参数, 开路输入电阻, 开路输出电阻, 开路转移电阻, 二端量, 转移量, 阻抗
@@ -48,7 +50,7 @@ $$\mathbf Z=\begin{pmatrix}R_\mathrm{a}+R_\mathrm{b}&R_\mathrm{b}\\mathbb{R}_\ma
 <span class="anker" id="gl-3-3"></span>
 $$Z_{11}=Z_{22}=(R_\mathrm{x}+R_\mathrm{y})\parallel(R_\mathrm{x}+R_\mathrm{y})=\frac{R_\mathrm{x}+R_\mathrm{y}}{2},\qquad Z_{21}=Z_{12}=\frac{R_\mathrm{y}-R_\mathrm{x}}{2}. \tag{3.3}$$
 
-⁠**极限情况：**$R_\mathrm{b}\to0$ 时 $Z_{12}=Z_{21}=0$：并联支路是一根导线，两个端口解耦。$R_\mathrm{x}=R_\mathrm{y}$ 时电桥平衡（[第 4 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-und-spannung-messen/strom-und-spannung-messen.html)），同样 $Z_{21}=0$。
+⁠**极限情况：**$R_\mathrm{b}\to0$ 时 $Z_{12}=Z_{21}=0$：并联支路是一根导线，两个端口解耦。$R_\mathrm{x}=R_\mathrm{y}$ 时电桥平衡（[第 4 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-und-spannung-messen/strom-und-spannung-messen.html)），同样 $Z_{21}=0$。
 
 :::frage 为什么在输入端用电流而不用电压？我手边更容易有电压源。
 这也可以。重要的只是另一个端口开路。然后测量 $U_1$ 和 $I_1$，求它们的商。注入电流只是符合这种形式的思路：它是原因，电压是结果。

@@ -1,0 +1,19 @@
+  Abbildung: /abbildungen/de/et3/fehlt.svg fehlt — python tools/export_szenen.py et3/fehlt -> Platzhalter
+  Abbildung: ungültiger Szenenname „../geheim“ (erlaubt: a-z A-Z 0-9 _ - und /) -> Platzhalter
+  Abbildung: web/szenen/et3/ohnejson.json fehlt -> ohne Editor-Link
+  OK   two real figures (abb-1, abb-2) and one without link (abb-5); :::grafik takes no number
+  OK   img: exported SVG of the article language at its own size
+  OK   img: lazy loading
+  OK   alt text = caption without markup (f_\mathrm{A} -> f A)
+  OK   caption numbered per article, inline markdown + math kept for KaTeX
+  OK   editor button under the image, scene name only
+  OK   empty caption: number only, alt 'Abbildung 2'
+  OK   scene file missing -> figure without editor link
+  OK   :::grafik placeholder unchanged
+  OK   missing SVG -> placeholder, its number 3 stays reserved
+  OK   invalid name -> placeholder 4, never an <img> or link for it
+  OK   figures sit inside the section card
+  OK   reading time ignores figure captions
+  OK   CSS for figure.abb is in the stylesheet
+  OK   editor SCENE_LINK_RE == build SZENE_NAME_RE on 14 names
+ABBILDUNG TESTS PASSED

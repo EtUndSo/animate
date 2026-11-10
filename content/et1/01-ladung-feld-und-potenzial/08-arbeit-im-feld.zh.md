@@ -1,6 +1,8 @@
 ---
 title: 第 6 阶段：电场中的功
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 电荷、电场与电位
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 电荷、电场与电位
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial
+knoten: 第 1 章：电荷、电场与电位
 order: 1110800
 summary: 电荷在电场中运动时，场力做功。本阶段计算这个功，并指出后面一切所依赖的性质：功与路径无关。
 tags: 无旋, 静电场

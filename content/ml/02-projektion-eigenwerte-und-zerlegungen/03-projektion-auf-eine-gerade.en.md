@@ -1,7 +1,8 @@
 ---
 title: Projection onto a line
 pfad: Computer Science / Machine Learning / Mathematical Foundations / Projection, Eigenvalues and Decompositions
-knoten: Foundations 2: Projection, Eigenvalues and Decompositions
+adresse: informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen
+knoten: Chapter 2: Projection, Eigenvalues and Decompositions
 nachschlagen: ja
 order: 15220300
 summary: A point lies off a line.
@@ -21,7 +22,7 @@ A point lies off a line. Which point of the line is closest to it? This section 
 
 A line through the origin consists of all multiples $t\,\mathbf{a}$ of a direction vector $\mathbf{a}\ne\mathbf{0}$. We are given a point $\mathbf{y}$ that need not lie on it. We are looking for the point of the line that is closest to $\mathbf{y}$.
 
-In [Foundations 1, Section 5.5](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/winkel-und-ahnlichkeit.html#stufe-5-5), an arrow cast a shadow onto a line when the light fell perpendicularly. The endpoint of the shadow is the point where the perpendicular from $\mathbf{y}$ meets the line, the *foot of the perpendicular*. The connection from this point to $\mathbf{y}$ is perpendicular to the line (Fig. [4](#abb-4)). That it is the closest point is shown in the next subsection. Here it is computed first, and this works even when $\mathbf{a}$ is not normalized.
+In [Chapter 1, Section 5.5](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/winkel-und-ahnlichkeit.html#stufe-5-5), an arrow cast a shadow onto a line when the light fell perpendicularly. The endpoint of the shadow is the point where the perpendicular from $\mathbf{y}$ meets the line, the *foot of the perpendicular*. The connection from this point to $\mathbf{y}$ is perpendicular to the line (Fig. [4](#abb-4)). That it is the closest point is shown in the next subsection. Here it is computed first, and this works even when $\mathbf{a}$ is not normalized.
 
 :::herleitung The foot of the perpendicular
 The point we are looking for lies on the line, so it is $\hat x\,\mathbf{a}$ with a number $\hat x$ that is still unknown. The connection $\mathbf{y}-\hat x\,\mathbf{a}$ is to be perpendicular to $\mathbf{a}$:
@@ -40,7 +41,7 @@ Let $\mathbf{a}\in\mathbb{R}^n$, $\mathbf{a}\ne\mathbf{0}$. The __orthogonal pro
 $$\hat{\mathbf{y}}=\hat x\,\mathbf{a}\qquad\text{with}\qquad\hat x=\frac{\mathbf{a}^{\top}\mathbf{y}}{\mathbf{a}^{\top}\mathbf{a}} . \tag{2.1}$$
 :::
 
-The point $\hat{\mathbf{y}}$ is a vector in $\mathbb{R}^n$; the number $\hat x$ is its coordinate along $\mathbf{a}$. The two must not be confused. If $\mathbf{a}$ is normalized, then $\mathbf{a}^{\top}\mathbf{a}=1$ and $\hat{\mathbf{y}}=(\mathbf{a}^{\top}\mathbf{y})\,\mathbf{a}$, exactly the shadow point from [Foundations 1](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html).
+The point $\hat{\mathbf{y}}$ is a vector in $\mathbb{R}^n$; the number $\hat x$ is its coordinate along $\mathbf{a}$. The two must not be confused. If $\mathbf{a}$ is normalized, then $\mathbf{a}^{\top}\mathbf{a}=1$ and $\hat{\mathbf{y}}=(\mathbf{a}^{\top}\mathbf{y})\,\mathbf{a}$, exactly the shadow point from [Chapter 1](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html).
 
 :::abbildung ml/k2lot 4
 The projection of $\mathbf{y}=(4,3)^{\top}$ onto the line in the direction of $\mathbf{a}=(1,2)^{\top}$. The foot of the perpendicular is $\hat{\mathbf{y}}=2\mathbf{a}=(2,4)^{\top}$; the connection $\mathbf{r}=(2,-1)^{\top}$ (blue) is perpendicular to the line. Any other point of the line, for example $(1,2)^{\top}$, is farther away from $\mathbf{y}$ (dashed): the triangle formed by $\mathbf{y}$, $\hat{\mathbf{y}}$ and $(1,2)^{\top}$ has a right angle at $\hat{\mathbf{y}}$, and the dashed side is its hypotenuse.
@@ -55,7 +56,7 @@ The two dot products of the projection step by step: $\mathbf{a}^{\top}\mathbf{y
 ::::
 
 ::::beispiel [Worked example 2]
-For $\mathbf{a}=(3,\,4)^{\top}$ and $\mathbf{y}=(3,\,1)^{\top}$ we get $\hat x=(9+4)/25=0.52$ and $\hat{\mathbf{y}}=0.52\,(3,\,4)^{\top}=(1.56,\ 2.08)^{\top}$, the same shadow point as in [Foundations 1](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html) with the normalized vector $(0.6,\ 0.8)^{\top}=\mathbf{a}/5$. The length of the direction vector does not matter: if you replace $\mathbf{a}$ by $c\,\mathbf{a}$ with $c\ne0$, then $\hat x$ becomes $\hat x/c$, and $\hat{\mathbf{y}}$ stays the same. If, on the other hand, you double $\mathbf{y}$, then $\hat{\mathbf{y}}$ doubles as well.
+For $\mathbf{a}=(3,\,4)^{\top}$ and $\mathbf{y}=(3,\,1)^{\top}$ we get $\hat x=(9+4)/25=0.52$ and $\hat{\mathbf{y}}=0.52\,(3,\,4)^{\top}=(1.56,\ 2.08)^{\top}$, the same shadow point as in [Chapter 1](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html) with the normalized vector $(0.6,\ 0.8)^{\top}=\mathbf{a}/5$. The length of the direction vector does not matter: if you replace $\mathbf{a}$ by $c\,\mathbf{a}$ with $c\ne0$, then $\hat x$ becomes $\hat x/c$, and $\hat{\mathbf{y}}$ stays the same. If, on the other hand, you double $\mathbf{y}$, then $\hat{\mathbf{y}}$ doubles as well.
 ::::
 
 ⁠**In short:** The projection of $\mathbf{y}$ onto the line in the direction of $\mathbf{a}$ is the foot of the perpendicular, $\hat{\mathbf{y}}=\frac{\mathbf{a}^{\top}\mathbf{y}}{\mathbf{a}^{\top}\mathbf{a}}\,\mathbf{a}$.
@@ -82,7 +83,7 @@ Write the connection from $t\,\mathbf{a}$ to $\mathbf{y}$ as the sum of two arro
 
 $$\mathbf{y}-t\,\mathbf{a}=(\mathbf{y}-\hat{\mathbf{y}})+(\hat x-t)\,\mathbf{a} .$$
 
-By the derivation, the first term is perpendicular to $\mathbf{a}$, hence also to the second. By the Pythagorean theorem from [Foundations 1, Section 5.3](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/winkel-und-ahnlichkeit.html#stufe-5-3), the squared length of the sum is the sum of the squared lengths, and that is [(2.2)](#gl-2-2). The second term on the right-hand side is never negative and is zero only for $t=\hat x$. So the distance is smallest exactly for $t=\hat x$.
+By the derivation, the first term is perpendicular to $\mathbf{a}$, hence also to the second. By the Pythagorean theorem from [Chapter 1, Section 5.3](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/winkel-und-ahnlichkeit.html#stufe-5-3), the squared length of the sum is the sum of the squared lengths, and that is [(2.2)](#gl-2-2). The second term on the right-hand side is never negative and is zero only for $t=\hat x$. So the distance is smallest exactly for $t=\hat x$.
 :::
 
 For the length of the foot, $\lVert\hat{\mathbf{y}}\rVert=|\hat x|\,\lVert\mathbf{a}\rVert=|\mathbf{a}^{\top}\mathbf{y}|/\lVert\mathbf{a}\rVert=|\cos\varphi|\,\lVert\mathbf{y}\rVert$, where $\varphi$ is the angle between $\mathbf{a}$ and $\mathbf{y}$. This is the adjacent side in the right triangle with the hypotenuse $\mathbf{y}$.
@@ -94,7 +95,7 @@ In the first worked example of the previous subsection, $\lVert\mathbf{y}-\hat{\
 ⁠**In short:** The closest point of a line is the foot of the perpendicular, because by Pythagoras every step along the line increases the squared distance.
 
 :::hintergrund Why there is exactly one closest point, and why this is due to the Euclidean norm
-The proof uses the Pythagorean theorem, and that theorem holds only for norms that come from a dot product. In [Foundations 1, Section 3.4](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/normen-die-groe-eines-vektors.html#stufe-3-4), it turned out that the 1-norm is not such a norm. With it, uniqueness is indeed lost. Example: the line in the direction of $\mathbf{a}=(1,\,1)^{\top}$ and the point $\mathbf{y}=(1,\,0)^{\top}$. For $0\le t\le1$,
+The proof uses the Pythagorean theorem, and that theorem holds only for norms that come from a dot product. In [Chapter 1, Section 3.4](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/normen-die-groe-eines-vektors.html#stufe-3-4), it turned out that the 1-norm is not such a norm. With it, uniqueness is indeed lost. Example: the line in the direction of $\mathbf{a}=(1,\,1)^{\top}$ and the point $\mathbf{y}=(1,\,0)^{\top}$. For $0\le t\le1$,
 
 $$\lVert\mathbf{y}-t\,\mathbf{a}\rVert_1=|1-t|+|0-t|=(1-t)+t=1 ,$$
 
@@ -105,11 +106,11 @@ so the distance is the same for all points between $\mathbf{0}$ and $\mathbf{a}$
 
 <span class="anker" id="stufe-2-3"></span>
 
-The rule $\mathbf{y}\mapsto\hat{\mathbf{y}}$ is linear: the sum of two points is mapped to the sum of their projections, a multiple to the corresponding multiple. By [Foundations 1, Section 8.2](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-2), it therefore has a matrix. You can read it off directly by writing the number $\mathbf{a}^{\top}\mathbf{y}$ on the other side of $\mathbf{a}$ and regrouping the matrix product:
+The rule $\mathbf{y}\mapsto\hat{\mathbf{y}}$ is linear: the sum of two points is mapped to the sum of their projections, a multiple to the corresponding multiple. By [Chapter 1, Section 8.2](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-2), it therefore has a matrix. You can read it off directly by writing the number $\mathbf{a}^{\top}\mathbf{y}$ on the other side of $\mathbf{a}$ and regrouping the matrix product:
 
 $$\hat{\mathbf{y}}=\mathbf{a}\,\frac{\mathbf{a}^{\top}\mathbf{y}}{\mathbf{a}^{\top}\mathbf{a}}=\frac{\mathbf{a}\,\mathbf{a}^{\top}}{\mathbf{a}^{\top}\mathbf{a}}\,\mathbf{y} .$$
 
-The numerator is the outer product from [Foundations 1, Section 9.5](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrixprodukt.html#stufe-9-5).
+The numerator is the outer product from [Chapter 1, Section 9.5](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrixprodukt.html#stufe-9-5).
 
 :::definition Definition 2.3 (Projection matrix of a line)
 <span class="anker" id="satz-2-3"></span>
@@ -139,7 +140,7 @@ For $\mathbf{a}=(1,\,2)^{\top}$,
 
 $$\mathbf{P}=\frac15\begin{pmatrix}1&2\\2&4\end{pmatrix},\qquad \mathbf{P}\begin{pmatrix}4\\3\end{pmatrix}=\frac15\begin{pmatrix}4+6\\8+12\end{pmatrix}=\begin{pmatrix}2\\4\end{pmatrix}.$$
 
-Check of $\mathbf{P}^2=\mathbf{P}$: $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)^2=\bigl(\begin{smallmatrix}5&10\\10&20\end{smallmatrix}\bigr)=5\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$, so $\mathbf{P}^2=\frac1{25}\cdot5\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)=\mathbf{P}$. In [Foundations 1, Section 11.5](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/einheitsmatrix-und-inverse.html#stufe-11-5), the matrix $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ was the example of a matrix without an inverse. Now it is clear what it does: it is five times a projection and squashes the plane flat onto the line in the direction of $(1,\,2)^{\top}$.
+Check of $\mathbf{P}^2=\mathbf{P}$: $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)^2=\bigl(\begin{smallmatrix}5&10\\10&20\end{smallmatrix}\bigr)=5\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$, so $\mathbf{P}^2=\frac1{25}\cdot5\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)=\mathbf{P}$. In [Chapter 1, Section 11.5](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/einheitsmatrix-und-inverse.html#stufe-11-5), the matrix $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ was the example of a matrix without an inverse. Now it is clear what it does: it is five times a projection and squashes the plane flat onto the line in the direction of $(1,\,2)^{\top}$.
 ::::
 
 ⁠**In short:** The projection onto a line is the matrix-vector product with $\mathbf{P}=\mathbf{a}\mathbf{a}^{\top}/(\mathbf{a}^{\top}\mathbf{a})$; this matrix is symmetric and satisfies $\mathbf{P}^2=\mathbf{P}$.
@@ -163,7 +164,7 @@ A projection $\mathbf{P}$ is an orthogonal projection if and only if $\mathbf{P}
 :::
 
 :::beweis Orthogonal means symmetric
-For all $\mathbf{y},\mathbf{z}$, $(\mathbf{y}-\mathbf{P}\mathbf{y})^{\top}\mathbf{P}\mathbf{z}=\mathbf{y}^{\top}(\mathbf{I}-\mathbf{P})^{\top}\mathbf{P}\mathbf{z}$. If $\mathbf{P}^{\top}=\mathbf{P}$, then $(\mathbf{I}-\mathbf{P})^{\top}\mathbf{P}=\mathbf{P}-\mathbf{P}^2=\mathbf 0$, and the expression is zero. Conversely, if the expression is zero for all $\mathbf{y},\mathbf{z}$, then the matrix $(\mathbf{I}-\mathbf{P})^{\top}\mathbf{P}$ is the zero matrix; with $\mathbf{y}=\mathbf{e}_i$ and $\mathbf{z}=\mathbf{e}_l$, the expression picks out its entry $(i,l)$. Then $\mathbf{P}=\mathbf{P}^{\top}\mathbf{P}$, and by [Foundations 1, Section 10.2](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/transponierte-symmetrie-und-gram-matrix.html#stufe-10-2), $\mathbf{P}^{\top}\mathbf{P}$ is symmetric.
+For all $\mathbf{y},\mathbf{z}$, $(\mathbf{y}-\mathbf{P}\mathbf{y})^{\top}\mathbf{P}\mathbf{z}=\mathbf{y}^{\top}(\mathbf{I}-\mathbf{P})^{\top}\mathbf{P}\mathbf{z}$. If $\mathbf{P}^{\top}=\mathbf{P}$, then $(\mathbf{I}-\mathbf{P})^{\top}\mathbf{P}=\mathbf{P}-\mathbf{P}^2=\mathbf 0$, and the expression is zero. Conversely, if the expression is zero for all $\mathbf{y},\mathbf{z}$, then the matrix $(\mathbf{I}-\mathbf{P})^{\top}\mathbf{P}$ is the zero matrix; with $\mathbf{y}=\mathbf{e}_i$ and $\mathbf{z}=\mathbf{e}_l$, the expression picks out its entry $(i,l)$. Then $\mathbf{P}=\mathbf{P}^{\top}\mathbf{P}$, and by [Chapter 1, Section 10.2](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/transponierte-symmetrie-und-gram-matrix.html#stufe-10-2), $\mathbf{P}^{\top}\mathbf{P}$ is symmetric.
 :::
 
 ::::beispiel [Worked example]

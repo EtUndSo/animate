@@ -1,6 +1,8 @@
 ---
 title: 技巧：衰减、分解、再乘回
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / 拉普拉斯变换
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / 拉普拉斯变换
+adresse: elektrotechnik/3-semester/signale-und-systeme/laplace-transformation
+knoten: 第 2 章：拉普拉斯变换
 order: 3220400
 summary: 每个信号都是 $\mathrm{e}^{pt}$ 的叠加， 以及为什么 LTI 系统的作用因此变成乘法
 tags: 密度

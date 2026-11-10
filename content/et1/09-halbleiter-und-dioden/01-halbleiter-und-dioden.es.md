@@ -1,7 +1,9 @@
 ---
 title: Visión general: Semiconductores y diodos
 kurz: Visión general
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Semiconductores y diodos
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Semiconductores y diodos
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden
+knoten: Capítulo 9: Semiconductores y diodos
 order: 1190100
 summary: Cómo el silicio se convierte en una válvula para la corriente y cómo se calcula con ella
 tags: diodo, semiconductor, Dopado, portadores de carga, unión pn, zona de carga espacial, curva característica, punto de trabajo

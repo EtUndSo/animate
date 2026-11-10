@@ -1,6 +1,8 @@
 ---
 title: Stage 1: The random process
-pfad: Electrical Engineering / 3rd Semester / Signals and Systems / Random Signals
+pfad: Electrical Engineering / 3rd Semester / ET3 – Fundamentals of Electrical Engineering 3: Signals and Systems / Random Signals
+adresse: elektrotechnik/3-semester/signale-und-systeme/zufallssignale
+knoten: Chapter 7: Random Signals
 order: 3270200
 summary: How do you describe a signal whose waveform you do not know?
 tags: sample function, random process, random variable, expected value, autocorrelation function

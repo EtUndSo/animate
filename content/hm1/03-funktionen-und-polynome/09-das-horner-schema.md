@@ -1,6 +1,8 @@
 ---
 title: Stufe 7: Das Horner-Schema
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Funktionen und Polynome
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Funktionen und Polynome
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/funktionen-und-polynome
+knoten: Kapitel 3: Funktionen und Polynome
 order: 1230900
 summary: Für den Teiler x-x 0 ist die Division so regelmäßig, dass ein Schema mit drei Zeilen genügt.
 tags: Horner-Darstellung

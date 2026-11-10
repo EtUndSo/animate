@@ -1,7 +1,9 @@
 ---
 title: Visión general: Corriente, resistencia y leyes de Kirchhoff
 kurz: Visión general
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Corriente, resistencia y leyes de Kirchhoff
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Corriente, resistencia y leyes de Kirchhoff
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff
+knoten: Capítulo 2: Corriente, resistencia y leyes de Kirchhoff
 order: 1120100
 summary: Por qué los electrones se arrastran y la corriente está ahí al instante, y por qué las redes obedecen leyes de conservación
 tags: corriente, resistencia, ley de Ohm, ley de los nudos, ley de las mallas
@@ -23,7 +25,7 @@ La respuesta consta de tres leyes. La __ley de Ohm__ relaciona la tensión y la 
 
 <li>
 
-⁠**Cadena:** la batería de 9 V de la [Parte 1](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html) conectada a dos resistencias en serie, $R_1=2\,\mathrm{k\Omega}$ y $R_2=1\,\mathrm{k\Omega}$. Circulan 3 mA, en $R_1$ hay 6 V y en $R_2$ hay 3 V.
+⁠**Cadena:** la batería de 9 V del [capítulo 1](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html) conectada a dos resistencias en serie, $R_1=2\,\mathrm{k\Omega}$ y $R_2=1\,\mathrm{k\Omega}$. Circulan 3 mA, en $R_1$ hay 6 V y en $R_2$ hay 3 V.
 
 </li>
 

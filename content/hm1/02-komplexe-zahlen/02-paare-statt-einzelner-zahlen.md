@@ -1,6 +1,8 @@
 ---
 title: Stufe 1: Paare statt einzelner Zahlen
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Komplexe Zahlen
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Komplexe Zahlen
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen
+knoten: Kapitel 2: Komplexe Zahlen
 order: 1220200
 summary: In mathbb R hat x 2=-1 keine Lösung.
 tags: Normalform
@@ -13,7 +15,7 @@ lang: de
 In $\mathbb{R}$ hat $x^2=-1$ keine Lösung. Diese Stufe baut eine größere Zahlenmenge, in der die Gleichung lösbar ist und $\mathbb{R}$ unverändert enthalten bleibt.
 :::
 
-**Die Idee.** Jede Erweiterung der Zahlen löst eine Gleichung, die vorher keine Lösung hatte: $x+1=0$ führt von $\mathbb{N}$ zu $\mathbb{Z}$, $2x=1$ von $\mathbb{Z}$ zu $\mathbb{Q}$, $x^2=2$ von $\mathbb{Q}$ zu $\mathbb{R}$. Bei $x^2=-1$ liegt der Fall anders. Die Parabel $y=x^2$ erreicht die Höhe $-1$ nie (Abb. [1](#abb-1)), denn in $\mathbb{R}$ gilt $x^2\ge0$ ([Teil 1](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html)). Es fehlt kein Punkt zwischen anderen Punkten wie bei $\sqrt2$, sondern jeder Punkt der Zahlengeraden scheidet aus. Die Lösung muss neben der Geraden liegen. Deshalb kommt eine zweite Koordinate hinzu: Man rechnet mit Paaren $(x,y)$. Die Paare $(x,0)$ sollen die reellen Zahlen bleiben, und $(0,1)$ soll zum Quadrat $(-1,0)$ ergeben.
+**Die Idee.** Jede Erweiterung der Zahlen löst eine Gleichung, die vorher keine Lösung hatte: $x+1=0$ führt von $\mathbb{N}$ zu $\mathbb{Z}$, $2x=1$ von $\mathbb{Z}$ zu $\mathbb{Q}$, $x^2=2$ von $\mathbb{Q}$ zu $\mathbb{R}$. Bei $x^2=-1$ liegt der Fall anders. Die Parabel $y=x^2$ erreicht die Höhe $-1$ nie (Abb. [1](#abb-1)), denn in $\mathbb{R}$ gilt $x^2\ge0$ ([Kapitel 1](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html)). Es fehlt kein Punkt zwischen anderen Punkten wie bei $\sqrt2$, sondern jeder Punkt der Zahlengeraden scheidet aus. Die Lösung muss neben der Geraden liegen. Deshalb kommt eine zweite Koordinate hinzu: Man rechnet mit Paaren $(x,y)$. Die Paare $(x,0)$ sollen die reellen Zahlen bleiben, und $(0,1)$ soll zum Quadrat $(-1,0)$ ergeben.
 
 :::abbildung hm1/k2parabel 1
 Die Gerade $y=2$ schneidet die Parabel zweimal, die Lösungen $\pm\sqrt2$ liegen auf der Zahlengeraden. Die Gerade $y=-1$ schneidet sie nie: Kein reelles $x$ löst $x^2=-1$.

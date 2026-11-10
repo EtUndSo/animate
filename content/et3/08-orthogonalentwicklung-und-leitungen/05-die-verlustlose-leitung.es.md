@@ -1,6 +1,8 @@
 ---
 title: Etapa 4: La línea de transmisión sin pérdidas
-pfad: Ingeniería eléctrica / 3.er semestre / Señales y sistemas / Desarrollo ortogonal y líneas de transmisión
+pfad: Ingeniería eléctrica / 3.er semestre / ET3 – Fundamentos de ingeniería eléctrica 3: señales y sistemas / Desarrollo ortogonal y líneas de transmisión
+adresse: elektrotechnik/3-semester/signale-und-systeme/orthogonalentwicklung-und-leitungen
+knoten: Capítulo 8: Desarrollo ortogonal y líneas de transmisión
 order: 3280500
 summary: Sin pérdidas ( R'=G'=0 ), la impedancia característica y la velocidad se vuelven independientes de la frecuencia.
 tags: 
@@ -29,7 +31,7 @@ $$u(s,t)=u_\mathrm{prog}(s-vt)+u_\mathrm{reg}(s+vt) \tag{4.2}$$
 con funciones cualesquiera (dos veces derivables) $u_\mathrm{prog}$ (progresiva) y $u_\mathrm{reg}$ (regresiva).
 :::
 
-⁠**Cómo leerlo:** una forma de señal cualquiera se propaga sin cambios a lo largo de la línea con la velocidad $v$. Esto se debe a que todas las componentes de frecuencia son igual de rápidas y se atenúan igual de poco: la línea es un sistema sin distorsión en el sentido de la [parte 5](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/tiefpass-und-bandpasssysteme/tiefpass-und-bandpasssysteme.html), con el retardo $l/v$. La ecuación de onda para $u$ se obtiene de [(2.1)](die-leitungsgleichungen.html#gl-2-1) derivando la primera ecuación respecto a $s$ y la segunda respecto a $t$, y eliminando $i$.
+⁠**Cómo leerlo:** una forma de señal cualquiera se propaga sin cambios a lo largo de la línea con la velocidad $v$. Esto se debe a que todas las componentes de frecuencia son igual de rápidas y se atenúan igual de poco: la línea es un sistema sin distorsión en el sentido del [capítulo 5](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/tiefpass-und-bandpasssysteme/tiefpass-und-bandpasssysteme.html), con el retardo $l/v$. La ecuación de onda para $u$ se obtiene de [(2.1)](die-leitungsgleichungen.html#gl-2-1) derivando la primera ecuación respecto a $s$ y la segunda respecto a $t$, y eliminando $i$.
 
 ::::beispiel cable coaxial
 $Z=50\,\Omega$ y $C'=100$ pF/m dan $L'=Z^2C'=250$ nH/m y $v=\frac{1}{\sqrt{L'C'}}=2\cdot10^8$ m/s, dos tercios de la velocidad de la luz (debido al dieléctrico del cable). Una señal tarda 50 ns en recorrer 10 m de cable. Si el cable se termina con 75 $\Omega$ en lugar de 50 $\Omega$, $r=\frac{75-50}{75+50}=0{,}2$: el 20 % de la amplitud de tensión vuelve como eco.

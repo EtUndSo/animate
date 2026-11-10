@@ -1,7 +1,8 @@
 ---
 title: Der interaktive Modus
 pfad: Informatik / Programmieren / Python / Programme und der Python-Interpreter
-knoten: Python 1: Programme und der Python-Interpreter
+adresse: informatik/programmieren/python/programme-und-der-python-interpreter
+knoten: Kapitel 1: Programme und der Python-Interpreter
 order: 6020500
 summary: Python lässt sich wie ein Taschenrechner benutzen: Man tippt eine Zeile ein und sieht sofort das Ergebnis.
 tags: interaktiven Modus, Wert, Ausdruck, Auswerten, Zeichenkette, Funktion, Funktionsaufruf
@@ -183,7 +184,7 @@ Das Ergebnis von `/` schreibt Python immer mit Punkt, auch wenn die Division auf
 
 <li>
 
-Zehnerpotenzen schreibt man mit `e`: `2.5e-3` bedeutet $2{,}5\cdot10^{-3}$, also 2,5 mA, wenn die Zahl ein Strom in Ampere ist. Ebenso ist `4.7e3` die Zahl 4700.
+Zehnerpotenzen schreibt man mit `e`: `2.5e-3` bedeutet $2{,}5\cdot10^{-3}=0{,}0025$, also 2,5 g, wenn die Zahl ein Gewicht in Kilogramm ist. Ebenso ist `4.7e3` die Zahl 4700.
 
 </li>
 
@@ -201,22 +202,26 @@ Python kennt keine Einheiten. Welche Einheit eine Zahl hat, musst du selbst im K
 
 </ul>
 
-::::beispiel das ohmsche Gesetz
-An einem Widerstand von $470\,\Omega$ liegen $5\,\mathrm V$. Der Strom ist $I=U/R$, die Leistung $P=U^2/R$. Und an einem Widerstand von $2{,}2\,\mathrm{k\Omega}$, durch den $2{,}5\,\mathrm{mA}$ fließen, liegt $U=R\cdot I$:
+::::beispiel drei Rechnungen aus dem Alltag
+Erstens: Ein Glas Schokocreme mit 450 g kostet 4,49 €. Was kostet ein Kilogramm? Man teilt den Preis durch das Gewicht in Kilogramm, also durch 0,45.
+
+Zweitens: 1000 € liegen zehn Jahre lang auf einem Sparkonto mit 2 % Zinsen im Jahr. Die Zinsen bleiben auf dem Konto und werden im nächsten Jahr mitverzinst. Jedes Jahr wird das Guthaben also mit 1,02 malgenommen, nach zehn Jahren insgesamt mit $1{,}02^{10}$.
+
+Drittens: Ein Blatt Druckerpapier ist etwa 0,1 mm dick, das sind $0{,}0001\,\mathrm m=10^{-4}\,\mathrm m$, in Python `1e-4`. Wie hoch ist ein Paket mit 500 Blatt?
 
 ```console
->>> 5 / 470
-0.010638297872340425
->>> 5 ** 2 / 470
-0.05319148936170213
->>> 2200 * 2.5e-3
-5.5
+>>> 4.49 / 0.45
+9.977777777777778
+>>> 1000 * 1.02 ** 10
+1218.9944199947574
+>>> 500 * 1e-4
+0.05
 ```
 
-Abgelesen: $I\approx0{,}0106\,\mathrm A=10{,}6\,\mathrm{mA}$, $P\approx0{,}053\,\mathrm W=53\,\mathrm{mW}$ und $U=5{,}5\,\mathrm V$.
+In der zweiten Zeile rechnet Python zuerst die Potenz `1.02 ** 10` aus und nimmt sie dann mit 1000 mal, Potenz vor Punktrechnung. Abgelesen: Das Kilogramm kostet etwa 9,98 €, nach zehn Jahren liegen rund 1219 € auf dem Konto, und das Paket ist 0,05 m, also 5 cm hoch.
 ::::
 
-**Das letzte Ergebnis.** Der interaktive Modus merkt sich den zuletzt angezeigten Wert unter dem Zeichen `_` (Unterstrich), so wie die Taste ANS eines Taschenrechners. Nach der Sitzung oben ergibt `_ * 1000` also 5500.0. Das funktioniert nur im interaktiven Modus.
+**Das letzte Ergebnis.** Der interaktive Modus merkt sich den zuletzt angezeigten Wert unter dem Zeichen `_` (Unterstrich), so wie die Taste ANS eines Taschenrechners. Nach der Sitzung oben ergibt `_ * 100` also `5.0`, die Höhe des Pakets in Zentimetern. Das funktioniert nur im interaktiven Modus.
 
 **Vorsicht, Komma.** Wer aus Gewohnheit `2,5 * 2` statt `2.5 * 2` tippt, bekommt keine Fehlermeldung, sondern ein falsches Ergebnis:
 
@@ -283,7 +288,7 @@ Von Hand musste jeder Durchgang einzeln abgeschickt werden. Genau solche Wiederh
 
 <span class="anker" id="stufe-4-6"></span>
 
-Programme geben nicht nur Zahlen aus, sondern auch Text, etwa „Strom in A:“ vor einem Ergebnis. Text muss deshalb ebenfalls ein Wert sein können.
+Programme geben nicht nur Zahlen aus, sondern auch Text, etwa „Preis in Euro:“ vor einem Ergebnis. Text muss deshalb ebenfalls ein Wert sein können.
 
 :::definition Definition 4.4 (Zeichenkette)
 <span class="anker" id="satz-4-4"></span>
@@ -356,8 +361,8 @@ Hallo
 42
 >>> print("7 * 6")
 7 * 6
->>> print("Strom in A:", 5 / 470)
-Strom in A: 0.010638297872340425
+>>> print("Preis pro kg in Euro:", 4.49 / 0.45)
+Preis pro kg in Euro: 9.977777777777778
 ```
 
 Ein Aufruf ohne Werte, `print()`, schreibt eine leere Zeile.
@@ -380,25 +385,25 @@ Rechne im interaktiven Modus und gib die Ergebnisse mit sinnvoll vielen Stellen 
 
 <li>
 
-Ein Widerstand von $1{,}5\,\mathrm{k\Omega}$ hängt an einer $9$-V-Batterie. Welcher Strom fließt?
+Ein Auto braucht für 750 km 45 Liter Benzin. Wie viele Liter braucht es für einen Kilometer?
 
 </li>
 
 <li>
 
-Welche Leistung setzt der Widerstand aus (a) in Wärme um?
+Ein quadratisches Zimmer mit 4,5 m Seitenlänge soll gefliest werden. Eine Fliese von 60 cm mal 60 cm bedeckt $0{,}36\,\mathrm m^2$. Wie viele Fliesen braucht man mindestens? Rechne die Fläche mit `**`.
 
 </li>
 
 <li>
 
-Durch einen Widerstand von $3{,}3\,\mathrm{k\Omega}$ fließen $2{,}5\,\mathrm{mA}$. Welche Spannung liegt an ihm? Schreibe den Strom mit `e`.
+Ein Kopfhaar wächst etwa 0,35 mm am Tag. Wie viel wächst es in einem Jahr mit 365 Tagen? Rechne in Metern und schreibe die 0,35 mm dafür mit `e`.
 
 </li>
 
 <li>
 
-Rechne direkt nach (a) mit `_` weiter und gib den Strom in Milliampere an.
+Rechne direkt nach (a) mit `_` weiter und gib den Verbrauch in Litern pro 100 Kilometer an.
 
 </li>
 
@@ -406,23 +411,23 @@ Rechne direkt nach (a) mit `_` weiter und gib den Strom in Milliampere an.
 
 :::loesung
 ```console
->>> 9 / 1500
-0.006
->>> _ * 1000
+>>> 45 / 750
+0.06
+>>> _ * 100
 6.0
->>> 9 ** 2 / 1500
-0.054
->>> 3300 * 2.5e-3
-8.25
+>>> 4.5 ** 2 / 0.36
+56.25
+>>> 365 * 3.5e-4
+0.12775
 ```
 
-(a) $I=U/R=9\,\mathrm V/1500\,\Omega=0{,}006\,\mathrm A$. Den Widerstand gibt man in Ohm ein, $1{,}5\,\mathrm{k\Omega}=1500\,\Omega$.
+(a) Liter geteilt durch Kilometer: $45/750=0{,}06$ Liter pro Kilometer.
 
-(b) $P=U^2/R=0{,}054\,\mathrm W=54\,\mathrm{mW}$.
+(b) Die Fläche des Zimmers ist $4{,}5^2=20{,}25\,\mathrm m^2$, und $20{,}25/0{,}36=56{,}25$. Python rechnet die Potenz zuerst, Klammern sind also nicht nötig. Angebrochene Fliesen kann man nicht kaufen: Man braucht mindestens 57 Fliesen, und die am Rand werden zugeschnitten.
 
-(c) $U=R\cdot I=3300\,\Omega\cdot2{,}5\cdot10^{-3}\,\mathrm A=8{,}25\,\mathrm V$.
+(c) $0{,}35\,\mathrm{mm}=0{,}000\,35\,\mathrm m=3{,}5\cdot10^{-4}\,\mathrm m$, in Python `3.5e-4`. In einem Jahr sind das $0{,}127\,75\,\mathrm m$, also knapp 13 cm.
 
-(d) Direkt nach (a) steht in `_` der Wert `0.006`; `_ * 1000` ergibt `6.0`, also 6 mA. Rechnet man vorher (b) oder (c), steht in `_` deren Ergebnis, denn `_` hält immer nur den zuletzt angezeigten Wert.
+(d) Direkt nach (a) steht in `_` der Wert `0.06`; `_ * 100` ergibt `6.0`, also 6 Liter auf 100 Kilometer. Rechnet man vorher (b) oder (c), steht in `_` deren Ergebnis, denn `_` hält immer nur den zuletzt angezeigten Wert.
 :::
 :::
 

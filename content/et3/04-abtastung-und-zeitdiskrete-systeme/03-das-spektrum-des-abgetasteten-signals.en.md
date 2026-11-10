@@ -1,6 +1,8 @@
 ---
 title: Stage 2: The spectrum of the sampled signal
-pfad: Electrical Engineering / 3rd Semester / Signals and Systems / Sampling and Discrete-Time Systems
+pfad: Electrical Engineering / 3rd Semester / ET3 – Fundamentals of Electrical Engineering 3: Signals and Systems / Sampling and Discrete-Time Systems
+adresse: elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme
+knoten: Chapter 4: Sampling and Discrete-Time Systems
 order: 3240300
 summary: What does sampling do to the spectrum?
 tags: spectral images
@@ -29,7 +31,7 @@ $$S_\mathrm a(f)=\frac1T\sum_{k=-\infty}^{\infty}S\Bigl(f-\frac kT\Bigr)\qquad(T
 ⁠**How to read it:** the spectrum of the original appears with its shape unchanged, but with the factor $1/T$ and repeated at every multiple of the sampling rate. The copies are called __spectral images__.
 
 :::herleitung Spectrum of the sampled signal
-Multiplication becomes convolution ([Part 3](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)), and the spectrum of the Dirac comb is again a comb:
+Multiplication becomes convolution ([Chapter 3](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)), and the spectrum of the Dirac comb is again a comb:
 
 $$s(t)\cdot\sum_n\delta(t-nT)\;\circ\!\!-\!\!\bullet\;S(f)*\frac1T\sum_k\delta\Bigl(f-\frac kT\Bigr)=\frac1T\sum_kS\Bigl(f-\frac kT\Bigr).$$
 

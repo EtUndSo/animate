@@ -1,6 +1,8 @@
 ---
 title: Stufe 6: Der Arbeitspunkt
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Halbleiter und Dioden
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Halbleiter und Dioden
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden
+knoten: Kapitel 9: Halbleiter und Dioden
 order: 1190800
 summary: Bei einem Widerstand liefert U=R\,I sofort das Ergebnis.
 tags: Arbeitsgerade, Arbeitspunkt, Arbeitspunktanalyse, Arbeitspunktsynthese, Leerlauf, Kurzschluss, Hysterese, Iteration
@@ -13,7 +15,7 @@ lang: de
 Bei einem Widerstand liefert $U=R\,I$ sofort das Ergebnis. Die Diode folgt einer anderen Kurve. Diese Stufe findet Spannung und Strom der Diode in einer Schaltung.
 :::
 
-**Die Idee.** Zwei Bedingungen müssen zugleich gelten. Die Diode lässt nur Punkte auf ihrer Kennlinie zu. Der Rest der Schaltung, Quelle und Widerstand, lässt nur Punkte auf der __Arbeitsgerade__ zu ([Teil 5](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)). Die Schaltung findet den Schnittpunkt selbst: Ist $U_\mathrm D$ zu klein, liefert der Widerstand mehr Strom, als die Diode durchlässt. Ladung staut sich am Knoten zwischen beiden und hebt sein Potenzial, bis beide Ströme gleich sind.
+**Die Idee.** Zwei Bedingungen müssen zugleich gelten. Die Diode lässt nur Punkte auf ihrer Kennlinie zu. Der Rest der Schaltung, Quelle und Widerstand, lässt nur Punkte auf der __Arbeitsgerade__ zu ([Kapitel 5](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)). Die Schaltung findet den Schnittpunkt selbst: Ist $U_\mathrm D$ zu klein, liefert der Widerstand mehr Strom, als die Diode durchlässt. Ladung staut sich am Knoten zwischen beiden und hebt sein Potenzial, bis beide Ströme gleich sind.
 
 :::abbildung et1/k9arbeitsgerade 8
 Schaltung des Rechenmodells und grafische Lösung. Rot die Arbeitsgerade durch Leerlauf und Kurzschluss. Blau die Kennlinie der Diode, Schnittpunkt bei 0,69 V und 4,31 mA. Grün die Kennlinie eines Widerstands von 250 $\Omega$ anstelle der Diode, Schnittpunkt bei 1 V und 4 mA.

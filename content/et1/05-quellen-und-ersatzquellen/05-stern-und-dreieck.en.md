@@ -1,6 +1,8 @@
 ---
 title: Stage 3: Star and delta
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / Sources and Equivalent Sources
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / Sources and Equivalent Sources
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen
+knoten: Chapter 5: Sources and Equivalent Sources
 order: 1150500
 summary: An unbalanced bridge has neither groups nor symmetry.
 tags: delta, star, adjacent elements, two-ports, \pi network, T network, attenuators
@@ -53,7 +55,7 @@ $$R_\mathrm{AB}=4\,\Omega+(4\,\Omega+20\,\Omega)\parallel(8\,\Omega+16\,\Omega)=
 
 ⁠**Check** at terminals 1, 2 with terminal 3 open: the star has $4+4=8\,\Omega$, the delta $10\,\Omega\parallel40\,\Omega=8\,\Omega$. **Limiting cases:** Three equal delta resistors give a star with one third of the value. For $R_{12}\to0$, $R_{10}$ and $R_{20}$ go to zero, and $R_{30}$ becomes $R_{23}\parallel R_{31}$, which is exactly what the short-circuited delta is.
 
-**$\pi$ and T.** For __two-ports__ ([Part 6](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html)), delta and star are drawn with an input on the left and an output on the right. The delta is then called a __$\pi$ network__, the star a __T network__. The formulas and rules stay the same. In communications engineering this is how __attenuators__ are built, which weaken a signal by a fixed factor and present the same input resistance at both terminal pairs (power matching, [Part 7](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad/leistung-und-anpassung.html)). Filters made of coils and capacitors can also be built in either form.
+**$\pi$ and T.** For __two-ports__ ([Chapter 6](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html)), delta and star are drawn with an input on the left and an output on the right. The delta is then called a __$\pi$ network__, the star a __T network__. The formulas and rules stay the same. In communications engineering this is how __attenuators__ are built, which weaken a signal by a fixed factor and present the same input resistance at both terminal pairs (power matching, [Chapter 7](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad/leistung-und-anpassung.html)). Filters made of coils and capacitors can also be built in either form.
 
 :::frage Which delta should I convert?
 Any one whose conversion creates groups. In a bridge the lower delta works too, or even a star converted into a delta. The result is always the same.

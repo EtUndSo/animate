@@ -1,6 +1,8 @@
 ---
 title: Stufe 6: Zeitdiskrete Tiefpässe, Entwurf mit Fenstern
-pfad: Elektrotechnik / 3. Semester / Signale und Systeme / Tiefpass- und Bandpasssysteme
+pfad: Elektrotechnik / 3. Semester / ET3 – Grundgebiete der Elektrotechnik 3: Signale und Systeme / Tiefpass- und Bandpasssysteme
+adresse: elektrotechnik/3-semester/signale-und-systeme/tiefpass-und-bandpasssysteme
+knoten: Kapitel 5: Tiefpass- und Bandpasssysteme
 order: 3250700
 summary: Wie entwirft man einen digitalen Tiefpass?
 tags: 
@@ -35,7 +37,7 @@ im Rechenmodell ($f_\mathrm g=0{,}2$) also $h(0)=0{,}4$, $h(\pm1)=0{,}303$, $h(\
 
 </ul>
 
-Der Grund ist derselbe wie bei der Kurzzeit-Fourier-Transformation in [Teil 3](/wissen/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html): Das Spektrum des Fensters wird mit dem Ideal gefaltet, und die harten Kanten des Rechtecks erzeugen langsam abklingende Nebenzipfel.
+Der Grund ist derselbe wie bei der Kurzzeit-Fourier-Transformation in [Kapitel 3](/wissen/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html): Das Spektrum des Fensters wird mit dem Ideal gefaltet, und die harten Kanten des Rechtecks erzeugen langsam abklingende Nebenzipfel.
 
 :::abbildung et3/k5fenster 4
 Betragsfrequenzgang zweier FIR-Tiefpässe mit $f_\mathrm g=0{,}2$ und 21 Koeffizienten. Rechteckfenster: steile Flanke, ab $f=0{,}3$ Sperrung nur bis $-26{,}6$ dB. Hann-Fenster: flachere Flanke, ab $f=0{,}3$ höchstens $-45{,}9$ dB.

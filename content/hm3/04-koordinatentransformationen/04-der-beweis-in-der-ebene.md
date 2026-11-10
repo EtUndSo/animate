@@ -1,6 +1,8 @@
 ---
 title: Stufe 2: Der Beweis in der Ebene
-pfad: Elektrotechnik / 3. Semester / Höhere Mathematik 3 / Koordinatentransformationen
+pfad: Elektrotechnik / 3. Semester / HöMa3 – Höhere Mathematik 3 / Koordinatentransformationen
+adresse: elektrotechnik/3-semester/hohere-mathematik-3/koordinatentransformationen
+knoten: Kapitel 4: Koordinatentransformationen
 order: 3140400
 summary: Die Herleitung aus Stufe 1 ist eine Näherung mit kleinen Zellen.
 tags: 
@@ -13,13 +15,13 @@ lang: de
 Die Herleitung aus Stufe [1](der-transformationssatz.html#stufe-1) ist eine Näherung mit kleinen Zellen. In der Ebene lässt sich die Formel exakt beweisen: Beide Seiten werden zum selben Kurvenintegral über den Rand.
 :::
 
-**Die Idee.** Green in der Ebene ([Teil 3](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/kurvenintegrale/kurvenintegrale.html)) verwandelt ein Integral über einen Bereich in ein Randintegral. Das Randintegral über $\partial D$ lässt sich mit der Kettenregel nach $\partial B$ zurückholen, denn $\Phi$ bildet Rand auf Rand ab (Abb. [2](#abb-2)). Green verwandelt es dort zurück in ein Integral über $B$. Die Determinante entsteht dabei von selbst.
+**Die Idee.** Green in der Ebene ([Kapitel 3](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/kurvenintegrale/kurvenintegrale.html)) verwandelt ein Integral über einen Bereich in ein Randintegral. Das Randintegral über $\partial D$ lässt sich mit der Kettenregel nach $\partial B$ zurückholen, denn $\Phi$ bildet Rand auf Rand ab (Abb. [2](#abb-2)). Green verwandelt es dort zurück in ein Integral über $B$. Die Determinante entsteht dabei von selbst.
 
 :::abbildung hm3/k4rand 2
 Links der Rand von $B$, positiv durchlaufen: Das Innere liegt links. Bei $\det D\Phi>0$ bleibt es links. Bei $\det D\Phi<0$ liegt es rechts, der Rand wird rückwärts durchlaufen. Das zeigen auch die beiden kleinen Pfeile: Ihr Drehsinn kehrt sich um.
 :::
 
-**Zusatzannahmen.** Sie vereinfachen nur den Beweis, der Satz gilt auch ohne sie. Es sei $f$ stetig differenzierbar in einem Sterngebiet $\mathcal U\supset D$ ([Teil 3](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/kurvenintegrale/kurvenintegrale.html)), $\Phi$ zweimal stetig differenzierbar, $\partial B$ die Spur (Bildmenge) einer geschlossenen regulären Kurve $\gamma:[a,b]\to\mathbb{R}^2$, positiv durchlaufen. Weil $\det D\Phi$ stetig und nie null ist, hat die Determinante auf $B$ ein festes Vorzeichen. Zuerst sei $\det D\Phi>0$. In der Ebene ist $\operatorname{rot}\boldsymbol{F}=\partial F_2/\partial y_1-\partial F_1/\partial y_2$.
+**Zusatzannahmen.** Sie vereinfachen nur den Beweis, der Satz gilt auch ohne sie. Es sei $f$ stetig differenzierbar in einem Sterngebiet $\mathcal U\supset D$ ([Kapitel 3](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/kurvenintegrale/kurvenintegrale.html)), $\Phi$ zweimal stetig differenzierbar, $\partial B$ die Spur (Bildmenge) einer geschlossenen regulären Kurve $\gamma:[a,b]\to\mathbb{R}^2$, positiv durchlaufen. Weil $\det D\Phi$ stetig und nie null ist, hat die Determinante auf $B$ ein festes Vorzeichen. Zuerst sei $\det D\Phi>0$. In der Ebene ist $\operatorname{rot}\boldsymbol{F}=\partial F_2/\partial y_1-\partial F_1/\partial y_2$.
 
 :::beweis Transformationssatz in der Ebene
 ⁠**Schritt 1: ein Feld mit $\operatorname{rot}\boldsymbol{F}=f$.** Lege den Nullpunkt in ein Sternzentrum von $\mathcal U$ und setze
@@ -46,7 +48,7 @@ Der letzte Schritt ist die Definition des Kurvenintegrals.
 
 $$\sum_{j=1,2}\int_B\Bigl[\frac{\partial}{\partial x_1}\Bigl((F_j\circ\Phi)\frac{\partial\Phi_j}{\partial x_2}\Bigr)-\frac{\partial}{\partial x_2}\Bigl((F_j\circ\Phi)\frac{\partial\Phi_j}{\partial x_1}\Bigr)\Bigr]\mathrm{d}\boldsymbol{x}.$$
 
-⁠**Schritt 5: Ableiten.** Die Produktregel liefert zwei Terme mit zweiten Ableitungen von $\Phi_j$. Sie heben sich nach Schwarz ([Teil 1](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/differentialrechnung-fur-vektorfelder/differentialrechnung-fuer-vektorfelder.html)) auf. Für den Rest gibt die Kettenregel $\frac{\partial}{\partial x_m}(F_j\circ\Phi)=\sum_k\bigl(\frac{\partial F_j}{\partial y_k}\circ\Phi\bigr)\frac{\partial\Phi_k}{\partial x_m}$, also
+⁠**Schritt 5: Ableiten.** Die Produktregel liefert zwei Terme mit zweiten Ableitungen von $\Phi_j$. Sie heben sich nach Schwarz ([Kapitel 1](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/differentialrechnung-fur-vektorfelder/differentialrechnung-fuer-vektorfelder.html)) auf. Für den Rest gibt die Kettenregel $\frac{\partial}{\partial x_m}(F_j\circ\Phi)=\sum_k\bigl(\frac{\partial F_j}{\partial y_k}\circ\Phi\bigr)\frac{\partial\Phi_k}{\partial x_m}$, also
 
 $$\sum_{j,k}\int_B\Bigl(\frac{\partial F_j}{\partial y_k}\circ\Phi\Bigr)\Bigl(\frac{\partial\Phi_j}{\partial x_2}\frac{\partial\Phi_k}{\partial x_1}-\frac{\partial\Phi_j}{\partial x_1}\frac{\partial\Phi_k}{\partial x_2}\Bigr)\mathrm{d}\boldsymbol{x}.$$
 

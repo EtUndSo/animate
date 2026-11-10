@@ -388,19 +388,25 @@
     "de": "Stufe 1: Faktor 3",
     "en": "stage 1: factor 3",
     "es": "etapa 1: factor 3",
-    "zh": "第 1 级：因子 3"
+    "zh": "第 1 级：因子 3",
+    "fr": "étage 1 : facteur 3",
+    "tr": "aşama 1: çarpan 3"
    },
    "st2": {
     "de": "Stufe 2: Faktor 8",
     "en": "stage 2: factor 8",
     "es": "etapa 2: factor 8",
-    "zh": "第 2 级：因子 8"
+    "zh": "第 2 级：因子 8",
+    "fr": "étage 2 : facteur 8",
+    "tr": "aşama 2: çarpan 8"
    },
    "zus": {
     "de": "zusammen: Δy ≈ 8 · 3 · Δx = 24 · 0.01 = 0.24",
-    "en": "together: Δy ≈ 8 · 3 · Δx = 24 · 0.01 = 0.24",
+    "en": "combined: Δy ≈ 8 · 3 · Δx = 24 · 0.01 = 0.24",
     "es": "en total: Δy ≈ 8 · 3 · Δx = 24 · 0.01 = 0.24",
-    "zh": "合计：Δy ≈ 8 · 3 · Δx = 24 · 0.01 = 0.24"
+    "zh": "合计：Δy ≈ 8 · 3 · Δx = 24 · 0.01 = 0.24",
+    "fr": "au total : Δy ≈ 8 · 3 · Δx = 24 · 0.01 = 0.24",
+    "tr": "toplam: Δy ≈ 8 · 3 · Δx = 24 · 0.01 = 0.24"
    }
   }
  }

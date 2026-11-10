@@ -1,7 +1,8 @@
 ---
 title: Uzaklıklar ve birimler
 pfad: Bilgisayar Bilimleri / Makine Öğrenmesi / Matematiksel Temeller / Vektörler ve Matrisler
-knoten: Temeller 1: Vektörler ve Matrisler
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Bölüm 1: Vektörler ve Matrisler
 nachschlagen: ja
 order: 15210500
 summary: İki örneğin vektörleri birbirine yakınsa bu örnekler birbirine benzer.
@@ -78,7 +79,7 @@ Mekanizma basittir. Uzaklığın karesinde her öznitelik için farkın karesi b
 
 Öznitelikleri karşılaştırılabilir kılmak için her öznitelik bütün örnekler boyunca kendi başına ele alınır. Daire tablosunda (Tablo [1](vektoren-daten-als-zahlenlisten.html#tab-1)) bunlar sütunlardır: Bütün dairelerin alanları $\mathbf{v}=(60,\,40,\,90,\,70)^{\top}\in\mathbb{R}^4$ vektörünü oluşturur. Böyle bir vektör bir özniteliğe aittir ve örnek sayısı kadar bileşeni vardır. Burada ona __öznitelik sütunu__ denir.
 
-Karşılaştırma için alanların ne kadar büyük olduğu değil, birbirinden ne kadar farklı oldukları önemlidir. Bu yüzden her alan ortalamadan sapma olarak ölçülür. Elektrik mühendisliğinde bu adımın adı şudur: sabit (DC) bileşeni çıkarmak ve yalnızca değişken (AC) bileşeni tutmak.
+Karşılaştırma için alanların ne kadar büyük olduğu değil, birbirinden ne kadar farklı oldukları önemlidir. Bu yüzden her alan ortalamadan sapma olarak ölçülür. Bir sınıftaki çocukların boyları da böyle anlatılır: “Ortalamadan $5$ cm daha uzun” demek, bir çocuk hakkında “$1{,}45$ m” demekten daha çok şey söyler.
 
 :::definition Tanım 4.2 (Merkezlenmiş vektör)
 <span class="anker" id="satz-4-2"></span>
@@ -107,12 +108,12 @@ Alanların ortalaması ve ortalamadan sapmaların toplamı, $\mathrm m^2$ cinsin
 
 <span class="anker" id="stufe-4-4"></span>
 
-Bir özniteliğin ne kadar dalgalandığı sapmalarının büyüklüğünden görülür. Bir bileşenin tipik mutlak değeri etkin değerdir (alt kesim [3.6](normen-die-groe-eines-vektors.html#stufe-3-6)). Etkin değer merkezlenmiş vektöre uygulanınca ortalamadan tipik sapmayı verir. Elektrik mühendisliğinin diliyle: değişken (AC) bileşenin etkin değeri.
+Bir özniteliğin ne kadar dalgalandığı sapmalarının büyüklüğünden görülür. Bir bileşenin tipik mutlak değeri karesel ortalama değerdir (alt kesim [3.6](normen-die-groe-eines-vektors.html#stufe-3-6)). Karesel ortalama değer merkezlenmiş vektöre uygulanınca ortalamadan tipik sapmayı verir.
 
 :::definition Tanım 4.3 (Standart sapma)
 <span class="anker" id="satz-4-3"></span>
 
-Bir $\mathbf{v}\in\mathbb{R}^N$ vektörünün __standart sapması__, merkezlenmiş vektörünün etkin değeridir:
+Bir $\mathbf{v}\in\mathbb{R}^N$ vektörünün __standart sapması__, merkezlenmiş vektörünün karesel ortalama değeridir:
 
 <span class="anker" id="gl-4-3"></span>
 $$\operatorname{std}(\mathbf{v})=\operatorname{rms}(\tilde{\mathbf{v}})=\frac{\lVert\mathbf{v}-\bar v\,\mathbf 1\rVert}{\sqrt N}=\sqrt{\frac1N\sum_{i=1}^N(v_i-\bar v)^2} . \tag{4.3}$$
@@ -128,14 +129,14 @@ Alanların standart sapması: Sapmaların karesi alınır, ortalamaları alını
 :::
 ::::
 
-⁠**Kısacası:** Standart sapma ortalamadan sapmaların etkin değeridir, yani bir özniteliğin tipik dalgalanmasıdır.
+⁠**Kısacası:** Standart sapma ortalamadan sapmaların karesel ortalama değeridir, yani bir özniteliğin tipik dalgalanmasıdır.
 
-:::hintergrund Sabit bileşen ile değişken bileşen gücü paylaşır
-Bir vektör, $\bar v\,\mathbf 1$ sabit bileşeni ile $\tilde{\mathbf{v}}$ değişken bileşeninin toplamıdır. Uzunluğun karesi için iç çarpımın hesap kurallarına göre şu geçerlidir:
+:::hintergrund Ortalama ile sapmalar kareler ortalamasını paylaşır
+Bir vektör, $\bar v\,\mathbf 1$ sabit vektörü ile $\tilde{\mathbf{v}}$ sapmalarının toplamıdır. Uzunluğun karesi için iç çarpımın hesap kurallarına göre şu geçerlidir:
 
 $$\lVert\bar v\,\mathbf 1+\tilde{\mathbf{v}}\rVert^2=\bar v^2\,\mathbf 1^{\top}\mathbf 1+2\,\bar v\,\mathbf 1^{\top}\tilde{\mathbf{v}}+\lVert\tilde{\mathbf{v}}\rVert^2=N\bar v^2+0+\lVert\tilde{\mathbf{v}}\rVert^2 ,$$
 
-çünkü sapmaların toplamı sıfırdır. $N$ ile bölününce bu, $\operatorname{rms}(\mathbf{v})^2=\bar v^2+\operatorname{std}(\mathbf{v})^2$ olur. Bu, bir karma akımdaki paylaşımın aynısıdır: Karma akımın bir dirençteki gücü, sabit bileşenin gücü ile değişken bileşenin gücünün toplamıdır. Alanlar için: $\operatorname{rms}^2=(3600+1600+8100+4900)/4=4550=65^2+325$.
+çünkü sapmaların toplamı sıfırdır. $N$ ile bölününce bu, $\operatorname{rms}(\mathbf{v})^2=\bar v^2+\operatorname{std}(\mathbf{v})^2$ olur. Sözle söylersek: Değerlerin kareler ortalaması, ortalamalarının karesi ile sapmalarının kareler ortalamasının toplamıdır. Yani büyük bir kareler ortalaması büyük değerlerden de güçlü dalgalanmalardan da gelebilir ve formül bu ikisini birbirinden ayırır. Alanlar için: $\operatorname{rms}^2=(3600+1600+8100+4900)/4=4550=65^2+325$.
 :::
 
 ### Standartlaştırma
@@ -197,13 +198,13 @@ Yani standartlaştırılmış değerlerin uzaklığı, $j$ özniteliğindeki far
 Ama standartlaştırmanın kendisi de bir karardır. Uzaklıkta her özniteliğe aynı ağırlığı verir, soruyla hiç ilgisi olmayan bir özniteliğe bile. Ayrıca bütün örneklerde aynı değeri alan bir özniteliğin standart sapması sıfırdır ve bu öznitelik standartlaştırılamaz; ama böyle bir öznitelik örnekleri birbirinden ayırt da etmez ve hiçbir uzaklığa katkı yapmaz.
 :::
 
-:::aufgabe Alıştırma 9 ★ Sabit bileşen ve değişken bileşen
+:::aufgabe Alıştırma 9 ★ Ortalama ve sapmalar
 <span class="anker" id="aufg-9"></span>
 
-Bir sinyalin örnek değerleri $\mathbf{x}=(1,\,3,\,1,\,-1)^{\top}$ olsun. Ortalamayı, merkezlenmiş vektörü, standart sapmayı ve etkin değeri hesaplayın. $\operatorname{rms}(\mathbf{x})^2=\bar x^2+\operatorname{std}(\mathbf{x})^2$ eşitliğini doğrulayın.
+Dört günde sabah saat yedideki sıcaklık $\mathbf{x}=(1,\,3,\,1,\,-1)^{\top}$ santigrat derecedir. Ortalamayı, merkezlenmiş vektörü, standart sapmayı ve karesel ortalama değeri hesaplayın. $\operatorname{rms}(\mathbf{x})^2=\bar x^2+\operatorname{std}(\mathbf{x})^2$ eşitliğini doğrulayın.
 
 :::loesung
-Ortalama $\bar x=(1+3+1-1)/4=1$, merkezlenmiş vektör $\tilde{\mathbf{x}}=(0,\,2,\,0,\,-2)^{\top}$ olur. Standart sapma $\sqrt{(0+4+0+4)/4}=\sqrt2\approx1{,}414$, etkin değer $\sqrt{(1+9+1+1)/4}=\sqrt3\approx1{,}732$ olur. Sağlama: $\operatorname{rms}^2=3=1^2+(\sqrt2)^2=\bar x^2+\operatorname{std}^2$. Sabit bileşen ile değişken bileşen, $3$ büyüklüğündeki “gücü” $1:2$ oranında paylaşır.
+Ortalama $\bar x=(1+3+1-1)/4=1$, merkezlenmiş vektör $\tilde{\mathbf{x}}=(0,\,2,\,0,\,-2)^{\top}$ olur. Standart sapma $\sqrt{(0+4+0+4)/4}=\sqrt2\approx1{,}414$, karesel ortalama değer $\sqrt{(1+9+1+1)/4}=\sqrt3\approx1{,}732$ olur. Sağlama: $\operatorname{rms}^2=3=1^2+(\sqrt2)^2=\bar x^2+\operatorname{std}^2$. Ortalama ile sapmalar, $3$ büyüklüğündeki kareler ortalamasını $1:2$ oranında paylaşır.
 :::
 :::
 

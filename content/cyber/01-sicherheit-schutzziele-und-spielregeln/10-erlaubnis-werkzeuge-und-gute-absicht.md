@@ -1,6 +1,8 @@
 ---
 title: Erlaubnis, Werkzeuge und gute Absicht
 pfad: Informatik / Cybersecurity / Sicherheit, Schutzziele und Spielregeln
+adresse: informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln
+knoten: Kapitel 1: Sicherheit, Schutzziele und Spielregeln
 order: 6111000
 summary: Alle Vorschriften des letzten Abschnitts setzen voraus, dass jemand unbefugt oder rechtswidrig handelt.
 tags: Umfang, Penetrationstest, Antragsdelikt, Dual-Use-Werkzeug
@@ -166,7 +168,7 @@ Ein Student bemerkt, dass er auf der Seite seines Fitnessstudios durch das Ände
 ⁠**Kurz gesagt:** Nach geltendem Recht schützt eine gute Absicht nicht; wer ohne Erlaubnis eindringt, macht sich strafbar, auch wenn er die Lücke danach meldet.
 
 :::hintergrund Nicht nur Verbote: Pflichten für Betreiber und Hersteller
-Das Recht verbietet nicht nur Angriffe, es verpflichtet auch die Verteidiger. Drei Regelungen sind für künftige Ingenieure wichtig.
+Das Recht verbietet nicht nur Angriffe, es verpflichtet auch die Verteidiger. Drei Regelungen sind für alle wichtig, die später Systeme entwickeln oder betreuen.
 
 <ul>
 

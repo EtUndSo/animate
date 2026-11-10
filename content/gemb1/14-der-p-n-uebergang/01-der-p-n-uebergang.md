@@ -1,7 +1,9 @@
 ---
 title: Überblick: Der p-n-Übergang
 kurz: Überblick
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Der p-n-Übergang
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Der p-n-Übergang
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/der-p-n-ubergang
+knoten: Kapitel 14: Der p-n-Übergang
 order: 4240100
 summary: Wie aus zwei dotierten Gebieten ein Ventil für Strom wird
 tags: p-n-Übergang, Diode, Bandverbiegung, Raumladungszone, Diffusionsspannung, Schottky-Näherung, Diodenkennlinie, Sperrsättigungsstrom
@@ -21,7 +23,7 @@ Der Weg führt über acht Begriffe. Ein __p-n-Übergang__ ist die Grenze zwische
 
 <li>
 
-⁠**Silizium bei 300 K:** $k_\mathrm BT=25{,}85$ meV, $E_\mathrm g=1{,}12$ eV, $N_\mathrm C=2{,}82\cdot10^{19}\,\mathrm{cm^{-3}}$, $N_\mathrm V=1{,}83\cdot10^{19}\,\mathrm{cm^{-3}}$, $n_\mathrm i=8{,}9\cdot10^{9}\,\mathrm{cm^{-3}}$ ([Teil 11](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/eigenhalbleiter-und-dotierung/eigenhalbleiter-und-dotierung.html)), $\varepsilon_\mathrm r=11{,}7$, also $\varepsilon=\varepsilon_0\varepsilon_\mathrm r=1{,}036\cdot10^{-10}$ A s/(V m).
+⁠**Silizium bei 300 K:** $k_\mathrm BT=25{,}85$ meV, $E_\mathrm g=1{,}12$ eV, $N_\mathrm C=2{,}82\cdot10^{19}\,\mathrm{cm^{-3}}$, $N_\mathrm V=1{,}83\cdot10^{19}\,\mathrm{cm^{-3}}$, $n_\mathrm i=8{,}9\cdot10^{9}\,\mathrm{cm^{-3}}$ ([Kapitel 11](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/eigenhalbleiter-und-dotierung/eigenhalbleiter-und-dotierung.html)), $\varepsilon_\mathrm r=11{,}7$, also $\varepsilon=\varepsilon_0\varepsilon_\mathrm r=1{,}036\cdot10^{-10}$ A s/(V m).
 
 </li>
 
@@ -33,7 +35,7 @@ Der Weg führt über acht Begriffe. Ein __p-n-Übergang__ ist die Grenze zwische
 
 <li>
 
-⁠**Minoritätsträger:** Elektronen im p-Gebiet mit $\mu_\mathrm n=925\,\mathrm{cm^2/(V\,s)}$, Löcher im n-Gebiet mit $\mu_\mathrm p=419\,\mathrm{cm^2/(V\,s)}$ ([Teil 12](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/strom-im-halbleiter/strom-im-halbleiter.html)), Rekombinationszeit auf beiden Seiten $\tau_\text{rec}=1$ µ s. Alle Zahlen rechnet `rechnung_kap14.py` nach.
+⁠**Minoritätsträger:** Elektronen im p-Gebiet mit $\mu_\mathrm n=925\,\mathrm{cm^2/(V\,s)}$, Löcher im n-Gebiet mit $\mu_\mathrm p=419\,\mathrm{cm^2/(V\,s)}$ ([Kapitel 12](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/strom-im-halbleiter/strom-im-halbleiter.html)), Rekombinationszeit auf beiden Seiten $\tau_\text{rec}=1$ µ s. Alle Zahlen rechnet `rechnung_kap14.py` nach.
 
 </li>
 

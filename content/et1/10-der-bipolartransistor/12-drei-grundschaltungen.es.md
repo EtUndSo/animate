@@ -1,6 +1,8 @@
 ---
 title: Etapa 10: Tres circuitos básicos
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / El transistor bipolar
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / El transistor bipolar
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor
+knoten: Capítulo 10: El transistor bipolar
 order: 1201200
 summary: La entrada y la salida necesitan dos terminales cada una, y el transistor tiene tres en total.
 tags: circuito de emisor común, circuito de colector común, seguidor de emisor, circuito de base común, excursión de tensión, búfer

@@ -1,6 +1,8 @@
 ---
 title: Stage 2: Charge
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / Charge, Field and Potential
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / Charge, Field and Potential
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial
+knoten: Chapter 1: Charge, Field and Potential
 order: 1110400
 summary: This stage settles the first question: What is charge, how does a charged body come about, and what is conserved in the process?
 tags: electron deficit, electron excess, elementary charge, conservation of charge, conductor, insulator

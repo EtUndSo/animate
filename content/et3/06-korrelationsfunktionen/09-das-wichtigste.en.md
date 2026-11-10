@@ -1,6 +1,8 @@
 ---
 title: Key points
-pfad: Electrical Engineering / 3rd Semester / Signals and Systems / Correlation Functions
+pfad: Electrical Engineering / 3rd Semester / ET3 – Fundamentals of Electrical Engineering 3: Signals and Systems / Correlation Functions
+adresse: elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen
+knoten: Chapter 6: Correlation Functions
 order: 3260900
 summary: How similar are two signals, and how is the energy distributed over frequency?
 tags: 

@@ -1,6 +1,8 @@
 ---
 title: Etapa 10: Dónde terminan las reglas
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / El amplificador operacional
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / El amplificador operacional
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker
+knoten: Capítulo 11: El amplificador operacional
 order: 1211200
 summary: Hasta aquí, el AO era ideal salvo por A y los topes.
 tags: Tensión de offset, Corriente de polarización de entrada, rechazo de modo común, frecuencia de transición, velocidad de subida, sobreexcitado

@@ -1,6 +1,8 @@
 ---
 title: Stufe 6: Teilfolgen und Häufungspunkte
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Exponentialfunktion und Stetigkeit
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Exponentialfunktion und Stetigkeit
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/exponentialfunktion-und-stetigkeit
+knoten: Kapitel 5: Exponentialfunktion und Stetigkeit
 order: 1250800
 summary: Beschränkte Folgen müssen nicht konvergieren.
 tags: Teilfolge, Limes superior, Limes inferior, uneigentlicher Häufungspunkt
@@ -79,7 +81,7 @@ Eine beschränkte Folge in $\mathbb{R}$ besitzt mindestens einen Häufungspunkt 
 :::beweis Halbieren, das Unendliche behalten
 Sei $a\le x_n\le b$ für alle $n$. Eine der Hälften $I_1=[a,\frac{a+b}2]$, $I_2=[\frac{a+b}2,b]$ enthält unendlich viele Folgenglieder. Setze $[a_1,b_1]:=I_1$, falls das für $I_1$ gilt, sonst $I_2$. Fortsetzen ergibt eine Intervallschachtelung, jedes $[a_n,b_n]$ mit unendlich vielen Gliedern, und $b_n-a_n=2^{-n}(b-a)\to0$. Sie enthält genau einen Punkt $x_0$. Jedes $U_\varepsilon(x_0)$ enthält ein ganzes $[a_{n},b_{n}]$, also unendlich viele Glieder. Damit ist $x_0$ Häufungspunkt, und Satz [6.3](#satz-6-3) liefert die Teilfolge.
 
-Größter: Die Hülle $s_n:=\sup\{x_k:k\ge n\}$ aus [Teil 4](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/folgen-und-grenzwerte/folgen-und-grenzwerte.html) fällt und ist beschränkt, also existiert $s:=\lim s_n$. Sei $\varepsilon>0$. Ab einem $N$ ist $s_n<s+\varepsilon$, also liegen dort alle $x_k$ unter $s+\varepsilon$. Zu jedem $n$ gibt es wegen $s_n\ge s$ ein $k\ge n$ mit $x_k>s-\varepsilon$. Also liegen unendlich viele Glieder in $U_\varepsilon(s)$, und $s$ ist Häufungspunkt. Ist $y>s$ und $\varepsilon=\frac12(y-s)$, liegen in $U_\varepsilon(y)$ nur endlich viele Glieder. Also ist $s$ der größte. Für den kleinsten nimmt man die Infima.
+Größter: Die Hülle $s_n:=\sup\{x_k:k\ge n\}$ aus [Kapitel 4](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/folgen-und-grenzwerte/folgen-und-grenzwerte.html) fällt und ist beschränkt, also existiert $s:=\lim s_n$. Sei $\varepsilon>0$. Ab einem $N$ ist $s_n<s+\varepsilon$, also liegen dort alle $x_k$ unter $s+\varepsilon$. Zu jedem $n$ gibt es wegen $s_n\ge s$ ein $k\ge n$ mit $x_k>s-\varepsilon$. Also liegen unendlich viele Glieder in $U_\varepsilon(s)$, und $s$ ist Häufungspunkt. Ist $y>s$ und $\varepsilon=\frac12(y-s)$, liegen in $U_\varepsilon(y)$ nur endlich viele Glieder. Also ist $s$ der größte. Für den kleinsten nimmt man die Infima.
 :::
 
 ⁠**So liest man das:** Mit den uneigentlichen Häufungspunkten sind $\limsup x_n$ und $\liminf x_n$ für jede Folge in $\mathbb{R}\cup\{\pm\infty\}$ erklärt, und stets ist $x_*\le x^*$. Der Beweis zeigt für beschränkte Folgen
@@ -87,7 +89,7 @@ Größter: Die Hülle $s_n:=\sup\{x_k:k\ge n\}$ aus [Teil 4](/wissen/elektrotec
 <span class="anker" id="gl-6-2"></span>
 $$x^*=\lim_{n\to\infty}\bigl(\sup\{x_k:k\ge n\}\bigr),\qquad x_*=\lim_{n\to\infty}\bigl(\inf\{x_k:k\ge n\}\bigr). \tag{6.2}$$
 
-Mit dem Hüllensatz aus [Teil 4](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/folgen-und-grenzwerte/folgen-und-grenzwerte.html) folgt für $a\in\mathbb{R}$ das Kriterium
+Mit dem Hüllensatz aus [Kapitel 4](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/folgen-und-grenzwerte/folgen-und-grenzwerte.html) folgt für $a\in\mathbb{R}$ das Kriterium
 
 <span class="anker" id="gl-6-3"></span>
 $$\lim_{n\to\infty}x_n=a\quad\Longleftrightarrow\quad\limsup_{n\to\infty}x_n=\liminf_{n\to\infty}x_n=a. \tag{6.3}$$

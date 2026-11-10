@@ -1,6 +1,8 @@
 ---
 title: Stufe 4: Die Feldstärke
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Ladung, Feld und Potenzial
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Ladung, Feld und Potenzial
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial
+knoten: Kapitel 1: Ladung, Feld und Potenzial
 order: 1110600
 summary: Das Coulomb-Gesetz nennt die Kraft, sagt aber nicht, wie sie durch den leeren Raum gelangt.
 tags: Probeladung, elektrische Feldstärke
@@ -30,7 +32,7 @@ $$\vec E:=\lim_{Q\to0}\frac{\vec F}{Q},\qquad\text{also}\quad\vec F=Q\cdot\vec E
 Die Richtung von $\vec E$ ist die Richtung der Kraft auf eine positive Probeladung. Das elektrische Feld ordnet jedem Ort einen solchen Vektor zu.
 :::
 
-⁠**So liest man das:** Die Einheit ist $[E]=\mathrm{N/C}=\mathrm{m\,kg\,A^{-1}\,s^{-3}}=\mathrm{V/m}$, denn $\mathrm V=\mathrm{J/C}=\mathrm{N\,m/C}$. Auf eine negative Ladung wirkt die Kraft entgegen $\vec E$. Typische Werte: im stromdurchflossenen Leiter 0,1 V/m, in der Atmosphäre bei klarem Wetter 100 bis 200 V/m, an der Oberfläche einer Rundfunkantenne 1 bis 1000 V/m, an einer Hochspannungsleitung $10^6$ V/m, in einem Kondensator (Bauteil aus zwei Platten, [Teil 3](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html)) $10^6$ bis $10^8$ V/m. Bei $3\cdot10^6$ V/m schlägt Luft durch, es entsteht ein Funke. **Gültigkeit:** Der Grenzwert $Q\to0$ ist nötig, weil eine große Probeladung die erzeugenden Ladungen verschiebt, etwa die freien Elektronen einer Metallplatte. Gemessen werden soll aber das Feld ohne Probeladung.
+⁠**So liest man das:** Die Einheit ist $[E]=\mathrm{N/C}=\mathrm{m\,kg\,A^{-1}\,s^{-3}}=\mathrm{V/m}$, denn $\mathrm V=\mathrm{J/C}=\mathrm{N\,m/C}$. Auf eine negative Ladung wirkt die Kraft entgegen $\vec E$. Typische Werte: im stromdurchflossenen Leiter 0,1 V/m, in der Atmosphäre bei klarem Wetter 100 bis 200 V/m, an der Oberfläche einer Rundfunkantenne 1 bis 1000 V/m, an einer Hochspannungsleitung $10^6$ V/m, in einem Kondensator (Bauteil aus zwei Platten, [Kapitel 3](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html)) $10^6$ bis $10^8$ V/m. Bei $3\cdot10^6$ V/m schlägt Luft durch, es entsteht ein Funke. **Gültigkeit:** Der Grenzwert $Q\to0$ ist nötig, weil eine große Probeladung die erzeugenden Ladungen verschiebt, etwa die freien Elektronen einer Metallplatte. Gemessen werden soll aber das Feld ohne Probeladung.
 
 :::satz Satz 4.2 (Feld von Punktladungen)
 <span class="anker" id="satz-4-2"></span>

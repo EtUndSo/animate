@@ -1,7 +1,8 @@
 ---
 title: Indépendance, base et rang
 pfad: Informatique / Apprentissage automatique / Fondements mathématiques / Vecteurs et matrices
-knoten: Fondements 1 : Vecteurs et matrices
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Chapitre 1 : Vecteurs et matrices
 nachschlagen: ja
 order: 15211400
 summary: Certains vecteurs d’une liste n’apportent rien de nouveau, parce qu’on peut les composer à partir des autres.

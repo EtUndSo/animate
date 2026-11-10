@@ -1,7 +1,9 @@
 ---
 title: Überblick: Strom, Widerstand und Kirchhoff
 kurz: Überblick
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Strom, Widerstand und Kirchhoff
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Strom, Widerstand und Kirchhoff
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff
+knoten: Kapitel 2: Strom, Widerstand und Kirchhoff
 order: 1120100
 summary: Warum Elektronen kriechen, der Strom aber sofort da ist, und warum Netze Erhaltungssätzen gehorchen
 tags: Strom, Widerstand, ohmsche Gesetz, Knotenregel, Maschenregel
@@ -23,7 +25,7 @@ Die Antwort besteht aus drei Gesetzen. Das __ohmsche Gesetz__ verknüpft Spannun
 
 <li>
 
-⁠**Kette:** die 9-V-Batterie aus [Teil 1](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html) an zwei hintereinanderliegenden Widerständen $R_1=2\,\mathrm{k\Omega}$ und $R_2=1\,\mathrm{k\Omega}$. Es fließen 3 mA, an $R_1$ liegen 6 V, an $R_2$ liegen 3 V.
+⁠**Kette:** die 9-V-Batterie aus [Kapitel 1](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html) an zwei hintereinanderliegenden Widerständen $R_1=2\,\mathrm{k\Omega}$ und $R_2=1\,\mathrm{k\Omega}$. Es fließen 3 mA, an $R_1$ liegen 6 V, an $R_2$ liegen 3 V.
 
 </li>
 

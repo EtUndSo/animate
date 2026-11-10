@@ -1,0 +1,833 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 28,
+  "nextAnimId": 34,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Line",
+    "props": {
+     "start": [
+      -3.4,
+      0.0,
+      0
+     ],
+     "end": [
+      3.4,
+      0.0,
+      0
+     ],
+     "color": "#b5b5b5",
+     "stroke_width": 2,
+     "dash": "10,7"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Text",
+    "props": {
+     "text": "@oben",
+     "position": [
+      -3.35,
+      1.8,
+      0
+     ],
+     "font_size": 20,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o3",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.5,
+      0.95,
+      0
+     ],
+     "width": 2.2,
+     "height": 0.75,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#00823c",
+     "fill_color": "#e6f3ea",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o4",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\lower{0.25em}{\\texttt{~}}\\texttt{/.local/share/Trash/files}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.14,
+     "position": [
+      1.5,
+      1.48,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o5",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.45,
+      0.95,
+      0
+     ],
+     "width": 1.7,
+     "height": 0.75,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o6",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\lower{0.25em}{\\texttt{~}}\\texttt{/linuxk3}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.15,
+     "position": [
+      -2.45,
+      1.48,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o7",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -3.05,
+      0.95,
+      0
+     ],
+     "width": 0.15,
+     "height": 0.2,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Text",
+    "props": {
+     "text": "einkauf.txt",
+     "position": [
+      -2.87,
+      0.95,
+      0
+     ],
+     "font_size": 20,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o9",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -1.52,
+      1.07,
+      0
+     ],
+     "end": [
+      0.33,
+      1.07,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.11,
+     "font_size": 26,
+     "color": "#eb6834",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o10",
+    "type": "Text",
+    "props": {
+     "text": "@versch",
+     "position": [
+      -0.6,
+      1.27,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#eb6834"
+    }
+   },
+   {
+    "id": "o11",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      0.33,
+      0.8,
+      0
+     ],
+     "end": [
+      -1.52,
+      0.8,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.11,
+     "font_size": 26,
+     "color": "#00823c",
+     "stroke_width": 2.5,
+     "dash": "10,7",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Text",
+    "props": {
+     "text": "@zurueck",
+     "position": [
+      -0.6,
+      0.6,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#00823c"
+    }
+   },
+   {
+    "id": "o13",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.55,
+      0.3,
+      0
+     ],
+     "width": 0.15,
+     "height": 0.2,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o14",
+    "type": "Text",
+    "props": {
+     "text": "@info",
+     "position": [
+      0.72,
+      0.3,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o15",
+    "type": "Text",
+    "props": {
+     "text": "@unten",
+     "position": [
+      -3.35,
+      -0.2,
+      0
+     ],
+     "font_size": 20,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o16",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.45,
+      -1.05,
+      0
+     ],
+     "width": 1.7,
+     "height": 0.75,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o17",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\lower{0.25em}{\\texttt{~}}\\texttt{/linuxk3}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.15,
+     "position": [
+      -2.45,
+      -0.52,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o18",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -3.05,
+      -1.05,
+      0
+     ],
+     "width": 0.15,
+     "height": 0.2,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o19",
+    "type": "Text",
+    "props": {
+     "text": "einkauf.txt",
+     "position": [
+      -2.87,
+      -1.05,
+      0
+     ],
+     "font_size": 20,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o20",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.5,
+      -1.05,
+      0
+     ],
+     "width": 2.2,
+     "height": 0.5,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#f6f6f4",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o21",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{\\$ rm einkauf.txt}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.17,
+     "position": [
+      1.5,
+      -1.05,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o22",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.45,
+      -1.05,
+      0
+     ],
+     "width": 1.5,
+     "height": 0.34,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": "10,7"
+    }
+   },
+   {
+    "id": "o23",
+    "type": "Text",
+    "props": {
+     "text": "einkauf.txt",
+     "position": [
+      -2.45,
+      -1.05,
+      0
+     ],
+     "font_size": 20,
+     "align": "center",
+     "color": "#b5b5b5"
+    }
+   },
+   {
+    "id": "o24",
+    "type": "Text",
+    "props": {
+     "text": "@weg",
+     "position": [
+      -2.45,
+      -1.6,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o25",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      0.33,
+      -1.42,
+      0
+     ],
+     "end": [
+      -1.52,
+      -1.42,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.11,
+     "font_size": 26,
+     "color": "#c82828",
+     "stroke_width": 2.5,
+     "dash": "10,7",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o26",
+    "type": "Mark",
+    "props": {
+     "center": [
+      -0.6,
+      -1.42,
+      0
+     ],
+     "kind": "cross",
+     "size": 0.22,
+     "color": "#c82828",
+     "stroke_width": 4
+    }
+   },
+   {
+    "id": "o27",
+    "type": "Text",
+    "props": {
+     "text": "@kein",
+     "position": [
+      -0.6,
+      -1.72,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#c82828"
+    }
+   }
+  ],
+  "animations": [
+   {
+    "id": "a1",
+    "type": "GrowFromCenter",
+    "target": "o3",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a2",
+    "type": "FadeIn",
+    "target": "o2",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a3",
+    "type": "FadeIn",
+    "target": "o5",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a4",
+    "type": "FadeIn",
+    "target": "o6",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a5",
+    "type": "FadeIn",
+    "target": "o7",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a6",
+    "type": "FadeIn",
+    "target": "o8",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a7",
+    "type": "FadeIn",
+    "target": "o4",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a8",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a9",
+    "type": "Create",
+    "target": "o9",
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a10",
+    "type": "FadeIn",
+    "target": "o10",
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a11",
+    "type": "Shift",
+    "target": "o7",
+    "run_time": 1.0,
+    "step": 3,
+    "vector": [
+     3.7,
+     0,
+     0
+    ]
+   },
+   {
+    "id": "a12",
+    "type": "Shift",
+    "target": "o8",
+    "run_time": 1.0,
+    "step": 3,
+    "vector": [
+     3.7,
+     0,
+     0
+    ]
+   },
+   {
+    "id": "a13",
+    "type": "FadeIn",
+    "target": "o13",
+    "run_time": 0.5,
+    "step": 4
+   },
+   {
+    "id": "a14",
+    "type": "FadeIn",
+    "target": "o14",
+    "run_time": 0.5,
+    "step": 4
+   },
+   {
+    "id": "a15",
+    "type": "Create",
+    "target": "o11",
+    "run_time": 0.6,
+    "step": 5
+   },
+   {
+    "id": "a16",
+    "type": "FadeIn",
+    "target": "o12",
+    "run_time": 0.6,
+    "step": 5
+   },
+   {
+    "id": "a17",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 6
+   },
+   {
+    "id": "a18",
+    "type": "FadeIn",
+    "target": "o1",
+    "run_time": 0.7,
+    "step": 7
+   },
+   {
+    "id": "a19",
+    "type": "FadeIn",
+    "target": "o15",
+    "run_time": 0.7,
+    "step": 7
+   },
+   {
+    "id": "a20",
+    "type": "FadeIn",
+    "target": "o16",
+    "run_time": 0.7,
+    "step": 7
+   },
+   {
+    "id": "a21",
+    "type": "FadeIn",
+    "target": "o17",
+    "run_time": 0.7,
+    "step": 7
+   },
+   {
+    "id": "a22",
+    "type": "FadeIn",
+    "target": "o18",
+    "run_time": 0.7,
+    "step": 7
+   },
+   {
+    "id": "a23",
+    "type": "FadeIn",
+    "target": "o19",
+    "run_time": 0.7,
+    "step": 7
+   },
+   {
+    "id": "a24",
+    "type": "GrowFromCenter",
+    "target": "o20",
+    "run_time": 0.7,
+    "step": 7
+   },
+   {
+    "id": "a25",
+    "type": "FadeIn",
+    "target": "o21",
+    "run_time": 0.7,
+    "step": 7
+   },
+   {
+    "id": "a26",
+    "type": "FadeOut",
+    "target": "o18",
+    "run_time": 0.6,
+    "step": 8
+   },
+   {
+    "id": "a27",
+    "type": "FadeOut",
+    "target": "o19",
+    "run_time": 0.6,
+    "step": 8
+   },
+   {
+    "id": "a28",
+    "type": "FadeIn",
+    "target": "o22",
+    "run_time": 0.6,
+    "step": 8
+   },
+   {
+    "id": "a29",
+    "type": "FadeIn",
+    "target": "o23",
+    "run_time": 0.6,
+    "step": 8
+   },
+   {
+    "id": "a30",
+    "type": "FadeIn",
+    "target": "o24",
+    "run_time": 0.4,
+    "step": 9
+   },
+   {
+    "id": "a31",
+    "type": "Create",
+    "target": "o25",
+    "run_time": 0.6,
+    "step": 10
+   },
+   {
+    "id": "a32",
+    "type": "FadeIn",
+    "target": "o26",
+    "run_time": 0.5,
+    "step": 11
+   },
+   {
+    "id": "a33",
+    "type": "FadeIn",
+    "target": "o27",
+    "run_time": 0.5,
+    "step": 11
+   }
+  ],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "oben": {
+    "de": "Papierkorb einer grafischen Oberfläche",
+    "en": "Trash of a graphical desktop",
+    "es": "Papelera de un escritorio gráfico",
+    "zh": "图形界面的回收站",
+    "fr": "Corbeille d'un bureau graphique",
+    "tr": "Grafik masaüstünün çöp kutusu"
+   },
+   "versch": {
+    "de": "verschieben",
+    "en": "move",
+    "es": "mover",
+    "zh": "移动",
+    "fr": "déplacer",
+    "tr": "taşı"
+   },
+   "zurueck": {
+    "de": "zurückholen möglich",
+    "en": "can be restored",
+    "es": "se puede recuperar",
+    "zh": "可以还原",
+    "fr": "restauration possible",
+    "tr": "geri alınabilir"
+   },
+   "info": {
+    "de": "dazu ein Zettel in Trash/info:\nalter Pfad, Zeitpunkt",
+    "en": "plus a note in Trash/info:\nold path, time",
+    "es": "más una nota en Trash/info:\nruta antigua, hora",
+    "zh": "另在 Trash/info 中记下：\n原路径、时间",
+    "fr": "plus une note dans Trash/info :\nancien chemin, heure",
+    "tr": "ayrıca Trash/info içinde not:\neski yol, zaman"
+   },
+   "unten": {
+    "de": "rm an der Kommandozeile",
+    "en": "rm on the command line",
+    "es": "rm en la línea de comandos",
+    "zh": "命令行中的 rm",
+    "fr": "rm en ligne de commande",
+    "tr": "komut satırında rm"
+   },
+   "weg": {
+    "de": "Eintrag gestrichen",
+    "en": "entry removed",
+    "es": "entrada eliminada",
+    "zh": "条目被删除",
+    "fr": "entrée supprimée",
+    "tr": "girdi silindi"
+   },
+   "kein": {
+    "de": "kein Weg zurück",
+    "en": "no way back",
+    "es": "no hay vuelta atrás",
+    "zh": "无法恢复",
+    "fr": "aucun retour possible",
+    "tr": "geri dönüş yok"
+   }
+  }
+ }
+}

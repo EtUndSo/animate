@@ -1,7 +1,9 @@
 ---
 title: Überblick: Leistung, Anpassung und Wirkungsgrad
 kurz: Überblick
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Leistung, Anpassung und Wirkungsgrad
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Leistung, Anpassung und Wirkungsgrad
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad
+knoten: Kapitel 7: Leistung, Anpassung und Wirkungsgrad
 order: 1170100
 summary: Warum am Leistungsmaximum die Hälfte der Energie in der Quelle bleibt
 tags: Innenwiderstand, Last, Leistung
@@ -21,7 +23,7 @@ Eine 9-V-Batterie hat 2 $\Omega$ __Innenwiderstand__, den Widerstand, den der 
 
 <li>
 
-⁠**Batterie:** der 9-V-Block aus [Teil 5](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html) mit der Quellenspannung $U_\mathrm{q}=9$ V (die Spannung, die die Chemie liefert) und dem Innenwiderstand $R_\mathrm{i}=2\,\Omega$. [Teil 5](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html) nennt ihn bei der einzelnen Quelle $R_\mathrm{q}$. Der Kurzschlussstrom ist $I_\mathrm{KS}=4{,}5$ A.
+⁠**Batterie:** der 9-V-Block aus [Kapitel 5](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html) mit der Quellenspannung $U_\mathrm{q}=9$ V (die Spannung, die die Chemie liefert) und dem Innenwiderstand $R_\mathrm{i}=2\,\Omega$. [Kapitel 5](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html) nennt ihn bei der einzelnen Quelle $R_\mathrm{q}$. Der Kurzschlussstrom ist $I_\mathrm{KS}=4{,}5$ A.
 
 </li>
 

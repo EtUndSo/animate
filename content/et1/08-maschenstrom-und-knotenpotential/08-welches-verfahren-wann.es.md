@@ -1,6 +1,8 @@
 ---
 title: Etapa 6: ¿Qué método y cuándo?
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Análisis por mallas y por nudos
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Análisis por mallas y por nudos
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/maschenstrom-und-knotenpotentialverfahren
+knoten: Capítulo 8: Análisis por mallas y por nudos
 order: 1180800
 summary: Ambos métodos dan lo mismo.
 tags: dualidad
@@ -49,7 +51,7 @@ La tabla muestra una __dualidad__, una simetría especular: si se intercambian m
 Tras la conversión de la derecha, la red modelo tiene $k=3$ y $z=5$. Con $5>4$ queda por encima de la recta, y en efecto eran tres mallas frente a dos nudos.
 ::::
 
-⁠**Caso límite:** El puente de la [Parte 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html), con $k=4$ y $z=6$, queda justo sobre la recta. Entonces deciden las fuentes: una fuente de tensión ideal habla a favor de las mallas, porque allí va en el lado derecho.
+⁠**Caso límite:** El puente del [capítulo 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html), con $k=4$ y $z=6$, queda justo sobre la recta. Entonces deciden las fuentes: una fuente de tensión ideal habla a favor de las mallas, porque allí va en el lado derecho.
 
 Los simuladores solo usan potenciales de nudo. Las mallas de una red, un programa tiene que buscarlas primero, y solo hay ventanas si la red se puede dibujar sin cruces. Los nudos, en cambio, ya están en la descripción del circuito (etapa [7](stempel-und-netzliste.html#stufe-7)).
 
@@ -97,6 +99,6 @@ Demuestra: si en una red se agrupan dos componentes en serie junto con el nudo i
 
 (c) $k=5$, $z=10$: $m=6$ frente a 4, potenciales de nudo.
 
-(d) El nudo intermedio desaparece y dos ramas se convierten en una, es decir, $m'=(z-1)-(k-1)+1=z-k+1=m$. El recuento de la [Parte 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html) llega a la misma conclusión.
+(d) El nudo intermedio desaparece y dos ramas se convierten en una, es decir, $m'=(z-1)-(k-1)+1=z-k+1=m$. El recuento del [capítulo 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html) llega a la misma conclusión.
 :::
 :::

@@ -1,7 +1,8 @@
 ---
 title: The matrix–vector product
 pfad: Computer Science / Machine Learning / Mathematical Foundations / Vectors and Matrices
-knoten: Foundations 1: Vectors and Matrices
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Chapter 1: Vectors and Matrices
 nachschlagen: ja
 order: 15210800
 summary: The same weighted sum is to be computed for all examples of a dataset.

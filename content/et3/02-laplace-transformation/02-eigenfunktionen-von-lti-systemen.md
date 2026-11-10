@@ -1,6 +1,8 @@
 ---
 title: Eigenfunktionen von LTI-Systemen
-pfad: Elektrotechnik / 3. Semester / Signale und Systeme / Laplace-Transformation
+pfad: Elektrotechnik / 3. Semester / ET3 – Grundgebiete der Elektrotechnik 3: Signale und Systeme / Laplace-Transformation
+adresse: elektrotechnik/3-semester/signale-und-systeme/laplace-transformation
+knoten: Kapitel 2: Laplace-Transformation
 order: 3220200
 summary: Ein LTI-System verändert die Form fast jedes Signals.
 tags: Realteil, Imaginärteil, konjugiert komplexe, Eigenfunktion, Eigenwert, komplexe Frequenz, p-Ebene, Laplace-Übertragungsfunktion

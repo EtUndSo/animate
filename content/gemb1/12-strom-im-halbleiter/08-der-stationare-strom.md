@@ -1,6 +1,8 @@
 ---
 title: Stufe 6: Der stationäre Strom
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Strom im Halbleiter
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Strom im Halbleiter
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/strom-im-halbleiter
+knoten: Kapitel 12: Strom im Halbleiter
 order: 4220800
 summary: Alle Teile liegen bereit.
 tags: Moment, Fermi-Kanten
@@ -10,7 +12,7 @@ lang: de
 <span class="anker" id="stufe-6"></span>
 
 :::zweck
-Alle Teile liegen bereit. Diese Stufe löst [(5.4)](der-streuterm-und-die-relaxationszeit.html#gl-5-4) für eine homogene Probe im konstanten Feld, gewinnt das Gasmodell aus [Teil 1](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/welle-teilchen-und-schrodinger-gleichung/welle-teilchen-und-schroedinger-gleichung.html) zurück und zeigt, was die Gleichung darüber hinaus leistet.
+Alle Teile liegen bereit. Diese Stufe löst [(5.4)](der-streuterm-und-die-relaxationszeit.html#gl-5-4) für eine homogene Probe im konstanten Feld, gewinnt das Gasmodell aus [Kapitel 1](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/welle-teilchen-und-schrodinger-gleichung/welle-teilchen-und-schroedinger-gleichung.html) zurück und zeigt, was die Gleichung darüber hinaus leistet.
 :::
 
 **Die Idee.** Das Feld schiebt die Verteilung mit der Rate $F/\hbar$ durch $k$, die Stöße ziehen sie mit der Rate $1/\tau_\text{scat}$ zurück. Dazwischen stellt sich eine feste, winzige Verschiebung ein (Abb. [6](#abb-6)), und aus ihr folgt der Strom nach [(1.4)](strom-aus-besetzten-zustanden.html#gl-1-4).
@@ -81,7 +83,7 @@ Die Probe hat $\mu_\mathrm n=1200\,\mathrm{cm^2/(V\,s)}$. Bei $\mathcal E=1000$�
 | Wer trägt den Strom? | alle gleich, mit $v_\mathrm e$ | wo $\partial f^0/\partial k\neq0$ ist, im Metall nur die Fermi-Kante mit $v_\mathrm F$ |
 | Ort und Zeit? | nur homogen, stationär | $f(x,k,t)$, auch bei Gefällen in $E_\mathrm F$ und $T$ |
 
-Das löst die Rätsel aus [Teil 1](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/welle-teilchen-und-schrodinger-gleichung/welle-teilchen-und-schroedinger-gleichung.html). Das Gasmodell gibt $\mu=15\,\mathrm{cm^2/(V\,s)}$, Silizium hat 1400. Vom Faktor 93 stammen 24 aus der längeren Streuzeit und 3,8 aus der kleineren Masse. In $m_\mathrm n^*=3/(1/m_\mathrm h^*+2/m_\mathrm l^*)=0{,}26\,m_0$ zählt der Mittelwert von $1/m$ über die Richtungen der Täler ([Teil 9](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/bandstrukturen-lesen/bandstrukturen-lesen.html)), nicht $m_\mathrm C^*=1{,}08\,m_0$ aus $N_\mathrm C$, das Plätze zählt. Im Metall ändert sich nur die Fermi-Kante, trotzdem steht in [(6.3)](#gl-6-3) das ganze $n$: Die partielle Integration macht aus der schmalen Änderung die Fläche unter $f$. Wenige schnelle Elektronen wirken wie viele langsame.
+Das löst die Rätsel aus [Kapitel 1](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/welle-teilchen-und-schrodinger-gleichung/welle-teilchen-und-schroedinger-gleichung.html). Das Gasmodell gibt $\mu=15\,\mathrm{cm^2/(V\,s)}$, Silizium hat 1400. Vom Faktor 93 stammen 24 aus der längeren Streuzeit und 3,8 aus der kleineren Masse. In $m_\mathrm n^*=3/(1/m_\mathrm h^*+2/m_\mathrm l^*)=0{,}26\,m_0$ zählt der Mittelwert von $1/m$ über die Richtungen der Täler ([Kapitel 9](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/bandstrukturen-lesen/bandstrukturen-lesen.html)), nicht $m_\mathrm C^*=1{,}08\,m_0$ aus $N_\mathrm C$, das Plätze zählt. Im Metall ändert sich nur die Fermi-Kante, trotzdem steht in [(6.3)](#gl-6-3) das ganze $n$: Die partielle Integration macht aus der schmalen Änderung die Fläche unter $f$. Wenige schnelle Elektronen wirken wie viele langsame.
 
 :::frage Eine Verschiebung von einem Zweitausendstel der Breite: Wie kann daraus ein merklicher Strom werden?
 Ohne Feld heben sich $10^{16}$ Beiträge je cm$^3$ exakt auf. Die kleine Schieflage bricht das für alle Elektronen zugleich. Der Strom ist die winzige Differenz zweier riesiger Teilströme.

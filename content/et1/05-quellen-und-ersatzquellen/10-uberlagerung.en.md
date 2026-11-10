@@ -1,6 +1,8 @@
 ---
 title: Stage 8: Superposition
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / Sources and Equivalent Sources
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / Sources and Equivalent Sources
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen
+knoten: Chapter 5: Sources and Equivalent Sources
 order: 1151000
 summary: When there are several sources at different places in the network, groups alone do not help.
 tags: superposition method, independent, sensitivity
@@ -71,7 +73,7 @@ $$U_\mathrm{AB}=\frac{R_2}{R_1+R_2}\,U_\mathrm{q1}+\frac{R_1R_2}{R_1+R_2}\,I_\ma
 This is the form [(8.1)](#gl-8-1): each term belongs to one source, and the coefficients contain only resistors.
 :::
 
-**The limit: power.** The power in a resistor is quadratic in the voltage, $P=UI=U^2/R$ ([Part 7](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad/leistung-und-anpassung.html)). In $R_2$, adding would give $(6\,\mathrm{V})^2/3\,\Omega+(3\,\mathrm{V})^2/3\,\Omega=15$ W. The truth is $(9\,\mathrm{V})^2/3\,\Omega=27$ W. The cross term $2U'U''/R_2=12$ W is missing. Powers must not be superposed; voltages and currents may. An exception comes later: for alternating quantities of different frequencies, the cross term vanishes in the time average. Nor does superposition hold once a diode sits in the network ([Part 9](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)).
+**The limit: power.** The power in a resistor is quadratic in the voltage, $P=UI=U^2/R$ ([Chapter 7](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad/leistung-und-anpassung.html)). In $R_2$, adding would give $(6\,\mathrm{V})^2/3\,\Omega+(3\,\mathrm{V})^2/3\,\Omega=15$ W. The truth is $(9\,\mathrm{V})^2/3\,\Omega=27$ W. The cross term $2U'U''/R_2=12$ W is missing. Powers must not be superposed; voltages and currents may. An exception comes later: for alternating quantities of different frequencies, the cross term vanishes in the time average. Nor does superposition hold once a diode sits in the network ([Chapter 9](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)).
 
 :::frage Why must I not take a turned-off voltage source out of the network?
 Because zero volts does not turn into “nothing”. The source remains part of the line; it just no longer holds a voltage. If you take it out, you interrupt the current path through it. That would be the case of the current source, not of the voltage source.

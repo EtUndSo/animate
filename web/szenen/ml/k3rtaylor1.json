@@ -12,7 +12,7 @@
     "type": "MathTex",
     "props": {
      "tex": "\\begin{aligned}f(2+h)&\\approx f(2)+f'(2)\\,h+\\tfrac12f''(2)\\,h^2\\\\&=8+12\\cdot0.01+\\tfrac12\\cdot12\\cdot0.01^2\\\\&=8+0.12+0.0006\\\\&=8.1206\\end{aligned}",
-     "height": 1.299,
+     "height": 1.257,
      "position": [
       0,
       0,

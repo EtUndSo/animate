@@ -1,7 +1,8 @@
 ---
 title: Die Singulärwertzerlegung
 pfad: Informatik / Machine Learning / Mathematische Grundlagen / Projektion, Eigenwerte und Zerlegungen
-knoten: Grundlagen 2: Projektion, Eigenwerte und Zerlegungen
+adresse: informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen
+knoten: Kapitel 2: Projektion, Eigenwerte und Zerlegungen
 nachschlagen: ja
 order: 15221000
 summary: Eigenvektoren gibt es nur bei quadratischen Matrizen, und senkrecht aufeinander stehen sie nur bei symmetrischen.
@@ -58,7 +59,7 @@ $$d_j=\sqrt{\lambda_j},\qquad d_1\ge d_2\ge\dots\ge d_n\ge0 , \tag{9.1}$$
 heißen die __Singulärwerte__ von $\mathbf{A}$.
 :::
 
-Viele Bücher schreiben $\sigma_j$ statt $d_j$. Die Singulärwerte tragen hier immer einen Index; das $d$ ohne Index aus [Grundlagen 1](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html), die Zahl der Merkmale, ist etwas anderes.
+Viele Bücher schreiben $\sigma_j$ statt $d_j$. Die Singulärwerte tragen hier immer einen Index; das $d$ ohne Index aus [Kapitel 1](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html), die Zahl der Merkmale, ist etwas anderes.
 
 :::satz Satz 9.2 (Singulärwerte und Rang)
 <span class="anker" id="satz-9-2"></span>
@@ -136,7 +137,7 @@ $$\mathbf{A}=\sum_{j=1}^rd_j\,\mathbf{u}_j\mathbf{v}_j^{\top} . \tag{9.4}$$
 :::
 
 :::beweis Singulärwertzerlegung
-Für $j\le r$ ist $\mathbf{A}\mathbf{v}_j=d_j\mathbf{u}_j$. Für $j>r$ ist $d_j=0$, also $\lVert\mathbf{A}\mathbf{v}_j\rVert=0$ und $\mathbf{A}\mathbf{v}_j=\mathbf{0}$. Ist $r<m$, ergänzt man $\mathbf{u}_1,\dots,\mathbf{u}_r$ zu einer Orthonormalbasis des $\mathbb{R}^m$, etwa mit dem Gram-Schmidt-Verfahren wie im Beweis des Spektralsatzes. Nach [Grundlagen 1, Abschnitt 9.2](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrixprodukt.html#stufe-9-2), ist Spalte $j$ von $\mathbf{A}\mathbf{V}$ der Vektor $\mathbf{A}\mathbf{v}_j$, und Spalte $j$ von $\mathbf{U}\mathbf{D}$ ist $d_j\mathbf{u}_j$ für $j\le r$ und sonst der Nullvektor. Also ist $\mathbf{A}\mathbf{V}=\mathbf{U}\mathbf{D}$. Weil $\mathbf{V}$ orthogonal ist, ist $\mathbf{V}\mathbf{V}^{\top}=\mathbf{I}$, und Multiplikation mit $\mathbf{V}^{\top}$ von rechts ergibt $\mathbf{A}=\mathbf{U}\mathbf{D}\mathbf{V}^{\top}$. Die kompakte Form folgt aus [Grundlagen 1, Abschnitt 9.5](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrixprodukt.html#stufe-9-5): Spalte $j$ von $\mathbf{U}\mathbf{D}$ mal Zeile $j$ von $\mathbf{V}^{\top}$, summiert über $j$; nur die Summanden mit $j\le r$ sind nicht null.
+Für $j\le r$ ist $\mathbf{A}\mathbf{v}_j=d_j\mathbf{u}_j$. Für $j>r$ ist $d_j=0$, also $\lVert\mathbf{A}\mathbf{v}_j\rVert=0$ und $\mathbf{A}\mathbf{v}_j=\mathbf{0}$. Ist $r<m$, ergänzt man $\mathbf{u}_1,\dots,\mathbf{u}_r$ zu einer Orthonormalbasis des $\mathbb{R}^m$, etwa mit dem Gram-Schmidt-Verfahren wie im Beweis des Spektralsatzes. Nach [Kapitel 1, Abschnitt 9.2](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrixprodukt.html#stufe-9-2), ist Spalte $j$ von $\mathbf{A}\mathbf{V}$ der Vektor $\mathbf{A}\mathbf{v}_j$, und Spalte $j$ von $\mathbf{U}\mathbf{D}$ ist $d_j\mathbf{u}_j$ für $j\le r$ und sonst der Nullvektor. Also ist $\mathbf{A}\mathbf{V}=\mathbf{U}\mathbf{D}$. Weil $\mathbf{V}$ orthogonal ist, ist $\mathbf{V}\mathbf{V}^{\top}=\mathbf{I}$, und Multiplikation mit $\mathbf{V}^{\top}$ von rechts ergibt $\mathbf{A}=\mathbf{U}\mathbf{D}\mathbf{V}^{\top}$. Die kompakte Form folgt aus [Kapitel 1, Abschnitt 9.5](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrixprodukt.html#stufe-9-5): Spalte $j$ von $\mathbf{U}\mathbf{D}$ mal Zeile $j$ von $\mathbf{V}^{\top}$, summiert über $j$; nur die Summanden mit $j\le r$ sind nicht null.
 :::
 
 Die Form von $\mathbf{D}$ richtet sich nach der Form von $\mathbf{A}$. Für $m=3$ und $n=2$ ist zum Beispiel $\mathbf{D}=\Bigl(\begin{smallmatrix}d_1&0\\0&d_2\\0&0\end{smallmatrix}\Bigr)$. Die übliche Abkürzung ist SVD, nach dem englischen Namen *singular value decomposition*.
@@ -189,7 +190,7 @@ $\mathbf{U}$ legt $\mathbf{e}_j$ auf $\mathbf{u}_j$, wieder eine Drehung oder Sp
 
 </ol>
 
-Jede lineare Abbildung ist also, bis auf Spiegelungen, eine Drehung, eine Streckung längs der Achsen und noch eine Drehung. Sie macht aus dem Einheitskreis eine Ellipse, aus der Einheitskugel ein Ellipsoid, mit den Halbachsen $d_j\mathbf{u}_j$. Ist $\det\mathbf{A}<0$, so ist mindestens eine Spiegelung dabei, denn nach [Grundlagen 1, Abschnitt 14.5](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5), ist $\det\mathbf{A}=\det\mathbf{U}\cdot\det\mathbf{D}\cdot\det\mathbf{V}^{\top}$, und $\det\mathbf{D}\ge0$.
+Jede lineare Abbildung ist also, bis auf Spiegelungen, eine Drehung, eine Streckung längs der Achsen und noch eine Drehung. Sie macht aus dem Einheitskreis eine Ellipse, aus der Einheitskugel ein Ellipsoid, mit den Halbachsen $d_j\mathbf{u}_j$. Ist $\det\mathbf{A}<0$, so ist mindestens eine Spiegelung dabei, denn nach [Kapitel 1, Abschnitt 14.5](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5), ist $\det\mathbf{A}=\det\mathbf{U}\cdot\det\mathbf{D}\cdot\det\mathbf{V}^{\top}$, und $\det\mathbf{D}\ge0$.
 
 :::abbildung ml/k2svd 23
 Die Matrix $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ als Drehung, Streckung, Drehung. Links oben der Einheitskreis mit $\mathbf{v}_1=(1,2)^{\top}/\sqrt5$ (rot) und $\mathbf{v}_2=(-2,1)^{\top}/\sqrt5$ (grün). $\mathbf{V}^{\top}$ dreht um $-63{,}4^\circ$ und legt $\mathbf{v}_1$ auf $\mathbf{e}_1$ und $\mathbf{v}_2$ auf $\mathbf{e}_2$ (links unten). $\mathbf{D}$ streckt die erste Achse um $d_1=4$ und die zweite um $d_2=1$ (rechts unten). $\mathbf{U}$ dreht um $26{,}6^\circ$ und legt die Achsen auf $\mathbf{u}_1=(2,1)^{\top}/\sqrt5$ und $\mathbf{u}_2=(-1,2)^{\top}/\sqrt5$ (rechts oben). Der schwarze Punkt $\mathbf{x}=\mathbf{e}_2$ landet auf allen Wegen bei $\mathbf{A}\mathbf{x}=(3,2)^{\top}$. Der direkte Weg oben ist $\mathbf{A}$ selbst: Der Einheitskreis wird zur Ellipse mit den Halbachsen $4\,\mathbf{u}_1$ und $1\cdot\mathbf{u}_2$.
@@ -241,7 +242,7 @@ $\mathbf{v}_{r+1},\dots,\mathbf{v}_n$ ist eine Orthonormalbasis des Kerns von $\
 (i) Jedes $\mathbf{A}\mathbf{x}=\sum_{j\le r}d_j(\mathbf{v}_j^{\top}\mathbf{x})\mathbf{u}_j$ liegt im Spann von $\mathbf{u}_1,\dots,\mathbf{u}_r$, und umgekehrt ist $\mathbf{u}_j=\mathbf{A}(\mathbf{v}_j/d_j)$ ein Bild. Die übrigen Spalten von $\mathbf{U}$ stehen senkrecht auf diesen, spannen also nach Abschnitt [4.4](projektion-auf-einen-unterraum.html#stufe-4-4) das orthogonale Komplement auf. (ii) Weil die $\mathbf{u}_j$ unabhängig und die $d_j$ positiv sind, ist $\mathbf{A}\mathbf{x}=\mathbf{0}$ genau dann, wenn $\mathbf{v}_j^{\top}\mathbf{x}=0$ für alle $j\le r$ ist, wenn also $\mathbf{x}$ nur Koordinaten längs $\mathbf{v}_{r+1},\dots,\mathbf{v}_n$ hat. Schließlich ist $\mathbf{A}^{\top}=\mathbf{V}\mathbf{D}^{\top}\mathbf{U}^{\top}$ eine Singulärwertzerlegung von $\mathbf{A}^{\top}$, in der $\mathbf{U}$ und $\mathbf{V}$ die Rollen tauschen; (i) für $\mathbf{A}^{\top}$ ergibt den Rest.
 :::
 
-Die Zahlen passen zum Rangsatz aus [Grundlagen 1, Abschnitt 13.5](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-5): Der Kern hat die Dimension $n-r$.
+Die Zahlen passen zum Rangsatz aus [Kapitel 1, Abschnitt 13.5](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-5): Der Kern hat die Dimension $n-r$.
 
 ::::beispiel [Rechenbeispiel]
 Die Matrix $\mathbf{H}$ mit den Spalten $(1,\,0,\,1)^{\top}$ und $(0,\,1,\,1)^{\top}$ aus Abschnitt [3.2](die-beste-naherungslosung.html#stufe-3-2) hat $\mathbf{H}^{\top}\mathbf{H}=\bigl(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\bigr)$ mit den Eigenwerten $3$ und $1$, also die Singulärwerte $d_1=\sqrt3$ und $d_2=1$, und die rechten Singulärvektoren $\mathbf{v}_1=(1,\,1)^{\top}/\sqrt2$, $\mathbf{v}_2=(1,\,-1)^{\top}/\sqrt2$. Die linken sind
@@ -314,14 +315,18 @@ Für $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ ist $
 
 ⁠**Kurz gesagt:** Die Spektralnorm $\lVert\mathbf{A}\rVert_2=d_1$ ist der größte Faktor, um den $\mathbf{A}$ einen Vektor verlängert; der kleinste ist $d_n$.
 
-:::hintergrund Mehrere Antennen: parallele Kanäle aus der Singulärwertzerlegung
-Ein Funksystem mit mehreren Sende- und Empfangsantennen heißt MIMO-System. Jede Empfangsantenne empfängt eine Mischung aller Sendesignale. In einem einfachen Modell ist der empfangene Vektor $\mathbf{y}=\mathbf{K}\mathbf{x}+\boldsymbol\nu$: $\mathbf{x}$ enthält die Sendesignale der Antennen, die Kanalmatrix $\mathbf{K}$ beschreibt, wie stark jede Sendeantenne bei jeder Empfangsantenne ankommt, und $\boldsymbol\nu$ ist das Rauschen.
+:::hintergrund Zwei Griffe, ein Hebel: getrennte Regler aus der Singulärwertzerlegung
+An einem Wasserhahn mit zwei Drehgriffen, einem für warmes und einem für kaltes Wasser, verändert jeder Griff zugleich die Menge und die Temperatur. In einem vereinfachten Modell für kleine Drehungen um eine Einstellung mit gleich viel warmem und kaltem Wasser ändern die Drehungen $\Delta w$ am warmen und $\Delta k$ am kalten Griff die Menge und die Temperatur um
 
-Kennen Sender und Empfänger die Zerlegung $\mathbf{K}=\mathbf{U}\mathbf{D}\mathbf{V}^{\top}$, so sendet der Sender $\mathbf{x}=\mathbf{V}\tilde{\mathbf{x}}$, und der Empfänger berechnet $\tilde{\mathbf{y}}=\mathbf{U}^{\top}\mathbf{y}$. Dann ist
+$$\mathbf{y}=\begin{pmatrix}\Delta Q\\\Delta T\end{pmatrix}=\mathbf{K}\mathbf{x},\qquad \mathbf{x}=\begin{pmatrix}\Delta w\\\Delta k\end{pmatrix},\qquad \mathbf{K}=\begin{pmatrix}1&1\\2&-2\end{pmatrix},$$
 
-$$\tilde{\mathbf{y}}=\mathbf{U}^{\top}\mathbf{U}\mathbf{D}\mathbf{V}^{\top}\mathbf{V}\tilde{\mathbf{x}}+\mathbf{U}^{\top}\boldsymbol\nu=\mathbf{D}\tilde{\mathbf{x}}+\tilde{\boldsymbol\nu} .$$
+in passenden Einheiten. Die Matrix $\mathbf{K}^{\top}\mathbf{K}=\bigl(\begin{smallmatrix}5&-3\\-3&5\end{smallmatrix}\bigr)$ hat die Eigenwerte $8$ und $2$ mit den Eigenvektoren $\mathbf{v}_1=(1,\,-1)^{\top}/\sqrt2$ und $\mathbf{v}_2=(1,\,1)^{\top}/\sqrt2$. Also sind $d_1=\sqrt8=2\sqrt2$ und $d_2=\sqrt2$ die Singulärwerte, und $\mathbf{K}\mathbf{v}_1=d_1\,(0,\,1)^{\top}$, $\mathbf{K}\mathbf{v}_2=d_2\,(1,\,0)^{\top}$. In Worten: Beide Griffe gegensinnig zu drehen ändert nur die Temperatur, beide gleichsinnig zu drehen nur die Menge.
 
-Aus dem gemischten Kanal sind $r$ getrennte Kanäle geworden: $\tilde y_j=d_j\tilde x_j+\tilde\nu_j$. Jeder überträgt einen eigenen Datenstrom, mit dem Verstärkungsfaktor $d_j$. Das Rauschen wird dabei nur gedreht, seine Länge bleibt gleich, denn $\mathbf{U}^{\top}$ ist orthogonal. Die Zahl der nutzbaren parallelen Kanäle ist der Rang der Kanalmatrix, und wie gut jeder Kanal ist, sagt sein Singulärwert. Das ist Drehung, Streckung, Drehung in der Praxis: Der Sender dreht vor, der Kanal streckt, der Empfänger dreht zurück.
+Mit der Zerlegung $\mathbf{K}=\mathbf{U}\mathbf{D}\mathbf{V}^{\top}$ stellt man nicht mehr die Griffe ein, sondern die Koordinaten $\tilde{\mathbf{x}}=\mathbf{V}^{\top}\mathbf{x}$ in den Richtungen $\mathbf{v}_1,\mathbf{v}_2$, und liest das Ergebnis in den Koordinaten $\tilde{\mathbf{y}}=\mathbf{U}^{\top}\mathbf{y}$ ab. Dann ist
+
+$$\tilde{\mathbf{y}}=\mathbf{U}^{\top}\mathbf{U}\mathbf{D}\mathbf{V}^{\top}\mathbf{V}\tilde{\mathbf{x}}=\mathbf{D}\tilde{\mathbf{x}} .$$
+
+Aus den zwei gekoppelten Griffen sind zwei getrennte Regler geworden: $\tilde y_j=d_j\tilde x_j$. Ein Einhebelmischer setzt diese Idee um. Hebt man den Hebel, öffnen sich beide Zuläufe gleichsinnig, und es kommt mehr Wasser bei gleicher Temperatur; schwenkt man ihn, öffnet sich der eine Zulauf und schließt sich der andere, und nur die Temperatur ändert sich. Die Zahl der getrennten Regler ist der Rang von $\mathbf{K}$, und wie stark jeder wirkt, sagt sein Singulärwert. Das ist Drehung, Streckung, Drehung im Alltag: Der Hebel dreht die Eingaben in die Richtungen der Singulärvektoren, das Wasser streckt jede mit ihrem Singulärwert, und man liest das Ergebnis wieder als Menge und Temperatur ab.
 :::
 
 :::aufgabe Aufgabe 27 ★★ Eine Zerlegung von Hand
@@ -438,7 +443,7 @@ Zeige: Ist $\mathbf{Q}$ orthogonal, so haben $\mathbf{Q}\mathbf{A}$ und $\mathbf
 </ol>
 
 :::loesung
-(a) Nach [Grundlagen 1, Abschnitt 14.5](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5), ist $\det\mathbf{A}=\det\mathbf{U}\cdot\det\mathbf{D}\cdot\det\mathbf{V}^{\top}$. Die beiden orthogonalen Matrizen haben die Determinante $\pm1$, und $\mathbf{D}$ ist eine Diagonalmatrix mit der Determinante $d_1\cdots d_n$. Also ist $|\det\mathbf{A}|=d_1\cdots d_n$.
+(a) Nach [Kapitel 1, Abschnitt 14.5](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5), ist $\det\mathbf{A}=\det\mathbf{U}\cdot\det\mathbf{D}\cdot\det\mathbf{V}^{\top}$. Die beiden orthogonalen Matrizen haben die Determinante $\pm1$, und $\mathbf{D}$ ist eine Diagonalmatrix mit der Determinante $d_1\cdots d_n$. Also ist $|\det\mathbf{A}|=d_1\cdots d_n$.
 
 (b) Aus $\mathbf{A}=\mathbf{U}\mathbf{D}\mathbf{V}^{\top}$ folgt $\mathbf{A}^{\top}\mathbf{A}=\mathbf{V}\mathbf{D}^{\top}\mathbf{D}\mathbf{V}^{\top}$ und $\mathbf{A}\mathbf{A}^{\top}=\mathbf{U}\mathbf{D}\mathbf{D}^{\top}\mathbf{U}^{\top}$. Die Diagonalmatrizen $\mathbf{D}^{\top}\mathbf{D}$ und $\mathbf{D}\mathbf{D}^{\top}$ haben dieselben Einträge $d_j^2>0$ auf der Diagonale, nur verschieden viele Nullen. Die Singulärwerte von $\mathbf{A}^{\top}$ sind die Wurzeln der Eigenwerte von $(\mathbf{A}^{\top})^{\top}\mathbf{A}^{\top}=\mathbf{A}\mathbf{A}^{\top}$, also wieder die $d_j$, ergänzt um Nullen.
 

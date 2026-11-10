@@ -1,7 +1,8 @@
 ---
 title: La décomposition en valeurs singulières
 pfad: Informatique / Apprentissage automatique / Fondements mathématiques / Projection, valeurs propres et décompositions
-knoten: Fondements 2 : Projection, valeurs propres et décompositions
+adresse: informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen
+knoten: Chapitre 2 : Projection, valeurs propres et décompositions
 nachschlagen: ja
 order: 15221000
 summary: Les vecteurs propres n’existent que pour les matrices carrées, et ils ne sont perpendiculaires que pour les matrices symétriques.
@@ -58,7 +59,7 @@ $$d_j=\sqrt{\lambda_j},\qquad d_1\ge d_2\ge\dots\ge d_n\ge0 , \tag{9.1}$$
 sont appelés les __valeurs singulières__ de $\mathbf{A}$.
 :::
 
-Beaucoup d’ouvrages écrivent $\sigma_j$ au lieu de $d_j$. Ici, les valeurs singulières portent toujours un indice ; le $d$ sans indice de [Fondements 1](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html), le nombre de caractéristiques, est autre chose.
+Beaucoup d’ouvrages écrivent $\sigma_j$ au lieu de $d_j$. Ici, les valeurs singulières portent toujours un indice ; le $d$ sans indice du [chapitre 1](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html), le nombre de caractéristiques, est autre chose.
 
 :::satz Théorème 9.2 (Valeurs singulières et rang)
 <span class="anker" id="satz-9-2"></span>
@@ -136,7 +137,7 @@ $$\mathbf{A}=\sum_{j=1}^rd_j\,\mathbf{u}_j\mathbf{v}_j^{\top} . \tag{9.4}$$
 :::
 
 :::beweis Décomposition en valeurs singulières
-Pour $j\le r$, on a $\mathbf{A}\mathbf{v}_j=d_j\mathbf{u}_j$. Pour $j>r$, on a $d_j=0$, donc $\lVert\mathbf{A}\mathbf{v}_j\rVert=0$ et $\mathbf{A}\mathbf{v}_j=\mathbf{0}$. Si $r<m$, on complète $\mathbf{u}_1,\dots,\mathbf{u}_r$ en une base orthonormée de $\mathbb{R}^m$, par exemple avec le procédé de Gram-Schmidt, comme dans la preuve du théorème spectral. D’après [Fondements 1, section 9.2](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrixprodukt.html#stufe-9-2), la colonne $j$ de $\mathbf{A}\mathbf{V}$ est le vecteur $\mathbf{A}\mathbf{v}_j$, et la colonne $j$ de $\mathbf{U}\mathbf{D}$ vaut $d_j\mathbf{u}_j$ pour $j\le r$ et sinon le vecteur nul. Donc $\mathbf{A}\mathbf{V}=\mathbf{U}\mathbf{D}$. Comme $\mathbf{V}$ est orthogonale, $\mathbf{V}\mathbf{V}^{\top}=\mathbf{I}$, et la multiplication à droite par $\mathbf{V}^{\top}$ donne $\mathbf{A}=\mathbf{U}\mathbf{D}\mathbf{V}^{\top}$. La forme compacte découle de [Fondements 1, section 9.5](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrixprodukt.html#stufe-9-5) : colonne $j$ de $\mathbf{U}\mathbf{D}$ fois ligne $j$ de $\mathbf{V}^{\top}$, sommé sur $j$ ; seuls les termes avec $j\le r$ sont non nuls.
+Pour $j\le r$, on a $\mathbf{A}\mathbf{v}_j=d_j\mathbf{u}_j$. Pour $j>r$, on a $d_j=0$, donc $\lVert\mathbf{A}\mathbf{v}_j\rVert=0$ et $\mathbf{A}\mathbf{v}_j=\mathbf{0}$. Si $r<m$, on complète $\mathbf{u}_1,\dots,\mathbf{u}_r$ en une base orthonormée de $\mathbb{R}^m$, par exemple avec le procédé de Gram-Schmidt, comme dans la preuve du théorème spectral. D’après le [chapitre 1, section 9.2](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrixprodukt.html#stufe-9-2), la colonne $j$ de $\mathbf{A}\mathbf{V}$ est le vecteur $\mathbf{A}\mathbf{v}_j$, et la colonne $j$ de $\mathbf{U}\mathbf{D}$ vaut $d_j\mathbf{u}_j$ pour $j\le r$ et sinon le vecteur nul. Donc $\mathbf{A}\mathbf{V}=\mathbf{U}\mathbf{D}$. Comme $\mathbf{V}$ est orthogonale, $\mathbf{V}\mathbf{V}^{\top}=\mathbf{I}$, et la multiplication à droite par $\mathbf{V}^{\top}$ donne $\mathbf{A}=\mathbf{U}\mathbf{D}\mathbf{V}^{\top}$. La forme compacte découle du [chapitre 1, section 9.5](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrixprodukt.html#stufe-9-5) : colonne $j$ de $\mathbf{U}\mathbf{D}$ fois ligne $j$ de $\mathbf{V}^{\top}$, sommé sur $j$ ; seuls les termes avec $j\le r$ sont non nuls.
 :::
 
 Le format de $\mathbf{D}$ suit celui de $\mathbf{A}$. Pour $m=3$ et $n=2$, par exemple, $\mathbf{D}=\Bigl(\begin{smallmatrix}d_1&0\\0&d_2\\0&0\end{smallmatrix}\Bigr)$. L’abréviation usuelle est SVD, d’après le nom anglais *singular value decomposition*.
@@ -189,7 +190,7 @@ $\mathbf{U}$ amène $\mathbf{e}_j$ sur $\mathbf{u}_j$, de nouveau par une rotati
 
 </ol>
 
-Toute application linéaire est donc, aux réflexions près, une rotation, un étirement le long des axes et encore une rotation. Elle transforme le cercle unité en une ellipse et la sphère unité en un ellipsoïde, de demi-axes $d_j\mathbf{u}_j$. Si $\det\mathbf{A}<0$, il y a au moins une réflexion, car d’après [Fondements 1, section 14.5](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5), $\det\mathbf{A}=\det\mathbf{U}\cdot\det\mathbf{D}\cdot\det\mathbf{V}^{\top}$, et $\det\mathbf{D}\ge0$.
+Toute application linéaire est donc, aux réflexions près, une rotation, un étirement le long des axes et encore une rotation. Elle transforme le cercle unité en une ellipse et la sphère unité en un ellipsoïde, de demi-axes $d_j\mathbf{u}_j$. Si $\det\mathbf{A}<0$, il y a au moins une réflexion, car d’après le [chapitre 1, section 14.5](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5), $\det\mathbf{A}=\det\mathbf{U}\cdot\det\mathbf{D}\cdot\det\mathbf{V}^{\top}$, et $\det\mathbf{D}\ge0$.
 
 :::abbildung ml/k2svd 23
 La matrice $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ comme rotation, étirement, rotation. En haut à gauche, le cercle unité avec $\mathbf{v}_1=(1,2)^{\top}/\sqrt5$ (en rouge) et $\mathbf{v}_2=(-2,1)^{\top}/\sqrt5$ (en vert). $\mathbf{V}^{\top}$ fait tourner de $-63{,}4^\circ$ et amène $\mathbf{v}_1$ sur $\mathbf{e}_1$ et $\mathbf{v}_2$ sur $\mathbf{e}_2$ (en bas à gauche). $\mathbf{D}$ étire le premier axe d’un facteur $d_1=4$ et le second d’un facteur $d_2=1$ (en bas à droite). $\mathbf{U}$ fait tourner de $26{,}6^\circ$ et amène les axes sur $\mathbf{u}_1=(2,1)^{\top}/\sqrt5$ et $\mathbf{u}_2=(-1,2)^{\top}/\sqrt5$ (en haut à droite). Le point noir $\mathbf{x}=\mathbf{e}_2$ aboutit, quel que soit le chemin, en $\mathbf{A}\mathbf{x}=(3,2)^{\top}$. Le chemin direct, en haut, est $\mathbf{A}$ elle-même : le cercle unité devient l’ellipse de demi-axes $4\,\mathbf{u}_1$ et $1\cdot\mathbf{u}_2$.
@@ -241,7 +242,7 @@ $\mathbf{v}_{r+1},\dots,\mathbf{v}_n$ est une base orthonormée du noyau de $\ma
 (i) Tout $\mathbf{A}\mathbf{x}=\sum_{j\le r}d_j(\mathbf{v}_j^{\top}\mathbf{x})\mathbf{u}_j$ appartient au sous-espace engendré par $\mathbf{u}_1,\dots,\mathbf{u}_r$, et inversement $\mathbf{u}_j=\mathbf{A}(\mathbf{v}_j/d_j)$ est une image. Les autres colonnes de $\mathbf{U}$ sont perpendiculaires à celles-ci et engendrent donc, d’après la section [4.4](projektion-auf-einen-unterraum.html#stufe-4-4), le supplémentaire orthogonal. (ii) Comme les $\mathbf{u}_j$ sont indépendants et les $d_j$ positifs, on a $\mathbf{A}\mathbf{x}=\mathbf{0}$ si et seulement si $\mathbf{v}_j^{\top}\mathbf{x}=0$ pour tout $j\le r$, c’est-à-dire si $\mathbf{x}$ n’a de coordonnées que le long de $\mathbf{v}_{r+1},\dots,\mathbf{v}_n$. Enfin, $\mathbf{A}^{\top}=\mathbf{V}\mathbf{D}^{\top}\mathbf{U}^{\top}$ est une décomposition en valeurs singulières de $\mathbf{A}^{\top}$, dans laquelle $\mathbf{U}$ et $\mathbf{V}$ échangent leurs rôles ; (i) appliqué à $\mathbf{A}^{\top}$ donne le reste.
 :::
 
-Les nombres concordent avec le théorème du rang de [Fondements 1, section 13.5](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-5) : le noyau est de dimension $n-r$.
+Les nombres concordent avec le théorème du rang du [chapitre 1, section 13.5](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-5) : le noyau est de dimension $n-r$.
 
 ::::beispiel [Exemple de calcul]
 La matrice $\mathbf{H}$ de colonnes $(1,\,0,\,1)^{\top}$ et $(0,\,1,\,1)^{\top}$ de la section [3.2](die-beste-naherungslosung.html#stufe-3-2) a $\mathbf{H}^{\top}\mathbf{H}=\bigl(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\bigr)$, de valeurs propres $3$ et $1$, donc les valeurs singulières $d_1=\sqrt3$ et $d_2=1$, et les vecteurs singuliers à droite $\mathbf{v}_1=(1,\,1)^{\top}/\sqrt2$, $\mathbf{v}_2=(1,\,-1)^{\top}/\sqrt2$. Ceux à gauche sont
@@ -314,14 +315,18 @@ Pour $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$, on a
 
 ⁠**En bref :** La norme spectrale $\lVert\mathbf{A}\rVert_2=d_1$ est le plus grand facteur dont $\mathbf{A}$ allonge un vecteur ; le plus petit est $d_n$.
 
-:::hintergrund Plusieurs antennes : des canaux parallèles grâce à la décomposition en valeurs singulières
-Un système radio comportant plusieurs antennes d’émission et de réception est appelé système MIMO. Chaque antenne de réception reçoit un mélange de tous les signaux émis. Dans un modèle simple, le vecteur reçu est $\mathbf{y}=\mathbf{K}\mathbf{x}+\boldsymbol\nu$ : $\mathbf{x}$ contient les signaux émis par les antennes, la matrice de canal $\mathbf{K}$ décrit avec quelle intensité chaque antenne d’émission parvient à chaque antenne de réception, et $\boldsymbol\nu$ est le bruit.
+:::hintergrund Deux poignées, un levier : des réglages séparés grâce à la décomposition en valeurs singulières
+Sur un robinet à deux poignées, l’une pour l’eau chaude et l’autre pour l’eau froide, chaque poignée modifie à la fois le débit et la température. Dans un modèle simplifié pour de petites rotations autour d’un réglage avec autant d’eau chaude que d’eau froide, les rotations $\Delta w$ de la poignée chaude et $\Delta k$ de la poignée froide modifient le débit et la température de
 
-Si l’émetteur et le récepteur connaissent la décomposition $\mathbf{K}=\mathbf{U}\mathbf{D}\mathbf{V}^{\top}$, l’émetteur envoie $\mathbf{x}=\mathbf{V}\tilde{\mathbf{x}}$, et le récepteur calcule $\tilde{\mathbf{y}}=\mathbf{U}^{\top}\mathbf{y}$. Alors
+$$\mathbf{y}=\begin{pmatrix}\Delta Q\\\Delta T\end{pmatrix}=\mathbf{K}\mathbf{x},\qquad \mathbf{x}=\begin{pmatrix}\Delta w\\\Delta k\end{pmatrix},\qquad \mathbf{K}=\begin{pmatrix}1&1\\2&-2\end{pmatrix},$$
 
-$$\tilde{\mathbf{y}}=\mathbf{U}^{\top}\mathbf{U}\mathbf{D}\mathbf{V}^{\top}\mathbf{V}\tilde{\mathbf{x}}+\mathbf{U}^{\top}\boldsymbol\nu=\mathbf{D}\tilde{\mathbf{x}}+\tilde{\boldsymbol\nu} .$$
+dans des unités adaptées. La matrice $\mathbf{K}^{\top}\mathbf{K}=\bigl(\begin{smallmatrix}5&-3\\-3&5\end{smallmatrix}\bigr)$ a les valeurs propres $8$ et $2$, de vecteurs propres $\mathbf{v}_1=(1,\,-1)^{\top}/\sqrt2$ et $\mathbf{v}_2=(1,\,1)^{\top}/\sqrt2$. Donc $d_1=\sqrt8=2\sqrt2$ et $d_2=\sqrt2$ sont les valeurs singulières, et $\mathbf{K}\mathbf{v}_1=d_1\,(0,\,1)^{\top}$, $\mathbf{K}\mathbf{v}_2=d_2\,(1,\,0)^{\top}$. En mots : tourner les deux poignées en sens contraires ne change que la température, les tourner dans le même sens ne change que le débit.
 
-Le canal mélangé est devenu $r$ canaux séparés : $\tilde y_j=d_j\tilde x_j+\tilde\nu_j$. Chacun transmet son propre flux de données, avec le gain $d_j$. Le bruit n’est que tourné, sa longueur reste la même, car $\mathbf{U}^{\top}$ est orthogonale. Le nombre de canaux parallèles utilisables est le rang de la matrice de canal, et la qualité de chaque canal est donnée par sa valeur singulière. C’est le schéma rotation, étirement, rotation mis en pratique : l’émetteur fait tourner au préalable, le canal étire, le récepteur fait tourner en sens inverse.
+Avec la décomposition $\mathbf{K}=\mathbf{U}\mathbf{D}\mathbf{V}^{\top}$, on ne règle plus les poignées, mais les coordonnées $\tilde{\mathbf{x}}=\mathbf{V}^{\top}\mathbf{x}$ dans les directions $\mathbf{v}_1,\mathbf{v}_2$, et on lit le résultat dans les coordonnées $\tilde{\mathbf{y}}=\mathbf{U}^{\top}\mathbf{y}$. Alors
+
+$$\tilde{\mathbf{y}}=\mathbf{U}^{\top}\mathbf{U}\mathbf{D}\mathbf{V}^{\top}\mathbf{V}\tilde{\mathbf{x}}=\mathbf{D}\tilde{\mathbf{x}} .$$
+
+Les deux poignées couplées sont devenues deux réglages séparés : $\tilde y_j=d_j\tilde x_j$. Un mitigeur met cette idée en œuvre. Si l’on soulève le levier, les deux arrivées s’ouvrent ensemble, et il sort plus d’eau à la même température ; si on le fait pivoter, une arrivée s’ouvre et l’autre se ferme, et seule la température change. Le nombre de réglages séparés est le rang de $\mathbf{K}$, et la force avec laquelle agit chacun est donnée par sa valeur singulière. C’est le schéma rotation, étirement, rotation dans la vie courante : le levier fait tourner les entrées dans les directions des vecteurs singuliers, l’eau étire chacune selon sa valeur singulière, et on relit le résultat comme débit et température.
 :::
 
 :::aufgabe Exercice 27 ★★ Une décomposition à la main
@@ -438,7 +443,7 @@ Montrez que, si $\mathbf{Q}$ est orthogonale, $\mathbf{Q}\mathbf{A}$ et $\mathbf
 </ol>
 
 :::loesung
-(a) D’après [Fondements 1, section 14.5](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5), $\det\mathbf{A}=\det\mathbf{U}\cdot\det\mathbf{D}\cdot\det\mathbf{V}^{\top}$. Les deux matrices orthogonales ont pour déterminant $\pm1$, et $\mathbf{D}$ est une matrice diagonale de déterminant $d_1\cdots d_n$. Donc $|\det\mathbf{A}|=d_1\cdots d_n$.
+(a) D’après le [chapitre 1, section 14.5](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5), $\det\mathbf{A}=\det\mathbf{U}\cdot\det\mathbf{D}\cdot\det\mathbf{V}^{\top}$. Les deux matrices orthogonales ont pour déterminant $\pm1$, et $\mathbf{D}$ est une matrice diagonale de déterminant $d_1\cdots d_n$. Donc $|\det\mathbf{A}|=d_1\cdots d_n$.
 
 (b) De $\mathbf{A}=\mathbf{U}\mathbf{D}\mathbf{V}^{\top}$, on déduit $\mathbf{A}^{\top}\mathbf{A}=\mathbf{V}\mathbf{D}^{\top}\mathbf{D}\mathbf{V}^{\top}$ et $\mathbf{A}\mathbf{A}^{\top}=\mathbf{U}\mathbf{D}\mathbf{D}^{\top}\mathbf{U}^{\top}$. Les matrices diagonales $\mathbf{D}^{\top}\mathbf{D}$ et $\mathbf{D}\mathbf{D}^{\top}$ portent sur leur diagonale les mêmes coefficients $d_j^2>0$ ; seul le nombre de zéros diffère. Les valeurs singulières de $\mathbf{A}^{\top}$ sont les racines carrées des valeurs propres de $(\mathbf{A}^{\top})^{\top}\mathbf{A}^{\top}=\mathbf{A}\mathbf{A}^{\top}$, c’est-à-dire de nouveau les $d_j$, complétés par des zéros.
 

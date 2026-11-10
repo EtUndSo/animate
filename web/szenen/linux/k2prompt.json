@@ -1,0 +1,673 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 23,
+  "nextAnimId": 30,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{student@labor:}\\lower{0.25em}{\\texttt{~}}\\texttt{\\$}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.32,
+     "position": [
+      -0.001,
+      0.85,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Line",
+    "props": {
+     "start": [
+      -1.315,
+      0.6699999999999999,
+      0
+     ],
+     "end": [
+      -1.315,
+      0.6,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o3",
+    "type": "Line",
+    "props": {
+     "start": [
+      -1.315,
+      0.6,
+      0
+     ],
+     "end": [
+      -0.19899999999999982,
+      0.6,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Line",
+    "props": {
+     "start": [
+      -0.19899999999999982,
+      0.6,
+      0
+     ],
+     "end": [
+      -0.19899999999999982,
+      0.6699999999999999,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o5",
+    "type": "Text",
+    "props": {
+     "text": "@user",
+     "position": [
+      -0.7569999999999999,
+      0.42,
+      0
+     ],
+     "font_size": 20,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.02900000000000011,
+      0.6699999999999999,
+      0
+     ],
+     "end": [
+      0.02900000000000011,
+      0.6,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o7",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.02900000000000011,
+      0.6,
+      0
+     ],
+     "end": [
+      0.8090000000000002,
+      0.6,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.8090000000000002,
+      0.6,
+      0
+     ],
+     "end": [
+      0.8090000000000002,
+      0.6699999999999999,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o9",
+    "type": "Text",
+    "props": {
+     "text": "@host",
+     "position": [
+      0.41900000000000004,
+      0.42,
+      0
+     ],
+     "font_size": 20,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o10",
+    "type": "Line",
+    "props": {
+     "start": [
+      1.0270000000000004,
+      1.05,
+      0
+     ],
+     "end": [
+      1.0270000000000004,
+      1.12,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o11",
+    "type": "Line",
+    "props": {
+     "start": [
+      1.0270000000000004,
+      1.12,
+      0
+     ],
+     "end": [
+      1.155,
+      1.12,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Line",
+    "props": {
+     "start": [
+      1.155,
+      1.12,
+      0
+     ],
+     "end": [
+      1.155,
+      1.05,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o13",
+    "type": "Text",
+    "props": {
+     "text": "@dir",
+     "position": [
+      1.091,
+      1.42,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o14",
+    "type": "Line",
+    "props": {
+     "start": [
+      1.195,
+      0.6699999999999999,
+      0
+     ],
+     "end": [
+      1.195,
+      0.6,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o15",
+    "type": "Line",
+    "props": {
+     "start": [
+      1.195,
+      0.6,
+      0
+     ],
+     "end": [
+      1.3230000000000002,
+      0.6,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o16",
+    "type": "Line",
+    "props": {
+     "start": [
+      1.3230000000000002,
+      0.6,
+      0
+     ],
+     "end": [
+      1.3230000000000002,
+      0.6699999999999999,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o17",
+    "type": "Text",
+    "props": {
+     "text": "@ende",
+     "position": [
+      1.175,
+      0.36,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o18",
+    "type": "Text",
+    "props": {
+     "text": "@konto1",
+     "position": [
+      -1.5,
+      0.85,
+      0
+     ],
+     "font_size": 20,
+     "align": "right",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o19",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{root@labor:}\\lower{0.25em}{\\texttt{~}}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.32,
+     "position": [
+      -0.337,
+      -0.25,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o20",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{#}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.32,
+     "position": [
+      0.755,
+      -0.25,
+      0
+     ],
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o21",
+    "type": "Text",
+    "props": {
+     "text": "@konto2",
+     "position": [
+      -1.5,
+      -0.25,
+      0
+     ],
+     "font_size": 20,
+     "align": "right",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o22",
+    "type": "Text",
+    "props": {
+     "text": "@darf",
+     "position": [
+      0.9590000000000002,
+      -0.25,
+      0
+     ],
+     "font_size": 20,
+     "align": "left",
+     "color": "#c82828"
+    }
+   }
+  ],
+  "animations": [
+   {
+    "id": "a1",
+    "type": "FadeIn",
+    "target": "o1",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a2",
+    "type": "FadeIn",
+    "target": "o18",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a3",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a4",
+    "type": "Create",
+    "target": "o2",
+    "run_time": 0.5,
+    "step": 2
+   },
+   {
+    "id": "a5",
+    "type": "Create",
+    "target": "o3",
+    "run_time": 0.5,
+    "step": 2
+   },
+   {
+    "id": "a6",
+    "type": "Create",
+    "target": "o4",
+    "run_time": 0.5,
+    "step": 2
+   },
+   {
+    "id": "a7",
+    "type": "FadeIn",
+    "target": "o5",
+    "run_time": 0.5,
+    "step": 2
+   },
+   {
+    "id": "a8",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.3,
+    "step": 3
+   },
+   {
+    "id": "a9",
+    "type": "Create",
+    "target": "o6",
+    "run_time": 0.5,
+    "step": 4
+   },
+   {
+    "id": "a10",
+    "type": "Create",
+    "target": "o7",
+    "run_time": 0.5,
+    "step": 4
+   },
+   {
+    "id": "a11",
+    "type": "Create",
+    "target": "o8",
+    "run_time": 0.5,
+    "step": 4
+   },
+   {
+    "id": "a12",
+    "type": "FadeIn",
+    "target": "o9",
+    "run_time": 0.5,
+    "step": 4
+   },
+   {
+    "id": "a13",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.3,
+    "step": 5
+   },
+   {
+    "id": "a14",
+    "type": "Create",
+    "target": "o10",
+    "run_time": 0.5,
+    "step": 6
+   },
+   {
+    "id": "a15",
+    "type": "Create",
+    "target": "o11",
+    "run_time": 0.5,
+    "step": 6
+   },
+   {
+    "id": "a16",
+    "type": "Create",
+    "target": "o12",
+    "run_time": 0.5,
+    "step": 6
+   },
+   {
+    "id": "a17",
+    "type": "FadeIn",
+    "target": "o13",
+    "run_time": 0.5,
+    "step": 6
+   },
+   {
+    "id": "a18",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.3,
+    "step": 7
+   },
+   {
+    "id": "a19",
+    "type": "Create",
+    "target": "o14",
+    "run_time": 0.5,
+    "step": 8
+   },
+   {
+    "id": "a20",
+    "type": "Create",
+    "target": "o15",
+    "run_time": 0.5,
+    "step": 8
+   },
+   {
+    "id": "a21",
+    "type": "Create",
+    "target": "o16",
+    "run_time": 0.5,
+    "step": 8
+   },
+   {
+    "id": "a22",
+    "type": "FadeIn",
+    "target": "o17",
+    "run_time": 0.5,
+    "step": 8
+   },
+   {
+    "id": "a23",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.3,
+    "step": 9
+   },
+   {
+    "id": "a24",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.3,
+    "step": 10
+   },
+   {
+    "id": "a25",
+    "type": "FadeIn",
+    "target": "o19",
+    "run_time": 0.6,
+    "step": 11
+   },
+   {
+    "id": "a26",
+    "type": "FadeIn",
+    "target": "o21",
+    "run_time": 0.6,
+    "step": 11
+   },
+   {
+    "id": "a27",
+    "type": "FadeIn",
+    "target": "o20",
+    "run_time": 0.6,
+    "step": 12
+   },
+   {
+    "id": "a28",
+    "type": "FadeIn",
+    "target": "o22",
+    "run_time": 0.6,
+    "step": 12
+   },
+   {
+    "id": "a29",
+    "type": "Indicate",
+    "target": "o20",
+    "run_time": 0.8,
+    "step": 13
+   }
+  ],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "user": {
+    "de": "Benutzer",
+    "en": "user",
+    "es": "usuario",
+    "zh": "用户",
+    "fr": "utilisateur",
+    "tr": "kullanıcı"
+   },
+   "host": {
+    "de": "Rechner",
+    "en": "computer",
+    "es": "equipo",
+    "zh": "计算机",
+    "fr": "machine",
+    "tr": "bilgisayar"
+   },
+   "dir": {
+    "de": "aktueller Ordner\n~ = /home/student",
+    "en": "current folder\n~ = /home/student",
+    "es": "carpeta actual\n~ = /home/student",
+    "zh": "当前文件夹\n~ = /home/student",
+    "fr": "dossier courant\n~ = /home/student",
+    "tr": "geçerli klasör\n~ = /home/student"
+   },
+   "ende": {
+    "de": "Schlusszeichen:\ngewöhnlicher Benutzer",
+    "en": "end character:\nordinary user",
+    "es": "carácter final:\nusuario normal",
+    "zh": "结尾符号：\n普通用户",
+    "fr": "caractère final :\nutilisateur ordinaire",
+    "tr": "son karakter:\nsıradan kullanıcı"
+   },
+   "konto1": {
+    "de": "Konto student:",
+    "en": "account student:",
+    "es": "cuenta student:",
+    "zh": "student 账户：",
+    "fr": "compte student :",
+    "tr": "student hesabı:"
+   },
+   "konto2": {
+    "de": "Konto root:",
+    "en": "account root:",
+    "es": "cuenta root:",
+    "zh": "root 账户：",
+    "fr": "compte root :",
+    "tr": "root hesabı:"
+   },
+   "darf": {
+    "de": "# = root, darf alles",
+    "en": "# = root, may do anything",
+    "es": "# = root, puede hacerlo todo",
+    "zh": "# = root，可以做任何事",
+    "fr": "# = root, a tous les droits",
+    "tr": "# = root, her şeyi yapabilir"
+   }
+  }
+ }
+}

@@ -1,6 +1,8 @@
 ---
 title: 第 2 阶段：缓慢的电子，即时的电流
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 电流、电阻与基尔霍夫定律
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 电流、电阻与基尔霍夫定律
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff
+knoten: 第 2 章：电流、电阻与基尔霍夫定律
 order: 1120300
 summary: 第 1 阶段需要一个速度 v 。本阶段说明它为什么恒定而且极小，并解决它与灯立刻发亮之间的矛盾。
 tags: 晶格, 迁移率, 平均自由程
@@ -33,7 +35,7 @@ $$|\vec v_\mathrm{max}|=\frac{e\,|\vec E|}{m_\mathrm e}\,T,\qquad\vec v_\mathrm 
 ⁠**如何理解：**$\vec v_\mathrm D$ 是漂移速度，单位为 m/s。负号表示：电子带负电，逆着 $\vec E$ 运动。$\mu$ 是__迁移率__，即单位电场强度的漂移速度，单位为 $\mathrm{m^2/(V\,s)}$。它是材料常数，铜的迁移率为 $4.3\cdot10^{-3}\,\mathrm{m^2/(V\,s)}$。$T$ 是飞行时间，铜中约为 49 fs。电子在这段时间内平均走过__平均自由程__ $\lambda$。**适用条件：**式 [(2.1)](#gl-2-1) 是一个模型。它只计入由电场产生的那部分速度。此外，电子还以约 1600 km/s 的速度向各个方向无序飞行。这种运动平均抵消，不携带电流，并在碰撞中保持不变。
 
 :::herleitung 从电场到漂移
-由 $F=m_\mathrm e\,a$ 和 $F=e\,E$（[第 1 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)）得加速度 $a=e\,E/m_\mathrm e$。一次飞行开始时定向部分为零，所以 $v(t)=a\,t$，$v_\mathrm{max}=a\,T$。锯齿波的平均值为 $v_\mathrm{max}/2=e\,E\,T/(2\,m_\mathrm e)$。速度不会继续增大，因为每次碰撞都使它归零。
+由 $F=m_\mathrm e\,a$ 和 $F=e\,E$（[第 1 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)）得加速度 $a=e\,E/m_\mathrm e$。一次飞行开始时定向部分为零，所以 $v(t)=a\,t$，$v_\mathrm{max}=a\,T$。锯齿波的平均值为 $v_\mathrm{max}/2=e\,E\,T/(2\,m_\mathrm e)$。速度不会继续增大，因为每次碰撞都使它归零。
 :::
 
 ::::beispiel
@@ -52,7 +54,7 @@ $$|\vec v_\mathrm{max}|=\frac{e\,|\vec E|}{m_\mathrm e}\,T,\qquad\vec v_\mathrm 
 自行车链条上处处都是链节。在前面踩动，后面同一时刻就动起来，尽管每个链节走得很慢。这个类比止于机理：链节之间是机械推动，作用以声速穿过金属。而在导线中传播的是电场，其速度接近光速。
 :::
 
-:::frage 第 1 部分说：金属内 $\vec E=0$。为什么导线中有电场，它又如何沿着弯曲处走？
+:::frage 第 1 章说：金属内 $\vec E=0$。为什么导线中有电场，它又如何沿着弯曲处走？
 $\vec E=0$ 只在静止状态下成立，即所有电荷都已静止时。电源不允许这样：它在一端取走电子，在另一端补入电子，静止状态永远达不到。于是保留一个小电场，这里是 0.10 mV/m。在弯曲处，导线表面聚集极少的电荷。它们的电场使 $\vec E$ 处处沿导线方向，否则电子就会撞向导线壁，那里的电荷就会继续增加。
 :::
 

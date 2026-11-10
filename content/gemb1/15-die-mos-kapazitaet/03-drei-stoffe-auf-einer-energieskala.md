@@ -1,6 +1,8 @@
 ---
 title: Stufe 1: Drei Stoffe auf einer Energieskala
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Die MOS-Kapazität
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Die MOS-Kapazität
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/die-mos-kapazitat
+knoten: Kapitel 15: Die MOS-Kapazität
 order: 4250300
 summary: Metall, Isolator und Halbleiter haben verschiedene Bänder.
 tags: Substrat, MOS-Kondensator, Feldeffekt, Vakuumniveau, Austrittsarbeit, Elektronenaffinität, Flachbandspannung

@@ -1,7 +1,9 @@
 ---
 title: Overview: The Bipolar Transistor
 kurz: Overview
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / The Bipolar Transistor
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / The Bipolar Transistor
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor
+knoten: Chapter 10: The Bipolar Transistor
 order: 1200100
 summary: How a small voltage controls a large current through a blocking diode
 tags: bipolar transistor
@@ -21,7 +23,7 @@ A microphone delivers millivolts, a loudspeaker needs volts. A computer output d
 
 <li>
 
-⁠**Transistor T:** an npn small-signal transistor made of silicon with $B=200$, $I_\mathrm{S}=1.9\cdot10^{-13}$ A (saturation reverse current, [Part 9](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)) and $U_T=26$ mV (thermal voltage at 300 K, rounded from 25.85 mV). For hand calculations, one approximates $U_\mathrm{BE}=0.6$ V when the transistor conducts and $U_\mathrm{CE,sat}=0.2$ V when it is fully switched on. Limiting values: $U_\mathrm{CE,max}=40$ V, $I_\mathrm{C,max}=100$ mA, $P_\mathrm{max}=400$ mW.
+⁠**Transistor T:** an npn small-signal transistor made of silicon with $B=200$, $I_\mathrm{S}=1.9\cdot10^{-13}$ A (saturation reverse current, [Chapter 9](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)) and $U_T=26$ mV (thermal voltage at 300 K, rounded from 25.85 mV). For hand calculations, one approximates $U_\mathrm{BE}=0.6$ V when the transistor conducts and $U_\mathrm{CE,sat}=0.2$ V when it is fully switched on. Limiting values: $U_\mathrm{CE,max}=40$ V, $I_\mathrm{C,max}=100$ mA, $P_\mathrm{max}=400$ mW.
 
 </li>
 

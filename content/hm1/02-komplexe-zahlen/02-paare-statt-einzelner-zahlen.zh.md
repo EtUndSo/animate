@@ -1,6 +1,8 @@
 ---
 title: 第 1 阶段：用数对代替单个的数
-pfad: 电气工程 / 第 1 学期 / 高等数学 1 / 复数
+pfad: 电气工程 / 第 1 学期 / HöMa1 – 高等数学 1 / 复数
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen
+knoten: 第 2 章：复数
 order: 1220200
 summary: 在 mathbb R 中 x 2=-1 无解。本阶段构造一个更大的数集，方程在其中有解，并且 mathbb R 原样包含在内。
 tags: 代数形式
@@ -13,7 +15,7 @@ lang: zh
 在 $\mathbb{R}$ 中 $x^2=-1$ 无解。本阶段构造一个更大的数集，方程在其中有解，并且 $\mathbb{R}$ 原样包含在内。
 :::
 
-**基本思路。** 每一次数的扩充都解决一个此前无解的方程：$x+1=0$ 从 $\mathbb{N}$ 通向 $\mathbb{Z}$，$2x=1$ 从 $\mathbb{Z}$ 通向 $\mathbb{Q}$，$x^2=2$ 从 $\mathbb{Q}$ 通向 $\mathbb{R}$。而 $x^2=-1$ 的情况不同。抛物线 $y=x^2$ 永远到不了高度 $-1$（图 [1](#abb-1)），因为在 $\mathbb{R}$ 中 $x^2\ge0$（[第 1 部分](/wissen/zh/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html)）。这里不是像 $\sqrt2$ 那样在其他点之间缺一个点，而是数轴上的每个点都被排除了。解必须位于直线之外。因此要增加第二个坐标：用数对 $(x,y)$ 来运算。数对 $(x,0)$ 应仍是实数，而 $(0,1)$ 的平方应为 $(-1,0)$。
+**基本思路。** 每一次数的扩充都解决一个此前无解的方程：$x+1=0$ 从 $\mathbb{N}$ 通向 $\mathbb{Z}$，$2x=1$ 从 $\mathbb{Z}$ 通向 $\mathbb{Q}$，$x^2=2$ 从 $\mathbb{Q}$ 通向 $\mathbb{R}$。而 $x^2=-1$ 的情况不同。抛物线 $y=x^2$ 永远到不了高度 $-1$（图 [1](#abb-1)），因为在 $\mathbb{R}$ 中 $x^2\ge0$（[第 1 章](/wissen/zh/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html)）。这里不是像 $\sqrt2$ 那样在其他点之间缺一个点，而是数轴上的每个点都被排除了。解必须位于直线之外。因此要增加第二个坐标：用数对 $(x,y)$ 来运算。数对 $(x,0)$ 应仍是实数，而 $(0,1)$ 的平方应为 $(-1,0)$。
 
 :::abbildung hm1/k2parabel 1
 直线 $y=2$ 与抛物线相交两次，解 $\pm\sqrt2$ 位于数轴上。直线 $y=-1$ 与它永不相交：没有实数 $x$ 能满足 $x^2=-1$。

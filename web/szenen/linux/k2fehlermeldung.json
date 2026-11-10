@@ -1,0 +1,503 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 18,
+  "nextAnimId": 20,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.73,
+      0.88,
+      0
+     ],
+     "width": 3.38,
+     "height": 0.92,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#f6f6f4",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o2",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.73,
+      0.88,
+      0
+     ],
+     "width": 3.38,
+     "height": 0.92,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#f6f6f4",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o3",
+    "type": "Text",
+    "props": {
+     "text": "uutils:  uname -x",
+     "position": [
+      -1.73,
+      1.55,
+      0
+     ],
+     "font_size": 20,
+     "align": "center",
+     "color": "#eb6834"
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Text",
+    "props": {
+     "text": "GNU coreutils:  gnuuname -x",
+     "position": [
+      1.73,
+      1.55,
+      0
+     ],
+     "font_size": 20,
+     "align": "center",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o5",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -3.121625,
+      1.17,
+      0
+     ],
+     "width": 0.45675,
+     "height": 0.21,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 0.3,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o6",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.0662500000000001,
+      0.59,
+      0
+     ],
+     "width": 0.609,
+     "height": 0.21,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 0.3,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o7",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.394125,
+      1.17,
+      0
+     ],
+     "width": 1.06575,
+     "height": 0.21,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 0.3,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o8",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.0515625,
+      0.94,
+      0
+     ],
+     "width": 1.2941250000000002,
+     "height": 0.21,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 0.3,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o9",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{error: unexpected argument '-x' found}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.145,
+     "position": [
+      -1.9417,
+      1.17,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o10",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{Usage: uname [OPTION]...}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.145,
+     "position": [
+      -2.4365,
+      0.88,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o11",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{For more information, try '--help'.}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.145,
+     "position": [
+      -2.0178,
+      0.59,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o12",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{gnuuname: invalid option -- 'x'}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.145,
+     "position": [
+      1.2799,
+      1.17,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o13",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{Try 'gnuuname --help' for more information.}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.145,
+     "position": [
+      1.7367,
+      0.94,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o14",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.0,
+      -0.12,
+      0
+     ],
+     "width": 5.4,
+     "height": 0.42,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#00823c",
+     "fill_color": "#e6f3ea",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o15",
+    "type": "Text",
+    "props": {
+     "text": "@bedeutung",
+     "position": [
+      0.0,
+      -0.12,
+      0
+     ],
+     "font_size": 20,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o16",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -1.73,
+      0.42,
+      0
+     ],
+     "end": [
+      -1.0,
+      0.09,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.11,
+     "font_size": 26,
+     "color": "#00823c",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o17",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      1.73,
+      0.42,
+      0
+     ],
+     "end": [
+      1.0,
+      0.09,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.11,
+     "font_size": 26,
+     "color": "#00823c",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   }
+  ],
+  "animations": [
+   {
+    "id": "a1",
+    "type": "GrowFromCenter",
+    "target": "o1",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a2",
+    "type": "FadeIn",
+    "target": "o3",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a3",
+    "type": "FadeIn",
+    "target": "o9",
+    "run_time": 0.7,
+    "step": 1
+   },
+   {
+    "id": "a4",
+    "type": "FadeIn",
+    "target": "o10",
+    "run_time": 0.7,
+    "step": 1
+   },
+   {
+    "id": "a5",
+    "type": "FadeIn",
+    "target": "o11",
+    "run_time": 0.7,
+    "step": 1
+   },
+   {
+    "id": "a6",
+    "type": "FadeIn",
+    "target": "o5",
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a7",
+    "type": "FadeIn",
+    "target": "o6",
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a8",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 3
+   },
+   {
+    "id": "a9",
+    "type": "GrowFromCenter",
+    "target": "o2",
+    "run_time": 0.6,
+    "step": 4
+   },
+   {
+    "id": "a10",
+    "type": "FadeIn",
+    "target": "o4",
+    "run_time": 0.6,
+    "step": 4
+   },
+   {
+    "id": "a11",
+    "type": "FadeIn",
+    "target": "o12",
+    "run_time": 0.7,
+    "step": 5
+   },
+   {
+    "id": "a12",
+    "type": "FadeIn",
+    "target": "o13",
+    "run_time": 0.7,
+    "step": 5
+   },
+   {
+    "id": "a13",
+    "type": "FadeIn",
+    "target": "o7",
+    "run_time": 0.6,
+    "step": 6
+   },
+   {
+    "id": "a14",
+    "type": "FadeIn",
+    "target": "o8",
+    "run_time": 0.6,
+    "step": 6
+   },
+   {
+    "id": "a15",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 7
+   },
+   {
+    "id": "a16",
+    "type": "Create",
+    "target": "o16",
+    "run_time": 0.6,
+    "step": 8
+   },
+   {
+    "id": "a17",
+    "type": "Create",
+    "target": "o17",
+    "run_time": 0.6,
+    "step": 8
+   },
+   {
+    "id": "a18",
+    "type": "GrowFromCenter",
+    "target": "o14",
+    "run_time": 0.7,
+    "step": 8
+   },
+   {
+    "id": "a19",
+    "type": "FadeIn",
+    "target": "o15",
+    "run_time": 0.7,
+    "step": 8
+   }
+  ],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "bedeutung": {
+    "de": "beide bedeuten: Die Option -x gibt es nicht.",
+    "en": "both mean: the option -x does not exist.",
+    "es": "ambos significan: la opción -x no existe.",
+    "zh": "两者含义相同：选项 -x 不存在。",
+    "fr": "les deux signifient : l’option -x n’existe pas.",
+    "tr": "ikisinin anlamı: -x seçeneği yok."
+   }
+  }
+ }
+}

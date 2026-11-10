@@ -1,6 +1,8 @@
 ---
 title: Stufe 8: Der Kristall im Überblick
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Kristallwachstum und reziprokes Gitter
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Kristallwachstum und reziprokes Gitter
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/kristallwachstum-und-reziprokes-gitter
+knoten: Kapitel 7: Kristallwachstum und reziprokes Gitter
 order: 4171000
 summary: Von der Bindung bis zur Zone sind viele Begriffe zusammengekommen.
 tags: 

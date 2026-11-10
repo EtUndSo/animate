@@ -1,7 +1,8 @@
 ---
 title: 对角化与谱定理
 pfad: 计算机科学 / 机器学习 / 数学基础 / 投影、特征值与矩阵分解
-knoten: 基础篇 2：投影、特征值与矩阵分解
+adresse: informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen
+knoten: 第 2 章：投影、特征值与矩阵分解
 nachschlagen: ja
 order: 15220800
 summary: 如果用矩阵自身的特征向量构成的基来描述矩阵，它就成为对角矩阵：每个坐标只被乘以相应的特征值，耦合的计算分解成彼此独立的计算。本节说明何时可以做到这一点，并证明对称矩阵总能做到，而且所用的基甚至是标准正交基。
@@ -21,7 +22,7 @@ lang: zh
 
 同一个箭头在不同的基下有不同的坐标。同样，同一个线性映射在不同的坐标下有不同的矩阵。有些基能使矩阵变得特别简单。
 
-设 $\mathbf s_1,\dots,\mathbf s_n$ 是 $\mathbb{R}^n$ 的一组基，$\mathbf{S}$ 是以这些向量为列的矩阵。由[基础篇 1 第 13.5 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-5)，它是可逆的。若 $\mathbf{x}$ 在这组基下的坐标为 $\mathbf{c}$，则 $\mathbf{x}=\sum_ic_i\mathbf s_i=\mathbf{S}\mathbf{c}$，反过来 $\mathbf{c}=\mathbf{S}^{-1}\mathbf{x}$。用 $\mathbf{A}$ 映射 $\mathbf{x}$，像 $\mathbf{A}\mathbf{x}$ 的坐标就是 $\mathbf{S}^{-1}\mathbf{A}\mathbf{x}=\mathbf{S}^{-1}\mathbf{A}\mathbf{S}\,\mathbf{c}$。因此在新坐标下，这个映射通过矩阵 $\mathbf{S}^{-1}\mathbf{A}\mathbf{S}$ 起作用：先换算到旧坐标，再作映射，最后换算回来。
+设 $\mathbf s_1,\dots,\mathbf s_n$ 是 $\mathbb{R}^n$ 的一组基，$\mathbf{S}$ 是以这些向量为列的矩阵。由[第 1 章第 13.5 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-5)，它是可逆的。若 $\mathbf{x}$ 在这组基下的坐标为 $\mathbf{c}$，则 $\mathbf{x}=\sum_ic_i\mathbf s_i=\mathbf{S}\mathbf{c}$，反过来 $\mathbf{c}=\mathbf{S}^{-1}\mathbf{x}$。用 $\mathbf{A}$ 映射 $\mathbf{x}$，像 $\mathbf{A}\mathbf{x}$ 的坐标就是 $\mathbf{S}^{-1}\mathbf{A}\mathbf{x}=\mathbf{S}^{-1}\mathbf{A}\mathbf{S}\,\mathbf{c}$。因此在新坐标下，这个映射通过矩阵 $\mathbf{S}^{-1}\mathbf{A}\mathbf{S}$ 起作用：先换算到旧坐标，再作映射，最后换算回来。
 
 :::definition 定义 7.1 (基变换)
 <span class="anker" id="satz-7-1"></span>
@@ -38,11 +39,11 @@ $\mathbf{A}$ 与 $\mathbf{S}^{-1}\mathbf{A}\mathbf{S}$ 有相同的特征多项�
 :::
 
 :::beweis 基变换
-有 $\mathbf{S}^{-1}\mathbf{A}\mathbf{S}-\lambda\mathbf{I}=\mathbf{S}^{-1}(\mathbf{A}-\lambda\mathbf{I})\mathbf{S}$。由[基础篇 1 第 14.5 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5)的运算规则，它的行列式为 $\det\mathbf{S}^{-1}\cdot\det(\mathbf{A}-\lambda\mathbf{I})\cdot\det\mathbf{S}=\det(\mathbf{A}-\lambda\mathbf{I})$。由式 [(6.5)](eigenwerte-und-eigenvektoren.html#gl-6-5)，迹和行列式由特征值决定。
+有 $\mathbf{S}^{-1}\mathbf{A}\mathbf{S}-\lambda\mathbf{I}=\mathbf{S}^{-1}(\mathbf{A}-\lambda\mathbf{I})\mathbf{S}$。由[第 1 章第 14.5 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5)的运算规则，它的行列式为 $\det\mathbf{S}^{-1}\cdot\det(\mathbf{A}-\lambda\mathbf{I})\cdot\det\mathbf{S}=\det(\mathbf{A}-\lambda\mathbf{I})$。由式 [(6.5)](eigenwerte-und-eigenvektoren.html#gl-6-5)，迹和行列式由特征值决定。
 :::
 
 ::::beispiel [算例]
-对于 $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ 和[基础篇 1 第 13.3 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-3)中的基 $(1,\,0)^{\top}$、$(1,\,1)^{\top}$，有 $\mathbf{S}=\bigl(\begin{smallmatrix}1&1\\0&1\end{smallmatrix}\bigr)$ 和 $\mathbf{S}^{-1}=\bigl(\begin{smallmatrix}1&-1\\0&1\end{smallmatrix}\bigr)$。于是
+对于 $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ 和[第 1 章第 13.3 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-3)中的基 $(1,\,0)^{\top}$、$(1,\,1)^{\top}$，有 $\mathbf{S}=\bigl(\begin{smallmatrix}1&1\\0&1\end{smallmatrix}\bigr)$ 和 $\mathbf{S}^{-1}=\bigl(\begin{smallmatrix}1&-1\\0&1\end{smallmatrix}\bigr)$。于是
 
 $$\mathbf{S}^{-1}\mathbf{A}\mathbf{S}=\begin{pmatrix}1&-1\\0&1\end{pmatrix}\begin{pmatrix}4&5\\2&5\end{pmatrix}=\begin{pmatrix}2&0\\2&5\end{pmatrix}.$$
 
@@ -69,7 +70,7 @@ $$\mathbf{S}^{-1}\mathbf{A}\mathbf{S}=\boldsymbol{\Lambda}=\operatorname{diag}(\
 :::
 
 :::beweis 对角化
-由[基础篇 1 第 9.2 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrixprodukt.html#stufe-9-2)，$\mathbf{A}\mathbf{S}$ 的第 $i$ 列是乘积 $\mathbf{A}\mathbf s_i=\lambda_i\mathbf s_i$，而 $\mathbf{S}\boldsymbol{\Lambda}$ 的第 $i$ 列同样是 $\lambda_i\mathbf s_i$。所以 $\mathbf{A}\mathbf{S}=\mathbf{S}\boldsymbol{\Lambda}$。$\mathbf{S}$ 的各列线性无关，所以 $\mathbf{S}$ 可逆，从左边乘以 $\mathbf{S}^{-1}$ 即得式 [(7.1)](#gl-7-1)。把同一个等式 $\mathbf{A}\mathbf{S}=\mathbf{S}\boldsymbol{\Lambda}$ 倒过来读，就得到逆命题。
+由[第 1 章第 9.2 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrixprodukt.html#stufe-9-2)，$\mathbf{A}\mathbf{S}$ 的第 $i$ 列是乘积 $\mathbf{A}\mathbf s_i=\lambda_i\mathbf s_i$，而 $\mathbf{S}\boldsymbol{\Lambda}$ 的第 $i$ 列同样是 $\lambda_i\mathbf s_i$。所以 $\mathbf{A}\mathbf{S}=\mathbf{S}\boldsymbol{\Lambda}$。$\mathbf{S}$ 的各列线性无关，所以 $\mathbf{S}$ 可逆，从左边乘以 $\mathbf{S}^{-1}$ 即得式 [(7.1)](#gl-7-1)。把同一个等式 $\mathbf{A}\mathbf{S}=\mathbf{S}\boldsymbol{\Lambda}$ 倒过来读，就得到逆命题。
 :::
 
 能写成这种形式的矩阵称为__可对角化__的。由第 [6.8](eigenwerte-und-eigenvektoren.html#stufe-6-8) 节的定理，例如当所有 $n$ 个特征值互不相同时，总是如此。剪切不可对角化，因为它缺少一个特征向量。旋转 $90^\circ$ 也不能用实数对角化，只能用复数对角化。不过两者都是可逆的：可逆与可对角化是两种不同的性质。
@@ -117,10 +118,10 @@ $$\mathbf{x}_k=200\begin{pmatrix}3\\2\end{pmatrix}+400\cdot0.5^k\begin{pmatrix}1
 
 ⁠**简而言之：**在特征基下，矩阵的每个幂都变成特征值的幂；耦合的序列分解为彼此独立的序列，每个特征向量对应一个。
 
-:::hintergrund 与 LTI 系统和傅里叶变换相同的原理
-在时域中，LTI 系统是一个卷积：每个输出值都取决于所有输入值，一切都是耦合的。把输入信号分解为指数函数 $\mathrm e^{pt}$，每个指数函数都只被乘以它的特征值 $H(p)$，耦合就消失了。拉普拉斯变换和傅里叶变换对信号所做的，正是基变换 $\mathbf{S}^{-1}$ 对向量所做的：它们换算到特征函数的坐标。
+:::hintergrund 序列中的同一原理与傅里叶变换
+像[第 1 章第 8.2 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-2)中柴火炉那样的后效，会以固定的权重把序列的每个值混入随后的各个值。结果的每个值都取决于序列的多个值，一切都是耦合的。把序列分解为复振荡 $\mathrm e^{\mathrm j\omega n}$，每个复振荡都只被乘以它自己的一个数，耦合就消失了。傅里叶变换对序列和函数所做的，正是基变换 $\mathbf{S}^{-1}$ 对向量所做的：它换算到这些振荡的坐标。
 
-对于采样信号，这种对应甚至就是字面意义上的对角化。循环卷积 $y_k=\sum_lh_{(k-l)\bmod n}\,x_l$ 是一个矩阵，它的第一列是冲激响应 $(h_0,\dots,h_{n-1})^{\top}$，其余各列是冲激响应的循环移位。它的特征向量是采样的复振荡 $\mathbf f_m=\bigl(1,\ \mathrm e^{\mathrm j2\pi m/n},\ \mathrm e^{\mathrm j2\pi\cdot2m/n},\dots\bigr)^{\top}$，属于 $\mathbf f_m$ 的特征值是冲激响应的离散傅里叶变换的值 $H[m]=\sum_qh_q\,\mathrm e^{-\mathrm j2\pi mq/n}$。所以，离散傅里叶变换的矩阵除了因子 $1/n$ 之外，就是使每个循环卷积对角化的那个 $\mathbf{S}^{-1}$，而且它同时适用于所有冲激响应。以 $n=3$、$h=(1,\,0.5,\,0)$ 为例：矩阵 $\Bigl(\begin{smallmatrix}1&0&0.5\\0.5&1&0\\0&0.5&1\end{smallmatrix}\Bigr)$ 把 $\mathbf f_0=(1,1,1)^{\top}$ 映射为 $1.5\,\mathbf f_0$，而 $1.5=H[0]=h_0+h_1+h_2$。
+对于循环往复的序列，这种对应甚至就是字面意义上的对角化。如果一个序列的最后一个值之后又接着第一个值，它就是循环往复的，就像一家昼夜不停运转、实行三班倒的企业的班次：夜班之后又是早班。循环的后效在数学中称为循环卷积，$y_k=\sum_lh_{(k-l)\bmod n}\,x_l$，它是一个矩阵。它的第一列是对第一个位置上单独一个 $1$ 的响应 $(h_0,\dots,h_{n-1})^{\top}$，其余各列是这一列的循环移位。它的特征向量是复振荡 $\mathbf f_m=\bigl(1,\ \mathrm e^{\mathrm j2\pi m/n},\ \mathrm e^{\mathrm j2\pi\cdot2m/n},\dots\bigr)^{\top}$，属于 $\mathbf f_m$ 的特征值是权重的离散傅里叶变换的值 $H[m]=\sum_qh_q\,\mathrm e^{-\mathrm j2\pi mq/n}$。所以，离散傅里叶变换的矩阵除了因子 $1/n$ 之外，就是使每个循环卷积对角化的那个 $\mathbf{S}^{-1}$，而且它同时适用于所有权重。以 $n=3$ 个班次、$h=(1,\,0.5,\,0)$ 为例：矩阵 $\Bigl(\begin{smallmatrix}1&0&0.5\\0.5&1&0\\0&0.5&1\end{smallmatrix}\Bigr)$ 把 $\mathbf f_0=(1,1,1)^{\top}$ 映射为 $1.5\,\mathbf f_0$，而 $1.5=H[0]=h_0+h_1+h_2$。
 :::
 
 ### 对称矩阵的特征值是实数
@@ -207,7 +208,7 @@ $$\mathbf{A}=\mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^{\top}=\sum_{i=1}^n\lambda
 
 $$\mathbf{Q}_1^{\top}\mathbf{A}\mathbf{Q}_1=\begin{pmatrix}\mathbf{q}_1^{\top}\mathbf{A}\mathbf{q}_1&\mathbf{q}_1^{\top}\mathbf{A}\mathbf{W}\\\mathbf{W}^{\top}\mathbf{A}\mathbf{q}_1&\mathbf{W}^{\top}\mathbf{A}\mathbf{W}\end{pmatrix}=\begin{pmatrix}\lambda_1&\mathbf{0}^{\top}\\\mathbf{0}&\mathbf{B}\end{pmatrix}$$
 
-其中 $\mathbf{B}=\mathbf{W}^{\top}\mathbf{A}\mathbf{W}$ 是对称的 $(n-1)\times(n-1)$ 矩阵。左下角出现零，是因为 $\mathbf{A}\mathbf{q}_1=\lambda_1\mathbf{q}_1$ 垂直于 $\mathbf{W}$ 的各列；右上角的零同样如此，因为 $\mathbf{A}$ 是对称的。对 $\mathbf{B}$ 重复同样的步骤，直到剩下一个 $1\times1$ 矩阵。这样为 $\mathbf{B}$ 找到一个正交矩阵 $\mathbf{Q}_B$，使 $\mathbf{Q}_B^{\top}\mathbf{B}\mathbf{Q}_B$ 成为对角矩阵之后，$\mathbf{Q}=\mathbf{Q}_1\bigl(\begin{smallmatrix}1&\mathbf{0}^{\top}\\\mathbf{0}&\mathbf{Q}_B\end{smallmatrix}\bigr)$ 作为正交矩阵之积是正交矩阵，并且 $\mathbf{Q}^{\top}\mathbf{A}\mathbf{Q}=\bigl(\begin{smallmatrix}\lambda_1&\mathbf{0}^{\top}\\\mathbf{0}&\mathbf{Q}_B^{\top}\mathbf{B}\mathbf{Q}_B\end{smallmatrix}\bigr)=\boldsymbol{\Lambda}$ 是对角矩阵。因为 $\mathbf{Q}^{-1}=\mathbf{Q}^{\top}$，得 $\mathbf{A}=\mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^{\top}$。求和形式由[基础篇 1 第 9.5 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrixprodukt.html#stufe-9-5)得出，因为 $\mathbf{Q}\boldsymbol{\Lambda}$ 的列为 $\lambda_i\mathbf{q}_i$。
+其中 $\mathbf{B}=\mathbf{W}^{\top}\mathbf{A}\mathbf{W}$ 是对称的 $(n-1)\times(n-1)$ 矩阵。左下角出现零，是因为 $\mathbf{A}\mathbf{q}_1=\lambda_1\mathbf{q}_1$ 垂直于 $\mathbf{W}$ 的各列；右上角的零同样如此，因为 $\mathbf{A}$ 是对称的。对 $\mathbf{B}$ 重复同样的步骤，直到剩下一个 $1\times1$ 矩阵。这样为 $\mathbf{B}$ 找到一个正交矩阵 $\mathbf{Q}_B$，使 $\mathbf{Q}_B^{\top}\mathbf{B}\mathbf{Q}_B$ 成为对角矩阵之后，$\mathbf{Q}=\mathbf{Q}_1\bigl(\begin{smallmatrix}1&\mathbf{0}^{\top}\\\mathbf{0}&\mathbf{Q}_B\end{smallmatrix}\bigr)$ 作为正交矩阵之积是正交矩阵，并且 $\mathbf{Q}^{\top}\mathbf{A}\mathbf{Q}=\bigl(\begin{smallmatrix}\lambda_1&\mathbf{0}^{\top}\\\mathbf{0}&\mathbf{Q}_B^{\top}\mathbf{B}\mathbf{Q}_B\end{smallmatrix}\bigr)=\boldsymbol{\Lambda}$ 是对角矩阵。因为 $\mathbf{Q}^{-1}=\mathbf{Q}^{\top}$，得 $\mathbf{A}=\mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^{\top}$。求和形式由[第 1 章第 9.5 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrixprodukt.html#stufe-9-5)得出，因为 $\mathbf{Q}\boldsymbol{\Lambda}$ 的列为 $\lambda_i\mathbf{q}_i$。
 :::
 
 由第 [2.3](projektion-auf-eine-gerade.html#stufe-2-3) 节，每一项 $\mathbf{q}_i\mathbf{q}_i^{\top}$ 都是向沿 $\mathbf{q}_i$ 方向的直线的投影。所以对称矩阵是向互相垂直的坐标轴的投影之和，每个投影以相应的特征值为权重。对于重特征值，$\mathbf{q}_i$ 在其特征空间中的选择是自由的：特征空间的任何一组标准正交基都可以。每个 $\mathbf{q}_i$ 的符号也是自由的。有些书把特征值按降序排列，有些则不然。
@@ -221,7 +222,7 @@ $$6\cdot\frac15\begin{pmatrix}4&2\\2&1\end{pmatrix}+1\cdot\frac15\begin{pmatrix}
 ⁠**简而言之：**每个对称矩阵都是 $\mathbf{Q}\boldsymbol{\Lambda}\mathbf{Q}^{\top}$：它在一个适当旋转的坐标系中是对角矩阵，也是向互相垂直的坐标轴的投影的加权和。
 
 :::hintergrund 对称矩阵从何而来
-凡是矩阵描述与顺序无关的两两关系的地方，都会出现对称矩阵。[基础篇 1 第 10 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/transponierte-symmetrie-und-gram-matrix.html#stufe-10)中的格拉姆矩阵 $\mathbf{X}^{\top}\mathbf{X}$ 和 $\mathbf{X}\mathbf{X}^{\top}$ 包含点积，而 $\mathbf{u}^{\top}\mathbf{v}=\mathbf{v}^{\top}\mathbf{u}$。由第 [5.2](quadratische-formen.html#stufe-5-2) 节，二次型的矩阵总可以选为对称的。耦合线圈的电感矩阵是对称的，因为线圈 1 对线圈 2 的互感与反过来相同。对所有这些矩阵，谱定理都保证特征值为实数、特征方向互相垂直。
+凡是矩阵描述与顺序无关的两两关系的地方，都会出现对称矩阵。[第 1 章第 10 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/transponierte-symmetrie-und-gram-matrix.html#stufe-10)中的格拉姆矩阵 $\mathbf{X}^{\top}\mathbf{X}$ 和 $\mathbf{X}\mathbf{X}^{\top}$ 包含点积，而 $\mathbf{u}^{\top}\mathbf{v}=\mathbf{v}^{\top}\mathbf{u}$。由第 [5.2](quadratische-formen.html#stufe-5-2) 节，二次型的矩阵总可以选为对称的。按直线距离测量的城市间距离表是对称的，因为从 A 到 B 的距离与从 B 到 A 的相同。对所有这些矩阵，谱定理都保证特征值为实数、特征方向互相垂直。
 :::
 
 ### 主轴

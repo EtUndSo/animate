@@ -1,6 +1,8 @@
 ---
 title: Stufe 7: Das Loch
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Bandstrukturen lesen
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Bandstrukturen lesen
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/bandstrukturen-lesen
+knoten: Kapitel 9: Bandstrukturen lesen
 order: 4190900
 summary: An der Oberkante eines Bands ist die Masse negativ, und ein fast volles Band enthält unvorstellbar viele Elektronen.
 tags: Defektelektron, schwere Löcher, leichte Löcher
@@ -13,7 +15,7 @@ lang: de
 An der Oberkante eines Bands ist die Masse negativ, und ein fast volles Band enthält unvorstellbar viele Elektronen. Diese Stufe ersetzt beide Schwierigkeiten durch ein einziges neues Teilchen.
 :::
 
-**Die Idee.** Ein volles Band trägt keinen Strom ([Teil 8](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/vom-atom-zum-band/vom-atom-zum-band.html)). Fehlt ein Elektron, fehlt auch dessen Beitrag, und der Rest ergibt einen Strom. Statt $10^{23}$ Elektronen zu verfolgen, verfolgt man den einen leeren Platz. Im Ortsbild: In einer Bindung fehlt ein Elektron, ein Nachbarelektron rückt nach, und die Lücke wandert entgegen.
+**Die Idee.** Ein volles Band trägt keinen Strom ([Kapitel 8](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/vom-atom-zum-band/vom-atom-zum-band.html)). Fehlt ein Elektron, fehlt auch dessen Beitrag, und der Rest ergibt einen Strom. Statt $10^{23}$ Elektronen zu verfolgen, verfolgt man den einen leeren Platz. Im Ortsbild: In einer Bindung fehlt ein Elektron, ein Nachbarelektron rückt nach, und die Lücke wandert entgegen.
 
 :::definition Definition 7.1 (Defektelektron oder Loch)
 <span class="anker" id="satz-7-1"></span>

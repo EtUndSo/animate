@@ -1,6 +1,8 @@
 ---
 title: Stufe 4: Die Box in der Ebene
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Das Teilchen in der Box
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Das Teilchen in der Box
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box
+knoten: Kapitel 2: Das Teilchen in der Box
 order: 4120600
 summary: Ein Elektron auf einer Fläche bewegt sich in zwei Richtungen zugleich.
 tags: Anisotropie, Isotropie

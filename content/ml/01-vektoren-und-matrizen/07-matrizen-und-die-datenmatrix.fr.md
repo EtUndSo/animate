@@ -1,7 +1,8 @@
 ---
 title: Les matrices et la matrice de données
 pfad: Informatique / Apprentissage automatique / Fondements mathématiques / Vecteurs et matrices
-knoten: Fondements 1 : Vecteurs et matrices
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Chapitre 1 : Vecteurs et matrices
 nachschlagen: ja
 order: 15210700
 summary: Un jeu de données se compose de nombreux vecteurs de même longueur.

@@ -1,6 +1,8 @@
 ---
 title: Stage 12: Discrete-time random signals
-pfad: Electrical Engineering / 3rd Semester / Signals and Systems / Random Signals
+pfad: Electrical Engineering / 3rd Semester / ET3 – Fundamentals of Electrical Engineering 3: Signals and Systems / Random Signals
+adresse: elektrotechnik/3-semester/signale-und-systeme/zufallssignale
+knoten: Chapter 7: Random Signals
 order: 3271300
 summary: Everything also holds for sequences of random numbers, with sums instead of integrals.
 tags: Discrete-time white noise
@@ -29,7 +31,7 @@ The variance is halved to $\frac{1}{24}$, and neighboring output values are now 
 ::::
 
 ::::beispiel [Example 2] recursive filter (AR(1) process)
-White noise of variance $\sigma_s^2$ passes through $h(n)=b^n\varepsilon(n)$ ([Part 4](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme/abtastung-und-zeitdiskrete-systeme.html)). With $\varphi^E_{hh}(m)=\sum_kb^kb^{k+|m|}=\frac{b^{|m|}}{1-b^2}$:
+White noise of variance $\sigma_s^2$ passes through $h(n)=b^n\varepsilon(n)$ ([Chapter 4](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme/abtastung-und-zeitdiskrete-systeme.html)). With $\varphi^E_{hh}(m)=\sum_kb^kb^{k+|m|}=\frac{b^{|m|}}{1-b^2}$:
 
 <span class="anker" id="gl-12-2"></span>
 $$\varphi_{gg}(m)=\frac{\sigma_s^2}{1-b^2}\,b^{|m|},\qquad\Phi_{gg,\mathrm a}(f)=\frac{\sigma_s^2}{1-2b\cos(2\pi f)+b^2}. \tag{12.2}$$

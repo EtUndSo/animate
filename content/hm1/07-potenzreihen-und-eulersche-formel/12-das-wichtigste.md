@@ -1,6 +1,8 @@
 ---
 title: Das Wichtigste
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Potenzreihen und Eulersche Formel
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Potenzreihen und Eulersche Formel
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/potenzreihen-und-eulersche-formel
+knoten: Kapitel 7: Potenzreihen und Eulersche Formel
 order: 1271200
 summary: Wie eine einzige Reihe Exponentialfunktion, Sinus und Cosinus enthält und warum Multiplizieren komplexer Zahlen Drehen und Strecken ist
 tags: Potenzreihe, Konvergenzradius, Exponentialreihe, Cauchy-Produkt, Funktionalgleichung, Eulersche Formel, Additionstheorem, Polardarstellung

@@ -1,6 +1,8 @@
 ---
 title: Etapa 1: Pares en lugar de números sueltos
-pfad: Ingeniería eléctrica / 1.er semestre / Matemáticas superiores 1 / Números complejos
+pfad: Ingeniería eléctrica / 1.er semestre / HöMa1 – Matemáticas superiores 1 / Números complejos
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen
+knoten: Capítulo 2: Números complejos
 order: 1220200
 summary: En mathbb R , x 2=-1 no tiene solución.
 tags: forma binómica
@@ -13,7 +15,7 @@ lang: es
 En $\mathbb{R}$, $x^2=-1$ no tiene solución. Esta etapa construye un conjunto mayor de números en el que la ecuación tiene solución y que contiene a $\mathbb{R}$ sin cambios.
 :::
 
-**La idea.** Cada ampliación de los números resuelve una ecuación que antes no tenía solución: $x+1=0$ lleva de $\mathbb{N}$ a $\mathbb{Z}$, $2x=1$ de $\mathbb{Z}$ a $\mathbb{Q}$, $x^2=2$ de $\mathbb{Q}$ a $\mathbb{R}$. Con $x^2=-1$ el caso es distinto. La parábola $y=x^2$ nunca alcanza la altura $-1$ (fig. [1](#abb-1)), porque en $\mathbb{R}$ se cumple $x^2\ge0$ ([Parte 1](/wissen/es/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html)). No falta un punto entre otros puntos, como con $\sqrt2$, sino que todos los puntos de la recta numérica quedan descartados. La solución tiene que estar fuera de la recta. Por eso se añade una segunda coordenada: se calcula con pares $(x,y)$. Los pares $(x,0)$ deben seguir siendo los números reales, y $(0,1)$ debe tener por cuadrado $(-1,0)$.
+**La idea.** Cada ampliación de los números resuelve una ecuación que antes no tenía solución: $x+1=0$ lleva de $\mathbb{N}$ a $\mathbb{Z}$, $2x=1$ de $\mathbb{Z}$ a $\mathbb{Q}$, $x^2=2$ de $\mathbb{Q}$ a $\mathbb{R}$. Con $x^2=-1$ el caso es distinto. La parábola $y=x^2$ nunca alcanza la altura $-1$ (fig. [1](#abb-1)), porque en $\mathbb{R}$ se cumple $x^2\ge0$ ([capítulo 1](/wissen/es/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html)). No falta un punto entre otros puntos, como con $\sqrt2$, sino que todos los puntos de la recta numérica quedan descartados. La solución tiene que estar fuera de la recta. Por eso se añade una segunda coordenada: se calcula con pares $(x,y)$. Los pares $(x,0)$ deben seguir siendo los números reales, y $(0,1)$ debe tener por cuadrado $(-1,0)$.
 
 :::abbildung hm1/k2parabel 1
 La recta $y=2$ corta dos veces a la parábola, y las soluciones $\pm\sqrt2$ están en la recta numérica. La recta $y=-1$ no la corta nunca: ningún $x$ real resuelve $x^2=-1$.

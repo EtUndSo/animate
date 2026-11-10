@@ -1,6 +1,8 @@
 ---
 title: Stage 10: The R-2R converter
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / Sources and Equivalent Sources
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / Sources and Equivalent Sources
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen
+knoten: Chapter 5: Sources and Equivalent Sources
 order: 1151200
 summary: A processor knows only bits, a loudspeaker needs a voltage.
 tags: digital-to-analog converter
@@ -39,7 +41,7 @@ Superposition gives the same number. Take source $U_1$ as an example: at the mid
 :::
 
 ::::beispiel
-With $U_\mathrm{ref}=8$ V and $R=1$ k$\Omega$, the bits weigh 4 V, 2 V and 1 V. The setting 101 gives 5 V. A load with $R_\mathrm{L}=R$ forms a divider with $R_\mathrm{i}$ and halves this to 2.5 V. That is why real converters are followed by an operational amplifier ([Part 11](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker/der-operationsverstaerker.html)) with a very high input resistance: it draws practically no current, and the ladder stays in the open circuit.
+With $U_\mathrm{ref}=8$ V and $R=1$ k$\Omega$, the bits weigh 4 V, 2 V and 1 V. The setting 101 gives 5 V. A load with $R_\mathrm{L}=R$ forms a divider with $R_\mathrm{i}$ and halves this to 2.5 V. That is why real converters are followed by an operational amplifier ([Chapter 11](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker/der-operationsverstaerker.html)) with a very high input resistance: it draws practically no current, and the ladder stays in the open circuit.
 ::::
 
 ⁠**Limiting cases:** The setting 000 gives 0 V, the setting 111 gives 7 V, one step below $U_\mathrm{ref}$.

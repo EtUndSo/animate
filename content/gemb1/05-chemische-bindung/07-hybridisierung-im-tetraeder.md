@@ -1,6 +1,8 @@
 ---
 title: Stufe 5: Hybridisierung im Tetraeder
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Chemische Bindung
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Chemische Bindung
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/chemische-bindung
+knoten: Kapitel 5: Chemische Bindung
 order: 4150700
 summary: Kohlenstoff, 1mathrm s 2\,2mathrm s 2\,2mathrm p 2 , hat zwei einfach besetzte p-Orbitale, das 2s-Paar kann keine Bindung mehr eingehen.
 tags: Tetraeders, Hybridorbitale, freie Elektronenpaar, Lewis-Schreibweise
@@ -13,7 +15,7 @@ lang: de
 Kohlenstoff, $1\mathrm s^2\,2\mathrm s^2\,2\mathrm p^2$, hat zwei einfach besetzte p-Orbitale, das 2s-Paar kann keine Bindung mehr eingehen. Danach sollte CH$_2$ entstehen. Stabil ist aber CH$_4$ mit vier gleichen Bindungen. Diese Stufe löst den Widerspruch.
 :::
 
-**Die Idee.** Zwei Schritte führen zur Lösung (Abb. [5](#abb-5)). Erstens: Hebt man ein 2s-Elektron nach 2p, gibt es vier einfach besetzte Orbitale und damit vier statt zwei Bindungen. Das kostet Energie, die zwei zusätzlichen Bindungen bringen mehr. Zweitens: Eine Summe von Lösungen ähnlicher Energie ist näherungsweise wieder eine Lösung ([Teil 4](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/atome-und-orbitale/atome-und-orbitale.html)). Überlagert man s und p, verstärken sie sich auf einer Seite und löschen sich auf der anderen aus. Es entsteht eine einseitige Keule, die stärker überlappen kann als s oder p allein. Die vier Keulen stoßen sich ab und weichen einander aus: Sie zeigen in die Ecken eines __Tetraeders__, einer Pyramide aus vier gleichseitigen Dreiecken.
+**Die Idee.** Zwei Schritte führen zur Lösung (Abb. [5](#abb-5)). Erstens: Hebt man ein 2s-Elektron nach 2p, gibt es vier einfach besetzte Orbitale und damit vier statt zwei Bindungen. Das kostet Energie, die zwei zusätzlichen Bindungen bringen mehr. Zweitens: Eine Summe von Lösungen ähnlicher Energie ist näherungsweise wieder eine Lösung ([Kapitel 4](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/atome-und-orbitale/atome-und-orbitale.html)). Überlagert man s und p, verstärken sie sich auf einer Seite und löschen sich auf der anderen aus. Es entsteht eine einseitige Keule, die stärker überlappen kann als s oder p allein. Die vier Keulen stoßen sich ab und weichen einander aus: Sie zeigen in die Ecken eines __Tetraeders__, einer Pyramide aus vier gleichseitigen Dreiecken.
 
 :::abbildung gemb1/k5hybrid 5
 Oben: Besetzung von Kohlenstoff bis zu vier gleichen Orbitalen, daneben die Überlagerung von s und p (Winkelanteil, gleicher Maßstab). Unten: Tetraederrichtungen in CH$_4$, NH$_3$ und H$_2$O. Blau: Bindungen, orange: freie Elektronenpaare, rot: gemessener Winkel H–X–H.

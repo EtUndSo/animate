@@ -1,7 +1,9 @@
 ---
 title: Überblick: Chemische Bindung
 kurz: Überblick
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Chemische Bindung
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Chemische Bindung
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/chemische-bindung
+knoten: Kapitel 5: Chemische Bindung
 order: 4150100
 summary: Warum Atome zusammenhalten und was die Art des Zusammenhalts über ein Material verrät
 tags: chemische Bindung, Bindungsenergie, ionische Bindung, kovalente Bindung, metallische Bindung, Dipol-Bindung, Molekülorbital, Hybridisierung

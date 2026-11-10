@@ -1,6 +1,8 @@
 ---
 title: Lösung von Differentialgleichungen
-pfad: Elektrotechnik / 3. Semester / Signale und Systeme / Laplace-Transformation
+pfad: Elektrotechnik / 3. Semester / ET3 – Grundgebiete der Elektrotechnik 3: Signale und Systeme / Laplace-Transformation
+adresse: elektrotechnik/3-semester/signale-und-systeme/laplace-transformation
+knoten: Kapitel 2: Laplace-Transformation
 order: 3220500
 summary: Jedes Netzwerk aus Widerständen, Spulen und Kondensatoren wird durch eine lineare Differentialgleichung beschrieben.
 tags: Koeffizienten, linear, Ordnung, charakteristische Polynom, Eigenbewegungen, Kennkreisfrequenz, Dämpfungsgrad, Kennwiderstand

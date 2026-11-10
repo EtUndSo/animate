@@ -1,6 +1,8 @@
 ---
 title: 第 4 阶段：积分变成求和
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / 拉普拉斯变换
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / 拉普拉斯变换
+adresse: elektrotechnik/3-semester/signale-und-systeme/laplace-transformation
+knoten: 第 2 章：拉普拉斯变换
 order: 3220700
 summary: 按字面意义理解那个猜想：对于系统理论几乎总在处理的那些信号，信号是复指数函数的 有限和 。极点就是指数。
 tags: 部分分式展开, 稳定性, 自然响应

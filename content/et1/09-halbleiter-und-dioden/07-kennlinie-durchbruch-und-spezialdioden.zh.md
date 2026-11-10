@@ -1,6 +1,8 @@
 ---
 title: 第 5 阶段：特性曲线、击穿与特种二极管
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 半导体与二极管
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 半导体与二极管
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden
+knoten: 第 9 章：半导体与二极管
 order: 1190700
 summary: 方程已经有了。本阶段把它读成曲线，补充击穿现象，并说明利用结的特性还能制成什么。
 tags: 阳极, 阴极, 雪崩效应, 齐纳效应, 击穿, 结电容, 光子, 内光电效应
@@ -23,7 +25,7 @@ lang: zh
 
 **齐纳二极管。** 它专为在击穿区工作而制造，具有精确规定的电压 $U_\mathrm Z$（图 [7](#abb-7) 左）。在正向，它的行为与 pn 二极管相同。超过 $U_\mathrm Z$ 后特性曲线几乎垂直，其小电阻为 $r_\mathrm Z=\Delta U/\Delta I$。串联电阻吸收电源的波动：元件上的电压几乎不变，变化的是电流。当 $r_\mathrm Z=10\,\Omega$ 时，18 mA 的电流变化只造成 0.18 V。
 
-**变容二极管。** 没有载流子的区域是两个导电区之间的绝缘层，因此是一个电容器（[第 3 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html)），面积为 $A$，间距为 $w$。__结电容__随反向电压 $U_\mathrm R=-U$ 增大而减小，因为该区变宽：
+**变容二极管。** 没有载流子的区域是两个导电区之间的绝缘层，因此是一个电容器（[第 3 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html)），面积为 $A$，间距为 $w$。__结电容__随反向电压 $U_\mathrm R=-U$ 增大而减小，因为该区变宽：
 
 <span class="anker" id="gl-5-1"></span>
 $$C_\mathrm{j}=\frac{\varepsilon A}{w}=\frac{C_0}{\sqrt{1+U_\mathrm R/U_\mathrm{D0}}}. \tag{5.1}$$

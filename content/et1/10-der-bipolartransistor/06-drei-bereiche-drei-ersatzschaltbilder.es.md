@@ -1,6 +1,8 @@
 ---
 title: Etapa 4: Tres regiones, tres circuitos equivalentes
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / El transistor bipolar
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / El transistor bipolar
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor
+knoten: Capítulo 10: El transistor bipolar
 order: 1200600
 summary: Con funciones exponenciales, los circuitos apenas se pueden resolver a mano.
 tags: región de corte, región de saturación, tensión umbral, tensión de saturación, circuito equivalente
@@ -13,7 +15,7 @@ lang: es
 Con funciones exponenciales, los circuitos apenas se pueden resolver a mano. Esta etapa sustituye la superficie por tres tramos lineales.
 :::
 
-**La idea.** Cada uno de los dos diodos puede conducir o bloquear. De ahí resultan los estados de funcionamiento. Si el diodo BE bloquea, no arranca ningún electrón y no circula nada. Es la __región de corte__. Si conduce y el diodo CB bloquea, el colector recoge todos los electrones y se cumple $I_\mathrm{C}=B\,I_\mathrm{B}$. Es la región activa. Si $U_\mathrm{CE}$ baja tanto que también el diodo CB conduce claramente, el colector devuelve electrones. Entonces ya no puede recogerlos todos, la base se llena de electrones e $I_\mathrm{C}$ queda por debajo de $B\,I_\mathrm{B}$. Es la __región de saturación__. Como en el diodo ([Parte 9](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)), las curvas se sustituyen por rectas: la curva característica de entrada recibe un codo en 0,6 V, la de control por corriente pasa a ser una recta de pendiente $B$ que se dobla a horizontal en la saturación, y las de salida se hacen horizontales a la derecha de 0,2 V (fig. [6](der-arbeitspunkt.html#abb-6)).
+**La idea.** Cada uno de los dos diodos puede conducir o bloquear. De ahí resultan los estados de funcionamiento. Si el diodo BE bloquea, no arranca ningún electrón y no circula nada. Es la __región de corte__. Si conduce y el diodo CB bloquea, el colector recoge todos los electrones y se cumple $I_\mathrm{C}=B\,I_\mathrm{B}$. Es la región activa. Si $U_\mathrm{CE}$ baja tanto que también el diodo CB conduce claramente, el colector devuelve electrones. Entonces ya no puede recogerlos todos, la base se llena de electrones e $I_\mathrm{C}$ queda por debajo de $B\,I_\mathrm{B}$. Es la __región de saturación__. Como en el diodo ([capítulo 9](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)), las curvas se sustituyen por rectas: la curva característica de entrada recibe un codo en 0,6 V, la de control por corriente pasa a ser una recta de pendiente $B$ que se dobla a horizontal en la saturación, y las de salida se hacen horizontales a la derecha de 0,2 V (fig. [6](der-arbeitspunkt.html#abb-6)).
 
 :::definition Definición 4.1 (Regiones de funcionamiento del transistor npn)
 <span class="anker" id="satz-4-1"></span>

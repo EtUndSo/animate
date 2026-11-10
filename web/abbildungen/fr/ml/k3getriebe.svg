@@ -18,7 +18,7 @@
 <path d="M798 378C798 486 798 594 798 702" fill="none" stroke="#7f7f7f" stroke-width="2" stroke-dasharray="10 7" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M814.2 378C825 432 835.8 486 846.6 540" fill="none" stroke="#7f7f7f" stroke-width="2" stroke-dasharray="10 7" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M846.6 540C960.49 594 1074.37 648 1188.26 702" fill="none" stroke="#7f7f7f" stroke-width="2" stroke-dasharray="10 7" stroke-linejoin="round" stroke-linecap="butt"/>
-<text x="1061.25" y="456.3" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#111111" text-anchor="start" dominant-baseline="central">stage 1: factor 3</text>
-<text x="1196.25" y="618.3" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#111111" text-anchor="start" dominant-baseline="central">stage 2: factor 8</text>
-<text x="1041" y="803.25" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#111111" text-anchor="middle" dominant-baseline="central">together: Δy ≈ 8 · 3 · Δx = 24 · 0,01 = 0,24</text>
+<text x="1061.25" y="456.3" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#111111" text-anchor="start" dominant-baseline="central">étage 1 : facteur 3</text>
+<text x="1196.25" y="618.3" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#111111" text-anchor="start" dominant-baseline="central">étage 2 : facteur 8</text>
+<text x="1041" y="803.25" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#111111" text-anchor="middle" dominant-baseline="central">au total : Δy ≈ 8 · 3 · Δx = 24 · 0,01 = 0,24</text>
 </svg>

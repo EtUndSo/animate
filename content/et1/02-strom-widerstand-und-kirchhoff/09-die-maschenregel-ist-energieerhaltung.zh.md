@@ -1,6 +1,8 @@
 ---
 title: 第 8 阶段：网孔定律就是能量守恒
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 电流、电阻与基尔霍夫定律
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 电流、电阻与基尔霍夫定律
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff
+knoten: 第 2 章：电流、电阻与基尔霍夫定律
 order: 1120900
 summary: 第二类方程：能量守恒对闭合路径有什么要求？有了它，就能完全解出网络。
 tags: 
@@ -13,10 +15,10 @@ lang: zh
 第二类方程：能量守恒对闭合路径有什么要求？有了它，就能完全解出网络。
 :::
 
-**基本思路。** 网络中的每一点都有一个电位（[第 1 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)）。绕行一周回到同一点，也就回到同一电位（图 [9](#abb-9)）。对电荷来说，这意味着：它在电源中获得的能量，又在电阻中释放出去。在电池中，化学力把电荷逆着电场抬升到较高的电位。
+**基本思路。** 网络中的每一点都有一个电位（[第 1 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)）。绕行一周回到同一点，也就回到同一电位（图 [9](#abb-9)）。对电荷来说，这意味着：它在电源中获得的能量，又在电阻中释放出去。在电池中，化学力把电荷逆着电场抬升到较高的电位。
 
 :::analogie
-环形徒步的终点就是起点。所有上坡加起来与所有下坡一样高，无论选择哪条路线。当磁场变化时，这个类比就失效了：这时一个地点不再有固定的“高度”（[第 1 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)）。
+环形徒步的终点就是起点。所有上坡加起来与所有下坡一样高，无论选择哪条路线。当磁场变化时，这个类比就失效了：这时一个地点不再有固定的“高度”（[第 1 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)）。
 :::
 
 :::satz 定理 8.1 (网孔定律，基尔霍夫第二定律)
@@ -30,10 +32,10 @@ $$\sum_{\nu=1}^{N}U_\nu=0,\qquad U_\nu\text{ 与绕行方向一致时计为正�
 对一个网络，这些方程中有 $z-k+1$ 个是独立的，其余的也就自动满足。
 :::
 
-⁠**如何理解：**$U_\nu$ 是一条支路的电压，带有其箭头。绕行方向可自由选择，它只改变总的符号。**适用条件：**穿过网孔的磁通量不得变化，否则电场不是无旋的（[第 1 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)）。在电路中，这种磁通几乎全部集中在线圈中。该定律也适用于经过开路端子的路径，因为路径不必沿着导线。
+⁠**如何理解：**$U_\nu$ 是一条支路的电压，带有其箭头。绕行方向可自由选择，它只改变总的符号。**适用条件：**穿过网孔的磁通量不得变化，否则电场不是无旋的（[第 1 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)）。在电路中，这种磁通几乎全部集中在线圈中。该定律也适用于经过开路端子的路径，因为路径不必沿着导线。
 
 :::herleitung 由电位得网孔定律
-根据[第 1 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)，$U_{12}=\varphi_1-\varphi_2=\int_{P_1}^{P_2}\vec E\cdot\mathrm{d}\vec s$ 与路径无关，所以 $\oint\vec E\cdot\mathrm{d}\vec s=0$。对沿网孔的点 $P_1,\dots,P_N$，得
+根据[第 1 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)，$U_{12}=\varphi_1-\varphi_2=\int_{P_1}^{P_2}\vec E\cdot\mathrm{d}\vec s$ 与路径无关，所以 $\oint\vec E\cdot\mathrm{d}\vec s=0$。对沿网孔的点 $P_1,\dots,P_N$，得
 
 $$(\varphi_1-\varphi_2)+(\varphi_2-\varphi_3)+\dots+(\varphi_N-\varphi_1)=0.$$
 

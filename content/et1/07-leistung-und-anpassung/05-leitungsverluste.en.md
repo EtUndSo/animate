@@ -1,6 +1,8 @@
 ---
 title: Stage 4: Line losses
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / Power, Matching and Efficiency
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / Power, Matching and Efficiency
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad
+knoten: Chapter 7: Power, Matching and Efficiency
 order: 1170500
 summary: The line lies between source and load, and it too is a resistor.
 tags: voltage drop, power loss, useful power, nominal voltage
@@ -54,7 +56,7 @@ The load needs 40 kW, $R_\mathrm{cable}=1\,\Omega$. At $U_\mathrm{L}=400$ V,
 | High voltage | 110 kV | up to around 100 km | Supply of the medium-voltage grids |
 | Extra-high voltage | 220 kV, 380 kV | a few 100 to over 1000 km | Interconnection within the country and across Europe |
 
-High voltage cannot be brought all the way into the home: air breaks down at around 3 kV/mm ([Part 1](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)), so overhead lines need clearances of several meters. Transformers step the AC voltage up for transport and back down again ahead of the consumers.
+High voltage cannot be brought all the way into the home: air breaks down at around 3 kV/mm ([Chapter 1](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)), so overhead lines need clearances of several meters. Transformers step the AC voltage up for transport and back down again ahead of the consumers.
 
 :::frage According to $P=U^2/R$, power grows with voltage. Shouldn't higher voltages bring more loss?
 The formula is correct, but it needs the voltage across the same resistor. In the example, the cable does not have 20 kV across it but $U_\mathrm{cable}=2$ V, and $(2\,\mathrm{V})^2/1\,\Omega$ gives the 4 W. The high voltage is across the load. $U_\mathrm{cable}$ falls because the current falls.

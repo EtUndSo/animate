@@ -1,6 +1,8 @@
 ---
 title: Differenzierbarkeit und Kettenregel für Abbildungen
-pfad: Elektrotechnik / 3. Semester / Höhere Mathematik 3 / Differentialrechnung für Vektorfelder
+pfad: Elektrotechnik / 3. Semester / HöMa3 – Höhere Mathematik 3 / Differentialrechnung für Vektorfelder
+adresse: elektrotechnik/3-semester/hohere-mathematik-3/differentialrechnung-fur-vektorfelder
+knoten: Kapitel 1: Differentialrechnung für Vektorfelder
 order: 3110200
 summary: Eine Funktion einer Variablen hat eine Ableitung, die angibt, wie schnell sich ihr Wert ändert.
 tags: Komponente, Vektor, Einheitsvektor, Länge, euklidische Norm, Abstand, Skalarprodukt, Matrix

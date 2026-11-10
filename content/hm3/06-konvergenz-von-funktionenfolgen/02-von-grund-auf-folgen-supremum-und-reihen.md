@@ -1,6 +1,8 @@
 ---
 title: Von Grund auf: Folgen, Supremum und Reihen
-pfad: Elektrotechnik / 3. Semester / Höhere Mathematik 3 / Konvergenz von Funktionenfolgen
+pfad: Elektrotechnik / 3. Semester / HöMa3 – Höhere Mathematik 3 / Konvergenz von Funktionenfolgen
+adresse: elektrotechnik/3-semester/hohere-mathematik-3/konvergenz-von-funktionenfolgen
+knoten: Kapitel 6: Konvergenz von Funktionenfolgen
 order: 3160200
 summary: Funktionenfolgen werden auf Zahlenfolgen zurückgeführt.
 tags: Konvergenz, Cauchy-Folge, Supremum, beschränkt, Partialsumme, Reihe, absolut konvergent, Rest

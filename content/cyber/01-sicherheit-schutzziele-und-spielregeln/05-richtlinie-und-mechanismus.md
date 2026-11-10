@@ -1,6 +1,8 @@
 ---
 title: Richtlinie und Mechanismus
 pfad: Informatik / Cybersecurity / Sicherheit, Schutzziele und Spielregeln
+adresse: informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln
+knoten: Kapitel 1: Sicherheit, Schutzziele und Spielregeln
 order: 6110500
 summary: Bisher war offen, wer festlegt, was erlaubt ist, und womit das durchgesetzt wird.
 tags: Sicherheitsrichtlinie, Sicherheitsmechanismus, Verhindern, Erkennen, Wiederherstellen, passiver Angriff, aktiver Angriff
@@ -186,7 +188,7 @@ Für die Verteidigung folgt daraus eine Faustregel. Ein passiver Angriff hinterl
 ⁠**Kurz gesagt:** Passive Angriffe beobachten und müssen verhindert werden; aktive Angriffe verändern und lassen sich erkennen.
 
 :::hintergrund Warum Mithören keine Spuren hinterlässt
-Ein Funksignal breitet sich vom Sender in alle Richtungen aus. Die Empfangsantenne eines Lauschers nimmt aus diesem Feld einen winzigen Teil der Leistung auf, und zwar in einigen Metern Entfernung einen so kleinen, dass sich am Sender und beim rechtmäßigen Empfänger nichts Messbares ändert. Ob niemand, einer oder hundert Geräte mithören, sieht von außen gleich aus. Deshalb kann man passives Mithören grundsätzlich nicht zuverlässig bemerken; man muss davon ausgehen, dass jede Funkübertragung mitgehört werden kann.
+Ein Funknetz verhält sich wie eine Durchsage in einer Bahnhofshalle. Die Durchsage erreicht jeden in Hörweite, und wer zuhört, nimmt dem Lautsprecher nichts weg: Der Sprecher klingt für die anderen genauso laut, ob niemand, einer oder hundert Menschen mithören. Ebenso breiten sich die Funkwellen eines WLAN-Routers im ganzen Raum aus, und ein zusätzliches Gerät, das sie empfängt, ändert für den Sender und den rechtmäßigen Empfänger nichts Messbares. Deshalb kann man passives Mithören grundsätzlich nicht zuverlässig bemerken; man muss davon ausgehen, dass jede Funkübertragung mitgehört werden kann.
 
 Ein aktiver Angriff dagegen muss etwas in die Welt setzen: ein gefälschtes Paket, einen zweiten Sender, eine veränderte Datei. Was in die Welt gesetzt wird, kann man messen, vergleichen und protokollieren. Darauf beruhen alle Verfahren, die aktive Angriffe erkennen, vom Siegel auf dem Brief bis zu Prüfsummen über Dateien.
 :::

@@ -1,7 +1,9 @@
 ---
 title: Überblick: Integralsätze im Raum
 kurz: Überblick
-pfad: Elektrotechnik / 3. Semester / Höhere Mathematik 3 / Integralsätze im Raum
+pfad: Elektrotechnik / 3. Semester / HöMa3 – Höhere Mathematik 3 / Integralsätze im Raum
+adresse: elektrotechnik/3-semester/hohere-mathematik-3/integralsatze-im-raum
+knoten: Kapitel 5: Integralsätze im Raum
 order: 3150100
 summary: Was im Inneren geschieht, lässt sich am Rand ablesen
 tags: Satz von Stokes, Satz von Gauß
@@ -39,5 +41,5 @@ Der Hauptsatz der Differential- und Integralrechnung sagt: Integriert man eine A
 
 </ul>
 
-Vorausgesetzt werden Kurvenintegrale, Green in der Ebene, $\operatorname{rot}$, $\operatorname{div}$, Kugelkoordinaten und der Transformationssatz ([Teil 1](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/differentialrechnung-fur-vektorfelder/differentialrechnung-fuer-vektorfelder.html) bis 4). Vektoren sind fett gesetzt, $\boldsymbol{x}_u=\partial\boldsymbol{x}/\partial u$ ist die Ableitung nach dem Parameter $u$.
+Vorausgesetzt werden Kurvenintegrale, Green in der Ebene, $\operatorname{rot}$, $\operatorname{div}$, Kugelkoordinaten und der Transformationssatz ([Kapitel 1](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/differentialrechnung-fur-vektorfelder/differentialrechnung-fuer-vektorfelder.html) bis 4). Vektoren sind fett gesetzt, $\boldsymbol{x}_u=\partial\boldsymbol{x}/\partial u$ ist die Ableitung nach dem Parameter $u$.
 :::

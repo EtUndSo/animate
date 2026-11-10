@@ -1,6 +1,8 @@
 ---
 title: Stufe 8: Integrieren und Differenzieren
-pfad: Elektrotechnik / 3. Semester / Signale und Systeme / LTI-Systeme und Faltung
+pfad: Elektrotechnik / 3. Semester / ET3 – Grundgebiete der Elektrotechnik 3: Signale und Systeme / LTI-Systeme und Faltung
+adresse: elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung
+knoten: Kapitel 1: LTI-Systeme und Faltung
 order: 3210900
 summary: Integrator und Differenzierer sind LTI-Systeme.
 tags: Integrator, Differenzierer, Doppelimpuls

@@ -1,6 +1,8 @@
 ---
 title: 第 7 阶段：并联与串联
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 电容器
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 电容器
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator
+knoten: 第 3 章：电容器
 order: 1130800
 summary: 多个电容器可以当作一个来处理。问题只在于，电路使哪个量对所有电容器都相同。
 tags: 孤岛

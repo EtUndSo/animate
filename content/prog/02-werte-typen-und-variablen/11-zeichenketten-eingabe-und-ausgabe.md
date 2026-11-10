@@ -1,7 +1,8 @@
 ---
 title: Zeichenketten, Eingabe und Ausgabe
 pfad: Informatik / Programmieren / Python / Werte, Typen und Variablen
-knoten: Python 2: Werte, Typen und Variablen
+adresse: informatik/programmieren/python/werte-typen-und-variablen
+knoten: Kapitel 2: Werte, Typen und Variablen
 order: 6031100
 summary: Ein Programm soll nach Werten fragen und Ergebnisse ordentlich formatiert ausgeben.
 tags: Verketten, f-String, Typumwandlung
@@ -11,33 +12,33 @@ lang: de
 <span class="anker" id="stufe-10"></span>
 
 :::zweck
-Ein Programm soll nach Werten fragen und Ergebnisse ordentlich formatiert ausgeben. Dieser Abschnitt zeigt, wie man mit Zeichenketten rechnet, Zahlen formatiert in Text einsetzt, Eingaben liest, Text und Zahlen ineinander umwandelt und rundet. Zum Schluss entsteht ein kleiner Einheitenrechner.
+Ein Programm soll nach Werten fragen und Ergebnisse ordentlich formatiert ausgeben. Dieser Abschnitt zeigt, wie man mit Zeichenketten rechnet, Zahlen formatiert in Text einsetzt, Eingaben liest, Text und Zahlen ineinander umwandelt und rundet. Zum Schluss entsteht ein kleiner Rechner für das Lauftempo.
 :::
 
 ### Zeichenketten verketten und vervielfachen
 
 <span class="anker" id="stufe-10-1"></span>
 
-Python 1 hat die Zeichenkette als Wert aus Text eingeführt ([Programmieren, Python 1, Abschnitt 4.6](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/der-interaktive-modus.html#stufe-4-6)); ihr Typ heißt `str`. Auch mit Text kann man einiges rechnen: Teile zusammensetzen, Linien aus Strichen bauen, die Länge bestimmen.
+[Kapitel 1](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/programme-und-der-python-interpreter.html) hat die Zeichenkette als Wert aus Text eingeführt ([Kapitel 1, Abschnitt 4.6](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/der-interaktive-modus.html#stufe-4-6)); ihr Typ heißt `str`. Auch mit Text kann man einiges rechnen: Teile zusammensetzen, Linien aus Strichen bauen, die Länge bestimmen.
 
 :::definition Definition 10.1 (Operatoren und Länge von Zeichenketten)
 <span class="anker" id="satz-10-1"></span>
 
-Für Zeichenketten bedeutet `+` Aneinanderhängen, das __Verketten__: `"Ohm" + "meter"` ist `"Ohmmeter"`. `*` mit einem `int` wiederholt die Zeichenkette. Die eingebaute Funktion `len` liefert die Zahl der Zeichen.
+Für Zeichenketten bedeutet `+` Aneinanderhängen, das __Verketten__: `"Regen" + "schirm"` ist `"Regenschirm"`. `*` mit einem `int` wiederholt die Zeichenkette. Die eingebaute Funktion `len` liefert die Zahl der Zeichen.
 :::
 
 ::::beispiel
 Verketten, wiederholen, zählen:
 
 ```console
->>> "Ohm" + "meter"
-'Ohmmeter'
->>> "Ohm" * 3
-'OhmOhmOhm'
+>>> "Regen" + "schirm"
+'Regenschirm'
+>>> "ha" * 3
+'hahaha'
 >>> "-" * 20
 '--------------------'
->>> len("Ohm")
-3
+>>> len("Regen")
+5
 >>> len("Größe")
 5
 >>> len("")
@@ -55,7 +56,7 @@ Verketten, wiederholen, zählen:
 
 <span class="anker" id="stufe-10-2"></span>
 
-`print("Strom in mA:", strom * 1000)` druckt 17 Stellen, wo zwei genügen. Für eine ordentliche Ausgabe will man Zahlen mitten in einen Text setzen und dabei bestimmen, wie viele Stellen erscheinen.
+`print("Preis pro kg in Euro:", kilopreis)` druckt 16 Stellen, wo zwei Nachkommastellen genügen. Für eine ordentliche Ausgabe will man Zahlen mitten in einen Text setzen und dabei bestimmen, wie viele Stellen erscheinen.
 
 **Ein Formular mit Lücken.** Man schreibt den Text einmal hin und lässt Lücken; in jede Lücke kommt ein ausgerechneter Wert, in der gewünschten Form.
 
@@ -78,22 +79,24 @@ Hinter dem Ausdruck kann, durch einen Doppelpunkt getrennt, eine Formatangabe st
 | `08b` | binär mit 8 Stellen | `f"{19:08b}"` ergibt `00010011` |
 | `x` | hexadezimal | `f"{255:x}"` ergibt `ff` |
 
-Steht hinter dem Ausdruck ein Gleichheitszeichen, `f"{U=}"`, setzt Python den Ausdruck selbst, ein `=` und den Wert ein; das ist praktisch zum Nachsehen von Zwischenwerten. Die Formatangaben sind dieselben wie bei der Funktion `format` aus Unterabschnitt [3.4](zahlen-im-binarsystem.html#stufe-3-4). Wie in allen Python-Ausgaben steht der Dezimalpunkt als Punkt und die Tausendertrennung als Komma.
+Steht hinter dem Ausdruck ein Gleichheitszeichen, `f"{gewicht=}"`, setzt Python den Ausdruck selbst, ein `=` und den Wert ein; das ist praktisch zum Nachsehen von Zwischenwerten. Die Formatangaben sind dieselben wie bei der Funktion `format` aus Unterabschnitt [3.4](zahlen-im-binarsystem.html#stufe-3-4). Wie in allen Python-Ausgaben steht der Dezimalpunkt als Punkt und die Tausendertrennung als Komma.
 
 ::::beispiel
-Eine Messzeile mit Spannung, Strom, Widerstand und Leistung:
+Zeilen für den Kassenbon an der Käsetheke, mit Kilopreis und Gewicht:
 
 ```console
->>> U = 3.3
->>> I = 0.0125
->>> f"U = {U} V, I = {I * 1000:.1f} mA"
-'U = 3.3 V, I = 12.5 mA'
->>> f"R = {U / I:.1f} Ohm, P = {U * I:.3e} W"
-'R = 264.0 Ohm, P = 4.125e-02 W'
->>> f"{U=}"
-'U=3.3'
->>> print(f"Strom: {I * 1000:.2f} mA")
-Strom: 12.50 mA
+>>> kilopreis = 26.4
+>>> gewicht = 0.125
+>>> f"Gewicht = {gewicht} kg, also {gewicht * 1000:.1f} g"
+'Gewicht = 0.125 kg, also 125.0 g'
+>>> f"Preis = {kilopreis * gewicht:.2f} Euro"
+'Preis = 3.30 Euro'
+>>> f"Pro Gramm: {kilopreis / 1000:.3e} Euro"
+'Pro Gramm: 2.640e-02 Euro'
+>>> f"{gewicht=}"
+'gewicht=0.125'
+>>> print(f"Zu zahlen: {kilopreis * gewicht:.2f} Euro")
+Zu zahlen: 3.30 Euro
 ```
 
 Der interaktive Modus zeigt einen f-String als Zeichenkette mit Apostrophen; erst `print` gibt den reinen Text aus.
@@ -116,7 +119,7 @@ Dieselben Stellen wie von Hand. Eine Formatangabe rundet nur die Anzeige; der We
 
 <span class="anker" id="stufe-10-3"></span>
 
-Bisher stehen alle Werte im Quelltext. Ein Einheitenrechner soll aber die Zahlen erfragen, mit denen er rechnet.
+Bisher stehen alle Werte im Quelltext. Ein Rechner für den Alltag soll aber die Zahlen erfragen, mit denen er rechnet.
 
 :::definition Definition 10.3 (`input`)
 <span class="anker" id="satz-10-3"></span>
@@ -128,17 +131,17 @@ Die eingebaute Funktion `input` schreibt den Text in ihren Klammern als Frage in
 Im interaktiven Modus erscheint die Frage, und dahinter tippt man die Antwort, hier `5`:
 
 ```console
->>> spannung = input("Spannung in V: ")
-Spannung in V: 5
->>> spannung
+>>> gaeste = input("Anzahl Gäste: ")
+Anzahl Gäste: 5
+>>> gaeste
 '5'
->>> type(spannung)
+>>> type(gaeste)
 <class 'str'>
->>> spannung * 2
+>>> gaeste * 2
 '55'
 ```
 
-`input` liefert *immer* eine Zeichenkette, auch wenn man eine Zahl eintippt. `spannung * 2` wiederholt deshalb den Text, statt zu rechnen. Mit einer Eingabe zu rechnen, verlangt einen weiteren Schritt.
+`input` liefert *immer* eine Zeichenkette, auch wenn man eine Zahl eintippt. `gaeste * 2` wiederholt deshalb den Text, statt zu rechnen. Mit einer Eingabe zu rechnen, verlangt einen weiteren Schritt.
 ::::
 
 ⁠**Kurz gesagt:** `input` fragt nach einer Zeile und liefert sie als `str`.
@@ -215,14 +218,14 @@ ValueError: could not convert string to float: '2,5'
 ⁠**Kurz gesagt:** `int`, `float` und `str` wandeln ausdrücklich um; `int` schneidet Nachkommastellen ab.
 
 :::hintergrund Warum Python Text und Zahl nicht von selbst umwandelt
-Was sollte `"2" + 3` ergeben, den Text `'23'` oder die Zahl 5? Manche Sprachen entscheiden sich still für eine der beiden Möglichkeiten, JavaScript etwa für `'23'`. Dann rechnet ein Programm mit eingelesenen Messwerten falsch, ohne dass es jemand merkt. Python folgt dem Grundsatz, bei Mehrdeutigkeit nicht zu raten: Es meldet einen `TypeError` und zwingt dazu, mit `int`, `float` oder `str` zu sagen, was gemeint ist. Zwischen Zahlentypen wandelt Python dagegen sehr wohl von selbst um (Unterabschnitt [2.2](ganze-zahlen-und-rechenoperatoren.html#stufe-2-2)), denn dort ist die Bedeutung eindeutig: $2+3{,}0$ ist $5{,}0$.
+Was sollte `"2" + 3` ergeben, den Text `'23'` oder die Zahl 5? Manche Sprachen entscheiden sich still für eine der beiden Möglichkeiten, JavaScript etwa für `'23'`. Dann rechnet ein Programm mit eingelesenen Zahlen falsch, ohne dass es jemand merkt. Python folgt dem Grundsatz, bei Mehrdeutigkeit nicht zu raten: Es meldet einen `TypeError` und zwingt dazu, mit `int`, `float` oder `str` zu sagen, was gemeint ist. Zwischen Zahlentypen wandelt Python dagegen sehr wohl von selbst um (Unterabschnitt [2.2](ganze-zahlen-und-rechenoperatoren.html#stufe-2-2)), denn dort ist die Bedeutung eindeutig: $2+3{,}0$ ist $5{,}0$.
 :::
 
 ### Runden: erst von Hand, dann fertig
 
 <span class="anker" id="stufe-10-5"></span>
 
-`2200 * 1.5e-3` ergibt `3.3000000000000003`, die Spannung an $2{,}2\,\mathrm{k\Omega}$ bei $1{,}5\,\mathrm{mA}$ mit einem Rundungsrest. Ein solches Ergebnis will man auf eine ganze Zahl oder auf wenige Stellen runden, und zwar nicht nur in der Anzeige, sondern als Wert, mit dem man weiterrechnet.
+`3 * 1.1` ergibt `3.3000000000000003`, der Preis von drei Kapiteln zu je $1{,}10$ Euro mit einem Rundungsrest. Ein solches Ergebnis will man auf eine ganze Zahl oder auf wenige Stellen runden, und zwar nicht nur in der Anzeige, sondern als Wert, mit dem man weiterrechnet.
 
 **Von Hand.** `int` schneidet ab. Addiert man vorher $0{,}5$, wird aus dem Abschneiden ein Runden: $2{,}7+0{,}5=3{,}2$ wird zu 3, $2{,}2+0{,}5=2{,}7$ zu 2. Das ist die Schulregel „ab 5 aufrunden“:
 
@@ -286,43 +289,43 @@ Die beiden Wege unterscheiden sich an zwei Stellen: bei genauen Hälften wie $2{
 Die Schulregel rundet jede genaue Hälfte auf. Bei vielen gerundeten Werten summiert sich das zu einem Fehler, der immer in dieselbe Richtung zeigt. Ein Beispiel: $0{,}5+1{,}5+2{,}5+3{,}5=8$. Nach der Schulregel gerundet ergibt die Summe $1+2+3+4=10$. Zur geraden Zahl gerundet ergibt sie $0+2+2+4=8$: Die Hälfte der Fälle geht nach oben, die andere nach unten, und im Mittel heben sich die Fehler auf. Deshalb rundet IEEE 754 in der Grundeinstellung jede Rechnung mit `float` zur geraden Mantisse, und Python übernimmt dieselbe Regel für `round`. Es verhindert außerdem, dass ein Wert, den man immer wieder abzieht und hinzuzählt, langsam in eine Richtung wandert.
 :::
 
-### Anwendung: ein Einheitenrechner
+### Anwendung: ein Rechner für das Lauftempo
 
 <span class="anker" id="stufe-10-6"></span>
 
-Mit `input`, `float` und einem f-String lässt sich ein kleines Werkzeug für den Messplatz schreiben: Es fragt nach Spannung und Widerstand und gibt Strom und Leistung in passenden Einheiten aus. Rechnet man mit Kiloohm, kommt der Strom direkt in Milliampere heraus, denn $1\,\mathrm V/1\,\mathrm{k\Omega}=1\,\mathrm{mA}$, und die Leistung in Milliwatt.
+Mit `input`, `float` und einem f-String lässt sich ein kleines Werkzeug für Läuferinnen und Läufer schreiben: Es fragt nach Strecke und Zeit eines Laufs und gibt das Tempo auf zwei Arten aus, in Kilometern pro Stunde und in Minuten pro Kilometer, der beim Laufen üblichen Angabe. Teilt man die Minuten durch die Kilometer, kommt die zweite Angabe direkt heraus; für die erste rechnet man die Minuten vorher in Stunden um.
 
-```python einheiten.py
-# Einheitenrechner: Strom und Leistung an einem Widerstand
-spannung = float(input("Spannung in V: "))
-widerstand_k = float(input("Widerstand in kOhm: "))
+```python tempo.py
+# Temporechner: Tempo eines Laufs auf zwei Arten
+strecke = float(input("Strecke in km: "))
+zeit = float(input("Zeit in min: "))
 
-strom_ma = spannung / widerstand_k      # V / kOhm ergibt mA
-leistung_mw = spannung * strom_ma       # V * mA ergibt mW
+km_pro_h = strecke / (zeit / 60)     # Minuten in Stunden umrechnen
+min_pro_km = zeit / strecke          # min / km ergibt min pro km
 
-print(f"Strom: {strom_ma:.2f} mA")
-print(f"Leistung: {leistung_mw:.2f} mW")
+print(f"Tempo: {km_pro_h:.2f} km/h")
+print(f"Zeit pro km: {min_pro_km:.2f} min")
 ```
 
-Beim Start fragt das Skript nacheinander die beiden Werte ab; eingetippt sind hier 5 und 2.2:
+Beim Start fragt das Skript nacheinander die beiden Werte ab; eingetippt sind hier 5.2 und 27:
 
 ```console Windows (PowerShell)
-PS> py einheiten.py
-Spannung in V: 5
-Widerstand in kOhm: 2.2
-Strom: 2.27 mA
-Leistung: 11.36 mW
+PS> py tempo.py
+Strecke in km: 5.2
+Zeit in min: 27
+Tempo: 11.56 km/h
+Zeit pro km: 5.19 min
 ```
 
 ```console Linux
-$ python3 einheiten.py
-Spannung in V: 5
-Widerstand in kOhm: 2.2
-Strom: 2.27 mA
-Leistung: 11.36 mW
+$ python3 tempo.py
+Strecke in km: 5.2
+Zeit in min: 27
+Tempo: 11.56 km/h
+Zeit pro km: 5.19 min
 ```
 
-Tippt man `2,2` mit Komma, bricht das Skript mit dem `ValueError` aus Unterabschnitt [10.4](#stufe-10-4) ab. Wie man solche Eingaben abfängt und erneut fragt, ist eine eigene Fähigkeit, die dieses Kapitel nicht braucht.
+Tippt man `5,2` mit Komma, bricht das Skript mit dem `ValueError` aus Unterabschnitt [10.4](#stufe-10-4) ab. Wie man solche Eingaben abfängt und erneut fragt, ist eine eigene Fähigkeit, die dieses Kapitel nicht braucht.
 
 ⁠**Kurz gesagt:** `float(input(...))` liest eine Zahl, ein f-String gibt das Ergebnis mit passend vielen Stellen aus.
 
@@ -333,15 +336,15 @@ Tippt man `2,2` mit Komma, bricht das Skript mit dem `ValueError` aus Unterabsch
 :::aufgabe Aufgabe 37 ★ Text und Zahl
 <span class="anker" id="aufg-37"></span>
 
-Sage vorher und prüfe: (a) `"ab" * 3`, (b) `"Ohm" + str(470)`, (c) `len("kOhm") * 2`, (d) `int("7") + int("3")`, (e) `"7" + "3"`, (f) `str(1 / 4)`.
+Sage vorher und prüfe: (a) `"ab" * 3`, (b) `"Bus" + str(42)`, (c) `len("Bahn") * 2`, (d) `int("7") + int("3")`, (e) `"7" + "3"`, (f) `str(1 / 4)`.
 
 :::loesung
 ```console
 >>> "ab" * 3
 'ababab'
->>> "Ohm" + str(470)
-'Ohm470'
->>> len("kOhm") * 2
+>>> "Bus" + str(42)
+'Bus42'
+>>> len("Bahn") * 2
 8
 >>> int("7") + int("3")
 10
@@ -364,13 +367,13 @@ Schreibe für jede Zeile einen f-String, der mit den gegebenen Variablen genau d
 
 <li>
 
-`r = 4700` $\to$ `R = 4.70 kOhm`
+`strecke = 4700` (in Metern) $\to$ `Strecke = 4.70 km`
 
 </li>
 
 <li>
 
-`c = 1e-7` $\to$ `C = 1.00e-07 F`
+`menschen = 8.1e9` $\to$ `Menschen auf der Erde: 8.10e+09`
 
 </li>
 
@@ -390,12 +393,12 @@ Schreibe für jede Zeile einen f-String, der mit den gegebenen Variablen genau d
 
 :::loesung
 ```console
->>> r = 4700
->>> f"R = {r / 1000:.2f} kOhm"
-'R = 4.70 kOhm'
->>> c = 1e-7
->>> f"C = {c:.2e} F"
-'C = 1.00e-07 F'
+>>> strecke = 4700
+>>> f"Strecke = {strecke / 1000:.2f} km"
+'Strecke = 4.70 km'
+>>> menschen = 8.1e9
+>>> f"Menschen auf der Erde: {menschen:.2e}"
+'Menschen auf der Erde: 8.10e+09'
 >>> anteil = 0.125
 >>> f"Anteil: {anteil:.1%}"
 'Anteil: 12.5%'
@@ -406,7 +409,7 @@ Schreibe für jede Zeile einen f-String, der mit den gegebenen Variablen genau d
 '01111111011'
 ```
 
-(a) In den geschweiften Klammern darf ein ganzer Ausdruck stehen, hier die Umrechnung in Kiloohm. (c) Die Angabe `%` multipliziert mit 100 und hängt das Prozentzeichen an. (d) `#x` schreibt das Präfix `0x` dazu; `011b` füllt auf 11 Stellen mit Nullen auf, wie im Exponentenfeld von $0{,}1$ in Abb. [7](gleitkommazahlen-der-typ-float.html#abb-7).
+(a) In den geschweiften Klammern darf ein ganzer Ausdruck stehen, hier die Umrechnung von Metern in Kilometer. (b) `.2e` schreibt die Zahl wissenschaftlich mit zwei Nachkommastellen. (c) Die Angabe `%` multipliziert mit 100 und hängt das Prozentzeichen an. (d) `#x` schreibt das Präfix `0x` dazu; `011b` füllt auf 11 Stellen mit Nullen auf, wie im Exponentenfeld von $0{,}1$ in Abb. [7](gleitkommazahlen-der-typ-float.html#abb-7).
 :::
 :::
 
@@ -445,29 +448,29 @@ Nur bei $4{,}49$ stimmen alle vier überein: Die Zahl ist positiv, keine genaue 
 :::aufgabe Aufgabe 40 ★★ Ein Pegelrechner
 <span class="anker" id="aufg-40"></span>
 
-Schreibe ein Skript `pegel.py`, das nach der Eingangsspannung und der Ausgangsspannung in Volt fragt und die Spannungsverstärkung als Faktor mit zwei Nachkommastellen und in Dezibel mit einer Nachkommastelle ausgibt, $20\log_{10}(U_\mathrm{aus}/U_\mathrm{ein})$. Teste es mit $0{,}02\,\mathrm V$ und $1{,}2\,\mathrm V$.
+Schreibe ein Skript `pegel.py`, das nach zwei Schalldrücken in Pascal fragt, einem leisen und einem lauten, und ausgibt, um welchen Faktor der laute größer ist (mit zwei Nachkommastellen) und um wie viel Dezibel (mit einer Nachkommastelle), $20\log_{10}(p_\mathrm{laut}/p_\mathrm{leise})$ wie in Aufgabe [30](module-math-und-sys.html#aufg-30). Teste es mit $0{,}02\,\mathrm{Pa}$ und $1{,}2\,\mathrm{Pa}$.
 
 :::loesung
 ```python pegel.py
-# Pegelrechner: Spannungsverstärkung als Faktor und in Dezibel
+# Pegelrechner: zwei Schalldrücke als Faktor und in Dezibel
 import math
 
-u_ein = float(input("Eingangsspannung in V: "))
-u_aus = float(input("Ausgangsspannung in V: "))
+p_leise = float(input("Leiser Schalldruck in Pa: "))
+p_laut = float(input("Lauter Schalldruck in Pa: "))
 
-faktor = u_aus / u_ein
-pegel_db = 20 * math.log10(faktor)    # Spannungspegel in dB
+faktor = p_laut / p_leise
+pegel_db = 20 * math.log10(faktor)    # Unterschied in dB
 
 print(f"Faktor: {faktor:.2f}")
-print(f"Pegel: {pegel_db:.1f} dB")
+print(f"Unterschied: {pegel_db:.1f} dB")
 ```
 
 ```console Windows (PowerShell)
 PS> py pegel.py
-Eingangsspannung in V: 0.02
-Ausgangsspannung in V: 1.2
+Leiser Schalldruck in Pa: 0.02
+Lauter Schalldruck in Pa: 1.2
 Faktor: 60.00
-Pegel: 35.6 dB
+Unterschied: 35.6 dB
 ```
 
 Unter Linux mit `python3 pegel.py` gleich. Das Ergebnis passt zu Aufgabe [30](module-math-und-sys.html#aufg-30): Faktor 60, also $35{,}6\,\mathrm{dB}$.
@@ -477,23 +480,23 @@ Unter Linux mit `python3 pegel.py` gleich. Das Ergebnis passt zu Aufgabe [30](m
 :::aufgabe Aufgabe 41 ★ Ein Fehler beim Einlesen
 <span class="anker" id="aufg-41"></span>
 
-Ein Skript enthält die Zeilen `u = input("U in V: ")` und `print("Doppelte Spannung:", u * 2)`. Für die Eingabe 5 gibt es `55` aus. Erkläre das Verhalten und behebe den Fehler. Was gibt dein verbessertes Skript für die Eingabe `2.5` aus?
+Ein Skript enthält die Zeilen `strecke = input("Strecke in km: ")` und `print("Doppelte Strecke:", strecke * 2)`. Für die Eingabe 5 gibt es `55` aus. Erkläre das Verhalten und behebe den Fehler. Was gibt dein verbessertes Skript für die Eingabe `2.5` aus?
 
 :::loesung
-`input` liefert immer einen `str` (Unterabschnitt [10.3](#stufe-10-3)). `u * 2` wiederholt deshalb den Text `'5'`, statt zu rechnen. Abhilfe: die Eingabe mit `float` umwandeln.
+`input` liefert immer einen `str` (Unterabschnitt [10.3](#stufe-10-3)). `strecke * 2` wiederholt deshalb den Text `'5'`, statt zu rechnen. Abhilfe: die Eingabe mit `float` umwandeln.
 
 ```python einlesen.py
-# Eine Spannung einlesen und verdoppeln, mit Typumwandlung
-u = float(input("U in V: "))
-print("Doppelte Spannung:", u * 2)
+# Eine Strecke einlesen und verdoppeln, mit Typumwandlung
+strecke = float(input("Strecke in km: "))
+print("Doppelte Strecke:", strecke * 2)
 ```
 
 ```console Linux
 $ python3 einlesen.py
-U in V: 2.5
-Doppelte Spannung: 5.0
+Strecke in km: 2.5
+Doppelte Strecke: 5.0
 ```
 
-Mit `int` statt `float` wäre die Eingabe `2.5` mit einem `ValueError` gescheitert, deshalb ist `float` die richtige Wahl für Messwerte.
+Mit `int` statt `float` wäre die Eingabe `2.5` mit einem `ValueError` gescheitert, deshalb ist `float` die richtige Wahl für Strecken und andere Zahlen mit Nachkommastellen.
 :::
 :::

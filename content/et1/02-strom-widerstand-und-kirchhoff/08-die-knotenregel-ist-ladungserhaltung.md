@@ -1,6 +1,8 @@
 ---
 title: Stufe 7: Die Knotenregel ist Ladungserhaltung
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Strom, Widerstand und Kirchhoff
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Strom, Widerstand und Kirchhoff
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff
+knoten: Kapitel 2: Strom, Widerstand und Kirchhoff
 order: 1120800
 summary: Die erste Gleichungsart: Was verlangt die Erhaltung der Ladung an einem Knoten?
 tags: 
@@ -33,7 +35,7 @@ Links: Knoten mit zwei zufließenden und drei abfließenden Strömen, Summe je 7
 :::
 
 :::herleitung Knotenregel aus der Ladungserhaltung
-Für die Ladung $Q_\mathrm K$ auf dem Knoten gilt $\mathrm{d} Q_\mathrm K/\mathrm{d} t=\sum I_\nu$, denn Ladung entsteht und verschwindet nicht. Wie klein $Q_\mathrm K$ bleibt, zeigt eine Abschätzung mit [Teil 1](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html): Eine Metallkugel mit 1 cm Radius hat das Potenzial $\varphi=k_\mathrm C\,Q/r$ mit der Coulomb-Konstante $k_\mathrm C=8{,}99\cdot10^{9}\,\mathrm{N\,m^2/C^2}$. Für 9 V reichen $Q=10$ pC. Ein Überschuss von 3 mA liefert das in 3,3 ns. Deshalb ist $\mathrm{d} Q_\mathrm K/\mathrm{d} t$ gegen die Ströme vernachlässigbar, und es bleibt $\sum I_\nu=0$.
+Für die Ladung $Q_\mathrm K$ auf dem Knoten gilt $\mathrm{d} Q_\mathrm K/\mathrm{d} t=\sum I_\nu$, denn Ladung entsteht und verschwindet nicht. Wie klein $Q_\mathrm K$ bleibt, zeigt eine Abschätzung mit [Kapitel 1](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html): Eine Metallkugel mit 1 cm Radius hat das Potenzial $\varphi=k_\mathrm C\,Q/r$ mit der Coulomb-Konstante $k_\mathrm C=8{,}99\cdot10^{9}\,\mathrm{N\,m^2/C^2}$. Für 9 V reichen $Q=10$ pC. Ein Überschuss von 3 mA liefert das in 3,3 ns. Deshalb ist $\mathrm{d} Q_\mathrm K/\mathrm{d} t$ gegen die Ströme vernachlässigbar, und es bleibt $\sum I_\nu=0$.
 :::
 
 **Warum eine Gleichung überflüssig ist.** Jeder Zweig verbindet zwei Knoten. Sein Strom tritt deshalb in genau zwei Knotengleichungen auf, einmal mit $+$ (zufließend) und einmal mit $-$ (abfließend). Addiert man alle $k$ Gleichungen, heben sich alle Ströme auf. Eine Gleichung folgt also aus den übrigen, und jede Auswahl von $k-1$ Gleichungen ist unabhängig.
@@ -47,7 +49,7 @@ Die Summe der ersten drei ist $I_0-I_\mathrm b-I_\mathrm d=0$, die vierte Gleich
 ::::
 
 :::frage Gilt die Regel auch, wenn an einem Knoten ein Kondensator hängt?
-Ja. Der Strom zur Platte ist ein Zweigstrom wie jeder andere, die Ladung sammelt sich nicht auf dem Knoten, sondern auf der Platte. [Teil 3](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html) behandelt das.
+Ja. Der Strom zur Platte ist ein Zweigstrom wie jeder andere, die Ladung sammelt sich nicht auf dem Knoten, sondern auf der Platte. [Kapitel 3](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html) behandelt das.
 :::
 
 :::aufgabe Aufgabe 7 ★★ Knotenregel anwenden

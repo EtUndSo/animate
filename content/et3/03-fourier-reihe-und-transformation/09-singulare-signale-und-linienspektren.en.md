@@ -1,6 +1,8 @@
 ---
 title: Stage 8: Singular signals and line spectra
-pfad: Electrical Engineering / 3rd Semester / Signals and Systems / Fourier Series and Transform
+pfad: Electrical Engineering / 3rd Semester / ET3 – Fundamentals of Electrical Engineering 3: Signals and Systems / Fourier Series and Transform
+adresse: elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation
+knoten: Chapter 3: Fourier Series and Transform
 order: 3230900
 summary: Constants, oscillations, the step and periodic signals are not absolutely integrable.
 tags: line spectrum, Dirac comb

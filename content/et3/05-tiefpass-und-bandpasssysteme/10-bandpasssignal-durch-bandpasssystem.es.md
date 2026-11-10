@@ -1,6 +1,8 @@
 ---
 title: Etapa 9: Señal paso banda en un sistema paso banda
-pfad: Ingeniería eléctrica / 3.er semestre / Señales y sistemas / Sistemas paso bajo y paso banda
+pfad: Ingeniería eléctrica / 3.er semestre / ET3 – Fundamentos de ingeniería eléctrica 3: señales y sistemas / Sistemas paso bajo y paso banda
+adresse: elektrotechnik/3-semester/signale-und-systeme/tiefpass-und-bandpasssysteme
+knoten: Capítulo 5: Sistemas paso bajo y paso banda
 order: 3251000
 summary: La utilidad de las envolventes: el efecto de un paso banda sobre una señal paso banda se calcula por completo en el dominio paso bajo.
 tags: 

@@ -9,7 +9,12 @@ Optionen:
                   der Tabelle `strings` der Szene (@schluessel im Label), das Zahlformat folgt der Sprache (Komma in de,
                   es, fr, tr). Fehlt fr oder tr in der Tabelle, steht dort der englische Text.
     --check       nur bauen und prüfen, nichts schreiben
+    --animiert    zusätzlich <out>/<lang>/<szene>.anim.svg: die Zeitachse der Szene als bewegtes SVG (Endbild + Datenblock,
+                  tools/szenen_animation.py); die Artikelseite spielt sie mit Start/Stopp ab (notizen/animationen.md).
+                  Ohne Zeitachse entsteht keine (eine alte wird gelöscht).
 Ausgabe: <out>/<lang>/<szene>.svg, je Szene eine Zeile mit Größe und Schriftgröße in der Artikelspalte.
+Eine Szene mit Zeitachse (Animationen) wird als ENDBILD exportiert: Das statische Bild und das PDF zeigen, was am Ende
+der Animation zu sehen ist.
 
 Das Bild entsteht genau wie der SVG-Export im Editor (engine/export.py: Zuschnitt, Maßstab, Hintergrund):
 - Die Szene wird wie beim Laden im Editor ergänzt: fehlende Props aus dem Katalog von web/editor.js (über node),
@@ -45,6 +50,9 @@ from engine.scene_model import ModelScene  # noqa: E402
 
 LANGS = ("de", "en", "es", "zh", "fr", "tr")
 TEX_CACHE = ROOT / "tools" / "tex_glyphen_cache.json"
+# Cache versions before the colour fix of 09.11.2026 (MathJax colour package loaded, glyph colour `col`, no merror
+# bar): their entries stay valid for every formula without \color / \textcolor, those are set again.
+_TEX_VORGAENGER = {"1a9f8b0277946c9b"}
 
 _NODE_JS = r"""
 const fs = require("fs");
@@ -125,6 +133,22 @@ def ensure_defaults(o, defaults):
         p.pop("y_range", None)
     for c in o.get("children") or []:
         ensure_defaults(c, defaults)
+
+
+MORPH_TYPES = ("Transform", "ReplacementTransform", "TransformMatchingTex")   # editor.js MORPH_TYPES
+
+
+def anim_steps(shown, play_mode):
+    """editor.js animSteps: an explicit integer `step` wins, otherwise one after the previous (parallel: all 0)."""
+    out, prev = [], -1
+    for a in shown:
+        if play_mode == "parallel":
+            out.append(0)
+            continue
+        s = a.get("step")
+        prev = s if isinstance(s, int) and not isinstance(s, bool) else prev + 1
+        out.append(prev)
+    return out
 
 
 def _hex_to_rgb(h):
@@ -210,7 +234,11 @@ class TexGlyphen:
     def _load(self):
         try:
             d = json.loads(self.path.read_text(encoding="utf-8"))
-            return dict(d.get("glyphs") or {}) if d.get("version") == self.version else {}
+            if d.get("version") == self.version:
+                return dict(d.get("glyphs") or {})
+            if d.get("version") in _TEX_VORGAENGER:           # older block: only formulas with colour change
+                return {k: v for k, v in (d.get("glyphs") or {}).items() if "color" not in k}
+            return {}
         except (OSError, ValueError):
             return {}
 
@@ -299,12 +327,22 @@ def python_model(data, defaults, kinds, lang, notes, tex=None):
     bgm.update(m.get("background") or {})
     play_mode = m.get("playMode") or "sequential"
     anims = []
-    for i, a in enumerate(x for x in (m.get("animations") or []) if x.get("visible") is not False):
+    shown = [x for x in (m.get("animations") or []) if x.get("visible") is not False]
+    for a, step in zip(shown, anim_steps(shown, play_mode)):
         t = a.get("type")
         args = ({"vector": a.get("vector")} if t == "Shift" else {"point": a.get("point")} if t == "MoveTo"
                 else {"angle": (a.get("angle") or 0) * math.pi / 180} if t == "Rotate"
-                else {"factor": a.get("factor")} if t == "Scale" else {})
-        spec = {"type": t, "target": a.get("target"), "step": 0 if play_mode == "parallel" else i,
+                else {"factor": a.get("factor")} if t == "Scale"
+                else {"to": a.get("to") or ""} if t in MORPH_TYPES else {})
+        if t in ("Rotate", "Scale") and isinstance(a.get("around"), list):
+            args["around"] = a["around"]
+        if t == "Indicate":
+            args.update({k: a[k] for k in ("cell", "row", "col") if a.get(k) is not None})
+        if t == "FadeIn" and a.get("lines"):
+            args["lines"] = True
+        if t == "MoveAlongPath" and a.get("path"):
+            args["path"] = a["path"]
+        spec = {"type": t, "target": a.get("target"), "step": step,
                 "args": {k: v for k, v in args.items() if v is not None}}
         if a.get("run_time") is not None:
             spec["run_time"] = a["run_time"]
@@ -343,25 +381,116 @@ def python_model(data, defaults, kinds, lang, notes, tex=None):
     return {"objects": obj_specs, "animations": anims, "computations": comps,
             "background": None if bgm.get("transparent") else _hex_to_rgb(bgm.get("color") or "#ffffff"),
             "shadows": bool(bgm.get("shadows")), "axes_on_top": bgm.get("axes_on_top") is True,
+            "draw_order": "creation" if m.get("drawOrder") == "creation" else "appearance",
             "angle_unit": m.get("angleUnit") or "rad", "domain": m.get("domain") or "real",
             "camera": m.get("camera") or {"mode": "2d", "theta": 0.6, "phi": 1.0},
             "gl": False, "export": m.get("export"), "lang": lang, "strings": m.get("strings") or {}}
 
 
-def export_scene(name, out_dir, lang, defaults, kinds, write=True, tex=None):
-    """Build one scene and write <out_dir>/<lang>/<name>.svg. Returns (info, notes)."""
+class _Ebenen:
+    """Painter für die Ebenenprüfung: merkt sich in Zeichenreihenfolge die Textkästen und die deckend gefüllten Flächen
+    (Rahmen in Szenenpixeln), jeweils mit der id des obersten Objekts."""
+
+    def __init__(self):
+        self.items, self.oid = [], None
+
+    def background(self, color):
+        pass
+
+    def draw_path(self, pts, fill_color, fill_opacity, stroke_color, stroke_width, stroke_opacity, contours=None, dash=None):
+        if fill_opacity >= 0.9 and len(pts) >= 4:
+            xs, ys = [p[0] for p in pts], [p[1] for p in pts]
+            self.items.append(("p", self.oid, (min(xs), min(ys), max(xs), max(ys))))
+
+    def draw_text(self, text, px, py, font_size, color, opacity, align="center", font=None, raw=False):
+        if opacity > 0.05:
+            b = _export.text_box(text, px, py, font_size, align, font, raw)
+            if b is not None:
+                self.items.append(("t", self.oid, b))
+
+
+def verdeckter_text(sc, axes_on_top=False):
+    """Texte, die im Endbild unter einer später gezeichneten, deckend gefüllten Fläche eines anderen Objekts liegen
+    (die Fläche umschließt mindestens 80 % des Textkastens). Typisch: ein Kasten, der per Animation erscheint, legt sich
+    über schon sichtbaren Text (Reihenfolge des Erscheinens). Ergebnis: [(Text-id, Flächen-id)], nur 2D."""
+    from engine.renderer import paint_object
+    if getattr(sc.camera, "mode", "2d") == "3d":
+        return []
+    ids = {id(o): k for k, o in (getattr(sc, "objects_by_id", None) or {}).items()}
+    objs = list(sc.objectList)
+    if axes_on_top:
+        objs = [o for o in objs if not getattr(o, "_is_axis", False)] + [o for o in objs if getattr(o, "_is_axis", False)]
+    rec = _Ebenen()
+    for o in objs:
+        rec.oid = ids.get(id(o), "?")
+        paint_object(rec, o, sc.camera)
+    out = []
+    for j, (kind, oid, (x0, y0, x1, y1)) in enumerate(rec.items):
+        if kind != "p":
+            continue
+        for kind2, tid, (a0, b0, a1, b1) in rec.items[:j]:
+            if kind2 != "t" or tid == oid:
+                continue
+            w, h = max(a1 - a0, 1e-6), max(b1 - b0, 1e-6)
+            ov = max(0.0, min(x1, a1) - max(x0, a0)) * max(0.0, min(y1, b1) - max(y0, b0))
+            if ov >= 0.8 * w * h and (tid, oid) not in out:
+                out.append((tid, oid))
+    return out
+
+
+_UNSICHTBAR = re.compile(r'<path d="[^"]*" fill="none"(?: fill-rule="evenodd")?/>\n?'
+                         r'|<path d="[^"]*" fill="#[0-9a-f]{6}" fill-opacity="0"(?: fill-rule="evenodd")?/>\n?'
+                         r'|<(path|text) [^>]*?(?:fill|stroke)-opacity="0"[^>]*?(?:/>|>.*?</text>)\n?')
+
+
+def _sichtbar(svg):
+    """Ein SVG ohne ganz durchsichtige Elemente (zum Vergleich des Endbilds der Animation mit dem statischen Bild)."""
+    return _UNSICHTBAR.sub("", svg)
+
+
+def export_scene(name, out_dir, lang, defaults, kinds, write=True, tex=None, animiert=False):
+    """Build one scene and write <out_dir>/<lang>/<name>.svg (with animiert also <name>.anim.svg, see
+    tools/szenen_animation.py). Returns (info, notes)."""
     data = json.loads((SZENEN / (name + ".json")).read_text(encoding="utf-8"))
     notes = []
     model = python_model(data, defaults, kinds, lang, notes, tex=tex)
+    anim_model = json.loads(json.dumps(model)) if animiert else None
     sc = ModelScene(model)
     sc.construct()
-    sc.show_static()
+    if sc.timeline:                    # a scene with a timeline: the article figure (and the PDF) shows its END state
+        sc.seek(sc.duration)
+    else:
+        sc.show_static()
     svg, info = _export.render(sc.objectList, sc.camera, background=model["background"],
                                axes_on_top=model["axes_on_top"], raw_settings=model["export"])
+    verdeckt = verdeckter_text(sc, model["axes_on_top"])
+    if verdeckt:
+        notes.append("Text liegt unter einer deckenden Fläche: " + ", ".join(f"{t} unter {p}" for t, p in verdeckt[:6])
+                     + (" …" if len(verdeckt) > 6 else "")
+                     + " (gewollt? sonst Fläche zuerst einblenden oder Szene(…, reihenfolge=\"anlegen\"), notizen/animationen.md §7.4)")
     if write:
         dest = out_dir / lang / (name + ".svg")
         dest.parent.mkdir(parents=True, exist_ok=True)
         dest.write_text(svg, encoding="utf-8", newline="\n")
+    if animiert:
+        import szenen_animation as _anim       # only needed for the animated export
+        asvg, ainfo = _anim.build(anim_model, info["rect"], (info["width"], info["height"]), model["background"],
+                                  model["axes_on_top"])
+        dest = out_dir / lang / (name + ".anim.svg")
+        if asvg is None:
+            info["anim"] = None
+            notes.append(f"keine animierte Datei: {ainfo}")
+            if write and dest.is_file():
+                dest.unlink()                    # the scene lost its timeline: the article falls back to the static image
+        else:
+            info["anim"] = dict(ainfo, bytes=len(asvg.encode("utf-8")))
+            a, b = _sichtbar(ainfo["endbild"]), _sichtbar(svg)
+            if a != b:
+                notes.append("Endbild der Animation weicht vom statischen Bild ab" if sorted(a.splitlines()) != sorted(b.splitlines())
+                             else "Endbild der Animation wie das statische Bild, nur in anderer Zeichenreihenfolge")
+            notes.extend(ainfo["warn"])
+            if write:
+                dest.write_text(asvg, encoding="utf-8", newline="\n")
     return info, notes
 
 
@@ -379,6 +508,8 @@ def main(argv=None):
     ap.add_argument("--out", default=str(ABB_DIR), help="Zielordner (Standard: web/abbildungen)")
     ap.add_argument("--lang", default="", choices=LANGS + ("",), help="nur diese Sprache (Standard: alle sechs)")
     ap.add_argument("--check", action="store_true", help="nur prüfen, nichts schreiben")
+    ap.add_argument("--animiert", action="store_true",
+                    help="zusätzlich <szene>.anim.svg: die Zeitachse als bewegtes SVG (tools/szenen_animation.py)")
     a = ap.parse_args(argv)
     names = a.szenen or all_names()
     out_dir = Path(a.out)
@@ -401,11 +532,16 @@ def main(argv=None):
                 print(f"✗ {name}: web/szenen/{name}.json fehlt"); fails += 1; continue
             for lang in langs:
                 try:
-                    info, notes = export_scene(name, out_dir, lang, defaults, kinds, write=not a.check, tex=tex)
+                    info, notes = export_scene(name, out_dir, lang, defaults, kinds, write=not a.check, tex=tex,
+                                               animiert=a.animiert)
                 except Exception as e:  # noqa: BLE001  (eine kaputte Szene soll die anderen nicht aufhalten)
                     print(f"✗ {name} [{lang}]: {type(e).__name__}: {e}"); fails += 1; continue
                 size = f"{info['width']}×{info['height']} px"
                 txt = f"Text {info['ref_text']} px → {_de(info['text_px'])} px"
+                an = info.get("anim")
+                if an:
+                    txt += (f"; animiert {_de(an['dauer'])} s, {an['bilder']} Bilder, {an['animiert']} von {an['elemente']}"
+                            f" Elementen bewegt, {_de(an['bytes'] / 1024)} KB (Daten {_de(an['daten'] / 1024)} KB)")
                 if info["fits"]:
                     print(f"✓ {name} [{lang}]: {size}, {txt} ({info['mode']})")
                 else:

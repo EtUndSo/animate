@@ -1,6 +1,8 @@
 ---
 title: 第 3 阶段：正弦激励下的波
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / 正交展开与传输线
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / 正交展开与传输线
+adresse: elektrotechnik/3-semester/signale-und-systeme/orthogonalentwicklung-und-leitungen
+knoten: 第 8 章：正交展开与传输线
 order: 3280400
 summary: 借助相量，偏微分方程变成关于位置的常微分方程。它的解由两个沿相反方向传播的波组成。
 tags: 波动方程, 传播常数, 特性阻抗, 衰减常数, 反射系数

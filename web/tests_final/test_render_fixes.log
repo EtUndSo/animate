@@ -1,0 +1,34 @@
+  OK   F1 setup: 1.5 sin(3x) on y in [-1.2, 1.2] is split into several pieces
+  OK   F1 every piece keeps the colour
+  OK   F1 every piece keeps the line width
+  OK   F1 every piece keeps the stroke opacity
+  OK   F1 every piece keeps the dash pattern
+  OK   F1 SVG: every piece is drawn red, 9 px
+  OK   F1 log axis: x^3-x splits into pieces
+  OK   F1 log axis: every piece red, 7 px
+  OK   F1 operation result (tan + 0) is split into pieces
+  OK   F1 operation result: every piece takes the operation's colour and width
+  OK   RT f_\mathrm{A} -> f + subscript A
+  OK   RT f_\mathrm A (no braces, as in the LaTeX sources) -> f + subscript A
+  OK   RT f_\mathrm{AB} keeps the whole group
+  OK   RT x^\text{max}
+  OK   RT |H_\mathrm{a}(f)| (script ends after the group)
+  OK   RT \mathrm A without braces at base level -> A
+  OK   RT \mathrm{d}t stays plain
+  OK   RT unchanged: U_{GS}
+  OK   RT unchanged: x_\alpha
+  OK   RT unchanged: 10^{-16} A
+  OK   RT SVG of f_\mathrm{A} contains no macro name
+  OK   LG uniform 1:1: row gap is 0.5 scene units
+  OK   LG uniform 1:1: swatch is 0.6 scene units long
+  OK   LG uniform 1:1: first swatch starts at the data anchor (1, 2)
+  OK   LG uniform 1:1: labels are left-aligned 0.2 right of the swatch
+  OK   LG y_length 4 over 2.4 (the analysis probe): row gap is 0.5 scene units
+  OK   LG y_length 4 over 2.4 (the analysis probe): swatch is 0.6 scene units long
+  OK   LG y_length 4 over 2.4 (the analysis probe): first swatch starts at the data anchor (1, 2)
+  OK   LG y_length 4 over 2.4 (the analysis probe): labels are left-aligned 0.2 right of the swatch
+  OK   LG x 0..100 over 6: row gap is 0.5 scene units
+  OK   LG x 0..100 over 6: swatch is 0.6 scene units long
+  OK   LG x 0..100 over 6: first swatch starts at the data anchor (1, 2)
+  OK   LG x 0..100 over 6: labels are left-aligned 0.2 right of the swatch
+RENDER FIX TESTS PASSED

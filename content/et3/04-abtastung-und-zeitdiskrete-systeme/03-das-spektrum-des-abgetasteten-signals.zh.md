@@ -1,6 +1,8 @@
 ---
 title: 第 2 阶段：采样信号的频谱
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / 采样与离散时间系统
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / 采样与离散时间系统
+adresse: elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme
+knoten: 第 4 章：采样与离散时间系统
 order: 3240300
 summary: 采样对频谱有什么影响？本阶段将表明：频谱周期性地重复。
 tags: 频谱镜像
@@ -29,7 +31,7 @@ $$S_\mathrm a(f)=\frac1T\sum_{k=-\infty}^{\infty}S\Bigl(f-\frac kT\Bigr)\qquad(T
 ⁠**如何理解：**原信号的频谱以不变的形状出现，但乘上了因子 $1/T$，并在采样率的每个整数倍处重复出现。这些副本称为__频谱镜像__。
 
 :::herleitung 采样信号的频谱
-相乘变为卷积（[第 3 部分](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)），而狄拉克梳状函数的频谱仍是梳状函数：
+相乘变为卷积（[第 3 章](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)），而狄拉克梳状函数的频谱仍是梳状函数：
 
 $$s(t)\cdot\sum_n\delta(t-nT)\;\circ\!\!-\!\!\bullet\;S(f)*\frac1T\sum_k\delta\Bigl(f-\frac kT\Bigr)=\frac1T\sum_kS\Bigl(f-\frac kT\Bigr).$$
 

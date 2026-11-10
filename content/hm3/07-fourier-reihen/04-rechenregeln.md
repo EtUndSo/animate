@@ -1,6 +1,8 @@
 ---
 title: Stufe 3: Rechenregeln
-pfad: Elektrotechnik / 3. Semester / Höhere Mathematik 3 / Fourier-Reihen
+pfad: Elektrotechnik / 3. Semester / HöMa3 – Höhere Mathematik 3 / Fourier-Reihen
+adresse: elektrotechnik/3-semester/hohere-mathematik-3/fourier-reihen
+knoten: Kapitel 7: Fourier-Reihen
 order: 3170400
 summary: Viele Koeffizienten lassen sich ohne neues Integral bestimmen.
 tags: Fourier-Reihe

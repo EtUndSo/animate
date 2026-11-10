@@ -1,6 +1,8 @@
 ---
 title: Stufe 7: Die Inversionsschicht als Quantentopf
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Die MOS-Kapazität
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Die MOS-Kapazität
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/die-mos-kapazitat
+knoten: Kapitel 15: Die MOS-Kapazität
 order: 4250900
 summary: Die Elektronen sitzen in einer Schicht von wenigen Nanometern.
 tags: Subbändern, zweidimensionales Elektronengas
@@ -13,7 +15,7 @@ lang: de
 Die Elektronen sitzen in einer Schicht von wenigen Nanometern. Diese Stufe zeigt, dass dann die Quantenmechanik die erlaubten Energien festlegt.
 :::
 
-**Die Idee.** Auf der einen Seite begrenzt der Isolator die Elektronen mit einer Wand von 3,15 eV, auf der anderen drückt das Feld sie zur Grenzfläche zurück. So entsteht ein Topf, im Wesentlichen dreieckig (Abb. [7](#abb-7), grau). Er ist schmaler als die Wellenlänge der Elektronen, die bei der Energie $k_\mathrm BT$ und der Masse $0{,}19\,m_0$ rund 18 nm beträgt. Die Bewegung senkrecht zur Grenzfläche ist also eingesperrt wie in der Box ([Teil 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html)), parallel dazu bleibt sie frei. Aus dem Leitungsband wird eine Folge von __Subbändern__, die Elektronen bilden ein __zweidimensionales Elektronengas__.
+**Die Idee.** Auf der einen Seite begrenzt der Isolator die Elektronen mit einer Wand von 3,15 eV, auf der anderen drückt das Feld sie zur Grenzfläche zurück. So entsteht ein Topf, im Wesentlichen dreieckig (Abb. [7](#abb-7), grau). Er ist schmaler als die Wellenlänge der Elektronen, die bei der Energie $k_\mathrm BT$ und der Masse $0{,}19\,m_0$ rund 18 nm beträgt. Die Bewegung senkrecht zur Grenzfläche ist also eingesperrt wie in der Box ([Kapitel 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html)), parallel dazu bleibt sie frei. Aus dem Leitungsband wird eine Folge von __Subbändern__, die Elektronen bilden ein __zweidimensionales Elektronengas__.
 
 :::satz Satz 7.1 (Subbänder im Kastenmodell)
 <span class="anker" id="satz-7-1"></span>
@@ -24,13 +26,13 @@ Ein Kasten der Breite $L_x$ senkrecht zur Grenzfläche ergibt $k_x=n\pi/L_x$ mit
 $$E=\frac{\hbar^2k_y^2}{2m_y}+\frac{\hbar^2k_z^2}{2m_z}+E_n+V_0,\qquad E_n=\frac{\hbar^2\pi^2n^2}{2m_xL_x^2}. \tag{7.1}$$
 :::
 
-⁠**So liest man das:** $x$ zeigt ins Substrat, $y$ und $z$ liegen in der Grenzfläche. $V_0=E_\mathrm{C,0}$ ist der Boden des Topfs. Der Kasten ist eine Näherung für das Dreieck. Jedes $n$ gibt ein Subband mit eigener Parabel in $k_y$, $k_z$. In Silizium zählt zusätzlich, wie die sechs Täler ([Teil 9](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/bandstrukturen-lesen/bandstrukturen-lesen.html)) liegen. An einer $(100)$-Grenzfläche zeigen zwei Täler mit der langen Achse in $x$-Richtung: $m_x=m_\mathrm h^*=0{,}92\,m_0$, in der Ebene $0{,}19\,m_0$. Die vier anderen haben $m_x=m_\mathrm l^*=0{,}19\,m_0$, in der Ebene $0{,}92\,m_0$ und $0{,}19\,m_0$. Große $m_x$ gibt kleine $E_n$, also entstehen zwei Leitern von Subbändern, $E_n^\mathrm h$ und $E_n^\mathrm l$.
+⁠**So liest man das:** $x$ zeigt ins Substrat, $y$ und $z$ liegen in der Grenzfläche. $V_0=E_\mathrm{C,0}$ ist der Boden des Topfs. Der Kasten ist eine Näherung für das Dreieck. Jedes $n$ gibt ein Subband mit eigener Parabel in $k_y$, $k_z$. In Silizium zählt zusätzlich, wie die sechs Täler ([Kapitel 9](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/bandstrukturen-lesen/bandstrukturen-lesen.html)) liegen. An einer $(100)$-Grenzfläche zeigen zwei Täler mit der langen Achse in $x$-Richtung: $m_x=m_\mathrm h^*=0{,}92\,m_0$, in der Ebene $0{,}19\,m_0$. Die vier anderen haben $m_x=m_\mathrm l^*=0{,}19\,m_0$, in der Ebene $0{,}92\,m_0$ und $0{,}19\,m_0$. Große $m_x$ gibt kleine $E_n$, also entstehen zwei Leitern von Subbändern, $E_n^\mathrm h$ und $E_n^\mathrm l$.
 
 :::abbildung gemb1/k15topf 7
 Links: Kasten mit $L_x=5$ nm und seine Niveaus, grau der klassisch gerechnete Verlauf von $E_\mathrm C$ bei $V_\mathrm G=V_\mathrm{th}+1$ V. Blau die schwere Leiter $E_n^\mathrm h$, orange die leichte $E_1^\mathrm l$. Rechts: Die Flächenzustandsdichte wächst an jedem Niveau um eine Stufe.
 :::
 
-Jedes Subband hat eine konstante Zustandsdichte ([Teil 10](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/zustandsdichte-und-fermi-verteilung/zustandsdichte-und-fermi-verteilung.html)), je Tal $\sqrt{m_ym_z}/(\pi\hbar^2)$ pro Fläche und Energie. Die Flächendichte der Elektronen und ihre Ladung sind
+Jedes Subband hat eine konstante Zustandsdichte ([Kapitel 10](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/zustandsdichte-und-fermi-verteilung/zustandsdichte-und-fermi-verteilung.html)), je Tal $\sqrt{m_ym_z}/(\pi\hbar^2)$ pro Fläche und Energie. Die Flächendichte der Elektronen und ihre Ladung sind
 
 <span class="anker" id="gl-7-2"></span>
 $$n_\mathrm s=\int\!\mathrm{d} E\,D_\mathrm s(E)\,f(E),\qquad Q'_\mathrm{inv}=-e\,n_\mathrm s=\int_0^\infty\!\mathrm{d} x\,\bigl(-e\,n(x)\bigr). \tag{7.2}$$

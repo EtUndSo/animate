@@ -1,6 +1,8 @@
 ---
 title: 第 5 阶段：工作点
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 双极型晶体管
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 双极型晶体管
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor
+knoten: 第 10 章：双极型晶体管
 order: 1200700
 summary: 事先并不知道晶体管处于哪个工作区。本阶段通过假设和检验来确定工作点，并把它画成交点。
 tags: 负载线, 电源电压
@@ -13,7 +15,7 @@ lang: zh
 事先并不知道晶体管处于哪个工作区。本阶段通过假设和检验来确定工作点，并把它画成交点。
 :::
 
-**基本思路。** 晶体管提供特性曲线，电路提供网孔方程。两者必须同时成立。结果就是工作点（OP），如同[第 5 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)中特性曲线与直线的交点。由于每个工作区有不同的等效电路，所以先假设一个工作区，进行线性计算，再加以检验。与条件 [(4.1)](drei-bereiche-drei-ersatzschaltbilder.html#gl-4-1) 到 [(4.3)](drei-bereiche-drei-ersatzschaltbilder.html#gl-4-3) 的矛盾会暴露错误的假设。
+**基本思路。** 晶体管提供特性曲线，电路提供网孔方程。两者必须同时成立。结果就是工作点（OP），如同[第 5 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)中特性曲线与直线的交点。由于每个工作区有不同的等效电路，所以先假设一个工作区，进行线性计算，再加以检验。与条件 [(4.1)](drei-bereiche-drei-ersatzschaltbilder.html#gl-4-1) 到 [(4.3)](drei-bereiche-drei-ersatzschaltbilder.html#gl-4-3) 的矛盾会暴露错误的假设。
 
 :::abbildung et1/k10arbeit 6
 左：参考模型的电路。右：线性化的输出特性曲线和从 $(0;\,4\,\mathrm{mA})$ 到 $(12\,\mathrm{V};\,0)$ 的负载线。它与 $I_\mathrm{B}=10$ µ A 的直线相交于工作点 A。S 是饱和区中的点，Z 是截止区中的点。

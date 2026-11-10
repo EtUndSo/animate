@@ -1,0 +1,1209 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 40,
+  "nextAnimId": 53,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.0,
+      0.1,
+      0
+     ],
+     "width": 2.8,
+     "height": 2.5,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Text",
+    "props": {
+     "text": "@term",
+     "position": [
+      -2.0,
+      1.53,
+      0
+     ],
+     "font_size": 20,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o3",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.0,
+      0.62,
+      0
+     ],
+     "width": 2.5,
+     "height": 1.2,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#333333",
+     "fill_color": "#f6f6f4",
+     "fill_opacity": 1.0,
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o4",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{\\$ cat}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.17,
+     "position": [
+      -2.8769,
+      1.0,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o5",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{Hallo}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.17,
+     "position": [
+      -2.8769,
+      0.74,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o6",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{Hallo}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.17,
+     "position": [
+      -2.8769,
+      0.48,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o7",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{\\$}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.17,
+     "position": [
+      -3.0554,
+      0.22,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o8",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.0,
+      -0.62,
+      0
+     ],
+     "width": 0.86,
+     "height": 0.36,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#efefef",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o9",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.3,
+      -0.55,
+      0
+     ],
+     "width": 0.09,
+     "height": 0.09,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o10",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.18,
+      -0.55,
+      0
+     ],
+     "width": 0.09,
+     "height": 0.09,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o11",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.06,
+      -0.55,
+      0
+     ],
+     "width": 0.09,
+     "height": 0.09,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o12",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.94,
+      -0.55,
+      0
+     ],
+     "width": 0.09,
+     "height": 0.09,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o13",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.82,
+      -0.55,
+      0
+     ],
+     "width": 0.09,
+     "height": 0.09,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o14",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.7,
+      -0.55,
+      0
+     ],
+     "width": 0.09,
+     "height": 0.09,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o15",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.24,
+      -0.69,
+      0
+     ],
+     "width": 0.09,
+     "height": 0.09,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o16",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.12,
+      -0.69,
+      0
+     ],
+     "width": 0.09,
+     "height": 0.09,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o17",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.0,
+      -0.69,
+      0
+     ],
+     "width": 0.09,
+     "height": 0.09,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o18",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.88,
+      -0.69,
+      0
+     ],
+     "width": 0.09,
+     "height": 0.09,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o19",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.76,
+      -0.69,
+      0
+     ],
+     "width": 0.09,
+     "height": 0.09,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o20",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.45,
+      0.0,
+      0
+     ],
+     "width": 1.3,
+     "height": 1.7,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#e3eefb",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o21",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{cat}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.17,
+     "position": [
+      2.45,
+      0.0,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o22",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      1.8,
+      0.6,
+      0
+     ],
+     "end": [
+      -0.75,
+      0.6,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.13,
+     "font_size": 26,
+     "color": "#00823c",
+     "stroke_width": 4.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o23",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -1.57,
+      -0.62,
+      0
+     ],
+     "end": [
+      1.8,
+      -0.62,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.13,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "stroke_width": 4.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o24",
+    "type": "Circle",
+    "props": {
+     "radius": 0.12,
+     "center": [
+      1.55,
+      0.83,
+      0
+     ],
+     "color": "#00823c",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o25",
+    "type": "Text",
+    "props": {
+     "text": "1",
+     "position": [
+      1.55,
+      0.83,
+      0
+     ],
+     "font_size": 16,
+     "align": "center",
+     "color": "#00823c"
+    }
+   },
+   {
+    "id": "o26",
+    "type": "Circle",
+    "props": {
+     "radius": 0.12,
+     "center": [
+      1.55,
+      -0.39,
+      0
+     ],
+     "color": "#2a78d6",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o27",
+    "type": "Text",
+    "props": {
+     "text": "0",
+     "position": [
+      1.55,
+      -0.39,
+      0
+     ],
+     "font_size": 16,
+     "align": "center",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o28",
+    "type": "Text",
+    "props": {
+     "text": "@zeigt",
+     "position": [
+      -2.0,
+      -1.38,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o29",
+    "type": "Text",
+    "props": {
+     "text": "@enter",
+     "position": [
+      0.1,
+      -0.4,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o30",
+    "type": "Text",
+    "props": {
+     "text": "@strgd",
+     "position": [
+      -2.0,
+      -0.95,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#eb6834"
+    }
+   },
+   {
+    "id": "o31",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.1,
+      -0.88,
+      0
+     ],
+     "width": 1.6,
+     "height": 0.28,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#eb6834",
+     "fill_color": "#fdece3",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o32",
+    "type": "Text",
+    "props": {
+     "text": "@ende",
+     "position": [
+      0.1,
+      -0.88,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#eb6834"
+    }
+   },
+   {
+    "id": "o33",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.1,
+      -0.62,
+      0
+     ],
+     "width": 0.72,
+     "height": 0.26,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o34",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{Hallo}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.15,
+     "position": [
+      -1.1,
+      -0.62,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o35",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.4,
+      0.6,
+      0
+     ],
+     "width": 0.72,
+     "height": 0.26,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o36",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{Hallo}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.15,
+     "position": [
+      1.4,
+      0.6,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o37",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.45,
+      0.0,
+      0
+     ],
+     "width": 1.3,
+     "height": 1.7,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#b5b5b5",
+     "fill_color": "#ffffff",
+     "fill_opacity": 0.0,
+     "stroke_width": 2,
+     "dash": "10,7"
+    }
+   },
+   {
+    "id": "o38",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{cat}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.17,
+     "position": [
+      2.45,
+      0.0,
+      0
+     ],
+     "color": "#b5b5b5"
+    }
+   },
+   {
+    "id": "o39",
+    "type": "Text",
+    "props": {
+     "text": "@beendet",
+     "position": [
+      2.45,
+      -0.4,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   }
+  ],
+  "animations": [
+   {
+    "id": "a1",
+    "type": "GrowFromCenter",
+    "target": "o1",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a2",
+    "type": "FadeIn",
+    "target": "o2",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a3",
+    "type": "FadeIn",
+    "target": "o3",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a4",
+    "type": "FadeIn",
+    "target": "o8",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a5",
+    "type": "FadeIn",
+    "target": "o9",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a6",
+    "type": "FadeIn",
+    "target": "o10",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a7",
+    "type": "FadeIn",
+    "target": "o11",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a8",
+    "type": "FadeIn",
+    "target": "o12",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a9",
+    "type": "FadeIn",
+    "target": "o13",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a10",
+    "type": "FadeIn",
+    "target": "o14",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a11",
+    "type": "FadeIn",
+    "target": "o15",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a12",
+    "type": "FadeIn",
+    "target": "o16",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a13",
+    "type": "FadeIn",
+    "target": "o17",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a14",
+    "type": "FadeIn",
+    "target": "o18",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a15",
+    "type": "FadeIn",
+    "target": "o19",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a16",
+    "type": "FadeIn",
+    "target": "o4",
+    "run_time": 0.4,
+    "step": 1
+   },
+   {
+    "id": "a17",
+    "type": "GrowFromCenter",
+    "target": "o20",
+    "run_time": 0.5,
+    "step": 1
+   },
+   {
+    "id": "a18",
+    "type": "FadeIn",
+    "target": "o21",
+    "run_time": 0.5,
+    "step": 1
+   },
+   {
+    "id": "a19",
+    "type": "Create",
+    "target": "o22",
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a20",
+    "type": "Create",
+    "target": "o23",
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a21",
+    "type": "FadeIn",
+    "target": "o24",
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a22",
+    "type": "FadeIn",
+    "target": "o25",
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a23",
+    "type": "FadeIn",
+    "target": "o26",
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a24",
+    "type": "FadeIn",
+    "target": "o27",
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a25",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 3
+   },
+   {
+    "id": "a26",
+    "type": "FadeIn",
+    "target": "o5",
+    "run_time": 0.6,
+    "step": 4
+   },
+   {
+    "id": "a27",
+    "type": "FadeIn",
+    "target": "o28",
+    "run_time": 0.6,
+    "step": 4
+   },
+   {
+    "id": "a28",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 5
+   },
+   {
+    "id": "a29",
+    "type": "FadeIn",
+    "target": "o29",
+    "run_time": 0.4,
+    "step": 6
+   },
+   {
+    "id": "a30",
+    "type": "FadeIn",
+    "target": "o33",
+    "run_time": 0.4,
+    "step": 6
+   },
+   {
+    "id": "a31",
+    "type": "FadeIn",
+    "target": "o34",
+    "run_time": 0.4,
+    "step": 6
+   },
+   {
+    "id": "a32",
+    "type": "Shift",
+    "target": "o33",
+    "run_time": 0.9,
+    "step": 7,
+    "vector": [
+     2.5,
+     0,
+     0
+    ]
+   },
+   {
+    "id": "a33",
+    "type": "Shift",
+    "target": "o34",
+    "run_time": 0.9,
+    "step": 7,
+    "vector": [
+     2.5,
+     0,
+     0
+    ]
+   },
+   {
+    "id": "a34",
+    "type": "FadeOut",
+    "target": "o33",
+    "run_time": 0.3,
+    "step": 8
+   },
+   {
+    "id": "a35",
+    "type": "FadeOut",
+    "target": "o34",
+    "run_time": 0.3,
+    "step": 8
+   },
+   {
+    "id": "a36",
+    "type": "FadeIn",
+    "target": "o35",
+    "run_time": 0.3,
+    "step": 8
+   },
+   {
+    "id": "a37",
+    "type": "FadeIn",
+    "target": "o36",
+    "run_time": 0.3,
+    "step": 8
+   },
+   {
+    "id": "a38",
+    "type": "Shift",
+    "target": "o35",
+    "run_time": 0.9,
+    "step": 9,
+    "vector": [
+     -2.5,
+     0,
+     0
+    ]
+   },
+   {
+    "id": "a39",
+    "type": "Shift",
+    "target": "o36",
+    "run_time": 0.9,
+    "step": 9,
+    "vector": [
+     -2.5,
+     0,
+     0
+    ]
+   },
+   {
+    "id": "a40",
+    "type": "FadeOut",
+    "target": "o35",
+    "run_time": 0.3,
+    "step": 10
+   },
+   {
+    "id": "a41",
+    "type": "FadeOut",
+    "target": "o36",
+    "run_time": 0.3,
+    "step": 10
+   },
+   {
+    "id": "a42",
+    "type": "FadeIn",
+    "target": "o6",
+    "run_time": 0.3,
+    "step": 10
+   },
+   {
+    "id": "a43",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 11
+   },
+   {
+    "id": "a44",
+    "type": "FadeIn",
+    "target": "o30",
+    "run_time": 0.5,
+    "step": 12
+   },
+   {
+    "id": "a45",
+    "type": "GrowFromCenter",
+    "target": "o31",
+    "run_time": 0.5,
+    "step": 13
+   },
+   {
+    "id": "a46",
+    "type": "FadeIn",
+    "target": "o32",
+    "run_time": 0.5,
+    "step": 13
+   },
+   {
+    "id": "a47",
+    "type": "FadeOut",
+    "target": "o20",
+    "run_time": 0.6,
+    "step": 14
+   },
+   {
+    "id": "a48",
+    "type": "FadeOut",
+    "target": "o21",
+    "run_time": 0.6,
+    "step": 14
+   },
+   {
+    "id": "a49",
+    "type": "FadeIn",
+    "target": "o37",
+    "run_time": 0.6,
+    "step": 14
+   },
+   {
+    "id": "a50",
+    "type": "FadeIn",
+    "target": "o38",
+    "run_time": 0.6,
+    "step": 14
+   },
+   {
+    "id": "a51",
+    "type": "FadeIn",
+    "target": "o39",
+    "run_time": 0.6,
+    "step": 14
+   },
+   {
+    "id": "a52",
+    "type": "FadeIn",
+    "target": "o7",
+    "run_time": 0.4,
+    "step": 15
+   }
+  ],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "term": {
+    "de": "Terminal",
+    "en": "terminal",
+    "es": "terminal",
+    "zh": "终端",
+    "fr": "terminal",
+    "tr": "terminal"
+   },
+   "zeigt": {
+    "de": "das Terminal zeigt das Getippte an",
+    "en": "the terminal shows what is typed",
+    "es": "el terminal muestra lo tecleado",
+    "zh": "终端显示所输入的内容",
+    "fr": "le terminal affiche ce qui est tapé",
+    "tr": "terminal yazılanı gösterir"
+   },
+   "enter": {
+    "de": "Eingabetaste",
+    "en": "Enter key",
+    "es": "tecla Intro",
+    "zh": "回车键",
+    "fr": "touche Entrée",
+    "tr": "Enter tuşu"
+   },
+   "strgd": {
+    "de": "Strg+D",
+    "en": "Ctrl+D",
+    "es": "Ctrl+D",
+    "zh": "Ctrl+D",
+    "fr": "Ctrl+D",
+    "tr": "Ctrl+D"
+   },
+   "ende": {
+    "de": "Ende des Stroms",
+    "en": "end of the stream",
+    "es": "fin del flujo",
+    "zh": "流结束",
+    "fr": "fin du flux",
+    "tr": "akışın sonu"
+   },
+   "beendet": {
+    "de": "beendet",
+    "en": "ended",
+    "es": "terminado",
+    "zh": "已结束",
+    "fr": "terminé",
+    "tr": "sona erdi"
+   }
+  }
+ }
+}

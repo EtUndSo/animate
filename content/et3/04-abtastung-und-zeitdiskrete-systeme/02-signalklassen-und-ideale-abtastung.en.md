@@ -1,6 +1,8 @@
 ---
 title: Stage 1: Signal classes and ideal sampling
-pfad: Electrical Engineering / 3rd Semester / Signals and Systems / Sampling and Discrete-Time Systems
+pfad: Electrical Engineering / 3rd Semester / ET3 – Fundamentals of Electrical Engineering 3: Signals and Systems / Sampling and Discrete-Time Systems
+adresse: elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme
+knoten: Chapter 4: Sampling and Discrete-Time Systems
 order: 3240200
 summary: What kinds of signals are there, and how is sampling described mathematically?
 tags: analog, discrete-time, digital, ideal sampler

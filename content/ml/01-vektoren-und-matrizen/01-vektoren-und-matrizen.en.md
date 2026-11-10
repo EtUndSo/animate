@@ -1,8 +1,9 @@
 ---
-title: Overview: Foundations 1 – Vectors and Matrices
+title: Overview: Vectors and Matrices
 kurz: Overview
 pfad: Computer Science / Machine Learning / Mathematical Foundations / Vectors and Matrices
-knoten: Foundations 1: Vectors and Matrices
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Chapter 1: Vectors and Matrices
 nachschlagen: ja
 order: 15210100
 summary: Data as lists of numbers, models as linear maps

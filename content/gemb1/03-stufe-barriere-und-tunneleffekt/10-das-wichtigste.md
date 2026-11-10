@@ -1,6 +1,8 @@
 ---
 title: Das Wichtigste
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Stufe, Barriere und Tunneleffekt
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Stufe, Barriere und Tunneleffekt
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/stufe-barriere-und-tunneleffekt
+knoten: Kapitel 3: Stufe, Barriere und Tunneleffekt
 order: 4131000
 summary: Was eine Elektronenwelle an einer endlich hohen Wand tut
 tags: 

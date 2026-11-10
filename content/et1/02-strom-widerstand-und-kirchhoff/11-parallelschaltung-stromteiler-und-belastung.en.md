@@ -1,6 +1,8 @@
 ---
 title: Stage 10: Parallel connection, current divider and loading
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / Current, Resistance and Kirchhoff's Laws
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / Current, Resistance and Kirchhoff's Laws
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff
+knoten: Chapter 2: Current, Resistance and Kirchhoff's Laws
 order: 1121100
 summary: The second basic pattern: resistors side by side.
 tags: parallel connection, current divider, load resistor
@@ -56,7 +58,7 @@ Left: loaded voltage divider. Right: $U_2$ versus $R_\mathrm L$ for $R_1=2\,\mat
 :::
 
 ::::beispiel
-For the chain, the relative error $\delta=(U_{2,0}-U_2)/U_{2,0}$ against the unloaded 3 V is: $R_\mathrm L=1\,\mathrm{k\Omega}$ gives 40 %, $10\,\mathrm{k\Omega}$ gives 6.3 %, $100\,\mathrm{k\Omega}$ gives 0.66 %. The error is $\delta=R_\mathrm i/(R_\mathrm i+R_\mathrm L)$ with $R_\mathrm i=R_1\parallel R_2$ (Exercise [11](#aufg-11)). So the divider acts like a source with the internal resistance $R_\mathrm i$ ([Part 5](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)).
+For the chain, the relative error $\delta=(U_{2,0}-U_2)/U_{2,0}$ against the unloaded 3 V is: $R_\mathrm L=1\,\mathrm{k\Omega}$ gives 40 %, $10\,\mathrm{k\Omega}$ gives 6.3 %, $100\,\mathrm{k\Omega}$ gives 0.66 %. The error is $\delta=R_\mathrm i/(R_\mathrm i+R_\mathrm L)$ with $R_\mathrm i=R_1\parallel R_2$ (Exercise [11](#aufg-11)). So the divider acts like a source with the internal resistance $R_\mathrm i$ ([Chapter 5](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)).
 ::::
 
 :::ltspice Measuring the load
@@ -67,7 +69,7 @@ For the chain, the relative error $\delta=(U_{2,0}-U_2)/U_{2,0}$ against the unl
 ⁠**What you see:** The SPICE Error Log gives $U_2$ for each step: 1.80 V; 2.25 V; 2.70 V; 2.81 V; 2.98 V. Compare the value for $6\,\mathrm{k\Omega}$ with Exercise [11](#aufg-11)(b).
 :::
 
-**Application: R-2R ladder.** The current divider carries a second D/A converter (Fig. [12](#abb-12)). The trick is self-similarity: at the last node there is $2R\parallel2R=R$. Together with the $R$ in front, that again gives $2R$. So each node looks at $2R$ to the right and $2R$ downward, its current divides 1:1, and the voltage halves from node to node (divider of $R$ and $2R\parallel2R$). The source supplies $I_\mathrm{ref}=U_\mathrm{ref}/R$, and the binary-weighted currents $I_\mathrm{ref}/2$, $I_\mathrm{ref}/4$, $I_\mathrm{ref}/8$ and so on arise. An external circuit ([Part 11](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker/der-operationsverstaerker.html)) holds the collecting rail at ground potential. That is why all the $2R$ see the same potential below, whether they switch to the rail or to ground, and the currents do not change on switching. The bit near the source is the most significant (MSB, most significant bit), the one at the end the least significant (LSB). $I_\mathrm{out}$ is the sum of the switched-on currents.
+**Application: R-2R ladder.** The current divider carries a second D/A converter (Fig. [12](#abb-12)). The trick is self-similarity: at the last node there is $2R\parallel2R=R$. Together with the $R$ in front, that again gives $2R$. So each node looks at $2R$ to the right and $2R$ downward, its current divides 1:1, and the voltage halves from node to node (divider of $R$ and $2R\parallel2R$). The source supplies $I_\mathrm{ref}=U_\mathrm{ref}/R$, and the binary-weighted currents $I_\mathrm{ref}/2$, $I_\mathrm{ref}/4$, $I_\mathrm{ref}/8$ and so on arise. An external circuit ([Chapter 11](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker/der-operationsverstaerker.html)) holds the collecting rail at ground potential. That is why all the $2R$ see the same potential below, whether they switch to the rail or to ground, and the currents do not change on switching. The bit near the source is the most significant (MSB, most significant bit), the one at the end the least significant (LSB). $I_\mathrm{out}$ is the sum of the switched-on currents.
 
 :::abbildung et1/k2r2r 12
 R-2R ladder with $R=1\,\mathrm{k\Omega}$ at $U_\mathrm{ref}=8$ V. Node voltages in red, branch currents in blue. The switches are set to the number 1010: $4\,\mathrm{mA}+1\,\mathrm{mA}=5$ mA flow to the collecting rail.

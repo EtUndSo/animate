@@ -1,6 +1,8 @@
 ---
 title: Das Wichtigste
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Welle, Teilchen und Schrödinger-Gleichung
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Welle, Teilchen und Schrödinger-Gleichung
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/welle-teilchen-und-schrodinger-gleichung
+knoten: Kapitel 1: Welle, Teilchen und Schrödinger-Gleichung
 order: 4111000
 summary: Was ein Elektron im Material ist und wie man es berechnet
 tags: 

@@ -1,7 +1,9 @@
 ---
 title: Overview: Current, Resistance and Kirchhoff's Laws
 kurz: Overview
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / Current, Resistance and Kirchhoff's Laws
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / Current, Resistance and Kirchhoff's Laws
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff
+knoten: Chapter 2: Current, Resistance and Kirchhoff's Laws
 order: 1120100
 summary: Why electrons crawl while the current is there at once, and why networks obey conservation laws
 tags: current, resistor, Ohm's law, node rule, mesh rule
@@ -23,7 +25,7 @@ The answer consists of three laws. __Ohm's law__ links voltage and current at a 
 
 <li>
 
-⁠**Chain:** the 9 V battery from [Part 1](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html) across two resistors in series, $R_1=2\,\mathrm{k\Omega}$ and $R_2=1\,\mathrm{k\Omega}$. A current of 3 mA flows, 6 V are across $R_1$ and 3 V across $R_2$.
+⁠**Chain:** the 9 V battery from [Chapter 1](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html) across two resistors in series, $R_1=2\,\mathrm{k\Omega}$ and $R_2=1\,\mathrm{k\Omega}$. A current of 3 mA flows, 6 V are across $R_1$ and 3 V across $R_2$.
 
 </li>
 

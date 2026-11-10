@@ -1,7 +1,9 @@
 ---
 title: Überblick: Der Operationsverstärker
 kurz: Überblick
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Der Operationsverstärker
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Der Operationsverstärker
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker
+knoten: Kapitel 11: Der Operationsverstärker
 order: 1210100
 summary: Wie aus einem riesigen, ungenauen Faktor ein Bauteil wird, dessen Verhalten nur noch die Widerstände bestimmen
 tags: Operationsverstärker, Leerlaufverstärkung, Gegenkopplung
@@ -33,7 +35,7 @@ Ein __Operationsverstärker__, kurz OPV, ist ein integrierter Verstärker aus ei
 
 <li>
 
-⁠**Differenzstufe:** Transistoren T aus [Teil 10](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor/der-bipolartransistor.html) ($B=200$, $U_T=26$ mV), $I_0=2$ mA, $R_\mathrm{C}=3$ k$\Omega$.
+⁠**Differenzstufe:** Transistoren T aus [Kapitel 10](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor/der-bipolartransistor.html) ($B=200$, $U_T=26$ mV), $I_0=2$ mA, $R_\mathrm{C}=3$ k$\Omega$.
 
 </li>
 

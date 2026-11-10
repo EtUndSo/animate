@@ -1,0 +1,346 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 15,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.847,
+      0.6,
+      0
+     ],
+     "width": 1.365,
+     "height": 0.95,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#efefef",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Text",
+    "props": {
+     "text": "@d0",
+     "position": [
+      -2.847,
+      0.6,
+      0
+     ],
+     "font_size": 16,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o3",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.8486,
+      0.6,
+      0
+     ],
+     "width": 0.585,
+     "height": 0.95,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Text",
+    "props": {
+     "text": "260 MB\nEFI",
+     "position": [
+      -1.8486,
+      0.6,
+      0
+     ],
+     "font_size": 16,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o5",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.156,
+      0.6,
+      0
+     ],
+     "width": 3.393,
+     "height": 0.95,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#e3eefb",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Text",
+    "props": {
+     "text": "@c",
+     "position": [
+      0.156,
+      0.6,
+      0
+     ],
+     "font_size": 16,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o7",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.2386,
+      0.6,
+      0
+     ],
+     "width": 0.78,
+     "height": 0.95,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Text",
+    "props": {
+     "text": "@rec",
+     "position": [
+      2.2386,
+      0.6,
+      0
+     ],
+     "font_size": 16,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o9",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.847,
+      -0.6,
+      0
+     ],
+     "width": 1.365,
+     "height": 0.95,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#efefef",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o10",
+    "type": "Text",
+    "props": {
+     "text": "@d1",
+     "position": [
+      -2.847,
+      -0.6,
+      0
+     ],
+     "font_size": 16,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o11",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.234,
+      -0.6,
+      0
+     ],
+     "width": 4.758,
+     "height": 0.95,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#e6f3ea",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Text",
+    "props": {
+     "text": "@usb",
+     "position": [
+      0.234,
+      -0.6,
+      0
+     ],
+     "font_size": 16,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o13",
+    "type": "Text",
+    "props": {
+     "text": "@nie",
+     "position": [
+      2.73,
+      0.6,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o14",
+    "type": "Text",
+    "props": {
+     "text": "@ziel",
+     "position": [
+      2.73,
+      -0.6,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#00823c"
+    }
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "d0": {
+    "de": "Datenträger 0\nBasis, 476,94 GB\nOnline",
+    "en": "Disk 0\nBasic, 476.94 GB\nOnline",
+    "es": "Disco 0\nBásico, 476,94 GB\nEn pantalla",
+    "zh": "磁盘 0\n基本，476.94 GB\n联机",
+    "fr": "Disque 0\nde base, 476,94 Go\nEn ligne",
+    "tr": "Disk 0\nTemel, 476,94 GB\nÇevrimiçi"
+   },
+   "c": {
+    "de": "Windows (C:)\n474 GB NTFS\nStartpartition, Auslagerungsdatei, …",
+    "en": "Windows (C:)\n474 GB NTFS\nBoot, Page File, …",
+    "es": "Windows (C:)\n474 GB NTFS\nArranque, archivo de paginación, …",
+    "zh": "Windows (C:)\n474 GB NTFS\n启动、页面文件……",
+    "fr": "Windows (C:)\n474 Go NTFS\nDémarrer, Fichier d’échange, …",
+    "tr": "Windows (C:)\n474 GB NTFS\nÖnyükleme, Disk Belleği Dosyası, …"
+   },
+   "rec": {
+    "de": "2,7 GB\nWieder-\nherstellung",
+    "en": "2.7 GB\nrecovery",
+    "es": "2,7 GB\nrecuperación",
+    "zh": "2.7 GB\n恢复",
+    "fr": "2,7 Go\nrécupé-\nration",
+    "tr": "2,7 GB\nkurtarma"
+   },
+   "d1": {
+    "de": "Datenträger 1\nWechselmedium\n7,45 GB, Online",
+    "en": "Disk 1\nRemovable\n7.45 GB, Online",
+    "es": "Disco 1\nExtraíble\n7,45 GB, En pantalla",
+    "zh": "磁盘 1\n可移动\n7.45 GB，联机",
+    "fr": "Disque 1\nAmovible\n7,45 Go, En ligne",
+    "tr": "Disk 1\nÇıkarılabilir\n7,45 GB, Çevrimiçi"
+   },
+   "usb": {
+    "de": "USB-STICK (E:)\n7,45 GB FAT32\nFehlerfrei (Primäre Partition)",
+    "en": "USB STICK (E:)\n7.45 GB FAT32\nHealthy (Primary Partition)",
+    "es": "USB (E:)\n7,45 GB FAT32\nCorrecto (partición primaria)",
+    "zh": "U 盘 (E:)\n7.45 GB FAT32\n状态良好（主分区）",
+    "fr": "CLÉ USB (E:)\n7,45 Go FAT32\nSain (partition principale)",
+    "tr": "USB BELLEK (E:)\n7,45 GB FAT32\nSağlam (Birincil Bölüm)"
+   },
+   "nie": {
+    "de": "nie anfassen",
+    "en": "never touch",
+    "es": "no tocar nunca",
+    "zh": "切勿改动",
+    "fr": "ne jamais toucher",
+    "tr": "asla dokunma"
+   },
+   "ziel": {
+    "de": "Ziel",
+    "en": "target",
+    "es": "destino",
+    "zh": "目标",
+    "fr": "cible",
+    "tr": "hedef"
+   }
+  }
+ }
+}

@@ -1,7 +1,8 @@
 ---
 title: Vektoren: Daten als Zahlenlisten
 pfad: Informatik / Machine Learning / Mathematische Grundlagen / Vektoren und Matrizen
-knoten: Grundlagen 1: Vektoren und Matrizen
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Kapitel 1: Vektoren und Matrizen
 nachschlagen: ja
 order: 15210200
 summary: Ein Rechner kann nur mit Zahlen umgehen.
@@ -139,7 +140,7 @@ Wohnung 1 ist der Vektor $\mathbf{x}_1=(60,\,2,\,3)^{\top}\in\mathbb{R}^3$. Ihr
 ⁠**Kurz gesagt:** Ein Vektor ist eine geordnete Liste von Zahlen, die man als Punkt oder als Pfeil zeichnen kann; ein Beispiel mit $d$ Merkmalen ist ein Vektor im $\mathbb{R}^d$.
 
 :::hintergrund Was ein Vektor eigentlich ist
-Eine Liste von Zahlen ist der Vektor, mit dem man rechnet. Mathematisch ist der Begriff weiter gefasst: Ein Vektor ist alles, was man addieren und mit einer Zahl multiplizieren kann, ohne dabei die Art des Gegenstands zu verlassen. Pfeile in der Ebene gehören dazu, aber auch Signale. Ein Signal, das $n$-mal abgetastet wurde, ist die Liste seiner Abtastwerte $x[0],\dots,x[n-1]$, also ein Vektor im $\mathbb{R}^n$. Zwei Signale zu addieren heißt, sie zu überlagern, und ein Signal mit einer Zahl zu multiplizieren heißt, es zu verstärken; beides liefert wieder ein Signal derselben Länge.
+Eine Liste von Zahlen ist der Vektor, mit dem man rechnet. Mathematisch ist der Begriff weiter gefasst: Ein Vektor ist alles, was man addieren und mit einer Zahl multiplizieren kann, ohne dabei die Art des Gegenstands zu verlassen. Pfeile in der Ebene gehören dazu, aber auch Tonaufnahmen. Eine Tonaufnahme hält in gleichen, sehr kurzen Abständen fest, wie stark der Luftdruck gerade vom Ruhewert abweicht. Mit $n$ solchen Werten $x[0],\dots,x[n-1]$ ist sie ein Vektor im $\mathbb{R}^n$. Zwei Aufnahmen zu addieren heißt, sie zu mischen, und eine Aufnahme mit einer Zahl zu multiplizieren heißt, sie lauter oder leiser zu machen; beides liefert wieder eine Aufnahme derselben Länge.
 
 Auch ein Bild ist ein Vektor. Ein Graustufenbild mit $28\times28$ Bildpunkten besteht aus $784$ Helligkeitswerten. Liest man sie Zeile für Zeile hintereinander, ist das Bild ein Punkt im $\mathbb{R}^{784}$. Diese Vorstellung lässt sich nicht mehr zeichnen, aber man rechnet damit genauso wie mit zwei oder drei Komponenten.
 :::
@@ -216,12 +217,14 @@ $$\tfrac12\,(60,\,2,\,3)^{\top}+\tfrac12\,(40,\,1,\,1)^{\top}=(50;\ 1{,}5;\ 2)^{
 Das ist eine gedachte Wohnung, die in jedem Merkmal genau zwischen den beiden liegt. Der Punkt liegt in der Mitte der Verbindungsstrecke.
 ::::
 
-::::beispiel [Rechenbeispiel 3] der Mittelwert der Beispiele
-Nimmt man alle $N$ Beispiele mit dem Koeffizienten $1/N$, entsteht der __Mittelwert der Beispiele__
+Eine Linearkombination wird in diesem Kapitel besonders oft gebraucht. Nimmt man alle $N$ Beispiele mit dem Koeffizienten $1/N$, entsteht der __Mittelwert der Beispiele__
 
 <span class="anker" id="gl-1-5"></span>
 $$\bar{\mathbf{x}}=\frac1N\sum_{i=1}^{N}\mathbf{x}_i . \tag{1.5}$$
 
+Er ist ein gedachtes Beispiel, das in jedem Merkmal den Durchschnitt aller Beispiele hat: Seine $j$-te Komponente ist der Mittelwert der $j$-ten Merkmale.
+
+::::beispiel [Rechenbeispiel 3] der Mittelwert der Beispiele
 Für den Wohnungsdatensatz ist $\bar{\mathbf{x}}=(65;\ 2{,}5;\ 3)^{\top}$ (Abb. [5](#abb-5)), die „Durchschnittswohnung“: im Mittel $65\,\mathrm m^2$, $2{,}5$ Zimmer und $3$ km zum Zentrum.
 
 :::abbildung ml/k1rmittelvektor 5

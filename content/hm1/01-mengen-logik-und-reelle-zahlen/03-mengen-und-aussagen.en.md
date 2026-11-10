@@ -1,6 +1,8 @@
 ---
 title: Stage 1: Sets and statements
-pfad: Electrical Engineering / 1st Semester / Higher Mathematics 1 / Sets, Logic and Real Numbers
+pfad: Electrical Engineering / 1st Semester / HöMa1 – Higher Mathematics 1 / Sets, Logic and Real Numbers
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen
+knoten: Chapter 1: Sets, Logic and Real Numbers
 order: 1210300
 summary: Axioms speak about “all numbers with a property” and about “if, then.” This stage provides the language for that and a reliable method for proving rules for sets and statements.
 tags: Venn diagram, elements, subset, superset, union, intersection, difference, complement

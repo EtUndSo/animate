@@ -1,6 +1,8 @@
 ---
 title: 要点
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 运算放大器
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 运算放大器
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker
+knoten: 第 11 章：运算放大器
 order: 1211300
 summary: 一个巨大而不精确的倍数，如何变成 行为只由电阻决定的器件
 tags: 差分放大器, 环路增益, 虚地

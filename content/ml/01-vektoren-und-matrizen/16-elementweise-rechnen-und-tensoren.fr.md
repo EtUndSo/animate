@@ -1,7 +1,8 @@
 ---
 title: Calcul terme à terme et tenseurs
 pfad: Informatique / Apprentissage automatique / Fondements mathématiques / Vecteurs et matrices
-knoten: Fondements 1 : Vecteurs et matrices
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Chapitre 1 : Vecteurs et matrices
 nachschlagen: ja
 order: 15211600
 summary: Tout calcul avec des vecteurs et des matrices n’est pas un produit matriciel.
@@ -110,7 +111,7 @@ Une image couleur de $4\times4$ pixels à trois canaux de couleur est un tenseur
 ⁠**En bref :** Un tenseur est un tableau de nombres à un nombre quelconque d’axes ; scalaire, vecteur et matrice sont les cas à $0$, $1$ et $2$ axes.
 
 :::hintergrund Le tenseur de la physique est autre chose
-En physique et en électrotechnique, un tenseur est plus qu’un tableau de nombres ; c’est le cas, par exemple, du tenseur des contraintes d’un matériau ou du tenseur de permittivité d’un cristal. Là, un tenseur s’accompagne d’une règle indiquant comment ses coefficients changent lorsqu’on fait tourner le système de coordonnées ; les coefficients seuls ne le définissent pas. En apprentissage automatique, cette règle est absente : un tenseur n’y est qu’un tableau multidimensionnel de nombres. Le mot est le même, la notion est différente.
+En physique, un tenseur est plus qu’un tableau de nombres ; c’est le cas, par exemple, du tenseur d’inertie, qui indique avec quelle difficulté on fait tourner un corps autour de chaque axe, ou du tenseur qui décrit avec quelle intensité une poutre chargée est étirée ou comprimée dans chaque direction. Là, un tenseur s’accompagne d’une règle indiquant comment ses coefficients changent lorsqu’on fait tourner le système de coordonnées ; les coefficients seuls ne le définissent pas. En apprentissage automatique, cette règle est absente : un tenseur n’y est qu’un tableau multidimensionnel de nombres. Le mot est le même, la notion est différente.
 :::
 
 ### Les images comme tenseurs

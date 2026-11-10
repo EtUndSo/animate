@@ -1,6 +1,8 @@
 ---
 title: Stufe 6: Masse und Richtung
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Bandstrukturen lesen
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Bandstrukturen lesen
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/bandstrukturen-lesen
+knoten: Kapitel 9: Bandstrukturen lesen
 order: 4190800
 summary: Stufe 5 rechnete in einer Richtung.
 tags: isotrop, anisotrop
@@ -32,7 +34,7 @@ $$E(\boldsymbol k)\approx E_\mathrm C+\frac{\hbar^2}2\Bigl(\frac{q_x^2}{m_x}+\fr
 Die Fläche zur Energie $E$ ist ein Ellipsoid mit den Halbachsen $q_i=\sqrt{2m_i(E-E_\mathrm C)}/\hbar$. Je Richtung gilt $F_i=m_i\,\mathrm{d} v_i/\mathrm{d} t$.
 :::
 
-⁠**So liest man das:** $m_x,m_y,m_z$ sind die Richtungsmassen aus [Teil 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html), jede folgt aus [(5.1)](die-effektive-masse-im-kristall.html#gl-5-1) für ihre Achse. Das Verhältnis zweier Halbachsen ist $\sqrt{m_x/m_y}$. **Gültigkeit:** nahe dem Extremum und längs der Hauptachsen des Tals, sonst kommen gemischte Ableitungen hinzu.
+⁠**So liest man das:** $m_x,m_y,m_z$ sind die Richtungsmassen aus [Kapitel 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html), jede folgt aus [(5.1)](die-effektive-masse-im-kristall.html#gl-5-1) für ihre Achse. Das Verhältnis zweier Halbachsen ist $\sqrt{m_x/m_y}$. **Gültigkeit:** nahe dem Extremum und längs der Hauptachsen des Tals, sonst kommen gemischte Ableitungen hinzu.
 
 **Silizium und GaAs.** Das $\Gamma$-Tal von GaAs ist isotrop, eine Zahl genügt: $m^*=0{,}067\,m_0$. Das Silizium-Leitungsband ist komplizierter. Jedes der sechs Täler ist ein Rotationsellipsoid mit einer Längsrichtung und zwei gleichen Querrichtungen, es gibt also zwei effektive Massen:
 

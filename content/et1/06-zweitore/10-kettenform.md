@@ -1,6 +1,8 @@
 ---
 title: Stufe 8: Kettenform
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Zweitore
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Zweitore
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore
+knoten: Kapitel 6: Zweitore
 order: 1161000
 summary: Oft schaltet man Zweitore hintereinander.
 tags: A-Parameter, Kette

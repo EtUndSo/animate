@@ -1,7 +1,8 @@
 ---
 title: Das Wichtigste bis hier
 pfad: Informatik / Programmieren / Python / Entscheidungen und Schleifen
-knoten: Python 3: Entscheidungen und Schleifen
+adresse: informatik/programmieren/python/entscheidungen-und-schleifen
+knoten: Kapitel 3: Entscheidungen und Schleifen
 order: 6041100
 summary: Bedingungen, if, while und for, Wurzeln und Nullstellen durch Raten, Halbieren und Tangenten
 tags: 
@@ -112,4 +113,4 @@ Weil Gleitkommazahlen gerundet sind, endet jedes solche Verfahren nicht bei Glei
 | Raten und Schritte sind langsam | ein Schritt schließt nur einen Kandidaten oder ein Stück $h$ aus (Abschnitt [6](losungen-durch-probieren-raten-und-prufen-naherung-mit-toleranz.html#stufe-6)) |
 | Bisektion: 41 Schritte für $\sqrt2$ | ein Schritt halbiert den Bereich, ein Bit je Schritt (Abschnitt [7](die-bisektion.html#stufe-7)) |
 | Newton: 5 Schritte für $\sqrt2$ | die Tangente hat einen quadratischen Fehler (Abschnitt [8](das-newton-verfahren.html#stufe-8)) |
-| Newton kriecht bei der Diode | weit weg ist $f/f'\approx U_\mathrm T$ (Abschnitt [9](anwendung-der-arbeitspunkt-einer-diode.html#stufe-9)) |
+| Newton kriecht bei einem Startzins weit weg | dort ist $f/f'\approx q/n$, $q$ sinkt je Schritt nur um etwa den $n$-ten Teil (Abschnitt [9](anwendung-der-zinssatz-eines-ratenkredits.html#stufe-9)) |

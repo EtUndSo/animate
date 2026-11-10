@@ -1,7 +1,9 @@
 ---
 title: Überblick: Wahrscheinlichkeitsrechnung
 kurz: Überblick
-pfad: Elektrotechnik / 3. Semester / Höhere Mathematik 3 / Wahrscheinlichkeitsrechnung
+pfad: Elektrotechnik / 3. Semester / HöMa3 – Höhere Mathematik 3 / Wahrscheinlichkeitsrechnung
+adresse: elektrotechnik/3-semester/hohere-mathematik-3/wahrscheinlichkeitsrechnung
+knoten: Kapitel 8: Wahrscheinlichkeitsrechnung
 order: 3180100
 summary: Was sich über den Zufall exakt sagen lässt
 tags: Wahrscheinlichkeitsrechnung, Zufallsvariable
@@ -45,5 +47,5 @@ Die __Wahrscheinlichkeitsrechnung__ ist die Mathematik für solche Fragen. Eine 
 
 </ul>
 
-Vorausgesetzt werden Reihen, uneigentliche Integrale, Mehrfachintegrale und das Gauß-Integral ([Teil 2](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/integralrechnung-im-rn/integralrechnung-im-rn.html) und 4), dazu die Mengenschreibweise. Das Zeichen $\subset$ erlaubt Gleichheit.
+Vorausgesetzt werden Reihen, uneigentliche Integrale, Mehrfachintegrale und das Gauß-Integral ([Kapitel 2](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/integralrechnung-im-rn/integralrechnung-im-rn.html) und 4), dazu die Mengenschreibweise. Das Zeichen $\subset$ erlaubt Gleichheit.
 :::

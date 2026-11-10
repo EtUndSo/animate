@@ -1,6 +1,8 @@
 ---
 title: 第 3 阶段：采样定理与信号恢复
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / 采样与离散时间系统
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / 采样与离散时间系统
+adresse: elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme
+knoten: 第 4 章：采样与离散时间系统
 order: 3240400
 summary: 什么时候能由样本值精确地恢复原信号？怎样恢复？
 tags: 低通（带限）信号, 奈奎斯特率, 混叠频率, 抗混叠滤波器
@@ -35,7 +37,7 @@ $$s(t)=\sum_{n=-\infty}^{\infty}s(nT)\,\operatorname{si}\Bigl(\pi\frac{t-nT}{T}\
 ⁠**如何理解：**当 $f_\mathrm A\ge2f_\mathrm g$ 时，图 [1](das-spektrum-des-abgetasteten-signals.html#abb-1) 中的各副本相互分开。低通滤波器截取出位于 $f=0$ 处的副本，它恰好具有原频谱的形状。在时域中，这意味着：每个样本值都被一个 si 函数代替，该函数在它自己的采样点处为 1，在其他所有采样点处为零（图 [2](#abb-2)）。这些函数之和经过所有样本值，并以不产生任何高于 $f_\mathrm g$ 的频率的方式填补其间的空隙。最低采样率 $2f_\mathrm g$ 称为__奈奎斯特率__。
 
 :::herleitung 信号恢复
-在 $|f|\le f_\mathrm g$ 内只有副本 $k=0$，因此 $S_\mathrm a(f)=\frac1TS(f)$。取 $H_\mathrm{TP}=T\operatorname{rect}(f/2f_\mathrm g)$，则 $S_\mathrm a\cdot H_\mathrm{TP}=S$。在时域中：$T\operatorname{rect}(f/2f_\mathrm g)\;\bullet\!\!-\!\!\circ\;2f_\mathrm gT\operatorname{si}(2\pi f_\mathrm gt)$（[第 3 部分](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)，矩形与 si 函数）。利用式 [(1.2)](signalklassen-und-ideale-abtastung.html#gl-1-2) 和 $2f_\mathrm g=1/T$，得到 $s_\mathrm a*\operatorname{si}(\pi t/T)=\sum_ns(nT)\operatorname{si}(\pi(t-nT)/T)$。
+在 $|f|\le f_\mathrm g$ 内只有副本 $k=0$，因此 $S_\mathrm a(f)=\frac1TS(f)$。取 $H_\mathrm{TP}=T\operatorname{rect}(f/2f_\mathrm g)$，则 $S_\mathrm a\cdot H_\mathrm{TP}=S$。在时域中：$T\operatorname{rect}(f/2f_\mathrm g)\;\bullet\!\!-\!\!\circ\;2f_\mathrm gT\operatorname{si}(2\pi f_\mathrm gt)$（[第 3 章](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)，矩形与 si 函数）。利用式 [(1.2)](signalklassen-und-ideale-abtastung.html#gl-1-2) 和 $2f_\mathrm g=1/T$，得到 $s_\mathrm a*\operatorname{si}(\pi t/T)=\sum_ns(nT)\operatorname{si}(\pi(t-nT)/T)$。
 :::
 
 :::abbildung et3/k4siinterp 2

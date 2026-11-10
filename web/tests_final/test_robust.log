@@ -1,0 +1,5 @@
+[scene] t (Text): ignored unknown prop(s) rotation
+[scene] c (Circle): ignored unknown prop(s) foo
+unknown props skipped, scene built
+parameter names checked
+ROBUST TESTS PASSED

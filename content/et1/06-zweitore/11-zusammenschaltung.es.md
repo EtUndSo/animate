@@ -1,6 +1,8 @@
 ---
 title: Etapa 9: Interconexión
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Cuadripolos
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Cuadripolos
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore
+knoten: Capítulo 6: Cuadripolos
 order: 1161100
 summary: La etapa 8 mostró que la cadena encaja con la forma A.
 tags: 

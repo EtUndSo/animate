@@ -1,6 +1,8 @@
 ---
 title: Lo esencial
-pfad: Ingeniería eléctrica / 3.er semestre / Señales y sistemas / Sistemas LTI y convolución
+pfad: Ingeniería eléctrica / 3.er semestre / ET3 – Fundamentos de ingeniería eléctrica 3: señales y sistemas / Sistemas LTI y convolución
+adresse: elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung
+knoten: Capítulo 1: Sistemas LTI y convolución
 order: 3211200
 summary: Por qué la respuesta a un único impulso describe todo el sistema
 tags: 

@@ -1,7 +1,8 @@
 ---
 title: Kuadratik formlar
 pfad: Bilgisayar Bilimleri / Makine Öğrenmesi / Matematiksel Temeller / İzdüşüm, Özdeğerler ve Ayrışımlar
-knoten: Temeller 2: İzdüşüm, Özdeğerler ve Ayrışımlar
+adresse: informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen
+knoten: Bölüm 2: İzdüşüm, Özdeğerler ve Ayrışımlar
 nachschlagen: ja
 order: 15220600
 summary: Doğrusal fonksiyonlardan sonra çok değişkenli fonksiyonların en basitleri kuadratik olanlardır.
@@ -12,16 +13,16 @@ lang: tr
 <span class="anker" id="stufe-5"></span>
 
 :::zweck
-Doğrusal fonksiyonlardan sonra çok değişkenli fonksiyonların en basitleri kuadratik olanlardır. Enerjileri, hata karelerini ve eğri yüzeyleri betimlerler. Bu kesim onları bir matrisle yazıyor, üç temel biçimi, yani çanak, oluk ve eyeri gösteriyor ve karma terimler olmadığı sürece hangi biçimin söz konusu olduğunun matristen nasıl anlaşıldığını açıklıyor.
+Doğrusal fonksiyonlardan sonra çok değişkenli fonksiyonların en basitleri kuadratik olanlardır. Uzaklıkların karelerini, hata karelerini ve eğri yüzeyleri betimlerler. Bu kesim onları bir matrisle yazıyor, üç temel biçimi, yani çanak, oluk ve eyeri gösteriyor ve karma terimler olmadığı sürece hangi biçimin söz konusu olduğunun matristen nasıl anlaşıldığını açıklıyor.
 :::
 
 ### Kuadratik formlar
 
 <span class="anker" id="stufe-5-1"></span>
 
-[Temeller 1, Kesim 8.4](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-4)'te tek çıkışlı her doğrusal fonksiyon, bileşenlerin bir $\mathbf{w}^{\top}\mathbf{x}$ ağırlıklı toplamıydı. Basitlikte bundan sonra gelen fonksiyon türü, bileşenlerin ikişerli çarpımlarını toplar: $x_1^2$ gibi kareleri ve $x_1x_2$ gibi karma terimleri. Elektrik mühendisliğinden bir örnek, endüktansları $L_1$, $L_2$ ve karşılıklı endüktansı $M$ olan, içlerinden $i_1$ ve $i_2$ akımları geçen iki kuplajlı bobinin manyetik enerjisidir:
+[Bölüm 1, Kesim 8.4](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-4)'te tek çıkışlı her doğrusal fonksiyon, bileşenlerin bir $\mathbf{w}^{\top}\mathbf{x}$ ağırlıklı toplamıydı. Basitlikte bundan sonra gelen fonksiyon türü, bileşenlerin ikişerli çarpımlarını toplar: $x_1^2$ gibi kareleri ve $x_1x_2$ gibi karma terimleri. Gündelik hayattan bir örnek, birbirine dik olmayan iki düz yol üzerinde yapılan bir yürüyüştür. Biri önce birinci yolun $\mathbf{u}$ birim vektörü yönünde $x_1$ km, sonra ikinci yolun $\mathbf{v}$ birim vektörü yönünde $x_2$ km yürüyor; negatif mesafeler ters yön anlamına gelir. Bu kişi o zaman $x_1\mathbf{u}+x_2\mathbf{v}$ noktasında durur ve başlangıç noktasına uzaklığının karesi için iç çarpımın hesap kurallarına göre şu geçerlidir:
 
-$$W=\tfrac12L_1i_1^2+M\,i_1i_2+\tfrac12L_2i_2^2 .$$
+$$d^2=\lVert x_1\mathbf{u}+x_2\mathbf{v}\rVert^2=x_1^2+2\,(\mathbf{u}^{\top}\mathbf{v})\,x_1x_2+x_2^2 .$$
 
 Böyle toplamlar ortada bir matris bulunacak biçimde yazılabilir.
 
@@ -43,7 +44,7 @@ $$\mathbf{x}^{\top}\begin{pmatrix}a_{11}&a_{12}\\a_{21}&a_{22}\end{pmatrix}\math
 $\mathbf{x}$ iki katına çıkarılırsa $f$ dört katına çıkar: $f(c\,\mathbf{x})=c^2f(\mathbf{x})$. Adı buradan gelir.
 
 ::::beispiel [Sayısal örnek]
-$\mathbf{A}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ için $f(\mathbf{x})=5x_1^2+4x_1x_2+2x_2^2$ olur. $\mathbf{x}=(1,\,-1)^{\top}$ noktasında $f=5-4+2=3$; sağlama olarak $\mathbf{A}\mathbf{x}=(3,\,0)^{\top}$ ve $\mathbf{x}^{\top}\mathbf{A}\mathbf{x}=3$. Şekil [14](#abb-14), [(5.1)](#gl-5-1) çift toplamını bu noktada terim terim hesaplıyor. $(1,\,1)^{\top}$ noktasında $f=11$, orijinde $f=0$. İki bobinin enerjisi $\mathbf i=(i_1,\,i_2)^{\top}$ akım vektörüyle $W=\tfrac12\,\mathbf i^{\top}\bigl(\begin{smallmatrix}L_1&M\\M&L_2\end{smallmatrix}\bigr)\,\mathbf i$ olur; bu matrise endüktans matrisi denir.
+$\mathbf{A}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ için $f(\mathbf{x})=5x_1^2+4x_1x_2+2x_2^2$ olur. $\mathbf{x}=(1,\,-1)^{\top}$ noktasında $f=5-4+2=3$; sağlama olarak $\mathbf{A}\mathbf{x}=(3,\,0)^{\top}$ ve $\mathbf{x}^{\top}\mathbf{A}\mathbf{x}=3$. Şekil [14](#abb-14), [(5.1)](#gl-5-1) çift toplamını bu noktada terim terim hesaplıyor. $(1,\,1)^{\top}$ noktasında $f=11$, orijinde $f=0$. Yürüyüşün uzaklık karesi $\mathbf{x}=(x_1,\,x_2)^{\top}$ ile $d^2=\mathbf{x}^{\top}\bigl(\begin{smallmatrix}1&\mathbf{u}^{\top}\mathbf{v}\\\mathbf{u}^{\top}\mathbf{v}&1\end{smallmatrix}\bigr)\,\mathbf{x}$ olur; bu matris, [Bölüm 1, Kesim 10](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/transponierte-symmetrie-und-gram-matrix.html#stufe-10)'daki $\mathbf{u}$ ve $\mathbf{v}$ yönlerinin Gram matrisidir. Yollar aralarında $60^\circ$ açı yapıyorsa $\mathbf{u}^{\top}\mathbf{v}=\cos60^\circ=\tfrac12$ ve $d^2=x_1^2+x_1x_2+x_2^2$ olur: İki yolun her birinde $1$ km yürüdükten sonra başlangıçtan $\sqrt3\approx1{,}73$ km uzakta olursunuz.
 
 :::abbildung ml/k2rqf 14
 $\mathbf{A}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ matrisinin kuadratik formu $\mathbf{x}=(1,-1)^{\top}$ noktasında çift toplam olarak: $\mathbf{A}$ matrisinin her elemanı için bir tane olmak üzere dört terim.
@@ -153,7 +154,7 @@ $x_1^2+6x_1x_2+x_2^2=(x_1+3x_2)^2-8x_2^2$. Katsayıların işaretleri farklıdı
 ⁠**Kısacası:** Tam kareye tamamlama bir kuadratik formu karelerin toplamı olarak yazar; karelerin önündeki katsayıların işaretleri, formun bir çanak mı, bir oluk mu, yoksa bir eyer mi olduğunu gösterir.
 
 :::hintergrund Tam kareye tamamlama Gauss eleme yöntemidir
-[(5.3)](#gl-5-3) içindeki sayılar, [Temeller 1, Kesim 12.3](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-gleichungssysteme.html#stufe-12-3)'teki Gauss eleme yöntemi $\bigl(\begin{smallmatrix}a&b\\b&c\end{smallmatrix}\bigr)$ simetrik matrisine uygulandığında çıkan sayılarla aynıdır. Köşegenin altında bir sıfır elde etmek için birinci satırın $\frac ba$ katı ikinci satırdan çıkarılır ve $\bigl(\begin{smallmatrix}a&b\\0&c-b^2/a\end{smallmatrix}\bigr)$ elde edilir. Bu basamak biçiminin köşegen elemanları, yani pivotlar, tam olarak karelerin önündeki katsayılardır; $\frac ba$ eleme çarpanı da birinci parantezde durur. $\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ matrisi için: çarpan $0{,}4$, pivotlar $5$ ve $1{,}2$. $n$ değişkende aynı işlem sürdürülür: Her eleme adımı bir değişkeni bir kareye tamamlar. Form ancak ve ancak bütün pivotlar pozitifse bir çanaktır. [Temeller 1, Kesim 14.5](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5)'teki hesap kurallarına göre pivotların çarpımı determinanttır, burada $5\cdot1{,}2=6=5\cdot2-2\cdot2$.
+[(5.3)](#gl-5-3) içindeki sayılar, [Bölüm 1, Kesim 12.3](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-gleichungssysteme.html#stufe-12-3)'teki Gauss eleme yöntemi $\bigl(\begin{smallmatrix}a&b\\b&c\end{smallmatrix}\bigr)$ simetrik matrisine uygulandığında çıkan sayılarla aynıdır. Köşegenin altında bir sıfır elde etmek için birinci satırın $\frac ba$ katı ikinci satırdan çıkarılır ve $\bigl(\begin{smallmatrix}a&b\\0&c-b^2/a\end{smallmatrix}\bigr)$ elde edilir. Bu basamak biçiminin köşegen elemanları, yani pivotlar, tam olarak karelerin önündeki katsayılardır; $\frac ba$ eleme çarpanı da birinci parantezde durur. $\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ matrisi için: çarpan $0{,}4$, pivotlar $5$ ve $1{,}2$. $n$ değişkende aynı işlem sürdürülür: Her eleme adımı bir değişkeni bir kareye tamamlar. Form ancak ve ancak bütün pivotlar pozitifse bir çanaktır. [Bölüm 1, Kesim 14.5](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5)'teki hesap kurallarına göre pivotların çarpımı determinanttır, burada $5\cdot1{,}2=6=5\cdot2-2\cdot2$.
 :::
 
 :::aufgabe Alıştırma 14 ★ Formlar ve matrisler
@@ -226,32 +227,32 @@ $f_3=(x_1+2x_2)^2-3x_2^2$: farklı işaretler, bir eyer. $x_2=1$ ve $x_1=-2$ se�
 :::
 :::
 
-:::aufgabe Alıştırma 16 ★★ Kuplajlı bobinler
+:::aufgabe Alıştırma 16 ★★ İki yol
 <span class="anker" id="aufg-16"></span>
 
-İki kuplajlı bobin için $L_1=4\,\mathrm{mH}$ ve $L_2=1\,\mathrm{mH}$ veriliyor.
+$\mathbf{u}$ ve $\mathbf{v}$ yönlü iki düz yol üzerindeki yürüyüş (alt kesim [5.1](#stufe-5-1)) için $d^2=x_1^2+2\,(\mathbf{u}^{\top}\mathbf{v})\,x_1x_2+x_2^2$ olur.
 
 <ol class="al">
 
 <li>
 
-$W=\tfrac12L_1i_1^2+M\,i_1i_2+\tfrac12L_2i_2^2$ enerjisini tam kareye tamamlayın.
+$d^2$ ifadesini tam kareye tamamlayın.
 
 </li>
 
 <li>
 
-$M$ hangi değerleri aldığında bütün $(i_1,\,i_2)\ne(0,\,0)$ akımları için $W>0$ olur? Bundan $k=M/\sqrt{L_1L_2}$ kuplaj katsayısı için ne çıkar?
+$\mathbf{u}^{\top}\mathbf{v}$ hangi değerleri aldığında bütün $(x_1,\,x_2)\ne(0,\,0)$ mesafeleri için $d^2>0$ olur? [Bölüm 1, Kesim 5.1](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/winkel-und-ahnlichkeit.html#stufe-5-1)'deki Cauchy-Schwarz eşitsizliğine göre $|\mathbf{u}^{\top}\mathbf{v}|$ neden hiçbir zaman $1$ değerini aşamaz ve $|\mathbf{u}^{\top}\mathbf{v}|=1$ iki yol için ne anlama gelir?
 
 </li>
 
 </ol>
 
 :::loesung
-(a) [(5.3)](#gl-5-3) bağıntısında $a=\tfrac12L_1$, $2b=M$ ve $c=\tfrac12L_2$ olur, dolayısıyla $b/a=M/L_1$ ve $b^2/a=M^2/(2L_1)$:
+(a) [(5.3)](#gl-5-3) bağıntısında $a=1$, $b=\mathbf{u}^{\top}\mathbf{v}$ ve $c=1$ olur, dolayısıyla $b/a=\mathbf{u}^{\top}\mathbf{v}$ ve $b^2/a=(\mathbf{u}^{\top}\mathbf{v})^2$:
 
-$$W=\tfrac12L_1\Bigl(i_1+\frac M{L_1}\,i_2\Bigr)^2+\tfrac12\Bigl(L_2-\frac{M^2}{L_1}\Bigr)i_2^2=2\,\mathrm{mH}\,\Bigl(i_1+\frac M{4\,\mathrm{mH}}\,i_2\Bigr)^2+\Bigl(\frac12\,\mathrm{mH}-\frac{M^2}{8\,\mathrm{mH}}\Bigr)i_2^2 .$$
+$$d^2=\bigl(x_1+(\mathbf{u}^{\top}\mathbf{v})\,x_2\bigr)^2+\bigl(1-(\mathbf{u}^{\top}\mathbf{v})^2\bigr)\,x_2^2 .$$
 
-(b) Birinci katsayı pozitiftir. $\ne(0,\,0)$ olan bütün akımlar için $W>0$ koşulu ancak ve ancak ikinci katsayı da pozitifse sağlanır: $L_2-M^2/L_1>0$, yani $M^2<L_1L_2=4\,(\mathrm{mH})^2$ ve $|M|<2\,\mathrm{mH}$. Kuplaj katsayısı için bu, $|k|=|M|/\sqrt{L_1L_2}<1$ demektir. İdeal sıkı kuplaj olan $|k|=1$ durumunda form yalnızca bir oluk olurdu: Uygun $i_1=-\tfrac M{L_1}\,i_2$ akım oranında depolanan enerji sıfır olurdu. Demek ki bir manyetik alanın enerjisinin hiçbir zaman negatif olmaması $|k|\le1$ koşulunu zorunlu kılar.
+(b) Birinci katsayı $a=1>0$ olur. $\ne(0,\,0)$ olan bütün mesafeler için $d^2>0$ koşulu ancak ve ancak ikinci katsayı da pozitifse sağlanır: $1-(\mathbf{u}^{\top}\mathbf{v})^2>0$, yani $|\mathbf{u}^{\top}\mathbf{v}|<1$. Cauchy-Schwarz eşitsizliğine göre $|\mathbf{u}^{\top}\mathbf{v}|\le\lVert\mathbf{u}\rVert\,\lVert\mathbf{v}\rVert=1$ olur; eşitlik ancak ve ancak $\mathbf{v}=\pm\mathbf{u}$ ise, yani iki yol paralelse sağlanır. O zaman form yalnızca bir oluk olurdu: $x_1=-(\mathbf{u}^{\top}\mathbf{v})\,x_2$ için, örneğin $1$ km gidip $1$ km geri dönünce, yeniden başlangıç noktasında olursunuz. Gerçekten kesişen iki yol için $|\mathbf{u}^{\top}\mathbf{v}|<1$ olur ve $(x_1,\,x_2)\ne(0,\,0)$ olan her yürüyüş, başlangıçtan pozitif bir uzaklıkta biter.
 :::
 :::

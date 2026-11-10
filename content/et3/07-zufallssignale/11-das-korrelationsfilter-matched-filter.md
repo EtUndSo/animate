@@ -1,6 +1,8 @@
 ---
 title: Stufe 10: Das Korrelationsfilter (Matched Filter)
-pfad: Elektrotechnik / 3. Semester / Signale und Systeme / Zufallssignale
+pfad: Elektrotechnik / 3. Semester / ET3 – Grundgebiete der Elektrotechnik 3: Signale und Systeme / Zufallssignale
+adresse: elektrotechnik/3-semester/signale-und-systeme/zufallssignale
+knoten: Kapitel 7: Zufallssignale
 order: 3271100
 summary: Ein bekannter Impuls s(t) kommt verrauscht an.
 tags: Korrelationsfilter, Korrelator
@@ -17,7 +19,7 @@ Ein bekannter Impuls $s(t)$ kommt verrauscht an. Mit welchem Filter wird er im A
 
 $$\frac{S_a}{N}=\frac{g^2(T)}{\mathrm E\{n_e^2(T)\}}=\frac{\bigl[\int h(\tau)s(T-\tau)\mathrm{d}\tau\bigr]^2}{N_0\int|h(\tau)|^2\mathrm{d}\tau}=\frac{E_s}{N_0}\cdot\underbrace{\frac{\bigl[\int h(\tau)s(T-\tau)\mathrm{d}\tau\bigr]^2}{\int|h|^2\mathrm{d}\tau\int|s(T-\tau)|^2\mathrm{d}\tau}}_{=|p|^2\le1}.$$
 
-Der rechte Bruch ist das Quadrat eines Korrelationskoeffizienten ([Teil 6](/wissen/elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen/korrelationsfunktionen.html)), zwischen $h(\tau)$ und $s(T-\tau)$. Er ist höchstens 1, und zwar genau dann, wenn beide dieselbe Form haben.
+Der rechte Bruch ist das Quadrat eines Korrelationskoeffizienten ([Kapitel 6](/wissen/elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen/korrelationsfunktionen.html)), zwischen $h(\tau)$ und $s(T-\tau)$. Er ist höchstens 1, und zwar genau dann, wenn beide dieselbe Form haben.
 
 :::satz Satz 10.1 (Korrelationsfilter)
 <span class="anker" id="satz-10-1"></span>

@@ -1,6 +1,8 @@
 ---
 title: Stufe 8: Spannung und Masse
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Ladung, Feld und Potenzial
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Ladung, Feld und Potenzial
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial
+knoten: Kapitel 1: Ladung, Feld und Potenzial
 order: 1111000
 summary: Der Wert eines Potenzials hängt vom Bezugspunkt ab, die Differenz zweier Potenziale nicht.
 tags: Spannung, Masse, Erde, Schaltplänen, Zählpfeil, Knoten
@@ -79,7 +81,7 @@ Die Leitung hat gegen die Erde mehrere Hundert Kilovolt, doch der Vogel berührt
 :::
 
 :::ltspice Masse verschieben
-⁠**Zeichnen:** Quelle `voltage` mit `9` von `a` nach `b`, `res` mit `2k` von `a` nach `m`, `res` mit `1k` von `m` nach `b`. Setze das Massesymbol zuerst an `b`, dann an `m`, dann an `a`. LTspice braucht immer eine Masse. Die Widerstände erklärt [Teil 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html), hier sorgen sie nur für die Aufteilung 6 V und 3 V.
+⁠**Zeichnen:** Quelle `voltage` mit `9` von `a` nach `b`, `res` mit `2k` von `a` nach `m`, `res` mit `1k` von `m` nach `b`. Setze das Massesymbol zuerst an `b`, dann an `m`, dann an `a`. LTspice braucht immer eine Masse. Die Widerstände erklärt [Kapitel 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html), hier sorgen sie nur für die Aufteilung 6 V und 3 V.
 
 ⁠**Direktiven:** `.op`, dazu für jedes Netz ohne Masse eine Messung wie `.meas op pa FIND V(a)`. Das Netz mit Masse hat keinen eigenen Wert, für es setzt du 0 ein.
 

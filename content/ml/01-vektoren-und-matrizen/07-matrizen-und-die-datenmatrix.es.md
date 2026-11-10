@@ -1,7 +1,8 @@
 ---
 title: Matrices y la matriz de datos
 pfad: Informática / Aprendizaje automático / Fundamentos matemáticos / Vectores y matrices
-knoten: Fundamentos 1: Vectores y matrices
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Capítulo 1: Vectores y matrices
 nachschlagen: ja
 order: 15210700
 summary: Un conjunto de datos consta de muchos vectores de la misma longitud.

@@ -1,6 +1,8 @@
 ---
 title: Etapa 1: El sistema sin distorsión
-pfad: Ingeniería eléctrica / 3.er semestre / Señales y sistemas / Sistemas paso bajo y paso banda
+pfad: Ingeniería eléctrica / 3.er semestre / ET3 – Fundamentos de ingeniería eléctrica 3: señales y sistemas / Sistemas paso bajo y paso banda
+adresse: elektrotechnik/3-semester/signale-und-systeme/tiefpass-und-bandpasssysteme
+knoten: Capítulo 5: Sistemas paso bajo y paso banda
 order: 3250200
 summary: ¿Qué debe lograr exactamente una «buena» transmisión?
 tags: retardo de fase, retardo de grupo

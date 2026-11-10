@@ -1,7 +1,8 @@
 ---
 title: Lo esencial hasta aquí
 pfad: Informática / Aprendizaje automático / Fundamentos matemáticos / Vectores y matrices
-knoten: Fundamentos 1: Vectores y matrices
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Capítulo 1: Vectores y matrices
 nachschlagen: ja
 order: 15211700
 summary: Los datos como listas de números, los modelos como aplicaciones lineales
@@ -26,7 +27,7 @@ El producto escalar $\mathbf{u}^{\top}\mathbf{v}=\sum_ju_jv_j$ es una suma ponde
 
 <li>
 
-Las normas miden el tamaño: $\lVert\mathbf{x}\rVert_2=\sqrt{\mathbf{x}^{\top}\mathbf{x}}$, $\lVert\mathbf{x}\rVert_1=\sum_j|x_j|$, $\lVert\mathbf{x}\rVert_\infty=\max_j|x_j|$; el valor eficaz es $\lVert\mathbf{x}\rVert/\sqrt n$. Las distancias $\lVert\mathbf{u}-\mathbf{v}\rVert$ dependen de las unidades; estandarizar las hace independientes de ellas.
+Las normas miden el tamaño: $\lVert\mathbf{x}\rVert_2=\sqrt{\mathbf{x}^{\top}\mathbf{x}}$, $\lVert\mathbf{x}\rVert_1=\sum_j|x_j|$, $\lVert\mathbf{x}\rVert_\infty=\max_j|x_j|$; el valor cuadrático medio es $\lVert\mathbf{x}\rVert/\sqrt n$. Las distancias $\lVert\mathbf{u}-\mathbf{v}\rVert$ dependen de las unidades; estandarizar las hace independientes de ellas.
 
 </li>
 

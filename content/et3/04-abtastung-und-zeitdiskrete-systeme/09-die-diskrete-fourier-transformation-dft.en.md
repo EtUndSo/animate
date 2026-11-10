@@ -1,6 +1,8 @@
 ---
 title: Stage 8: The discrete Fourier transform (DFT)
-pfad: Electrical Engineering / 3rd Semester / Signals and Systems / Sampling and Discrete-Time Systems
+pfad: Electrical Engineering / 3rd Semester / ET3 – Fundamentals of Electrical Engineering 3: Signals and Systems / Sampling and Discrete-Time Systems
+adresse: elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme
+knoten: Chapter 4: Sampling and Discrete-Time Systems
 order: 3240900
 summary: S mathrm a(f) is a continuous function, but a computer needs finitely many numbers.
 tags: 

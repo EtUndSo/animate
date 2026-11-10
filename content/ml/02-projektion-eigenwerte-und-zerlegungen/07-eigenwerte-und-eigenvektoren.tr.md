@@ -1,7 +1,8 @@
 ---
 title: Özdeğerler ve özvektörler
 pfad: Bilgisayar Bilimleri / Makine Öğrenmesi / Matematiksel Temeller / İzdüşüm, Özdeğerler ve Ayrışımlar
-knoten: Temeller 2: İzdüşüm, Özdeğerler ve Ayrışımlar
+adresse: informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen
+knoten: Bölüm 2: İzdüşüm, Özdeğerler ve Ayrışımlar
 nachschlagen: ja
 order: 15220700
 summary: Bir matris çoğu vektörü aynı anda hem döndürür hem uzatır.
@@ -21,7 +22,7 @@ Bir matris çoğu vektörü aynı anda hem döndürür hem uzatır. Ama bazı do
 
 Uzama çarpanları aranırken polinom denklemleri ortaya çıkar ve bunların hepsinin gerçel çözümü yoktur. Bu alt kesim, bu bölümün karmaşık sayılar hakkında kullandıklarını bir araya getiriyor.
 
-**Karmaşık sayılar.** Bir $z=x+\mathrm j\,y$ karmaşık sayısı iki gerçel sayıdan, $x$ gerçel kısmından ve $y$ sanal kısmından oluşur. Sanal birim için $\mathrm j^2=-1$ geçerlidir. Elektrik mühendisliğinde $i$ yerine $\mathrm j$ yazılır, çünkü $i$ akım için kullanılmaktadır.
+**Karmaşık sayılar.** Bir $z=x+\mathrm j\,y$ karmaşık sayısı iki gerçel sayıdan, $x$ gerçel kısmından ve $y$ sanal kısmından oluşur. Sanal birim için $\mathrm j^2=-1$ geçerlidir. Birçok matematik kitabı onu $\mathrm i$ ile gösterir; bu bölüm Python gibi dik bir $\mathrm j$ yazar, çünkü Python $3+4\,\mathrm j$ sayısını `3+4j` olarak yazar ve $i$ indis olarak serbest kalır.
 
 **Eşlenik ve mutlak değer.** $z$ sayısının __karmaşık eşleniği__ $z^*=x-\mathrm j\,y$ sayısıdır. $z\,z^*=x^2+y^2=|z|^2$ olur; bu, mutlak değerin karesidir, yani yalnızca $z=0$ için sıfır olan bir gerçel sayı. Bir sayı ancak ve ancak $z=z^*$ ise gerçeldir. Eşlenik alma toplam ve çarpımla uyumludur: $(z+w)^*=z^*+w^*$ ve $(zw)^*=z^*w^*$. Bileşenleri karmaşık olan bir $\mathbf{v}$ vektörü için bu bölümde $\mathbf{v}^*$, bileşenlerin eşleniklerinden oluşan vektörü gösterir; devrik alınmaz. Bu durumda şu geçerlidir:
 
@@ -45,7 +46,7 @@ $\mathbf{v}=(1,-\mathrm j)^{\top}$ için $(\mathbf{v}^*)^{\top}\mathbf{v}$ iç �
 
 <span class="anker" id="stufe-6-2"></span>
 
-[Temeller 1, Kesim 8.3](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-3)'te düzlemin ızgarası matrislerle döndürülmüş, uzatılmış ve kaydırılmıştı. Bu sırada okların çoğu doğrultusunu değiştirir. Ama bazı matrislerde, bir okun orijinden geçen kendi doğrusu üzerinde kaldığı doğrultular vardır: Ok yalnızca uzar, kısalır ya da ters döner (Şekil [17](#abb-17)).
+[Bölüm 1, Kesim 8.3](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-3)'te düzlemin ızgarası matrislerle döndürülmüş, uzatılmış ve kaydırılmıştı. Bu sırada okların çoğu doğrultusunu değiştirir. Ama bazı matrislerde, bir okun orijinden geçen kendi doğrusu üzerinde kaldığı doğrultular vardır: Ok yalnızca uzar, kısalır ya da ters döner (Şekil [17](#abb-17)).
 
 :::abbildung ml/k2eigen 17
 $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ matrisi birim çemberi (gri) bir elipse (mavi) dönüştürür. $\mathbf{v}_1=(1,1)^{\top}/\sqrt2$ oku (kırmızı) kendi doğrusu üzerinde kalır ve beş katına uzar, $\mathbf{v}_2=(1,-2)^{\top}/\sqrt5$ oku (yeşil) ise iki katına; görüntüleri açık renkle çizilmiştir. Gri doğrular iki öz doğrultudur. Buna karşılık $\mathbf{e}_1$ birim vektörü $(4,2)^{\top}$ vektörüne gider (kesikli) ve doğrultusunu değiştirir.
@@ -74,19 +75,19 @@ Dolayısıyla $(1,\,1)^{\top}$, $5$ özdeğerine ait bir özvektördür; $(1,\,-
 
 ⁠**Kısacası:** Bir özvektör matris tarafından döndürülmez, yalnızca bir sayıyla çarpılır; bu sayı özdeğerdir.
 
-:::hintergrund Özfonksiyonları zaten tanıyorsunuz
-Sinyaller ve sistemler alanından aynı fikir, vektörler yerine fonksiyonlar için bilinir. Dürtü yanıtı $h(t)$ olan bir LTI sistemi, $p$ karmaşık frekanslı (birçok kitapta $s$ ile yazılır) $\mathrm e^{pt}$ üstel fonksiyonuna şöyle cevap verir:
+:::hintergrund Sonsuz uzunluktaki diziler için aynı fikir: bileşik faiz
+$100$ avroluk bir bakiye yılda $5$ % faizle $100$, $105$, $110{,}25$, … avroya, genel olarak $n$ yıl sonra $a_n=100\cdot1{,}05^n$ değerine büyür. “Her değeri bir sonraki yılın değeriyle değiştir” kuralı bir $(a_0,a_1,a_2,\dots)$ dizisini $(a_1,a_2,a_3,\dots)$ dizisine dönüştürür. Bu kural doğrusaldır: İki dizinin toplamı kaydırılırsa kaydırılmış dizilerin toplamı elde edilir; katlar için de aynısı geçerlidir. Bakiye için şunu verir:
 
-$$\int_{-\infty}^{\infty}h(\tau)\,\mathrm e^{p(t-\tau)}\,\mathrm{d}\tau=H(p)\,\mathrm e^{pt},\qquad H(p)=\int_{-\infty}^{\infty}h(\tau)\,\mathrm e^{-p\tau}\,\mathrm{d}\tau ,$$
+$$(105;\ 110{,}25;\ \dots)=1{,}05\cdot(100;\ 105;\ \dots) .$$
 
-hem de integralin var olduğu bütün $p$ değerleri için. Girişin biçimi korunur, yalnızca bir sayı çarpanı eklenir: $\mathrm e^{pt}$ sistemin bir özfonksiyonudur ve özdeğer, aktarım fonksiyonunun $H(p)$ değeridir. [(6.1)](#gl-6-1) denklemi bir matris için aynı şeyi söyler. Bir LTI sistemi sinyallerden sinyallere doğrusal bir dönüşümdür, bir matris de vektörlerden vektörlere doğrusal bir dönüşüm; iki durumda da yalnızca bir sayıyla çarpılan girişler vardır.
+Dizinin biçimi korunur, yalnızca bir sayı çarpanı eklenir: $a_n=100\cdot1{,}05^n$ dizisi kaydırmanın bir özvektörüdür ve özdeğer $1{,}05$ faiz çarpanıdır. [(6.1)](#gl-6-1) denklemi bir matris için aynı şeyi söyler. Kaydırmanın bu tür dizilerden başka özvektörü de yoktur: Bütün $n$ değerleri için $a_{n+1}=\lambda\,a_n$ ise $a_n=a_0\,\lambda^n$ olur. İki durumda da, diziler için de vektörler için de, doğrusal kuralın yalnızca bir sayıyla çarptığı şeyler vardır.
 :::
 
 ### Karakteristik polinom
 
 <span class="anker" id="stufe-6-3"></span>
 
-Özdeğerler tahmin yürütmeden nasıl bulunur? [(6.1)](#gl-6-1) denklemi, her şey bir tarafta olacak biçimde yeniden yazılır: $\mathbf{A}\mathbf{v}-\lambda\mathbf{v}=\mathbf{0}$, yani $(\mathbf{A}-\lambda\mathbf{I})\mathbf{v}=\mathbf{0}$. Aranan, bu homojen sistemin bir $\mathbf{v}\ne\mathbf{0}$ çözümünün bulunduğu bir $\lambda$ değeridir. [Temeller 1, Kesim 11.5](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/einheitsmatrix-und-inverse.html#stufe-11-5)'e göre bu şu demektir: $\mathbf{A}-\lambda\mathbf{I}$ matrisi tersinir değildir. [Temeller 1, Kesim 14.6](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-6)'ya göre bu, ancak ve ancak determinantı sıfırsa böyledir.
+Özdeğerler tahmin yürütmeden nasıl bulunur? [(6.1)](#gl-6-1) denklemi, her şey bir tarafta olacak biçimde yeniden yazılır: $\mathbf{A}\mathbf{v}-\lambda\mathbf{v}=\mathbf{0}$, yani $(\mathbf{A}-\lambda\mathbf{I})\mathbf{v}=\mathbf{0}$. Aranan, bu homojen sistemin bir $\mathbf{v}\ne\mathbf{0}$ çözümünün bulunduğu bir $\lambda$ değeridir. [Bölüm 1, Kesim 11.5](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/einheitsmatrix-und-inverse.html#stufe-11-5)'e göre bu şu demektir: $\mathbf{A}-\lambda\mathbf{I}$ matrisi tersinir değildir. [Bölüm 1, Kesim 14.6](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-6)'ya göre bu, ancak ve ancak determinantı sıfırsa böyledir.
 
 :::definition Tanım 6.2 (Karakteristik polinom)
 <span class="anker" id="satz-6-2"></span>
@@ -205,7 +206,7 @@ Demek ki gerçel bir matrisin karmaşık özdeğerleri olabilir. Karakteristik p
 ⁠**Kısacası:** Gerçel bir matrisin karmaşık özdeğerleri olabilir, her zaman eşlenik çiftler halinde; $\alpha$ kadar bir dönmenin özdeğerleri $\mathrm e^{\pm\mathrm j\alpha}$ olur.
 
 :::hintergrund Döndürmek $\mathrm e^{\mathrm j\alpha}$ ile çarpmak demektir
-Elektrik mühendisleri için bu sonuç tanıdıktır. $(x_1,\,x_2)^{\top}$ oku, bir fazörde olduğu gibi $z=x_1+\mathrm jx_2$ karmaşık sayısıyla özdeşleştirilir. O zaman $\alpha$ kadar bir dönme $\mathrm e^{\mathrm j\alpha}$ ile çarpmaktır: $\mathrm e^{\mathrm j\alpha}z=(x_1\cos\alpha-x_2\sin\alpha)+\mathrm j\,(x_1\sin\alpha+x_2\cos\alpha)$; bunlar [Temeller 1, Kesim 8.3](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-3)'teki dönme matrisi için $\mathbf{Q}\mathbf{x}$ vektörünün tam olarak iki bileşenidir. Karmaşık gösterimde dönme yani bir sayıyla çarpmadır ve bu sayı bir özdeğerdir. İkinci $\mathrm e^{-\mathrm j\alpha}$ özdeğeri, ters yönde dönen $z^*$ eşlenik gösterimine aittir.
+Karmaşık sayılarla sonuç doğrudan görülür. $(x_1,\,x_2)^{\top}$ oku $z=x_1+\mathrm jx_2$ karmaşık sayısıyla, yani karmaşık düzlemin bir noktasıyla özdeşleştirilir. O zaman $\alpha$ kadar bir dönme $\mathrm e^{\mathrm j\alpha}$ ile çarpmaktır: $\mathrm e^{\mathrm j\alpha}z=(x_1\cos\alpha-x_2\sin\alpha)+\mathrm j\,(x_1\sin\alpha+x_2\cos\alpha)$; bunlar [Bölüm 1, Kesim 8.3](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-3)'teki dönme matrisi için $\mathbf{Q}\mathbf{x}$ vektörünün tam olarak iki bileşenidir. Karmaşık gösterimde dönme yani bir sayıyla çarpmadır ve bu sayı bir özdeğerdir. İkinci $\mathrm e^{-\mathrm j\alpha}$ özdeğeri, ters yönde dönen $z^*$ eşlenik gösterimine aittir.
 :::
 
 ### Katlı özdeğerler
@@ -221,7 +222,7 @@ Bir $\lambda$ özdeğerinin __cebirsel katlılığı__, $\lambda$ sayısının k
 :::
 
 ::::beispiel [Sayısal örnek]
-$2\mathbf{I}=\operatorname{diag}(2;\,2)$ matrisi için $p(\lambda)=(2-\lambda)^2$: $2$ özdeğerinin cebirsel katlılığı $2$. [Temeller 1, Kesim 8.3](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-3)'teki $\bigl(\begin{smallmatrix}1&1\\0&1\end{smallmatrix}\bigr)$ kayması için $p(\lambda)=(1-\lambda)^2$: $1$ özdeğerinin cebirsel katlılığı da $2$. $\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ matrisinin iki farklı özdeğeri vardır, her birinin cebirsel katlılığı $1$.
+$2\mathbf{I}=\operatorname{diag}(2;\,2)$ matrisi için $p(\lambda)=(2-\lambda)^2$: $2$ özdeğerinin cebirsel katlılığı $2$. [Bölüm 1, Kesim 8.3](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-3)'teki $\bigl(\begin{smallmatrix}1&1\\0&1\end{smallmatrix}\bigr)$ kayması için $p(\lambda)=(1-\lambda)^2$: $1$ özdeğerinin cebirsel katlılığı da $2$. $\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ matrisinin iki farklı özdeğeri vardır, her birinin cebirsel katlılığı $1$.
 ::::
 
 ⁠**Kısacası:** Cebirsel katlılık, bir özdeğerin karakteristik polinomun kökü olarak kaç kez yer aldığını sayar.
@@ -297,7 +298,7 @@ $\mathbf{A}^{\top}$ matrisinin özdeğerleri $\mathbf{A}$ matrisininkilerle ayn�
 :::
 
 :::beweis Hesap kuralları
-(i) $\mathbf{A}^2\mathbf{v}=\mathbf{A}(\lambda\mathbf{v})=\lambda\mathbf{A}\mathbf{v}=\lambda^2\mathbf{v}$ ve bu böyle sürer. (ii) $(\mathbf{A}+\beta\mathbf{I})\mathbf{v}=\lambda\mathbf{v}+\beta\mathbf{v}$. (iii) [(6.5)](#gl-6-5) uyarınca $\det\mathbf{A}$ özdeğerlerin çarpımıdır, dolayısıyla ancak ve ancak hiçbir özdeğer sıfır değilse sıfırdan farklıdır. $\mathbf{A}\mathbf{v}=\lambda\mathbf{v}$ eşitliği $\mathbf{A}^{-1}$ ile çarpılırsa $\mathbf{v}=\lambda\mathbf{A}^{-1}\mathbf{v}$ çıkar. (iv) [Temeller 1, Kesim 14.5](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5)'e göre $\det(\mathbf{A}^{\top}-\lambda\mathbf{I})=\det\bigl((\mathbf{A}-\lambda\mathbf{I})^{\top}\bigr)=\det(\mathbf{A}-\lambda\mathbf{I})$; iki matrisin karakteristik polinomu aynıdır.
+(i) $\mathbf{A}^2\mathbf{v}=\mathbf{A}(\lambda\mathbf{v})=\lambda\mathbf{A}\mathbf{v}=\lambda^2\mathbf{v}$ ve bu böyle sürer. (ii) $(\mathbf{A}+\beta\mathbf{I})\mathbf{v}=\lambda\mathbf{v}+\beta\mathbf{v}$. (iii) [(6.5)](#gl-6-5) uyarınca $\det\mathbf{A}$ özdeğerlerin çarpımıdır, dolayısıyla ancak ve ancak hiçbir özdeğer sıfır değilse sıfırdan farklıdır. $\mathbf{A}\mathbf{v}=\lambda\mathbf{v}$ eşitliği $\mathbf{A}^{-1}$ ile çarpılırsa $\mathbf{v}=\lambda\mathbf{A}^{-1}\mathbf{v}$ çıkar. (iv) [Bölüm 1, Kesim 14.5](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5)'e göre $\det(\mathbf{A}^{\top}-\lambda\mathbf{I})=\det\bigl((\mathbf{A}-\lambda\mathbf{I})^{\top}\bigr)=\det(\mathbf{A}-\lambda\mathbf{I})$; iki matrisin karakteristik polinomu aynıdır.
 :::
 
 ::::beispiel [Sayısal örnek]
@@ -330,7 +331,7 @@ $\mathbf{A}_3$: iz $2$, determinant $1-9=-8$, dolayısıyla $\lambda^2-2\lambda-
 Bir üst üçgen matrisin özdeğerlerinin köşegen elemanları olduğunu gösterin. $\Bigl(\begin{smallmatrix}2&1&0\\0&3&1\\0&0&5\end{smallmatrix}\Bigr)$ matrisinin özdeğerlerini ve özvektörlerini bulun.
 
 :::loesung
-Bir üst üçgen matris için $\mathbf{A}-\lambda\mathbf{I}$ da köşegen elemanları $a_{ii}-\lambda$ olan bir üst üçgen matristir. [Temeller 1, Kesim 14.4](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-4)'e göre bu matrisin determinantı köşegen elemanlarının çarpımıdır: $p(\lambda)=(a_{11}-\lambda)\cdots(a_{nn}-\lambda)$. Kökler köşegen elemanlarıdır.
+Bir üst üçgen matris için $\mathbf{A}-\lambda\mathbf{I}$ da köşegen elemanları $a_{ii}-\lambda$ olan bir üst üçgen matristir. [Bölüm 1, Kesim 14.4](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-4)'e göre bu matrisin determinantı köşegen elemanlarının çarpımıdır: $p(\lambda)=(a_{11}-\lambda)\cdots(a_{nn}-\lambda)$. Kökler köşegen elemanlarıdır.
 
 Verilen matrisin özdeğerleri dolayısıyla $2$, $3$ ve $5$ olur. $2$ için: $\mathbf{A}-2\mathbf{I}=\Bigl(\begin{smallmatrix}0&1&0\\0&1&1\\0&0&3\end{smallmatrix}\Bigr)$ matrisi $v_3=0$ ve $v_2=0$ koşullarını verir, özvektör $(1,\,0,\,0)^{\top}$. $3$ için: $\Bigl(\begin{smallmatrix}-1&1&0\\0&0&1\\0&0&2\end{smallmatrix}\Bigr)$ matrisi $v_3=0$ ve $v_2=v_1$ koşullarını verir, özvektör $(1,\,1,\,0)^{\top}$. $5$ için: $\Bigl(\begin{smallmatrix}-3&1&0\\0&-2&1\\0&0&0\end{smallmatrix}\Bigr)$ matrisi $v_2=3v_1$ ve $v_3=2v_2$ koşullarını verir, özvektör $(1,\,3,\,6)^{\top}$. Sağlama: $\mathbf{A}(1,\,3,\,6)^{\top}=(2+3,\ 9+6,\ 30)^{\top}=5\,(1,\,3,\,6)^{\top}$.
 :::

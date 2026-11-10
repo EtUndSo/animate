@@ -1,6 +1,8 @@
 ---
 title: Stage 4: The lossless line
-pfad: Electrical Engineering / 3rd Semester / Signals and Systems / Orthogonal Expansion and Transmission Lines
+pfad: Electrical Engineering / 3rd Semester / ET3 – Fundamentals of Electrical Engineering 3: Signals and Systems / Orthogonal Expansion and Transmission Lines
+adresse: elektrotechnik/3-semester/signale-und-systeme/orthogonalentwicklung-und-leitungen
+knoten: Chapter 8: Orthogonal Expansion and Transmission Lines
 order: 3280500
 summary: Without losses ( R'=G'=0 ), the characteristic impedance and the velocity become independent of frequency.
 tags: 
@@ -29,7 +31,7 @@ $$u(s,t)=u_\mathrm{fw}(s-vt)+u_\mathrm{bw}(s+vt) \tag{4.2}$$
 with arbitrary (twice differentiable) functions $u_\mathrm{fw}$ (forward) and $u_\mathrm{bw}$ (backward).
 :::
 
-⁠**How to read it:** An arbitrary signal shape travels unchanged along the line at the velocity $v$. This is because all frequency components are equally fast and are attenuated equally little: the line is a distortion-free system in the sense of [Part 5](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/tiefpass-und-bandpasssysteme/tiefpass-und-bandpasssysteme.html), with the delay $l/v$. The wave equation for $u$ follows from [(2.1)](die-leitungsgleichungen.html#gl-2-1) by differentiating the first equation with respect to $s$ and the second with respect to $t$ and eliminating $i$.
+⁠**How to read it:** An arbitrary signal shape travels unchanged along the line at the velocity $v$. This is because all frequency components are equally fast and are attenuated equally little: the line is a distortion-free system in the sense of [Chapter 5](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/tiefpass-und-bandpasssysteme/tiefpass-und-bandpasssysteme.html), with the delay $l/v$. The wave equation for $u$ follows from [(2.1)](die-leitungsgleichungen.html#gl-2-1) by differentiating the first equation with respect to $s$ and the second with respect to $t$ and eliminating $i$.
 
 ::::beispiel coaxial cable
 $Z=50\,\Omega$ and $C'=100$ pF/m give $L'=Z^2C'=250$ nH/m and $v=\frac{1}{\sqrt{L'C'}}=2\cdot10^8$ m/s, two thirds of the speed of light (because of the dielectric in the cable). A signal needs 50 ns for 10 m of cable. If the cable is terminated with 75 $\Omega$ instead of 50 $\Omega$, then $r=\frac{75-50}{75+50}=0.2$: 20 % of the voltage amplitude travels back as an echo.

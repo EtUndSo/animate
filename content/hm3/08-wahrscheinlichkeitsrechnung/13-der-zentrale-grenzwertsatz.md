@@ -1,6 +1,8 @@
 ---
 title: Stufe 12: Der zentrale Grenzwertsatz
-pfad: Elektrotechnik / 3. Semester / Höhere Mathematik 3 / Wahrscheinlichkeitsrechnung
+pfad: Elektrotechnik / 3. Semester / HöMa3 – Höhere Mathematik 3 / Wahrscheinlichkeitsrechnung
+adresse: elektrotechnik/3-semester/hohere-mathematik-3/wahrscheinlichkeitsrechnung
+knoten: Kapitel 8: Wahrscheinlichkeitsrechnung
 order: 3181300
 summary: Das Gesetz der großen Zahlen sagt, dass der Mittelwert gegen mu läuft.
 tags: standardisierte Zufallsvariable, charakteristische Funktion
@@ -56,7 +58,7 @@ Im letzten Schritt steckt $p(1-p)\le\frac14$, der Scheitel der Parabel, so fäll
 <span class="anker" id="gl-12-3"></span>
 $$\varphi_X(t):=\mathbb{E}(\mathrm{e}^{\mathrm itX}). \tag{12.3}$$
 
-Für absolut stetiges $X$ ist nach [(7.3)](der-erwartungswert.html#gl-7-3) $\varphi_X(t)=\int_\mathbb{R} f_X(x)\,\mathrm{e}^{\mathrm itx}\,\mathrm{d} x$. Das ist bis auf den Faktor $1/\sqrt{2\pi}$ die inverse Fourier-Transformierte von $f_X$ ([Teil 2](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/integralrechnung-im-rn/integralrechnung-im-rn.html)). Die Gaußfunktion $\frac1{\sqrt{2\pi}}\mathrm{e}^{-x^2/2}$ bleibt unter dieser Transformation unverändert. Daher gilt
+Für absolut stetiges $X$ ist nach [(7.3)](der-erwartungswert.html#gl-7-3) $\varphi_X(t)=\int_\mathbb{R} f_X(x)\,\mathrm{e}^{\mathrm itx}\,\mathrm{d} x$. Das ist bis auf den Faktor $1/\sqrt{2\pi}$ die inverse Fourier-Transformierte von $f_X$ ([Kapitel 2](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/integralrechnung-im-rn/integralrechnung-im-rn.html)). Die Gaußfunktion $\frac1{\sqrt{2\pi}}\mathrm{e}^{-x^2/2}$ bleibt unter dieser Transformation unverändert. Daher gilt
 
 <span class="anker" id="gl-12-4"></span>
 $$X\sim\mathcal N(0,1)\iff\varphi_X(t)=\mathrm{e}^{-t^2/2}. \tag{12.4}$$

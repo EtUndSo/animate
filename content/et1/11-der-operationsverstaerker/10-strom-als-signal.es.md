@@ -1,6 +1,8 @@
 ---
 title: Etapa 8: La corriente como señal
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / El amplificador operacional
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / El amplificador operacional
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker
+knoten: Capítulo 11: El amplificador operacional
 order: 1211000
 summary: Hasta ahora, la señal era la tensión.
 tags: amplificador de transimpedancia, resistencia diferencial, convertidor de impedancia negativa
@@ -20,7 +22,7 @@ $$U_\mathrm{A}=-R\,I_\mathrm{E},\qquad r_\mathrm{ent}=\frac{\Delta U_-}{\Delta I
 
 Con $R=1$ M$\Omega$, 2 µ A se convierten en $-2$ V. El nudo se mueve solo $2\,\mathrm{V}/A=20$ µ V. Esa es la pequeña resistencia de entrada de 10 $\Omega$, un valor para cambios (__resistencia diferencial__). La fuente ve casi un cortocircuito, y su resistencia interna no importa.
 
-**Una resistencia negativa.** Con tensión positiva, una resistencia toma corriente en el sentido de la flecha de referencia (convenio receptor, [Parte 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)). El __convertidor de impedancia negativa__ (NIC) empuja en cambio corriente hacia fuera (fig. [10](#abb-10), derecha). El terminal 1 está en la entrada positiva, y desde allí una $R$ lleva a la salida. Desde la salida, una $R$ igual lleva a la entrada negativa, y desde allí $R_2$ a masa. De $\varphi_+=\varphi_-$ se sigue $U_1=U_2$.
+**Una resistencia negativa.** Con tensión positiva, una resistencia toma corriente en el sentido de la flecha de referencia (convenio receptor, [capítulo 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)). El __convertidor de impedancia negativa__ (NIC) empuja en cambio corriente hacia fuera (fig. [10](#abb-10), derecha). El terminal 1 está en la entrada positiva, y desde allí una $R$ lleva a la salida. Desde la salida, una $R$ igual lleva a la entrada negativa, y desde allí $R_2$ a masa. De $\varphi_+=\varphi_-$ se sigue $U_1=U_2$.
 
 :::satz Teorema 8.1 (NIC)
 <span class="anker" id="satz-8-1"></span>

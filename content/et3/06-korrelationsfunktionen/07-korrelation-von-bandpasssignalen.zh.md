@@ -1,8 +1,10 @@
 ---
 title: 第 6 阶段：带通信号的相关
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / 相关函数
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / 相关函数
+adresse: elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen
+knoten: 第 6 章：相关函数
 order: 3260700
-summary: 带通信号的相关函数同样用复包络来计算（第 5 部分）。
+summary: 带通信号的相关函数同样用复包络来计算（第 5 章）。
 tags: 
 lang: zh
 ---
@@ -10,7 +12,7 @@ lang: zh
 <span class="anker" id="stufe-6"></span>
 
 :::zweck
-带通信号的相关函数同样用复包络来计算（[第 5 部分](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/tiefpass-und-bandpasssysteme/tiefpass-und-bandpasssysteme.html)）。
+带通信号的相关函数同样用复包络来计算（[第 5 章](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/tiefpass-und-bandpasssysteme/tiefpass-und-bandpasssysteme.html)）。
 :::
 
 两个实带通信号的互相关函数仍然是带通信号：
@@ -21,7 +23,7 @@ $$\varphi^E_{sg}(\tau)=\operatorname{Re}\bigl\{\varphi^E_{sgT}(\tau)\,\mathrm{e}
 
 $$s(-t)=\operatorname{Re}\bigl\{s_T(-t)\mathrm{e}^{-\mathrm{j}2\pi f_0t}\bigr\}=\operatorname{Re}\bigl\{s_T^*(-t)\mathrm{e}^{\mathrm{j}2\pi f_0t}\bigr\}.$$
 
-利用[第 5 部分](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/tiefpass-und-bandpasssysteme/tiefpass-und-bandpasssysteme.html)中的传输关系 $g_T=\frac12s_T*h_T$：
+利用[第 5 章](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/tiefpass-und-bandpasssysteme/tiefpass-und-bandpasssysteme.html)中的传输关系 $g_T=\frac12s_T*h_T$：
 
 <span class="anker" id="gl-6-1"></span>
 $$\varphi^E_{sgT}(\tau)=\tfrac12\bigl[s_T^*(-\tau)*g_T(\tau)\bigr]=\tfrac12\int_{-\infty}^{\infty}s_T^*(t)\,g_T(t+\tau)\,\mathrm{d} t,\qquad E_s=\varphi^E_{ss}(0)=\varphi^E_{ssT}(0). \tag{6.1}$$

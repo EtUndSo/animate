@@ -1,6 +1,8 @@
 ---
 title: Stufe 2: Die Spalten sind die Bilder
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Matrizen und lineare Gleichungssysteme
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Matrizen und lineare Gleichungssysteme
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/matrizen-und-lineare-gleichungssysteme
+knoten: Kapitel 10: Matrizen und lineare Gleichungssysteme
 order: 1300400
 summary: Eine lineare Abbildung mathbb K ntomathbb K m bildet unendlich viele Vektoren ab.
 tags: Koeffizienten, Matrix, Zeilenvektor, Spaltenvektor, quadratisch, transponiert, Einheitsmatrix, Hauptdiagonale

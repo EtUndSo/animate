@@ -1,6 +1,8 @@
 ---
 title: 第 1 阶段：信号类别与理想采样
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / 采样与离散时间系统
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / 采样与离散时间系统
+adresse: elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme
+knoten: 第 4 章：采样与离散时间系统
 order: 3240200
 summary: 信号有哪些类型？采样在数学上如何描述？
 tags: 模拟, 离散时间, 数字, 理想采样器

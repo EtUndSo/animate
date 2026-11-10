@@ -1,6 +1,8 @@
 ---
 title: 第 2 阶段：理想低通
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / 低通与带通系统
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / 低通与带通系统
+adresse: elektrotechnik/3-semester/signale-und-systeme/tiefpass-und-bandpasssysteme
+knoten: 第 5 章：低通与带通系统
 order: 3250300
 summary: 理想低通让所有不超过 f mathrm g 的频率不变地通过，并阻断高于 f mathrm g 的所有频率。本阶段说明这种陡峭的截止在时域中意味着什么。
 tags: 信号持续时间
@@ -27,7 +29,7 @@ $$H(f)=\operatorname{rect}\Bigl(\frac{f}{2f_\mathrm g}\Bigr)\qquad\bullet\!\!-\!
 <span class="anker" id="gl-2-2"></span>
 $$t_m=\frac{1}{h_{\max}}\int_{-\infty}^{\infty}h(t)\,\mathrm{d} t=\frac{H(0)}{h_{\max}}. \tag{2.2}$$
 
-对理想低通，$H(0)=1$，$h_{\max}=2f_\mathrm g$，因此 $t_m=\frac{1}{2f_\mathrm g}$，$f_\mathrm g\cdot t_m=\frac12$。一般地，低通滤波器满足 $f_\mathrm g\cdot t_m=\text{常数}$：带宽加倍意味着响应持续时间减半。这就是[第 3 部分](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)中的尺度变换定理。
+对理想低通，$H(0)=1$，$h_{\max}=2f_\mathrm g$，因此 $t_m=\frac{1}{2f_\mathrm g}$，$f_\mathrm g\cdot t_m=\frac12$。一般地，低通滤波器满足 $f_\mathrm g\cdot t_m=\text{常数}$：带宽加倍意味着响应持续时间减半。这就是[第 3 章](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)中的尺度变换定理。
 
 **过冲。** 对 si 函数，绝对值最大的旁瓣极值 $a_1$ 与主极大值 $a_0$ 之比为
 

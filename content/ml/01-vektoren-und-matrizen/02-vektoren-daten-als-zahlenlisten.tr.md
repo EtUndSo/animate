@@ -1,7 +1,8 @@
 ---
 title: Vektörler: Sayı listesi olarak veriler
 pfad: Bilgisayar Bilimleri / Makine Öğrenmesi / Matematiksel Temeller / Vektörler ve Matrisler
-knoten: Temeller 1: Vektörler ve Matrisler
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Bölüm 1: Vektörler ve Matrisler
 nachschlagen: ja
 order: 15210200
 summary: Bir bilgisayar yalnızca sayılarla çalışabilir.
@@ -139,7 +140,7 @@ Daire 1, $\mathbf{x}_1=(60,\,2,\,3)^{\top}\in\mathbb{R}^3$ vektörüdür. Bu ve
 ⁠**Kısacası:** Vektör, nokta ya da ok olarak çizilebilen sıralı bir sayı listesidir; $d$ öznitelikli bir örnek $\mathbb{R}^d$ uzayında bir vektördür.
 
 :::hintergrund Vektör aslında nedir?
-Hesaplarda kullanılan vektör bir sayı listesidir. Matematikte kavram daha geniştir: Vektör, nesnenin türünün dışına çıkmadan toplanabilen ve bir sayıyla çarpılabilen her şeydir. Düzlemdeki oklar buna dahildir, ama sinyaller de. $n$ kez örneklenmiş bir sinyal, örnek değerlerinin $x[0],\dots,x[n-1]$ listesidir, yani $\mathbb{R}^n$ uzayında bir vektördür. İki sinyali toplamak onları üst üste bindirmek, bir sinyali bir sayıyla çarpmak da onu kuvvetlendirmek demektir; ikisi de yine aynı uzunlukta bir sinyal verir.
+Hesaplarda kullanılan vektör bir sayı listesidir. Matematikte kavram daha geniştir: Vektör, nesnenin türünün dışına çıkmadan toplanabilen ve bir sayıyla çarpılabilen her şeydir. Düzlemdeki oklar buna dahildir, ama ses kayıtları da. Bir ses kaydı, eşit ve çok kısa aralıklarla hava basıncının o anda durgun değerinden ne kadar saptığını kaydeder. Bu türden $n$ tane $x[0],\dots,x[n-1]$ değeriyle ses kaydı $\mathbb{R}^n$ uzayında bir vektördür. İki kaydı toplamak onları karıştırmak, bir kaydı bir sayıyla çarpmak da sesini yükseltmek ya da alçaltmak demektir; ikisi de yine aynı uzunlukta bir ses kaydı verir.
 
 Bir görüntü de bir vektördür. $28\times28$ pikselli gri tonlamalı bir görüntü $784$ parlaklık değerinden oluşur. Bunlar satır satır arka arkaya okunursa görüntü $\mathbb{R}^{784}$ uzayında bir nokta olur. Bu canlandırma artık çizilemez, ama onunla tıpkı iki ya da üç bileşenli vektörlerle olduğu gibi hesap yapılır.
 :::
@@ -216,12 +217,14 @@ $$\tfrac12\,(60,\,2,\,3)^{\top}+\tfrac12\,(40,\,1,\,1)^{\top}=(50;\ 1{,}5;\ 2)^{
 Bu, her öznitelikte tam ikisinin ortasında duran hayali bir dairedir. Nokta, iki noktayı birleştiren doğru parçasının ortasında yer alır.
 ::::
 
-::::beispiel [Sayısal örnek 3] örneklerin ortalaması
-Bütün $N$ örnek $1/N$ katsayısıyla alınırsa __örneklerin ortalaması__ ortaya çıkar:
+Bu bölümde bir doğrusal bileşime özellikle sık ihtiyaç duyulur. Bütün $N$ örnek $1/N$ katsayısıyla alınırsa __örneklerin ortalaması__ ortaya çıkar:
 
 <span class="anker" id="gl-1-5"></span>
 $$\bar{\mathbf{x}}=\frac1N\sum_{i=1}^{N}\mathbf{x}_i . \tag{1.5}$$
 
+Bu, her öznitelikte bütün örneklerin ortalamasına sahip hayali bir örnektir: $j$ numaralı bileşeni, $j$ numaralı özniteliklerin ortalamasıdır.
+
+::::beispiel [Sayısal örnek 3] örneklerin ortalaması
 Daire veri kümesi için $\bar{\mathbf{x}}=(65;\ 2{,}5;\ 3)^{\top}$ bulunur (Şekil [5](#abb-5)), yani “ortalama daire”: ortalamada $65\,\mathrm m^2$, $2{,}5$ oda ve merkeze $3$ km uzaklık.
 
 :::abbildung ml/k1rmittelvektor 5

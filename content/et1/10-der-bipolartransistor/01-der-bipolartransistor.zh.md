@@ -1,7 +1,9 @@
 ---
 title: 概览: 双极型晶体管
 kurz: 概览
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 双极型晶体管
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 双极型晶体管
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor
+knoten: 第 10 章：双极型晶体管
 order: 1200100
 summary: 小电压如何控制流过 截止二极管的大电流
 tags: 双极型晶体管
@@ -35,7 +37,7 @@ lang: zh
 
 <li>
 
-⁠**晶体管 T：**硅材料的 npn 小信号晶体管，$B=200$，$I_\mathrm{S}=1.9\cdot10^{-13}$ A（反向饱和电流，[第 9 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)），$U_T=26$ mV（300 K 时的热电压，由 25.85 mV 取整）。手工计算时，晶体管导通时近似取 $U_\mathrm{BE}=0.6$ V，完全接通时近似取 $U_\mathrm{CE,sat}=0.2$ V。极限参数：$U_\mathrm{CE,max}=40$ V，$I_\mathrm{C,max}=100$ mA，$P_\mathrm{max}=400$ mW。
+⁠**晶体管 T：**硅材料的 npn 小信号晶体管，$B=200$，$I_\mathrm{S}=1.9\cdot10^{-13}$ A（反向饱和电流，[第 9 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)），$U_T=26$ mV（300 K 时的热电压，由 25.85 mV 取整）。手工计算时，晶体管导通时近似取 $U_\mathrm{BE}=0.6$ V，完全接通时近似取 $U_\mathrm{CE,sat}=0.2$ V。极限参数：$U_\mathrm{CE,max}=40$ V，$I_\mathrm{C,max}=100$ mA，$P_\mathrm{max}=400$ mW。
 
 </li>
 

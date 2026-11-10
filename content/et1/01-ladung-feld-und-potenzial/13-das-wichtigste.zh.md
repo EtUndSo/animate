@@ -1,6 +1,8 @@
 ---
 title: 要点
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 电荷、电场与电位
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 电荷、电场与电位
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial
+knoten: 第 1 章：电荷、电场与电位
 order: 1111300
 summary: 为什么电压是一个差值 它对电荷起什么作用
 tags: 
@@ -109,4 +111,4 @@ lang: zh
 </ul>
 :::
 
-**[第 2 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)预告。** 在导线中，电场同时推动非常多的电荷：电荷流动，形成电流。[第 2 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)说明为什么电压与电流成正比，以及它们在网络中如何分配。
+**[第 2 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)预告。** 在导线中，电场同时推动非常多的电荷：电荷流动，形成电流。[第 2 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)说明为什么电压与电流成正比，以及它们在网络中如何分配。

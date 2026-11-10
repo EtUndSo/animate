@@ -1,6 +1,8 @@
 ---
 title: Stufe 7: Ergänzung: Das Periodensystem der Elemente
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Atome und Orbitale
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Atome und Orbitale
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/atome-und-orbitale
+knoten: Kapitel 4: Atome und Orbitale
 order: 4140900
 summary: Die Regeln liefern für jedes Z eine Konfiguration.
 tags: Ordnungszahl, Valenzschale, Valenzelektronen, Perioden, Gruppen, Hauptgruppen, Nebengruppen, inneren Übergangsgruppen

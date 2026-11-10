@@ -1,6 +1,8 @@
 ---
 title: Stufe 1: Schwingungen als Eigenfunktionen
-pfad: Elektrotechnik / 3. Semester / Signale und Systeme / Fourier-Reihe und -Transformation
+pfad: Elektrotechnik / 3. Semester / ET3 – Grundgebiete der Elektrotechnik 3: Signale und Systeme / Fourier-Reihe und -Transformation
+adresse: elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation
+knoten: Kapitel 3: Fourier-Reihe und -Transformation
 order: 3230200
 summary: Von den Bausteinen e pt werden jetzt nur die reinen Schwingungen benutzt.
 tags: Frequenzgang

@@ -1,0 +1,1451 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 42,
+  "nextAnimId": 60,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.435,
+      0.265,
+      0
+     ],
+     "width": 5.97,
+     "height": 3.23,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#ffffff",
+     "fill_opacity": 0,
+     "stroke_width": 2,
+     "dash": "10,7"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Text",
+    "props": {
+     "text": "@inshell",
+     "position": [
+      3.32,
+      1.72,
+      0
+     ],
+     "font_size": 18,
+     "align": "right",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o3",
+    "type": "Text",
+    "props": {
+     "text": "@name",
+     "position": [
+      -0.55,
+      2.15,
+      0
+     ],
+     "font_size": 20,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o4",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -0.55,
+      2.02,
+      0
+     ],
+     "end": [
+      -0.55,
+      1.6,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.11,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o5",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.55,
+      1.4,
+      0
+     ],
+     "width": 1.9,
+     "height": 0.36,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#efefef",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Text",
+    "props": {
+     "text": "@f_alias",
+     "position": [
+      -0.55,
+      1.4,
+      0
+     ],
+     "font_size": 20,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o7",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.55,
+      0.8,
+      0
+     ],
+     "width": 1.9,
+     "height": 0.36,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#efefef",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Text",
+    "props": {
+     "text": "@f_kw",
+     "position": [
+      -0.55,
+      0.8,
+      0
+     ],
+     "font_size": 20,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o9",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.55,
+      0.2,
+      0
+     ],
+     "width": 1.9,
+     "height": 0.36,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#efefef",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o10",
+    "type": "Text",
+    "props": {
+     "text": "@f_fn",
+     "position": [
+      -0.55,
+      0.2,
+      0
+     ],
+     "font_size": 20,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o11",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.55,
+      -0.4,
+      0
+     ],
+     "width": 1.9,
+     "height": 0.36,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#efefef",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Text",
+    "props": {
+     "text": "@f_bi",
+     "position": [
+      -0.55,
+      -0.4,
+      0
+     ],
+     "font_size": 20,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o13",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.55,
+      -1.0,
+      0
+     ],
+     "width": 1.9,
+     "height": 0.36,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#efefef",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o14",
+    "type": "Text",
+    "props": {
+     "text": "@f_pf",
+     "position": [
+      -0.55,
+      -1.0,
+      0
+     ],
+     "font_size": 20,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o15",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -0.55,
+      1.22,
+      0
+     ],
+     "end": [
+      -0.55,
+      0.98,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.11,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o16",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -0.55,
+      0.6200000000000001,
+      0
+     ],
+     "end": [
+      -0.55,
+      0.38,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.11,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o17",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -0.55,
+      0.020000000000000018,
+      0
+     ],
+     "end": [
+      -0.55,
+      -0.22000000000000003,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.11,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o18",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -0.55,
+      -0.5800000000000001,
+      0
+     ],
+     "end": [
+      -0.55,
+      -0.8200000000000001,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.11,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o19",
+    "type": "Text",
+    "props": {
+     "text": "@nein",
+     "position": [
+      -0.45000000000000007,
+      1.1,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o20",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      0.4,
+      1.4,
+      0
+     ],
+     "end": [
+      0.75,
+      1.4,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.11,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o21",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      0.4,
+      0.8,
+      0
+     ],
+     "end": [
+      0.75,
+      0.8,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.11,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o22",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      0.4,
+      0.2,
+      0
+     ],
+     "end": [
+      0.75,
+      0.2,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.11,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o23",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      0.4,
+      -0.4,
+      0
+     ],
+     "end": [
+      0.75,
+      -0.4,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.11,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o24",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      0.4,
+      -1.0,
+      0
+     ],
+     "end": [
+      0.75,
+      -1.0,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.11,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o25",
+    "type": "Text",
+    "props": {
+     "text": "@ja",
+     "position": [
+      0.57,
+      1.55,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o26",
+    "type": "Text",
+    "props": {
+     "text": "@e1",
+     "position": [
+      1.35,
+      1.4,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o27",
+    "type": "Text",
+    "props": {
+     "text": "@e2",
+     "position": [
+      1.35,
+      0.8,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o28",
+    "type": "Text",
+    "props": {
+     "text": "@e3",
+     "position": [
+      1.35,
+      0.2,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o29",
+    "type": "Text",
+    "props": {
+     "text": "@e4",
+     "position": [
+      1.35,
+      -0.4,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o30",
+    "type": "Text",
+    "props": {
+     "text": "@e5",
+     "position": [
+      1.35,
+      -0.88,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o31",
+    "type": "Text",
+    "props": {
+     "text": "@e5n",
+     "position": [
+      1.35,
+      -1.12,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o32",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.0,
+      0.2,
+      0
+     ],
+     "width": 0.75,
+     "height": 2.9,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#e3eefb",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o33",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{type}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.17,
+     "position": [
+      -2.0,
+      1.45,
+      0
+     ],
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o34",
+    "type": "Text",
+    "props": {
+     "text": "@alles",
+     "position": [
+      -2.0,
+      0.95,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o35",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.95,
+      -1.72,
+      0
+     ],
+     "width": 0.85,
+     "height": 0.34,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#eb6834",
+     "fill_color": "#fdece3",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o36",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{which}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.17,
+     "position": [
+      -2.95,
+      -1.72,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o37",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -2.52,
+      -1.72,
+      0
+     ],
+     "end": [
+      -1.0,
+      -1.18,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "hv",
+     "thick": 0,
+     "head_size": 0.11,
+     "font_size": 26,
+     "color": "#eb6834",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o38",
+    "type": "Text",
+    "props": {
+     "text": "@nurpfad",
+     "position": [
+      -1.75,
+      -1.57,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#eb6834"
+    }
+   },
+   {
+    "id": "o39",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{ls}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.17,
+     "position": [
+      -0.55,
+      1.82,
+      0
+     ],
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o40",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{cd}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.17,
+     "position": [
+      -0.55,
+      1.82,
+      0
+     ],
+     "color": "#eb6834"
+    }
+   },
+   {
+    "id": "o41",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{uname}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.17,
+     "position": [
+      -0.55,
+      1.82,
+      0
+     ],
+     "color": "#00823c"
+    }
+   }
+  ],
+  "animations": [
+   {
+    "id": "a1",
+    "type": "FadeIn",
+    "target": "o1",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a2",
+    "type": "FadeIn",
+    "target": "o2",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a3",
+    "type": "FadeIn",
+    "target": "o3",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a4",
+    "type": "FadeIn",
+    "target": "o4",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a5",
+    "type": "GrowFromCenter",
+    "target": "o5",
+    "run_time": 0.7,
+    "step": 1
+   },
+   {
+    "id": "a6",
+    "type": "GrowFromCenter",
+    "target": "o7",
+    "run_time": 0.7,
+    "step": 1
+   },
+   {
+    "id": "a7",
+    "type": "GrowFromCenter",
+    "target": "o9",
+    "run_time": 0.7,
+    "step": 1
+   },
+   {
+    "id": "a8",
+    "type": "GrowFromCenter",
+    "target": "o11",
+    "run_time": 0.7,
+    "step": 1
+   },
+   {
+    "id": "a9",
+    "type": "GrowFromCenter",
+    "target": "o13",
+    "run_time": 0.7,
+    "step": 1
+   },
+   {
+    "id": "a10",
+    "type": "FadeIn",
+    "target": "o6",
+    "run_time": 0.7,
+    "step": 1
+   },
+   {
+    "id": "a11",
+    "type": "FadeIn",
+    "target": "o8",
+    "run_time": 0.7,
+    "step": 1
+   },
+   {
+    "id": "a12",
+    "type": "FadeIn",
+    "target": "o10",
+    "run_time": 0.7,
+    "step": 1
+   },
+   {
+    "id": "a13",
+    "type": "FadeIn",
+    "target": "o12",
+    "run_time": 0.7,
+    "step": 1
+   },
+   {
+    "id": "a14",
+    "type": "FadeIn",
+    "target": "o14",
+    "run_time": 0.7,
+    "step": 1
+   },
+   {
+    "id": "a15",
+    "type": "FadeIn",
+    "target": "o19",
+    "run_time": 0.7,
+    "step": 1
+   },
+   {
+    "id": "a16",
+    "type": "Create",
+    "target": "o15",
+    "run_time": 0.7,
+    "step": 1
+   },
+   {
+    "id": "a17",
+    "type": "Create",
+    "target": "o16",
+    "run_time": 0.7,
+    "step": 1
+   },
+   {
+    "id": "a18",
+    "type": "Create",
+    "target": "o17",
+    "run_time": 0.7,
+    "step": 1
+   },
+   {
+    "id": "a19",
+    "type": "Create",
+    "target": "o18",
+    "run_time": 0.7,
+    "step": 1
+   },
+   {
+    "id": "a20",
+    "type": "Create",
+    "target": "o20",
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a21",
+    "type": "Create",
+    "target": "o21",
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a22",
+    "type": "Create",
+    "target": "o22",
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a23",
+    "type": "Create",
+    "target": "o23",
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a24",
+    "type": "Create",
+    "target": "o24",
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a25",
+    "type": "FadeIn",
+    "target": "o26",
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a26",
+    "type": "FadeIn",
+    "target": "o27",
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a27",
+    "type": "FadeIn",
+    "target": "o28",
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a28",
+    "type": "FadeIn",
+    "target": "o29",
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a29",
+    "type": "FadeIn",
+    "target": "o30",
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a30",
+    "type": "FadeIn",
+    "target": "o31",
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a31",
+    "type": "FadeIn",
+    "target": "o25",
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a32",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 3
+   },
+   {
+    "id": "a33",
+    "type": "FadeIn",
+    "target": "o39",
+    "run_time": 0.3,
+    "step": 4
+   },
+   {
+    "id": "a34",
+    "type": "MoveTo",
+    "target": "o39",
+    "run_time": 0.4,
+    "step": 5,
+    "point": [
+     -0.55,
+     1.4,
+     0
+    ]
+   },
+   {
+    "id": "a35",
+    "type": "MoveTo",
+    "target": "o39",
+    "run_time": 0.5,
+    "step": 6,
+    "point": [
+     1.05,
+     1.4,
+     0
+    ]
+   },
+   {
+    "id": "a36",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.4,
+    "step": 7
+   },
+   {
+    "id": "a37",
+    "type": "FadeIn",
+    "target": "o40",
+    "run_time": 0.3,
+    "step": 8
+   },
+   {
+    "id": "a38",
+    "type": "MoveTo",
+    "target": "o40",
+    "run_time": 0.35,
+    "step": 9,
+    "point": [
+     -0.55,
+     1.4,
+     0
+    ]
+   },
+   {
+    "id": "a39",
+    "type": "MoveTo",
+    "target": "o40",
+    "run_time": 0.35,
+    "step": 10,
+    "point": [
+     -0.55,
+     0.8,
+     0
+    ]
+   },
+   {
+    "id": "a40",
+    "type": "MoveTo",
+    "target": "o40",
+    "run_time": 0.35,
+    "step": 11,
+    "point": [
+     -0.55,
+     0.2,
+     0
+    ]
+   },
+   {
+    "id": "a41",
+    "type": "MoveTo",
+    "target": "o40",
+    "run_time": 0.35,
+    "step": 12,
+    "point": [
+     -0.55,
+     -0.4,
+     0
+    ]
+   },
+   {
+    "id": "a42",
+    "type": "MoveTo",
+    "target": "o40",
+    "run_time": 0.5,
+    "step": 13,
+    "point": [
+     1.05,
+     -0.4,
+     0
+    ]
+   },
+   {
+    "id": "a43",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.4,
+    "step": 14
+   },
+   {
+    "id": "a44",
+    "type": "FadeIn",
+    "target": "o41",
+    "run_time": 0.3,
+    "step": 15
+   },
+   {
+    "id": "a45",
+    "type": "MoveTo",
+    "target": "o41",
+    "run_time": 0.3,
+    "step": 16,
+    "point": [
+     -0.55,
+     1.4,
+     0
+    ]
+   },
+   {
+    "id": "a46",
+    "type": "MoveTo",
+    "target": "o41",
+    "run_time": 0.3,
+    "step": 17,
+    "point": [
+     -0.55,
+     0.8,
+     0
+    ]
+   },
+   {
+    "id": "a47",
+    "type": "MoveTo",
+    "target": "o41",
+    "run_time": 0.3,
+    "step": 18,
+    "point": [
+     -0.55,
+     0.2,
+     0
+    ]
+   },
+   {
+    "id": "a48",
+    "type": "MoveTo",
+    "target": "o41",
+    "run_time": 0.3,
+    "step": 19,
+    "point": [
+     -0.55,
+     -0.4,
+     0
+    ]
+   },
+   {
+    "id": "a49",
+    "type": "MoveTo",
+    "target": "o41",
+    "run_time": 0.3,
+    "step": 20,
+    "point": [
+     -0.55,
+     -1.0,
+     0
+    ]
+   },
+   {
+    "id": "a50",
+    "type": "MoveTo",
+    "target": "o41",
+    "run_time": 0.5,
+    "step": 21,
+    "point": [
+     1.05,
+     -1.0,
+     0
+    ]
+   },
+   {
+    "id": "a51",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.4,
+    "step": 22
+   },
+   {
+    "id": "a52",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.2,
+    "step": 23
+   },
+   {
+    "id": "a53",
+    "type": "GrowFromCenter",
+    "target": "o32",
+    "run_time": 0.7,
+    "step": 24
+   },
+   {
+    "id": "a54",
+    "type": "FadeIn",
+    "target": "o33",
+    "run_time": 0.7,
+    "step": 24
+   },
+   {
+    "id": "a55",
+    "type": "FadeIn",
+    "target": "o34",
+    "run_time": 0.7,
+    "step": 24
+   },
+   {
+    "id": "a56",
+    "type": "GrowFromCenter",
+    "target": "o35",
+    "run_time": 0.8,
+    "step": 25
+   },
+   {
+    "id": "a57",
+    "type": "FadeIn",
+    "target": "o36",
+    "run_time": 0.8,
+    "step": 25
+   },
+   {
+    "id": "a58",
+    "type": "FadeIn",
+    "target": "o38",
+    "run_time": 0.8,
+    "step": 25
+   },
+   {
+    "id": "a59",
+    "type": "Create",
+    "target": "o37",
+    "run_time": 0.8,
+    "step": 25
+   }
+  ],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "inshell": {
+    "de": "in der Shell",
+    "en": "inside the shell",
+    "es": "dentro de la shell",
+    "zh": "在 Shell 内部",
+    "fr": "dans la shell",
+    "tr": "kabuğun içinde"
+   },
+   "name": {
+    "de": "Name",
+    "en": "name",
+    "es": "nombre",
+    "zh": "名称",
+    "fr": "nom",
+    "tr": "ad"
+   },
+   "f_alias": {
+    "de": "Alias?",
+    "en": "alias?",
+    "es": "¿Alias?",
+    "zh": "别名？",
+    "fr": "alias ?",
+    "tr": "takma ad mı?"
+   },
+   "f_kw": {
+    "de": "Schlüsselwort?",
+    "en": "keyword?",
+    "es": "¿Palabra clave?",
+    "zh": "关键字？",
+    "fr": "mot-clé ?",
+    "tr": "anahtar sözcük mü?"
+   },
+   "f_fn": {
+    "de": "Funktion?",
+    "en": "function?",
+    "es": "¿Función?",
+    "zh": "函数？",
+    "fr": "fonction ?",
+    "tr": "işlev mi?"
+   },
+   "f_bi": {
+    "de": "eingebaut?",
+    "en": "builtin?",
+    "es": "¿Interno?",
+    "zh": "内置？",
+    "fr": "intégré ?",
+    "tr": "yerleşik mi?"
+   },
+   "f_pf": {
+    "de": "Datei im Suchpfad?",
+    "en": "file in search path?",
+    "es": "¿Archivo en la ruta?",
+    "zh": "搜索路径中的文件？",
+    "fr": "fichier dans le chemin ?",
+    "tr": "arama yolunda dosya mı?"
+   },
+   "nein": {
+    "de": "nein",
+    "en": "no",
+    "es": "no",
+    "zh": "否",
+    "fr": "non",
+    "tr": "hayır"
+   },
+   "ja": {
+    "de": "ja",
+    "en": "yes",
+    "es": "sí",
+    "zh": "是",
+    "fr": "oui",
+    "tr": "evet"
+   },
+   "e1": {
+    "de": "Text einsetzen",
+    "en": "insert the text",
+    "es": "insertar el texto",
+    "zh": "插入文本",
+    "fr": "insérer le texte",
+    "tr": "metni yerleştir"
+   },
+   "e2": {
+    "de": "Teil der Sprache (if, for, …)",
+    "en": "part of the language (if, for, …)",
+    "es": "parte del lenguaje (if, for, …)",
+    "zh": "语言的一部分（if、for……）",
+    "fr": "élément du langage (if, for, …)",
+    "tr": "dilin parçası (if, for, …)"
+   },
+   "e3": {
+    "de": "Funktion ausführen",
+    "en": "run the function",
+    "es": "ejecutar la función",
+    "zh": "执行函数",
+    "fr": "exécuter la fonction",
+    "tr": "işlevi çalıştır"
+   },
+   "e4": {
+    "de": "Shell führt ihn selbst aus",
+    "en": "the shell runs it itself",
+    "es": "la shell lo ejecuta ella misma",
+    "zh": "Shell 自己执行",
+    "fr": "la shell l’exécute elle-même",
+    "tr": "kabuk kendisi çalıştırır"
+   },
+   "e5": {
+    "de": "Programmdatei starten",
+    "en": "start the program file",
+    "es": "iniciar el archivo de programa",
+    "zh": "启动程序文件",
+    "fr": "lancer le fichier programme",
+    "tr": "program dosyasını başlat"
+   },
+   "e5n": {
+    "de": "sonst: command not found",
+    "en": "otherwise: command not found",
+    "es": "si no: command not found",
+    "zh": "否则：command not found",
+    "fr": "sinon : command not found",
+    "tr": "yoksa: command not found"
+   },
+   "alles": {
+    "de": "sieht\nalles",
+    "en": "sees\nall",
+    "es": "lo ve\ntodo",
+    "zh": "全都\n看到",
+    "fr": "voit\ntout",
+    "tr": "her şeyi\ngörür"
+   },
+   "nurpfad": {
+    "de": "nur Suchpfad",
+    "en": "search path only",
+    "es": "solo la ruta",
+    "zh": "仅搜索路径",
+    "fr": "chemin seul",
+    "tr": "yalnız arama yolu"
+   }
+  }
+ }
+}

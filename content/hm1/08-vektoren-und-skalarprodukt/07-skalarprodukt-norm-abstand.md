@@ -1,6 +1,8 @@
 ---
 title: Stufe 5: Skalarprodukt, Norm, Abstand
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Vektoren und Skalarprodukt
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Vektoren und Skalarprodukt
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/vektoren-und-skalarprodukt
+knoten: Kapitel 8: Vektoren und Skalarprodukt
 order: 1280700
 summary: Bisher kann man addieren und strecken, aber nichts messen.
 tags: Skalarprodukt, orthogonale, senkrecht, euklidische Norm, Länge, Abstand, Linearität, Symmetrie
@@ -91,7 +93,7 @@ Außerdem gilt für den Abstand $d(\vec x,\vec y)\le d(\vec x,\vec z)+d(\vec z,\
 :::beweis Aus der Formel
 (S): Nach [(5.1)](#gl-5-1) ist $\sum_i(\alpha x_i+\beta y_i)z_i=\alpha\sum_ix_iz_i+\beta\sum_iy_iz_i$ und $\sum_ix_iy_i=\sum_iy_ix_i$. Weiter ist $\langle\vec x,\vec x\rangle=\sum_ix_i^2$ eine Summe von Quadraten. Sie ist positiv, sobald ein $x_i\ne0$ ist, und null genau für $x_1=\dots=x_n=0$.
 
-(N): Die Definitheit folgt aus (S). Homogenität: $\sqrt{\sum_i\alpha^2x_i^2}=\sqrt{\alpha^2}\sqrt{\sum_ix_i^2}$ und $\sqrt{\alpha^2}=|\alpha|$. Die Dreiecksungleichung ist die Minkowski-Ungleichung aus [Teil 1](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html), in Stufe [7](winkel-cauchy-schwarz-parallelogramm.html#stufe-7) folgt ein kurzer Beweis.
+(N): Die Definitheit folgt aus (S). Homogenität: $\sqrt{\sum_i\alpha^2x_i^2}=\sqrt{\alpha^2}\sqrt{\sum_ix_i^2}$ und $\sqrt{\alpha^2}=|\alpha|$. Die Dreiecksungleichung ist die Minkowski-Ungleichung aus [Kapitel 1](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html), in Stufe [7](winkel-cauchy-schwarz-parallelogramm.html#stufe-7) folgt ein kurzer Beweis.
 
 Abstand: $\|\vec x-\vec y\|=\|(\vec x-\vec z)+(\vec z-\vec y)\|\le\|\vec x-\vec z\|+\|\vec z-\vec y\|$.
 :::

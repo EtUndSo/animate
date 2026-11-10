@@ -1,6 +1,8 @@
 ---
 title: Etapa 2: Las corrientes de malla cumplen la ley de los nudos
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Análisis por mallas y por nudos
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Análisis por mallas y por nudos
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/maschenstrom-und-knotenpotentialverfahren
+knoten: Capítulo 8: Análisis por mallas y por nudos
 order: 1180400
 summary: Se buscan m magnitudes de las que se deduzcan todas las corrientes de rama.
 tags: ventanas
@@ -35,7 +37,7 @@ La ley de los nudos se cumple entonces para todos los valores de las $I_\mu$. A 
 :::
 
 :::herleitung Por qué esto siempre funciona
-⁠*Ley de los nudos.* En una malla, cada nudo está unido exactamente a dos ramas ([Parte 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)). Su corriente cuenta en el nudo una vez como entrante y una vez como saliente, y las contribuciones se cancelan.
+⁠*Ley de los nudos.* En una malla, cada nudo está unido exactamente a dos ramas ([capítulo 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)). Su corriente cuenta en el nudo una vez como entrante y una vez como saliente, y las contribuciones se cancelan.
 
 ⁠*Completitud.* Se elige un árbol. Cada rama de enlace cierra exactamente una malla; como corriente de esa malla se toma la corriente de la rama de enlace. Si se restan todas esas corrientes circulantes de la distribución dada, el resto sigue cumpliendo la ley de los nudos y es cero en todas las ramas de enlace. Solo puede circular por el árbol. Pero el árbol tiene un extremo, un nudo con una sola rama del árbol. Allí la ley de los nudos impone corriente cero. Se elimina esa rama y se repite. El resto es cero en todas partes.
 :::

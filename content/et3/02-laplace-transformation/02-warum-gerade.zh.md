@@ -1,6 +1,8 @@
 ---
 title: 第 1 阶段：为什么偏偏是 $\mathrm{e}^{pt}$
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / 拉普拉斯变换
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / 拉普拉斯变换
+adresse: elektrotechnik/3-semester/signale-und-systeme/laplace-transformation
+knoten: 第 2 章：拉普拉斯变换
 order: 3220200
 summary: 把 e pt 代入卷积积分，结果是 H(p)\,e pt ： e pt 是一个特征函数。本阶段探讨 e pt 的哪种性质导致了这一点，以及为什么基本分量必须取复数形式。
 tags: 增长率, 频率

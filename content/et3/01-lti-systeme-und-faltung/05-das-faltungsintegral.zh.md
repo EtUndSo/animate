@@ -1,6 +1,8 @@
 ---
 title: 第 4 阶段：卷积积分
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / LTI 系统与卷积
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / LTI 系统与卷积
+adresse: elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung
+knoten: 第 1 章：LTI 系统与卷积
 order: 3210500
 summary: 借助线性和时不变性，可以由系统对单个短脉冲的响应，算出它对 任意 信号的响应。其结果就是卷积积分。
 tags: 狄拉克冲激, 冲激响应

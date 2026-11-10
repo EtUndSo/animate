@@ -1,7 +1,8 @@
 ---
 title: Transposée, symétrie et matrice de Gram
 pfad: Informatique / Apprentissage automatique / Fondements mathématiques / Vecteurs et matrices
-knoten: Fondements 1 : Vecteurs et matrices
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Chapitre 1 : Vecteurs et matrices
 nachschlagen: ja
 order: 15211100
 summary: Si l’on échange les lignes et les colonnes d’une matrice, on obtient sa transposée.

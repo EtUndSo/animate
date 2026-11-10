@@ -1,6 +1,8 @@
 ---
 title: 要点
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 二端口网络
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 二端口网络
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore
+knoten: 第 6 章：二端口网络
 order: 1161300
 summary: 为什么四个数就能代替整个网络， 以及每种参数形式都只是另一种选择
 tags: 端口条件, 二端口参数, 阻抗形式, 导纳形式, 混合形式, 链式形式
@@ -103,4 +105,4 @@ T：$\mathbf Z$ 含 $R_\mathrm{a}+R_\mathrm{b}$、$R_\mathrm{b}$、$R_\mathrm{b}
 </ul>
 :::
 
-**[第 7 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad/leistung-und-anpassung.html)预告。** 第 [10](eigenschaften-und-alle-formen-im-uberblick.html#stufe-10) 阶段的功率 $P$ 引出下一个问题：负载为多少时，电源或二端口网络输出的功率最大，这又要付出多少效率的代价？
+**[第 7 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad/leistung-und-anpassung.html)预告。** 第 [10](eigenschaften-und-alle-formen-im-uberblick.html#stufe-10) 阶段的功率 $P$ 引出下一个问题：负载为多少时，电源或二端口网络输出的功率最大，这又要付出多少效率的代价？

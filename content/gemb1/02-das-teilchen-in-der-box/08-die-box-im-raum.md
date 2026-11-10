@@ -1,6 +1,8 @@
 ---
 title: Stufe 6: Die Box im Raum
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Das Teilchen in der Box
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Das Teilchen in der Box
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box
+knoten: Kapitel 2: Das Teilchen in der Box
 order: 4120800
 summary: In einem Nanokristall ist das Elektron in allen drei Richtungen eingesperrt.
 tags: Quantenzustand, Spin, Pauli-Prinzip, künstliches Atom

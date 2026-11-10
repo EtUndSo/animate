@@ -1,6 +1,8 @@
 ---
 title: From the ground up: Number systems and decimal numbers
-pfad: Electrical Engineering / 1st Semester / Higher Mathematics 1 / Sets, Logic and Real Numbers
+pfad: Electrical Engineering / 1st Semester / HöMa1 – Higher Mathematics 1 / Sets, Logic and Real Numbers
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen
+knoten: Chapter 1: Sets, Logic and Real Numbers
 order: 1210200
 summary: What must be assumed about numbers and why the square root of 2 is not a fraction
 tags: natural numbers, integers, rational numbers, real number, irrational
@@ -20,4 +22,4 @@ $$x=\pm\Bigl(m+\frac{a_1}{10}+\frac{a_2}{100}+\frac{a_3}{1000}+\dots\Bigr). \tag
 $\mathbb{R}$ is the set of real numbers. The numbers in $\mathbb{R}$ that are not fractions are called __irrational__.
 :::
 
-⁠**How to read it:** $3/8=0.375$ terminates, $5/11=0.4545\ldots$ is periodic, and every fraction has one of these two forms. $\sqrt2=1.41421356\ldots$ never becomes periodic. We have $\mathbb{N}\subset\mathbb{Z}\subset\mathbb{Q}\subset\mathbb{R}$. This definition is a stopgap: It does not explain what an infinite sum is (Part 4), and it is not unique: $1.000\ldots$ and $0.999\ldots$ are the same number. Stage [6](das-vollstandigkeitsaxiom.html#stufe-6) replaces it with axioms.
+⁠**How to read it:** $3/8=0.375$ terminates, $5/11=0.4545\ldots$ is periodic, and every fraction has one of these two forms. $\sqrt2=1.41421356\ldots$ never becomes periodic. We have $\mathbb{N}\subset\mathbb{Z}\subset\mathbb{Q}\subset\mathbb{R}$. This definition is a stopgap: It does not explain what an infinite sum is (Chapter 4), and it is not unique: $1.000\ldots$ and $0.999\ldots$ are the same number. Stage [6](das-vollstandigkeitsaxiom.html#stufe-6) replaces it with axioms.

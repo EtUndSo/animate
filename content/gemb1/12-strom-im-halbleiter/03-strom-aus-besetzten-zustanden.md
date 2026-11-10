@@ -1,8 +1,10 @@
 ---
 title: Stufe 1: Strom aus besetzten Zuständen
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Strom im Halbleiter
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Strom im Halbleiter
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/strom-im-halbleiter
+knoten: Kapitel 12: Strom im Halbleiter
 order: 4220300
-summary: Teil 1 hat den Strom aus einer einzigen mittleren Geschwindigkeit berechnet.
+summary: Kapitel 1 hat den Strom aus einer einzigen mittleren Geschwindigkeit berechnet.
 tags: 
 lang: de
 ---
@@ -10,7 +12,7 @@ lang: de
 <span class="anker" id="stufe-1"></span>
 
 :::zweck
-[Teil 1](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/welle-teilchen-und-schrodinger-gleichung/welle-teilchen-und-schroedinger-gleichung.html) hat den Strom aus einer einzigen mittleren Geschwindigkeit berechnet. Im Kristall hat jeder Zustand seine eigene Geschwindigkeit. Diese Stufe summiert über alle Zustände und zeigt, wann die Summe null ist und wann nicht.
+[Kapitel 1](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/welle-teilchen-und-schrodinger-gleichung/welle-teilchen-und-schroedinger-gleichung.html) hat den Strom aus einer einzigen mittleren Geschwindigkeit berechnet. Im Kristall hat jeder Zustand seine eigene Geschwindigkeit. Diese Stufe summiert über alle Zustände und zeigt, wann die Summe null ist und wann nicht.
 :::
 
 **Die Idee.** Ein Elektron im Zustand $k$ ist eine Welle, die über die ganze Kette reicht. Seine Ladung $-e$ verteilt sich auf die Länge $L$ und wandert mit der Geschwindigkeit $v(k)$. Das ergibt einen kleinen Strombeitrag, und der Gesamtstrom ist die Summe aller Beiträge. Zu jedem Zustand $k$ gehört ein Partner $-k$ mit gleicher Energie und entgegengesetzter Geschwindigkeit. Sind beide gleich wahrscheinlich besetzt, heben sie sich auf. Strom verlangt also nicht viele Elektronen, sondern eine Schieflage der Besetzung.

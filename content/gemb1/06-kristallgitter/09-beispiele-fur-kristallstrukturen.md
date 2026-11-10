@@ -1,6 +1,8 @@
 ---
 title: Stufe 7: Beispiele für Kristallstrukturen
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Kristallgitter
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Kristallgitter
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/kristallgitter
+knoten: Kapitel 6: Kristallgitter
 order: 4160900
 summary: Gitter und Basis sind das Werkzeug.
 tags: hexagonal dichteste Kugelpackung, kubisch dichteste Kugelpackung, Diamantstruktur, Zinkblendestruktur
@@ -13,7 +15,7 @@ lang: de
 Gitter und Basis sind das Werkzeug. Diese Stufe wendet es auf die Strukturen an, in denen Metalle, Salze und Silizium kristallisieren.
 :::
 
-**Die Idee.** Welche Struktur ein Stoff wählt, entscheiden vor allem Atomgröße und Bindungsart ([Teil 5](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/chemische-bindung/chemische-bindung.html)). Eine ungerichtete Bindung belohnt jeden weiteren Nachbarn, also wird dicht gepackt. Eine gerichtete Bindung lässt Nachbarn nur in festen Winkeln zu, also bleibt die Struktur offen. Ionen wollen Nachbarn mit Gegenladung.
+**Die Idee.** Welche Struktur ein Stoff wählt, entscheiden vor allem Atomgröße und Bindungsart ([Kapitel 5](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/chemische-bindung/chemische-bindung.html)). Eine ungerichtete Bindung belohnt jeden weiteren Nachbarn, also wird dicht gepackt. Eine gerichtete Bindung lässt Nachbarn nur in festen Winkeln zu, also bleibt die Struktur offen. Ionen wollen Nachbarn mit Gegenladung.
 
 | Bindung | Richtung | Ladung | Packung |
 |---|---|---|---|
@@ -60,7 +62,7 @@ $$\boldsymbol d_1=0,\qquad \boldsymbol d_2=\boldsymbol d=\frac a4\,(1,1,1). \tag
 Sie besteht aus zwei FCC-Gittern, die um ein Viertel der Raumdiagonale gegeneinander verschoben sind. C, Si und Ge kristallisieren so. Besetzen zwei Atomsorten die beiden Gitter, heißt sie __Zinkblendestruktur__, etwa ZnS, GaAs und InSb.
 :::
 
-⁠**So liest man das:** Der Würfel enthält $4+4=8$ Atome. Die Basis liegt auf einer Raumdiagonale, und jedes Atom hat vier Nachbarn im Abstand $\sqrt3\,a/4$ an den Ecken eines Tetraeders. Das ist die Form der vier sp$^3$-Bindungen mit dem Winkel 109,47° ([Teil 5](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/chemische-bindung/chemische-bindung.html)), so wie die drei sp$^2$-Bindungen in der Ebene die Wabe aus Stufe [2](bravais-gitter-in-einer-und-zwei-dimensionen.html#stufe-2) ergeben. Die gerichtete Bindung erzwingt die offene Struktur: Mit $r_\mathrm{at}=\sqrt3\,a/8$ füllen gleiche Kugeln nur $P=8\cdot\frac43\pi r_\mathrm{at}^3/a^3=\sqrt3\,\pi/16=34\,\%$, weniger als die Hälfte von FCC. Zwischen ionischer und kovalenter Bindung gibt es einen stetigen Übergang: ZnS, GaAs und InSb haben auch ionischen Charakter, weil die beiden Sorten verschieden stark an den Elektronen ziehen.
+⁠**So liest man das:** Der Würfel enthält $4+4=8$ Atome. Die Basis liegt auf einer Raumdiagonale, und jedes Atom hat vier Nachbarn im Abstand $\sqrt3\,a/4$ an den Ecken eines Tetraeders. Das ist die Form der vier sp$^3$-Bindungen mit dem Winkel 109,47° ([Kapitel 5](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/chemische-bindung/chemische-bindung.html)), so wie die drei sp$^2$-Bindungen in der Ebene die Wabe aus Stufe [2](bravais-gitter-in-einer-und-zwei-dimensionen.html#stufe-2) ergeben. Die gerichtete Bindung erzwingt die offene Struktur: Mit $r_\mathrm{at}=\sqrt3\,a/8$ füllen gleiche Kugeln nur $P=8\cdot\frac43\pi r_\mathrm{at}^3/a^3=\sqrt3\,\pi/16=34\,\%$, weniger als die Hälfte von FCC. Zwischen ionischer und kovalenter Bindung gibt es einen stetigen Übergang: ZnS, GaAs und InSb haben auch ionischen Charakter, weil die beiden Sorten verschieden stark an den Elektronen ziehen.
 
 ::::beispiel
 GaAs hat $a=0{,}5653$ nm, der Abstand von Ga zu As ist $\sqrt3\,a/4=0{,}2448$ nm, und [(5.2)](koordinationszahl-und-packungsdichte.html#gl-5-2) ergibt mit vier Ga und vier As $\rho_\mathrm m=5{,}32\,\mathrm{g/cm^3}$.

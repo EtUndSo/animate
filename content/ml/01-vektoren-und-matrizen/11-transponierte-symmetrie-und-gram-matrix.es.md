@@ -1,7 +1,8 @@
 ---
 title: Traspuesta, simetría y matriz de Gram
 pfad: Informática / Aprendizaje automático / Fundamentos matemáticos / Vectores y matrices
-knoten: Fundamentos 1: Vectores y matrices
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Capítulo 1: Vectores y matrices
 nachschlagen: ja
 order: 15211100
 summary: Si en una matriz se intercambian filas y columnas, se obtiene su traspuesta.

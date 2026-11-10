@@ -30,13 +30,14 @@ und verweisen mit Link darauf.
    auch englisch), nicht die ganze Datei lesen. Jede Zeile beginnt mit der Verweis-Wendung des Abschnitts.
 2. **Gefunden:** nicht neu erklären. Im Heft steht dann „Was du dafür brauchst“ mit einer kurzen, selbsttragenden
    Zusammenfassung (Definition, eine Formel, ein Mini-Beispiel) und dem Verweis in genau dieser Form; auf der Website wird er
-   zum Link auf Artikel und Abschnitt:
-   - ML-Grundlagen: „Grundlagen 1, Abschnitt 13.5“, ML-Pfad: „Teil 2, Abschnitt 3.1“ (Teil N = Lernpfad-Heft T(N+7));
-   - Programmieren: „Programmieren, Python 2, Abschnitt 3.1“ (später „Programmieren, C 1, …“, „Programmieren, C++ 1, …“);
-   - Linux und Kommandozeile: „Linux 2, Abschnitt 3.1“;
-   - mehrere: „Grundlagen 1, Abschnitte 10.1 und 11.4“; das ganze Heft: „Grundlagen 1“.
-   Übersetzungen: notizen/heft_uebersetzung.md, Abschnitt „Verweise auf andere Hefte“. Für die Uni-Module (Elektrotechnik,
-   Höhere Mathematik) gibt es noch keine automatische Link-Wendung über Modulgrenzen; dort den Abschnitt im Bericht nennen.
+   zum Link auf Artikel und Abschnitt (Benennung seit 09.11.2026, notizen/kapitel_umstellung.md):
+   - aus einem anderen Bereich oder Modul genau die Wendung der Zeile: „Grundlagen, Kapitel 1, Abschnitt 13.5“,
+     „Python, Kapitel 2, Abschnitt 3.1“, „Linux, Kapitel 2, Abschnitt 3.1“, „HöMa1, Kapitel 5, Abschnitt 8“ (später auch
+     „C, Kapitel 1, …“, „C++, Kapitel 1, …“, „Machine Learning, Kapitel 1, …“ = Lernpfad-Heft T08);
+   - im selben Bereich ohne Kurznamen: „Kapitel 2, Abschnitt 3.1“;
+   - mehrere: „Grundlagen, Kapitel 1, Abschnitte 10.1 und 11.4“; das ganze Heft: „Grundlagen, Kapitel 1“.
+   Übersetzungen: notizen/kapitel_umstellung.md (Formentabelle). Das gilt für alle Module, auch Elektrotechnik und Höhere
+   Mathematik.
 3. **Nicht gefunden:** Du erklärst es vollständig, wenn es zu deinem Heft gehört (siehe „Zuständigkeiten“ unten). Gehört es in
    einen anderen Bereich, der noch kein Heft dazu hat, trägst du es unten unter „Geplant“ mit dem vorgesehenen Ort ein und
    fragst im Bericht nach.
@@ -49,11 +50,11 @@ HAND_VORLAGE = """## Zuständigkeiten und geplante Themen (von Hand)
 - **Programmieren** (Informatik / Programmieren, noch ohne Heft): Python als Sprache, Datenstrukturen, Funktionen, Module,
   venv, NumPy-Grundlagen; später C und C++. ML und Cybersecurity setzen das voraus.
 - **Linux und Kommandozeile** (Informatik / Linux und Kommandozeile, noch ohne Heft): Shell, Dateien, Rechte, Prozesse.
-  Cybersecurity Teil 3 bis 5 werden nach der Recherche cyber-spezifisch oder entfallen.
+  Cybersecurity, Kapitel 3 bis 5 werden nach der Recherche cyber-spezifisch oder entfallen.
 - **ML-Grundlagen gegen Höhere Mathematik:** Was ein HöMa-Heft vollständig erklärt (Beweise, Herleitungen), steht in den
   Grundlagen nur als Kurzfassung mit Verweis. Prüfen bei der nächsten Überarbeitung der Grundlagen.
-- **Geplant (noch ohne Heft):** Grundlagen 6 Optimierung (Lernpfad T06, vor dem Gradientenabstieg); ML-Pfad ab Teil 1
-  „Lernen aus Daten“ (T08).
+- **Geplant (noch ohne Heft):** Grundlagen, Kapitel 6 Optimierung (Lernpfad T06, vor dem Gradientenabstieg); ML-Pfad ab
+  Machine Learning, Kapitel 1 „Lernen aus Daten“ (T08).
 """
 
 
@@ -80,11 +81,9 @@ def abschnitte(cfg, kap):
 
 
 def wendung(cfg, mod, kap):
-    """Verweis-Wendung des Hefts, so wie sie in einem Heft stehen muss („Grundlagen 1“, „Programmieren, Python 2“)."""
-    name = H.heft_name(cfg, kap, "de")
-    if name:
-        return cfg.get("praefix", {}).get("de", "") + name
-    return "%s, Teil %d" % (cfg["pfad"]["de"].split(" / ")[-1], kap)
+    """Verweis-Wendung des Hefts aus einem anderen Bereich oder Modul („Grundlagen, Kapitel 1“, „Python, Kapitel 2“,
+    „ET3, Kapitel 4“); im selben Bereich entfällt der Kurzname."""
+    return "%s, %s" % (H.bereich(cfg, kap)["kurz"]["de"], H.heft_name(cfg, kap, "de"))
 
 
 def bereich_titel(cfg, kap):

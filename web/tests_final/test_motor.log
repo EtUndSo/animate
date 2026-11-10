@@ -1,0 +1,8 @@
+duration 2.0
+t=0.0: k=0.0000  number='0.00'  dot@(0.000,-0.000) OK
+t=1.0: k=3.0000  number='3.00'  dot@(3.000,0.176) OK
+t=2.0: k=6.0000  number='6.00'  dot@(6.000,-0.349) OK
+graph reacts to tracker OK (shapes (400, 3) vs (379, 3))
+end value OK: 6.00
+
+MOTOR TESTS PASSED

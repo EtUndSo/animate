@@ -1,6 +1,8 @@
 ---
 title: Etapa 2: Cuatro magnitudes, dos ecuaciones, cuatro números
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Cuadripolos
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Cuadripolos
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore
+knoten: Capítulo 6: Cuadripolos
 order: 1160400
 summary: Cuatro magnitudes de puerto son cuatro incógnitas.
 tags: funciones del cuadripolo, sistema simétrico de flechas, sistema de flechas en cadena, sistema mixto de flechas
@@ -13,7 +15,7 @@ lang: es
 Cuatro magnitudes de puerto son cuatro incógnitas. Esta etapa muestra por qué el cuadripolo aporta exactamente dos ecuaciones y por qué en ellas solo hay cuatro números.
 :::
 
-**La idea.** La fuente y la carga aportan cada una una ecuación entre la tensión y la corriente de su puerto. Faltan dos, y las aporta el cuadripolo. Si se fijan dos magnitudes de puerto, por ejemplo ambas corrientes, quedan fijadas todas las corrientes y tensiones del interior, y con ellas las otras dos magnitudes de puerto. Las magnitudes fijadas son las causas; las demás, los efectos. Si el cuadripolo es lineal y no contiene fuentes independientes, vale la superposición de la [Parte 5](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html): cada efecto es la suma de la parte debida a la primera causa y la parte debida a la segunda, cada parte proporcional a su causa. Dos efectos por dos causas dan cuatro factores.
+**La idea.** La fuente y la carga aportan cada una una ecuación entre la tensión y la corriente de su puerto. Faltan dos, y las aporta el cuadripolo. Si se fijan dos magnitudes de puerto, por ejemplo ambas corrientes, quedan fijadas todas las corrientes y tensiones del interior, y con ellas las otras dos magnitudes de puerto. Las magnitudes fijadas son las causas; las demás, los efectos. Si el cuadripolo es lineal y no contiene fuentes independientes, vale la superposición del [capítulo 5](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html): cada efecto es la suma de la parte debida a la primera causa y la parte debida a la segunda, cada parte proporcional a su causa. Dos efectos por dos causas dan cuatro factores.
 
 :::satz Teorema 2.1 (Ecuaciones del cuadripolo)
 <span class="anker" id="satz-2-1"></span>
@@ -31,7 +33,7 @@ $$y_1=p_{11}x_1+p_{12}x_2,\qquad y_2=p_{21}x_1+p_{22}x_2. \tag{2.2}$$
 
 ⁠**Cómo leerlo:** La primera cifra de un parámetro nombra el efecto; la segunda, la causa. Los parámetros solo dependen del cuadripolo, no de la fuente ni de la carga. Cuatro magnitudes se pueden repartir de seis maneras en dos causas y dos efectos. Las habituales son las cuatro formas de este capítulo. **Validez:** [(2.1)](#gl-2-1) vale también para cuadripolos no lineales, entonces como curvas. En el transistor se describe así o bien el comportamiento con magnitudes continuas o bien el comportamiento de señal con pequeñas magnitudes alternas. Un transformador con devanados separados solo transmite magnitudes variables en el tiempo. [(2.2)](#gl-2-2) exige linealidad.
 
-**Flechas de referencia.** Para que los signos sean unívocos hace falta un acuerdo (fig. [3](#abb-3)). En el __sistema simétrico de flechas__, también llamado sentido matemático de los signos, rige en ambos puertos el convenio receptor de la [Parte 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html): las flechas de corriente apuntan hacia el cuadripolo. En el __sistema de flechas en cadena__, también llamado sistema técnico de flechas, rige solo en la entrada; en la salida rige el convenio generador: la corriente de salida apunta hacia fuera, hacia la carga. Este capítulo usa el __sistema mixto de flechas__: $I_1$ e $I_2$ apuntan siempre hacia dentro. Donde la forma en cadena necesita la corriente saliente, la escribe explícitamente como $-I_2$. Por eso, una carga da en funcionamiento normal un $I_2$ negativo.
+**Flechas de referencia.** Para que los signos sean unívocos hace falta un acuerdo (fig. [3](#abb-3)). En el __sistema simétrico de flechas__, también llamado sentido matemático de los signos, rige en ambos puertos el convenio receptor del [capítulo 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html): las flechas de corriente apuntan hacia el cuadripolo. En el __sistema de flechas en cadena__, también llamado sistema técnico de flechas, rige solo en la entrada; en la salida rige el convenio generador: la corriente de salida apunta hacia fuera, hacia la carga. Este capítulo usa el __sistema mixto de flechas__: $I_1$ e $I_2$ apuntan siempre hacia dentro. Donde la forma en cadena necesita la corriente saliente, la escribe explícitamente como $-I_2$. Por eso, una carga da en funcionamiento normal un $I_2$ negativo.
 
 :::abbildung et1/k6zaehlpfeile 3
 Los tres sistemas de flechas. Izquierda, simétrico: ambas corrientes apuntan hacia el cuadripolo. Centro, en cadena: la corriente de salida apunta hacia la carga. Derecha, mixto, como en este capítulo: $I_2$ sigue definida como a la izquierda, y la corriente hacia la carga se llama $-I_2$.

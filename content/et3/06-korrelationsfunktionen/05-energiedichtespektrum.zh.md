@@ -1,6 +1,8 @@
 ---
 title: 第 4 阶段：能量谱密度
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / 相关函数
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / 相关函数
+adresse: elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen
+knoten: 第 6 章：相关函数
 order: 3260500
 summary: 相关函数的傅里叶变换是什么？它表明能量如何分布在各个频率上。
 tags: 能量谱密度, 互能量谱密度
@@ -20,7 +22,7 @@ lang: zh
 $$\varphi^E_{ss}(\tau)=s^*(-\tau)*s(\tau)\;\circ\!\!-\!\!\bullet\;S^*(f)\,S(f)=|S(f)|^2,\qquad\varphi^E_{sg}(\tau)\;\circ\!\!-\!\!\bullet\;S^*(f)\,G(f). \tag{4.1}$$
 :::
 
-⁠**如何理解：**$|S(f)|^2$ 称为__能量谱密度__。它是实的，永不为负，并且对实信号而言是 $f$ 的偶函数。信号的相位丢失了：幅度谱相同的所有信号都有相同的自相关函数。$S^*G$ 称为__互能量谱密度__。推导只需要卷积定理、时间反转和共轭：$s^*(-\tau)\circ\!\!-\!\!\bullet\,S^*(f)$（[第 3 部分](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)）。
+⁠**如何理解：**$|S(f)|^2$ 称为__能量谱密度__。它是实的，永不为负，并且对实信号而言是 $f$ 的偶函数。信号的相位丢失了：幅度谱相同的所有信号都有相同的自相关函数。$S^*G$ 称为__互能量谱密度__。推导只需要卷积定理、时间反转和共轭：$s^*(-\tau)\circ\!\!-\!\!\bullet\,S^*(f)$（[第 3 章](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)）。
 
 **帕塞瓦尔定理。** 在 $\tau=0$ 处，自相关函数就是能量。利用面积定理：
 
@@ -30,7 +32,7 @@ $$E_s=\varphi^E_{ss}(0)=\int_{-\infty}^{\infty}|s(t)|^2\,\mathrm{d} t=\int_{-\in
 两个正交信号的频谱也是正交的：$\int s^*g\,\mathrm{d} t=\int S^*G\,\mathrm{d} f=0$。
 
 ::::beispiel 指数脉冲
-$s(t)=\varepsilon(t)\mathrm{e}^{-t}$ 的频谱为 $S(f)=\frac{1}{1+\mathrm{j}2\pi f}$，因此 $|S|^2=\frac{1}{1+(2\pi f)^2}$。它同时也是 $\operatorname{Re}\{S\}$，而 $\operatorname{Re}\{S\}$ 的逆变换是信号的偶部（[第 3 部分](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)）：
+$s(t)=\varepsilon(t)\mathrm{e}^{-t}$ 的频谱为 $S(f)=\frac{1}{1+\mathrm{j}2\pi f}$，因此 $|S|^2=\frac{1}{1+(2\pi f)^2}$。它同时也是 $\operatorname{Re}\{S\}$，而 $\operatorname{Re}\{S\}$ 的逆变换是信号的偶部（[第 3 章](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)）：
 
 $$\varphi^E_{ss}(\tau)=\tfrac12\mathrm{e}^{-|\tau|},\qquad E_s=\varphi^E_{ss}(0)=\tfrac12.$$
 

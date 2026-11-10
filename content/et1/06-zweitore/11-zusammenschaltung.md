@@ -1,6 +1,8 @@
 ---
 title: Stufe 9: Zusammenschaltung
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Zweitore
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Zweitore
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore
+knoten: Kapitel 6: Zweitore
 order: 1161100
 summary: Stufe 8 hat gezeigt, dass die Kette zur A-Form passt.
 tags: 

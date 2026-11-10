@@ -1,6 +1,8 @@
 ---
 title: Stufe 3: Eine Fläche, viele Kennlinien
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Der Bipolartransistor
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Der Bipolartransistor
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor
+knoten: Kapitel 10: Der Bipolartransistor
 order: 1200500
 summary: Datenblätter zeigen mehrere Kennlinien mit verschiedenen Achsen.
 tags: Kennlinie, Schnitt, Kurvenschar, Eingangskennlinie, Steuerkennlinie, Stromsteuerkennlinie, Ausgangskennlinie, Übertragungskennlinie
@@ -13,7 +15,7 @@ lang: de
 Datenblätter zeigen mehrere Kennlinien mit verschiedenen Achsen. Diese Stufe führt sie auf ein Objekt zurück.
 :::
 
-**Die Idee.** $I_\mathrm{C}$ hängt von zwei Spannungen ab. Eine Funktion von zwei Variablen ist eine Fläche, wie ein Gelände über einer Landkarte: Die Karte hat die Richtungen $U_\mathrm{BE}$ und $U_\mathrm{CE}$, die Geländehöhe ist $I_\mathrm{C}$ (Abb. [3](#abb-3)). Eine __Kennlinie__ (Zusammenhang zweier Größen, [Teil 5](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)) entsteht, wenn man eine Spannung festhält: ein __Schnitt__ durch das Gelände. Mehrere parallele Schnitte ergeben eine __Kurvenschar__. Es gibt also nicht viele Abhängigkeiten, sondern ein Gelände mit mehreren Ansichten. In Richtung $U_\mathrm{BE}$ ist es ein steiler Hang (rot), in Richtung $U_\mathrm{CE}$ eine Kante und dann eine fast waagerechte Ebene (grün).
+**Die Idee.** $I_\mathrm{C}$ hängt von zwei Spannungen ab. Eine Funktion von zwei Variablen ist eine Fläche, wie ein Gelände über einer Landkarte: Die Karte hat die Richtungen $U_\mathrm{BE}$ und $U_\mathrm{CE}$, die Geländehöhe ist $I_\mathrm{C}$ (Abb. [3](#abb-3)). Eine __Kennlinie__ (Zusammenhang zweier Größen, [Kapitel 5](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)) entsteht, wenn man eine Spannung festhält: ein __Schnitt__ durch das Gelände. Mehrere parallele Schnitte ergeben eine __Kurvenschar__. Es gibt also nicht viele Abhängigkeiten, sondern ein Gelände mit mehreren Ansichten. In Richtung $U_\mathrm{BE}$ ist es ein steiler Hang (rot), in Richtung $U_\mathrm{CE}$ eine Kante und dann eine fast waagerechte Ebene (grün).
 
 :::abbildung et1/k10flaeche 3
 Die Fläche $I_\mathrm{C}(U_\mathrm{BE},U_\mathrm{CE})$ des Rechenmodells. Rot: Schnitt bei $U_\mathrm{CE}=6$ V, exponentiell. Grün: Schnitt bei $U_\mathrm{BE}=0{,}6$ V, erst steil, dann fast waagerecht. Beide treffen sich im Arbeitspunkt.

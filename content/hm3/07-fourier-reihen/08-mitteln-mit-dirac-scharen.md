@@ -1,6 +1,8 @@
 ---
 title: Stufe 7: Mitteln mit Dirac-Scharen
-pfad: Elektrotechnik / 3. Semester / Höhere Mathematik 3 / Fourier-Reihen
+pfad: Elektrotechnik / 3. Semester / HöMa3 – Höhere Mathematik 3 / Fourier-Reihen
+adresse: elektrotechnik/3-semester/hohere-mathematik-3/fourier-reihen
+knoten: Kapitel 7: Fourier-Reihen
 order: 3170800
 summary: Für einzelne Stellen braucht man neben der Projektion ein zweites Bild: den gleitenden Mittelwert.
 tags: Glättungskern, Dirac-Schar, Faltung, Approximation der Eins, im Distributionssinn, Dirac-Distribution, Dirac-Kamm
@@ -34,7 +36,7 @@ Sei $f:\mathbb{R}\to\mathbb{R}$ stetig und $f_\varepsilon(x):=\int_\mathbb{R}\et
 :::
 
 :::beweis Glätten
-⁠**Glattheit.** Für $x$ in einem beschränkten Intervall läuft das Integral nur über ein beschränktes Intervall, denn außerhalb verschwindet $\eta_\varepsilon(x-y)$. Nach dem Satz über Parameterintegrale ([Teil 2](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/integralrechnung-im-rn/integralrechnung-im-rn.html)) darf man also beliebig oft unter dem Integral ableiten. Alle Ableitungen fallen auf den glatten Kern, $f$ selbst muss nicht differenzierbar sein.
+⁠**Glattheit.** Für $x$ in einem beschränkten Intervall läuft das Integral nur über ein beschränktes Intervall, denn außerhalb verschwindet $\eta_\varepsilon(x-y)$. Nach dem Satz über Parameterintegrale ([Kapitel 2](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/integralrechnung-im-rn/integralrechnung-im-rn.html)) darf man also beliebig oft unter dem Integral ableiten. Alle Ableitungen fallen auf den glatten Kern, $f$ selbst muss nicht differenzierbar sein.
 
 ⁠**Konvergenz.** Weil das Gewicht die Fläche 1 hat, ist $f(x)=\int_\mathbb{R}\eta_\varepsilon(x-y)\,f(x)\,\mathrm{d} y$. Wegen $\eta_\varepsilon\ge0$ folgt
 

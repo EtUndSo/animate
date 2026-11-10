@@ -1,6 +1,8 @@
 ---
 title: Stufe 6: Verbundverteilung, Unabhängigkeit, Unkorreliertheit
-pfad: Elektrotechnik / 3. Semester / Signale und Systeme / Zufallssignale
+pfad: Elektrotechnik / 3. Semester / ET3 – Grundgebiete der Elektrotechnik 3: Signale und Systeme / Zufallssignale
+adresse: elektrotechnik/3-semester/signale-und-systeme/zufallssignale
+knoten: Kapitel 7: Zufallssignale
 order: 3270700
 summary: Zwei Zufallsgrößen zugleich: Wann hängen sie zusammen, und was folgt daraus für ihre Summe?
 tags: Verbundverteilung, statistisch unabhängig, unkorreliert
@@ -28,7 +30,7 @@ Aus Unabhängigkeit folgt Unkorreliertheit: $\varphi_{sg}=\int xp_s\mathrm{d} x\
 <span class="anker" id="gl-6-1"></span>
 $$p_s(x)=\int_{-\infty}^{\infty}p_{fg}(u,x-u)\,\mathrm{d} u=p_f(x)*p_g(x)\quad(\text{unabhängig}). \tag{6.1}$$
 
-Das ist die Faltung aus [Teil 1](/wissen/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html), dort am Beispiel der Würfel. Zwei gleichverteilte Größen ergeben eine Dreieckdichte, drei eine schon fast glockenförmige (Abb. [2](#abb-2)).
+Das ist die Faltung aus [Kapitel 1](/wissen/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html), dort am Beispiel der Würfel. Zwei gleichverteilte Größen ergeben eine Dreieckdichte, drei eine schon fast glockenförmige (Abb. [2](#abb-2)).
 
 :::abbildung et3/k7summen 2
 Verteilungsdichten von Summen unabhängiger, auf $[-\frac12,\frac12]$ gleichverteilter Zufallsgrößen. Schon die Summe von drei liegt nahe an der Gaußkurve mit derselben Varianz (bei $x=0$: 0,75 gegen 0,80).

@@ -1,7 +1,8 @@
 ---
 title: Aproximación mediante matrices de rango bajo
 pfad: Informática / Aprendizaje automático / Fundamentos matemáticos / Proyección, valores propios y descomposiciones
-knoten: Fundamentos 2: Proyección, valores propios y descomposiciones
+adresse: informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen
+knoten: Capítulo 2: Proyección, valores propios y descomposiciones
 nachschlagen: ja
 order: 15221100
 summary: La descomposición en valores singulares ordena los bloques de una matriz por su tamaño.
@@ -19,7 +20,7 @@ La descomposición en valores singulares ordena los bloques de una matriz por su
 
 <span class="anker" id="stufe-10-1"></span>
 
-Para decir lo cerca que están dos matrices, se necesita una medida del tamaño de su diferencia. La norma espectral es una medida así; mide el alargamiento máximo. Hay una segunda aún más inmediata: se lee la matriz fila por fila, como una imagen en [Fundamentos 1, sección 6.1](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/matrizen-und-die-datenmatrix.html#stufe-6-1), para formar un vector largo, y se toma su norma euclídea.
+Para decir lo cerca que están dos matrices, se necesita una medida del tamaño de su diferencia. La norma espectral es una medida así; mide el alargamiento máximo. Hay una segunda aún más inmediata: se lee la matriz fila por fila, como una imagen en el [capítulo 1, sección 6.1](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/matrizen-und-die-datenmatrix.html#stufe-6-1), para formar un vector largo, y se toma su norma euclídea.
 
 :::definition Definición 10.1 (Norma de Frobenius)
 <span class="anker" id="satz-10-1"></span>
@@ -114,7 +115,7 @@ Entre todas las matrices de rango como mucho $k$, $\mathbf{A}_k$ es, por tanto, 
 :::
 
 :::beweis Norma espectral
-Según el teorema del rango, el núcleo de $\mathbf{B}$ tiene dimensión $n-\operatorname{rango}\mathbf{B}\ge n-k$. Se eligen $n-k$ vectores linealmente independientes $\mathbf{b}_1,\dots,\mathbf{b}_{n-k}$ del núcleo y se les añaden $\mathbf{v}_1,\dots,\mathbf{v}_{k+1}$. Son $n+1$ vectores de $\mathbb{R}^n$ y, según [Fundamentos 1, sección 13.4](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-4), son linealmente dependientes, pues una matriz con $n$ filas tiene como mucho rango $n$. Existen, por tanto, números, no todos nulos, con $\sum_l\alpha_l\mathbf{b}_l=\sum_j\beta_j\mathbf{v}_j$. Este vector $\mathbf{z}$ no es nulo, pues de lo contrario, por la independencia de ambas listas, todos los números serían cero. Está en el núcleo de $\mathbf{B}$ y en el espacio generado por $\mathbf{v}_1,\dots,\mathbf{v}_{k+1}$. Se normaliza a longitud $1$. Entonces $(\mathbf{A}-\mathbf{B})\mathbf{z}=\mathbf{A}\mathbf{z}$, y con $\mathbf{z}=\sum_{j\le k+1}c_j\mathbf{v}_j$, $\sum_jc_j^2=1$:
+Según el teorema del rango, el núcleo de $\mathbf{B}$ tiene dimensión $n-\operatorname{rango}\mathbf{B}\ge n-k$. Se eligen $n-k$ vectores linealmente independientes $\mathbf{b}_1,\dots,\mathbf{b}_{n-k}$ del núcleo y se les añaden $\mathbf{v}_1,\dots,\mathbf{v}_{k+1}$. Son $n+1$ vectores de $\mathbb{R}^n$ y, según el [capítulo 1, sección 13.4](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-4), son linealmente dependientes, pues una matriz con $n$ filas tiene como mucho rango $n$. Existen, por tanto, números, no todos nulos, con $\sum_l\alpha_l\mathbf{b}_l=\sum_j\beta_j\mathbf{v}_j$. Este vector $\mathbf{z}$ no es nulo, pues de lo contrario, por la independencia de ambas listas, todos los números serían cero. Está en el núcleo de $\mathbf{B}$ y en el espacio generado por $\mathbf{v}_1,\dots,\mathbf{v}_{k+1}$. Se normaliza a longitud $1$. Entonces $(\mathbf{A}-\mathbf{B})\mathbf{z}=\mathbf{A}\mathbf{z}$, y con $\mathbf{z}=\sum_{j\le k+1}c_j\mathbf{v}_j$, $\sum_jc_j^2=1$:
 
 $$\lVert(\mathbf{A}-\mathbf{B})\mathbf{z}\rVert^2=\lVert\mathbf{A}\mathbf{z}\rVert^2=\sum_{j=1}^{k+1}d_j^2c_j^2\ge d_{k+1}^2\sum_{j=1}^{k+1}c_j^2=d_{k+1}^2 .$$
 
@@ -152,7 +153,7 @@ $$\frac{d_1^2+\dots+d_k^2}{d_1^2+\dots+d_r^2}$$
 indica qué parte de la suma de todos los valores de brillo al cuadrado se conserva.
 
 ::::beispiel [Ejemplo numérico]
-La cruz de [Fundamentos 1, sección 6.1](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/matrizen-und-die-datenmatrix.html#stufe-6-1), es
+La cruz del [capítulo 1, sección 6.1](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/matrizen-und-die-datenmatrix.html#stufe-6-1), es
 
 $$\mathbf{C}=\begin{pmatrix}0&1&0\\1&1&1\\0&1&0\end{pmatrix}.$$
 

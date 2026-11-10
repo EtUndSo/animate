@@ -92,7 +92,7 @@ def k1muster():
     s.text(None, s.tr("tr", "x' steigt gleichmäßig", "x' rises steadily", "x' sube de forma regular", "x' 平稳上升",
                       fr="x' croît régulièrement", tr="x' düzgün biçimde artar"), (2.6, 2.75), MITTEL, "center")
     s.text(None, s.tr("m", "Muster w", "pattern w", "patrón w", "模式 w", fr="motif w", tr="örüntü w"), (-2.05, 1.75), KLEIN, "right")
-    s.text(None, s.tr("sig", "Signal", "signal", "señal", "信号", fr="signal", tr="sinyal"), (-2.05, 0.35), KLEIN, "right")
+    s.text(None, s.tr("sig", "Verlauf", "time series", "serie temporal", "时间序列", fr="série", tr="zaman serisi"), (-2.05, 0.35), KLEIN, "right")
     s.text(None, s.tr("prod", "Produkte", "products", "productos", "乘积", fr="produits", tr="çarpımlar"), (-2.05, -1.05), KLEIN, "right")
     s.speichern()
 

@@ -1,6 +1,8 @@
 ---
 title: Stufe 5: Inversion
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Die MOS-Kapazität
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Die MOS-Kapazität
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/die-mos-kapazitat
+knoten: Kapitel 15: Die MOS-Kapazität
 order: 4250700
 summary: Die Verarmungszone kann nicht beliebig wachsen, denn die Bänder biegen immer weiter.
 tags: schwache Inversion, starker Inversion

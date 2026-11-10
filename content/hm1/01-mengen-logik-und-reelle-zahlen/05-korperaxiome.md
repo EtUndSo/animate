@@ -1,6 +1,8 @@
 ---
 title: Stufe 3: Körperaxiome
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Mengen, Logik und reelle Zahlen
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Mengen, Logik und reelle Zahlen
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen
+knoten: Kapitel 1: Mengen, Logik und reelle Zahlen
 order: 1210500
 summary: Welche wenigen Regeln für Plus und Mal muss man annehmen, damit alle anderen Rechenregeln beweisbar sind?
 tags: Verknüpfung, Distributivgesetz, Differenz, Quotient
@@ -34,7 +36,7 @@ Eine __Verknüpfung__ ordnet je zwei Elementen ein Element derselben Menge zu. E
 Dazu kommen (AM) $x\cdot(y+z)=(x\cdot y)+(x\cdot z)$ (__Distributivgesetz__) und (NNE) $0\ne1$.
 :::
 
-⁠**So liest man das:** $0$ und $1$ sind hier nur Namen für zwei ausgezeichnete Elemente. Minus und Geteilt sind keine eigenen Verknüpfungen: $x-y:=x+(-y)$, und $\frac yx:=y\cdot x^{-1}$. Vereinbart sind „Punkt vor Strich“ und $xy:=x\cdot y$. Was aus den Axiomen folgt, gilt in jedem Körper, also auch für die komplexen Zahlen in [Teil 2](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen/komplexe-zahlen.html). Beispiele sind $\mathbb{Q}$ und $\mathbb{R}$. $\mathbb{N}$ ist keiner (keine 0, kein $-1$), $\mathbb{Z}$ auch nicht (2 hat kein Inverses). Der kleinste Körper ist $\{0,1\}$ mit $1+1=0$, die Addition der Digitaltechnik (XOR). **Warum die Voraussetzungen:** Ohne (NNE) wäre $\{0\}$ ein Körper. Ohne $x\ne0$ in (M4) wäre $1=0\cdot0^{-1}=0$ nach (iii) unten.
+⁠**So liest man das:** $0$ und $1$ sind hier nur Namen für zwei ausgezeichnete Elemente. Minus und Geteilt sind keine eigenen Verknüpfungen: $x-y:=x+(-y)$, und $\frac yx:=y\cdot x^{-1}$. Vereinbart sind „Punkt vor Strich“ und $xy:=x\cdot y$. Was aus den Axiomen folgt, gilt in jedem Körper, also auch für die komplexen Zahlen in [Kapitel 2](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen/komplexe-zahlen.html). Beispiele sind $\mathbb{Q}$ und $\mathbb{R}$. $\mathbb{N}$ ist keiner (keine 0, kein $-1$), $\mathbb{Z}$ auch nicht (2 hat kein Inverses). Der kleinste Körper ist $\{0,1\}$ mit $1+1=0$, die Addition der Digitaltechnik (XOR). **Warum die Voraussetzungen:** Ohne (NNE) wäre $\{0\}$ ein Körper. Ohne $x\ne0$ in (M4) wäre $1=0\cdot0^{-1}=0$ nach (iii) unten.
 
 :::satz Satz 3.2 (Rechenregeln im Körper)
 <span class="anker" id="satz-3-2"></span>
@@ -105,7 +107,7 @@ $(-3)(-5)=15$, $\frac23+\frac57=\frac{14+15}{21}=\frac{29}{21}$, $\frac34:\frac5
 ⁠**Grenzfall** $v=u=1$: Die Summenregel wird zu $x+y=x+y$.
 
 :::frage Das weiß ich aus der Schule. Wozu ein Beweis?
-Für $\mathbb{Q}$ und $\mathbb{R}$ sind sie vertraut. Aber sie stehen nicht in den Axiomen, und erst der Beweis zeigt, wo sie gelten: in jedem Körper. Die Schulregel „Quadrate sind nicht negativ“ folgt dagegen nicht aus dieser Liste und fällt in [Teil 2](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen/komplexe-zahlen.html). Außerdem übt man das Schließen an Inhalten, deren Ergebnis man kennt.
+Für $\mathbb{Q}$ und $\mathbb{R}$ sind sie vertraut. Aber sie stehen nicht in den Axiomen, und erst der Beweis zeigt, wo sie gelten: in jedem Körper. Die Schulregel „Quadrate sind nicht negativ“ folgt dagegen nicht aus dieser Liste und fällt in [Kapitel 2](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen/komplexe-zahlen.html). Außerdem übt man das Schließen an Inhalten, deren Ergebnis man kennt.
 :::
 
 :::aufgabe Aufgabe 4 ★★ Beweisen im Körper

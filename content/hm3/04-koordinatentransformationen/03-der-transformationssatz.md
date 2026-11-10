@@ -1,6 +1,8 @@
 ---
 title: Stufe 1: Der Transformationssatz
-pfad: Elektrotechnik / 3. Semester / Höhere Mathematik 3 / Koordinatentransformationen
+pfad: Elektrotechnik / 3. Semester / HöMa3 – Höhere Mathematik 3 / Koordinatentransformationen
+adresse: elektrotechnik/3-semester/hohere-mathematik-3/koordinatentransformationen
+knoten: Kapitel 4: Koordinatentransformationen
 order: 3140300
 summary: In einer Variablen ersetzt die Substitutionsregel eine Integrationsvariable durch eine andere.
 tags: Funktionaldeterminante, Transformationssatz
@@ -25,7 +27,7 @@ Die Abbildung $\Phi$ legt ein krummes Gitter über $D$. Die Zelle $Z$ wird zur Z
 :::
 
 :::herleitung Woher der Faktor kommt
-⁠**Baustein 1: Linearisieren.** Die Jacobi-Matrix $D\Phi$ aus [Teil 1](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/differentialrechnung-fur-vektorfelder/differentialrechnung-fuer-vektorfelder.html) mit den Einträgen $\partial\Phi_j/\partial x_k$ ist die beste lineare Näherung von $\Phi$:
+⁠**Baustein 1: Linearisieren.** Die Jacobi-Matrix $D\Phi$ aus [Kapitel 1](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/differentialrechnung-fur-vektorfelder/differentialrechnung-fuer-vektorfelder.html) mit den Einträgen $\partial\Phi_j/\partial x_k$ ist die beste lineare Näherung von $\Phi$:
 
 $$\Phi(\boldsymbol{x})=\Phi(\boldsymbol{x}_0)+D\Phi(\boldsymbol{x}_0)(\boldsymbol{x}-\boldsymbol{x}_0)+o(|\boldsymbol{x}-\boldsymbol{x}_0|).$$
 
@@ -47,7 +49,7 @@ Die Zahl $\det D\Phi(\boldsymbol{x})$ heißt __Funktionaldeterminante__ oder Jac
 :::satz Satz 1.1 (Transformationssatz)
 <span class="anker" id="satz-1-1"></span>
 
-Sei $\mathcal G\subset\mathbb{R}^2$ ein Gebiet (offen und zusammenhängend) und $\Phi:\mathcal G\to\mathbb{R}^2$ stetig differenzierbar. Seien $B,D\subset\mathbb{R}^2$ reguläre Bereiche ([Teil 3](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/kurvenintegrale/kurvenintegrale.html)) mit $B\subset\mathcal G$, und es gelte
+Sei $\mathcal G\subset\mathbb{R}^2$ ein Gebiet (offen und zusammenhängend) und $\Phi:\mathcal G\to\mathbb{R}^2$ stetig differenzierbar. Seien $B,D\subset\mathbb{R}^2$ reguläre Bereiche ([Kapitel 3](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/kurvenintegrale/kurvenintegrale.html)) mit $B\subset\mathcal G$, und es gelte
 
 $$\Phi:B\to D\text{ bijektiv}\quad\text{und}\quad\det D\Phi(\boldsymbol{x})\neq0\text{ für alle }\boldsymbol{x}\in B.$$
 

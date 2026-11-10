@@ -10,7 +10,7 @@ Ziel: Ein Arbeitsheft als LaTeX-Quelle, aus dem automatisch ein Website-Artikel 
 - Im Heft steht nirgends ein Bezug zu Skript, Folien, Vorlesung, Übung, Uni, Klausur, Dozent oder Personen der Quelle, auch keine Satznummern der Quelle. Fehler der Quelle korrigierst du still und nennst sie im Bericht.
 
 ## Dateien in C:\Bücher\HöMa1\Arbeitshefte (Präambeln liegen dort)
-- Kap<N>_<Name>.tex (Hauptdatei, Aufbau wie Kap1_Faltung.tex; Titelblock mit \LARGE und \large, Untertitel als Frage oder Kernaussage; „Arbeitsheft Höhere Mathematik 1, Teil N“)
+- Kap<N>_<Name>.tex (Hauptdatei, Aufbau wie Kap1_Faltung.tex; Titelblock mit \LARGE und \large, Untertitel als Frage oder Kernaussage; „Arbeitsheft HöMa1 – Höhere Mathematik 1, Kapitel~N“ (seit 09.11.2026; Verweise „Kapitel~N, Abschnitt~M“, siehe notizen/kapitel_umstellung.md))
 - kap<N>_stufen.tex, kap<N>_loesungen.tex
 - rechnung_kap<N>.py: rechnet jede Zahl des Hefts nach, Brüche exakt, Aussagen ohne Zahlen durch erschöpfendes Prüfen an Beispielen. Erste Zeilen: `import sys; sys.stdout.reconfigure(encoding="utf-8")`, sonst bricht die Ausgabe unter Windows ab.
 Der Name Kap<N>_<Name> steht im Einzelauftrag und muss exakt stimmen.

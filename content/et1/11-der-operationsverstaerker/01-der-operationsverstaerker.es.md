@@ -1,7 +1,9 @@
 ---
 title: Visión general: El amplificador operacional
 kurz: Visión general
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / El amplificador operacional
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / El amplificador operacional
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker
+knoten: Capítulo 11: El amplificador operacional
 order: 1210100
 summary: Cómo un factor enorme e impreciso se convierte en un componente cuyo comportamiento solo depende de las resistencias
 tags: amplificador operacional, ganancia en lazo abierto, realimentación negativa
@@ -33,7 +35,7 @@ Un __amplificador operacional__, abreviado AO, es un amplificador integrado form
 
 <li>
 
-⁠**Etapa diferencial:** transistores T de la [Parte 10](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor/der-bipolartransistor.html) ($B=200$, $U_T=26$ mV), $I_0=2$ mA, $R_\mathrm{C}=3$ k$\Omega$.
+⁠**Etapa diferencial:** transistores T del [capítulo 10](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor/der-bipolartransistor.html) ($B=200$, $U_T=26$ mV), $I_0=2$ mA, $R_\mathrm{C}=3$ k$\Omega$.
 
 </li>
 

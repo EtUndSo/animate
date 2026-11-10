@@ -1,6 +1,8 @@
 ---
 title: Stufe 4: Autokorrelation, Kovarianz und Kreuzkorrelation
-pfad: Elektrotechnik / 3. Semester / Signale und Systeme / Zufallssignale
+pfad: Elektrotechnik / 3. Semester / ET3 – Grundgebiete der Elektrotechnik 3: Signale und Systeme / Zufallssignale
+adresse: elektrotechnik/3-semester/signale-und-systeme/zufallssignale
+knoten: Kapitel 7: Zufallssignale
 order: 3270500
 summary: Wie schnell ändert sich ein Zufallssignal?
 tags: Autokovarianzfunktion
@@ -19,7 +21,7 @@ Wie schnell ändert sich ein Zufallssignal? Das sagt die AKF: wie ähnlich das S
 <span class="anker" id="gl-4-1"></span>
 $$\varphi_{ss}(0)=L_s,\qquad\varphi_{ss}(\tau)=\varphi_{ss}(-\tau),\qquad|\varphi_{ss}(\tau)|\le\varphi_{ss}(0). \tag{4.1}$$
 
-Für ergodische Prozesse ist $\varphi_{ss}(\tau)=\overline{s(t)s(t+\tau)}$, also die AKF eines Leistungssignals aus [Teil 6](/wissen/elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen/korrelationsfunktionen.html).
+Für ergodische Prozesse ist $\varphi_{ss}(\tau)=\overline{s(t)s(t+\tau)}$, also die AKF eines Leistungssignals aus [Kapitel 6](/wissen/elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen/korrelationsfunktionen.html).
 :::
 
 :::herleitung Maximum bei $\tau=0$

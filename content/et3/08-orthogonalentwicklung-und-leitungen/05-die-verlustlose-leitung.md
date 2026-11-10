@@ -1,6 +1,8 @@
 ---
 title: Stufe 4: Die verlustlose Leitung
-pfad: Elektrotechnik / 3. Semester / Signale und Systeme / Orthogonalentwicklung und Leitungen
+pfad: Elektrotechnik / 3. Semester / ET3 – Grundgebiete der Elektrotechnik 3: Signale und Systeme / Orthogonalentwicklung und Leitungen
+adresse: elektrotechnik/3-semester/signale-und-systeme/orthogonalentwicklung-und-leitungen
+knoten: Kapitel 8: Orthogonalentwicklung und Leitungen
 order: 3280500
 summary: Ohne Verluste ( R'=G'=0 ) werden Wellenwiderstand und Geschwindigkeit frequenzunabhängig.
 tags: 
@@ -29,7 +31,7 @@ $$u(s,t)=u_\mathrm{hin}(s-vt)+u_\mathrm{rück}(s+vt) \tag{4.2}$$
 mit beliebigen (zweimal differenzierbaren) Funktionen $u_\mathrm{hin}$ und $u_\mathrm{rück}$.
 :::
 
-⁠**So liest man das:** Eine beliebige Signalform läuft unverändert mit der Geschwindigkeit $v$ die Leitung entlang. Das liegt daran, dass alle Frequenzanteile gleich schnell sind und gleich wenig gedämpft werden: Die Leitung ist ein verzerrungsfreies System im Sinne von [Teil 5](/wissen/elektrotechnik/3-semester/signale-und-systeme/tiefpass-und-bandpasssysteme/tiefpass-und-bandpasssysteme.html), mit der Verzögerung $l/v$. Die Wellengleichung für $u$ folgt aus [(2.1)](die-leitungsgleichungen.html#gl-2-1), indem man die erste Gleichung nach $s$ und die zweite nach $t$ ableitet und $i$ eliminiert.
+⁠**So liest man das:** Eine beliebige Signalform läuft unverändert mit der Geschwindigkeit $v$ die Leitung entlang. Das liegt daran, dass alle Frequenzanteile gleich schnell sind und gleich wenig gedämpft werden: Die Leitung ist ein verzerrungsfreies System im Sinne von [Kapitel 5](/wissen/elektrotechnik/3-semester/signale-und-systeme/tiefpass-und-bandpasssysteme/tiefpass-und-bandpasssysteme.html), mit der Verzögerung $l/v$. Die Wellengleichung für $u$ folgt aus [(2.1)](die-leitungsgleichungen.html#gl-2-1), indem man die erste Gleichung nach $s$ und die zweite nach $t$ ableitet und $i$ eliminiert.
 
 ::::beispiel Koaxialkabel
 $Z=50\,\Omega$ und $C'=100$ pF/m ergeben $L'=Z^2C'=250$ nH/m und $v=\frac{1}{\sqrt{L'C'}}=2\cdot10^8$ m/s, zwei Drittel der Lichtgeschwindigkeit (wegen des Dielektrikums im Kabel). Ein Signal braucht für 10 m Kabel 50 ns. Wird das Kabel mit 75 $\Omega$ statt 50 $\Omega$ abgeschlossen, ist $r=\frac{75-50}{75+50}=0{,}2$: 20 % der Spannungsamplitude laufen als Echo zurück.

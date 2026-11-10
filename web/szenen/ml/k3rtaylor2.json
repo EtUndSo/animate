@@ -12,7 +12,7 @@
     "type": "MathTex",
     "props": {
      "tex": "\\begin{aligned}&\\mathbf H_f(\\mathbf x)=\\begin{pmatrix}4&2\\\\2&2\\end{pmatrix},\\qquad \\mathbf h=\\begin{pmatrix}0.01\\\\0.02\\end{pmatrix}\\\\\\tfrac12\\,\\mathbf h^\\top\\mathbf H_f(\\mathbf x)\\,\\mathbf h&=\\tfrac12\\sum_{i=1}^2\\sum_{j=1}^2h_i\\,\\frac{\\partial^2f}{\\partial x_i\\,\\partial x_j}\\,h_j\\\\&=\\tfrac12\\bigl(4\\cdot0.01^2+2\\cdot2\\cdot0.01\\cdot0.02+2\\cdot0.02^2\\bigr)\\\\&=\\tfrac12\\,(0.0004+0.0008+0.0008)\\\\&=0.001\\end{aligned}",
-     "height": 2.46,
+     "height": 2.418,
      "position": [
       0,
       0,

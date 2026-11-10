@@ -1,6 +1,8 @@
 ---
 title: Etapa 4: Fuentes ideales
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Fuentes y fuentes equivalentes
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Fuentes y fuentes equivalentes
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen
+knoten: Capítulo 5: Fuentes y fuentes equivalentes
 order: 1150600
 summary: Hasta ahora falta lo que impulsa la corriente.
 tags: fuente de tensión ideal, fuente de corriente ideal, tensión de fuente, corriente de fuente
@@ -13,7 +15,7 @@ lang: es
 Hasta ahora falta lo que impulsa la corriente. Esta etapa introduce los dos componentes básicos que aportan energía a una red.
 :::
 
-**La idea.** Una fuente mantiene fija una sola magnitud. La otra la determina la red conectada. Una __fuente de tensión ideal__ mantiene la diferencia de potencial entre sus terminales. Qué corriente circula lo decide la carga. Una __fuente de corriente ideal__ mantiene la corriente en su rama. Qué tensión se establece lo decide también la carga. Ambas son modelos. No se pueden construir, pero una fuente de alimentación regulada o un circuito con transistores ([Parte 10](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor/der-bipolartransistor.html)) se les acercan en un rango limitado.
+**La idea.** Una fuente mantiene fija una sola magnitud. La otra la determina la red conectada. Una __fuente de tensión ideal__ mantiene la diferencia de potencial entre sus terminales. Qué corriente circula lo decide la carga. Una __fuente de corriente ideal__ mantiene la corriente en su rama. Qué tensión se establece lo decide también la carga. Ambas son modelos. No se pueden construir, pero una fuente de alimentación regulada o un circuito con transistores ([capítulo 10](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor/der-bipolartransistor.html)) se les acercan en un rango limitado.
 
 :::abbildung et1/k5ideal 5
 A la izquierda, la fuente de tensión ideal: en el diagrama, una horizontal; la tensión no depende de la corriente. A la derecha, la fuente de corriente ideal: una vertical; la corriente no depende de la tensión. El trazo en el símbolo muestra el comportamiento con el valor cero: trazado a lo largo, la línea está cerrada; trazado en transversal, la línea está interrumpida.

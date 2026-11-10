@@ -1,7 +1,8 @@
 ---
 title: The dot product
 pfad: Computer Science / Machine Learning / Mathematical Foundations / Vectors and Matrices
-knoten: Foundations 1: Vectors and Matrices
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Chapter 1: Vectors and Matrices
 nachschlagen: ja
 order: 15210300
 summary: Two vectors with the same number of components give a single number if you multiply their components pairwise and add the products.
@@ -156,23 +157,23 @@ The electricity bill as a dot product: price times quantity for each month, then
 
 <span class="anker" id="stufe-2-4"></span>
 
-Suppose a measured signal is to be checked for whether it jumps back and forth from sample to sample. To do this, you write the pattern you are looking for as a vector, here $\mathbf{w}=(1,\,-1,\,1,\,-1)^{\top}$, and form the dot product with the signal.
+The outdoor temperature is read every twelve hours, alternately at noon and at midnight. Four consecutive values form a vector, here called a *time series*. It is to be checked for whether it jumps back and forth from value to value, as the alternation of day and night would lead you to expect. To do this, you write the pattern you are looking for as a vector, here $\mathbf{w}=(1,\,-1,\,1,\,-1)^{\top}$, and form the dot product with the time series.
 
-Fig. [10](#abb-10) shows what happens. Each sample is multiplied by the pattern value at the same position. If the signal has the same sign as the pattern at a position, the product is positive; if it has the opposite sign, the product is negative. If the signal follows the pattern everywhere, only positive contributions add up to a large sum. If the signal has nothing to do with the pattern, positive and negative contributions cancel each other out.
+Fig. [10](#abb-10) shows what happens. Each value is multiplied by the pattern value at the same position. If the time series has the same sign as the pattern at a position, the product is positive; if it has the opposite sign, the product is negative. If the time series follows the pattern everywhere, only positive contributions add up to a large sum. If the time series has nothing to do with the pattern, positive and negative contributions cancel each other out.
 
 :::abbildung ml/k1muster 10
-Comparison with a pattern using the dot product. At the top the pattern $\mathbf{w}=(1,-1,1,-1)^{\top}$, in the middle two signals, at the bottom the products $w_j\,x_j$ at each position $j$. On the left, the signal $\mathbf{x}=(2,-1,3,-2)^{\top}$ jumps in step with the pattern: all products are positive, and the sum is $8$. On the right, $\mathbf{x}'=(2,2,3,3)^{\top}$ rises steadily: the products cancel, and the sum is $0$.
+Comparison with a pattern using the dot product. At the top the pattern $\mathbf{w}=(1,-1,1,-1)^{\top}$, in the middle two temperature time series in degrees Celsius, at the bottom the products $w_j\,x_j$ at each position $j$. On the left, the time series $\mathbf{x}=(2,-1,3,-2)^{\top}$ jumps in step with the pattern: all products are positive, and the sum is $8$. On the right, $\mathbf{x}'=(2,2,3,3)^{\top}$ rises steadily: the products cancel, and the sum is $0$.
 :::
 
 More precisely: the contribution of position $j$ to the dot product $\mathbf{w}^{\top}\mathbf{x}$ is $w_jx_j$. It is positive if $w_j$ and $x_j$ have the same sign, and negative if they have opposite signs. The larger the magnitudes at positions with matching signs, the larger the dot product.
 
-In signal processing, this calculation is known as correlation. The cross-correlation of two real sequences $x[n]$ and $y[n]$ at shift zero is $\sum_nx[n]\,y[n]$. If you write the samples of two signals of finite length as vectors $\mathbf{x}$ and $\mathbf{y}$, this is exactly the dot product $\mathbf{x}^{\top}\mathbf{y}$. The energy of a signal, $\sum_nx[n]^2$, is likewise $\mathbf{x}^{\top}\mathbf{x}$. So comparing with a pattern is not a new tool; it is the same one a correlator uses to search for a known pattern in a signal.
+For sequences of numbers, this calculation has a name of its own. The sum $\sum_nx[n]\,y[n]$ of two real sequences $x[n]$ and $y[n]$ is called their cross-correlation at shift zero. If you write the values of two sequences of finite length as vectors $\mathbf{x}$ and $\mathbf{y}$, this is exactly the dot product $\mathbf{x}^{\top}\mathbf{y}$. The sum of squares of a sequence, $\sum_nx[n]^2$, is likewise $\mathbf{x}^{\top}\mathbf{x}$. So comparing with a pattern is not a new tool; it is the same calculation you use to search a long sequence of numbers for a known pattern.
 
 ::::beispiel [Worked example]
-With the alternating pattern $\mathbf{w}=(1,\,-1,\,1,\,-1)^{\top}$, we get $\mathbf{w}^{\top}\mathbf{x}=8$ for $\mathbf{x}=(2,\,-1,\,3,\,-2)^{\top}$ and $\mathbf{w}^{\top}\mathbf{x}'=0$ for $\mathbf{x}'=(2,\,2,\,3,\,3)^{\top}$ (Fig. [11](#abb-11)). With the constant pattern $\mathbf 1=(1,\,1,\,1,\,1)^{\top}$ it is the other way around: $\mathbf 1^{\top}\mathbf{x}=2$, but $\mathbf 1^{\top}\mathbf{x}'=10$. So the signal $\mathbf{x}$ mainly alternates, while $\mathbf{x}'$ mainly stays constant.
+With the alternating pattern $\mathbf{w}=(1,\,-1,\,1,\,-1)^{\top}$, we get $\mathbf{w}^{\top}\mathbf{x}=8$ for $\mathbf{x}=(2,\,-1,\,3,\,-2)^{\top}$ and $\mathbf{w}^{\top}\mathbf{x}'=0$ for $\mathbf{x}'=(2,\,2,\,3,\,3)^{\top}$ (Fig. [11](#abb-11)). With the constant pattern $\mathbf 1=(1,\,1,\,1,\,1)^{\top}$ it is the other way around: $\mathbf 1^{\top}\mathbf{x}=2$, but $\mathbf 1^{\top}\mathbf{x}'=10$. So the time series $\mathbf{x}$ mainly alternates between day and night, while $\mathbf{x}'$ mainly stays constant.
 
 :::abbildung ml/k1rmuster 11
-The alternating pattern $\mathbf{w}$ with two signals. At the top, $\mathbf{x}$ follows the pattern: all four products are positive. At the bottom, $\mathbf{x}'$ rises steadily: the products cancel in pairs.
+The alternating pattern $\mathbf{w}$ with two time series. At the top, $\mathbf{x}$ follows the pattern: all four products are positive. At the bottom, $\mathbf{x}'$ rises steadily: the products cancel in pairs.
 :::
 ::::
 
@@ -181,7 +182,7 @@ The real estate agent's weighted sum is also a comparison with a pattern. Her pa
 ⁠**In short:** The dot product $\mathbf{w}^{\top}\mathbf{x}$ is large if $\mathbf{x}$ has large values where the pattern $\mathbf{w}$ has large values with the same sign; it is the correlation at shift zero.
 
 :::hintergrund The correlation function consists entirely of dot products
-Cross-correlation compares a signal with a pattern not just at one position but for every possible shift. For each shift $k$, its value is a dot product: the signal with the pattern shifted by $k$ steps. So the whole correlation function is a sequence of dot products, one per shift. Where the pattern is hidden in the signal, the positive contributions accumulate, and the correlation function has its largest value there. This is how a radar receiver finds the echo of its own pulse and a radio receiver finds the start of a known data frame. In machine learning the shift usually stays fixed at zero: you compare an example as a whole with a pattern.
+Cross-correlation compares a sequence with a pattern not just at one position but for every possible shift. For each shift $k$, its value is a dot product: the sequence with the pattern shifted by $k$ positions. So the whole correlation function is a sequence of dot products, one per shift. Where the pattern is hidden in the sequence, the positive contributions accumulate, and the correlation function is particularly large there. This is how you find, in a long audio recording, the point where a known sound occurs, say a gong, and, in a photo, the spots that resemble a small image patch. In machine learning the shift usually stays fixed at zero: you compare an example as a whole with a pattern.
 :::
 
 :::aufgabe Exercise 4 ★ Checking the rules
@@ -230,10 +231,10 @@ A colleague says: “For the real estate agent, the rooms count the most; they h
 :::
 :::
 
-:::aufgabe Exercise 6 ★★ A pattern for rising signals
+:::aufgabe Exercise 6 ★★ A pattern for rising time series
 <span class="anker" id="aufg-6"></span>
 
-A signal with four samples is to be checked for whether it rises. The proposed pattern is $\mathbf{w}=(-3,\,-1,\,1,\,3)^{\top}$.
+A time series with four values, for example the temperature on four consecutive days, is to be checked for whether it rises. The proposed pattern is $\mathbf{w}=(-3,\,-1,\,1,\,3)^{\top}$.
 
 <ol class="al">
 
@@ -245,15 +246,15 @@ Compute $\mathbf{w}^{\top}\mathbf{x}$ for $\mathbf{x}=(1,2,3,4)^{\top}$, $(4,3,2
 
 <li>
 
-Why does every constant signal $c\,\mathbf1$ give exactly zero? Use $\mathbf 1^{\top}\mathbf{w}$.
+Why does every constant time series $c\,\mathbf1$ give exactly zero? Use $\mathbf 1^{\top}\mathbf{w}$.
 
 </li>
 
 </ol>
 
 :::loesung
-(a) $\mathbf{w}^{\top}(1,2,3,4)^{\top}=-3-2+3+12=10$: the signal rises, and the result is clearly positive. $\mathbf{w}^{\top}(4,3,2,1)^{\top}=-12-3+2+3=-10$: the signal falls, and the result is just as clearly negative. $\mathbf{w}^{\top}(5,5,5,5)^{\top}=-15-5+5+15=0$: constant, no rise. $\mathbf{w}^{\top}(1,3,2,4)^{\top}=-3-3+2+12=8$: the signal rises overall, with a step back in the middle, and the result is somewhat smaller than for the steady rise. The pattern weights the early values negatively and the late ones positively; so it responds to whether the late values are larger than the early ones.
+(a) $\mathbf{w}^{\top}(1,2,3,4)^{\top}=-3-2+3+12=10$: the time series rises, and the result is clearly positive. $\mathbf{w}^{\top}(4,3,2,1)^{\top}=-12-3+2+3=-10$: the time series falls, and the result is just as clearly negative. $\mathbf{w}^{\top}(5,5,5,5)^{\top}=-15-5+5+15=0$: constant, no rise. $\mathbf{w}^{\top}(1,3,2,4)^{\top}=-3-3+2+12=8$: the time series rises overall, with a step back in the middle, and the result is somewhat smaller than for the steady rise. The pattern weights the early values negatively and the late ones positively; so it responds to whether the late values are larger than the early ones.
 
-(b) $\mathbf 1^{\top}\mathbf{w}=-3-1+1+3=0$. For a constant signal, therefore, $\mathbf{w}^{\top}(c\,\mathbf 1)=c\,\mathbf{w}^{\top}\mathbf 1=c\cdot0=0$. Because the weights add up to zero, the pattern ignores a common DC component completely: it measures only differences between the samples.
+(b) $\mathbf 1^{\top}\mathbf{w}=-3-1+1+3=0$. For a constant time series, therefore, $\mathbf{w}^{\top}(c\,\mathbf 1)=c\,\mathbf{w}^{\top}\mathbf 1=c\cdot0=0$. Because the weights add up to zero, the pattern completely ignores a fixed amount added to all values: it measures only differences between the values. Whether it is $10$ degrees warmer on all four days does not change the result.
 :::
 :::

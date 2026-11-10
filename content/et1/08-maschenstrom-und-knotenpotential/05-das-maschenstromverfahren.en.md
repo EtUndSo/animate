@@ -1,6 +1,8 @@
 ---
 title: Stage 3: Mesh current analysis
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / Mesh Current and Node Voltage Analysis
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / Mesh Current and Node Voltage Analysis
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/maschenstrom-und-knotenpotentialverfahren
+knoten: Chapter 8: Mesh Current and Node Voltage Analysis
 order: 1180500
 summary: The node rule is taken care of; m mesh rules with m unknowns remain.
 tags: coupling resistance
@@ -24,7 +26,7 @@ The method has four steps:
 
 <li>
 
-Convert real current sources into real voltage sources: $U_\mathrm q=I_\mathrm q\,R$, the same resistor in series ([Part 5](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)).
+Convert real current sources into real voltage sources: $U_\mathrm q=I_\mathrm q\,R$, the same resistor in series ([Chapter 5](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)).
 
 </li>
 
@@ -73,7 +75,7 @@ $Z_{\mu\nu}$ is the __coupling resistance__, the sum of the resistances traverse
 
 <li>
 
-$U_{\mathrm q\mu}$ is the sum of the source voltages in the mesh, positive for each source that drives the mesh current. With voltage arrows from the plus to the minus pole (ASC, [Part 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)) this means: an arrow against the traversal counts as positive, an arrow along the traversal as negative.
+$U_{\mathrm q\mu}$ is the sum of the source voltages in the mesh, positive for each source that drives the mesh current. With voltage arrows from the plus to the minus pole (ASC, [Chapter 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)) this means: an arrow against the traversal counts as positive, an arrow along the traversal as negative.
 
 </li>
 
@@ -84,7 +86,7 @@ $U_{\mathrm q\mu}$ is the sum of the source voltages in the mesh, positive for e
 For mesh $\mu$, the sum of all $R_a\,I_a$ equals the driving voltage $U_{\mathrm q\mu}$, because the sources move to the right-hand side. Here $I_a$ is the current in $R_a$, counted in the direction of traversal of $\mu$. According to [(2.1)](maschenstrome-erfullen-die-knotenregel.html#gl-2-1), $I_a=I_\mu+\sum_{\nu\neq\mu}\sigma_{a\nu}\,I_\nu$. Rearranging gives the sum of all $R_a$ in front of $I_\mu$ and the sum $\sum_a\sigma_{a\nu}R_a$ over the shared resistances in front of $I_\nu$. Mesh $\nu$ receives the same resistance with the same sign, because “same direction” is a relation between two meshes. That is why $\mathbf Z$ is symmetric.
 :::
 
-⁠**How to read it:** Row $\mu$ is the mesh rule of mesh $\mu$. Column $\nu$ tells which voltage one ampere of mesh current $\nu$ produces in each mesh. Hence the unit ohm; kiloohms are typical here. The letter $Z$ comes from impedance ([Part 6](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html)); here these are pure resistances. **Validity:** The network contains linear resistors and fixed voltage sources. The symmetry is also a check: a mistake in setting up usually destroys it.
+⁠**How to read it:** Row $\mu$ is the mesh rule of mesh $\mu$. Column $\nu$ tells which voltage one ampere of mesh current $\nu$ produces in each mesh. Hence the unit ohm; kiloohms are typical here. The letter $Z$ comes from impedance ([Chapter 6](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html)); here these are pure resistances. **Validity:** The network contains linear resistors and fixed voltage sources. The symmetry is also a check: a mistake in setting up usually destroys it.
 
 :::abbildung et1/k8maschen 3
 The model network for mesh current analysis. On the right, the current source is converted into a voltage source. In red are the shared resistors $R_2$ and $R_4$: they stand outside the diagonal of $\mathbf Z$. I and III have no shared branch, which is why $Z_{13}=0$.
@@ -115,13 +117,13 @@ No. The same sense of rotation is only convenient, because then all off-diagonal
 :::
 
 :::zusatz Ideal current source
-For $R_5\to\infty$, $U_\mathrm{q5}$ grows without limit and the conversion fails ([Part 5](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)). You then lay out the meshes so that only one runs through the current source. Its mesh current is known. You omit the mesh equation of this mesh, because it contains the unknown voltage of the source. One unknown fewer, one equation fewer.
+For $R_5\to\infty$, $U_\mathrm{q5}$ grows without limit and the conversion fails ([Chapter 5](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)). You then lay out the meshes so that only one runs through the current source. Its mesh current is known. You omit the mesh equation of this mesh, because it contains the unknown voltage of the source. One unknown fewer, one equation fewer.
 :::
 
-:::aufgabe Exercise 3 ★★ The network from Part 2
+:::aufgabe Exercise 3 ★★ The network from Chapter 2
 <span class="anker" id="aufg-3"></span>
 
-The network from [Part 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html) has an ideal source with 9 V between $K_1$ and $K_4$ and $R_\mathrm a=2\,\mathrm{k\Omega}$ ($K_1K_2$), $R_\mathrm b=5\,\mathrm{k\Omega}$ ($K_2K_4$), $R_\mathrm c=3\,\mathrm{k\Omega}$ ($K_1K_3$), $R_\mathrm d=1\,\mathrm{k\Omega}$ ($K_3K_4$), $R_\mathrm e=2\,\mathrm{k\Omega}$ ($K_2K_3$). The meshes run as follows: $I_\mathrm A$ through the source from $K_4$ to $K_1$, then $K_2$, back to $K_4$. $I_\mathrm B$ from $K_1$ to $K_3$, $K_2$, back to $K_1$. $I_\mathrm C$ from $K_2$ to $K_3$, $K_4$, back to $K_2$.
+The network from [Chapter 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html) has an ideal source with 9 V between $K_1$ and $K_4$ and $R_\mathrm a=2\,\mathrm{k\Omega}$ ($K_1K_2$), $R_\mathrm b=5\,\mathrm{k\Omega}$ ($K_2K_4$), $R_\mathrm c=3\,\mathrm{k\Omega}$ ($K_1K_3$), $R_\mathrm d=1\,\mathrm{k\Omega}$ ($K_3K_4$), $R_\mathrm e=2\,\mathrm{k\Omega}$ ($K_2K_3$). The meshes run as follows: $I_\mathrm A$ through the source from $K_4$ to $K_1$, then $K_2$, back to $K_4$. $I_\mathrm B$ from $K_1$ to $K_3$, $K_2$, back to $K_1$. $I_\mathrm C$ from $K_2$ to $K_3$, $K_4$, back to $K_2$.
 
 <ol class="al">
 
@@ -139,7 +141,7 @@ Calculate the mesh currents with Cramer's rule.
 
 <li>
 
-Determine the five resistor currents and compare with [Part 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html).
+Determine the five resistor currents and compare with [Chapter 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html).
 
 </li>
 
@@ -154,7 +156,7 @@ The matrix is symmetric.
 
 (b) $D=7(56-4)+2(-16-10)-5(4+35)=364-52-195=117$. $D_1=9\cdot52=468$, $D_2=234$, $D_3=351$. So $I_\mathrm A=4$ mA, $I_\mathrm B=2$ mA, $I_\mathrm C=3$ mA.
 
-(c) $I_\mathrm a=I_\mathrm A-I_\mathrm B=2$ mA, $I_\mathrm b=I_\mathrm A-I_\mathrm C=1$ mA, $I_\mathrm c=I_\mathrm B=2$ mA, $I_\mathrm d=I_\mathrm C=3$ mA, $I_\mathrm e=I_\mathrm C-I_\mathrm B=1$ mA from $K_2$ to $K_3$. That is the table from [Part 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html), with three equations instead of twelve.
+(c) $I_\mathrm a=I_\mathrm A-I_\mathrm B=2$ mA, $I_\mathrm b=I_\mathrm A-I_\mathrm C=1$ mA, $I_\mathrm c=I_\mathrm B=2$ mA, $I_\mathrm d=I_\mathrm C=3$ mA, $I_\mathrm e=I_\mathrm C-I_\mathrm B=1$ mA from $K_2$ to $K_3$. That is the table from [Chapter 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html), with three equations instead of twelve.
 :::
 :::
 

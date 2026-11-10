@@ -1,6 +1,8 @@
 ---
 title: Stage 2: The differential amplifier
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / The Operational Amplifier
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / The Operational Amplifier
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker
+knoten: Chapter 11: The Operational Amplifier
 order: 1210400
 summary: A disturbance on both lines should vanish, and the difference between them should be amplified.
 tags: common-mode voltage, non-inverting input, inverting input
@@ -13,7 +15,7 @@ lang: en
 A disturbance on both lines should vanish, and the difference between them should be amplified. This takes a circuit whose output depends only on the difference of two voltages.
 :::
 
-**The idea.** Two identical transistors T1 and T2 hang with their emitters on the common node E (Fig. [2](#abb-2)). Below them sits T3. Its base is at the fixed voltage $U_\mathrm{bias}$, so it acts as a current source ([Part 10](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor/der-bipolartransistor.html)) and draws the fixed current $I_0$ out of the node. The base currents are small, so $I_\mathrm{C1}+I_\mathrm{C2}=I_0$ holds. The sum is fixed; only the division can change.
+**The idea.** Two identical transistors T1 and T2 hang with their emitters on the common node E (Fig. [2](#abb-2)). Below them sits T3. Its base is at the fixed voltage $U_\mathrm{bias}$, so it acts as a current source ([Chapter 10](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor/der-bipolartransistor.html)) and draws the fixed current $I_0$ out of the node. The base currents are small, so $I_\mathrm{C1}+I_\mathrm{C2}=I_0$ holds. The sum is fixed; only the division can change.
 
 If both bases rise by the same amount, E rises with them, because T3 holds the current fixed and with it $U_\mathrm{BE}$. Nothing changes. This common part is called the __common-mode voltage__, $U_\mathrm{cm}=(\varphi_++\varphi_-)/2$. If only the base of T2 rises, T2 draws more current. T1 gets less by exactly this amount. More voltage drops across the right collector resistor, less across the left one, and the voltage between the collectors swings.
 
@@ -49,7 +51,7 @@ At rest, 1 mA flows in each branch, and the collectors are at $12\,\mathrm{V}-
 
 **Input.** An input signal $U_\mathrm{D}$ lies across two BE junctions in series, so the input resistance is $2\,r_\mathrm{BE}=2B/S=10.4$ k$\Omega$. With a total current of 20 µ A instead of 2 mA it is 1.04 M$\Omega$, and each base draws only 50 nA. That is where $r_\mathrm{e}$ and $I_\mathrm{B}$ in the reference model come from.
 
-**From the differential amplifier to the op amp.** $A_\mathrm{D}=U_{R_\mathrm{C}}/U_T$ stays at a few hundred, because $U_{R_\mathrm{C}}$ cannot exceed the supply. A current mirror ([Part 10](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor/der-bipolartransistor.html)) in place of the resistors brings both current changes to one side and acts there like the parallel connection of two $r_\mathrm{CE}$. This gives $S\,r_\mathrm{CE}/2=U_\mathrm{Early}/(2U_T)\approx1400$. Behind it follow a voltage amplifier stage and an emitter follower for the low output resistance. Together that makes $10^5$ to $10^6$. This value depends on $B$, $U_\mathrm{Early}$ and the temperature: large, but imprecise.
+**From the differential amplifier to the op amp.** $A_\mathrm{D}=U_{R_\mathrm{C}}/U_T$ stays at a few hundred, because $U_{R_\mathrm{C}}$ cannot exceed the supply. A current mirror ([Chapter 10](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor/der-bipolartransistor.html)) in place of the resistors brings both current changes to one side and acts there like the parallel connection of two $r_\mathrm{CE}$. This gives $S\,r_\mathrm{CE}/2=U_\mathrm{Early}/(2U_T)\approx1400$. Behind it follow a voltage amplifier stage and an emitter follower for the low output resistance. Together that makes $10^5$ to $10^6$. This value depends on $B$, $U_\mathrm{Early}$ and the temperature: large, but imprecise.
 
 :::frage Why is there only half the difference across each transistor if I raise only one base?
 Because node E goes along by half. T2 wants more current, but the sum is fixed, so E rises until T1 gives up exactly that much. The fixed sum demands equal and opposite changes of $U_\mathrm{BE}$. Putting the whole difference on one junction gives twice the true $A_\mathrm{D}$.

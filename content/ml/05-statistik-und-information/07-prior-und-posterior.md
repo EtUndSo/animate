@@ -1,7 +1,8 @@
 ---
 title: Prior und Posterior
 pfad: Informatik / Machine Learning / Mathematische Grundlagen / Statistik und Information
-knoten: Grundlagen 5: Statistik und Information
+adresse: informatik/machine-learning/mathematische-grundlagen/statistik-und-information
+knoten: Kapitel 5: Statistik und Information
 nachschlagen: ja
 order: 15250700
 summary: Wer eine Münze aus der Geldbörse wirft, ist schon vor dem ersten Wurf ziemlich sicher, dass sie etwa gleich oft Kopf und Zahl zeigt.
@@ -12,21 +13,21 @@ lang: de
 <span class="anker" id="stufe-6"></span>
 
 :::zweck
-Wer eine Münze aus der Geldbörse wirft, ist schon vor dem ersten Wurf ziemlich sicher, dass sie etwa gleich oft Kopf und Zahl zeigt. Dieser Abschnitt baut solches Vorwissen mit dem Satz von Bayes aus [Grundlagen 4](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/wahrscheinlichkeit.html) in die Schätzung ein: Der unbekannte Parameter bekommt selbst eine Verteilung, und die Daten verschieben sie.
+Wer eine Münze aus der Geldbörse wirft, ist schon vor dem ersten Wurf ziemlich sicher, dass sie etwa gleich oft Kopf und Zahl zeigt. Dieser Abschnitt baut solches Vorwissen mit dem Satz von Bayes aus [Kapitel 4](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/wahrscheinlichkeit.html) in die Schätzung ein: Der unbekannte Parameter bekommt selbst eine Verteilung, und die Daten verschieben sie.
 :::
 
 ### Der Satz von Bayes für Parameter
 
 <span class="anker" id="stufe-6-1"></span>
 
-In der frequentistischen Sicht aus Abschnitt [1](schatzen-aus-einer-stichprobe.html#stufe-1) ist der Parameter eine feste Zahl, und Wahrscheinlichkeiten gibt es nur für die Daten. Es gibt eine zweite Sicht, nach dem englischen Mathematiker Thomas Bayes die __bayessche__ genannt. In ihr misst eine Wahrscheinlichkeit, wie sicher man sich einer Sache ist, und deshalb darf auch ein unbekannter Parameter eine Verteilung haben. Sie drückt aus, welche Werte man für plausibel hält. Neue Daten ändern diese Verteilung nach dem Satz von Bayes aus [Grundlagen 4, Abschnitt 4.1](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/der-satz-von-bayes.html#stufe-4-1). Es gibt Lagen, in denen beide Sichten sich einig sind, weil der Parameter tatsächlich durch einen Zufall bestimmt wurde. Mit einer solchen Lage beginnt dieser Abschnitt.
+In der frequentistischen Sicht aus Abschnitt [1](schatzen-aus-einer-stichprobe.html#stufe-1) ist der Parameter eine feste Zahl, und Wahrscheinlichkeiten gibt es nur für die Daten. Es gibt eine zweite Sicht, nach dem englischen Mathematiker Thomas Bayes die __bayessche__ genannt. In ihr misst eine Wahrscheinlichkeit, wie sicher man sich einer Sache ist, und deshalb darf auch ein unbekannter Parameter eine Verteilung haben. Sie drückt aus, welche Werte man für plausibel hält. Neue Daten ändern diese Verteilung nach dem Satz von Bayes aus [Kapitel 4, Abschnitt 4.1](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/der-satz-von-bayes.html#stufe-4-1). Es gibt Lagen, in denen beide Sichten sich einig sind, weil der Parameter tatsächlich durch einen Zufall bestimmt wurde. Mit einer solchen Lage beginnt dieser Abschnitt.
 
 ::::beispiel [Rechenbeispiel] die Münzkiste
 In einer Kiste liegen vier Münzen: eine, die mit der Wahrscheinlichkeit $\tfrac14$ Kopf zeigt, zwei faire und eine, die mit der Wahrscheinlichkeit $\tfrac34$ Kopf zeigt. Man zieht blind eine Münze und wirft sie viermal: Kopf, Kopf, Zahl, Kopf. Welche Münze war es? Vor den Würfen hat $\theta$ die Werte $\tfrac14$, $\tfrac12$, $\tfrac34$ mit den Wahrscheinlichkeiten $\tfrac14$, $\tfrac12$, $\tfrac14$. Die Likelihood der Würfe ist $\theta^3(1-\theta)$, also
 
 $$\mathcal L(\tfrac14)=\tfrac1{64}\cdot\tfrac34=\tfrac3{256},\qquad \mathcal L(\tfrac12)=\tfrac1{16}=\tfrac{16}{256},\qquad \mathcal L(\tfrac34)=\tfrac{27}{64}\cdot\tfrac14=\tfrac{27}{256} .$$
 
-Nach dem Satz von Bayes mit der totalen Wahrscheinlichkeit aus [Grundlagen 4, Abschnitt 3.4](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/bedingte-wahrscheinlichkeit.html#stufe-3-4), ist
+Nach dem Satz von Bayes mit der totalen Wahrscheinlichkeit aus [Kapitel 4, Abschnitt 3.4](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/bedingte-wahrscheinlichkeit.html#stufe-3-4), ist
 
 <span class="anker" id="gl-6-1"></span>
 $$P(\theta=\theta_k\mid\mathcal D)=\frac{P(\mathcal D\mid\theta_k)\,P(\theta=\theta_k)}{P(\mathcal D)},\qquad P(\mathcal D)=\sum_kP(\mathcal D\mid\theta_k)\,P(\theta=\theta_k) . \tag{6.1}$$
@@ -45,7 +46,7 @@ Die Wahrscheinlichkeit der Würfe Kopf, Kopf, Zahl, Kopf mit einer zufällig gez
 ⁠**Kurz gesagt:** Gibt man dem Parameter eine Verteilung, so liefert der Satz von Bayes seine Verteilung nach den Daten: Likelihood mal Wahrscheinlichkeit vor den Daten, geteilt durch die Wahrscheinlichkeit der Daten.
 
 :::hintergrund Zwei Deutungen von Wahrscheinlichkeit
-In der frequentistischen Deutung ist eine Wahrscheinlichkeit der Grenzwert einer relativen Häufigkeit bei vielen Wiederholungen, wie in [Grundlagen 4, Abschnitt 2.1](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/wahrscheinlichkeit-2.html#stufe-2-1). Für eine Münze im Geldbeutel gibt es keine Wiederholungen ihres $\theta$; es hat einen festen Wert, und von seiner Wahrscheinlichkeit zu sprechen, ergibt in dieser Deutung keinen Sinn. In der bayesschen Deutung ist eine Wahrscheinlichkeit ein Grad der Überzeugung, der sich an dieselben Rechenregeln hält. Dass diese Regeln für Überzeugungen gelten sollen, begründet man damit, dass jemand, der sich bei Wetten nicht an sie hält, gegen eine geschickte Kombination von Wetten mit Sicherheit verliert. Bei der Münzkiste sind beide Deutungen einig, denn das Ziehen der Münze ist ein echter Zufall mit bekannten Häufigkeiten. Der Streit beginnt erst dort, wo die Verteilung vor den Daten nur das Vorwissen einer Person ausdrückt. Thomas Bayes' Arbeit zu diesem Schluss erschien 1763, zwei Jahre nach seinem Tod.
+In der frequentistischen Deutung ist eine Wahrscheinlichkeit der Grenzwert einer relativen Häufigkeit bei vielen Wiederholungen, wie in [Kapitel 4, Abschnitt 2.1](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/wahrscheinlichkeit-2.html#stufe-2-1). Für eine Münze im Geldbeutel gibt es keine Wiederholungen ihres $\theta$; es hat einen festen Wert, und von seiner Wahrscheinlichkeit zu sprechen, ergibt in dieser Deutung keinen Sinn. In der bayesschen Deutung ist eine Wahrscheinlichkeit ein Grad der Überzeugung, der sich an dieselben Rechenregeln hält. Dass diese Regeln für Überzeugungen gelten sollen, begründet man damit, dass jemand, der sich bei Wetten nicht an sie hält, gegen eine geschickte Kombination von Wetten mit Sicherheit verliert. Bei der Münzkiste sind beide Deutungen einig, denn das Ziehen der Münze ist ein echter Zufall mit bekannten Häufigkeiten. Der Streit beginnt erst dort, wo die Verteilung vor den Daten nur das Vorwissen einer Person ausdrückt. Thomas Bayes' Arbeit zu diesem Schluss erschien 1763, zwei Jahre nach seinem Tod.
 :::
 
 ### Die Prior-Verteilung
@@ -60,10 +61,10 @@ Bei der Münzkiste war die Verteilung von $\theta$ vor den Würfen durch den Inh
 Die Verteilung, die man dem Parameter gibt, bevor man die Daten kennt, heißt __Prior__ oder a-priori-Verteilung. Hat der Parameter endlich viele mögliche Werte, besteht sie aus Wahrscheinlichkeiten $P(\theta=\theta_k)$; kann er alle Werte eines Intervalls annehmen, aus einer Dichte $p(\theta)$.
 :::
 
-Der Prior übernimmt die Rolle, die in [Grundlagen 4, Abschnitt 4.1](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/der-satz-von-bayes.html#stufe-4-1) und [4.3](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/der-satz-von-bayes.html#stufe-4-3), die Ausgangswahrscheinlichkeit und die Basisrate hatten. Das lateinische *a priori* heißt „vom Früheren her“, hier: vor den Daten.
+Der Prior übernimmt die Rolle, die in [Kapitel 4, Abschnitt 4.1](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/der-satz-von-bayes.html#stufe-4-1) und [4.3](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/der-satz-von-bayes.html#stufe-4-3), die Ausgangswahrscheinlichkeit und die Basisrate hatten. Das lateinische *a priori* heißt „vom Früheren her“, hier: vor den Daten.
 
 ::::beispiel [Rechenbeispiel]
-Der Prior $p(\theta)=1$ für $0\le\theta\le1$ ist die Gleichverteilung aus [Grundlagen 4, Abschnitt 8.4](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/wichtige-verteilungen.html#stufe-8-4). Er bevorzugt keinen Wert. Der Prior $p(\theta)=6\theta(1-\theta)$ hat die Fläche $6\,(\tfrac12-\tfrac13)=1$ und ist bei $\theta=\tfrac12$ am höchsten. Mit der Stammfunktion $3\theta^2-2\theta^3$ gibt er dem Bereich $0{,}25\le\theta\le0{,}75$ die Wahrscheinlichkeit $(1{,}6875-0{,}84375)-(0{,}1875-0{,}03125)=0{,}6875$. Er drückt also aus: Die Münze ist eher fair, aber auch deutlich unfaire Münzen sind nicht ausgeschlossen.
+Der Prior $p(\theta)=1$ für $0\le\theta\le1$ ist die Gleichverteilung aus [Kapitel 4, Abschnitt 8.4](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/wichtige-verteilungen.html#stufe-8-4). Er bevorzugt keinen Wert. Der Prior $p(\theta)=6\theta(1-\theta)$ hat die Fläche $6\,(\tfrac12-\tfrac13)=1$ und ist bei $\theta=\tfrac12$ am höchsten. Mit der Stammfunktion $3\theta^2-2\theta^3$ gibt er dem Bereich $0{,}25\le\theta\le0{,}75$ die Wahrscheinlichkeit $(1{,}6875-0{,}84375)-(0{,}1875-0{,}03125)=0{,}6875$. Er drückt also aus: Die Münze ist eher fair, aber auch deutlich unfaire Münzen sind nicht ausgeschlossen.
 ::::
 
 ⁠**Kurz gesagt:** Der Prior ist die Verteilung des Parameters vor den Daten; er hält fest, welche Werte man aus Vorwissen für plausibel hält.
@@ -257,7 +258,7 @@ $$\mathbb{E}[\theta\mid\mathcal D]=\frac{\alpha_1+N_1}{\alpha_1+\alpha_0+N}=w\,\
 :::
 
 :::herleitung Vorhersage
-Man zerlegt nach dem unbekannten Wert von $\theta$, wie bei der totalen Wahrscheinlichkeit aus [Grundlagen 4, Abschnitt 3.4](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/bedingte-wahrscheinlichkeit.html#stufe-3-4), mit einem Integral statt einer Summe. Bei gegebenem $\theta$ hat der nächste Wurf die Wahrscheinlichkeit $\theta$ für eine Eins, unabhängig von den bisherigen Würfen; das ist die bedingte Unabhängigkeit aus [Grundlagen 4, Abschnitt 5.4](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/unabhangigkeit.html#stufe-5-4). Gewichtet mit dem Posterior ergibt das [(6.8)](#gl-6-8). Der Posterior ist nach [(6.7)](#gl-6-7) $\mathrm{Beta}(\alpha_1+N_1,\alpha_0+N_0)$, und [(6.4)](#gl-6-4) liefert den ersten Ausdruck in [(6.9)](#gl-6-9). Den zweiten rechnet man nach: $w\,\alpha_1/(\alpha_1+\alpha_0)=\alpha_1/(\alpha_1+\alpha_0+N)$ und $(1-w)\,N_1/N=N_1/(\alpha_1+\alpha_0+N)$.
+Man zerlegt nach dem unbekannten Wert von $\theta$, wie bei der totalen Wahrscheinlichkeit aus [Kapitel 4, Abschnitt 3.4](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/bedingte-wahrscheinlichkeit.html#stufe-3-4), mit einem Integral statt einer Summe. Bei gegebenem $\theta$ hat der nächste Wurf die Wahrscheinlichkeit $\theta$ für eine Eins, unabhängig von den bisherigen Würfen; das ist die bedingte Unabhängigkeit aus [Kapitel 4, Abschnitt 5.4](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/unabhangigkeit.html#stufe-5-4). Gewichtet mit dem Posterior ergibt das [(6.8)](#gl-6-8). Der Posterior ist nach [(6.7)](#gl-6-7) $\mathrm{Beta}(\alpha_1+N_1,\alpha_0+N_0)$, und [(6.4)](#gl-6-4) liefert den ersten Ausdruck in [(6.9)](#gl-6-9). Den zweiten rechnet man nach: $w\,\alpha_1/(\alpha_1+\alpha_0)=\alpha_1/(\alpha_1+\alpha_0+N)$ und $(1-w)\,N_1/N=N_1/(\alpha_1+\alpha_0+N)$.
 :::
 
 Der Posterior-Mittelwert ist also ein gewichtetes Mittel aus dem Erwartungswert des Priors und dem Maximum-Likelihood-Schätzer $N_1/N$. Das Gewicht $w$ des Priors ist der Anteil der Pseudobeobachtungen an allen Beobachtungen. Mit wachsendem $N$ geht es gegen null, und die Daten bestimmen das Ergebnis.

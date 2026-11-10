@@ -1,8 +1,10 @@
 ---
 title: 第 1 阶段：电流是运动的电荷
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 电流、电阻与基尔霍夫定律
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 电流、电阻与基尔霍夫定律
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff
+knoten: 第 2 章：电流、电阻与基尔霍夫定律
 order: 1120200
-summary: 第 1 部分讨论的是静止的或单个飞行的电荷。在导线中，无数电荷一起运动。本阶段为这种运动给出两个度量。
+summary: 第 1 章讨论的是静止的或单个飞行的电荷。在导线中，无数电荷一起运动。本阶段为这种运动给出两个度量。
 tags: 电荷密度, 电流强度, 电路, 稳态
 lang: zh
 ---
@@ -10,7 +12,7 @@ lang: zh
 <span class="anker" id="stufe-1"></span>
 
 :::zweck
-[第 1 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)讨论的是静止的或单个飞行的电荷。在导线中，无数电荷一起运动。本阶段为这种运动给出两个度量。
+[第 1 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)讨论的是静止的或单个飞行的电荷。在导线中，无数电荷一起运动。本阶段为这种运动给出两个度量。
 :::
 
 **基本思路。** 站在导体的某一处，测量每秒有多少电荷经过。这取决于三件事：电荷有多密，运动有多快，横截面有多大。在时间 $\Delta t$ 内，恰好是此前距该面积不超过 $v\,\Delta t$ 的电荷通过该面积（图 [1](#abb-1)）。

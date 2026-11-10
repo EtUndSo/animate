@@ -1,6 +1,8 @@
 ---
 title: 要点
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 半导体与二极管
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 半导体与二极管
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden
+knoten: 第 9 章：半导体与二极管
 order: 1191200
 summary: 硅如何变成电流的阀门， 以及如何用它进行计算
 tags: 

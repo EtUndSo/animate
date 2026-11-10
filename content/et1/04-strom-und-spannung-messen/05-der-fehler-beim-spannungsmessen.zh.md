@@ -1,6 +1,8 @@
 ---
 title: 第 4 阶段：测量电压的误差
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 电流与电压的测量
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 电流与电压的测量
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-und-spannung-messen
+knoten: 第 4 章：电流与电压的测量
 order: 1140500
 summary: 电压表接在电路之外，但仍有电流流过它。本阶段说明，在什么情况下这会使待测电压降低。
 tags: 
@@ -13,7 +15,7 @@ lang: zh
 电压表接在电路之外，但仍有电流流过它。本阶段说明，在什么情况下这会使待测电压降低。
 :::
 
-**基本思路。** 电压表在两个节点之间开辟了第二条电流通路。它的电流必须有来处。如果由电流源（保持自身电流不变，[第 5 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)）驱动负载电阻 $R_L$，固定的电流就要分配：流过电压表的部分从 $R_L$ 中少掉，电压下降（图 [5](#abb-5)）。相反，如果 $R_L$ 直接接在理想电压源上，附加电流由电压源提供，什么也不变。所以，只有在电流不能自由补充的地方才会产生误差。在分压器中，$R_1$ 阻碍了补充：总电流增大，$R_1$ 上的压降增大，中点电压下降。
+**基本思路。** 电压表在两个节点之间开辟了第二条电流通路。它的电流必须有来处。如果由电流源（保持自身电流不变，[第 5 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)）驱动负载电阻 $R_L$，固定的电流就要分配：流过电压表的部分从 $R_L$ 中少掉，电压下降（图 [5](#abb-5)）。相反，如果 $R_L$ 直接接在理想电压源上，附加电流由电压源提供，什么也不变。所以，只有在电流不能自由补充的地方才会产生误差。在分压器中，$R_1$ 阻碍了补充：总电流增大，$R_1$ 上的压降增大，中点电压下降。
 
 :::abbildung et1/k4spannung 5
 电压表（量程 10 V，虚线内为内阻和理想仪表）接在两个等效的电路上。两种情况下它都分走 13.6 µ A，读数从 3 V 降到 2.727 V。
@@ -33,7 +35,7 @@ $$U_L'=I_\mathrm q\,(R_L\parallel R_\mathrm i)=U_L\cdot\frac{1}{1+R_L/R_\mathrm 
 ⁠**如何理解：**这个分数是误差因子。$R_L$ 是仪表在其接线端之间看到的电阻。要使误差小，需要 $R_\mathrm i\gg R_L$，理想情况是 $R_\mathrm i\to\infty$。**适用条件：**理想电源，电阻与电压无关。
 
 :::herleitung 误差因子
-由基尔霍夫电流定律 $I_\mathrm q=I_{RL}'+I_{\mathrm{i}}$，电流分配到两个并联电阻上，两者的电压都是 $U_L'$。所以 $U_L'=I_\mathrm q\,R_LR_\mathrm i/(R_L+R_\mathrm i)$，约去 $R_\mathrm i$ 即得式 [(4.1)](#gl-4-1)。在分压器上，不接仪表时 $U_2=U\,R_2/(R_1+R_2)$。接入仪表时，要用 $R_2\parallel R_\mathrm i$ 代替 $R_2$（带负载的分压器，[第 2 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)）：
+由基尔霍夫电流定律 $I_\mathrm q=I_{RL}'+I_{\mathrm{i}}$，电流分配到两个并联电阻上，两者的电压都是 $U_L'$。所以 $U_L'=I_\mathrm q\,R_LR_\mathrm i/(R_L+R_\mathrm i)$，约去 $R_\mathrm i$ 即得式 [(4.1)](#gl-4-1)。在分压器上，不接仪表时 $U_2=U\,R_2/(R_1+R_2)$。接入仪表时，要用 $R_2\parallel R_\mathrm i$ 代替 $R_2$（带负载的分压器，[第 2 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)）：
 
 $$U_2'=U\,\frac{R_2R_\mathrm i}{R_1R_2+R_\mathrm i(R_1+R_2)} \quad\Rightarrow\quad \frac{U_2'}{U_2}=\frac{R_\mathrm i(R_1+R_2)}{R_1R_2+R_\mathrm i(R_1+R_2)}=\frac{1}{1+(R_1\parallel R_2)/R_\mathrm i}.$$
 :::

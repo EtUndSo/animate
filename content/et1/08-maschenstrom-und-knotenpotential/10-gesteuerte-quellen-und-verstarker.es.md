@@ -1,8 +1,10 @@
 ---
 title: Etapa 8: Fuentes controladas y amplificadores
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Análisis por mallas y por nudos
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Análisis por mallas y por nudos
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/maschenstrom-und-knotenpotentialverfahren
+knoten: Capítulo 8: Análisis por mallas y por nudos
 order: 1181000
-summary: Los amplificadores contienen fuentes controladas (Parte 6).
+summary: Los amplificadores contienen fuentes controladas (capítulo 6).
 tags: fuente de corriente controlada por tensión, transconductancia, ganancia de tensión, realimentación negativa, transimpedancia
 lang: es
 ---
@@ -10,10 +12,10 @@ lang: es
 <span class="anker" id="stufe-8"></span>
 
 :::zweck
-Los amplificadores contienen fuentes controladas ([Parte 6](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html)). Esta etapa les da una estampa y muestra qué significa eso para la matriz.
+Los amplificadores contienen fuentes controladas ([capítulo 6](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html)). Esta etapa les da una estampa y muestra qué significa eso para la matriz.
 :::
 
-**La idea.** Una __fuente de corriente controlada por tensión__ ([Parte 6](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html)) es una conductancia generalizada. En una conductancia, su propia tensión $U_{ik}$ controla la corriente de $i$ a $k$. En la fuente la controla una tensión ajena $U_{pq}$. Las filas se mantienen, porque la corriente sale y entra por los mismos nudos. Las columnas pasan de $i$, $k$ a $p$, $q$, porque cuentan los potenciales que controlan. La simetría se pierde en el proceso. Eso es física: la entrada actúa sobre la salida, pero no al revés.
+**La idea.** Una __fuente de corriente controlada por tensión__ ([capítulo 6](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html)) es una conductancia generalizada. En una conductancia, su propia tensión $U_{ik}$ controla la corriente de $i$ a $k$. En la fuente la controla una tensión ajena $U_{pq}$. Las filas se mantienen, porque la corriente sale y entra por los mismos nudos. Las columnas pasan de $i$, $k$ a $p$, $q$, porque cuentan los potenciales que controlan. La simetría se pierde en el proceso. Eso es física: la entrada actúa sobre la salida, pero no al revés.
 
 :::satz Teorema 8.1 (Estampa de la fuente de corriente controlada por tensión)
 <span class="anker" id="satz-8-1"></span>
@@ -21,7 +23,7 @@ Los amplificadores contienen fuentes controladas ([Parte 6](/wissen/es/elektrot
 Una fuente con $I=g\,(U_p-U_q)$ de $i$ a $k$ suma $+g$ en $(i,p)$ y $(k,q)$ y $-g$ en $(i,q)$ y $(k,p)$.
 :::
 
-⁠**Cómo leerlo:** $g$ es la __transconductancia__, corriente por tensión de control en siemens, 50 mS en el modelo. **Validez:** La fuente debe ser lineal. Los transistores solo lo son para pequeños cambios en torno a un punto de trabajo ([Parte 10](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor/der-bipolartransistor.html)).
+⁠**Cómo leerlo:** $g$ es la __transconductancia__, corriente por tensión de control en siemens, 50 mS en el modelo. **Validez:** La fuente debe ser lineal. Los transistores solo lo son para pequeños cambios en torno a un punto de trabajo ([capítulo 10](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor/der-bipolartransistor.html)).
 
 ::::beispiel sin realimentación negativa
 Una fuente de corriente $I_\mathrm q=20$ µ A con $G_\mathrm q=0{,}5$ mS alimenta el nudo 1. Allí está $G_\mathrm i=0{,}5$ mS a masa. La fuente $g\,U_1$ extrae corriente del nudo 2 hacia masa; allí están también $G_\mathrm o=0{,}05$ mS y $G_\mathrm L=0{,}2$ mS. Las estampas dan
@@ -34,7 +36,7 @@ $Y_{12}=0$, pero $Y_{21}=g$. Con $D=(G_\mathrm q+G_\mathrm i)(G_\mathrm o+G_\mat
 <span class="anker" id="gl-8-2"></span>
 $$U_1=\frac{I_\mathrm q}{G_\mathrm q+G_\mathrm i},\qquad U_2=-\frac{g\,I_\mathrm q}{(G_\mathrm q+G_\mathrm i)(G_\mathrm o+G_\mathrm L)},\qquad A_u=\frac{U_2}{U_1}=-\frac{g}{G_\mathrm o+G_\mathrm L}. \tag{8.2}$$
 
-En el modelo son $D=0{,}25$, $U_1=20$ mV, $U_2=-4$ V y la __ganancia de tensión__ $A_u=-200$, como en la [Parte 6](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html). El signo menos surge porque la corriente controlada sale del nudo 2.
+En el modelo son $D=0{,}25$, $U_1=20$ mV, $U_2=-4$ V y la __ganancia de tensión__ $A_u=-200$, como en el [capítulo 6](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html). El signo menos surge porque la corriente controlada sale del nudo 2.
 ::::
 
 **Con realimentación negativa.** El punto inferior común de la entrada y la salida se llama punto base. Si se separa de la masa y se intercala ahí $R_\mathrm S=1\,\mathrm{k\Omega}$, surge el nudo 3 (fig. [8](#abb-8)). La corriente de salida pasa ahora por $R_\mathrm S$ y eleva $U_3$. Con ello baja la tensión de control $U_1-U_3$, y la corriente de salida disminuye. Esta acción de la salida sobre su propia entrada se llama __realimentación negativa__.
@@ -72,7 +74,7 @@ En el modelo con $G_\mathrm S=1$ mS son $D=5{,}3225$ y $D_2/I_\mathrm q=-49{,}
 :::
 
 :::frage ¿Por qué se reduce voluntariamente la ganancia?
-Porque entonces apenas depende de la transconductancia, y $g$ varía mucho en los transistores. Si en el modelo se duplica $g$, $A_u$ pasa de $-4{,}81$ solo a $-4{,}90$. Sin $R_\mathrm S$, en cambio, $-200$ se convertiría en $-400$. El resultado queda cerca de $-R_\mathrm L/R_\mathrm S=-5$, es decir, lo fijan dos resistencias precisas. La [Parte 11](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker/der-operationsverstaerker.html) lo aprovecha en el amplificador operacional.
+Porque entonces apenas depende de la transconductancia, y $g$ varía mucho en los transistores. Si en el modelo se duplica $g$, $A_u$ pasa de $-4{,}81$ solo a $-4{,}90$. Sin $R_\mathrm S$, en cambio, $-200$ se convertiría en $-400$. El resultado queda cerca de $-R_\mathrm L/R_\mathrm S=-5$, es decir, lo fijan dos resistencias precisas. El [capítulo 11](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker/der-operationsverstaerker.html) lo aprovecha en el amplificador operacional.
 :::
 
 :::aufgabe Ejercicio 10 ★★★ La resistencia de entrada aumenta

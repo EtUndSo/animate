@@ -1,7 +1,8 @@
 ---
 title: Applications linéaires
 pfad: Informatique / Apprentissage automatique / Fondements mathématiques / Vecteurs et matrices
-knoten: Fondements 1 : Vecteurs et matrices
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Chapitre 1 : Vecteurs et matrices
 nachschlagen: ja
 order: 15210900
 summary: Une matrice n’est pas seulement un tableau, mais aussi une règle de calcul qui transforme un vecteur en un autre.
@@ -19,7 +20,7 @@ Une matrice n’est pas seulement un tableau, mais aussi une règle de calcul qu
 
 <span class="anker" id="stufe-8-1"></span>
 
-De nombreux calculs transforment une liste de nombres en une autre liste. À partir des caractéristiques d’un appartement, on estime son prix d’achat et son loyer ; à partir des échantillons d’un signal, on obtient un signal filtré. Une telle règle s’appelle une __application__ $f\colon\mathbb{R}^n\to\mathbb{R}^m$ : elle associe à chaque vecteur $\mathbf{x}\in\mathbb{R}^n$ un vecteur $f(\mathbf{x})\in\mathbb{R}^m$.
+De nombreux calculs transforment une liste de nombres en une autre liste. À partir des caractéristiques d’un appartement, on estime son prix d’achat et son loyer ; à partir des relevés d’un compteur d’eau, on obtient la consommation de chaque mois. Une telle règle s’appelle une __application__ $f\colon\mathbb{R}^n\to\mathbb{R}^m$ : elle associe à chaque vecteur $\mathbf{x}\in\mathbb{R}^n$ un vecteur $f(\mathbf{x})\in\mathbb{R}^m$.
 
 Le produit matrice-vecteur possède deux propriétés particulières (sous-section [7.1](das-matrix-vektor-produkt.html#stufe-7-1)) : $\mathbf{A}(\mathbf{u}+\mathbf{v})=\mathbf{A}\mathbf{u}+\mathbf{A}\mathbf{v}$ et $\mathbf{A}(c\,\mathbf{x})=c\,\mathbf{A}\mathbf{x}$. Il est indifférent d’additionner d’abord ou d’appliquer d’abord la matrice, et de même de multiplier d’abord par un nombre ou d’appliquer d’abord la matrice. Dans le plan, on voit ces propriétés sur un quadrillage : une telle application transforme des droites en droites ou en points isolés, laisse l’origine à sa place et transforme des lignes de quadrillage parallèles et équidistantes en lignes parallèles et équidistantes ou en points.
 
@@ -40,8 +41,8 @@ L’application $f(\mathbf{x})=(x_1+x_2,\ 2x_1)^{\top}$ de $\mathbb{R}^2$ dans $
 
 ⁠**En bref :** Une application est linéaire si elle conserve les sommes et les multiples ; elle envoie alors des combinaisons linéaires sur des combinaisons linéaires.
 
-:::hintergrund La même linéarité que pour les systèmes LTI
-En théorie des signaux et des systèmes, on connaît le principe de superposition : un système linéaire répond à la somme de deux signaux d’entrée par la somme des deux réponses, et à un signal amplifié par la réponse amplifiée dans la même proportion. Ce sont exactement les conditions [(8.1)](#gl-8-1), simplement pour des signaux au lieu de listes de nombres. Un signal échantillonné de longueur finie est un vecteur (sous-section [1.3](vektoren-daten-als-zahlenlisten.html#stufe-1-3)), et un système linéaire qui traite de tels signaux est une application linéaire.
+:::hintergrund La linéarité à la caisse du supermarché
+La caisse d’un supermarché calcule de façon linéaire. Elle transforme la liste des quantités achetées en un montant, et si l’on pose deux achats ensemble sur le tapis, cela coûte la somme des deux montants ; si l’on achète le double de tout, cela coûte le double. Ce sont exactement les conditions [(8.1)](#gl-8-1). Ne serait pas linéaire un tarif avec remise sur quantité, où le double coûte moins que le double du prix, ni un tarif avec des frais fixes : là, un achat vide coûte déjà quelque chose, ce qui viole $f(\mathbf{0})=\mathbf{0}$. Un enregistrement sonore (sous-section [1.3](vektoren-daten-als-zahlenlisten.html#stufe-1-3)) est lui aussi souvent traité de façon linéaire : qui mixe d’abord deux enregistrements puis baisse le volume obtient la même chose que s’il baisse le volume de chacun séparément puis les mixe.
 :::
 
 ### Toute application linéaire est une matrice
@@ -75,16 +76,16 @@ $$\mathbf{A}=\begin{pmatrix}1&1\\2&0\end{pmatrix},\qquad\text{et pour vérifier}
 
 ⁠**En bref :** Applications linéaires et matrices sont une seule et même chose ; la colonne $j$ de la matrice est l’image du vecteur unitaire $\mathbf{e}_j$.
 
-:::hintergrund Un filtre comme matrice : les colonnes sont les réponses impulsionnelles décalées
-Soit un filtre à temps discret qui calcule $y[n]=x[n]+0{,}5\,x[n-1]$ et qui traite des signaux de trois échantillons, aucun signal n’étant présent avant le premier échantillon. Le filtre est linéaire, il a donc une matrice. D’après [(8.2)](#gl-8-2), sa colonne $j$ est la réponse au vecteur unitaire $\mathbf{e}_j$, c’est-à-dire à une seule impulsion unité à la position $j$. Cette réponse est la réponse impulsionnelle $(1;\,0{,}5)$, décalée de $j-1$ pas :
+:::hintergrund Un effet prolongé comme matrice : les colonnes sont des réponses décalées
+Dans un poêle à bois, une bûche dégage toute sa chaleur pendant l’heure où elle brûle et, grâce aux braises, encore la moitié pendant l’heure suivante ; c’est une image très simplifiée. Si l’on ajoute exactement $x[n]$ bûches pendant l’heure $n$, la chaleur de cette heure, mesurée en bûches, vaut $y[n]=x[n]+0{,}5\,x[n-1]$. On considère trois heures, et rien ne brûlait avant la première. Le calcul est linéaire, il a donc une matrice. D’après [(8.2)](#gl-8-2), sa colonne $j$ est la réponse au vecteur unitaire $\mathbf{e}_j$, c’est-à-dire à une seule bûche pendant l’heure $j$. Cette réponse est $(1;\,0{,}5)$, décalée de $j-1$ heures :
 
 $$\mathbf{A}=\begin{pmatrix}1&0&0\\0{,}5&1&0\\0&0{,}5&1\end{pmatrix}.$$
 
-La troisième colonne ne contient plus que le $1$, parce que le signal s’arrête après trois échantillons. Pour $\mathbf{x}=(2,\,4,\,6)^{\top}$, la matrice fournit $(2,\,5,\,8)^{\top}$, comme la formule du filtre. Toute convolution d’un signal fini est de cette manière un produit matrice-vecteur, et le théorème ci-dessus explique pourquoi : si l’on connaît la réponse à chaque impulsion isolée, on connaît tout le système.
+La troisième colonne ne contient plus que le $1$, parce que la période considérée s’arrête après trois heures. Pour $\mathbf{x}=(2,\,4,\,6)^{\top}$, la matrice fournit $(2,\,5,\,8)^{\top}$, comme la formule. Tout effet prolongé de ce type à poids fixes, appelé convolution en mathématiques, est de cette manière un produit matrice-vecteur, et le théorème ci-dessus explique pourquoi : si l’on connaît la réponse à chaque bûche isolée, on connaît la réponse à toute suite de bûches.
 :::
 
 :::hintergrund Données ou application ? Deux rôles du même tableau
-Une matrice peut être une collection de données, comme la matrice de données $\mathbf{X}$, ou une application, comme la matrice d’un filtre. Formellement, c’est la même chose, et parfois la même matrice joue les deux rôles à la fois : la matrice de données est aussi l’application $\mathbf{w}\mapsto\mathbf{X}\mathbf{w}$, qui transforme des poids en prédictions. Elle envoie l’espace $\mathbb{R}^d$ des poids dans l’espace $\mathbb{R}^N$ des listes de prédictions. En lisant une formule, il vaut donc la peine de se demander dans quel rôle une matrice apparaît à ce moment-là.
+Une matrice peut être une collection de données, comme la matrice de données $\mathbf{X}$, ou une application, comme la matrice du poêle à bois de l’encadré précédent. Formellement, c’est la même chose, et parfois la même matrice joue les deux rôles à la fois : la matrice de données est aussi l’application $\mathbf{w}\mapsto\mathbf{X}\mathbf{w}$, qui transforme des poids en prédictions. Elle envoie l’espace $\mathbb{R}^d$ des poids dans l’espace $\mathbb{R}^N$ des listes de prédictions. En lisant une formule, il vaut donc la peine de se demander dans quel rôle une matrice apparaît à ce moment-là.
 :::
 
 ### Applications linéaires du plan
@@ -282,32 +283,32 @@ L’image est le double de la première colonne, une flèche de longueur $2$ inc
 :::
 :::
 
-:::aufgabe Exercice 20 ★★ Un différentiateur comme matrice
+:::aufgabe Exercice 20 ★★ La consommation à partir des relevés du compteur, sous forme de matrice
 <span class="anker" id="aufg-20"></span>
 
-Un filtre calcule, à partir d’un signal de quatre échantillons, les différences $y[n]=x[n]-x[n-1]$, en supposant $x[0]=0$ avant le premier échantillon, $n=1,\dots,4$.
+Un compteur d’eau neuf indique à la fin de quatre mois les relevés $x[1],\dots,x[4]$ en mètres cubes ; avant le premier mois, il était à $x[0]=0$. La consommation du mois $n$ est la différence $y[n]=x[n]-x[n-1]$, $n=1,\dots,4$.
 
 <ol class="al">
 
 <li>
 
-Pourquoi le filtre est-il linéaire ? Établissez sa matrice $4\times4$ en calculant les réponses aux quatre impulsions unité.
+Pourquoi ce calcul est-il linéaire ? Établissez sa matrice $4\times4$ en calculant les réponses aux quatre vecteurs unitaires.
 
 </li>
 
 <li>
 
-Calculez la réponse à $\mathbf{x}=(1,\,2,\,4,\,7)^{\top}$ avec la matrice et avec la formule.
+Calculez la consommation correspondant aux relevés $\mathbf{x}=(1,\,2,\,4,\,7)^{\top}$ avec la matrice et avec la formule.
 
 </li>
 
 </ol>
 
 :::loesung
-(a) Chaque composante de sortie $y[n]=x[n]-x[n-1]$ est une somme fixe de multiples des composantes d’entrée ; le filtre est donc linéaire. La réponse à l’impulsion en position $1$, $\mathbf{x}=\mathbf{e}_1=(1,0,0,0)^{\top}$, est $(1,\,-1,\,0,\,0)^{\top}$ : le signal saute d’abord à $1$, puis revient à $0$. De même, le filtre répond à $\mathbf{e}_2$ par $(0,\,1,\,-1,\,0)^{\top}$, à $\mathbf{e}_3$ par $(0,\,0,\,1,\,-1)^{\top}$ et à $\mathbf{e}_4$ par $(0,\,0,\,0,\,1)^{\top}$ ; pour cette dernière impulsion, le signal s’arrête avant qu’elle ne retombe. Ces réponses sont les colonnes :
+(a) Chaque composante $y[n]=x[n]-x[n-1]$ du résultat est une somme fixe de multiples des composantes de $\mathbf{x}$ ; le calcul est donc linéaire. La réponse au $1$ isolé en position $1$, $\mathbf{x}=\mathbf{e}_1=(1,0,0,0)^{\top}$, est $(1,\,-1,\,0,\,0)^{\top}$ : le relevé monte d’abord à $1$, puis redescend à $0$. De même, le calcul répond à $\mathbf{e}_2$ par $(0,\,1,\,-1,\,0)^{\top}$, à $\mathbf{e}_3$ par $(0,\,0,\,1,\,-1)^{\top}$ et à $\mathbf{e}_4$ par $(0,\,0,\,0,\,1)^{\top}$ ; pour ce dernier $1$, les quatre mois s’achèvent avant que le relevé ne redescende. Ces réponses sont les colonnes :
 
 $$\mathbf{A}=\begin{pmatrix}1&0&0&0\\-1&1&0&0\\0&-1&1&0\\0&0&-1&1\end{pmatrix}.$$
 
-(b) Avec la matrice : $\mathbf{A}\,(1,2,4,7)^{\top}=(1,\ -1+2,\ -2+4,\ -4+7)^{\top}=(1,\,1,\,2,\,3)^{\top}$. Avec la formule : $y[1]=1-0=1$, $y[2]=2-1=1$, $y[3]=4-2=2$, $y[4]=7-4=3$.
+(b) Avec la matrice : $\mathbf{A}\,(1,2,4,7)^{\top}=(1,\ -1+2,\ -2+4,\ -4+7)^{\top}=(1,\,1,\,2,\,3)^{\top}$. Avec la formule : $y[1]=1-0=1$, $y[2]=2-1=1$, $y[3]=4-2=2$, $y[4]=7-4=3$. Pendant les quatre mois, on a donc consommé $1$, $1$, $2$ et $3$ mètres cubes d’eau.
 :::
 :::

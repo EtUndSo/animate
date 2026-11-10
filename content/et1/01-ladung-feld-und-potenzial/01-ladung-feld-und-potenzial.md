@@ -1,7 +1,9 @@
 ---
 title: Überblick: Ladung, Feld und Potenzial
 kurz: Überblick
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Ladung, Feld und Potenzial
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Ladung, Feld und Potenzial
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial
+knoten: Kapitel 1: Ladung, Feld und Potenzial
 order: 1110100
 summary: Warum Spannung eine Differenz ist und was sie mit einer Ladung macht
 tags: Spannung, Ladung, elektrisches Feld, Potenzial, Bezugspunkt, Widerstand
@@ -35,7 +37,7 @@ Die Antwort führt über zwei Begriffe. Ein __elektrisches Feld__ legt für jede
 
 <li>
 
-⁠**Stromkreis:** dieselbe Batterie an zwei hintereinanderliegenden Widerständen, am ersten 6 V, am zweiten 3 V. Ein __Widerstand__ ist ein Bauteil, in dem durchlaufende Ladung Energie als Wärme abgibt ([Teil 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)).
+⁠**Stromkreis:** dieselbe Batterie an zwei hintereinanderliegenden Widerständen, am ersten 6 V, am zweiten 3 V. Ein __Widerstand__ ist ein Bauteil, in dem durchlaufende Ladung Energie als Wärme abgibt ([Kapitel 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)).
 
 </li>
 

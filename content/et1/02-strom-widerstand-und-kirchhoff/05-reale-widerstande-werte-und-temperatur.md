@@ -1,6 +1,8 @@
 ---
 title: Stufe 4: Reale Widerstände: Werte und Temperatur
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Strom, Widerstand und Kirchhoff
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Strom, Widerstand und Kirchhoff
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff
+knoten: Kapitel 2: Strom, Widerstand und Kirchhoff
 order: 1120500
 summary: Bisher war R eine Zahl aus Material und Form.
 tags: Metall- oder Kohleschichtwiderstände, Drahtwiderstände, SMD, E-Reihe, Temperaturkoeffizient, PTC, Kaltleiter, NTC
@@ -45,7 +47,7 @@ $$R(\vartheta)=R(\vartheta_0)\,\bigl(1+\alpha_{\vartheta_0}\,(\vartheta-\varthet
 Links: $R/R_{20}$ über der Temperatur für Kupfer ($\alpha=3{,}9\cdot10^{-3}$ /K), die kompensierte Legierung Konstantan und einen Halbleiter-Heißleiter (rund $-4\,\%$/K bei 20 °C). Rechts: Modellkennlinie einer 9-V-Glühlampe. Kalt hat sie $1{,}5\,\Omega$, im Betrieb bei 0,5 A sind es $18\,\Omega$. Die Kurve wechselt zwischen den beiden gestrichelten Geraden.
 :::
 
-**Mechanismus.** Metalle (Kupfer, Silber, Platin, Wolfram): $n$ steht fest, ein wärmeres Gitter schwingt stärker, die Flugzeit $T$ sinkt, $\mu$ sinkt, $R$ steigt. Halbleiter (Silizium, Germanium): Bei Raumtemperatur sind nur wenige Elektronen frei. Wärme befreit weitere ([Teil 9](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)), $n$ wächst viel schneller, als $\mu$ fällt, $R$ sinkt. __Kompensierte Legierungen__ wie Konstantan: Die Stöße an den unregelmäßig eingebauten Fremdatomen überwiegen und hängen kaum von der Temperatur ab. Alternativ legt man einen PTC und einen NTC in Reihe, sodass die Zunahme des einen die Abnahme des anderen ausgleicht ($R_1\alpha_1+R_2\alpha_2=0$).
+**Mechanismus.** Metalle (Kupfer, Silber, Platin, Wolfram): $n$ steht fest, ein wärmeres Gitter schwingt stärker, die Flugzeit $T$ sinkt, $\mu$ sinkt, $R$ steigt. Halbleiter (Silizium, Germanium): Bei Raumtemperatur sind nur wenige Elektronen frei. Wärme befreit weitere ([Kapitel 9](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)), $n$ wächst viel schneller, als $\mu$ fällt, $R$ sinkt. __Kompensierte Legierungen__ wie Konstantan: Die Stöße an den unregelmäßig eingebauten Fremdatomen überwiegen und hängen kaum von der Temperatur ab. Alternativ legt man einen PTC und einen NTC in Reihe, sodass die Zunahme des einen die Abnahme des anderen ausgleicht ($R_1\alpha_1+R_2\alpha_2=0$).
 
 ::::beispiel
 Der Draht erwärmt sich von 20 °C auf 70 °C. Aus [(4.2)](#gl-4-2) folgt der Faktor $1+3{,}9\cdot10^{-3}\cdot50=1{,}195$, also 40,6 m$\Omega$ statt 34 m$\Omega$. Ein extremer Fall ist der Wolframdraht der Lampe: Der Faktor 12 von $1{,}5\,\Omega$ auf $18\,\Omega$ entspricht nach [(4.2)](#gl-4-2) rund 2460 °C, als grobe Näherung über diese große Spanne.

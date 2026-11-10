@@ -1,6 +1,8 @@
 ---
 title: Stufe 7: Gegenkopplung hält den Arbeitspunkt fest
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Der Bipolartransistor
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Der Bipolartransistor
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor
+knoten: Kapitel 10: Der Bipolartransistor
 order: 1200900
 summary: Der Arbeitspunkt aus Stufe 5 hängt an B und an U BE , und beide sind unzuverlässig.
 tags: Stromgegenkopplung, Spannungsgegenkopplung
@@ -41,7 +43,7 @@ Spannungsgegenkopplung mit $R_\mathrm{B}$ vom Kollektor zur Basis:
 $$I_\mathrm{C}=\frac{U_\mathrm{CC}-U_\mathrm{BE}}{R_\mathrm{C}\bigl(1+\frac1B\bigr)+\frac{R_\mathrm{B}}{B}}\approx\frac{U_\mathrm{CC}-U_\mathrm{BE}}{R_\mathrm{C}+\frac{R_\mathrm{B}}{B}},\qquad\text{für } R_\mathrm{C}\gg\frac{R_\mathrm{B}}{B}:\ I_\mathrm{C}\approx\frac{U_\mathrm{CC}-U_\mathrm{BE}}{R_\mathrm{C}}. \tag{7.2}$$
 :::
 
-⁠**So liest man das:** $U_\mathrm{q}$ und $R_\mathrm{i}$ beschreiben den Teiler als Ersatzspannungsquelle ([Teil 5](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)): $U_\mathrm{q}$ ist seine Leerlaufspannung, $R_\mathrm{i}$ sein Innenwiderstand. $R_\mathrm{E}$ wirkt im Nenner fast voll, $R_\mathrm{i}$ nur durch $B$ geteilt. **Gültigkeit:** aktiver Bereich. Das ist am Ende zu prüfen. $U_\mathrm{BE}$ ist hier ein fester Wert, die letzte Näherung in [(7.1)](#gl-7-1) braucht große $U_\mathrm{q}$.
+⁠**So liest man das:** $U_\mathrm{q}$ und $R_\mathrm{i}$ beschreiben den Teiler als Ersatzspannungsquelle ([Kapitel 5](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)): $U_\mathrm{q}$ ist seine Leerlaufspannung, $R_\mathrm{i}$ sein Innenwiderstand. $R_\mathrm{E}$ wirkt im Nenner fast voll, $R_\mathrm{i}$ nur durch $B$ geteilt. **Gültigkeit:** aktiver Bereich. Das ist am Ende zu prüfen. $U_\mathrm{BE}$ ist hier ein fester Wert, die letzte Näherung in [(7.1)](#gl-7-1) braucht große $U_\mathrm{q}$.
 
 :::herleitung Die Formeln aus den Maschen
 Der Teiler wird zur Quelle $U_\mathrm{q}$ mit $R_\mathrm{i}$ in Reihe. Die Masche über Basis und Emitter lautet mit $I_\mathrm{E}=(1+B)I_\mathrm{B}$

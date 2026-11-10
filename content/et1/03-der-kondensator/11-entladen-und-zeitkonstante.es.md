@@ -1,6 +1,8 @@
 ---
 title: Etapa 10: Descarga y constante de tiempo
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / El condensador
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / El condensador
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator
+knoten: Capítulo 3: El condensador
 order: 1131100
 summary: El condensador cargado devuelve su carga a través de una resistencia.
 tags: 

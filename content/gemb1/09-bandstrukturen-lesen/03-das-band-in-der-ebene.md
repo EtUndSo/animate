@@ -1,8 +1,10 @@
 ---
 title: Stufe 1: Das Band in der Ebene
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Bandstrukturen lesen
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Bandstrukturen lesen
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/bandstrukturen-lesen
+knoten: Kapitel 9: Bandstrukturen lesen
 order: 4190300
-summary: Teil 8 rechnete auf einer Kette.
+summary: Kapitel 8 rechnete auf einer Kette.
 tags: Hochsymmetriepunkt, Fläche konstanter Energie
 lang: de
 ---
@@ -10,7 +12,7 @@ lang: de
 <span class="anker" id="stufe-1"></span>
 
 :::zweck
-[Teil 8](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/vom-atom-zum-band/vom-atom-zum-band.html) rechnete auf einer Kette. Ein Kristall hat aber mehrere Richtungen. Diese Stufe überträgt die Rechnung auf ein Quadratgitter und zeigt, wie aus einer Fläche über der Brillouin-Zone das übliche Diagramm der Bandstruktur wird.
+[Kapitel 8](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/vom-atom-zum-band/vom-atom-zum-band.html) rechnete auf einer Kette. Ein Kristall hat aber mehrere Richtungen. Diese Stufe überträgt die Rechnung auf ein Quadratgitter und zeigt, wie aus einer Fläche über der Brillouin-Zone das übliche Diagramm der Bandstruktur wird.
 :::
 
 **Die Idee.** Im Quadratgitter hat jedes Atom vier Nachbarn, zwei längs $x$ und zwei längs $y$. Jede Richtung trägt ihren eigenen Kosinus zur Energie bei. Aus der Zahl $k$ wird ein Vektor $\boldsymbol k=(k_x,k_y)$, aus der Kurve $E(k)$ eine Fläche über der Ebene. Die Einhüllende $\mathrm{e}^{\mathrm{j} k\ell a}$ wird zu $\mathrm{e}^{\mathrm{j}\boldsymbol k\cdot\boldsymbol R}$ mit $\boldsymbol R=\ell_1\boldsymbol a_1+\ell_2\boldsymbol a_2$, das Orbital am Platz heißt $|\ell_1,\ell_2\rangle$.

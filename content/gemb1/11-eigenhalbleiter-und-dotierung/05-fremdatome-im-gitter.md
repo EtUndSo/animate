@@ -1,6 +1,8 @@
 ---
 title: Stufe 3: Fremdatome im Gitter
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Eigenhalbleiter und Dotierung
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Eigenhalbleiter und Dotierung
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/eigenhalbleiter-und-dotierung
+knoten: Kapitel 11: Eigenhalbleiter und Dotierung
 order: 4210500
 summary: Der reine Kristall hat zu wenige Ladungsträger, und ihre Zahl hängt stark von der Temperatur ab.
 tags: Störstelle, Aktivierungsenergie, n-Typ, p-Typ, Majoritätsträger, Minoritätsträger, flachen Störstelle, Tiefe Störstellen

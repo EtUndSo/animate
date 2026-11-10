@@ -1,6 +1,8 @@
 ---
 title: Key points
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / Mesh Current and Node Voltage Analysis
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / Mesh Current and Node Voltage Analysis
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/maschenstrom-und-knotenpotentialverfahren
+knoten: Chapter 8: Mesh Current and Node Voltage Analysis
 order: 1181200
 summary: Why a network gets by with few unknowns
 tags: Mesh current analysis, mesh current, Node voltage analysis, node voltage, reference node, resistance matrix, conductance matrix, Modified nodal analysis

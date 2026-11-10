@@ -1,6 +1,8 @@
 ---
 title: Key points
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / Charge, Field and Potential
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / Charge, Field and Potential
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial
+knoten: Chapter 1: Charge, Field and Potential
 order: 1111300
 summary: Why voltage is a difference and what it does to a charge
 tags: 
@@ -109,7 +111,7 @@ Induction: $u_\mathrm{ind}=-N\,\mathrm{d}\Phi/\mathrm{d} t$; the field is then n
 </ul>
 :::
 
-**Looking ahead to [Part 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html).** In a wire, the field drives very many charges at once: charge flows and a current arises. [Part 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html) shows why voltage and current are proportional and how they divide in a network.
+**Looking ahead to [Chapter 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html).** In a wire, the field drives very many charges at once: charge flows and a current arises. [Chapter 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html) shows why voltage and current are proportional and how they divide in a network.
 
 **One principle behind all the results.** The force on a charge and its energy depend on the other charges around it and on the charge itself. Dividing by the charge itself leaves a property of the location: force becomes field strength, energy becomes potential.
 

@@ -1,7 +1,8 @@
 ---
 title: L’essentiel jusqu’ici
 pfad: Informatique / Apprentissage automatique / Fondements mathématiques / Vecteurs et matrices
-knoten: Fondements 1 : Vecteurs et matrices
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Chapitre 1 : Vecteurs et matrices
 nachschlagen: ja
 order: 15211700
 summary: Les données comme listes de nombres, les modèles comme applications linéaires
@@ -26,7 +27,7 @@ Le produit scalaire $\mathbf{u}^{\top}\mathbf{v}=\sum_ju_jv_j$ est une somme pon
 
 <li>
 
-Les normes mesurent la grandeur : $\lVert\mathbf{x}\rVert_2=\sqrt{\mathbf{x}^{\top}\mathbf{x}}$, $\lVert\mathbf{x}\rVert_1=\sum_j|x_j|$, $\lVert\mathbf{x}\rVert_\infty=\max_j|x_j|$ ; la valeur efficace est $\lVert\mathbf{x}\rVert/\sqrt n$. Les distances $\lVert\mathbf{u}-\mathbf{v}\rVert$ dépendent des unités ; la standardisation les en rend indépendantes.
+Les normes mesurent la grandeur : $\lVert\mathbf{x}\rVert_2=\sqrt{\mathbf{x}^{\top}\mathbf{x}}$, $\lVert\mathbf{x}\rVert_1=\sum_j|x_j|$, $\lVert\mathbf{x}\rVert_\infty=\max_j|x_j|$ ; la moyenne quadratique est $\lVert\mathbf{x}\rVert/\sqrt n$. Les distances $\lVert\mathbf{u}-\mathbf{v}\rVert$ dépendent des unités ; la standardisation les en rend indépendantes.
 
 </li>
 

@@ -1,8 +1,10 @@
 ---
 title: Stufe 9: Die modifizierte Knotenanalyse
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Maschenstrom- und Knotenpotentialverfahren
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Maschenstrom- und Knotenpotentialverfahren
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/maschenstrom-und-knotenpotentialverfahren
+knoten: Kapitel 8: Maschenstrom- und Knotenpotentialverfahren
 order: 1181100
-summary: Eine ideale Spannungsquelle hat keinen Leitwert und keine Stromquellenform (Teil 5).
+summary: Eine ideale Spannungsquelle hat keinen Leitwert und keine Stromquellenform (Kapitel 5).
 tags: Stromverstärkung, Transitfrequenz
 lang: de
 ---
@@ -10,7 +12,7 @@ lang: de
 <span class="anker" id="stufe-9"></span>
 
 :::zweck
-Eine ideale Spannungsquelle hat keinen Leitwert und keine Stromquellenform ([Teil 5](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)). Diese Stufe nimmt die letzte Einschränkung weg. So rechnet SPICE jede Schaltung.
+Eine ideale Spannungsquelle hat keinen Leitwert und keine Stromquellenform ([Kapitel 5](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)). Diese Stufe nimmt die letzte Einschränkung weg. So rechnet SPICE jede Schaltung.
 :::
 
 **Die Idee.** Eine Spannungsquelle legt die Spannung zwischen zwei Knoten fest. Ihr Strom stellt sich erst durch das Netz ein, er ist also unbekannt. Man nimmt ihn als zusätzliche Unbekannte. Eine zusätzliche Unbekannte verlangt eine zusätzliche Gleichung, und die liefert die Quelle selbst: Die Potenzialdifferenz ist $U_\mathrm q$. So kehrt je Spannungsquelle genau eine Maschengleichung zurück, alles andere bleibt Knotenanalyse (Abb. [9](#abb-9)).

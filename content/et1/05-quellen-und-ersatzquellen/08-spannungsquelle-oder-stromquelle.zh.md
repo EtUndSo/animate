@@ -1,6 +1,8 @@
 ---
 title: 第 6 阶段：电压源还是电流源
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 电源与等效电源
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 电源与等效电源
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen
+knoten: 第 5 章：电源与等效电源
 order: 1150800
 summary: 同一个实际电源有两种电路图。本阶段说明两者描述的是同一条直线，以及如何相互换算。
 tags: 等效
@@ -47,7 +49,7 @@ $$\frac{I_\mathrm{q}}{G_\mathrm{q}}-\frac{I_\mathrm{A}}{G_\mathrm{q}}=U_\mathrm{
 **选哪种形式？** 就计算而言，两者同样好。选用更能显示行为的形式：电压源是低阻的（理想情况为零），电流源是高阻的（理想情况为无穷大）。如果 $R_\mathrm{q}$ 比负载小得多，电压几乎不变，就选电压源形式。如果 $R_\mathrm{q}$ 比负载大得多，电流几乎不变，就选电流源形式。
 
 :::frage 既然两者相同，电池开路时会白白发热 40.5 W 吗？
-不会。在图 [7](#abb-7) 右侧，开路时 4.5 A 流过 2 $\Omega$，按 $P=UI$（[第 7 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad/leistung-und-anpassung.html)）将是 40.5 W。真实的电池并不发热，这里符合实际的是功率为 0 W 的电压源图景。等效电路在接线端上正确，在内部则不然。内部发生什么取决于结构，而不取决于特性曲线。在工作点上也是如此：内部是 0.5 W 对 32 W，外部两种情况都是 4 W。
+不会。在图 [7](#abb-7) 右侧，开路时 4.5 A 流过 2 $\Omega$，按 $P=UI$（[第 7 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad/leistung-und-anpassung.html)）将是 40.5 W。真实的电池并不发热，这里符合实际的是功率为 0 W 的电压源图景。等效电路在接线端上正确，在内部则不然。内部发生什么取决于结构，而不取决于特性曲线。在工作点上也是如此：内部是 0.5 W 对 32 W，外部两种情况都是 4 W。
 :::
 
 :::aufgabe 练习 7 ★ 转换

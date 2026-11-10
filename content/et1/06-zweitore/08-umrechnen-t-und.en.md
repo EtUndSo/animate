@@ -1,6 +1,8 @@
 ---
 title: Stage 6: Conversion, T and $\pi$
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / Two-Port Networks
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / Two-Port Networks
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore
+knoten: Chapter 6: Two-Port Networks
 order: 1160800
 summary: The Z form and the Y form describe the same two-port.
 tags: 
@@ -45,7 +47,7 @@ $$Y_{12}=-\frac{Z_{12}}{Z_{11}Z_{22}-Z_{12}Z_{21}},\qquad Y_{22}=\frac{Z_{11}}{Z
 <span class="anker" id="gl-6-2"></span>
 $$\mathbf Y_\mathrm{T}=\frac1D\begin{pmatrix}R_\mathrm{b}+R_\mathrm{c}&-R_\mathrm{b}\\-R_\mathrm{b}&R_\mathrm{a}+R_\mathrm{b}\end{pmatrix},\qquad \mathbf Y_\pi=\begin{pmatrix}G_1+G_2&-G_2\\-G_2&G_2+G_3\end{pmatrix}. \tag{6.2}$$
 
-Setting the two equal gives $G_2=-Y_{12}$, $G_1=Y_{11}+Y_{12}$ and $G_3=Y_{22}+Y_{21}$. For $G_3=0$, $\mathbf Y_\pi$ becomes the pair $I_1=(G_1+G_2)U_1-G_2U_2$, $I_2=-G_2U_1+G_2U_2$. This is the star-delta transformation from [Part 5](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html): T is the star, $\pi$ the delta. Description by Z parameters leads naturally to the T network, description by Y parameters to the dual $\pi$ network. Conversely, every two-port with $Z_{12}=Z_{21}$ has a T and a $\pi$ equivalent circuit without sources (Stage [10](eigenschaften-und-alle-formen-im-uberblick.html#stufe-10)).
+Setting the two equal gives $G_2=-Y_{12}$, $G_1=Y_{11}+Y_{12}$ and $G_3=Y_{22}+Y_{21}$. For $G_3=0$, $\mathbf Y_\pi$ becomes the pair $I_1=(G_1+G_2)U_1-G_2U_2$, $I_2=-G_2U_1+G_2U_2$. This is the star-delta transformation from [Chapter 5](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html): T is the star, $\pi$ the delta. Description by Z parameters leads naturally to the T network, description by Y parameters to the dual $\pi$ network. Conversely, every two-port with $Z_{12}=Z_{21}$ has a T and a $\pi$ equivalent circuit without sources (Stage [10](eigenschaften-und-alle-formen-im-uberblick.html#stufe-10)).
 
 :::abbildung et1/k6tpi 8
 Two circuits, the same two-port. Left, the T network with 15, 20 and 20 $\Omega$; right, the equivalent $\pi$ network with 50, 50 and 66.7 $\Omega$. Both have $\det\mathbf Z=1000\,\Omega^2$. At the ports, no measurement can tell them apart.

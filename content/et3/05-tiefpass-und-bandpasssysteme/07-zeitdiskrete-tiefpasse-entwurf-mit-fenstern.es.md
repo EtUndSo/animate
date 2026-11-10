@@ -1,6 +1,8 @@
 ---
 title: Etapa 6: Paso bajo en tiempo discreto, diseño con ventanas
-pfad: Ingeniería eléctrica / 3.er semestre / Señales y sistemas / Sistemas paso bajo y paso banda
+pfad: Ingeniería eléctrica / 3.er semestre / ET3 – Fundamentos de ingeniería eléctrica 3: señales y sistemas / Sistemas paso bajo y paso banda
+adresse: elektrotechnik/3-semester/signale-und-systeme/tiefpass-und-bandpasssysteme
+knoten: Capítulo 5: Sistemas paso bajo y paso banda
 order: 3250700
 summary: ¿Cómo se diseña un paso bajo digital?
 tags: 
@@ -35,7 +37,7 @@ es decir, en el modelo de referencia ($f_\mathrm g=0{,}2$), $h(0)=0{,}4$, $h(\pm
 
 </ul>
 
-La razón es la misma que en la transformada de Fourier de tiempo corto de la [parte 3](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html): el espectro de la ventana se convoluciona con el ideal, y los bordes abruptos del rectángulo producen lóbulos secundarios que decrecen lentamente.
+La razón es la misma que en la transformada de Fourier de tiempo corto del [capítulo 3](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html): el espectro de la ventana se convoluciona con el ideal, y los bordes abruptos del rectángulo producen lóbulos secundarios que decrecen lentamente.
 
 :::abbildung et3/k5fenster 4
 Módulo de la respuesta en frecuencia de dos filtros FIR paso bajo con $f_\mathrm g=0{,}2$ y 21 coeficientes. Ventana rectangular: flanco abrupto, a partir de $f=0{,}3$ atenuación solo hasta $-26{,}6$ dB. Ventana de Hann: flanco más tendido, a partir de $f=0{,}3$ como máximo $-45{,}9$ dB.

@@ -1,7 +1,9 @@
 ---
 title: Visión general: Señales aleatorias
 kurz: Visión general
-pfad: Ingeniería eléctrica / 3.er semestre / Señales y sistemas / Señales aleatorias
+pfad: Ingeniería eléctrica / 3.er semestre / ET3 – Fundamentos de ingeniería eléctrica 3: señales y sistemas / Señales aleatorias
+adresse: elektrotechnik/3-semester/signale-und-systeme/zufallssignale
+knoten: Capítulo 7: Señales aleatorias
 order: 3270100
 summary: Valores medios, distribuciones, densidad espectral de potencia, ruido en sistemas y el receptor óptimo
 tags: 
@@ -33,7 +35,7 @@ El ruido de una resistencia, la voz, un flujo de datos: estas señales no se pue
 
 <li>
 
-⁠**Sistema recursivo** $g(n)=s(n)+0{,}6\,g(n-1)$ de la [parte 4](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme/abtastung-und-zeitdiskrete-systeme.html).
+⁠**Sistema recursivo** $g(n)=s(n)+0{,}6\,g(n-1)$ del [capítulo 4](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme/abtastung-und-zeitdiskrete-systeme.html).
 
 </li>
 

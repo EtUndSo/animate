@@ -1,6 +1,8 @@
 ---
 title: Stufe 2: Ähnlichkeit messen, der Korrelationskoeffizient
-pfad: Elektrotechnik / 3. Semester / Signale und Systeme / Korrelationsfunktionen
+pfad: Elektrotechnik / 3. Semester / ET3 – Grundgebiete der Elektrotechnik 3: Signale und Systeme / Korrelationsfunktionen
+adresse: elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen
+knoten: Kapitel 6: Korrelationsfunktionen
 order: 3260300
 summary: Wie misst man mit einer Zahl, wie ähnlich zwei Signale sind?
 tags: Korrelationskoeffizienten, orthogonal
@@ -22,7 +24,7 @@ Der Unterschied steckt also allein im Integral des Produkts. Damit die Größe d
 <span class="anker" id="gl-2-1"></span>
 $$p_{sg}=\frac{\int_{-\infty}^{\infty}s^*(t)\,g(t)\,\mathrm{d} t}{\sqrt{E_sE_g}}. \tag{2.1}$$
 
-⁠**So liest man das:** $|p_{sg}|\le1$ (Cauchy-Schwarz-Ungleichung). $p=1$ heißt $s=a\,g$ mit $a>0$: gleiche Form. $p=-1$ heißt $s=-a\,g$: gleiche Form, umgekehrtes Vorzeichen. $p=0$ heißt $\int s^*g\,\mathrm{d} t=0$, die Signale sind __orthogonal__, wie die Harmonischen einer Fourier-Reihe in [Teil 3](/wissen/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html). Beispiel: $\operatorname{rect}(t)$ und $\Lambda(t)$ haben $\int\operatorname{rect}\cdot\Lambda\,\mathrm{d} t=0{,}75$, $E_{\operatorname{rect}}=1$, $E_\Lambda=\frac23$, also $p=0{,}919$.
+⁠**So liest man das:** $|p_{sg}|\le1$ (Cauchy-Schwarz-Ungleichung). $p=1$ heißt $s=a\,g$ mit $a>0$: gleiche Form. $p=-1$ heißt $s=-a\,g$: gleiche Form, umgekehrtes Vorzeichen. $p=0$ heißt $\int s^*g\,\mathrm{d} t=0$, die Signale sind __orthogonal__, wie die Harmonischen einer Fourier-Reihe in [Kapitel 3](/wissen/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html). Beispiel: $\operatorname{rect}(t)$ und $\Lambda(t)$ haben $\int\operatorname{rect}\cdot\Lambda\,\mathrm{d} t=0{,}75$, $E_{\operatorname{rect}}=1$, $E_\Lambda=\frac23$, also $p=0{,}919$.
 
 :::aufgabe Aufgabe 2 ★★ Korrelationskoeffizienten
 <span class="anker" id="aufg-2"></span>

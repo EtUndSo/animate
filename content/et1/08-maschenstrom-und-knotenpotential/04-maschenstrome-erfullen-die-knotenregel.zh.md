@@ -1,6 +1,8 @@
 ---
 title: 第 2 阶段：网孔电流满足节点定律
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 网孔电流法与节点电位法
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 网孔电流法与节点电位法
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/maschenstrom-und-knotenpotentialverfahren
+knoten: 第 8 章：网孔电流法与节点电位法
 order: 1180400
 summary: 要找 m 个量，由它们得出所有支路电流。本阶段说明，为什么环流能做到这一点，以及为什么节点定律此时自动成立。
 tags: 窗口
@@ -35,7 +37,7 @@ $$I_\text{支路}=\sum_{\mu=1}^{m}\sigma_\mu\,I_\mu,\qquad\sigma_\mu=\begin{case
 :::
 
 :::herleitung 为什么这总是可行
-⁠**节点定律。**在一个网孔中，每个节点恰好与两条支路相连（[第 2 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)）。网孔电流在节点处计入一次流入和一次流出，两者抵消。
+⁠**节点定律。**在一个网孔中，每个节点恰好与两条支路相连（[第 2 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)）。网孔电流在节点处计入一次流入和一次流出，两者抵消。
 
 ⁠**完备性。**选一棵树。每条连支恰好闭合一个网孔，取该网孔的网孔电流等于这条连支的电流。从给定的分布中减去所有这些环流，剩余部分仍满足节点定律，并且在所有连支中为零。它只能在树中流动。但树有末端，即只有一条树支的节点。在那里，节点定律迫使电流为零。划去这条支路，重复上述步骤。剩余部分处处为零。
 :::

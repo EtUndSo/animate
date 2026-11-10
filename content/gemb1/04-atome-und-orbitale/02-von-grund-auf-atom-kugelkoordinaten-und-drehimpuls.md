@@ -1,6 +1,8 @@
 ---
 title: Von Grund auf: Atom, Kugelkoordinaten und Drehimpuls
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Atome und Orbitale
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Atome und Orbitale
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/atome-und-orbitale
+knoten: Kapitel 4: Atome und Orbitale
 order: 4140200
 summary: Welche Zustände Elektronen im Atom haben und wie sie sich darauf verteilen
 tags: Atomkern, Elektronenhülle, Protonen, Neutronen, Kernladungszahl, Kugelkoordinaten, Drehimpuls

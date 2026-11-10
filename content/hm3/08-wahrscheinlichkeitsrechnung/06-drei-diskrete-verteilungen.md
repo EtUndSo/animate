@@ -1,6 +1,8 @@
 ---
 title: Stufe 5: Drei diskrete Verteilungen
-pfad: Elektrotechnik / 3. Semester / Höhere Mathematik 3 / Wahrscheinlichkeitsrechnung
+pfad: Elektrotechnik / 3. Semester / HöMa3 – Höhere Mathematik 3 / Wahrscheinlichkeitsrechnung
+adresse: elektrotechnik/3-semester/hohere-mathematik-3/wahrscheinlichkeitsrechnung
+knoten: Kapitel 8: Wahrscheinlichkeitsrechnung
 order: 3180600
 summary: Drei Situationen kehren immer wieder: Treffer bei Wiederholungen, seltene Ereignisse und Stichproben ohne Zurücklegen.
 tags: diskret, Wahrscheinlichkeitsfunktion, Bernoulli-Experiment, binomialverteilt, Binomialverteilung, Poisson-verteilt, Poisson-Verteilung, hypergeometrisch verteilt

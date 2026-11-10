@@ -1,0 +1,8 @@
+coords_to_point(x,y,z) OK: plane at z=0, z scales up
+z-axis group present (labelled), tagged 3D-only
+2D hides z-axis, 3D shows it OK: 2D=31, 3D=50 draw ops
+adaptive surface OK: wavy=208 faces vs flat=4 faces, 73 shaded colours
+model 2-var FunctionGraph on axes OK (renders as a surface)
+data_to_world scales z like coords_to_point OK
+
+UNIFIED AXES / SURFACE TESTS PASSED

@@ -1,6 +1,8 @@
 ---
 title: Stufe 2: Symmetrie nutzen
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Quellen und Ersatzquellen
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Quellen und Ersatzquellen
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen
+knoten: Kapitel 5: Quellen und Ersatzquellen
 order: 1150400
 summary: Manche Netze enthalten keine Gruppen.
 tags: Halbschaltung
@@ -73,10 +75,10 @@ In die Zeichnung ja, in die Ströme nein. Durch den neuen Draht könnte nur Stro
 :::aufgabe Aufgabe 2 ★ Stromlos vorhersagen
 <span class="anker" id="aufg-2"></span>
 
-Von A führen 10 $\Omega$ zum Knoten C und 30 $\Omega$ zum Knoten D, von C führen 20 $\Omega$ und von D 60 $\Omega$ nach B. Zwischen C und D liegt ein Querwiderstand $R_\mathrm{Q}$ (die Brücke aus [Teil 4](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-und-spannung-messen/strom-und-spannung-messen.html)). (a) Zeige, dass C und D gleiches Potenzial haben, auch ohne Symmetrie. (b) Berechne $R_\mathrm{AB}$ für $R_\mathrm{Q}\to\infty$ und für $R_\mathrm{Q}\to0$. (c) Was folgt für $R_\mathrm{Q}=47\,\Omega$?
+Von A führen 10 $\Omega$ zum Knoten C und 30 $\Omega$ zum Knoten D, von C führen 20 $\Omega$ und von D 60 $\Omega$ nach B. Zwischen C und D liegt ein Querwiderstand $R_\mathrm{Q}$ (die Brücke aus [Kapitel 4](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-und-spannung-messen/strom-und-spannung-messen.html)). (a) Zeige, dass C und D gleiches Potenzial haben, auch ohne Symmetrie. (b) Berechne $R_\mathrm{AB}$ für $R_\mathrm{Q}\to\infty$ und für $R_\mathrm{Q}\to0$. (c) Was folgt für $R_\mathrm{Q}=47\,\Omega$?
 
 :::loesung
-(a) Ohne Strom durch $R_\mathrm{Q}$ sind beide Zweige Spannungsteiler mit demselben Verhältnis: $\frac{20}{10+20}=\frac{60}{30+60}=\frac23$. C und D liegen dann auf demselben Potenzial, und durch $R_\mathrm{Q}$ fließt wirklich kein Strom. Das ist die eine Lösung des Netzes (der Abgleich aus [Teil 4](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-und-spannung-messen/strom-und-spannung-messen.html)).
+(a) Ohne Strom durch $R_\mathrm{Q}$ sind beide Zweige Spannungsteiler mit demselben Verhältnis: $\frac{20}{10+20}=\frac{60}{30+60}=\frac23$. C und D liegen dann auf demselben Potenzial, und durch $R_\mathrm{Q}$ fließt wirklich kein Strom. Das ist die eine Lösung des Netzes (der Abgleich aus [Kapitel 4](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-und-spannung-messen/strom-und-spannung-messen.html)).
 
 (b) $R_\mathrm{Q}\to\infty$: $(10\,\Omega+20\,\Omega)\parallel(30\,\Omega+60\,\Omega)=22{,}5\,\Omega$. $R_\mathrm{Q}\to0$: $10\,\Omega\parallel30\,\Omega+20\,\Omega\parallel60\,\Omega=7{,}5\,\Omega+15\,\Omega=22{,}5\,\Omega$.
 

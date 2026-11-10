@@ -1,6 +1,8 @@
 ---
 title: Etapa 5: Adónde va la potencia de una fuente
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Potencia, adaptación y rendimiento
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Potencia, adaptación y rendimiento
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad
+knoten: Capítulo 7: Potencia, adaptación y rendimiento
 order: 1170600
 summary: También la fuente tiene una resistencia en su interior.
 tags: 
@@ -36,7 +38,7 @@ $$\eta=\frac{P_\mathrm{L}}{P_\mathrm{q}}=\frac{I\,U_\mathrm{L}}{I\,U_\mathrm{q}}
 ⁠**Cómo leerlo:** $P_\mathrm{q}$ es la potencia que genera la fuente; $P_\mathrm{v}$, la potencia de pérdidas en su resistencia interna; $P_\mathrm{L}$, la potencia útil. $U_\mathrm{Ri}=R_\mathrm{i}I$ es la tensión en $R_\mathrm{i}$. $\eta$ es un número puro entre 0 y 1 y solo depende de la relación $R_\mathrm{L}/R_\mathrm{i}$. **Validez:** Esto vale para la conexión en serie de fuente ideal, $R_\mathrm{i}$ y $R_\mathrm{L}$. En una fuente equivalente, las magnitudes internas no son correctas (etapa [7](warum-50-und-welches-ziel-gilt.html#stufe-7)).
 
 :::herleitung El balance es la ley de las mallas multiplicada por la corriente
-La ley de las mallas dice $U_\mathrm{q}=U_\mathrm{Ri}+U_\mathrm{L}$. Multiplicada por $I$ da $P_\mathrm{q}=P_\mathrm{v}+P_\mathrm{L}$. En [(5.2)](#gl-5-2) se simplifica $I$, porque ambas resistencias llevan la misma corriente. El divisor de tensión ([Parte 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)) da $U_\mathrm{L}=U_\mathrm{q}\,R_\mathrm{L}/(R_\mathrm{L}+R_\mathrm{i})$.
+La ley de las mallas dice $U_\mathrm{q}=U_\mathrm{Ri}+U_\mathrm{L}$. Multiplicada por $I$ da $P_\mathrm{q}=P_\mathrm{v}+P_\mathrm{L}$. En [(5.2)](#gl-5-2) se simplifica $I$, porque ambas resistencias llevan la misma corriente. El divisor de tensión ([capítulo 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)) da $U_\mathrm{L}=U_\mathrm{q}\,R_\mathrm{L}/(R_\mathrm{L}+R_\mathrm{i})$.
 :::
 
 ::::beispiel

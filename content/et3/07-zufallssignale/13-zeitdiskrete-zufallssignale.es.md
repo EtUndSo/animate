@@ -1,6 +1,8 @@
 ---
 title: Etapa 12: Señales aleatorias en tiempo discreto
-pfad: Ingeniería eléctrica / 3.er semestre / Señales y sistemas / Señales aleatorias
+pfad: Ingeniería eléctrica / 3.er semestre / ET3 – Fundamentos de ingeniería eléctrica 3: señales y sistemas / Señales aleatorias
+adresse: elektrotechnik/3-semester/signale-und-systeme/zufallssignale
+knoten: Capítulo 7: Señales aleatorias
 order: 3271300
 summary: Todo vale también para secuencias de números aleatorios, con sumas en lugar de integrales.
 tags: ruido blanco en tiempo discreto
@@ -29,7 +31,7 @@ La varianza se reduce a la mitad, a $\frac{1}{24}$, y los valores de salida veci
 ::::
 
 ::::beispiel [Ejemplo 2] filtro recursivo (proceso AR(1))
-Ruido blanco de varianza $\sigma_s^2$ a través de $h(n)=b^n\varepsilon(n)$ ([parte 4](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme/abtastung-und-zeitdiskrete-systeme.html)). Con $\varphi^E_{hh}(m)=\sum_kb^kb^{k+|m|}=\frac{b^{|m|}}{1-b^2}$:
+Ruido blanco de varianza $\sigma_s^2$ a través de $h(n)=b^n\varepsilon(n)$ ([capítulo 4](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme/abtastung-und-zeitdiskrete-systeme.html)). Con $\varphi^E_{hh}(m)=\sum_kb^kb^{k+|m|}=\frac{b^{|m|}}{1-b^2}$:
 
 <span class="anker" id="gl-12-2"></span>
 $$\varphi_{gg}(m)=\frac{\sigma_s^2}{1-b^2}\,b^{|m|},\qquad\Phi_{gg,\mathrm a}(f)=\frac{\sigma_s^2}{1-2b\cos(2\pi f)+b^2}. \tag{12.2}$$

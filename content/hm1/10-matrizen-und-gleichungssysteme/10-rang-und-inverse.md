@@ -1,6 +1,8 @@
 ---
 title: Stufe 8: Rang und Inverse
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Matrizen und lineare Gleichungssysteme
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Matrizen und lineare Gleichungssysteme
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/matrizen-und-lineare-gleichungssysteme
+knoten: Kapitel 10: Matrizen und lineare Gleichungssysteme
 order: 1301000
 summary: Die Treppe hat r Stufen.
 tags: Zeilenrang, Spaltenrang, Inverse, obere Dreiecksform

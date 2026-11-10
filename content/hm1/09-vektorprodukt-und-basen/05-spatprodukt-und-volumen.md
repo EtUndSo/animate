@@ -1,6 +1,8 @@
 ---
 title: Stufe 3: Spatprodukt und Volumen
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Vektorprodukt und Basen
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Vektorprodukt und Basen
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/vektorprodukt-und-basen
+knoten: Kapitel 9: Vektorprodukt und Basen
 order: 1290500
 summary: Das Vektorprodukt misst Flächen.
 tags: Spatprodukt, Parallelepiped, Spat, Einheitswürfel

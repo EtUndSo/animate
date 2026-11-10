@@ -1,6 +1,8 @@
 ---
 title: Stage 6: Rules of convolution
-pfad: Electrical Engineering / 3rd Semester / Signals and Systems / LTI Systems and Convolution
+pfad: Electrical Engineering / 3rd Semester / ET3 – Fundamentals of Electrical Engineering 3: Signals and Systems / LTI Systems and Convolution
+adresse: elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung
+knoten: Chapter 1: LTI Systems and Convolution
 order: 3210700
 summary: In many respects convolution behaves like multiplication.
 tags: convolution product, ideally distortion-free

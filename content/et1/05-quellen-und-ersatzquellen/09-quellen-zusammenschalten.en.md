@@ -1,6 +1,8 @@
 ---
 title: Stage 7: Interconnecting sources
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / Sources and Equivalent Sources
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / Sources and Equivalent Sources
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen
+knoten: Chapter 5: Sources and Equivalent Sources
 order: 1150900
 summary: One source is often not enough.
 tags: circulating current

@@ -1,6 +1,8 @@
 ---
 title: Stage 3: Waves under sinusoidal excitation
-pfad: Electrical Engineering / 3rd Semester / Signals and Systems / Orthogonal Expansion and Transmission Lines
+pfad: Electrical Engineering / 3rd Semester / ET3 – Fundamentals of Electrical Engineering 3: Signals and Systems / Orthogonal Expansion and Transmission Lines
+adresse: elektrotechnik/3-semester/signale-und-systeme/orthogonalentwicklung-und-leitungen
+knoten: Chapter 8: Orthogonal Expansion and Transmission Lines
 order: 3280400
 summary: With phasors, the partial differential equations become an ordinary differential equation in position.
 tags: wave equation, propagation constant, characteristic impedance, attenuation constant, reflection coefficient

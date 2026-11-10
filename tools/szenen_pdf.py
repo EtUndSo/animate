@@ -3,7 +3,9 @@
     python tools/szenen_pdf.py et1 "C:/Bücher/ET1/Arbeitshefte"            alle Szenen web/abbildungen/<lang>/et1/*.svg
     python tools/szenen_pdf.py et1 "C:/Bücher/ET1/Arbeitshefte" k3teiler   nur diese
 
-Ziel: <heftordner>/abb/<lang>/<name>.pdf, eingebunden mit \\szene{name} aus der Präambel.
+Ziel: <heftordner>/abb/<lang>/<name>.pdf (Vektor-PDF aus Chromium), eingebunden mit \\szene{name} oder als nummerierte
+Abbildung mit \\szenenabb{name}{Bildunterschrift}{label} aus der Präambel. Eine Szene mit Zeitachse zeigt hier ihr
+Endbild (export_szenen.py schreibt es als <name>.svg); die animierte Fassung <name>.anim.svg bleibt der Website.
 Der Vorschau-Server ist nicht nötig, das SVG wird direkt in die Seite geschrieben.
 """
 import asyncio
@@ -29,6 +31,8 @@ async def main(modul, ziel, namen):
             out = Path(ziel) / "abb" / lang
             out.mkdir(parents=True, exist_ok=True)
             for f in sorted(src.glob("*.svg")):
+                if f.name.endswith(".anim.svg"):          # animierte Fassung: im PDF steht das Endbild (<szene>.svg)
+                    continue
                 if namen and f.stem not in namen:
                     continue
                 svg = f.read_text(encoding="utf-8")

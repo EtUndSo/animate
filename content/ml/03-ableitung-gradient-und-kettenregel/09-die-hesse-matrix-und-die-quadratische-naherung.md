@@ -1,7 +1,8 @@
 ---
 title: Die Hesse-Matrix und die quadratische Näherung
 pfad: Informatik / Machine Learning / Mathematische Grundlagen / Ableitung, Gradient und Kettenregel
-knoten: Grundlagen 3: Ableitung, Gradient und Kettenregel
+adresse: informatik/machine-learning/mathematische-grundlagen/ableitung-gradient-und-kettenregel
+knoten: Kapitel 3: Ableitung, Gradient und Kettenregel
 nachschlagen: ja
 order: 15230900
 summary: Der Gradient beschreibt die Neigung des Geländes, aber nicht seine Wölbung.
@@ -12,7 +13,7 @@ lang: de
 <span class="anker" id="stufe-8"></span>
 
 :::zweck
-Der Gradient beschreibt die Neigung des Geländes, aber nicht seine Wölbung. Die zweiten partiellen Ableitungen sammelt die Hesse-Matrix. Sie ist symmetrisch, und mit ihr wird die lineare Näherung zur quadratischen. Ihre Eigenwerte sagen, wie stark sich das Gelände in verschiedene Richtungen krümmt, und verbinden diesen Abschnitt mit den quadratischen Formen aus [Grundlagen 2](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/projektion-eigenwerte-und-zerlegungen.html).
+Der Gradient beschreibt die Neigung des Geländes, aber nicht seine Wölbung. Die zweiten partiellen Ableitungen sammelt die Hesse-Matrix. Sie ist symmetrisch, und mit ihr wird die lineare Näherung zur quadratischen. Ihre Eigenwerte sagen, wie stark sich das Gelände in verschiedene Richtungen krümmt, und verbinden diesen Abschnitt mit den quadratischen Formen aus [Kapitel 2](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/projektion-eigenwerte-und-zerlegungen.html).
 :::
 
 ### Zweite partielle Ableitungen
@@ -131,7 +132,7 @@ $$\phi''(t)=\sum_{j=1}^dh_j\sum_{i=1}^d\frac{\partial^2f}{\partial x_i\,\partial
 Die quadratische Näherung [(1.6)](die-ableitung.html#gl-1-6) von $\phi$ an der Stelle $0$, ausgewertet bei $t=1$, lautet $\phi(1)\approx\phi(0)+\phi'(0)+\tfrac12\phi''(0)$, und das ist [(8.4)](#gl-8-4). Dass der Fehler schneller als $\lVert\mathbf{h}\rVert^2$ verschwindet, folgt aus der Stetigkeit der zweiten Ableitungen.
 :::
 
-Das neue Glied $\tfrac12\mathbf{h}^{\top}\mathbf{H}_f\mathbf{h}$ ist eine quadratische Form im Sinn von [Grundlagen 2, Abschnitt 5.1](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/quadratische-formen.html#stufe-5-1), mit der Hesse-Matrix als Matrix. Die Funktion sieht in der Nähe von $\mathbf{x}$ also aus wie eine Ebene plus eine quadratische Form.
+Das neue Glied $\tfrac12\mathbf{h}^{\top}\mathbf{H}_f\mathbf{h}$ ist eine quadratische Form im Sinn von [Kapitel 2, Abschnitt 5.1](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/quadratische-formen.html#stufe-5-1), mit der Hesse-Matrix als Matrix. Die Funktion sieht in der Nähe von $\mathbf{x}$ also aus wie eine Ebene plus eine quadratische Form.
 
 ::::beispiel [Rechenbeispiel]
 Für $f(\mathbf{x})=x_1^2x_2+x_2^2$ an der Stelle $(1,\,2)$ und $\mathbf{h}=(0{,}01;\ 0{,}02)^{\top}$ wie in Abschnitt [3.4](partielle-ableitungen-und-der-gradient.html#stufe-3-4) ist
@@ -164,7 +165,7 @@ $$\frac{\mathrm{d}^2}{\mathrm{d} t^2}f(\mathbf{x}+t\,\mathbf{u})\Big|_{t=0}=\mat
 die __zweite Richtungsableitung__ von $f$ an der Stelle $\mathbf{x}$ in Richtung $\mathbf{u}$. Sie misst die Krümmung der Schnittkurve in dieser Richtung.
 :::
 
-Mit den Ergebnissen aus [Grundlagen 2](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/projektion-eigenwerte-und-zerlegungen.html) lässt sich sofort sagen, wie groß diese Krümmung höchstens und mindestens ist. Die Hesse-Matrix ist symmetrisch und hat nach dem Spektralsatz aus [Grundlagen 2, Abschnitt 7.6](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/diagonalisierung-und-spektralsatz.html#stufe-7-6), reelle Eigenwerte und senkrecht aufeinander stehende Eigenvektoren.
+Mit den Ergebnissen aus [Kapitel 2](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/projektion-eigenwerte-und-zerlegungen.html) lässt sich sofort sagen, wie groß diese Krümmung höchstens und mindestens ist. Die Hesse-Matrix ist symmetrisch und hat nach dem Spektralsatz aus [Kapitel 2, Abschnitt 7.6](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/diagonalisierung-und-spektralsatz.html#stufe-7-6), reelle Eigenwerte und senkrecht aufeinander stehende Eigenvektoren.
 
 :::satz Satz 8.6 (Krümmung und Eigenwerte)
 <span class="anker" id="satz-8-6"></span>
@@ -177,14 +178,14 @@ $$\lambda_{\min}\le\mathbf{u}^{\top}\mathbf{H}_f(\mathbf{x})\,\mathbf{u}\le\lamb
 In Richtung eines Eigenvektors ist die Krümmung genau der zugehörige Eigenwert. Ist $\mathbf{H}_f(\mathbf{x})$ positiv definit, so ist die Krümmung in jeder Richtung positiv; ist sie indefinit, so krümmt sich das Gelände in manche Richtungen nach oben und in andere nach unten.
 :::
 
-Die Ungleichung ist die Aussage über den größten und kleinsten Wert einer quadratischen Form auf dem Einheitskreis aus [Grundlagen 2, Abschnitt 8.5](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/positiv-definite-matrizen.html#stufe-8-5). Für einen Eigenvektor $\mathbf{u}$ zum Eigenwert $\lambda$ ist $\mathbf{u}^{\top}\mathbf{H}_f\mathbf{u}=\lambda\,\mathbf{u}^{\top}\mathbf{u}=\lambda$. Die Begriffe positiv definit und indefinit stammen aus [Grundlagen 2, Abschnitt 8](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/positiv-definite-matrizen.html#stufe-8); dort war die Form einer quadratischen Form an ihren Eigenwerten abzulesen, als Schüssel, Rinne oder Sattel. Über die quadratische Näherung [(8.4)](#gl-8-4) überträgt sich das auf das Gelände in der Nähe von $\mathbf{x}$: Die Höhenlinien des Krümmungsglieds sind bei positiv definiter Hesse-Matrix Ellipsen, deren Hauptachsen nach [Grundlagen 2, Abschnitt 7.7](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/diagonalisierung-und-spektralsatz.html#stufe-7-7), in Richtung der Eigenvektoren liegen und in der Richtung starker Krümmung kurz sind.
+Die Ungleichung ist die Aussage über den größten und kleinsten Wert einer quadratischen Form auf dem Einheitskreis aus [Kapitel 2, Abschnitt 8.5](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/positiv-definite-matrizen.html#stufe-8-5). Für einen Eigenvektor $\mathbf{u}$ zum Eigenwert $\lambda$ ist $\mathbf{u}^{\top}\mathbf{H}_f\mathbf{u}=\lambda\,\mathbf{u}^{\top}\mathbf{u}=\lambda$. Die Begriffe positiv definit und indefinit stammen aus [Kapitel 2, Abschnitt 8](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/positiv-definite-matrizen.html#stufe-8); dort war die Form einer quadratischen Form an ihren Eigenwerten abzulesen, als Schüssel, Rinne oder Sattel. Über die quadratische Näherung [(8.4)](#gl-8-4) überträgt sich das auf das Gelände in der Nähe von $\mathbf{x}$: Die Höhenlinien des Krümmungsglieds sind bei positiv definiter Hesse-Matrix Ellipsen, deren Hauptachsen nach [Kapitel 2, Abschnitt 7.7](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/diagonalisierung-und-spektralsatz.html#stufe-7-7), in Richtung der Eigenvektoren liegen und in der Richtung starker Krümmung kurz sind.
 
 ::::beispiel [Rechenbeispiel 1]
 Für die Schüssel $f(\mathbf{x})=x_1^2+4x_2^2$ ist $\mathbf{H}_f=\operatorname{diag}(2;\,8)$ mit den Eigenwerten $2$ und $8$. In Richtung $x_1$ ist die Krümmung $2$, in Richtung $x_2$ ist sie $8$, und in Richtung $\mathbf{u}=(1,\,1)^{\top}/\sqrt2$ ist sie $\tfrac12(2+8)=5$. Das erklärt die gestreckten Höhenlinien aus Abschnitt [4.4](richtungsableitung-und-steilster-anstieg.html#stufe-4-4): In Richtung $x_2$ krümmt sich die Schüssel viermal so stark, ihre Wände sind dort steiler, und die Ellipsen sind in dieser Richtung schmal.
 ::::
 
 ::::beispiel [Rechenbeispiel 2]
-Für $f(\mathbf{x})=x_1^2x_2+x_2^2$ an der Stelle $(1,\,2)$ ist $\mathbf{H}_f=\bigl(\begin{smallmatrix}4&2\\2&2\end{smallmatrix}\bigr)$. Spur $6$ und Determinante $4$ ergeben nach [Grundlagen 2, Abschnitt 6.5](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/eigenwerte-und-eigenvektoren.html#stufe-6-5), die Eigenwerte $3\pm\sqrt5$, also etwa $5{,}236$ und $0{,}764$. Beide sind positiv, die Hesse-Matrix ist positiv definit: In der Nähe von $(1,\,2)$ krümmt sich das Gelände in jeder Richtung nach oben. In Richtung $\mathbf{u}=(1,\,1)^{\top}/\sqrt2$ ist die Krümmung
+Für $f(\mathbf{x})=x_1^2x_2+x_2^2$ an der Stelle $(1,\,2)$ ist $\mathbf{H}_f=\bigl(\begin{smallmatrix}4&2\\2&2\end{smallmatrix}\bigr)$. Spur $6$ und Determinante $4$ ergeben nach [Kapitel 2, Abschnitt 6.5](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/eigenwerte-und-eigenvektoren.html#stufe-6-5), die Eigenwerte $3\pm\sqrt5$, also etwa $5{,}236$ und $0{,}764$. Beide sind positiv, die Hesse-Matrix ist positiv definit: In der Nähe von $(1,\,2)$ krümmt sich das Gelände in jeder Richtung nach oben. In Richtung $\mathbf{u}=(1,\,1)^{\top}/\sqrt2$ ist die Krümmung
 
 $$\mathbf{u}^{\top}\mathbf{H}_f\mathbf{u}=\tfrac12\,(4+2+2+2)=5,$$
 

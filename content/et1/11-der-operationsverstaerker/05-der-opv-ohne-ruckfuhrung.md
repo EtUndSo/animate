@@ -1,6 +1,8 @@
 ---
 title: Stufe 3: Der OPV ohne Rückführung
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Der Operationsverstärker
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Der Operationsverstärker
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker
+knoten: Kapitel 11: Der Operationsverstärker
 order: 1210500
 summary: Aus den Verstärkerstufen wird ein Bauteil mit wenigen Anschlüssen.
 tags: Sättigung, ideale OPV, Flash-Wandler

@@ -1,6 +1,8 @@
 ---
 title: Stufe 8: Punktweise Konvergenz
-pfad: Elektrotechnik / 3. Semester / Höhere Mathematik 3 / Fourier-Reihen
+pfad: Elektrotechnik / 3. Semester / HöMa3 – Höhere Mathematik 3 / Fourier-Reihen
+adresse: elektrotechnik/3-semester/hohere-mathematik-3/fourier-reihen
+knoten: Kapitel 7: Fourier-Reihen
 order: 3170900
 summary: Konvergiert T Nf(x) an einer festen Stelle x , und gegen welchen Wert?
 tags: Dirichlet-Kern, periodische Faltung, stückweise stetig differenzierbar

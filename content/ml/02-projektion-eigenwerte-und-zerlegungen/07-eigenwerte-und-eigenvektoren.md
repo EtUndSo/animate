@@ -1,7 +1,8 @@
 ---
 title: Eigenwerte und Eigenvektoren
 pfad: Informatik / Machine Learning / Mathematische Grundlagen / Projektion, Eigenwerte und Zerlegungen
-knoten: Grundlagen 2: Projektion, Eigenwerte und Zerlegungen
+adresse: informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen
+knoten: Kapitel 2: Projektion, Eigenwerte und Zerlegungen
 nachschlagen: ja
 order: 15220700
 summary: Eine Matrix dreht und streckt die meisten Vektoren zugleich.
@@ -21,7 +22,7 @@ Eine Matrix dreht und streckt die meisten Vektoren zugleich. Manche Richtungen a
 
 Bei der Suche nach Streckfaktoren entstehen Polynomgleichungen, und nicht jede hat reelle Lösungen. Dieser Unterabschnitt stellt zusammen, was dieses Kapitel über komplexe Zahlen benutzt.
 
-**Komplexe Zahlen.** Eine komplexe Zahl $z=x+\mathrm j\,y$ besteht aus dem Realteil $x$ und dem Imaginärteil $y$, zwei reellen Zahlen. Für die imaginäre Einheit gilt $\mathrm j^2=-1$. Die Elektrotechnik schreibt $\mathrm j$ statt $i$, weil $i$ für den Strom vergeben ist.
+**Komplexe Zahlen.** Eine komplexe Zahl $z=x+\mathrm j\,y$ besteht aus dem Realteil $x$ und dem Imaginärteil $y$, zwei reellen Zahlen. Für die imaginäre Einheit gilt $\mathrm j^2=-1$. Viele Mathematikbücher nennen sie $\mathrm i$; dieses Kapitel schreibt wie Python ein aufrechtes $\mathrm j$, denn Python schreibt die Zahl $3+4\,\mathrm j$ als `3+4j`, und $i$ bleibt als Index frei.
 
 **Konjugieren und Betrag.** Die zu $z$ __konjugiert komplexe__ Zahl ist $z^*=x-\mathrm j\,y$. Es ist $z\,z^*=x^2+y^2=|z|^2$, das Quadrat des Betrags, eine reelle Zahl, die nur für $z=0$ null ist. Eine Zahl ist genau dann reell, wenn $z=z^*$ ist. Konjugieren verträgt sich mit Summe und Produkt: $(z+w)^*=z^*+w^*$ und $(zw)^*=z^*w^*$. Für einen Vektor $\mathbf{v}$ mit komplexen Komponenten bezeichnet $\mathbf{v}^*$ in diesem Kapitel den Vektor der konjugierten Komponenten, nicht transponiert. Dann ist
 
@@ -45,7 +46,7 @@ Das Skalarprodukt $(\mathbf{v}^*)^{\top}\mathbf{v}$ für $\mathbf{v}=(1,-\mathrm
 
 <span class="anker" id="stufe-6-2"></span>
 
-In [Grundlagen 1, Abschnitt 8.3](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-3), wurde das Gitter der Ebene von Matrizen gedreht, gestreckt und geschert. Dabei ändern die meisten Pfeile ihre Richtung. Bei manchen Matrizen gibt es aber Richtungen, in denen ein Pfeil auf seiner Geraden durch den Nullpunkt bleibt: Er wird nur gestreckt, gestaucht oder umgeklappt (Abb. [17](#abb-17)).
+In [Kapitel 1, Abschnitt 8.3](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-3), wurde das Gitter der Ebene von Matrizen gedreht, gestreckt und geschert. Dabei ändern die meisten Pfeile ihre Richtung. Bei manchen Matrizen gibt es aber Richtungen, in denen ein Pfeil auf seiner Geraden durch den Nullpunkt bleibt: Er wird nur gestreckt, gestaucht oder umgeklappt (Abb. [17](#abb-17)).
 
 :::abbildung ml/k2eigen 17
 Die Matrix $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ bildet den Einheitskreis (grau) auf eine Ellipse ab (blau). Der Pfeil $\mathbf{v}_1=(1,1)^{\top}/\sqrt2$ (rot) bleibt auf seiner Geraden und wird auf das Fünffache gestreckt, der Pfeil $\mathbf{v}_2=(1,-2)^{\top}/\sqrt5$ (grün) auf das Doppelte; ihre Bilder sind hell gezeichnet. Die grauen Geraden sind die beiden Eigenrichtungen. Der Einheitsvektor $\mathbf{e}_1$ dagegen wird auf $(4,2)^{\top}$ abgebildet (gestrichelt) und ändert seine Richtung.
@@ -74,19 +75,19 @@ Also ist $(1,\,1)^{\top}$ ein Eigenvektor zum Eigenwert $5$ und $(1,\,-2)^{\top}
 
 ⁠**Kurz gesagt:** Ein Eigenvektor wird von der Matrix nicht gedreht, nur mit einer Zahl multipliziert; diese Zahl ist der Eigenwert.
 
-:::hintergrund Eigenfunktionen kennst du schon
-Aus Signale und Systeme kennt man dieselbe Idee für Funktionen statt Vektoren. Ein LTI-System mit der Impulsantwort $h(t)$ antwortet auf die Exponentialfunktion $\mathrm e^{pt}$ mit der komplexen Frequenz $p$, in vielen Büchern $s$ geschrieben, mit
+:::hintergrund Dieselbe Idee für unendlich lange Folgen: der Zinseszins
+Ein Guthaben von $100$ Euro wächst mit $5$ % Zinsen im Jahr auf $100$, $105$, $110{,}25$, … Euro, allgemein auf $a_n=100\cdot1{,}05^n$ nach $n$ Jahren. Die Vorschrift „jeden Wert durch den des folgenden Jahres ersetzen“ macht aus einer Folge $(a_0,a_1,a_2,\dots)$ die Folge $(a_1,a_2,a_3,\dots)$. Sie ist linear: Verschiebt man die Summe zweier Folgen, erhält man die Summe der verschobenen Folgen, und ebenso bei Vielfachen. Für das Guthaben liefert sie
 
-$$\int_{-\infty}^{\infty}h(\tau)\,\mathrm e^{p(t-\tau)}\,\mathrm{d}\tau=H(p)\,\mathrm e^{pt},\qquad H(p)=\int_{-\infty}^{\infty}h(\tau)\,\mathrm e^{-p\tau}\,\mathrm{d}\tau ,$$
+$$(105;\ 110{,}25;\ \dots)=1{,}05\cdot(100;\ 105;\ \dots) .$$
 
-für alle $p$, für die das Integral existiert. Die Form des Eingangs bleibt erhalten, nur eine Zahl kommt hinzu: $\mathrm e^{pt}$ ist eine Eigenfunktion des Systems, und der Eigenwert ist der Wert $H(p)$ der Übertragungsfunktion. Gleichung [(6.1)](#gl-6-1) sagt für eine Matrix dasselbe. Ein LTI-System ist eine lineare Abbildung von Signalen auf Signale, eine Matrix eine lineare Abbildung von Vektoren auf Vektoren; in beiden Fällen gibt es Eingänge, die nur mit einer Zahl multipliziert werden.
+Die Form der Folge bleibt erhalten, nur eine Zahl kommt hinzu: Die Folge $a_n=100\cdot1{,}05^n$ ist ein Eigenvektor des Verschiebens, und der Eigenwert ist der Zinsfaktor $1{,}05$. Gleichung [(6.1)](#gl-6-1) sagt für eine Matrix dasselbe. Es gibt auch keine anderen Eigenvektoren des Verschiebens als solche Folgen: Aus $a_{n+1}=\lambda\,a_n$ für alle $n$ folgt $a_n=a_0\,\lambda^n$. In beiden Fällen, bei Folgen wie bei Vektoren, gibt es Dinge, die die lineare Vorschrift nur mit einer Zahl multipliziert.
 :::
 
 ### Das charakteristische Polynom
 
 <span class="anker" id="stufe-6-3"></span>
 
-Wie findet man Eigenwerte, ohne zu raten? Man schreibt [(6.1)](#gl-6-1) so um, dass alles auf einer Seite steht: $\mathbf{A}\mathbf{v}-\lambda\mathbf{v}=\mathbf{0}$, also $(\mathbf{A}-\lambda\mathbf{I})\mathbf{v}=\mathbf{0}$. Gesucht ist ein $\lambda$, für das dieses homogene System eine Lösung $\mathbf{v}\ne\mathbf{0}$ hat. Nach [Grundlagen 1, Abschnitt 11.5](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/einheitsmatrix-und-inverse.html#stufe-11-5), heißt das: Die Matrix $\mathbf{A}-\lambda\mathbf{I}$ ist nicht invertierbar. Nach [Grundlagen 1, Abschnitt 14.6](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-6), ist das genau dann der Fall, wenn ihre Determinante null ist.
+Wie findet man Eigenwerte, ohne zu raten? Man schreibt [(6.1)](#gl-6-1) so um, dass alles auf einer Seite steht: $\mathbf{A}\mathbf{v}-\lambda\mathbf{v}=\mathbf{0}$, also $(\mathbf{A}-\lambda\mathbf{I})\mathbf{v}=\mathbf{0}$. Gesucht ist ein $\lambda$, für das dieses homogene System eine Lösung $\mathbf{v}\ne\mathbf{0}$ hat. Nach [Kapitel 1, Abschnitt 11.5](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/einheitsmatrix-und-inverse.html#stufe-11-5), heißt das: Die Matrix $\mathbf{A}-\lambda\mathbf{I}$ ist nicht invertierbar. Nach [Kapitel 1, Abschnitt 14.6](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-6), ist das genau dann der Fall, wenn ihre Determinante null ist.
 
 :::definition Definition 6.2 (Charakteristisches Polynom)
 <span class="anker" id="satz-6-2"></span>
@@ -205,7 +206,7 @@ Eine reelle Matrix kann also komplexe Eigenwerte haben. Weil ihr charakteristisc
 ⁠**Kurz gesagt:** Eine reelle Matrix kann komplexe Eigenwerte haben, immer in konjugierten Paaren; eine Drehung um $\alpha$ hat die Eigenwerte $\mathrm e^{\pm\mathrm j\alpha}$.
 
 :::hintergrund Drehen heißt mit $\mathrm e^{\mathrm j\alpha}$ multiplizieren
-Für Elektrotechniker ist das Ergebnis vertraut. Man identifiziert den Pfeil $(x_1,\,x_2)^{\top}$ mit der komplexen Zahl $z=x_1+\mathrm jx_2$, wie bei einem Zeiger. Eine Drehung um $\alpha$ ist dann die Multiplikation mit $\mathrm e^{\mathrm j\alpha}$: $\mathrm e^{\mathrm j\alpha}z=(x_1\cos\alpha-x_2\sin\alpha)+\mathrm j\,(x_1\sin\alpha+x_2\cos\alpha)$, und das sind genau die beiden Komponenten von $\mathbf{Q}\mathbf{x}$ für die Drehmatrix aus [Grundlagen 1, Abschnitt 8.3](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-3). In der komplexen Schreibweise ist die Drehung also eine Multiplikation mit einer Zahl, und diese Zahl ist ein Eigenwert. Der zweite Eigenwert $\mathrm e^{-\mathrm j\alpha}$ gehört zur konjugierten Schreibweise $z^*$, die sich in die Gegenrichtung dreht.
+Mit komplexen Zahlen sieht man das Ergebnis direkt. Man identifiziert den Pfeil $(x_1,\,x_2)^{\top}$ mit der komplexen Zahl $z=x_1+\mathrm jx_2$, also mit einem Punkt der Zahlenebene. Eine Drehung um $\alpha$ ist dann die Multiplikation mit $\mathrm e^{\mathrm j\alpha}$: $\mathrm e^{\mathrm j\alpha}z=(x_1\cos\alpha-x_2\sin\alpha)+\mathrm j\,(x_1\sin\alpha+x_2\cos\alpha)$, und das sind genau die beiden Komponenten von $\mathbf{Q}\mathbf{x}$ für die Drehmatrix aus [Kapitel 1, Abschnitt 8.3](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-3). In der komplexen Schreibweise ist die Drehung also eine Multiplikation mit einer Zahl, und diese Zahl ist ein Eigenwert. Der zweite Eigenwert $\mathrm e^{-\mathrm j\alpha}$ gehört zur konjugierten Schreibweise $z^*$, die sich in die Gegenrichtung dreht.
 :::
 
 ### Mehrfache Eigenwerte
@@ -221,7 +222,7 @@ Die __algebraische Vielfachheit__ eines Eigenwerts $\lambda$ ist die Vielfachhei
 :::
 
 ::::beispiel [Rechenbeispiel]
-Die Matrix $2\mathbf{I}=\operatorname{diag}(2;\,2)$ hat $p(\lambda)=(2-\lambda)^2$: Der Eigenwert $2$ hat die algebraische Vielfachheit $2$. Die Scherung $\bigl(\begin{smallmatrix}1&1\\0&1\end{smallmatrix}\bigr)$ aus [Grundlagen 1, Abschnitt 8.3](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-3), hat $p(\lambda)=(1-\lambda)^2$: Der Eigenwert $1$ hat ebenfalls die algebraische Vielfachheit $2$. Die Matrix $\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ hat zwei verschiedene Eigenwerte, jeder mit der algebraischen Vielfachheit $1$.
+Die Matrix $2\mathbf{I}=\operatorname{diag}(2;\,2)$ hat $p(\lambda)=(2-\lambda)^2$: Der Eigenwert $2$ hat die algebraische Vielfachheit $2$. Die Scherung $\bigl(\begin{smallmatrix}1&1\\0&1\end{smallmatrix}\bigr)$ aus [Kapitel 1, Abschnitt 8.3](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-3), hat $p(\lambda)=(1-\lambda)^2$: Der Eigenwert $1$ hat ebenfalls die algebraische Vielfachheit $2$. Die Matrix $\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ hat zwei verschiedene Eigenwerte, jeder mit der algebraischen Vielfachheit $1$.
 ::::
 
 ⁠**Kurz gesagt:** Die algebraische Vielfachheit zählt, wie oft ein Eigenwert als Nullstelle des charakteristischen Polynoms vorkommt.
@@ -297,7 +298,7 @@ $\mathbf{A}^{\top}$ hat dieselben Eigenwerte wie $\mathbf{A}$, im Allgemeinen ab
 :::
 
 :::beweis Rechenregeln
-(i) $\mathbf{A}^2\mathbf{v}=\mathbf{A}(\lambda\mathbf{v})=\lambda\mathbf{A}\mathbf{v}=\lambda^2\mathbf{v}$, und so weiter. (ii) $(\mathbf{A}+\beta\mathbf{I})\mathbf{v}=\lambda\mathbf{v}+\beta\mathbf{v}$. (iii) Nach [(6.5)](#gl-6-5) ist $\det\mathbf{A}$ das Produkt der Eigenwerte, also genau dann ungleich null, wenn kein Eigenwert null ist. Multipliziert man $\mathbf{A}\mathbf{v}=\lambda\mathbf{v}$ mit $\mathbf{A}^{-1}$, folgt $\mathbf{v}=\lambda\mathbf{A}^{-1}\mathbf{v}$. (iv) Nach [Grundlagen 1, Abschnitt 14.5](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5), ist $\det(\mathbf{A}^{\top}-\lambda\mathbf{I})=\det\bigl((\mathbf{A}-\lambda\mathbf{I})^{\top}\bigr)=\det(\mathbf{A}-\lambda\mathbf{I})$; beide haben dasselbe charakteristische Polynom.
+(i) $\mathbf{A}^2\mathbf{v}=\mathbf{A}(\lambda\mathbf{v})=\lambda\mathbf{A}\mathbf{v}=\lambda^2\mathbf{v}$, und so weiter. (ii) $(\mathbf{A}+\beta\mathbf{I})\mathbf{v}=\lambda\mathbf{v}+\beta\mathbf{v}$. (iii) Nach [(6.5)](#gl-6-5) ist $\det\mathbf{A}$ das Produkt der Eigenwerte, also genau dann ungleich null, wenn kein Eigenwert null ist. Multipliziert man $\mathbf{A}\mathbf{v}=\lambda\mathbf{v}$ mit $\mathbf{A}^{-1}$, folgt $\mathbf{v}=\lambda\mathbf{A}^{-1}\mathbf{v}$. (iv) Nach [Kapitel 1, Abschnitt 14.5](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5), ist $\det(\mathbf{A}^{\top}-\lambda\mathbf{I})=\det\bigl((\mathbf{A}-\lambda\mathbf{I})^{\top}\bigr)=\det(\mathbf{A}-\lambda\mathbf{I})$; beide haben dasselbe charakteristische Polynom.
 :::
 
 ::::beispiel [Rechenbeispiel]
@@ -330,7 +331,7 @@ $\mathbf{A}_3$: Spur $2$, Determinante $1-9=-8$, also $\lambda^2-2\lambda-8=(\la
 Zeige: Die Eigenwerte einer oberen Dreiecksmatrix sind ihre Diagonaleinträge. Bestimme Eigenwerte und Eigenvektoren von $\Bigl(\begin{smallmatrix}2&1&0\\0&3&1\\0&0&5\end{smallmatrix}\Bigr)$.
 
 :::loesung
-Für eine obere Dreiecksmatrix ist $\mathbf{A}-\lambda\mathbf{I}$ wieder eine obere Dreiecksmatrix mit den Diagonaleinträgen $a_{ii}-\lambda$. Nach [Grundlagen 1, Abschnitt 14.4](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-4), ist ihre Determinante das Produkt der Diagonaleinträge: $p(\lambda)=(a_{11}-\lambda)\cdots(a_{nn}-\lambda)$. Die Nullstellen sind die Diagonaleinträge.
+Für eine obere Dreiecksmatrix ist $\mathbf{A}-\lambda\mathbf{I}$ wieder eine obere Dreiecksmatrix mit den Diagonaleinträgen $a_{ii}-\lambda$. Nach [Kapitel 1, Abschnitt 14.4](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-4), ist ihre Determinante das Produkt der Diagonaleinträge: $p(\lambda)=(a_{11}-\lambda)\cdots(a_{nn}-\lambda)$. Die Nullstellen sind die Diagonaleinträge.
 
 Für die gegebene Matrix sind die Eigenwerte also $2$, $3$ und $5$. Zu $2$: $\mathbf{A}-2\mathbf{I}=\Bigl(\begin{smallmatrix}0&1&0\\0&1&1\\0&0&3\end{smallmatrix}\Bigr)$ verlangt $v_3=0$ und $v_2=0$, Eigenvektor $(1,\,0,\,0)^{\top}$. Zu $3$: $\Bigl(\begin{smallmatrix}-1&1&0\\0&0&1\\0&0&2\end{smallmatrix}\Bigr)$ verlangt $v_3=0$ und $v_2=v_1$, Eigenvektor $(1,\,1,\,0)^{\top}$. Zu $5$: $\Bigl(\begin{smallmatrix}-3&1&0\\0&-2&1\\0&0&0\end{smallmatrix}\Bigr)$ verlangt $v_2=3v_1$ und $v_3=2v_2$, Eigenvektor $(1,\,3,\,6)^{\top}$. Probe: $\mathbf{A}(1,\,3,\,6)^{\top}=(2+3,\ 9+6,\ 30)^{\top}=5\,(1,\,3,\,6)^{\top}$.
 :::

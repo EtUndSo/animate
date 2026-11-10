@@ -1,6 +1,8 @@
 ---
 title: Etapa 11: Probabilidad de error en la recepción binaria
-pfad: Ingeniería eléctrica / 3.er semestre / Señales y sistemas / Señales aleatorias
+pfad: Ingeniería eléctrica / 3.er semestre / ET3 – Fundamentos de ingeniería eléctrica 3: señales y sistemas / Señales aleatorias
+adresse: elektrotechnik/3-semester/signale-und-systeme/zufallssignale
+knoten: Capítulo 7: Señales aleatorias
 order: 3271200
 summary: El receptor debe decidir: ¿se envió el pulso o no?
 tags: 

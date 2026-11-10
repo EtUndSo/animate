@@ -1,7 +1,9 @@
 ---
 title: Visión general: Potencia, adaptación y rendimiento
 kurz: Visión general
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Potencia, adaptación y rendimiento
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Potencia, adaptación y rendimiento
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad
+knoten: Capítulo 7: Potencia, adaptación y rendimiento
 order: 1170100
 summary: Por qué en el máximo de potencia la mitad de la energía se queda en la fuente
 tags: resistencia interna, carga, potencia
@@ -21,7 +23,7 @@ Una batería de 9 V tiene 2 $\Omega$ de __resistencia interna__, la resisten
 
 <li>
 
-⁠**Batería:** la batería de 9 V de la [Parte 5](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html), con la tensión de fuente $U_\mathrm{q}=9$ V (la tensión que aporta la química) y la resistencia interna $R_\mathrm{i}=2\,\Omega$. La [Parte 5](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html) la llama $R_\mathrm{q}$ en una fuente individual. La corriente de cortocircuito es $I_\mathrm{CC}=4{,}5$ A.
+⁠**Batería:** la batería de 9 V del [capítulo 5](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html), con la tensión de fuente $U_\mathrm{q}=9$ V (la tensión que aporta la química) y la resistencia interna $R_\mathrm{i}=2\,\Omega$. El [capítulo 5](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html) la llama $R_\mathrm{q}$ en una fuente individual. La corriente de cortocircuito es $I_\mathrm{CC}=4{,}5$ A.
 
 </li>
 

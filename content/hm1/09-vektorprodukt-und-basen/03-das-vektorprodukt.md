@@ -1,6 +1,8 @@
 ---
 title: Stufe 1: Das Vektorprodukt
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Vektorprodukt und Basen
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Vektorprodukt und Basen
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/vektorprodukt-und-basen
+knoten: Kapitel 9: Vektorprodukt und Basen
 order: 1290300
 summary: Zwei Richtungen im Raum spannen eine Ebene auf.
 tags: Bilinearität, Parallelogramms, Rechtssystem, Rechte-Hand-Regel, Vektorprodukt, Kreuzprodukt, Regel von Sarrus, Lagrange-Identität

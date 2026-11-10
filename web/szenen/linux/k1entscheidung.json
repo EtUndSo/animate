@@ -1,0 +1,447 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 19,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.176,
+      1.5,
+      0
+     ],
+     "width": 3.864,
+     "height": 0.8,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Text",
+    "props": {
+     "text": "@f1",
+     "position": [
+      -1.176,
+      1.5,
+      0
+     ],
+     "font_size": 20,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o3",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.176,
+      0.0,
+      0
+     ],
+     "width": 3.864,
+     "height": 0.8,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Text",
+    "props": {
+     "text": "@f2",
+     "position": [
+      -1.176,
+      0.0,
+      0
+     ],
+     "font_size": 20,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o5",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.646,
+      1.5,
+      0
+     ],
+     "width": 2.1,
+     "height": 0.75,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#e6f3ea",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Text",
+    "props": {
+     "text": "@b_live",
+     "position": [
+      2.646,
+      1.5,
+      0
+     ],
+     "font_size": 20,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o7",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.646,
+      0.0,
+      0
+     ],
+     "width": 2.1,
+     "height": 0.75,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#e6f3ea",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Text",
+    "props": {
+     "text": "@b_vm",
+     "position": [
+      2.646,
+      0.0,
+      0
+     ],
+     "font_size": 20,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o9",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.176,
+      -1.5,
+      0
+     ],
+     "width": 2.1,
+     "height": 0.75,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#e6f3ea",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o10",
+    "type": "Text",
+    "props": {
+     "text": "@b_wsl",
+     "position": [
+      -1.176,
+      -1.5,
+      0
+     ],
+     "font_size": 20,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o11",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      0.756,
+      1.5,
+      0
+     ],
+     "end": [
+      1.596,
+      1.5,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.12,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o12",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      0.756,
+      0.0,
+      0
+     ],
+     "end": [
+      1.596,
+      0.0,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.12,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o13",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -1.176,
+      1.1,
+      0
+     ],
+     "end": [
+      -1.176,
+      0.4,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.12,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o14",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -1.176,
+      -0.4,
+      0
+     ],
+     "end": [
+      -1.176,
+      -1.12,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.12,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o15",
+    "type": "Text",
+    "props": {
+     "text": "@ja",
+     "position": [
+      1.176,
+      1.7,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o16",
+    "type": "Text",
+    "props": {
+     "text": "@ja",
+     "position": [
+      1.176,
+      0.2,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o17",
+    "type": "Text",
+    "props": {
+     "text": "@nein",
+     "position": [
+      -1.05,
+      0.75,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o18",
+    "type": "Text",
+    "props": {
+     "text": "@nein",
+     "position": [
+      -1.05,
+      -0.76,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#111111"
+    }
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "ja": {
+    "de": "ja",
+    "en": "yes",
+    "es": "sí",
+    "zh": "是",
+    "fr": "oui",
+    "tr": "evet"
+   },
+   "nein": {
+    "de": "nein",
+    "en": "no",
+    "es": "no",
+    "zh": "否",
+    "fr": "non",
+    "tr": "hayır"
+   },
+   "f1": {
+    "de": "Willst du Linux direkt auf der echten\nHardware deines Rechners erleben?",
+    "en": "Do you want to experience Linux directly\non your computer’s real hardware?",
+    "es": "¿Quieres usar Linux directamente en el\nhardware real de tu ordenador?",
+    "zh": "你想直接在电脑的\n真实硬件上体验 Linux 吗？",
+    "fr": "Veux-tu découvrir Linux directement sur\nle vrai matériel de ton ordinateur ?",
+    "tr": "Linux’u doğrudan bilgisayarının\ngerçek donanımında mı denemek istiyorsun?"
+   },
+   "f2": {
+    "de": "Brauchst du ein abgeschottetes Labor,\ndas du jederzeit zurücksetzen kannst?",
+    "en": "Do you need an isolated lab\nthat you can reset at any time?",
+    "es": "¿Necesitas un laboratorio aislado\nque puedas restablecer en cualquier momento?",
+    "zh": "你需要一个可以随时\n还原的隔离实验环境吗？",
+    "fr": "As-tu besoin d’un labo isolé\nque tu peux réinitialiser à tout moment ?",
+    "tr": "İstediğin zaman sıfırlayabileceğin\nyalıtılmış bir laboratuvar mı gerekiyor?"
+   },
+   "b_live": {
+    "de": "Live-USB-Stick\nAbschnitte 5, 6, 8, 9",
+    "en": "live USB stick\nsections 5, 6, 8, 9",
+    "es": "memoria USB live\nsecciones 5, 6, 8, 9",
+    "zh": "Live U 盘\n第 5、6、8、9 节",
+    "fr": "clé USB live\nsections 5, 6, 8, 9",
+    "tr": "canlı USB bellek\nbölüm 5, 6, 8, 9"
+   },
+   "b_vm": {
+    "de": "virtuelle Maschine\nAbschnitte 3, 5, 6, 7",
+    "en": "virtual machine\nsections 3, 5, 6, 7",
+    "es": "máquina virtual\nsecciones 3, 5, 6, 7",
+    "zh": "虚拟机\n第 3、5、6、7 节",
+    "fr": "machine virtuelle\nsections 3, 5, 6, 7",
+    "tr": "sanal makine\nbölüm 3, 5, 6, 7"
+   },
+   "b_wsl": {
+    "de": "WSL 2\nAbschnitte 3 und 4",
+    "en": "WSL 2\nsections 3 and 4",
+    "es": "WSL 2\nsecciones 3 y 4",
+    "zh": "WSL 2\n第 3 和 4 节",
+    "fr": "WSL 2\nsections 3 et 4",
+    "tr": "WSL 2\nbölüm 3 ve 4"
+   }
+  }
+ }
+}

@@ -1,7 +1,9 @@
 ---
 title: Überblick: Tiefpass- und Bandpasssysteme
 kurz: Überblick
-pfad: Elektrotechnik / 3. Semester / Signale und Systeme / Tiefpass- und Bandpasssysteme
+pfad: Elektrotechnik / 3. Semester / ET3 – Grundgebiete der Elektrotechnik 3: Signale und Systeme / Tiefpass- und Bandpasssysteme
+adresse: elektrotechnik/3-semester/signale-und-systeme/tiefpass-und-bandpasssysteme
+knoten: Kapitel 5: Tiefpass- und Bandpasssysteme
 order: 3250100
 summary: Verzerrungsfreie Übertragung, idealer Tiefpass, komplexe Hüllkurve und Gruppenlaufzeit
 tags: 
@@ -21,7 +23,7 @@ Fast jede Übertragung soll ein Signal möglichst unverändert ankommen lassen, 
 
 <li>
 
-⁠**RC-Tiefpass** mit $RC=1$ s wie in den [Teilen 1](/wissen/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html) bis 3.
+⁠**RC-Tiefpass** mit $RC=1$ s wie in den [Kapiteln 1](/wissen/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html) bis 3.
 
 </li>
 
@@ -45,5 +47,5 @@ Fast jede Übertragung soll ein Signal möglichst unverändert ankommen lassen, 
 
 </ul>
 
-Die Zahlen und Kurven rechnet `rechnung_kap5.py` nach. $\operatorname{si}(x)=\sin(x)/x$ wie in [Teil 3](/wissen/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html).
+Die Zahlen und Kurven rechnet `rechnung_kap5.py` nach. $\operatorname{si}(x)=\sin(x)/x$ wie in [Kapitel 3](/wissen/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html).
 :::

@@ -1,6 +1,8 @@
 ---
 title: Etapa 3: Forma de impedancia y ensayo de circuito abierto
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Cuadripolos
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Cuadripolos
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore
+knoten: Capítulo 6: Cuadripolos
 order: 1160500
 summary: La primera elección: las corrientes son las causas.
 tags: parámetros Z, resistencia de entrada en circuito abierto, resistencia de salida en circuito abierto, resistencia de transferencia en circuito abierto, magnitudes de dipolo, magnitudes de transferencia, impedancia
@@ -48,7 +50,7 @@ $$\mathbf Z=\begin{pmatrix}R_\mathrm{a}+R_\mathrm{b}&R_\mathrm{b}\\mathbb{R}_\ma
 <span class="anker" id="gl-3-3"></span>
 $$Z_{11}=Z_{22}=(R_\mathrm{x}+R_\mathrm{y})\parallel(R_\mathrm{x}+R_\mathrm{y})=\frac{R_\mathrm{x}+R_\mathrm{y}}{2},\qquad Z_{21}=Z_{12}=\frac{R_\mathrm{y}-R_\mathrm{x}}{2}. \tag{3.3}$$
 
-⁠**Casos límite:** Para $R_\mathrm{b}\to0$ son $Z_{12}=Z_{21}=0$: la rama transversal es un hilo, y los puertos quedan desacoplados. Para $R_\mathrm{x}=R_\mathrm{y}$, el puente está equilibrado ([Parte 4](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-und-spannung-messen/strom-und-spannung-messen.html)), y de nuevo $Z_{21}=0$.
+⁠**Casos límite:** Para $R_\mathrm{b}\to0$ son $Z_{12}=Z_{21}=0$: la rama transversal es un hilo, y los puertos quedan desacoplados. Para $R_\mathrm{x}=R_\mathrm{y}$, el puente está equilibrado ([capítulo 4](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-und-spannung-messen/strom-und-spannung-messen.html)), y de nuevo $Z_{21}=0$.
 
 :::frage ¿Por qué una corriente y no una tensión en la entrada? Una fuente de tensión la tengo más a mano.
 También sirve. Solo cuenta que el otro puerto esté abierto. Entonces se miden $U_1$ e $I_1$ y se forma el cociente. La corriente impuesta solo encaja con la manera de pensar de esta forma: es la causa, y las tensiones son los efectos.

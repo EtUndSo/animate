@@ -1,6 +1,8 @@
 ---
 title: Stage 7: Discrete-time and periodic correlation
-pfad: Electrical Engineering / 3rd Semester / Signals and Systems / Correlation Functions
+pfad: Electrical Engineering / 3rd Semester / ET3 – Fundamentals of Electrical Engineering 3: Signals and Systems / Correlation Functions
+adresse: elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen
+knoten: Chapter 6: Correlation Functions
 order: 3260800
 summary: For samples, the integral becomes a sum.
 tags: fast correlation
@@ -29,7 +31,7 @@ For sampled low-pass signals, $\varphi^E_{sg}(mT)=T\sum_ns^*(nT)g((n+m)T)$ and $
 $s=(1,2,1)$: $\varphi^E_{ss}=(1,4,6,4,1)$ for $m=-2,\dots,2$. Maximum $6=E_s$ at $m=0$, even, five values instead of three. Check with Wiener–Khinchin at $f=0$: $|S_\mathrm a(0)|^2=(1+2+1)^2=16=\sum_m\varphi^E_{ss}(m)$.
 ::::
 
-**Periodic correlation.** As with convolution ([Part 4](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme/abtastung-und-zeitdiskrete-systeme.html)), the following holds for sequences with the period $M$:
+**Periodic correlation.** As with convolution ([Chapter 4](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme/abtastung-und-zeitdiskrete-systeme.html)), the following holds for sequences with the period $M$:
 
 <span class="anker" id="gl-7-3"></span>
 $$\varphi^E_{sgd}(m)=\sum_{n=0}^{M-1}s_d^*(n)\,g_d(n+m)\;\circ\!\!-\!\!\bullet\;S_d^*(k)\,G_d(k). \tag{7.3}$$

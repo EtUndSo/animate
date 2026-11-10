@@ -1,7 +1,8 @@
 ---
 title: Angles and similarity
 pfad: Computer Science / Machine Learning / Mathematical Foundations / Vectors and Matrices
-knoten: Foundations 1: Vectors and Matrices
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Chapter 1: Vectors and Matrices
 nachschlagen: ja
 order: 15210600
 summary: Two vectors can point in similar directions even if they have different lengths.
@@ -59,11 +60,11 @@ and its square root is (N3).
 ⁠**In short:** In absolute value, the dot product is at most the product of the lengths, and it equals this product exactly when the vectors lie on a line through the origin.
 
 :::hintergrund Why the dot product recognizes patterns: the precise statement
-In Subsection [2.4](das-skalarprodukt.html#stufe-2-4), the comparison with a pattern was an intuitive picture: the dot product $\mathbf{w}^{\top}\mathbf{x}$ is large if the signal follows the pattern. The Cauchy–Schwarz inequality turns this into a precise statement. If you compare only signals with the same length $\lVert\mathbf{x}\rVert$, then $\mathbf{w}^{\top}\mathbf{x}$ always lies between $-\lVert\mathbf{w}\rVert\,\lVert\mathbf{x}\rVert$ and $+\lVert\mathbf{w}\rVert\,\lVert\mathbf{x}\rVert$. The largest value is reached exactly by the signal that is a positive multiple of the pattern, and the smallest by the negative multiple. So among all signals with the same energy, the comparison responds most strongly to the pattern itself.
+In Subsection [2.4](das-skalarprodukt.html#stufe-2-4), the comparison with a pattern was an intuitive picture: the dot product $\mathbf{w}^{\top}\mathbf{x}$ is large if the time series follows the pattern. The Cauchy–Schwarz inequality turns this into a precise statement. If you compare only time series with the same length $\lVert\mathbf{x}\rVert$, then $\mathbf{w}^{\top}\mathbf{x}$ always lies between $-\lVert\mathbf{w}\rVert\,\lVert\mathbf{x}\rVert$ and $+\lVert\mathbf{w}\rVert\,\lVert\mathbf{x}\rVert$. The largest value is reached exactly by the time series that is a positive multiple of the pattern, and the smallest by the negative multiple. So among all time series of the same length, the comparison responds most strongly to the pattern itself.
 
-⁠**Worked example:** The alternating pattern $\mathbf{w}=(1,-1,1,-1)^{\top}$ has length $2$. Among all signals of length $2$, $\mathbf{x}=\mathbf{w}$ gives the largest value $4=2\cdot2$, the signal $(2,0,0,0)^{\top}$ gives only $2$, and $\mathbf{x}=-\mathbf{w}$ gives the smallest value $-4$.
+⁠**Worked example:** The alternating pattern $\mathbf{w}=(1,-1,1,-1)^{\top}$ has length $2$. Among all time series of length $2$, $\mathbf{x}=\mathbf{w}$ gives the largest value $4=2\cdot2$, the time series $(2,0,0,0)^{\top}$ gives only $2$, and $\mathbf{x}=-\mathbf{w}$ gives the smallest value $-4$.
 
-In communications engineering, this is the basis of the correlation receiver and the matched filter. Such a filter has the time-reversed transmitted signal as its impulse response; at the sampling instant, it therefore computes exactly the dot product of the received signal and the transmitted signal. That this filter maximizes the signal-to-noise ratio is proved with precisely this inequality.
+Every search that describes texts or images as vectors uses the same statement: among all vectors of the same length, the one that gives the largest dot product with the query is the one that is a positive multiple of the query. So that the length does not distort the result, all vectors are first brought to the same length.
 :::
 
 ### The angle between two vectors
@@ -134,23 +135,23 @@ $(1,\,2,\,2)^{\top}$ and $(2,\,0,\,-1)^{\top}$ are orthogonal, because $2+0-2=0$
 ::::
 
 ::::beispiel [Worked example 2] two patterns that do not interfere
-The constant pattern $\mathbf 1=(1,\,1,\,1,\,1)^{\top}$ and the alternating pattern $\mathbf{w}=(1,\,-1,\,1,\,-1)^{\top}$ from Subsection [2.4](das-skalarprodukt.html#stufe-2-4) are orthogonal, $\mathbf 1^{\top}\mathbf{w}=0$. A signal consisting of $2$ times the constant pattern and $1$ times the alternating pattern is $\mathbf{x}=2\cdot\mathbf 1+\mathbf{w}=(3,\,1,\,3,\,1)^{\top}$. The comparison with the constant pattern gives $\mathbf 1^{\top}\mathbf{x}=8=2\cdot4$, the comparison with the alternating pattern $\mathbf{w}^{\top}\mathbf{x}=4=1\cdot4$ (Fig. [23](#abb-23)). Each comparison finds exactly its own share, times $\lVert\mathbf 1\rVert^2=\lVert\mathbf{w}\rVert^2=4$; the other share does not interfere with it.
+The constant pattern $\mathbf 1=(1,\,1,\,1,\,1)^{\top}$ and the alternating pattern $\mathbf{w}=(1,\,-1,\,1,\,-1)^{\top}$ from Subsection [2.4](das-skalarprodukt.html#stufe-2-4) are orthogonal, $\mathbf 1^{\top}\mathbf{w}=0$. A time series consisting of $2$ times the constant pattern and $1$ times the alternating pattern is $\mathbf{x}=2\cdot\mathbf 1+\mathbf{w}=(3,\,1,\,3,\,1)^{\top}$. The comparison with the constant pattern gives $\mathbf 1^{\top}\mathbf{x}=8=2\cdot4$, the comparison with the alternating pattern $\mathbf{w}^{\top}\mathbf{x}=4=1\cdot4$ (Fig. [23](#abb-23)). Each comparison finds exactly its own share, times $\lVert\mathbf 1\rVert^2=\lVert\mathbf{w}\rVert^2=4$; the other share does not interfere with it.
 
 :::abbildung ml/k1rortho 23
-The two patterns are orthogonal (top). Comparing the signal $\mathbf{x}=2\cdot\mathbf 1+\mathbf{w}$ with each pattern gives that pattern's share times $4$.
+The two patterns are orthogonal (top). Comparing the time series $\mathbf{x}=2\cdot\mathbf 1+\mathbf{w}$ with each pattern gives that pattern's share times $4$.
 :::
 ::::
 
 ⁠**In short:** Orthogonal means that the dot product is zero; orthogonal arrows are perpendicular to each other, and the Pythagorean theorem holds for them.
 
 :::hintergrund Why orthogonal patterns do not interfere, and what this has to do with Fourier coefficients
-If a signal is a linear combination $\mathbf{x}=\alpha\,\mathbf 1+\beta\,\mathbf{w}$ of two orthogonal patterns, the rules give
+If a time series is a linear combination $\mathbf{x}=\alpha\,\mathbf 1+\beta\,\mathbf{w}$ of two orthogonal patterns, the rules give
 
 $$\mathbf 1^{\top}\mathbf{x}=\alpha\,\mathbf 1^{\top}\mathbf 1+\beta\,\mathbf 1^{\top}\mathbf{w}=\alpha\,\lVert\mathbf 1\rVert^2+0 ,\qquad\text{so}\qquad \alpha=\frac{\mathbf 1^{\top}\mathbf{x}}{\lVert\mathbf 1\rVert^2} .$$
 
 So the comparison with a pattern measures only that pattern's own share, because the contribution of the other pattern vanishes with the factor $\mathbf 1^{\top}\mathbf{w}=0$. If the patterns were not orthogonal, each comparison would also count part of the other share.
 
-The coefficients of a Fourier series are built in exactly this way. For a signal $s(t)$ with period $T$ and $\omega_0=2\pi/T$,
+The coefficients of a Fourier series, which decomposes a periodic curve, for example the sound of a sustained note, into cosine and sine oscillations, are built in exactly this way. For a function $s(t)$ with period $T$ and $\omega_0=2\pi/T$,
 
 $$a_k=\frac{2}{T}\int_0^Ts(t)\cos(k\omega_0t)\,\mathrm{d} t=\frac{\int_0^Ts(t)\cos(k\omega_0t)\,\mathrm{d} t}{\int_0^T\cos^2(k\omega_0t)\,\mathrm{d} t}\qquad(k\ge1),$$
 

@@ -1,9 +1,10 @@
 ---
 title: Komplexe Zahlen
 pfad: Informatik / Programmieren / Python / Werte, Typen und Variablen
-knoten: Python 2: Werte, Typen und Variablen
+adresse: informatik/programmieren/python/werte-typen-und-variablen
+knoten: Kapitel 2: Werte, Typen und Variablen
 order: 6031000
-summary: In der Wechselstromtechnik rechnet man mit komplexen Spannungen, Strömen und Impedanzen.
+summary: Mit komplexen Zahlen haben auch negative Zahlen eine Wurzel, und jeder Punkt der Ebene wird zu einer einzigen Zahl, mit der man rechnen kann.
 tags: Attribut
 lang: de
 ---
@@ -11,20 +12,20 @@ lang: de
 <span class="anker" id="stufe-9"></span>
 
 :::zweck
-In der Wechselstromtechnik rechnet man mit komplexen Spannungen, Strömen und Impedanzen. Dieser Abschnitt zeigt, wie Python komplexe Zahlen speichert, wie man Betrag und Phase von Hand und fertig bestimmt, und rechnet zum Schluss die Impedanz eines RC-Glieds aus.
+Mit komplexen Zahlen haben auch negative Zahlen eine Wurzel, und jeder Punkt der Ebene wird zu einer einzigen Zahl, mit der man rechnen kann. Dieser Abschnitt zeigt, wie Python komplexe Zahlen speichert, wie man Betrag und Phase von Hand und fertig bestimmt, und dreht zum Schluss einen Punkt in der Ebene mit einer einzigen Multiplikation.
 :::
 
 ### Was du dafür brauchst: komplexe Zahlen
 
 <span class="anker" id="stufe-9-1"></span>
 
-Dieser Unterabschnitt stellt zusammen, was das Kapitel aus der Mathematik der komplexen Zahlen benutzt; ausführlich steht es in Höhere Mathematik 1, [Teil 2](/wissen/informatik/programmieren/python/werte-typen-und-variablen/werte-typen-und-variablen.html).
+Dieser Unterabschnitt stellt zusammen, was das Kapitel aus der Mathematik der komplexen Zahlen benutzt; ausführlich steht es in [HöMa1, Kapitel 2](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen/komplexe-zahlen.html).
 
-**Real- und Imaginärteil.** Eine komplexe Zahl $z=x+\mathrm jy$ besteht aus dem Realteil $x=\operatorname{Re}z$ und dem Imaginärteil $y=\operatorname{Im}z$, beides reelle Zahlen. Für die imaginäre Einheit gilt $\mathrm j^2=-1$. Die Elektrotechnik schreibt $\mathrm j$ statt $i$, weil $i$ für den Strom vergeben ist.
+**Real- und Imaginärteil.** Eine komplexe Zahl $z=x+\mathrm jy$ besteht aus dem Realteil $x=\operatorname{Re}z$ und dem Imaginärteil $y=\operatorname{Im}z$, beides reelle Zahlen. Für die imaginäre Einheit gilt $\mathrm j^2=-1$. Die Mathematik schreibt sie meist $i$; das Kapitel schreibt $\mathrm j$, weil Python es so schreibt.
 
-**Die komplexe Ebene.** Man trägt $x$ nach rechts und $y$ nach oben auf. Dann ist $z$ ein Punkt der Ebene, oder ein Pfeil vom Nullpunkt zu diesem Punkt; in der Elektrotechnik heißt dieser Pfeil Zeiger. Die zu $z$ *konjugiert komplexe* Zahl $z^*=x-\mathrm jy$ ist ihr Spiegelbild an der waagerechten Achse.
+**Die komplexe Ebene.** Man trägt $x$ nach rechts und $y$ nach oben auf. Dann ist $z$ ein Punkt der Ebene, oder ein Pfeil vom Nullpunkt zu diesem Punkt. Die zu $z$ *konjugiert komplexe* Zahl $z^*=x-\mathrm jy$ ist ihr Spiegelbild an der waagerechten Achse.
 
-**Betrag und Phase.** Der Betrag $|z|=\sqrt{x^2+y^2}$ ist die Länge des Zeigers. Die Phase $\varphi$, auch Argument genannt, ist der Winkel des Zeigers gegen die positive reelle Achse, gegen den Uhrzeigersinn positiv, mit $-\pi<\varphi\le\pi$. Es gilt $\tan\varphi=y/x$, aber $\arctan(y/x)$ liefert nur Winkel zwischen $-\frac\pi2$ und $\frac\pi2$; liegt $z$ links der senkrechten Achse, muss man $\pi$ addieren oder abziehen.
+**Betrag und Phase.** Der Betrag $|z|=\sqrt{x^2+y^2}$ ist die Länge des Pfeils. Die Phase $\varphi$, auch Argument genannt, ist der Winkel des Pfeils gegen die positive reelle Achse, gegen den Uhrzeigersinn positiv, mit $-\pi<\varphi\le\pi$. Es gilt $\tan\varphi=y/x$, aber $\arctan(y/x)$ liefert nur Winkel zwischen $-\frac\pi2$ und $\frac\pi2$; liegt $z$ links der senkrechten Achse, muss man $\pi$ addieren oder abziehen.
 
 **Polarform.** Mit der Eulerschen Formel $\mathrm{e}^{\mathrm j\varphi}=\cos\varphi+\mathrm j\sin\varphi$ ist $z=|z|\,\mathrm{e}^{\mathrm j\varphi}$. Beim Multiplizieren multiplizieren sich die Beträge, und die Phasen addieren sich; beim Dividieren teilen sich die Beträge, und die Phasen subtrahieren sich.
 
@@ -32,15 +33,15 @@ Dieser Unterabschnitt stellt zusammen, was das Kapitel aus der Mathematik der ko
 $z=3+4\mathrm j$ hat $|z|=\sqrt{9+16}=5$ und $\varphi=\arctan\frac43\approx0{,}9273\approx53{,}13^\circ$. Es ist $z^*=3-4\mathrm j$ und $z\cdot z^*=9+16=25=|z|^2$.
 ::::
 
-⁠**Kurz gesagt:** $z=x+\mathrm jy=|z|\,\mathrm{e}^{\mathrm j\varphi}$ mit $|z|=\sqrt{x^2+y^2}$ und der Phase $\varphi$ als Winkel des Zeigers.
+⁠**Kurz gesagt:** $z=x+\mathrm jy=|z|\,\mathrm{e}^{\mathrm j\varphi}$ mit $|z|=\sqrt{x^2+y^2}$ und der Phase $\varphi$ als Winkel des Pfeils.
 
 ### Der Typ `complex`
 
 <span class="anker" id="stufe-9-2"></span>
 
-Eine Impedanz hat zwei Anteile, Wirk- und Blindwiderstand. Python braucht einen Typ, der beide zusammen als eine Zahl speichert und mit ihr nach den Regeln der komplexen Rechnung rechnet.
+Ein Punkt der Ebene hat zwei Koordinaten, eine komplexe Zahl zwei Teile. Python braucht einen Typ, der beide zusammen als eine Zahl speichert und mit ihr nach den Regeln der komplexen Rechnung rechnet.
 
-**Ein Paar von Gleitkommazahlen.** Python speichert eine komplexe Zahl als zwei `float` nebeneinander, den Realteil und den Imaginärteil, und schreibt die imaginäre Einheit wie die Elektrotechnik als `j`.
+**Ein Paar von Gleitkommazahlen.** Python speichert eine komplexe Zahl als zwei `float` nebeneinander, den Realteil und den Imaginärteil, und schreibt die imaginäre Einheit als `j`.
 
 :::definition Definition 9.1 (Der Typ `complex`)
 <span class="anker" id="satz-9-1"></span>
@@ -78,14 +79,14 @@ Die letzte Eingabe zeigt eine Falle: `j` allein ist für Python ein Name, keine 
 ⁠**Kurz gesagt:** `complex` speichert Real- und Imaginärteil als zwei `float`; die imaginäre Einheit heißt `1j`.
 
 :::hintergrund Warum Python `j` schreibt und nicht `i`
-Die Mathematik schreibt meist $i$, die Elektrotechnik $\mathrm j$. Python folgt der Elektrotechnik und der Physik; ein Entwickler der Sprache begründete das in der Diskussion über einen Änderungswunsch damit, dass diese Schreibweise dort seit Langem üblich ist und eine Umstellung bestehende Programme brechen würde. Statt `j` darf man auch `J` schreiben, `i` dagegen nicht.
+Die Mathematik schreibt meist $i$, die Ingenieurwissenschaften und Teile der Physik schreiben $\mathrm j$, weil dort $i$ schon für eine andere Größe vergeben ist. Python folgt diesen Fächern; Entwickler der Sprache begründeten das in der Diskussion über einen Änderungswunsch damit, dass diese Schreibweise dort seit Langem üblich ist und eine Umstellung bestehende Programme brechen würde. Statt `j` darf man auch `J` schreiben, `i` dagegen nicht.
 :::
 
 ### Das Attribut: Real- und Imaginärteil
 
 <span class="anker" id="stufe-9-3"></span>
 
-Aus einer komplexen Zahl will man oft den Real- oder den Imaginärteil allein haben, etwa den Wirkwiderstand einer Impedanz. Dafür braucht man keine Rechnung: Beide Teile stehen fertig im Objekt.
+Aus einer komplexen Zahl will man oft den Real- oder den Imaginärteil allein haben, etwa die waagerechte Koordinate eines Punkts. Dafür braucht man keine Rechnung: Beide Teile stehen fertig im Objekt.
 
 **Was am Objekt hängt.** Eine Methode hängt an einem Objekt und wird mit Punkt und Klammern aufgerufen (Unterabschnitt [1.4](objekte-und-typen.html#stufe-1-4)). Es können aber auch einfache Werte am Objekt hängen, die man ohne Klammern abliest.
 
@@ -171,12 +172,12 @@ $\mathrm{e}^{\mathrm j\pi}$ ist $-1$; der Imaginärteil $1{,}22\cdot10^{-16}$ is
 
 <span class="anker" id="stufe-9-5"></span>
 
-Für eine Impedanz sind Betrag und Phase oft wichtiger als Real- und Imaginärteil: Der Betrag bestimmt die Stromstärke, die Phase die Verschiebung zwischen Spannung und Strom.
+Für einen Punkt der Ebene sagen Betrag und Phase oft mehr als Real- und Imaginärteil: Der Betrag ist sein Abstand vom Nullpunkt, die Phase die Richtung, in der er liegt. So beschreibt man auch einen Ort mit „5 km in Richtung Nordosten“.
 
-**Der Zeiger.** Abb. [10](#abb-10) zeigt $z=3+4\mathrm j$ als Zeiger. Der Betrag ist seine Länge, die Phase sein Winkel gegen die reelle Achse. Real- und Imaginärteil sind die beiden Katheten eines rechtwinkligen Dreiecks, der Betrag die Hypotenuse.
+**Der Pfeil.** Abb. [10](#abb-10) zeigt $z=3+4\mathrm j$ als Pfeil. Der Betrag ist seine Länge, die Phase sein Winkel gegen die reelle Achse. Real- und Imaginärteil sind die beiden Katheten eines rechtwinkligen Dreiecks, der Betrag die Hypotenuse.
 
 :::abbildung prog/k2zeiger 10
-Die komplexe Zahl $z=3+4\mathrm j$ als Zeiger in der komplexen Ebene, gestrichelt die konjugiert komplexe Zahl $z^*$. Rechts, mit welchem Python-Ausdruck man jede Größe erhält.
+Die komplexe Zahl $z=3+4\mathrm j$ als Pfeil in der komplexen Ebene, gestrichelt die konjugiert komplexe Zahl $z^*$. Rechts, mit welchem Python-Ausdruck man jede Größe erhält.
 :::
 
 **Von Hand.** Den Betrag liefert der Satz des Pythagoras. Für die Phase gibt es in `math` die Funktion `math.atan2(y, x)`: Sie bekommt Imaginär- und Realteil getrennt, in dieser Reihenfolge, und kann deshalb den richtigen Quadranten bestimmen. `math.atan(y / x)` sieht nur den Quotienten und liefert für $-3-4\mathrm j$ denselben Winkel wie für $3+4\mathrm j$:
@@ -195,7 +196,7 @@ Die komplexe Zahl $z=3+4\mathrm j$ als Zeiger in der komplexen Ebene, gestrichel
 -2.214297435588181
 ```
 
-$-2{,}2143$ ist $-126{,}87^\circ$: Der Zeiger von $w$ zeigt nach links unten, und das ist richtig.
+$-2{,}2143$ ist $-126{,}87^\circ$: Der Pfeil von $w$ zeigt nach links unten, und das ist richtig.
 
 **Fertig.** Die eingebaute Funktion `abs` liefert bei einem `complex` den Betrag, `cmath.phase` die Phase, und `cmath.polar` beides auf einmal. `cmath.rect` macht aus Betrag und Phase wieder Real- und Imaginärteil:
 
@@ -216,79 +217,72 @@ $-2{,}2143$ ist $-126{,}87^\circ$: Der Zeiger von $w$ zeigt nach links unten, un
 
 ⁠**Kurz gesagt:** Betrag von Hand mit Pythagoras, Phase mit `math.atan2(y, x)`; fertig mit `abs`, `cmath.phase` und `cmath.polar`.
 
-### Anwendung: die Impedanz eines RC-Glieds
+### Anwendung: einen Punkt in der Ebene drehen
 
 <span class="anker" id="stufe-9-6"></span>
 
-Mit Variablen, `math` und `complex` lässt sich jetzt eine Wechselstromrechnung vollständig in Python führen.
+Mit Variablen, `math` und `complex` lässt sich jetzt eine Aufgabe aus der Geometrie vollständig in Python lösen. Spiele, Landkarten und Zeichenprogramme drehen ständig Punkte um einen Mittelpunkt. Mit komplexen Zahlen ist jede solche Drehung eine einzige Multiplikation.
 
-**Die Schaltung.** Ein Widerstand $R=1\,\mathrm{k\Omega}$ und ein Kondensator $C=100\,\mathrm{nF}$ liegen in Reihe an einer Sinusspannung mit $f=1\,\mathrm{kHz}$ und dem Scheitelwert $\hat U=5\,\mathrm V$, Phase 0. Mit der Kreisfrequenz $\omega=2\pi f$ ist die Impedanz
+**Die Idee.** Der Mittelpunkt liegt im Nullpunkt, der Punkt bei $z$. Die Zahl $\mathrm{e}^{\mathrm j\alpha}$ hat den Betrag 1 und die Phase $\alpha$. Beim Multiplizieren multiplizieren sich die Beträge, und die Phasen addieren sich (Unterabschnitt [9.1](#stufe-9-1)). Deshalb hat
 
-$$Z=R+\frac{1}{\mathrm j\omega C}=R-\mathrm j\,\frac{1}{\omega C},$$
+$$z_{\mathrm{neu}}=z\cdot\mathrm{e}^{\mathrm j\alpha}$$
 
-und der Strom ist $I=\hat U/Z$. Dabei ist die übliche Zeitabhängigkeit $\mathrm{e}^{\mathrm j\omega t}$ angenommen.
+denselben Betrag wie $z$, und seine Phase ist um $\alpha$ größer: Der Punkt hat sich um den Winkel $\alpha$ um den Nullpunkt gedreht, für $\alpha>0$ gegen den Uhrzeigersinn, für $\alpha<0$ im Uhrzeigersinn. In Python liefert `cmath.rect(1, alpha)` die Zahl $\mathrm{e}^{\mathrm j\alpha}$, mit $\alpha$ im Bogenmaß.
 
-**Die Rechnung.** Die Namen folgen den Formelzeichen. Großbuchstaben wie `R` und `C` sind hier sinnvoll, weil sie die Formel lesbar machen:
+**Die Uhr.** Eine Uhr-App zeichnet den Minutenzeiger als Pfeil vom Mittelpunkt der Uhr zur Zeigerspitze. Der Zeiger ist 10 cm lang und zeigt um 12:00 senkrecht nach oben; seine Spitze liegt dann bei $z=10\mathrm j$. In jeder Minute dreht er sich um $6^\circ$ im Uhrzeigersinn, nach $m$ Minuten also um $\alpha=-6^\circ\cdot m$. Wo liegt die Spitze um 12:20?
 
 ```console
->>> R = 1000
->>> C = 100e-9
->>> f = 1000
->>> Z = R + 1 / (1j * 2 * math.pi * f * C)
->>> Z
-(1000-1591.5494309189537j)
->>> abs(Z)
-1879.6354942005232
->>> math.degrees(cmath.phase(Z))
--57.85809236465795
->>> I = 5 / Z
->>> I
-(0.0014152159983755108+0.0022523862168419427j)
->>> math.degrees(cmath.phase(I))
-57.85809236465795
+>>> spitze = 10j
+>>> m = 20
+>>> drehung = cmath.rect(1, math.radians(-6 * m))
+>>> drehung
+(-0.4999999999999998-0.8660254037844387j)
+>>> spitze_neu = spitze * drehung
+>>> spitze_neu
+(8.660254037844387-4.999999999999998j)
+>>> abs(spitze_neu)
+10.0
+>>> math.degrees(cmath.phase(spitze_neu))
+-29.999999999999993
+>>> math.degrees(cmath.phase(spitze_neu / spitze))
+-119.99999999999999
 ```
 
-Die Impedanz hat den Betrag $1879{,}6\,\Omega$ und die Phase $-57{,}86^\circ$ (Abb. [11](#abb-11)). Der Strom hat den Scheitelwert $5\,\mathrm V/1879{,}6\,\Omega\approx2{,}66\,\mathrm{mA}$ und eilt der Spannung um $57{,}86^\circ$ voraus, wie es sich für eine Schaltung mit kapazitivem Verhalten gehört.
+Um 12:20 liegt die Spitze $8{,}66$ cm rechts und 5 cm unterhalb des Mittelpunkts, dort, wo auf dem Zifferblatt die 4 steht (Abb. [11](#abb-11)). Ihr Abstand vom Mittelpunkt ist weiter 10 cm, und ihre Phase ist $-30^\circ$: $90^\circ$ am Anfang, um $120^\circ$ zurückgedreht. Teilt man die neue Lage durch die alte, subtrahieren sich die Phasen, und übrig bleibt der Drehwinkel $-120^\circ$. Die Reste in den letzten Stellen stammen von `math.pi` in `math.radians` und von Kosinus und Sinus, die `cmath.rect` ausrechnet.
 
-:::abbildung prog/k2rc 11
-Zeigerdiagramm der Impedanz des RC-Glieds bei $f=1\,\mathrm{kHz}$: Der Widerstand liefert den Realteil, der Kondensator einen negativen Imaginärteil. Zusammen ergeben sie den Zeiger $Z$ mit $|Z|=1879{,}6\,\Omega$ und der Phase $\varphi=-57{,}86^\circ$.
+:::abbildung prog/k2drehen 11
+Der Minutenzeiger als Pfeil in der komplexen Ebene, der Mittelpunkt der Uhr im Nullpunkt; die Striche markieren die zwölf Stunden. Um 12:00 liegt die Spitze bei $z=10\mathrm j$, um 12:20 bei $8{,}66-5\mathrm j$. Die Multiplikation mit $\mathrm{e}^{\mathrm j\alpha}$, $\alpha=-120^\circ$, dreht den Pfeil im Uhrzeigersinn und lässt seine Länge gleich.
 :::
 
 Als Skript mit Kommentaren und Einheiten:
 
-```python rc_impedanz.py
-# Impedanz einer Reihenschaltung aus R und C bei einer Frequenz
+```python drehen.py
+# Minutenzeiger einer Uhr: Lage der Spitze m Minuten nach 12:00
 import cmath
 import math
 
-R = 1000.0       # Widerstand in Ohm
-C = 100e-9       # Kapazität in F
-f = 1000.0       # Frequenz in Hz
-U = 5.0          # Spannung der Quelle in V, Phase 0
+laenge = 10.0    # Länge des Zeigers in cm
+m = 20           # Minuten nach 12:00
 
-omega = 2 * math.pi * f            # Kreisfrequenz in 1/s
-Z = R + 1 / (1j * omega * C)       # Impedanz in Ohm
-I = U / Z                          # Strom in A, komplex
+spitze = laenge * 1j                 # um 12:00 zeigt er nach oben
+alpha = math.radians(-6 * m)         # Minus: im Uhrzeigersinn
+spitze_neu = spitze * cmath.rect(1, alpha)   # drehen = multiplizieren
 
-print("Z in Ohm:", Z)
-print("|Z| in Ohm:", abs(Z))
-print("Phase von Z in Grad:", math.degrees(cmath.phase(Z)))
-print("|I| in mA:", U / abs(Z) * 1000)    # |I| = U / |Z|
-print("Phase von I in Grad:", math.degrees(cmath.phase(I)))
+print("Spitze in cm:", spitze_neu)
+print("Abstand vom Mittelpunkt in cm:", abs(spitze_neu))
+print("Phase in Grad:", math.degrees(cmath.phase(spitze_neu)))
 ```
 
 ```console Linux
-$ python3 rc_impedanz.py
-Z in Ohm: (1000-1591.5494309189537j)
-|Z| in Ohm: 1879.6354942005232
-Phase von Z in Grad: -57.85809236465795
-|I| in mA: 2.66009022250704
-Phase von I in Grad: 57.85809236465795
+$ python3 drehen.py
+Spitze in cm: (8.660254037844387-4.999999999999998j)
+Abstand vom Mittelpunkt in cm: 10.0
+Phase in Grad: -29.999999999999993
 ```
 
-Unter Windows (`py rc_impedanz.py`) erscheint dieselbe Ausgabe. Den Betrag des Stroms rechnet das Skript als $\hat U/|Z|$ aus. `abs(I) * 1000` ergibt mathematisch dasselbe, unter Windows und Linux aber eine verschiedene letzte Stelle: Den Betrag einer komplexen Zahl berechnet Python mit einer Funktion der Systembibliothek, und die rundet nicht auf jedem System gleich.
+Für eine andere Uhrzeit ändert man nur die Zeile mit `m`. Unter Windows (`py drehen.py`) erscheint dieselbe Ausgabe. Selbstverständlich ist das nicht: Kosinus und Sinus in `cmath.rect` und den Betrag in `abs` berechnet Python mit Funktionen der Systembibliothek, und die runden nicht auf jedem System gleich. Bei anderen Zahlen unterscheidet sich deshalb die letzte Stelle zwischen Windows und Linux; Aufgabe [35](#aufg-35) zeigt ein Beispiel.
 
-⁠**Kurz gesagt:** Mit `1j`, `math.pi`, `abs` und `cmath.phase` rechnet Python Impedanzen und Ströme wie in der Wechselstromtechnik.
+⁠**Kurz gesagt:** `z * cmath.rect(1, alpha)` dreht den Punkt $z$ um den Winkel $\alpha$ um den Nullpunkt; `abs` und `cmath.phase` zeigen Abstand und Richtung.
 
 ### Aufgaben zu Abschnitt [9](#stufe-9)
 
@@ -297,7 +291,7 @@ Unter Windows (`py rc_impedanz.py`) erscheint dieselbe Ausgabe. Den Betrag des S
 :::aufgabe Aufgabe 33 ★ Rechnen mit `complex`
 <span class="anker" id="aufg-33"></span>
 
-Sage vorher und prüfe: (a) `(2 + 3j) + (1 - 1j)`, (b) `(2 + 3j) * 1j`, (c) `(1 + 1j) ** 2`, (d) `abs(-5j)`, (e) `(3 + 4j).conjugate().imag`. Deute (b) am Zeiger: Was macht die Multiplikation mit $\mathrm j$?
+Sage vorher und prüfe: (a) `(2 + 3j) + (1 - 1j)`, (b) `(2 + 3j) * 1j`, (c) `(1 + 1j) ** 2`, (d) `abs(-5j)`, (e) `(3 + 4j).conjugate().imag`. Deute (b) am Pfeil: Was macht die Multiplikation mit $\mathrm j$?
 
 :::loesung
 ```console
@@ -313,7 +307,7 @@ Sage vorher und prüfe: (a) `(2 + 3j) + (1 - 1j)`, (b) `(2 + 3j) * 1j`, (c) `(1 
 -4.0
 ```
 
-(a) Real- und Imaginärteile addieren sich. (b) $(2+3\mathrm j)\mathrm j=2\mathrm j+3\mathrm j^2=-3+2\mathrm j$. Am Zeiger: $\mathrm j=\mathrm{e}^{\mathrm j\pi/2}$ hat den Betrag 1 und die Phase $90^\circ$; die Multiplikation dreht den Zeiger um $90^\circ$ gegen den Uhrzeigersinn und lässt seine Länge gleich. (c) $(1+\mathrm j)^2=1+2\mathrm j+\mathrm j^2=2\mathrm j$; Python zeigt eine rein imaginäre Zahl ohne Realteil an. (d) Der Betrag von $-5\mathrm j$ ist 5. (e) Konjugieren dreht das Vorzeichen des Imaginärteils um.
+(a) Real- und Imaginärteile addieren sich. (b) $(2+3\mathrm j)\mathrm j=2\mathrm j+3\mathrm j^2=-3+2\mathrm j$. Am Pfeil: $\mathrm j=\mathrm{e}^{\mathrm j\pi/2}$ hat den Betrag 1 und die Phase $90^\circ$; die Multiplikation dreht den Pfeil um $90^\circ$ gegen den Uhrzeigersinn und lässt seine Länge gleich. (c) $(1+\mathrm j)^2=1+2\mathrm j+\mathrm j^2=2\mathrm j$; Python zeigt eine rein imaginäre Zahl ohne Realteil an. (d) Der Betrag von $-5\mathrm j$ ist 5. (e) Konjugieren dreht das Vorzeichen des Imaginärteils um.
 :::
 :::
 
@@ -336,98 +330,131 @@ Bestimme die Phase von $1+\mathrm j$, $-1+\mathrm j$, $-1-\mathrm j$ und $1-\mat
 (-45.0, -45.0)
 ```
 
-Mit einem Komma zwischen zwei Ausdrücken zeigt der interaktive Modus beide Werte nebeneinander. Für $1+\mathrm j$ und $1-\mathrm j$ rechts der senkrechten Achse stimmen beide Wege überein. Für $-1+\mathrm j$ und $-1-\mathrm j$ weicht `atan` um $180^\circ$ ab: Der Quotient $y/x$ ist derselbe wie bei der gegenüberliegenden Zahl, der Zeiger zeigt aber in die entgegengesetzte Richtung. `cmath.phase` und `math.atan2` sehen beide Teile getrennt und wählen den richtigen Quadranten.
+Mit einem Komma zwischen zwei Ausdrücken zeigt der interaktive Modus beide Werte nebeneinander. Für $1+\mathrm j$ und $1-\mathrm j$ rechts der senkrechten Achse stimmen beide Wege überein. Für $-1+\mathrm j$ und $-1-\mathrm j$ weicht `atan` um $180^\circ$ ab: Der Quotient $y/x$ ist derselbe wie bei der gegenüberliegenden Zahl, der Pfeil zeigt aber in die entgegengesetzte Richtung. `cmath.phase` und `math.atan2` sehen beide Teile getrennt und wählen den richtigen Quadranten.
 :::
 :::
 
-:::aufgabe Aufgabe 35 ★★ Ein zweites RC-Glied
+:::aufgabe Aufgabe 35 ★★ Weitere Zeigerstellungen
 <span class="anker" id="aufg-35"></span>
-
-$R=2{,}2\,\mathrm{k\Omega}$, $C=47\,\mathrm{nF}$, $f=2\,\mathrm{kHz}$, $\hat U=10\,\mathrm V$.
 
 <ol class="al">
 
 <li>
 
-Berechne $Z$, $|Z|$ in $\Omega$, die Phase von $Z$ in Grad und den Scheitelwert des Stroms in mA.
+Der Stundenzeiger derselben Uhr ist 6 cm lang und zeigt um 3:00 waagerecht nach rechts; seine Spitze liegt dann bei $z=6$. In jeder Stunde dreht er sich um $30^\circ$ im Uhrzeigersinn. Berechne die Lage seiner Spitze um 5:00, ihren Abstand vom Mittelpunkt und ihre Phase in Grad.
 
 </li>
 
 <li>
 
-Bei welcher Frequenz sind Real- und Imaginärteil von $Z$ betragsgleich? Welche Phase hat $Z$ dann? Prüfe mit Python.
+Nach wie vielen Minuten zeigt der Minutenzeiger aus Unterabschnitt [9.6](#stufe-9-6) zum ersten Mal genau schräg nach rechts oben, sodass Real- und Imaginärteil seiner Spitze gleich sind? Welche Phase hat die Spitze dann? Prüfe mit Python, mit einem geeigneten Vergleich.
 
 </li>
 
 </ol>
 
 :::loesung
-(a)
+(a) Um 5:00 hat sich der Stundenzeiger seit 3:00 um zwei Stunden gedreht, also um $\alpha=-2\cdot30^\circ=-60^\circ$:
 
 ```console
 >>> import math
 >>> import cmath
->>> R = 2200
->>> C = 47e-9
->>> f = 2000
->>> Z = R + 1 / (1j * 2 * math.pi * f * C)
->>> Z
-(2200-1693.1376924669719j)
->>> abs(Z)
-2776.097124679247
->>> math.degrees(cmath.phase(Z))
--37.582169952663065
->>> 10 / abs(Z) * 1000
-3.6021794450564872
+>>> stunde = 6
+>>> stunde_neu = stunde * cmath.rect(1, math.radians(-30 * 2))
+>>> stunde_neu
+(3.000000000000001-5.196152422706632j)
+>>> abs(stunde_neu)
+6.000000000000001
+>>> math.degrees(cmath.phase(stunde_neu))
+-59.99999999999999
 ```
 
-$Z=(2200-1693{,}1\,\mathrm j)\,\Omega$, $|Z|=2776{,}1\,\Omega$, Phase $-37{,}58^\circ$, Scheitelwert des Stroms $3{,}60\,\mathrm{mA}$.
+Die Spitze liegt bei $(3-5{,}196\,\mathrm j)$ cm, also 3 cm rechts und $5{,}2$ cm unterhalb des Mittelpunkts, dort, wo die 5 steht. Ihr Abstand vom Mittelpunkt ist 6 cm und ihre Phase $-60^\circ$, beides bis auf Rundungsreste in der letzten Stelle.
 
-(b) Betragsgleich heißt $R=\frac1{\omega C}$, also $f=\frac{1}{2\pi RC}$. Dann ist die Phase $-45^\circ$:
+(b) Real- und Imaginärteil sind gleich und positiv, wenn die Phase $45^\circ$ ist. Die Spitze beginnt bei $90^\circ$ und verliert $6^\circ$ pro Minute; $45^\circ$ erreicht sie also nach $45/6=7{,}5$ Minuten, um 12:07:30. Weil Real- und Imaginärteil gerundete Werte sind, prüft man ihre Gleichheit mit Toleranz:
 
 ```console
->>> f = 1 / (2 * math.pi * R * C)
->>> f
-1539.2160840608833
->>> Z = R + 1 / (1j * 2 * math.pi * f * C)
->>> Z
-(2200-2200.0000000000005j)
->>> math.degrees(cmath.phase(Z))
--45.00000000000001
-```
-
-Bei $f\approx1539\,\mathrm{Hz}$ sind beide Teile $2200\,\Omega$, bis auf einen Rundungsrest in der letzten Stelle; die Phase ist $-45^\circ$. Das ist die Grenzfrequenz des RC-Glieds.
-:::
-:::
-
-:::aufgabe Aufgabe 36 ★★★ Spannungsteiler mit Kondensator
-<span class="anker" id="aufg-36"></span>
-
-Am Kondensator des RC-Glieds aus Unterabschnitt [9.6](#stufe-9-6) liegt die Spannung $U_C=\hat U\cdot\frac{Z_C}{Z}$ mit $Z_C=\frac{1}{\mathrm j\omega C}$. Berechne $U_C$, ihren Betrag und ihre Phase. Prüfe, dass $U_C$ und die Spannung am Widerstand $U_R=R\cdot I$ zusammen $\hat U$ ergeben, und zwar mit einem geeigneten Vergleich.
-
-:::loesung
-```console
->>> import math
->>> import cmath
->>> R = 1000
->>> C = 100e-9
->>> f = 1000
->>> Z_C = 1 / (1j * 2 * math.pi * f * C)
->>> Z = R + Z_C
->>> U_C = 5 * Z_C / Z
->>> U_C
-(3.584784001624489-2.252386216841943j)
->>> abs(U_C)
-4.233665079824152
->>> math.degrees(cmath.phase(U_C))
--32.14190763534206
->>> U_R = R * (5 / Z)
->>> U_R + U_C
-(5-4.440892098500626e-16j)
->>> abs((U_R + U_C) - 5) <= 1e-9 * 5
+>>> spitze_neu = 10j * cmath.rect(1, math.radians(-6 * 7.5))
+>>> math.isclose(spitze_neu.real, spitze_neu.imag)
 True
 ```
 
-$U_C\approx(3{,}585-2{,}252\,\mathrm j)\,\mathrm V$ mit dem Betrag $4{,}23\,\mathrm V$ und der Phase $-32{,}14^\circ$. Die Phase passt zur Rechnung mit der Polarform: $Z_C$ hat die Phase $-90^\circ$, $Z$ die Phase $-57{,}86^\circ$, der Quotient also $-90^\circ+57{,}86^\circ=-32{,}14^\circ$. Die Summe $U_R+U_C$ ist nicht genau 5, sondern hat einen Imaginärteil von $4\cdot10^{-16}$: Rundungsreste aus mehreren Rechenschritten. `==` würde deshalb `False` liefern. Der geeignete Vergleich ist der mit relativer Toleranz; für komplexe Zahlen nimmt man den Betrag der Differenz.
+Die beiden Teile selbst zeigt Python je nach System verschieden an, unter Windows so:
+
+```console
+>>> spitze_neu
+(7.0710678118654755+7.0710678118654755j)
+>>> math.degrees(cmath.phase(spitze_neu))
+45.0
+```
+
+Unter Linux so:
+
+```console
+>>> spitze_neu
+(7.071067811865475+7.0710678118654755j)
+>>> math.degrees(cmath.phase(spitze_neu))
+45.00000000000001
+```
+
+Mathematisch sind beide Teile $10\cdot\frac{\sqrt2}2\approx7{,}07$, und die Phase ist $45^\circ$. Kosinus und Sinus rechnet `cmath.rect` aber mit der Systembibliothek (Unterabschnitt [9.6](#stufe-9-6)), und unter Linux fällt der Realteil in der letzten Stelle etwas kleiner aus. Ein Vergleich mit `==` hätte deshalb unter Windows `True` und unter Linux `False` geliefert; der Vergleich mit Toleranz liefert überall `True`.
+:::
+:::
+
+:::aufgabe Aufgabe 36 ★★★ Eine quadratische Gleichung ohne reelle Lösung
+<span class="anker" id="aufg-36"></span>
+
+Die Gleichung $x^2+x+1=0$ hat keine reelle Lösung: In der Lösungsformel $x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}$ steht unter der Wurzel $1-4=-3$. Berechne beide komplexen Lösungen mit `cmath.sqrt`, dazu ihren Betrag und ihre Phase in Grad. Setze sie in die Gleichung ein und prüfe, dass sie die Gleichung erfüllen, und zwar mit einem geeigneten Vergleich.
+
+:::loesung
+Mit $a=b=c=1$ steht unter der Wurzel $b^2-4ac=-3$, und `cmath.sqrt` liefert $\sqrt3\,\mathrm j$:
+
+```console
+>>> import math
+>>> import cmath
+>>> a = 1
+>>> b = 1
+>>> c = 1
+>>> w = cmath.sqrt(b ** 2 - 4 * a * c)
+>>> w
+1.7320508075688772j
+>>> x1 = (-b + w) / (2 * a)
+>>> x2 = (-b - w) / (2 * a)
+>>> x1
+(-0.5+0.8660254037844386j)
+>>> x2
+(-0.5-0.8660254037844386j)
+>>> math.degrees(cmath.phase(x1))
+120.00000000000001
+>>> math.degrees(cmath.phase(x2))
+-120.00000000000001
+>>> rest = a * x1 ** 2 + b * x1 + c
+>>> rest
+(1.1102230246251565e-16+0j)
+>>> rest == 0
+False
+>>> abs(rest) <= 1e-12
+True
+>>> abs(a * x2 ** 2 + b * x2 + c) <= 1e-12
+True
+```
+
+Die Lösungen sind $x_{1,2}=-\frac12\pm\frac{\sqrt3}2\,\mathrm j$ mit den Phasen $\pm120^\circ$. Die Phasen passen zum Satz von Vieta, nach dem $x_1x_2=\frac ca=1$ ist: Die Phasen addieren sich beim Multiplizieren, und $120^\circ+(-120^\circ)=0^\circ$ ist die Phase der Zahl 1. Beim Einsetzen bleibt ein Rest von $1{,}1\cdot10^{-16}$: Rundungsreste aus mehreren Rechenschritten, denn $\frac{\sqrt3}2$ ist als `float` nicht exakt. `==` liefert deshalb `False`. Verglichen wird mit 0, also versagt auch der relative Vergleich (Unterabschnitt [7.4](wahrheitswerte-und-vergleiche.html#stufe-7-4)). Der geeignete Vergleich ist der mit absoluter Toleranz, für komplexe Zahlen mit dem Betrag. $10^{-12}$ liegt weit über den Rundungsresten von Zahlen der Größe 1 und weit unter allem, was als echte Abweichung zählen würde.
+
+Der Betrag beider Lösungen ist genau 1, denn $\frac14+\frac34=1$. Python zeigt ihn je nach System verschieden an, unter Windows so:
+
+```console
+>>> abs(x1)
+0.9999999999999999
+```
+
+Unter Linux so:
+
+```console
+>>> abs(x1)
+1.0
+```
+
+Den Betrag einer komplexen Zahl berechnet Python mit einer Funktion der Systembibliothek, und die rundet nicht auf jedem System gleich (Unterabschnitt [9.6](#stufe-9-6)).
 :::
 :::

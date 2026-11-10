@@ -1,6 +1,8 @@
 ---
 title: Stage 5: Current and voltage at once
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / Measuring Current and Voltage
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / Measuring Current and Voltage
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-und-spannung-messen
+knoten: Chapter 4: Measuring Current and Voltage
 order: 1140600
 summary: Anyone who determines a resistance from R=U/I needs both instruments.
 tags: 

@@ -1,6 +1,8 @@
 ---
 title: Stufe 1: Flächen beschreiben
-pfad: Elektrotechnik / 3. Semester / Höhere Mathematik 3 / Integralsätze im Raum
+pfad: Elektrotechnik / 3. Semester / HöMa3 – Höhere Mathematik 3 / Integralsätze im Raum
+adresse: elektrotechnik/3-semester/hohere-mathematik-3/integralsatze-im-raum
+knoten: Kapitel 5: Integralsätze im Raum
 order: 3150200
 summary: Eine gekrümmte Fläche lässt sich nicht mit d x\,d y integrieren.
 tags: Gebiet, reguläres Flächenstück, reguläre Parametrisierung

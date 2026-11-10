@@ -1,0 +1,560 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 24,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.234,
+      1.4000000000000001,
+      0
+     ],
+     "width": 6.708,
+     "height": 1.6,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#e6f3ea",
+     "fill_color": "#e6f3ea",
+     "fill_opacity": 1,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o2",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.234,
+      -0.2,
+      0
+     ],
+     "width": 6.708,
+     "height": 1.6,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#e3eefb",
+     "fill_color": "#e3eefb",
+     "fill_opacity": 1,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o3",
+    "type": "Text",
+    "props": {
+     "text": "@user",
+     "position": [
+      -3.003,
+      1.95,
+      0
+     ],
+     "font_size": 22,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Text",
+    "props": {
+     "text": "@kmode",
+     "position": [
+      -3.003,
+      0.35,
+      0
+     ],
+     "font_size": 22,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o5",
+    "type": "Line",
+    "props": {
+     "start": [
+      -3.12,
+      0.6,
+      0
+     ],
+     "end": [
+      -0.312,
+      0.6,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 6,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.312,
+      0.6,
+      0
+     ],
+     "end": [
+      3.588,
+      0.6,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 6,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o7",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.0,
+      0.6,
+      0
+     ],
+     "width": 0.624,
+     "height": 0.36,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#fdece3",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Text",
+    "props": {
+     "text": "@tor",
+     "position": [
+      0.0,
+      0.6,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o9",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.028,
+      1.4,
+      0
+     ],
+     "width": 1.17,
+     "height": 0.45,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o10",
+    "type": "Text",
+    "props": {
+     "text": "@p1",
+     "position": [
+      -2.028,
+      1.4,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o11",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.106,
+      1.5,
+      0
+     ],
+     "width": 1.716,
+     "height": 0.45,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Text",
+    "props": {
+     "text": "@p2",
+     "position": [
+      2.106,
+      1.5,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o13",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.0,
+      -0.3,
+      0
+     ],
+     "width": 3.588,
+     "height": 0.45,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o14",
+    "type": "Text",
+    "props": {
+     "text": "@kern",
+     "position": [
+      0.0,
+      -0.3,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o15",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.0,
+      -1.7,
+      0
+     ],
+     "width": 1.482,
+     "height": 0.45,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#efefef",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o16",
+    "type": "Text",
+    "props": {
+     "text": "@ssd",
+     "position": [
+      0.0,
+      -1.7,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o17",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -2.028,
+      1.17,
+      0
+     ],
+     "end": [
+      -0.312,
+      0.78,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "vh",
+     "thick": 0,
+     "head_size": 0.12,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o18",
+    "type": "Text",
+    "props": {
+     "text": "@aufruf",
+     "position": [
+      -0.936,
+      1.05,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o19",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      0.0,
+      0.42,
+      0
+     ],
+     "end": [
+      0.0,
+      -0.07,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.12,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o20",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      0.0,
+      -0.53,
+      0
+     ],
+     "end": [
+      0.0,
+      -1.47,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.12,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o21",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      2.106,
+      1.27,
+      0
+     ],
+     "end": [
+      0.741,
+      -1.7,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "vh",
+     "thick": 0,
+     "head_size": 0.12,
+     "font_size": 26,
+     "color": "#c82828",
+     "stroke_width": 2.5,
+     "dash": "10,7",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o22",
+    "type": "Mark",
+    "props": {
+     "center": [
+      2.106,
+      0.6,
+      0
+     ],
+     "kind": "cross",
+     "size": 0.3,
+     "color": "#c82828",
+     "stroke_width": 4
+    }
+   },
+   {
+    "id": "o23",
+    "type": "Text",
+    "props": {
+     "text": "@direkt",
+     "position": [
+      2.223,
+      -0.3,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#c82828"
+    }
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "user": {
+    "de": "Benutzermodus",
+    "en": "user mode",
+    "es": "modo usuario",
+    "zh": "用户态",
+    "fr": "mode utilisateur",
+    "tr": "kullanıcı kipi"
+   },
+   "kmode": {
+    "de": "Kernel-Modus",
+    "en": "kernel mode",
+    "es": "modo núcleo",
+    "zh": "内核态",
+    "fr": "mode noyau",
+    "tr": "çekirdek kipi"
+   },
+   "tor": {
+    "de": "Tor",
+    "en": "gate",
+    "es": "puerta",
+    "zh": "门",
+    "fr": "porte",
+    "tr": "kapı"
+   },
+   "p1": {
+    "de": "Programm",
+    "en": "program",
+    "es": "programa",
+    "zh": "程序",
+    "fr": "programme",
+    "tr": "program"
+   },
+   "p2": {
+    "de": "zweites Programm",
+    "en": "second program",
+    "es": "segundo programa",
+    "zh": "第二个程序",
+    "fr": "deuxième programme",
+    "tr": "ikinci program"
+   },
+   "kern": {
+    "de": "Kernel: prüft den Auftrag, führt ihn aus",
+    "en": "kernel: checks the request, carries it out",
+    "es": "núcleo: comprueba la petición y la ejecuta",
+    "zh": "内核：检查请求并执行",
+    "fr": "noyau : vérifie la demande, l’exécute",
+    "tr": "çekirdek: isteği denetler, yürütür"
+   },
+   "ssd": {
+    "de": "SSD, Netz, …",
+    "en": "SSD, network, …",
+    "es": "SSD, red, …",
+    "zh": "SSD、网络……",
+    "fr": "SSD, réseau, …",
+    "tr": "SSD, ağ, …"
+   },
+   "aufruf": {
+    "de": "Systemaufruf\nNr. + Angaben",
+    "en": "system call\nno. + details",
+    "es": "llamada al sistema\nn.º + datos",
+    "zh": "系统调用\n编号 + 参数",
+    "fr": "appel système\nn° + données",
+    "tr": "sistem çağrısı\nno. + bilgiler"
+   },
+   "direkt": {
+    "de": "direkter Zugriff:\nProzessor sperrt",
+    "en": "direct access:\nprocessor blocks it",
+    "es": "acceso directo:\nel procesador lo bloquea",
+    "zh": "直接访问：\n处理器阻止",
+    "fr": "accès direct :\nle processeur bloque",
+    "tr": "doğrudan erişim:\nişlemci engeller"
+   }
+  }
+ }
+}

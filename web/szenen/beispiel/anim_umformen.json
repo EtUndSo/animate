@@ -1,0 +1,218 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 7,
+  "nextAnimId": 10,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Square",
+    "props": {
+     "side": 1.4,
+     "center": [
+      -2.6,
+      0.9,
+      0
+     ],
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 0.25,
+     "stroke_width": 4
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Circle",
+    "props": {
+     "radius": 0.8,
+     "center": [
+      -2.6,
+      0.9,
+      0
+     ],
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 0.25,
+     "stroke_width": 4
+    }
+   },
+   {
+    "id": "o3",
+    "type": "MathTex",
+    "props": {
+     "tex": "a\\cdot(b+c)",
+     "height": 0.32,
+     "position": [
+      1.6,
+      1.4,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o4",
+    "type": "MathTex",
+    "props": {
+     "tex": "a\\cdot b+a\\cdot c",
+     "height": 0.32,
+     "position": [
+      1.6,
+      1.4,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o5",
+    "type": "Table",
+    "props": {
+     "cells": "2,1,5;4,3,11",
+     "row_labels": "",
+     "col_labels": "",
+     "highlight": "",
+     "brackets": true,
+     "cell_w": 0.9,
+     "cell_h": 0.55,
+     "position": [
+      0.0,
+      0.5,
+      0
+     ],
+     "font_size": 24,
+     "color": "#111111",
+     "fill_color": "#f5c542",
+     "fill_opacity": 0.35,
+     "stroke_width": 1.5
+    }
+   },
+   {
+    "id": "o6",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -1.6,
+      -0.8,
+      0
+     ],
+     "end": [
+      -0.3,
+      -0.25,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.22,
+     "font_size": 26,
+     "color": "#00823c",
+     "stroke_width": 3,
+     "dash": "",
+     "label_side": "left"
+    }
+   }
+  ],
+  "animations": [
+   {
+    "id": "a1",
+    "type": "Create",
+    "target": "o1",
+    "run_time": 1.0,
+    "step": 0
+   },
+   {
+    "id": "a2",
+    "type": "Transform",
+    "target": "o1",
+    "run_time": 1.2,
+    "step": 1,
+    "to": "o2"
+   },
+   {
+    "id": "a3",
+    "type": "Write",
+    "target": "o3",
+    "run_time": 1.0,
+    "step": 2
+   },
+   {
+    "id": "a4",
+    "type": "TransformMatchingTex",
+    "target": "o3",
+    "run_time": 1.4,
+    "step": 3,
+    "to": "o4"
+   },
+   {
+    "id": "a5",
+    "type": "FadeIn",
+    "target": "o5",
+    "run_time": 0.5,
+    "step": 4
+   },
+   {
+    "id": "a6",
+    "type": "Create",
+    "target": "o6",
+    "run_time": 0.6,
+    "step": 5
+   },
+   {
+    "id": "a7",
+    "type": "Indicate",
+    "target": "o5",
+    "run_time": 0.9,
+    "step": 6,
+    "cell": [
+     1,
+     0
+    ]
+   },
+   {
+    "id": "a8",
+    "type": "Indicate",
+    "target": "o5",
+    "run_time": 0.9,
+    "step": 7,
+    "row": 0
+   },
+   {
+    "id": "a9",
+    "type": "FadeOut",
+    "target": "o6",
+    "run_time": 0.5,
+    "step": 8
+   }
+  ],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {}
+ }
+}

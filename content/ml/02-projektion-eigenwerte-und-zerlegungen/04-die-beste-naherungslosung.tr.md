@@ -1,7 +1,8 @@
 ---
 title: En iyi yaklaşık çözüm
 pfad: Bilgisayar Bilimleri / Makine Öğrenmesi / Matematiksel Temeller / İzdüşüm, Özdeğerler ve Ayrışımlar
-knoten: Temeller 2: İzdüşüm, Özdeğerler ve Ayrışımlar
+adresse: informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen
+knoten: Bölüm 2: İzdüşüm, Özdeğerler ve Ayrışımlar
 nachschlagen: ja
 order: 15220400
 summary: Bilinmeyenden çok denklemi olan bir denklem sisteminin çoğunlukla çözümü yoktur.
@@ -19,7 +20,7 @@ Bilinmeyenden çok denklemi olan bir denklem sisteminin çoğunlukla çözümü 
 
 <span class="anker" id="stufe-3-1"></span>
 
-[Temeller 1, Kesim 12.5](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-gleichungssysteme.html#stufe-12-5)'te alan için bir $w_1$ ağırlığı ve oda sayısı için bir $w_2$ ağırlığı dairelerin fiyatlarını tam olarak tutturmalıydı. Dört dairenin hepsi alındığında bu, $\mathbf{A}\mathbf{w}=\mathbf{y}$ sistemidir; burada
+[Bölüm 1, Kesim 12.5](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-gleichungssysteme.html#stufe-12-5)'te alan için bir $w_1$ ağırlığı ve oda sayısı için bir $w_2$ ağırlığı dairelerin fiyatlarını tam olarak tutturmalıydı. Dört dairenin hepsi alındığında bu, $\mathbf{A}\mathbf{w}=\mathbf{y}$ sistemidir; burada
 
 $$\mathbf{A}=\begin{pmatrix}60&2\\40&1\\90&4\\70&3\end{pmatrix},\qquad \mathbf{y}=\begin{pmatrix}200\\130\\290\\240\end{pmatrix}\ \text{bin avro}.$$
 
@@ -36,10 +37,10 @@ $$\mathbf{r}=\mathbf{y}-\mathbf{A}\mathbf{x} \tag{3.1}$$
 vektörüne $\mathbf{x}$ için __artık__ denir.
 :::
 
-Türkçe sözcük tam da “geriye kalan” demektir; uluslararası terim (*residual*) de Latincede “kalan” anlamına gelen sözcükten türemiştir. Artık vektörü ancak ve ancak $\mathbf{x}$ sistemi çözüyorsa sıfırdır. [Temeller 1, Kesim 3.5](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/normen-die-groe-eines-vektors.html#stufe-3-5)'teki hata vektörünün ters işaretlisidir; uzunluğu aynıdır.
+Türkçe sözcük tam da “geriye kalan” demektir; uluslararası terim (*residual*) de Latincede “kalan” anlamına gelen sözcükten türemiştir. Artık vektörü ancak ve ancak $\mathbf{x}$ sistemi çözüyorsa sıfırdır. [Bölüm 1, Kesim 3.5](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/normen-die-groe-eines-vektors.html#stufe-3-5)'teki hata vektörünün ters işaretlisidir; uzunluğu aynıdır.
 
 ::::beispiel [Sayısal örnek]
-[Temeller 1](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html)'deki $\mathbf{w}=(3,\,10)^{\top}$ ağırlıklarıyla $\mathbf{A}\mathbf{w}=(200,\,130,\,310,\,240)^{\top}$ olur ve artık $\mathbf{r}=\mathbf{y}-\mathbf{A}\mathbf{w}=(0,\,0,\,-20,\,0)^{\top}$, uzunluğu $20$. Üç fiyat tam olarak tutturulur, biri $20$ bin avro ıskalanır.
+[Bölüm 1](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html)'deki $\mathbf{w}=(3,\,10)^{\top}$ ağırlıklarıyla $\mathbf{A}\mathbf{w}=(200,\,130,\,310,\,240)^{\top}$ olur ve artık $\mathbf{r}=\mathbf{y}-\mathbf{A}\mathbf{w}=(0,\,0,\,-20,\,0)^{\top}$, uzunluğu $20$. Üç fiyat tam olarak tutturulur, biri $20$ bin avro ıskalanır.
 ::::
 
 ⁠**Kısacası:** $\mathbf{r}=\mathbf{y}-\mathbf{A}\mathbf{x}$ artığı, bir $\mathbf{x}$ vektörünün $\mathbf{A}\mathbf{x}=\mathbf{y}$ sistemini çözerken geride bıraktığı kalandır.
@@ -50,7 +51,7 @@ Türkçe sözcük tam da “geriye kalan” demektir; uluslararası terim (*resi
 
 Artık vektörü sıfır olamıyorsa hiç değilse olabildiğince küçük olmalıdır. Bunun ölçüsü artığın Öklid uzunluğudur.
 
-Problem geometrik olarak düşünülebilir. $\mathbf{x}$ bütün vektörleri dolaşırken $\mathbf{A}\mathbf{x}$, [Temeller 1, Kesim 7.4](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrix-vektor-produkt.html#stufe-7-4)'e göre $\mathbf{A}$ matrisinin sütun uzayını dolaşır. $\lVert\mathbf{y}-\mathbf{A}\mathbf{x}\rVert$ uzaklığı, $\mathbf{y}$ noktasının sütun uzayındaki $\mathbf{A}\mathbf{x}$ noktasına uzaklığıdır. Demek ki aranan, sütun uzayının $\mathbf{y}$ noktasına en yakın noktasıdır (Şekil [6](#abb-6)). Önceki kesimde sütun uzayı bir doğruydu; şimdi bir düzlem ya da daha yüksek boyutlu bir gerilen alt uzay olabilir.
+Problem geometrik olarak düşünülebilir. $\mathbf{x}$ bütün vektörleri dolaşırken $\mathbf{A}\mathbf{x}$, [Bölüm 1, Kesim 7.4](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrix-vektor-produkt.html#stufe-7-4)'e göre $\mathbf{A}$ matrisinin sütun uzayını dolaşır. $\lVert\mathbf{y}-\mathbf{A}\mathbf{x}\rVert$ uzaklığı, $\mathbf{y}$ noktasının sütun uzayındaki $\mathbf{A}\mathbf{x}$ noktasına uzaklığıdır. Demek ki aranan, sütun uzayının $\mathbf{y}$ noktasına en yakın noktasıdır (Şekil [6](#abb-6)). Önceki kesimde sütun uzayı bir doğruydu; şimdi bir düzlem ya da daha yüksek boyutlu bir gerilen alt uzay olabilir.
 
 :::definition Tanım 3.2 (En iyi yaklaşık çözüm)
 <span class="anker" id="satz-3-2"></span>
@@ -68,7 +69,7 @@ $\mathbb{R}^3$ uzayında bir düzlem üzerine izdüşüm. $\mathbf{a}_1=(1,0,1)^
 :::
 
 ::::beispiel [Sayısal örnek]
-[Temeller 1, Kesim 7.4](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrix-vektor-produkt.html#stufe-7-4)'teki $\mathbf{H}$ matrisinin sütunları $\mathbf{a}_1=(1,\,0,\,1)^{\top}$ ve $\mathbf{a}_2=(0,\,1,\,1)^{\top}$ vektörleridir. Sütun uzayı, üçüncü bileşeni ilk ikisinin toplamı olan bütün vektörlerin oluşturduğu düzlemdir. $\mathbf{y}=(1,\,1,\,1)^{\top}$ vektörü bu düzlemde değildir, dolayısıyla $\mathbf{H}\mathbf{x}=\mathbf{y}$ sisteminin çözümü yoktur. $\mathbf{x}=(1,\,0)^{\top}$ ile artık $(0,\,1,\,0)^{\top}$ olur ve uzunluğu $1$; $\mathbf{x}=(1,\,1)^{\top}$ ile artık $(0,\,0,\,-1)^{\top}$ olur, uzunluğu yine $1$. Daha iyisinin mümkün olup olmadığını sonraki alt kesim cevaplıyor.
+[Bölüm 1, Kesim 7.4](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrix-vektor-produkt.html#stufe-7-4)'teki $\mathbf{H}$ matrisinin sütunları $\mathbf{a}_1=(1,\,0,\,1)^{\top}$ ve $\mathbf{a}_2=(0,\,1,\,1)^{\top}$ vektörleridir. Sütun uzayı, üçüncü bileşeni ilk ikisinin toplamı olan bütün vektörlerin oluşturduğu düzlemdir. $\mathbf{y}=(1,\,1,\,1)^{\top}$ vektörü bu düzlemde değildir, dolayısıyla $\mathbf{H}\mathbf{x}=\mathbf{y}$ sisteminin çözümü yoktur. $\mathbf{x}=(1,\,0)^{\top}$ ile artık $(0,\,1,\,0)^{\top}$ olur ve uzunluğu $1$; $\mathbf{x}=(1,\,1)^{\top}$ ile artık $(0,\,0,\,-1)^{\top}$ olur, uzunluğu yine $1$. Daha iyisinin mümkün olup olmadığını sonraki alt kesim cevaplıyor.
 ::::
 
 ⁠**Kısacası:** En iyi yaklaşık çözüm artığı olabildiğince kısa yapar; geometrik olarak, sütun uzayının $\mathbf{y}$ noktasına en yakın noktasını arar.
@@ -96,7 +97,7 @@ $\mathbf{A}\in\mathbb{R}^{m\times n}$ olmak üzere $\mathbf{A}\mathbf{x}=\mathbf
 $$\mathbf{A}^{\top}\mathbf{A}\,\hat{\mathbf{x}}=\mathbf{A}^{\top}\mathbf{y} . \tag{3.3}$$
 :::
 
-Buradaki “normal” sözcüğü, bir düzlemin normal vektöründe olduğu gibi “dik” anlamına gelir: Denklemler artığın sütun uzayına dik olmasını ister. $\mathbf{A}^{\top}\mathbf{A}$ matrisi, sütunların [Temeller 1, Kesim 10.4](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/transponierte-symmetrie-und-gram-matrix.html#stufe-10-4)'teki Gram matrisidir; kare bir matristir ve bilinmeyen sayısı kadar satırı vardır. $m$ denklemli büyük ve çözümsüz bir sistemden $n$ denklemli küçük bir sistem elde edilir. Tek bir $\mathbf{a}$ sütunu için burada $\mathbf{a}^{\top}\mathbf{a}\,\hat x=\mathbf{a}^{\top}\mathbf{y}$ durur, yani önceki kesimdeki formül.
+Buradaki “normal” sözcüğü, bir düzlemin normal vektöründe olduğu gibi “dik” anlamına gelir: Denklemler artığın sütun uzayına dik olmasını ister. $\mathbf{A}^{\top}\mathbf{A}$ matrisi, sütunların [Bölüm 1, Kesim 10.4](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/transponierte-symmetrie-und-gram-matrix.html#stufe-10-4)'teki Gram matrisidir; kare bir matristir ve bilinmeyen sayısı kadar satırı vardır. $m$ denklemli büyük ve çözümsüz bir sistemden $n$ denklemli küçük bir sistem elde edilir. Tek bir $\mathbf{a}$ sütunu için burada $\mathbf{a}^{\top}\mathbf{a}\,\hat x=\mathbf{a}^{\top}\mathbf{y}$ durur, yani önceki kesimdeki formül.
 
 ::::beispiel [Sayısal örnek]
 $\mathbf{H}$ ve $\mathbf{y}=(1,\,1,\,1)^{\top}$ için şu bulunur:
@@ -163,10 +164,10 @@ $$\hat{\mathbf{x}}=(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top}\mathbf{y}
 :::
 
 :::beweis Tersinirlik
-[Temeller 1, Kesim 13.5](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-5)'e göre $\mathbf{A}^{\top}\mathbf{A}$ kare matrisi ancak ve ancak çekirdeği yalnızca sıfır vektörünü içeriyorsa tersinirdir. $\mathbf{A}^{\top}\mathbf{A}\mathbf{z}=\mathbf{0}$ olsun. O zaman $\mathbf{z}^{\top}\mathbf{A}^{\top}\mathbf{A}\mathbf{z}=0$, yani $\lVert\mathbf{A}\mathbf{z}\rVert^2=0$ ve $\mathbf{A}\mathbf{z}=\mathbf{0}$ olur. Tersine, $\mathbf{A}\mathbf{z}=\mathbf{0}$ ise hemen $\mathbf{A}^{\top}\mathbf{A}\mathbf{z}=\mathbf{0}$ çıkar. Demek ki iki çekirdek aynıdır. $\mathbf{A}$ matrisinin çekirdeği ise ancak ve ancak $\mathbf{A}$ matrisinin sütunları doğrusal bağımsızsa yalnızca sıfır vektörünü içerir.
+[Bölüm 1, Kesim 13.5](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-5)'e göre $\mathbf{A}^{\top}\mathbf{A}$ kare matrisi ancak ve ancak çekirdeği yalnızca sıfır vektörünü içeriyorsa tersinirdir. $\mathbf{A}^{\top}\mathbf{A}\mathbf{z}=\mathbf{0}$ olsun. O zaman $\mathbf{z}^{\top}\mathbf{A}^{\top}\mathbf{A}\mathbf{z}=0$, yani $\lVert\mathbf{A}\mathbf{z}\rVert^2=0$ ve $\mathbf{A}\mathbf{z}=\mathbf{0}$ olur. Tersine, $\mathbf{A}\mathbf{z}=\mathbf{0}$ ise hemen $\mathbf{A}^{\top}\mathbf{A}\mathbf{z}=\mathbf{0}$ çıkar. Demek ki iki çekirdek aynıdır. $\mathbf{A}$ matrisinin çekirdeği ise ancak ve ancak $\mathbf{A}$ matrisinin sütunları doğrusal bağımsızsa yalnızca sıfır vektörünü içerir.
 :::
 
-Sütunlar doğrusal bağımlıysa sonsuz sayıda en iyi yaklaşık çözüm vardır. Bunlardan birine, $\mathbf{A}\hat{\mathbf{x}}$ değişmeden, $\mathbf{A}$ matrisinin çekirdeğinden herhangi bir vektör eklenebilir. Önceki alt kesimdeki teoremin gösterdiği gibi, en yakın $\hat{\mathbf{y}}$ noktası yine de tektir. Bu, [Temeller 1, Kesim 13.6](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-6) ile uyumludur: Bağımlı öznitelikler ağırlıkları belirsiz kılar, tahminleri değil.
+Sütunlar doğrusal bağımlıysa sonsuz sayıda en iyi yaklaşık çözüm vardır. Bunlardan birine, $\mathbf{A}\hat{\mathbf{x}}$ değişmeden, $\mathbf{A}$ matrisinin çekirdeğinden herhangi bir vektör eklenebilir. Önceki alt kesimdeki teoremin gösterdiği gibi, en yakın $\hat{\mathbf{y}}$ noktası yine de tektir. Bu, [Bölüm 1, Kesim 13.6](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-6) ile uyumludur: Bağımlı öznitelikler ağırlıkları belirsiz kılar, tahminleri değil.
 
 ::::beispiel [Sayısal örnek 1]
 $\mathbf{H}$ matrisinin sütunları doğrusal bağımsızdır ve $\mathbf{H}^{\top}\mathbf{H}=\bigl(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\bigr)$ matrisinin tersi $\tfrac13\bigl(\begin{smallmatrix}2&-1\\-1&2\end{smallmatrix}\bigr)$ olur. [(3.5)](#gl-3-5) ile $\hat{\mathbf{x}}=\tfrac13\bigl(\begin{smallmatrix}2&-1\\-1&2\end{smallmatrix}\bigr)(2,\,2)^{\top}=(\tfrac23,\,\tfrac23)^{\top}$ bulunur, yukarıdakiyle aynı.
@@ -184,7 +185,7 @@ $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ ve $\mathb
 
 Kuram şimdi tamamlanmıştır ve gündelik bir probleme uygulanabilir. $(t,\,y)=(0,\,1)$, $(1,\,2)$ ve $(2,\,4)$ ölçüm noktaları bir $y=x_1+x_2\,t$ doğrusuyla betimlenmek isteniyor. Üç nokta ortak bir doğru üzerinde değildir. En iyi uyan $x_1$ eksen kesişimi ve $x_2$ eğimi aranıyor.
 
-Her ölçüm noktası bir $x_1+x_2\,t_i=y_i$ denklemi verir. [Temeller 1, Kesim 8.5](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-5)'teki gibi eksen kesişimi için bir birler sütunu eklenince bu, şu sistemdir:
+Her ölçüm noktası bir $x_1+x_2\,t_i=y_i$ denklemi verir. [Bölüm 1, Kesim 8.5](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-5)'teki gibi eksen kesişimi için bir birler sütunu eklenince bu, şu sistemdir:
 
 $$\mathbf{A}\mathbf{x}=\mathbf{y}\qquad\text{burada}\qquad \mathbf{A}=\begin{pmatrix}1&0\\1&1\\1&2\end{pmatrix},\qquad \mathbf{y}=\begin{pmatrix}1\\2\\4\end{pmatrix}.$$
 
@@ -210,11 +211,11 @@ En küçük kareler doğrusunun normal denklemlerinden iki eleman, $(t_i,\,y_i)=
 
 ⁠**Kısacası:** En küçük kareler doğrusu, bütün ölçüm noktalarının doğru üzerinde olmasını isteyen sistemin en iyi yaklaşık çözümüdür; birler sütunu varsa artıkların toplamı sıfırdır.
 
-:::hintergrund Bir sinyali olabildiğince iyi taklit eden bir filtre
-Aynı hesapla sayısal filtreler tasarlanır. $h_0,\dots,h_{K-1}$ katsayılı bir filtre, bir $x[n]$ giriş sinyalinden istenen bir $d[n]$ sinyalini, $\sum_kh_k\,x[n-k]$ çıkışıyla olabildiğince iyi taklit etmelidir. Her $n$ zaman adımı için bu, $K$ tane $h_k$ bilinmeyeni için bir denklemdir; çok sayıda zaman adımı için de aşırı belirli bir $\mathbf{X}\mathbf h=\mathbf d$ sistemi. $\mathbf{X}$ matrisinin $n$ numaralı satırı $x[n],x[n-1],\dots,x[n-K+1]$ değerlerini içerir. $\mathbf{X}^{\top}\mathbf{X}\mathbf h=\mathbf{X}^{\top}\mathbf d$ normal denklemlerinde $\mathbf{X}^{\top}\mathbf{X}$ matrisinin $(k,l)$ elemanı $\sum_nx[n-k]\,x[n-l]$ toplamıdır; bu, sinyalin başındaki ve sonundaki kenar etkileri dışında $x$ sinyalinin $l-k$ kaymasındaki özilintisidir. $\mathbf{X}^{\top}\mathbf d$ vektöründe $d$ ile $x$ sinyallerinin çapraz ilintisi bulunur. Bunlar tam olarak [Temeller 1, Kesim 2.4](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-skalarprodukt.html#stufe-2-4)'teki kaydırılmış sinyallerin iç çarpımlarıdır. En iyi filtrenin $d[n]-\sum_kh_k\,x[n-k]$ artığı, [(3.3)](#gl-3-3) uyarınca kaydırılmış her giriş sinyaline diktir: Filtrenin taklit edemediği şeyin, çıkışı oluştururken kullandığı sinyallerin hiçbiriyle ortak bir yanı yoktur.
+:::hintergrund Bir diziyi başka bir diziden olabildiğince iyi taklit etmek
+Aynı hesapla sayı dizileri için tahmin kuralları kurulur. Bir açık yüzme havuzu, $n$ günündeki $d[n]$ dondurma satışını, $n$ günündeki ve ondan önceki günlerdeki $x[n]$ ziyaretçi sayısından, $\sum_kh_k\,x[n-k]$ kuralı ve $h_0,\dots,h_{K-1}$ ağırlıklarıyla olabildiğince iyi taklit etmek istiyor. Her $n$ günü için bu, $K$ tane $h_k$ bilinmeyeni için bir denklemdir; çok sayıda gün için de aşırı belirli bir $\mathbf{X}\mathbf h=\mathbf d$ sistemi. $\mathbf{X}$ matrisinin $n$ numaralı satırı $x[n],x[n-1],\dots,x[n-K+1]$ değerlerini içerir. $\mathbf{X}^{\top}\mathbf{X}\mathbf h=\mathbf{X}^{\top}\mathbf d$ normal denklemlerinde $\mathbf{X}^{\top}\mathbf{X}$ matrisinin $(k,l)$ elemanı $\sum_nx[n-k]\,x[n-l]$ toplamıdır; bu, dizinin başındaki ve sonundaki kenar etkileri dışında $x$ dizisinin $l-k$ kaymasında kendisiyle çapraz ilintisi, yani özilintisidir. $\mathbf{X}^{\top}\mathbf d$ vektöründe $d$ ile $x$ dizilerinin çapraz ilintisi bulunur. Bunlar tam olarak [Bölüm 1, Kesim 2.4](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-skalarprodukt.html#stufe-2-4)'teki kaydırılmış dizilerin iç çarpımlarıdır. En iyi kuralın $d[n]-\sum_kh_k\,x[n-k]$ artığı, [(3.3)](#gl-3-3) uyarınca kaydırılmış her ziyaretçi dizisine diktir: Kuralın taklit edemediği şeyin, tahminini oluştururken kullandığı dizilerin hiçbiriyle ortak bir yanı yoktur.
 :::
 
-### Daireler: Temeller 1'in açık bıraktığı soru
+### Daireler: Bölüm 1'in açık bıraktığı soru
 
 <span class="anker" id="stufe-3-7"></span>
 
@@ -231,7 +232,7 @@ Elemanlardan ikisinin hesabını Şekil [10](#abb-10) gösteriyor.
 Dairelerin normal denklemlerinden iki eleman iç çarpım olarak: $\mathbf{a}_1=(60,40,90,70)^{\top}$ alan sütunu, $\mathbf{a}_2=(2,1,4,3)^{\top}$ oda sütunu, $\mathbf{y}=(200,130,290,240)^{\top}$ fiyat vektörüdür.
 :::
 
-İki sütun doğrusal bağımsızdır; determinant $18\,200\cdot30-730^2=13\,100$. [Temeller 1, Kesim 11.3](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/einheitsmatrix-und-inverse.html#stufe-11-3)'teki ters matrisle şu bulunur:
+İki sütun doğrusal bağımsızdır; determinant $18\,200\cdot30-730^2=13\,100$. [Bölüm 1, Kesim 11.3](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/einheitsmatrix-und-inverse.html#stufe-11-3)'teki ters matrisle şu bulunur:
 
 $$\hat{\mathbf{w}}=\frac1{13\,100}\begin{pmatrix}30&-730\\-730&18\,200\end{pmatrix}\begin{pmatrix}60\,100\\2\,410\end{pmatrix}=\frac1{13\,100}\begin{pmatrix}43\,700\\-11\,000\end{pmatrix}=\begin{pmatrix}437/131\\-110/131\end{pmatrix}\approx\begin{pmatrix}3{,}336\\-0{,}840\end{pmatrix}.$$
 
@@ -239,13 +240,13 @@ Tahmin edilen fiyatlar $\mathbf{A}\hat{\mathbf{w}}\approx(198{,}47;\ 132{,}60;\ 
 
 $$\mathbf{r}=\mathbf{y}-\mathbf{A}\hat{\mathbf{w}}=\frac{20}{131}\,(10,\,-17,\,-45,\,59)^{\top}\approx(1{,}53;\ -2{,}60;\ -6{,}87;\ 9{,}01)^{\top}$$
 
-olur ve uzunluğu $\lVert\mathbf{r}\rVert\approx11{,}72$. [Temeller 1](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html)'deki $(3,\,10)^{\top}$ ağırlıkları üç fiyatı tam olarak tutturuyordu, ama uzunluğu $20$ olan bir artık bırakıyordu. En iyi yaklaşık çözüm hiçbir fiyatı tam olarak tutturmaz, ama toplamda belirgin biçimde daha az sapar. Sağlama: $\mathbf{A}^{\top}\mathbf{r}=\frac{20}{131}(600-680-4050+4130,\ 20-17-180+177)^{\top}=\mathbf{0}$.
+olur ve uzunluğu $\lVert\mathbf{r}\rVert\approx11{,}72$. [Bölüm 1](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html)'deki $(3,\,10)^{\top}$ ağırlıkları üç fiyatı tam olarak tutturuyordu, ama uzunluğu $20$ olan bir artık bırakıyordu. En iyi yaklaşık çözüm hiçbir fiyatı tam olarak tutturmaz, ama toplamda belirgin biçimde daha az sapar. Sağlama: $\mathbf{A}^{\top}\mathbf{r}=\frac{20}{131}(600-680-4050+4130,\ 20-17-180+177)^{\top}=\mathbf{0}$.
 ::::
 
 ⁠**Kısacası:** Daireler için en iyi yaklaşık çözüm $\hat{\mathbf{w}}\approx(3{,}336;\ -0{,}840)^{\top}$ ağırlıklarıdır; bunların artığı, $11{,}72$ uzunluğuyla, üç fiyatı tam olarak tutturan her artıktan belirgin biçimde kısadır.
 
 :::hintergrund Oda ağırlığı neden negatif
-Oda sayısı için negatif bir ağırlık ilk bakışta yanlış görünür: Daha çok oda fiyatı düşürmemelidir. Hesap yine de doğrudur ve nedeni verilerdedir. Bu dört dairede alan ve oda sayısı birlikte büyür: Daire ne kadar büyükse o kadar çok odası vardır. Bu yüzden $\mathbf{A}$ matrisinin iki sütunu neredeyse aynı doğrultuyu gösterir; [Temeller 1, Kesim 5.2](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/winkel-und-ahnlichkeit.html#stufe-5-2)'ye göre aralarındaki açının kosinüsü $730/\sqrt{18\,200\cdot30}\approx0{,}988$, açı yani yalnızca yaklaşık $8{,}9^\circ$. En iyi bileşim alan sütunundan çok alır ve dairelerin bu ortak orandan sapmalarını dengelemek için oda sütunundan biraz geri çıkarır. Aynı alanda daha çok oda burada daha küçük odalar demektir ve bu, bir fiyatı gerçekten düşürebilir; bunun doğru olup olmadığını ise dört daire gösteremez. [Temeller 1, Kesim 13.6](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-6)'daki gibi şu geçerlidir: Öznitelikler neredeyse aynı bilgiyi taşıyorsa tek tek ağırlıklar az şey söyler, tahminler ise çok şey.
+Oda sayısı için negatif bir ağırlık ilk bakışta yanlış görünür: Daha çok oda fiyatı düşürmemelidir. Hesap yine de doğrudur ve nedeni verilerdedir. Bu dört dairede alan ve oda sayısı birlikte büyür: Daire ne kadar büyükse o kadar çok odası vardır. Bu yüzden $\mathbf{A}$ matrisinin iki sütunu neredeyse aynı doğrultuyu gösterir; [Bölüm 1, Kesim 5.2](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/winkel-und-ahnlichkeit.html#stufe-5-2)'ye göre aralarındaki açının kosinüsü $730/\sqrt{18\,200\cdot30}\approx0{,}988$, açı yani yalnızca yaklaşık $8{,}9^\circ$. En iyi bileşim alan sütunundan çok alır ve dairelerin bu ortak orandan sapmalarını dengelemek için oda sütunundan biraz geri çıkarır. Aynı alanda daha çok oda burada daha küçük odalar demektir ve bu, bir fiyatı gerçekten düşürebilir; bunun doğru olup olmadığını ise dört daire gösteremez. [Bölüm 1, Kesim 13.6](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-6)'daki gibi şu geçerlidir: Öznitelikler neredeyse aynı bilgiyi taşıyorsa tek tek ağırlıklar az şey söyler, tahminler ise çok şey.
 :::
 
 :::aufgabe Alıştırma 7 ★ Elle normal denklemler

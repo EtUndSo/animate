@@ -1,6 +1,8 @@
 ---
 title: Etapa 5: Valor absoluto y distancia
-pfad: Ingeniería eléctrica / 1.er semestre / Matemáticas superiores 1 / Números complejos
+pfad: Ingeniería eléctrica / 1.er semestre / HöMa1 – Matemáticas superiores 1 / Números complejos
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen
+knoten: Capítulo 2: Números complejos
 order: 1220600
 summary: Los números complejos no se pueden ordenar, pero sí medir.
 tags: distancia, desigualdad triangular inversa
@@ -10,7 +12,7 @@ lang: es
 <span class="anker" id="stufe-5"></span>
 
 :::zweck
-Los números complejos no se pueden ordenar, pero sí medir. Esta etapa traslada al plano la distancia y el valor absoluto de la [Parte 1](/wissen/es/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html) y muestra qué reglas se conservan.
+Los números complejos no se pueden ordenar, pero sí medir. Esta etapa traslada al plano la distancia y el valor absoluto del [capítulo 1](/wissen/es/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html) y muestra qué reglas se conservan.
 :::
 
 **La idea.** En $\mathbb{R}$, $|x|$ mide la distancia al origen. En el plano se encarga de ello el teorema de Pitágoras: el segmento de 0 a $z$ es la hipotenusa de un triángulo rectángulo con los catetos $|x|$ e $|y|$ (fig. [5](#abb-5), izquierda). La distancia entre dos puntos es la hipotenusa sobre las diferencias de sus coordenadas. El resultado es real, y aquí «mayor que» vuelve a estar permitido.
@@ -28,7 +30,7 @@ Para $z=x+\mathrm{i}y$ y $w=u+\mathrm{i}v$ con $x,y,u,v$ reales, sea
 $$d(z,w):=\sqrt{(x-u)^2+(y-v)^2},\qquad |z|:=d(z,0)=\sqrt{x^2+y^2}. \tag{5.1}$$
 :::
 
-⁠**Cómo leerlo:** Bajo la raíz hay un número real mayor o igual que cero, y $\sqrt a$ es la solución no negativa de $b^2=a$ ([Parte 1](/wissen/es/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html)). La __distancia__ $d(z,w)$ solo depende de la diferencia: $d(z,w)=|z-w|$. **Caso límite:** Para $z$ real es $|z|=\sqrt{x^2}=|x|$, el valor absoluto de la [Parte 1](/wissen/es/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html).
+⁠**Cómo leerlo:** Bajo la raíz hay un número real mayor o igual que cero, y $\sqrt a$ es la solución no negativa de $b^2=a$ ([capítulo 1](/wissen/es/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html)). La __distancia__ $d(z,w)$ solo depende de la diferencia: $d(z,w)=|z-w|$. **Caso límite:** Para $z$ real es $|z|=\sqrt{x^2}=|x|$, el valor absoluto del [capítulo 1](/wissen/es/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html).
 
 :::satz Teorema 5.2 (Reglas de cálculo para valor absoluto y distancia)
 <span class="anker" id="satz-5-2"></span>

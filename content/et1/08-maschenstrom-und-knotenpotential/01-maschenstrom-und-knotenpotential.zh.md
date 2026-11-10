@@ -1,7 +1,9 @@
 ---
 title: 概览: 网孔电流法与节点电位法
 kurz: 概览
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 网孔电流法与节点电位法
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 网孔电流法与节点电位法
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/maschenstrom-und-knotenpotentialverfahren
+knoten: 第 8 章：网孔电流法与节点电位法
 order: 1180100
 summary: 为什么一个网络只需很少的未知量
 tags: 
@@ -10,7 +12,7 @@ lang: zh
 
 ## 本章内容
 
-[第 2 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)的网络有六条支路。每条支路有一个电流和一个电压，共十二个未知量，经过漫长的代入之后才剩下三个方程。一个含晶体管的电路有数百条支路。本章要回答的问题是：**整个网络最少需要多少个未知量，又如何不经变形就写出方程？**
+[第 2 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)的网络有六条支路。每条支路有一个电流和一个电压，共十二个未知量，经过漫长的代入之后才剩下三个方程。一个含晶体管的电路有数百条支路。本章要回答的问题是：**整个网络最少需要多少个未知量，又如何不经变形就写出方程？**
 
 
 **所有结论背后的同一个原理。** 基尔霍夫要求两件事：节点定律和网孔定律。如果这样选取未知量，使其中一条定律对任意数值都成立，就只需写出另一条。这时未知量的个数恰好等于余下方程的个数。
@@ -34,13 +36,13 @@ lang: zh
 
 <li>
 
-⁠**网络**（图 [1](wie-viele-groen-sind-frei.html#abb-1)）有三个节点：接地点 0 以及节点 1 和 2。左边由一节 $U_\mathrm q=9$ V、内阻 $R_1=1\,\mathrm{k\Omega}$（[第 5 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)）的电池供电，右边由一个 $I_\mathrm q=4$ mA 的实际电流源供电，并联 $R_5=5\,\mathrm{k\Omega}$。两者之间是从 1 到接地点的 $R_2=4\,\mathrm{k\Omega}$、从 1 到 2 的 $R_3=2\,\mathrm{k\Omega}$ 和从 2 到接地点的 $R_4=10\,\mathrm{k\Omega}$。
+⁠**网络**（图 [1](wie-viele-groen-sind-frei.html#abb-1)）有三个节点：接地点 0 以及节点 1 和 2。左边由一节 $U_\mathrm q=9$ V、内阻 $R_1=1\,\mathrm{k\Omega}$（[第 5 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)）的电池供电，右边由一个 $I_\mathrm q=4$ mA 的实际电流源供电，并联 $R_5=5\,\mathrm{k\Omega}$。两者之间是从 1 到接地点的 $R_2=4\,\mathrm{k\Omega}$、从 1 到 2 的 $R_3=2\,\mathrm{k\Omega}$ 和从 2 到接地点的 $R_4=10\,\mathrm{k\Omega}$。
 
 </li>
 
 <li>
 
-⁠**放大器**（第 [8](gesteuerte-quellen-und-verstarker.html#stufe-8) 阶段）是[第 6 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html)的模型：输入电阻 $R_\mathrm i=2\,\mathrm{k\Omega}$，$g=50$ mS 的受控电流源，输出电阻 $R_\mathrm o=20\,\mathrm{k\Omega}$，负载 $R_\mathrm L=5\,\mathrm{k\Omega}$。
+⁠**放大器**（第 [8](gesteuerte-quellen-und-verstarker.html#stufe-8) 阶段）是[第 6 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html)的模型：输入电阻 $R_\mathrm i=2\,\mathrm{k\Omega}$，$g=50$ mS 的受控电流源，输出电阻 $R_\mathrm o=20\,\mathrm{k\Omega}$，负载 $R_\mathrm L=5\,\mathrm{k\Omega}$。
 
 </li>
 

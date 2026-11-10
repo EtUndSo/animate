@@ -1,7 +1,8 @@
 ---
 title: Unabhängigkeit
 pfad: Informatik / Machine Learning / Mathematische Grundlagen / Wahrscheinlichkeit
-knoten: Grundlagen 4: Wahrscheinlichkeit
+adresse: informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit
+knoten: Kapitel 4: Wahrscheinlichkeit
 nachschlagen: ja
 order: 15240600
 summary: Manchmal ändert eine Information gar nichts: Ob der rote Würfel eine Sechs zeigt, sagt nichts über den blauen.
@@ -156,28 +157,28 @@ Erkläre anschaulich, warum die Antworten verschieden ausfallen.
 :::
 :::
 
-:::aufgabe Aufgabe 13 ★★ Reihen- und Parallelschaltung
+:::aufgabe Aufgabe 13 ★★ Brücken hintereinander und nebeneinander
 <span class="anker" id="aufg-13"></span>
 
-Drei Bauteile arbeiten unabhängig voneinander und funktionieren jeweils mit der Wahrscheinlichkeit $0{,}9$.
+Jede Brücke einer Gegend ist an einem bestimmten Tag unabhängig von den anderen mit der Wahrscheinlichkeit $0{,}9$ befahrbar, sonst wegen einer Baustelle gesperrt.
 
 <ol class="al">
 
 <li>
 
-In Reihe geschaltet funktioniert die Schaltung nur, wenn alle drei funktionieren. Wie wahrscheinlich ist das?
+Ein Weg führt nacheinander über drei Brücken. Man kommt nur durch, wenn alle drei befahrbar sind. Wie wahrscheinlich ist das?
 
 </li>
 
 <li>
 
-Parallel geschaltet funktioniert sie, wenn mindestens eines funktioniert. Wie wahrscheinlich ist das?
+Über einen Fluss führen drei Brücken nebeneinander. Man kommt hinüber, wenn mindestens eine befahrbar ist. Wie wahrscheinlich ist das?
 
 </li>
 
 <li>
 
-Wie viele parallele Bauteile braucht man, damit die Schaltung mit mindestens $99{,}99\,\%$ funktioniert?
+Wie viele Brücken nebeneinander braucht man, damit man mit mindestens $99{,}99\,\%$ hinüberkommt?
 
 </li>
 
@@ -186,9 +187,9 @@ Wie viele parallele Bauteile braucht man, damit die Schaltung mit mindestens $99
 :::loesung
 (a) $0{,}9^3=0{,}729$.
 
-(b) Die Schaltung fällt nur aus, wenn alle drei ausfallen; das hat die Wahrscheinlichkeit $0{,}1^3=0{,}001$. Also funktioniert sie mit $0{,}999$.
+(b) Man kommt nur dann nicht hinüber, wenn alle drei Brücken gesperrt sind; das hat die Wahrscheinlichkeit $0{,}1^3=0{,}001$. Also kommt man mit $0{,}999$ hinüber.
 
-(c) $1-0{,}1^n\ge0{,}9999$ verlangt $0{,}1^n\le10^{-4}$, also $n\ge4$. Vier parallele Bauteile genügen.
+(c) $1-0{,}1^n\ge0{,}9999$ verlangt $0{,}1^n\le10^{-4}$, also $n\ge4$. Vier Brücken nebeneinander genügen.
 :::
 :::
 

@@ -1,6 +1,8 @@
 ---
 title: Stage 7: The Gaussian distribution
-pfad: Electrical Engineering / 3rd Semester / Signals and Systems / Random Signals
+pfad: Electrical Engineering / 3rd Semester / ET3 – Fundamentals of Electrical Engineering 3: Signals and Systems / Random Signals
+adresse: elektrotechnik/3-semester/signale-und-systeme/zufallssignale
+knoten: Chapter 7: Random Signals
 order: 3270800
 summary: Why is noise so often Gaussian, and how do you calculate with the Gaussian distribution?
 tags: central limit theorem, error function
@@ -13,7 +15,7 @@ lang: en
 Why is noise so often Gaussian, and how do you calculate with the Gaussian distribution?
 :::
 
-If you convolve many densities with one another, the result approaches a Gaussian curve (__central limit theorem__, [Part 3](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)). Noise is usually the sum of very many small, independent contributions, such as the motions of many electrons. That is why it is Gaussian.
+If you convolve many densities with one another, the result approaches a Gaussian curve (__central limit theorem__, [Chapter 3](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)). Noise is usually the sum of very many small, independent contributions, such as the motions of many electrons. That is why it is Gaussian.
 
 :::satz Theorem 7.1 (Gaussian distribution)
 <span class="anker" id="satz-7-1"></span>

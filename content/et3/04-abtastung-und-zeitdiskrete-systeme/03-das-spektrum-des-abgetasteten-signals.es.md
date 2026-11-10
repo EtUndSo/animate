@@ -1,6 +1,8 @@
 ---
 title: Etapa 2: El espectro de la señal muestreada
-pfad: Ingeniería eléctrica / 3.er semestre / Señales y sistemas / Muestreo y sistemas en tiempo discreto
+pfad: Ingeniería eléctrica / 3.er semestre / ET3 – Fundamentos de ingeniería eléctrica 3: señales y sistemas / Muestreo y sistemas en tiempo discreto
+adresse: elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme
+knoten: Capítulo 4: Muestreo y sistemas en tiempo discreto
 order: 3240300
 summary: ¿Qué le hace el muestreo al espectro?
 tags: réplicas espectrales
@@ -29,7 +31,7 @@ $$S_\mathrm a(f)=\frac1T\sum_{k=-\infty}^{\infty}S\Bigl(f-\frac kT\Bigr)\qquad(T
 ⁠**Cómo leerlo:** el espectro del original aparece con la forma intacta, pero con el factor $1/T$ y repetido en cada múltiplo de la frecuencia de muestreo. Las copias se llaman __réplicas espectrales__.
 
 :::herleitung espectro de la señal muestreada
-La multiplicación se convierte en convolución ([parte 3](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)), y el espectro del peine de Dirac vuelve a ser un peine:
+La multiplicación se convierte en convolución ([capítulo 3](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)), y el espectro del peine de Dirac vuelve a ser un peine:
 
 $$s(t)\cdot\sum_n\delta(t-nT)\;\circ\!\!-\!\!\bullet\;S(f)*\frac1T\sum_k\delta\Bigl(f-\frac kT\Bigr)=\frac1T\sum_kS\Bigl(f-\frac kT\Bigr).$$
 

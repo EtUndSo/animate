@@ -1,6 +1,8 @@
 ---
 title: Etapa 3: Una superficie, muchas curvas características
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / El transistor bipolar
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / El transistor bipolar
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor
+knoten: Capítulo 10: El transistor bipolar
 order: 1200500
 summary: Las hojas de datos muestran varias curvas características con ejes distintos.
 tags: curva característica, sección, familia de curvas, Curva característica de entrada, Curva característica de control, Curva característica de control por corriente, Curva característica de salida, curva característica de transferencia
@@ -13,7 +15,7 @@ lang: es
 Las hojas de datos muestran varias curvas características con ejes distintos. Esta etapa las reduce a un solo objeto.
 :::
 
-**La idea.** $I_\mathrm{C}$ depende de dos tensiones. Una función de dos variables es una superficie, como un terreno sobre un mapa: el mapa tiene las direcciones $U_\mathrm{BE}$ y $U_\mathrm{CE}$, y la altura del terreno es $I_\mathrm{C}$ (fig. [3](#abb-3)). Una __curva característica__ (relación entre dos magnitudes, [Parte 5](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)) aparece cuando se mantiene fija una tensión: una __sección__ del terreno. Varias secciones paralelas dan una __familia de curvas__. Así pues, no hay muchas dependencias, sino un solo terreno con varias vistas. En la dirección de $U_\mathrm{BE}$ es una ladera empinada (rojo); en la dirección de $U_\mathrm{CE}$, un borde y luego un plano casi horizontal (verde).
+**La idea.** $I_\mathrm{C}$ depende de dos tensiones. Una función de dos variables es una superficie, como un terreno sobre un mapa: el mapa tiene las direcciones $U_\mathrm{BE}$ y $U_\mathrm{CE}$, y la altura del terreno es $I_\mathrm{C}$ (fig. [3](#abb-3)). Una __curva característica__ (relación entre dos magnitudes, [capítulo 5](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)) aparece cuando se mantiene fija una tensión: una __sección__ del terreno. Varias secciones paralelas dan una __familia de curvas__. Así pues, no hay muchas dependencias, sino un solo terreno con varias vistas. En la dirección de $U_\mathrm{BE}$ es una ladera empinada (rojo); en la dirección de $U_\mathrm{CE}$, un borde y luego un plano casi horizontal (verde).
 
 :::abbildung et1/k10flaeche 3
 La superficie $I_\mathrm{C}(U_\mathrm{BE},U_\mathrm{CE})$ del modelo de referencia. Rojo: sección a $U_\mathrm{CE}=6$ V, exponencial. Verde: sección a $U_\mathrm{BE}=0{,}6$ V, primero abrupta y luego casi horizontal. Ambas se encuentran en el punto de trabajo.

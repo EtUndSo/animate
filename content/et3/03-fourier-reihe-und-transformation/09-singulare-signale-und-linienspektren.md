@@ -1,6 +1,8 @@
 ---
 title: Stufe 8: Singuläre Signale und Linienspektren
-pfad: Elektrotechnik / 3. Semester / Signale und Systeme / Fourier-Reihe und -Transformation
+pfad: Elektrotechnik / 3. Semester / ET3 – Grundgebiete der Elektrotechnik 3: Signale und Systeme / Fourier-Reihe und -Transformation
+adresse: elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation
+knoten: Kapitel 3: Fourier-Reihe und -Transformation
 order: 3230900
 summary: Konstanten, Schwingungen, der Sprung und periodische Signale sind nicht absolut integrierbar.
 tags: Linienspektrum, Dirac-Kamm

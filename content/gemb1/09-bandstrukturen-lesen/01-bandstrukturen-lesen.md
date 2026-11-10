@@ -1,7 +1,9 @@
 ---
 title: Überblick: Bandstrukturen lesen
 kurz: Überblick
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Bandstrukturen lesen
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Bandstrukturen lesen
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/bandstrukturen-lesen
+knoten: Kapitel 9: Bandstrukturen lesen
 order: 4190100
 summary: Was Graphen, Silizium und GaAs unterscheidet und was eine Kurve über Leitung, Licht und Masse verrät
 tags: Bandstruktur, Bandlücke, effektive Masse, Loch, Entartung
@@ -27,7 +29,7 @@ Wer das kann, sieht einem Stoff an, ob er leitet, ob er Licht abgibt und wie sch
 
 <li>
 
-⁠**Modellkristall:** wie die Atomkette in [Teil 8](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/vom-atom-zum-band/vom-atom-zum-band.html), $a=0{,}25$ nm, $E_\mathrm s=-5$ eV, $V_\mathrm{ss}=0{,}5$ eV.
+⁠**Modellkristall:** wie die Atomkette in [Kapitel 8](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/vom-atom-zum-band/vom-atom-zum-band.html), $a=0{,}25$ nm, $E_\mathrm s=-5$ eV, $V_\mathrm{ss}=0{,}5$ eV.
 
 </li>
 

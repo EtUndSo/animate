@@ -1,6 +1,8 @@
 ---
 title: Etapa 1: Clases de señales y muestreo ideal
-pfad: Ingeniería eléctrica / 3.er semestre / Señales y sistemas / Muestreo y sistemas en tiempo discreto
+pfad: Ingeniería eléctrica / 3.er semestre / ET3 – Fundamentos de ingeniería eléctrica 3: señales y sistemas / Muestreo y sistemas en tiempo discreto
+adresse: elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme
+knoten: Capítulo 4: Muestreo y sistemas en tiempo discreto
 order: 3240200
 summary: ¿Qué tipos de señales hay y cómo se describe matemáticamente el muestreo?
 tags: analógica, en tiempo discreto, digital, muestreador ideal

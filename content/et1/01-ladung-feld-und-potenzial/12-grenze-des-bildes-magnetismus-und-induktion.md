@@ -1,6 +1,8 @@
 ---
 title: Stufe 10: Grenze des Bildes: Magnetismus und Induktion
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Ladung, Feld und Potenzial
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Ladung, Feld und Potenzial
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial
+knoten: Kapitel 1: Ladung, Feld und Potenzial
 order: 1111200
 summary: Alles bisher galt für ruhende Ladungen.
 tags: Magnetfeld, Spule, Induktion, Elektromagnetismus, Wirbelfeld, Rechte-Faust-Regel, technische Stromrichtung, magnetische Fluss
@@ -19,7 +21,7 @@ Alles bisher galt für ruhende Ladungen. Diese Stufe zeigt, was sich ändert, we
 Links: Querschnitt eines Drahts, der Strom $I$ fließt in die Zeichenebene. Das Magnetfeld $H$ läuft in Kreisen um den Draht, Kompassnadeln richten ihre rote Spitze danach aus. Rechts: Ein bewegter Stabmagnet ändert den magnetischen Fluss $\Phi$ durch die Spule. Solange er sich bewegt, zeigt das Messgerät die Spannung $u_\mathrm{ind}$.
 :::
 
-Die Richtung des Magnetfelds liefert die __Rechte-Faust-Regel__: Der Daumen zeigt in die technische Stromrichtung, die Finger zeigen in Richtung des Felds. Die __technische Stromrichtung__ läuft von Plus nach Minus, die Elektronen im Draht laufen entgegengesetzt ([Teil 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)).
+Die Richtung des Magnetfelds liefert die __Rechte-Faust-Regel__: Der Daumen zeigt in die technische Stromrichtung, die Finger zeigen in Richtung des Felds. Die __technische Stromrichtung__ läuft von Plus nach Minus, die Elektronen im Draht laufen entgegengesetzt ([Kapitel 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)).
 
 :::satz Satz 10.1 (Induktionsgesetz)
 <span class="anker" id="satz-10-1"></span>

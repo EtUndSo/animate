@@ -1,6 +1,8 @@
 ---
 title: Stufe 5: Betrag und Abstand
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Komplexe Zahlen
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Komplexe Zahlen
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen
+knoten: Kapitel 2: Komplexe Zahlen
 order: 1220600
 summary: Komplexe Zahlen lassen sich nicht ordnen, aber messen.
 tags: Abstand, untere Dreiecksungleichung
@@ -10,7 +12,7 @@ lang: de
 <span class="anker" id="stufe-5"></span>
 
 :::zweck
-Komplexe Zahlen lassen sich nicht ordnen, aber messen. Diese Stufe überträgt Abstand und Betrag aus [Teil 1](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html) in die Ebene und zeigt, welche Regeln erhalten bleiben.
+Komplexe Zahlen lassen sich nicht ordnen, aber messen. Diese Stufe überträgt Abstand und Betrag aus [Kapitel 1](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html) in die Ebene und zeigt, welche Regeln erhalten bleiben.
 :::
 
 **Die Idee.** In $\mathbb{R}$ misst $|x|$ den Abstand zum Nullpunkt. In der Ebene übernimmt das der Satz des Pythagoras: Die Strecke von 0 nach $z$ ist die Hypotenuse eines rechtwinkligen Dreiecks mit den Katheten $|x|$ und $|y|$ (Abb. [5](#abb-5), links). Der Abstand zweier Punkte ist die Hypotenuse über den Differenzen ihrer Koordinaten. Das Ergebnis ist reell, hier ist „größer“ wieder erlaubt.
@@ -28,7 +30,7 @@ Für $z=x+\mathrm{i}y$ und $w=u+\mathrm{i}v$ mit reellen $x,y,u,v$ sei
 $$d(z,w):=\sqrt{(x-u)^2+(y-v)^2},\qquad |z|:=d(z,0)=\sqrt{x^2+y^2}. \tag{5.1}$$
 :::
 
-⁠**So liest man das:** Unter der Wurzel steht eine reelle Zahl größer oder gleich null, und $\sqrt a$ ist die nicht negative Lösung von $b^2=a$ ([Teil 1](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html)). Der __Abstand__ $d(z,w)$ hängt nur von der Differenz ab: $d(z,w)=|z-w|$. **Grenzfall:** Für reelles $z$ ist $|z|=\sqrt{x^2}=|x|$, der Betrag aus [Teil 1](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html).
+⁠**So liest man das:** Unter der Wurzel steht eine reelle Zahl größer oder gleich null, und $\sqrt a$ ist die nicht negative Lösung von $b^2=a$ ([Kapitel 1](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html)). Der __Abstand__ $d(z,w)$ hängt nur von der Differenz ab: $d(z,w)=|z-w|$. **Grenzfall:** Für reelles $z$ ist $|z|=\sqrt{x^2}=|x|$, der Betrag aus [Kapitel 1](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html).
 
 :::satz Satz 5.2 (Rechenregeln für Betrag und Abstand)
 <span class="anker" id="satz-5-2"></span>

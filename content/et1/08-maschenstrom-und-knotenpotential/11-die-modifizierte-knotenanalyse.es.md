@@ -1,8 +1,10 @@
 ---
 title: Etapa 9: El análisis por nudos modificado
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Análisis por mallas y por nudos
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Análisis por mallas y por nudos
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/maschenstrom-und-knotenpotentialverfahren
+knoten: Capítulo 8: Análisis por mallas y por nudos
 order: 1181100
-summary: Una fuente de tensión ideal no tiene conductancia ni forma de fuente de corriente (Parte 5).
+summary: Una fuente de tensión ideal no tiene conductancia ni forma de fuente de corriente (capítulo 5).
 tags: ganancia de corriente, frecuencia de transición
 lang: es
 ---
@@ -10,7 +12,7 @@ lang: es
 <span class="anker" id="stufe-9"></span>
 
 :::zweck
-Una fuente de tensión ideal no tiene conductancia ni forma de fuente de corriente ([Parte 5](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)). Esta etapa elimina la última restricción. Así calcula SPICE cualquier circuito.
+Una fuente de tensión ideal no tiene conductancia ni forma de fuente de corriente ([capítulo 5](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)). Esta etapa elimina la última restricción. Así calcula SPICE cualquier circuito.
 :::
 
 **La idea.** Una fuente de tensión fija la tensión entre dos nudos. Su corriente solo se establece a través de la red, así que es desconocida. Se toma como incógnita adicional. Una incógnita adicional exige una ecuación adicional, y la propia fuente la aporta: la diferencia de potencial es $U_\mathrm q$. Así vuelve por cada fuente de tensión exactamente una ecuación de malla; todo lo demás sigue siendo análisis por nudos (fig. [9](#abb-9)).

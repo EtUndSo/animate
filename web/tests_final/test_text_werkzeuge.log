@@ -1,0 +1,31 @@
+  OK   mono_line: Leerzeichen bleiben Zeichen, ein chinesisches Zeichen belegt zwei Zellen, Leerzeichen am Ende fallen weg
+  OK   mono: eigene Schriftliste, ein x je Zeichen (auch Leerzeichen, xml:space), ' und ` unverändert
+  OK   mono: Spalten stehen untereinander (Zeichen 5 von Zeile 1 über Zeichen 5 von Zeile 2: '-' über 'e')
+  OK   mono: Zellbreite 0,6 em
+  OK   mono: Zuschnitt = Zellen × 0,6 em
+  OK   mono: zwei Zeilen, mittig
+  OK   roh: _ ^ \ $ { } bleiben Zeichen, Leerzeichen bleiben (xml:space)
+  OK   ohne roh: _ stellt weiterhin tief (Rich-Text unverändert)
+  OK   roh / tt: Dezimalpunkt bleibt (de), normaler Text bekommt das Komma
+  OK   roh: @schlüssel gilt weiter
+  OK   Transform Text -> Text: Inhalt und Farbe im Endbild
+  OK   Transform Text -> Text: im SVG nur der neue Text, keine Vorlage, kein unsichtbarer Rest
+  OK   Transform Text -> Text: erste Hälfte = alter Text, blendet aus
+  OK   Transform Text -> Text: vor dem Einblenden unsichtbar, alter Text
+  OK   Reihenfolge des Anlegens: Kasten (zuerst angelegt) liegt unter dem Text
+  OK   ohne draw_order wie bisher: der später erscheinende Kasten liegt oben
+  OK   Warnung: Text unter deckender Fläche erkannt (nur im alten Modus)
+  OK   Export: drawOrder der Szene geht als draw_order an die Engine
+  OK   s.weg: head_size setzt die Länge der Richtungsmarke (Standard 0,22 unverändert)
+  OK   s.text: ohne Zusatz keine neuen Schlüssel (alte Szenendateien bleiben byte-gleich)
+  OK   s.text: schrift="tt" -> font mono und roh; roh=True -> raw
+  OK   s.weg: head_size nur mit spitze
+  OK   s.ersetzen: Vorlage mit neuem Text und gleicher Schrift, Animation Transform
+  OK   s.summe: index/exakt nur wenn gesetzt
+  OK   Szene: reihenfolge nur wenn gewählt
+  OK   tt_breite: Zelle 0,6 em in Szeneneinheiten
+  OK   linux_hilfen.tt: Formel wie bisher, mit schreibmaschine("text") ein s.text in tt (gleiche Zellbreite)
+  OK   Editor: mono zeichnet jedes Zeichen in der Mitte seiner Zelle
+  OK   anim.svg: Endbild = neuer Text, Spur h mit dem alten Text in Schreibmaschinenschrift
+  OK   Favicon: Seitenkopf verlinkt /favicon.ico und /favicon.svg, beide Dateien da
+TEXT/WERKZEUG TESTS PASSED

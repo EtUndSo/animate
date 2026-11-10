@@ -1,6 +1,8 @@
 ---
 title: Stage 5: Polynomials and coefficients
-pfad: Electrical Engineering / 1st Semester / Higher Mathematics 1 / Functions and Polynomials
+pfad: Electrical Engineering / 1st Semester / HöMa1 – Higher Mathematics 1 / Functions and Polynomials
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/funktionen-und-polynome
+knoten: Chapter 3: Functions and Polynomials
 order: 1230700
 summary: The general theory is in place.
 tags: degree, coefficients, comparing coefficients, quadratic formula, discriminant
@@ -74,7 +76,7 @@ Substituting confirms it: $-a(x_1+x_2)=-a\cdot\frac{-2b}{2a}=b$ and $ax_1x_2=\fr
 ⁠**Limiting cases:** $D=0$ gives $x_1=x_2$. For $D<0$ there is no real zero, because then $ax^2+bx+c=a\bigl[(x+\frac{b}{2a})^2-\frac{D}{4a^2}\bigr]$, and the bracket is positive. So $x^2+\beta x+\gamma$ has no real zero if and only if $\beta^2-4\gamma<0$.
 
 :::frage Why doesn't the proof simply substitute $x=0$ after dividing by $x$? There is a polynomial there again, after all.
-There are polynomials on the left and right, that is true. But the equation was derived only for $x\neq0$, and nothing about the point 0 follows from that immediately. The detour via small $|x|$ closes exactly this gap. Part 5 gives the concept behind it the name continuity.
+There are polynomials on the left and right, that is true. But the equation was derived only for $x\neq0$, and nothing about the point 0 follows from that immediately. The detour via small $|x|$ closes exactly this gap. Chapter 5 gives the concept behind it the name continuity.
 :::
 
 :::aufgabe Exercise 6 ★★ Comparing coefficients

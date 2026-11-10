@@ -1,7 +1,8 @@
 ---
 title: Das Wichtigste bis hier
 pfad: Informatik / Machine Learning / Mathematische Grundlagen / Ableitung, Gradient und Kettenregel
-knoten: Grundlagen 3: Ableitung, Gradient und Kettenregel
+adresse: informatik/machine-learning/mathematische-grundlagen/ableitung-gradient-und-kettenregel
+knoten: Kapitel 3: Ableitung, Gradient und Kettenregel
 nachschlagen: ja
 order: 15231300
 summary: Wie eine Zahl auf ihre Eingänge reagiert: von der Tangente bis zum Rückwärtsmodus

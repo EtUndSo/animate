@@ -1,6 +1,8 @@
 ---
 title: 第 10 阶段：规则的终点
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 运算放大器
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 运算放大器
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker
+knoten: 第 11 章：运算放大器
 order: 1211200
 summary: 到这里为止，运放除了 A 和极限之外都是理想的。本阶段按大小整理实际偏差，并总结计算步骤。
 tags: 失调电压, 输入偏置电流, 共模抑制, 特征频率, 压摆率, 过驱动

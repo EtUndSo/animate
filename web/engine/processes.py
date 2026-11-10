@@ -327,7 +327,9 @@ def summation_choreo(scene, choreo, run_time=6.0, color=(0.0, 0.0, 0.0), value_c
             return []
         return [vcells[c] for c in (row, nrows + row) if c in vcells]
 
-    steps = all_steps and not animating
+    # all_steps: the article figure (every step its own row, '=' under '='). Played, the SAME rows build up step by
+    # step (_play_rows), so the animation ends exactly in the figure. Without all_steps: one row, column choreography.
+    steps = bool(all_steps)
     if steps:                                                # rows "= …" per step, the total after the last one
         eq = cols[0] if cols and cols[0].get("t") == "op" else None
         k0 = 1 if eq is not None else 0
@@ -491,6 +493,10 @@ def summation_choreo(scene, choreo, run_time=6.0, color=(0.0, 0.0, 0.0), value_c
         return best
     sigma = _biggest(head)
 
+    if steps:
+        _play_rows(scene, lines, vparts, pair, sigma, head, run_time, flash_color, var_color)
+        return
+
     plays = [[FadeIn(q) for q in vparts]] if vparts else []  # 0) the two vectors (scalar product)
     plays.append([FadeIn(head)])                             # 1) the Σ expression appears
     for it in order[1:]:
@@ -524,6 +530,76 @@ def summation_choreo(scene, choreo, run_time=6.0, color=(0.0, 0.0, 0.0), value_c
     per = run_time / max(1, len(plays))
     for anims in plays:
         scene.play(*anims, run_time=per)
+    _drop_auto_added(scene, sigma)
+
+
+def _drop_auto_added(scene, *parts):
+    """Scene.play adds an animation's target to the scene; a PART of a formula (the big Σ that pulses) is drawn by
+    its formula already and must not be drawn a second time on its own."""
+    for q in parts:
+        while q is not None and q in scene.objectList:
+            scene.objectList.remove(q)
+
+
+def _play_rows(scene, lines, vparts, pair, sigma, head, run_time, flash_color, var_color):
+    """The all-steps figure built up row by row, term by term (the article figure is its last frame): the vectors,
+    the head, then per row its '=' and the terms left to right; a term of a later row appears while its counterpart
+    in the row above lights up (that term BECOMES this one), a '+' of the first row springs from the Σ, the total
+    flashes. Every row starts a jump mark (segment flag "mark") and ends with a short pause."""
+    plays, marks = [], []
+    if vparts:
+        plays.append([FadeIn(q) for q in vparts]); marks.append(len(plays) - 1)
+    above = []                                               # term objects of the previous row, left to right
+    for r, items in enumerate(lines):
+        marks.append(len(plays))
+        terms, k, i = [], 0, 0
+        while i < len(items):
+            it = items[i]
+            m = it["forms"][0][1] if it["forms"] else None
+            t = it["t"]
+            if m is None:
+                i += 1
+                continue
+            if t == "head":
+                plays.append([FadeIn(m)])
+            elif t == "plus":
+                anims = [AppearPulseColor(m, color=flash_color)]
+                if r == 0:
+                    anims.append(PulseColor(sigma, color=flash_color) if sigma is not None else Pulse(head))
+                nxt = items[i + 1] if i + 1 < len(items) else None
+                if nxt is not None and nxt["t"] == "term" and nxt["forms"]:   # '+' and its term come together
+                    anims += _term_anims(nxt, nxt["forms"][0][1], above, k, pair, var_color)
+                    terms.append(nxt["forms"][0][1]); k += 1; i += 1
+                plays.append(anims)
+            elif t == "term":
+                plays.append(_term_anims(it, m, above, k, pair, var_color))
+                terms.append(m); k += 1
+            elif t == "total":
+                plays.append([AppearPulseColor(m, color=flash_color)])
+            else:                                            # '=', '⋯'
+                plays.append([FadeIn(m)])
+            i += 1
+        above = terms or above
+    per = max(0.3, run_time / max(1, len(plays)))
+    starts = set(marks)
+    for j, anims in enumerate(plays):
+        if j in starts and j and j - 1 not in starts:
+            scene.wait(0.35)                                 # a short hold before the next row
+        scene.play(*anims, run_time=per)
+        if j in starts:
+            scene.timeline[-1]["mark"] = True
+    _drop_auto_added(scene, sigma)
+
+
+def _term_anims(it, m, above, k, pair, var_color):
+    """A term appears; in a later row its counterpart above lights up, in the first row the vector pair (scalar product)."""
+    anims = [FadeIn(m)]
+    if above:
+        if k < len(above):
+            anims.append(PulseColor(above[k], factor=1.0, color=var_color))
+    else:
+        anims += [PulseColor(q, factor=1.0, color=var_color) for q in pair(it.get("row"))]
+    return anims
 
 
 # ---------------------------------------------------------------------------

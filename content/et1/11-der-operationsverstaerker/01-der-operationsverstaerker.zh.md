@@ -1,7 +1,9 @@
 ---
 title: 概览: 运算放大器
 kurz: 概览
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 运算放大器
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 运算放大器
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker
+knoten: 第 11 章：运算放大器
 order: 1210100
 summary: 一个巨大而不精确的倍数，如何变成 行为只由电阻决定的器件
 tags: 运算放大器, 开环增益, 负反馈, 噪声, 比较器
@@ -47,7 +49,7 @@ __运算放大器__，简称运放，是由几十个晶体管构成的集成放�
 
 <li>
 
-⁠**差分级：**[第 10 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor/der-bipolartransistor.html)的晶体管 T（$B=200$，$U_T=26$ mV），$I_0=2$ mA，$R_\mathrm{C}=3$ k$\Omega$。
+⁠**差分级：**[第 10 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor/der-bipolartransistor.html)的晶体管 T（$B=200$，$U_T=26$ mV），$I_0=2$ mA，$R_\mathrm{C}=3$ k$\Omega$。
 
 </li>
 

@@ -1,7 +1,8 @@
 ---
 title: Abstände und Einheiten
 pfad: Informatik / Machine Learning / Mathematische Grundlagen / Vektoren und Matrizen
-knoten: Grundlagen 1: Vektoren und Matrizen
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Kapitel 1: Vektoren und Matrizen
 nachschlagen: ja
 order: 15210500
 summary: Zwei Beispiele sind sich ähnlich, wenn ihre Vektoren nah beieinanderliegen.
@@ -78,7 +79,7 @@ Der euklidische Abstand addiert Quadrate von Quadratmetern, Zimmern und Kilomete
 
 Um Merkmale vergleichbar zu machen, betrachtet man jedes Merkmal für sich über alle Beispiele hinweg. In Tabelle [1](vektoren-daten-als-zahlenlisten.html#tab-1) sind das die Spalten: Die Flächen aller Wohnungen bilden den Vektor $\mathbf{v}=(60,\,40,\,90,\,70)^{\top}\in\mathbb{R}^4$. Ein solcher Vektor gehört zu einem Merkmal und hat so viele Komponenten, wie es Beispiele gibt. Er heißt hier die __Merkmalsspalte__.
 
-Für den Vergleich zählt nicht, wie groß die Flächen sind, sondern wie stark sie sich unterscheiden. Man misst deshalb jede Fläche als Abweichung vom Durchschnitt. In der Elektrotechnik heißt dieser Schritt: den Gleichanteil abziehen und nur den Wechselanteil behalten.
+Für den Vergleich zählt nicht, wie groß die Flächen sind, sondern wie stark sie sich unterscheiden. Man misst deshalb jede Fläche als Abweichung vom Durchschnitt. So beschreibt man auch die Körpergrößen in einer Schulklasse: „$5$ cm größer als der Durchschnitt“ sagt über ein Kind mehr als „$1{,}45$ m“.
 
 :::definition Definition 4.2 (Zentrierter Vektor)
 <span class="anker" id="satz-4-2"></span>
@@ -107,12 +108,12 @@ Der Mittelwert der Flächen und die Summe der Abweichungen vom Mittelwert, in $\
 
 <span class="anker" id="stufe-4-4"></span>
 
-Wie stark ein Merkmal schwankt, sieht man an der Größe seiner Abweichungen. Ein typischer Betrag einer Komponente ist der Effektivwert aus Unterabschnitt [3.6](normen-die-groe-eines-vektors.html#stufe-3-6). Angewandt auf den zentrierten Vektor, ist er die typische Abweichung vom Mittelwert. In der Sprache der Elektrotechnik: der Effektivwert des Wechselanteils.
+Wie stark ein Merkmal schwankt, sieht man an der Größe seiner Abweichungen. Ein typischer Betrag einer Komponente ist der quadratische Mittelwert aus Unterabschnitt [3.6](normen-die-groe-eines-vektors.html#stufe-3-6). Angewandt auf den zentrierten Vektor, ist er die typische Abweichung vom Mittelwert.
 
 :::definition Definition 4.3 (Standardabweichung)
 <span class="anker" id="satz-4-3"></span>
 
-Die __Standardabweichung__ eines Vektors $\mathbf{v}\in\mathbb{R}^N$ ist der Effektivwert seines zentrierten Vektors:
+Die __Standardabweichung__ eines Vektors $\mathbf{v}\in\mathbb{R}^N$ ist der quadratische Mittelwert seines zentrierten Vektors:
 
 <span class="anker" id="gl-4-3"></span>
 $$\operatorname{std}(\mathbf{v})=\operatorname{rms}(\tilde{\mathbf{v}})=\frac{\lVert\mathbf{v}-\bar v\,\mathbf 1\rVert}{\sqrt N}=\sqrt{\frac1N\sum_{i=1}^N(v_i-\bar v)^2} . \tag{4.3}$$
@@ -128,14 +129,14 @@ Die Standardabweichung der Flächen: Abweichungen quadrieren, mitteln, Wurzel zi
 :::
 ::::
 
-⁠**Kurz gesagt:** Die Standardabweichung ist der Effektivwert der Abweichungen vom Mittelwert, die typische Schwankung eines Merkmals.
+⁠**Kurz gesagt:** Die Standardabweichung ist der quadratische Mittelwert der Abweichungen vom Mittelwert, die typische Schwankung eines Merkmals.
 
-:::hintergrund Gleichanteil und Wechselanteil teilen sich die Leistung
-Ein Vektor ist die Summe aus seinem Gleichanteil $\bar v\,\mathbf 1$ und seinem Wechselanteil $\tilde{\mathbf{v}}$. Für das Quadrat der Länge gilt nach den Rechenregeln des Skalarprodukts
+:::hintergrund Mittelwert und Abweichungen teilen sich das mittlere Quadrat
+Ein Vektor ist die Summe aus dem konstanten Vektor $\bar v\,\mathbf 1$ und seinen Abweichungen $\tilde{\mathbf{v}}$. Für das Quadrat der Länge gilt nach den Rechenregeln des Skalarprodukts
 
 $$\lVert\bar v\,\mathbf 1+\tilde{\mathbf{v}}\rVert^2=\bar v^2\,\mathbf 1^{\top}\mathbf 1+2\,\bar v\,\mathbf 1^{\top}\tilde{\mathbf{v}}+\lVert\tilde{\mathbf{v}}\rVert^2=N\bar v^2+0+\lVert\tilde{\mathbf{v}}\rVert^2 ,$$
 
-weil sich die Abweichungen zu null addieren. Teilt man durch $N$, wird daraus $\operatorname{rms}(\mathbf{v})^2=\bar v^2+\operatorname{std}(\mathbf{v})^2$. Das ist dieselbe Aufteilung wie bei einem Mischstrom, dessen Leistung an einem Widerstand sich aus der Leistung des Gleichanteils und der des Wechselanteils zusammensetzt. Für die Flächen: $\operatorname{rms}^2=(3600+1600+8100+4900)/4=4550=65^2+325$.
+weil sich die Abweichungen zu null addieren. Teilt man durch $N$, wird daraus $\operatorname{rms}(\mathbf{v})^2=\bar v^2+\operatorname{std}(\mathbf{v})^2$. In Worten: Das mittlere Quadrat der Werte ist das Quadrat ihres Mittelwerts plus das mittlere Quadrat ihrer Abweichungen. Ein großes mittleres Quadrat kann also von großen Werten kommen oder von starken Schwankungen, und die Formel trennt beides. Für die Flächen: $\operatorname{rms}^2=(3600+1600+8100+4900)/4=4550=65^2+325$.
 :::
 
 ### Standardisieren
@@ -197,13 +198,13 @@ Der Abstand der standardisierten Werte ist also der gewöhnliche Abstand, in dem
 Das Standardisieren ist aber selbst eine Entscheidung. Es gibt jedem Merkmal dasselbe Gewicht im Abstand, auch einem Merkmal, das für die Frage gar keine Rolle spielt. Und ein Merkmal, das in allen Beispielen denselben Wert hat, hat die Standardabweichung null und lässt sich nicht standardisieren; es unterscheidet die Beispiele aber auch nicht und trägt zu keinem Abstand etwas bei.
 :::
 
-:::aufgabe Aufgabe 9 ★ Gleichanteil und Wechselanteil
+:::aufgabe Aufgabe 9 ★ Mittelwert und Abweichungen
 <span class="anker" id="aufg-9"></span>
 
-Ein Signal hat die Abtastwerte $\mathbf{x}=(1,\,3,\,1,\,-1)^{\top}$. Berechne den Mittelwert, den zentrierten Vektor, die Standardabweichung und den Effektivwert. Prüfe $\operatorname{rms}(\mathbf{x})^2=\bar x^2+\operatorname{std}(\mathbf{x})^2$.
+Die Temperatur morgens um sieben beträgt an vier Tagen $\mathbf{x}=(1,\,3,\,1,\,-1)^{\top}$ Grad Celsius. Berechne den Mittelwert, den zentrierten Vektor, die Standardabweichung und den quadratischen Mittelwert. Prüfe $\operatorname{rms}(\mathbf{x})^2=\bar x^2+\operatorname{std}(\mathbf{x})^2$.
 
 :::loesung
-Der Mittelwert ist $\bar x=(1+3+1-1)/4=1$, der zentrierte Vektor $\tilde{\mathbf{x}}=(0,\,2,\,0,\,-2)^{\top}$. Die Standardabweichung ist $\sqrt{(0+4+0+4)/4}=\sqrt2\approx1{,}414$, der Effektivwert $\sqrt{(1+9+1+1)/4}=\sqrt3\approx1{,}732$. Probe: $\operatorname{rms}^2=3=1^2+(\sqrt2)^2=\bar x^2+\operatorname{std}^2$. Gleichanteil und Wechselanteil teilen sich die „Leistung“ $3$ im Verhältnis $1:2$.
+Der Mittelwert ist $\bar x=(1+3+1-1)/4=1$, der zentrierte Vektor $\tilde{\mathbf{x}}=(0,\,2,\,0,\,-2)^{\top}$. Die Standardabweichung ist $\sqrt{(0+4+0+4)/4}=\sqrt2\approx1{,}414$, der quadratische Mittelwert $\sqrt{(1+9+1+1)/4}=\sqrt3\approx1{,}732$. Probe: $\operatorname{rms}^2=3=1^2+(\sqrt2)^2=\bar x^2+\operatorname{std}^2$. Der Mittelwert und die Abweichungen teilen sich das mittlere Quadrat $3$ im Verhältnis $1:2$.
 :::
 :::
 

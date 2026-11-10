@@ -1,6 +1,8 @@
 ---
 title: Stufe 7: Ergänzung: Scharfe Stufen und Nachweise
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Stufe, Barriere und Tunneleffekt
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Stufe, Barriere und Tunneleffekt
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/stufe-barriere-und-tunneleffekt
+knoten: Kapitel 3: Stufe, Barriere und Tunneleffekt
 order: 4130900
 summary: Die Rechnung sagt für E>V 0 Reflexion voraus.
 tags: Schottky-Kontakt, Feldemission, Glühemission

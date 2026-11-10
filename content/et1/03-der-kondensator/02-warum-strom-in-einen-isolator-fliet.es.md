@@ -1,6 +1,8 @@
 ---
 title: Etapa 1: Por qué entra corriente en un aislante
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / El condensador
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / El condensador
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator
+knoten: Capítulo 3: El condensador
 order: 1130200
 summary: Las placas no se tocan.
 tags: 
@@ -27,10 +29,10 @@ Izquierda: el par de placas durante la carga. Los electrones corren de la placa 
 Un condensador consta de dos electrodos separados por un dieléctrico. Su carga $Q$ es la carga del electrodo positivo; el otro lleva $-Q$. Corriente a través del condensador significa: por un terminal entra una corriente y, en el mismo instante, por el otro sale la misma corriente.
 :::
 
-⁠**Cómo leerlo:** Cargado significa: la carga está separada, no añadida. La carga total sigue siendo cero. Cada línea de campo que empieza en A termina en B ([Parte 1](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)). Lo habitual son cargas de nanoculombios a miliculombios. **Validez:** El dieléctrico se considera un aislante ideal; la etapa [5](bauformen-und-selbstentladung.html#stufe-5) indica la desviación.
+⁠**Cómo leerlo:** Cargado significa: la carga está separada, no añadida. La carga total sigue siendo cero. Cada línea de campo que empieza en A termina en B ([capítulo 1](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)). Lo habitual son cargas de nanoculombios a miliculombios. **Validez:** El dieléctrico se considera un aislante ideal; la etapa [5](bauformen-und-selbstentladung.html#stufe-5) indica la desviación.
 
 :::herleitung Por qué circula la misma corriente en ambos terminales
-Supongamos que entra más de lo que sale. Entonces se acumula en el componente una carga neta $Q_\mathrm{n}$, y todo el componente sube de potencial respecto a su entorno. Cuánto lo muestra una esfera del tamaño de una carcasa, $r=1$ cm: según la [Parte 1](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html) tiene el potencial $\varphi=k\,Q_\mathrm{n}/r$, y ya 1 µC daría 900 kV. El campo de esta carga frena la entrada mucho antes de que surja una diferencia medible. Así, $Q_\mathrm{n}$ se mantiene prácticamente en cero, y la ley de nudos de la [Parte 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html) se cumple para el componente en su conjunto.
+Supongamos que entra más de lo que sale. Entonces se acumula en el componente una carga neta $Q_\mathrm{n}$, y todo el componente sube de potencial respecto a su entorno. Cuánto lo muestra una esfera del tamaño de una carcasa, $r=1$ cm: según el [capítulo 1](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html) tiene el potencial $\varphi=k\,Q_\mathrm{n}/r$, y ya 1 µC daría 900 kV. El campo de esta carga frena la entrada mucho antes de que surja una diferencia medible. Así, $Q_\mathrm{n}$ se mantiene prácticamente en cero, y la ley de nudos del [capítulo 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html) se cumple para el componente en su conjunto.
 :::
 
 :::analogie

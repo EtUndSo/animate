@@ -1,7 +1,8 @@
 ---
 title: La mejor solución aproximada
 pfad: Informática / Aprendizaje automático / Fundamentos matemáticos / Proyección, valores propios y descomposiciones
-knoten: Fundamentos 2: Proyección, valores propios y descomposiciones
+adresse: informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen
+knoten: Capítulo 2: Proyección, valores propios y descomposiciones
 nachschlagen: ja
 order: 15220400
 summary: Un sistema de ecuaciones con más ecuaciones que incógnitas no suele tener solución.
@@ -19,7 +20,7 @@ Un sistema de ecuaciones con más ecuaciones que incógnitas no suele tener solu
 
 <span class="anker" id="stufe-3-1"></span>
 
-En [Fundamentos 1, sección 12.5](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-gleichungssysteme.html#stufe-12-5), dos pesos, $w_1$ para la superficie y $w_2$ para el número de habitaciones, debían acertar exactamente los precios de unas viviendas. Con las cuatro viviendas, esto es el sistema $\mathbf{A}\mathbf{w}=\mathbf{y}$ con
+En el [capítulo 1, sección 12.5](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-gleichungssysteme.html#stufe-12-5), dos pesos, $w_1$ para la superficie y $w_2$ para el número de habitaciones, debían acertar exactamente los precios de unas viviendas. Con las cuatro viviendas, esto es el sistema $\mathbf{A}\mathbf{w}=\mathbf{y}$ con
 
 $$\mathbf{A}=\begin{pmatrix}60&2\\40&1\\90&4\\70&3\end{pmatrix},\qquad \mathbf{y}=\begin{pmatrix}200\\130\\290\\240\end{pmatrix}\ \text{miles de euros}.$$
 
@@ -36,10 +37,10 @@ $$\mathbf{r}=\mathbf{y}-\mathbf{A}\mathbf{x} \tag{3.1}$$
 se llama __residuo__ de $\mathbf{x}$.
 :::
 
-La palabra viene del término latino que significa «resto». El residuo es cero si y solo si $\mathbf{x}$ resuelve el sistema. Es el vector de error de [Fundamentos 1, sección 3.5](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/normen-die-groe-eines-vektors.html#stufe-3-5), con el signo cambiado; su longitud es la misma.
+La palabra viene del término latino que significa «resto». El residuo es cero si y solo si $\mathbf{x}$ resuelve el sistema. Es el vector de error del [capítulo 1, sección 3.5](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/normen-die-groe-eines-vektors.html#stufe-3-5), con el signo cambiado; su longitud es la misma.
 
 ::::beispiel [Ejemplo numérico]
-Con los pesos $\mathbf{w}=(3,\,10)^{\top}$ de [Fundamentos 1](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html) se obtiene el producto $\mathbf{A}\mathbf{w}=(200,\,130,\,310,\,240)^{\top}$, y el residuo es $\mathbf{r}=\mathbf{y}-\mathbf{A}\mathbf{w}=(0,\,0,\,-20,\,0)^{\top}$, de longitud $20$. Tres precios se aciertan exactamente, y uno se falla por $20$ mil euros.
+Con los pesos $\mathbf{w}=(3,\,10)^{\top}$ del [capítulo 1](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html) se obtiene el producto $\mathbf{A}\mathbf{w}=(200,\,130,\,310,\,240)^{\top}$, y el residuo es $\mathbf{r}=\mathbf{y}-\mathbf{A}\mathbf{w}=(0,\,0,\,-20,\,0)^{\top}$, de longitud $20$. Tres precios se aciertan exactamente, y uno se falla por $20$ mil euros.
 ::::
 
 ⁠**En resumen:** El residuo $\mathbf{r}=\mathbf{y}-\mathbf{A}\mathbf{x}$ es el resto que deja un vector $\mathbf{x}$ al resolver $\mathbf{A}\mathbf{x}=\mathbf{y}$.
@@ -50,7 +51,7 @@ Con los pesos $\mathbf{w}=(3,\,10)^{\top}$ de [Fundamentos 1](/wissen/es/inform
 
 Si el residuo no puede llegar a ser cero, que al menos sea lo más pequeño posible. La medida para ello es su longitud euclídea.
 
-El problema puede imaginarse geométricamente. Si $\mathbf{x}$ recorre todos los vectores, $\mathbf{A}\mathbf{x}$ recorre, según [Fundamentos 1, sección 7.4](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrix-vektor-produkt.html#stufe-7-4), el espacio columna de $\mathbf{A}$. La distancia $\lVert\mathbf{y}-\mathbf{A}\mathbf{x}\rVert$ es la distancia del punto $\mathbf{y}$ al punto $\mathbf{A}\mathbf{x}$ del espacio columna. Se busca, por tanto, el punto del espacio columna más cercano a $\mathbf{y}$ (fig. [6](#abb-6)). En la sección anterior, el espacio columna era una recta; ahora puede ser un plano o un espacio generado de dimensión mayor.
+El problema puede imaginarse geométricamente. Si $\mathbf{x}$ recorre todos los vectores, $\mathbf{A}\mathbf{x}$ recorre, según el [capítulo 1, sección 7.4](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrix-vektor-produkt.html#stufe-7-4), el espacio columna de $\mathbf{A}$. La distancia $\lVert\mathbf{y}-\mathbf{A}\mathbf{x}\rVert$ es la distancia del punto $\mathbf{y}$ al punto $\mathbf{A}\mathbf{x}$ del espacio columna. Se busca, por tanto, el punto del espacio columna más cercano a $\mathbf{y}$ (fig. [6](#abb-6)). En la sección anterior, el espacio columna era una recta; ahora puede ser un plano o un espacio generado de dimensión mayor.
 
 :::definition Definición 3.2 (Mejor solución aproximada)
 <span class="anker" id="satz-3-2"></span>
@@ -68,7 +69,7 @@ Proyección sobre un plano de $\mathbb{R}^3$. Las columnas $\mathbf{a}_1=(1,0,1)
 :::
 
 ::::beispiel [Ejemplo numérico]
-La matriz $\mathbf{H}$ de [Fundamentos 1, sección 7.4](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrix-vektor-produkt.html#stufe-7-4), tiene las columnas $\mathbf{a}_1=(1,\,0,\,1)^{\top}$ y $\mathbf{a}_2=(0,\,1,\,1)^{\top}$. Su espacio columna es el plano de todos los vectores cuya tercera componente es la suma de las dos primeras. El vector $\mathbf{y}=(1,\,1,\,1)^{\top}$ no está en él; el sistema $\mathbf{H}\mathbf{x}=\mathbf{y}$ no tiene, por tanto, solución. Con $\mathbf{x}=(1,\,0)^{\top}$, el residuo es $(0,\,1,\,0)^{\top}$, de longitud $1$; con $\mathbf{x}=(1,\,1)^{\top}$ es $(0,\,0,\,-1)^{\top}$, también de longitud $1$. Si se puede hacer mejor lo responde la subsección siguiente.
+La matriz $\mathbf{H}$ del [capítulo 1, sección 7.4](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrix-vektor-produkt.html#stufe-7-4), tiene las columnas $\mathbf{a}_1=(1,\,0,\,1)^{\top}$ y $\mathbf{a}_2=(0,\,1,\,1)^{\top}$. Su espacio columna es el plano de todos los vectores cuya tercera componente es la suma de las dos primeras. El vector $\mathbf{y}=(1,\,1,\,1)^{\top}$ no está en él; el sistema $\mathbf{H}\mathbf{x}=\mathbf{y}$ no tiene, por tanto, solución. Con $\mathbf{x}=(1,\,0)^{\top}$, el residuo es $(0,\,1,\,0)^{\top}$, de longitud $1$; con $\mathbf{x}=(1,\,1)^{\top}$ es $(0,\,0,\,-1)^{\top}$, también de longitud $1$. Si se puede hacer mejor lo responde la subsección siguiente.
 ::::
 
 ⁠**En resumen:** La mejor solución aproximada hace el residuo lo más corto posible; geométricamente, busca el punto del espacio columna más cercano a $\mathbf{y}$.
@@ -96,7 +97,7 @@ Al sistema $\mathbf{A}\mathbf{x}=\mathbf{y}$ con $\mathbf{A}\in\mathbb{R}^{m\tim
 $$\mathbf{A}^{\top}\mathbf{A}\,\hat{\mathbf{x}}=\mathbf{A}^{\top}\mathbf{y} . \tag{3.3}$$
 :::
 
-La palabra «normal» significa aquí «perpendicular», como en el vector normal de un plano: las ecuaciones exigen que el residuo sea perpendicular al espacio columna. La matriz $\mathbf{A}^{\top}\mathbf{A}$ es la matriz de Gram de las columnas de [Fundamentos 1, sección 10.4](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/transponierte-symmetrie-und-gram-matrix.html#stufe-10-4); es cuadrada, con tantas filas como incógnitas hay. Un sistema grande e irresoluble de $m$ ecuaciones se convierte en uno pequeño de $n$ ecuaciones. Para una sola columna $\mathbf{a}$ queda $\mathbf{a}^{\top}\mathbf{a}\,\hat x=\mathbf{a}^{\top}\mathbf{y}$, la fórmula de la sección anterior.
+La palabra «normal» significa aquí «perpendicular», como en el vector normal de un plano: las ecuaciones exigen que el residuo sea perpendicular al espacio columna. La matriz $\mathbf{A}^{\top}\mathbf{A}$ es la matriz de Gram de las columnas del [capítulo 1, sección 10.4](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/transponierte-symmetrie-und-gram-matrix.html#stufe-10-4); es cuadrada, con tantas filas como incógnitas hay. Un sistema grande e irresoluble de $m$ ecuaciones se convierte en uno pequeño de $n$ ecuaciones. Para una sola columna $\mathbf{a}$ queda $\mathbf{a}^{\top}\mathbf{a}\,\hat x=\mathbf{a}^{\top}\mathbf{y}$, la fórmula de la sección anterior.
 
 ::::beispiel [Ejemplo numérico]
 Para $\mathbf{H}$ y $\mathbf{y}=(1,\,1,\,1)^{\top}$ se tiene
@@ -163,10 +164,10 @@ $$\hat{\mathbf{x}}=(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top}\mathbf{y}
 :::
 
 :::beweis Invertibilidad
-Según [Fundamentos 1, sección 13.5](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-5), la matriz cuadrada $\mathbf{A}^{\top}\mathbf{A}$ es invertible si y solo si su núcleo solo contiene el vector nulo. Sea $\mathbf{A}^{\top}\mathbf{A}\mathbf{z}=\mathbf{0}$. Entonces también $\mathbf{z}^{\top}\mathbf{A}^{\top}\mathbf{A}\mathbf{z}=0$, es decir, $\lVert\mathbf{A}\mathbf{z}\rVert^2=0$ y $\mathbf{A}\mathbf{z}=\mathbf{0}$. A la inversa, de $\mathbf{A}\mathbf{z}=\mathbf{0}$ se sigue inmediatamente $\mathbf{A}^{\top}\mathbf{A}\mathbf{z}=\mathbf{0}$. Los dos núcleos son, por tanto, iguales. El núcleo de $\mathbf{A}$ solo contiene el vector nulo si y solo si las columnas de $\mathbf{A}$ son linealmente independientes.
+Según el [capítulo 1, sección 13.5](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-5), la matriz cuadrada $\mathbf{A}^{\top}\mathbf{A}$ es invertible si y solo si su núcleo solo contiene el vector nulo. Sea $\mathbf{A}^{\top}\mathbf{A}\mathbf{z}=\mathbf{0}$. Entonces también $\mathbf{z}^{\top}\mathbf{A}^{\top}\mathbf{A}\mathbf{z}=0$, es decir, $\lVert\mathbf{A}\mathbf{z}\rVert^2=0$ y $\mathbf{A}\mathbf{z}=\mathbf{0}$. A la inversa, de $\mathbf{A}\mathbf{z}=\mathbf{0}$ se sigue inmediatamente $\mathbf{A}^{\top}\mathbf{A}\mathbf{z}=\mathbf{0}$. Los dos núcleos son, por tanto, iguales. El núcleo de $\mathbf{A}$ solo contiene el vector nulo si y solo si las columnas de $\mathbf{A}$ son linealmente independientes.
 :::
 
-Si las columnas son linealmente dependientes, hay infinitas mejores soluciones aproximadas. A una de ellas se le puede sumar cualquier vector del núcleo de $\mathbf{A}$ sin cambiar $\mathbf{A}\hat{\mathbf{x}}$. El punto más cercano $\hat{\mathbf{y}}$ es, aun así, único, como muestra el teorema de la subsección anterior. Esto encaja con [Fundamentos 1, sección 13.6](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-6): las características dependientes hacen ambiguos los pesos, pero no las predicciones.
+Si las columnas son linealmente dependientes, hay infinitas mejores soluciones aproximadas. A una de ellas se le puede sumar cualquier vector del núcleo de $\mathbf{A}$ sin cambiar $\mathbf{A}\hat{\mathbf{x}}$. El punto más cercano $\hat{\mathbf{y}}$ es, aun así, único, como muestra el teorema de la subsección anterior. Esto encaja con el [capítulo 1, sección 13.6](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-6): las características dependientes hacen ambiguos los pesos, pero no las predicciones.
 
 ::::beispiel [Ejemplo numérico 1]
 Las columnas de $\mathbf{H}$ son linealmente independientes, y $\mathbf{H}^{\top}\mathbf{H}=\bigl(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\bigr)$ tiene la inversa $\tfrac13\bigl(\begin{smallmatrix}2&-1\\-1&2\end{smallmatrix}\bigr)$. Con [(3.5)](#gl-3-5) es $\hat{\mathbf{x}}=\tfrac13\bigl(\begin{smallmatrix}2&-1\\-1&2\end{smallmatrix}\bigr)(2,\,2)^{\top}=(\tfrac23,\,\tfrac23)^{\top}$, como antes.
@@ -184,7 +185,7 @@ Para $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ y $\m
 
 Ahora la teoría está completa y puede aplicarse a un problema cotidiano. Tres puntos de medida $(t,\,y)=(0,\,1)$, $(1,\,2)$ y $(2,\,4)$ deben describirse mediante una recta $y=x_1+x_2\,t$. Los tres puntos no están sobre una misma recta. Se buscan la ordenada en el origen $x_1$ y la pendiente $x_2$ que mejor se ajusten.
 
-Cada punto de medida da una ecuación $x_1+x_2\,t_i=y_i$. Con la columna de unos para la ordenada en el origen, como en [Fundamentos 1, sección 8.5](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-5), esto es el sistema
+Cada punto de medida da una ecuación $x_1+x_2\,t_i=y_i$. Con la columna de unos para la ordenada en el origen, como en el [capítulo 1, sección 8.5](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-5), esto es el sistema
 
 $$\mathbf{A}\mathbf{x}=\mathbf{y}\qquad\text{con}\qquad \mathbf{A}=\begin{pmatrix}1&0\\1&1\\1&2\end{pmatrix},\qquad \mathbf{y}=\begin{pmatrix}1\\2\\4\end{pmatrix}.$$
 
@@ -210,11 +211,11 @@ Dos entradas de las ecuaciones normales de la recta de ajuste como sumas sobre l
 
 ⁠**En resumen:** Una recta de ajuste es la mejor solución aproximada del sistema que exige que todos los puntos de medida estén sobre la recta; con una columna de unos, sus residuos suman cero.
 
-:::hintergrund Un filtro que reproduce una señal lo mejor posible
-El mismo cálculo sirve para diseñar filtros digitales. Un filtro con los coeficientes $h_0,\dots,h_{K-1}$ debe reproducir lo mejor posible, a partir de una señal de entrada $x[n]$, una señal deseada $d[n]$, con la salida $\sum_kh_k\,x[n-k]$. Para cada instante $n$ esto es una ecuación para las $K$ incógnitas $h_k$; para muchos instantes, por tanto, un sistema sobredeterminado $\mathbf{X}\mathbf h=\mathbf d$. La fila $n$ de $\mathbf{X}$ contiene $x[n],x[n-1],\dots,x[n-K+1]$. En las ecuaciones normales $\mathbf{X}^{\top}\mathbf{X}\mathbf h=\mathbf{X}^{\top}\mathbf d$, la entrada $(k,l)$ de $\mathbf{X}^{\top}\mathbf{X}$ es la suma $\sum_nx[n-k]\,x[n-l]$, es decir, salvo efectos de borde al principio y al final de la señal, la autocorrelación de $x$ para el desplazamiento $l-k$. En $\mathbf{X}^{\top}\mathbf d$ está la correlación cruzada de $d$ y $x$. Son exactamente los productos escalares de señales desplazadas de [Fundamentos 1, sección 2.4](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-skalarprodukt.html#stufe-2-4). El residuo $d[n]-\sum_kh_k\,x[n-k]$ del mejor filtro es, según [(3.3)](#gl-3-3), perpendicular a cada señal de entrada desplazada: lo que el filtro no puede reproducir no tiene nada en común con ninguna de las señales a partir de las cuales compone la salida.
+:::hintergrund Reproducir una sucesión a partir de otra lo mejor posible
+El mismo cálculo construye reglas de predicción para sucesiones de números. Una piscina al aire libre quiere reproducir lo mejor posible la venta de helados $d[n]$ del día $n$ a partir del número $x[n]$ de sus visitantes el día $n$ y los días anteriores, con la regla $\sum_kh_k\,x[n-k]$ y los pesos $h_0,\dots,h_{K-1}$. Para cada día $n$ esto es una ecuación para las $K$ incógnitas $h_k$; para muchos días, por tanto, un sistema sobredeterminado $\mathbf{X}\mathbf h=\mathbf d$. La fila $n$ de $\mathbf{X}$ contiene $x[n],x[n-1],\dots,x[n-K+1]$. En las ecuaciones normales $\mathbf{X}^{\top}\mathbf{X}\mathbf h=\mathbf{X}^{\top}\mathbf d$, la entrada $(k,l)$ de $\mathbf{X}^{\top}\mathbf{X}$ es la suma $\sum_nx[n-k]\,x[n-l]$, es decir, salvo efectos de borde al principio y al final de la sucesión, la correlación cruzada de $x$ consigo misma para el desplazamiento $l-k$, la autocorrelación. En $\mathbf{X}^{\top}\mathbf d$ está la correlación cruzada de $d$ y $x$. Son exactamente los productos escalares de sucesiones desplazadas del [capítulo 1, sección 2.4](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-skalarprodukt.html#stufe-2-4). El residuo $d[n]-\sum_kh_k\,x[n-k]$ de la mejor regla es, según [(3.3)](#gl-3-3), perpendicular a cada sucesión de visitantes desplazada: lo que la regla no puede reproducir no tiene nada en común con ninguna de las sucesiones a partir de las cuales compone su predicción.
 :::
 
-### Las viviendas: lo que Fundamentos 1 dejó abierto
+### Las viviendas: lo que el capítulo 1 dejó abierto
 
 <span class="anker" id="stufe-3-7"></span>
 
@@ -231,7 +232,7 @@ La fig. [10](#abb-10) calcula dos de las entradas.
 Dos entradas de las ecuaciones normales de las viviendas como productos escalares: $\mathbf{a}_1=(60,40,90,70)^{\top}$ es la columna de superficies, $\mathbf{a}_2=(2,1,4,3)^{\top}$ la de habitaciones y $\mathbf{y}=(200,130,290,240)^{\top}$ el vector de precios.
 :::
 
-Las dos columnas son linealmente independientes; el determinante es $18\,200\cdot30-730^2=13\,100$. Con la inversa de [Fundamentos 1, sección 11.3](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/einheitsmatrix-und-inverse.html#stufe-11-3), se tiene
+Las dos columnas son linealmente independientes; el determinante es $18\,200\cdot30-730^2=13\,100$. Con la inversa del [capítulo 1, sección 11.3](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/einheitsmatrix-und-inverse.html#stufe-11-3), se tiene
 
 $$\hat{\mathbf{w}}=\frac1{13\,100}\begin{pmatrix}30&-730\\-730&18\,200\end{pmatrix}\begin{pmatrix}60\,100\\2\,410\end{pmatrix}=\frac1{13\,100}\begin{pmatrix}43\,700\\-11\,000\end{pmatrix}=\begin{pmatrix}437/131\\-110/131\end{pmatrix}\approx\begin{pmatrix}3{,}336\\-0{,}840\end{pmatrix}.$$
 
@@ -239,13 +240,13 @@ Los precios estimados son $\mathbf{A}\hat{\mathbf{w}}\approx(198{,}47;\ 132{,}60
 
 $$\mathbf{r}=\mathbf{y}-\mathbf{A}\hat{\mathbf{w}}=\frac{20}{131}\,(10,\,-17,\,-45,\,59)^{\top}\approx(1{,}53;\ -2{,}60;\ -6{,}87;\ 9{,}01)^{\top}$$
 
-con la longitud $\lVert\mathbf{r}\rVert\approx11{,}72$. Los pesos $(3,\,10)^{\top}$ de [Fundamentos 1](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html) acertaban tres precios exactamente, pero dejaban un residuo de longitud $20$. La mejor solución aproximada no acierta ningún precio exactamente, pero en conjunto se desvía claramente menos. Comprobación: $\mathbf{A}^{\top}\mathbf{r}=\frac{20}{131}(600-680-4050+4130,\ 20-17-180+177)^{\top}=\mathbf{0}$.
+con la longitud $\lVert\mathbf{r}\rVert\approx11{,}72$. Los pesos $(3,\,10)^{\top}$ del [capítulo 1](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html) acertaban tres precios exactamente, pero dejaban un residuo de longitud $20$. La mejor solución aproximada no acierta ningún precio exactamente, pero en conjunto se desvía claramente menos. Comprobación: $\mathbf{A}^{\top}\mathbf{r}=\frac{20}{131}(600-680-4050+4130,\ 20-17-180+177)^{\top}=\mathbf{0}$.
 ::::
 
 ⁠**En resumen:** La mejor solución aproximada para las viviendas son los pesos $\hat{\mathbf{w}}\approx(3{,}336;\ -0{,}840)^{\top}$; su residuo, de longitud $11{,}72$, es claramente más corto que cualquier residuo que acierte tres precios exactamente.
 
 :::hintergrund Por qué el peso de las habitaciones es negativo
-Un peso negativo para el número de habitaciones parece a primera vista erróneo: más habitaciones no deberían bajar el precio. Aun así, el cálculo es correcto, y la razón está en los datos. En estas cuatro viviendas, la superficie y el número de habitaciones crecen juntos: cuanto más grande es la vivienda, más habitaciones tiene. Por eso, las dos columnas de $\mathbf{A}$ apuntan casi en la misma dirección; según [Fundamentos 1, sección 5.2](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/winkel-und-ahnlichkeit.html#stufe-5-2), el coseno de su ángulo es $730/\sqrt{18\,200\cdot30}\approx0{,}988$, es decir, el ángulo es de solo unos $8{,}9^\circ$. La mejor combinación toma mucho de la columna de superficies y vuelve a restar un poco de la columna de habitaciones, para compensar las desviaciones de las viviendas respecto a la proporción común. A igual superficie, más habitaciones significan aquí habitaciones más pequeñas, y eso puede efectivamente bajar un precio; pero cuatro viviendas no bastan para mostrar si es así. Como en [Fundamentos 1, sección 13.6](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-6): cuando las características llevan casi la misma información, los pesos individuales dicen poco, y las predicciones, en cambio, mucho.
+Un peso negativo para el número de habitaciones parece a primera vista erróneo: más habitaciones no deberían bajar el precio. Aun así, el cálculo es correcto, y la razón está en los datos. En estas cuatro viviendas, la superficie y el número de habitaciones crecen juntos: cuanto más grande es la vivienda, más habitaciones tiene. Por eso, las dos columnas de $\mathbf{A}$ apuntan casi en la misma dirección; según el [capítulo 1, sección 5.2](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/winkel-und-ahnlichkeit.html#stufe-5-2), el coseno de su ángulo es $730/\sqrt{18\,200\cdot30}\approx0{,}988$, es decir, el ángulo es de solo unos $8{,}9^\circ$. La mejor combinación toma mucho de la columna de superficies y vuelve a restar un poco de la columna de habitaciones, para compensar las desviaciones de las viviendas respecto a la proporción común. A igual superficie, más habitaciones significan aquí habitaciones más pequeñas, y eso puede efectivamente bajar un precio; pero cuatro viviendas no bastan para mostrar si es así. Como en el [capítulo 1, sección 13.6](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-6): cuando las características llevan casi la misma información, los pesos individuales dicen poco, y las predicciones, en cambio, mucho.
 :::
 
 :::aufgabe Ejercicio 7 ★ Ecuaciones normales a mano

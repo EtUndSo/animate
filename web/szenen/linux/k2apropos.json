@@ -1,0 +1,440 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 15,
+  "nextAnimId": 20,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{\\$ apropos \"host name\"}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.17,
+     "position": [
+      0.0,
+      1.78,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Text",
+    "props": {
+     "text": "@db",
+     "position": [
+      0.0,
+      1.45,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o3",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.0,
+      0.22,
+      0
+     ],
+     "width": 4.95,
+     "height": 1.95,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#f6f6f4",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o4",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.0,
+      0.74,
+      0
+     ],
+     "width": 4.696000000000001,
+     "height": 0.24,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#00823c",
+     "fill_color": "#00823c",
+     "fill_opacity": 0.25,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o5",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.0,
+      -0.040000000000000036,
+      0
+     ],
+     "width": 4.696000000000001,
+     "height": 0.24,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#00823c",
+     "fill_color": "#00823c",
+     "fill_opacity": 0.25,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o6",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.0,
+      1.0,
+      0
+     ],
+     "width": 4.696000000000001,
+     "height": 0.24,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 0.35,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o7",
+    "type": "Text",
+    "props": {
+     "text": "free (1) - Display amount of free and used memory in the system",
+     "position": [
+      -2.2180000000000004,
+      1.0,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Text",
+    "props": {
+     "text": "hostname (1) - show or set the system's host name",
+     "position": [
+      -2.2180000000000004,
+      0.74,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o9",
+    "type": "Text",
+    "props": {
+     "text": "passwd (1) - change user password",
+     "position": [
+      -2.2180000000000004,
+      0.48,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o10",
+    "type": "Text",
+    "props": {
+     "text": "passwd (5) - the password file",
+     "position": [
+      -2.2180000000000004,
+      0.21999999999999997,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o11",
+    "type": "Text",
+    "props": {
+     "text": "rust-hostname (1) - Display or set the system's host name.",
+     "position": [
+      -2.2180000000000004,
+      -0.040000000000000036,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Text",
+    "props": {
+     "text": "uname (1) - Print certain system information.",
+     "position": [
+      -2.2180000000000004,
+      -0.30000000000000004,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o13",
+    "type": "Text",
+    "props": {
+     "text": "uname (2) - get name and information about current kernel",
+     "position": [
+      -2.2180000000000004,
+      -0.56,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o14",
+    "type": "Text",
+    "props": {
+     "text": "@treffer",
+     "position": [
+      0.0,
+      -1.0,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#00823c"
+    }
+   }
+  ],
+  "animations": [
+   {
+    "id": "a1",
+    "type": "FadeIn",
+    "target": "o1",
+    "run_time": 0.5,
+    "step": 0
+   },
+   {
+    "id": "a2",
+    "type": "GrowFromCenter",
+    "target": "o3",
+    "run_time": 0.7,
+    "step": 1
+   },
+   {
+    "id": "a3",
+    "type": "FadeIn",
+    "target": "o2",
+    "run_time": 0.7,
+    "step": 1
+   },
+   {
+    "id": "a4",
+    "type": "FadeIn",
+    "target": "o7",
+    "run_time": 0.7,
+    "step": 1
+   },
+   {
+    "id": "a5",
+    "type": "FadeIn",
+    "target": "o8",
+    "run_time": 0.7,
+    "step": 1
+   },
+   {
+    "id": "a6",
+    "type": "FadeIn",
+    "target": "o9",
+    "run_time": 0.7,
+    "step": 1
+   },
+   {
+    "id": "a7",
+    "type": "FadeIn",
+    "target": "o10",
+    "run_time": 0.7,
+    "step": 1
+   },
+   {
+    "id": "a8",
+    "type": "FadeIn",
+    "target": "o11",
+    "run_time": 0.7,
+    "step": 1
+   },
+   {
+    "id": "a9",
+    "type": "FadeIn",
+    "target": "o12",
+    "run_time": 0.7,
+    "step": 1
+   },
+   {
+    "id": "a10",
+    "type": "FadeIn",
+    "target": "o13",
+    "run_time": 0.7,
+    "step": 1
+   },
+   {
+    "id": "a11",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a12",
+    "type": "FadeIn",
+    "target": "o6",
+    "run_time": 0.3,
+    "step": 3
+   },
+   {
+    "id": "a13",
+    "type": "MoveTo",
+    "target": "o6",
+    "run_time": 0.35,
+    "step": 4,
+    "point": [
+     0.0,
+     0.74,
+     0
+    ]
+   },
+   {
+    "id": "a14",
+    "type": "FadeIn",
+    "target": "o4",
+    "run_time": 0.4,
+    "step": 5
+   },
+   {
+    "id": "a15",
+    "type": "MoveTo",
+    "target": "o6",
+    "run_time": 0.7,
+    "step": 6,
+    "point": [
+     0.0,
+     -0.04,
+     0
+    ]
+   },
+   {
+    "id": "a16",
+    "type": "FadeIn",
+    "target": "o5",
+    "run_time": 0.4,
+    "step": 7
+   },
+   {
+    "id": "a17",
+    "type": "MoveTo",
+    "target": "o6",
+    "run_time": 0.5,
+    "step": 8,
+    "point": [
+     0.0,
+     -0.56,
+     0
+    ]
+   },
+   {
+    "id": "a18",
+    "type": "FadeOut",
+    "target": "o6",
+    "run_time": 0.3,
+    "step": 9
+   },
+   {
+    "id": "a19",
+    "type": "FadeIn",
+    "target": "o14",
+    "run_time": 0.6,
+    "step": 10
+   }
+  ],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "db": {
+    "de": "Datenbank: Name, Abschnitt und NAME-Zeile jeder Handbuchseite",
+    "en": "database: name, section and NAME line of every manual page",
+    "es": "base de datos: nombre, sección y línea NAME de cada página",
+    "zh": "数据库：每个手册页的名称、节号和 NAME 行",
+    "fr": "base de données : nom, section et ligne NAME de chaque page",
+    "tr": "veritabanı: her kılavuz sayfasının adı, bölümü ve NAME satırı"
+   },
+   "treffer": {
+    "de": "2 Treffer, je mit Seite, Abschnitt und Kurzbeschreibung",
+    "en": "2 hits, each with page, section and short description",
+    "es": "2 resultados, cada uno con página, sección y descripción breve",
+    "zh": "2 个结果，各含页面、节号和简短说明",
+    "fr": "2 résultats, chacun avec page, section et brève description",
+    "tr": "2 sonuç, her biri sayfa, bölüm ve kısa açıklamayla"
+   }
+  }
+ }
+}

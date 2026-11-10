@@ -1,6 +1,8 @@
 ---
 title: 第 3 阶段：关于实轴的镜像
-pfad: 电气工程 / 第 1 学期 / 高等数学 1 / 复数
+pfad: 电气工程 / 第 1 学期 / HöMa1 – 高等数学 1 / 复数
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen
+knoten: 第 2 章：复数
 order: 1220400
 summary: 现在还不能除以 x+iy 。本阶段引入 z 的镜像，它通过乘法可使任何数变为实数，并汇总运算法则。
 tags: 

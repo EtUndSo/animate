@@ -1,6 +1,8 @@
 ---
 title: 第 4 阶段：从周期信号到非周期信号
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / 傅里叶级数与变换
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / 傅里叶级数与变换
+adresse: elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation
+knoten: 第 3 章：傅里叶级数与变换
 order: 3230500
 summary: 单个脉冲不是周期的，但可以把它看作周期无限长的周期信号。在此过程中，求和变成了积分。
 tags: 频谱密度
@@ -32,16 +34,16 @@ $$S(f)=\int_{-\infty}^{\infty}s(t)\,\mathrm{e}^{-\mathrm{j}2\pi ft}\,\mathrm{d} 
 简记：$s(t)\;\circ\!\!-\!\!\bullet\;S(f)$ 或 $S(f)=\mathcal{F}\{s(t)\}$。
 :::
 
-⁠**如何理解：**$S(f)$ 是__频谱密度__：单位频率区间上的权重。若 $s$ 是以 V 为单位的电压，则 $S$ 的单位为 V/Hz。逆变换由所有振荡合成信号，每个振荡的权重为 $S(f)\,\mathrm{d} f$。存在的一个充分条件是 $\int|s(t)|\mathrm{d} t<\infty$。傅里叶变换就是虚轴上的拉普拉斯变换，$S(f)=S_{\mathcal{L}}(\mathrm{j}2\pi f)$，前提是虚轴位于收敛域内（[第 2 部分](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html)）。
+⁠**如何理解：**$S(f)$ 是__频谱密度__：单位频率区间上的权重。若 $s$ 是以 V 为单位的电压，则 $S$ 的单位为 V/Hz。逆变换由所有振荡合成信号，每个振荡的权重为 $S(f)\,\mathrm{d} f$。存在的一个充分条件是 $\int|s(t)|\mathrm{d} t<\infty$。傅里叶变换就是虚轴上的拉普拉斯变换，$S(f)=S_{\mathcal{L}}(\mathrm{j}2\pi f)$，前提是虚轴位于收敛域内（[第 2 章](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html)）。
 
-⁠**卷积变成乘积。**与[第 2 部分](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html)一样：$s(t)*h(t)\;\circ\!\!-\!\!\bullet\;S(f)\,H(f)$。由 $s*\delta=s$ 得 $S(f)\cdot\mathcal{F}\{\delta\}=S(f)$，因此 $\delta(t)\;\circ\!\!-\!\!\bullet\;1$：狄拉克冲激以相同的权重包含所有频率。
+⁠**卷积变成乘积。**与[第 2 章](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html)一样：$s(t)*h(t)\;\circ\!\!-\!\!\bullet\;S(f)\,H(f)$。由 $s*\delta=s$ 得 $S(f)\cdot\mathcal{F}\{\delta\}=S(f)$，因此 $\delta(t)\;\circ\!\!-\!\!\bullet\;1$：狄拉克冲激以相同的权重包含所有频率。
 
 ::::beispiel 指数脉冲
 RC 电路的冲激响应 $h(t)=\frac1{RC}\varepsilon(t)\mathrm{e}^{-t/RC}$：
 
 $$H(f)=\frac1{RC}\int_0^\infty\mathrm{e}^{-(1/RC+\mathrm{j}2\pi f)t}\mathrm{d} t=\frac{1}{1+\mathrm{j}2\pi f\,RC}.$$
 
-这与交流分析（[第 1 部分](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html)）得到的频率响应相同。因此，冲激响应包含了关于频率特性的全部信息。
+这与交流分析（[第 1 章](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html)）得到的频率响应相同。因此，冲激响应包含了关于频率特性的全部信息。
 ::::
 
 :::frage $S_p(k)$ 与 $S(f)$ 除了一个是离散的之外，还有什么区别？

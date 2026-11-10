@@ -1,0 +1,1230 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 42,
+  "nextAnimId": 45,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.05,
+      1.25,
+      0
+     ],
+     "width": 2.1,
+     "height": 0.18999999999999995,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#efefef",
+     "fill_color": "#efefef",
+     "fill_opacity": 1.0,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o2",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.05,
+      1.03,
+      0
+     ],
+     "width": 2.1,
+     "height": 0.18999999999999995,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#efefef",
+     "fill_color": "#efefef",
+     "fill_opacity": 1.0,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o3",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.05,
+      0.81,
+      0
+     ],
+     "width": 2.1,
+     "height": 0.18999999999999995,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#efefef",
+     "fill_color": "#efefef",
+     "fill_opacity": 1.0,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o4",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.05,
+      0.59,
+      0
+     ],
+     "width": 2.1,
+     "height": 0.18999999999999995,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#efefef",
+     "fill_color": "#efefef",
+     "fill_opacity": 1.0,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o5",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.05,
+      0.37,
+      0
+     ],
+     "width": 2.1,
+     "height": 0.18999999999999995,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#efefef",
+     "fill_color": "#efefef",
+     "fill_opacity": 1.0,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o6",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.05,
+      0.1499999999999999,
+      0
+     ],
+     "width": 2.1,
+     "height": 0.19,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#efefef",
+     "fill_color": "#efefef",
+     "fill_opacity": 1.0,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o7",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.05,
+      -0.07000000000000006,
+      0
+     ],
+     "width": 2.1,
+     "height": 0.19,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#efefef",
+     "fill_color": "#efefef",
+     "fill_opacity": 1.0,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o8",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.05,
+      -0.29000000000000004,
+      0
+     ],
+     "width": 2.1,
+     "height": 0.18999999999999997,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#efefef",
+     "fill_color": "#efefef",
+     "fill_opacity": 1.0,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o9",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.05,
+      -0.51,
+      0
+     ],
+     "width": 2.1,
+     "height": 0.18999999999999995,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#efefef",
+     "fill_color": "#efefef",
+     "fill_opacity": 1.0,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o10",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.05,
+      -0.73,
+      0
+     ],
+     "width": 2.1,
+     "height": 0.18999999999999995,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#efefef",
+     "fill_color": "#efefef",
+     "fill_opacity": 1.0,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o11",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.05,
+      -0.9500000000000002,
+      0
+     ],
+     "width": 2.1,
+     "height": 0.18999999999999995,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#efefef",
+     "fill_color": "#efefef",
+     "fill_opacity": 1.0,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o12",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.05,
+      -1.17,
+      0
+     ],
+     "width": 2.1,
+     "height": 0.18999999999999995,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#efefef",
+     "fill_color": "#efefef",
+     "fill_opacity": 1.0,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o13",
+    "type": "Text",
+    "props": {
+     "text": "@z1",
+     "position": [
+      -1.98,
+      1.25,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o14",
+    "type": "Text",
+    "props": {
+     "text": "@z2",
+     "position": [
+      -1.98,
+      1.03,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o15",
+    "type": "Text",
+    "props": {
+     "text": "@z3",
+     "position": [
+      -1.98,
+      0.81,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o16",
+    "type": "Text",
+    "props": {
+     "text": "@z4",
+     "position": [
+      -1.98,
+      0.59,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o17",
+    "type": "Text",
+    "props": {
+     "text": "@z5",
+     "position": [
+      -1.98,
+      0.37,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o18",
+    "type": "Text",
+    "props": {
+     "text": "@z6",
+     "position": [
+      -1.98,
+      0.1499999999999999,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o19",
+    "type": "Text",
+    "props": {
+     "text": "@z7",
+     "position": [
+      -1.98,
+      -0.07000000000000006,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o20",
+    "type": "Text",
+    "props": {
+     "text": "@z8",
+     "position": [
+      -1.98,
+      -0.29000000000000004,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o21",
+    "type": "Text",
+    "props": {
+     "text": "@z9",
+     "position": [
+      -1.98,
+      -0.51,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o22",
+    "type": "Text",
+    "props": {
+     "text": "@z10",
+     "position": [
+      -1.98,
+      -0.73,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o23",
+    "type": "Text",
+    "props": {
+     "text": "@z11",
+     "position": [
+      -1.98,
+      -0.9500000000000002,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o24",
+    "type": "Text",
+    "props": {
+     "text": "@z12",
+     "position": [
+      -1.98,
+      -1.17,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o25",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.05,
+      1.25,
+      0
+     ],
+     "width": 2.1,
+     "height": 0.19,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 0.3,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o26",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.05,
+      1.03,
+      0
+     ],
+     "width": 2.1,
+     "height": 0.19,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 0.3,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o27",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.05,
+      0.81,
+      0
+     ],
+     "width": 2.1,
+     "height": 0.19,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 0.3,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o28",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.05,
+      -0.9500000000000002,
+      0
+     ],
+     "width": 2.1,
+     "height": 0.19,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#00823c",
+     "fill_color": "#00823c",
+     "fill_opacity": 0.3,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o29",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.05,
+      -1.17,
+      0
+     ],
+     "width": 2.1,
+     "height": 0.19,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#00823c",
+     "fill_color": "#00823c",
+     "fill_opacity": 0.3,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o30",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.05,
+      -0.07,
+      0
+     ],
+     "width": 2.12,
+     "height": 1.5199999999999998,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#ffffff",
+     "fill_color": "#ffffff",
+     "fill_opacity": 0.6,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o31",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.07,
+      1.345,
+      0
+     ],
+     "end": [
+      0.14,
+      1.345,
+      0
+     ],
+     "color": "#2a78d6",
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o32",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.14,
+      1.345,
+      0
+     ],
+     "end": [
+      0.14,
+      0.7150000000000001,
+      0
+     ],
+     "color": "#2a78d6",
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o33",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.14,
+      0.7150000000000001,
+      0
+     ],
+     "end": [
+      0.07,
+      0.7150000000000001,
+      0
+     ],
+     "color": "#2a78d6",
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o34",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{head -n 3}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.19,
+     "position": [
+      0.7489,
+      1.14,
+      0
+     ],
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o35",
+    "type": "Text",
+    "props": {
+     "text": "@erste3",
+     "position": [
+      0.3,
+      0.9,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o36",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.07,
+      -0.8550000000000002,
+      0
+     ],
+     "end": [
+      0.14,
+      -0.8550000000000002,
+      0
+     ],
+     "color": "#00823c",
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o37",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.14,
+      -0.8550000000000002,
+      0
+     ],
+     "end": [
+      0.14,
+      -1.265,
+      0
+     ],
+     "color": "#00823c",
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o38",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.14,
+      -1.265,
+      0
+     ],
+     "end": [
+      0.07,
+      -1.265,
+      0
+     ],
+     "color": "#00823c",
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o39",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{tail -n 2}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.19,
+     "position": [
+      0.7489,
+      -0.95,
+      0
+     ],
+     "color": "#00823c"
+    }
+   },
+   {
+    "id": "o40",
+    "type": "Text",
+    "props": {
+     "text": "@letzte2",
+     "position": [
+      0.3,
+      -1.19,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#00823c"
+    }
+   },
+   {
+    "id": "o41",
+    "type": "Text",
+    "props": {
+     "text": "@rest",
+     "position": [
+      0.3,
+      -0.07,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#7f7f7f"
+    }
+   }
+  ],
+  "animations": [
+   {
+    "id": "a1",
+    "type": "FadeIn",
+    "target": "o1",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a2",
+    "type": "FadeIn",
+    "target": "o2",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a3",
+    "type": "FadeIn",
+    "target": "o3",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a4",
+    "type": "FadeIn",
+    "target": "o4",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a5",
+    "type": "FadeIn",
+    "target": "o5",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a6",
+    "type": "FadeIn",
+    "target": "o6",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a7",
+    "type": "FadeIn",
+    "target": "o7",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a8",
+    "type": "FadeIn",
+    "target": "o8",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a9",
+    "type": "FadeIn",
+    "target": "o9",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a10",
+    "type": "FadeIn",
+    "target": "o10",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a11",
+    "type": "FadeIn",
+    "target": "o11",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a12",
+    "type": "FadeIn",
+    "target": "o12",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a13",
+    "type": "FadeIn",
+    "target": "o13",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a14",
+    "type": "FadeIn",
+    "target": "o14",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a15",
+    "type": "FadeIn",
+    "target": "o15",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a16",
+    "type": "FadeIn",
+    "target": "o16",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a17",
+    "type": "FadeIn",
+    "target": "o17",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a18",
+    "type": "FadeIn",
+    "target": "o18",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a19",
+    "type": "FadeIn",
+    "target": "o19",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a20",
+    "type": "FadeIn",
+    "target": "o20",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a21",
+    "type": "FadeIn",
+    "target": "o21",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a22",
+    "type": "FadeIn",
+    "target": "o22",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a23",
+    "type": "FadeIn",
+    "target": "o23",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a24",
+    "type": "FadeIn",
+    "target": "o24",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a25",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a26",
+    "type": "FadeIn",
+    "target": "o25",
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a27",
+    "type": "FadeIn",
+    "target": "o26",
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a28",
+    "type": "FadeIn",
+    "target": "o27",
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a29",
+    "type": "Create",
+    "target": "o31",
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a30",
+    "type": "Create",
+    "target": "o32",
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a31",
+    "type": "Create",
+    "target": "o33",
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a32",
+    "type": "FadeIn",
+    "target": "o34",
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a33",
+    "type": "FadeIn",
+    "target": "o35",
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a34",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 3
+   },
+   {
+    "id": "a35",
+    "type": "FadeIn",
+    "target": "o28",
+    "run_time": 0.6,
+    "step": 4
+   },
+   {
+    "id": "a36",
+    "type": "FadeIn",
+    "target": "o29",
+    "run_time": 0.6,
+    "step": 4
+   },
+   {
+    "id": "a37",
+    "type": "Create",
+    "target": "o36",
+    "run_time": 0.6,
+    "step": 4
+   },
+   {
+    "id": "a38",
+    "type": "Create",
+    "target": "o37",
+    "run_time": 0.6,
+    "step": 4
+   },
+   {
+    "id": "a39",
+    "type": "Create",
+    "target": "o38",
+    "run_time": 0.6,
+    "step": 4
+   },
+   {
+    "id": "a40",
+    "type": "FadeIn",
+    "target": "o39",
+    "run_time": 0.6,
+    "step": 4
+   },
+   {
+    "id": "a41",
+    "type": "FadeIn",
+    "target": "o40",
+    "run_time": 0.6,
+    "step": 4
+   },
+   {
+    "id": "a42",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 5
+   },
+   {
+    "id": "a43",
+    "type": "FadeIn",
+    "target": "o30",
+    "run_time": 0.7,
+    "step": 6
+   },
+   {
+    "id": "a44",
+    "type": "FadeIn",
+    "target": "o41",
+    "run_time": 0.7,
+    "step": 6
+   }
+  ],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "z1": {
+    "de": "Zeile 1",
+    "en": "line 1",
+    "es": "línea 1",
+    "zh": "第 1 行",
+    "fr": "ligne 1",
+    "tr": "1. satır"
+   },
+   "z2": {
+    "de": "Zeile 2",
+    "en": "line 2",
+    "es": "línea 2",
+    "zh": "第 2 行",
+    "fr": "ligne 2",
+    "tr": "2. satır"
+   },
+   "z3": {
+    "de": "Zeile 3",
+    "en": "line 3",
+    "es": "línea 3",
+    "zh": "第 3 行",
+    "fr": "ligne 3",
+    "tr": "3. satır"
+   },
+   "z4": {
+    "de": "Zeile 4",
+    "en": "line 4",
+    "es": "línea 4",
+    "zh": "第 4 行",
+    "fr": "ligne 4",
+    "tr": "4. satır"
+   },
+   "z5": {
+    "de": "Zeile 5",
+    "en": "line 5",
+    "es": "línea 5",
+    "zh": "第 5 行",
+    "fr": "ligne 5",
+    "tr": "5. satır"
+   },
+   "z6": {
+    "de": "Zeile 6",
+    "en": "line 6",
+    "es": "línea 6",
+    "zh": "第 6 行",
+    "fr": "ligne 6",
+    "tr": "6. satır"
+   },
+   "z7": {
+    "de": "Zeile 7",
+    "en": "line 7",
+    "es": "línea 7",
+    "zh": "第 7 行",
+    "fr": "ligne 7",
+    "tr": "7. satır"
+   },
+   "z8": {
+    "de": "Zeile 8",
+    "en": "line 8",
+    "es": "línea 8",
+    "zh": "第 8 行",
+    "fr": "ligne 8",
+    "tr": "8. satır"
+   },
+   "z9": {
+    "de": "Zeile 9",
+    "en": "line 9",
+    "es": "línea 9",
+    "zh": "第 9 行",
+    "fr": "ligne 9",
+    "tr": "9. satır"
+   },
+   "z10": {
+    "de": "Zeile 10",
+    "en": "line 10",
+    "es": "línea 10",
+    "zh": "第 10 行",
+    "fr": "ligne 10",
+    "tr": "10. satır"
+   },
+   "z11": {
+    "de": "Zeile 11",
+    "en": "line 11",
+    "es": "línea 11",
+    "zh": "第 11 行",
+    "fr": "ligne 11",
+    "tr": "11. satır"
+   },
+   "z12": {
+    "de": "Zeile 12",
+    "en": "line 12",
+    "es": "línea 12",
+    "zh": "第 12 行",
+    "fr": "ligne 12",
+    "tr": "12. satır"
+   },
+   "erste3": {
+    "de": "die ersten 3 Zeilen",
+    "en": "the first 3 lines",
+    "es": "las 3 primeras líneas",
+    "zh": "前 3 行",
+    "fr": "les 3 premières lignes",
+    "tr": "ilk 3 satır"
+   },
+   "letzte2": {
+    "de": "die letzten 2 Zeilen",
+    "en": "the last 2 lines",
+    "es": "las 2 últimas líneas",
+    "zh": "最后 2 行",
+    "fr": "les 2 dernières lignes",
+    "tr": "son 2 satır"
+   },
+   "rest": {
+    "de": "dazwischen: nicht ausgegeben",
+    "en": "in between: not printed",
+    "es": "en medio: no se muestran",
+    "zh": "中间：不输出",
+    "fr": "entre les deux : non affichées",
+    "tr": "aradakiler: yazdırılmaz"
+   }
+  }
+ }
+}

@@ -1,6 +1,8 @@
 ---
 title: Stufe 5: Echomethode und Pulsformfilter
-pfad: Elektrotechnik / 3. Semester / Signale und Systeme / Tiefpass- und Bandpasssysteme
+pfad: Elektrotechnik / 3. Semester / ET3 – Grundgebiete der Elektrotechnik 3: Signale und Systeme / Tiefpass- und Bandpasssysteme
+adresse: elektrotechnik/3-semester/signale-und-systeme/tiefpass-und-bandpasssysteme
+knoten: Kapitel 5: Tiefpass- und Bandpasssysteme
 order: 3250600
 summary: Wie entwirft man einen Tiefpass mit weniger Überschwingen?
 tags: Echo, Cosine-Rolloff-Filter
@@ -34,7 +36,7 @@ Das ist das __Cosine-Rolloff-Filter__. Sein Überschwingen ist 2,7 % statt 21,
 Impulsantworten des idealen Tiefpasses und des Pulsformfilters (beide mit der Fläche $T$). Das Pulsformfilter klingt viel schneller ab: Sein größtes Nebenmaximum ist 2,7 % des Hauptmaximums statt 21,7 %.
 :::
 
-**Transversalfilter.** Eine Summe verzögerter, gewichteter Kopien baut man mit einer Kette von Verzögerungsgliedern, deren Abgriffe gewichtet und addiert werden. Damit kein Glied in die Zukunft greifen muss, verzögert man alles gemeinsam. Das ist dieselbe Struktur wie ein FIR-Filter ([Teil 4](/wissen/elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme/abtastung-und-zeitdiskrete-systeme.html)).
+**Transversalfilter.** Eine Summe verzögerter, gewichteter Kopien baut man mit einer Kette von Verzögerungsgliedern, deren Abgriffe gewichtet und addiert werden. Damit kein Glied in die Zukunft greifen muss, verzögert man alles gemeinsam. Das ist dieselbe Struktur wie ein FIR-Filter ([Kapitel 4](/wissen/elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme/abtastung-und-zeitdiskrete-systeme.html)).
 
 :::aufgabe Aufgabe 5 ★★ Das Cosine-Rolloff-Filter
 <span class="anker" id="aufg-5"></span>
@@ -58,6 +60,6 @@ Welchen Wert hat $H$ bei $f=0$ und bei $f=f_\mathrm g=\frac{1}{2T}$? Warum ist d
 :::loesung
 (a) Bei $t=mT$ ist $\operatorname{si}(\pi(t\pm T)/T)$ nur für $m=\mp1$ gleich 1, sonst null. Also $h(0)=1$, $h(\pm T)=\frac12$, alle anderen $h(nT)=0$. Nach [(5.1)](#gl-5-1): $H=T\operatorname{rect}(Tf)\bigl[1+\frac12\mathrm{e}^{\mathrm{j}2\pi Tf}+\frac12\mathrm{e}^{-\mathrm{j}2\pi Tf}\bigr]=T\operatorname{rect}(Tf)\bigl[1+\cos(2\pi Tf)\bigr]$.
 
-(b) $H(0)=2T$, $H(\frac{1}{2T})=T(1+\cos\pi)=0$. Auch die Steigung $-2\pi T^2\sin(2\pi Tf)$ ist bei $f=\frac{1}{2T}$ null. Der Frequenzgang geht ohne Sprung und ohne Knick auf null. Je glatter das Spektrum, desto schneller klingt die Impulsantwort ab ([Teil 3](/wissen/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)).
+(b) $H(0)=2T$, $H(\frac{1}{2T})=T(1+\cos\pi)=0$. Auch die Steigung $-2\pi T^2\sin(2\pi Tf)$ ist bei $f=\frac{1}{2T}$ null. Der Frequenzgang geht ohne Sprung und ohne Knick auf null. Je glatter das Spektrum, desto schneller klingt die Impulsantwort ab ([Kapitel 3](/wissen/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)).
 :::
 :::

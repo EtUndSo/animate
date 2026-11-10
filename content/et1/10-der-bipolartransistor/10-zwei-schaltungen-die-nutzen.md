@@ -1,6 +1,8 @@
 ---
 title: Stufe 8: Zwei Schaltungen, die $U_\mathrm{BE}$ nutzen
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Der Bipolartransistor
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Der Bipolartransistor
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor
+knoten: Kapitel 10: Der Bipolartransistor
 order: 1201000
 summary: Bisher war U BE eine Störung.
 tags: Stromspiegel, Referenzstrom, Brumm
@@ -32,7 +34,7 @@ Mit $R_\mathrm{ref}=5{,}7$ k$\Omega$ ist $I_\mathrm{ref}=2$ mA und $I_\mathr
 
 ⁠**Grenzfall:** Für $B\to\infty$ ist $I_\mathrm{C2}=I_\mathrm{ref}$.
 
-**Die Idee: Spannungsregler.** Ein Gleichrichter mit Glättung ([Teil 9](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)) liefert eine Gleichspannung mit einer Restwelligkeit, dem __Brumm__. Im Regler (Abb. [9](#abb-9), rechts) hält eine Zener-Diode die Basis auf $U_\mathrm{Z}$. Der Emitter ist der Ausgang und liegt eine Diodenspannung tiefer. Sinkt die Ausgangsspannung, weil die Last mehr Strom zieht, wächst $U_\mathrm{BE}$, und der Transistor liefert mehr nach. Über $U_\mathrm{CE}$ fällt der Rest der Eingangsspannung ab. Der Laststrom fließt nicht durch $R_1$, die Basis braucht nur den $B$-ten Teil. Die Zener-Diode wird also kaum belastet.
+**Die Idee: Spannungsregler.** Ein Gleichrichter mit Glättung ([Kapitel 9](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)) liefert eine Gleichspannung mit einer Restwelligkeit, dem __Brumm__. Im Regler (Abb. [9](#abb-9), rechts) hält eine Zener-Diode die Basis auf $U_\mathrm{Z}$. Der Emitter ist der Ausgang und liegt eine Diodenspannung tiefer. Sinkt die Ausgangsspannung, weil die Last mehr Strom zieht, wächst $U_\mathrm{BE}$, und der Transistor liefert mehr nach. Über $U_\mathrm{CE}$ fällt der Rest der Eingangsspannung ab. Der Laststrom fließt nicht durch $R_1$, die Basis braucht nur den $B$-ten Teil. Die Zener-Diode wird also kaum belastet.
 
 :::satz Satz 8.2 (Spannungsregler mit Zener-Diode)
 <span class="anker" id="satz-8-2"></span>

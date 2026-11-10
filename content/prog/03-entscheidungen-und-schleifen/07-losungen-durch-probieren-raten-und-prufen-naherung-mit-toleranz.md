@@ -1,7 +1,8 @@
 ---
 title: Lösungen durch Probieren: Raten und Prüfen, Näherung mit Toleranz
 pfad: Informatik / Programmieren / Python / Entscheidungen und Schleifen
-knoten: Python 3: Entscheidungen und Schleifen
+adresse: informatik/programmieren/python/entscheidungen-und-schleifen
+knoten: Kapitel 3: Entscheidungen und Schleifen
 order: 6040700
 summary: Mit Bedingungen und Schleifen kann ein Programm Gleichungen lösen, für die es keine Lösungsformel kennt: Es probiert Kandidaten durch und prüft jeden.
 tags: Raten und Prüfen, erschöpfende Suche, Näherung, Schrittverfahren
@@ -140,7 +141,7 @@ Ohne die zweite Bedingung `g * g <= a` liefe die Schleife hier endlos weiter, im
 ⁠**Kurz gesagt:** Die Schrittweite muss kleiner sein als der Bereich, den die Toleranz zulässt, und deshalb wächst die Schrittzahl mit $a/\varepsilon$.
 
 :::hintergrund Warum eine Toleranz nötig ist, auch für die beste Gleitkommazahl
-Zwischen 1 und 2 liegen benachbarte `float` im Abstand $\varepsilon_{\mathrm M}=2^{-52}$ ([Programmieren, Python 2, Abschnitt 5.2](/wissen/informatik/programmieren/python/werte-typen-und-variablen/rechnen-mit-gleitkommazahlen.html#stufe-5-2)). $\sqrt2$ liegt zwischen zwei von ihnen, `1.414213562373095` und `1.4142135623730951`. Ihre Quadrate sind, gerundet auf den nächsten `float`, `1.9999999999999996` und `2.0000000000000004`; keiner der beiden Werte ist 2. Für jeden anderen `float` liegt das Quadrat noch weiter weg. Die Gleichung $g^2=2$ hat unter den `float` also keine Lösung, und die kleinste erreichbare Abweichung ist $4{,}44\cdot10^{-16}$. Jede Schleife, die eine Wurzel sucht, braucht deshalb eine Toleranz, und diese muss größer sein als die Abweichung, die mit `float` überhaupt erreichbar ist.
+Zwischen 1 und 2 liegen benachbarte `float` im Abstand $\varepsilon_{\mathrm M}=2^{-52}$ ([Kapitel 2, Abschnitt 5.2](/wissen/informatik/programmieren/python/werte-typen-und-variablen/rechnen-mit-gleitkommazahlen.html#stufe-5-2)). $\sqrt2$ liegt zwischen zwei von ihnen, `1.414213562373095` und `1.4142135623730951`. Ihre Quadrate sind, gerundet auf den nächsten `float`, `1.9999999999999996` und `2.0000000000000004`; keiner der beiden Werte ist 2. Für jeden anderen `float` liegt das Quadrat noch weiter weg. Die Gleichung $g^2=2$ hat unter den `float` also keine Lösung, und die kleinste erreichbare Abweichung ist $4{,}44\cdot10^{-16}$. Jede Schleife, die eine Wurzel sucht, braucht deshalb eine Toleranz, und diese muss größer sein als die Abweichung, die mit `float` überhaupt erreichbar ist.
 :::
 
 ### Aufgaben zu Abschnitt [6](#stufe-6)

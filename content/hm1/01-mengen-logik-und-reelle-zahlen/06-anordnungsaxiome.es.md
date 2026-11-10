@@ -1,6 +1,8 @@
 ---
 title: Etapa 4: Axiomas de orden
-pfad: Ingeniería eléctrica / 1.er semestre / Matemáticas superiores 1 / Conjuntos, lógica y números reales
+pfad: Ingeniería eléctrica / 1.er semestre / HöMa1 – Matemáticas superiores 1 / Conjuntos, lógica y números reales
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen
+knoten: Capítulo 1: Conjuntos, lógica y números reales
 order: 1210600
 summary: Los axiomas de cuerpo no dicen nada sobre «mayor».
 tags: totalmente ordenado, Tricotomía
@@ -65,7 +67,7 @@ En un cuerpo totalmente ordenado se cumple para todos $x,y,z,u,v$:
 | (e) Elevar al cuadrado | para $x\ge0$, $y\ge0$: $x^2\ge y^2\Leftrightarrow x\ge y$ |
 :::
 
-⁠**Cómo leerlo:** Una desigualdad admite cualquier suma, pero solo la multiplicación por números positivos. Para $z<0$ se invierte: $x<y\wedge z<0\Rightarrow xz>yz$. Para $z=0$, (O4) se convierte en $0<0$, falso. Si en un cuerpo ordenado existiera un $i$ con $i\cdot i=-1$, por (d) sería $-1>0$ y $1>0$, y por (T2) $0>0$. Por eso los números complejos de la [Parte 2](/wissen/es/elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen/komplexe-zahlen.html) no se pueden ordenar. En lugar de (T1) a (T3) se podrían tomar, de forma equivalente, (O1) a (O4) como axiomas.
+⁠**Cómo leerlo:** Una desigualdad admite cualquier suma, pero solo la multiplicación por números positivos. Para $z<0$ se invierte: $x<y\wedge z<0\Rightarrow xz>yz$. Para $z=0$, (O4) se convierte en $0<0$, falso. Si en un cuerpo ordenado existiera un $i$ con $i\cdot i=-1$, por (d) sería $-1>0$ y $1>0$, y por (T2) $0>0$. Por eso los números complejos del [capítulo 2](/wissen/es/elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen/komplexe-zahlen.html) no se pueden ordenar. En lugar de (T1) a (T3) se podrían tomar, de forma equivalente, (O1) a (O4) como axiomas.
 
 :::frage ¿Puedo elevar al cuadrado una desigualdad?
 Solo si ambos lados no son negativos; eso es (e). Sin esta condición: $-3<2$, pero $9>4$. Elevar al cuadrado refleja la parte negativa de la recta en la positiva, como por $-1$ en la fig. [4](#abb-4).

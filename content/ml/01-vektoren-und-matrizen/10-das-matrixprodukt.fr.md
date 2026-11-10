@@ -1,7 +1,8 @@
 ---
 title: Le produit matriciel
 pfad: Informatique / Apprentissage automatique / Fondements mathématiques / Vecteurs et matrices
-knoten: Fondements 1 : Vecteurs et matrices
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Chapitre 1 : Vecteurs et matrices
 nachschlagen: ja
 order: 15211000
 summary: Deux applications linéaires effectuées l’une après l’autre donnent de nouveau une application linéaire, donc une matrice.
@@ -165,7 +166,7 @@ Si l’on enchaîne plusieurs étages de calcul linéaires, on n’obtient pas d
 Si $f(\mathbf{x})=\mathbf{B}\mathbf{x}$ et $g(\mathbf{u})=\mathbf{A}\mathbf{u}$ sont linéaires, la composition $\mathbf{x}\mapsto g(f(\mathbf{x}))$ est de nouveau linéaire, et ce avec l’unique matrice $\mathbf{A}\mathbf{B}$. Il en va de même pour toute chaîne finie d’étages linéaires.
 :::
 
-Quel que soit le nombre d’étages linéaires que l’on enchaîne, le résultat peut toujours se calculer en une seule étape avec une seule matrice. Ce que peut faire une chaîne d’étages linéaires, une seule matrice le peut donc déjà. En théorie des signaux et des systèmes, on connaît la même chose : deux systèmes linéaires en cascade forment ensemble de nouveau un système linéaire.
+Quel que soit le nombre d’étages linéaires que l’on enchaîne, le résultat peut toujours se calculer en une seule étape avec une seule matrice. Ce que peut faire une chaîne d’étages linéaires, une seule matrice le peut donc déjà. À petite échelle, on le connaît des achats : si l’on convertit d’abord un prix d’euros en dollars, puis qu’on retire une remise de $10$ %, l’ensemble revient à un seul facteur de conversion.
 
 ::::beispiel [Exemple de calcul]
 Un premier étage transforme trois nombres en deux, $\mathbf{B}=\bigl(\begin{smallmatrix}1&2&0\\0&1&-1\end{smallmatrix}\bigr)$, un second transforme deux nombres de nouveau en trois, $\mathbf{A}=\Bigl(\begin{smallmatrix}2&1\\1&-1\\0&3\end{smallmatrix}\Bigr)$. Ensemble, cela donne l’unique matrice

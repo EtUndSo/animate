@@ -1,6 +1,8 @@
 ---
 title: Stufe 12: Zeitdiskrete Zufallssignale
-pfad: Elektrotechnik / 3. Semester / Signale und Systeme / Zufallssignale
+pfad: Elektrotechnik / 3. Semester / ET3 – Grundgebiete der Elektrotechnik 3: Signale und Systeme / Zufallssignale
+adresse: elektrotechnik/3-semester/signale-und-systeme/zufallssignale
+knoten: Kapitel 7: Zufallssignale
 order: 3271300
 summary: Alles gilt auch für Folgen von Zufallszahlen, mit Summen statt Integralen.
 tags: Zeitdiskretes weißes Rauschen
@@ -29,7 +31,7 @@ Die Varianz halbiert sich auf $\frac{1}{24}$, und benachbarte Ausgangswerte sind
 ::::
 
 ::::beispiel [Beispiel 2] Rekursives Filter (AR(1)-Prozess)
-Weißes Rauschen der Varianz $\sigma_s^2$ durch $h(n)=b^n\varepsilon(n)$ ([Teil 4](/wissen/elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme/abtastung-und-zeitdiskrete-systeme.html)). Mit $\varphi^E_{hh}(m)=\sum_kb^kb^{k+|m|}=\frac{b^{|m|}}{1-b^2}$:
+Weißes Rauschen der Varianz $\sigma_s^2$ durch $h(n)=b^n\varepsilon(n)$ ([Kapitel 4](/wissen/elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme/abtastung-und-zeitdiskrete-systeme.html)). Mit $\varphi^E_{hh}(m)=\sum_kb^kb^{k+|m|}=\frac{b^{|m|}}{1-b^2}$:
 
 <span class="anker" id="gl-12-2"></span>
 $$\varphi_{gg}(m)=\frac{\sigma_s^2}{1-b^2}\,b^{|m|},\qquad\Phi_{gg,\mathrm a}(f)=\frac{\sigma_s^2}{1-2b\cos(2\pi f)+b^2}. \tag{12.2}$$

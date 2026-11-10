@@ -1,6 +1,8 @@
 ---
 title: Stufe 6: Injektion und Minoritätsträger
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Der p-n-Übergang
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Der p-n-Übergang
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/der-p-n-ubergang
+knoten: Kapitel 14: Der p-n-Übergang
 order: 4240800
 summary: Die Barriere ist gesunken.
 tags: Shockley-Näherung, Gesetz des Übergangs
@@ -13,7 +15,7 @@ lang: de
 Die Barriere ist gesunken. Diese Stufe bestimmt, wie viele Träger dadurch am Rand der Zone ankommen und wie sie sich im Neutralgebiet dahinter verteilen.
 :::
 
-**Die Idee.** Elektronen, die bei Durchlass über die Barriere kommen, landen am linken Rand der Zone im p-Gebiet. Dort sind sie Minoritätsträger: Sie wurden injiziert ([Teil 13](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/diffusion-rekombination-und-grundgleichungen/diffusion-rekombination-grundgleichungen.html)). Am rechten Rand kommen ebenso Löcher im n-Gebiet an. Ein Feld gibt es dort kaum, die Träger diffundieren und rekombinieren mit den Majoritäten. So klingt ihr Überschuss auf einer Diffusionslänge ab. Alles hängt an den Dichten am Zonenrand. Die __Shockley-Näherung__ macht das rechenbar:
+**Die Idee.** Elektronen, die bei Durchlass über die Barriere kommen, landen am linken Rand der Zone im p-Gebiet. Dort sind sie Minoritätsträger: Sie wurden injiziert ([Kapitel 13](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/diffusion-rekombination-und-grundgleichungen/diffusion-rekombination-grundgleichungen.html)). Am rechten Rand kommen ebenso Löcher im n-Gebiet an. Ein Feld gibt es dort kaum, die Träger diffundieren und rekombinieren mit den Majoritäten. So klingt ihr Überschuss auf einer Diffusionslänge ab. Alles hängt an den Dichten am Zonenrand. Die __Shockley-Näherung__ macht das rechenbar:
 
 | Annahme | Bedeutung | Im Rechenmodell |
 |---|---|---|
@@ -42,7 +44,7 @@ $$\Delta n_\mathrm p(x)=n_\mathrm{p0}\bigl(\mathrm{e}^{eU_\mathrm{pn}/(k_\mathrm
 $$\Delta p_\mathrm n(x)=p_\mathrm{n0}\bigl(\mathrm{e}^{eU_\mathrm{pn}/(k_\mathrm BT)}-1\bigr)\mathrm{e}^{-(x-L_\mathrm{depl}^\mathrm D)/L_\text{diff,p}},\quad x\ge L_\mathrm{depl}^\mathrm D. \tag{6.3}$$
 :::
 
-⁠**So liest man das:** $n_\mathrm p(x)$ und $p_\mathrm n(x)$ sind die Minoritätsdichten ([Teil 13](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/diffusion-rekombination-und-grundgleichungen/diffusion-rekombination-grundgleichungen.html)). Je $k_\mathrm BT/e=25{,}85$ mV wächst die Randdichte um den Faktor 2,718. **Gültigkeit:** die Annahmen der Tabelle.
+⁠**So liest man das:** $n_\mathrm p(x)$ und $p_\mathrm n(x)$ sind die Minoritätsdichten ([Kapitel 13](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/diffusion-rekombination-und-grundgleichungen/diffusion-rekombination-grundgleichungen.html)). Je $k_\mathrm BT/e=25{,}85$ mV wächst die Randdichte um den Faktor 2,718. **Gültigkeit:** die Annahmen der Tabelle.
 
 :::herleitung Gesetz des Übergangs
 <ol>
@@ -70,7 +72,7 @@ $$n_\mathrm p=N_\mathrm C\mathrm{e}^{-(E_\mathrm C-E_\mathrm{Fp})/(k_\mathrm BT)
 
 <li>
 
-Im feldfreien Neutralgebiet gilt die Diffusionsgleichung aus [Teil 13](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/diffusion-rekombination-und-grundgleichungen/diffusion-rekombination-grundgleichungen.html), $D_\mathrm n\,\mathrm{d}^2\Delta n_\mathrm p/\mathrm{d} x^2=\Delta n_\mathrm p/\tau_{\text{rec},\mathrm n}$. Die Lösung, die für $x\to-\infty$ verschwindet, ist [(6.2)](#gl-6-2) mit dem Randwert. Für Löcher gilt dasselbe gespiegelt.
+Im feldfreien Neutralgebiet gilt die Diffusionsgleichung aus [Kapitel 13](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/diffusion-rekombination-und-grundgleichungen/diffusion-rekombination-grundgleichungen.html), $D_\mathrm n\,\mathrm{d}^2\Delta n_\mathrm p/\mathrm{d} x^2=\Delta n_\mathrm p/\tau_{\text{rec},\mathrm n}$. Die Lösung, die für $x\to-\infty$ verschwindet, ist [(6.2)](#gl-6-2) mit dem Randwert. Für Löcher gilt dasselbe gespiegelt.
 
 </li>
 

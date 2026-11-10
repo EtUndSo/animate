@@ -1,7 +1,8 @@
 ---
 title: Wichtige Verteilungen
 pfad: Informatik / Machine Learning / Mathematische Grundlagen / Wahrscheinlichkeit
-knoten: Grundlagen 4: Wahrscheinlichkeit
+adresse: informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit
+knoten: Kapitel 4: Wahrscheinlichkeit
 nachschlagen: ja
 order: 15240900
 summary: Einige Verteilungen kommen so oft vor, dass sie Namen haben.
@@ -60,7 +61,7 @@ Hat ein Experiment mehr als zwei Ausgänge ohne natürliche Reihenfolge, etwa di
 Eine Zufallsvariable mit den Werten $1,\dots,K$ und $P(\text{Kategorie }k)=\theta_k$, wobei $\theta_k\ge0$ und $\sum_{k=1}^K\theta_k=1$, heißt __kategorisch verteilt__ mit dem Parametervektor $\boldsymbol{\theta}=(\theta_1,\dots,\theta_K)^{\top}$.
 :::
 
-Rechnen lässt sich besser mit einer Darstellung als Vektor. Die __One-Hot-Kodierung__ schreibt die Kategorie $k$ als Einheitsvektor $\mathbf{e}_k\in\mathbb{R}^K$ aus [Grundlagen 1, Abschnitt 1.6](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-daten-als-zahlenlisten.html#stufe-1-6): eine $1$ an der Stelle $k$, sonst Nullen. Ist $\mathbf{y}$ die so kodierte Kategorie, so ist $P(\mathbf{y})=\prod_{k=1}^K\theta_k^{y_k}$, denn im Produkt bleibt nur der Faktor mit $y_k=1$ übrig. Jede Komponente $y_k$ ist eine Indikatorvariable der Kategorie $k$ und hat den Erwartungswert $\theta_k$. Die Bernoulli-Verteilung ist der Fall $K=2$.
+Rechnen lässt sich besser mit einer Darstellung als Vektor. Die __One-Hot-Kodierung__ schreibt die Kategorie $k$ als Einheitsvektor $\mathbf{e}_k\in\mathbb{R}^K$ aus [Kapitel 1, Abschnitt 1.6](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-daten-als-zahlenlisten.html#stufe-1-6): eine $1$ an der Stelle $k$, sonst Nullen. Ist $\mathbf{y}$ die so kodierte Kategorie, so ist $P(\mathbf{y})=\prod_{k=1}^K\theta_k^{y_k}$, denn im Produkt bleibt nur der Faktor mit $y_k=1$ übrig. Jede Komponente $y_k$ ist eine Indikatorvariable der Kategorie $k$ und hat den Erwartungswert $\theta_k$. Die Bernoulli-Verteilung ist der Fall $K=2$.
 
 :::warnung Kategorien haben keinen Erwartungswert
 Nummeriert man die Farben Rot, Grün und Blau mit $1$, $2$ und $3$, so ist der „Erwartungswert“ der Nummer eine Zahl ohne Bedeutung: Eine andere Nummerierung ergäbe eine andere Zahl, und die Farbe „$1{,}7$“ gibt es nicht. Erwartungswerte und Varianzen bildet man nur für Zahlen, die wirklich Größen messen. Für Kategorien rechnet man mit den Wahrscheinlichkeiten $\theta_k$ oder mit der One-Hot-Kodierung.
@@ -139,8 +140,8 @@ Der Erwartungswert ist die Mitte, weil die Dichte symmetrisch um sie ist. Für d
 $$\operatorname{Var}(X)=\mathbb{E}[Y^2]=\int_{-h}^hy^2\,\frac1{2h}\,\mathrm{d} y=\frac1{2h}\cdot\frac{2h^3}3=\frac{h^2}3=\frac{(b-a)^2}{12} .$$
 :::
 
-::::beispiel [Rechenbeispiel] Quantisierungsrauschen
-Ein Analog-Digital-Umsetzer rundet jede Spannung auf das nächste Vielfache einer Stufe $\Delta$. Der Rundungsfehler liegt zwischen $-\Delta/2$ und $\Delta/2$. Ändert sich das Signal über viele Stufen, so ist kein Fehlerwert bevorzugt, und man beschreibt ihn als gleichverteilt auf $[-\Delta/2,\,\Delta/2]$. Er hat dann den Erwartungswert $0$ und die Varianz $\Delta^2/12$, die Leistung des Quantisierungsrauschens. Bei $\Delta=1\,\mathrm{mV}$ ist seine Standardabweichung $1\,\mathrm{mV}/\sqrt{12}\approx0{,}289\,\mathrm{mV}$.
+::::beispiel [Rechenbeispiel] der Rundungsfehler einer Anzeige
+Eine Küchenwaage zeigt nur ganze Vielfache einer Stufe $\Delta$ an und rundet jedes Gewicht auf das nächste. Der Rundungsfehler liegt zwischen $-\Delta/2$ und $\Delta/2$. Verteilen sich die gewogenen Gewichte über viele Stufen, so ist kein Fehlerwert bevorzugt, und man beschreibt ihn als gleichverteilt auf $[-\Delta/2,\,\Delta/2]$. Er hat dann den Erwartungswert $0$ und die Varianz $\Delta^2/12$. Bei $\Delta=1\,\mathrm g$ ist seine Standardabweichung $1\,\mathrm g/\sqrt{12}\approx0{,}289\,\mathrm g$.
 ::::
 
 ⁠**Kurz gesagt:** Die Gleichverteilung auf $[a,\,b]$ hat die konstante Dichte $1/(b-a)$, den Erwartungswert in der Mitte und die Varianz $(b-a)^2/12$.
@@ -149,7 +150,7 @@ Ein Analog-Digital-Umsetzer rundet jede Spannung auf das nächste Vielfache eine
 
 <span class="anker" id="stufe-8-5"></span>
 
-Misst man dieselbe Größe oft, so häufen sich die Messwerte um einen mittleren Wert, werden nach beiden Seiten gleichmäßig seltener, und sehr große Abweichungen kommen praktisch nicht vor. Teilt man die Zahlengerade in gleich breite Intervalle und zeichnet über jedem einen Balken, so hoch wie die Zahl der Messwerte darin, so entsteht ein __Histogramm__, und es sieht aus wie eine Glocke. Dieselbe Glockenform zeigen das Rauschen eines Widerstands, die Streuung von Bauteilwerten in einer Fertigung und Mittelwerte vieler Messungen. Abschnitt [13](mittelwerte-vieler-zufallsvariablen.html#stufe-13) erklärt, warum. Die Glocke hat eine feste mathematische Form.
+Misst man dieselbe Größe oft, so häufen sich die Messwerte um einen mittleren Wert, werden nach beiden Seiten gleichmäßig seltener, und sehr große Abweichungen kommen praktisch nicht vor. Teilt man die Zahlengerade in gleich breite Intervalle und zeichnet über jedem einen Balken, so hoch wie die Zahl der Messwerte darin, so entsteht ein __Histogramm__, und es sieht aus wie eine Glocke. Dieselbe Glockenform zeigen die Körpergrößen vieler Erwachsener, die Gewichte abgepackter Mehltüten aus einer Fertigung und Mittelwerte vieler Messungen. Abschnitt [13](mittelwerte-vieler-zufallsvariablen.html#stufe-13) erklärt, warum. Die Glocke hat eine feste mathematische Form.
 
 :::definition Definition 8.7 (Normalverteilung)
 <span class="anker" id="satz-8-7"></span>
@@ -184,7 +185,7 @@ Es genügt, $I=\int_{-\infty}^\infty\mathrm{e}^{-x^2/2}\,\mathrm{d} x=\sqrt{2\pi
 
 $$I^2=\int_{-\infty}^\infty\mathrm{e}^{-x^2/2}\,\mathrm{d} x\int_{-\infty}^\infty\mathrm{e}^{-y^2/2}\,\mathrm{d} y=\iint_{\mathbb{R}^2}\mathrm{e}^{-(x^2+y^2)/2}\,\mathrm{d} x\,\mathrm{d} y .$$
 
-Der Integrand hängt nur vom Abstand $r=\sqrt{x^2+y^2}$ zum Nullpunkt ab. In Polarkoordinaten wird das Flächenstück $\mathrm{d} x\,\mathrm{d} y$ zu $r\,\mathrm{d} r\,\mathrm{d}\varphi$, mit dem Flächenfaktor $r$ aus dem Hintergrund-Kasten in [Grundlagen 3, Abschnitt 5.4](/wissen/informatik/machine-learning/mathematische-grundlagen/ableitung-gradient-und-kettenregel/die-jacobi-matrix.html#stufe-5-4). Damit ist
+Der Integrand hängt nur vom Abstand $r=\sqrt{x^2+y^2}$ zum Nullpunkt ab. In Polarkoordinaten wird das Flächenstück $\mathrm{d} x\,\mathrm{d} y$ zu $r\,\mathrm{d} r\,\mathrm{d}\varphi$, mit dem Flächenfaktor $r$ aus dem Hintergrund-Kasten in [Kapitel 3, Abschnitt 5.4](/wissen/informatik/machine-learning/mathematische-grundlagen/ableitung-gradient-und-kettenregel/die-jacobi-matrix.html#stufe-5-4). Damit ist
 
 $$I^2=\int_0^{2\pi}\!\!\int_0^\infty\mathrm{e}^{-r^2/2}\,r\,\mathrm{d} r\,\mathrm{d}\varphi=2\pi\Bigl[-\mathrm{e}^{-r^2/2}\Bigr]_0^\infty=2\pi ,$$
 
@@ -192,7 +193,7 @@ denn der Faktor $r$ macht den Integranden zur Ableitung von $-\mathrm{e}^{-r^2/2
 :::
 
 ::::beispiel [Rechenbeispiel]
-Widerstände einer Fertigung mit dem Sollwert $100\,\Omega$ seien normalverteilt mit $\mu=100\,\Omega$ und $\sigma=1\,\Omega$. Dann liegen $95{,}4\,\%$ zwischen $98$ und $102\,\Omega$ und $99{,}7\,\%$ zwischen $97$ und $103\,\Omega$. Die Dichte hat bei $100\,\Omega$ den Wert $1/\sqrt{2\pi}\approx0{,}399$ pro Ohm. Nach [(6.3)](zufallsvariablen-und-verteilungen.html#gl-6-3) liegen also etwa $0{,}399\cdot0{,}1\approx4\,\%$ der Widerstände zwischen $99{,}95$ und $100{,}05\,\Omega$.
+Die Gewichte von Schokoladentafeln mit dem Sollgewicht $100\,\mathrm g$ seien normalverteilt mit $\mu=100\,\mathrm g$ und $\sigma=1\,\mathrm g$. Dann liegen $95{,}4\,\%$ zwischen $98$ und $102\,\mathrm g$ und $99{,}7\,\%$ zwischen $97$ und $103\,\mathrm g$. Die Dichte hat bei $100\,\mathrm g$ den Wert $1/\sqrt{2\pi}\approx0{,}399$ pro Gramm. Nach [(6.3)](zufallsvariablen-und-verteilungen.html#gl-6-3) liegen also etwa $0{,}399\cdot0{,}1\approx4\,\%$ der Tafeln zwischen $99{,}95$ und $100{,}05\,\mathrm g$.
 ::::
 
 ⁠**Kurz gesagt:** Die Normalverteilung $\mathcal N(\mu,\sigma^2)$ ist die symmetrische Glocke um $\mu$ mit der Standardabweichung $\sigma$; innerhalb von $\pm\sigma$, $\pm2\sigma$, $\pm3\sigma$ liegen $68{,}3$, $95{,}4$ und $99{,}7\,\%$.
@@ -228,7 +229,7 @@ Nach Unterabschnitt [7.6](erwartungswert-und-varianz.html#stufe-7-6) hat $Z$ de
 Insbesondere liegen $95\,\%$ einer Normalverteilung zwischen $\mu-1{,}96\,\sigma$ und $\mu+1{,}96\,\sigma$.
 
 ::::beispiel [Rechenbeispiel]
-Für die Widerstände mit $\mu=100\,\Omega$ und $\sigma=1\,\Omega$ und den Widerstandswert $X$ ist $P(X>102\,\Omega)=1-\Phi(2)\approx0{,}0228$ und $P(X\le101\,\Omega)=\Phi(1)\approx0{,}841$. Toleriert man $\pm2{,}5\,\Omega$, so liegen $2\Phi(2{,}5)-1\approx0{,}988$ der Widerstände im Toleranzband.
+Für die Schokoladentafeln mit $\mu=100\,\mathrm g$ und $\sigma=1\,\mathrm g$ und das Gewicht $X$ ist $P(X>102\,\mathrm g)=1-\Phi(2)\approx0{,}0228$ und $P(X\le101\,\mathrm g)=\Phi(1)\approx0{,}841$. Toleriert man $\pm2{,}5\,\mathrm g$, so liegen $2\Phi(2{,}5)-1\approx0{,}988$ der Tafeln im Toleranzband.
 ::::
 
 ⁠**Kurz gesagt:** Jede Normalverteilung wird durch $Z=(X-\mu)/\sigma$ zur Standardnormalverteilung; deshalb genügt die eine Funktion $\Phi$ für alle Wahrscheinlichkeiten.
@@ -238,14 +239,14 @@ Der Beweis oben ist ein Fall einer allgemeinen Regel. Ist $Y=g(X)$ mit einer str
 
 $$p_Y(y)=p_X(x)\,\Bigl|\frac{\mathrm{d} x}{\mathrm{d} y}\Bigr|,\qquad x=g^{-1}(y).$$
 
-Der Betrag steht da, weil eine fallende Funktion die Intervalle umdreht. Die Dichte wird nicht einfach mitgenommen: Wo $g$ Intervalle staucht, steigt die Dichte, wo $g$ sie streckt, sinkt sie. Ein häufiger Fehler ist, den Faktor zu vergessen. Für $X\sim\mathcal U(0,1)$ und $Y=X/2$ ergäbe $p_Y(y)=p_X(2y)=1$ auf $[0,\,\tfrac12]$ eine Gesamtfläche von nur $\tfrac12$; richtig ist $p_Y=2$. Für Zufallsvektoren tritt an die Stelle von $|\mathrm{d} x/\mathrm{d} y|$ der Betrag der Determinante der Jacobi-Matrix der Umkehrabbildung, der Flächen- oder Volumenfaktor aus [Grundlagen 3, Abschnitt 5.4](/wissen/informatik/machine-learning/mathematische-grundlagen/ableitung-gradient-und-kettenregel/die-jacobi-matrix.html#stufe-5-4). Eine Anwendung erzeugt Zufallszahlen: Ist $U\sim\mathcal U(0,1)$ und $F$ eine stetige, streng steigende Verteilungsfunktion, so hat $X=F^{-1}(U)$ die Verteilungsfunktion $F$, denn $P(X\le x)=P(U\le F(x))=F(x)$. So machen Rechner aus gleichverteilten Zufallszahlen Zufallszahlen beliebiger Verteilung.
+Der Betrag steht da, weil eine fallende Funktion die Intervalle umdreht. Die Dichte wird nicht einfach mitgenommen: Wo $g$ Intervalle staucht, steigt die Dichte, wo $g$ sie streckt, sinkt sie. Ein häufiger Fehler ist, den Faktor zu vergessen. Für $X\sim\mathcal U(0,1)$ und $Y=X/2$ ergäbe $p_Y(y)=p_X(2y)=1$ auf $[0,\,\tfrac12]$ eine Gesamtfläche von nur $\tfrac12$; richtig ist $p_Y=2$. Für Zufallsvektoren tritt an die Stelle von $|\mathrm{d} x/\mathrm{d} y|$ der Betrag der Determinante der Jacobi-Matrix der Umkehrabbildung, der Flächen- oder Volumenfaktor aus [Kapitel 3, Abschnitt 5.4](/wissen/informatik/machine-learning/mathematische-grundlagen/ableitung-gradient-und-kettenregel/die-jacobi-matrix.html#stufe-5-4). Eine Anwendung erzeugt Zufallszahlen: Ist $U\sim\mathcal U(0,1)$ und $F$ eine stetige, streng steigende Verteilungsfunktion, so hat $X=F^{-1}(U)$ die Verteilungsfunktion $F$, denn $P(X\le x)=P(U\le F(x))=F(x)$. So machen Rechner aus gleichverteilten Zufallszahlen Zufallszahlen beliebiger Verteilung.
 :::
 
 ### Rauschen als Zufallsvariable
 
 <span class="anker" id="stufe-8-7"></span>
 
-Mit den Verteilungen lässt sich beschreiben, was eine Messung liefert. Ein Sensor soll eine Temperatur $w$ messen. Er liefert aber $w$ plus eine kleine, zufällige Störung, die bei jeder Messung anders ausfällt. Man trennt den Messwert in einen festen und einen zufälligen Teil.
+Mit den Verteilungen lässt sich beschreiben, was eine Messung liefert. Ein Thermometer soll eine Temperatur $w$ messen. Es liefert aber $w$ plus eine kleine, zufällige Störung, die bei jeder Messung anders ausfällt. Man trennt den Messwert in einen festen und einen zufälligen Teil.
 
 :::definition Definition 8.10 (Additives Rauschen)
 <span class="anker" id="satz-8-10"></span>
@@ -258,10 +259,10 @@ $$Y=w+\nu, \tag{8.8}$$
 wobei $w$ der feste wahre Wert ist und die Zufallsvariable $\nu$, das __Rauschen__, den Erwartungswert $0$ hat. Ist $\nu\sim\mathcal N(0,\sigma^2)$, so heißt das Rauschen __normalverteilt__; dann ist $Y\sim\mathcal N(w,\sigma^2)$.
 :::
 
-Wie beim Funkkanal mit mehreren Antennen in [Grundlagen 2, Abschnitt 9.8](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/die-singularwertzerlegung.html#stufe-9-8), heißt das Rauschen $\nu$ (gesprochen „nü“); es trägt als skalare Zufallsvariable ausnahmsweise einen kleinen Buchstaben, weil $N$ schon die Zahl der Datenpunkte ist. Der Erwartungswert $0$ bedeutet, dass das Gerät im Mittel richtig misst; einen festen Versatz würde man zu $w$ zählen und durch Kalibrieren entfernen. Die Standardabweichung $\sigma$ beschreibt die Güte des Geräts. Viele Verfahren, die aus Daten lernen, beschreiben ihre Daten genau so: als einen Anteil, den man erklären möchte, plus Rauschen. Die Normalverteilung ist dabei die Standardannahme für das Rauschen; Abschnitt [13](mittelwerte-vieler-zufallsvariablen.html#stufe-13) begründet sie.
+Das Rauschen heißt $\nu$ (gesprochen „nü“); es trägt als skalare Zufallsvariable ausnahmsweise einen kleinen Buchstaben, weil $N$ schon die Zahl der Datenpunkte ist. Der Erwartungswert $0$ bedeutet, dass das Gerät im Mittel richtig misst; einen festen Versatz würde man zu $w$ zählen und durch Kalibrieren entfernen. Die Standardabweichung $\sigma$ beschreibt die Güte des Geräts. Viele Verfahren, die aus Daten lernen, beschreiben ihre Daten genau so: als einen Anteil, den man erklären möchte, plus Rauschen. Die Normalverteilung ist dabei die Standardannahme für das Rauschen; Abschnitt [13](mittelwerte-vieler-zufallsvariablen.html#stufe-13) begründet sie.
 
 ::::beispiel [Rechenbeispiel]
-Ein Temperatursensor habe normalverteiltes Rauschen mit $\sigma=0{,}5\,\mathrm K$. Der wahre Wert sei $20\,{}^\circ\mathrm C$. Ein Messwert weicht dann mit der Wahrscheinlichkeit $P(|\nu|>1\,\mathrm K)=P(|Z|>2)=1-0{,}954=0{,}046$ um mehr als $1\,\mathrm K$ ab, also bei etwa jeder zweiundzwanzigsten Messung.
+Ein Thermometer habe normalverteiltes Rauschen mit $\sigma=0{,}5$ Grad. Der wahre Wert sei $20$ Grad Celsius. Ein Messwert weicht dann mit der Wahrscheinlichkeit $P(|\nu|>1)=P(|Z|>2)=1-0{,}954=0{,}046$ um mehr als $1$ Grad ab, also bei etwa jeder zweiundzwanzigsten Messung.
 ::::
 
 ⁠**Kurz gesagt:** Ein verrauschter Messwert ist wahrer Wert plus eine Zufallsvariable mit Erwartungswert $0$; meist nimmt man für sie eine Normalverteilung an.
@@ -294,46 +295,46 @@ Wie viele defekte Teile erwartet man?
 :::
 :::
 
-:::aufgabe Aufgabe 23 ★★ Widerstände
+:::aufgabe Aufgabe 23 ★★ Schokoladentafeln
 <span class="anker" id="aufg-23"></span>
 
-Widerstände seien normalverteilt mit $\mu=100\,\Omega$ und $\sigma=2\,\Omega$.
+Die Gewichte von Schokoladentafeln seien normalverteilt mit $\mu=100\,\mathrm g$ und $\sigma=2\,\mathrm g$.
 
 <ol class="al">
 
 <li>
 
-Berechne für den Widerstandswert $X$ die Wahrscheinlichkeiten $P(X<97\,\Omega)$ und $P(96\,\Omega\le X\le104\,\Omega)$.
+Berechne für das Gewicht $X$ die Wahrscheinlichkeiten $P(X<97\,\mathrm g)$ und $P(96\,\mathrm g\le X\le104\,\mathrm g)$.
 
 </li>
 
 <li>
 
-In welchem symmetrischen Intervall um $100\,\Omega$ liegen $95\,\%$ der Widerstände?
+In welchem symmetrischen Intervall um $100\,\mathrm g$ liegen $95\,\%$ der Tafeln?
 
 </li>
 
 <li>
 
-Die Fertigung wird verbessert, sodass $\sigma=1\,\Omega$ ist. Wie viel Prozent liegen jetzt außerhalb von $96$ bis $104\,\Omega$?
+Die Abfüllung wird verbessert, sodass $\sigma=1\,\mathrm g$ ist. Wie viel Prozent liegen jetzt außerhalb von $96$ bis $104\,\mathrm g$?
 
 </li>
 
 </ol>
 
 :::loesung
-(a) $P(X<97\,\Omega)=\Phi\bigl((97-100)/2\bigr)=\Phi(-1{,}5)=1-\Phi(1{,}5)\approx0{,}067$. $P(96\,\Omega\le X\le104\,\Omega)=P(|Z|\le2)=2\Phi(2)-1\approx0{,}954$.
+(a) $P(X<97\,\mathrm g)=\Phi\bigl((97-100)/2\bigr)=\Phi(-1{,}5)=1-\Phi(1{,}5)\approx0{,}067$. $P(96\,\mathrm g\le X\le104\,\mathrm g)=P(|Z|\le2)=2\Phi(2)-1\approx0{,}954$.
 
-(b) $100\pm1{,}96\cdot2\,\Omega$, also von etwa $96{,}08$ bis $103{,}92\,\Omega$.
+(b) $100\pm1{,}96\cdot2\,\mathrm g$, also von etwa $96{,}08$ bis $103{,}92\,\mathrm g$.
 
-(c) Mit $\sigma=1\,\Omega$ sind die Grenzen $\pm4\sigma$ entfernt, und $P(|Z|>4)=2\,(1-\Phi(4))\approx6{,}3\cdot10^{-5}$, etwa $0{,}006\,\%$. Halbe Streuung bedeutet hier gut siebenhundertmal weniger Ausschuss als die $4{,}6\,\%$ aus (a), weil die Glocke an den Rändern so schnell abfällt.
+(c) Mit $\sigma=1\,\mathrm g$ sind die Grenzen $\pm4\sigma$ entfernt, und $P(|Z|>4)=2\,(1-\Phi(4))\approx6{,}3\cdot10^{-5}$, etwa $0{,}006\,\%$. Halbe Streuung bedeutet hier gut siebenhundertmal weniger Ausschuss als die $4{,}6\,\%$ aus (a), weil die Glocke an den Rändern so schnell abfällt.
 :::
 :::
 
 :::aufgabe Aufgabe 24 ★★ Runden oder Abschneiden
 <span class="anker" id="aufg-24"></span>
 
-Ein Umsetzer mit der Stufe $\Delta$ kann runden oder die Nachkommastellen abschneiden. Beim Runden ist der Fehler gleichverteilt auf $[-\Delta/2,\,\Delta/2]$, beim Abschneiden auf $[0,\,\Delta]$ (der angezeigte Wert ist zu klein).
+Eine Anzeige mit der Stufe $\Delta$ kann runden oder die Nachkommastellen abschneiden. Beim Runden ist der Fehler gleichverteilt auf $[-\Delta/2,\,\Delta/2]$, beim Abschneiden auf $[0,\,\Delta]$ (der angezeigte Wert ist zu klein).
 
 <ol class="al">
 
@@ -351,7 +352,7 @@ Welches Verfahren ist besser, und warum zeigt die Varianz allein den Unterschied
 
 <li>
 
-Ein Umsetzer mit $8$ Bit teilt den Bereich von $0$ bis $5\,\mathrm V$ in $256$ Stufen. Wie groß ist die Standardabweichung des Rundungsfehlers?
+Eine Waage speichert ihren Messwert mit $8$ Bit und teilt deshalb ihren Bereich von $0$ bis $5\,\mathrm{kg}$ in $256$ Stufen. Wie groß ist die Standardabweichung des Rundungsfehlers?
 
 </li>
 
@@ -362,7 +363,7 @@ Ein Umsetzer mit $8$ Bit teilt den Bereich von $0$ bis $5\,\mathrm V$ in $256$ 
 
 (b) Runden ist besser. Beim Abschneiden ist der Fehler im Mittel $\Delta/2$: Alle Werte sind systematisch zu klein. Die Varianz misst nur die Streuung um den Erwartungswert und sieht diesen Versatz nicht. Den ganzen Fehler misst der Erwartungswert seines Quadrats; nach der Verschiebungsformel ist er die Varianz plus das Quadrat des Erwartungswerts, beim Runden $\Delta^2/12$, beim Abschneiden $\Delta^2/12+\Delta^2/4=\Delta^2/3$, viermal so viel.
 
-(c) $\Delta=5\,\mathrm V/256\approx19{,}5\,\mathrm{mV}$ und $\sigma=\Delta/\sqrt{12}\approx5{,}64\,\mathrm{mV}$.
+(c) $\Delta=5\,\mathrm{kg}/256\approx19{,}5\,\mathrm g$ und $\sigma=\Delta/\sqrt{12}\approx5{,}64\,\mathrm g$.
 :::
 :::
 

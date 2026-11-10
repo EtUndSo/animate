@@ -1,6 +1,8 @@
 ---
 title: Stufe 2: Langsame Elektronen, sofortiger Strom
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Strom, Widerstand und Kirchhoff
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Strom, Widerstand und Kirchhoff
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff
+knoten: Kapitel 2: Strom, Widerstand und Kirchhoff
 order: 1120300
 summary: Stufe 1 braucht eine Geschwindigkeit v .
 tags: Kristallgitter, Beweglichkeit, mittlere freie Weglänge
@@ -33,7 +35,7 @@ Mit Stufe [1](strom-ist-bewegte-ladung.html#stufe-1) folgt aus dem Strom $v_\ma
 ⁠**So liest man das:** $\vec v_\mathrm D$ ist die Driftgeschwindigkeit in m/s. Das Minuszeichen sagt: Elektronen sind negativ, sie laufen gegen $\vec E$. $\mu$ ist die __Beweglichkeit__, die Driftgeschwindigkeit je Feldstärke, in $\mathrm{m^2/(V\,s)}$. Sie ist eine Materialkonstante, im Kupfer $4{,}3\cdot10^{-3}\,\mathrm{m^2/(V\,s)}$. $T$ ist die Flugzeit, im Kupfer rund 49 fs. Das Elektron legt in dieser Zeit im Mittel die __mittlere freie Weglänge__ $\lambda$ zurück. **Gültigkeit:** [(2.1)](#gl-2-1) ist ein Modell. Es zählt nur den vom Feld erzeugten Anteil der Geschwindigkeit. Daneben fliegen die Elektronen ungeordnet in alle Richtungen, mit rund 1600 km/s. Diese Bewegung hebt sich im Mittel auf, trägt keinen Strom und bleibt bei den Stößen erhalten.
 
 :::herleitung Vom Feld zur Drift
-Aus $F=m_\mathrm e\,a$ und $F=e\,E$ ([Teil 1](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)) folgt die Beschleunigung $a=e\,E/m_\mathrm e$. Ein Flug beginnt beim gerichteten Anteil null, also $v(t)=a\,t$ und $v_\mathrm{max}=a\,T$. Der Sägezahn hat den Mittelwert $v_\mathrm{max}/2=e\,E\,T/(2\,m_\mathrm e)$. Die Geschwindigkeit wächst nicht weiter an, denn jeder Stoß setzt sie zurück.
+Aus $F=m_\mathrm e\,a$ und $F=e\,E$ ([Kapitel 1](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)) folgt die Beschleunigung $a=e\,E/m_\mathrm e$. Ein Flug beginnt beim gerichteten Anteil null, also $v(t)=a\,t$ und $v_\mathrm{max}=a\,T$. Der Sägezahn hat den Mittelwert $v_\mathrm{max}/2=e\,E\,T/(2\,m_\mathrm e)$. Die Geschwindigkeit wächst nicht weiter an, denn jeder Stoß setzt sie zurück.
 :::
 
 ::::beispiel
@@ -52,7 +54,7 @@ Ein Meter Draht in drei Momenten nach dem Schließen des Schalters links. Die Fe
 Eine Fahrradkette ist überall voller Glieder. Tritt man vorn, bewegt sie sich hinten im selben Moment, obwohl jedes Glied nur langsam läuft. Die Analogie endet beim Mechanismus: Kettenglieder drücken einander mechanisch, die Wirkung läuft mit Schallgeschwindigkeit durch das Metall. Im Draht läuft ein Feld, und seine Geschwindigkeit liegt nahe der Lichtgeschwindigkeit.
 :::
 
-:::frage Teil 1 sagt: Im Metall ist $\vec E=0$. Warum gibt es im Draht ein Feld, und wie folgt es den Kurven?
+:::frage Kapitel 1 sagt: Im Metall ist $\vec E=0$. Warum gibt es im Draht ein Feld, und wie folgt es den Kurven?
 $\vec E=0$ gilt nur im Ruhezustand, wenn alle Ladungen zur Ruhe gekommen sind. Die Quelle lässt das nicht zu: Sie führt an einem Ende Elektronen ab und am anderen zu, der Ruhezustand wird nie erreicht. Es bleibt ein kleines Feld, hier 0,10 mV/m. An Biegungen sammeln sich winzige Ladungen auf der Drahtoberfläche. Ihr Feld lenkt $\vec E$ überall in Drahtrichtung, sonst liefen die Elektronen gegen die Wand, und die Ladung dort würde weiter wachsen.
 :::
 

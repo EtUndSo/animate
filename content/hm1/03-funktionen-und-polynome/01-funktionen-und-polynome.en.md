@@ -1,7 +1,9 @@
 ---
 title: Overview: Functions and Polynomials
 kurz: Overview
-pfad: Electrical Engineering / 1st Semester / Higher Mathematics 1 / Functions and Polynomials
+pfad: Electrical Engineering / 1st Semester / HöMa1 – Higher Mathematics 1 / Functions and Polynomials
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/funktionen-und-polynome
+knoten: Chapter 3: Functions and Polynomials
 order: 1230100
 summary: When an equation can be solved backward and why every zero splits off a factor
 tags: function, inverse function, polynomial, zero, linear factor, Horner scheme, rational function, pole

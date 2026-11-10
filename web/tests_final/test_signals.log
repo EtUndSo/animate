@@ -1,0 +1,6 @@
+ET3 signals OK: epsilon/rect/tri/ramp/si, t-variable, implicit mult
+complex expr OK: exp(j*t) @0 real=1, @pi/2 imag=1
+complex domain OK: FunctionGraph -> Re + Im (2 curves)
+real domain OK: single curve
+
+SIGNALS/COMPLEX TESTS PASSED

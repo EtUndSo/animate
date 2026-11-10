@@ -1,0 +1,9 @@
+  OK   test_number_language
+  OK   test_strings_and_digits
+  OK   test_explicit_ticks
+  OK   test_axes_layout
+  OK   test_data_table_and_clip
+  OK   test_stem_variants
+  OK   test_stem_func_and_arrow_marks
+  OK   test_legend_styles
+LANG/FIGURE TESTS PASSED

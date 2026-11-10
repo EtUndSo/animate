@@ -1,6 +1,8 @@
 ---
 title: Stage 9: Hilbert transform and analytic signal
-pfad: Electrical Engineering / 3rd Semester / Signals and Systems / Fourier Series and Transform
+pfad: Electrical Engineering / 3rd Semester / ET3 – Fundamentals of Electrical Engineering 3: Signals and Systems / Fourier Series and Transform
+adresse: elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation
+knoten: Chapter 3: Fourier Series and Transform
 order: 3231000
 summary: For a causal signal, the real and imaginary parts of the spectrum are linked: one determines the other.
 tags: Hilbert transform, analytic component, all-pass

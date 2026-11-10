@@ -1,6 +1,8 @@
 ---
 title: Stufe 5: Das Knotenpotentialverfahren
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Maschenstrom- und Knotenpotentialverfahren
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Maschenstrom- und Knotenpotentialverfahren
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/maschenstrom-und-knotenpotentialverfahren
+knoten: Kapitel 8: Maschenstrom- und Knotenpotentialverfahren
 order: 1180700
 summary: Die Maschenregel ist erledigt, k-1 Knotenregeln mit k-1 Unbekannten bleiben.
 tags: Koppelleitwert
@@ -24,7 +26,7 @@ Das Verfahren hat vier Schritte:
 
 <li>
 
-Reale Spannungsquellen in reale Stromquellen umwandeln: $I_\mathrm q=U_\mathrm q/R$, derselbe Widerstand parallel ([Teil 5](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)).
+Reale Spannungsquellen in reale Stromquellen umwandeln: $I_\mathrm q=U_\mathrm q/R$, derselbe Widerstand parallel ([Kapitel 5](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)).
 
 </li>
 
@@ -84,7 +86,7 @@ $I_{\mathrm q\mu}$ ist die Summe der Quellenströme am Knoten, positiv, wenn sie
 Am Knoten $\mu$ fließt über jeden Leitwert $G_a$ zum Nachbarn $\nu$ der Strom $G_a\,(U_\mu-U_\nu)$ ab, zum Bezugsknoten $G_a\,U_\mu$. Die Summe dieser Ströme ist gleich dem eingespeisten $I_{\mathrm q\mu}$. Ordnen ergibt vor $U_\mu$ die Summe aller $G_a$ und vor $U_\nu$ minus die Summe der Leitwerte zwischen $\mu$ und $\nu$. Knoten $\nu$ erhält denselben Eintrag, denn ein Leitwert kennt keine Richtung. Deshalb ist $\mathbf Y$ symmetrisch.
 :::
 
-⁠**So liest man das:** Die Zeile $\mu$ ist die Knotenregel: Links stehen alle über Leitwerte abfließenden Ströme, rechts das, was die Quellen hineinschieben. Die Spalte $\nu$ sagt: Hält man Knoten $\nu$ auf 1 V und alle anderen auf 0 V, muss man an Knoten $\nu$ den Strom $Y_{\nu\nu}$ einspeisen und an jedem Nachbarn $\mu$ den Strom $-Y_{\mu\nu}$ entnehmen. Das ist genau der Kurzschlussversuch aus [Teil 6](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html). **Gültigkeit:** Das Netz enthält Leitwerte und feste Stromquellen. Eine ideale Spannungsquelle passt nicht hinein, sie hat keinen endlichen Leitwert (Stufe [9](die-modifizierte-knotenanalyse.html#stufe-9)).
+⁠**So liest man das:** Die Zeile $\mu$ ist die Knotenregel: Links stehen alle über Leitwerte abfließenden Ströme, rechts das, was die Quellen hineinschieben. Die Spalte $\nu$ sagt: Hält man Knoten $\nu$ auf 1 V und alle anderen auf 0 V, muss man an Knoten $\nu$ den Strom $Y_{\nu\nu}$ einspeisen und an jedem Nachbarn $\mu$ den Strom $-Y_{\mu\nu}$ entnehmen. Das ist genau der Kurzschlussversuch aus [Kapitel 6](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html). **Gültigkeit:** Das Netz enthält Leitwerte und feste Stromquellen. Eine ideale Spannungsquelle passt nicht hinein, sie hat keinen endlichen Leitwert (Stufe [9](die-modifizierte-knotenanalyse.html#stufe-9)).
 
 :::abbildung et1/k8yspalte 5
 Links: das Rechenmodell für das Knotenpotentialverfahren, die Batterie ist in eine Stromquelle umgewandelt. Rechts: Die Quellen sind entfernt, Knoten 1 liegt auf 1 V, Knoten 2 auf 0 V. Über $G_1$, $G_2$, $G_3$ fließen $1+0{,}25+0{,}5=1{,}75$ mA ab, das ist $Y_{11}$. Die 0,5 mA kommen an Knoten 2 an und müssen dort entnommen werden, das ist $Y_{21}=-0{,}5$ mS.
@@ -111,7 +113,7 @@ Maschenströme haben eine Richtung, die man wählt, also auch zwei Möglichkeite
 :::
 
 :::frage Nach dem Umwandeln fließen durch $R_5$ im Maschenbild 2 mA nach oben, im Originalnetz 2 mA nach unten. Was stimmt?
-Das Originalnetz. Ersatzquellen stimmen nur an den Klemmen ([Teil 5](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)). An Knoten 2 und an der Masse liefern beide Formen dasselbe, im Inneren der Quelle bedeutet der Strom Verschiedenes. Innere Größen rechnet man deshalb im ursprünglichen Netz aus den Klemmenspannungen.
+Das Originalnetz. Ersatzquellen stimmen nur an den Klemmen ([Kapitel 5](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)). An Knoten 2 und an der Masse liefern beide Formen dasselbe, im Inneren der Quelle bedeutet der Strom Verschiedenes. Innere Größen rechnet man deshalb im ursprünglichen Netz aus den Klemmenspannungen.
 :::
 
 :::aufgabe Aufgabe 6 ★★ Drei Knoten und ein Bezug

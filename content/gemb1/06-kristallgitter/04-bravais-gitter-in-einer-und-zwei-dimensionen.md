@@ -1,6 +1,8 @@
 ---
 title: Stufe 2: Bravais-Gitter in einer und zwei Dimensionen
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Kristallgitter
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Kristallgitter
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/kristallgitter
+knoten: Kapitel 6: Kristallgitter
 order: 4160400
 summary: Nicht jedes regelmäßige Punktmuster lässt sich durch (1.1) erzeugen.
 tags: Translationssymmetrie, Gitterkonstante, Polyacetylen, Kohlenstoff-Nanoröhre, Graphen
@@ -21,7 +23,7 @@ Nicht jedes regelmäßige Punktmuster lässt sich durch [(1.1)](punktgitter-und-
 Ein Bravais-Gitter ist ein periodisches Gitter mit __Translationssymmetrie__: Jede Translation lässt sich als ganzzahlige Linearkombination primitiver Gittervektoren schreiben, und jede solche Translation bildet das Gitter auf sich ab. Gleichbedeutend: Jeder Gitterpunkt hat dieselbe Umgebung in denselben Richtungen.
 :::
 
-**Eine Dimension.** Hier gibt es genau ein Bravais-Gitter: die Kette gleich weit entfernter Punkte $x_\ell=\ell\,a$ mit ganzem $\ell$, wie in [Teil 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html). Die __Gitterkonstante__ $a$ ist der Abstand der Punkte, der Gittervektor ist diese eine Zahl. Alle Vielfalt steckt in der Basis. In __Polyacetylen__ bilden Kohlenstoffatome eine Zickzackkette mit je einem Wasserstoffatom. Das Muster wiederholt sich nach zwei CH-Gruppen, die Basis hat vier Atome. Eine __Kohlenstoff-Nanoröhre__, ein Röhrchen aus Kohlenstoff-Sechsecken, ist längs der Achse periodisch, ihre Basis enthält Dutzende Atome.
+**Eine Dimension.** Hier gibt es genau ein Bravais-Gitter: die Kette gleich weit entfernter Punkte $x_\ell=\ell\,a$ mit ganzem $\ell$, wie in [Kapitel 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html). Die __Gitterkonstante__ $a$ ist der Abstand der Punkte, der Gittervektor ist diese eine Zahl. Alle Vielfalt steckt in der Basis. In __Polyacetylen__ bilden Kohlenstoffatome eine Zickzackkette mit je einem Wasserstoffatom. Das Muster wiederholt sich nach zwei CH-Gruppen, die Basis hat vier Atome. Eine __Kohlenstoff-Nanoröhre__, ein Röhrchen aus Kohlenstoff-Sechsecken, ist längs der Achse periodisch, ihre Basis enthält Dutzende Atome.
 
 **Zwei Dimensionen.** Es gibt genau fünf Bravais-Gitter (Abb. [2](#abb-2)):
 

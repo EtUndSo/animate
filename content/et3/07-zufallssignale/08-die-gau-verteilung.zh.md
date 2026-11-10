@@ -1,6 +1,8 @@
 ---
 title: 第 7 阶段：高斯分布
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / 随机信号
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / 随机信号
+adresse: elektrotechnik/3-semester/signale-und-systeme/zufallssignale
+knoten: 第 7 章：随机信号
 order: 3270800
 summary: 为什么噪声常常服从高斯分布？怎样用高斯分布进行计算？
 tags: 中心极限定理, 误差函数
@@ -13,7 +15,7 @@ lang: zh
 为什么噪声常常服从高斯分布？怎样用高斯分布进行计算？
 :::
 
-把许多概率密度相互卷积，结果就趋于一条高斯曲线（__中心极限定理__，[第 3 部分](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)）。噪声通常是非常多微小的独立贡献之和，例如许多电子的运动。因此它服从高斯分布。
+把许多概率密度相互卷积，结果就趋于一条高斯曲线（__中心极限定理__，[第 3 章](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)）。噪声通常是非常多微小的独立贡献之和，例如许多电子的运动。因此它服从高斯分布。
 
 :::satz 定理 7.1 (高斯（正态）分布)
 <span class="anker" id="satz-7-1"></span>

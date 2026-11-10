@@ -1,6 +1,8 @@
 ---
 title: Stage 3: Step response and rise time
-pfad: Electrical Engineering / 3rd Semester / Signals and Systems / Lowpass and Bandpass Systems
+pfad: Electrical Engineering / 3rd Semester / ET3 – Fundamentals of Electrical Engineering 3: Signals and Systems / Lowpass and Bandpass Systems
+adresse: elektrotechnik/3-semester/signale-und-systeme/tiefpass-und-bandpasssysteme
+knoten: Chapter 5: Lowpass and Bandpass Systems
 order: 3250400
 summary: How does the ideal lowpass respond to a step?
 tags: sine integral, rise time
@@ -13,7 +15,7 @@ lang: en
 How does the ideal lowpass respond to a step? How fast does it rise, and how far does it overshoot?
 :::
 
-The step response is the running integral of the impulse response ([Part 1](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html)). With the __sine integral__
+The step response is the running integral of the impulse response ([Chapter 1](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html)). With the __sine integral__
 
 <span class="anker" id="gl-3-1"></span>
 $$\operatorname{Si}(x)=\int_0^x\operatorname{si}(\xi)\,\mathrm{d}\xi,\qquad\operatorname{Si}(-x)=-\operatorname{Si}(x),\qquad\operatorname{Si}(\infty)=\frac\pi2 \tag{3.1}$$
@@ -32,7 +34,7 @@ Split the integral up to $t$ at 0. The part from $-\infty$ to 0 is half the area
 <span class="anker" id="gl-3-3"></span>
 $$t_e=\frac{h_\varepsilon(\infty)}{\max\dot h_\varepsilon}=\frac{1}{2f_\mathrm g}. \tag{3.3}$$
 
-The step response overshoots by $8.95\,\%$ (at $t=\frac{1}{2f_\mathrm g}$). This is the Gibbs phenomenon from [Part 3](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html): a larger $f_\mathrm g$ shortens the rise time, but the overshoot stays the same (Fig. [1](#abb-1)).
+The step response overshoots by $8.95\,\%$ (at $t=\frac{1}{2f_\mathrm g}$). This is the Gibbs phenomenon from [Chapter 3](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html): a larger $f_\mathrm g$ shortens the rise time, but the overshoot stays the same (Fig. [1](#abb-1)).
 
 :::abbildung et3/k5sprung 1
 Step response of the ideal lowpass for $f_\mathrm g=1$ Hz and 2 Hz. Dashed: the ramp with the maximum slope; its rise lasts $t_e=1/(2f_\mathrm g)=0.5$ s. Both curves overshoot equally far, to 1.0895.

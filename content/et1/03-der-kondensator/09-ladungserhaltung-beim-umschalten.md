@@ -1,6 +1,8 @@
 ---
 title: Stufe 8: Ladungserhaltung beim Umschalten
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Der Kondensator
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Der Kondensator
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator
+knoten: Kapitel 3: Der Kondensator
 order: 1130900
 summary: Schaltet man geladene Kondensatoren um, lässt sich die neue Spannung ohne jede Stromrechnung finden.
 tags: 
@@ -13,7 +15,7 @@ lang: de
 Schaltet man geladene Kondensatoren um, lässt sich die neue Spannung ohne jede Stromrechnung finden. Es genügt, Ladung zu zählen.
 :::
 
-**Die Idee.** In einem abgeschlossenen System bleibt die Summe der Ladungen konstant ([Teil 1](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)). In Schaltungen entsteht ein solches System, wenn jeder Pfad von einem Knoten zur Masse über einen Kondensator führt. Das ist die Insel aus Stufe [7](parallel-und-reihenschaltung.html#stufe-7): Die Dielektrika sperren alle Wege. Ladung kann sich innerhalb der Insel umverteilen, aber sie nicht verlassen. Vergleicht man vorher und nachher, muss man nicht wissen, wie der Ausgleich verlief.
+**Die Idee.** In einem abgeschlossenen System bleibt die Summe der Ladungen konstant ([Kapitel 1](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)). In Schaltungen entsteht ein solches System, wenn jeder Pfad von einem Knoten zur Masse über einen Kondensator führt. Das ist die Insel aus Stufe [7](parallel-und-reihenschaltung.html#stufe-7): Die Dielektrika sperren alle Wege. Ladung kann sich innerhalb der Insel umverteilen, aber sie nicht verlassen. Vergleicht man vorher und nachher, muss man nicht wissen, wie der Ausgleich verlief.
 
 :::satz Satz 8.1 (Ladungserhaltung auf einer Insel)
 <span class="anker" id="satz-8-1"></span>

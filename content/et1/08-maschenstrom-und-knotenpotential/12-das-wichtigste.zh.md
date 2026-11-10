@@ -1,6 +1,8 @@
 ---
 title: 要点
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 网孔电流法与节点电位法
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 网孔电流法与节点电位法
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/maschenstrom-und-knotenpotentialverfahren
+knoten: 第 8 章：网孔电流法与节点电位法
 order: 1181200
 summary: 为什么一个网络只需很少的未知量
 tags: 网孔电流法, 网孔电流, 节点电位法, 节点电位, 参考节点, 电阻矩阵, 电导矩阵, 改进节点法

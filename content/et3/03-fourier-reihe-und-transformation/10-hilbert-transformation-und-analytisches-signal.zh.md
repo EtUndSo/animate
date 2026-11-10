@@ -1,6 +1,8 @@
 ---
 title: 第 9 阶段：希尔伯特变换与解析信号
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / 傅里叶级数与变换
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / 傅里叶级数与变换
+adresse: elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation
+knoten: 第 3 章：傅里叶级数与变换
 order: 3231000
 summary: 对于因果信号，频谱的实部与虚部相互关联：一个决定另一个。同样的计算还能得到一个只含正频率的信号。
 tags: 希尔伯特变换, 解析分量, 全通

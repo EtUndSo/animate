@@ -1,6 +1,8 @@
 ---
 title: 第 10 阶段：正交电路与带通采样
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / 低通与带通系统
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / 低通与带通系统
+adresse: elektrotechnik/3-semester/signale-und-systeme/tiefpass-und-bandpasssysteme
+knoten: 第 5 章：低通与带通系统
 order: 3251100
 summary: 实际中如何得到正交分量？带通信号需要多少个样本值？
 tags: 

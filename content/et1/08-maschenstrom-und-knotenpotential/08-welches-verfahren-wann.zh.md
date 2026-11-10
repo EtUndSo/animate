@@ -1,6 +1,8 @@
 ---
 title: 第 6 阶段：何时用哪种方法？
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 网孔电流法与节点电位法
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 网孔电流法与节点电位法
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/maschenstrom-und-knotenpotentialverfahren
+knoten: 第 8 章：网孔电流法与节点电位法
 order: 1180800
 summary: 两种方法的结果相同。本阶段说明哪种方法工作量更小，以及各自有什么做不到。
 tags: 对偶性
@@ -49,7 +51,7 @@ $$z>2k-2. \tag{6.1}$$
 右边变换之后，模型电路有 $k=3$，$z=5$。由 $5>4$ 知它在直线上方，确实是三个网孔对两个节点。
 ::::
 
-⁠**极限情况：**[第 2 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)的电桥 $k=4$，$z=6$，恰好在直线上。这时由电源决定：理想电压源有利于网孔法，因为它在那里位于右端。
+⁠**极限情况：**[第 2 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)的电桥 $k=4$，$z=6$，恰好在直线上。这时由电源决定：理想电压源有利于网孔法，因为它在那里位于右端。
 
 仿真器只使用节点电位。网络的网孔要由程序先去搜索，而且只有网络能画成无交叉的形式时才有窗口。节点则已经写在电路描述中（第 [7](stempel-und-netzliste.html#stufe-7) 阶段）。
 
@@ -97,6 +99,6 @@ $$z>2k-2. \tag{6.1}$$
 
 (c) $k=5$，$z=10$：$m=6$ 对 4，用节点电位。
 
-(d) 中间的节点消失，两条支路变成一条，所以 $m'=(z-1)-(k-1)+1=z-k+1=m$。[第 2 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)的计数得出同样的结论。
+(d) 中间的节点消失，两条支路变成一条，所以 $m'=(z-1)-(k-1)+1=z-k+1=m$。[第 2 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)的计数得出同样的结论。
 :::
 :::

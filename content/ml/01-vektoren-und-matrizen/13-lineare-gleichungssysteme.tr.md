@@ -1,7 +1,8 @@
 ---
 title: Doğrusal denklem sistemleri
 pfad: Bilgisayar Bilimleri / Makine Öğrenmesi / Matematiksel Temeller / Vektörler ve Matrisler
-knoten: Temeller 1: Vektörler ve Matrisler
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Bölüm 1: Vektörler ve Matrisler
 nachschlagen: ja
 order: 15211300
 summary: Şimdiye kadar x girişi verilmişti ve Ax çıkışı aranıyordu.

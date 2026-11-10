@@ -1,6 +1,8 @@
 ---
-title: Desde cero: Qué se necesita de la Parte 9
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / El transistor bipolar
+title: Desde cero: Qué se necesita del capítulo 9
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / El transistor bipolar
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor
+knoten: Capítulo 10: El transistor bipolar
 order: 1200200
 summary: Cómo una pequeña tensión controla una gran corriente a través de un diodo bloqueado
 tags: huecos, unión pn, zona de carga espacial, polarización directa, difusión, recombinación

@@ -1,6 +1,8 @@
 ---
 title: Stufe 5: Kennlinie, Durchbruch und Spezialdioden
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Halbleiter und Dioden
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Halbleiter und Dioden
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden
+knoten: Kapitel 9: Halbleiter und Dioden
 order: 1190700
 summary: Die Gleichung steht.
 tags: Anode, Kathode, Lawineneffekt, Zener-Effekt, Durchbruch, Sperrschichtkapazität, Photonen, innerer Photoeffekt
@@ -23,7 +25,7 @@ Aufbau, Schaltzeichen mit Zählpfeilen und Kennlinie des Rechenmodells. Mitte: l
 
 **Zener-Diode.** Sie ist für den Betrieb im Durchbruch gebaut und hat eine genau festgelegte Spannung $U_\mathrm Z$ (Abb. [7](#abb-7) links). Im Durchlass verhält sie sich wie eine pn-Diode. Oberhalb von $U_\mathrm Z$ ist die Kennlinie fast senkrecht, ihr kleiner Widerstand ist $r_\mathrm Z=\Delta U/\Delta I$. Ein Vorwiderstand nimmt Schwankungen der Quelle auf: Die Spannung am Bauteil ändert sich kaum, der Strom ändert sich. Mit $r_\mathrm Z=10\,\Omega$ bewirken 18 mA Stromänderung nur 0,18 V.
 
-**Kapazitätsdiode.** Die trägerfreie Zone ist eine isolierende Schicht zwischen zwei leitenden Gebieten, also ein Kondensator ([Teil 3](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html)) mit der Fläche $A$ und dem Abstand $w$. Die __Sperrschichtkapazität__ sinkt mit der Sperrspannung $U_\mathrm R=-U$, weil die Zone wächst:
+**Kapazitätsdiode.** Die trägerfreie Zone ist eine isolierende Schicht zwischen zwei leitenden Gebieten, also ein Kondensator ([Kapitel 3](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html)) mit der Fläche $A$ und dem Abstand $w$. Die __Sperrschichtkapazität__ sinkt mit der Sperrspannung $U_\mathrm R=-U$, weil die Zone wächst:
 
 <span class="anker" id="gl-5-1"></span>
 $$C_\mathrm{Sp}=\frac{\varepsilon A}{w}=\frac{C_0}{\sqrt{1+U_\mathrm R/U_\mathrm{D0}}}. \tag{5.1}$$

@@ -1,6 +1,8 @@
 ---
 title: Etapa 11: Fourier y Laplace, límites de la existencia
-pfad: Ingeniería eléctrica / 3.er semestre / Señales y sistemas / Serie y transformada de Fourier
+pfad: Ingeniería eléctrica / 3.er semestre / ET3 – Fundamentos de ingeniería eléctrica 3: señales y sistemas / Serie y transformada de Fourier
+adresse: elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation
+knoten: Capítulo 3: Serie y transformada de Fourier
 order: 3231200
 summary: ¿Cuándo existe la integral de Fourier y cómo se relaciona con la transformada de Laplace?
 tags: teorema central del límite
@@ -13,7 +15,7 @@ lang: es
 ¿Cuándo existe la integral de Fourier y cómo se relaciona con la transformada de Laplace?
 :::
 
-Una condición suficiente para la existencia es la integrabilidad absoluta, $\int|s(t)|\mathrm{d} t<\infty$. La transformada de Laplace amplía la clase ponderando antes con $\mathrm{e}^{-\sigma t}$ ([parte 2](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html)):
+Una condición suficiente para la existencia es la integrabilidad absoluta, $\int|s(t)|\mathrm{d} t<\infty$. La transformada de Laplace amplía la clase ponderando antes con $\mathrm{e}^{-\sigma t}$ ([capítulo 2](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html)):
 
 $$S_{\mathcal{L}}(\sigma+\mathrm{j}2\pi f)=\mathcal{F}\bigl\{s(t)\mathrm{e}^{-\sigma t}\bigr\}(f).$$
 

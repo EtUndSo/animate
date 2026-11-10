@@ -1,6 +1,8 @@
 ---
 title: Etapa 5: Señales en tiempo discreto y convolución discreta
-pfad: Ingeniería eléctrica / 3.er semestre / Señales y sistemas / Muestreo y sistemas en tiempo discreto
+pfad: Ingeniería eléctrica / 3.er semestre / ET3 – Fundamentos de ingeniería eléctrica 3: señales y sistemas / Muestreo y sistemas en tiempo discreto
+adresse: elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme
+knoten: Capítulo 4: Muestreo y sistemas en tiempo discreto
 order: 3240600
 summary: A partir de ahora solo se calcula con las secuencias de números s(n) .
 tags: convolución discreta, impulso unitario, invariante al desplazamiento, sistema LSI, respuesta al impulso, diferencia, acumulación, filtro FIR
@@ -13,7 +15,7 @@ lang: es
 A partir de ahora solo se calcula con las secuencias de números $s(n)$. Esta etapa traslada a las secuencias la convolución, las señales elementales y los sistemas LTI.
 :::
 
-**Convolución de las muestras.** Si la entrada $s$ y la respuesta al impulso $h$ de un sistema son señales paso bajo y se muestrea a la tasa de Nyquist, cada una puede escribirse como serie de funciones si [(3.3)](abtasttheorem-und-ruckgewinnung.html#gl-3-3). Como $\operatorname{si}(\pi t/T)*\operatorname{si}(\pi t/T)=T\operatorname{si}(\pi t/T)$ ([parte 3](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)), las muestras de la salida se obtienen solo a partir de las muestras:
+**Convolución de las muestras.** Si la entrada $s$ y la respuesta al impulso $h$ de un sistema son señales paso bajo y se muestrea a la tasa de Nyquist, cada una puede escribirse como serie de funciones si [(3.3)](abtasttheorem-und-ruckgewinnung.html#gl-3-3). Como $\operatorname{si}(\pi t/T)*\operatorname{si}(\pi t/T)=T\operatorname{si}(\pi t/T)$ ([capítulo 3](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)), las muestras de la salida se obtienen solo a partir de las muestras:
 
 $$g(nT)=T\sum_{m=-\infty}^{\infty}s(mT)\,h\bigl((n-m)T\bigr).$$
 
@@ -28,7 +30,7 @@ $$\delta(n)=\begin{cases}1&n=0\\0&n\neq0\end{cases},\qquad \varepsilon(n)=\sum_{
 
 El __impulso unitario__ $\delta(n)$ es una secuencia ordinaria, no una distribución: en $n=0$ vale 1. Es el elemento neutro de la convolución discreta, $s(n)*\delta(n)=s(n)$. Un rectángulo de $2M+1$ unos centrado en $n=0$ es $\varepsilon(n+M)-\varepsilon(n-M-1)$.
 
-**Lineal e invariante al desplazamiento.** Un sistema en tiempo discreto se llama lineal si cumple el principio de superposición, e __invariante al desplazamiento__ si $\operatorname{Tr}\{s(n-m)\}=g(n-m)$ para todo entero $m$. Si cumple ambas cosas, se llama __sistema LSI__. Con la __respuesta al impulso__ $h(n)=\operatorname{Tr}\{\delta(n)\}$ se obtiene, como en la [parte 1](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html):
+**Lineal e invariante al desplazamiento.** Un sistema en tiempo discreto se llama lineal si cumple el principio de superposición, e __invariante al desplazamiento__ si $\operatorname{Tr}\{s(n-m)\}=g(n-m)$ para todo entero $m$. Si cumple ambas cosas, se llama __sistema LSI__. Con la __respuesta al impulso__ $h(n)=\operatorname{Tr}\{\delta(n)\}$ se obtiene, como en el [capítulo 1](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html):
 
 $$g(n)=\operatorname{Tr}\Bigl\{\sum_ms(m)\delta(n-m)\Bigr\}=\sum_ms(m)\operatorname{Tr}\{\delta(n-m)\}=\sum_ms(m)\,h(n-m).$$
 

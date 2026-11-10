@@ -1,6 +1,8 @@
 ---
 title: Etapa 2: Aprovechar la simetría
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Fuentes y fuentes equivalentes
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Fuentes y fuentes equivalentes
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen
+knoten: Capítulo 5: Fuentes y fuentes equivalentes
 order: 1150400
 summary: Algunas redes no contienen grupos.
 tags: semicircuito
@@ -73,10 +75,10 @@ En el dibujo sí, en las corrientes no. Por el cable nuevo solo podría circular
 :::aufgabe Ejercicio 2 ★ Predecir la ausencia de corriente
 <span class="anker" id="aufg-2"></span>
 
-De A salen 10 $\Omega$ hacia el nudo C y 30 $\Omega$ hacia el nudo D; de C salen 20 $\Omega$ y de D salen 60 $\Omega$ hacia B. Entre C y D hay una resistencia transversal $R_\mathrm{Q}$ (el puente de la [Parte 4](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-und-spannung-messen/strom-und-spannung-messen.html)). (a) Demuestra que C y D tienen el mismo potencial, incluso sin simetría. (b) Calcula $R_\mathrm{AB}$ para $R_\mathrm{Q}\to\infty$ y para $R_\mathrm{Q}\to0$. (c) ¿Qué se deduce para $R_\mathrm{Q}=47\,\Omega$?
+De A salen 10 $\Omega$ hacia el nudo C y 30 $\Omega$ hacia el nudo D; de C salen 20 $\Omega$ y de D salen 60 $\Omega$ hacia B. Entre C y D hay una resistencia transversal $R_\mathrm{Q}$ (el puente del [capítulo 4](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-und-spannung-messen/strom-und-spannung-messen.html)). (a) Demuestra que C y D tienen el mismo potencial, incluso sin simetría. (b) Calcula $R_\mathrm{AB}$ para $R_\mathrm{Q}\to\infty$ y para $R_\mathrm{Q}\to0$. (c) ¿Qué se deduce para $R_\mathrm{Q}=47\,\Omega$?
 
 :::loesung
-(a) Sin corriente por $R_\mathrm{Q}$, ambas ramas son divisores de tensión con la misma relación: $\frac{20}{10+20}=\frac{60}{30+60}=\frac23$. C y D están entonces al mismo potencial, y por $R_\mathrm{Q}$ realmente no circula corriente. Esa es la única solución de la red (el equilibrio de la [Parte 4](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-und-spannung-messen/strom-und-spannung-messen.html)).
+(a) Sin corriente por $R_\mathrm{Q}$, ambas ramas son divisores de tensión con la misma relación: $\frac{20}{10+20}=\frac{60}{30+60}=\frac23$. C y D están entonces al mismo potencial, y por $R_\mathrm{Q}$ realmente no circula corriente. Esa es la única solución de la red (el equilibrio del [capítulo 4](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-und-spannung-messen/strom-und-spannung-messen.html)).
 
 (b) $R_\mathrm{Q}\to\infty$: $(10\,\Omega+20\,\Omega)\parallel(30\,\Omega+60\,\Omega)=22{,}5\,\Omega$. $R_\mathrm{Q}\to0$: $10\,\Omega\parallel30\,\Omega+20\,\Omega\parallel60\,\Omega=7{,}5\,\Omega+15\,\Omega=22{,}5\,\Omega$.
 

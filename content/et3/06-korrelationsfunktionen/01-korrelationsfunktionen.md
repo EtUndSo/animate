@@ -1,7 +1,9 @@
 ---
 title: Überblick: Korrelationsfunktionen
 kurz: Überblick
-pfad: Elektrotechnik / 3. Semester / Signale und Systeme / Korrelationsfunktionen
+pfad: Elektrotechnik / 3. Semester / ET3 – Grundgebiete der Elektrotechnik 3: Signale und Systeme / Korrelationsfunktionen
+adresse: elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen
+knoten: Kapitel 6: Korrelationsfunktionen
 order: 3260100
 summary: Wie ähnlich sind zwei Signale, und wie verteilt sich die Energie über die Frequenz?
 tags: 

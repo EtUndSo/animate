@@ -1,6 +1,8 @@
 ---
 title: Stage 1: Three layers, two voltages
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / The Bipolar Transistor
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / The Bipolar Transistor
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor
+knoten: Chapter 10: The Bipolar Transistor
 order: 1200300
 summary: A diode has two terminals and one characteristic curve.
 tags: npn transistor, BE diode, CB diode, pnp transistor, circuit symbol, collector current, base current, emitter current
@@ -31,11 +33,11 @@ $$I_\mathrm{E}=I_\mathrm{B}+I_\mathrm{C},\qquad U_\mathrm{CE}=U_\mathrm{CB}+U_\m
 ⁠**How to read it:** $I_\mathrm{C}$ is the __collector current__, from microamperes to amperes depending on the type. $I_\mathrm{B}$ is the much smaller __base current__, $I_\mathrm{E}$ the __emitter current__. $U_\mathrm{BE}$ is across the BE diode, around 0.6 V. $U_\mathrm{CE}$ ranges from around 0.2 V up to several tens of volts. $U_\mathrm{CB}$ is the reverse voltage of the CB diode. **Validity:** the node and mesh rules hold in every operating state.
 
 :::herleitung How many quantities are free
-A component with $n$ terminals has $n$ currents. It stores no charge, so the node rule ([Part 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)) removes one current. It has $n$ potentials, but only differences count, so $n-1$ voltages remain. The diode ($n=2$) has one voltage, one current and one curve. The transistor ($n=3$) has two voltages and two currents. Its interior links them through two equations,
+A component with $n$ terminals has $n$ currents. It stores no charge, so the node rule ([Chapter 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)) removes one current. It has $n$ potentials, but only differences count, so $n-1$ voltages remain. The diode ($n=2$) has one voltage, one current and one curve. The transistor ($n=3$) has two voltages and two currents. Its interior links them through two equations,
 
 $$I_\mathrm{B}=f(U_\mathrm{BE},U_\mathrm{CE}),\qquad I_\mathrm{C}=g(U_\mathrm{BE},U_\mathrm{CE}).$$
 
-So it is a two-port ([Part 6](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html)) whose two ports share the emitter.
+So it is a two-port ([Chapter 6](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html)) whose two ports share the emitter.
 :::
 
 ::::beispiel

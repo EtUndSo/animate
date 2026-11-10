@@ -1,6 +1,8 @@
 ---
 title: 第 6 阶段：多个输入，多个放大级
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 运算放大器
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 运算放大器
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker
+knoten: 第 11 章：运算放大器
 order: 1210800
 summary: 规则原本针对一个输入和一个运放。本阶段说明，它无需新的思路就能处理多个输入和整条级联，因为所有方程都保持线性。
 tags: 加法器, 减法器
@@ -13,7 +15,7 @@ lang: zh
 规则原本针对一个输入和一个运放。本阶段说明，它无需新的思路就能处理多个输入和整条级联，因为所有方程都保持线性。
 :::
 
-**基本思路。** 在__加法器__中，多个电阻接到负输入端（图 [8](#abb-8)）。节点保持在 0 V，所以每个电源只看到自己的电阻，驱动 $U_{\mathrm{E}i}/R_{\mathrm{E}i}$，与其他电源无关。虚地使各电源彼此解耦。所有电流合起来流过反馈电阻 $R_\mathrm{F}$。在__减法器__中，每个输入端各接一个电压。这里用[第 5 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)的叠加：每次只算一个电源，另一个变成导线。
+**基本思路。** 在__加法器__中，多个电阻接到负输入端（图 [8](#abb-8)）。节点保持在 0 V，所以每个电源只看到自己的电阻，驱动 $U_{\mathrm{E}i}/R_{\mathrm{E}i}$，与其他电源无关。虚地使各电源彼此解耦。所有电流合起来流过反馈电阻 $R_\mathrm{F}$。在__减法器__中，每个输入端各接一个电压。这里用[第 5 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)的叠加：每次只算一个电源，另一个变成导线。
 
 :::satz 定理 6.1 (加法器、减法器、级联)
 <span class="anker" id="satz-6-1"></span>
@@ -45,7 +47,7 @@ $$U_\mathrm{A}=\frac{R_1+R_2}{R_1}\cdot\frac{R_4}{R_3+R_4}\,U_\mathrm{E2}-\frac{
 
 **较大电路的步骤。** 先确定输入端的电位，再从左到右逐级计算。在级联中，每个输出都是下一级的输入，是一个具有固定值的电位。
 
-:::frage 在第 6 部分，级联的二端口网络会相互加载。为什么这里可以直接相乘？
+:::frage 在第 6 章，级联的二端口网络会相互加载。为什么这里可以直接相乘？
 因为第一级的输出电阻几乎为零。第二级的 10 k$\Omega$ 加在 3.75 m$\Omega$ 上，电压损失只是原值的 $4\cdot10^{-7}$。第一级的环路把它补偿了。
 :::
 

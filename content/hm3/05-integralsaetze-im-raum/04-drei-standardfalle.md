@@ -1,6 +1,8 @@
 ---
 title: Stufe 3: Drei Standardfälle
-pfad: Elektrotechnik / 3. Semester / Höhere Mathematik 3 / Integralsätze im Raum
+pfad: Elektrotechnik / 3. Semester / HöMa3 – Höhere Mathematik 3 / Integralsätze im Raum
+adresse: elektrotechnik/3-semester/hohere-mathematik-3/integralsatze-im-raum
+knoten: Kapitel 5: Integralsätze im Raum
 order: 3150400
 summary: Fast alle Rechnungen führen auf einen von drei Fällen: Graph, Kugel, Rotationsfläche.
 tags: 

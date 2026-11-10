@@ -1,6 +1,8 @@
 ---
 title: Stage 3: The space-charge region
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / Semiconductors and Diodes
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / Semiconductors and Diodes
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden
+knoten: Chapter 9: Semiconductors and Diodes
 order: 1190500
 summary: An n-piece and a p-piece are, on their own, just resistors.
 tags: diffusion, space charge, drift, built-in voltage
@@ -37,7 +39,7 @@ An n-piece and a p-piece are, on their own, just resistors. This stage shows wha
 
 <li>
 
-⁠**The field stops the equalization.** The ions create a field from the n-side to the p-side. It drives electrons back into the n-region and holes back into the p-region (__drift__, [Part 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)). The region grows until the drift current exactly cancels the diffusion current.
+⁠**The field stops the equalization.** The ions create a field from the n-side to the p-side. It drives electrons back into the n-region and holes back into the p-region (__drift__, [Chapter 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)). The region grows until the drift current exactly cancels the diffusion current.
 
 </li>
 
@@ -56,16 +58,16 @@ For an abrupt junction, with the thermal voltage $U_T=k_\mathrm BT/e$,
 $$U_\mathrm{D0}=U_T\ln\frac{N_\mathrm AN_\mathrm D}{n_\mathrm i^2},\qquad w=\sqrt{\frac{2\varepsilon}{e}\Bigl(\frac1{N_\mathrm A}+\frac1{N_\mathrm D}\Bigr)U_\mathrm{D0}},\qquad E_\mathrm{max}=\frac{2U_\mathrm{D0}}{w}. \tag{3.1}$$
 :::
 
-⁠**How to read it:** $U_\mathrm{D0}$ is the __built-in voltage__, the potential step between the two regions, around 0.7 to 0.9 V for silicon. On the way to the p-side, electrons see an energy barrier $W_\mathrm B=e\,U_\mathrm{D0}$. $w$ is the width of the region, $\varepsilon=\varepsilon_0\varepsilon_\mathrm r=1.04\cdot10^{-10}$ A s/(V m) the permittivity ([Part 3](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html)). The region reaches deeper into the more lightly doped side: $w_\mathrm n/w_\mathrm p=N_\mathrm A/N_\mathrm D$. **Validity:** equilibrium; insert the densities in [(3.1)](#gl-3-1) in 1/m$^3$.
+⁠**How to read it:** $U_\mathrm{D0}$ is the __built-in voltage__, the potential step between the two regions, around 0.7 to 0.9 V for silicon. On the way to the p-side, electrons see an energy barrier $W_\mathrm B=e\,U_\mathrm{D0}$. $w$ is the width of the region, $\varepsilon=\varepsilon_0\varepsilon_\mathrm r=1.04\cdot10^{-10}$ A s/(V m) the permittivity ([Chapter 3](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html)). The region reaches deeper into the more lightly doped side: $w_\mathrm n/w_\mathrm p=N_\mathrm A/N_\mathrm D$. **Validity:** equilibrium; insert the densities in [(3.1)](#gl-3-1) in 1/m$^3$.
 
 :::herleitung Potential step and width
 ⁠**Potential step.** An electron on the p-side has climbed the barrier. By [(0.1)](von-grund-auf-ventil-wechselspannung-und-warmeenergie.html#gl-0-1), the densities satisfy $n_\mathrm p/n_\mathrm n=\mathrm{e}^{-U_\mathrm{D0}/U_T}$. With $n_\mathrm n=N_\mathrm D$ and $n_\mathrm p=n_\mathrm i^2/N_\mathrm A$ from [(2.1)](dotierung.html#gl-2-1), the first equation follows.
 
-⁠**Width.** Both sides carry the same amount of charge, so $N_\mathrm Aw_\mathrm p=N_\mathrm Dw_\mathrm n$. The field grows linearly from the edges to the boundary and reaches there the value of a surface charge ([Part 3](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html)), $E_\mathrm{max}=e\,N_\mathrm Dw_\mathrm n/\varepsilon$. The voltage is the area under the field curve, a triangle: $U_\mathrm{D0}=\tfrac12E_\mathrm{max}w$. With $w=w_\mathrm n+w_\mathrm p$ this gives [(3.1)](#gl-3-1).
+⁠**Width.** Both sides carry the same amount of charge, so $N_\mathrm Aw_\mathrm p=N_\mathrm Dw_\mathrm n$. The field grows linearly from the edges to the boundary and reaches there the value of a surface charge ([Chapter 3](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html)), $E_\mathrm{max}=e\,N_\mathrm Dw_\mathrm n/\varepsilon$. The voltage is the area under the field curve, a triangle: $U_\mathrm{D0}=\tfrac12E_\mathrm{max}w$. With $w=w_\mathrm n+w_\mathrm p$ this gives [(3.1)](#gl-3-1).
 :::
 
 ::::beispiel
-$U_\mathrm{D0}=25.85\,\mathrm{mV}\cdot\ln10^{12}=0.714$ V, which is $27.6\,U_T$. So the barrier lets the fraction $\mathrm{e}^{-27.6}=10^{-12}$ pass, exactly the ratio $10^{4}/10^{16}$ of the densities. Further, $w=0.43$ µ m, half of it in each region, and $E_\mathrm{max}=3.3$ MV/m, as much as the breakdown field strength of air ([Part 1](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)).
+$U_\mathrm{D0}=25.85\,\mathrm{mV}\cdot\ln10^{12}=0.714$ V, which is $27.6\,U_T$. So the barrier lets the fraction $\mathrm{e}^{-27.6}=10^{-12}$ pass, exactly the ratio $10^{4}/10^{16}$ of the densities. Further, $w=0.43$ µ m, half of it in each region, and $E_\mathrm{max}=3.3$ MV/m, as much as the breakdown field strength of air ([Chapter 1](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)).
 ::::
 
 ⁠**Limiting cases:** If one side is much more heavily doped, the region lies almost entirely in the other. Ten times more doping on one side raises $U_\mathrm{D0}$ by only 60 mV.

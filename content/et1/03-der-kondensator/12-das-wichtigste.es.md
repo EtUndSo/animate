@@ -1,6 +1,8 @@
 ---
 title: Lo esencial
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / El condensador
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / El condensador
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator
+knoten: Capítulo 3: El condensador
 order: 1131200
 summary: Cómo entra corriente en un aislante y dónde está después la energía
 tags: energía del campo, constante de tiempo

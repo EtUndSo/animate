@@ -1,6 +1,8 @@
 ---
 title: Stufe 9: Mitkopplung und der Schmitt-Trigger
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Der Operationsverstärker
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Der Operationsverstärker
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker
+knoten: Kapitel 11: Der Operationsverstärker
 order: 1211100
 summary: Vertauscht man im nicht-invertierenden Verstärker die Eingänge, ergeben dieselben Gleichungen dieselbe Zahl.
 tags: Hysterese, Schmitt-Trigger, instabil

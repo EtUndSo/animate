@@ -1,8 +1,10 @@
 ---
 title: Stufe 4: Orthonormalsysteme und Projektion
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Vektorprodukt und Basen
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Vektorprodukt und Basen
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/vektorprodukt-und-basen
+knoten: Kapitel 9: Vektorprodukt und Basen
 order: 1290600
-summary: Teil 8 projiziert auf eine Gerade und auf eine Hyperebene.
+summary: Kapitel 8 projiziert auf eine Gerade und auf eine Hyperebene.
 tags: Orthonormalsystem, orthonormal, Kronecker-Symbol, orthogonale Projektion, Lotraum
 lang: de
 ---
@@ -10,7 +12,7 @@ lang: de
 <span class="anker" id="stufe-4"></span>
 
 :::zweck
-[Teil 8](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/vektoren-und-skalarprodukt/vektoren-und-skalarprodukt.html) projiziert auf eine Gerade und auf eine Hyperebene. Diese Stufe projiziert auf jeden Unterraum, den senkrechte Einheitsvektoren aufspannen, und zeigt, warum das Ergebnis der nächste Punkt ist.
+[Kapitel 8](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/vektoren-und-skalarprodukt/vektoren-und-skalarprodukt.html) projiziert auf eine Gerade und auf eine Hyperebene. Diese Stufe projiziert auf jeden Unterraum, den senkrechte Einheitsvektoren aufspannen, und zeigt, warum das Ergebnis der nächste Punkt ist.
 :::
 
 **Die Idee.** Gesucht ist zu einem Punkt $P$ der nächste Punkt $Q$ eines Unterraums $U$ (Abb. [4](#abb-4)). Stehen die Richtungen von $U$ senkrecht, stören sie einander nicht: Der Abstand zerfällt in einen Beitrag je Richtung, und man optimiert jede Koordinate für sich.
@@ -48,7 +50,7 @@ $$\Bigl\|\vec p-\sum_{i=1}^kt_i\vec v_i\Bigr\|^2=\|\vec p\|^2-\sum_{i=1}^k\langl
 $$\operatorname{dist}(P,U)=\Bigl\|\vec p-\sum_{i=1}^k\langle\vec p,\vec v_i\rangle\vec v_i\Bigr\|. \tag{4.4}$$
 
 :::beweis Ausmultiplizieren und quadratisch ergänzen
-Mit Linearität und Symmetrie ([Teil 8](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/vektoren-und-skalarprodukt/vektoren-und-skalarprodukt.html)) wird
+Mit Linearität und Symmetrie ([Kapitel 8](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/vektoren-und-skalarprodukt/vektoren-und-skalarprodukt.html)) wird
 
 $$\Bigl\|\vec p-\sum_it_i\vec v_i\Bigr\|^2=\Bigl\langle\vec p-\sum_it_i\vec v_i,\ \vec p-\sum_jt_j\vec v_j\Bigr\rangle=\langle\vec p,\vec p\rangle-2\sum_it_i\langle\vec p,\vec v_i\rangle+\sum_{i,j}t_it_j\langle\vec v_i,\vec v_j\rangle.$$
 
@@ -88,7 +90,7 @@ Für $\vec w_0\in U$ sind gleichwertig: (1) $\|\vec p-\vec w_0\|$ ist minimal un
 </ol>
 :::
 
-⁠**So liest man das:** Der Rest steht senkrecht auf ganz $U$, und daran erkennt man den nächsten Punkt. **Grenzfälle:** Für $k=1$ ist das die Projektion aus [Teil 8](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/vektoren-und-skalarprodukt/vektoren-und-skalarprodukt.html) mit $\|\vec v\|=1$. Für $\vec p\in U$ ist der Rest $\vec0$.
+⁠**So liest man das:** Der Rest steht senkrecht auf ganz $U$, und daran erkennt man den nächsten Punkt. **Grenzfälle:** Für $k=1$ ist das die Projektion aus [Kapitel 8](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/vektoren-und-skalarprodukt/vektoren-und-skalarprodukt.html) mit $\|\vec v\|=1$. Für $\vec p\in U$ ist der Rest $\vec0$.
 
 :::beweis Skalarprodukt mit $\vec v_j$
 (a): Mit [(4.5)](#gl-4-5) und [(4.1)](#gl-4-1) ist $\langle\vec p-\operatorname{Proj}_U(\vec p),\vec v_j\rangle=\langle\vec p,\vec v_j\rangle-\sum_i\langle\vec p,\vec v_i\rangle\langle\vec v_i,\vec v_j\rangle=\langle\vec p,\vec v_j\rangle-\langle\vec p,\vec v_j\rangle=0$. Jedes $\vec u\in U$ ist Linearkombination der $\vec v_j$.
@@ -122,8 +124,8 @@ Für linear unabhängige $\vec v_1,\vec v_2\in\mathbb{R}^3$ und $U:=\operatornam
 
 ⁠**Beweis der ersten Aussage:** „$\supset$“ ist (E2). „$\subset$“: Für $\vec x\in U^\perp$ gibt [(2.1)](rechenregeln-und-geometrie-im-raum.html#gl-2-1) den Vektor $\vec x\times(\vec v_1\times\vec v_2)=\langle\vec x,\vec v_2\rangle\vec v_1-\langle\vec x,\vec v_1\rangle\vec v_2=\vec0$. Nach Satz [2.1](rechenregeln-und-geometrie-im-raum.html#satz-2-1) (i) sind $\vec x$ und $\vec v_1\times\vec v_2\ne\vec0$ abhängig, also ist $\vec x$ ein Vielfaches davon. Die zweite Aussage folgt in Stufe [6](die-dimension.html#stufe-6).
 
-:::frage Ist das dieselbe Projektion wie in Teil 8?
-Ja, nur von der anderen Seite gerechnet. Für eine Hyperebene durch $O$ mit Normale $\vec n$ zieht [Teil 8](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/vektoren-und-skalarprodukt/vektoren-und-skalarprodukt.html) den Anteil längs $\vec n$ ab: $\vec q=\vec p-\langle\vec p,\vec n\rangle\vec n$. Im Beispiel gibt das mit $\vec n=\vec f_3$ ebenfalls $(5,1,-1)-(2,1,2)=(3,0,-3)$.
+:::frage Ist das dieselbe Projektion wie in Kapitel 8?
+Ja, nur von der anderen Seite gerechnet. Für eine Hyperebene durch $O$ mit Normale $\vec n$ zieht [Kapitel 8](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/vektoren-und-skalarprodukt/vektoren-und-skalarprodukt.html) den Anteil längs $\vec n$ ab: $\vec q=\vec p-\langle\vec p,\vec n\rangle\vec n$. Im Beispiel gibt das mit $\vec n=\vec f_3$ ebenfalls $(5,1,-1)-(2,1,2)=(3,0,-3)$.
 :::
 
 :::aufgabe Aufgabe 5 ★★ Projektion im $\mathbb{R}^4$

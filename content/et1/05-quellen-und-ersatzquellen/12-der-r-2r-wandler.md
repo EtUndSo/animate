@@ -1,6 +1,8 @@
 ---
 title: Stufe 10: Der R-2R-Wandler
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Quellen und Ersatzquellen
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Quellen und Ersatzquellen
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen
+knoten: Kapitel 5: Quellen und Ersatzquellen
 order: 1151200
 summary: Ein Prozessor kennt nur Bits, ein Lautsprecher braucht eine Spannung.
 tags: Digital-Analog-Wandler
@@ -39,7 +41,7 @@ Dieselbe Zahl liefert die Überlagerung. Beispiel Quelle $U_1$: Am mittleren Kno
 :::
 
 ::::beispiel
-Mit $U_\mathrm{ref}=8$ V und $R=1$ k$\Omega$ wiegen die Bits 4 V, 2 V und 1 V. Die Stellung 101 ergibt 5 V. Eine Last mit $R_\mathrm{L}=R$ bildet mit $R_\mathrm{i}$ einen Teiler und halbiert das auf 2,5 V. Deshalb folgt in echten Wandlern ein Operationsverstärker ([Teil 11](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker/der-operationsverstaerker.html)) mit sehr hohem Eingangswiderstand: Er zieht praktisch keinen Strom, die Leiter bleibt im Leerlauf.
+Mit $U_\mathrm{ref}=8$ V und $R=1$ k$\Omega$ wiegen die Bits 4 V, 2 V und 1 V. Die Stellung 101 ergibt 5 V. Eine Last mit $R_\mathrm{L}=R$ bildet mit $R_\mathrm{i}$ einen Teiler und halbiert das auf 2,5 V. Deshalb folgt in echten Wandlern ein Operationsverstärker ([Kapitel 11](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker/der-operationsverstaerker.html)) mit sehr hohem Eingangswiderstand: Er zieht praktisch keinen Strom, die Leiter bleibt im Leerlauf.
 ::::
 
 ⁠**Grenzfälle:** Stellung 000 ergibt 0 V, Stellung 111 ergibt 7 V, eine Stufe unter $U_\mathrm{ref}$.

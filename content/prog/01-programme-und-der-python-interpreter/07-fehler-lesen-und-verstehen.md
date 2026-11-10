@@ -1,7 +1,8 @@
 ---
 title: Fehler lesen und verstehen
 pfad: Informatik / Programmieren / Python / Programme und der Python-Interpreter
-knoten: Python 1: Programme und der Python-Interpreter
+adresse: informatik/programmieren/python/programme-und-der-python-interpreter
+knoten: Kapitel 1: Programme und der Python-Interpreter
 order: 6020700
 summary: Jeder, der programmiert, macht Fehler.
 tags: Syntaxfehler, Laufzeitfehler, Ausnahme, Traceback, Logikfehler
@@ -259,21 +260,21 @@ Die gefährlichste Art von Fehler meldet Python überhaupt nicht.
 Ein __Logikfehler__ ist ein Fehler, bei dem ein Programm ohne Fehlermeldung läuft, aber nicht das berechnet, was gemeint war.
 :::
 
-::::beispiel eine Parallelschaltung
-Zwei Widerstände von $100\,\Omega$ und $220\,\Omega$ parallel ergeben $R=\frac{R_1R_2}{R_1+R_2}=68{,}75\,\Omega$. Im folgenden Skript fehlen die Klammern um den Nenner:
+::::beispiel hin und zurück
+Wer eine Strecke hin mit 60 km/h und zurück mit 40 km/h fährt, ist im Schnitt nicht 50 km/h schnell, sondern langsamer: Auf dem Rückweg ist man länger unterwegs, das langsame Tempo zählt also länger. Ist jede Richtung 120 km lang, dauert der Hinweg 2 Stunden und der Rückweg 3. Für 240 km braucht man dann 5 Stunden, im Schnitt also $240/5=48$ km/h. Allgemein gilt für das Durchschnittstempo $v=\frac{2v_1v_2}{v_1+v_2}$; darin ist $v_1$ das Tempo auf dem Hinweg und $v_2$ das auf dem Rückweg. Hier ergibt das $\frac{2\cdot60\cdot40}{60+40}=48$. Im folgenden Skript fehlen die Klammern um den Nenner:
 
-```python parallel.py
-# Parallelschaltung von 100 Ohm und 220 Ohm
-# Formel: R = R1 * R2 / (R1 + R2)
-print("Gesamtwiderstand in Ohm:", 100 * 220 / 100 + 220)
+```python schnitt.py
+# Durchschnittstempo: hin mit 60 km/h, zurueck mit 40 km/h
+# Formel: v = 2 * v1 * v2 / (v1 + v2)
+print("Durchschnitt in km/h:", 2 * 60 * 40 / 60 + 40)
 ```
 
 ```console Linux
-$ python3 parallel.py
-Gesamtwiderstand in Ohm: 440.0
+$ python3 schnitt.py
+Durchschnitt in km/h: 120.0
 ```
 
-Python rechnet nach seinen Regeln $100\cdot220/100+220=440$ und hat damit recht; gemeint war etwas anderes. Eine Parallelschaltung ist immer kleiner als der kleinste ihrer Widerstände, $440\,\Omega$ kann also nicht stimmen. Mit `100 * 220 / (100 + 220)` kommt `68.75` heraus.
+Python rechnet nach seinen Regeln $2\cdot60\cdot40/60+40=80+40=120$ und hat damit recht; gemeint war etwas anderes. Der Durchschnitt muss zwischen den beiden Geschwindigkeiten liegen, also zwischen 40 und 60 km/h; 120 km/h kann nicht stimmen. Mit `2 * 60 * 40 / (60 + 40)` kommt `48.0` heraus.
 ::::
 
 Weitere typische Logikfehler aus diesem Kapitel:
@@ -294,20 +295,20 @@ ein Komma statt eines Punkts: `2,5 * 2` ergibt zwei Werte statt 5,0 (Unterabschn
 
 <li>
 
-eine falsche Einheit: Ein Strom in Ampere wird als Milliampere beschriftet.
+eine falsche Einheit: Ein Preis in Euro wird mit „Cent“ beschriftet.
 
 </li>
 
 </ul>
 
-**Was dagegen hilft.** Prüfe jedes Ergebnis mit einem Fall, dessen Antwort du kennst, oder mit einer Überschlagsrechnung. Für die Parallelschaltung eignen sich zwei gleiche Widerstände: $100\,\Omega$ parallel $100\,\Omega$ muss $50\,\Omega$ ergeben. Die richtige Formel liefert 50, die falsche 200.
+**Was dagegen hilft.** Prüfe jedes Ergebnis mit einem Fall, dessen Antwort du kennst, oder mit einer Überschlagsrechnung. Für den Durchschnitt eignen sich zwei gleiche Geschwindigkeiten: Wer hin und zurück 50 km/h fährt, ist im Schnitt 50 km/h schnell. Die richtige Formel liefert 50, die falsche 150.
 
 ⁠**Kurz gesagt:** Ein Logikfehler läuft ohne Meldung und liefert ein falsches Ergebnis; man findet ihn nur, indem man Ergebnisse prüft.
 
 :::hintergrund Warum kein Werkzeug alle Logikfehler finden kann
 Python prüft beim Übersetzen die Form und beim Ausführen, ob sich jede Zeile ausführen lässt. Was der Verfasser gemeint hat, steht nirgends im Quelltext, also kann Python es auch nicht prüfen.
 
-Dahinter steckt eine grundsätzliche Grenze. Die Informatik hat bewiesen, dass es kein Verfahren geben kann, das für jedes beliebige Programm entscheidet, ob sein Verhalten eine bestimmte Eigenschaft hat, die manche Programme haben und andere nicht, etwa „gibt immer den richtigen Gesamtwiderstand aus“. Das ist der Satz von Rice aus dem Jahr 1953. Werkzeuge können viele typische Fehler finden, aber nie alle. Ergebnisse mit bekannten Fällen zu vergleichen, bleibt deshalb unverzichtbar.
+Dahinter steckt eine grundsätzliche Grenze. Die Informatik hat bewiesen, dass es kein Verfahren geben kann, das für jedes beliebige Programm entscheidet, ob sein Verhalten eine bestimmte Eigenschaft hat, die manche Programme haben und andere nicht, etwa „gibt immer die richtige Durchschnittsgeschwindigkeit aus“. Das ist der Satz von Rice aus dem Jahr 1953. Werkzeuge können viele typische Fehler finden, aber nie alle. Ergebnisse mit bekannten Fällen zu vergleichen, bleibt deshalb unverzichtbar.
 :::
 
 ### Aufgaben zu Abschnitt [6](#stufe-6)
@@ -317,17 +318,17 @@ Dahinter steckt eine grundsätzliche Grenze. Die Informatik hat bewiesen, dass e
 :::aufgabe Aufgabe 16 ★ Einen Traceback lesen
 <span class="anker" id="aufg-16"></span>
 
-Ein Skript `spannung.py` hat folgende Ausgabe erzeugt:
+Ein Skript `strecke.py` hat folgende Ausgabe erzeugt:
 
 ```console Linux
-$ python3 spannung.py
-R = 470 Ohm, I = 20 mA
-U in V: 9.4
+$ python3 strecke.py
+Tempo 18 km/h, Fahrzeit 2 h 30 min
+Strecke in km: 45.0
 Traceback (most recent call last):
-  File "/home/student/python-kurs/spannung.py", line 4, in <module>
-    print("U in mV:", Spannung * 1000)
-                      ^^^^^^^^
-NameError: name 'Spannung' is not defined
+  File "/home/student/python-kurs/strecke.py", line 4, in <module>
+    print("Strecke in m:", Strecke * 1000)
+                           ^^^^^^^
+NameError: name 'Strecke' is not defined
 ```
 
 <ol class="al">
@@ -346,7 +347,7 @@ Welche Zeilen des Skripts sind gelaufen? Woran erkennst du das?
 
 <li>
 
-Was hat der Verfasser vermutlich gemeint, und wie lautet die Zeile richtig, wenn die Spannung in Millivolt ausgegeben werden soll?
+Was hat der Verfasser vermutlich gemeint, und wie lautet die Zeile richtig, wenn die Strecke in Metern ausgegeben werden soll?
 
 </li>
 
@@ -355,9 +356,9 @@ Was hat der Verfasser vermutlich gemeint, und wie lautet die Zeile richtig, wenn
 :::loesung
 (a) Ein `NameError` in Zeile 4 (`line 4` in der Ortszeile, die Art in der letzten Zeile).
 
-(b) Die Zeilen 1 bis 3. Zeile 1 ist ein Kommentar und bewirkt nichts; die Ausgaben von Zeile 2 und 3 stehen vor dem Traceback. Zeile 4 ist die Fehlerstelle; sie hat nichts ausgegeben, weil Python den Ausdruck `Spannung * 1000` auswerten wollte, bevor es `print` aufruft.
+(b) Die Zeilen 1 bis 3. Zeile 1 ist ein Kommentar und bewirkt nichts; die Ausgaben von Zeile 2 und 3 stehen vor dem Traceback. Zeile 4 ist die Fehlerstelle; sie hat nichts ausgegeben, weil Python den Ausdruck `Strecke * 1000` auswerten wollte, bevor es `print` aufruft.
 
-(c) Gemeint war vermutlich die Spannung aus Zeile 3, $9{,}4\,\mathrm V$. Der Name `Spannung` kommt aber nirgends vor; Python kennt ihn nicht. Richtig ist, den Ausdruck selbst hinzuschreiben: `print("U in mV:", 470 * 0.02 * 1000)`. Dann erscheint `U in mV: 9400.0`.
+(c) Gemeint war vermutlich die Strecke aus Zeile 3, 45 km. Der Name `Strecke` kommt aber nirgends vor; Python kennt ihn nicht. Richtig ist, den Ausdruck selbst hinzuschreiben, mit 2,5 Stunden für 2 h 30 min: `print("Strecke in m:", 18 * 2.5 * 1000)`. Dann erscheint `Strecke in m: 45000.0`.
 :::
 :::
 
@@ -368,23 +369,23 @@ Schreibe für jedes der drei Skripte auf, was es ausgibt, und ordne den Fehler e
 
 ```python fehler_a.py
 print("Start")
-print("Strom in A:", 9 / 1500)
+print("Liter pro km:", 45 / 750)
 print("Ende)
 ```
 
 ```python fehler_b.py
 print("Start")
-print("Strom in A:", 9 / 0)
+print("Liter pro km:", 45 / 0)
 print("Ende")
 ```
 
 ```python fehler_c.py
 print("Start")
-print("Strom in mA:", 9 / 1500)
+print("Liter pro 100 km:", 45 / 750)
 print("Ende")
 ```
 
-Achte bei `fehler_b.py` genau darauf, ob „Strom in A:“ noch erscheint.
+Achte bei `fehler_b.py` genau darauf, ob „Liter pro km:“ noch erscheint.
 
 :::loesung
 ⁠**`fehler_a.py`** ist ein Syntaxfehler: In Zeile 3 wird die Zeichenkette nie geschlossen. Deshalb läuft keine Zeile, nicht einmal „Start“ erscheint:
@@ -397,47 +398,47 @@ $ python3 fehler_a.py
 SyntaxError: unterminated string literal (detected at line 3)
 ```
 
-⁠**`fehler_b.py`** ist ein Laufzeitfehler: Zeile 1 läuft, Zeile 2 bricht ab. „Strom in A:“ erscheint *nicht*, denn Python wertet zuerst alle Werte in den Klammern aus, auch `9 / 0`, und erst danach würde `print` etwas schreiben. Die Markierung zeigt auf die Division:
+⁠**`fehler_b.py`** ist ein Laufzeitfehler: Zeile 1 läuft, Zeile 2 bricht ab. „Liter pro km:“ erscheint *nicht*, denn Python wertet zuerst alle Werte in den Klammern aus, auch `45 / 0`, und erst danach würde `print` etwas schreiben. Die Markierung zeigt auf die Division:
 
 ```console Linux
 $ python3 fehler_b.py
 Start
 Traceback (most recent call last):
   File "/home/student/python-kurs/fehler_b.py", line 2, in <module>
-    print("Strom in A:", 9 / 0)
-                         ~~^~~
+    print("Liter pro km:", 45 / 0)
+                           ~~~^~~
 ZeroDivisionError: division by zero
 ```
 
-⁠**`fehler_c.py`** läuft ohne Meldung durch, enthält aber einen Logikfehler: `9 / 1500` ist der Strom in Ampere, beschriftet ist er als Milliampere.
+⁠**`fehler_c.py`** läuft ohne Meldung durch, enthält aber einen Logikfehler: `45 / 750` ist der Verbrauch für einen Kilometer, beschriftet ist er als Verbrauch für 100 Kilometer.
 
 ```console Linux
 $ python3 fehler_c.py
 Start
-Strom in mA: 0.006
+Liter pro 100 km: 0.06
 Ende
 ```
 
-Richtig wäre `print("Strom in mA:", 9 / 1500 * 1000)` mit der Ausgabe `6.0`, oder die Beschriftung „Strom in A:“. Unter Windows sind alle drei Ausgaben gleich; nur die Ortszeilen nennen den Windows-Pfad.
+Richtig wäre `print("Liter pro 100 km:", 45 / 750 * 100)` mit der Ausgabe `6.0`, oder die Beschriftung „Liter pro km:“. Unter Windows sind alle drei Ausgaben gleich; nur die Ortszeilen nennen den Windows-Pfad.
 :::
 :::
 
 :::aufgabe Aufgabe 18 ★★ Einen Logikfehler finden
 <span class="anker" id="aufg-18"></span>
 
-Ein Spannungsteiler aus $R_1=1\,\mathrm{k\Omega}$ (oben) und $R_2=2\,\mathrm{k\Omega}$ (unten) liegt an $12\,\mathrm V$. Für die Spannung an $R_2$ gilt $U_2=U\cdot R_2/(R_1+R_2)$.
+Anna und Ben kaufen gemeinsam ein Los. Anna zahlt 1 €, Ben 2 €. Das Los gewinnt 12 €, und der Gewinn wird im Verhältnis der Einsätze geteilt: Bens Anteil ist der Gewinn mal Bens Einsatz geteilt durch die Summe beider Einsätze.
 
-```python teiler.py
-# Spannungsteiler an 12 V: R1 = 1 kOhm oben, R2 = 2 kOhm unten
-# Spannung an R2: U2 = U * R2 / (R1 + R2)
-print("U2 in V:", 12 * 2000 / 1000 + 2000)
+```python gewinn.py
+# Gewinn 12 Euro; Einsatz: Anna 1 Euro, Ben 2 Euro
+# Bens Anteil = Gewinn * Bens Einsatz / (Annas Einsatz + Bens Einsatz)
+print("Bens Anteil in Euro:", 12 * 2 / 1 + 2)
 ```
 
 <ol class="al">
 
 <li>
 
-Das Skript gibt `U2 in V: 2024.0` aus. Woran erkennst du ohne Rechnung, dass das nicht stimmen kann?
+Das Skript gibt `Bens Anteil in Euro: 26.0` aus. Woran erkennst du ohne Rechnung, dass das nicht stimmen kann?
 
 </li>
 
@@ -456,17 +457,17 @@ Prüfe die berichtigte Formel mit einem Fall, dessen Ergebnis du kennst.
 </ol>
 
 :::loesung
-(a) An einem Teil eines Spannungsteilers kann nie mehr Spannung liegen als die ganze Versorgung, hier 12 V. 2024 V ist also unmöglich.
+(a) Ein Anteil kann nie größer sein als der ganze Gewinn, hier 12 €. 26 € für Ben ist also unmöglich.
 
-(b) Um den Nenner fehlen Klammern. Python rechnet $12\cdot2000/1000+2000=24+2000=2024$. Richtig:
+(b) Um den Nenner fehlen Klammern. Python rechnet $12\cdot2/1+2=24+2=26$. Richtig:
 
 ```python
-print("U2 in V:", 12 * 2000 / (1000 + 2000))
+print("Bens Anteil in Euro:", 12 * 2 / (1 + 2))
 ```
 
-Ausgabe: `U2 in V: 8.0`.
+Ausgabe: `Bens Anteil in Euro: 8.0`. Ben bekommt 8 €, Anna die übrigen 4 €; das passt, denn Ben hat doppelt so viel eingezahlt.
 
-(c) Mit zwei gleichen Widerständen muss genau die halbe Spannung herauskommen: `12 * 1000 / (1000 + 1000)` ergibt `6.0`. Ein zweiter bekannter Fall: Ist $R_2$ viel größer als $R_1$, liegt fast die ganze Spannung an $R_2$; ist $R_2=0$, liegt dort gar keine.
+(c) Bei gleichen Einsätzen muss jeder genau die Hälfte bekommen: `12 * 1 / (1 + 1)` ergibt `6.0`. Ein zweiter bekannter Fall: Zahlt Ben viel mehr als Anna, bekommt er fast den ganzen Gewinn; zahlt er nichts, bekommt er nichts.
 :::
 :::
 
@@ -512,7 +513,7 @@ Führe das Skript danach aus. Was erscheint, bevor der Traceback kommt?
 Die Befehlsnamen hängen von der Python-Version ab; die Beobachtungen nicht.
 
 :::loesung
-Die Ausgaben auf den beiden Prüfrechnern:
+Die Ausgaben auf den beiden Testrechnern:
 
 ```console Windows (PowerShell), Python 3.13
 PS> py -m dis rechnung.py

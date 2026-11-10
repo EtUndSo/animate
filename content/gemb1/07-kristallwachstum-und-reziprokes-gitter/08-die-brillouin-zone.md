@@ -1,6 +1,8 @@
 ---
 title: Stufe 6: Die Brillouin-Zone
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Kristallwachstum und reziprokes Gitter
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Kristallwachstum und reziprokes Gitter
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/kristallwachstum-und-reziprokes-gitter
+knoten: Kapitel 7: Kristallwachstum und reziprokes Gitter
 order: 4170800
 summary: Jede Welle bleibt dieselbe, wenn man boldsymbol k um ein boldsymbol G verschiebt.
 tags: 
@@ -13,7 +15,7 @@ lang: de
 Jede Welle bleibt dieselbe, wenn man $\boldsymbol k$ um ein $\boldsymbol G$ verschiebt. Im $k$-Raum gibt es also unendlich viele Kopien. Diese Stufe wählt einen Bereich aus, der jede Welle genau einmal enthält.
 :::
 
-**Die Idee.** Das reziproke Gitter ist selbst ein Bravais-Gitter. Also lässt sich auf ihm dieselbe Frage stellen wie in [Teil 6](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/kristallgitter/kristallgitter.html): Welches Gebiet gehört zu einem Punkt? Jedes $\boldsymbol k$ hat einen nächsten reziproken Gitterpunkt $\boldsymbol G$. Zieht man $\boldsymbol G$ ab, landet es im Hoheitsgebiet des Ursprungs. Dort liegt jede Welle genau einmal, und zwar mit dem kleinstmöglichen $|\boldsymbol k|$.
+**Die Idee.** Das reziproke Gitter ist selbst ein Bravais-Gitter. Also lässt sich auf ihm dieselbe Frage stellen wie in [Kapitel 6](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/kristallgitter/kristallgitter.html): Welches Gebiet gehört zu einem Punkt? Jedes $\boldsymbol k$ hat einen nächsten reziproken Gitterpunkt $\boldsymbol G$. Zieht man $\boldsymbol G$ ab, landet es im Hoheitsgebiet des Ursprungs. Dort liegt jede Welle genau einmal, und zwar mit dem kleinstmöglichen $|\boldsymbol k|$.
 
 :::definition Definition 6.1 (Erste Brillouin-Zone)
 <span class="anker" id="satz-6-1"></span>
@@ -26,7 +28,7 @@ $$\boldsymbol k\cdot\frac{\boldsymbol G}{|\boldsymbol G|}=\frac{|\boldsymbol G|}
 und ihr Inhalt ist $(2\pi)^3/\Omega$.
 :::
 
-⁠**So liest man das:** [(6.1)](#gl-6-1) sagt, dass $\boldsymbol k$ und $\boldsymbol k-\boldsymbol G$ gleich lang sind. Die Konstruktion ist die aus [Teil 6](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/kristallgitter/kristallgitter.html): Verbindungslinien vom Ursprung zu den Nachbarn ziehen, jede mittig senkrecht schneiden, das kleinste eingeschlossene Gebiet nehmen. Auf der Kette liegen die Nachbarn bei $\pm2\pi/a$, die Schnitte bei $\pm\pi/a$. Das ist der Bereich aus [Teil 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html).
+⁠**So liest man das:** [(6.1)](#gl-6-1) sagt, dass $\boldsymbol k$ und $\boldsymbol k-\boldsymbol G$ gleich lang sind. Die Konstruktion ist die aus [Kapitel 6](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/kristallgitter/kristallgitter.html): Verbindungslinien vom Ursprung zu den Nachbarn ziehen, jede mittig senkrecht schneiden, das kleinste eingeschlossene Gebiet nehmen. Auf der Kette liegen die Nachbarn bei $\pm2\pi/a$, die Schnitte bei $\pm\pi/a$. Das ist der Bereich aus [Kapitel 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html).
 
 :::abbildung gemb1/k7zonen 6
 Oben: Konstruktion in der Ebene für die reziproken Gitter aus Abb. [5](reziproke-gittervektoren-in-der-ebene-und-im-raum.html#abb-5). Verbindungslinien grün, Mittelsenkrechte rot, Zone grau. Unten: erste Brillouin-Zonen der kubischen Kristalle, nicht maßstäblich zueinander.
@@ -57,11 +59,11 @@ Ein Kristall aus $N$ primitiven Zellen hat in jeder Brillouin-Zone genau $N$ Wer
 :::
 
 :::herleitung Zählen mit periodischen Rändern
-Für einen Würfel der Kante $L$ erlauben periodische Ränder ([Teil 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html)) die Werte $k_x=n_x2\pi/L$, entsprechend $k_y$ und $k_z$. Jeder Wert belegt im $k$-Raum das Volumen $(2\pi)^3/L^3$. Die Zone hat den Inhalt $(2\pi)^3/\Omega$. Der Quotient ist $L^3/\Omega=N$. Die Form der Zone geht nicht ein, also gilt das Ergebnis für jede Gitterstruktur.
+Für einen Würfel der Kante $L$ erlauben periodische Ränder ([Kapitel 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html)) die Werte $k_x=n_x2\pi/L$, entsprechend $k_y$ und $k_z$. Jeder Wert belegt im $k$-Raum das Volumen $(2\pi)^3/L^3$. Die Zone hat den Inhalt $(2\pi)^3/\Omega$. Der Quotient ist $L^3/\Omega=N$. Die Form der Zone geht nicht ein, also gilt das Ergebnis für jede Gitterstruktur.
 :::
 
 ::::beispiel
-Eine Kette von 1 µm mit $a=0{,}2$ nm hat 5000 Punkte. Die $k$-Werte liegen $0{,}00628\,\mathrm{nm^{-1}}$ auseinander, die Zone ist $31{,}4\,\mathrm{nm^{-1}}$ breit. Das ergibt 5000 Werte. **Kontrolle:** [Teil 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html) fand für $N$ Punkte $N$ Energien.
+Eine Kette von 1 µm mit $a=0{,}2$ nm hat 5000 Punkte. Die $k$-Werte liegen $0{,}00628\,\mathrm{nm^{-1}}$ auseinander, die Zone ist $31{,}4\,\mathrm{nm^{-1}}$ breit. Das ergibt 5000 Werte. **Kontrolle:** [Kapitel 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html) fand für $N$ Punkte $N$ Energien.
 ::::
 
 ⁠**Grenzfall:** Für $L\to\infty$ liegen die Werte beliebig dicht, die Zone bleibt gleich groß. $k$ wird stetig.

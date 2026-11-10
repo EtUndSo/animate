@@ -1,6 +1,8 @@
 ---
 title: Etapa 1: Agrupar resistencias
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Fuentes y fuentes equivalentes
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Fuentes y fuentes equivalentes
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen
+knoten: Capítulo 5: Fuentes y fuentes equivalentes
 order: 1150300
 summary: Una red de resistencias sin fuente tiene en dos terminales una curva característica que pasa por el origen, así que basta un número.
 tags: circuito serie-paralelo, resistencia total, conductancia

@@ -1,7 +1,9 @@
 ---
 title: Visión general: Sistemas paso bajo y paso banda
 kurz: Visión general
-pfad: Ingeniería eléctrica / 3.er semestre / Señales y sistemas / Sistemas paso bajo y paso banda
+pfad: Ingeniería eléctrica / 3.er semestre / ET3 – Fundamentos de ingeniería eléctrica 3: señales y sistemas / Sistemas paso bajo y paso banda
+adresse: elektrotechnik/3-semester/signale-und-systeme/tiefpass-und-bandpasssysteme
+knoten: Capítulo 5: Sistemas paso bajo y paso banda
 order: 3250100
 summary: Transmisión sin distorsión, paso bajo ideal, envolvente compleja y retardo de grupo
 tags: 
@@ -21,7 +23,7 @@ Casi toda transmisión debe hacer llegar una señal lo más inalterada posible, 
 
 <li>
 
-⁠**Paso bajo RC** con $RC=1$ s, como en las partes 1 a 3.
+⁠**Paso bajo RC** con $RC=1$ s, como en los [capítulos 1](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html) a 3.
 
 </li>
 
@@ -45,5 +47,5 @@ Casi toda transmisión debe hacer llegar una señal lo más inalterada posible, 
 
 </ul>
 
-El script `rechnung_kap5.py` recalcula los números y las curvas. $\operatorname{si}(x)=\sin(x)/x$, como en la [parte 3](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html).
+El script `rechnung_kap5.py` recalcula los números y las curvas. $\operatorname{si}(x)=\sin(x)/x$, como en el [capítulo 3](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html).
 :::

@@ -1,6 +1,8 @@
 ---
 title: Stage 1: What a function is
-pfad: Electrical Engineering / 1st Semester / Higher Mathematics 1 / Functions and Polynomials
+pfad: Electrical Engineering / 1st Semester / HöMa1 – Higher Mathematics 1 / Functions and Polynomials
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/funktionen-und-polynome
+knoten: Chapter 3: Functions and Polynomials
 order: 1230300
 summary: School presents functions as formulas.
 tags: map, image, preimage, domain, range, graph, real function

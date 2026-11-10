@@ -1,6 +1,8 @@
 ---
 title: Etapa 3: Corriente y tensión en el condensador
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / El condensador
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / El condensador
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator
+knoten: Capítulo 3: El condensador
 order: 1130400
 summary: En una resistencia, la tensión fija la corriente en el mismo instante.
 tags: fuente de corriente
@@ -18,7 +20,7 @@ En una resistencia, la tensión fija la corriente en el mismo instante. En un co
 :::satz Teorema 3.1 (Corriente y tensión en el condensador)
 <span class="anker" id="satz-3-1"></span>
 
-Con las flechas de referencia de corriente y tensión en el mismo sentido ([Parte 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)), para magnitudes dependientes del tiempo se cumple
+Con las flechas de referencia de corriente y tensión en el mismo sentido ([capítulo 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)), para magnitudes dependientes del tiempo se cumple
 
 <span class="anker" id="gl-3-1"></span>
 <span class="anker" id="gl-3-2"></span>
@@ -26,7 +28,7 @@ $$\begin{aligned} i(t)&=\frac{\mathrm{d} q}{\mathrm{d} t}=C\,\frac{\mathrm{d} u(
 :::
 
 :::herleitung Corriente y tensión
-La corriente es carga por unidad de tiempo, $i=\mathrm{d} q/\mathrm{d} t$ ([Parte 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)). Sustituyendo $q=C\,u$ y sacando fuera el número constante $C$ se obtiene [(3.1)](#gl-3-1). A la inversa, la carga es el área bajo la curva de corriente, igual que el camino es el área bajo la velocidad ([Parte 1](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)): $q(t)=q(t_0)+\int_{t_0}^{t}i\,\mathrm{d} t'$. Dividiendo por $C$ se obtiene [(3.2)](#gl-3-2).
+La corriente es carga por unidad de tiempo, $i=\mathrm{d} q/\mathrm{d} t$ ([capítulo 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)). Sustituyendo $q=C\,u$ y sacando fuera el número constante $C$ se obtiene [(3.1)](#gl-3-1). A la inversa, la carga es el área bajo la curva de corriente, igual que el camino es el área bajo la velocidad ([capítulo 1](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)): $q(t)=q(t_0)+\int_{t_0}^{t}i\,\mathrm{d} t'$. Dividiendo por $C$ se obtiene [(3.2)](#gl-3-2).
 :::
 
 ⁠**Cómo leerlo:** Las minúsculas indican magnitudes dependientes del tiempo, $t'$ es la variable de integración, $u(t_0)$ la tensión en el instante inicial. $i$ en A, $C$ en F, $\mathrm{d} u/\mathrm{d} t$ en V/s. 1 mA en 100 µF hace subir la tensión a razón de 10 V/s. **Signo:** $q$ es la carga de la placa hacia la que apunta la flecha de corriente. Con $i>0$ crece y $u$ sube; con $i<0$, $u$ baja. **Validez:** $C$ debe ser constante.

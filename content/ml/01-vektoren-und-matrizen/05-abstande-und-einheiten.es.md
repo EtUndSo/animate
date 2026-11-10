@@ -1,7 +1,8 @@
 ---
 title: Distancias y unidades
 pfad: Informática / Aprendizaje automático / Fundamentos matemáticos / Vectores y matrices
-knoten: Fundamentos 1: Vectores y matrices
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Capítulo 1: Vectores y matrices
 nachschlagen: ja
 order: 15210500
 summary: Dos ejemplos son parecidos si sus vectores están cerca uno de otro.
@@ -78,7 +79,7 @@ La distancia euclídea suma cuadrados de metros cuadrados, habitaciones y kilóm
 
 Para hacer comparables las características, se considera cada característica por separado a lo largo de todos los ejemplos. En la tabla [1](vektoren-daten-als-zahlenlisten.html#tab-1), son las columnas: las superficies de todas las viviendas forman el vector $\mathbf{v}=(60,\,40,\,90,\,70)^{\top}\in\mathbb{R}^4$. Un vector así pertenece a una característica y tiene tantas componentes como ejemplos hay. Aquí se llama la __columna de la característica__.
 
-Para la comparación no cuenta lo grandes que son las superficies, sino cuánto se diferencian. Por eso se mide cada superficie como desviación respecto del promedio. En electrotecnia, este paso consiste en restar la componente continua y quedarse solo con la componente alterna.
+Para la comparación no cuenta lo grandes que son las superficies, sino cuánto se diferencian. Por eso se mide cada superficie como desviación respecto del promedio. Así se describen también las estaturas en una clase escolar: «$5$ cm más alto que el promedio» dice más sobre un niño que «$1{,}45$ m».
 
 :::definition Definición 4.2 (Vector centrado)
 <span class="anker" id="satz-4-2"></span>
@@ -107,12 +108,12 @@ La media de las superficies y la suma de las desviaciones respecto de la media, 
 
 <span class="anker" id="stufe-4-4"></span>
 
-Cuánto oscila una característica se ve en el tamaño de sus desviaciones. Un valor absoluto típico de una componente es el valor eficaz de la subsección [3.6](normen-die-groe-eines-vektors.html#stufe-3-6). Aplicado al vector centrado, da el tamaño típico de las desviaciones respecto de la media. En el lenguaje de la electrotecnia: el valor eficaz de la componente alterna.
+Cuánto oscila una característica se ve en el tamaño de sus desviaciones. Un valor absoluto típico de una componente es el valor cuadrático medio de la subsección [3.6](normen-die-groe-eines-vektors.html#stufe-3-6). Aplicado al vector centrado, da el tamaño típico de las desviaciones respecto de la media.
 
 :::definition Definición 4.3 (Desviación típica)
 <span class="anker" id="satz-4-3"></span>
 
-La __desviación típica__ de un vector $\mathbf{v}\in\mathbb{R}^N$ es el valor eficaz de su vector centrado:
+La __desviación típica__ de un vector $\mathbf{v}\in\mathbb{R}^N$ es el valor cuadrático medio de su vector centrado:
 
 <span class="anker" id="gl-4-3"></span>
 $$\operatorname{std}(\mathbf{v})=\operatorname{rms}(\tilde{\mathbf{v}})=\frac{\lVert\mathbf{v}-\bar v\,\mathbf 1\rVert}{\sqrt N}=\sqrt{\frac1N\sum_{i=1}^N(v_i-\bar v)^2} . \tag{4.3}$$
@@ -128,14 +129,14 @@ La desviación típica de las superficies: elevar las desviaciones al cuadrado, 
 :::
 ::::
 
-⁠**En resumen:** La desviación típica es el valor eficaz de las desviaciones respecto de la media, la oscilación típica de una característica.
+⁠**En resumen:** La desviación típica es el valor cuadrático medio de las desviaciones respecto de la media, la oscilación típica de una característica.
 
-:::hintergrund La componente continua y la alterna se reparten la potencia
-Un vector es la suma de su componente continua $\bar v\,\mathbf 1$ y su componente alterna $\tilde{\mathbf{v}}$. Para el cuadrado de la longitud se cumple, según las reglas de cálculo del producto escalar,
+:::hintergrund La media y las desviaciones se reparten el cuadrado medio
+Un vector es la suma del vector constante $\bar v\,\mathbf 1$ y de sus desviaciones $\tilde{\mathbf{v}}$. Para el cuadrado de la longitud se cumple, según las reglas de cálculo del producto escalar,
 
 $$\lVert\bar v\,\mathbf 1+\tilde{\mathbf{v}}\rVert^2=\bar v^2\,\mathbf 1^{\top}\mathbf 1+2\,\bar v\,\mathbf 1^{\top}\tilde{\mathbf{v}}+\lVert\tilde{\mathbf{v}}\rVert^2=N\bar v^2+0+\lVert\tilde{\mathbf{v}}\rVert^2 ,$$
 
-porque las desviaciones suman cero. Si se divide por $N$, resulta $\operatorname{rms}(\mathbf{v})^2=\bar v^2+\operatorname{std}(\mathbf{v})^2$. Es el mismo reparto que en una corriente mixta, cuya potencia en una resistencia se compone de la potencia de la componente continua y la de la componente alterna. Para las superficies: $\operatorname{rms}^2=(3600+1600+8100+4900)/4=4550=65^2+325$.
+porque las desviaciones suman cero. Si se divide por $N$, resulta $\operatorname{rms}(\mathbf{v})^2=\bar v^2+\operatorname{std}(\mathbf{v})^2$. Dicho con palabras: el cuadrado medio de los valores es el cuadrado de su media más el cuadrado medio de sus desviaciones. Un cuadrado medio grande puede venir, por tanto, de valores grandes o de oscilaciones fuertes, y la fórmula separa ambas cosas. Para las superficies: $\operatorname{rms}^2=(3600+1600+8100+4900)/4=4550=65^2+325$.
 :::
 
 ### Estandarizar
@@ -197,13 +198,13 @@ La distancia entre los valores estandarizados es, por tanto, la distancia ordina
 Pero estandarizar es en sí mismo una decisión. Da a cada característica el mismo peso en la distancia, incluso a una característica que no desempeña ningún papel para la pregunta. Y una característica que tiene el mismo valor en todos los ejemplos tiene desviación típica cero y no puede estandarizarse; pero tampoco distingue los ejemplos ni contribuye a ninguna distancia.
 :::
 
-:::aufgabe Ejercicio 9 ★ Componente continua y componente alterna
+:::aufgabe Ejercicio 9 ★ Media y desviaciones
 <span class="anker" id="aufg-9"></span>
 
-Una señal tiene las muestras $\mathbf{x}=(1,\,3,\,1,\,-1)^{\top}$. Calcula la media, el vector centrado, la desviación típica y el valor eficaz. Comprueba $\operatorname{rms}(\mathbf{x})^2=\bar x^2+\operatorname{std}(\mathbf{x})^2$.
+La temperatura a las siete de la mañana en cuatro días es $\mathbf{x}=(1,\,3,\,1,\,-1)^{\top}$ grados Celsius. Calcula la media, el vector centrado, la desviación típica y el valor cuadrático medio. Comprueba $\operatorname{rms}(\mathbf{x})^2=\bar x^2+\operatorname{std}(\mathbf{x})^2$.
 
 :::loesung
-La media es $\bar x=(1+3+1-1)/4=1$; el vector centrado, $\tilde{\mathbf{x}}=(0,\,2,\,0,\,-2)^{\top}$. La desviación típica es $\sqrt{(0+4+0+4)/4}=\sqrt2\approx1{,}414$; el valor eficaz, $\sqrt{(1+9+1+1)/4}=\sqrt3\approx1{,}732$. Comprobación: $\operatorname{rms}^2=3=1^2+(\sqrt2)^2=\bar x^2+\operatorname{std}^2$. La componente continua y la componente alterna se reparten la «potencia» $3$ en la proporción $1:2$.
+La media es $\bar x=(1+3+1-1)/4=1$; el vector centrado, $\tilde{\mathbf{x}}=(0,\,2,\,0,\,-2)^{\top}$. La desviación típica es $\sqrt{(0+4+0+4)/4}=\sqrt2\approx1{,}414$; el valor cuadrático medio, $\sqrt{(1+9+1+1)/4}=\sqrt3\approx1{,}732$. Comprobación: $\operatorname{rms}^2=3=1^2+(\sqrt2)^2=\bar x^2+\operatorname{std}^2$. La media y las desviaciones se reparten el cuadrado medio $3$ en la proporción $1:2$.
 :::
 :::
 

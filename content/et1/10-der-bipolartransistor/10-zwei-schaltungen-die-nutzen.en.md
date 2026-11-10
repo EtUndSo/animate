@@ -1,6 +1,8 @@
 ---
 title: Stage 8: Two circuits that make use of $U_\mathrm{BE}$
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / The Bipolar Transistor
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / The Bipolar Transistor
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor
+knoten: Chapter 10: The Bipolar Transistor
 order: 1201000
 summary: So far, U BE was a nuisance.
 tags: current mirror, reference current, ripple
@@ -32,7 +34,7 @@ With $R_\mathrm{ref}=5.7$ k$\Omega$, $I_\mathrm{ref}=2$ mA and $I_\mathrm{C2
 
 ⁠**Limiting case:** for $B\to\infty$, $I_\mathrm{C2}=I_\mathrm{ref}$.
 
-**The idea: voltage regulator.** A rectifier with smoothing ([Part 9](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)) delivers a DC voltage with a residual fluctuation, the __ripple__. In the regulator (Fig. [9](#abb-9), right), a Zener diode holds the base at $U_\mathrm{Z}$. The emitter is the output and lies one diode voltage lower. If the output voltage falls because the load draws more current, $U_\mathrm{BE}$ grows and the transistor supplies more. The rest of the input voltage drops across $U_\mathrm{CE}$. The load current does not flow through $R_1$; the base needs only one $B$-th of it. So the Zener diode is hardly loaded.
+**The idea: voltage regulator.** A rectifier with smoothing ([Chapter 9](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)) delivers a DC voltage with a residual fluctuation, the __ripple__. In the regulator (Fig. [9](#abb-9), right), a Zener diode holds the base at $U_\mathrm{Z}$. The emitter is the output and lies one diode voltage lower. If the output voltage falls because the load draws more current, $U_\mathrm{BE}$ grows and the transistor supplies more. The rest of the input voltage drops across $U_\mathrm{CE}$. The load current does not flow through $R_1$; the base needs only one $B$-th of it. So the Zener diode is hardly loaded.
 
 :::satz Theorem 8.2 (Voltage regulator with Zener diode)
 <span class="anker" id="satz-8-2"></span>

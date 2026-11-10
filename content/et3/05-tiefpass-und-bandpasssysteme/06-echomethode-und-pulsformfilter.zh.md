@@ -1,6 +1,8 @@
 ---
 title: 第 5 阶段：回波法与脉冲成形滤波器
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / 低通与带通系统
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / 低通与带通系统
+adresse: elektrotechnik/3-semester/signale-und-systeme/tiefpass-und-bandpasssysteme
+knoten: 第 5 章：低通与带通系统
 order: 3250600
 summary: 如何设计过冲较小的低通？用平移后的 si 函数组合出冲激响应，并选择它们的权重。
 tags: 回波, 升余弦滤波器
@@ -34,7 +36,7 @@ $$h(t)=\operatorname{si}\Bigl(\frac{\pi t}{T}\Bigr)+\tfrac12\operatorname{si}\Bi
 理想低通和脉冲成形滤波器的冲激响应（面积都为 $T$）。脉冲成形滤波器衰减得快得多：它的最大旁瓣极值是主极大值的 2.7 %，而不是 21.7 %。
 :::
 
-**横向滤波器（抽头延迟线）。** 延迟并加权的副本之和，可以用一串延迟单元来实现：对各抽头的信号加权后相加。为了不让任何单元需要用到未来的值，把整体一起延迟。这与 FIR 滤波器（[第 4 部分](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme/abtastung-und-zeitdiskrete-systeme.html)）的结构相同。
+**横向滤波器（抽头延迟线）。** 延迟并加权的副本之和，可以用一串延迟单元来实现：对各抽头的信号加权后相加。为了不让任何单元需要用到未来的值，把整体一起延迟。这与 FIR 滤波器（[第 4 章](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme/abtastung-und-zeitdiskrete-systeme.html)）的结构相同。
 
 :::aufgabe 练习 5 ★★ 升余弦滤波器
 <span class="anker" id="aufg-5"></span>
@@ -58,6 +60,6 @@ $H$ 在 $f=0$ 和 $f=f_\mathrm g=\frac{1}{2T}$ 处的值各是多少？为什么
 :::loesung
 (a) 在 $t=mT$ 处，$\operatorname{si}(\pi(t\pm T)/T)$ 只在 $m=\mp1$ 时等于 1，其余均为零。因此 $h(0)=1$，$h(\pm T)=\frac12$，其他所有 $h(nT)=0$。由式 [(5.1)](#gl-5-1)：$H=T\operatorname{rect}(Tf)\bigl[1+\frac12\mathrm{e}^{\mathrm{j}2\pi Tf}+\frac12\mathrm{e}^{-\mathrm{j}2\pi Tf}\bigr]=T\operatorname{rect}(Tf)\bigl[1+\cos(2\pi Tf)\bigr]$。
 
-(b) $H(0)=2T$，$H(\frac{1}{2T})=T(1+\cos\pi)=0$。斜率 $-2\pi T^2\sin(2\pi Tf)$ 在 $f=\frac{1}{2T}$ 处也为零。频率响应既无跳变、也无折点地趋于零。频谱越光滑，冲激响应衰减得越快（[第 3 部分](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)）。
+(b) $H(0)=2T$，$H(\frac{1}{2T})=T(1+\cos\pi)=0$。斜率 $-2\pi T^2\sin(2\pi Tf)$ 在 $f=\frac{1}{2T}$ 处也为零。频率响应既无跳变、也无折点地趋于零。频谱越光滑，冲激响应衰减得越快（[第 3 章](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)）。
 :::
 :::

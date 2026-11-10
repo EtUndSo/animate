@@ -1,6 +1,8 @@
 ---
 title: Stufe 11: Phasen- und Gruppenlaufzeit beim Bandpass
-pfad: Elektrotechnik / 3. Semester / Signale und Systeme / Tiefpass- und Bandpasssysteme
+pfad: Elektrotechnik / 3. Semester / ET3 – Grundgebiete der Elektrotechnik 3: Signale und Systeme / Tiefpass- und Bandpasssysteme
+adresse: elektrotechnik/3-semester/signale-und-systeme/tiefpass-und-bandpasssysteme
+knoten: Kapitel 5: Tiefpass- und Bandpasssysteme
 order: 3251200
 summary: Warum gibt es zwei Laufzeiten?
 tags: Laufzeitverzerrung

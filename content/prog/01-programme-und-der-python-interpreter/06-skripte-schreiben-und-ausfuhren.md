@@ -1,7 +1,8 @@
 ---
 title: Skripte schreiben und ausführen
 pfad: Informatik / Programmieren / Python / Programme und der Python-Interpreter
-knoten: Python 1: Programme und der Python-Interpreter
+adresse: informatik/programmieren/python/programme-und-der-python-interpreter
+knoten: Kapitel 1: Programme und der Python-Interpreter
 order: 6020600
 summary: Was man im interaktiven Modus eintippt, ist nach dem Beenden verloren.
 tags: Editor, Skript, Kommentar
@@ -68,7 +69,7 @@ Mit einem Editor kann man den Quelltext eines Programms in eine Datei schreiben 
 Ein __Skript__ ist eine Textdatei mit Python-Quelltext, deren Name auf `.py` endet. Python führt ein Skript aus, indem es die Datei übersetzt und ihre Zeilen dann von oben nach unten je einmal ausführt.
 :::
 
-**Ordner vorbereiten.** Zwei Befehle genügen, und sie heißen unter Windows und Linux gleich: `mkdir python-kurs` legt den Ordner `python-kurs` an, `cd python-kurs` wechselt im Terminal hinein. Ein neu geöffnetes Terminal steht im persönlichen Ordner; dort wird der Ordner angelegt. Hast du ihn schon im Editor angelegt, entfällt `mkdir`. Ausführlich: Linux 2.
+**Ordner vorbereiten.** Zwei Befehle genügen, und sie heißen unter Windows und Linux gleich: `mkdir python-kurs` legt den Ordner `python-kurs` an, `cd python-kurs` wechselt im Terminal hinein. Ein neu geöffnetes Terminal steht im persönlichen Ordner; dort wird der Ordner angelegt. Hast du ihn schon im Editor angelegt, entfällt `mkdir`. Ausführlich: Linux, Kapitel 2.
 
 ::::beispiel
 Schreibe im Editor diese drei Zeilen und speichere sie als `hallo.py` im Ordner `python-kurs`:
@@ -132,7 +133,7 @@ Der Grund für die Regel ist praktisch. Ein Programm soll genau das ausgeben, wa
 
 <span class="anker" id="stufe-5-3"></span>
 
-Ein Skript liest man öfter, als man es schreibt, und nach ein paar Wochen weiß man selbst nicht mehr, was `(9 - 2) / 0.02` bedeuten sollte. Man braucht Platz für Erklärungen, die Python nicht stören.
+Ein Skript liest man öfter, als man es schreibt, und nach ein paar Wochen weiß man selbst nicht mehr, was `500 / 4 * 6` bedeuten sollte. Man braucht Platz für Erklärungen, die Python nicht stören.
 
 :::definition Definition 5.3 (Kommentar)
 <span class="anker" id="satz-5-3"></span>
@@ -140,24 +141,24 @@ Ein Skript liest man öfter, als man es schreibt, und nach ein paar Wochen weiß
 Ein __Kommentar__ beginnt mit dem Zeichen `#` und reicht bis zum Ende der Zeile. Python überliest ihn vollständig.
 :::
 
-::::beispiel ein LED-Vorwiderstand
-Eine rote Leuchtdiode an einer 9-V-Batterie braucht etwa 2 V und soll 20 mA bekommen. Am Vorwiderstand liegen dann $9\,\mathrm V-2\,\mathrm V=7\,\mathrm V$:
+::::beispiel ein Rezept umrechnen
+Ein Rezept für Pizzateig reicht für 4 Personen und braucht 500 g Mehl und 300 ml Wasser. Für 6 Personen teilt man jede Menge durch 4, das ist die Menge für eine Person, und nimmt sie mit 6 mal:
 
-```python led.py
-# Vorwiderstand einer roten LED an einer 9-V-Batterie
-# Annahmen: Die LED braucht 2 V und soll 20 mA bekommen.
-# Am Widerstand liegen also 9 V - 2 V = 7 V.
-print("Vorwiderstand in Ohm:", (9 - 2) / 0.02)        # R = U / I
-print("Leistung im Widerstand in W:", (9 - 2) * 0.02)  # P = U * I
+```python rezept.py
+# Pizzateig fuer 6 statt fuer 4 Personen
+# Annahmen: Das Rezept fuer 4 Personen braucht 500 g Mehl und 300 ml Wasser.
+# Fuer eine Person ist es also ein Viertel davon.
+print("Mehl in g:", 500 / 4 * 6)      # Menge pro Person mal 6
+print("Wasser in ml:", 300 / 4 * 6)   # Menge pro Person mal 6
 ```
 
 ```console Linux
-$ python3 led.py
-Vorwiderstand in Ohm: 350.0
-Leistung im Widerstand in W: 0.14
+$ python3 rezept.py
+Mehl in g: 750.0
+Wasser in ml: 450.0
 ```
 
-Unter Windows (`py led.py`) erscheint dieselbe Ausgabe. Die ersten drei Zeilen sind ganz Kommentar. In den letzten beiden steht der Kommentar hinter der Anweisung: Python führt den Aufruf von `print` aus und überliest den Rest der Zeile ab `#`.
+Unter Windows (`py rezept.py`) erscheint dieselbe Ausgabe. Die ersten drei Zeilen sind ganz Kommentar. In den letzten beiden steht der Kommentar hinter der Anweisung: Python führt den Aufruf von `print` aus und überliest den Rest der Zeile ab `#`.
 ::::
 
 Gute Kommentare sagen, was eine Zahl bedeutet und warum gerechnet wird, nicht was ohnehin dasteht. Im Beispiel nennen sie die Annahmen und die Einheiten, denn die kennt Python nicht. Man kann mit einem `#` am Zeilenanfang auch eine Zeile vorübergehend abschalten, ohne sie zu löschen.
@@ -217,61 +218,63 @@ Unter Windows (`py hallo.py`) ist die Ausgabe dieselbe.
 :::
 :::
 
-:::aufgabe Aufgabe 14 ★★ Eine LED an 12 V
+:::aufgabe Aufgabe 14 ★★ Das Rezept für 10 Personen
 <span class="anker" id="aufg-14"></span>
 
-Schreibe nach dem Vorbild von `led.py` ein Skript `led12.py` für eine LED mit 2 V und 20 mA an einer 12-V-Versorgung. Es soll den Vorwiderstand in Ohm und die Leistung im Widerstand in Watt ausgeben. Kommentiere die Annahmen und die Formeln. Rechne das Ergebnis zur Probe im Kopf nach.
+Schreibe nach dem Vorbild von `rezept.py` ein Skript `rezept10.py`, das den Pizzateig für 10 Personen umrechnet. Das Rezept für 4 Personen enthält außer 500 g Mehl und 300 ml Wasser noch 10 g Salz. Das Skript soll alle drei Mengen mit ihrer Einheit ausgeben. Kommentiere die Annahmen und die Rechnung. Rechne das Ergebnis zur Probe im Kopf nach.
 
 :::loesung
-```python led12.py
-# Vorwiderstand einer LED an 12 V
-# Annahmen: Die LED braucht 2 V und soll 20 mA bekommen.
-# Am Widerstand liegen also 12 V - 2 V = 10 V.
-print("Vorwiderstand in Ohm:", (12 - 2) / 0.02)        # R = U / I
-print("Leistung im Widerstand in W:", (12 - 2) * 0.02)  # P = U * I
+```python rezept10.py
+# Pizzateig fuer 10 statt fuer 4 Personen
+# Annahmen: Das Rezept fuer 4 Personen braucht 500 g Mehl, 300 ml Wasser
+# und 10 g Salz. Fuer eine Person ist es also ein Viertel davon.
+print("Mehl in g:", 500 / 4 * 10)     # Menge pro Person mal 10
+print("Wasser in ml:", 300 / 4 * 10)  # Menge pro Person mal 10
+print("Salz in g:", 10 / 4 * 10)      # Menge pro Person mal 10
 ```
 
 ```console Linux
-$ python3 led12.py
-Vorwiderstand in Ohm: 500.0
-Leistung im Widerstand in W: 0.2
+$ python3 rezept10.py
+Mehl in g: 1250.0
+Wasser in ml: 750.0
+Salz in g: 25.0
 ```
 
-Probe im Kopf: $10\,\mathrm V/0{,}02\,\mathrm A=500\,\Omega$ und $10\,\mathrm V\cdot0{,}02\,\mathrm A=0{,}2\,\mathrm W$. Ein üblicher Widerstand mit $0{,}25\,\mathrm W$ Belastbarkeit hält das aus, aber nur knapp. Unter Windows ist die Ausgabe dieselbe.
+Probe im Kopf: Für eine Person sind es 125 g Mehl, 75 ml Wasser und 2,5 g Salz, für zehn Personen also zehnmal so viel. Die 1250 g Mehl sind etwas mehr als eine übliche 1-kg-Packung. Unter Windows ist die Ausgabe dieselbe.
 :::
 :::
 
 :::aufgabe Aufgabe 15 ★★ Vom interaktiven Modus zum Skript
 <span class="anker" id="aufg-15"></span>
 
-Jemand hat im interaktiven Modus gerechnet:
+Ein Liter Benzin kostet 1,80 €. Für das Auto aus Aufgabe [10](der-interaktive-modus.html#aufg-10), das für 750 km 45 Liter braucht, hat jemand im interaktiven Modus gerechnet:
 
 ```console
->>> 9 / 1500
-0.006
->>> _ * 1000
+>>> 45 / 750
+0.06
+>>> _ * 100
 6.0
->>> 9 ** 2 / 1500
-0.054
+>>> 45 * 1.8
+81.0
 ```
 
-Schreibe ein Skript `batterie.py`, das dieselben drei Ergebnisse mit erklärendem Text ausgibt, etwa `Strom in A: 0.006`. Warum kannst du `_` dabei nicht benutzen? Ersetze es durch einen Ausdruck, der ohne `_` auskommt.
+Schreibe ein Skript `verbrauch.py`, das dieselben drei Ergebnisse mit erklärendem Text ausgibt, etwa `Liter pro km: 0.06`. Warum kannst du `_` dabei nicht benutzen? Ersetze es durch einen Ausdruck, der ohne `_` auskommt.
 
 :::loesung
-```python batterie.py
-# Widerstand von 1,5 kOhm an einer 9-V-Batterie
-print("Strom in A:", 9 / 1500)             # I = U / R
-print("Strom in mA:", 9 / 1500 * 1000)
-print("Leistung in W:", 9 ** 2 / 1500)     # P = U^2 / R
+```python verbrauch.py
+# Ein Auto braucht 45 Liter Benzin fuer 750 km; ein Liter kostet 1,80 Euro.
+print("Liter pro km:", 45 / 750)
+print("Liter pro 100 km:", 45 / 750 * 100)
+print("Kosten in Euro:", 45 * 1.8)          # 45 Liter zu je 1,80 Euro
 ```
 
 ```console Linux
-$ python3 batterie.py
-Strom in A: 0.006
-Strom in mA: 6.0
-Leistung in W: 0.054
+$ python3 verbrauch.py
+Liter pro km: 0.06
+Liter pro 100 km: 6.0
+Kosten in Euro: 81.0
 ```
 
-Unter Windows ist die Ausgabe dieselbe. Das Zeichen `_` merkt sich nur der interaktive Modus; in einem Skript gibt es kein „zuletzt angezeigtes Ergebnis“, weil ein Skript Werte gar nicht anzeigt. Schreibt man trotzdem `print("Strom in mA:", _ * 1000)` in ein Skript, bricht es mit `NameError: name '_' is not defined` ab. Deshalb steht in der zweiten Zeile der ganze Ausdruck `9 / 1500 * 1000`.
+Unter Windows ist die Ausgabe dieselbe. Das Zeichen `_` merkt sich nur der interaktive Modus; in einem Skript gibt es kein „zuletzt angezeigtes Ergebnis“, weil ein Skript Werte gar nicht anzeigt. Schreibt man trotzdem `print("Liter pro 100 km:", _ * 100)` in ein Skript, bricht es mit `NameError: name '_' is not defined` ab. Deshalb steht in der zweiten Zeile der ganze Ausdruck `45 / 750 * 100`.
 :::
 :::

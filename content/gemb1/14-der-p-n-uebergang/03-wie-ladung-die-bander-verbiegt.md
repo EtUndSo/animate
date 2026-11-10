@@ -1,6 +1,8 @@
 ---
 title: Stufe 1: Wie Ladung die Bänder verbiegt
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Der p-n-Übergang
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Der p-n-Übergang
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/der-p-n-ubergang
+knoten: Kapitel 14: Der p-n-Übergang
 order: 4240300
 summary: Bisher waren die Bänder meist waagerecht, weil der Halbleiter überall gleich war.
 tags: Raumladung, Bandverlauf
@@ -13,7 +15,7 @@ lang: de
 Bisher waren die Bänder meist waagerecht, weil der Halbleiter überall gleich war. An Grenzflächen sammelt sich Ladung. Diese Stufe zeigt, wie man im Bänderdiagramm aus einer Ladungsverteilung Feld und Potential abliest.
 :::
 
-**Die Idee.** Im homogenen Stück heben sich die Ladungen der Ionen und der beweglichen Träger an jedem Ort auf. Äußere Kräfte oder ein anders dotiertes Nachbargebiet stören diesen Ausgleich: Es entsteht ein örtlicher Überschuss oder Mangel an Trägern, also __Raumladung__, Ladung je Volumen, die nicht ausgeglichen ist. Nach der Poisson-Gleichung aus [Teil 13](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/diffusion-rekombination-und-grundgleichungen/diffusion-rekombination-grundgleichungen.html) ist sie die Quelle eines Feldes. Das Feld gehört zu einem Potential, und das Potential verschiebt die Energie eines Elektrons um $-e\varphi$. Das trifft jeden Zustand am selben Ort gleich: Leitungsband, Valenzband, Donator- und Akzeptorniveau rücken gemeinsam. Die Bandlücke bleibt, die Bänder verbiegen sich.
+**Die Idee.** Im homogenen Stück heben sich die Ladungen der Ionen und der beweglichen Träger an jedem Ort auf. Äußere Kräfte oder ein anders dotiertes Nachbargebiet stören diesen Ausgleich: Es entsteht ein örtlicher Überschuss oder Mangel an Trägern, also __Raumladung__, Ladung je Volumen, die nicht ausgeglichen ist. Nach der Poisson-Gleichung aus [Kapitel 13](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/diffusion-rekombination-und-grundgleichungen/diffusion-rekombination-grundgleichungen.html) ist sie die Quelle eines Feldes. Das Feld gehört zu einem Potential, und das Potential verschiebt die Energie eines Elektrons um $-e\varphi$. Das trifft jeden Zustand am selben Ort gleich: Leitungsband, Valenzband, Donator- und Akzeptorniveau rücken gemeinsam. Die Bandlücke bleibt, die Bänder verbiegen sich.
 
 :::satz Satz 1.1 (Poisson-Gleichung und Bandverbiegung)
 <span class="anker" id="satz-1-1"></span>
@@ -37,10 +39,10 @@ Für den __Bandverlauf__ $\Phi(x)=-e\varphi(x)+\text{const}$, die Verschiebung d
 $$\frac{\mathrm{d}\Phi}{\mathrm{d} x}=e\,\mathcal E,\qquad\frac{\mathrm{d}^2\Phi}{\mathrm{d} x^2}=\frac{e\,\rho(x)}{\varepsilon_0\varepsilon_\mathrm r}. \tag{1.4}$$
 :::
 
-⁠**So liest man das:** $\rho$ in C/m$^3$ ist die Raumladungsdichte aus [Teil 13](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/diffusion-rekombination-und-grundgleichungen/diffusion-rekombination-grundgleichungen.html), $N_\mathrm D^+$ und $N_\mathrm A^-$ sind die Dichten der ionisierten Fremdatome. Fehlen bei $N_\mathrm D=10^{16}\,\mathrm{cm^{-3}}$ alle Elektronen, ist $\rho=eN_\mathrm D=1602\,\mathrm{C/m^3}$. $E_{i,\mathrm{Bulk}}$ ist die Lage im ungestörten Inneren (englisch bulk). $\varphi$ steht in V, $\Phi$ in eV, $\mathcal E$ in V/m. **Kurz gesagt:** Die Neigung der Bänder ist $e$ mal Feld, ihre Krümmung ist $e/\varepsilon$ mal Raumladung. **Gültigkeit:** Das Potential ändert sich über eine Gitterkonstante nur wenig, bei 3 MV/m um 1,6 mV je 0,54 nm. Deshalb gilt an jedem Ort die Bandstruktur aus [Teil 9](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/bandstrukturen-lesen/bandstrukturen-lesen.html), nur verschoben.
+⁠**So liest man das:** $\rho$ in C/m$^3$ ist die Raumladungsdichte aus [Kapitel 13](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/diffusion-rekombination-und-grundgleichungen/diffusion-rekombination-grundgleichungen.html), $N_\mathrm D^+$ und $N_\mathrm A^-$ sind die Dichten der ionisierten Fremdatome. Fehlen bei $N_\mathrm D=10^{16}\,\mathrm{cm^{-3}}$ alle Elektronen, ist $\rho=eN_\mathrm D=1602\,\mathrm{C/m^3}$. $E_{i,\mathrm{Bulk}}$ ist die Lage im ungestörten Inneren (englisch bulk). $\varphi$ steht in V, $\Phi$ in eV, $\mathcal E$ in V/m. **Kurz gesagt:** Die Neigung der Bänder ist $e$ mal Feld, ihre Krümmung ist $e/\varepsilon$ mal Raumladung. **Gültigkeit:** Das Potential ändert sich über eine Gitterkonstante nur wenig, bei 3 MV/m um 1,6 mV je 0,54 nm. Deshalb gilt an jedem Ort die Bandstruktur aus [Kapitel 9](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/bandstrukturen-lesen/bandstrukturen-lesen.html), nur verschoben.
 
 :::herleitung Vom Potential zum Bandverlauf
-[(1.2)](#gl-1-2) ist die eindimensionale Form der Poisson-Gleichung aus [Teil 13](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/diffusion-rekombination-und-grundgleichungen/diffusion-rekombination-grundgleichungen.html). Ein Elektron hat im Potential $\varphi$ die zusätzliche Energie $-e\varphi$ ([Teil 1](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/welle-teilchen-und-schrodinger-gleichung/welle-teilchen-und-schroedinger-gleichung.html)), das ergibt [(1.3)](#gl-1-3). Mit $-e$ multipliziert wird aus [(1.2)](#gl-1-2) die Gleichung [(1.4)](#gl-1-4).
+[(1.2)](#gl-1-2) ist die eindimensionale Form der Poisson-Gleichung aus [Kapitel 13](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/diffusion-rekombination-und-grundgleichungen/diffusion-rekombination-grundgleichungen.html). Ein Elektron hat im Potential $\varphi$ die zusätzliche Energie $-e\varphi$ ([Kapitel 1](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/welle-teilchen-und-schrodinger-gleichung/welle-teilchen-und-schroedinger-gleichung.html)), das ergibt [(1.3)](#gl-1-3). Mit $-e$ multipliziert wird aus [(1.2)](#gl-1-2) die Gleichung [(1.4)](#gl-1-4).
 :::
 
 **Ladung je Fläche.** Trägt eine Kondensatorplatte aus Halbleiter die Ladung $Q=C\,U$ auf der Fläche $A$, sitzt diese Ladung nicht auf der Oberfläche, sondern in einer Schicht darunter. Die Flächenladung ist die Summe über die Tiefe:
@@ -52,7 +54,7 @@ $$Q'=\frac{Q}{A}=\int_0^\infty\rho(x)\,\mathrm{d} x. \tag{1.5}$$
 In Abb. [1](#abb-1) fehlen die Elektronen in einer Schicht von $d=200$ nm Dicke, dort stehen nur Donatoren mit $N_\mathrm D=10^{16}\,\mathrm{cm^{-3}}$. Die Gegenladung $-Q'$ sitzt dünn auf der Oberfläche bei $x=0$, rechts der Schicht ist alles neutral. Aus [(1.5)](#gl-1-5) folgt $Q'=eN_\mathrm Dd=3{,}2\cdot10^{-4}\,\mathrm{C/m^2}$, das sind $2\cdot10^{11}$ Ladungen je cm$^2$. Das Feld fällt nach [(1.2)](#gl-1-2) linear von $Q'/\varepsilon=3{,}09$ MV/m auf null. Die Bandkante steigt als Parabel um $eQ'd/(2\varepsilon)=0{,}309$ eV, das sind $12\,k_\mathrm BT$. Wenige hundert Nanometer Raumladung verbiegen die Bänder also um einen großen Teil der Bandlücke.
 ::::
 
-⁠**Grenzfälle:** Ist $\rho=0$, sind die Bänder gerade: mit Feld schräg wie in [Teil 1](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/welle-teilchen-und-schrodinger-gleichung/welle-teilchen-und-schroedinger-gleichung.html), ohne Feld waagerecht.
+⁠**Grenzfälle:** Ist $\rho=0$, sind die Bänder gerade: mit Feld schräg wie in [Kapitel 1](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/welle-teilchen-und-schrodinger-gleichung/welle-teilchen-und-schroedinger-gleichung.html), ohne Feld waagerecht.
 
 :::abbildung gemb1/k14baender 1
 Vorgegebene Ladung und ihre Folgen. Oben: positive Schicht der Dicke 200 nm, $\rho=1{,}6\cdot10^{3}\,\mathrm{C/m^3}$, dazu die Gegenladung $-Q'$ auf der Oberfläche. Mitte: Das Feld steigt linear bis null. Unten: Die Bandkanten folgen als Parabel, beide um dieselben 0,31 eV. Wo $\rho=0$ und $\mathcal E=0$ ist, sind sie waagerecht.

@@ -1,6 +1,8 @@
 ---
 title: Stage 11: Error probability in binary reception
-pfad: Electrical Engineering / 3rd Semester / Signals and Systems / Random Signals
+pfad: Electrical Engineering / 3rd Semester / ET3 – Fundamentals of Electrical Engineering 3: Signals and Systems / Random Signals
+adresse: elektrotechnik/3-semester/signale-und-systeme/zufallssignale
+knoten: Chapter 7: Random Signals
 order: 3271200
 summary: The receiver has to decide: was the pulse sent or not?
 tags: 

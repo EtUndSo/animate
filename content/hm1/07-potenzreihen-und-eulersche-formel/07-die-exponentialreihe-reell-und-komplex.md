@@ -1,8 +1,10 @@
 ---
 title: Stufe 5: Die Exponentialreihe, reell und komplex
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Potenzreihen und Eulersche Formel
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Potenzreihen und Eulersche Formel
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/potenzreihen-und-eulersche-formel
+knoten: Kapitel 7: Potenzreihen und Eulersche Formel
 order: 1270700
-summary: Aus Teil 5 ist exp der Grenzwert einer Folge.
+summary: Aus Kapitel 5 ist exp der Grenzwert einer Folge.
 tags: 
 lang: de
 ---
@@ -10,7 +12,7 @@ lang: de
 <span class="anker" id="stufe-5"></span>
 
 :::zweck
-Aus [Teil 5](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/exponentialfunktion-und-stetigkeit/exponentialfunktion-und-stetigkeit.html) ist $\exp$ der Grenzwert einer Folge. Diese Stufe macht daraus eine Potenzreihe, setzt komplexe Zahlen ein und beweist die Funktionalgleichung.
+Aus [Kapitel 5](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/exponentialfunktion-und-stetigkeit/exponentialfunktion-und-stetigkeit.html) ist $\exp$ der Grenzwert einer Folge. Diese Stufe macht daraus eine Potenzreihe, setzt komplexe Zahlen ein und beweist die Funktionalgleichung.
 :::
 
 **Die Idee.** Multipliziert man $(1+\frac xn)^n$ mit der binomischen Formel aus, ist das $k$-te Glied $\frac{x^k}{k!}\cdot\frac{n(n-1)\cdots(n-k+1)}{n^k}$. Der zweite Bruch geht für festes $k$ gegen 1, für $n=1000$ und $k=2;3;4$ ist er $0{,}999;\ 0{,}997;\ 0{,}994$. Im Grenzwert bleibt $\sum x^k/k!$. Die Reihe ist der schnellere Weg zur selben Zahl (Abb. [5](#abb-5)) und enthält nur Rechenschritte, die auch in $\mathbb{C}$ erlaubt sind.
@@ -42,7 +44,7 @@ Das Produkt ist außerdem höchstens 1. Also liegt die Klammer zwischen 0 und $\
 $$A_n\le\sum_{k=2}^n\frac{|x|^k}{k!}\cdot\frac{k(k-1)}{2n}=\frac{x^2}{2n}\sum_{k=2}^n\frac{|x|^{k-2}}{(k-2)!}\le\frac{x^2}{2n}\,S(|x|)\to0.$$
 :::
 
-**Der Schritt zu den komplexen Zahlen.** $a_n\to a$ bedeutet in $\mathbb{C}$: $|a_n-a|\to0$, und $|a_n-a|$ ist reell. Wegen $\max\{|\operatorname{Re} w|,|\operatorname{Im} w|\}\le|w|\le|\operatorname{Re} w|+|\operatorname{Im} w|$ ([Teil 2](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen/komplexe-zahlen.html)) konvergiert eine komplexe Folge genau dann, wenn Real- und Imaginärteil konvergieren. Damit erbt $\mathbb{C}$ die Vollständigkeit von $\mathbb{R}$, und aus absoluter Konvergenz folgt Konvergenz. Die Sätze der Stufen [1](der-konvergenzkreis.html#stufe-1) und [2](den-radius-ausrechnen.html#stufe-2) rechnen nur mit Beträgen. Sie gelten wörtlich für $z\in\mathbb{C}$, und der Konvergenzbereich ist eine Kreisscheibe $|z|<R$.
+**Der Schritt zu den komplexen Zahlen.** $a_n\to a$ bedeutet in $\mathbb{C}$: $|a_n-a|\to0$, und $|a_n-a|$ ist reell. Wegen $\max\{|\operatorname{Re} w|,|\operatorname{Im} w|\}\le|w|\le|\operatorname{Re} w|+|\operatorname{Im} w|$ ([Kapitel 2](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen/komplexe-zahlen.html)) konvergiert eine komplexe Folge genau dann, wenn Real- und Imaginärteil konvergieren. Damit erbt $\mathbb{C}$ die Vollständigkeit von $\mathbb{R}$, und aus absoluter Konvergenz folgt Konvergenz. Die Sätze der Stufen [1](der-konvergenzkreis.html#stufe-1) und [2](den-radius-ausrechnen.html#stufe-2) rechnen nur mit Beträgen. Sie gelten wörtlich für $z\in\mathbb{C}$, und der Konvergenzbereich ist eine Kreisscheibe $|z|<R$.
 
 :::definition Definition 5.2 (Komplexe Exponentialfunktion)
 <span class="anker" id="satz-5-2"></span>
@@ -85,7 +87,7 @@ $$c_k=\sum_{\ell=0}^k\frac{z_1^\ell}{\ell!}\cdot\frac{z_2^{k-\ell}}{(k-\ell)!}=\
 
 Also ist $\exp(z_1)\exp(z_2)=\sum_kc_k=\exp(z_1+z_2)$. Hier zeigt sich der Mechanismus: Die Fakultäten der Reihe sind genau die, die der Binomialkoeffizient braucht.
 
-(c) Konjugieren darf in Summen und Produkte hinein ([Teil 2](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen/komplexe-zahlen.html)) und wegen $|\overline w|=|w|$ auch in Grenzwerte. Also ist $\overline{\sum(\mathrm{i}\varphi)^n/n!}=\sum(\overline{\mathrm{i}\varphi})^n/n!=\sum(-\mathrm{i}\varphi)^n/n!$, denn $\overline{\mathrm{i}}=-\mathrm{i}$ und $\overline\varphi=\varphi$.
+(c) Konjugieren darf in Summen und Produkte hinein ([Kapitel 2](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen/komplexe-zahlen.html)) und wegen $|\overline w|=|w|$ auch in Grenzwerte. Also ist $\overline{\sum(\mathrm{i}\varphi)^n/n!}=\sum(\overline{\mathrm{i}\varphi})^n/n!=\sum(-\mathrm{i}\varphi)^n/n!$, denn $\overline{\mathrm{i}}=-\mathrm{i}$ und $\overline\varphi=\varphi$.
 
 (b) Mit $|w|^2=w\overline w$, (c) und (a): $|\exp(\mathrm{i}\varphi)|^2=\exp(\mathrm{i}\varphi)\exp(-\mathrm{i}\varphi)=\exp(0)=1$.
 :::

@@ -1,6 +1,8 @@
 ---
 title: Stufe 2: Quantoren und indirekter Beweis
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Mengen, Logik und reelle Zahlen
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Mengen, Logik und reelle Zahlen
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen
+knoten: Kapitel 1: Mengen, Logik und reelle Zahlen
 order: 1210400
 summary: Alle Axiome haben die Form „für alle x gibt es ein y “.
 tags: Allquantor, Existenzquantor, Gegenbeispiel, Widerspruchsannahme, Russellsche Antinomie

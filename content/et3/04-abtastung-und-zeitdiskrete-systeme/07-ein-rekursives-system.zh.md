@@ -1,6 +1,8 @@
 ---
 title: 第 6 阶段：一个递归系统
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / 采样与离散时间系统
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / 采样与离散时间系统
+adresse: elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme
+knoten: 第 4 章：采样与离散时间系统
 order: 3240700
 summary: 通过最简单的 IIR 系统可以看出：反馈如何产生无限长的单位脉冲响应，以及系统何时稳定。
 tags: 因果, 稳定
@@ -18,14 +20,14 @@ lang: zh
 <span class="anker" id="gl-6-1"></span>
 $$h(n)=\delta(n)+b\,h(n-1)\quad\Longrightarrow\quad h(0)=1,\ h(1)=b,\ h(2)=b^2,\dots\quad\Longrightarrow\quad h(n)=\varepsilon(n)\,b^n. \tag{6.1}$$
 
-这个脉冲在反馈环路中一圈又一圈地循环，每循环一次就乘以 $b$。该系统是__因果__的（$n<0$ 时 $h(n)=0$）。若 $\sum_n|h(n)|<\infty$（[第 1 部分](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html)中条件的离散对应形式），则系统是__稳定__的；在这里，这恰好对应于 $|b|<1$，此时 $\sum_n|b|^n=\frac{1}{1-|b|}$。
+这个脉冲在反馈环路中一圈又一圈地循环，每循环一次就乘以 $b$。该系统是__因果__的（$n<0$ 时 $h(n)=0$）。若 $\sum_n|h(n)|<\infty$（[第 1 章](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html)中条件的离散对应形式），则系统是__稳定__的；在这里，这恰好对应于 $|b|<1$，此时 $\sum_n|b|^n=\frac{1}{1-|b|}$。
 
 **对矩形序列的响应。** 输入 $s(n)=\varepsilon(n)-\varepsilon(n-M)$（$M$ 个 1）。利用卷积和以及等比数列求和公式 $\sum_{k=0}^nq^k=\frac{1-q^{n+1}}{1-q}$：
 
 <span class="anker" id="gl-6-2"></span>
 $$g(n)=\begin{cases}0&n<0,\\[2pt]\displaystyle\sum_{m=0}^{n}b^{n-m}=\frac{1-b^{n+1}}{1-b}&0\le n<M,\\[8pt]\displaystyle\sum_{m=0}^{M-1}b^{n-m}=\frac{b^{n-M+1}-b^{n+1}}{1-b}&n\ge M.\end{cases} \tag{6.2}$$
 
-在参考模型中（$b=0.6$，$M=4$）：$g=1,\ 1.6,\ 1.96,\ 2.176$，随后为 $1.306,\ 0.783,\ 0.470,\dots$，每个值都是前一个值的 0.6 倍（图 [5](#abb-5)）。这就是[第 1 部分](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html)中 RC 电路对矩形脉冲的响应在离散情形下的对应。
+在参考模型中（$b=0.6$，$M=4$）：$g=1,\ 1.6,\ 1.96,\ 2.176$，随后为 $1.306,\ 0.783,\ 0.470,\dots$，每个值都是前一个值的 0.6 倍（图 [5](#abb-5)）。这就是[第 1 章](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html)中 RC 电路对矩形脉冲的响应在离散情形下的对应。
 
 :::abbildung et3/k4rek 5
 $b=0.6$ 的递归系统。左：单位脉冲响应。右：对四个 1 的响应；它上升到 2.176，然后每个采样周期按因子 0.6 衰减。

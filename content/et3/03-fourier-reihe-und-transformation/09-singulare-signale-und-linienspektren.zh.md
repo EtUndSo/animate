@@ -1,6 +1,8 @@
 ---
 title: 第 8 阶段：奇异信号与线谱
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / 傅里叶级数与变换
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / 傅里叶级数与变换
+adresse: elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation
+knoten: 第 3 章：傅里叶级数与变换
 order: 3230900
 summary: 常数、振荡、阶跃和周期信号都不是绝对可积的。借助频谱中的狄拉克冲激，它们仍然可以进行变换。这样，傅里叶级数与傅里叶积分就统一起来了。
 tags: 线谱, 狄拉克梳状函数（冲激串）

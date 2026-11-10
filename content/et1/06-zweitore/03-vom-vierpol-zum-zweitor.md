@@ -1,6 +1,8 @@
 ---
 title: Stufe 1: Vom Vierpol zum Zweitor
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Zweitore
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Zweitore
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore
+knoten: Kapitel 6: Zweitore
 order: 1160300
 summary: Ein Netzwerk mit vier Klemmen hat drei unabhängige Ströme und drei unabhängige Spannungen.
 tags: Vierpol, Torgrößen, Vierpoltheorie, Eingang, Ausgang, Vorwärtsrichtung, Rückwärtsrichtung, Elementarzweitoren
@@ -13,7 +15,7 @@ lang: de
 Ein Netzwerk mit vier Klemmen hat drei unabhängige Ströme und drei unabhängige Spannungen. Diese Stufe zeigt, welche Bedingung daraus zwei Ströme und zwei Spannungen macht.
 :::
 
-**Die Idee.** Ein __Vierpol__ ist ein Netzwerk mit vier Klemmen. Für das ganze Netzwerk gilt die Knotenregel ([Teil 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)) wie für einen großen Knoten: Ein Klemmenstrom liegt durch die drei anderen fest. Die Maschenregel bindet ebenso die Spannungen zwischen den Klemmen. Hängt nun an den Klemmen 1 und 1$'$ ein Zweipol, etwa eine Quelle, kommt eine Aussage hinzu: Ein Zweipol hat nur zwei Anschlüsse. Jede Ladung, die er an einem abgibt, nimmt er am anderen wieder auf. Der Strom, der bei Klemme 1 in das Netzwerk läuft, muss bei Klemme 1$'$ zurückkehren. Das Klemmenpaar verhält sich wie ein einziger Zugang mit einem Strom und einer Spannung (Abb. [1](#abb-1) links).
+**Die Idee.** Ein __Vierpol__ ist ein Netzwerk mit vier Klemmen. Für das ganze Netzwerk gilt die Knotenregel ([Kapitel 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)) wie für einen großen Knoten: Ein Klemmenstrom liegt durch die drei anderen fest. Die Maschenregel bindet ebenso die Spannungen zwischen den Klemmen. Hängt nun an den Klemmen 1 und 1$'$ ein Zweipol, etwa eine Quelle, kommt eine Aussage hinzu: Ein Zweipol hat nur zwei Anschlüsse. Jede Ladung, die er an einem abgibt, nimmt er am anderen wieder auf. Der Strom, der bei Klemme 1 in das Netzwerk läuft, muss bei Klemme 1$'$ zurückkehren. Das Klemmenpaar verhält sich wie ein einziger Zugang mit einem Strom und einer Spannung (Abb. [1](#abb-1) links).
 
 :::definition Definition 1.1 (Vierpol, Tor, Zweitor)
 <span class="anker" id="satz-1-1"></span>
@@ -37,7 +39,7 @@ Seine __Torgrößen__ sind $U_1=U_{11'}$, $I_1$, $U_2=U_{22'}$ und $I_2$.
 Links: Quelle, Zweitor und Last. An beiden Toren kehrt jeder Strom an der zweiten Klemme zurück, Energie fließt in Vorwärtsrichtung von Tor 1 nach Tor 2. Rechts: Ein äußerer Zweig von Klemme 1 nach Klemme 2 führt den Strom $I_\mathrm{x}$. Nun fließt in 1 ein anderer Strom als aus 1$'$ heraus, die Klemmenpaare sind keine Tore mehr.
 :::
 
-Ein Zweitor ist eine gedanklich geschlossene Einheit, zugänglich nur über seine Tore. Seine Eigenschaften liegen durch die Zusammenhänge zwischen den Torgrößen fest, und diese lassen sich rechnen oder messen. Meist liegt an Tor 1, dem __Eingang__, eine Quelle, an Tor 2, dem __Ausgang__, ein Verbraucher. Dann fließt Energie in __Vorwärtsrichtung__ $1\to2$, die Gegenrichtung heißt __Rückwärtsrichtung__. Das Zweitor ist eine Grundstruktur: Gesteuerte Quellen sind Zweitore, Transformator, Verstärker und Transistor haben drei oder vier Anschlüsse, große Zweitore lassen sich aus __Elementarzweitoren__ aufbauen, und zusammengefügte Zweitore bilden wieder ein Zweitor. Die einfachsten Beispiele sind Spannungsteiler und Stromteiler ([Teil 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)).
+Ein Zweitor ist eine gedanklich geschlossene Einheit, zugänglich nur über seine Tore. Seine Eigenschaften liegen durch die Zusammenhänge zwischen den Torgrößen fest, und diese lassen sich rechnen oder messen. Meist liegt an Tor 1, dem __Eingang__, eine Quelle, an Tor 2, dem __Ausgang__, ein Verbraucher. Dann fließt Energie in __Vorwärtsrichtung__ $1\to2$, die Gegenrichtung heißt __Rückwärtsrichtung__. Das Zweitor ist eine Grundstruktur: Gesteuerte Quellen sind Zweitore, Transformator, Verstärker und Transistor haben drei oder vier Anschlüsse, große Zweitore lassen sich aus __Elementarzweitoren__ aufbauen, und zusammengefügte Zweitore bilden wieder ein Zweitor. Die einfachsten Beispiele sind Spannungsteiler und Stromteiler ([Kapitel 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)).
 
 **Aufbau und Einteilung.** Hat ein Zweitor eine durchgehende Leitung von Klemme 1$'$ nach 2$'$, die __Masseleitung__, heißt es __erdunsymmetrisch__ (Abb. [2](#abb-2) links). Es ist eigentlich ein Dreipol, ein unechter Vierpol. Netzwerkmodelle von Transistoren und Verstärkern sind von dieser Art. Ein Zweitor, das wie die Brückenschaltung keine solche Leitung besitzt und spiegelbildlich zu einer Mittellinie aufgebaut ist, heißt __erdsymmetrisch__. Nach ihrem Verhalten teilt man Zweitore in lineare zeitunabhängige, zeitabhängige und nichtlineare ein. Dieses Kapitel behandelt die linearen zeitunabhängigen.
 

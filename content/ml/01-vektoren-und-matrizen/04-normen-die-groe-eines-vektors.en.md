@@ -1,7 +1,8 @@
 ---
 title: Norms: the size of a vector
 pfad: Computer Science / Machine Learning / Mathematical Foundations / Vectors and Matrices
-knoten: Foundations 1: Vectors and Matrices
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Chapter 1: Vectors and Matrices
 nachschlagen: ja
 order: 15210400
 summary: How large is a vector?
@@ -236,13 +237,13 @@ $$\operatorname{rms}(\mathbf{x})=\frac{\lVert\mathbf{x}\rVert}{\sqrt n}=\sqrt{\f
 
 The abbreviation rms stands for *root mean square*: the square root of the mean of the squares. The RMS value is a typical magnitude of a component. If all components have the same absolute value $a$, the RMS value is exactly $a$.
 
-The name is familiar from electrical engineering: the RMS value of an AC voltage is the square root of the time average of its square. For a sampled signal, [(3.6)](#gl-3-6) is the same calculation with samples instead of an integral. If you sample a sine over exactly one period at $n\ge3$ evenly spaced points, you even get exactly the RMS value $1/\sqrt2$ of the sine.
+Why square first and take the square root at the end? If you average the components themselves, positive and negative ones cancel each other out: an appraiser who estimates $20$ too high once and $20$ too low once would be at $0$ on average. The squares are never negative, and the square root brings the result back to the unit of the components. The calculation [(3.6)](#gl-3-6) can also be applied to curves: if you evaluate a sine over exactly one period at $n\ge3$ evenly spaced points, you get exactly $1/\sqrt2$, the same value you obtain by averaging over all points of the period.
 
 ::::beispiel [Worked example]
-The error vectors of the appraisers from the previous subsection have the RMS values $\operatorname{rms}(\hat{\mathbf{y}}_{\mathrm A}-\mathbf{y})=20/\sqrt4=10$ and $\operatorname{rms}(\hat{\mathbf{y}}_{\mathrm B}-\mathbf{y})=40/\sqrt4=20$ thousand euros: A is typically off by $10$ thousand euros. A sine with amplitude $1$, sampled at four evenly spaced points of one period, has the samples $\mathbf{x}=(0,\,1,\,0,\,-1)^{\top}$ and the RMS value $1/\sqrt2\approx0.707$ (Fig. [17](#abb-17)).
+The error vectors of the appraisers from the previous subsection have the RMS values $\operatorname{rms}(\hat{\mathbf{y}}_{\mathrm A}-\mathbf{y})=20/\sqrt4=10$ and $\operatorname{rms}(\hat{\mathbf{y}}_{\mathrm B}-\mathbf{y})=40/\sqrt4=20$ thousand euros: A is typically off by $10$ thousand euros. A sine with peak value $1$, evaluated at four evenly spaced points of one period, has the values $\mathbf{x}=(0,\,1,\,0,\,-1)^{\top}$ and the RMS value $1/\sqrt2\approx0.707$ (Fig. [17](#abb-17)).
 
 :::abbildung ml/k1rrms 17
-The RMS value of a sampled sine: add the squares, divide by the number of components, take the square root.
+The RMS value of a sine at four points: add the squares, divide by the number of components, take the square root.
 :::
 ::::
 
@@ -308,6 +309,6 @@ What do you notice about the signs? From now on, the real estate agent adds $7$ 
 :::loesung
 (a) The error vector is $\hat{\mathbf{y}}-\mathbf{y}=(188-200,\ 126-130,\ 286-290,\ 232-240)^{\top}=(-12,\,-4,\,-4,\,-8)^{\top}$. Its norms: $\lVert\cdot\rVert_1=28$, $\lVert\cdot\rVert_2=\sqrt{144+16+16+64}=\sqrt{240}\approx15.49$, $\lVert\cdot\rVert_\infty=12$, RMS value $\sqrt{240}/2\approx7.75$ thousand euros. She is furthest off for apartment 1, by $12$ thousand euros.
 
-(b) All errors are negative: the real estate agent consistently estimates too low, and her error has a DC component. With the $7$ thousand euros added, the error vector becomes $(-5,\,3,\,3,\,-1)^{\top}$ with $\lVert\cdot\rVert_1=12$, $\lVert\cdot\rVert_2=\sqrt{25+9+9+1}=\sqrt{44}\approx6.63$, $\lVert\cdot\rVert_\infty=5$ and the RMS value $\sqrt{44}/2\approx3.32$. She has improved according to all three norms. The added amount $7$ is exactly the mean of the absolute errors, $(12+4+4+8)/4=7$: it removes the DC component of the error and leaves only the AC component.
+(b) All errors are negative: the real estate agent consistently estimates too low, and her error has a common part that is contained in all components. With the $7$ thousand euros added, the error vector becomes $(-5,\,3,\,3,\,-1)^{\top}$ with $\lVert\cdot\rVert_1=12$, $\lVert\cdot\rVert_2=\sqrt{25+9+9+1}=\sqrt{44}\approx6.63$, $\lVert\cdot\rVert_\infty=5$ and the RMS value $\sqrt{44}/2\approx3.32$. She has improved according to all three norms. The added amount $7$ is exactly the mean of the absolute errors, $(12+4+4+8)/4=7$: it removes this common part, that is, the mean of the error, and leaves only the deviations from it.
 :::
 :::

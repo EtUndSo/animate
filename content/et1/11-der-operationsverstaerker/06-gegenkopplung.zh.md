@@ -1,6 +1,8 @@
 ---
 title: 第 4 阶段：负反馈
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 运算放大器
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 运算放大器
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker
+knoten: 第 11 章：运算放大器
 order: 1210600
 summary: 没有反馈时，运放是一个开关。本阶段说明，为什么把输出的一部分送回去就能使输入差值几乎为零，以及为什么此时增益不再取决于 A 。
 tags: 反馈, 正反馈, 同相放大器, 电压跟随器
@@ -40,7 +42,7 @@ $$\frac{\Delta G}{G}\approx\frac{1}{1+A\beta}\cdot\frac{\Delta A}{A}. \tag{4.2}$
 :::herleitung 平衡和运动中的环路
 平衡：$U_\mathrm{A}=A\,U_\mathrm{D}$，$U_\mathrm{D}=U_\mathrm{E}-\beta\,U_\mathrm{A}$。代入得 $U_\mathrm{D}=U_\mathrm{E}-A\beta\,U_\mathrm{D}$，由此得 [(4.1)](#gl-4-1)。$G$ 对 $A$ 求导得 $\mathrm{d} G/\mathrm{d} A=1/(1+A\beta)^2$，除以 $G$ 即得 [(4.2)](#gl-4-2)。
 
-运动：在运放内部，与 $U_\mathrm{D}$ 成正比的电流给一个电容充电。因此输出不能跳变，而是追赶其目标值：$\tau\,\mathrm{d} U_\mathrm{A}/\mathrm{d} t=A\,U_\mathrm{D}-U_\mathrm{A}$，这里 $\tau=A/(2\pi f_\mathrm{T})=15.9$ ms。这就是[第 3 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html) RC 电路的方程。代入 $U_\mathrm{D}=U_\mathrm{E}-\beta\,U_\mathrm{A}$ 得
+运动：在运放内部，与 $U_\mathrm{D}$ 成正比的电流给一个电容充电。因此输出不能跳变，而是追赶其目标值：$\tau\,\mathrm{d} U_\mathrm{A}/\mathrm{d} t=A\,U_\mathrm{D}-U_\mathrm{A}$，这里 $\tau=A/(2\pi f_\mathrm{T})=15.9$ ms。这就是[第 3 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html) RC 电路的方程。代入 $U_\mathrm{D}=U_\mathrm{E}-\beta\,U_\mathrm{A}$ 得
 
 $$\tau\,\frac{\mathrm{d} U_\mathrm{A}}{\mathrm{d} t}=A\,U_\mathrm{E}-(1+A\beta)\,U_\mathrm{A}.$$
 
@@ -67,7 +69,7 @@ $A$ 变化 300 % 时，$G$ 只变化 0.0075 %。这是用增益换精度：1
 
 **输入与输出。** 在正输入端，$r_\mathrm{e}$ 上只有 $U_\mathrm{D}=50$ µ V，流过 50 pA，是分压器电流 100 µ A 的两百万分之一。输入电阻因此升到 $r_\mathrm{e}(1+A\beta)=20$ G$\Omega$。在输出端，环路抵抗任何负载：负载把 $U_\mathrm{A}$ 拉低一点时，$U_\mathrm{D}$ 增大，内部电压上升，直到损失几乎被补偿。输出电阻降到 $r_\mathrm{a}/(1+A\beta)=3.75$ m$\Omega$。
 
-**电压跟随器。** 取 $R_2=0$、$R_1\to\infty$，输出直接接到负输入端，$\beta=1$，$G=A/(1+A)=0.99999$。这种__电压跟随器__不放大，而是隔离：输入电阻 100 G$\Omega$，输出电阻 0.75 m$\Omega$。一个 1 M$\Omega$ 的电压表接在电压 1 V、内阻 100 k$\Omega$ 的电源上，读数为 0.909 V（[第 4 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-und-spannung-messen/strom-und-spannung-messen.html)）。前面加上电压跟随器后，读数为 0.99999 V。
+**电压跟随器。** 取 $R_2=0$、$R_1\to\infty$，输出直接接到负输入端，$\beta=1$，$G=A/(1+A)=0.99999$。这种__电压跟随器__不放大，而是隔离：输入电阻 100 G$\Omega$，输出电阻 0.75 m$\Omega$。一个 1 M$\Omega$ 的电压表接在电压 1 V、内阻 100 k$\Omega$ 的电源上，读数为 0.909 V（[第 4 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-und-spannung-messen/strom-und-spannung-messen.html)）。前面加上电压跟随器后，读数为 0.99999 V。
 
 :::abbildung et1/k11nichtinv 6
 左：同相放大器，标有参考模型中的电位。负输入端只比正输入端低 50 µ V。右：作为极限情况 $\beta=1$ 的电压跟随器。

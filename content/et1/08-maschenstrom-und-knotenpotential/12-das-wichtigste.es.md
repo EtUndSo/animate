@@ -1,6 +1,8 @@
 ---
 title: Lo esencial
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Análisis por mallas y por nudos
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Análisis por mallas y por nudos
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/maschenstrom-und-knotenpotentialverfahren
+knoten: Capítulo 8: Análisis por mallas y por nudos
 order: 1181200
 summary: Por qué a una red le bastan pocas incógnitas
 tags: análisis por mallas, corriente de malla, análisis por nudos, potencial de nudo, nudo de referencia, matriz de resistencias, matriz de conductancias, análisis por nudos modificado

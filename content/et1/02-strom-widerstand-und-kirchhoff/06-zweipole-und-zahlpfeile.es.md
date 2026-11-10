@@ -1,6 +1,8 @@
 ---
 title: Etapa 5: Dipolos y flechas de referencia
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Corriente, resistencia y leyes de Kirchhoff
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Corriente, resistencia y leyes de Kirchhoff
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff
+knoten: Capítulo 2: Corriente, resistencia y leyes de Kirchhoff
 order: 1120600
 summary: A partir de ahora no importa lo que ocurre dentro del componente, sino lo que se puede medir en sus terminales.
 tags: dipolo, curva característica, caja negra, red, dipolo lineal, dipolo no lineal, convenio receptor, convenio generador
@@ -24,12 +26,12 @@ Un __dipolo__ es un componente que se puede describir por completo mediante la c
 $$G=\frac IU=\text{const}\quad\text{o bien}\quad R=\frac UI=\text{const}. \tag{5.1}$$
 :::
 
-⁠**Cómo leerlo:** Un __dipolo lineal__ así es la resistencia óhmica (fig. [4](das-ohmsche-gesetz-aus-feld-und-stoen.html#abb-4), derecha, cada recta un valor). También las baterías y las fuentes de tensión forman parte de las redes lineales, pero su curva característica no pasa por el origen ([Parte 5](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)). En un __dipolo no lineal__ como la lámpara incandescente (fig. [5](reale-widerstande-werte-und-temperatur.html#abb-5), derecha), $U/I$ depende del punto de trabajo, y allí no se cumple [(5.1)](#gl-5-1).
+⁠**Cómo leerlo:** Un __dipolo lineal__ así es la resistencia óhmica (fig. [4](das-ohmsche-gesetz-aus-feld-und-stoen.html#abb-4), derecha, cada recta un valor). También las baterías y las fuentes de tensión forman parte de las redes lineales, pero su curva característica no pasa por el origen ([capítulo 5](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)). En un __dipolo no lineal__ como la lámpara incandescente (fig. [5](reale-widerstande-werte-und-temperatur.html#abb-5), derecha), $U/I$ depende del punto de trabajo, y allí no se cumple [(5.1)](#gl-5-1).
 
 :::definition Definición 5.2 (Convenios de signos)
 <span class="anker" id="satz-5-2"></span>
 
-La flecha de tensión apunta de 1 a 2 y significa $U_{12}=\varphi_1-\varphi_2$ ([Parte 1](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)). La flecha de corriente cuenta la carga positiva en el sentido de la flecha. En el __convenio receptor__ (CR), las flechas de tensión y de corriente de un dipolo apuntan en el mismo sentido; en el __convenio generador__ (CG), en sentidos opuestos. Para una resistencia se cumple
+La flecha de tensión apunta de 1 a 2 y significa $U_{12}=\varphi_1-\varphi_2$ ([capítulo 1](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)). La flecha de corriente cuenta la carga positiva en el sentido de la flecha. En el __convenio receptor__ (CR), las flechas de tensión y de corriente de un dipolo apuntan en el mismo sentido; en el __convenio generador__ (CG), en sentidos opuestos. Para una resistencia se cumple
 
 <span class="anker" id="gl-5-2"></span>
 $$U=R\,I\quad\text{(CR)},\qquad U=-R\,I\quad\text{(CG)}. \tag{5.2}$$

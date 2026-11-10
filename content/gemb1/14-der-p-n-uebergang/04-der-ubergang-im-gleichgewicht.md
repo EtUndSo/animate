@@ -1,6 +1,8 @@
 ---
 title: Stufe 2: Der Übergang im Gleichgewicht
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Der p-n-Übergang
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Der p-n-Übergang
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/der-p-n-ubergang
+knoten: Kapitel 14: Der p-n-Übergang
 order: 4240400
 summary: Ein p- und ein n-Gebiet haben verschiedene Fermi-Energien.
 tags: Neutralgebiete, eingebautes Potential
@@ -47,10 +49,10 @@ Ein p- und ein n-Gebiet haben verschiedene Fermi-Energien. Diese Stufe zeigt, wa
 Links: zwei getrennte Stücke mit gleichen Bandkanten und verschiedenen Fermi-Energien, Abstand $\Phi_\mathrm{bi}=0{,}762$ eV. Rechts: im Gleichgewicht ist $E_\mathrm F$ überall gleich, die Bänder des p-Gebiets liegen um $\Phi_\mathrm{bi}$ höher. Oben in der Zone stehen die Vorzeichen der festen Ionen. Zahlen des Rechenmodells.
 :::
 
-Das ist der Pegelausgleich aus [Teil 12](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/strom-im-halbleiter/strom-im-halbleiter.html): Vor dem Kontakt liegt $E_\mathrm F$ im n-Stück höher. Am Ende ist es überall gleich, und dafür verschiebt die zurückbleibende Ladung die Bänder selbst. Das Gleichgewicht ist dynamisch: Diffusion und Drift laufen in der Zone weiter und heben sich auf.
+Das ist der Pegelausgleich aus [Kapitel 12](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/strom-im-halbleiter/strom-im-halbleiter.html): Vor dem Kontakt liegt $E_\mathrm F$ im n-Stück höher. Am Ende ist es überall gleich, und dafür verschiebt die zurückbleibende Ladung die Bänder selbst. Das Gleichgewicht ist dynamisch: Diffusion und Drift laufen in der Zone weiter und heben sich auf.
 
 :::herleitung Warum $E_\mathrm F$ im Gleichgewicht überall gleich ist
-[Teil 12](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/strom-im-halbleiter/strom-im-halbleiter.html) zerlegt $E_\mathrm F(x)=E_\mathrm C(x)+\zeta(x)$ mit $\zeta=-k_\mathrm BT\ln(N_\mathrm C/n)$, also $\mathrm{d} E_\mathrm F/\mathrm{d} x=e\mathcal E+(k_\mathrm BT/n)\,\mathrm{d} n/\mathrm{d} x$. Mit $\mu_\mathrm n\,n$ multipliziert steht rechts genau $j_\mathrm n$ aus [(0.2)](von-grund-auf-was-aus-fruheren-teilen-gebraucht-wird.html#gl-0-2):
+[Kapitel 12](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/strom-im-halbleiter/strom-im-halbleiter.html) zerlegt $E_\mathrm F(x)=E_\mathrm C(x)+\zeta(x)$ mit $\zeta=-k_\mathrm BT\ln(N_\mathrm C/n)$, also $\mathrm{d} E_\mathrm F/\mathrm{d} x=e\mathcal E+(k_\mathrm BT/n)\,\mathrm{d} n/\mathrm{d} x$. Mit $\mu_\mathrm n\,n$ multipliziert steht rechts genau $j_\mathrm n$ aus [(0.2)](von-grund-auf-was-aus-fruheren-teilen-gebraucht-wird.html#gl-0-2):
 
 <span class="anker" id="gl-2-1"></span>
 $$j_\mathrm n=\mu_\mathrm n\,n\,\frac{\mathrm{d} E_\mathrm F}{\mathrm{d} x},\qquad\text{ebenso}\quad j_\mathrm p=\mu_\mathrm p\,p\,\frac{\mathrm{d} E_\mathrm F}{\mathrm{d} x}. \tag{2.1}$$

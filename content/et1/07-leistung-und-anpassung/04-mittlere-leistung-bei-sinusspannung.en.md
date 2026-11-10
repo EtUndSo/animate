@@ -1,6 +1,8 @@
 ---
 title: Stage 3: Average power with a sinusoidal voltage
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / Power, Matching and Efficiency
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / Power, Matching and Efficiency
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad
+knoten: Chapter 7: Power, Matching and Efficiency
 order: 1170400
 summary: With an AC voltage, the power changes constantly.
 tags: amplitudes, period, angular frequency, RMS value

@@ -1,6 +1,8 @@
 ---
 title: Stage 7: The node rule is charge conservation
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / Current, Resistance and Kirchhoff's Laws
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / Current, Resistance and Kirchhoff's Laws
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff
+knoten: Chapter 2: Current, Resistance and Kirchhoff's Laws
 order: 1120800
 summary: The first kind of equation: What does the conservation of charge demand at a node?
 tags: 
@@ -33,7 +35,7 @@ Left: node with two incoming and three outgoing currents, sum 7 mA each. Right
 :::
 
 :::herleitung Node rule from charge conservation
-For the charge $Q_\mathrm K$ on the node, $\mathrm{d} Q_\mathrm K/\mathrm{d} t=\sum I_\nu$, because charge neither arises nor disappears. An estimate with [Part 1](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html) shows how small $Q_\mathrm K$ stays: a metal sphere with a radius of 1 cm has the potential $\varphi=k_\mathrm C\,Q/r$ with the Coulomb constant $k_\mathrm C=8.99\cdot10^{9}\,\mathrm{N\,m^2/C^2}$. For 9 V, $Q=10$ pC is enough. A surplus of 3 mA supplies that in 3.3 ns. That is why $\mathrm{d} Q_\mathrm K/\mathrm{d} t$ is negligible compared with the currents, and $\sum I_\nu=0$ remains.
+For the charge $Q_\mathrm K$ on the node, $\mathrm{d} Q_\mathrm K/\mathrm{d} t=\sum I_\nu$, because charge neither arises nor disappears. An estimate with [Chapter 1](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html) shows how small $Q_\mathrm K$ stays: a metal sphere with a radius of 1 cm has the potential $\varphi=k_\mathrm C\,Q/r$ with the Coulomb constant $k_\mathrm C=8.99\cdot10^{9}\,\mathrm{N\,m^2/C^2}$. For 9 V, $Q=10$ pC is enough. A surplus of 3 mA supplies that in 3.3 ns. That is why $\mathrm{d} Q_\mathrm K/\mathrm{d} t$ is negligible compared with the currents, and $\sum I_\nu=0$ remains.
 :::
 
 **Why one equation is superfluous.** Each branch connects two nodes. Its current therefore appears in exactly two node equations, once with $+$ (incoming) and once with $-$ (outgoing). If all $k$ equations are added, all the currents cancel. So one equation follows from the others, and any selection of $k-1$ equations is independent.
@@ -47,7 +49,7 @@ The sum of the first three is $I_0-I_\mathrm b-I_\mathrm d=0$, the fourth equati
 ::::
 
 :::frage Does the rule also hold if a capacitor is connected to a node?
-Yes. The current to the plate is a branch current like any other; the charge collects not on the node, but on the plate. [Part 3](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html) deals with this.
+Yes. The current to the plate is a branch current like any other; the charge collects not on the node, but on the plate. [Chapter 3](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html) deals with this.
 :::
 
 :::aufgabe Exercise 7 ★★ Applying the node rule

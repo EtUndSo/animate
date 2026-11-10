@@ -1,6 +1,8 @@
 ---
 title: Stufe 3: Mittelwert, Leistung, Varianz
-pfad: Elektrotechnik / 3. Semester / Signale und Systeme / Zufallssignale
+pfad: Elektrotechnik / 3. Semester / ET3 – Grundgebiete der Elektrotechnik 3: Signale und Systeme / Zufallssignale
+adresse: elektrotechnik/3-semester/signale-und-systeme/zufallssignale
+knoten: Kapitel 7: Zufallssignale
 order: 3270400
 summary: Die wichtigsten Mittelwerte erster Ordnung und ihre anschauliche Bedeutung.
 tags: Gleichanteil, Leistung, Varianz, Wechselleistung, Standardabweichung
@@ -18,7 +20,7 @@ Der Erwartungswert ist linear: $\mathrm E\{\sum_ia_is_i\}=\sum_ia_i\mathrm E\{s_
 <span class="anker" id="gl-3-1"></span>
 $$m_s=\mathrm E\{s(t)\},\qquad L_s=\mathrm E\{s^2(t)\},\qquad\sigma_s^2=L_s-m_s^2. \tag{3.1}$$
 
-⁠**So liest man das:** Bei einem ergodischen Prozess ist $m_s$ das Zeitmittel, also der __Gleichanteil__ des Signals, und $L_s$ der quadratische Zeitmittelwert, die __Leistung__ ([Teil 6](/wissen/elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen/korrelationsfunktionen.html)). Die __Varianz__ $\sigma_s^2$ ist die Leistung minus die Leistung des Gleichanteils, also die __Wechselleistung__. Ihre Wurzel, die __Standardabweichung__ $\sigma_s$, ist der Effektivwert des Wechselanteils. Ein Multimeter auf AC zeigt $\sigma_s$, auf DC zeigt es $m_s$.
+⁠**So liest man das:** Bei einem ergodischen Prozess ist $m_s$ das Zeitmittel, also der __Gleichanteil__ des Signals, und $L_s$ der quadratische Zeitmittelwert, die __Leistung__ ([Kapitel 6](/wissen/elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen/korrelationsfunktionen.html)). Die __Varianz__ $\sigma_s^2$ ist die Leistung minus die Leistung des Gleichanteils, also die __Wechselleistung__. Ihre Wurzel, die __Standardabweichung__ $\sigma_s$, ist der Effektivwert des Wechselanteils. Ein Multimeter auf AC zeigt $\sigma_s$, auf DC zeigt es $m_s$.
 
 :::aufgabe Aufgabe 1 ★ Mittelwerte eines Signals
 <span class="anker" id="aufg-1"></span>

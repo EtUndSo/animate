@@ -1,7 +1,9 @@
 ---
 title: Overview: The Laplace Transform
 kurz: Overview
-pfad: Electrical Engineering / 3rd Semester / Signals and Systems / Laplace Transform
+pfad: Electrical Engineering / 3rd Semester / ET3 – Fundamentals of Electrical Engineering 3: Signals and Systems / Laplace Transform
+adresse: elektrotechnik/3-semester/signale-und-systeme/laplace-transformation
+knoten: Chapter 2: Laplace Transform
 order: 3220100
 summary: Every signal as a superposition of $\mathrm{e}^{pt}$, and why an LTI system turns this into a multiplication
 tags: 

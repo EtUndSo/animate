@@ -1,6 +1,8 @@
 ---
 title: Stage 3: Impedance form and open-circuit test
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / Two-Port Networks
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / Two-Port Networks
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore
+knoten: Chapter 6: Two-Port Networks
 order: 1160500
 summary: The first choice: The currents are the causes.
 tags: Z parameters, open-circuit input resistance, open-circuit output resistance, open-circuit transfer resistance, two-terminal quantities, transfer quantities, impedance
@@ -48,7 +50,7 @@ $$\mathbf Z=\begin{pmatrix}R_\mathrm{a}+R_\mathrm{b}&R_\mathrm{b}\\mathbb{R}_\ma
 <span class="anker" id="gl-3-3"></span>
 $$Z_{11}=Z_{22}=(R_\mathrm{x}+R_\mathrm{y})\parallel(R_\mathrm{x}+R_\mathrm{y})=\frac{R_\mathrm{x}+R_\mathrm{y}}{2},\qquad Z_{21}=Z_{12}=\frac{R_\mathrm{y}-R_\mathrm{x}}{2}. \tag{3.3}$$
 
-⁠**Limiting cases:** For $R_\mathrm{b}\to0$, $Z_{12}=Z_{21}=0$: The shunt branch is a wire, and the ports are decoupled. For $R_\mathrm{x}=R_\mathrm{y}$, the bridge is balanced ([Part 4](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-und-spannung-messen/strom-und-spannung-messen.html)), and again $Z_{21}=0$.
+⁠**Limiting cases:** For $R_\mathrm{b}\to0$, $Z_{12}=Z_{21}=0$: The shunt branch is a wire, and the ports are decoupled. For $R_\mathrm{x}=R_\mathrm{y}$, the bridge is balanced ([Chapter 4](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-und-spannung-messen/strom-und-spannung-messen.html)), and again $Z_{21}=0$.
 
 :::frage Why a current and not a voltage at the input? I'm more likely to have a voltage source at hand.
 That works too. All that counts is that the other port is open. You then measure $U_1$ and $I_1$ and form the quotient. The impressed current merely fits the way of thinking of this form: It is the cause, the voltages are the effects.

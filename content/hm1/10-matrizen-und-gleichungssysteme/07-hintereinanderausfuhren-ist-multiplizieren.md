@@ -1,6 +1,8 @@
 ---
 title: Stufe 5: Hintereinanderausführen ist Multiplizieren
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Matrizen und lineare Gleichungssysteme
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Matrizen und lineare Gleichungssysteme
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/matrizen-und-lineare-gleichungssysteme
+knoten: Kapitel 10: Matrizen und lineare Gleichungssysteme
 order: 1300700
 summary: Lineare Abbildungen lassen sich addieren und hintereinander ausführen.
 tags: Matrizenprodukt, assoziativ, distributiv, Ring, Algebra, Nullteiler
@@ -80,7 +82,7 @@ Sei $L_i:x\mapsto X_ix$. Nach Satz [5.1](#satz-5-1) gehört ein Produkt zu $L_i
 
 ⁠**So liest man das:** Klammern setzen und ausmultiplizieren geht wie bei Zahlen, nur die Reihenfolge der Faktoren muss bleiben. Beispiel: $(S+E_2)D=SD+D=\bigl(\begin{smallmatrix}1&-2\\2&0\end{smallmatrix}\bigr)$.
 
-**Was im Vergleich zu Zahlen fehlt.** $(\mathbb{R}^{n\times n},+,\cdot)$ erfüllt die Körperaxiome aus [Teil 1](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html) mit zwei Ausnahmen: Die Multiplikation ist nicht kommutativ, und es gibt nicht zu jedem $A\ne0$ ein Inverses. Eine solche Struktur heißt __Ring__ mit Einselement $E_n$. Weil sie auch ein Vektorraum ist, heißt sie __Algebra__. Für $n\ge2$ gilt:
+**Was im Vergleich zu Zahlen fehlt.** $(\mathbb{R}^{n\times n},+,\cdot)$ erfüllt die Körperaxiome aus [Kapitel 1](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html) mit zwei Ausnahmen: Die Multiplikation ist nicht kommutativ, und es gibt nicht zu jedem $A\ne0$ ein Inverses. Eine solche Struktur heißt __Ring__ mit Einselement $E_n$. Weil sie auch ein Vektorraum ist, heißt sie __Algebra__. Für $n\ge2$ gilt:
 
 <ol class="rm">
 
@@ -134,6 +136,6 @@ Sei $\tilde N=\begin{pmatrix}2&-4\\1&-2\end{pmatrix}$. (a) Bestimme $\ker\tilde 
 Sei $R$ aus [(4.4)](koordinaten-und-darstellungsmatrix.html#gl-4-4) und $R_1=\begin{pmatrix}1&0\\0&-1\end{pmatrix}$ die Spiegelung an der $x_1$-Achse. Berechne $RR_1$ und $R_1R$. Zeige, dass beide Drehungen sind (Aufgabe [2](die-spalten-sind-die-bilder.html#aufg-2)), und bestimme mit $\cos\vartheta=\frac35$, $\sin\vartheta=\frac45$ den Drehwinkel durch den Winkel $\vartheta$ von $G$. Prüfe auch $R^2=E_2$ und erkläre dieses Ergebnis ohne Rechnung.
 
 :::loesung
-$RR_1=\dfrac1{25}\begin{pmatrix}-7&-24\\24&-7\end{pmatrix}$ und $R_1R=\dfrac1{25}\begin{pmatrix}-7&24\\-24&-7\end{pmatrix}$. Beide haben die Form der Drehmatrix: Nach den Additionstheoremen ([Teil 7](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/potenzreihen-und-eulersche-formel/potenzreihen-und-eulersche-formel.html)) ist $\cos2\vartheta=2\cos^2\vartheta-1=-\frac7{25}$ und $\sin2\vartheta=2\sin\vartheta\cos\vartheta=\frac{24}{25}$. Also dreht $RR_1$ um $2\vartheta$ und $R_1R$ um $-2\vartheta$. Zwei Spiegelungen ergeben eine Drehung um den doppelten Winkel zwischen den Achsen, die Reihenfolge bestimmt den Drehsinn. $R^2=E_2$, weil zweimal Spiegeln jeden Punkt an seinen Ort zurückbringt.
+$RR_1=\dfrac1{25}\begin{pmatrix}-7&-24\\24&-7\end{pmatrix}$ und $R_1R=\dfrac1{25}\begin{pmatrix}-7&24\\-24&-7\end{pmatrix}$. Beide haben die Form der Drehmatrix: Nach den Additionstheoremen ([Kapitel 7](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/potenzreihen-und-eulersche-formel/potenzreihen-und-eulersche-formel.html)) ist $\cos2\vartheta=2\cos^2\vartheta-1=-\frac7{25}$ und $\sin2\vartheta=2\sin\vartheta\cos\vartheta=\frac{24}{25}$. Also dreht $RR_1$ um $2\vartheta$ und $R_1R$ um $-2\vartheta$. Zwei Spiegelungen ergeben eine Drehung um den doppelten Winkel zwischen den Achsen, die Reihenfolge bestimmt den Drehsinn. $R^2=E_2$, weil zweimal Spiegeln jeden Punkt an seinen Ort zurückbringt.
 :::
 :::

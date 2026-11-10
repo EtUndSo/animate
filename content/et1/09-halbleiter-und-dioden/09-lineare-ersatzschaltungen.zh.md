@@ -1,6 +1,8 @@
 ---
 title: 第 7 阶段：线性等效电路
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 半导体与二极管
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 半导体与二极管
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden
+knoten: 第 9 章：半导体与二极管
 order: 1190900
 summary: 有多个二极管时，多个指数方程相互耦合，手工已无法求解。本阶段用线性部件代替二极管，并给出一种总是有效的方法。
 tags: 理想二极管, 含正向电压的二极管, 正向电压
@@ -70,7 +72,7 @@ $n$ 个二极管有 $2^n$ 种组合，所以好的初始假设很值得。看一
 ::::beispiel
 图 [9](#abb-9) 下方：5 V 和 2 V 各经 1 k$\Omega$ 和一个二极管向节点 X 供电，$R_3=2\,\mathrm{k\Omega}$ 从 X 接地。$U_\mathrm F=0.7$ V。
 
-⁠**假设 1：两者都导通。**在 X 处的节点定律（[第 2 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)）为 $(4.3\,\mathrm{V}-\varphi_\mathrm X)/R_1+(1.3\,\mathrm{V}-\varphi_\mathrm X)/R_2=\varphi_\mathrm X/R_3$。由此得 $\varphi_\mathrm X=2.24$ V，$I_\mathrm{D1}=2.06$ mA，$I_\mathrm{D2}=-0.94$ mA。负电流是矛盾。
+⁠**假设 1：两者都导通。**在 X 处的节点定律（[第 2 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)）为 $(4.3\,\mathrm{V}-\varphi_\mathrm X)/R_1+(1.3\,\mathrm{V}-\varphi_\mathrm X)/R_2=\varphi_\mathrm X/R_3$。由此得 $\varphi_\mathrm X=2.24$ V，$I_\mathrm{D1}=2.06$ mA，$I_\mathrm{D2}=-0.94$ mA。负电流是矛盾。
 
 ⁠**假设 2：D$_1$ 导通，D$_2$ 截止。**于是 $I=(5\,\mathrm{V}-0.7\,\mathrm{V})/3\,\mathrm{k\Omega}=1.43$ mA，$\varphi_\mathrm X=2.87$ V。D$_2$ 上的电压为 $U_\mathrm{D2}=2\,\mathrm{V}-2.87\,\mathrm{V}=-0.87$ V。它小于 $U_\mathrm F$，没有矛盾。工作点为 D$_1$ (0.7 V | 1.43 mA) 和 D$_2$ ($-0.87$ V | 0)。完整仿真给出 2.89 V 和 1.45 mA。
 

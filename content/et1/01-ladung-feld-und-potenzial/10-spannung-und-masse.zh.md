@@ -1,6 +1,8 @@
 ---
 title: 第 8 阶段：电压与接地点
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 电荷、电场与电位
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 电荷、电场与电位
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial
+knoten: 第 1 章：电荷、电场与电位
 order: 1111000
 summary: 电位的数值取决于参考点，两个电位之差则不然。这个差值才是技术上重要的量。本阶段说明如何在电路中用它计算。
 tags: 电压, 接地点, 大地接地点, 电路图, 参考箭头, 节点
@@ -79,7 +81,7 @@ $$\varphi'(P)=\int_{P}^{P_0'}\vec E\cdot\mathrm{d}\vec s=\int_{P}^{P_0}\vec E\cd
 :::
 
 :::ltspice 移动接地点
-⁠**绘制：**电源 `voltage`，值为 `9`，从 `a` 到 `b`；`res`，值为 `2k`，从 `a` 到 `m`；`res`，值为 `1k`，从 `m` 到 `b`。依次把接地符号放在 `b`、`m`、`a` 上。LTspice 总是需要一个接地点。电阻在[第 2 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)解释，这里它们只用于把电压分为 6 V 和 3 V。
+⁠**绘制：**电源 `voltage`，值为 `9`，从 `a` 到 `b`；`res`，值为 `2k`，从 `a` 到 `m`；`res`，值为 `1k`，从 `m` 到 `b`。依次把接地符号放在 `b`、`m`、`a` 上。LTspice 总是需要一个接地点。电阻在[第 2 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)解释，这里它们只用于把电压分为 6 V 和 3 V。
 
 ⁠**指令：**`.op`，另外对每个未接地的节点加一条测量，如 `.meas op pa FIND V(a)`。接地的节点没有自己的数值，用 0 代入。
 

@@ -1,6 +1,8 @@
 ---
 title: 第 3 阶段：卷积变成乘法
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / 拉普拉斯变换
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / 拉普拉斯变换
+adresse: elektrotechnik/3-semester/signale-und-systeme/laplace-transformation
+knoten: 第 2 章：拉普拉斯变换
 order: 3220600
 summary: 第 1 阶段说明系统对单个基本分量做了什么。第 2 阶段说明每个信号都由基本分量组成。两者结合，就得到拉普拉斯变换最重要的定理。
 tags: 

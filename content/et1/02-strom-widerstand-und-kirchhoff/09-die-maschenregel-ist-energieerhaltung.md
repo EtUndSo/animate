@@ -1,6 +1,8 @@
 ---
 title: Stufe 8: Die Maschenregel ist Energieerhaltung
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Strom, Widerstand und Kirchhoff
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Strom, Widerstand und Kirchhoff
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff
+knoten: Kapitel 2: Strom, Widerstand und Kirchhoff
 order: 1120900
 summary: Die zweite Gleichungsart: Was verlangt die Erhaltung der Energie längs eines geschlossenen Wegs?
 tags: 
@@ -13,10 +15,10 @@ lang: de
 Die zweite Gleichungsart: Was verlangt die Erhaltung der Energie längs eines geschlossenen Wegs? Mit ihr lässt sich das Netz vollständig lösen.
 :::
 
-**Die Idee.** Jeder Punkt eines Netzes hat ein Potenzial ([Teil 1](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)). Wer einmal im Kreis läuft, kommt am selben Punkt an, also auf demselben Potenzial (Abb. [9](#abb-9)). Für eine Ladung heißt das: Was sie in der Quelle an Energie gewinnt, gibt sie in den Widerständen wieder ab. In der Batterie heben chemische Kräfte die Ladung gegen das Feld auf das höhere Potenzial.
+**Die Idee.** Jeder Punkt eines Netzes hat ein Potenzial ([Kapitel 1](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)). Wer einmal im Kreis läuft, kommt am selben Punkt an, also auf demselben Potenzial (Abb. [9](#abb-9)). Für eine Ladung heißt das: Was sie in der Quelle an Energie gewinnt, gibt sie in den Widerständen wieder ab. In der Batterie heben chemische Kräfte die Ladung gegen das Feld auf das höhere Potenzial.
 
 :::analogie
-Eine Rundwanderung endet am Ausgangspunkt. Alle Anstiege zusammen sind genauso hoch wie alle Abstiege, gleich welcher Weg gewählt wurde. Die Analogie endet, wenn sich ein Magnetfeld ändert: Dann hat ein Ort keine feste „Höhe“ mehr ([Teil 1](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)).
+Eine Rundwanderung endet am Ausgangspunkt. Alle Anstiege zusammen sind genauso hoch wie alle Abstiege, gleich welcher Weg gewählt wurde. Die Analogie endet, wenn sich ein Magnetfeld ändert: Dann hat ein Ort keine feste „Höhe“ mehr ([Kapitel 1](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)).
 :::
 
 :::satz Satz 8.1 (Maschenregel, zweites kirchhoffsches Gesetz)
@@ -30,10 +32,10 @@ $$\sum_{\nu=1}^{N}U_\nu=0,\qquad U_\nu\text{ positiv mit dem Umlauf, negativ geg
 Für ein Netz sind $z-k+1$ dieser Gleichungen unabhängig, alle anderen sind dann erfüllt.
 :::
 
-⁠**So liest man das:** $U_\nu$ ist die Spannung eines Zweigs, mit seinem Pfeil. Der Umlaufsinn ist frei, er ändert nur das Gesamtvorzeichen. **Gültigkeit:** Der magnetische Fluss durch die Masche darf sich nicht ändern, sonst ist das Feld nicht wirbelfrei ([Teil 1](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)). In Schaltungen sitzt dieser Fluss fast ganz in Spulen. Die Regel gilt auch für Wege über offene Klemmen, denn ein Weg muss keinem Draht folgen.
+⁠**So liest man das:** $U_\nu$ ist die Spannung eines Zweigs, mit seinem Pfeil. Der Umlaufsinn ist frei, er ändert nur das Gesamtvorzeichen. **Gültigkeit:** Der magnetische Fluss durch die Masche darf sich nicht ändern, sonst ist das Feld nicht wirbelfrei ([Kapitel 1](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)). In Schaltungen sitzt dieser Fluss fast ganz in Spulen. Die Regel gilt auch für Wege über offene Klemmen, denn ein Weg muss keinem Draht folgen.
 
 :::herleitung Maschenregel aus dem Potenzial
-Nach [Teil 1](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html) ist $U_{12}=\varphi_1-\varphi_2=\int_{P_1}^{P_2}\vec E\cdot\mathrm{d}\vec s$ wegunabhängig, also $\oint\vec E\cdot\mathrm{d}\vec s=0$. Für Punkte $P_1,\dots,P_N$ längs einer Masche ergibt das
+Nach [Kapitel 1](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html) ist $U_{12}=\varphi_1-\varphi_2=\int_{P_1}^{P_2}\vec E\cdot\mathrm{d}\vec s$ wegunabhängig, also $\oint\vec E\cdot\mathrm{d}\vec s=0$. Für Punkte $P_1,\dots,P_N$ längs einer Masche ergibt das
 
 $$(\varphi_1-\varphi_2)+(\varphi_2-\varphi_3)+\dots+(\varphi_N-\varphi_1)=0.$$
 

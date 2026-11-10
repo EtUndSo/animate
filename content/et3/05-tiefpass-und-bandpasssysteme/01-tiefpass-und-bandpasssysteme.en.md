@@ -1,7 +1,9 @@
 ---
 title: Overview: Lowpass and Bandpass Systems
 kurz: Overview
-pfad: Electrical Engineering / 3rd Semester / Signals and Systems / Lowpass and Bandpass Systems
+pfad: Electrical Engineering / 3rd Semester / ET3 – Fundamentals of Electrical Engineering 3: Signals and Systems / Lowpass and Bandpass Systems
+adresse: elektrotechnik/3-semester/signale-und-systeme/tiefpass-und-bandpasssysteme
+knoten: Chapter 5: Lowpass and Bandpass Systems
 order: 3250100
 summary: Distortionless transmission, ideal lowpass, complex envelope and group delay
 tags: 
@@ -21,7 +23,7 @@ Almost every transmission is meant to deliver a signal as unchanged as possible,
 
 <li>
 
-⁠**RC lowpass** with $RC=1$ s as in Parts 1 to 3.
+⁠**RC lowpass** with $RC=1$ s as in [Chapters 1](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html) to 3.
 
 </li>
 
@@ -45,5 +47,5 @@ Almost every transmission is meant to deliver a signal as unchanged as possible,
 
 </ul>
 
-The script `rechnung_kap5.py` recomputes the numbers and curves. $\operatorname{si}(x)=\sin(x)/x$ as in [Part 3](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html).
+The script `rechnung_kap5.py` recomputes the numbers and curves. $\operatorname{si}(x)=\sin(x)/x$ as in [Chapter 3](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html).
 :::

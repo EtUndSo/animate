@@ -1,6 +1,8 @@
 ---
 title: Stufe 5: Zeitdiskrete Signale und die diskrete Faltung
-pfad: Elektrotechnik / 3. Semester / Signale und Systeme / Abtastung und zeitdiskrete Systeme
+pfad: Elektrotechnik / 3. Semester / ET3 – Grundgebiete der Elektrotechnik 3: Signale und Systeme / Abtastung und zeitdiskrete Systeme
+adresse: elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme
+knoten: Kapitel 4: Abtastung und zeitdiskrete Systeme
 order: 3240600
 summary: Ab jetzt rechnet man nur noch mit den Zahlenfolgen s(n) .
 tags: diskrete Faltung, Einheitsimpuls, verschiebungsinvariant, LSI-System, Impulsantwort, Differenz, Akkumulation, FIR-Filter
@@ -13,7 +15,7 @@ lang: de
 Ab jetzt rechnet man nur noch mit den Zahlenfolgen $s(n)$. Diese Stufe überträgt Faltung, Elementarsignale und LTI-Systeme auf Folgen.
 :::
 
-**Faltung der Abtastwerte.** Sind Eingang $s$ und Impulsantwort $h$ eines Systems Tiefpasssignale und wird mit der Nyquist-Rate abgetastet, lässt sich jedes als si-Reihe [(3.3)](abtasttheorem-und-ruckgewinnung.html#gl-3-3) schreiben. Weil $\operatorname{si}(\pi t/T)*\operatorname{si}(\pi t/T)=T\operatorname{si}(\pi t/T)$ ist ([Teil 3](/wissen/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)), folgt für die Abtastwerte des Ausgangs allein
+**Faltung der Abtastwerte.** Sind Eingang $s$ und Impulsantwort $h$ eines Systems Tiefpasssignale und wird mit der Nyquist-Rate abgetastet, lässt sich jedes als si-Reihe [(3.3)](abtasttheorem-und-ruckgewinnung.html#gl-3-3) schreiben. Weil $\operatorname{si}(\pi t/T)*\operatorname{si}(\pi t/T)=T\operatorname{si}(\pi t/T)$ ist ([Kapitel 3](/wissen/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)), folgt für die Abtastwerte des Ausgangs allein
 
 $$g(nT)=T\sum_{m=-\infty}^{\infty}s(mT)\,h\bigl((n-m)T\bigr).$$
 
@@ -28,7 +30,7 @@ $$\delta(n)=\begin{cases}1&n=0\\0&n\neq0\end{cases},\qquad \varepsilon(n)=\sum_{
 
 Der __Einheitsimpuls__ $\delta(n)$ ist eine gewöhnliche Folge, keine Distribution: Er hat bei $n=0$ den Wert 1. Er ist das Einselement der diskreten Faltung, $s(n)*\delta(n)=s(n)$. Ein Rechteck aus $2M+1$ Einsen um $n=0$ ist $\varepsilon(n+M)-\varepsilon(n-M-1)$.
 
-**Linear und verschiebungsinvariant.** Ein zeitdiskretes System heißt linear, wenn der Überlagerungssatz gilt, und __verschiebungsinvariant__, wenn $\operatorname{Tr}\{s(n-m)\}=g(n-m)$ für jede ganze Zahl $m$. Zusammen heißt es __LSI-System__. Mit der __Impulsantwort__ $h(n)=\operatorname{Tr}\{\delta(n)\}$ folgt wie in [Teil 1](/wissen/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html):
+**Linear und verschiebungsinvariant.** Ein zeitdiskretes System heißt linear, wenn der Überlagerungssatz gilt, und __verschiebungsinvariant__, wenn $\operatorname{Tr}\{s(n-m)\}=g(n-m)$ für jede ganze Zahl $m$. Zusammen heißt es __LSI-System__. Mit der __Impulsantwort__ $h(n)=\operatorname{Tr}\{\delta(n)\}$ folgt wie in [Kapitel 1](/wissen/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html):
 
 $$g(n)=\operatorname{Tr}\Bigl\{\sum_ms(m)\delta(n-m)\Bigr\}=\sum_ms(m)\operatorname{Tr}\{\delta(n-m)\}=\sum_ms(m)\,h(n-m).$$
 

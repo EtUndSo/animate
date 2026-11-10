@@ -521,25 +521,33 @@
     "de": "(a) Höhenlinien",
     "en": "(a) contour lines",
     "es": "(a) curvas de nivel",
-    "zh": "(a) 等高线"
+    "zh": "(a) 等高线",
+    "fr": "(a) lignes de niveau",
+    "tr": "(a) eş yükselti eğrileri"
    },
    "tb": {
     "de": "(b) Schnitt x₂ = 2",
     "en": "(b) section x₂ = 2",
     "es": "(b) corte x₂ = 2",
-    "zh": "(b) 截线 x₂ = 2"
+    "zh": "(b) 截线 x₂ = 2",
+    "fr": "(b) coupe x₂ = 2",
+    "tr": "(b) kesit x₂ = 2"
    },
    "tc": {
     "de": "(c) Schnitt x₁ = 1",
     "en": "(c) section x₁ = 1",
     "es": "(c) corte x₁ = 1",
-    "zh": "(c) 截线 x₁ = 1"
+    "zh": "(c) 截线 x₁ = 1",
+    "fr": "(c) coupe x₁ = 1",
+    "tr": "(c) kesit x₁ = 1"
    },
    "st": {
     "de": "Steigung",
     "en": "slope",
     "es": "pendiente",
-    "zh": "斜率"
+    "zh": "斜率",
+    "fr": "pente",
+    "tr": "eğim"
    }
   }
  }

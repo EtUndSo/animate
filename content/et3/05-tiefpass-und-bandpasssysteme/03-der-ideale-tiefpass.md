@@ -1,6 +1,8 @@
 ---
 title: Stufe 2: Der ideale Tiefpass
-pfad: Elektrotechnik / 3. Semester / Signale und Systeme / Tiefpass- und Bandpasssysteme
+pfad: Elektrotechnik / 3. Semester / ET3 – Grundgebiete der Elektrotechnik 3: Signale und Systeme / Tiefpass- und Bandpasssysteme
+adresse: elektrotechnik/3-semester/signale-und-systeme/tiefpass-und-bandpasssysteme
+knoten: Kapitel 5: Tiefpass- und Bandpasssysteme
 order: 3250300
 summary: Der ideale Tiefpass lässt alle Frequenzen bis f mathrm g unverändert durch und sperrt alle darüber.
 tags: Signaldauer
@@ -27,7 +29,7 @@ $$H(f)=\operatorname{rect}\Bigl(\frac{f}{2f_\mathrm g}\Bigr)\qquad\bullet\!\!-\!
 <span class="anker" id="gl-2-2"></span>
 $$t_m=\frac{1}{h_{\max}}\int_{-\infty}^{\infty}h(t)\,\mathrm{d} t=\frac{H(0)}{h_{\max}}. \tag{2.2}$$
 
-Beim idealen Tiefpass ist $H(0)=1$ und $h_{\max}=2f_\mathrm g$, also $t_m=\frac{1}{2f_\mathrm g}$ und $f_\mathrm g\cdot t_m=\frac12$. Allgemein gilt für Tiefpässe $f_\mathrm g\cdot t_m=\text{konst.}$: Doppelte Bandbreite heißt halbe Antwortdauer. Das ist der Ähnlichkeitssatz aus [Teil 3](/wissen/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html).
+Beim idealen Tiefpass ist $H(0)=1$ und $h_{\max}=2f_\mathrm g$, also $t_m=\frac{1}{2f_\mathrm g}$ und $f_\mathrm g\cdot t_m=\frac12$. Allgemein gilt für Tiefpässe $f_\mathrm g\cdot t_m=\text{konst.}$: Doppelte Bandbreite heißt halbe Antwortdauer. Das ist der Ähnlichkeitssatz aus [Kapitel 3](/wissen/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html).
 
 **Überschwingen.** Das Verhältnis des betragsgrößten Nebenmaximums $a_1$ zum Hauptmaximum $a_0$ ist bei der si-Funktion
 

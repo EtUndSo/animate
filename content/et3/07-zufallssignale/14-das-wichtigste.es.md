@@ -1,6 +1,8 @@
 ---
 title: Lo esencial
-pfad: Ingeniería eléctrica / 3.er semestre / Señales y sistemas / Señales aleatorias
+pfad: Ingeniería eléctrica / 3.er semestre / ET3 – Fundamentos de ingeniería eléctrica 3: señales y sistemas / Señales aleatorias
+adresse: elektrotechnik/3-semester/signale-und-systeme/zufallssignale
+knoten: Capítulo 7: Señales aleatorias
 order: 3271400
 summary: Valores medios, distribuciones, densidad espectral de potencia, ruido en sistemas y el receptor óptimo
 tags: 
@@ -18,7 +20,7 @@ Una señal aleatoria se describe mediante valores medios: valor medio, potencia,
 
 <li>
 
-La transformada de Fourier de la función de autocorrelación es la densidad espectral de potencia. Un sistema LTI la multiplica por $|H(f)|^2$, exactamente igual que en las señales de energía ([parte 6](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen/korrelationsfunktionen.html)).
+La transformada de Fourier de la función de autocorrelación es la densidad espectral de potencia. Un sistema LTI la multiplica por $|H(f)|^2$, exactamente igual que en las señales de energía ([capítulo 6](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen/korrelationsfunktionen.html)).
 
 </li>
 

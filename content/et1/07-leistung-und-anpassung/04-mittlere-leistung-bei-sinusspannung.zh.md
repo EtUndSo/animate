@@ -1,6 +1,8 @@
 ---
 title: 第 3 阶段：正弦电压下的平均功率
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 功率、匹配与效率
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 功率、匹配与效率
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad
+knoten: 第 7 章：功率、匹配与效率
 order: 1170400
 summary: 在交流电压下，功率不断变化。本阶段找出决定发热的那一个数。
 tags: 振幅, 周期, 角频率, 有效值

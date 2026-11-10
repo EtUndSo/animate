@@ -1,6 +1,8 @@
 ---
 title: Stage 4: The field strength
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / Charge, Field and Potential
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / Charge, Field and Potential
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial
+knoten: Chapter 1: Charge, Field and Potential
 order: 1110600
 summary: Coulomb's law gives the force but does not say how it gets across empty space.
 tags: test charge, electric field strength
@@ -30,7 +32,7 @@ $$\vec E:=\lim_{Q\to0}\frac{\vec F}{Q},\qquad\text{hence}\quad\vec F=Q\cdot\vec 
 The direction of $\vec E$ is the direction of the force on a positive test charge. The electric field assigns such a vector to every location.
 :::
 
-⁠**How to read it:** The unit is $[E]=\mathrm{N/C}=\mathrm{m\,kg\,A^{-1}\,s^{-3}}=\mathrm{V/m}$, because $\mathrm V=\mathrm{J/C}=\mathrm{N\,m/C}$. On a negative charge, the force acts opposite to $\vec E$. Typical values: in a current-carrying conductor 0.1 V/m, in the atmosphere in clear weather 100 to 200 V/m, at the surface of a broadcast antenna 1 to 1000 V/m, at a high-voltage line $10^6$ V/m, in a capacitor (a component made of two plates, [Part 3](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html)) $10^6$ to $10^8$ V/m. At $3\cdot10^6$ V/m air breaks down and a spark forms. **Validity:** The limit $Q\to0$ is needed because a large test charge displaces the charges producing the field, such as the free electrons of a metal plate. But what is to be measured is the field without the test charge.
+⁠**How to read it:** The unit is $[E]=\mathrm{N/C}=\mathrm{m\,kg\,A^{-1}\,s^{-3}}=\mathrm{V/m}$, because $\mathrm V=\mathrm{J/C}=\mathrm{N\,m/C}$. On a negative charge, the force acts opposite to $\vec E$. Typical values: in a current-carrying conductor 0.1 V/m, in the atmosphere in clear weather 100 to 200 V/m, at the surface of a broadcast antenna 1 to 1000 V/m, at a high-voltage line $10^6$ V/m, in a capacitor (a component made of two plates, [Chapter 3](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html)) $10^6$ to $10^8$ V/m. At $3\cdot10^6$ V/m air breaks down and a spark forms. **Validity:** The limit $Q\to0$ is needed because a large test charge displaces the charges producing the field, such as the free electrons of a metal plate. But what is to be measured is the field without the test charge.
 
 :::satz Theorem 4.2 (Field of point charges)
 <span class="anker" id="satz-4-2"></span>

@@ -1,6 +1,8 @@
 ---
 title: Stufe 10: Parallelschaltung, Stromteiler und Belastung
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Strom, Widerstand und Kirchhoff
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Strom, Widerstand und Kirchhoff
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff
+knoten: Kapitel 2: Strom, Widerstand und Kirchhoff
 order: 1121100
 summary: Das zweite Grundmuster: nebeneinanderliegende Widerstände.
 tags: Parallelschaltung, Stromteiler, Lastwiderstand
@@ -56,7 +58,7 @@ Links: belasteter Spannungsteiler. Rechts: $U_2$ über $R_\mathrm L$ für $R_1=2
 :::
 
 ::::beispiel
-Für die Kette ist der relative Fehler $\delta=(U_{2,0}-U_2)/U_{2,0}$ gegen die unbelasteten 3 V: $R_\mathrm L=1\,\mathrm{k\Omega}$ ergibt 40 %, $10\,\mathrm{k\Omega}$ ergibt 6,3 %, $100\,\mathrm{k\Omega}$ ergibt 0,66 %. Der Fehler ist $\delta=R_\mathrm i/(R_\mathrm i+R_\mathrm L)$ mit $R_\mathrm i=R_1\parallel R_2$ (Aufgabe [11](#aufg-11)). Der Teiler wirkt also wie eine Quelle mit dem Innenwiderstand $R_\mathrm i$ ([Teil 5](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)).
+Für die Kette ist der relative Fehler $\delta=(U_{2,0}-U_2)/U_{2,0}$ gegen die unbelasteten 3 V: $R_\mathrm L=1\,\mathrm{k\Omega}$ ergibt 40 %, $10\,\mathrm{k\Omega}$ ergibt 6,3 %, $100\,\mathrm{k\Omega}$ ergibt 0,66 %. Der Fehler ist $\delta=R_\mathrm i/(R_\mathrm i+R_\mathrm L)$ mit $R_\mathrm i=R_1\parallel R_2$ (Aufgabe [11](#aufg-11)). Der Teiler wirkt also wie eine Quelle mit dem Innenwiderstand $R_\mathrm i$ ([Kapitel 5](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)).
 ::::
 
 :::ltspice Belastung messen
@@ -67,7 +69,7 @@ Für die Kette ist der relative Fehler $\delta=(U_{2,0}-U_2)/U_{2,0}$ gegen die 
 ⁠**Was du siehst:** Das SPICE Error Log nennt für jeden Schritt $U_2$: 1,80 V; 2,25 V; 2,70 V; 2,81 V; 2,98 V. Vergleiche den Wert für $6\,\mathrm{k\Omega}$ mit Aufgabe [11](#aufg-11)(b).
 :::
 
-**Anwendung: R-2R-Leiter.** Der Stromteiler trägt einen zweiten D/A-Wandler (Abb. [12](#abb-12)). Der Trick ist Selbstähnlichkeit: Am letzten Knoten liegt $2R\parallel2R=R$. Mit dem $R$ davor ergibt das wieder $2R$. So blickt jeder Knoten nach rechts und nach unten auf je $2R$, sein Strom teilt sich 1:1, und von Knoten zu Knoten halbiert sich die Spannung (Teiler aus $R$ und $2R\parallel2R$). Die Quelle liefert $I_\mathrm{ref}=U_\mathrm{ref}/R$, und es entstehen die binär gewichteten Ströme $I_\mathrm{ref}/2$, $I_\mathrm{ref}/4$, $I_\mathrm{ref}/8$ und so weiter. Eine äußere Schaltung ([Teil 11](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker/der-operationsverstaerker.html)) hält die Sammelschiene auf dem Massepotenzial. Deshalb sehen alle $2R$ unten dasselbe Potenzial, ob sie nun zur Schiene oder zur Masse schalten, und die Ströme ändern sich beim Umschalten nicht. Das Bit nahe der Quelle ist das höchstwertige (MSB, most significant bit), das am Ende das niederwertigste (LSB). $I_\mathrm{aus}$ ist die Summe der eingeschalteten Ströme.
+**Anwendung: R-2R-Leiter.** Der Stromteiler trägt einen zweiten D/A-Wandler (Abb. [12](#abb-12)). Der Trick ist Selbstähnlichkeit: Am letzten Knoten liegt $2R\parallel2R=R$. Mit dem $R$ davor ergibt das wieder $2R$. So blickt jeder Knoten nach rechts und nach unten auf je $2R$, sein Strom teilt sich 1:1, und von Knoten zu Knoten halbiert sich die Spannung (Teiler aus $R$ und $2R\parallel2R$). Die Quelle liefert $I_\mathrm{ref}=U_\mathrm{ref}/R$, und es entstehen die binär gewichteten Ströme $I_\mathrm{ref}/2$, $I_\mathrm{ref}/4$, $I_\mathrm{ref}/8$ und so weiter. Eine äußere Schaltung ([Kapitel 11](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker/der-operationsverstaerker.html)) hält die Sammelschiene auf dem Massepotenzial. Deshalb sehen alle $2R$ unten dasselbe Potenzial, ob sie nun zur Schiene oder zur Masse schalten, und die Ströme ändern sich beim Umschalten nicht. Das Bit nahe der Quelle ist das höchstwertige (MSB, most significant bit), das am Ende das niederwertigste (LSB). $I_\mathrm{aus}$ ist die Summe der eingeschalteten Ströme.
 
 :::abbildung et1/k2r2r 12
 R-2R-Leiter mit $R=1\,\mathrm{k\Omega}$ an $U_\mathrm{ref}=8$ V. Rot die Knotenspannungen, blau die Zweigströme. Die Schalter stehen auf der Zahl 1010: Zur Sammelschiene laufen $4\,\mathrm{mA}+1\,\mathrm{mA}=5$ mA.

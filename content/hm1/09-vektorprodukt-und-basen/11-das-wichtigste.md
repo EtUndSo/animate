@@ -1,6 +1,8 @@
 ---
 title: Das Wichtigste
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Vektorprodukt und Basen
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Vektorprodukt und Basen
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/vektorprodukt-und-basen
+knoten: Kapitel 9: Vektorprodukt und Basen
 order: 1291100
 summary: Warum jeder Vektor in einem Koordinatensystem genau eine Darstellung hat und wie man ein rechtwinkliges baut
 tags: 

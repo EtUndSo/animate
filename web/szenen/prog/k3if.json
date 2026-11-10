@@ -98,7 +98,7 @@
     "id": "o6",
     "type": "MathTex",
     "props": {
-     "tex": "\\texttt{u > 5.25}?",
+     "tex": "\\texttt{temp > 23}?",
      "height": 0.17,
      "position": [
       -2.15,
@@ -421,7 +421,7 @@
     "id": "o22",
     "type": "MathTex",
     "props": {
-     "tex": "\\texttt{u > 5.25}?",
+     "tex": "\\texttt{temp > 23}?",
      "height": 0.17,
      "position": [
       1.6,
@@ -750,12 +750,12 @@
     "tr": "hayır"
    },
    "lesen": {
-    "de": "u einlesen",
-    "en": "read u",
-    "es": "leer u",
-    "zh": "读取 u",
-    "fr": "lire u",
-    "tr": "u'yu oku"
+    "de": "temp einlesen",
+    "en": "read temp",
+    "es": "leer temp",
+    "zh": "读取 temp",
+    "fr": "lire temp",
+    "tr": "temp'i oku"
    },
    "warn": {
     "de": "Warnung\nausgeben",
@@ -766,12 +766,12 @@
     "tr": "uyarı\nyazdır"
    },
    "ende": {
-    "de": "„Messung beendet“",
-    "en": "“measurement done”",
-    "es": "«medición terminada»",
-    "zh": "“测量结束”",
-    "fr": "« mesure terminée »",
-    "tr": "„ölçüm bitti“"
+    "de": "„fertig“",
+    "en": "“done”",
+    "es": "«listo»",
+    "zh": "“完成”",
+    "fr": "« terminé »",
+    "tr": "„bitti“"
    },
    "ok": {
     "de": "„in Ordnung“",

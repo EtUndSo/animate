@@ -1,7 +1,9 @@
 ---
 title: Überblick: Folgen und Grenzwerte
 kurz: Überblick
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Folgen und Grenzwerte
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Folgen und Grenzwerte
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/folgen-und-grenzwerte
+knoten: Kapitel 4: Folgen und Grenzwerte
 order: 1240100
 summary: Was „beliebig nah“ heißt und warum die reellen Zahlen keine Lücke haben dürfen
 tags: Folge, Grenzwert, Epsilon-Kriterium, Konvergenz, Nullfolge, Vollständigkeit, Monotonie, Cauchy-Folge
@@ -12,7 +14,7 @@ lang: de
 
 Die Zahlen $1;\ 1{,}5;\ 1{,}75;\ 1{,}875;\ \dots$ legen jeweils die Hälfte des Rests bis 2 zurück und erreichen die 2 nie. Eine solche nie endende Liste heißt __Folge__, ihr Zielwert __Grenzwert__. Die Frage lautet: *Was heißt „beliebig nah“ genau, und woran erkennt man, dass es einen Grenzwert gibt?*
 
-Die Antwort ist ein Toleranztest, das __Epsilon-Kriterium__. Wer ihn besteht, zeigt __Konvergenz__ (die Folge hat einen Grenzwert), bei Grenzwert 0 heißt sie __Nullfolge__. Die __Vollständigkeit__ der reellen Zahlen (keine Lücken, [Teil 1](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html)) gibt Folgen mit __Monotonie__ (sie laufen nur in eine Richtung) und jeder __Cauchy-Folge__ (die Glieder kommen einander beliebig nah) ein Ziel.
+Die Antwort ist ein Toleranztest, das __Epsilon-Kriterium__. Wer ihn besteht, zeigt __Konvergenz__ (die Folge hat einen Grenzwert), bei Grenzwert 0 heißt sie __Nullfolge__. Die __Vollständigkeit__ der reellen Zahlen (keine Lücken, [Kapitel 1](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html)) gibt Folgen mit __Monotonie__ (sie laufen nur in eine Richtung) und jeder __Cauchy-Folge__ (die Glieder kommen einander beliebig nah) ein Ziel.
 
 
 

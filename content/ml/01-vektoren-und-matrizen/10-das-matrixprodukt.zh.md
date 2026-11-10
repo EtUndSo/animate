@@ -1,7 +1,8 @@
 ---
 title: 矩阵乘积
 pfad: 计算机科学 / 机器学习 / 数学基础 / 向量与矩阵
-knoten: 基础篇 1：向量与矩阵
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: 第 1 章：向量与矩阵
 nachschlagen: ja
 order: 15211000
 summary: 先后作用的两个线性映射又给出一个线性映射，从而给出一个矩阵。本节求出这个矩阵。结果就是矩阵乘积，它的定义由这一任务必然得出。
@@ -165,7 +166,7 @@ $$\mathbf{S}\mathbf R=\begin{pmatrix}0&-2\\0.5&0\end{pmatrix},\qquad \mathbf R\m
 若 $f(\mathbf{x})=\mathbf{B}\mathbf{x}$ 和 $g(\mathbf{u})=\mathbf{A}\mathbf{u}$ 是线性的，则复合 $\mathbf{x}\mapsto g(f(\mathbf{x}))$ 也是线性的，其矩阵就是单个矩阵 $\mathbf{A}\mathbf{B}$。由线性级组成的任何有限链也是如此。
 :::
 
-无论串联多少个线性级，结果总能用单个矩阵一步算出。所以，一串线性级能做的事，单个矩阵就已经能做到。在信号与系统中，你也见过同样的结论：两个串联的线性系统合起来仍是一个线性系统。
+无论串联多少个线性级，结果总能用单个矩阵一步算出。所以，一串线性级能做的事，单个矩阵就已经能做到。在日常购物中就能小规模地见到这一点：先把价格从欧元换算成美元，再减去 $10$ % 的折扣，两步合起来就是一个单一的换算系数。
 
 ::::beispiel [算例]
 第一级把三个数变成两个，$\mathbf{B}=\bigl(\begin{smallmatrix}1&2&0\\0&1&-1\end{smallmatrix}\bigr)$，第二级再把两个数变回三个，$\mathbf{A}=\Bigl(\begin{smallmatrix}2&1\\1&-1\\0&3\end{smallmatrix}\Bigr)$。合起来就是单个矩阵

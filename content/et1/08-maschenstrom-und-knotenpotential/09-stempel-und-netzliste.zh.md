@@ -1,6 +1,8 @@
 ---
 title: 第 7 阶段：印记与网表
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 网孔电流法与节点电位法
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 网孔电流法与节点电位法
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/maschenstrom-und-knotenpotentialverfahren
+knoten: 第 8 章：网孔电流法与节点电位法
 order: 1180900
 summary: 程序看不到网孔，也不做变形。本阶段说明，矩阵如何逐个元件地形成，而无需任何元件了解其他元件。
 tags: 印记, 网表, 稀疏
@@ -41,7 +43,7 @@ $i$ 和 $k$ 之间的电导 $G$ 从 $i$ 到 $k$ 流过电流 $I_Y=G\,(U_i-U_k)$�
 </ul>
 :::
 
-⁠**如何理解：**首先，$k$ 个节点各得到一行和一列，参考节点也不例外。这个完整矩阵的行列式为零，因为所有行的和都为零：把所有电位一起抬高，任何地方都不会多出电流。从物理上说，网络只确定差值。只有规定 $U_0=0$ 才使解唯一：划去第 0 列，因为它的未知量为零；划去第 0 行，因为它可由其余节点定律得出（[第 2 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)）。剩下的就是第 [5](das-knotenpotentialverfahren.html#stufe-5) 阶段的 $\mathbf Y$。**适用条件：**这些印记适用于线性元件。电压源见第 [9](die-modifizierte-knotenanalyse.html#stufe-9) 阶段。
+⁠**如何理解：**首先，$k$ 个节点各得到一行和一列，参考节点也不例外。这个完整矩阵的行列式为零，因为所有行的和都为零：把所有电位一起抬高，任何地方都不会多出电流。从物理上说，网络只确定差值。只有规定 $U_0=0$ 才使解唯一：划去第 0 列，因为它的未知量为零；划去第 0 行，因为它可由其余节点定律得出（[第 2 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)）。剩下的就是第 [5](das-knotenpotentialverfahren.html#stufe-5) 阶段的 $\mathbf Y$。**适用条件：**这些印记适用于线性元件。电压源见第 [9](die-modifizierte-knotenanalyse.html#stufe-9) 阶段。
 
 **网表。** 电路图以__网表__的形式保存：每个元件一行，包括名称、节点和数值。在 SPICE 中，`R3 1 2 2k` 表示：节点 1 和 2 之间的电阻。`I2 0 2 4m` 表示：4 mA 经电源从节点 0 流向节点 2。程序逐行读取列表并填入印记。出现新的节点名时，矩阵就增加一行一列。谁也不必事先知道它的大小。这种死板的格式源于 20 世纪 70 年代，当时 SPICE 用 FORTRAN 编写，每行占一张穿孔卡片。
 
@@ -70,11 +72,11 @@ $$\begin{pmatrix}1.55&-1.25&-0.3\\-1.25&1.75&-0.5\\-0.3&-0.5&0.8\end{pmatrix} \b
 **大型网络。** 一个节点通常只连接两到五个相邻节点，所以大矩阵的几乎所有位置都是零。这样的矩阵称为__稀疏__矩阵。仿真器只存储非零元素，并通过逐步消元求解方程组。克莱姆法则在这里毫无用处：20 行的行列式按式 [(0.1)](von-grund-auf-drei-gleichungen-drei-unbekannte.html#gl-0-1) 的模式约有 $2.4\cdot10^{18}$ 个乘积。
 
 :::zusatz 交流电、电容器、二极管
-对正弦量要用复电导，即导纳来计算。字母 $Y$ 和 $Z$ 就来源于此。电容器的印记与电导相同。阻抗 $Z$ 只有不为零时才能以 $Y=1/Z$ 填入，线圈在频率为零时就不行了。第 [9](die-modifizierte-knotenanalyse.html#stufe-9) 阶段解决这个问题。对二极管（[第 9 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)）这样的非线性元件，仿真器用其特性曲线的切线代替，填入印记并反复进行，直到不再变化。
+对正弦量要用复电导，即导纳来计算。字母 $Y$ 和 $Z$ 就来源于此。电容器的印记与电导相同。阻抗 $Z$ 只有不为零时才能以 $Y=1/Z$ 填入，线圈在频率为零时就不行了。第 [9](die-modifizierte-knotenanalyse.html#stufe-9) 阶段解决这个问题。对二极管（[第 9 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)）这样的非线性元件，仿真器用其特性曲线的切线代替，填入印记并反复进行，直到不再变化。
 :::
 
 :::frage 为什么偏偏可以划去参考节点的那一行？
-$k$ 个节点方程中的每一个都可由其余方程得出（[第 2 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)）。划去哪一个都可以。划去参考节点的那一行，是因为连同它的列一起划去后又得到对称矩阵，而且流入接地点的电流很少令人关心。
+$k$ 个节点方程中的每一个都可由其余方程得出（[第 2 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)）。划去哪一个都可以。划去参考节点的那一行，是因为连同它的列一起划去后又得到对称矩阵，而且流入接地点的电流很少令人关心。
 :::
 
 :::aufgabe 练习 9 ★★ 从网表到解

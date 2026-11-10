@@ -1,8 +1,10 @@
 ---
 title: Stufe 9: Poisson-Gleichung
-pfad: Elektrotechnik / 3. Semester / Höhere Mathematik 3 / Integralsätze im Raum
+pfad: Elektrotechnik / 3. Semester / HöMa3 – Höhere Mathematik 3 / Integralsätze im Raum
+adresse: elektrotechnik/3-semester/hohere-mathematik-3/integralsatze-im-raum
+knoten: Kapitel 5: Integralsätze im Raum
 order: 3151000
-summary: In Teil 4 stand eine Lösungsformel für die Poisson-Gleichung ohne Begründung.
+summary: In Kapitel 4 stand eine Lösungsformel für die Poisson-Gleichung ohne Begründung.
 tags: Poisson-Gleichung, Faltung, Greensche Funktion
 lang: de
 ---
@@ -10,7 +12,7 @@ lang: de
 <span class="anker" id="stufe-9"></span>
 
 :::zweck
-In [Teil 4](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/koordinatentransformationen/koordinatentransformationen.html) stand eine Lösungsformel für die Poisson-Gleichung ohne Begründung. Mit Satz [8.3](der-satz-von-gau.html#satz-8-3) lässt sie sich jetzt verstehen: Die Punktquelle des Coulomb-Potentials erzeugt genau das $f$ auf der rechten Seite.
+In [Kapitel 4](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/koordinatentransformationen/koordinatentransformationen.html) stand eine Lösungsformel für die Poisson-Gleichung ohne Begründung. Mit Satz [8.3](der-satz-von-gau.html#satz-8-3) lässt sie sich jetzt verstehen: Die Punktquelle des Coulomb-Potentials erzeugt genau das $f$ auf der rechten Seite.
 :::
 
 **Die Idee.** Die __Poisson-Gleichung__ $-\Delta u=f$ im $\mathbb{R}^3$ fragt: Welches Potential gehört zur Quellverteilung $f$? Das Potential einer Punktquelle kennst du schon, $\phi(\boldsymbol{x})=1/(4\pi r)$. Eine Verteilung ist die Überlagerung vieler Punktquellen, also sollte das Potential die Summe aller Beiträge sein. Das ist die __Faltung__
@@ -31,7 +33,7 @@ Für stetig differenzierbares $f$ mit genügendem Abklingen, zum Beispiel mit ko
 
 $$-\Delta u(\boldsymbol{x})=-\int_{\mathbb{R}^3}\nabla\phi(\boldsymbol{y})\cdot\nabla_{\boldsymbol{x}}f(\boldsymbol{x}-\boldsymbol{y})\;\mathrm{d}\boldsymbol{y}.$$
 
-Dass Ableitung und Integral vertauscht werden dürfen, liefert ein Satz über Parameterintegrale, $\nabla\phi$ ist nach [Teil 4](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/koordinatentransformationen/koordinatentransformationen.html) lokal integrierbar.
+Dass Ableitung und Integral vertauscht werden dürfen, liefert ein Satz über Parameterintegrale, $\nabla\phi$ ist nach [Kapitel 4](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/koordinatentransformationen/koordinatentransformationen.html) lokal integrierbar.
 
 ⁠**Schritt 2: Singularität ausschneiden.** Es ist $\nabla_{\boldsymbol{x}}f(\boldsymbol{x}-\boldsymbol{y})=-\nabla_{\boldsymbol{y}}f(\boldsymbol{x}-\boldsymbol{y})$. Schneidet man eine kleine Kugel $B_\varepsilon(0)$ aus (Abb. [8](#abb-8)), so gilt
 

@@ -1,6 +1,8 @@
 ---
 title: Stufe 3: Das ohmsche Gesetz aus Feld und Stößen
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Strom, Widerstand und Kirchhoff
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Strom, Widerstand und Kirchhoff
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff
+knoten: Kapitel 2: Strom, Widerstand und Kirchhoff
 order: 1120400
 summary: Stufe 2 hat gezeigt: Die Drift ist dem Feld proportional.
 tags: Leitfähigkeit, spezifische Widerstand, Leitwert, linear, homogen, Leistung
@@ -36,7 +38,7 @@ Stromdichte der Elektronen, Stufe [1](strom-ist-bewegte-ladung.html#stufe-1), m
 
 $$\vec j=q\,\vec v_\mathrm D=(-n\,e)(-\mu\,\vec E)=n\,e\,\mu\,\vec E=\sigma\,\vec E.$$
 
-Das Feld ist gleichmäßig, also $U=E\,L$ ([Teil 1](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)). Damit
+Das Feld ist gleichmäßig, also $U=E\,L$ ([Kapitel 1](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)). Damit
 
 $$I=j\,A=\sigma\,E\,A=\frac{\sigma\,A}{L}\,U\quad\Longrightarrow\quad U=\frac{L}{\sigma\,A}\,I=R\,I.$$
 :::
@@ -55,7 +57,7 @@ Der Draht hat $R=\rho\,L/A=34\,\mathrm{m\Omega}$. Bei 3 mA fallen an ihm 0,10�
 
 ⁠**Grenzfälle:** Doppelte Länge halbiert bei gleicher Spannung das Feld und damit den Strom. Doppelter Querschnitt wirkt wie zwei Drähte nebeneinander, der Strom verdoppelt sich. $U=0$ ergibt $I=0$.
 
-**Wohin die Energie geht.** Bei jedem Stoß gibt das Elektron die im Feld gewonnene Bewegungsenergie an das Gitter ab. Das Gitter schwingt stärker, und das ist Wärme. Jedes Coulomb gibt die Energie $U$ in Joule ab, je Sekunde laufen $I$ Coulomb durch. Die __Leistung__, die Energie je Zeit, ist daher $P=U\,I=R\,I^2$. Die Kette setzt $9\,\mathrm{V}\cdot3\,\mathrm{mA}=27$ mW um. [Teil 7](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad/leistung-und-anpassung.html) behandelt die Leistung genauer.
+**Wohin die Energie geht.** Bei jedem Stoß gibt das Elektron die im Feld gewonnene Bewegungsenergie an das Gitter ab. Das Gitter schwingt stärker, und das ist Wärme. Jedes Coulomb gibt die Energie $U$ in Joule ab, je Sekunde laufen $I$ Coulomb durch. Die __Leistung__, die Energie je Zeit, ist daher $P=U\,I=R\,I^2$. Die Kette setzt $9\,\mathrm{V}\cdot3\,\mathrm{mA}=27$ mW um. [Kapitel 7](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad/leistung-und-anpassung.html) behandelt die Leistung genauer.
 
 :::frage $R=U/I$ kann man doch immer ausrechnen. Was sagt das ohmsche Gesetz dann noch?
 Der Quotient $U/I$ existiert bei jedem Bauteil. Das Gesetz sagt mehr: Er ist *konstant*, unabhängig von $U$. Das ist eine Aussage über das Material und folgt aus der festen Flugzeit. Bei einer Glühlampe gilt sie nicht (Stufe [4](reale-widerstande-werte-und-temperatur.html#stufe-4)).

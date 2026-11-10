@@ -1,6 +1,8 @@
 ---
 title: 第 1 阶段：随机过程
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / 随机信号
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / 随机信号
+adresse: elektrotechnik/3-semester/signale-und-systeme/zufallssignale
+knoten: 第 7 章：随机信号
 order: 3270200
 summary: 怎样描述一个不知道其波形的信号？设想许多同类的信号，并对它们取平均。
 tags: 样本函数, 随机过程, 随机变量, 数学期望, 自相关函数

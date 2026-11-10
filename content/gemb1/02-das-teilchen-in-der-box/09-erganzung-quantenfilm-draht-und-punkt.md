@@ -1,6 +1,8 @@
 ---
 title: Stufe 7: Ergänzung: Quantenfilm, Draht und Punkt
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Das Teilchen in der Box
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Das Teilchen in der Box
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box
+knoten: Kapitel 2: Das Teilchen in der Box
 order: 4120900
 summary: Kristalline Schichten lassen sich heute mit atomarer Genauigkeit aufbauen und seitlich auf wenige Nanometer strukturieren.
 tags: Teilband, Quantenfilm, Quantendraht, Quantenpunkt, zweidimensionales Elektronengas, Epitaxie, Heteroepitaxie, Tunneln

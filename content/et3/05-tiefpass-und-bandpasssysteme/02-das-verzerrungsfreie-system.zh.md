@@ -1,6 +1,8 @@
 ---
 title: 第 1 阶段：无失真系统
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / 低通与带通系统
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / 低通与带通系统
+adresse: elektrotechnik/3-semester/signale-und-systeme/tiefpass-und-bandpasssysteme
+knoten: 第 5 章：低通与带通系统
 order: 3250200
 summary: “好的”传输究竟应该做到什么？又用哪些特征量来衡量一个系统偏离它有多远？
 tags: 相位时延, 群时延

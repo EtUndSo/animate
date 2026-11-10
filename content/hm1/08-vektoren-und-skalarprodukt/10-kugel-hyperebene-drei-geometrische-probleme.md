@@ -1,6 +1,8 @@
 ---
 title: Stufe 8: Kugel, Hyperebene, drei geometrische Probleme
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Vektoren und Skalarprodukt
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Vektoren und Skalarprodukt
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/vektoren-und-skalarprodukt
+knoten: Kapitel 8: Vektoren und Skalarprodukt
 order: 1281000
 summary: Eine Ebene im mathbb R 3 braucht zwei Richtungen, ihr Gegenstück im mathbb R k braucht k-1 .
 tags: Kugeloberfläche, Kreis, Einheitskreislinie, Hyperebene, Aufpunkt, Lotrichtung, Hessesche Normalform, orthogonale Projektion

@@ -1,6 +1,8 @@
 ---
 title: 第 4 阶段：工作中的二端口网络
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 二端口网络
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 二端口网络
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore
+knoten: 第 6 章：二端口网络
 order: 1160600
 summary: 工作时没有端口开路。本阶段说明，负载如何通过参数 Z 12 反过来作用于输入端，以及二端口网络对负载而言是什么。
 tags: 反向作用, 无反向作用
@@ -28,7 +30,7 @@ $$I_2=-\frac{Z_{21}}{Z_{22}+Z_\mathrm{L}}\,I_1,\qquad Z_1=\frac{U_1}{I_1}=Z_{11}
 <span class="anker" id="gl-4-2"></span>
 $$Z_{1,\mathrm{OC}}=Z_{11},\qquad Z_{1,\mathrm{SC}}=Z_{11}-\frac{Z_{12}Z_{21}}{Z_{22}}. \tag{4.2}$$
 
-如果电源 $U_\mathrm{q}$、$R_\mathrm{q}$ 向端口 1 供电，端口 2 就相当于等效电压源（[第 5 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)），其中
+如果电源 $U_\mathrm{q}$、$R_\mathrm{q}$ 向端口 1 供电，端口 2 就相当于等效电压源（[第 5 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)），其中
 
 <span class="anker" id="gl-4-3"></span>
 $$U_\mathrm{i}=\frac{Z_{21}}{Z_{11}+R_\mathrm{q}}\,U_\mathrm{q},\qquad R_\mathrm{i}=Z_{22}-\frac{Z_{12}Z_{21}}{Z_{11}+R_\mathrm{q}}. \tag{4.3}$$
@@ -51,7 +53,7 @@ $$U_\mathrm{i}=\frac{Z_{21}}{Z_{11}+R_\mathrm{q}}\,U_\mathrm{q},\qquad R_\mathrm
 
 $$Z_1=35\,\Omega-\frac{400\,\Omega^2}{100\,\Omega}=31\,\Omega,\quad I_1=\frac{9\,\mathrm{V}}{5\,\Omega+31\,\Omega}=250\,\mathrm{mA},\quad I_2=-\frac{20}{100}\,I_1=-50\,\mathrm{mA}.$$
 
-输入端 $U_1=9\,\mathrm{V}-5\,\Omega\cdot250\,\mathrm{mA}=7.75$ V，输出端 $U_2=60\,\Omega\cdot50\,\mathrm{mA}=3$ V。$R_\mathrm{b}$ 中流过 $I_1+I_2=200$ mA 而不是 250 mA，这使 $U_1$ 恰好降低 1 V（图 [5](#abb-5)）。从负载看：$U_\mathrm{i}=\frac{20}{40}\cdot9\,\mathrm{V}=4.5$ V，$R_\mathrm{i}=40\,\Omega-400\,\Omega^2/40\,\Omega=30\,\Omega$。于是 $I=4.5\,\mathrm{V}/90\,\Omega=50$ mA，是同一个电流。可见[第 5 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)的等效电源就包含在这四个数中。
+输入端 $U_1=9\,\mathrm{V}-5\,\Omega\cdot250\,\mathrm{mA}=7.75$ V，输出端 $U_2=60\,\Omega\cdot50\,\mathrm{mA}=3$ V。$R_\mathrm{b}$ 中流过 $I_1+I_2=200$ mA 而不是 250 mA，这使 $U_1$ 恰好降低 1 V（图 [5](#abb-5)）。从负载看：$U_\mathrm{i}=\frac{20}{40}\cdot9\,\mathrm{V}=4.5$ V，$R_\mathrm{i}=40\,\Omega-400\,\Omega^2/40\,\Omega=30\,\Omega$。于是 $I=4.5\,\mathrm{V}/90\,\Omega=50$ mA，是同一个电流。可见[第 5 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)的等效电源就包含在这四个数中。
 ::::
 
 ⁠**极限情况：**$R_\mathrm{L}\to\infty$ 得 $Z_1\to35\,\Omega$，$R_\mathrm{L}\to0$ 得 $25\,\Omega$。任何负载都介于两者之间。

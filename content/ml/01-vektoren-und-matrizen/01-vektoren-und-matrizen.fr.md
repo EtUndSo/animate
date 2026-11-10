@@ -1,8 +1,9 @@
 ---
-title: Vue d’ensemble : Fondements 1 – Vecteurs et matrices
+title: Vue d’ensemble : Vecteurs et matrices
 kurz: Vue d’ensemble
 pfad: Informatique / Apprentissage automatique / Fondements mathématiques / Vecteurs et matrices
-knoten: Fondements 1 : Vecteurs et matrices
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Chapitre 1 : Vecteurs et matrices
 nachschlagen: ja
 order: 15210100
 summary: Les données comme listes de nombres, les modèles comme applications linéaires

@@ -1,6 +1,8 @@
 ---
 title: Stage 3: The op amp without feedback
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / The Operational Amplifier
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / The Operational Amplifier
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker
+knoten: Chapter 11: The Operational Amplifier
 order: 1210500
 summary: The amplifier stages become a component with a few terminals.
 tags: saturation, ideal op amp, flash converter

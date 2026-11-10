@@ -1,0 +1,9 @@
+duration OK: 4.0
+edit vs play mode OK (operands shown statically, consumed while playing)
+convolution animates: value tracks conv(t) (k=0.00 -> 1.2533)
+start value ~0 OK: 0.0
+result curve traced OK: pts 546 -> 1804
+rect*rect = triangle OK: conv(0)=1.001 conv(.5)=0.500 conv(2)=0.000
+convolution trace matches the math: leading edge = k, flat (conv≈0) before overlap
+
+PROCESS (animated convolution) TESTS PASSED

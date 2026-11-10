@@ -1,7 +1,9 @@
 ---
 title: Überblick: Quellen und Ersatzquellen
 kurz: Überblick
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Quellen und Ersatzquellen
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Quellen und Ersatzquellen
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen
+knoten: Kapitel 5: Quellen und Ersatzquellen
 order: 1150100
 summary: Warum zwei Zahlen ein ganzes Netzwerk ersetzen
 tags: 
@@ -23,7 +25,7 @@ Der Weg dorthin hat drei Teile. Die Stufen [1](widerstande-zusammenfassen.html#s
 
 <li>
 
-⁠**Batterie:** die 9-V-Blockbatterie aus [Teil 1](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html). Ihre Quellenspannung (die Spannung, die die Chemie liefert) ist $U_\mathrm{q}=9$ V, ihr Innenwiderstand $R_\mathrm{q}=2\,\Omega$.
+⁠**Batterie:** die 9-V-Blockbatterie aus [Kapitel 1](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html). Ihre Quellenspannung (die Spannung, die die Chemie liefert) ist $U_\mathrm{q}=9$ V, ihr Innenwiderstand $R_\mathrm{q}=2\,\Omega$.
 
 </li>
 

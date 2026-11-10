@@ -1,6 +1,8 @@
 ---
 title: 第 2 阶段：为什么电流能流过截止的二极管
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 双极型晶体管
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 双极型晶体管
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor
+knoten: 第 10 章：双极型晶体管
 order: 1200400
 summary: CB 二极管截止，却有毫安级电流流过它。本阶段跟踪电子的路径，并说明为什么只需要很小的基极电流。
 tags: 注入, 扩散长度, 传输电流, 放大区
@@ -43,7 +45,7 @@ CB 二极管截止，却有毫安级电流流过它。本阶段跟踪电子的�
 
 </ol>
 
-电子从发射极流向集电极。习惯电流 $I_\mathrm{C}$ 的方向相反，从集电极到发射极（[第 2 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)）。
+电子从发射极流向集电极。习惯电流 $I_\mathrm{C}$ 的方向相反，从集电极到发射极（[第 2 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)）。
 
 :::abbildung et1/k10basis 2
 上：工作点处电子的路径。2.01 mA 的发射极电流分成流向集电极的 2 mA 和流向基极的 10 µ A。下：电子能量随位置的变化（示意）。$U_\mathrm{BE}$ 降低发射极处的小台阶，$U_\mathrm{CB}$ 加深通向集电极的陡坡。
@@ -64,7 +66,7 @@ $$I_\mathrm{C}=I_\mathrm{S}\,\mathrm{e}^{U_\mathrm{BE}/U_T},\qquad I_\mathrm{B}=
 电子和空穴越过同一个势垒。基区靠发射极一侧边缘的电子密度和发射区靠基极一侧边缘的空穴密度，都按 $\mathrm{e}^{U_\mathrm{BE}/U_T}$ 增长。集电极电流与前一个密度成正比，基区中的复合也是如此，空穴电流则与后一个密度成正比。所有部分都带有同一个因子，因此它们的比值 $B=I_\mathrm{C}/I_\mathrm{B}$ 与 $U_\mathrm{BE}$ 无关。
 :::
 
-**是谁在控制？** 从物理上说，控制的是 $U_\mathrm{BE}$，因为只有电压才能降低势垒。基极电流是为此付出的代价。不过在电路中常常用 $I_\mathrm{B}$ 计算：由于 $I_\mathrm{C}=B\,I_\mathrm{B}$，晶体管的行为就像一个电流控制电流源（CCCS，[第 6 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html)）。两种看法描述的是同一个比例关系。用 $U_\mathrm{BE}$ 控制解释了指数定律；当电阻决定基极电流时，用 $I_\mathrm{B}$ 的看法更方便。
+**是谁在控制？** 从物理上说，控制的是 $U_\mathrm{BE}$，因为只有电压才能降低势垒。基极电流是为此付出的代价。不过在电路中常常用 $I_\mathrm{B}$ 计算：由于 $I_\mathrm{C}=B\,I_\mathrm{B}$，晶体管的行为就像一个电流控制电流源（CCCS，[第 6 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html)）。两种看法描述的是同一个比例关系。用 $U_\mathrm{BE}$ 控制解释了指数定律；当电阻决定基极电流时，用 $I_\mathrm{B}$ 的看法更方便。
 
 ::::beispiel
 $U_\mathrm{BE}=0.6$ V 给出 $I_\mathrm{C}=1.9\cdot10^{-13}\,\mathrm{A}\cdot\mathrm{e}^{23.08}=2.00$ mA，$I_\mathrm{B}=10$ µ A，$I_\mathrm{E}=2.01$ mA。这相当于集电极中每秒 $1.25\cdot10^{16}$ 个电子，发射极电流的 99.5 % 到达那里。指数函数很敏感：$+18$ mV 使电流加倍（$U_T\ln2$），$+60$ mV 使电流变为十倍（$U_T\ln10$），$+1$ mV 带来 $+3.9$ %。

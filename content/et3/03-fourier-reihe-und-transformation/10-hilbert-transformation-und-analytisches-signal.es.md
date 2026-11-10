@@ -1,6 +1,8 @@
 ---
 title: Etapa 9: Transformada de Hilbert y señal analítica
-pfad: Ingeniería eléctrica / 3.er semestre / Señales y sistemas / Serie y transformada de Fourier
+pfad: Ingeniería eléctrica / 3.er semestre / ET3 – Fundamentos de ingeniería eléctrica 3: señales y sistemas / Serie y transformada de Fourier
+adresse: elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation
+knoten: Capítulo 3: Serie y transformada de Fourier
 order: 3231000
 summary: En una señal causal, las partes real e imaginaria del espectro están relacionadas: una determina la otra.
 tags: transformada de Hilbert, componente analítica, paso todo

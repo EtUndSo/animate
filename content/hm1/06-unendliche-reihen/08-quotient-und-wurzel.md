@@ -1,6 +1,8 @@
 ---
 title: Stufe 6: Quotient und Wurzel
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Unendliche Reihen
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Unendliche Reihen
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/unendliche-reihen
+knoten: Kapitel 6: Unendliche Reihen
 order: 1260800
 summary: Eine Majorante muss man erst finden.
 tags: Exponentialreihe
@@ -87,7 +89,7 @@ $\sum_{n=1}^\infty a_n$ ist divergent, falls $\alpha>1$.
 Für $\alpha=1$ erhält man wieder keine Aussage.
 :::
 
-⁠**So liest man das:** $\sqrt[n]{|a_n|}$ ist der mittlere Schrumpffaktor der ersten $n$ Schritte, denn $|a_n|=\bigl(\sqrt[n]{|a_n|}\bigr)^n$. Für $a_n=(\frac n{3n+1})^n$ ist die Wurzel $\frac n{3n+1}$, also $\alpha=\frac13$. Einzelne Ausreißer im Quotienten stören den Mittelwert nicht. **Grenzfall $\alpha=1$:** $\sqrt[n]{1/n}\to1$ und $\sqrt[n]{1/n^2}\to1$ nach [Teil 4](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/folgen-und-grenzwerte/folgen-und-grenzwerte.html), die eine Reihe divergiert, die andere konvergiert.
+⁠**So liest man das:** $\sqrt[n]{|a_n|}$ ist der mittlere Schrumpffaktor der ersten $n$ Schritte, denn $|a_n|=\bigl(\sqrt[n]{|a_n|}\bigr)^n$. Für $a_n=(\frac n{3n+1})^n$ ist die Wurzel $\frac n{3n+1}$, also $\alpha=\frac13$. Einzelne Ausreißer im Quotienten stören den Mittelwert nicht. **Grenzfall $\alpha=1$:** $\sqrt[n]{1/n}\to1$ und $\sqrt[n]{1/n^2}\to1$ nach [Kapitel 4](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/folgen-und-grenzwerte/folgen-und-grenzwerte.html), die eine Reihe divergiert, die andere konvergiert.
 
 :::beweis Direkt unter $q^n$
 (i) Mit $\varepsilon:=\frac{1-\alpha}2$ und $q:=\alpha+\varepsilon<1$ gibt es $N_0$ mit $\sqrt[n]{|a_n|}<q$ für $n>N_0$, also $|a_n|<q^n$. Die geometrische Reihe ist eine konvergente Majorante.
@@ -102,7 +104,7 @@ Für $a_n=\frac{3+2(-1)^n}{2^n}$ lauten die Glieder $\frac12;\ \frac54;\ \frac18
 ⁠**Faustregel:** Bei Fakultäten kürzt der Quotient, bei Potenzen $(\dots)^n$ beseitigt die Wurzel den Exponenten.
 
 :::zusatz Wenn der Grenzwert nicht existiert
-Mit den Hüllen aus [Teil 4](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/folgen-und-grenzwerte/folgen-und-grenzwerte.html) setzt man $\limsup c_n:=\lim_{n\to\infty}\sup\{c_m:m\ge n\}$ und entsprechend $\liminf c_n$ mit dem Infimum. Für absolute Konvergenz genügt $\limsup\bigl|\frac{a_{n+1}}{a_n}\bigr|<1$ beziehungsweise $\limsup\sqrt[n]{|a_n|}<1$, die Beweise bleiben gleich. Für Divergenz genügt $\liminf\bigl|\frac{a_{n+1}}{a_n}\bigr|>1$ beziehungsweise $\limsup\sqrt[n]{|a_n|}>1$: Im zweiten Fall ist $|a_n|>1$ für unendlich viele $n$, das reicht schon gegen eine Nullfolge.
+Mit den Hüllen aus [Kapitel 4](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/folgen-und-grenzwerte/folgen-und-grenzwerte.html) setzt man $\limsup c_n:=\lim_{n\to\infty}\sup\{c_m:m\ge n\}$ und entsprechend $\liminf c_n$ mit dem Infimum. Für absolute Konvergenz genügt $\limsup\bigl|\frac{a_{n+1}}{a_n}\bigr|<1$ beziehungsweise $\limsup\sqrt[n]{|a_n|}<1$, die Beweise bleiben gleich. Für Divergenz genügt $\liminf\bigl|\frac{a_{n+1}}{a_n}\bigr|>1$ beziehungsweise $\limsup\sqrt[n]{|a_n|}>1$: Im zweiten Fall ist $|a_n|>1$ für unendlich viele $n$, das reicht schon gegen eine Nullfolge.
 :::
 
 :::aufgabe Aufgabe 7 ★★ Quotient oder Wurzel

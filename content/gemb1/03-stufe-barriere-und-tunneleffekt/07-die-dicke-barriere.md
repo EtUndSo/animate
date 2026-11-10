@@ -1,6 +1,8 @@
 ---
 title: Stufe 5: Die dicke Barriere
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Stufe, Barriere und Tunneleffekt
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Stufe, Barriere und Tunneleffekt
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/stufe-barriere-und-tunneleffekt
+knoten: Kapitel 3: Stufe, Barriere und Tunneleffekt
 order: 4130700
 summary: Formel (4.3) ist exakt, aber unhandlich.
 tags: Gateoxid, Rastertunnelmikroskop, Resonanzen, Totalreflexion, verhinderte Totalreflexion
@@ -52,7 +54,7 @@ Für $E=0{,}5$ eV und $L=1$ nm ist der Vorfaktor 3 und $\mathrm{e}^{-12{,}55
 <span class="anker" id="gl-5-2"></span>
 $$T=\Bigl[1+\frac{\sin^2(k_\mathrm{II}L)}{4\frac{E}{V_0}\bigl(\frac{E}{V_0}-1\bigr)}\Bigr]^{-1}\qquad(E>V_0). \tag{5.2}$$
 
-Beide Kanten reflektieren, und die Teilwellen überlagern sich. Für $k_\mathrm{II}L=n\pi$ löschen sie sich aus, und es ist $T=1$. Diese Stellen heißen __Resonanzen__: Über der Barriere passt dann eine ganze Zahl halber Wellenlängen in die Breite $L$, wie in der Box aus [Teil 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html). Für $L=1$ nm liegen sie bei $E=2{,}38$ eV, 3,50 eV und 5,38 eV (Abb. [5](#abb-5) rechts). Bei $E=2{,}09$ eV ist $T$ nur 0,16, obwohl das Elektron über die Barriere passt. Für $E\to V_0$ gehen [(4.3)](tunneln-durch-eine-dunne-wand.html#gl-4-3) und [(5.2)](#gl-5-2) stetig ineinander über. Für $V_0\to0$ wird $T=1$.
+Beide Kanten reflektieren, und die Teilwellen überlagern sich. Für $k_\mathrm{II}L=n\pi$ löschen sie sich aus, und es ist $T=1$. Diese Stellen heißen __Resonanzen__: Über der Barriere passt dann eine ganze Zahl halber Wellenlängen in die Breite $L$, wie in der Box aus [Kapitel 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html). Für $L=1$ nm liegen sie bei $E=2{,}38$ eV, 3,50 eV und 5,38 eV (Abb. [5](#abb-5) rechts). Bei $E=2{,}09$ eV ist $T$ nur 0,16, obwohl das Elektron über die Barriere passt. Für $E\to V_0$ gehen [(4.3)](tunneln-durch-eine-dunne-wand.html#gl-4-3) und [(5.2)](#gl-5-2) stetig ineinander über. Für $V_0\to0$ wird $T=1$.
 
 :::frage Warum steht im Exponenten $2\kappa L$ und nicht $\kappa L$?
 Die Amplitude fällt mit $\mathrm{e}^{-\kappa L}$. $T$ ist aber ein Verhältnis von Betragsquadraten, und das Quadrat verdoppelt den Exponenten.

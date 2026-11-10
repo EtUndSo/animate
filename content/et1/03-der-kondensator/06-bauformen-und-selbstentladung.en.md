@@ -1,6 +1,8 @@
 ---
 title: Stage 5: Types of construction and self-discharge
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / The Capacitor
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / The Capacitor
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator
+knoten: Chapter 3: The Capacitor
 order: 1130600
 summary: 100 µF as a pair of plates in air would be 3.4 hectares in size.
 tags: electrolyte, polarized, Self-healing, leakage current, insulation resistance
@@ -57,7 +59,7 @@ Four routes to large capacitance, schematic cross sections, not to scale. Red an
 
 The table summarizes the usual ranges. __Self-healing__ means: in a breakdown, the thin metal layer around the defect vaporizes, the short circuit disappears, and only a tiny area is lost. In the electrolytic capacitor the oxide re-forms at the defect.
 
-**Self-discharge.** No insulator is perfect. The dielectric contains a few mobile charges, so a tiny current flows from plate to plate, the __leakage current__. In the equivalent circuit, an __insulation resistance__ $R_\mathrm{I}$ lies in parallel with the ideal capacitor. Ideally $R_\mathrm{I}\to\infty$ and a disconnected capacitor keeps its charge forever. In reality it gives it up at the pace $R_\mathrm{I}\,C$ (Stage [10](entladen-und-zeitkonstante.html#stufe-10)). With the resistivity $\rho$ of the material ([Part 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)), $R_\mathrm{I}=\rho\,d/A$, and together with [(4.1)](plattenkondensator-und-dielektrikum.html#gl-4-1) it follows that
+**Self-discharge.** No insulator is perfect. The dielectric contains a few mobile charges, so a tiny current flows from plate to plate, the __leakage current__. In the equivalent circuit, an __insulation resistance__ $R_\mathrm{I}$ lies in parallel with the ideal capacitor. Ideally $R_\mathrm{I}\to\infty$ and a disconnected capacitor keeps its charge forever. In reality it gives it up at the pace $R_\mathrm{I}\,C$ (Stage [10](entladen-und-zeitkonstante.html#stufe-10)). With the resistivity $\rho$ of the material ([Chapter 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)), $R_\mathrm{I}=\rho\,d/A$, and together with [(4.1)](plattenkondensator-und-dielektrikum.html#gl-4-1) it follows that
 
 <span class="anker" id="gl-5-1"></span>
 $$R_\mathrm{I}\,C=\rho\,\varepsilon. \tag{5.1}$$

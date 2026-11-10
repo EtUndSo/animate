@@ -1,6 +1,8 @@
 ---
 title: Stufe 1: Punktweise Konvergenz
-pfad: Elektrotechnik / 3. Semester / Höhere Mathematik 3 / Konvergenz von Funktionenfolgen
+pfad: Elektrotechnik / 3. Semester / HöMa3 – Höhere Mathematik 3 / Konvergenz von Funktionenfolgen
+adresse: elektrotechnik/3-semester/hohere-mathematik-3/konvergenz-von-funktionenfolgen
+knoten: Kapitel 6: Konvergenz von Funktionenfolgen
 order: 3160300
 summary: An jeder festen Stelle ist eine Folge von Funktionen eine Zahlenfolge.
 tags: Funktionenfolge, Punktweise Konvergenz, Grenzfunktion

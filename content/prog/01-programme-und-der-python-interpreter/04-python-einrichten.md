@@ -1,7 +1,8 @@
 ---
 title: Python einrichten
 pfad: Informatik / Programmieren / Python / Programme und der Python-Interpreter
-knoten: Python 1: Programme und der Python-Interpreter
+adresse: informatik/programmieren/python/programme-und-der-python-interpreter
+knoten: Kapitel 1: Programme und der Python-Interpreter
 order: 6020400
 summary: Um Python-Programme auszuführen, braucht dein Rechner CPython.
 tags: Terminal, Eingabeaufforderung, Python install manager, Versionsnummer
@@ -60,7 +61,7 @@ $ echo Hallo
 Hallo
 ```
 
-Mehr zum Terminal, zu Ordnern und zu Befehlen steht ausführlich in Linux 2.
+Mehr zum Terminal, zu Ordnern und zu Befehlen steht ausführlich in Linux, Kapitel 2.
 
 ### Python unter Windows: der Python install manager
 
@@ -113,7 +114,7 @@ Python 3.13.9
 
 <li>
 
-⁠**`py list` meldet „legacy py.exe command“.** Dann ist noch der alte Starter „Python Launcher“ aus dem früheren Installationsprogramm vorhanden und hat Vorrang. Auf dem Prüfrechner sieht das so aus:
+⁠**`py list` meldet „legacy py.exe command“.** Dann ist noch der alte Starter „Python Launcher“ aus dem früheren Installationsprogramm vorhanden und hat Vorrang. Auf dem Rechner, mit dem dieses Kapitel geprüft wurde, sieht das so aus:
 
 ```console Windows (PowerShell)
 PS> py list
@@ -217,7 +218,7 @@ der Fehlerbehebungsnummer, hier 4; sie wächst, wenn eine Unterversion Korrektur
 Versionsnummern vergleicht man Teil für Teil von links, nicht als Dezimalzahl: 3.14 ist neuer als 3.9, weil 14 größer ist als 9.
 
 ::::beispiel
-Der Prüfrechner unter Windows meldet `Python 3.13.9`, der unter Linux `Python 3.14.4`. Beide haben die Hauptversion 3; die Linux-Version ist eine Unterversion neuer. Im November 2026 ist 3.15 die neueste Unterversion, 3.14 erhält noch Fehlerbehebungen, 3.13 nur noch Sicherheitskorrekturen. Alle Beispiele dieses Kapitels laufen ab Python 3.12; ausprobiert sind sie unter Windows mit Python 3.13 und unter Linux mit Python 3.14. Wo sich die Ausgaben der beiden Versionen unterscheiden, steht es dabei.
+Der Testrechner dieses Kapitels meldet unter Windows `Python 3.13.9` und unter Linux `Python 3.14.4`. Beide haben die Hauptversion 3; die Linux-Version ist eine Unterversion neuer. Im November 2026 ist 3.15 die neueste Unterversion, 3.14 erhält noch Fehlerbehebungen, 3.13 nur noch Sicherheitskorrekturen. Alle Beispiele dieses Kapitels laufen ab Python 3.12; ausprobiert sind sie unter Windows mit Python 3.13 und unter Linux mit Python 3.14. Wo sich die Ausgaben der beiden Versionen unterscheiden, steht es dabei.
 ::::
 
 ⁠**Kurz gesagt:** Die Versionsnummer sagt, welches Python du hast; man vergleicht sie Teil für Teil.
@@ -264,7 +265,7 @@ Nur Windows: Was zeigt `py list`? Falls eine Warnung erscheint, löse das Proble
 :::loesung
 (a) Das Terminal antwortet mit `Hallo`.
 
-(b) und (c) Auf den Prüfrechnern dieses Kapitels:
+(b) und (c) Auf den Testrechnern dieses Kapitels:
 
 ```console Windows (PowerShell)
 PS> py --version

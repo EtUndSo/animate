@@ -1,6 +1,8 @@
 ---
 title: Stage 1: Energy and power
-pfad: Electrical Engineering / 3rd Semester / Signals and Systems / Correlation Functions
+pfad: Electrical Engineering / 3rd Semester / ET3 – Fundamentals of Electrical Engineering 3: Signals and Systems / Correlation Functions
+adresse: elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen
+knoten: Chapter 6: Correlation Functions
 order: 3260200
 summary: Before comparing signals, you need a measure of their “size”.
 tags: signal energy, energy signal, power, power signal

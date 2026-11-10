@@ -1,6 +1,8 @@
 ---
 title: 第 8 阶段：LTI 系统中的随机信号与功率谱密度
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / 随机信号
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / 随机信号
+adresse: elektrotechnik/3-semester/signale-und-systeme/zufallssignale
+knoten: 第 7 章：随机信号
 order: 3270900
 summary: LTI 系统对随机信号有什么作用？每个样本函数都被卷积。因此，平均值遵循简单的规则。
 tags: 功率谱密度
@@ -41,10 +43,10 @@ $$g(t)g(t+\tau)=\iint s(t-\alpha)\,s(t+\tau-\beta)\,h(\alpha)h(\beta)\,\mathrm{d
 
 $$\varphi_{gg}(\tau)=\int\varphi_{ss}(\tau-\vartheta)\underbrace{\int h(\alpha)h(\alpha+\vartheta)\,\mathrm{d}\alpha}_{\varphi^E_{hh}(\vartheta)}\,\mathrm{d}\vartheta=\varphi_{ss}*\varphi^E_{hh}.$$
 
-在频域中，$\varphi^E_{hh}$ 变为 $|H|^2$（[第 6 部分](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen/korrelationsfunktionen.html)）。
+在频域中，$\varphi^E_{hh}$ 变为 $|H|^2$（[第 6 章](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen/korrelationsfunktionen.html)）。
 :::
 
-⁠**如何理解：**$\Phi_{ss}(f)$ 表示功率如何分布在各个频率上。它是实的，永不为负，对实信号而言是偶函数。LTI 系统把每个频率上的功率乘以 $|H(f)|^2$，系统的相位不起作用。这与[第 6 部分](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen/korrelationsfunktionen.html)中能量信号的规则相同，只是现在用于随机过程。（注：严格地说，$\Phi_{ss}$ 定义为对持续时间为 $T$ 的信号片段的短时频谱所取的极限 $\lim_{T\to\infty}\frac1T\mathrm E\{|S_T(f)|^2\}$。这一极限与自相关函数的傅里叶变换相同，这才是维纳–辛钦定理真正的内容。）
+⁠**如何理解：**$\Phi_{ss}(f)$ 表示功率如何分布在各个频率上。它是实的，永不为负，对实信号而言是偶函数。LTI 系统把每个频率上的功率乘以 $|H(f)|^2$，系统的相位不起作用。这与[第 6 章](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen/korrelationsfunktionen.html)中能量信号的规则相同，只是现在用于随机过程。（注：严格地说，$\Phi_{ss}$ 定义为对持续时间为 $T$ 的信号片段的短时频谱所取的极限 $\lim_{T\to\infty}\frac1T\mathrm E\{|S_T(f)|^2\}$。这一极限与自相关函数的傅里叶变换相同，这才是维纳–辛钦定理真正的内容。）
 
 :::ltspice 带均值的噪声通过低通和高通
 ⁠**绘制：**行为源 `bv` 接在节点 `s` 上，取 `V=1+white(1e3*time)`。`white(x)` 给出 $-0.5$ 与 $0.5$ 之间的随机值，在每个整数 $x$ 处取一个新值，相邻值之间平滑过渡，因此这里每毫秒取一个新值。与它并联一个 RC 低通（`res` 取 `1Meg`，接到 `tp`；`cap` 取 `1u`，接地）和一个 CR 高通（`cap` 取 `1u`，接到 `hp`；`res` 取 `1Meg`，接地）。

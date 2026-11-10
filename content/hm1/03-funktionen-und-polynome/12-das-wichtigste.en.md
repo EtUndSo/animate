@@ -1,6 +1,8 @@
 ---
 title: Key points
-pfad: Electrical Engineering / 1st Semester / Higher Mathematics 1 / Functions and Polynomials
+pfad: Electrical Engineering / 1st Semester / HöMa1 – Higher Mathematics 1 / Functions and Polynomials
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/funktionen-und-polynome
+knoten: Chapter 3: Functions and Polynomials
 order: 1231200
 summary: When an equation can be solved backward and why every zero splits off a factor
 tags: 
@@ -97,7 +99,7 @@ Pole: denominator zero, numerator not after canceling. Gap: The factor cancels. 
 </ul>
 :::
 
-**Looking ahead to Part 4.** “Growing beyond every bound” and “approaching” have remained descriptions here. Part 4 turns them into the limit, first for sequences.
+**Looking ahead to Chapter 4.** “Growing beyond every bound” and “approaching” have remained descriptions here. Chapter 4 turns them into the limit, first for sequences.
 
 **One principle behind all the results.** A function gives exactly one $y$ for each $x$. Almost everything in this chapter asks the reverse question: How many $x$ belong to a given $y$?
 

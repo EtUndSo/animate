@@ -1,6 +1,8 @@
 ---
 title: 第 8 阶段：以电流为信号
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 运算放大器
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 运算放大器
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker
+knoten: 第 11 章：运算放大器
 order: 1211000
 summary: 到目前为止，信号都是电压。但许多信号源提供的是电流。本阶段把电流变成电压，并说明运放可以模拟负电阻。
 tags: 跨阻放大器, 微分电阻, 负阻抗变换器
@@ -20,7 +22,7 @@ $$U_\mathrm{A}=-R\,I_\mathrm{E},\qquad r_\mathrm{in}=\frac{\Delta U_-}{\Delta I_
 
 当 $R=1$ M$\Omega$ 时，2 µ A 变成 $-2$ V。节点只移动 $2\,\mathrm{V}/A=20$ µ V。这就是 10 $\Omega$ 的小输入电阻，一个针对变化量的值（__微分电阻__）。电源看到的几乎是短路，其内阻不起作用。
 
-**负电阻。** 在正电压下，电阻沿参考箭头方向吸取电流（负载惯例，[第 2 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)）。__负阻抗变换器__（NIC）则把电流推出去（图 [10](#abb-10) 右）。接线端 1 接正输入端，从那里经一个 $R$ 到输出。从输出经一个相同的 $R$ 到负输入端，再从那里经 $R_2$ 到接地点。由 $\varphi_+=\varphi_-$ 得 $U_1=U_2$。
+**负电阻。** 在正电压下，电阻沿参考箭头方向吸取电流（负载惯例，[第 2 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)）。__负阻抗变换器__（NIC）则把电流推出去（图 [10](#abb-10) 右）。接线端 1 接正输入端，从那里经一个 $R$ 到输出。从输出经一个相同的 $R$ 到负输入端，再从那里经 $R_2$ 到接地点。由 $\varphi_+=\varphi_-$ 得 $U_1=U_2$。
 
 :::satz 定理 8.1 (NIC)
 <span class="anker" id="satz-8-1"></span>

@@ -1,7 +1,9 @@
 ---
 title: 概览: 低通与带通系统
 kurz: 概览
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / 低通与带通系统
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / 低通与带通系统
+adresse: elektrotechnik/3-semester/signale-und-systeme/tiefpass-und-bandpasssysteme
+knoten: 第 5 章：低通与带通系统
 order: 3250100
 summary: 无失真传输、理想低通、 复包络与群时延
 tags: 
@@ -33,7 +35,7 @@ lang: zh
 
 <li>
 
-⁠**RC 低通滤波器**，$RC=1$ s，与第 1 至[第 3 部分](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)相同。
+⁠**RC 低通滤波器**，$RC=1$ s，与第 1 至[第 3 章](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)相同。
 
 </li>
 
@@ -57,5 +59,5 @@ lang: zh
 
 </ul>
 
-脚本 `rechnung_kap5.py` 可重新计算这些数值和曲线。与[第 3 部分](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)相同，抽样函数 $\operatorname{si}(x)=\sin(x)/x$。
+脚本 `rechnung_kap5.py` 可重新计算这些数值和曲线。与[第 3 章](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)相同，抽样函数 $\operatorname{si}(x)=\sin(x)/x$。
 :::

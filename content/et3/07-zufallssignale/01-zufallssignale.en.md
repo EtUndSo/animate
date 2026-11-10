@@ -1,7 +1,9 @@
 ---
 title: Overview: Random Signals
 kurz: Overview
-pfad: Electrical Engineering / 3rd Semester / Signals and Systems / Random Signals
+pfad: Electrical Engineering / 3rd Semester / ET3 – Fundamentals of Electrical Engineering 3: Signals and Systems / Random Signals
+adresse: elektrotechnik/3-semester/signale-und-systeme/zufallssignale
+knoten: Chapter 7: Random Signals
 order: 3270100
 summary: Mean values, distributions, power spectral density, noise in systems and the optimal receiver
 tags: 
@@ -33,7 +35,7 @@ The noise of a resistor, speech, a data stream: such signals cannot be predicted
 
 <li>
 
-⁠**Recursive system** $g(n)=s(n)+0.6\,g(n-1)$ from [Part 4](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme/abtastung-und-zeitdiskrete-systeme.html).
+⁠**Recursive system** $g(n)=s(n)+0.6\,g(n-1)$ from [Chapter 4](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme/abtastung-und-zeitdiskrete-systeme.html).
 
 </li>
 

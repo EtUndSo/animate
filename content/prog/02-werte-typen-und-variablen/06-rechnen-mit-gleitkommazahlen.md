@@ -1,7 +1,8 @@
 ---
 title: Rechnen mit Gleitkommazahlen
 pfad: Informatik / Programmieren / Python / Werte, Typen und Variablen
-knoten: Python 2: Werte, Typen und Variablen
+adresse: informatik/programmieren/python/werte-typen-und-variablen
+knoten: Kapitel 2: Werte, Typen und Variablen
 order: 6030600
 summary: Nicht nur das Eintippen, auch jede Rechnung mit float wird gerundet.
 tags: Rundungsfehler, Maschinengenauigkeit, absorbiert, Auslöschung, Überlauf
@@ -45,7 +46,7 @@ Beide Abstände sind genau gleich, $2{,}78\cdot10^{-17}$: ein Gleichstand. Die R
 ::::
 
 ::::beispiel zehnmal $0{,}1$
-Bei vielen Rechenschritten wird jedes Zwischenergebnis gerundet, und die Fehler können sich summieren. Mit dem Unterstrich `_` für das letzte Ergebnis ([Programmieren, Python 1, Abschnitt 4.4](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/der-interaktive-modus.html#stufe-4-4)) und der Pfeiltaste addiert man im interaktiven Modus zehnmal $0{,}1$:
+Bei vielen Rechenschritten wird jedes Zwischenergebnis gerundet, und die Fehler können sich summieren. Mit dem Unterstrich `_` für das letzte Ergebnis ([Kapitel 1, Abschnitt 4.4](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/der-interaktive-modus.html#stufe-4-4)) und der Pfeiltaste addiert man im interaktiven Modus zehnmal $0{,}1$:
 
 ```console
 >>> 0.1
@@ -139,7 +140,7 @@ Der Abstand wächst mit der Zahl. Bei $10^{16}$ ist er schon 2: $10^{16}$ liegt 
 Die letzte Zeile zeigt eine Folge davon: Alle ganzen Zahlen bis $2^{53}=9\,007\,199\,254\,740\,992$ sind als `float` exakt, darüber nicht mehr jede.
 ::::
 
-**Die Beobachtung aus Python 1.** Das Heron-Rezept endete bei `1.414213562373095`, der fertige Weg `2 ** 0.5` lieferte `1.4142135623730951` ([Programmieren, Python 1, Abschnitt 4.5](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/der-interaktive-modus.html#stufe-4-5)). Zwischen 1 und 2 haben benachbarte `float` genau den Abstand $\varepsilon_{\mathrm M}$, und so weit liegen die beiden Ergebnisse auseinander:
+**Die Beobachtung aus [Kapitel 1](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/programme-und-der-python-interpreter.html).** Das Heron-Rezept endete bei `1.414213562373095`, der fertige Weg `2 ** 0.5` lieferte `1.4142135623730951` ([Kapitel 1, Abschnitt 4.5](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/der-interaktive-modus.html#stufe-4-5)). Zwischen 1 und 2 haben benachbarte `float` genau den Abstand $\varepsilon_{\mathrm M}$, und so weit liegen die beiden Ergebnisse auseinander:
 
 ```console
 >>> 1.4142135623730951 - 1.414213562373095
@@ -183,7 +184,7 @@ Dieselben drei Zahlen, in anderer Reihenfolge verknüpft, liefern verschiedene E
 
 <span class="anker" id="stufe-5-4"></span>
 
-Zieht man zwei fast gleiche Messwerte voneinander ab, um eine kleine Differenz zu bekommen, etwa die Spannung zwischen zwei Brückenzweigen, kann das Ergebnis viel ungenauer sein als die Messwerte.
+Zieht man zwei fast gleiche Zahlen voneinander ab, um eine kleine Differenz zu bekommen, kann das Ergebnis viel ungenauer sein als die beiden Zahlen. So wiegt man einen Brief schlecht, indem man sich einmal mit und einmal ohne ihn auf die Personenwaage stellt: Zwei große, leicht ungenaue Anzeigen ergeben einen kleinen, sehr ungenauen Unterschied.
 
 **Die vorderen Ziffern heben sich auf.** $1{,}0000000000000011$ minus $1$: Die vorderen 15 Nachkommastellen sind gleich und verschwinden. Übrig bleiben nur die hintersten Stellen, und genau in denen steckt der Rundungsfehler der Eingabe.
 
@@ -319,7 +320,7 @@ Die kleinste Zweierpotenz, die 1 noch verändert, ist $2^{-52}$, also $k=52$. Si
 :::aufgabe Aufgabe 18 ★★ Eine Zeitachse aufbauen
 <span class="anker" id="aufg-18"></span>
 
-Ein Simulationsprogramm soll die Zeitpunkte $t_k=k\cdot0{,}1\,\mathrm{ms}$ erzeugen. Weg A addiert immer wieder `0.1` zum letzten Zeitpunkt, Weg B rechnet `k * 0.1` direkt aus.
+Eine Stoppuhr-App soll alle $0{,}1$ s die Zeit anzeigen, also die Zeitpunkte $t_k=k\cdot0{,}1\,\mathrm{s}$ erzeugen. Weg A addiert immer wieder `0.1` zum letzten Zeitpunkt, Weg B rechnet `k * 0.1` direkt aus.
 
 <ol class="al">
 
@@ -355,9 +356,9 @@ Welcher Weg ist genauer, und warum? Wie viele Rundungen stecken in $t_k$ bei Weg
 0.8
 ```
 
-Für $t_3$ liefern beide Wege denselben `float`, für $t_8$ nicht: Weg A ergibt $0{,}7999999999999999\,\mathrm{ms}$, Weg B $0{,}8\,\mathrm{ms}$. Die lange Summe in einer Zeile rechnet von links nach rechts genau wie das wiederholte `_ + 0.1`.
+Für $t_3$ liefern beide Wege denselben `float`, für $t_8$ nicht: Weg A ergibt $0{,}7999999999999999\,\mathrm s$, Weg B $0{,}8\,\mathrm s$. Die lange Summe in einer Zeile rechnet von links nach rechts genau wie das wiederholte `_ + 0.1`.
 
-(b) Weg B ist genauer. In $t_k$ von Weg A stecken der Darstellungsfehler von `0.1` und $k-1$ gerundete Additionen; die Fehler können sich summieren und wachsen mit $k$. Bei Weg B sind es der Darstellungsfehler und eine einzige Rundung, der Fehler bleibt relativ immer unter etwa $2\varepsilon_{\mathrm M}$. Simulationsprogramme berechnen Zeitpunkte deshalb aus der Schrittnummer, nicht durch Aufsummieren.
+(b) Weg B ist genauer. In $t_k$ von Weg A stecken der Darstellungsfehler von `0.1` und $k-1$ gerundete Additionen; die Fehler können sich summieren und wachsen mit $k$. Bei Weg B sind es der Darstellungsfehler und eine einzige Rundung, der Fehler bleibt relativ immer unter etwa $2\varepsilon_{\mathrm M}$. Gute Programme berechnen Zeitpunkte deshalb aus der Schrittnummer, nicht durch Aufsummieren.
 :::
 :::
 

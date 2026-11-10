@@ -1,6 +1,8 @@
 ---
 title: 第 4 阶段：线路损耗
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 功率、匹配与效率
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 功率、匹配与效率
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad
+knoten: 第 7 章：功率、匹配与效率
 order: 1170500
 summary: 电源和负载之间是线路，它也是一个电阻。本阶段说明为什么大功率要通过高电压传输。
 tags: 电压降, 损耗功率, 有用功率, 标称电压
@@ -54,7 +56,7 @@ $$\frac{I_1}{I_2}=\frac{U_\mathrm{L2}}{U_\mathrm{L1}},\qquad\frac{P_{\text{线�
 | 高压 | 110 kV | 约 100 km 以内 | 向中压电网供电 |
 | 超高压 | 220 kV，380 kV | 数百至 1000 km 以上 | 国内和欧洲范围的互联 |
 
-高压不能一直引入住宅：空气在约 3 kV/mm 时被击穿（[第 1 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)），因此架空线路需要几米的间距。变压器在输电时把交流电压升高，在用户之前再把它降下来。
+高压不能一直引入住宅：空气在约 3 kV/mm 时被击穿（[第 1 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)），因此架空线路需要几米的间距。变压器在输电时把交流电压升高，在用户之前再把它降下来。
 
 :::frage 按 $P=U^2/R$，功率随电压增大。更高的电压难道不会带来更多损耗吗？
 公式没错，但它需要的是同一电阻上的电压。在例题中，电缆上的电压不是 20 kV，而是 $U_\text{线路}=2$ V，$(2\,\mathrm{V})^2/1\,\Omega$ 正是那 4 W。高电压加在负载上。$U_\text{线路}$ 下降，是因为电流下降了。

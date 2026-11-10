@@ -1,7 +1,8 @@
 ---
 title: Elementweise Rechnen und Tensoren
 pfad: Informatik / Machine Learning / Mathematische Grundlagen / Vektoren und Matrizen
-knoten: Grundlagen 1: Vektoren und Matrizen
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Kapitel 1: Vektoren und Matrizen
 nachschlagen: ja
 order: 15211600
 summary: Nicht jede Rechnung mit Vektoren und Matrizen ist ein Matrixprodukt.
@@ -110,7 +111,7 @@ Ein Farbbild mit $4\times4$ Bildpunkten und drei Farbkanälen ist ein Tensor der
 ⁠**Kurz gesagt:** Ein Tensor ist ein Zahlenfeld mit beliebig vielen Achsen; Skalar, Vektor und Matrix sind die Fälle mit $0$, $1$ und $2$ Achsen.
 
 :::hintergrund Der Tensor der Physik ist etwas anderes
-In der Physik und der Elektrotechnik ist ein Tensor mehr als ein Zahlenfeld, etwa der Spannungstensor eines Werkstoffs oder der Permittivitätstensor eines Kristalls. Dort gehört zum Tensor eine Vorschrift, wie sich seine Einträge ändern, wenn man das Koordinatensystem dreht; die Einträge allein machen ihn nicht aus. Im maschinellen Lernen fehlt diese Vorschrift: Ein Tensor ist dort nur ein mehrdimensionales Feld von Zahlen. Das Wort ist dasselbe, der Begriff ein anderer.
+In der Physik ist ein Tensor mehr als ein Zahlenfeld, etwa der Trägheitstensor, der angibt, wie schwer sich ein Körper um jede Achse drehen lässt, oder der Tensor, der beschreibt, wie stark ein belasteter Balken in jeder Richtung gezogen oder gedrückt wird. Dort gehört zum Tensor eine Vorschrift, wie sich seine Einträge ändern, wenn man das Koordinatensystem dreht; die Einträge allein machen ihn nicht aus. Im maschinellen Lernen fehlt diese Vorschrift: Ein Tensor ist dort nur ein mehrdimensionales Feld von Zahlen. Das Wort ist dasselbe, der Begriff ein anderer.
 :::
 
 ### Bilder als Tensoren

@@ -1,6 +1,8 @@
 ---
 title: Stage 3: Mean value, power, variance
-pfad: Electrical Engineering / 3rd Semester / Signals and Systems / Random Signals
+pfad: Electrical Engineering / 3rd Semester / ET3 – Fundamentals of Electrical Engineering 3: Signals and Systems / Random Signals
+adresse: elektrotechnik/3-semester/signale-und-systeme/zufallssignale
+knoten: Chapter 7: Random Signals
 order: 3270400
 summary: The most important first-order averages and their intuitive meaning.
 tags: DC component, power, variance, AC power, standard deviation
@@ -18,7 +20,7 @@ The expected value is linear: $\mathrm E\{\sum_ia_is_i\}=\sum_ia_i\mathrm E\{s_i
 <span class="anker" id="gl-3-1"></span>
 $$m_s=\mathrm E\{s(t)\},\qquad L_s=\mathrm E\{s^2(t)\},\qquad\sigma_s^2=L_s-m_s^2. \tag{3.1}$$
 
-⁠**How to read it:** For an ergodic process, $m_s$ is the time average, that is, the __DC component__ of the signal, and $L_s$ is the time-averaged square, the __power__ ([Part 6](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen/korrelationsfunktionen.html)). The __variance__ $\sigma_s^2$ is the power minus the power of the DC component, that is, the __AC power__. Its square root, the __standard deviation__ $\sigma_s$, is the RMS value of the AC component. A multimeter set to AC shows $\sigma_s$; set to DC, it shows $m_s$.
+⁠**How to read it:** For an ergodic process, $m_s$ is the time average, that is, the __DC component__ of the signal, and $L_s$ is the time-averaged square, the __power__ ([Chapter 6](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen/korrelationsfunktionen.html)). The __variance__ $\sigma_s^2$ is the power minus the power of the DC component, that is, the __AC power__. Its square root, the __standard deviation__ $\sigma_s$, is the RMS value of the AC component. A multimeter set to AC shows $\sigma_s$; set to DC, it shows $m_s$.
 
 :::aufgabe Exercise 1 ★ Averages of a signal
 <span class="anker" id="aufg-1"></span>

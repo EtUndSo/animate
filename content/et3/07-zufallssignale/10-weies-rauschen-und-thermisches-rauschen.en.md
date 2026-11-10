@@ -1,6 +1,8 @@
 ---
 title: Stage 9: White noise and thermal noise
-pfad: Electrical Engineering / 3rd Semester / Signals and Systems / Random Signals
+pfad: Electrical Engineering / 3rd Semester / ET3 – Fundamentals of Electrical Engineering 3: Signals and Systems / Random Signals
+adresse: elektrotechnik/3-semester/signale-und-systeme/zufallssignale
+knoten: Chapter 7: Random Signals
 order: 3271000
 summary: The most important model for disturbances: noise with the same power density at all frequencies.
 tags: white noise

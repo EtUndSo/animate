@@ -1,6 +1,8 @@
 ---
 title: Key points
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / The Operational Amplifier
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / The Operational Amplifier
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker
+knoten: Chapter 11: The Operational Amplifier
 order: 1211300
 summary: How a huge, imprecise factor turns into a component whose behavior is determined by the resistors alone
 tags: differential amplifier, loop gain, virtual ground, Noise, Comparator

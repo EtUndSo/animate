@@ -1,6 +1,8 @@
 ---
 title: Stufe 4: Orientierung und Flussintegral
-pfad: Elektrotechnik / 3. Semester / Höhere Mathematik 3 / Integralsätze im Raum
+pfad: Elektrotechnik / 3. Semester / HöMa3 – Höhere Mathematik 3 / Integralsätze im Raum
+adresse: elektrotechnik/3-semester/hohere-mathematik-3/integralsatze-im-raum
+knoten: Kapitel 5: Integralsätze im Raum
 order: 3150500
 summary: Wie viel eines Felds durch eine Fläche strömt, hängt davon ab, welche Seite als „vorn“ gilt.
 tags: Orientierung, Flussintegral

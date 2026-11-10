@@ -1,6 +1,8 @@
 ---
 title: Stufe 5: Strom und Spannung zugleich
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Strom und Spannung messen
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Strom und Spannung messen
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-und-spannung-messen
+knoten: Kapitel 4: Strom und Spannung messen
 order: 1140600
 summary: Wer einen Widerstand aus R=U/I bestimmt, braucht beide Instrumente.
 tags: 

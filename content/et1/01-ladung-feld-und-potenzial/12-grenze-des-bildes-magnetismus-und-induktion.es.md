@@ -1,6 +1,8 @@
 ---
 title: Etapa 10: Límite de la imagen: magnetismo e inducción
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Carga, campo y potencial
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Carga, campo y potencial
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial
+knoten: Capítulo 1: Carga, campo y potencial
 order: 1111200
 summary: Todo lo anterior valía para cargas en reposo.
 tags: campo magnético, bobina, inducción, electromagnetismo, campo rotacional, regla de la mano derecha, sentido técnico de la corriente, flujo magnético
@@ -19,7 +21,7 @@ Todo lo anterior valía para cargas en reposo. Esta etapa muestra qué cambia cu
 Izquierda: sección de un cable; la corriente $I$ fluye hacia el plano. El campo magnético $H$ describe círculos alrededor del cable, y las agujas de brújula orientan según él su punta roja. Derecha: un imán de barra en movimiento cambia el flujo magnético $\Phi$ a través de la bobina. Mientras se mueve, el instrumento muestra la tensión $u_\mathrm{ind}$.
 :::
 
-La dirección del campo magnético la da la __regla de la mano derecha__: el pulgar apunta en el sentido técnico de la corriente, y los dedos, en el sentido del campo. El __sentido técnico de la corriente__ va de positivo a negativo; los electrones del cable se mueven al revés ([Parte 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)).
+La dirección del campo magnético la da la __regla de la mano derecha__: el pulgar apunta en el sentido técnico de la corriente, y los dedos, en el sentido del campo. El __sentido técnico de la corriente__ va de positivo a negativo; los electrones del cable se mueven al revés ([capítulo 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)).
 
 :::satz Teorema 10.1 (Ley de inducción)
 <span class="anker" id="satz-10-1"></span>

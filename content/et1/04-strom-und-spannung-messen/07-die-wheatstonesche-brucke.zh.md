@@ -1,6 +1,8 @@
 ---
 title: 第 6 阶段：惠斯通电桥
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 电流与电压的测量
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 电流与电压的测量
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-und-spannung-messen
+knoten: 第 4 章：电流与电压的测量
 order: 1140700
 summary: R=U/I 把两个读数的误差相加。在参考模型中，电压为 pm1.1\,\% ，电流为 pm2\,\% ，合计最多 pm3.1\,\% 。电桥只需要仪表给出一个信息：是零还是不是零。
 tags: 

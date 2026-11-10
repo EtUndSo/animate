@@ -1,7 +1,8 @@
 ---
 title: Elementwise calculations and tensors
 pfad: Computer Science / Machine Learning / Mathematical Foundations / Vectors and Matrices
-knoten: Foundations 1: Vectors and Matrices
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Chapter 1: Vectors and Matrices
 nachschlagen: ja
 order: 15211600
 summary: Not every calculation with vectors and matrices is a matrix product.
@@ -110,7 +111,7 @@ A color image with $4\times4$ pixels and three color channels is a tensor of sha
 ⁠**In short:** A tensor is an array of numbers with any number of axes; scalar, vector and matrix are the cases with $0$, $1$ and $2$ axes.
 
 :::hintergrund The tensor of physics is something different
-In physics and electrical engineering, a tensor is more than an array of numbers, for example the stress tensor of a material or the permittivity tensor of a crystal. There, a tensor comes with a rule for how its entries change when you rotate the coordinate system; the entries alone do not make it a tensor. In machine learning this rule is absent: there, a tensor is just a multidimensional array of numbers. The word is the same, the concept is a different one.
+In physics, a tensor is more than an array of numbers, for example the inertia tensor, which states how hard it is to rotate a body about each axis, or the tensor that describes how strongly a loaded beam is pulled or pushed in each direction. There, a tensor comes with a rule for how its entries change when you rotate the coordinate system; the entries alone do not make it a tensor. In machine learning this rule is absent: there, a tensor is just a multidimensional array of numbers. The word is the same, the concept is a different one.
 :::
 
 ### Images as tensors

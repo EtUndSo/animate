@@ -1,0 +1,587 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 20,
+  "nextAnimId": 25,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.6,
+      0.0,
+      0
+     ],
+     "width": 0.8460000000000001,
+     "height": 0.48,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 0.12,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o2",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.0,
+      0.0,
+      0
+     ],
+     "width": 0.9825000000000002,
+     "height": 0.48,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 0.12,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o3",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.6,
+      0.0,
+      0
+     ],
+     "width": 0.8460000000000001,
+     "height": 0.48,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 0.12,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o4",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{echo Hallo     Welt}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.26,
+     "position": [
+      0.0,
+      1.05,
+      0
+     ],
+     "color": "#b5b5b5"
+    }
+   },
+   {
+    "id": "o5",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{echo}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.26,
+     "position": [
+      -1.0238,
+      1.05,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o6",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{Hallo}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.26,
+     "position": [
+      -0.273,
+      1.05,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o7",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{Welt}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.26,
+     "position": [
+      1.0238,
+      1.05,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Line",
+    "props": {
+     "start": [
+      -0.72575,
+      0.8500000000000001,
+      0
+     ],
+     "end": [
+      -0.63925,
+      0.8500000000000001,
+      0
+     ],
+     "color": "#eb6834",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o9",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.09325000000000014,
+      0.8500000000000001,
+      0
+     ],
+     "end": [
+      0.17975,
+      0.8500000000000001,
+      0
+     ],
+     "color": "#eb6834",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o10",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.22974999999999998,
+      0.8500000000000001,
+      0
+     ],
+     "end": [
+      0.31625000000000003,
+      0.8500000000000001,
+      0
+     ],
+     "color": "#eb6834",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o11",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.3662500000000001,
+      0.8500000000000001,
+      0
+     ],
+     "end": [
+      0.4527500000000001,
+      0.8500000000000001,
+      0
+     ],
+     "color": "#eb6834",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.5027500000000001,
+      0.8500000000000001,
+      0
+     ],
+     "end": [
+      0.5892499999999999,
+      0.8500000000000001,
+      0
+     ],
+     "color": "#eb6834",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o13",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.63925,
+      0.8500000000000001,
+      0
+     ],
+     "end": [
+      0.7257500000000002,
+      0.8500000000000001,
+      0
+     ],
+     "color": "#eb6834",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o14",
+    "type": "Text",
+    "props": {
+     "text": "@fuenf",
+     "position": [
+      0.4095,
+      1.37,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#eb6834"
+    }
+   },
+   {
+    "id": "o15",
+    "type": "Text",
+    "props": {
+     "text": "@befehl",
+     "position": [
+      -1.6,
+      -0.42,
+      0
+     ],
+     "font_size": 20,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o16",
+    "type": "Text",
+    "props": {
+     "text": "@arg1",
+     "position": [
+      0.0,
+      -0.42,
+      0
+     ],
+     "font_size": 20,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o17",
+    "type": "Text",
+    "props": {
+     "text": "@arg2",
+     "position": [
+      1.6,
+      -0.42,
+      0
+     ],
+     "font_size": 20,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o18",
+    "type": "Text",
+    "props": {
+     "text": "@ausgabe",
+     "position": [
+      -0.85,
+      -1.05,
+      0
+     ],
+     "font_size": 20,
+     "align": "right",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o19",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{Hallo Welt}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.26,
+     "position": [
+      -0.0175,
+      -1.05,
+      0
+     ],
+     "color": "#111111"
+    }
+   }
+  ],
+  "animations": [
+   {
+    "id": "a1",
+    "type": "FadeIn",
+    "target": "o4",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a2",
+    "type": "FadeIn",
+    "target": "o5",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a3",
+    "type": "FadeIn",
+    "target": "o6",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a4",
+    "type": "FadeIn",
+    "target": "o7",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a5",
+    "type": "FadeIn",
+    "target": "o8",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a6",
+    "type": "FadeIn",
+    "target": "o9",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a7",
+    "type": "FadeIn",
+    "target": "o10",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a8",
+    "type": "FadeIn",
+    "target": "o11",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a9",
+    "type": "FadeIn",
+    "target": "o12",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a10",
+    "type": "FadeIn",
+    "target": "o13",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a11",
+    "type": "FadeIn",
+    "target": "o14",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a12",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a13",
+    "type": "MoveTo",
+    "target": "o5",
+    "run_time": 1.0,
+    "step": 2,
+    "point": [
+     -1.6,
+     0.0,
+     0
+    ]
+   },
+   {
+    "id": "a14",
+    "type": "MoveTo",
+    "target": "o6",
+    "run_time": 1.0,
+    "step": 2,
+    "point": [
+     0.0,
+     0.0,
+     0
+    ]
+   },
+   {
+    "id": "a15",
+    "type": "MoveTo",
+    "target": "o7",
+    "run_time": 1.0,
+    "step": 2,
+    "point": [
+     1.6,
+     0.0,
+     0
+    ]
+   },
+   {
+    "id": "a16",
+    "type": "GrowFromCenter",
+    "target": "o1",
+    "run_time": 0.6,
+    "step": 3
+   },
+   {
+    "id": "a17",
+    "type": "GrowFromCenter",
+    "target": "o2",
+    "run_time": 0.6,
+    "step": 3
+   },
+   {
+    "id": "a18",
+    "type": "GrowFromCenter",
+    "target": "o3",
+    "run_time": 0.6,
+    "step": 3
+   },
+   {
+    "id": "a19",
+    "type": "FadeIn",
+    "target": "o15",
+    "run_time": 0.6,
+    "step": 3
+   },
+   {
+    "id": "a20",
+    "type": "FadeIn",
+    "target": "o16",
+    "run_time": 0.6,
+    "step": 3
+   },
+   {
+    "id": "a21",
+    "type": "FadeIn",
+    "target": "o17",
+    "run_time": 0.6,
+    "step": 3
+   },
+   {
+    "id": "a22",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 4
+   },
+   {
+    "id": "a23",
+    "type": "FadeIn",
+    "target": "o18",
+    "run_time": 0.7,
+    "step": 5
+   },
+   {
+    "id": "a24",
+    "type": "FadeIn",
+    "target": "o19",
+    "run_time": 0.7,
+    "step": 5
+   }
+  ],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "fuenf": {
+    "de": "5 Leerzeichen",
+    "en": "5 spaces",
+    "es": "5 espacios",
+    "zh": "5 个空格",
+    "fr": "5 espaces",
+    "tr": "5 boşluk"
+   },
+   "befehl": {
+    "de": "Befehl",
+    "en": "command",
+    "es": "comando",
+    "zh": "命令",
+    "fr": "commande",
+    "tr": "komut"
+   },
+   "arg1": {
+    "de": "Argument 1",
+    "en": "argument 1",
+    "es": "argumento 1",
+    "zh": "参数 1",
+    "fr": "argument 1",
+    "tr": "argüman 1"
+   },
+   "arg2": {
+    "de": "Argument 2",
+    "en": "argument 2",
+    "es": "argumento 2",
+    "zh": "参数 2",
+    "fr": "argument 2",
+    "tr": "argüman 2"
+   },
+   "ausgabe": {
+    "de": "Ausgabe:",
+    "en": "output:",
+    "es": "salida:",
+    "zh": "输出：",
+    "fr": "sortie :",
+    "tr": "çıktı:"
+   }
+  }
+ }
+}

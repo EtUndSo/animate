@@ -1,9 +1,10 @@
 ---
 title: Bedingungen: Vergleiche und logische Operatoren
 pfad: Informatik / Programmieren / Python / Entscheidungen und Schleifen
-knoten: Python 3: Entscheidungen und Schleifen
+adresse: informatik/programmieren/python/entscheidungen-und-schleifen
+knoten: Kapitel 3: Entscheidungen und Schleifen
 order: 6040200
-summary: Ein Programm, das entscheiden soll, braucht eine Frage, auf die es nur ja oder nein gibt: Liegt die Spannung im erlaubten Bereich?
+summary: Ein Programm, das entscheiden soll, braucht eine Frage, auf die es nur ja oder nein gibt: Liegt die Temperatur im gewünschten Bereich?
 tags: verketteter Vergleich, Kurzschlussauswertung, Wahrheitswert
 lang: de
 ---
@@ -11,14 +12,14 @@ lang: de
 <span class="anker" id="stufe-1"></span>
 
 :::zweck
-Ein Programm, das entscheiden soll, braucht eine Frage, auf die es nur ja oder nein gibt: Liegt die Spannung im erlaubten Bereich? Ist der Strom kleiner als die Grenze? Dieser Abschnitt zeigt, wie man solche Fragen in Python schreibt, wie man mehrere davon verknüpft und welche Werte Python als ja und welche als nein ansieht.
+Ein Programm, das entscheiden soll, braucht eine Frage, auf die es nur ja oder nein gibt: Liegt die Temperatur im gewünschten Bereich? Ist die Luftfeuchtigkeit kleiner als die Grenze? Dieser Abschnitt zeigt, wie man solche Fragen in Python schreibt, wie man mehrere davon verknüpft und welche Werte Python als ja und welche als nein ansieht.
 :::
 
 ### Rückblick: Wahrheitswerte und Vergleiche
 
 <span class="anker" id="stufe-1-1"></span>
 
-Python 2 hat die Bausteine schon bereitgestellt. Der Typ `bool` hat genau zwei Werte, `True` und `False`. Die sechs Vergleichsoperatoren liefern einen solchen Wert:
+[Kapitel 2](/wissen/informatik/programmieren/python/werte-typen-und-variablen/werte-typen-und-variablen.html) hat die Bausteine schon bereitgestellt. Der Typ `bool` hat genau zwei Werte, `True` und `False`. Die sechs Vergleichsoperatoren liefern einen solchen Wert:
 
 | Operator | Bedeutung | Operator | Bedeutung |
 |---|---|---|---|
@@ -26,13 +27,13 @@ Python 2 hat die Bausteine schon bereitgestellt. Der Typ `bool` hat genau zwei 
 | `<` | kleiner | `<=` | kleiner oder gleich |
 | `>` | größer | `>=` | größer oder gleich |
 
-Vergleiche haben einen niedrigeren Rang als alle Rechenoperatoren: In `u * 2 > 10` rechnet Python zuerst `u * 2`. Gleitkommazahlen prüft man nicht mit `==` auf Gleichheit, sondern mit einer Toleranz, fertig mit `math.isclose`. Ob ein Name an `None` gebunden ist, prüft man mit `is`. Ausführlich: [Programmieren, Python 2, Abschnitt 7](/wissen/informatik/programmieren/python/werte-typen-und-variablen/wahrheitswerte-und-vergleiche.html#stufe-7).
+Vergleiche haben einen niedrigeren Rang als alle Rechenoperatoren: In `temp + 2 > 23` rechnet Python zuerst `temp + 2`. Gleitkommazahlen prüft man nicht mit `==` auf Gleichheit, sondern mit einer Toleranz, fertig mit `math.isclose`. Ob ein Name an `None` gebunden ist, prüft man mit `is`. Ausführlich: [Kapitel 2, Abschnitt 7](/wissen/informatik/programmieren/python/werte-typen-und-variablen/wahrheitswerte-und-vergleiche.html#stufe-7).
 
 ```console
->>> u = 5.1
->>> u > 5
+>>> temp = 21.5
+>>> temp > 20
 True
->>> type(u > 5)
+>>> type(temp > 20)
 <class 'bool'>
 >>> 0.1 + 0.2 == 0.3
 False
@@ -44,9 +45,9 @@ False
 
 <span class="anker" id="stufe-1-2"></span>
 
-Ein USB-Anschluss soll 5 V liefern, erlaubt sind 4,75 V bis 5,25 V. Ob eine gemessene Spannung $U$ in diesem Bereich liegt, schreibt man in der Mathematik als $4{,}75\,\mathrm V\le U\le5{,}25\,\mathrm V$.
+In einem Zimmer sollen es zwischen 20 °C und 23 °C sein. Ob eine gemessene Temperatur $T$ in diesem Bereich liegt, schreibt man in der Mathematik als $20\,{}^\circ\mathrm C\le T\le23\,{}^\circ\mathrm C$.
 
-**Zwei Marken auf dem Zahlenstrahl.** Die Kette $4{,}75\le U\le5{,}25$ enthält zwei Vergleiche, die beide stimmen müssen: $U$ liegt rechts von der unteren Marke und links von der oberen. Python erlaubt genau diese Schreibweise.
+**Zwei Marken auf dem Zahlenstrahl.** Die Kette $20\le T\le23$ enthält zwei Vergleiche, die beide stimmen müssen: $T$ liegt rechts von der unteren Marke und links von der oberen. Python erlaubt genau diese Schreibweise.
 
 :::definition Definition 1.1 (Verketteter Vergleich)
 <span class="anker" id="satz-1-1"></span>
@@ -55,14 +56,14 @@ Stehen mehrere Vergleichsoperatoren hintereinander, etwa `a < b <= c`, so heißt
 :::
 
 ::::beispiel
-Eine Spannung im Bereich und eine darüber:
+Eine Temperatur im Bereich und eine darüber:
 
 ```console
->>> u = 5.1
->>> 4.75 <= u <= 5.25
+>>> temp = 21.5
+>>> 20 <= temp <= 23
 True
->>> u = 5.4
->>> 4.75 <= u <= 5.25
+>>> temp = 24.5
+>>> 20 <= temp <= 23
 False
 >>> 1 < 3 > 2
 True
@@ -74,7 +75,7 @@ Die letzte Zeile ist erlaubt, denn `1 < 3` und `3 > 2` stimmen beide. Sie liest 
 ⁠**Kurz gesagt:** `a <= x <= b` prüft wie in der Mathematik, ob `x` zwischen `a` und `b` liegt.
 
 :::hintergrund Warum dieselbe Zeile in C immer wahr ist
-In C, der Sprache, in der CPython selbst geschrieben ist, liefert ein Vergleich keinen eigenen Wahrheitswert, sondern die ganze Zahl 1 für wahr und 0 für falsch. Mehrere Vergleiche hintereinander wertet C von links nach rechts aus, einen nach dem anderen. Aus `4.75 <= u <= 5.25` wird dort `(4.75 <= u) <= 5.25`: Zuerst entsteht 0 oder 1, und beides ist kleiner als 5,25. Die Bedingung ist also immer erfüllt, auch für $u=100$. Der Compiler gcc warnt deshalb mit der Option `-Wall` vor solchen Ketten. Python hat sich für die Bedeutung aus der Mathematik entschieden, weil sie das ist, was man beim Lesen erwartet.
+In C, der Sprache, in der CPython selbst geschrieben ist, liefert ein Vergleich keinen eigenen Wahrheitswert, sondern die ganze Zahl 1 für wahr und 0 für falsch. Mehrere Vergleiche hintereinander wertet C von links nach rechts aus, einen nach dem anderen. Aus `20 <= temp <= 23` wird dort `(20 <= temp) <= 23`: Zuerst entsteht 0 oder 1, und beides ist kleiner als 23. Die Bedingung ist also immer erfüllt, auch für `temp = 100`. Der Compiler gcc warnt deshalb mit der Option `-Wall` vor solchen Ketten. Python hat sich für die Bedeutung aus der Mathematik entschieden, weil sie das ist, was man beim Lesen erwartet.
 :::
 
 ### Zeichenketten vergleichen
@@ -83,7 +84,7 @@ In C, der Sprache, in der CPython selbst geschrieben ist, liefert ein Vergleich 
 
 Auch Text muss man vergleichen, etwa wenn ein Programm prüft, ob jemand `ja` eingetippt hat, oder Namen alphabetisch ordnen soll.
 
-**Wie im Wörterbuch.** Im Wörterbuch steht „Ohm“ vor „Volt“, weil schon der erste Buchstabe entscheidet. Sind die ersten Buchstaben gleich, entscheidet der zweite, und so weiter. Ein Wort, das der Anfang eines längeren ist, steht vor diesem: „Volt“ vor „Voltmeter“.
+**Wie im Wörterbuch.** Im Wörterbuch steht „Regen“ vor „Sonne“, weil schon der erste Buchstabe entscheidet. Sind die ersten Buchstaben gleich, entscheidet der zweite, und so weiter. Ein Wort, das der Anfang eines längeren ist, steht vor diesem: „Sonne“ vor „Sonnenschein“.
 
 :::definition Definition 1.2 (Vergleich von Zeichenketten)
 <span class="anker" id="satz-1-2"></span>
@@ -91,25 +92,25 @@ Auch Text muss man vergleichen, etwa wenn ein Programm prüft, ob jemand `ja` ei
 Zwei Zeichenketten sind gleich (`==`), wenn sie aus denselben Zeichen in derselben Reihenfolge bestehen; Groß- und Kleinbuchstaben sind verschiedene Zeichen. Für `<` und die übrigen Größenvergleiche geht Python die beiden Ketten Zeichen für Zeichen von links durch. Am ersten Zeichen, in dem sie sich unterscheiden, entscheidet die Nummer des Zeichens: Die Kette mit der kleineren Nummer ist die kleinere. Ist eine Kette der Anfang der anderen, ist sie die kleinere.
 :::
 
-Die Nummer eines Zeichens ist die weltweit festgelegte Nummer aus [Programmieren, Python 1, Abschnitt 6.1](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/fehler-lesen-und-verstehen.html#stufe-6-1), zum Beispiel U+201E für das untere Anführungszeichen. Für die Reihenfolge reicht es, drei Bereiche zu kennen: Die Ziffern `0` bis `9` haben die Nummern U+0030 bis U+0039, die Großbuchstaben `A` bis `Z` U+0041 bis U+005A und die Kleinbuchstaben `a` bis `z` U+0061 bis U+007A. Ziffern kommen also vor Großbuchstaben, Großbuchstaben vor Kleinbuchstaben.
+Die Nummer eines Zeichens ist die weltweit festgelegte Nummer aus [Kapitel 1, Abschnitt 6.1](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/fehler-lesen-und-verstehen.html#stufe-6-1), zum Beispiel U+201E für das untere Anführungszeichen. Für die Reihenfolge reicht es, drei Bereiche zu kennen: Die Ziffern `0` bis `9` haben die Nummern U+0030 bis U+0039, die Großbuchstaben `A` bis `Z` U+0041 bis U+005A und die Kleinbuchstaben `a` bis `z` U+0061 bis U+007A. Ziffern kommen also vor Großbuchstaben, Großbuchstaben vor Kleinbuchstaben.
 
 ::::beispiel
 Fünf Vergleiche von Zeichenketten:
 
 ```console
->>> "Ohm" == "ohm"
+>>> "Sonne" == "sonne"
 False
->>> "Ohm" < "Volt"
+>>> "Regen" < "Sonne"
 True
 >>> "Z" < "a"
 True
->>> "Volt" < "Voltmeter"
+>>> "Sonne" < "Sonnenschein"
 True
 >>> "10" < "9"
 True
 ```
 
-Die letzte Zeile verdient einen zweiten Blick. `"10"` und `"9"` sind Text, keine Zahlen. Python vergleicht das erste Zeichen `1` (U+0031) mit `9` (U+0039), und `1` hat die kleinere Nummer. Das wird zur Falle, wenn ein Programm Eingaben vergleicht, denn `input` liefert immer eine Zeichenkette ([Programmieren, Python 2, Abschnitt 10.3](/wissen/informatik/programmieren/python/werte-typen-und-variablen/zeichenketten-eingabe-und-ausgabe.html#stufe-10-3)). Erst nach der Typumwandlung vergleicht Python Zahlen:
+Die letzte Zeile verdient einen zweiten Blick. `"10"` und `"9"` sind Text, keine Zahlen. Python vergleicht das erste Zeichen `1` (U+0031) mit `9` (U+0039), und `1` hat die kleinere Nummer. Das wird zur Falle, wenn ein Programm Eingaben vergleicht, denn `input` liefert immer eine Zeichenkette ([Kapitel 2, Abschnitt 10.3](/wissen/informatik/programmieren/python/werte-typen-und-variablen/zeichenketten-eingabe-und-ausgabe.html#stufe-10-3)). Erst nach der Typumwandlung vergleicht Python Zahlen:
 
 ```console
 >>> eingabe = "10"
@@ -135,9 +136,9 @@ Gleichheit zwischen Text und Zahl ist einfach falsch, denn ein Text ist nie glei
 
 <span class="anker" id="stufe-1-4"></span>
 
-Manchmal ist die Gegenfrage die interessante: nicht „liegt die Spannung im Bereich?“, sondern „liegt sie nicht im Bereich?“.
+Manchmal ist die Gegenfrage die interessante: nicht „liegt die Temperatur im Bereich?“, sondern „liegt sie nicht im Bereich?“.
 
-**Ein Inverter.** In der Digitaltechnik kehrt ein Inverter ein Signal um: Aus 1 wird 0, aus 0 wird 1. Der Operator `not` tut dasselbe mit Wahrheitswerten.
+**Das Wort „nicht“.** Der Satz „Es regnet nicht“ ist genau dann wahr, wenn der Satz „Es regnet“ falsch ist. Das Wort „nicht“ kehrt also wahr und falsch um, und der Operator `not` tut dasselbe mit Wahrheitswerten.
 
 :::definition Definition 1.3 (`not`)
 <span class="anker" id="satz-1-3"></span>
@@ -150,14 +151,14 @@ Manchmal ist die Gegenfrage die interessante: nicht „liegt die Spannung im Ber
 | `False` | `True` |
 | `True` | `False` |
 
-`not` hat einen niedrigeren Rang als die Vergleiche: `not u > 5.25` heißt `not (u > 5.25)`.
+`not` hat einen niedrigeren Rang als die Vergleiche: `not temp > 23` heißt `not (temp > 23)`.
 
 ::::beispiel
-Eine Spannung von 5,4 V liegt nicht im Bereich:
+Eine Temperatur von 24,5 °C liegt nicht im Bereich:
 
 ```console
->>> u = 5.4
->>> not 4.75 <= u <= 5.25
+>>> temp = 24.5
+>>> not 20 <= temp <= 23
 True
 >>> not True
 False
@@ -170,9 +171,9 @@ False
 
 <span class="anker" id="stufe-1-5"></span>
 
-Ein Netzteil arbeitet nur dann richtig, wenn zwei Dinge gleichzeitig stimmen: Die Spannung liegt im Bereich, und der Strom überschreitet die Grenze nicht.
+Ein Zimmer ist nur dann angenehm, wenn zwei Dinge gleichzeitig stimmen: Die Temperatur liegt im Bereich, und die Luftfeuchtigkeit überschreitet die Grenze nicht.
 
-**Zwei Schalter in Reihe.** Eine Lampe hinter zwei Schaltern in Reihe leuchtet nur, wenn beide Schalter geschlossen sind. Ist einer offen, bleibt sie dunkel.
+**Zwei Schlösser an einer Tür.** Eine Tür mit zwei Schlössern geht nur auf, wenn beide aufgeschlossen sind. Ist eines noch zu, bleibt die Tür zu.
 
 :::definition Definition 1.4 (`and`)
 <span class="anker" id="satz-1-4"></span>
@@ -190,12 +191,12 @@ Ein Netzteil arbeitet nur dann richtig, wenn zwei Dinge gleichzeitig stimmen: Di
 Ein verketteter Vergleich ist eine Kurzschreibweise für `and`: `a < b < c` hat denselben Wert wie `a < b and b < c`, nur dass `b` einmal ausgewertet wird (Unterabschnitt [1.2](#stufe-1-2)).
 
 ::::beispiel
-Die Spannung stimmt, der Strom ist mit 0,62 A aber höher als die erlaubten 0,5 A:
+Die Temperatur stimmt, die Luftfeuchtigkeit ist mit 72 % aber höher als die erlaubten 60 %:
 
 ```console
->>> u = 5.1
->>> i = 0.62
->>> 4.75 <= u <= 5.25 and i <= 0.5
+>>> temp = 21.5
+>>> feuchte = 72
+>>> 20 <= temp <= 23 and feuchte <= 60
 False
 ```
 ::::
@@ -206,9 +207,9 @@ False
 
 <span class="anker" id="stufe-1-6"></span>
 
-Ein Alarm soll anspringen, wenn die Spannung zu niedrig ist oder wenn sie zu hoch ist; eins von beiden genügt.
+Eine Warnung soll erscheinen, wenn es im Zimmer zu kalt ist oder wenn es zu warm ist; eins von beiden genügt.
 
-**Zwei Schalter parallel.** Eine Lampe hinter zwei parallelen Schaltern leuchtet, sobald mindestens einer geschlossen ist.
+**Zwei Türen in einen Raum.** In einen Raum mit zwei Türen kommt man hinein, sobald mindestens eine der beiden offen ist.
 
 :::definition Definition 1.5 (`or`)
 <span class="anker" id="satz-1-5"></span>
@@ -224,17 +225,17 @@ Ein Alarm soll anspringen, wenn die Spannung zu niedrig ist oder wenn sie zu hoc
 | `True` | `True` | `True` |
 
 ::::beispiel
-Der Alarm aus der Einleitung, einmal mit `or` und einmal als Umkehrung des Bereichs:
+Die Warnung aus der Einleitung, einmal mit `or` und einmal als Umkehrung des Bereichs:
 
 ```console
->>> u = 5.4
->>> u < 4.75 or u > 5.25
+>>> temp = 24.5
+>>> temp < 20 or temp > 23
 True
->>> not 4.75 <= u <= 5.25
+>>> not 20 <= temp <= 23
 True
 ```
 
-Beide Zeilen fragen dasselbe: Eine Spannung liegt genau dann außerhalb des Bereichs, wenn sie unter der unteren oder über der oberen Grenze liegt.
+Beide Zeilen fragen dasselbe: Eine Temperatur liegt genau dann außerhalb des Bereichs, wenn sie unter der unteren oder über der oberen Grenze liegt.
 ::::
 
 ⁠**Kurz gesagt:** `a or b` ist wahr, sobald einer der beiden wahr ist.
@@ -316,14 +317,14 @@ Die Prüfung, die eine Rechnung erst erlaubt, muss links stehen.
 ⁠**Kurz gesagt:** `and` und `or` werten den rechten Operanden nur aus, wenn er das Ergebnis noch ändern kann; die schützende Bedingung gehört deshalb nach links.
 
 :::hintergrund Warum `and` und `or` keine Funktionen sein können
-Bei einem Funktionsaufruf wie `print(a, b)` rechnet Python zuerst alle Werte in den Klammern aus und übergibt sie dann. Eine Funktion „und“ bekäme also immer beide Werte, auch den, der eine Ausnahme auslöst. Deshalb sind `and` und `or` Teil der Sprache selbst. Beim Übersetzen in Bytecode ([Programmieren, Python 1, Abschnitt 2.4](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/vom-quelltext-zur-ausfuhrung-compiler-und-interpreter.html#stufe-2-4)) wird aus `a and b` ein Sprung: Python berechnet `a`, prüft dessen Wahrheitswert und springt, wenn `a` falsch ist, an den Befehlen für `b` vorbei. Die Befehle für `b` stehen zwar im Bytecode, werden aber übersprungen.
+Bei einem Funktionsaufruf wie `print(a, b)` rechnet Python zuerst alle Werte in den Klammern aus und übergibt sie dann. Eine Funktion „und“ bekäme also immer beide Werte, auch den, der eine Ausnahme auslöst. Deshalb sind `and` und `or` Teil der Sprache selbst. Beim Übersetzen in Bytecode ([Kapitel 1, Abschnitt 2.4](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/vom-quelltext-zur-ausfuhrung-compiler-und-interpreter.html#stufe-2-4)) wird aus `a and b` ein Sprung: Python berechnet `a`, prüft dessen Wahrheitswert und springt, wenn `a` falsch ist, an den Befehlen für `b` vorbei. Die Befehle für `b` stehen zwar im Bytecode, werden aber übersprungen.
 :::
 
 ### Der Wahrheitswert von Objekten
 
 <span class="anker" id="stufe-1-9"></span>
 
-Die Operatoren `not`, `and` und `or` nehmen nicht nur `True` und `False` an, sondern jeden Wert. Python muss also wissen, ob etwa die Zahl 0 oder die Zeichenkette `""` als ja oder als nein gilt. Python 2 hat diese Frage offengelassen.
+Die Operatoren `not`, `and` und `or` nehmen nicht nur `True` und `False` an, sondern jeden Wert. Python muss also wissen, ob etwa die Zahl 0 oder die Zeichenkette `""` als ja oder als nein gilt. [Kapitel 2](/wissen/informatik/programmieren/python/werte-typen-und-variablen/werte-typen-und-variablen.html) hat diese Frage offengelassen.
 
 **Ist da etwas?** Die Regel folgt einer einfachen Frage: Ist in dem Wert etwas enthalten? Eine Null und eine leere Zeichenkette enthalten nichts und gelten als nein; jede andere Zahl und jeder Text mit mindestens einem Zeichen gelten als ja.
 
@@ -361,20 +362,20 @@ True
 True
 ```
 
-`"0"`, `" "` und `"False"` sind Zeichenketten mit mindestens einem Zeichen, also wahr; was die Zeichen bedeuten, spielt keine Rolle. `0.1 + 0.2 - 0.3` ist nicht null, sondern etwa $5{,}55\cdot10^{-17}$, weil jede Rechnung gerundet wird ([Programmieren, Python 2, Abschnitt 5.1](/wissen/informatik/programmieren/python/werte-typen-und-variablen/rechnen-mit-gleitkommazahlen.html#stufe-5-1)), und gilt deshalb als wahr.
+`"0"`, `" "` und `"False"` sind Zeichenketten mit mindestens einem Zeichen, also wahr; was die Zeichen bedeuten, spielt keine Rolle. `0.1 + 0.2 - 0.3` ist nicht null, sondern etwa $5{,}55\cdot10^{-17}$, weil jede Rechnung gerundet wird ([Kapitel 2, Abschnitt 5.1](/wissen/informatik/programmieren/python/werte-typen-und-variablen/rechnen-mit-gleitkommazahlen.html#stufe-5-1)), und gilt deshalb als wahr.
 ::::
 
 ⁠**Kurz gesagt:** Von den bisher bekannten Werten gelten Null, `None`, `False` und die leere Zeichenkette als falsch, alle anderen als wahr.
 
 :::hintergrund Wer festlegt, was als falsch gilt
-Den Wahrheitswert legt der Typ eines Objekts fest, so wie er auch festlegt, was `+` bedeutet ([Programmieren, Python 2, Abschnitt 1.2](/wissen/informatik/programmieren/python/werte-typen-und-variablen/objekte-und-typen.html#stufe-1-2)). Für die Zahlentypen ist es die Null, für `str` die leere Kette. Die Regel stammt aus älteren Sprachen: In C gilt in einer Bedingung die Zahl 0 als falsch und jede andere als wahr. Python überträgt diese Idee von „null“ auf „leer“. So kann man fragen, ob ein Text etwas enthält, ohne seine Länge auszurechnen.
+Den Wahrheitswert legt der Typ eines Objekts fest, so wie er auch festlegt, was `+` bedeutet ([Kapitel 2, Abschnitt 1.2](/wissen/informatik/programmieren/python/werte-typen-und-variablen/objekte-und-typen.html#stufe-1-2)). Für die Zahlentypen ist es die Null, für `str` die leere Kette. Die Regel stammt aus älteren Sprachen: In C gilt in einer Bedingung die Zahl 0 als falsch und jede andere als wahr. Python überträgt diese Idee von „null“ auf „leer“. So kann man fragen, ob ein Text etwas enthält, ohne seine Länge auszurechnen.
 :::
 
 ### Was `and` und `or` als Ergebnis liefern
 
 <span class="anker" id="stufe-1-10"></span>
 
-Ein Programm fragt nach dem Namen eines Messplatzes. Bleibt die Eingabe leer, soll ein Standardname gelten. Dafür gibt es eine kurze Schreibweise, die eine Eigenschaft von `and` und `or` nutzt.
+Ein Spiel fragt nach dem Namen des Spielers. Bleibt die Eingabe leer, soll ein Standardname gelten. Dafür gibt es eine kurze Schreibweise, die eine Eigenschaft von `and` und `or` nutzt.
 
 :::definition Definition 1.9 (Ergebnis von `and` und `or`)
 <span class="anker" id="satz-1-9"></span>
@@ -396,18 +397,18 @@ Mit Zahlen und Zeichenketten als Operanden:
 'leer'
 >>> "" or "Standard"
 'Standard'
->>> "Messplatz 2" or "Standard"
-'Messplatz 2'
+>>> "Anna" or "Standard"
+'Anna'
 >>> None or 0
 0
->>> not "Ohm"
+>>> not "Regen"
 False
 ```
 
 Mit `name = eingabe or "Standard"` bekommt `name` den eingetippten Text, wenn er nicht leer ist, und sonst `"Standard"`.
 ::::
 
-**Die Falle mit der Null.** Bei Zahlen ist dieselbe Schreibweise gefährlich. Die Zeile `strom = messwert or 0.02` soll einen fehlenden Messwert durch 20 mA ersetzen. Eine echte Messung von `0.0` hat aber ebenfalls den Wahrheitswert `False` und wird stillschweigend durch `0.02` ersetzt. Ob ein Wert fehlt, prüft man deshalb mit `messwert is None` und nicht über seinen Wahrheitswert.
+**Die Falle mit der Null.** Bei Zahlen ist dieselbe Schreibweise gefährlich. Die Zeile `temp = messung or 20.0` soll eine fehlende Messung der Außentemperatur durch 20 °C ersetzen. Eine echte Messung von `0.0`, an einem Wintertag nichts Besonderes, hat aber ebenfalls den Wahrheitswert `False` und wird stillschweigend durch `20.0` ersetzt. Ob ein Wert fehlt, prüft man deshalb mit `messung is None` und nicht über seinen Wahrheitswert.
 
 ⁠**Kurz gesagt:** `and` und `or` liefern einen ihrer Operanden; `wert or ersatz` ersetzt jeden falschen Wert, auch eine echte Null.
 
@@ -422,7 +423,7 @@ Wegen der Kurzschlussauswertung steht bei `a and b` und `a or b` am Ende ein Ope
 :::aufgabe Aufgabe 1 ★ Wahrheitswerte vorhersagen
 <span class="anker" id="aufg-1"></span>
 
-Sage für jeden Ausdruck vorher, was der interaktive Modus anzeigt, und prüfe dann am Rechner: (a) `bool("0")`, (b) `bool("")`, (c) `0 or "x"`, (d) `3 and 4`, (e) `1 < 5 < 3`, (f) `"10" < "9"`, (g) `not 0.0`, (h) `None or 0`, (i) `"Ohm" == "ohm" or 2 > 1`.
+Sage für jeden Ausdruck vorher, was der interaktive Modus anzeigt, und prüfe dann am Rechner: (a) `bool("0")`, (b) `bool("")`, (c) `0 or "x"`, (d) `3 and 4`, (e) `1 < 5 < 3`, (f) `"10" < "9"`, (g) `not 0.0`, (h) `None or 0`, (i) `"Regen" == "regen" or 2 > 1`.
 
 :::loesung
 ```console
@@ -442,7 +443,7 @@ True
 True
 >>> None or 0
 0
->>> "Ohm" == "ohm" or 2 > 1
+>>> "Regen" == "regen" or 2 > 1
 True
 ```
 
@@ -450,66 +451,66 @@ True
 :::
 :::
 
-:::aufgabe Aufgabe 2 ★★ Bedingungen für einen Akku
+:::aufgabe Aufgabe 2 ★★ Bedingungen für einen Ausflug
 <span class="anker" id="aufg-2"></span>
 
-Eine Lithium-Ionen-Zelle darf zwischen 3,0 V und 4,2 V betrieben werden, bei Temperaturen zwischen $-20$ °C und $60$ °C und mit höchstens 2 A Ladestrom.
+Eine Radtour findet statt, wenn die Temperatur zwischen 10 °C und 30 °C liegt, die Startzeit zwischen 8 und 20 Uhr und die Regenwahrscheinlichkeit bei höchstens 30 %.
 
 <ol class="al">
 
 <li>
 
-Schreibe einen Ausdruck, der für die Namen `u`, `temp` und `i` genau dann `True` ergibt, wenn alle drei Werte erlaubt sind.
+Schreibe einen Ausdruck, der für die Namen `temp`, `uhr` und `regen` genau dann `True` ergibt, wenn alle drei Werte passen.
 
 </li>
 
 <li>
 
-Schreibe einen Ausdruck für „mindestens ein Wert ist nicht erlaubt“, ohne `not` zu benutzen.
+Schreibe einen Ausdruck für „mindestens ein Wert passt nicht“, ohne `not` zu benutzen.
 
 </li>
 
 <li>
 
-Prüfe beide für $u=3{,}7$ V, $\vartheta=25$ °C, $I=2{,}5$ A.
+Prüfe beide für 22 °C, 14 Uhr und 40 % Regenwahrscheinlichkeit.
 
 </li>
 
 </ol>
 
 :::loesung
-(a) Drei Bereiche, verknüpft mit `and`:
+(a) Zwei Bereiche und eine Obergrenze, verknüpft mit `and`:
 
 ```python
-3.0 <= u <= 4.2 and -20 <= temp <= 60 and i <= 2
+10 <= temp <= 30 and 8 <= uhr <= 20 and regen <= 30
 ```
 
-(b) „Mindestens ein Wert ist nicht erlaubt“ heißt: Eine der Grenzen ist überschritten. Ohne `not` schreibt man jede Verletzung einzeln und verknüpft sie mit `or`:
+(b) „Mindestens ein Wert passt nicht“ heißt: Eine der Grenzen ist überschritten. Ohne `not` schreibt man jede Verletzung einzeln und verknüpft sie mit `or`:
 
 ```python
-u < 3.0 or u > 4.2 or temp < -20 or temp > 60 or i > 2
+temp < 10 or temp > 30 or uhr < 8 or uhr > 20 or regen > 30
 ```
 
 (c)
 
 ```console
->>> u = 3.7
->>> temp = 25
->>> i = 2.5
->>> 3.0 <= u <= 4.2 and -20 <= temp <= 60 and i <= 2
+>>> temp = 22
+>>> uhr = 14
+>>> regen = 40
+>>> 10 <= temp <= 30 and 8 <= uhr <= 20 and regen <= 30
 False
->>> u < 3.0 or u > 4.2 or temp < -20 or temp > 60 or i > 2
+>>> temp < 10 or temp > 30 or uhr < 8 or uhr > 20 or regen > 30
 True
 ```
 
-Spannung und Temperatur sind erlaubt, der Strom nicht. Deshalb ist (a) falsch und (b) wahr. Die beiden Ausdrücke liefern immer entgegengesetzte Werte, weil (b) genau das Gegenteil von (a) beschreibt.
+Temperatur und Startzeit passen, die Regenwahrscheinlichkeit nicht. Deshalb ist (a) falsch und (b) wahr. Die beiden Ausdrücke liefern immer entgegengesetzte Werte, weil (b) genau das Gegenteil von (a) beschreibt.
 :::
 :::
 
 :::aufgabe Aufgabe 3 ★★ Die Regeln von De Morgan
 <span class="anker" id="aufg-3"></span>
 
-Prüfe im interaktiven Modus für alle vier Kombinationen von `a` und `b` aus `True` und `False`, dass `not (a and b)` denselben Wert hat wie `not a or not b`, und dass `not (a or b)` denselben Wert hat wie `not a and not b`. Erkläre die erste Regel mit den zwei Schaltern in Reihe.
+Prüfe im interaktiven Modus für alle vier Kombinationen von `a` und `b` aus `True` und `False`, dass `not (a and b)` denselben Wert hat wie `not a or not b`, und dass `not (a or b)` denselben Wert hat wie `not a and not b`. Erkläre die erste Regel mit den zwei Schlössern an einer Tür.
 
 :::loesung
 Für jede der vier Kombinationen ergeben beide Vergleiche `True`, hier die erste und die letzte:
@@ -531,7 +532,7 @@ True
 
 Mit `a = False, b = True` und `a = True, b = False` kommt ebenfalls zweimal `True` heraus. Die Klammern um `not (a and b)` sind nötig, weil `==` stärker bindet als `not`.
 
-Mit den zwei Schaltern in Reihe: `a and b` heißt „die Lampe leuchtet“, also beide Schalter geschlossen. `not (a and b)` heißt „die Lampe ist dunkel“, und das ist genau dann der Fall, wenn mindestens einer der Schalter offen ist, also `not a or not b`. Die zweite Regel ist dasselbe für die Parallelschaltung: Die Lampe ist genau dann dunkel, wenn beide Schalter offen sind.
+Mit den zwei Schlössern an einer Tür: `a` und `b` heißen „Schloss 1 ist offen“ und „Schloss 2 ist offen“, und `a and b` heißt „die Tür geht auf“. `not (a and b)` heißt „die Tür bleibt zu“, und das ist genau dann der Fall, wenn mindestens eines der Schlösser zu ist, also `not a or not b`. Die zweite Regel ist dasselbe für die zwei Türen in einen Raum: Man kommt genau dann nicht hinein, wenn beide Türen zu sind.
 :::
 :::
 
@@ -572,13 +573,13 @@ Schützen kann eine Bedingung nur, wenn sie links steht und so gebaut ist, dass 
 
 <li>
 
-`strom = messwert or 0.02` soll fehlende Messwerte ersetzen. Was ergibt die Zeile für `messwert = 0.005`, für `messwert = None` und für `messwert = 0.0`? Welches Ergebnis ist falsch, und warum?
+`temp = messung or 20.0` soll fehlende Messungen ersetzen. Was ergibt die Zeile für `messung = 4.5`, für `messung = None` und für `messung = 0.0`? Welches Ergebnis ist falsch, und warum?
 
 </li>
 
 <li>
 
-Für `einheit = "Ohm"` ergibt `einheit == "V" or "A"` nicht `False`. Was ergibt es, und wie lautet der Ausdruck, der wirklich fragt, ob `einheit` gleich `"V"` oder gleich `"A"` ist?
+Für `einheit = "kg"` ergibt `einheit == "m" or "s"` nicht `False`. Was ergibt es, und wie lautet der Ausdruck, der wirklich fragt, ob `einheit` gleich `"m"` oder gleich `"s"` ist?
 
 </li>
 
@@ -588,36 +589,36 @@ Für `einheit = "Ohm"` ergibt `einheit == "V" or "A"` nicht `False`. Was ergibt 
 (a)
 
 ```console
->>> messwert = 0.005
->>> messwert or 0.02
-0.005
->>> messwert = None
->>> messwert or 0.02
-0.02
->>> messwert = 0.0
->>> messwert or 0.02
-0.02
+>>> messung = 4.5
+>>> messung or 20.0
+4.5
+>>> messung = None
+>>> messung or 20.0
+20.0
+>>> messung = 0.0
+>>> messung or 20.0
+20.0
 ```
 
-Das dritte Ergebnis ist falsch: Eine gemessene Null ist ein gültiger Messwert, aber `0.0` hat den Wahrheitswert `False`, und `or` ersetzt ihn. Gemeint war „fehlt der Wert?“, und das prüft `messwert is None`. Mit den Mitteln aus Abschnitt [2](entscheidungen-if-elif-und-else.html#stufe-2) schreibt man:
+Das dritte Ergebnis ist falsch: 0 °C ist eine gültige Messung, aber `0.0` hat den Wahrheitswert `False`, und `or` ersetzt ihn. Gemeint war „fehlt der Wert?“, und das prüft `messung is None`. Mit den Mitteln aus Abschnitt [2](entscheidungen-if-elif-und-else.html#stufe-2) schreibt man:
 
 ```python
-if messwert is None:
-    strom = 0.02
+if messung is None:
+    temp = 20.0
 else:
-    strom = messwert
+    temp = messung
 ```
 
 (b)
 
 ```console
->>> einheit = "Ohm"
->>> einheit == "V" or "A"
-'A'
->>> einheit == "V" or einheit == "A"
+>>> einheit = "kg"
+>>> einheit == "m" or "s"
+'s'
+>>> einheit == "m" or einheit == "s"
 False
 ```
 
-`==` bindet stärker als `or`. Python liest `(einheit == "V") or "A"`; der linke Teil ist `False`, also liefert `or` den rechten Operanden `"A"`, und der ist als nicht leere Zeichenkette wahr. Jeder Vergleich muss vollständig dastehen.
+`==` bindet stärker als `or`. Python liest `(einheit == "m") or "s"`; der linke Teil ist `False`, also liefert `or` den rechten Operanden `"s"`, und der ist als nicht leere Zeichenkette wahr. Jeder Vergleich muss vollständig dastehen.
 :::
 :::

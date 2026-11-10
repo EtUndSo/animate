@@ -1,7 +1,9 @@
 ---
 title: Überblick: Funktionen und Polynome
 kurz: Überblick
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Funktionen und Polynome
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Funktionen und Polynome
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/funktionen-und-polynome
+knoten: Kapitel 3: Funktionen und Polynome
 order: 1230100
 summary: Wann sich eine Gleichung rückwärts lösen lässt und warum jede Nullstelle einen Faktor abspaltet
 tags: Funktion, Umkehrfunktion, Polynom, Nullstelle, Linearfaktor, Horner-Schema, rationale Funktion, Polstelle

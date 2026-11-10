@@ -1,6 +1,8 @@
 ---
 title: Etapa 5: Inducción matemática, suma y producto
-pfad: Ingeniería eléctrica / 1.er semestre / Matemáticas superiores 1 / Conjuntos, lógica y números reales
+pfad: Ingeniería eléctrica / 1.er semestre / HöMa1 – Matemáticas superiores 1 / Conjuntos, lógica y números reales
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen
+knoten: Capítulo 1: Conjuntos, lógica y números reales
 order: 1210700
 summary: Las proposiciones sobre todos los ninmathbb N no se pueden demostrar probando.
 tags: caso base, paso de inducción, hipótesis de inducción, conclusión de la inducción
@@ -78,7 +80,7 @@ Leyes de potencias para $x,y\ne0$, $p,q\in\mathbb{Z}$: $x^px^q=x^{p+q}$, $(x^p)^
 </ol>
 :::
 
-⁠**Cómo leerlo:** (i) es la inducción sobre (A1), (A2), (M1), (M2). (ii) dice «cada uno con cada uno», es (AM) repetido. Para $p,q\in\mathbb{N}$, (iii) es renumerar: $x^px^q=\prod_{i=1}^{p+q}x=x^{p+q}$. **Por qué $x\ne0$:** $0^{-1}$ no existe; para $x=0$ solo se admiten exponentes $n\ge0$, y $0^n=0$ para $n\ge1$. Para $x,y>0$ las leyes valen también con exponentes racionales, por ejemplo $x^{1/2}=\sqrt x$ (Parte 5).
+⁠**Cómo leerlo:** (i) es la inducción sobre (A1), (A2), (M1), (M2). (ii) dice «cada uno con cada uno», es (AM) repetido. Para $p,q\in\mathbb{N}$, (iii) es renumerar: $x^px^q=\prod_{i=1}^{p+q}x=x^{p+q}$. **Por qué $x\ne0$:** $0^{-1}$ no existe; para $x=0$ solo se admiten exponentes $n\ge0$, y $0^n=0$ para $n\ge1$. Para $x,y>0$ las leyes valen también con exponentes racionales, por ejemplo $x^{1/2}=\sqrt x$ (capítulo 5).
 
 :::abbildung hm1/k1induktion 5
 A la izquierda, cada color es una pieza en L. A la derecha, el paso de inducción: $n^2$ crece en $2n+1$ casillas.

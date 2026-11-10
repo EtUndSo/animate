@@ -1,6 +1,8 @@
 ---
 title: Stufe 8: Strom als Signal
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Der Operationsverstärker
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Der Operationsverstärker
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker
+knoten: Kapitel 11: Der Operationsverstärker
 order: 1211000
 summary: Bisher war die Spannung das Signal.
 tags: Transimpedanzverstärker, differenzieller Widerstand, Negativimpedanzkonverter
@@ -20,7 +22,7 @@ $$U_\mathrm{A}=-R\,I_\mathrm{E},\qquad r_\mathrm{ein}=\frac{\Delta U_-}{\Delta I
 
 Mit $R=1$ M$\Omega$ werden 2 µ A zu $-2$ V. Der Knoten bewegt sich dabei nur um $2\,\mathrm{V}/A=20$ µ V. Das ist der kleine Eingangswiderstand von 10 $\Omega$, ein Wert für Änderungen (__differenzieller Widerstand__). Die Quelle sieht fast einen Kurzschluss, ihr Innenwiderstand spielt keine Rolle.
 
-**Ein negativer Widerstand.** Ein Widerstand zieht bei positiver Spannung Strom in Zählpfeilrichtung (Verbraucherzählpfeilsystem, [Teil 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)). Der __Negativimpedanzkonverter__ (NIC) schiebt stattdessen Strom heraus (Abb. [10](#abb-10) rechts). Klemme 1 liegt am Plus-Eingang, von dort führt ein $R$ zum Ausgang. Vom Ausgang führt ein gleiches $R$ zum Minus-Eingang, von dort $R_2$ nach Masse. Aus $\varphi_+=\varphi_-$ folgt $U_1=U_2$.
+**Ein negativer Widerstand.** Ein Widerstand zieht bei positiver Spannung Strom in Zählpfeilrichtung (Verbraucherzählpfeilsystem, [Kapitel 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)). Der __Negativimpedanzkonverter__ (NIC) schiebt stattdessen Strom heraus (Abb. [10](#abb-10) rechts). Klemme 1 liegt am Plus-Eingang, von dort führt ein $R$ zum Ausgang. Vom Ausgang führt ein gleiches $R$ zum Minus-Eingang, von dort $R_2$ nach Masse. Aus $\varphi_+=\varphi_-$ folgt $U_1=U_2$.
 
 :::satz Satz 8.1 (NIC)
 <span class="anker" id="satz-8-1"></span>

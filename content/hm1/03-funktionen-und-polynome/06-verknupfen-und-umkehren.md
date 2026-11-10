@@ -1,6 +1,8 @@
 ---
 title: Stufe 4: Verknüpfen und Umkehren
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Funktionen und Polynome
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Funktionen und Polynome
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/funktionen-und-polynome
+knoten: Kapitel 3: Funktionen und Polynome
 order: 1230600
 summary: Stufe 3 sagt, wann f(x)=y genau eine Lösung hat.
 tags: Summe, Differenz, Produkt, Quotient, Komposition, n-te Wurzel

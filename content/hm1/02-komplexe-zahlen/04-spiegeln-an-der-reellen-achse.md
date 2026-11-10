@@ -1,6 +1,8 @@
 ---
 title: Stufe 3: Spiegeln an der reellen Achse
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Komplexe Zahlen
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Komplexe Zahlen
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen
+knoten: Kapitel 2: Komplexe Zahlen
 order: 1220400
 summary: Durch x+iy lässt sich noch nicht teilen.
 tags: 

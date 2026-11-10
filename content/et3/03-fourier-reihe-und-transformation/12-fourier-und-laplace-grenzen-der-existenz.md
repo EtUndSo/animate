@@ -1,6 +1,8 @@
 ---
 title: Stufe 11: Fourier und Laplace, Grenzen der Existenz
-pfad: Elektrotechnik / 3. Semester / Signale und Systeme / Fourier-Reihe und -Transformation
+pfad: Elektrotechnik / 3. Semester / ET3 – Grundgebiete der Elektrotechnik 3: Signale und Systeme / Fourier-Reihe und -Transformation
+adresse: elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation
+knoten: Kapitel 3: Fourier-Reihe und -Transformation
 order: 3231200
 summary: Wann existiert das Fourier-Integral, und wie hängt es mit der Laplace-Transformation zusammen?
 tags: zentralen Grenzwertsatzes
@@ -13,7 +15,7 @@ lang: de
 Wann existiert das Fourier-Integral, und wie hängt es mit der Laplace-Transformation zusammen?
 :::
 
-Hinreichend für die Existenz ist absolute Integrierbarkeit, $\int|s(t)|\mathrm{d} t<\infty$. Die Laplace-Transformation erweitert die Klasse, indem sie vorher mit $\mathrm{e}^{-\sigma t}$ gewichtet ([Teil 2](/wissen/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html)):
+Hinreichend für die Existenz ist absolute Integrierbarkeit, $\int|s(t)|\mathrm{d} t<\infty$. Die Laplace-Transformation erweitert die Klasse, indem sie vorher mit $\mathrm{e}^{-\sigma t}$ gewichtet ([Kapitel 2](/wissen/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html)):
 
 $$S_{\mathcal{L}}(\sigma+\mathrm{j}2\pi f)=\mathcal{F}\bigl\{s(t)\mathrm{e}^{-\sigma t}\bigr\}(f).$$
 

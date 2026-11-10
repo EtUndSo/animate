@@ -1,6 +1,8 @@
 ---
 title: Stufe 1: Vom Quarz zum Rohsilizium
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Kristallwachstum und reziprokes Gitter
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Kristallwachstum und reziprokes Gitter
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/kristallwachstum-und-reziprokes-gitter
+knoten: Kapitel 7: Kristallwachstum und reziprokes Gitter
 order: 4170300
 summary: Silizium kommt in der Natur nur an Sauerstoff gebunden vor.
 tags: Metallurgisches Silizium

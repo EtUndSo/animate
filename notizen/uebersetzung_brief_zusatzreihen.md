@@ -1,6 +1,6 @@
 # Brief: Übersetzung ML-Arbeitsheft Grundlagen 2 („Projektion, Eigenwerte und Zerlegungen“)
 
-**Seit 06.11.2026:** Die ML-Hefte T01–T06 heißen „Grundlagen 1–6“ (Nachschlagebereich), der ML-Pfad zählt ab T08 als „Teil 1“. Für jedes weitere Heft gelten die Verweis- und Titelwendungen in der Tabelle „Feste Wendungen“ unten und in `heft_uebersetzung.md`, Abschnitt „Verweise auf andere Hefte“. Dateinamen (Kap2_Eigenwerte …) bleiben.
+**Seit 09.11.2026 (Benennung „Kapitel N“, `notizen/kapitel_umstellung.md`):** Jedes Heft heißt „Kapitel N“, gezählt im Bereich; die ML-Hefte T01–T06 sind Kapitel 1–6 der „Mathematischen Grundlagen“, der ML-Pfad zählt ab T08 als Kapitel 1. Es gelten die Verweis- und Titelwendungen der Tabelle „Feste Wendungen“ unten, in `heft_uebersetzung.md` (Abschnitt „Verweise auf andere Hefte“) und die Formentabelle in `kapitel_umstellung.md`. Wo weiter unten in den Einzelbriefen noch „Foundations~N“, „Fundamentos~N“, „基础篇~N“, „Temeller~N“ oder die alten Titelblock-Zeilen stehen, gilt die neue Form („Chapter~N“ usw., Titelzeile „Workbook Machine Learning, Mathematical Foundations, Chapter~N“). Dateinamen (Kap2_Eigenwerte …) bleiben.
 
 Ordner der Hefte: `C:\Bücher\EtUndSo\MachineLearning\Arbeitshefte\`
 Deutsche Quelle (endgültig): `Kap2_Eigenwerte.tex` (Hauptdatei), `kap2_stufen.tex` (Abschnitte 1-6), `kap2_stufen_b.tex` (Abschnitte 7-12 + Abschluss), `kap2_loesungen.tex`.
@@ -14,7 +14,7 @@ Stilvorbild en/es/zh: `C:\Bücher\ET3\Arbeitshefte\kap2_stufen_en.tex`, `kap2_st
 - Formeln unverändert (Notation A = UDVᵀ mit d_j, r = y − Ax̂, κ = d₁/d_n, \vq, \mA, \T usw.). Übersetzt wird nur Text in Formeln (`\text{...}`, `\quad\text{für alle}` usw.).
 - Dezimaltrennzeichen: en und zh Punkt (`0.6`), es, fr, tr Komma (`0{,}6`). Gilt auch in TikZ-Knotentexten (`{$2{,}6\,\vq_1$}` → en `{$2.6\,\vq_1$}`) und in `\foreach`-Beschriftungen wie `{0.5/0{,}5}` → en `{0.5/0.5}`. TikZ-Koordinaten (immer Punkt) NICHT anfassen.
 - Listen mit Semikolon: Das Deutsche trennt Komponenten mit Dezimalzahlen durch `;` (`(0{,}6;\ 0{,}8)\T`, `\diag(1;\,-1)`, `(198{,}47;\ 132{,}60;\ \dots)`). en/zh: Komma statt Semikolon (`(0.6,\ 0.8)\T`, `\diag(1,\,-1)`). es/fr/tr: Semikolon wie im Deutschen.
-- Abschnittsnummern wie „Grundlagen~1, Abschnitt~13.5“ sind KEINE Dezimalzahlen: `13.5` bleibt mit Punkt in allen Sprachen.
+- Abschnittsnummern wie „Kapitel~1, Abschnitt~13.5“ sind KEINE Dezimalzahlen: `13.5` bleibt mit Punkt in allen Sprachen.
 - Tausendertrennung `18\,200`, `60\,100`, `100\,050`: in allen Sprachen unverändert `\,` lassen. Prozent `20\,\%` bleibt.
 - Zahlwörter: Tausend = thousand / mil / 千 / mille / bin.
 - Die Operatoren `\spur` und `\rang` der Präambel geben im PDF und auf der Website die deutschen Wörter „spur“/„rang“ aus. In den Übersetzungen deshalb ersetzen:
@@ -26,7 +26,7 @@ Stilvorbild en/es/zh: `C:\Bücher\ET3\Arbeitshefte\kap2_stufen_en.tex`, `kap2_st
 - zh: `\emph{...}` und `\textit{...}` im Fließtext → `\textbf{...}` (SimSun hat keine Kursive).
 - Anführungszeichen: en ``...'' (wie ET3 en), es «...» oder wie ET3 es, zh “...”, fr « ... » direkt getippt (mit Leerzeichen innen), tr “...”.
 - fr-Typografie: vor `:` `;` `!` `?` ein normales Leerzeichen tippen (babel-french macht daraus das richtige), Apostroph typografisch ’. Anrede „vous“.
-- tr-Typografie: `:` und `!` ohne Leerzeichen davor; İ/ı genau; Endungen nach Zahlen/Verweisen mit Apostroph (`Kısım~1'de`, `Alıştırma~\ref{a:k2onb}'deki`). Anrede „siz“.
+- tr-Typografie: `:` und `!` ohne Leerzeichen davor; İ/ı genau; Endungen nach Zahlen/Verweisen mit Apostroph (`Bölüm~1'de`, `Alıştırma~\ref{a:k2onb}'deki`). Anrede „siz“.
 - es: Anrede „tú“ wie in ET3 es. zh: wie ET3 zh (你).
 - `\section*{...}` am Anfang: danach `\markboth{...}{...}` (in Großbuchstaben, wie im Deutschen) und `\addcontentsline` übersetzen. Deutsche `\pagebreak`/`\newpage` NICHT übernehmen (der Hauptagent setzt nötige Umbrüche nach dem Bauen).
 - Code/Dateinamen (`rechnung\_kap2.py`) unverändert.
@@ -41,11 +41,11 @@ Stilvorbild en/es/zh: `C:\Bücher\ET3\Arbeitshefte\kap2_stufen_en.tex`, `kap2_st
 | kernbox „Die Antwort in drei Sätzen“ | The answer in three sentences | La respuesta en tres frases | 三句话的答案 | La réponse en trois phrases | Üç cümlede cevap |
 | \section{Lösungen} | Solutions | Soluciones | 解答 | Solutions | Çözümler |
 | Arbeitsheft/Heft im Fließtext | workbook | cuaderno | 本册 | cahier | çalışma kitabı (+Endungen: kitabında, kitabının, kitabına, kitabını, kitabından, kitabıyla; keine Possessivformen) |
-| Grundlagen~1 (ML-Grundlagen-Heft; früher „Teil~1“) | Foundations~1 | Fundamentos~1 (ohne Artikel: „de Fundamentos~1“) | 基础篇~1 | Fondements~1 (ohne Artikel: „dans Fondements~1“) | Temeller~1 (Endung: `Temeller~1'de`) |
-| Grundlagen~1, Abschnitt~13.5 | Foundations~1, Section~13.5 | Fundamentos~1, sección~13.5 | 基础篇~1~第~13.5~节 | Fondements~1, section~13.5 | Temeller~1, Kesim~13.5 |
-| Teil~1 (nur ML-Pfad ab T08, Teil N = T(N+7)) | Part~1 | Parte~1 | 第~1~部分 | Partie~1 | Kısım~1 |
-| Programmieren, Python~2, Abschnitt~3 | Programming, Python~2, Section~3 | Programación, Python~2, sección~3 | 编程，Python~2~第~3~节 | Programmation, Python~2, section~3 | Programlama, Python~2, Kesim~3 |
-| Linux~2, Abschnitt~3 | Linux~2, Section~3 | Linux~2, sección~3 | Linux~2~第~3~节 | Linux~2, section~3 | Linux~2, Kesim~3 |
+| Kapitel~1 (Heft im selben Bereich, seit 09.11.2026; früher „Grundlagen~1“, „Teil~1“) | Chapter~1 | capítulo~1 („el capítulo~1“, „del capítulo~1“, Satzanfang „El capítulo~1“) | 第~1~章 | chapitre~1 („le chapitre~1“, „du chapitre~1“, Satzanfang „Le chapitre~1“) | Bölüm~1 (Endung: `Bölüm~1'de`) |
+| Kapitel~1, Abschnitt~13.5 | Chapter~1, Section~13.5 | capítulo~1, sección~13.5 | 第~1~章第~13.5~节 | chapitre~1, section~13.5 | Bölüm~1, Kesim~13.5 |
+| Grundlagen, Kapitel~1 (ML-Grundlagen aus dem ML-Pfad) | Foundations, Chapter~1 | Fundamentos, capítulo~1 | 数学基础第~1~章 | Fondements, chapitre~1 | Temeller, Bölüm~1 |
+| Python, Kapitel~2, Abschnitt~3 | Python, Chapter~2, Section~3 | Python, capítulo~2, sección~3 | Python~第~2~章第~3~节 | Python, chapitre~2, section~3 | Python, Bölüm~2, Kesim~3 |
+| Linux, Kapitel~2, Abschnitt~3 | Linux, Chapter~2, Section~3 | Linux, capítulo~2, sección~3 | Linux~第~2~章第~3~节 | Linux, chapitre~2, section~3 | Linux, Bölüm~2, Kesim~3 |
 | Abschnitt~X / Unterabschnitt | Section / subsection | sección / subsección (Sección am Satzanfang) | 第~X~节 / 小节 | section / sous-section | Kesim / alt kesim |
 | Abb.~\ref | Fig.~\ref | Fig.~\ref (wie ET3 es) | 图~\ref | Fig.~\ref | Şekil~\ref |
 | Aufgabe~\ref | Exercise~\ref | Ejercicio~\ref / ejercicio | 练习~\ref | exercice~\ref (Exercice am Satzanfang) | Alıştırma~\ref |
@@ -205,6 +205,141 @@ Elementweise und Tensoren
 - Tensor, Achse, Form, Farbbild, Farbkanal, Bildstapel = tensor, axis, shape, color image, color channel, image stack | tensor, eje, forma, imagen en color, canal de color, pila de imágenes | 张量, 轴, 形状, 彩色图像, 颜色通道, 图像堆叠 | tenseur, axe, forme, image couleur, canal de couleur, pile d’images | tensör, eksen, şekil, renkli görüntü, renk kanalı, görüntü yığını
 - Spannungstensor (Werkstoff), Permittivitätstensor = stress tensor, permittivity tensor | tensor de tensiones, tensor de permitividad | 应力张量, 介电常数张量 | tenseur des contraintes, tenseur de permittivité | gerilme tensörü, dielektrik geçirgenlik tensörü
 
+### Ergänzt bei Grundlagen 3 (Ableitung, Gradient, Kettenregel, 09.11.2026)
+Schon oben und hier genauso: Höhenlinien, Schüssel/Rinne/Sattel, quadratische Form, gemischtes Glied, Eigenwert/Eigenvektor, Spur, Spektralsatz, Hauptachsen, positiv definit/indefinit, Residuum, beste Näherungslösung, Normalgleichungen, Ausgleichsgerade, Achsenabschnitt/Steigung, äußeres Produkt, Frobeniusnorm, Baustein, elementweise, Matrix-Vektor-Produkt, Zeilensicht, Hintereinanderausführung, lineare Stufe, Grundrechenarten, Einheitsvektor, Cauchy-Schwarz-Ungleichung, Schattenlänge, Determinante/Flächenfaktor, Gewicht/Merkmal/Vorhersage, Tausend Euro, Einheitskreis, Einheits-/Diagonalmatrix, Doppelsumme, Komponente, Transponierte, symmetrische Matrix, affine Abbildung, Gitter, Form (shape), Rang, Gegenbeispiel.
+Ableitung einer Variablen
+- Änderungsrate = rate of change | tasa de variación | 变化率 | taux de variation | değişim hızı
+- Differenzenquotient = difference quotient | cociente incremental (cociente de diferencias) | 差商 | taux d’accroissement | fark bölümü
+- Sekante, Sekantensteigung = secant line (im Bild: secant), slope of the secant | recta secante (en figuras: secante), pendiente de la secante | 割线, 割线斜率 | sécante, pente de la sécante | kesen (kesen doğru), kesenin eğimi
+- Schrittweite = step size | paso (tamaño de paso) | 步长 | pas | adım büyüklüğü
+- Grenzwert, beliebig nah = limit, arbitrarily close | límite, arbitrariamente cerca | 极限, 任意接近 | limite, arbitrairement proche | limit, istenildiği kadar yakın
+- differenzierbar, Differenzierbarkeit = differentiable, differentiability | derivable (eine Variable), diferenciable (mehrere Variablen, ab Abschnitt 3); diferenciabilidad | 可导（一元）, 可微（多元，第 3 节起）; 可微性 | dérivable (une variable), différentiable (plusieurs variables, dès la section 3) ; différentiabilité | türevlenebilir, türevlenebilirlik
+- Ableitung, Ableitungsfunktion = derivative, derivative (function) | derivada, función derivada | 导数, 导函数 | dérivée, fonction dérivée | türev, türev fonksiyonu
+- Tangente = tangent line (im Bild: tangent) | recta tangente (en figuras: tangente) | 切线 | tangente | teğet (teğet doğru)
+- Knick = kink (corner) | punto anguloso (pico) | 折点（尖点） | point anguleux | köşe noktası (kırılma)
+- Betragsfunktion = absolute value function | función valor absoluto | 绝对值函数 | fonction valeur absolue | mutlak değer fonksiyonu
+- lineare Näherung = linear approximation | aproximación lineal | 线性近似 | approximation linéaire (approximation affine) | doğrusal yaklaşım
+- Empfindlichkeit, (kleine Änderungen) weitergeben = sensitivity, pass on | sensibilidad, transmitir | 灵敏度, 传递 | sensibilité, transmettre | duyarlılık, iletmek
+- Lupe, Ausschnitt (Teilbild) = magnifying glass, window | lupa, ventana | 放大镜, 局部窗口 | loupe, fenêtre | büyüteç, pencere
+- Grundableitungen = basic derivatives | derivadas elementales | 基本导数公式 | dérivées usuelles | temel türevler
+- Ableitungsregeln: Summen-, Faktor-, Produkt-, Quotienten-, Potenzregel = differentiation rules: sum rule, constant multiple rule, product rule, quotient rule, power rule | reglas de derivación: regla de la suma, del factor constante, del producto, del cociente, de la potencia | 求导法则：和法则、常数倍法则、乘积法则、商法则、幂法则 | règles de dérivation : règle de la somme, du facteur constant, du produit, du quotient, des puissances | türev kuralları: toplam, sabit çarpan, çarpım, bölüm, kuvvet kuralı
+- Streifen, Eckstück (Rechteckbild der Produktregel) = strip, corner piece | franja, pieza de la esquina | 长条, 角上的小块 | bande, petit carré du coin | şerit, köşe parçası
+- binomischer Lehrsatz, Hochzahl, Bogenmaß = binomial theorem, exponent, radians | teorema del binomio (binomio de Newton), exponente, radianes | 二项式定理, 指数, 弧度 | formule du binôme (de Newton), exposant, radians | binom teoremi, üs, radyan
+- e-Funktion, Eulersche Zahl, Logarithmus, Basis (einer Potenz) = exponential function, Euler’s number, natural logarithm, base | función exponencial, número e (número de Euler), logaritmo neperiano, base | 指数函数, 自然常数 e, 自然对数, 底数 | fonction exponentielle, nombre e (nombre d’Euler), logarithme népérien, base | üstel fonksiyon, e sayısı (Euler sayısı), doğal logaritma, taban
+- zweite / dritte / k-te Ableitung, höhere Ableitungen = second / third / k-th derivative, higher derivatives | segunda / tercera / k-ésima derivada, derivadas de orden superior | 二阶 / 三阶 / k 阶导数, 高阶导数 | dérivée seconde / troisième / k-ième, dérivées d’ordre supérieur | ikinci / üçüncü / k. türev, yüksek mertebeden türevler
+- Krümmung (des Graphen), sich nach oben / unten (von der Tangente) wegbiegen = curvature, bend upward / downward (away from the tangent) | curvatura, curvarse hacia arriba / abajo | 曲率（弯曲程度）, 向上 / 向下弯离（切线） | courbure, s’incurver vers le haut / le bas | eğrilik, yukarı / aşağı doğru bükülmek
+- quadratische Näherung, Parabel = quadratic approximation, parabola | aproximación cuadrática, parábola | 二次近似, 抛物线 | approximation quadratique, parabole | ikinci dereceden yaklaşım, parabol
+- stetig, Stetigkeit, Sprung = continuous, continuity, jump | continua, continuidad, salto | 连续, 连续性, 跳跃 | continue, continuité, saut | sürekli, süreklilik, sıçrama
+- Satz von Taylor, Taylorpolynom k-ter Ordnung = Taylor’s theorem, Taylor polynomial of order k | teorema de Taylor, polinomio de Taylor de orden k | 泰勒定理, k 阶泰勒多项式 | formule de Taylor, polynôme de Taylor d’ordre k | Taylor teoremi, k. mertebeden Taylor polinomu
+- Glied (einer Summe/Näherung), Glied zweiter Ordnung, Steigungsglied, Krümmungsglied = term, second-order term, slope term, curvature term | término, término de segundo orden, término de pendiente, término de curvatura | 项, 二阶项, 斜率项, 曲率项 | terme, terme d’ordre deux, terme de pente, terme de courbure | terim, ikinci mertebe terim, eğim terimi, eğrilik terimi
+- Mittelwertsatz = mean value theorem | teorema del valor medio | 中值定理 | théorème des accroissements finis | ortalama değer teoremi
+Kettenregel
+- Verkettung, innere / äußere Funktion = composition (composite function), inner / outer function | composición (función compuesta), función interior / exterior | 复合（复合函数）, 内层函数 / 外层函数 | composition (fonction composée), fonction intérieure / extérieure | bileşke (bileşke fonksiyon), iç / dış fonksiyon
+- Kettenregel = chain rule | regla de la cadena | 链式法则 | règle de dérivation en chaîne | zincir kuralı
+- Kette, Glied (einer Kette) = chain, link | cadena, eslabón | 链, 环节 | chaîne, maillon | zincir, halka
+- Stufe (einer Rechnung), Faktor einer Stufe = stage, factor | etapa, factor | 级, 因子 | étage (nicht « étape », das ist die Heft-Stufe), facteur | aşama, çarpan
+- Zwischenwert, Zwischenvariable, Zwischenergebnis, Zwischenprodukt = intermediate value, intermediate variable, intermediate result, partial product | valor intermedio, variable intermedia, resultado intermedio, producto parcial | 中间值, 中间变量, 中间结果, 部分积 | valeur intermédiaire, variable intermédiaire, résultat intermédiaire, produit partiel | ara değer, ara değişken, ara sonuç, kısmi çarpım
+- Getriebe, Übersetzungsstufe, Zahlenstrahl = gear train, gear stage, number line | tren de engranajes, etapa de engranajes, recta numérica | 齿轮传动, 传动级, 数轴 | train d’engrenages, étage d’engrenages, droite graduée | dişli takımı, dişli kademesi, sayı doğrusu
+- logistische Funktion = logistic function | función logística | 逻辑斯谛函数（logistic 函数） | fonction logistique | lojistik fonksiyon
+- Wachstum mit Sättigung, Obergrenze, Anteil = growth with saturation, upper limit, proportion | crecimiento con saturación, cota superior, proporción | 饱和增长, 上限, 比例 | croissance avec saturation, plafond, proportion | doygunluklu büyüme, üst sınır, oran
+- punktsymmetrisch zum Punkt P, spiegelsymmetrisch zur senkrechten Achse = symmetric about the point P, symmetric about the vertical axis | simétrica respecto del punto P, simétrica respecto del eje vertical | 关于点 P 中心对称, 关于纵轴对称 | symétrique par rapport au point P, symétrique par rapport à l’axe vertical | P noktasına göre simetrik, düşey eksene göre simetrik
+- Umkehrfunktion = inverse function | función inversa | 反函数 | fonction réciproque | ters fonksiyon
+- Glockenkurve, Gipfel = bell curve, peak | curva de campana, cima | 钟形曲线, 峰顶 | courbe en cloche, sommet | çan eğrisi, tepe
+Mehrere Variablen und Gradient
+- Funktion von d Variablen = function of d variables | función de d variables | d 元函数 | fonction de d variables | d değişkenli fonksiyon
+- Niveaumenge = level set | conjunto de nivel | 水平集（等值集） | ensemble de niveau | düzey kümesi
+- Landschaft, Gelände, Landkarte, Wanderkarte, Ort, Höhe = landscape, terrain, map, hiking map, location, height | paisaje, terreno, mapa, mapa de senderismo, lugar, altura | 地形, 地面, 地图, 登山地图, 位置, 高度 | paysage, terrain, carte, carte de randonnée, lieu, altitude | arazi, arazi yüzeyi, harita, yürüyüş haritası, konum, yükseklik
+- Schnitt, Schnittkurve, Schnittgerade = cross section (im Bildtitel: section), cross-section curve, cutting line | corte, curva de corte, recta de corte | 截面（im Bildtitel: 截线）, 截线, 截取直线 | coupe, courbe de coupe, droite de coupe | kesit, kesit eğrisi, kesit doğrusu
+- partielle Ableitung, nach x_j ableiten, festhalten = partial derivative, differentiate with respect to x_j, hold fixed | derivada parcial, derivar respecto de x_j, mantener fija | 偏导数, 对 x_j 求导, 固定 | dérivée partielle, dériver par rapport à x_j, fixer | kısmi türev, x_j'ye göre türev almak, sabit tutmak
+- Gradient, Nabla = gradient, nabla (del) | gradiente, nabla | 梯度, nabla 算子 | gradient, nabla | gradyan, nabla
+- Feld von Pfeilen = field of arrows | campo de flechas | 箭头场 | champ de flèches | ok alanı
+- Tangentialebene, schräg gestellte Platte, Neigung = tangent plane, tilted plate, tilt | plano tangente, placa inclinada, inclinación | 切平面, 倾斜的平板, 倾斜度 | plan tangent, plaque inclinée, inclinaison | teğet düzlem, eğik levha, eğiklik (nicht „eğim“, das ist Steigung)
+- Verschiebung (Schritt h auf der Landkarte) = displacement | desplazamiento | 位移 | déplacement | yer değiştirme (nicht die Signal-Verschiebung aus Grundlagen 1: shift, décalage, kaydırma)
+- Wirkung, Wechselwirkung = effect, interaction | efecto, interacción | 作用, 交互作用 | effet, interaction | etki, etkileşim
+- Nullpunkt, Diagonale (x₁ = x₂), Falte = origin, diagonal, crease | origen, diagonal, pliegue | 原点, 对角线, 折痕 | origine, diagonale, pli | orijin, köşegen, kıvrım
+Richtungsableitung und steilster Anstieg
+- Richtungsableitung, zweite Richtungsableitung = directional derivative, second directional derivative | derivada direccional, segunda derivada direccional | 方向导数, 二阶方向导数 | dérivée directionnelle, dérivée directionnelle seconde | yönlü türev, ikinci yönlü türev
+- steilster Anstieg / Abstieg, steilste Richtung = steepest ascent / descent, steepest direction | máximo ascenso / máximo descenso, dirección de máxima pendiente | 最速上升 / 最速下降, 最陡方向 | plus forte montée / plus forte descente, direction de plus grande pente | en dik çıkış / en dik iniş, en dik doğrultu
+- bergauf, bergab, tiefster Punkt = uphill, downhill, lowest point | cuesta arriba, cuesta abajo, punto más bajo | 上坡, 下坡, 最低点 | en montée, en descente, point le plus bas | yokuş yukarı, yokuş aşağı, en alçak nokta
+- runde / gestreckte Schüssel, Wände = round / elongated bowl, walls | cuenco redondo / alargado, paredes | 圆碗 / 拉长的碗, 碗壁 | cuvette ronde / allongée, parois | yuvarlak / uzamış çanak, çeperler
+- Fußpunkt (eines Gradientenpfeils) = base point | punto de partida | 起点 | point de départ | başlangıç noktası
+- Ellipse, Hyperbel, Winkelhalbierende = ellipse, hyperbola, angle bisector | elipse, hipérbola, bisectriz | 椭圆, 双曲线, 角平分线 | ellipse, hyperbole, bissectrice | elips, hiperbol, açıortay
+- Tangentenrichtung, komponentenweise, Budget = tangent direction, componentwise, budget | dirección tangente, componente a componente, presupuesto | 切线方向, 逐分量, 预算 | direction tangente, composante par composante, budget | teğet doğrultusu, bileşen bileşen, bütçe
+Jacobi-Matrix und Kettenregel mehrerer Variablen
+- vektorwertig, Komponenten (einer Funktion) = vector-valued, components | vectorial (con valores vectoriales), componentes | 向量值, 分量函数 | à valeurs vectorielles, composantes | vektör değerli, bileşenler
+- Eingang, Ausgang = input, output | entrada, salida | 输入, 输出 | entrée, sortie | girdi, çıktı
+- Jacobi-Matrix = Jacobian matrix (Jacobian) | matriz jacobiana | 雅可比矩阵 | matrice jacobienne | Jacobi matrisi
+- fett, mager (Schrift) = bold, non-bold | en negrita, en letra normal | 粗体, 非粗体 | en gras, en maigre | kalın, normal yazı
+- Polarkoordinaten, Kreisring, Bogen = polar coordinates, annulus, arc | coordenadas polares, corona circular, arco | 极坐标, 圆环, 弧 | coordonnées polaires, couronne, arc | kutupsal koordinatlar, halka, yay
+- Einheitsgitter = unit grid | cuadrícula unidad | 单位网格 | quadrillage unité | birim ızgara
+- Weg, Summe über alle Wege, Netz von Wegen = path, sum over all paths, network of paths | camino, suma sobre todos los caminos, red de caminos | 路径, 对所有路径求和, 路径网络 | chemin, somme sur tous les chemins, réseau de chemins | yol, tüm yollar üzerinden toplam, yol ağı
+- Knoten, Kante, Kantenfaktor (im Graphen) = node, edge, edge factor | nodo (nicht „nudo“ wie im Stromkreis), arista, factor de la arista | 节点, 边, 边上的因子 | nœud, arête, facteur de l’arête | düğüm, kenar, kenar çarpanı
+- Rohrnetz, Ströme (im Rohrnetz) = pipe network, flows | red de tuberías, caudales | 管网, 水流 | réseau de canalisations, débits | boru ağı, akışlar (nicht „akım“)
+- Kurve, Geschwindigkeitsvektor, Tempo = curve, velocity vector, speed | curva, vector velocidad, rapidez | 曲线, 速度向量, 速率 | courbe, vecteur vitesse, vitesse (norme du vecteur vitesse) | eğri, hız vektörü, sürat
+- Buchführung = bookkeeping | contabilidad | 记账 | comptabilité | muhasebe
+Ableiten nach Vektoren und Matrizen
+- Layout-Konvention, Zähler-Layout, Nenner-Layout, Mischform = layout convention, numerator layout, denominator layout, mixed layout | convención de disposición, disposición de numerador, disposición de denominador, forma mixta | 布局约定, 分子布局, 分母布局, 混合布局 | convention de disposition, disposition numérateur, disposition dénominateur, forme mixte | düzen kuralı, pay düzeni, payda düzeni, karma biçim
+- Formprobe, Merkhilfe = shape check, mnemonic | comprobación de la forma, regla mnemotécnica | 形状检查, 助记方法 | vérification des formes, moyen mnémotechnique | şekil kontrolü, akılda tutma yolu
+- Quadratsumme, symmetrischer Anteil = sum of squares, symmetric part | suma de cuadrados, parte simétrica | 平方和, 对称部分 | somme des carrés, partie symétrique | kareler toplamı, simetrik kısım
+- Ableitung nach einer Matrix = derivative with respect to a matrix | derivada respecto de una matriz | 对矩阵的导数 | dérivée par rapport à une matrice | bir matrise göre türev
+- Rückwärtsregel (des Matrixprodukts) = backward rule (of the matrix product) | regla hacia atrás (del producto de matrices) | （矩阵乘积的）反向法则 | règle arrière (du produit matriciel) | (matris çarpımının) geri kuralı
+Hesse-Matrix
+- zweite partielle Ableitungen, gemischte Ableitungen = second partial derivatives, mixed partial derivatives | derivadas parciales segundas, derivadas cruzadas | 二阶偏导数, 混合偏导数 | dérivées partielles secondes, dérivées croisées | ikinci kısmi türevler, karma kısmi türevler
+- Hesse-Matrix = Hessian matrix (Hessian) | matriz hessiana | 黑塞矩阵 | matrice hessienne | Hesse matrisi
+- Satz von Schwarz = Schwarz’s theorem (Clairaut’s theorem) | teorema de Schwarz | 施瓦茨定理 | théorème de Schwarz | Schwarz teoremi
+- gemischte Differenz, Grenzübergang = mixed difference, passage to the limit | diferencia mixta, paso al límite | 混合差分, 取极限 | différence croisée, passage à la limite | karma fark, limite geçiş
+- gewölbte Fläche, Wölbung = curved surface, curvature | superficie curvada, curvatura | 弯曲的曲面, 弯曲 | surface bombée, bombement | kavisli yüzey, kavis
+- Krümmung in einer Richtung = curvature in a direction | curvatura en una dirección | 沿某方向的曲率 | courbure dans une direction | bir doğrultudaki eğrilik
+- Hesse-Matrix mal Vektor = Hessian-vector product | producto hessiana-vector | 黑塞矩阵与向量的乘积 | produit hessienne-vecteur | Hesse matrisi-vektör çarpımı
+Rechengraph und automatische Differentiation
+- Rechengraph, gerichtete Kante, kreisfrei = computational graph, directed edge, acyclic | grafo computacional, arista dirigida, acíclico | 计算图, 有向边, 无环 | graphe de calcul, arête orientée, acyclique | hesaplama grafiği, yönlü kenar, döngüsüz
+- Eingangsknoten, Vorgänger, Nachfolger, Ergebnis = input node, predecessor, successor, result | nodo de entrada, predecesor, sucesor, resultado | 输入节点, 前驱, 后继, 结果 | nœud d’entrée, prédécesseur, successeur, résultat | girdi düğümü, öncül, ardıl, sonuç
+- Grundoperation; Additions-, Multiplikations-, Quadrat-, Maximum-Knoten = elementary operation; addition, multiplication, square, max node | operación elemental; nodo de suma, de producto, de cuadrado, de máximo | 基本运算; 加法、乘法、平方、最大值节点 | opération de base ; nœud d’addition, de multiplication, carré, maximum | temel işlem; toplama, çarpma, kare, maksimum düğümü
+- Vorwärtsrechnung = forward evaluation | evaluación hacia adelante | 前向计算 | évaluation avant | ileri hesaplama
+- lokale Ableitung = local derivative | derivada local | 局部导数 | dérivée locale | yerel türev
+- Schleife, Verzweigung, Programm = loop, branch, program | bucle, bifurcación, programa | 循环, 分支, 程序 | boucle, branchement, programme | döngü, dallanma, program
+- automatische Differentiation, symbolisches / numerisches Ableiten = automatic differentiation, symbolic / numerical differentiation | diferenciación automática, derivación simbólica / numérica | 自动微分, 符号求导 / 数值求导 | différentiation automatique, dérivation symbolique / numérique | otomatik türev alma, sembolik / sayısal türev alma
+- Vorwärtsmodus, Rückwärtsmodus = forward mode, reverse mode | modo directo, modo inverso | 前向模式, 反向模式 | mode direct, mode inverse | ileri mod, ters mod
+- Tangentenwert = tangent value | valor tangente | 切线值 | valeur tangente | teğet değeri
+- Adjungierte = adjoint | adjunto | 伴随值 | adjoint | eşlenik (adjoint)
+- Durchlauf, Vorwärts- / Rückwärtsdurchlauf = pass, forward / backward pass | pasada, pasada hacia adelante / hacia atrás | 一遍, 前向 / 反向传递 | passe, passe avant / arrière | geçiş, ileri / geri geçiş
+- rückwärts rechnen, Rückwärtsfluss = compute backward, backward flow | calcular hacia atrás, flujo hacia atrás | 反向计算, 反向流动 | calculer à rebours, flux arrière | geriye doğru hesaplamak, geri akış
+- duale Zahlen = dual numbers | números duales | 对偶数 | nombres duaux | dual sayılar
+- Aufwand, Auswertung, Speicher = cost, evaluation, memory | coste, evaluación, memoria | 计算量, 求值, 内存 | coût, évaluation, mémoire | maliyet, değerlendirme, bellek
+- Klammerung von links / rechts = parenthesization from the left / right | asociación por la izquierda / derecha | 从左 / 从右结合 | parenthésage par la gauche / la droite | soldan / sağdan parantezleme
+- Zwischensumme = partial sum | suma parcial | 部分和 | somme partielle | ara toplam
+- Faustregel, Stellschraube = rule of thumb, adjustable knob | regla práctica, perilla de ajuste | 经验法则, 调节旋钮 | règle empirique, bouton de réglage | pratik kural, ayar düğmesi
+- Abschlussarbeit (Linnainmaa 1970) = master’s thesis | tesis de maestría | 硕士论文 | mémoire de master | yüksek lisans tezi
+Numerische Ableitung
+- numerische Ableitung = numerical differentiation | derivación numérica | 数值微分 | dérivation numérique | sayısal türev
+- Vorwärtsdifferenz, zentrale Differenz = forward difference, central difference | diferencia progresiva, diferencia central | 前向差分, 中心差分 | différence avant, différence centrée | ileri fark, merkezi fark
+- Abschneidefehler, Rundungsfehler, Gesamtfehler = truncation error, rounding error, total error | error de truncamiento, error de redondeo, error total | 截断误差, 舍入误差, 总误差 | erreur de troncature, erreur d’arrondi, erreur totale | kesme hatası, yuvarlama hatası, toplam hata
+- Gleitkommazahl, Kommazahl = floating-point number, non-integer (decimal) number | número en coma flotante, número decimal | 浮点数, 小数 | nombre à virgule flottante (flottant), nombre à virgule | kayan noktalı sayı, ondalıklı sayı
+- Binärziffer, Zweiersystem, Zweierpotenz, Dezimalstelle = binary digit, binary system, power of two, decimal digit | dígito binario, sistema binario, potencia de dos, cifra decimal | 二进制位, 二进制, 2 的幂, 十进制位 | chiffre binaire, système binaire, puissance de deux, chiffre décimal | ikili basamak, ikili sistem, ikinin kuvveti, ondalık basamak
+- doppelte / einfache Genauigkeit, Norm IEEE 754 = double / single precision, IEEE 754 standard | doble / simple precisión, norma IEEE 754 | 双精度 / 单精度, IEEE 754 标准 | double / simple précision, norme IEEE 754 | çift / tek duyarlık, IEEE 754 standardı
+- Maschinengenauigkeit = machine epsilon | épsilon de máquina | 机器精度（machine epsilon） | epsilon machine | makine epsilonu
+- Auslöschung = cancellation (catastrophic cancellation) | cancelación catastrófica | 相消（灾难性抵消） | annulation catastrophique | anlamlı basamak kaybı (yıkıcı sadeleşme)
+- richtige Stellen = correct digits | cifras correctas | 正确的位数 | chiffres exacts | doğru basamaklar
+- Fehlerkurve, V-Kurve, doppelt logarithmisch = error curve, V-shaped curve, on log-log axes | curva de error, curva en V, en escala doble logarítmica | 误差曲线, V 形曲线, 双对数坐标 | courbe d’erreur, courbe en V, en échelle log-log | hata eğrisi, V eğrisi, log-log ölçekte
+- Gradientenprüfung, numerischer / berechneter Gradient = gradient check, numerical / computed gradient | comprobación del gradiente, gradiente numérico / calculado | 梯度检验, 数值梯度 / 计算得到的梯度 | vérification du gradient, gradient numérique / calculé | gradyan kontrolü, sayısal / hesaplanan gradyan
+- relativer / absoluter Fehler, Schwelle, Erfahrungswert = relative / absolute error, threshold, empirical value | error relativo / absoluto, umbral, valor empírico | 相对 / 绝对误差, 阈值, 经验值 | erreur relative / absolue, seuil, valeur empirique | bağıl / mutlak hata, eşik, deneyim değeri
+- Fallstrick, einseitige Steigung, Gleichstand = pitfall, one-sided slope, tie | trampa, pendiente lateral, empate | 陷阱, 单侧斜率, 相等（并列） | piège, pente à gauche / à droite, égalité | tuzak, tek taraflı eğim, eşitlik
+- Taschenrechner, Rechenprogramme = calculator, numerical software | calculadora, programas de cálculo | 计算器, 数值软件 | calculatrice, logiciels de calcul | hesap makinesi, hesaplama programları
+
+Nachtrag aus der Übersetzung von Grundlagen 3 (Wahl der Übersetzer, so in den Heften verwendet)
+- Knick (als \fb) = kink | punto anguloso | 折点 | point anguleux | köşe noktası
+- Etappe (Teilstück eines Wegs) = leg | tramo | 段 | tronçon (« étape » ist die Heft-Stufe) | etap
+- Verschiebung b einer affinen Abbildung = shift | desplazamiento | 平移 | translation | öteleme (Verschiebung h auf der Landkarte: displacement | desplazamiento | 位移 | déplacement | yer değiştirme)
+- Vereinbarung, Layout-Konvention = convention, layout convention | convención, convención de disposición | 约定, 布局约定 | convention, convention de disposition | uzlaşım, düzen kuralı
+- Probe: (Kontrollrechnung) = Check: | Comprobación: | 验算： | Vérification : | Sağlama:
+- vollbesetzte Matrix = dense matrix | matriz densa | 稠密矩阵 | matrice pleine | tam dolu matris
+- schiefe Schüssel = skewed bowl | cuenco oblicuo | 斜置碗形 | cuvette oblique | eğik çanak
+- Klammerung (Reihenfolge der Produkte) = parenthesization | asociación | 结合方式 | parenthésage | parantezleme
+- Matrixidentitäten = matrix identities | identidades matriciales | 矩阵恒等式 | identités matricielles | matris özdeşlikleri
+- hintereinandergeschaltet (zwei Stufen) = connected in series | conectadas una tras otra | 前后串联 | montés en série | art arda bağlanmış
+- Mischform (Layout) = mixed layout | forma mixta | 混合布局 | forme mixte | karma biçim
+- Auslöschung beim ersten \fb: zh 相消（灾难性抵消）, tr anlamlı basamak kaybı (yıkıcı sadeleşme); Adjungierte tr eşlenik (adjoint) mit Klammerzusatz beim ersten \fb
+
 ## Arbeitsweise für einen Übersetzungs-Agenten
 1. Lies `notizen\heft_uebersetzung.md`, diesen Brief, deine Quelldatei GANZ (große Dateien in Teilen bis zum Ende) und die passende Präambel `praeambel_L.tex` (nur die Kastenwörter). en/es/zh: lies zusätzlich ein Stück des ET3-Vorbilds der Sprache (z. B. die ersten 250 Zeilen von `C:\Bücher\ET3\Arbeitshefte\kap2_stufen_L.tex`) für Ton und Wendungen.
 2. Schreibe die Übersetzung mit dem Write-Tool (nie per Bash-Heredoc: Backslash-Falle). Große Dateien in Stücken von höchstens etwa 35 KB in den Ordner `C:\Users\info\AppData\Local\Temp\claude\C--B-cher\c5e68cc8-baf1-4782-9760-867850fb6615\scratchpad\mlk2_uebersetzung\teile\` schreiben (z. B. `stufen_en_1.tex`, `_2`, `_3`, Grenzen an Abschnittsgrenzen) und dann mit Bash zusammenfügen: `cat teil1 teil2 teil3 > Zieldatei` (cat ändert keine Backslashes).
@@ -266,3 +401,67 @@ Korrekturen am Original (in der deutschen Datei eingetragen):
 - kap1_loesungen.tex Z. 42: „obwohl ihr Gewicht dem Betrag nach das kleinste ist“ (Gewichte 3, 10, −4).
 - kap1_loesungen.tex Z. 87: „jedes von null verschiedene Vielfache davon ebenso“ (die Aufgabe verlangt v ≠ 0).
 - ml_teil1.py, Szenen k1ebene und k1reihenfolge: Achsen jetzt ohne Teilstriche und Zahlen wie im Heft (vorher drängten sich automatische Zahlen 0,25 … 1,5 über die Bilder, in allen Sprachen).
+
+## Grundlagen 3 („Ableitung, Gradient und Kettenregel“), Übersetzung seit 09.11.2026
+Die Abschnitte oben zu Grundlagen 2 (Titel, Korrekturen, Szenenwörter aus ml_teil2.py) und zu Grundlagen 1 (Titel, sprachgebundene Stellen, Bildwörter, Korrekturen) gelten hier nicht; Grundsätze, feste Wendungen und Glossar (samt Blöcken „Ergänzt bei Grundlagen 1“ und „Ergänzt bei Grundlagen 3“) gelten.
+
+Deutsche Quelle (endgültig, Stand 5. November 2026): `Kap3_Ableitung.tex` (Hauptdatei mit Titelblock), `kap3_stufen.tex` (Abschnitte 1–6), `kap3_stufen_b.tex` (Abschnitte 7–11 und Abschluss), `kap3_loesungen.tex`. Ziel je Sprache L: `Kap3_Ableitung_L.tex`, `kap3_stufen_L.tex`, `kap3_stufen_b_L.tex`, `kap3_loesungen_L.tex`. Reihenfolge: en zuerst, zh aus dem fertigen Englisch (mit dem Deutschen daneben), dann es, fr, tr aus dem Deutschen. Teile in den Scratchpad-Ordner schreiben, den der Auftrag nennt; Strukturprüfung mit `python tools/uebersetzung_struktur_check.py <de.tex> <L.tex> <L>` vom Repo-Root.
+
+Titel (verbindlich, aus heft_zu_artikel.py): en „Derivative, Gradient and Chain Rule“, es „Derivada, gradiente y regla de la cadena“, zh „导数、梯度与链式法则“, fr „Dérivée, gradient et règle de dérivation en chaîne“, tr „Türev, Gradyan ve Zincir Kuralı“.
+Untertitel (de „Wie eine Zahl auf ihre Eingänge reagiert:\\ von der Tangente bis zum Rückwärtsmodus“): en `How a number responds to its inputs:\\ from the tangent line to reverse mode`; es `Cómo responde un número a sus entradas:\\ de la recta tangente al modo inverso`; zh `一个数如何响应它的输入：\\ 从切线到反向模式`; fr `Comment un nombre réagit à ses entrées :\\ de la tangente au mode inverse`; tr `Bir sayı girdilerine nasıl tepki verir:\\ teğetten ters moda`.
+Titelblock-Zeile: en `Mathematical Foundations for Machine Learning, Foundations~3. Version: 5~November 2026`; es `Fundamentos matemáticos para el aprendizaje automático, Fundamentos~3. Versión: 5~de noviembre de 2026`; zh `机器学习数学基础，基础篇~3。版本：2026~年~11~月~5~日`; fr `Fondements mathématiques pour l’apprentissage automatique, Fondements~3. Version : 5~novembre 2026`; tr `Makine Öğrenmesi için Matematiksel Temeller, Temeller~3. Sürüm: 5~Kasım 2026`.
+
+Feste Wendungen in diesem Heft (zusätzlich zur Tabelle oben):
+- Kastennamen im Absatz „So arbeitest du mit dem Heft.“ (kap3_stufen.tex Z. 17): „Hintergrund“, „Beweis“, „Herleitung“, „Achtung“ = Background, Proof, Derivation, Caution | Contexto, Demostración, Deducción, Atención | 背景, 证明, 推导, 注意 | Contexte, Preuve, Démonstration, Attention | Arka plan, İspat, Türetme, Dikkat (genau die Wörter der Präambeln); „Was du dafür brauchst“ wie in der Tabelle oben.
+- `[Rechenbeispiel]`, `[Rechenbeispiel 1]`, `[Rechenbeispiel 2]` wie in der Tabelle oben; im Fließtext „im Rechenbeispiel“ = in the worked example | en el ejemplo numérico | 在算例中 | dans l’exemple de calcul | sayısal örnekte. (Die Kommentare in praeambel_es/_tr nennen „Ejemplo de cálculo“/„Hesap örneği“; maßgeblich ist die Tabelle, wie in Grundlagen 1 und 2.)
+- Abschlusstabelle „Ergebnis & Woher es kommt“ wie in Grundlagen 2: Result & Where it comes from | Resultado & De dónde viene | 结果 & 来源 | Résultat & D’où il vient | Sonuç & Nereden geliyor.
+- Tabellenköpfe und -wörter (tab:k3vorwaerts, tab:k3tangente, tab:k3rueckwaerts, tab:k3lokal und die Tabelle der Lösung zu a:k3rueckquadrat gleich): Knoten, Rechnung, Wert, Tangentenwert, Adjungierte, Eingang, Start = node, computation, value, tangent value, adjoint, input, start | nodo, cálculo, valor, valor tangente, adjunto, entrada, inicio | 节点, 计算, 值, 切线值, 伴随值, 输入, 起点 | nœud, calcul, valeur, valeur tangente, adjoint, entrée, départ | düğüm, hesap, değer, teğet değeri, eşlenik, girdi, başlangıç; Operation, lokale Ableitungen, benötigte Werte, keine, die Eingänge, der Eingang, der Ausgang, welcher größer ist = operation, local derivatives, values needed, none, the inputs, the input, the output, which one is larger | operación, derivadas locales, valores necesarios, ninguno, las entradas, la entrada, la salida, cuál es mayor | 运算, 局部导数, 所需的值, 无, 两个输入, 输入, 输出, 哪个更大 | opération, dérivées locales, valeurs nécessaires, aucune, les entrées, l’entrée, la sortie, laquelle est la plus grande | işlem, yerel türevler, gereken değerler, yok, girdiler, girdi, çıktı, hangisinin büyük olduğu.
+
+Verweise im Heft (Formen der Tabelle „Verweise auf andere Hefte“ oben, dazu):
+- `Grundlagen~1 und Grundlagen~2` = `Foundations~1 and Foundations~2` | `Fundamentos~1 y Fundamentos~2` | `基础篇~1 和基础篇~2` | `Fondements~1 et Fondements~2` | `Temeller~1 ve Temeller~2` (jeden Namen ausschreiben, sonst kein Link). `Grundlagen~N, Abschnitt~M` steht 37-mal im Heft, auch mit ganzzahligem M (`Abschnitt~3`, `Abschnitt~8`); M bleibt wie es ist.
+- `Abschnitt~\ref{k3:…}` = `Section~\ref` | `sección~\ref` (Satzanfang `Sección`) | `第~\ref{…}~节` | `section~\ref` | `Kesim~\ref`. Zwei: `Abschnitte~\ref{a} und~\ref{b}` = `Sections~\ref{a} and~\ref{b}` | `secciones~\ref{a} y~\ref{b}` | `第~\ref{a}~节和第~\ref{b}~节` | `sections~\ref{a} et~\ref{b}` | `Kesim~\ref{a} ve~\ref{b}`. Bereich (kap3_stufen.tex Z. 541): `Abschnitte~\ref{k3:gradient} bis~\ref{k3:hesse}` = `Sections~\ref{…} through~\ref{…}` | `secciones~\ref{…} a~\ref{…}` | `第~\ref{…}~节到第~\ref{…}~节` | `sections~\ref{…} à~\ref{…}` | `Kesim~\ref{…} ile~\ref{…} arasında`.
+- „im vorigen / nächsten Unterabschnitt“ (ohne \ref) = previous / next subsection | subsección anterior / siguiente | 上一小节 / 下一小节 | sous-section précédente / suivante | önceki / sonraki alt kesim.
+- `Abb.~\ref` = `Fig.~\ref` | `fig.~\ref` (klein wie in Grundlagen 1/2 es) | `图~\ref` | `Fig.~\ref` | `Şekil~\ref`; „Abb.~\ref{fig:k3lupe} links“ = left panel | panel izquierdo | 左图 | panneau de gauche | sol panel. `Tabelle~\ref` = `Table~\ref` | `tabla~\ref` | `表~\ref` | `tableau~\ref` | `Tablo~\ref`. `Aufgabe~\ref` = `Exercise~\ref` | `ejercicio~\ref` | `练习~\ref` | `exercice~\ref` | `Alıştırma~\ref`.
+- „das Rechenbeispiel zu Abschnitt~\ref{k3:zwischen}“ / „im Rechenbeispiel zu \eqref{…}“ = the worked example in Section~\ref / for \eqref | el ejemplo numérico de la sección~\ref / de \eqref | 第~\ref{…}~节的算例 / \eqref{…} 处的算例 | l’exemple de calcul de la section~\ref / associé à \eqref | Kesim~\ref{…}'deki sayısal örnek / \eqref{…} ile ilgili sayısal örnek.
+- tr-Endungen: an `\eqref` keine Endung hängen, sondern Postpositionen wie in Grundlagen 2 tr (`\eqref{…} uyarınca`, `\eqref{…} bağıntısı`, `\eqref{…} içindeki`). Bei `Kesim~\ref` und `Alıştırma~\ref` richtet sich die Endung nach der letzten Zahl: Abschnitte 1 ableitung, 2 kette, 3 gradient, 4 richtung, 5 jacobi, 6 kettemehr, 7 matrixabl, 8 hesse, 9 graph, 10 ad, 11 numerisch, Unterabschnitte in Reihenfolge (k3:zwischen = 9.1, k3:senkrecht = 4.3); verwiesene Aufgaben a:k3gradient = 9, a:k3linear = 10, a:k3kurve = 22, a:k3taylor = 29, a:k3graphquadrat = 32.
+
+Sprachgebundene Stellen (sinngemäß anpassen, nichts weglassen):
+- Semikolon: Das Heft setzt `;` auch ohne Dezimalzahl, wenn ein Eintrag eine Rechnung ist oder die Liste sonst Dezimalzahlen hat: `\diag(2;\,8)`, `\diag(2;\,-4;\,6)`, `\diag(8;\,2)`, `\diag(\ee^0;\,\ee^1;\,\ee^{-1})`, `(8+3;\ 8+12)\T`, `(0;\ \sqrt6)\T`, `(0;\ 3;\ 2{,}000001)\T`, Funktionsargumente `f(1{,}01;\ 2{,}02)`, `\vg(1{,}1;\ 1{,}9)`. en/zh überall Komma (`\diag(2,\,8)`, `(8+3,\ 8+12)\T`, `f(1.01,\ 2.02)`); es/fr/tr wie im Deutschen. Listen mit Komma ohne Dezimalzahl (`(1,\,2)`, `f(1,2)`) bleiben in allen Sprachen.
+- `\spur` (kap3_stufen_b.tex Z. 149, 237; kap3_loesungen.tex Z. 226): ersetzen wie in den Grundsätzen (`\operatorname{tr}`, tr `\operatorname{iz}`). Wort „Spur $6$“ (stufen_b Z. 414), „Spur $10$“ (loesungen Z. 267) = trace | traza | 迹 | trace | iz. „Rang“ (stufen_b Z. 444, loesungen Z. 248) steht nur als Wort: rank | rango | 秩 | rang | rank.
+- `\text{…}` in Formeln (alle übersetzen): `\text{mit}` (stufen Z. 140, 246, 985; stufen_b Z. 349) = `with` | `con` | `其中` | `avec` | `burada`. `\text{(Summenregel)}` usw. (stufen Z. 195–198) nach dem Glossar. `\text{falls }v(x)\ne0` = `if` | `si` | `若` | `si` | tr `v(x)\ne0\text{ ise}`. `(\text{Summanden mit }h^2,h^3,\dots,h^n)` (stufen Z. 212) = `terms with` | `términos con` | `(\text{含 }h^2,h^3,\dots,h^n\text{ 的项})` | `termes en` | `(h^2,h^3,\dots,h^n\text{ içeren terimler})`. `a\text{ Vorgänger von }b` (stufen_b Z. 691) / `b\text{ Nachfolger von }a` (Z. 733) = `predecessor of` / `successor of` | `predecesor de` / `sucesor de` | `a\text{ 为 }b\text{ 的前驱}` / `b\text{ 为 }a\text{ 的后继}` | `prédécesseur de` / `successeur de` | `a\text{: }b\text{'nin öncülü}` / `b\text{: }a\text{'nın ardılı}`. `\text{bzw.}` (stufen_b Z. 1012) = `\text{and}` und im Satz danach „respectively“ (es `\text{y}` … respectivamente, zh `\text{和}` … 分别, fr `\text{et}` … respectivement, tr `\text{ve}` … sırasıyla). `\text{linear: }`, `\text{quadratisch: }` (loesungen Z. 33) = linear / quadratic | lineal / cuadrática | 线性 / 二次 | linéaire / quadratique | doğrusal / ikinci dereceden. Indizes `\varepsilon_{\mathrm M}`, `\vg_{\mathrm a}`, `\vg_{\mathrm n}` bleiben.
+- „gelesen „$f$ nach $g$““ (stufen Z. 334): die übliche Lesart der Sprache: en ``$f$ after $g$''; es «$f$ compuesta con $g$»; zh 读作“$f$ 复合 $g$”; fr « $f$ rond $g$ »; tr “$f$ bileşke $g$”.
+- „Das Zeichen $\partial$ ist ein gerundetes d“ (stufen Z. 564): fr « un d rond » (so heißt das Zeichen dort), sonst wörtlich (a rounded d | una d redondeada | 圆体的 d | kıvrık bir d). „liest man „Nabla““ (Z. 614): en ``nabla'' (or ``del''), sonst nabla in den Anführungszeichen der Sprache.
+- „e-Funktion“ (stufen Z. 227 Hintergrundtitel und öfter) ist ein deutsches Kurzwort: überall exponential function | función exponencial | 指数函数 | fonction exponentielle | üstel fonksiyon, nie „e-function“.
+- „Rechner speichern Kommazahlen als Gleitkommazahlen“ (stufen_b Z. 990): Das Wortspiel hängt am deutschen „Komma“. en „Computers store non-integers as floating-point numbers“; es „los números decimales como números en coma flotante“; zh „把小数存为浮点数“; fr « les nombres à virgule comme nombres à virgule flottante »; tr „ondalıklı sayıları kayan noktalı sayılar olarak“.
+- „diese Zahl heißt Maschinengenauigkeit, und Rechenprogramme geben sie unter diesem Namen aus“ (stufen_b Z. 994): Der Satz muss in der Zielsprache stimmen; Programme nennen die Zahl machine epsilon bzw. eps. en „is called machine epsilon, and numerical software reports it under this name“; es, zh, fr, tr: Wort des Glossars, und „unter diesem Namen“ wird „unter dem Namen eps“ (es „con el nombre eps“, zh „以 eps 为名“, fr « sous le nom eps », tr „eps adıyla“).
+- „acht Byte je Zahl … $80$ Gigabyte“ (stufen_b Z. 866): fr « huit octets … 80 gigaoctets », tr „sekiz bayt … 80 gigabayt“, zh „每个数 8 字节 … 80 GB“, es „ocho bytes … 80 gigabytes“.
+- „11{,}18 Tausend Euro“ (loesungen Z. 123): thousand euros | miles de euros | 千欧元 | milliers d’euros | bin avro, Zahl mit dem Dezimalzeichen der Sprache.
+- Code: Grundlagen 3 hat keine Code-Blöcke (`python`, `ausgabe`), kein `\texttt` und kein `\verb` (grep; Grundlagen 1 ebenso). Der Programmname `rechnung_kap3.py` steht nur in Kommentarzeilen und bleibt. Regel für spätere Hefte: Code und Programmausgaben bleiben Zeichen für Zeichen (Python druckt Dezimalpunkte, also auch in es/fr/tr kein Komma in `ausgabe`); Kommentare dürfen übersetzt werden, Zeichenketten nur zusammen mit der im Heft gezeigten Ausgabe; Zeichen außerhalb von ASCII nur in Kommentaren und Zeichenketten.
+
+TikZ-Abbildungen (Koordinaten nie ändern):
+- Die Achsenzahlen von pgfplots (`xtick`, `ytick`) setzt die Präambel je Sprache mit Punkt oder Komma; nicht anfassen. Von Hand geschriebene Zahlen dagegen umstellen: stufen Z. 59 `yticklabels={…,$15{,}625$,…}` (en/zh `$15.625$`), Z. 66 Legende `$h=0{,}5$`, Z. 123/127 Titel `$1{,}9$` … `$2{,}01$`, Z. 362–364 `$1{,}01$`, `$4{,}03$`, `$16{,}2409$`, Z. 367 `24\cdot0{,}01=0{,}24`.
+- `coordinates {…}`, `domain` und `legend style={at={(axis cs:3e-12,4)}…}` in fig:k3vkurve (stufen_b Z. 1024–1047) bleiben unverändert. Nach dem Bauen prüfen, dass die längeren fr/tr-Legenden keine Messpunkte verdecken.
+
+Bildwörter (ml_teil3.py `s.tr` = TikZ im Heft), de = en | es | zh | fr | tr:
+Sekante h = 1: Steigung 19 (TikZ-Legende „Sekante, $h=1$“) = secant h = 1: slope 19 (secant, $h=1$) | secante h = 1: pendiente 19 (secante, $h=1$) | 割线 h = 1：斜率 19（割线，$h=1$） | sécante h = 1 : pente 19 (sécante, $h=1$) | kesen h = 1: eğim 19 (kesen, $h=1$);
+Tangente(: Steigung 12) = tangent(: slope 12) | tangente(: pendiente 12) | 切线（：斜率 12） | tangente( : pente 12) | teğet(: eğim 12);
+x von 1 bis 3 = x from 1 to 3 | x de 1 a 3 | x 从 1 到 3 | x de 1 à 3 | x: 1 ile 3 arası (TikZ `$x$: $1{,}9$ ile $2{,}1$ arası`);
+Stufe 1: Faktor 3 (TikZ „Stufe 1: Faktor $g'(1)=3$“) = stage 1: factor 3 | etapa 1: factor 3 | 第 1 级：因子 3 | étage 1 : facteur 3 | aşama 1: çarpan 3;
+zusammen: Δy ≈ … = combined: | en total: | 合计： | au total : | toplam:;
+(a) Höhenlinien = (a) contour lines | (a) curvas de nivel | (a) 等高线 | (a) lignes de niveau | (a) eş yükselti eğrileri (falls im Bild zu breit: seviye eğrileri);
+(b) Schnitt x₂ = 2 = (b) section x₂ = 2 | (b) corte x₂ = 2 | (b) 截线 x₂ = 2 | (b) coupe x₂ = 2 | (b) kesit x₂ = 2;
+Steigung 4 = slope 4 | pendiente 4 | 斜率 4 | pente 4 | eğim 4;
+Schrittweite h, Fehler = step size h, error | paso h, error | 步长 h, 误差 | pas h, erreur | adım büyüklüğü h, hata;
+Vorwärtsdifferenz(, gemessen), zentrale Differenz(, gemessen) = forward difference(, measured), central difference(, measured) | diferencia progresiva(, medida), diferencia central(, medida) | 前向差分（实测）, 中心差分（实测） | différence avant(, mesurée), différence centrée(, mesurée) | ileri fark(, ölçülen), merkezi fark(, ölçülen);
+Abschätzung(en), z. B. „Abschätzung $E_+(h)$“ = estimate(s) | estimación(es) | 估计 | estimation(s) | kestirim(ler).
+Farbwörter in Bildunterschriften: rot, orange, blau, grün, grau, schwarz, gestrichelt = red, orange, blue, green, gray, black, dashed | rojo, naranja, azul, verde, gris, negro, discontinua | 红色, 橙色, 蓝色, 绿色, 灰色, 黑色, 虚线 | rouge, orange, bleu, vert, gris, noir, en tirets | kırmızı, turuncu, mavi, yeşil, gri, siyah, kesikli.
+Die Rechenbilder ml/k3r… (`_formel` in ml_teil3.py) enthalten kein `\text{…}`; ihre Dezimalzahlen stellt der Export je Sprache um.
+
+Korrekturen am Original (in der deutschen Datei eingetragen, 09.11.2026):
+- kap3_stufen.tex Z. 99: Der Begriff \fb{Knick} steht jetzt im Haupttext vor dem Kasten „Rechenbeispiel 2“ (eigener Absatz „Nicht jede Funktion ist überall differenzierbar. …“); im Kasten nur noch „einen Knick“ ohne \fb (vorher nur im zugeklappten Kasten erklärt, aber später sechsmal benutzt).
+- kap3_loesungen.tex Z. 356–359 (Aufgabe a:k3differenzen): alle vier Werte e^{±0,1}, e^{±0,01} jetzt mit neun Nachkommastellen (1,105170918; 0,904837418; 1,010050167; 0,990049834), auch in den Brüchen; die align-Umgebung hat deshalb vier Zeilen (D_0 jeweils in eigener Zeile mit `&\quad`). Vorher sechs bzw. sieben Stellen, aus denen die angegebenen 1,001668, 1,005017 und 1,0000167 nicht folgten.
+- kap3_stufen_b.tex Z. 852 (Hintergrund zum Rückwärtsmodus, Checkpointing): „… wachsen dann der Speicher und der Faktor, um den die Rechenzeit die einer einfachen Auswertung übersteigt, nur noch logarithmisch …“ (vorher „Speicher und Rechenzeit“; die Rechenzeit selbst wächst mindestens linear).
+- kap3_stufen_b.tex Z. 1020 (V-Kurve): „Rechts steigt die Kurve mit der Steigung $1$ … Links fällt sie mit der Steigung $-1$ …“ (vorher „fällt“/„steigt“ vertauscht, widersprüchlich zum Vorzeichen der Steigung).
+- kap3_stufen_b.tex Z. 1068 (eq:k3gradnum): Formel endet mit Punkt statt Komma, weil danach ein neuer Satz beginnt.
+- kap3_loesungen.tex Z. 156 (a:k3jacobilin b): „Bei einem Schritt um genau diesen Vektor ändert sich dann der erste Ausgang um $4\cdot2-1\cdot(-1)=9$.“ (vorher „… um 9 je Einheit dieser Richtung“, mehrdeutig, weil (2, −1) nicht normiert ist; je Längeneinheit wären es 9/√5).
+- Satzspiegel (nur Übersetzungen, sinngleich): kap3_loesungen Z. 33 in fr/tr `\quad` statt `\qquad`, tr `\text{kuadratik: }`; Z. 145 es « por », fr ohne « on a », tr „işler“, damit die Zeile nicht über den Rand ragt; zh `见图~\ref` statt `（图~\ref）` am Zeilenanfang (stufen Z. 770, stufen_b Z. 363); `\pagebreak` vor Kastentiteln am Seitenfuß: zh stufen vor dem Hintergrund „为什么要对路径求和“, tr stufen_b vor dem Beweis „Doğrusal fonksiyonların gradyanları“.

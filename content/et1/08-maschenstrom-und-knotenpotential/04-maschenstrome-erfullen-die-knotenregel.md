@@ -1,6 +1,8 @@
 ---
 title: Stufe 2: Maschenströme erfüllen die Knotenregel
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Maschenstrom- und Knotenpotentialverfahren
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Maschenstrom- und Knotenpotentialverfahren
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/maschenstrom-und-knotenpotentialverfahren
+knoten: Kapitel 8: Maschenstrom- und Knotenpotentialverfahren
 order: 1180400
 summary: Gesucht sind m Größen, aus denen alle Zweigströme folgen.
 tags: Fenster
@@ -35,7 +37,7 @@ Die Knotenregel ist dann für alle Werte der $I_\mu$ erfüllt. Umgekehrt lässt 
 :::
 
 :::herleitung Warum das immer geht
-⁠*Knotenregel.* In einer Masche ist jeder Knoten mit genau zwei Zweigen verbunden ([Teil 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)). Ihr Strom zählt am Knoten einmal zufließend und einmal abfließend, die Beiträge heben sich auf.
+⁠*Knotenregel.* In einer Masche ist jeder Knoten mit genau zwei Zweigen verbunden ([Kapitel 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)). Ihr Strom zählt am Knoten einmal zufließend und einmal abfließend, die Beiträge heben sich auf.
 
 ⁠*Vollständigkeit.* Man wählt einen Baum. Jeder Verbindungszweig schließt genau eine Masche, ihr Maschenstrom sei der Strom dieses Verbindungszweigs. Zieht man alle diese Kreisströme von der gegebenen Verteilung ab, erfüllt der Rest weiter die Knotenregel und ist in allen Verbindungszweigen null. Er kann nur im Baum fließen. Der Baum hat aber ein Ende, einen Knoten mit nur einem Baumzweig. Dort erzwingt die Knotenregel den Strom null. Man streicht diesen Zweig und wiederholt das. Der Rest ist überall null.
 :::

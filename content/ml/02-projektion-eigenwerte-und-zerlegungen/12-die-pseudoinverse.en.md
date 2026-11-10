@@ -1,10 +1,11 @@
 ---
 title: The pseudoinverse
 pfad: Computer Science / Machine Learning / Mathematical Foundations / Projection, Eigenvalues and Decompositions
-knoten: Foundations 2: Projection, Eigenvalues and Decompositions
+adresse: informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen
+knoten: Chapter 2: Projection, Eigenvalues and Decompositions
 nachschlagen: ja
 order: 15221200
-summary: In Foundations 1, only a square matrix with independent columns had an inverse.
+summary: In Chapter 1, only a square matrix with independent columns had an inverse.
 tags: left inverse, right inverse, pseudoinverse
 lang: en
 ---
@@ -12,7 +13,7 @@ lang: en
 <span class="anker" id="stufe-11"></span>
 
 :::zweck
-In [Foundations 1](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html), only a square matrix with independent columns had an inverse. This section gives every matrix a kind of inverse: one that inverts from the left when there are more equations than unknowns, one that inverts from the right when there are fewer, and one for all cases, the pseudoinverse. It always delivers the best approximate solution and, among several, the shortest.
+In [Chapter 1](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html), only a square matrix with independent columns had an inverse. This section gives every matrix a kind of inverse: one that inverts from the left when there are more equations than unknowns, one that inverts from the right when there are fewer, and one for all cases, the pseudoinverse. It always delivers the best approximate solution and, among several, the shortest.
 :::
 
 ### Left inverses
@@ -139,7 +140,7 @@ $$\lVert\mathbf{y}-\mathbf{A}\mathbf{x}\rVert^2=\lVert\mathbf{U}^{\top}\mathbf{y
 
 The second sum does not depend on $\mathbf{x}$. The first is zero, and thus as small as possible, exactly when $c_j=\beta_j/d_j$ for all $j\le r$; the $c_j$ with $j>r$ do not appear at all. So the best approximate solutions are exactly the $\mathbf{x}=\mathbf{V}\mathbf{c}$ with $c_j=\beta_j/d_j$ for $j\le r$ and arbitrary $c_{r+1},\dots,c_n$. Their length is $\lVert\mathbf{x}\rVert^2=\lVert\mathbf{c}\rVert^2=\sum_{j\le r}(\beta_j/d_j)^2+\sum_{j>r}c_j^2$, smallest for $c_j=0$ at $j>r$. This $\mathbf{c}$ is $\mathbf{D}^+\boldsymbol\beta$, so $\mathbf{x}=\mathbf{V}\mathbf{D}^+\mathbf{U}^{\top}\mathbf{y}=\mathbf{A}^+\mathbf{y}$.
 
-With independent columns there is, by Section [3.5](die-beste-naherungslosung.html#stufe-3-5), only one best approximate solution, $(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top}\mathbf{y}$; it must agree with $\mathbf{A}^+\mathbf{y}$, and it does so for every $\mathbf{y}$. With independent rows, by [Foundations 1, Section 13.4](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-4), the rank equals $m$, so the column space is all of $\mathbb{R}^m$, and the system is solvable for every $\mathbf{y}$; the best approximate solutions are the solutions, and by Section [11.2](#stufe-11-2) the shortest one is $\mathbf G\mathbf{y}$.
+With independent columns there is, by Section [3.5](die-beste-naherungslosung.html#stufe-3-5), only one best approximate solution, $(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top}\mathbf{y}$; it must agree with $\mathbf{A}^+\mathbf{y}$, and it does so for every $\mathbf{y}$. With independent rows, by [Chapter 1, Section 13.4](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-4), the rank equals $m$, so the column space is all of $\mathbb{R}^m$, and the system is solvable for every $\mathbf{y}$; the best approximate solutions are the solutions, and by Section [11.2](#stufe-11-2) the shortest one is $\mathbf G\mathbf{y}$.
 :::
 
 ::::beispiel [Worked example 1]

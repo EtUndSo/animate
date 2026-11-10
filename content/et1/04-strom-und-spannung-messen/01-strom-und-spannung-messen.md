@@ -1,7 +1,9 @@
 ---
 title: Überblick: Strom und Spannung messen
 kurz: Überblick
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Strom und Spannung messen
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Strom und Spannung messen
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-und-spannung-messen
+knoten: Kapitel 4: Strom und Spannung messen
 order: 1140100
 summary: Warum jedes Messgerät die Schaltung verändert und wie man trotzdem genau misst
 tags: Innenwiderstand, Messwerk, Messbereich

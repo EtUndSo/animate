@@ -1,6 +1,8 @@
 ---
 title: Stufe 6: Projektion und Abstand zur Geraden
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Vektoren und Skalarprodukt
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Vektoren und Skalarprodukt
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/vektoren-und-skalarprodukt
+knoten: Kapitel 8: Vektoren und Skalarprodukt
 order: 1280800
 summary: Wie weit ist ein Punkt von einer Geraden entfernt?
 tags: Abstand, Lotfußpunkt, Lot, Orthogonalprojektion

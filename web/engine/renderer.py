@@ -2,6 +2,7 @@ import numpy as np
 from .camera import Camera
 from .bezier import circle_points
 from .constants import RIGHT, UP
+from .text import text_style
 
 # Backend- AND dimension-agnostic rendering core. It walks the object tree, projects world
 # coordinates to pixels through a CAMERA, and calls a "painter" (drawing backend) for every
@@ -11,6 +12,8 @@ from .constants import RIGHT, UP
 #     draw_path(pixel_points, fill_color, fill_opacity, stroke_color, stroke_width, stroke_opacity,
 #               contours=None, dash=None)
 #     draw_text(text, px, py, font_size, color, opacity, align="center")   # text may be rich (richtext.py)
+#     A Text in the typewriter font or with raw text adds font="mono" / raw=True (text.text_style); an ordinary
+#     label passes only the seven classic arguments, so older painters keep working.
 
 _DEFAULT_CAMERA = Camera()
 _CENTER_COLOR = (0.90, 0.25, 0.20)       # the little "this is where it's measured from" dot
@@ -32,7 +35,7 @@ def _paint_leaf(painter, obj, camera):
     if text is not None:                                          # a Text object
         px, py = camera.project(obj.points[0])
         painter.draw_text(text, px, py, obj.font_size, obj.color, obj.stroke_opacity,
-                          getattr(obj, "align", "center"))
+                          getattr(obj, "align", "center"), **text_style(obj))
     elif len(obj.points) >= 4:                                    # a Bézier-based object
         pixel_points = [camera.project(p) for p in obj.points]
         painter.draw_path(pixel_points, _fill_of(obj), obj.fill_opacity,
@@ -108,7 +111,7 @@ def _paint_3d(painter, objectList, camera, axes_on_top=True):
             if getattr(o, "text", None) is not None:
                 px0, py0 = camera.project(o.points[0])
                 painter.draw_text(o.text, px0, py0, o.font_size, o.color, o.stroke_opacity,
-                                  getattr(o, "align", "center"))
+                                  getattr(o, "align", "center"), **text_style(o))
             else:
                 painter.draw_path(pix.tolist(), _fill_of(o), o.fill_opacity,
                                   o.color, o.stroke_width, o.stroke_opacity,

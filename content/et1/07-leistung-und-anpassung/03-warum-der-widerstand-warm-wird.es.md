@@ -1,6 +1,8 @@
 ---
 title: Etapa 2: Por qué se calienta la resistencia
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Potencia, adaptación y rendimiento
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Potencia, adaptación y rendimiento
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad
+knoten: Capítulo 7: Potencia, adaptación y rendimiento
 order: 1170300
 summary: En la resistencia, la energía abandona el circuito.
 tags: potencia nominal, hipérbola
@@ -13,7 +15,7 @@ lang: es
 En la resistencia, la energía abandona el circuito. Esta etapa muestra el mecanismo y el límite que se deriva de él.
 :::
 
-**La idea.** Si una resistencia está sometida a una tensión, en su interior hay un campo. Este acelera cada electrón libre. Tras el tiempo de vuelo $T$, el electrón choca y pierde de nuevo la velocidad dirigida ([Parte 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)). Su energía cinética pasa entonces a la red cristalina, los átomos vibran con más fuerza, y esa vibración es calor (fig. [2](#abb-2)). El electrón es solo el mensajero: detrás de la resistencia tiene la misma deriva que delante, porque la corriente y la sección son iguales. Ha perdido potencial sin hacerse más rápido. Así pues, toda la energía está en la red cristalina. La deriva en sí no cuenta: a 0,44 µ m/s ([Parte 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)), un electrón lleva $8{,}8\cdot10^{-44}$ J, y a 9 V cede $1{,}44\cdot10^{-18}$ J, $1{,}6\cdot10^{25}$ veces más.
+**La idea.** Si una resistencia está sometida a una tensión, en su interior hay un campo. Este acelera cada electrón libre. Tras el tiempo de vuelo $T$, el electrón choca y pierde de nuevo la velocidad dirigida ([capítulo 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)). Su energía cinética pasa entonces a la red cristalina, los átomos vibran con más fuerza, y esa vibración es calor (fig. [2](#abb-2)). El electrón es solo el mensajero: detrás de la resistencia tiene la misma deriva que delante, porque la corriente y la sección son iguales. Ha perdido potencial sin hacerse más rápido. Así pues, toda la energía está en la red cristalina. La deriva en sí no cuenta: a 0,44 µ m/s ([capítulo 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)), un electrón lleva $8{,}8\cdot10^{-44}$ J, y a 9 V cede $1{,}44\cdot10^{-18}$ J, $1{,}6\cdot10^{25}$ veces más.
 
 :::abbildung et1/k7stoss 2
 Modelo de choques para un electrón. Durante el vuelo crece el trabajo del campo (azul), que queda como energía cinética en el electrón. En el choque, el calor en la red salta en $W_1$ (rojo). Tras cada choque, ambas curvas están a la misma altura: todo pasa a la red.
@@ -36,11 +38,11 @@ $$P\le P_\mathrm{max}. \tag{2.2}$$
 ⁠**Cómo leerlo:** Una pequeña resistencia de película tiene $P_\mathrm{max}=250$ mW; un calefactor transforma 2 kW. La fórmula es cuadrática porque la corriente cuenta dos veces: el doble de corriente significa el doble de culombios por segundo, y por $U=R\,I$ cada uno cede el doble. A igual corriente (serie), el calor crece con $R$; a igual tensión (paralelo), disminuye con $R$. **Validez:** $P=U\,I$ vale siempre; las otras dos formas, solo para la resistencia óhmica ($R$ independiente de la corriente), y $U$ e $I$ deben corresponder a esa resistencia.
 
 :::herleitung De los choques a $U^2/R$
-En el modelo de la [Parte 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html), un electrón se acelera con $a=e\,E/m_\mathrm e$ y alcanza $v_\mathrm{max}=a\,T$ en el trayecto $s=\frac12a\,T^2$. El campo realiza el trabajo $e\,E\,s=m_\mathrm e\,a\,s=\frac12m_\mathrm e(a\,T)^2=W_1$, exactamente la energía cinética en el choque. En el volumen $A\,L$ hay $n\,A\,L$ electrones libres, y cada uno choca $1/T$ veces por segundo:
+En el modelo del [capítulo 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html), un electrón se acelera con $a=e\,E/m_\mathrm e$ y alcanza $v_\mathrm{max}=a\,T$ en el trayecto $s=\frac12a\,T^2$. El campo realiza el trabajo $e\,E\,s=m_\mathrm e\,a\,s=\frac12m_\mathrm e(a\,T)^2=W_1$, exactamente la energía cinética en el choque. En el volumen $A\,L$ hay $n\,A\,L$ electrones libres, y cada uno choca $1/T$ veces por segundo:
 
 $$P=n\,A\,L\,\frac{W_1}{T}=n\,A\,L\,\frac{e^2E^2\,T}{2\,m_\mathrm e}=\sigma\,E^2\,A\,L.$$
 
-Aquí, $\sigma=n\,e\,\mu$ y $\mu=e\,T/(2\,m_\mathrm e)$ ([Parte 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)). Con $U=E\,L$ y $R=L/(\sigma A)$ resulta $P=U^2/R$.
+Aquí, $\sigma=n\,e\,\mu$ y $\mu=e\,T/(2\,m_\mathrm e)$ ([capítulo 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)). Con $U=E\,L$ y $R=L/(\sigma A)$ resulta $P=U^2/R$.
 :::
 
 **Potencia nominal.** La temperatura sube hasta que el componente cede al entorno por segundo tanto calor como se genera en su interior. Más potencia significa, por tanto, mayor temperatura, y una temperatura demasiado alta lo destruye. En el diagrama de la fig. [3](#abb-3), el límite es la __hipérbola__ $I=P_\mathrm{max}/U$, y cada resistencia es una recta por el origen. Su intersección está en $U_\mathrm{max}=\sqrt{P_\mathrm{max}\,R}$ e $I_\mathrm{max}=\sqrt{P_\mathrm{max}/R}$.

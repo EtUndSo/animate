@@ -1,8 +1,10 @@
 ---
 title: Stufe 2: Rechenregeln und Geometrie im Raum
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Vektorprodukt und Basen
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Vektorprodukt und Basen
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/vektorprodukt-und-basen
+knoten: Kapitel 9: Vektorprodukt und Basen
 order: 1290400
-summary: Teil 8 setzt in der Hesseschen Normalform den Normalenvektor voraus.
+summary: Kapitel 8 setzt in der Hesseschen Normalform den Normalenvektor voraus.
 tags: Normalenvektor, Graßmannsche Entwicklungssatz, Jacobi-Identität, Schnittgerade
 lang: de
 ---
@@ -10,7 +12,7 @@ lang: de
 <span class="anker" id="stufe-2"></span>
 
 :::zweck
-[Teil 8](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/vektoren-und-skalarprodukt/vektoren-und-skalarprodukt.html) setzt in der Hesseschen Normalform den Normalenvektor voraus. Ist die Ebene durch zwei Richtungen gegeben, liefert ihn das Vektorprodukt. Dieselbe Idee gibt die Richtung der Schnittgeraden zweier Ebenen.
+[Kapitel 8](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/vektoren-und-skalarprodukt/vektoren-und-skalarprodukt.html) setzt in der Hesseschen Normalform den Normalenvektor voraus. Ist die Ebene durch zwei Richtungen gegeben, liefert ihn das Vektorprodukt. Dieselbe Idee gibt die Richtung der Schnittgeraden zweier Ebenen.
 :::
 
 **Die Idee.** Beide Aufgaben suchen einen Vektor senkrecht zu zwei bekannten Richtungen. Der __Normalenvektor__ einer Ebene steht senkrecht auf den beiden Richtungen, die sie aufspannen. Die Schnittgerade liegt in beiden Ebenen, ihre Richtung steht also senkrecht auf beiden Normalenvektoren. Vorher braucht man die Rechenregeln.
@@ -42,7 +44,7 @@ $\vec u\times\vec v=-(\vec v\times\vec u)$.
 :::beweis Komponenten vergleichen
 (ii): Vertauschen von $\vec u$ und $\vec v$ in [(1.1)](das-vektorprodukt.html#gl-1-1) kehrt jede Komponente um.
 
-(i) „$\Rightarrow$“: Bei Abhängigkeit gibt es nach [Teil 8](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/vektoren-und-skalarprodukt/vektoren-und-skalarprodukt.html) ein $\lambda$ mit $\vec u=\lambda\vec v$ oder ein $\mu$ mit $\vec v=\mu\vec u$. Im ersten Fall ist die erste Komponente $\lambda v_2v_3-\lambda v_3v_2=0$, die anderen ebenso. Der zweite Fall folgt mit (ii).
+(i) „$\Rightarrow$“: Bei Abhängigkeit gibt es nach [Kapitel 8](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/vektoren-und-skalarprodukt/vektoren-und-skalarprodukt.html) ein $\lambda$ mit $\vec u=\lambda\vec v$ oder ein $\mu$ mit $\vec v=\mu\vec u$. Im ersten Fall ist die erste Komponente $\lambda v_2v_3-\lambda v_3v_2=0$, die anderen ebenso. Der zweite Fall folgt mit (ii).
 
 „$\Leftarrow$“: Sei $\vec u\times\vec v=\vec0$. Für $\vec v=\vec0$ sind die Vektoren abhängig. Sei also $\vec v\ne\vec0$, zum Beispiel $v_3\ne0$ (die anderen Fälle gehen gleich). Die erste Komponente gibt $u_2=\frac{u_3}{v_3}v_2$, die zweite $u_1=\frac{u_3}{v_3}v_1$, und $u_3=\frac{u_3}{v_3}v_3$ gilt immer. Mit $\lambda:=u_3/v_3$ ist $\vec u=\lambda\vec v$.
 :::
@@ -69,7 +71,7 @@ $$\vec n=\pm\frac{\vec v_1\times\vec v_2}{\|\vec v_1\times\vec v_2\|},\qquad\bet
 und das Vorzeichen wird so gewählt, dass $\beta\ge0$ ist.
 
 ::::beispiel
-$\vec w=(3,0,0)$, $\vec v_1=(1,0,-1)$, $\vec v_2=(-1,2,0)$ geben $\vec v_1\times\vec v_2=(2,1,2)$ mit Länge 3, also $\vec n=\frac13(2,1,2)$ und $\beta=2$. Das ist die Ebene $H$ aus [Teil 8](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/vektoren-und-skalarprodukt/vektoren-und-skalarprodukt.html).
+$\vec w=(3,0,0)$, $\vec v_1=(1,0,-1)$, $\vec v_2=(-1,2,0)$ geben $\vec v_1\times\vec v_2=(2,1,2)$ mit Länge 3, also $\vec n=\frac13(2,1,2)$ und $\beta=2$. Das ist die Ebene $H$ aus [Kapitel 8](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/vektoren-und-skalarprodukt/vektoren-und-skalarprodukt.html).
 ::::
 
 ⁠**Grenzfall:** Für $\vec v_2=-2\vec v_1$ ist der Nenner 0, die Menge ist nur eine Gerade.

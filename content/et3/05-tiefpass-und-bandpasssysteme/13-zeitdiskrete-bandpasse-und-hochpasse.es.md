@@ -1,6 +1,8 @@
 ---
 title: Etapa 12: Paso banda y paso alto en tiempo discreto
-pfad: Ingeniería eléctrica / 3.er semestre / Señales y sistemas / Sistemas paso bajo y paso banda
+pfad: Ingeniería eléctrica / 3.er semestre / ET3 – Fundamentos de ingeniería eléctrica 3: señales y sistemas / Sistemas paso bajo y paso banda
+adresse: elektrotechnik/3-semester/signale-und-systeme/tiefpass-und-bandpasssysteme
+knoten: Capítulo 5: Sistemas paso bajo y paso banda
 order: 3251300
 summary: Los filtros paso banda y paso alto digitales se obtienen a partir de un paso bajo mediante modulación.
 tags: paso alto
@@ -30,7 +32,7 @@ $$h_{\mathrm{HP}}(n)=(-1)^n\,h_{\mathrm{TP}}(n). \tag{12.2}$$
 :::aufgabe Ejercicio 11 ★ Paso alto a partir de la media móvil
 <span class="anker" id="aufg-11"></span>
 
-La media móvil $h_{\mathrm{TP}}=\frac13(1,1,1)$ ([parte 4](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme/abtastung-und-zeitdiskrete-systeme.html)) es un paso bajo sencillo.
+La media móvil $h_{\mathrm{TP}}=\frac13(1,1,1)$ ([capítulo 4](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme/abtastung-und-zeitdiskrete-systeme.html)) es un paso bajo sencillo.
 
 <ol class="al">
 

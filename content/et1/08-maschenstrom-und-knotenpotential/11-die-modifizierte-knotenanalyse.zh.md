@@ -1,8 +1,10 @@
 ---
 title: 第 9 阶段：改进节点法
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 网孔电流法与节点电位法
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 网孔电流法与节点电位法
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/maschenstrom-und-knotenpotentialverfahren
+knoten: 第 8 章：网孔电流法与节点电位法
 order: 1181100
-summary: 理想电压源没有电导，也没有电流源形式（第 5 部分）。本阶段去掉最后这个限制。SPICE 就是这样计算每个电路的。
+summary: 理想电压源没有电导，也没有电流源形式（第 5 章）。本阶段去掉最后这个限制。SPICE 就是这样计算每个电路的。
 tags: 电流增益, 特征频率
 lang: zh
 ---
@@ -10,7 +12,7 @@ lang: zh
 <span class="anker" id="stufe-9"></span>
 
 :::zweck
-理想电压源没有电导，也没有电流源形式（[第 5 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)）。本阶段去掉最后这个限制。SPICE 就是这样计算每个电路的。
+理想电压源没有电导，也没有电流源形式（[第 5 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)）。本阶段去掉最后这个限制。SPICE 就是这样计算每个电路的。
 :::
 
 **基本思路。** 电压源确定两个节点之间的电压。它的电流要由网络才能确定，所以是未知的。把它取作附加的未知量。附加的未知量需要附加的方程，而电源本身就提供了这个方程：电位差等于 $U_\mathrm q$。这样，每个电压源恰好带回一个网孔方程，其余一切仍是节点分析（图 [9](#abb-9)）。

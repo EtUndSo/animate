@@ -1,7 +1,8 @@
 ---
 title: Key points so far
 pfad: Computer Science / Machine Learning / Mathematical Foundations / Projection, Eigenvalues and Decompositions
-knoten: Foundations 2: Projection, Eigenvalues and Decompositions
+adresse: informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen
+knoten: Chapter 2: Projection, Eigenvalues and Decompositions
 nachschlagen: ja
 order: 15221400
 summary: Nearest points, natural directions and the building blocks of a matrix

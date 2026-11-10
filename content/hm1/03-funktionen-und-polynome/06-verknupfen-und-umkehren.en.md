@@ -1,6 +1,8 @@
 ---
 title: Stage 4: Combining and inverting
-pfad: Electrical Engineering / 1st Semester / Higher Mathematics 1 / Functions and Polynomials
+pfad: Electrical Engineering / 1st Semester / HöMa1 – Higher Mathematics 1 / Functions and Polynomials
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/funktionen-und-polynome
+knoten: Chapter 3: Functions and Polynomials
 order: 1230600
 summary: Stage 3 says when f(x)=y has exactly one solution.
 tags: sum, difference, product, quotient, composition, nth root

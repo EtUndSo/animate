@@ -1,6 +1,8 @@
 ---
 title: Etapa 7: La realimentación negativa fija el punto de trabajo
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / El transistor bipolar
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / El transistor bipolar
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor
+knoten: Capítulo 10: El transistor bipolar
 order: 1200900
 summary: El punto de trabajo de la etapa 5 depende de B y de U BE , y ambos son poco fiables.
 tags: realimentación de corriente, realimentación de tensión
@@ -41,7 +43,7 @@ Realimentación de tensión con $R_\mathrm{B}$ del colector a la base:
 $$I_\mathrm{C}=\frac{U_\mathrm{CC}-U_\mathrm{BE}}{R_\mathrm{C}\bigl(1+\frac1B\bigr)+\frac{R_\mathrm{B}}{B}}\approx\frac{U_\mathrm{CC}-U_\mathrm{BE}}{R_\mathrm{C}+\frac{R_\mathrm{B}}{B}},\qquad\text{para } R_\mathrm{C}\gg\frac{R_\mathrm{B}}{B}:\ I_\mathrm{C}\approx\frac{U_\mathrm{CC}-U_\mathrm{BE}}{R_\mathrm{C}}. \tag{7.2}$$
 :::
 
-⁠**Cómo leerlo:** $U_\mathrm{q}$ y $R_\mathrm{i}$ describen el divisor como fuente de tensión equivalente ([Parte 5](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)): $U_\mathrm{q}$ es su tensión de circuito abierto, $R_\mathrm{i}$ su resistencia interna. En el denominador, $R_\mathrm{E}$ actúa casi por completo, $R_\mathrm{i}$ solo dividida por $B$. **Validez:** región activa. Hay que comprobarlo al final. $U_\mathrm{BE}$ es aquí un valor fijo; la última aproximación de [(7.1)](#gl-7-1) necesita una $U_\mathrm{q}$ grande.
+⁠**Cómo leerlo:** $U_\mathrm{q}$ y $R_\mathrm{i}$ describen el divisor como fuente de tensión equivalente ([capítulo 5](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)): $U_\mathrm{q}$ es su tensión de circuito abierto, $R_\mathrm{i}$ su resistencia interna. En el denominador, $R_\mathrm{E}$ actúa casi por completo, $R_\mathrm{i}$ solo dividida por $B$. **Validez:** región activa. Hay que comprobarlo al final. $U_\mathrm{BE}$ es aquí un valor fijo; la última aproximación de [(7.1)](#gl-7-1) necesita una $U_\mathrm{q}$ grande.
 
 :::herleitung Las fórmulas a partir de las mallas
 El divisor se convierte en la fuente $U_\mathrm{q}$ con $R_\mathrm{i}$ en serie. Con $I_\mathrm{E}=(1+B)I_\mathrm{B}$, la malla por la base y el emisor es

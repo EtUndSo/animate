@@ -1,7 +1,8 @@
 ---
 title: Lineare Abbildungen
 pfad: Informatik / Machine Learning / Mathematische Grundlagen / Vektoren und Matrizen
-knoten: Grundlagen 1: Vektoren und Matrizen
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Kapitel 1: Vektoren und Matrizen
 nachschlagen: ja
 order: 15210900
 summary: Eine Matrix ist nicht nur eine Tabelle, sondern auch eine Rechenvorschrift, die aus einem Vektor einen anderen macht.
@@ -19,7 +20,7 @@ Eine Matrix ist nicht nur eine Tabelle, sondern auch eine Rechenvorschrift, die 
 
 <span class="anker" id="stufe-8-1"></span>
 
-Viele Rechnungen machen aus einer Liste von Zahlen eine andere Liste. Aus den Merkmalen einer Wohnung werden Kaufpreis und Miete geschätzt; aus den Abtastwerten eines Signals wird ein gefiltertes Signal. Eine solche Vorschrift heißt __Abbildung__ $f\colon\mathbb{R}^n\to\mathbb{R}^m$: Sie ordnet jedem Vektor $\mathbf{x}\in\mathbb{R}^n$ einen Vektor $f(\mathbf{x})\in\mathbb{R}^m$ zu.
+Viele Rechnungen machen aus einer Liste von Zahlen eine andere Liste. Aus den Merkmalen einer Wohnung werden Kaufpreis und Miete geschätzt; aus den Ständen eines Wasserzählers wird der Verbrauch in jedem Monat. Eine solche Vorschrift heißt __Abbildung__ $f\colon\mathbb{R}^n\to\mathbb{R}^m$: Sie ordnet jedem Vektor $\mathbf{x}\in\mathbb{R}^n$ einen Vektor $f(\mathbf{x})\in\mathbb{R}^m$ zu.
 
 Das Matrix-Vektor-Produkt hat zwei besondere Eigenschaften (Unterabschnitt [7.1](das-matrix-vektor-produkt.html#stufe-7-1)): $\mathbf{A}(\mathbf{u}+\mathbf{v})=\mathbf{A}\mathbf{u}+\mathbf{A}\mathbf{v}$ und $\mathbf{A}(c\,\mathbf{x})=c\,\mathbf{A}\mathbf{x}$. Es ist gleichgültig, ob man zuerst addiert oder zuerst abbildet, und ebenso, ob man zuerst vervielfacht oder zuerst abbildet. In der Ebene sieht man diese Eigenschaften an einem Gitter: Eine solche Abbildung macht aus Geraden wieder Geraden oder einzelne Punkte, lässt den Nullpunkt an seinem Platz und macht aus parallelen, gleichabständigen Gitterlinien wieder parallele, gleichabständige Linien oder Punkte.
 
@@ -40,8 +41,8 @@ Die Abbildung $f(\mathbf{x})=(x_1+x_2,\ 2x_1)^{\top}$ von $\mathbb{R}^2$ nach $\
 
 ⁠**Kurz gesagt:** Eine Abbildung ist linear, wenn sie Summen und Vielfache erhält; sie bildet dann Linearkombinationen auf Linearkombinationen ab.
 
-:::hintergrund Dieselbe Linearität wie bei LTI-Systemen
-Aus Signale und Systeme kennt man das Überlagerungsprinzip: Ein lineares System antwortet auf die Summe zweier Eingangssignale mit der Summe der beiden Antworten und auf ein verstärktes Signal mit der entsprechend verstärkten Antwort. Das sind genau die Bedingungen [(8.1)](#gl-8-1), nur für Signale statt für Zahlenlisten. Ein abgetastetes Signal endlicher Länge ist ein Vektor (Unterabschnitt [1.3](vektoren-daten-als-zahlenlisten.html#stufe-1-3)), und ein lineares System, das solche Signale verarbeitet, ist eine lineare Abbildung.
+:::hintergrund Linearität an der Supermarktkasse
+Die Kasse eines Supermarkts rechnet linear. Sie macht aus der Liste der gekauften Mengen den Betrag, und legt man zwei Einkäufe zusammen aufs Band, kostet das die Summe der beiden Beträge; kauft man von allem das Doppelte, kostet es das Doppelte. Das sind genau die Bedingungen [(8.1)](#gl-8-1). Nicht linear wäre ein Tarif mit Mengenrabatt, bei dem das Doppelte weniger als den doppelten Preis kostet, oder einer mit fester Grundgebühr: Dort kostet der leere Einkauf schon etwas, und das verletzt $f(\mathbf{0})=\mathbf{0}$. Auch eine Tonaufnahme (Unterabschnitt [1.3](vektoren-daten-als-zahlenlisten.html#stufe-1-3)) wird oft linear bearbeitet: Wer zwei Aufnahmen erst mischt und dann leiser macht, erhält dasselbe, wie wenn er jede für sich leiser macht und dann mischt.
 :::
 
 ### Jede lineare Abbildung ist eine Matrix
@@ -75,16 +76,16 @@ $$\mathbf{A}=\begin{pmatrix}1&1\\2&0\end{pmatrix},\qquad\text{und zur Probe}\qqu
 
 ⁠**Kurz gesagt:** Lineare Abbildungen und Matrizen sind dasselbe; die Spalte $j$ der Matrix ist das Bild des Einheitsvektors $\mathbf{e}_j$.
 
-:::hintergrund Ein Filter als Matrix: Die Spalten sind die verschobenen Impulsantworten
-Ein zeitdiskretes Filter berechne $y[n]=x[n]+0{,}5\,x[n-1]$, und es verarbeite Signale aus drei Abtastwerten, wobei vor dem ersten Abtastwert nichts anliegt. Das Filter ist linear, also hat es eine Matrix. Nach [(8.2)](#gl-8-2) ist ihre Spalte $j$ die Antwort auf den Einheitsvektor $\mathbf{e}_j$, also auf einen einzelnen Einheitsimpuls an der Stelle $j$. Diese Antwort ist die Impulsantwort $(1;\,0{,}5)$, um $j-1$ Takte verschoben:
+:::hintergrund Eine Nachwirkung als Matrix: Die Spalten sind verschobene Antworten
+In einem Kaminofen gibt ein Holzscheit seine Wärme in der Stunde, in der es brennt, voll ab und in der Stunde danach durch die Glut noch zur Hälfte; das ist ein stark vereinfachtes Bild. Legt man in der Stunde $n$ genau $x[n]$ Scheite nach, so ist die Wärme in dieser Stunde, gemessen in Scheiten, $y[n]=x[n]+0{,}5\,x[n-1]$. Betrachtet werden drei Stunden, vor der ersten brannte nichts. Die Rechnung ist linear, also hat sie eine Matrix. Nach [(8.2)](#gl-8-2) ist ihre Spalte $j$ die Antwort auf den Einheitsvektor $\mathbf{e}_j$, also auf ein einzelnes Scheit in der Stunde $j$. Diese Antwort ist $(1;\,0{,}5)$, um $j-1$ Stunden verschoben:
 
 $$\mathbf{A}=\begin{pmatrix}1&0&0\\0{,}5&1&0\\0&0{,}5&1\end{pmatrix}.$$
 
-Die dritte Spalte enthält nur noch die $1$, weil das Signal nach drei Abtastwerten endet. Für $\mathbf{x}=(2,\,4,\,6)^{\top}$ liefert die Matrix $(2,\,5,\,8)^{\top}$, dasselbe wie die Filterformel. Jede Faltung eines endlichen Signals ist auf diese Weise ein Matrix-Vektor-Produkt, und der Satz oben erklärt, warum: Kennt man die Antwort auf jeden einzelnen Impuls, kennt man das ganze System.
+Die dritte Spalte enthält nur noch die $1$, weil die Betrachtung nach drei Stunden endet. Für $\mathbf{x}=(2,\,4,\,6)^{\top}$ liefert die Matrix $(2,\,5,\,8)^{\top}$, dasselbe wie die Formel. Jede solche Nachwirkung mit festen Gewichten, in der Mathematik eine Faltung genannt, ist auf diese Weise ein Matrix-Vektor-Produkt, und der Satz oben erklärt, warum: Kennt man die Antwort auf jedes einzelne Scheit, kennt man die Antwort auf jede Folge von Scheiten.
 :::
 
 :::hintergrund Daten oder Abbildung? Zwei Rollen derselben Tabelle
-Eine Matrix kann eine Sammlung von Daten sein, wie die Datenmatrix $\mathbf{X}$, oder eine Abbildung, wie die Matrix eines Filters. Formal ist beides dasselbe, und manchmal hat dieselbe Matrix beide Rollen zugleich: Die Datenmatrix ist auch die Abbildung $\mathbf{w}\mapsto\mathbf{X}\mathbf{w}$, die aus Gewichten Vorhersagen macht. Sie bildet den $\mathbb{R}^d$ der Gewichte in den $\mathbb{R}^N$ der Vorhersagelisten ab. Beim Lesen einer Formel lohnt deshalb die Frage, in welcher Rolle eine Matrix gerade auftritt.
+Eine Matrix kann eine Sammlung von Daten sein, wie die Datenmatrix $\mathbf{X}$, oder eine Abbildung, wie die Matrix des Kaminofens im Kasten davor. Formal ist beides dasselbe, und manchmal hat dieselbe Matrix beide Rollen zugleich: Die Datenmatrix ist auch die Abbildung $\mathbf{w}\mapsto\mathbf{X}\mathbf{w}$, die aus Gewichten Vorhersagen macht. Sie bildet den $\mathbb{R}^d$ der Gewichte in den $\mathbb{R}^N$ der Vorhersagelisten ab. Beim Lesen einer Formel lohnt deshalb die Frage, in welcher Rolle eine Matrix gerade auftritt.
 :::
 
 ### Lineare Abbildungen der Ebene
@@ -282,32 +283,32 @@ Das Bild ist das Doppelte der ersten Spalte, ein Pfeil der Länge $2$ unter $30^
 :::
 :::
 
-:::aufgabe Aufgabe 20 ★★ Ein Differenzierer als Matrix
+:::aufgabe Aufgabe 20 ★★ Der Verbrauch aus Zählerständen als Matrix
 <span class="anker" id="aufg-20"></span>
 
-Ein Filter berechnet aus einem Signal mit vier Abtastwerten die Differenzen $y[n]=x[n]-x[n-1]$, wobei vor dem ersten Abtastwert $x[0]=0$ angenommen wird, $n=1,\dots,4$.
+Ein neuer Wasserzähler zeigt am Ende von vier Monaten die Stände $x[1],\dots,x[4]$ in Kubikmetern; vor dem ersten Monat stand er auf $x[0]=0$. Der Verbrauch im Monat $n$ ist die Differenz $y[n]=x[n]-x[n-1]$, $n=1,\dots,4$.
 
 <ol class="al">
 
 <li>
 
-Warum ist das Filter linear? Stelle seine $4\times4$-Matrix auf, indem du die Antworten auf die vier Einheitsimpulse berechnest.
+Warum ist diese Rechnung linear? Stelle ihre $4\times4$-Matrix auf, indem du die Antworten auf die vier Einheitsvektoren berechnest.
 
 </li>
 
 <li>
 
-Berechne die Antwort auf $\mathbf{x}=(1,\,2,\,4,\,7)^{\top}$ mit der Matrix und mit der Formel.
+Berechne den Verbrauch zu den Ständen $\mathbf{x}=(1,\,2,\,4,\,7)^{\top}$ mit der Matrix und mit der Formel.
 
 </li>
 
 </ol>
 
 :::loesung
-(a) Jede Ausgangskomponente $y[n]=x[n]-x[n-1]$ ist eine feste Summe von Vielfachen der Eingangskomponenten, also ist das Filter linear. Die Antwort auf den Impuls an der Stelle $1$, $\mathbf{x}=\mathbf{e}_1=(1,0,0,0)^{\top}$, ist $(1,\,-1,\,0,\,0)^{\top}$: Erst springt das Signal auf $1$, dann wieder auf $0$. Ebenso antwortet das Filter auf $\mathbf{e}_2$ mit $(0,\,1,\,-1,\,0)^{\top}$, auf $\mathbf{e}_3$ mit $(0,\,0,\,1,\,-1)^{\top}$ und auf $\mathbf{e}_4$ mit $(0,\,0,\,0,\,1)^{\top}$; bei diesem letzten Impuls endet das Signal, bevor er wieder abfällt. Diese Antworten sind die Spalten:
+(a) Jede Komponente $y[n]=x[n]-x[n-1]$ des Ergebnisses ist eine feste Summe von Vielfachen der Komponenten von $\mathbf{x}$, also ist die Rechnung linear. Die Antwort auf die einzelne $1$ an der Stelle $1$, $\mathbf{x}=\mathbf{e}_1=(1,0,0,0)^{\top}$, ist $(1,\,-1,\,0,\,0)^{\top}$: Erst steigt der Stand auf $1$, dann fällt er wieder auf $0$. Ebenso antwortet die Rechnung auf $\mathbf{e}_2$ mit $(0,\,1,\,-1,\,0)^{\top}$, auf $\mathbf{e}_3$ mit $(0,\,0,\,1,\,-1)^{\top}$ und auf $\mathbf{e}_4$ mit $(0,\,0,\,0,\,1)^{\top}$; bei dieser letzten $1$ enden die vier Monate, bevor der Stand wieder abfällt. Diese Antworten sind die Spalten:
 
 $$\mathbf{A}=\begin{pmatrix}1&0&0&0\\-1&1&0&0\\0&-1&1&0\\0&0&-1&1\end{pmatrix}.$$
 
-(b) Mit der Matrix: $\mathbf{A}\,(1,2,4,7)^{\top}=(1,\ -1+2,\ -2+4,\ -4+7)^{\top}=(1,\,1,\,2,\,3)^{\top}$. Mit der Formel: $y[1]=1-0=1$, $y[2]=2-1=1$, $y[3]=4-2=2$, $y[4]=7-4=3$.
+(b) Mit der Matrix: $\mathbf{A}\,(1,2,4,7)^{\top}=(1,\ -1+2,\ -2+4,\ -4+7)^{\top}=(1,\,1,\,2,\,3)^{\top}$. Mit der Formel: $y[1]=1-0=1$, $y[2]=2-1=1$, $y[3]=4-2=2$, $y[4]=7-4=3$. In den vier Monaten wurden also $1$, $1$, $2$ und $3$ Kubikmeter Wasser verbraucht.
 :::
 :::

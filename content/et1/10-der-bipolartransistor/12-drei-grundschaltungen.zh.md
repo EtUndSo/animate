@@ -1,6 +1,8 @@
 ---
 title: 第 10 阶段：三种基本电路
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 双极型晶体管
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 双极型晶体管
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor
+knoten: 第 10 章：双极型晶体管
 order: 1201200
 summary: 输入和输出各需要两个接线端，而晶体管总共只有三个。所以有一个接线端对信号来说是公共的。本阶段算出这三种可能。
 tags: 共发射极电路, 共集电极电路, 射极跟随器, 共基极电路, 电压摆幅, 缓冲器

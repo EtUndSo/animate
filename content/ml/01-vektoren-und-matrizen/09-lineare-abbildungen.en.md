@@ -1,7 +1,8 @@
 ---
 title: Linear maps
 pfad: Computer Science / Machine Learning / Mathematical Foundations / Vectors and Matrices
-knoten: Foundations 1: Vectors and Matrices
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Chapter 1: Vectors and Matrices
 nachschlagen: ja
 order: 15210900
 summary: A matrix is not only a table but also a rule of calculation that turns one vector into another.
@@ -19,7 +20,7 @@ A matrix is not only a table but also a rule of calculation that turns one vecto
 
 <span class="anker" id="stufe-8-1"></span>
 
-Many calculations turn one list of numbers into another list. From the features of an apartment, the purchase price and the rent are estimated; from the samples of a signal, a filtered signal is computed. Such a rule is called a __map__ $f\colon\mathbb{R}^n\to\mathbb{R}^m$: it assigns to each vector $\mathbf{x}\in\mathbb{R}^n$ a vector $f(\mathbf{x})\in\mathbb{R}^m$.
+Many calculations turn one list of numbers into another list. From the features of an apartment, the purchase price and the rent are estimated; from the readings of a water meter, the consumption in each month is computed. Such a rule is called a __map__ $f\colon\mathbb{R}^n\to\mathbb{R}^m$: it assigns to each vector $\mathbf{x}\in\mathbb{R}^n$ a vector $f(\mathbf{x})\in\mathbb{R}^m$.
 
 The matrix–vector product has two special properties (Subsection [7.1](das-matrix-vektor-produkt.html#stufe-7-1)): $\mathbf{A}(\mathbf{u}+\mathbf{v})=\mathbf{A}\mathbf{u}+\mathbf{A}\mathbf{v}$ and $\mathbf{A}(c\,\mathbf{x})=c\,\mathbf{A}\mathbf{x}$. It makes no difference whether you add first or map first, and likewise whether you take a multiple first or map first. In the plane you can see these properties on a grid: such a map turns straight lines into straight lines or single points, leaves the origin in place and turns parallel, evenly spaced grid lines into parallel, evenly spaced lines or points.
 
@@ -40,8 +41,8 @@ The map $f(\mathbf{x})=(x_1+x_2,\ 2x_1)^{\top}$ from $\mathbb{R}^2$ to $\mathbb{
 
 ⁠**In short:** A map is linear if it preserves sums and multiples; it then maps linear combinations to linear combinations.
 
-:::hintergrund The same linearity as in LTI systems
-From signals and systems you know the superposition principle: a linear system responds to the sum of two input signals with the sum of the two responses, and to an amplified signal with the correspondingly amplified response. These are exactly the conditions [(8.1)](#gl-8-1), only for signals instead of lists of numbers. A sampled signal of finite length is a vector (Subsection [1.3](vektoren-daten-als-zahlenlisten.html#stufe-1-3)), and a linear system that processes such signals is a linear map.
+:::hintergrund Linearity at the supermarket checkout
+A supermarket checkout calculates linearly. It turns the list of quantities purchased into the amount due, and if you put two purchases on the belt together, this costs the sum of the two amounts; if you buy twice as much of everything, it costs twice as much. These are exactly the conditions [(8.1)](#gl-8-1). A pricing scheme with a volume discount, where twice the quantity costs less than twice the price, would not be linear, nor would one with a fixed base fee: there, an empty purchase already costs something, and that violates $f(\mathbf{0})=\mathbf{0}$. An audio recording (Subsection [1.3](vektoren-daten-als-zahlenlisten.html#stufe-1-3)) is also often processed linearly: if you first mix two recordings and then make the result quieter, you get the same as if you make each one quieter on its own and then mix them.
 :::
 
 ### Every linear map is a matrix
@@ -75,16 +76,16 @@ $$\mathbf{A}=\begin{pmatrix}1&1\\2&0\end{pmatrix},\qquad\text{and as a check}\qq
 
 ⁠**In short:** Linear maps and matrices are the same thing; column $j$ of the matrix is the image of the unit vector $\mathbf{e}_j$.
 
-:::hintergrund A filter as a matrix: the columns are the shifted impulse responses
-Suppose a discrete-time filter computes $y[n]=x[n]+0.5\,x[n-1]$ and processes signals of three samples, with no input before the first sample. The filter is linear, so it has a matrix. By [(8.2)](#gl-8-2), its column $j$ is the response to the unit vector $\mathbf{e}_j$, that is, to a single unit impulse at position $j$. This response is the impulse response $(1,\,0.5)$, shifted by $j-1$ time steps:
+:::hintergrund An aftereffect as a matrix: the columns are shifted responses
+In a wood stove, a log gives off its full heat in the hour in which it burns and, through the embers, half of it in the following hour; this is a greatly simplified picture. If you add exactly $x[n]$ logs in hour $n$, the heat in that hour, measured in logs, is $y[n]=x[n]+0.5\,x[n-1]$. Three hours are considered, and nothing was burning before the first. The calculation is linear, so it has a matrix. By [(8.2)](#gl-8-2), its column $j$ is the response to the unit vector $\mathbf{e}_j$, that is, to a single log in hour $j$. This response is $(1,\,0.5)$, shifted by $j-1$ hours:
 
 $$\mathbf{A}=\begin{pmatrix}1&0&0\\0.5&1&0\\0&0.5&1\end{pmatrix}.$$
 
-The third column contains only the $1$, because the signal ends after three samples. For $\mathbf{x}=(2,\,4,\,6)^{\top}$ the matrix gives $(2,\,5,\,8)^{\top}$, the same as the filter formula. In this way every convolution of a finite signal is a matrix–vector product, and the theorem above explains why: if you know the response to every single impulse, you know the whole system.
+The third column contains only the $1$, because the period considered ends after three hours. For $\mathbf{x}=(2,\,4,\,6)^{\top}$ the matrix gives $(2,\,5,\,8)^{\top}$, the same as the formula. In this way every such aftereffect with fixed weights, called a convolution in mathematics, is a matrix–vector product, and the theorem above explains why: if you know the response to every single log, you know the response to every sequence of logs.
 :::
 
 :::hintergrund Data or map? Two roles of the same table
-A matrix can be a collection of data, like the data matrix $\mathbf{X}$, or a map, like the matrix of a filter. Formally the two are the same, and sometimes the same matrix plays both roles at once: the data matrix is also the map $\mathbf{w}\mapsto\mathbf{X}\mathbf{w}$ that turns weights into predictions. It maps the $\mathbb{R}^d$ of the weights into the $\mathbb{R}^N$ of the lists of predictions. When reading a formula, it is therefore worth asking in which role a matrix is appearing.
+A matrix can be a collection of data, like the data matrix $\mathbf{X}$, or a map, like the matrix of the wood stove in the previous box. Formally the two are the same, and sometimes the same matrix plays both roles at once: the data matrix is also the map $\mathbf{w}\mapsto\mathbf{X}\mathbf{w}$ that turns weights into predictions. It maps the $\mathbb{R}^d$ of the weights into the $\mathbb{R}^N$ of the lists of predictions. When reading a formula, it is therefore worth asking in which role a matrix is appearing.
 :::
 
 ### Linear maps of the plane
@@ -282,32 +283,32 @@ The image is twice the first column, an arrow of length $2$ at an angle of $30^\
 :::
 :::
 
-:::aufgabe Exercise 20 ★★ A differencer as a matrix
+:::aufgabe Exercise 20 ★★ Consumption from meter readings as a matrix
 <span class="anker" id="aufg-20"></span>
 
-A filter computes the differences $y[n]=x[n]-x[n-1]$ from a signal with four samples, where $x[0]=0$ is assumed before the first sample, $n=1,\dots,4$.
+A new water meter shows the readings $x[1],\dots,x[4]$ in cubic meters at the end of four months; before the first month it stood at $x[0]=0$. The consumption in month $n$ is the difference $y[n]=x[n]-x[n-1]$, $n=1,\dots,4$.
 
 <ol class="al">
 
 <li>
 
-Why is the filter linear? Set up its $4\times4$ matrix by computing the responses to the four unit impulses.
+Why is this calculation linear? Set up its $4\times4$ matrix by computing the responses to the four unit vectors.
 
 </li>
 
 <li>
 
-Compute the response to $\mathbf{x}=(1,\,2,\,4,\,7)^{\top}$ with the matrix and with the formula.
+Compute the consumption for the readings $\mathbf{x}=(1,\,2,\,4,\,7)^{\top}$ with the matrix and with the formula.
 
 </li>
 
 </ol>
 
 :::loesung
-(a) Each output component $y[n]=x[n]-x[n-1]$ is a fixed sum of multiples of the input components, so the filter is linear. The response to the impulse at position $1$, $\mathbf{x}=\mathbf{e}_1=(1,0,0,0)^{\top}$, is $(1,\,-1,\,0,\,0)^{\top}$: first the signal jumps to $1$, then back to $0$. Likewise, the filter responds to $\mathbf{e}_2$ with $(0,\,1,\,-1,\,0)^{\top}$, to $\mathbf{e}_3$ with $(0,\,0,\,1,\,-1)^{\top}$ and to $\mathbf{e}_4$ with $(0,\,0,\,0,\,1)^{\top}$; for this last impulse, the signal ends before the impulse drops back. These responses are the columns:
+(a) Each component $y[n]=x[n]-x[n-1]$ of the result is a fixed sum of multiples of the components of $\mathbf{x}$, so the calculation is linear. The response to the single $1$ at position $1$, $\mathbf{x}=\mathbf{e}_1=(1,0,0,0)^{\top}$, is $(1,\,-1,\,0,\,0)^{\top}$: first the reading rises to $1$, then it falls back to $0$. Likewise, the calculation responds to $\mathbf{e}_2$ with $(0,\,1,\,-1,\,0)^{\top}$, to $\mathbf{e}_3$ with $(0,\,0,\,1,\,-1)^{\top}$ and to $\mathbf{e}_4$ with $(0,\,0,\,0,\,1)^{\top}$; for this last $1$, the four months end before the reading drops back. These responses are the columns:
 
 $$\mathbf{A}=\begin{pmatrix}1&0&0&0\\-1&1&0&0\\0&-1&1&0\\0&0&-1&1\end{pmatrix}.$$
 
-(b) With the matrix: $\mathbf{A}\,(1,2,4,7)^{\top}=(1,\ -1+2,\ -2+4,\ -4+7)^{\top}=(1,\,1,\,2,\,3)^{\top}$. With the formula: $y[1]=1-0=1$, $y[2]=2-1=1$, $y[3]=4-2=2$, $y[4]=7-4=3$.
+(b) With the matrix: $\mathbf{A}\,(1,2,4,7)^{\top}=(1,\ -1+2,\ -2+4,\ -4+7)^{\top}=(1,\,1,\,2,\,3)^{\top}$. With the formula: $y[1]=1-0=1$, $y[2]=2-1=1$, $y[3]=4-2=2$, $y[4]=7-4=3$. So $1$, $1$, $2$ and $3$ cubic meters of water were used in the four months.
 :::
 :::

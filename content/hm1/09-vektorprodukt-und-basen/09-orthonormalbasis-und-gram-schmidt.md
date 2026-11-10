@@ -1,6 +1,8 @@
 ---
 title: Stufe 7: Orthonormalbasis und Gram-Schmidt
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Vektorprodukt und Basen
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Vektorprodukt und Basen
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/vektorprodukt-und-basen
+knoten: Kapitel 9: Vektorprodukt und Basen
 order: 1290900
 summary: Koordinaten in einer schiefen Basis verlangen ein Gleichungssystem.
 tags: Orthonormalbasis, Normierungsschritt
@@ -74,7 +76,7 @@ Für $(\vec a,\vec b)$: $\vec c_1=\frac1{\sqrt{10}}(3,1)$, $\langle\vec b,\vec c
 ⁠**Grenzfälle:** Ist $(\vec b_i)$ schon ein ONS, ändert das Verfahren nichts. Bei abhängiger Eingabe entsteht $\vec d_k=\vec0$: Für $\vec u,\vec v,\vec w=2\vec u-\vec v$ bricht es beim dritten Vektor ab.
 
 :::frage Warum muss ich $\vec c_i$ benutzen und nicht $\vec b_i$?
-Die Formel [(4.5)](orthonormalsysteme-und-projektion.html#gl-4-5) verlangt ein ONS. Die $\vec b_i$ sind weder normiert noch senkrecht, wie das Gegenbeispiel in Stufe [4](orthonormalsysteme-und-projektion.html#stufe-4) zeigt. Mit nicht normierten, aber senkrechten $\vec d_i$ ginge es auch, wenn man wie in [Teil 8](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/vektoren-und-skalarprodukt/vektoren-und-skalarprodukt.html) durch $\|\vec d_i\|^2$ teilt.
+Die Formel [(4.5)](orthonormalsysteme-und-projektion.html#gl-4-5) verlangt ein ONS. Die $\vec b_i$ sind weder normiert noch senkrecht, wie das Gegenbeispiel in Stufe [4](orthonormalsysteme-und-projektion.html#stufe-4) zeigt. Mit nicht normierten, aber senkrechten $\vec d_i$ ginge es auch, wenn man wie in [Kapitel 8](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/vektoren-und-skalarprodukt/vektoren-und-skalarprodukt.html) durch $\|\vec d_i\|^2$ teilt.
 :::
 
 :::aufgabe Aufgabe 8 ★★ Gram-Schmidt im Raum

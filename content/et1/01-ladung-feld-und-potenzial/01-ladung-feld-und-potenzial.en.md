@@ -1,7 +1,9 @@
 ---
 title: Overview: Charge, Field and Potential
 kurz: Overview
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / Charge, Field and Potential
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / Charge, Field and Potential
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial
+knoten: Chapter 1: Charge, Field and Potential
 order: 1110100
 summary: Why voltage is a difference and what it does to a charge
 tags: voltage, charge, electric field, potential, reference point, resistor
@@ -35,7 +37,7 @@ The answer leads through two concepts. An __electric field__ determines, for eve
 
 <li>
 
-⁠**Circuit:** the same battery across two resistors in series, 6 V across the first, 3 V across the second. A __resistor__ is a component in which passing charge gives up energy as heat ([Part 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)).
+⁠**Circuit:** the same battery across two resistors in series, 6 V across the first, 3 V across the second. A __resistor__ is a component in which passing charge gives up energy as heat ([Chapter 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)).
 
 </li>
 

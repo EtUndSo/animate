@@ -1,7 +1,8 @@
 ---
 title: Buraya kadarki temel noktalar
 pfad: Bilgisayar Bilimleri / Makine Öğrenmesi / Matematiksel Temeller / İzdüşüm, Özdeğerler ve Ayrışımlar
-knoten: Temeller 2: İzdüşüm, Özdeğerler ve Ayrışımlar
+adresse: informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen
+knoten: Bölüm 2: İzdüşüm, Özdeğerler ve Ayrışımlar
 nachschlagen: ja
 order: 15221400
 summary: En yakın noktalar, doğal doğrultular ve bir matrisin yapı taşları

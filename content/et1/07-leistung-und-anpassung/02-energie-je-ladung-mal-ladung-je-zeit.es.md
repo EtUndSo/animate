@@ -1,6 +1,8 @@
 ---
 title: Etapa 1: Energía por carga multiplicada por carga por tiempo
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Potencia, adaptación y rendimiento
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Potencia, adaptación y rendimiento
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad
+knoten: Capítulo 7: Potencia, adaptación y rendimiento
 order: 1170200
 summary: La tensión dice cuánta energía cede una carga; la corriente, cuánta carga pasa.
 tags: 
@@ -13,7 +15,7 @@ lang: es
 La tensión dice cuánta energía cede una carga; la corriente, cuánta carga pasa. Esta etapa une ambas en la energía por unidad de tiempo.
 :::
 
-**La idea.** Entre los terminales de un componente hay una tensión $U$. Según la [Parte 1](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html), cada culombio que pasa del potencial más alto al más bajo cede la energía $U$ en julios. La corriente $I$ cuenta cuántos culombios pasan por segundo. Por tanto, cada segundo se transforman $U\cdot I$ julios (fig. [1](#abb-1)). Hacen falta ambos factores: una tensión sin corriente no transforma nada, porque no se mueve carga. Una corriente sin tensión no transforma nada, porque ninguna carga cede nada.
+**La idea.** Entre los terminales de un componente hay una tensión $U$. Según el [capítulo 1](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html), cada culombio que pasa del potencial más alto al más bajo cede la energía $U$ en julios. La corriente $I$ cuenta cuántos culombios pasan por segundo. Por tanto, cada segundo se transforman $U\cdot I$ julios (fig. [1](#abb-1)). Hacen falta ambos factores: una tensión sin corriente no transforma nada, porque no se mueve carga. Una corriente sin tensión no transforma nada, porque ninguna carga cede nada.
 
 :::abbildung et1/k7ladung 1
 Carga con 8 V y 0,5 A. Abajo, la evolución del potencial: cada culombio pierde 8 J. Se dibujan cargas positivas en el sentido de la corriente. Los electrones se mueven en sentido contrario; el resultado es el mismo.
@@ -35,14 +37,14 @@ $$W=U\,I\,\Delta t,\qquad P=\frac{W}{\Delta t}=U\,I. \tag{1.2}$$
 
 ⁠**Cómo leerlo:** $u$ en V, $i$ en A, $p$ en vatios: $[P]=\mathrm{V\,A}=\mathrm{J/s}=\mathrm W$. Un LED indicador transforma 20 mW, un hervidor eléctrico 2 kW, un grupo de una central eléctrica 1 GW. La expresión $W/\Delta t$ es, en general, el valor medio de la potencia durante el tiempo $\Delta t$; $p(t)$ es su valor instantáneo. Los aparatos suelen funcionar de forma continua; por eso se caracterizan por la potencia y no por la energía. Para la energía se cumple $1\,\mathrm{W\,s}=1\,\mathrm{V\,A\,s}=1\,\mathrm{J}=1\,\mathrm{N\,m}$. La ingeniería eléctrica calcula sobre todo en vatios-segundo o kilovatios-hora, $1\,\mathrm{kWh}=3{,}6\,\mathrm{MJ}$. El julio es habitual en los procesos de combustión; el newton-metro, en el trabajo mecánico.
 
-⁠**Signos:** En el convenio receptor (CR, [Parte 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)), $p>0$ significa que el componente absorbe energía, y $p<0$, que la cede. En el convenio generador (CG) es al revés. **Validez:** $p=u\,i$ vale para todo monopuerto si $u$ e $i$ se cuentan en el mismo par de terminales. No se presupone nada sobre el interior del componente.
+⁠**Signos:** En el convenio receptor (CR, [capítulo 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)), $p>0$ significa que el componente absorbe energía, y $p<0$, que la cede. En el convenio generador (CG) es al revés. **Validez:** $p=u\,i$ vale para todo monopuerto si $u$ e $i$ se cuentan en el mismo par de terminales. No se presupone nada sobre el interior del componente.
 
 :::herleitung Por qué solo cuentan la tensión y la corriente
-En el tiempo $\mathrm{d} t$ entra por el terminal 1 la carga $\mathrm{d} Q=i\,\mathrm{d} t$ y sale por el terminal 2 la misma carga (ley de los nudos, [Parte 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)). El interior no cambia. Para el balance es como si $\mathrm{d} Q$ hubiera pasado directamente de $\varphi_1$ a $\varphi_2$. Según la [Parte 1](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html), la energía cedida es $\mathrm{d} W=(\varphi_1-\varphi_2)\,\mathrm{d} Q=u\,i\,\mathrm{d} t$. Al dividir por $\mathrm{d} t$ se obtiene [(1.1)](#gl-1-1). Los electrones se mueven en sentido contrario y tienen carga negativa. Ambos signos juntos dan el mismo producto.
+En el tiempo $\mathrm{d} t$ entra por el terminal 1 la carga $\mathrm{d} Q=i\,\mathrm{d} t$ y sale por el terminal 2 la misma carga (ley de los nudos, [capítulo 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)). El interior no cambia. Para el balance es como si $\mathrm{d} Q$ hubiera pasado directamente de $\varphi_1$ a $\varphi_2$. Según el [capítulo 1](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html), la energía cedida es $\mathrm{d} W=(\varphi_1-\varphi_2)\,\mathrm{d} Q=u\,i\,\mathrm{d} t$. Al dividir por $\mathrm{d} t$ se obtiene [(1.1)](#gl-1-1). Los electrones se mueven en sentido contrario y tienen carga negativa. Ambos signos juntos dan el mismo producto.
 :::
 
 ::::beispiel
-En $R_\mathrm{L}=16\,\Omega$ hay 8 V y circulan 0,5 A ([Parte 5](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)). Cada culombio cede 8 J y cada segundo llegan 0,5 C: $P=4$ W. En una hora son $W=4\,\mathrm{W}\cdot3600\,\mathrm{s}=14{,}4\,\mathrm{kJ}=4\,\mathrm{Wh}$. Contados uno a uno, pasan por segundo $I/e=3{,}12\cdot10^{18}$ electrones, y cada uno cede $e\cdot8\,\mathrm{V}=1{,}28\cdot10^{-18}$ J. El producto vuelve a ser 4 W.
+En $R_\mathrm{L}=16\,\Omega$ hay 8 V y circulan 0,5 A ([capítulo 5](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)). Cada culombio cede 8 J y cada segundo llegan 0,5 C: $P=4$ W. En una hora son $W=4\,\mathrm{W}\cdot3600\,\mathrm{s}=14{,}4\,\mathrm{kJ}=4\,\mathrm{Wh}$. Contados uno a uno, pasan por segundo $I/e=3{,}12\cdot10^{18}$ electrones, y cada uno cede $e\cdot8\,\mathrm{V}=1{,}28\cdot10^{-18}$ J. El producto vuelve a ser 4 W.
 ::::
 
 ⁠**Casos límite:** Con los terminales abiertos hay 9 V y 0 A, es decir, $P=0$. Un hilo ideal tiene $U=0$, es decir, $P=0$ con cualquier corriente.

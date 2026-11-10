@@ -1,6 +1,8 @@
 ---
 title: Etapa 3: Teorema de muestreo y reconstrucción
-pfad: Ingeniería eléctrica / 3.er semestre / Señales y sistemas / Muestreo y sistemas en tiempo discreto
+pfad: Ingeniería eléctrica / 3.er semestre / ET3 – Fundamentos de ingeniería eléctrica 3: señales y sistemas / Muestreo y sistemas en tiempo discreto
+adresse: elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme
+knoten: Capítulo 4: Muestreo y sistemas en tiempo discreto
 order: 3240400
 summary: ¿Cuándo puede recuperarse exactamente el original a partir de las muestras, y cómo?
 tags: señal paso bajo, tasa de Nyquist, alias, filtro antialiasing
@@ -35,7 +37,7 @@ $$s(t)=\sum_{n=-\infty}^{\infty}s(nT)\,\operatorname{si}\Bigl(\pi\frac{t-nT}{T}\
 ⁠**Cómo leerlo:** con $f_\mathrm A\ge2f_\mathrm g$, las copias de la fig. [1](das-spektrum-des-abgetasteten-signals.html#abb-1) están separadas. Un paso bajo extrae la copia en $f=0$, que tiene exactamente la forma del original. En el dominio del tiempo, esto significa: cada muestra se sustituye por una función si que vale 1 en su propio instante de muestreo y 0 en todos los demás (fig. [2](#abb-2)). Su suma pasa por todas las muestras y rellena los huecos de modo que no aparece ninguna frecuencia por encima de $f_\mathrm g$. La frecuencia de muestreo mínima $2f_\mathrm g$ se llama __tasa de Nyquist__.
 
 :::herleitung reconstrucción
-Para $|f|\le f_\mathrm g$ solo está la copia $k=0$, es decir, $S_\mathrm a(f)=\frac1TS(f)$. Con $H_\mathrm{TP}=T\operatorname{rect}(f/2f_\mathrm g)$ se tiene $S_\mathrm a\cdot H_\mathrm{TP}=S$. En el dominio del tiempo: $T\operatorname{rect}(f/2f_\mathrm g)\;\bullet\!\!-\!\!\circ\;2f_\mathrm gT\operatorname{si}(2\pi f_\mathrm gt)$ ([parte 3](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html), rectángulo y si). Con [(1.2)](signalklassen-und-ideale-abtastung.html#gl-1-2) y $2f_\mathrm g=1/T$ resulta $s_\mathrm a*\operatorname{si}(\pi t/T)=\sum_ns(nT)\operatorname{si}(\pi(t-nT)/T)$.
+Para $|f|\le f_\mathrm g$ solo está la copia $k=0$, es decir, $S_\mathrm a(f)=\frac1TS(f)$. Con $H_\mathrm{TP}=T\operatorname{rect}(f/2f_\mathrm g)$ se tiene $S_\mathrm a\cdot H_\mathrm{TP}=S$. En el dominio del tiempo: $T\operatorname{rect}(f/2f_\mathrm g)\;\bullet\!\!-\!\!\circ\;2f_\mathrm gT\operatorname{si}(2\pi f_\mathrm gt)$ ([capítulo 3](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html), rectángulo y si). Con [(1.2)](signalklassen-und-ideale-abtastung.html#gl-1-2) y $2f_\mathrm g=1/T$ resulta $s_\mathrm a*\operatorname{si}(\pi t/T)=\sum_ns(nT)\operatorname{si}(\pi(t-nT)/T)$.
 :::
 
 :::abbildung et3/k4siinterp 2

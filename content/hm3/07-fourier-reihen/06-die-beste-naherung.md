@@ -1,6 +1,8 @@
 ---
 title: Stufe 5: Die beste Näherung
-pfad: Elektrotechnik / 3. Semester / Höhere Mathematik 3 / Fourier-Reihen
+pfad: Elektrotechnik / 3. Semester / HöMa3 – Höhere Mathematik 3 / Fourier-Reihen
+adresse: elektrotechnik/3-semester/hohere-mathematik-3/fourier-reihen
+knoten: Kapitel 7: Fourier-Reihen
 order: 3170600
 summary: Warum gerade die Zahlen c k ?
 tags: Projektion, trigonometrischen Polynome, Projektionsoperator, Besselsche Ungleichung, Lemma von Riemann-Lebesgue

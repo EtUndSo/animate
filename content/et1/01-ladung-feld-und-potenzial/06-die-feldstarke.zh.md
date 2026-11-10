@@ -1,6 +1,8 @@
 ---
 title: 第 4 阶段：电场强度
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 电荷、电场与电位
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 电荷、电场与电位
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial
+knoten: 第 1 章：电荷、电场与电位
 order: 1110600
 summary: 库仑定律给出了力，却没有说明力是怎样穿过空无一物的空间的。电场的概念回答了这个问题，并把原因和作用分开。
 tags: 试探电荷, 电场强度
@@ -30,7 +32,7 @@ $$\vec E:=\lim_{Q\to0}\frac{\vec F}{Q},\qquad\text{即}\quad\vec F=Q\cdot\vec E.
 $\vec E$ 的方向就是正试探电荷受力的方向。电场给每个位置都指定这样一个矢量。
 :::
 
-⁠**如何理解：**单位为 $[E]=\mathrm{N/C}=\mathrm{m\,kg\,A^{-1}\,s^{-3}}=\mathrm{V/m}$，因为 $\mathrm V=\mathrm{J/C}=\mathrm{N\,m/C}$。负电荷受力的方向与 $\vec E$ 相反。典型值：载流导体中 0.1 V/m，晴天大气中 100 到 200 V/m，广播天线表面 1 到 1000 V/m，高压线处 $10^6$ V/m，电容器（由两块极板构成的元件，[第 3 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html)）中 $10^6$ 到 $10^8$ V/m。在 $3\cdot10^6$ V/m 时空气被击穿，产生电火花。**适用条件：**极限 $Q\to0$ 是必要的，因为大的试探电荷会使产生电场的电荷移动，例如金属板中的自由电子。而要测量的是没有试探电荷时的电场。
+⁠**如何理解：**单位为 $[E]=\mathrm{N/C}=\mathrm{m\,kg\,A^{-1}\,s^{-3}}=\mathrm{V/m}$，因为 $\mathrm V=\mathrm{J/C}=\mathrm{N\,m/C}$。负电荷受力的方向与 $\vec E$ 相反。典型值：载流导体中 0.1 V/m，晴天大气中 100 到 200 V/m，广播天线表面 1 到 1000 V/m，高压线处 $10^6$ V/m，电容器（由两块极板构成的元件，[第 3 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html)）中 $10^6$ 到 $10^8$ V/m。在 $3\cdot10^6$ V/m 时空气被击穿，产生电火花。**适用条件：**极限 $Q\to0$ 是必要的，因为大的试探电荷会使产生电场的电荷移动，例如金属板中的自由电子。而要测量的是没有试探电荷时的电场。
 
 :::satz 定理 4.2 (点电荷的电场)
 <span class="anker" id="satz-4-2"></span>

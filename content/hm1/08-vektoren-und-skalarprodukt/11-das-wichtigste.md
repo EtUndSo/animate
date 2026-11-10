@@ -1,6 +1,8 @@
 ---
 title: Das Wichtigste
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Vektoren und Skalarprodukt
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Vektoren und Skalarprodukt
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/vektoren-und-skalarprodukt
+knoten: Kapitel 8: Vektoren und Skalarprodukt
 order: 1281100
 summary: Warum Pfeile, Zahlenspalten und Polynome denselben Regeln folgen und wie Länge und Winkel dazukommen
 tags: 

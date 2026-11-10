@@ -1,6 +1,8 @@
 ---
 title: Etapa 2: Dopado
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Semiconductores y diodos
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Semiconductores y diodos
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden
+knoten: Capítulo 9: Semiconductores y diodos
 order: 1190400
 summary: El silicio puro tiene muy pocos portadores de carga, y su número depende mucho de la temperatura.
 tags: electrones de valencia, enlace covalente, donador, aceptor, región n, región p, portador mayoritario, portador minoritario

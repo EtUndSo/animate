@@ -1,6 +1,8 @@
 ---
 title: Stufe 3: Sinus und Cosinus als Reihen
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Potenzreihen und Eulersche Formel
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Potenzreihen und Eulersche Formel
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/potenzreihen-und-eulersche-formel
+knoten: Kapitel 7: Potenzreihen und Eulersche Formel
 order: 1270500
 summary: Die Schuldefinition am Dreieck setzt Winkel und Bogenlängen voraus, die bisher nicht definiert sind.
 tags: 

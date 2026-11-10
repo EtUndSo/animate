@@ -1,7 +1,8 @@
 ---
 title: Determinant
 pfad: Bilgisayar Bilimleri / Makine Öğrenmesi / Matematiksel Temeller / Vektörler ve Matrisler
-knoten: Temeller 1: Vektörler ve Matrisler
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Bölüm 1: Vektörler ve Matrisler
 nachschlagen: ja
 order: 15211500
 summary: Doğrusal bir dönüşüm düzlemin ızgarasının biçimini değiştirir ve bu sırada alanlar büyür ya da küçülür.

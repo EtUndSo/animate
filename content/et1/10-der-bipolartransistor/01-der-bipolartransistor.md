@@ -1,7 +1,9 @@
 ---
 title: Überblick: Der Bipolartransistor
 kurz: Überblick
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Der Bipolartransistor
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Der Bipolartransistor
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor
+knoten: Kapitel 10: Der Bipolartransistor
 order: 1200100
 summary: Wie eine kleine Spannung einen großen Strom durch eine gesperrte Diode steuert
 tags: Bipolartransistor
@@ -21,7 +23,7 @@ Ein Mikrofon liefert Millivolt, ein Lautsprecher braucht Volt. Ein Rechnerausgan
 
 <li>
 
-⁠**Transistor T:** ein npn-Kleinsignaltransistor aus Silizium mit $B=200$, $I_\mathrm{S}=1{,}9\cdot10^{-13}$ A (Sättigungssperrstrom, [Teil 9](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)) und $U_T=26$ mV (Temperaturspannung bei 300 K, gerundet aus 25,85 mV). Zum Rechnen von Hand nähert man $U_\mathrm{BE}=0{,}6$ V, wenn der Transistor leitet, und $U_\mathrm{CE,sat}=0{,}2$ V, wenn er ganz durchgeschaltet ist. Grenzdaten: $U_\mathrm{CE,max}=40$ V, $I_\mathrm{C,max}=100$ mA, $P_\mathrm{max}=400$ mW.
+⁠**Transistor T:** ein npn-Kleinsignaltransistor aus Silizium mit $B=200$, $I_\mathrm{S}=1{,}9\cdot10^{-13}$ A (Sättigungssperrstrom, [Kapitel 9](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)) und $U_T=26$ mV (Temperaturspannung bei 300 K, gerundet aus 25,85 mV). Zum Rechnen von Hand nähert man $U_\mathrm{BE}=0{,}6$ V, wenn der Transistor leitet, und $U_\mathrm{CE,sat}=0{,}2$ V, wenn er ganz durchgeschaltet ist. Grenzdaten: $U_\mathrm{CE,max}=40$ V, $I_\mathrm{C,max}=100$ mA, $P_\mathrm{max}=400$ mW.
 
 </li>
 

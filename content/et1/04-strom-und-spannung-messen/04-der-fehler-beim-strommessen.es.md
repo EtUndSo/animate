@@ -1,6 +1,8 @@
 ---
 title: Etapa 3: El error al medir corriente
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Medir corriente y tensión
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Medir corriente y tensión
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-und-spannung-messen
+knoten: Capítulo 4: Medir corriente y tensión
 order: 1140400
 summary: El amperímetro tiene que entrar en el circuito.
 tags: error relativo

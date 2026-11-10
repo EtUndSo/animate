@@ -1,6 +1,8 @@
 ---
 title: 第 1 阶段：测量仪表是一个元件
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 电流与电压的测量
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 电流与电压的测量
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-und-spannung-messen
+knoten: 第 4 章：电流与电压的测量
 order: 1140200
 summary: 在计算误差之前，必须先弄清测量仪表在电气上是什么：一个有两个接线端、两端之间有电阻的元件。
 tags: 满量程值

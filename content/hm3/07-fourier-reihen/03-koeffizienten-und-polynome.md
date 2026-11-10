@@ -1,6 +1,8 @@
 ---
 title: Stufe 2: Koeffizienten und Polynome
-pfad: Elektrotechnik / 3. Semester / Höhere Mathematik 3 / Fourier-Reihen
+pfad: Elektrotechnik / 3. Semester / HöMa3 – Höhere Mathematik 3 / Fourier-Reihen
+adresse: elektrotechnik/3-semester/hohere-mathematik-3/fourier-reihen
+knoten: Kapitel 7: Fourier-Reihen
 order: 3170300
 summary: Diese Stufe macht aus dem Skalarprodukt von Stufe 1 eine Definition für jede periodische Funktion und schreibt das Ergebnis auch reell.
 tags: Fourier-Koeffizient, Fourier-Polynom

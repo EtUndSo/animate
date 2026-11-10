@@ -1,6 +1,8 @@
 ---
 title: Schwachstellen benennen und bewerten
 pfad: Informatik / Cybersecurity / Sicherheit, Schutzziele und Spielregeln
+adresse: informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln
+knoten: Kapitel 1: Sicherheit, Schutzziele und Spielregeln
 order: 6110800
 summary: Jeden Tag werden weltweit über hundert neue Schwachstellen bekannt.
 tags: CVE, National Vulnerability Database, CWE, Common Vulnerability Scoring System, Vektor, Ausnutzbarkeit, Auswirkung, Patch
@@ -38,7 +40,7 @@ Im Dezember 2021 wurde eine Schwachstelle in Log4j bekannt, einem sehr weit verb
 :::hintergrund Warum ein gemeinsamer Name so wichtig ist
 Bis Ende der 1990er-Jahre führte jede Sicherheitsfirma und jede Datenbank ihre eigenen Namen. Ein Fehler in einem Dateifreigabedienst von 1991 hieß in einem Prüfwerkzeug „nfs-guess“, in einem anderen „NFS file handle guessing check“. Wer zwei Werkzeuge benutzte, konnte nicht erkennen, ob beide dieselbe Schwachstelle meldeten oder zwei verschiedene, und wer wissen wollte, wie viele Lücken ein System hatte, bekam je nach Werkzeug eine andere Zahl. Zwei Mitarbeiter von MITRE schlugen 1999 deshalb eine einzige öffentliche Liste vor, die jeder Schwachstelle einen eindeutigen Namen gibt. Daraus wurde CVE.
 
-Der Nutzen ist derselbe wie bei Bauteilbezeichnungen in der Elektrotechnik: Erst ein gemeinsamer Name macht Informationen aus verschiedenen Quellen vergleichbar. Ein Prüfwerkzeug meldet eine CVE-Kennung, die Herstellerwarnung nennt dieselbe Kennung und den Patch dazu, und die Liste aktiv ausgenutzter Lücken einer Behörde verwendet sie ebenfalls.
+Der Nutzen ist derselbe wie bei der ISBN eines Buchs: Erst ein gemeinsamer Name macht Informationen aus verschiedenen Quellen vergleichbar, so wie Verlag, Buchhandlung und Bibliothek mit der ISBN sicher dasselbe Buch meinen. Ein Prüfwerkzeug meldet eine CVE-Kennung, die Herstellerwarnung nennt dieselbe Kennung und den Patch dazu, und die Liste aktiv ausgenutzter Lücken einer Behörde verwendet sie ebenfalls.
 :::
 
 ### CWE: die Art des Fehlers

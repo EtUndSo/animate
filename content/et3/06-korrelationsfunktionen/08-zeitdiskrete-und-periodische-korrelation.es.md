@@ -1,6 +1,8 @@
 ---
 title: Etapa 7: Correlación en tiempo discreto y periódica
-pfad: Ingeniería eléctrica / 3.er semestre / Señales y sistemas / Funciones de correlación
+pfad: Ingeniería eléctrica / 3.er semestre / ET3 – Fundamentos de ingeniería eléctrica 3: señales y sistemas / Funciones de correlación
+adresse: elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen
+knoten: Capítulo 6: Funciones de correlación
 order: 3260800
 summary: Con muestras, la integral se convierte en una suma.
 tags: correlación rápida
@@ -29,7 +31,7 @@ Para señales paso bajo muestreadas se cumple $\varphi^E_{sg}(mT)=T\sum_ns^*(nT)
 $s=(1,2,1)$: $\varphi^E_{ss}=(1,4,6,4,1)$ para $m=-2,\dots,2$. Máximo $6=E_s$ en $m=0$, par, cinco valores en lugar de tres. Comprobación con Wiener-Khinchin en $f=0$: $|S_\mathrm a(0)|^2=(1+2+1)^2=16=\sum_m\varphi^E_{ss}(m)$.
 ::::
 
-**Correlación periódica.** Como en la convolución ([parte 4](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme/abtastung-und-zeitdiskrete-systeme.html)), para secuencias de periodo $M$ se cumple
+**Correlación periódica.** Como en la convolución ([capítulo 4](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme/abtastung-und-zeitdiskrete-systeme.html)), para secuencias de periodo $M$ se cumple
 
 <span class="anker" id="gl-7-3"></span>
 $$\varphi^E_{sgd}(m)=\sum_{n=0}^{M-1}s_d^*(n)\,g_d(n+m)\;\circ\!\!-\!\!\bullet\;S_d^*(k)\,G_d(k). \tag{7.3}$$

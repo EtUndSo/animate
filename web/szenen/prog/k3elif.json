@@ -70,7 +70,7 @@
     "id": "o4",
     "type": "MathTex",
     "props": {
-     "tex": "\\texttt{u < 4.75}?",
+     "tex": "\\texttt{temp < 20}?",
      "height": 0.17,
      "position": [
       -1.4,
@@ -106,7 +106,7 @@
     "id": "o6",
     "type": "MathTex",
     "props": {
-     "tex": "\\texttt{u <= 5.25}?",
+     "tex": "\\texttt{temp <= 23}?",
      "height": 0.17,
      "position": [
       -1.4,
@@ -655,20 +655,20 @@
     "tr": "hayır"
    },
    "lesen": {
-    "de": "u einlesen",
-    "en": "read u",
-    "es": "leer u",
-    "zh": "读取 u",
-    "fr": "lire u",
-    "tr": "u'yu oku"
+    "de": "temp einlesen",
+    "en": "read temp",
+    "es": "leer temp",
+    "zh": "读取 temp",
+    "fr": "lire temp",
+    "tr": "temp'i oku"
    },
    "niedrig": {
-    "de": "„zu niedrig“",
-    "en": "“too low”",
-    "es": "«demasiado baja»",
-    "zh": "“过低”",
-    "fr": "« trop basse »",
-    "tr": "„çok düşük“"
+    "de": "„zu kalt“",
+    "en": "“too cold”",
+    "es": "«demasiado frío»",
+    "zh": "“太冷”",
+    "fr": "« trop froid »",
+    "tr": "„çok soğuk“"
    },
    "ok": {
     "de": "„in Ordnung“",
@@ -679,12 +679,12 @@
     "tr": "„uygun“"
    },
    "hoch": {
-    "de": "„zu hoch“",
-    "en": "“too high”",
-    "es": "«demasiado alta»",
-    "zh": "“过高”",
-    "fr": "« trop haute »",
-    "tr": "„çok yüksek“"
+    "de": "„zu warm“",
+    "en": "“too warm”",
+    "es": "«demasiado calor»",
+    "zh": "“太热”",
+    "fr": "« trop chaud »",
+    "tr": "„çok sıcak“"
    },
    "weiter": {
     "de": "weiter nach dem letzten Block",

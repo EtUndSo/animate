@@ -1,13 +1,15 @@
 ---
 title: From the ground up: Pairs and intervals
-pfad: Electrical Engineering / 1st Semester / Higher Mathematics 1 / Functions and Polynomials
+pfad: Electrical Engineering / 1st Semester / HöMa1 – Higher Mathematics 1 / Functions and Polynomials
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/funktionen-und-polynome
+knoten: Chapter 3: Functions and Polynomials
 order: 1230200
 summary: When an equation can be solved backward and why every zero splits off a factor
 tags: Cartesian product, Intervals, open, closed, half-open
 lang: en
 ---
 
-Sets, the symbols $\in$, $\subset$ and the number systems are known from [Part 1](/wissen/en/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html). Two building blocks are added. The __Cartesian product__ (also cross product) of two sets is the set of all ordered pairs:
+Sets, the symbols $\in$, $\subset$ and the number systems are known from [Chapter 1](/wissen/en/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html). Two building blocks are added. The __Cartesian product__ (also cross product) of two sets is the set of all ordered pairs:
 
 $$A\times B:=\bigl\{(a,b):a\in A\ \wedge\ b\in B\bigr\}.$$
 

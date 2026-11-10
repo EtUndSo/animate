@@ -1,6 +1,8 @@
 ---
 title: 第 7 阶段：不平衡电桥
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 电流与电压的测量
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 电流与电压的测量
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-und-spannung-messen
+knoten: 第 4 章：电流与电压的测量
 order: 1140800
 summary: 如果电阻只有微小变化或连续变化，就不再重新调节。这时偏离零点的量就是测量信号。本阶段说明为什么这样能看到极小的变化。
 tags: 应变片

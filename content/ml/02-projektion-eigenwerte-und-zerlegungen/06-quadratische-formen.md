@@ -1,7 +1,8 @@
 ---
 title: Quadratische Formen
 pfad: Informatik / Machine Learning / Mathematische Grundlagen / Projektion, Eigenwerte und Zerlegungen
-knoten: Grundlagen 2: Projektion, Eigenwerte und Zerlegungen
+adresse: informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen
+knoten: Kapitel 2: Projektion, Eigenwerte und Zerlegungen
 nachschlagen: ja
 order: 15220600
 summary: Nach den linearen Funktionen sind die quadratischen die einfachsten Funktionen mehrerer Variablen.
@@ -12,16 +13,16 @@ lang: de
 <span class="anker" id="stufe-5"></span>
 
 :::zweck
-Nach den linearen Funktionen sind die quadratischen die einfachsten Funktionen mehrerer Variablen. Sie beschreiben Energien, Fehlerquadrate und gekrümmte Flächen. Dieser Abschnitt schreibt sie mit einer Matrix, zeigt die drei Grundformen Schüssel, Rinne und Sattel und wie man an der Matrix erkennt, welche Form vorliegt, solange sie keine gemischten Glieder hat.
+Nach den linearen Funktionen sind die quadratischen die einfachsten Funktionen mehrerer Variablen. Sie beschreiben quadrierte Entfernungen, Fehlerquadrate und gekrümmte Flächen. Dieser Abschnitt schreibt sie mit einer Matrix, zeigt die drei Grundformen Schüssel, Rinne und Sattel und wie man an der Matrix erkennt, welche Form vorliegt, solange sie keine gemischten Glieder hat.
 :::
 
 ### Quadratische Formen
 
 <span class="anker" id="stufe-5-1"></span>
 
-In [Grundlagen 1, Abschnitt 8.4](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-4), war jede lineare Funktion mit einem Ausgang eine gewichtete Summe $\mathbf{w}^{\top}\mathbf{x}$ der Komponenten. Die nächst einfachere Art von Funktion summiert Produkte von je zwei Komponenten: Quadrate wie $x_1^2$ und gemischte Glieder wie $x_1x_2$. Ein Beispiel aus der Elektrotechnik ist die magnetische Energie zweier gekoppelter Spulen mit den Induktivitäten $L_1$, $L_2$ und der Gegeninduktivität $M$, durch die die Ströme $i_1$ und $i_2$ fließen:
+In [Kapitel 1, Abschnitt 8.4](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-4), war jede lineare Funktion mit einem Ausgang eine gewichtete Summe $\mathbf{w}^{\top}\mathbf{x}$ der Komponenten. Die nächst einfachere Art von Funktion summiert Produkte von je zwei Komponenten: Quadrate wie $x_1^2$ und gemischte Glieder wie $x_1x_2$. Ein Beispiel aus dem Alltag ist ein Spaziergang auf zwei geraden Straßen, die nicht senkrecht aufeinander stehen. Jemand geht $x_1$ km in Richtung des Einheitsvektors $\mathbf{u}$ der ersten Straße und dann $x_2$ km in Richtung des Einheitsvektors $\mathbf{v}$ der zweiten; negative Strecken bedeuten die Gegenrichtung. Er steht dann bei $x_1\mathbf{u}+x_2\mathbf{v}$, und für das Quadrat seiner Entfernung vom Start gilt nach den Rechenregeln des Skalarprodukts
 
-$$W=\tfrac12L_1i_1^2+M\,i_1i_2+\tfrac12L_2i_2^2 .$$
+$$d^2=\lVert x_1\mathbf{u}+x_2\mathbf{v}\rVert^2=x_1^2+2\,(\mathbf{u}^{\top}\mathbf{v})\,x_1x_2+x_2^2 .$$
 
 Solche Summen lassen sich mit einer Matrix in der Mitte schreiben.
 
@@ -43,7 +44,7 @@ $$\mathbf{x}^{\top}\begin{pmatrix}a_{11}&a_{12}\\a_{21}&a_{22}\end{pmatrix}\math
 Verdoppelt man $\mathbf{x}$, so vervierfacht sich $f$: $f(c\,\mathbf{x})=c^2f(\mathbf{x})$. Daher der Name.
 
 ::::beispiel [Rechenbeispiel]
-Für $\mathbf{A}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ ist $f(\mathbf{x})=5x_1^2+4x_1x_2+2x_2^2$. An der Stelle $\mathbf{x}=(1,\,-1)^{\top}$ ist $f=5-4+2=3$; zur Kontrolle ist $\mathbf{A}\mathbf{x}=(3,\,0)^{\top}$ und $\mathbf{x}^{\top}\mathbf{A}\mathbf{x}=3$. Abb. [14](#abb-14) rechnet die Doppelsumme [(5.1)](#gl-5-1) an dieser Stelle Glied für Glied aus. An der Stelle $(1,\,1)^{\top}$ ist $f=11$, im Nullpunkt $f=0$. Die Energie der beiden Spulen ist $W=\tfrac12\,\mathbf i^{\top}\bigl(\begin{smallmatrix}L_1&M\\M&L_2\end{smallmatrix}\bigr)\,\mathbf i$ mit dem Stromvektor $\mathbf i=(i_1,\,i_2)^{\top}$; die Matrix heißt Induktivitätsmatrix.
+Für $\mathbf{A}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ ist $f(\mathbf{x})=5x_1^2+4x_1x_2+2x_2^2$. An der Stelle $\mathbf{x}=(1,\,-1)^{\top}$ ist $f=5-4+2=3$; zur Kontrolle ist $\mathbf{A}\mathbf{x}=(3,\,0)^{\top}$ und $\mathbf{x}^{\top}\mathbf{A}\mathbf{x}=3$. Abb. [14](#abb-14) rechnet die Doppelsumme [(5.1)](#gl-5-1) an dieser Stelle Glied für Glied aus. An der Stelle $(1,\,1)^{\top}$ ist $f=11$, im Nullpunkt $f=0$. Das Entfernungsquadrat des Spaziergangs ist $d^2=\mathbf{x}^{\top}\bigl(\begin{smallmatrix}1&\mathbf{u}^{\top}\mathbf{v}\\\mathbf{u}^{\top}\mathbf{v}&1\end{smallmatrix}\bigr)\,\mathbf{x}$ mit $\mathbf{x}=(x_1,\,x_2)^{\top}$; die Matrix ist die Gram-Matrix der beiden Richtungen $\mathbf{u}$ und $\mathbf{v}$ aus [Kapitel 1, Abschnitt 10](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/transponierte-symmetrie-und-gram-matrix.html#stufe-10). Schließen die Straßen den Winkel $60^\circ$ ein, so ist $\mathbf{u}^{\top}\mathbf{v}=\cos60^\circ=\tfrac12$ und $d^2=x_1^2+x_1x_2+x_2^2$: Nach je $1$ km auf beiden Straßen ist man $\sqrt3\approx1{,}73$ km vom Start entfernt.
 
 :::abbildung ml/k2rqf 14
 Die quadratische Form von $\mathbf{A}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ an der Stelle $\mathbf{x}=(1,-1)^{\top}$ als Doppelsumme: vier Glieder, eines für jeden Eintrag von $\mathbf{A}$.
@@ -153,7 +154,7 @@ $x_1^2+6x_1x_2+x_2^2=(x_1+3x_2)^2-8x_2^2$. Die Faktoren haben verschiedene Vorze
 ⁠**Kurz gesagt:** Quadratisches Ergänzen schreibt eine quadratische Form als Summe von Quadraten; die Vorzeichen der Faktoren vor den Quadraten zeigen, ob sie eine Schüssel, eine Rinne oder ein Sattel ist.
 
 :::hintergrund Quadratisches Ergänzen ist das Gauß-Verfahren
-Die Zahlen in [(5.3)](#gl-5-3) sind dieselben wie im Gauß-Verfahren aus [Grundlagen 1, Abschnitt 12.3](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-gleichungssysteme.html#stufe-12-3), angewandt auf die symmetrische Matrix $\bigl(\begin{smallmatrix}a&b\\b&c\end{smallmatrix}\bigr)$. Um unter der Diagonale eine Null zu erzeugen, zieht man das $\frac ba$-Fache der ersten Zeile von der zweiten ab und erhält $\bigl(\begin{smallmatrix}a&b\\0&c-b^2/a\end{smallmatrix}\bigr)$. Die Diagonaleinträge dieser Stufenform, die sogenannten Pivots, sind genau die Faktoren vor den Quadraten, und der Eliminationsfaktor $\frac ba$ steht in der ersten Klammer. Für die Matrix $\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$: Faktor $0{,}4$, Pivots $5$ und $1{,}2$. Bei $n$ Variablen setzt man dasselbe fort: Jeder Eliminationsschritt ergänzt eine Variable zu einem Quadrat. Die Form ist genau dann eine Schüssel, wenn alle Pivots positiv sind. Das Produkt der Pivots ist nach den Rechenregeln aus [Grundlagen 1, Abschnitt 14.5](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5), die Determinante, hier $5\cdot1{,}2=6=5\cdot2-2\cdot2$.
+Die Zahlen in [(5.3)](#gl-5-3) sind dieselben wie im Gauß-Verfahren aus [Kapitel 1, Abschnitt 12.3](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-gleichungssysteme.html#stufe-12-3), angewandt auf die symmetrische Matrix $\bigl(\begin{smallmatrix}a&b\\b&c\end{smallmatrix}\bigr)$. Um unter der Diagonale eine Null zu erzeugen, zieht man das $\frac ba$-Fache der ersten Zeile von der zweiten ab und erhält $\bigl(\begin{smallmatrix}a&b\\0&c-b^2/a\end{smallmatrix}\bigr)$. Die Diagonaleinträge dieser Stufenform, die sogenannten Pivots, sind genau die Faktoren vor den Quadraten, und der Eliminationsfaktor $\frac ba$ steht in der ersten Klammer. Für die Matrix $\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$: Faktor $0{,}4$, Pivots $5$ und $1{,}2$. Bei $n$ Variablen setzt man dasselbe fort: Jeder Eliminationsschritt ergänzt eine Variable zu einem Quadrat. Die Form ist genau dann eine Schüssel, wenn alle Pivots positiv sind. Das Produkt der Pivots ist nach den Rechenregeln aus [Kapitel 1, Abschnitt 14.5](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5), die Determinante, hier $5\cdot1{,}2=6=5\cdot2-2\cdot2$.
 :::
 
 :::aufgabe Aufgabe 14 ★ Formen und Matrizen
@@ -226,32 +227,32 @@ $f_3=(x_1+2x_2)^2-3x_2^2$: verschiedene Vorzeichen, ein Sattel. Wählt man $x_2=
 :::
 :::
 
-:::aufgabe Aufgabe 16 ★★ Gekoppelte Spulen
+:::aufgabe Aufgabe 16 ★★ Zwei Straßen
 <span class="anker" id="aufg-16"></span>
 
-Zwei gekoppelte Spulen haben $L_1=4\,\mathrm{mH}$ und $L_2=1\,\mathrm{mH}$.
+Für den Spaziergang auf zwei geraden Straßen mit den Richtungen $\mathbf{u}$ und $\mathbf{v}$ aus Unterabschnitt [5.1](#stufe-5-1) ist $d^2=x_1^2+2\,(\mathbf{u}^{\top}\mathbf{v})\,x_1x_2+x_2^2$.
 
 <ol class="al">
 
 <li>
 
-Ergänze die Energie $W=\tfrac12L_1i_1^2+M\,i_1i_2+\tfrac12L_2i_2^2$ quadratisch.
+Ergänze $d^2$ quadratisch.
 
 </li>
 
 <li>
 
-Für welche Werte von $M$ ist $W>0$ für alle Ströme $(i_1,\,i_2)\ne(0,\,0)$? Was folgt daraus für den Kopplungsfaktor $k=M/\sqrt{L_1L_2}$?
+Für welche Werte von $\mathbf{u}^{\top}\mathbf{v}$ ist $d^2>0$ für alle Strecken $(x_1,\,x_2)\ne(0,\,0)$? Warum kann $|\mathbf{u}^{\top}\mathbf{v}|$ nach der Cauchy-Schwarz-Ungleichung aus [Kapitel 1, Abschnitt 5.1](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/winkel-und-ahnlichkeit.html#stufe-5-1), nie größer als $1$ sein, und was bedeutet $|\mathbf{u}^{\top}\mathbf{v}|=1$ für die beiden Straßen?
 
 </li>
 
 </ol>
 
 :::loesung
-(a) In [(5.3)](#gl-5-3) ist $a=\tfrac12L_1$, $2b=M$ und $c=\tfrac12L_2$, also $b/a=M/L_1$ und $b^2/a=M^2/(2L_1)$:
+(a) In [(5.3)](#gl-5-3) ist $a=1$, $b=\mathbf{u}^{\top}\mathbf{v}$ und $c=1$, also $b/a=\mathbf{u}^{\top}\mathbf{v}$ und $b^2/a=(\mathbf{u}^{\top}\mathbf{v})^2$:
 
-$$W=\tfrac12L_1\Bigl(i_1+\frac M{L_1}\,i_2\Bigr)^2+\tfrac12\Bigl(L_2-\frac{M^2}{L_1}\Bigr)i_2^2=2\,\mathrm{mH}\,\Bigl(i_1+\frac M{4\,\mathrm{mH}}\,i_2\Bigr)^2+\Bigl(\frac12\,\mathrm{mH}-\frac{M^2}{8\,\mathrm{mH}}\Bigr)i_2^2 .$$
+$$d^2=\bigl(x_1+(\mathbf{u}^{\top}\mathbf{v})\,x_2\bigr)^2+\bigl(1-(\mathbf{u}^{\top}\mathbf{v})^2\bigr)\,x_2^2 .$$
 
-(b) Der erste Faktor ist positiv. $W>0$ für alle Ströme $\ne(0,\,0)$ gilt genau dann, wenn auch der zweite positiv ist: $L_2-M^2/L_1>0$, also $M^2<L_1L_2=4\,(\mathrm{mH})^2$ und $|M|<2\,\mathrm{mH}$. Für den Kopplungsfaktor heißt das $|k|=|M|/\sqrt{L_1L_2}<1$. Bei $|k|=1$, der idealen festen Kopplung, wäre die Form nur eine Rinne: Für das passende Stromverhältnis $i_1=-\tfrac M{L_1}\,i_2$ wäre die gespeicherte Energie null. Dass die Energie eines Magnetfelds nie negativ ist, erzwingt also $|k|\le1$.
+(b) Der erste Faktor ist $a=1>0$. $d^2>0$ für alle Strecken $\ne(0,\,0)$ gilt genau dann, wenn auch der zweite positiv ist: $1-(\mathbf{u}^{\top}\mathbf{v})^2>0$, also $|\mathbf{u}^{\top}\mathbf{v}|<1$. Nach der Cauchy-Schwarz-Ungleichung ist $|\mathbf{u}^{\top}\mathbf{v}|\le\lVert\mathbf{u}\rVert\,\lVert\mathbf{v}\rVert=1$, mit Gleichheit genau dann, wenn $\mathbf{v}=\pm\mathbf{u}$ ist: wenn die beiden Straßen parallel verlaufen. Dann wäre die Form nur eine Rinne: Für $x_1=-(\mathbf{u}^{\top}\mathbf{v})\,x_2$, etwa $1$ km hin und $1$ km zurück, steht man wieder am Start. Für zwei Straßen, die sich wirklich kreuzen, ist $|\mathbf{u}^{\top}\mathbf{v}|<1$, und jeder Spaziergang mit $(x_1,\,x_2)\ne(0,\,0)$ endet in einer positiven Entfernung vom Start.
 :::
 :::

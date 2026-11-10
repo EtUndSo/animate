@@ -1,7 +1,8 @@
 ---
 title: Matrices définies positives
 pfad: Informatique / Apprentissage automatique / Fondements mathématiques / Projection, valeurs propres et décompositions
-knoten: Fondements 2 : Projection, valeurs propres et décompositions
+adresse: informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen
+knoten: Chapitre 2 : Projection, valeurs propres et décompositions
 nachschlagen: ja
 order: 15220900
 summary: Une forme quadratique est une cuvette si elle est positive partout sauf à l’origine.
@@ -122,7 +123,7 @@ les mineurs principaux dominants valent $2$, $\det\bigl(\begin{smallmatrix}2&1\\
 
 <span class="anker" id="stufe-8-4"></span>
 
-Dans [Fondements 1, section 10](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/transponierte-symmetrie-und-gram-matrix.html#stufe-10), sont apparues les matrices de Gram $\mathbf{X}^{\top}\mathbf{X}$ et $\mathbf{X}\mathbf{X}^{\top}$, et dans ce chapitre, $\mathbf{A}^{\top}\mathbf{A}$ dans les équations normales. Elles sont toujours semi-définies positives, et la raison en est simple : leur forme quadratique est un carré de longueur.
+Dans le [chapitre 1, section 10](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/transponierte-symmetrie-und-gram-matrix.html#stufe-10), sont apparues les matrices de Gram $\mathbf{X}^{\top}\mathbf{X}$ et $\mathbf{X}\mathbf{X}^{\top}$, et dans ce chapitre, $\mathbf{A}^{\top}\mathbf{A}$ dans les équations normales. Elles sont toujours semi-définies positives, et la raison en est simple : leur forme quadratique est un carré de longueur.
 
 :::satz Théorème 8.4 (Matrices de Gram)
 <span class="anker" id="satz-8-4"></span>
@@ -200,7 +201,7 @@ Si $\mathbf{A}=\mathbf L\mathbf L^{\top}$, alors $\mathbf{x}^{\top}\mathbf{A}\ma
 
 $$\mathbf L=\begin{pmatrix}\sqrt a&0\\b/\sqrt a&\sqrt{c-b^2/a}\end{pmatrix},$$
 
-et pour $n$ plus grand, on poursuit la complétion variable par variable. D’après [Fondements 1, section 14.5](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5), $\det\mathbf{A}=\det\mathbf L\cdot\det\mathbf L^{\top}=(l_{11}\cdots l_{nn})^2$.
+et pour $n$ plus grand, on poursuit la complétion variable par variable. D’après le [chapitre 1, section 14.5](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5), $\det\mathbf{A}=\det\mathbf L\cdot\det\mathbf L^{\top}=(l_{11}\cdots l_{nn})^2$.
 
 ::::beispiel [Exemple de calcul]
 Pour $\mathbf{A}=\bigl(\begin{smallmatrix}4&2\\2&5\end{smallmatrix}\bigr)$, on a $a=4$, $b=2$, $c=5$, donc $l_{11}=2$, $l_{21}=1$ et $l_{22}=\sqrt{5-1}=2$ :

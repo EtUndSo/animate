@@ -1,6 +1,8 @@
 ---
 title: Stage 9: Thevenin and Norton
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / Sources and Equivalent Sources
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / Sources and Equivalent Sources
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen
+knoten: Chapter 5: Sources and Equivalent Sources
 order: 1151100
 summary: N is to feed many different loads.
 tags: equivalent voltage source, equivalent current source, load characteristic

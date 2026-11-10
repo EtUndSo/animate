@@ -1,6 +1,8 @@
 ---
 title: Stufe 5: Integrale über eine Singularität
-pfad: Elektrotechnik / 3. Semester / Höhere Mathematik 3 / Koordinatentransformationen
+pfad: Elektrotechnik / 3. Semester / HöMa3 – Höhere Mathematik 3 / Koordinatentransformationen
+adresse: elektrotechnik/3-semester/hohere-mathematik-3/koordinatentransformationen
+knoten: Kapitel 4: Koordinatentransformationen
 order: 3140700
 summary: Das Potential einer Punktladung wächst am Ort der Ladung über alle Grenzen.
 tags: Singularität, Coulomb-Potential, lokal integrierbar
@@ -33,7 +35,7 @@ absolut, und es gilt
 $$\int_{B_R(0)}|f(\boldsymbol{x})|\,\mathrm{d}\boldsymbol{x}\le c\,\frac{4\pi R^{3-\alpha}}{3-\alpha}. \tag{5.2}$$
 :::
 
-⁠**So liest man das:** [(5.1)](#gl-5-1) schneidet die Singularität mit einer kleinen Kugel aus und lässt sie schrumpfen, das ist ein uneigentliches Integral. Absolut heißt: Es konvergiert auch mit $|f|$ statt $f$, Vorzeichenwechsel werden also nicht gebraucht. Die Funktion $c/|\boldsymbol{x}|^\alpha$ ist eine Majorante wie in [Teil 2](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/integralrechnung-im-rn/integralrechnung-im-rn.html), also eine obere Schranke, die das Integral beherrscht.
+⁠**So liest man das:** [(5.1)](#gl-5-1) schneidet die Singularität mit einer kleinen Kugel aus und lässt sie schrumpfen, das ist ein uneigentliches Integral. Absolut heißt: Es konvergiert auch mit $|f|$ statt $f$, Vorzeichenwechsel werden also nicht gebraucht. Die Funktion $c/|\boldsymbol{x}|^\alpha$ ist eine Majorante wie in [Kapitel 2](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/integralrechnung-im-rn/integralrechnung-im-rn.html), also eine obere Schranke, die das Integral beherrscht.
 
 :::beweis Majorantenkriterium
 ⁠**Schritt 1.** Sei $\varepsilon_k\searrow0$ eine Nullfolge und $I(\varepsilon_k)=\int_{\{\varepsilon_k\le|\boldsymbol{x}|\le R\}}f(\boldsymbol{x})\,\mathrm{d}\boldsymbol{x}$.

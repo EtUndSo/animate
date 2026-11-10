@@ -1,6 +1,8 @@
 ---
 title: Stufe 5: Wohin die Leistung einer Quelle geht
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Leistung, Anpassung und Wirkungsgrad
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Leistung, Anpassung und Wirkungsgrad
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad
+knoten: Kapitel 7: Leistung, Anpassung und Wirkungsgrad
 order: 1170600
 summary: Auch die Quelle hat einen Widerstand in sich.
 tags: 
@@ -36,7 +38,7 @@ $$\eta=\frac{P_\mathrm{L}}{P_\mathrm{q}}=\frac{I\,U_\mathrm{L}}{I\,U_\mathrm{q}}
 ⁠**So liest man das:** $P_\mathrm{q}$ ist die Leistung, die die Quelle erzeugt, $P_\mathrm{v}$ die Verlustleistung in ihrem Innenwiderstand, $P_\mathrm{L}$ die Nutzleistung. $U_\mathrm{Ri}=R_\mathrm{i}I$ ist die Spannung an $R_\mathrm{i}$. $\eta$ ist eine reine Zahl zwischen 0 und 1 und hängt nur vom Verhältnis $R_\mathrm{L}/R_\mathrm{i}$ ab. **Gültigkeit:** Das gilt für die Reihenschaltung aus idealer Quelle, $R_\mathrm{i}$ und $R_\mathrm{L}$. Bei einer Ersatzquelle stimmen die inneren Größen nicht (Stufe [7](warum-50-und-welches-ziel-gilt.html#stufe-7)).
 
 :::herleitung Die Bilanz ist die Maschenregel mal Strom
-Die Maschenregel lautet $U_\mathrm{q}=U_\mathrm{Ri}+U_\mathrm{L}$. Multipliziert mit $I$ ergibt sie $P_\mathrm{q}=P_\mathrm{v}+P_\mathrm{L}$. In [(5.2)](#gl-5-2) kürzt sich $I$, denn beide Widerstände führen denselben Strom. Der Spannungsteiler ([Teil 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)) liefert $U_\mathrm{L}=U_\mathrm{q}\,R_\mathrm{L}/(R_\mathrm{L}+R_\mathrm{i})$.
+Die Maschenregel lautet $U_\mathrm{q}=U_\mathrm{Ri}+U_\mathrm{L}$. Multipliziert mit $I$ ergibt sie $P_\mathrm{q}=P_\mathrm{v}+P_\mathrm{L}$. In [(5.2)](#gl-5-2) kürzt sich $I$, denn beide Widerstände führen denselben Strom. Der Spannungsteiler ([Kapitel 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)) liefert $U_\mathrm{L}=U_\mathrm{q}\,R_\mathrm{L}/(R_\mathrm{L}+R_\mathrm{i})$.
 :::
 
 ::::beispiel

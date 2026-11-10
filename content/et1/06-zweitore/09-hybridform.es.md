@@ -1,6 +1,8 @@
 ---
 title: Etapa 7: Forma híbrida
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Cuadripolos
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Cuadripolos
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore
+knoten: Capítulo 6: Cuadripolos
 order: 1160900
 summary: En un amplificador es fácil fijar la corriente en la entrada y la tensión en la salida.
 tags: parámetros H, resistencia de entrada en cortocircuito, relación de corrientes en cortocircuito, reacción de tensión en circuito abierto, conductancia de salida en circuito abierto

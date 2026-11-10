@@ -1,6 +1,8 @@
 ---
 title: Das Wichtigste
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Ladung, Feld und Potenzial
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Ladung, Feld und Potenzial
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial
+knoten: Kapitel 1: Ladung, Feld und Potenzial
 order: 1111300
 summary: Warum Spannung eine Differenz ist und was sie mit einer Ladung macht
 tags: 
@@ -109,7 +111,7 @@ Induktion: $u_\mathrm{ind}=-N\,\mathrm{d}\Phi/\mathrm{d} t$; dann ist das Feld n
 </ul>
 :::
 
-**Ausblick auf [Teil 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html).** In einem Draht treibt das Feld sehr viele Ladungen zugleich: Ladung fließt, ein Strom entsteht. [Teil 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html) zeigt, warum Spannung und Strom proportional sind und wie sie sich in einem Netz aufteilen.
+**Ausblick auf [Kapitel 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html).** In einem Draht treibt das Feld sehr viele Ladungen zugleich: Ladung fließt, ein Strom entsteht. [Kapitel 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html) zeigt, warum Spannung und Strom proportional sind und wie sie sich in einem Netz aufteilen.
 
 **Ein Prinzip hinter allen Ergebnissen.** Kraft und Energie einer Ladung hängen von den anderen Ladungen ringsum und von ihr selbst ab. Teilt man durch die eigene Ladung, bleibt eine Eigenschaft des Orts: Aus der Kraft wird die Feldstärke, aus der Energie das Potenzial.
 

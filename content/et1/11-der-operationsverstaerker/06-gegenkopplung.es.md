@@ -1,6 +1,8 @@
 ---
 title: Etapa 4: Realimentación negativa
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / El amplificador operacional
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / El amplificador operacional
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker
+knoten: Capítulo 11: El amplificador operacional
 order: 1210600
 summary: Sin realimentación, el AO es un interruptor.
 tags: realimentación, realimentación positiva, amplificador no inversor, seguidor de tensión
@@ -40,7 +42,7 @@ Con el divisor, $\beta=R_1/(R_1+R_2)$, es decir, $G\approx1+R_2/R_1$.
 :::herleitung El lazo en equilibrio y en movimiento
 Equilibrio: $U_\mathrm{A}=A\,U_\mathrm{D}$ y $U_\mathrm{D}=U_\mathrm{E}-\beta\,U_\mathrm{A}$. Sustituyendo resulta $U_\mathrm{D}=U_\mathrm{E}-A\beta\,U_\mathrm{D}$, y de ahí [(4.1)](#gl-4-1). Derivar $G$ respecto a $A$ da $\mathrm{d} G/\mathrm{d} A=1/(1+A\beta)^2$; dividiendo entre $G$ se obtiene [(4.2)](#gl-4-2).
 
-Movimiento: dentro del AO, una corriente proporcional a $U_\mathrm{D}$ carga una capacidad. Por eso la salida no puede saltar, sino que corre tras su valor objetivo: $\tau\,\mathrm{d} U_\mathrm{A}/\mathrm{d} t=A\,U_\mathrm{D}-U_\mathrm{A}$, aquí con $\tau=A/(2\pi f_\mathrm{T})=15{,}9$ ms. Es la ecuación del circuito RC de la [Parte 3](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html). Con $U_\mathrm{D}=U_\mathrm{E}-\beta\,U_\mathrm{A}$ resulta
+Movimiento: dentro del AO, una corriente proporcional a $U_\mathrm{D}$ carga una capacidad. Por eso la salida no puede saltar, sino que corre tras su valor objetivo: $\tau\,\mathrm{d} U_\mathrm{A}/\mathrm{d} t=A\,U_\mathrm{D}-U_\mathrm{A}$, aquí con $\tau=A/(2\pi f_\mathrm{T})=15{,}9$ ms. Es la ecuación del circuito RC del [capítulo 3](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html). Con $U_\mathrm{D}=U_\mathrm{E}-\beta\,U_\mathrm{A}$ resulta
 
 $$\tau\,\frac{\mathrm{d} U_\mathrm{A}}{\mathrm{d} t}=A\,U_\mathrm{E}-(1+A\beta)\,U_\mathrm{A}.$$
 
@@ -67,7 +69,7 @@ Un cambio de $A$ del 300 % desplaza $G$ un 0,0075 %. Se cambia ganancia por 
 
 **Entrada y salida.** En la entrada positiva solo hay $U_\mathrm{D}=50$ µ V sobre $r_\mathrm{e}$; circulan 50 pA, una dosmillonésima de la corriente del divisor de 100 µ A. Así, la resistencia de entrada sube a $r_\mathrm{e}(1+A\beta)=20$ G$\Omega$. En la salida, el lazo actúa contra cualquier carga: si una carga baja un poco $U_\mathrm{A}$, crece $U_\mathrm{D}$, y la tensión interna sube hasta compensar casi por completo la pérdida. La resistencia de salida baja a $r_\mathrm{a}/(1+A\beta)=3{,}75$ m$\Omega$.
 
-**El seguidor de tensión.** Con $R_2=0$ y $R_1\to\infty$, la salida está unida directamente a la entrada negativa, $\beta=1$, $G=A/(1+A)=0{,}99999$. Este __seguidor de tensión__ no amplifica, sino que separa: resistencia de entrada 100 G$\Omega$, resistencia de salida 0,75 m$\Omega$. Un voltímetro de 1 M$\Omega$ en una fuente de 1 V y 100 k$\Omega$ de resistencia interna indica 0,909 V ([Parte 4](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-und-spannung-messen/strom-und-spannung-messen.html)). Con un seguidor de tensión delante indica 0,99999 V.
+**El seguidor de tensión.** Con $R_2=0$ y $R_1\to\infty$, la salida está unida directamente a la entrada negativa, $\beta=1$, $G=A/(1+A)=0{,}99999$. Este __seguidor de tensión__ no amplifica, sino que separa: resistencia de entrada 100 G$\Omega$, resistencia de salida 0,75 m$\Omega$. Un voltímetro de 1 M$\Omega$ en una fuente de 1 V y 100 k$\Omega$ de resistencia interna indica 0,909 V ([capítulo 4](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-und-spannung-messen/strom-und-spannung-messen.html)). Con un seguidor de tensión delante indica 0,99999 V.
 
 :::abbildung et1/k11nichtinv 6
 A la izquierda, el amplificador no inversor con los potenciales del modelo de referencia. La entrada negativa está solo 50 µ V por debajo de la entrada positiva. A la derecha, el seguidor de tensión como caso límite $\beta=1$.

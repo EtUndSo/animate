@@ -1,9 +1,10 @@
 ---
 title: Wiederholen mit while
 pfad: Informatik / Programmieren / Python / Entscheidungen und Schleifen
-knoten: Python 3: Entscheidungen und Schleifen
+adresse: informatik/programmieren/python/entscheidungen-und-schleifen
+knoten: Kapitel 3: Entscheidungen und Schleifen
 order: 6040400
-summary: Viele Aufgaben bestehen darin, denselben Schritt so lange zu wiederholen, bis ein Ziel erreicht ist: so lange rechnen, bis ein Ergebnis genau genug ist, so lange warten, bis eine Spannung gesunken ist.
+summary: Viele Aufgaben bestehen darin, denselben Schritt so lange zu wiederholen, bis ein Ziel erreicht ist: so lange rechnen, bis ein Ergebnis genau genug ist, so lange warten, bis ein Tee abgekühlt ist.
 tags: Schleife, while-Schleife, Durchlauf, Endlosschleife
 lang: de
 ---
@@ -11,7 +12,7 @@ lang: de
 <span class="anker" id="stufe-3"></span>
 
 :::zweck
-Viele Aufgaben bestehen darin, denselben Schritt so lange zu wiederholen, bis ein Ziel erreicht ist: so lange rechnen, bis ein Ergebnis genau genug ist, so lange warten, bis eine Spannung gesunken ist. In Python 1 musste man dafür die Pfeiltaste drücken, Durchgang für Durchgang. Dieser Abschnitt führt die Anweisung ein, die das selbst erledigt, und zeigt die zwei häufigsten Gründe, warum sie nicht aufhört.
+Viele Aufgaben bestehen darin, denselben Schritt so lange zu wiederholen, bis ein Ziel erreicht ist: so lange rechnen, bis ein Ergebnis genau genug ist, so lange warten, bis ein Tee abgekühlt ist. In [Kapitel 1](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/programme-und-der-python-interpreter.html) musste man dafür die Pfeiltaste drücken, Durchgang für Durchgang. Dieser Abschnitt führt die Anweisung ein, die das selbst erledigt, und zeigt die zwei häufigsten Gründe, warum sie nicht aufhört.
 :::
 
 ### Die `while`-Schleife
@@ -81,7 +82,7 @@ Eine `while`-Schleife endet nur, wenn ihre Bedingung irgendwann falsch wird. Daz
 :::definition Definition 3.2 (Endlosschleife)
 <span class="anker" id="satz-3-2"></span>
 
-Eine __Endlosschleife__ ist eine Schleife, deren Bedingung nie falsch wird. Ein Programm in einer Endlosschleife bricht man mit Strg+C ab, also mit gedrückter Steuerungstaste und der Taste C. Python beendet das Programm dann mit der Ausnahme `KeyboardInterrupt` und einem Traceback ([Programmieren, Python 1, Abschnitte 6.3](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/fehler-lesen-und-verstehen.html#stufe-6-3) und [6.4](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/fehler-lesen-und-verstehen.html#stufe-6-4)).
+Eine __Endlosschleife__ ist eine Schleife, deren Bedingung nie falsch wird. Ein Programm in einer Endlosschleife bricht man mit Strg+C ab, also mit gedrückter Steuerungstaste und der Taste C. Python beendet das Programm dann mit der Ausnahme `KeyboardInterrupt` und einem Traceback ([Kapitel 1, Abschnitte 6.3](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/fehler-lesen-und-verstehen.html#stufe-6-3) und [6.4](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/fehler-lesen-und-verstehen.html#stufe-6-4)).
 :::
 
 ::::beispiel
@@ -122,14 +123,14 @@ Die Ortszeile nennt die Zeile, in der das Programm gerade war, als die Unterbrec
 ⁠**Kurz gesagt:** Ändert der Block nichts, wovon die Bedingung abhängt, läuft die Schleife endlos; Strg+C bricht sie mit `KeyboardInterrupt` ab.
 
 :::hintergrund Wie Strg+C ein laufendes Programm erreicht
-Die Tastenkombination fängt das Terminal ab, nicht Python. Das Betriebssystem benachrichtigt daraufhin das laufende Programm, unter Linux mit einem Signal, unter Windows über eine eigene Meldung an alle Programme des Konsolenfensters. CPython hat dafür eine kleine Routine angemeldet. Sie unterbricht die laufende Rechnung nicht sofort, sondern setzt nur eine Merkmarke. Die Interpreterschleife, die den Bytecode Befehl für Befehl abarbeitet ([Programmieren, Python 1, Abschnitt 2.4](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/vom-quelltext-zur-ausfuhrung-compiler-und-interpreter.html#stufe-2-4)), sieht bei passender Gelegenheit nach dieser Marke, etwa vor dem nächsten Befehl, und löst dann in der gerade laufenden Zeile die Ausnahme `KeyboardInterrupt` aus. Deshalb kann Python an jeder Stelle eines Python-Programms unterbrochen werden, aber nicht mitten in einer einzelnen, lange dauernden Rechnung, die vollständig im C-Code von Python abläuft: Die Unterbrechung wirkt erst, wenn diese fertig ist.
+Die Tastenkombination fängt das Terminal ab, nicht Python. Das Betriebssystem benachrichtigt daraufhin das laufende Programm, unter Linux mit einem Signal, unter Windows über eine eigene Meldung an alle Programme des Konsolenfensters. CPython hat dafür eine kleine Routine angemeldet. Sie unterbricht die laufende Rechnung nicht sofort, sondern setzt nur eine Merkmarke. Die Interpreterschleife, die den Bytecode Befehl für Befehl abarbeitet ([Kapitel 1, Abschnitt 2.4](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/vom-quelltext-zur-ausfuhrung-compiler-und-interpreter.html#stufe-2-4)), sieht bei passender Gelegenheit nach dieser Marke, etwa vor dem nächsten Befehl, und löst dann in der gerade laufenden Zeile die Ausnahme `KeyboardInterrupt` aus. Deshalb kann Python an jeder Stelle eines Python-Programms unterbrochen werden, aber nicht mitten in einer einzelnen, lange dauernden Rechnung, die vollständig im C-Code von Python abläuft: Die Unterbrechung wirkt erst, wenn diese fertig ist.
 :::
 
 ### Die Gleitkomma-Falle
 
 <span class="anker" id="stufe-3-3"></span>
 
-Eine Schleife soll in Schritten von 0,1 von 0 bis 1 zählen. Die naheliegende Bedingung „solange $x\ne1$“ ist eine Falle, und der Grund ist aus Python 2 bekannt.
+Eine Schleife soll in Schritten von 0,1 von 0 bis 1 zählen. Die naheliegende Bedingung „solange $x\ne1$“ ist eine Falle, und der Grund ist aus [Kapitel 2](/wissen/informatik/programmieren/python/werte-typen-und-variablen/werte-typen-und-variablen.html) bekannt.
 
 **Die 1 wird übersprungen.** Damit die Falle nicht wirklich endlos läuft, bekommt das Skript eine Notbremse: Nach 12 Durchläufen ist in jedem Fall Schluss.
 
@@ -178,7 +179,7 @@ $ python3 gleitkomma_kleiner.py
 11 1.0999999999999999
 ```
 
-**Die Abhilfe: ganzzahlig zählen.** Sicher ist eine Schleife, die eine ganze Zahl zählt und den `float` in jedem Durchlauf neu aus ihr berechnet. Ganze Zahlen sind exakt ([Programmieren, Python 2, Abschnitt 2.1](/wissen/informatik/programmieren/python/werte-typen-und-variablen/ganze-zahlen-und-rechenoperatoren.html#stufe-2-1)), und die Bedingung `k < 10` wird genau nach dem zehnten Durchlauf falsch:
+**Die Abhilfe: ganzzahlig zählen.** Sicher ist eine Schleife, die eine ganze Zahl zählt und den `float` in jedem Durchlauf neu aus ihr berechnet. Ganze Zahlen sind exakt ([Kapitel 2, Abschnitt 2.1](/wissen/informatik/programmieren/python/werte-typen-und-variablen/ganze-zahlen-und-rechenoperatoren.html#stufe-2-1)), und die Bedingung `k < 10` wird genau nach dem zehnten Durchlauf falsch:
 
 ```python gleitkomma_zaehler.py
 # Abhilfe: ganzzahlig zählen und den float in jedem Durchlauf neu ausrechnen
@@ -197,43 +198,48 @@ $ python3 gleitkomma_zaehler.py
 ⁠**Kurz gesagt:** Eine Schleife nie mit `!=` oder `==` auf einen `float` warten lassen; ganzzahlig zählen und den `float` daraus berechnen.
 
 :::hintergrund Warum `x = x + 0.1` die 1 nicht trifft, `k / 10` aber schon
-Der gespeicherte Wert von `0.1` ist etwas größer als 0,1, und jede Addition wird auf den nächsten `float` gerundet ([Programmieren, Python 2, Abschnitt 5.1](/wissen/informatik/programmieren/python/werte-typen-und-variablen/rechnen-mit-gleitkommazahlen.html#stufe-5-1)). Diese Rundungen fallen mal nach oben, mal nach unten aus. Bei `0.1 + 0.2` fällt sie nach oben, sichtbar als `0.30000000000000004`. Bei späteren Schritten fällt sie nach unten, etwa von `0.7` zu `0.7999999999999999`. Nach zehn Schritten bleibt eine Summe, die eine kleinste Stufe unter 1 liegt. Die Fehler häufen sich, weil jedes Zwischenergebnis den Fehler aller vorigen mitbringt.
+Der gespeicherte Wert von `0.1` ist etwas größer als 0,1, und jede Addition wird auf den nächsten `float` gerundet ([Kapitel 2, Abschnitt 5.1](/wissen/informatik/programmieren/python/werte-typen-und-variablen/rechnen-mit-gleitkommazahlen.html#stufe-5-1)). Diese Rundungen fallen mal nach oben, mal nach unten aus. Bei `0.1 + 0.2` fällt sie nach oben, sichtbar als `0.30000000000000004`. Bei späteren Schritten fällt sie nach unten, etwa von `0.7` zu `0.7999999999999999`. Nach zehn Schritten bleibt eine Summe, die eine kleinste Stufe unter 1 liegt. Die Fehler häufen sich, weil jedes Zwischenergebnis den Fehler aller vorigen mitbringt.
 
 `k / 10` ist dagegen eine einzige Rechnung mit zwei exakten ganzen Zahlen. Sie wird nur einmal gerundet, auf den `float`, der $k/10$ am nächsten liegt. Das ist genau der `float`, den Python auch für die Schreibweise `0.3` oder `1.0` speichert. Mit dem Zähler gibt es also keinen aufgehäuften Fehler, sondern in jedem Durchlauf nur den unvermeidlichen Darstellungsfehler einer einzelnen Zahl.
 :::
 
-### Anwendung: Wie lange sich ein Kondensator entlädt
+### Anwendung: Wie lange ein Tee zum Abkühlen braucht
 
 <span class="anker" id="stufe-3-4"></span>
 
-Ein Kondensator mit der Anfangsspannung $U_0$ entlädt sich über einen Widerstand. Seine Spannung fällt nach $u(t)=U_0\,\mathrm{e}^{-t/\tau}$ mit der Zeitkonstanten $\tau=RC$. Wie lange dauert es, bis nur noch 1 % übrig ist?
+Ein frisch aufgegossener Tee hat 90 °C, das Zimmer hat 20 °C. Wie in [Kapitel 2, Abschnitt 8.2](/wissen/informatik/programmieren/python/werte-typen-und-variablen/module-math-und-sys.html#stufe-8-2) schrumpft der Temperaturunterschied zwischen Tee und Zimmer näherungsweise wie eine Exponentialfunktion. Die Temperatur des Tees ist dann
 
-Für eine Schleife zerlegt man die Zeit in kleine Schritte $\Delta t$. Wegen $\mathrm{e}^{-(t+\Delta t)/\tau}=\mathrm{e}^{-t/\tau}\cdot\mathrm{e}^{-\Delta t/\tau}$ wird die Spannung in jedem Schritt mit demselben Faktor $\mathrm{e}^{-\Delta t/\tau}$ multipliziert. Wie viele Schritte es bis 1 % braucht, weiß man vorher nicht; die Schleife läuft, solange die Spannung noch darüber liegt.
+$$T(t)=T_\mathrm Z+(T_0-T_\mathrm Z)\,\mathrm{e}^{-t/\tau}$$
 
-```python rc_entladung.py
-# Ein Kondensator entlädt sich über einen Widerstand: Wann ist nur noch 1 % der Spannung übrig?
+mit der Zimmertemperatur $T_\mathrm Z$, der Anfangstemperatur $T_0$ und einer Zeitkonstanten $\tau$, die von Tasse, Menge und Luftzug abhängt; hier ist sie 20 min. Wie lange dauert es, bis der Tee auf 60 °C abgekühlt ist?
+
+Für eine Schleife zerlegt man die Zeit in kleine Schritte $\Delta t$. Wegen $\mathrm{e}^{-(t+\Delta t)/\tau}=\mathrm{e}^{-t/\tau}\cdot\mathrm{e}^{-\Delta t/\tau}$ wird der Temperaturunterschied $T-T_\mathrm Z$ in jedem Schritt mit demselben Faktor $\mathrm{e}^{-\Delta t/\tau}$ multipliziert. Wie viele Schritte es bis 60 °C braucht, weiß man vorher nicht; die Schleife läuft, solange der Tee noch wärmer ist.
+
+```python tee.py
+# Ein Tee kühlt im Zimmer ab: Wann hat er nur noch 60 Grad?
 import math
-tau = 1e-3              # Zeitkonstante R*C in s, z. B. 1 kOhm und 1 µF
-dt = 1e-4               # Zeitschritt in s
-u = 5.0                 # Anfangsspannung in V
+tau = 20.0              # Zeitkonstante in min
+dt = 0.1                # Zeitschritt in min
+zimmer = 20.0           # Zimmertemperatur in Grad
+tee = 90.0              # Temperatur des Tees zu Beginn in Grad
 faktor = math.exp(-dt / tau)
 schritte = 0
-while u > 0.05:
-    u = u * faktor
+while tee > 60.0:
+    tee = zimmer + (tee - zimmer) * faktor
     schritte = schritte + 1
 print("Schritte:", schritte)
-print(f"Zeit: {schritte * dt * 1000:.1f} ms, Spannung: {u:.4f} V")
-print(f"Formel tau * ln(100): {tau * math.log(100) * 1000:.3f} ms")
+print(f"Zeit: {schritte * dt:.1f} min, Temperatur: {tee:.2f} Grad")
+print(f"Formel tau * ln(70/40): {tau * math.log(70 / 40):.2f} min")
 ```
 
 ```console Linux
-$ python3 rc_entladung.py
-Schritte: 47
-Zeit: 4.7 ms, Spannung: 0.0455 V
-Formel tau * ln(100): 4.605 ms
+$ python3 tee.py
+Schritte: 112
+Zeit: 11.2 min, Temperatur: 59.98 Grad
+Formel tau * ln(70/40): 11.19 min
 ```
 
-Aus $U_0\,\mathrm{e}^{-t/\tau}=0{,}01\,U_0$ folgt $t=\tau\ln100\approx4{,}605$ ms. Die Schleife findet den ersten Zeitschritt, nach dem die Spannung unter 1 % liegt: Nach 46 Schritten, also 4,6 ms, ist sie noch knapp darüber, nach 47 Schritten darunter. Ihr Ergebnis liegt deshalb höchstens einen Zeitschritt hinter dem exakten Wert. Die Zeit rechnet das Skript als `schritte * dt` aus dem ganzzahligen Zähler, nicht durch fortgesetztes Addieren von `dt`.
+Aus $20+70\,\mathrm{e}^{-t/\tau}=60$ folgt $\mathrm{e}^{-t/\tau}=40/70$ und $t=\tau\ln(70/40)\approx11{,}19$ min. Die Schleife findet den ersten Zeitschritt, nach dem der Tee höchstens 60 °C hat: Nach 111 Schritten, also 11,1 min, ist er noch knapp darüber, nach 112 Schritten darunter. Ihr Ergebnis liegt deshalb höchstens einen Zeitschritt hinter dem exakten Wert. Die Zeit rechnet das Skript als `schritte * dt` aus dem ganzzahligen Zähler, nicht durch fortgesetztes Addieren von `dt`.
 
 ⁠**Kurz gesagt:** `while` ist die richtige Schleife, wenn man die Zahl der Durchläufe vorher nicht kennt, sondern nur das Ziel.
 
@@ -280,7 +286,7 @@ $ python3 ablauf.py
 3 1
 ```
 
-Der Block läuft dreimal. $13=1101_2$ hat vier Bit, und `n // 2` streicht jedes Mal das letzte Bit ([Programmieren, Python 2, Abschnitt 3.4](/wissen/informatik/programmieren/python/werte-typen-und-variablen/zahlen-im-binarsystem.html#stufe-3-4)): 1101, 110, 11, 1. Nach drei Halbierungen ist nur das führende Bit übrig. Allgemein läuft die Schleife so oft, wie $n$ Bit hat, weniger eins.
+Der Block läuft dreimal. $13=1101_2$ hat vier Bit, und `n // 2` streicht jedes Mal das letzte Bit ([Kapitel 2, Abschnitt 3.4](/wissen/informatik/programmieren/python/werte-typen-und-variablen/zahlen-im-binarsystem.html#stufe-3-4)): 1101, 110, 11, 1. Nach drei Halbierungen ist nur das führende Bit übrig. Allgemein läuft die Schleife so oft, wie $n$ Bit hat, weniger eins.
 :::
 :::
 
@@ -327,7 +333,7 @@ t = 0.3
 :::aufgabe Aufgabe 12 ★★ Die Maschinengenauigkeit mit einer Schleife
 <span class="anker" id="aufg-12"></span>
 
-In [Programmieren, Python 2, Abschnitt 5.2](/wissen/informatik/programmieren/python/werte-typen-und-variablen/rechnen-mit-gleitkommazahlen.html#stufe-5-2) wurde die Maschinengenauigkeit $\varepsilon_{\mathrm M}$ mit der Pfeiltaste gesucht. Schreibe eine Schleife, die mit `eps = 1.0` beginnt und `eps` so lange halbiert, wie `1.0 + eps / 2` noch von `1.0` verschieden ist. Vergleiche das Ergebnis mit `sys.float_info.epsilon`. Warum endet diese Schleife sicher, obwohl sie Gleitkommazahlen vergleicht?
+In [Kapitel 2, Abschnitt 5.2](/wissen/informatik/programmieren/python/werte-typen-und-variablen/rechnen-mit-gleitkommazahlen.html#stufe-5-2) wurde die Maschinengenauigkeit $\varepsilon_{\mathrm M}$ mit der Pfeiltaste gesucht. Schreibe eine Schleife, die mit `eps = 1.0` beginnt und `eps` so lange halbiert, wie `1.0 + eps / 2` noch von `1.0` verschieden ist. Vergleiche das Ergebnis mit `sys.float_info.epsilon`. Warum endet diese Schleife sicher, obwohl sie Gleitkommazahlen vergleicht?
 
 :::loesung
 ```python epsilon.py
@@ -348,75 +354,75 @@ $ python3 epsilon.py
 sys.float_info.epsilon: 2.220446049250313e-16
 ```
 
-Die Schleife endet bei $\varepsilon=2^{-52}=\varepsilon_{\mathrm M}$: Dann ist $\varepsilon/2=2^{-53}$, und $1+2^{-53}$ wird zur geraden Mantisse gerundet, also zu 1 ([Programmieren, Python 2, Abschnitt 5.2](/wissen/informatik/programmieren/python/werte-typen-und-variablen/rechnen-mit-gleitkommazahlen.html#stufe-5-2)). Sie endet sicher, obwohl sie Gleitkommazahlen mit `!=` vergleicht, weil sie nicht auf einen bestimmten Wert wartet. Das Halbieren einer Zweierpotenz ist exakt, `eps` durchläuft also genau $2^0,2^{-1},2^{-2},\ldots$, und spätestens wenn $\varepsilon/2$ kleiner als der halbe Abstand der `float` bei 1 ist, kann $1+\varepsilon/2$ nicht mehr von 1 verschieden sein.
+Die Schleife endet bei $\varepsilon=2^{-52}=\varepsilon_{\mathrm M}$: Dann ist $\varepsilon/2=2^{-53}$, und $1+2^{-53}$ wird zur geraden Mantisse gerundet, also zu 1 ([Kapitel 2, Abschnitt 5.2](/wissen/informatik/programmieren/python/werte-typen-und-variablen/rechnen-mit-gleitkommazahlen.html#stufe-5-2)). Sie endet sicher, obwohl sie Gleitkommazahlen mit `!=` vergleicht, weil sie nicht auf einen bestimmten Wert wartet. Das Halbieren einer Zweierpotenz ist exakt, `eps` durchläuft also genau $2^0,2^{-1},2^{-2},\ldots$, und spätestens wenn $\varepsilon/2$ kleiner als der halbe Abstand der `float` bei 1 ist, kann $1+\varepsilon/2$ nicht mehr von 1 verschieden sein.
 :::
 :::
 
-:::aufgabe Aufgabe 13 ★★ Einen Kondensator aufladen
+:::aufgabe Aufgabe 13 ★★ Ein Getränk wird warm
 <span class="anker" id="aufg-13"></span>
 
-Ein Kondensator wird über einen Widerstand an 5 V geladen und beginnt bei 0 V. Seine Spannung ist $u(t)=U_0\bigl(1-\mathrm{e}^{-t/\tau}\bigr)$. Zeige, dass in jedem Zeitschritt $u_\mathrm{neu}=U_0-(U_0-u_\mathrm{alt})\,\mathrm{e}^{-\Delta t/\tau}$ gilt. Schreibe damit ein Skript, das mit $\tau=1$ ms und $\Delta t=0{,}1$ ms die Schritte zählt, bis 90 % von $U_0$ erreicht sind, und vergleiche mit $\tau\ln10$.
+Eine Flasche Saft kommt mit 6 °C aus dem Kühlschrank in ein Zimmer mit 21 °C. Ihre Temperatur ist näherungsweise $T(t)=T_\mathrm Z-(T_\mathrm Z-T_0)\,\mathrm{e}^{-t/\tau}$, mit denselben Bezeichnungen wie beim Tee in Unterabschnitt [3.4](#stufe-3-4). Zeige, dass in jedem Zeitschritt $T_\mathrm{neu}=T_\mathrm Z-(T_\mathrm Z-T_\mathrm{alt})\,\mathrm{e}^{-\Delta t/\tau}$ gilt. Schreibe damit ein Skript, das mit $\tau=30$ min und $\Delta t=0{,}1$ min die Schritte zählt, bis die Flasche 90 % des Wegs zur Zimmertemperatur geschafft hat, also 19,5 °C erreicht, und vergleiche mit $\tau\ln10$.
 
 :::loesung
-Aus $u(t)=U_0(1-\mathrm{e}^{-t/\tau})$ folgt $U_0-u(t)=U_0\mathrm{e}^{-t/\tau}$, und damit
+Aus $T(t)=T_\mathrm Z-(T_\mathrm Z-T_0)\,\mathrm{e}^{-t/\tau}$ folgt $T_\mathrm Z-T(t)=(T_\mathrm Z-T_0)\,\mathrm{e}^{-t/\tau}$, und damit
 
-$$u(t+\Delta t)=U_0-U_0\,\mathrm{e}^{-(t+\Delta t)/\tau}=U_0-U_0\,\mathrm{e}^{-t/\tau}\,\mathrm{e}^{-\Delta t/\tau}=U_0-\bigl(U_0-u(t)\bigr)\,\mathrm{e}^{-\Delta t/\tau}.$$
+$$T(t+\Delta t)=T_\mathrm Z-(T_\mathrm Z-T_0)\,\mathrm{e}^{-t/\tau}\,\mathrm{e}^{-\Delta t/\tau}=T_\mathrm Z-\bigl(T_\mathrm Z-T(t)\bigr)\,\mathrm{e}^{-\Delta t/\tau}.$$
 
-Der Abstand zur Endspannung nimmt also in jedem Schritt um denselben Faktor ab, wie beim Entladen.
+Der Abstand zur Zimmertemperatur nimmt also in jedem Schritt um denselben Faktor ab, wie beim Tee.
 
-```python aufladen.py
-# Kondensator über einen Widerstand an 5 V laden: Wann sind 90 % erreicht?
+```python erwaermen.py
+# Eine Flasche aus dem Kühlschrank erwärmt sich im Zimmer: Wann hat sie 90 % des Wegs geschafft?
 import math
-tau = 1e-3              # Zeitkonstante in s
-dt = 1e-4               # Zeitschritt in s
-u0 = 5.0                # Ladespannung in V
-u = 0.0                 # Anfangsspannung in V
+tau = 30.0              # Zeitkonstante in min
+dt = 0.1                # Zeitschritt in min
+zimmer = 21.0           # Zimmertemperatur in Grad
+flasche = 6.0           # Temperatur der Flasche zu Beginn in Grad
 faktor = math.exp(-dt / tau)
 schritte = 0
-while u < 0.9 * u0:
-    u = u0 - (u0 - u) * faktor
+while flasche < 19.5:   # 90 % des Wegs von 6 auf 21 Grad
+    flasche = zimmer - (zimmer - flasche) * faktor
     schritte = schritte + 1
-print(f"Schritte: {schritte}, Zeit: {schritte * dt * 1000:.1f} ms, Spannung: {u:.4f} V")
-print(f"Formel tau * ln(10): {tau * math.log(10) * 1000:.3f} ms")
+print(f"Schritte: {schritte}, Zeit: {schritte * dt:.1f} min, Temperatur: {flasche:.2f} Grad")
+print(f"Formel tau * ln(10): {tau * math.log(10):.2f} min")
 ```
 
 ```console Linux
-$ python3 aufladen.py
-Schritte: 24, Zeit: 2.4 ms, Spannung: 4.5464 V
-Formel tau * ln(10): 2.303 ms
+$ python3 erwaermen.py
+Schritte: 691, Zeit: 69.1 min, Temperatur: 19.50 Grad
+Formel tau * ln(10): 69.08 min
 ```
 
-Aus $1-\mathrm{e}^{-t/\tau}=0{,}9$ folgt $t=\tau\ln10\approx2{,}303$ ms. Die Schleife meldet den ersten Zeitschritt danach, 2,4 ms.
+Aus $(T_\mathrm Z-T_0)\,\mathrm{e}^{-t/\tau}=0{,}1\,(T_\mathrm Z-T_0)$ folgt $t=\tau\ln10\approx69{,}08$ min. Die Schleife meldet den ersten Zeitschritt danach, 69,1 min. Die angezeigte Temperatur 19,50 °C ist gerundet; sie liegt knapp über 19,5 °C.
 :::
 :::
 
 :::aufgabe Aufgabe 14 ★ So lange fragen, bis die Eingabe passt
 <span class="anker" id="aufg-14"></span>
 
-Schreibe ein Skript `eingabe_r.py`, das nach einem Widerstand in Ohm fragt und die Frage so lange wiederholt, bis eine Zahl größer als 0 eingegeben ist. Dann soll es den Strom bei 5 V ausgeben. Teste mit den Eingaben $-5$, $0$ und $470$ nacheinander.
+Schreibe ein Skript `eingabe_personen.py`, das nach der Zahl der Personen fragt und die Frage so lange wiederholt, bis eine Zahl größer als 0 eingegeben ist. Dann soll es ausgeben, wie viel jede Person zahlt, wenn sich alle eine Rechnung über 47,50 Euro teilen. Teste mit den Eingaben $-5$, $0$ und $3$ nacheinander.
 
 :::loesung
 Die Frage steht einmal vor der Schleife und einmal im Block; die Schleife läuft, solange die letzte Eingabe ungültig ist.
 
-```python eingabe_r.py
-# So lange nach dem Widerstand fragen, bis er größer als 0 ist
-r = float(input("Widerstand in Ohm: "))
-while r <= 0:
-    print("Der Widerstand muss größer als 0 sein.")
-    r = float(input("Widerstand in Ohm: "))
-print(f"Strom bei 5 V: {5 / r * 1000:.2f} mA")
+```python eingabe_personen.py
+# So lange nach der Zahl der Personen fragen, bis sie größer als 0 ist
+personen = int(input("Anzahl der Personen: "))
+while personen <= 0:
+    print("Es muss mindestens eine Person sein.")
+    personen = int(input("Anzahl der Personen: "))
+print(f"Jede Person zahlt {47.50 / personen:.2f} Euro")
 ```
 
 ```console Linux
-$ python3 eingabe_r.py
-Widerstand in Ohm: -5
-Der Widerstand muss größer als 0 sein.
-Widerstand in Ohm: 0
-Der Widerstand muss größer als 0 sein.
-Widerstand in Ohm: 470
-Strom bei 5 V: 10.64 mA
+$ python3 eingabe_personen.py
+Anzahl der Personen: -5
+Es muss mindestens eine Person sein.
+Anzahl der Personen: 0
+Es muss mindestens eine Person sein.
+Anzahl der Personen: 3
+Jede Person zahlt 15.83 Euro
 ```
 
-Tippt man statt einer Zahl ein Wort, bricht `float` mit `ValueError` ab; das abzufangen erfordert eine Ausnahmebehandlung, die dieses Kapitel nicht behandelt.
+Tippt man statt einer Zahl ein Wort, bricht `int` mit `ValueError` ab; das abzufangen erfordert eine Ausnahmebehandlung, die dieses Kapitel nicht behandelt.
 :::
 :::

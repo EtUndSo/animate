@@ -1,6 +1,8 @@
 ---
 title: Etapa 7: La distribución gaussiana
-pfad: Ingeniería eléctrica / 3.er semestre / Señales y sistemas / Señales aleatorias
+pfad: Ingeniería eléctrica / 3.er semestre / ET3 – Fundamentos de ingeniería eléctrica 3: señales y sistemas / Señales aleatorias
+adresse: elektrotechnik/3-semester/signale-und-systeme/zufallssignale
+knoten: Capítulo 7: Señales aleatorias
 order: 3270800
 summary: ¿Por qué el ruido tiene tan a menudo una distribución gaussiana y cómo se calcula con ella?
 tags: teorema central del límite, función de error
@@ -13,7 +15,7 @@ lang: es
 ¿Por qué el ruido tiene tan a menudo una distribución gaussiana y cómo se calcula con ella?
 :::
 
-Si se convolucionan muchas densidades entre sí, el resultado se aproxima a una curva de Gauss (__teorema central del límite__, [parte 3](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)). El ruido es casi siempre la suma de muchísimas contribuciones pequeñas e independientes, por ejemplo de los movimientos de muchos electrones. Por eso tiene una distribución gaussiana.
+Si se convolucionan muchas densidades entre sí, el resultado se aproxima a una curva de Gauss (__teorema central del límite__, [capítulo 3](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)). El ruido es casi siempre la suma de muchísimas contribuciones pequeñas e independientes, por ejemplo de los movimientos de muchos electrones. Por eso tiene una distribución gaussiana.
 
 :::satz Teorema 7.1 (Distribución gaussiana)
 <span class="anker" id="satz-7-1"></span>

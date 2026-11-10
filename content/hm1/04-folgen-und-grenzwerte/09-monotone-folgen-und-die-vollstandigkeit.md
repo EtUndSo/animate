@@ -1,6 +1,8 @@
 ---
 title: Stufe 7: Monotone Folgen und die Vollständigkeit
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Folgen und Grenzwerte
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Folgen und Grenzwerte
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/folgen-und-grenzwerte
+knoten: Kapitel 4: Folgen und Grenzwerte
 order: 1240900
 summary: Bisher stand der Grenzwert fest, bevor der Nachweis begann.
 tags: 
@@ -10,7 +12,7 @@ lang: de
 <span class="anker" id="stufe-7"></span>
 
 :::zweck
-Bisher stand der Grenzwert fest, bevor der Nachweis begann. Die Wurzelfolge besteht aus Brüchen und strebt zu einem Wert, der kein Bruch ist. Diese Stufe zeigt Konvergenz, ohne das Ziel zu kennen, und macht sichtbar, wo die Vollständigkeit aus [Teil 1](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html) wirkt.
+Bisher stand der Grenzwert fest, bevor der Nachweis begann. Die Wurzelfolge besteht aus Brüchen und strebt zu einem Wert, der kein Bruch ist. Diese Stufe zeigt Konvergenz, ohne das Ziel zu kennen, und macht sichtbar, wo die Vollständigkeit aus [Kapitel 1](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html) wirkt.
 :::
 
 **Die Idee.** Eine monoton wachsende Folge kann nicht zurück, und eine obere Schranke ist für sie eine Decke. Die tiefste Decke ist das Supremum der Wertemenge. An diese Decke muss die Folge heran: Bliebe sie dauerhaft um $\varepsilon$ darunter, wäre „Supremum minus $\varepsilon$“ eine noch tiefere Decke. Der Beweis steht und fällt damit, dass es die tiefste Decke im Zahlbereich gibt. Das sagt das Vollständigkeitsaxiom.
@@ -61,10 +63,10 @@ $$x=\tfrac12\Bigl(x+\frac2x\Bigr)\quad\Longrightarrow\quad x^2=2\quad\Longrighta
 Zahlen: $x_3=1{,}4167$, $x_4=1{,}414216$, $x_5=1{,}4142135624$. Der Fehler von $x_5$ liegt unter $2\cdot10^{-12}$. Das Heron-Verfahren ist ein gängiger Weg, Wurzeln in digitalen Rechenwerken zu bestimmen.
 ::::
 
-**Warum das in $\mathbb{Q}$ scheitert.** Alle Voraussetzungen des Monotonie-Lemmas prüft man innerhalb von $\mathbb{Q}$: Die $x_n$ sind Brüche, sie fallen, und die Schranke 1 ist ein Bruch. Trotzdem gibt es in $\mathbb{Q}$ keinen Grenzwert: Jeder Grenzwert müsste die Gleichung $x^2=2$ erfüllen, und kein Bruch tut das ([Teil 1](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html)). Der Beweis des Lemmas bricht genau an einer Stelle: Die Menge $\{x_n\}$ hat in $\mathbb{Q}$ kein Infimum. Zu jeder rationalen unteren Schranke gibt es eine größere. Die Folge läuft auf eine Lücke zu. Deshalb steht in der Definition der Konvergenz $a\in\mathbb{R}$ und deshalb ist die Vollständigkeit keine Formalie: *In $\mathbb{R}$ hat jede monotone beschränkte Folge ein Ziel, in $\mathbb{Q}$ nicht.*
+**Warum das in $\mathbb{Q}$ scheitert.** Alle Voraussetzungen des Monotonie-Lemmas prüft man innerhalb von $\mathbb{Q}$: Die $x_n$ sind Brüche, sie fallen, und die Schranke 1 ist ein Bruch. Trotzdem gibt es in $\mathbb{Q}$ keinen Grenzwert: Jeder Grenzwert müsste die Gleichung $x^2=2$ erfüllen, und kein Bruch tut das ([Kapitel 1](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html)). Der Beweis des Lemmas bricht genau an einer Stelle: Die Menge $\{x_n\}$ hat in $\mathbb{Q}$ kein Infimum. Zu jeder rationalen unteren Schranke gibt es eine größere. Die Folge läuft auf eine Lücke zu. Deshalb steht in der Definition der Konvergenz $a\in\mathbb{R}$ und deshalb ist die Vollständigkeit keine Formalie: *In $\mathbb{R}$ hat jede monotone beschränkte Folge ein Ziel, in $\mathbb{Q}$ nicht.*
 
 :::frage Ein Rechner kennt nur Brüche. Wozu braucht man die Lücken in $\mathbb{Q}$ geschlossen?
-Für einen Zahlenwert genügt ein Bruch: $x_5$ trifft $\sqrt2$ auf 11 Nachkommastellen. Aussagen wie „diese Folge hat einen Grenzwert“ brauchen dagegen $\mathbb{R}$. Stetigkeit ([Teil 5](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/exponentialfunktion-und-stetigkeit/exponentialfunktion-und-stetigkeit.html)) und Reihen ([Teil 6](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/unendliche-reihen/unendliche-reihen.html)) beruhen darauf, dass der Grenzwert existiert, auch wenn ihn niemand als Bruch hinschreiben kann.
+Für einen Zahlenwert genügt ein Bruch: $x_5$ trifft $\sqrt2$ auf 11 Nachkommastellen. Aussagen wie „diese Folge hat einen Grenzwert“ brauchen dagegen $\mathbb{R}$. Stetigkeit ([Kapitel 5](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/exponentialfunktion-und-stetigkeit/exponentialfunktion-und-stetigkeit.html)) und Reihen ([Kapitel 6](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/unendliche-reihen/unendliche-reihen.html)) beruhen darauf, dass der Grenzwert existiert, auch wenn ihn niemand als Bruch hinschreiben kann.
 :::
 
 :::aufgabe Aufgabe 9 ★★ Wurzelkette

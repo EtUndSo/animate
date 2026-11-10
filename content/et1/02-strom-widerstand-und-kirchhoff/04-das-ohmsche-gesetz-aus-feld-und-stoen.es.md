@@ -1,6 +1,8 @@
 ---
 title: Etapa 3: La ley de Ohm a partir del campo y las colisiones
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Corriente, resistencia y leyes de Kirchhoff
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Corriente, resistencia y leyes de Kirchhoff
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff
+knoten: Capítulo 2: Corriente, resistencia y leyes de Kirchhoff
 order: 1120400
 summary: La etapa 2 ha mostrado que la deriva es proporcional al campo.
 tags: conductividad, resistividad, conductancia, lineal, homogéneo, potencia
@@ -36,7 +38,7 @@ Densidad de corriente de los electrones, etapa [1](strom-ist-bewegte-ladung.htm
 
 $$\vec j=q\,\vec v_\mathrm D=(-n\,e)(-\mu\,\vec E)=n\,e\,\mu\,\vec E=\sigma\,\vec E.$$
 
-El campo es uniforme, así que $U=E\,L$ ([Parte 1](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)). Con ello
+El campo es uniforme, así que $U=E\,L$ ([capítulo 1](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)). Con ello
 
 $$I=j\,A=\sigma\,E\,A=\frac{\sigma\,A}{L}\,U\quad\Longrightarrow\quad U=\frac{L}{\sigma\,A}\,I=R\,I.$$
 :::
@@ -55,7 +57,7 @@ El hilo tiene $R=\rho\,L/A=34\,\mathrm{m\Omega}$. Con 3 mA caen en él 0,10 
 
 ⁠**Casos límite:** El doble de longitud con la misma tensión reduce a la mitad el campo y, con él, la corriente. El doble de sección actúa como dos hilos uno junto a otro; la corriente se duplica. $U=0$ da $I=0$.
 
-**Adónde va la energía.** En cada colisión, el electrón cede a la red cristalina la energía cinética ganada en el campo. La red vibra con más fuerza, y eso es calor. Cada culombio cede la energía $U$ en julios, y por segundo pasan $I$ culombios. La __potencia__, la energía por unidad de tiempo, es por tanto $P=U\,I=R\,I^2$. La cadena convierte $9\,\mathrm{V}\cdot3\,\mathrm{mA}=27$ mW. La [Parte 7](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad/leistung-und-anpassung.html) trata la potencia con más detalle.
+**Adónde va la energía.** En cada colisión, el electrón cede a la red cristalina la energía cinética ganada en el campo. La red vibra con más fuerza, y eso es calor. Cada culombio cede la energía $U$ en julios, y por segundo pasan $I$ culombios. La __potencia__, la energía por unidad de tiempo, es por tanto $P=U\,I=R\,I^2$. La cadena convierte $9\,\mathrm{V}\cdot3\,\mathrm{mA}=27$ mW. El [capítulo 7](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad/leistung-und-anpassung.html) trata la potencia con más detalle.
 
 :::frage $R=U/I$ siempre se puede calcular. ¿Qué dice entonces la ley de Ohm?
 El cociente $U/I$ existe en todo componente. La ley dice más: es *constante*, independiente de $U$. Esa es una afirmación sobre el material y se deduce del tiempo de vuelo fijo. En una lámpara incandescente no se cumple (etapa [4](reale-widerstande-werte-und-temperatur.html#stufe-4)).

@@ -1,6 +1,8 @@
 ---
 title: Etapa 8: Superposición
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Fuentes y fuentes equivalentes
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Fuentes y fuentes equivalentes
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen
+knoten: Capítulo 5: Fuentes y fuentes equivalentes
 order: 1151000
 summary: Cuando hay varias fuentes en distintos lugares de la red, los grupos por sí solos no ayudan.
 tags: método de superposición, independiente, sensibilidad
@@ -71,7 +73,7 @@ $$U_\mathrm{AB}=\frac{R_2}{R_1+R_2}\,U_\mathrm{q1}+\frac{R_1R_2}{R_1+R_2}\,I_\ma
 Esta es la forma [(8.1)](#gl-8-1): cada sumando pertenece a una fuente, y los coeficientes solo contienen resistencias.
 :::
 
-**El límite: la potencia.** La potencia en una resistencia es cuadrática en la tensión, $P=UI=U^2/R$ ([Parte 7](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad/leistung-und-anpassung.html)). En $R_2$, sumar daría $(6\,\mathrm{V})^2/3\,\Omega+(3\,\mathrm{V})^2/3\,\Omega=15$ W. Lo cierto son $(9\,\mathrm{V})^2/3\,\Omega=27$ W. Falta el término cruzado $2U'U''/R_2=12$ W. Las potencias no se pueden superponer; las tensiones y las corrientes, sí. Más adelante llega una excepción: con magnitudes alternas de distinta frecuencia, el término cruzado desaparece en la media temporal. Tampoco vale la superposición en cuanto hay un diodo en la red ([Parte 9](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)).
+**El límite: la potencia.** La potencia en una resistencia es cuadrática en la tensión, $P=UI=U^2/R$ ([capítulo 7](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad/leistung-und-anpassung.html)). En $R_2$, sumar daría $(6\,\mathrm{V})^2/3\,\Omega+(3\,\mathrm{V})^2/3\,\Omega=15$ W. Lo cierto son $(9\,\mathrm{V})^2/3\,\Omega=27$ W. Falta el término cruzado $2U'U''/R_2=12$ W. Las potencias no se pueden superponer; las tensiones y las corrientes, sí. Más adelante llega una excepción: con magnitudes alternas de distinta frecuencia, el término cruzado desaparece en la media temporal. Tampoco vale la superposición en cuanto hay un diodo en la red ([capítulo 9](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)).
 
 :::frage ¿Por qué no puedo sacar de la red una fuente de tensión desactivada?
 Porque cero voltios no se convierten en «nada». La fuente sigue siendo parte de la línea; solo que ya no mantiene ninguna tensión. Si se saca, se interrumpe el camino de la corriente a través de ella. Ese sería el caso de la fuente de corriente, no el de la fuente de tensión.

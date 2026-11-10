@@ -1,6 +1,8 @@
 ---
 title: Etapa 8: Tensión y masa
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Carga, campo y potencial
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Carga, campo y potencial
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial
+knoten: Capítulo 1: Carga, campo y potencial
 order: 1111000
 summary: El valor de un potencial depende del punto de referencia; la diferencia de dos potenciales, no.
 tags: tensión, masa, tierra, esquemas eléctricos, flecha de referencia, nudos
@@ -79,7 +81,7 @@ Por una única conexión de masa, no. La corriente necesita un camino cerrado, y
 :::
 
 :::ltspice Desplazar la masa
-⁠**Esquema:** fuente `voltage` con `9` de `a` a `b`, `res` con `2k` de `a` a `m`, `res` con `1k` de `m` a `b`. Coloca el símbolo de masa primero en `b`, luego en `m` y luego en `a`. LTspice siempre necesita una masa. Las resistencias se explican en la [Parte 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html); aquí solo sirven para el reparto en 6 V y 3 V.
+⁠**Esquema:** fuente `voltage` con `9` de `a` a `b`, `res` con `2k` de `a` a `m`, `res` con `1k` de `m` a `b`. Coloca el símbolo de masa primero en `b`, luego en `m` y luego en `a`. LTspice siempre necesita una masa. Las resistencias se explican en el [capítulo 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html); aquí solo sirven para el reparto en 6 V y 3 V.
 
 ⁠**Directivas:** `.op`, y para cada nudo sin masa una medida como `.meas op pa FIND V(a)`. El nudo con masa no tiene valor propio; para él pon 0.
 

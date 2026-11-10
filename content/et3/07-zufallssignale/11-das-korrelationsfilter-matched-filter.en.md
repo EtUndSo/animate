@@ -1,6 +1,8 @@
 ---
 title: Stage 10: The matched filter (correlation filter)
-pfad: Electrical Engineering / 3rd Semester / Signals and Systems / Random Signals
+pfad: Electrical Engineering / 3rd Semester / ET3 – Fundamentals of Electrical Engineering 3: Signals and Systems / Random Signals
+adresse: elektrotechnik/3-semester/signale-und-systeme/zufallssignale
+knoten: Chapter 7: Random Signals
 order: 3271100
 summary: A known pulse s(t) arrives corrupted by noise.
 tags: matched filter, correlator
@@ -17,7 +19,7 @@ A known pulse $s(t)$ arrives corrupted by noise. With which filter does it becom
 
 $$\frac{S_a}{N}=\frac{g^2(T)}{\mathrm E\{n_e^2(T)\}}=\frac{\bigl[\int h(\tau)s(T-\tau)\mathrm{d}\tau\bigr]^2}{N_0\int|h(\tau)|^2\mathrm{d}\tau}=\frac{E_s}{N_0}\cdot\underbrace{\frac{\bigl[\int h(\tau)s(T-\tau)\mathrm{d}\tau\bigr]^2}{\int|h|^2\mathrm{d}\tau\int|s(T-\tau)|^2\mathrm{d}\tau}}_{=|p|^2\le1}.$$
 
-The fraction on the right is the square of a correlation coefficient ([Part 6](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen/korrelationsfunktionen.html)), between $h(\tau)$ and $s(T-\tau)$. It is at most 1, and it equals 1 exactly when both have the same shape.
+The fraction on the right is the square of a correlation coefficient ([Chapter 6](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen/korrelationsfunktionen.html)), between $h(\tau)$ and $s(T-\tau)$. It is at most 1, and it equals 1 exactly when both have the same shape.
 
 :::satz Theorem 10.1 (Matched filter)
 <span class="anker" id="satz-10-1"></span>

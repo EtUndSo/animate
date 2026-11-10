@@ -1,7 +1,9 @@
 ---
 title: Überblick: Zustandsdichte und Fermi-Verteilung
 kurz: Überblick
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Zustandsdichte und Fermi-Verteilung
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Zustandsdichte und Fermi-Verteilung
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/zustandsdichte-und-fermi-verteilung
+knoten: Kapitel 10: Zustandsdichte und Fermi-Verteilung
 order: 4200100
 summary: Plätze mal Besetzung: Wie viele Ladungsträger ein Kristall enthält
 tags: Ladungsträger, Ladungsträgerdichte, k-Raum, Zustandsdichte, Entropie, Fermi-Verteilung, Fermi-Energie, effektive Zustandsdichte
@@ -39,7 +41,7 @@ Der Weg führt über acht Begriffe. __Ladungsträger__ sind bewegliche Ladungen,
 
 <li>
 
-⁠**Metall:** Kupfer mit einem beweglichen Elektron je Atom, FCC mit $a=0{,}3615$ nm ([Teil 6](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/kristallgitter/kristallgitter.html)), also $n=8{,}47\cdot10^{22}\,\mathrm{cm^{-3}}$.
+⁠**Metall:** Kupfer mit einem beweglichen Elektron je Atom, FCC mit $a=0{,}3615$ nm ([Kapitel 6](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/kristallgitter/kristallgitter.html)), also $n=8{,}47\cdot10^{22}\,\mathrm{cm^{-3}}$.
 
 </li>
 

@@ -1,7 +1,8 @@
 ---
 title: Wahrscheinlichkeit
 pfad: Informatik / Machine Learning / Mathematische Grundlagen / Wahrscheinlichkeit
-knoten: Grundlagen 4: Wahrscheinlichkeit
+adresse: informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit
+knoten: Kapitel 4: Wahrscheinlichkeit
 nachschlagen: ja
 order: 15240300
 summary: Eine Wahrscheinlichkeit ordnet jedem Ereignis eine Zahl zwischen null und eins zu, die angibt, wie sehr man mit ihm rechnen kann.
@@ -95,7 +96,7 @@ Für einen fairen Würfel setzt man $P(\{k\})=1/6$ für $k=1,\dots,6$ und für e
 :::hintergrund Warum gerade diese drei Axiome, und was eine Wahrscheinlichkeit „ist“
 Die Axiome sind genau die Eigenschaften, die jede relative Häufigkeit hat. Deshalb kann eine Wahrscheinlichkeit, die diese Axiome erfüllt, das Verhalten relativer Häufigkeiten beschreiben, ohne ihnen zu widersprechen. Die Additivität stammt vom Zählen: Wer unvereinbare Fälle zusammenfasst, zählt jeden Versuch höchstens einmal. Aufgeschrieben hat die Axiome Andrei Kolmogorow 1933. Erst damit wurde die Wahrscheinlichkeitsrechnung ein Teil der Mathematik mit klaren Grundlagen.
 
-Was eine Wahrscheinlichkeit bedeutet, legen die Axiome nicht fest. Zwei Deutungen sind verbreitet. Die eine sieht in $P(A)$ den Anteil, mit dem $A$ auf lange Sicht eintritt; sie passt zu Würfeln, Bauteilen aus einer Fertigung und Rauschen. Die andere sieht in $P(A)$ den Grad, mit dem man nach dem eigenen Wissen von $A$ überzeugt sein sollte; sie passt auch zu einmaligen Fragen wie „Ist dieses Bauteil defekt?“. Für endlich viele Ereignisse führen beide Deutungen auf dieselben Rechenregeln. Für die zweite Deutung zeigte Richard Cox 1946: Wer Überzeugungen mit einer Zahl misst und einige natürliche Forderungen an widerspruchsfreies Schließen stellt, landet zwangsläufig bei den Regeln der Wahrscheinlichkeit. Wie natürlich diese Forderungen sind, ist bis heute umstritten. Für die Rechnungen in diesem Kapitel spielt die Deutung keine Rolle.
+Was eine Wahrscheinlichkeit bedeutet, legen die Axiome nicht fest. Zwei Deutungen sind verbreitet. Die eine sieht in $P(A)$ den Anteil, mit dem $A$ auf lange Sicht eintritt; sie passt zu Würfeln, Bauteilen aus einer Fertigung und Messfehlern. Die andere sieht in $P(A)$ den Grad, mit dem man nach dem eigenen Wissen von $A$ überzeugt sein sollte; sie passt auch zu einmaligen Fragen wie „Ist dieses Bauteil defekt?“. Für endlich viele Ereignisse führen beide Deutungen auf dieselben Rechenregeln. Für die zweite Deutung zeigte Richard Cox 1946: Wer Überzeugungen mit einer Zahl misst und einige natürliche Forderungen an widerspruchsfreies Schließen stellt, landet zwangsläufig bei den Regeln der Wahrscheinlichkeit. Wie natürlich diese Forderungen sind, ist bis heute umstritten. Für die Rechnungen in diesem Kapitel spielt die Deutung keine Rolle.
 :::
 
 ### Rechenregeln

@@ -1,6 +1,8 @@
 ---
 title: Stufe 2: Ionische Bindung
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Chemische Bindung
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Chemische Bindung
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/chemische-bindung
+knoten: Kapitel 5: Chemische Bindung
 order: 4150400
 summary: Die Energiekurve ließ offen, woher die Anziehung stammt.
 tags: Ionenkristall, stöchiometrisch
@@ -40,7 +42,7 @@ Für KCl kostet der Tausch $4{,}34\,\mathrm{eV}-3{,}61\,\mathrm{eV}=0{,}73$ eV
 
 ⁠**Grenzfall:** Die Coulomb-Energie deckt den Tausch erst unterhalb von $r_\mathrm c=1{,}44\,\mathrm{eV\,nm}/0{,}73\,\mathrm{eV}=1{,}97$ nm. Trennt man KCl weiter, entstehen deshalb neutrale Atome, keine Ionen.
 
-**Eigenschaften.** Ionen mit Edelgashülle sind kugelsymmetrisch, die Bindung ist ungerichtet. Die Ionen packen sich dicht, wie dicht, bestimmt das Verhältnis von Kationen- zu Anionenradius. Weil die Ladungszahlen fest sind, ist es auch das Zahlenverhältnis der Ionen. Solche festen Verhältnisse heißen __stöchiometrisch__, zum Beispiel 1:1 in NaCl, 1:2 in CaF$_2$, 2:3 in Al$_2$O$_3$. Das zweite Elektron des Kaliums käme aus der vollen Argonschale und kostet 31,6 eV, das 7,3-fache des ersten. Die Ionenladung ist zugleich die Valenz aus [Teil 4](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/atome-und-orbitale/atome-und-orbitale.html).
+**Eigenschaften.** Ionen mit Edelgashülle sind kugelsymmetrisch, die Bindung ist ungerichtet. Die Ionen packen sich dicht, wie dicht, bestimmt das Verhältnis von Kationen- zu Anionenradius. Weil die Ladungszahlen fest sind, ist es auch das Zahlenverhältnis der Ionen. Solche festen Verhältnisse heißen __stöchiometrisch__, zum Beispiel 1:1 in NaCl, 1:2 in CaF$_2$, 2:3 in Al$_2$O$_3$. Das zweite Elektron des Kaliums käme aus der vollen Argonschale und kostet 31,6 eV, das 7,3-fache des ersten. Die Ionenladung ist zugleich die Valenz aus [Kapitel 4](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/atome-und-orbitale/atome-und-orbitale.html).
 
 :::frage Geht das Elektron wirklich vollständig über?
 Im Modell ja, in der Wirklichkeit fast. Gemessene Elektronendichten zeigen auch in Salzen einen kleinen Rest zwischen den Ionen. Die vollständige Übergabe ist ein Grenzfall, der die Bindung auf das Coulomb-Gesetz zurückführt.

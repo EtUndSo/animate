@@ -1,6 +1,8 @@
 ---
 title: Stufe 3: Grenzwerte von Funktionen
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Exponentialfunktion und Stetigkeit
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Exponentialfunktion und Stetigkeit
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/exponentialfunktion-und-stetigkeit
+knoten: Kapitel 5: Exponentialfunktion und Stetigkeit
 order: 1250500
 summary: Bisher läuft nur der Index n gegen unendlich.
 tags: linksseitigen Grenzwert, rechtsseitigen Grenzwert
@@ -67,14 +69,14 @@ Links hat $L$ bei 2 den Grenzwert 4, nur der Wert fehlt. Mitte: Die einseitigen 
 Aus $\lim_{x\to x_0}f(x)=y_0$ und $\lim_{x\to x_0}g(x)=w_0$ folgt: (i) $\lim_{x\to x_0}[\alpha f(x)+\beta g(x)]=\alpha y_0+\beta w_0$ für alle $\alpha,\beta\in\mathbb{R}$, (ii) $\lim_{x\to x_0}[f(x)\cdot g(x)]=y_0\cdot w_0$, (iii) falls $w_0\ne0$: $\lim_{x\to x_0}\frac{f(x)}{g(x)}=\frac{y_0}{w_0}$.
 :::
 
-⁠**So liest man das:** Auf eine Testfolge angewandt sind das die Rechenregeln für Folgen aus [Teil 4](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/folgen-und-grenzwerte/folgen-und-grenzwerte.html), mehr ist nicht zu beweisen. Für Polynome folgt daraus der Grenzwert durch Einsetzen:
+⁠**So liest man das:** Auf eine Testfolge angewandt sind das die Rechenregeln für Folgen aus [Kapitel 4](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/folgen-und-grenzwerte/folgen-und-grenzwerte.html), mehr ist nicht zu beweisen. Für Polynome folgt daraus der Grenzwert durch Einsetzen:
 
 <span class="anker" id="gl-3-3"></span>
 $$\lim_{x\to x_0}P_n(x)=P_n(x_0). \tag{3.3}$$
 
 Denn für $Q_1(x)=x$ gilt das sofort, für $Q_n(x)=x\cdot Q_{n-1}(x)$ per Induktion mit (ii), und (i) setzt daraus jedes Polynom zusammen.
 
-Hat der Nenner bei $x_0$ eine Nullstelle, greift (iii) nicht. Ist $x_0$ auch Nullstelle des Zählers, spaltet man den Linearfaktor ab ([Teil 3](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/funktionen-und-polynome/funktionen-und-polynome.html)).
+Hat der Nenner bei $x_0$ eine Nullstelle, greift (iii) nicht. Ist $x_0$ auch Nullstelle des Zählers, spaltet man den Linearfaktor ab ([Kapitel 3](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/funktionen-und-polynome/funktionen-und-polynome.html)).
 
 :::satz Satz 3.3 (Grenzwerte rationaler Funktionen)
 <span class="anker" id="satz-3-3"></span>

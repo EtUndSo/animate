@@ -1,7 +1,8 @@
 ---
 title: Ableiten nach Vektoren und Matrizen
 pfad: Informatik / Machine Learning / Mathematische Grundlagen / Ableitung, Gradient und Kettenregel
-knoten: Grundlagen 3: Ableitung, Gradient und Kettenregel
+adresse: informatik/machine-learning/mathematische-grundlagen/ableitung-gradient-und-kettenregel
+knoten: Kapitel 3: Ableitung, Gradient und Kettenregel
 nachschlagen: ja
 order: 15230800
 summary: Gradienten von Ausdrücken wie a top x , x top Ax oder lVerty-AxrVert 2 braucht man immer wieder.
@@ -90,7 +91,7 @@ Es ist $\mathbf{a}^{\top}\mathbf{x}=\sum_ja_jx_j$. Nach $x_k$ abgeleitet bleibt 
 :::
 
 ::::beispiel [Rechenbeispiel]
-In [Grundlagen 1, Abschnitt 2.2](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-skalarprodukt.html#stufe-2-2), war für Wohnung 1 mit $\mathbf{x}_1=(60,\,2,\,3)^{\top}$ und den Gewichten $\mathbf{w}=(3,\,10,\,-4)^{\top}$ die Vorhersage $\hat y_1=\mathbf{w}^{\top}\mathbf{x}_1=188$. Als Funktion der Gewichte hat sie den Gradienten $\nabla_{\mathbf{w}}\hat y_1=\mathbf{x}_1=(60,\,2,\,3)^{\top}$. Erhöht man $w_1$ um $0{,}1$, so steigt die Vorhersage um $60\cdot0{,}1=6$ auf $194$; tatsächlich ist $3{,}1\cdot60+10\cdot2-4\cdot3=194$. Der Grund ist einfach: Jedes Gewicht wird mit seinem Merkmal multipliziert, und deshalb ist die Empfindlichkeit nach einem Gewicht genau das zugehörige Merkmal.
+In [Kapitel 1, Abschnitt 2.2](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-skalarprodukt.html#stufe-2-2), war für Wohnung 1 mit $\mathbf{x}_1=(60,\,2,\,3)^{\top}$ und den Gewichten $\mathbf{w}=(3,\,10,\,-4)^{\top}$ die Vorhersage $\hat y_1=\mathbf{w}^{\top}\mathbf{x}_1=188$. Als Funktion der Gewichte hat sie den Gradienten $\nabla_{\mathbf{w}}\hat y_1=\mathbf{x}_1=(60,\,2,\,3)^{\top}$. Erhöht man $w_1$ um $0{,}1$, so steigt die Vorhersage um $60\cdot0{,}1=6$ auf $194$; tatsächlich ist $3{,}1\cdot60+10\cdot2-4\cdot3=194$. Der Grund ist einfach: Jedes Gewicht wird mit seinem Merkmal multipliziert, und deshalb ist die Empfindlichkeit nach einem Gewicht genau das zugehörige Merkmal.
 ::::
 
 ⁠**Kurz gesagt:** Der Gradient von $\mathbf{a}^{\top}\mathbf{x}$ nach $\mathbf{x}$ ist $\mathbf{a}$, der von $\mathbf{y}^{\top}\mathbf{A}\mathbf{x}$ ist $\mathbf{A}^{\top}\mathbf{y}$.
@@ -99,7 +100,7 @@ In [Grundlagen 1, Abschnitt 2.2](/wissen/informatik/machine-learning/mathemati
 
 <span class="anker" id="stufe-7-3"></span>
 
-Quadratische Formen $\mathbf{x}^{\top}\mathbf{A}\mathbf{x}$ aus [Grundlagen 2, Abschnitt 5](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/quadratische-formen.html#stufe-5), kommen überall vor, wo Quadrate summiert werden. Beim Ableiten taucht $\mathbf{x}$ an zwei Stellen auf, und beide tragen bei, wie die beiden Wege in Abschnitt [6.2](die-kettenregel-fur-mehrere-variablen.html#stufe-6-2).
+Quadratische Formen $\mathbf{x}^{\top}\mathbf{A}\mathbf{x}$ aus [Kapitel 2, Abschnitt 5](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/quadratische-formen.html#stufe-5), kommen überall vor, wo Quadrate summiert werden. Beim Ableiten taucht $\mathbf{x}$ an zwei Stellen auf, und beide tragen bei, wie die beiden Wege in Abschnitt [6.2](die-kettenregel-fur-mehrere-variablen.html#stufe-6-2).
 
 :::satz Satz 7.3 (Gradient einer quadratischen Form)
 <span class="anker" id="satz-7-3"></span>
@@ -116,7 +117,7 @@ Ist $\mathbf{A}$ symmetrisch, so ist das $2\mathbf{A}\mathbf{x}$. Insbesondere i
 Es ist $\mathbf{x}^{\top}\mathbf{A}\mathbf{x}=\sum_{i=1}^n\sum_{j=1}^nx_i\,a_{ij}\,x_j$. Leitet man nach $x_k$ ab, tragen zwei Gruppen von Summanden bei: die mit $i=k$, deren Ableitung $\sum_ja_{kj}x_j=(\mathbf{A}\mathbf{x})_k$ ist, und die mit $j=k$, deren Ableitung $\sum_ix_ia_{ik}=(\mathbf{A}^{\top}\mathbf{x})_k$ ist. Der Summand mit $i=j=k$ ist $a_{kk}x_k^2$ und hat die Ableitung $2a_{kk}x_k$; er ist in beiden Gruppen je einmal mit $a_{kk}x_k$ enthalten. Also ist die Komponente $k$ des Gradienten $(\mathbf{A}\mathbf{x})_k+(\mathbf{A}^{\top}\mathbf{x})_k$.
 :::
 
-Nach [Grundlagen 2, Abschnitt 5.2](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/quadratische-formen.html#stufe-5-2), hängt die quadratische Form nur vom symmetrischen Anteil $\mathbf{S}=\tfrac12(\mathbf{A}+\mathbf{A}^{\top})$ ab. Die Formel passt dazu: $(\mathbf{A}+\mathbf{A}^{\top})\mathbf{x}=2\mathbf{S}\mathbf{x}$.
+Nach [Kapitel 2, Abschnitt 5.2](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/quadratische-formen.html#stufe-5-2), hängt die quadratische Form nur vom symmetrischen Anteil $\mathbf{S}=\tfrac12(\mathbf{A}+\mathbf{A}^{\top})$ ab. Die Formel passt dazu: $(\mathbf{A}+\mathbf{A}^{\top})\mathbf{x}=2\mathbf{S}\mathbf{x}$.
 
 ::::beispiel [Rechenbeispiel]
 Für $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\0&3\end{smallmatrix}\bigr)$ ist $\mathbf{x}^{\top}\mathbf{A}\mathbf{x}=x_1^2+2x_1x_2+3x_2^2$, an der Stelle $\mathbf{x}=(1,\,1)^{\top}$ also $6$. Nach [(7.2)](#gl-7-2) ist
@@ -132,7 +133,7 @@ Probe mit den partiellen Ableitungen $2x_1+2x_2=4$ und $2x_1+6x_2=8$. Die Formel
 
 <span class="anker" id="stufe-7-4"></span>
 
-In [Grundlagen 2, Abschnitt 3](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/die-beste-naherungslosung.html#stufe-3), war das Residuum $\mathbf{r}=\mathbf{y}-\mathbf{A}\mathbf{x}$ der Fehlervektor eines Gleichungssystems $\mathbf{A}\mathbf{x}=\mathbf{y}$, das keine Lösung hat, und gesucht war das $\mathbf{x}$ mit dem kürzesten Residuum. Die Quadratsumme $\lVert\mathbf{y}-\mathbf{A}\mathbf{x}\rVert^2$ ist eine Funktion von $\mathbf{x}$, und ihr Gradient sagt, wie sie auf eine Änderung von $\mathbf{x}$ reagiert.
+In [Kapitel 2, Abschnitt 3](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/die-beste-naherungslosung.html#stufe-3), war das Residuum $\mathbf{r}=\mathbf{y}-\mathbf{A}\mathbf{x}$ der Fehlervektor eines Gleichungssystems $\mathbf{A}\mathbf{x}=\mathbf{y}$, das keine Lösung hat, und gesucht war das $\mathbf{x}$ mit dem kürzesten Residuum. Die Quadratsumme $\lVert\mathbf{y}-\mathbf{A}\mathbf{x}\rVert^2$ ist eine Funktion von $\mathbf{x}$, und ihr Gradient sagt, wie sie auf eine Änderung von $\mathbf{x}$ reagiert.
 
 :::satz Satz 7.4 (Gradient der Quadratsumme)
 <span class="anker" id="satz-7-4"></span>
@@ -159,7 +160,7 @@ Der Gradient der Quadratsumme $\lVert\mathbf{y}-\mathbf{A}\mathbf{x}\rVert^2$: J
 :::
 ::::
 
-Die Formel verbindet sich mit [Grundlagen 2](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/projektion-eigenwerte-und-zerlegungen.html). Dort stand das Residuum der besten Näherungslösung $\hat{\mathbf{x}}$ senkrecht auf allen Spalten von $\mathbf{A}$, also $\mathbf{A}^{\top}\hat{\mathbf{r}}=\mathbf{0}$, und daraus folgten die Normalgleichungen $\mathbf{A}^{\top}\mathbf{A}\hat{\mathbf{x}}=\mathbf{A}^{\top}\mathbf{y}$. Nach [(7.3)](#gl-7-3) heißt das: An der Stelle $\hat{\mathbf{x}}$ ist der Gradient der Quadratsumme null, sie steigt und fällt dort in keiner Richtung, bis auf Glieder zweiter Ordnung. Für das Beispiel aus [Grundlagen 2, Abschnitt 3.3](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/die-beste-naherungslosung.html#stufe-3-3), mit der Matrix $\mathbf{A}=\Bigl(\begin{smallmatrix}1&0\\0&1\\1&1\end{smallmatrix}\Bigr)$, $\mathbf{y}=(1,\,1,\,1)^{\top}$ und $\hat{\mathbf{x}}=(\tfrac23,\,\tfrac23)^{\top}$ ist $\hat{\mathbf{r}}=(\tfrac13,\,\tfrac13,\,-\tfrac13)^{\top}$ und $\mathbf{A}^{\top}\hat{\mathbf{r}}=(\tfrac13-\tfrac13,\ \tfrac13-\tfrac13)^{\top}=\mathbf{0}$.
+Die Formel verbindet sich mit [Kapitel 2](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/projektion-eigenwerte-und-zerlegungen.html). Dort stand das Residuum der besten Näherungslösung $\hat{\mathbf{x}}$ senkrecht auf allen Spalten von $\mathbf{A}$, also $\mathbf{A}^{\top}\hat{\mathbf{r}}=\mathbf{0}$, und daraus folgten die Normalgleichungen $\mathbf{A}^{\top}\mathbf{A}\hat{\mathbf{x}}=\mathbf{A}^{\top}\mathbf{y}$. Nach [(7.3)](#gl-7-3) heißt das: An der Stelle $\hat{\mathbf{x}}$ ist der Gradient der Quadratsumme null, sie steigt und fällt dort in keiner Richtung, bis auf Glieder zweiter Ordnung. Für das Beispiel aus [Kapitel 2, Abschnitt 3.3](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/die-beste-naherungslosung.html#stufe-3-3), mit der Matrix $\mathbf{A}=\Bigl(\begin{smallmatrix}1&0\\0&1\\1&1\end{smallmatrix}\Bigr)$, $\mathbf{y}=(1,\,1,\,1)^{\top}$ und $\hat{\mathbf{x}}=(\tfrac23,\,\tfrac23)^{\top}$ ist $\hat{\mathbf{r}}=(\tfrac13,\,\tfrac13,\,-\tfrac13)^{\top}$ und $\mathbf{A}^{\top}\hat{\mathbf{r}}=(\tfrac13-\tfrac13,\ \tfrac13-\tfrac13)^{\top}=\mathbf{0}$.
 
 ⁠**Kurz gesagt:** Der Gradient von $\lVert\mathbf{y}-\mathbf{A}\mathbf{x}\rVert^2$ ist $-2\mathbf{A}^{\top}(\mathbf{y}-\mathbf{A}\mathbf{x})$; er verschwindet genau dort, wo das Residuum senkrecht auf den Spalten von $\mathbf{A}$ steht.
 
@@ -172,7 +173,7 @@ Manchmal ist nicht ein Vektor die Variable, sondern eine ganze Matrix: Wie ände
 <span class="anker" id="gl-7-4"></span>
 $$f(\mathbf{A}+\mathbf E)\approx f(\mathbf{A})+\sum_{i=1}^m\sum_{j=1}^n\bigl(\nabla_{\mathbf{A}}f\bigr)_{ij}\,e_{ij} \tag{7.4}$$
 
-für eine kleine Matrix $\mathbf E$ mit den Einträgen $e_{ij}$. Die Doppelsumme ist dasselbe wie $\operatorname{spur}\bigl((\nabla_{\mathbf{A}}f)^{\top}\mathbf E\bigr)$ mit der Spur aus [Grundlagen 2, Abschnitt 6.5](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/eigenwerte-und-eigenvektoren.html#stufe-6-5).
+für eine kleine Matrix $\mathbf E$ mit den Einträgen $e_{ij}$. Die Doppelsumme ist dasselbe wie $\operatorname{spur}\bigl((\nabla_{\mathbf{A}}f)^{\top}\mathbf E\bigr)$ mit der Spur aus [Kapitel 2, Abschnitt 6.5](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/eigenwerte-und-eigenvektoren.html#stufe-6-5).
 
 :::satz Satz 7.5 (Zwei Ableitungen nach einer Matrix)
 <span class="anker" id="satz-7-5"></span>
@@ -182,11 +183,11 @@ Für feste Vektoren $\mathbf{u}\in\mathbb{R}^m$, $\mathbf{v}\in\mathbb{R}^n$ und
 <span class="anker" id="gl-7-5"></span>
 $$\nabla_{\mathbf{A}}(\mathbf{u}^{\top}\mathbf{A}\mathbf{v})=\mathbf{u}\mathbf{v}^{\top},\qquad \nabla_{\mathbf{A}}\lVert\mathbf{A}\rVert_F^2=2\mathbf{A} . \tag{7.5}$$
 
-Dabei ist $\lVert\mathbf{A}\rVert_F$ die Frobeniusnorm aus [Grundlagen 2, Abschnitt 10.1](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/naherung-durch-matrizen-von-kleinem-rang.html#stufe-10-1).
+Dabei ist $\lVert\mathbf{A}\rVert_F$ die Frobeniusnorm aus [Kapitel 2, Abschnitt 10.1](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/naherung-durch-matrizen-von-kleinem-rang.html#stufe-10-1).
 :::
 
 :::beweis Zwei Ableitungen nach einer Matrix
-Es ist $\mathbf{u}^{\top}\mathbf{A}\mathbf{v}=\sum_i\sum_ju_i\,a_{ij}\,v_j$. Der Eintrag $a_{ij}$ kommt in genau einem Summanden vor, mit dem Faktor $u_iv_j$. Also ist $\partial(\mathbf{u}^{\top}\mathbf{A}\mathbf{v})/\partial a_{ij}=u_iv_j$, und das ist der Eintrag $(i,j)$ des äußeren Produkts $\mathbf{u}\mathbf{v}^{\top}$ aus [Grundlagen 1, Abschnitt 9.5](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrixprodukt.html#stufe-9-5). Ebenso ist $\lVert\mathbf{A}\rVert_F^2=\sum_{i,j}a_{ij}^2$ und $\partial/\partial a_{ij}$ davon $2a_{ij}$.
+Es ist $\mathbf{u}^{\top}\mathbf{A}\mathbf{v}=\sum_i\sum_ju_i\,a_{ij}\,v_j$. Der Eintrag $a_{ij}$ kommt in genau einem Summanden vor, mit dem Faktor $u_iv_j$. Also ist $\partial(\mathbf{u}^{\top}\mathbf{A}\mathbf{v})/\partial a_{ij}=u_iv_j$, und das ist der Eintrag $(i,j)$ des äußeren Produkts $\mathbf{u}\mathbf{v}^{\top}$ aus [Kapitel 1, Abschnitt 9.5](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrixprodukt.html#stufe-9-5). Ebenso ist $\lVert\mathbf{A}\rVert_F^2=\sum_{i,j}a_{ij}^2$ und $\partial/\partial a_{ij}$ davon $2a_{ij}$.
 :::
 
 ::::beispiel [Rechenbeispiel]
@@ -221,7 +222,7 @@ Es ist $y_i=\sum_ka_{ik}x_k$. Der Eintrag $a_{ij}$ beeinflusst nur $y_i$, und zw
 :::
 
 ::::beispiel [Rechenbeispiel]
-In [Grundlagen 1, Abschnitt 7.1](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrix-vektor-produkt.html#stufe-7-1), war $\mathbf{A}=\Bigl(\begin{smallmatrix}1&2\\0&-1\\3&1\end{smallmatrix}\Bigr)$ und $\mathbf{x}=(2,\,1)^{\top}$, also $\mathbf{y}=\mathbf{A}\mathbf{x}=(4,\,-1,\,7)^{\top}$. Es sei $f(\mathbf{y})=y_1-y_3=-3$, also $\nabla f(\mathbf{y})=(1,\,0,\,-1)^{\top}$. Nach [(7.6)](#gl-7-6) ist
+In [Kapitel 1, Abschnitt 7.1](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrix-vektor-produkt.html#stufe-7-1), war $\mathbf{A}=\Bigl(\begin{smallmatrix}1&2\\0&-1\\3&1\end{smallmatrix}\Bigr)$ und $\mathbf{x}=(2,\,1)^{\top}$, also $\mathbf{y}=\mathbf{A}\mathbf{x}=(4,\,-1,\,7)^{\top}$. Es sei $f(\mathbf{y})=y_1-y_3=-3$, also $\nabla f(\mathbf{y})=(1,\,0,\,-1)^{\top}$. Nach [(7.6)](#gl-7-6) ist
 
 $$\nabla_{\mathbf{A}}F=\begin{pmatrix}1\\0\\-1\end{pmatrix}\begin{pmatrix}2&1\end{pmatrix}=\begin{pmatrix}2&1\\0&0\\-2&-1\end{pmatrix},\qquad \nabla_{\mathbf{x}}F=\mathbf{A}^{\top}\begin{pmatrix}1\\0\\-1\end{pmatrix}=\begin{pmatrix}-2\\1\end{pmatrix}$$
 
@@ -274,10 +275,10 @@ $f(\mathbf{x})=\mathbf{x}^{\top}\mathbf{A}\mathbf{x}$ mit $\mathbf{A}=\bigl(\beg
 :::
 :::
 
-:::aufgabe Aufgabe 25 ★★ Die Ausgleichsgerade aus Grundlagen 2
+:::aufgabe Aufgabe 25 ★★ Die Ausgleichsgerade aus Kapitel 2
 <span class="anker" id="aufg-25"></span>
 
-In [Grundlagen 2, Abschnitt 3.6](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/die-beste-naherungslosung.html#stufe-3-6), wurde eine Gerade durch die Punkte $(0,\,1)$, $(1,\,2)$ und $(2,\,4)$ gelegt, mit $\mathbf{A}=\Bigl(\begin{smallmatrix}1&0\\1&1\\1&2\end{smallmatrix}\Bigr)$ und $\mathbf{y}=(1,\,2,\,4)^{\top}$.
+In [Kapitel 2, Abschnitt 3.6](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/die-beste-naherungslosung.html#stufe-3-6), wurde eine Gerade durch die Punkte $(0,\,1)$, $(1,\,2)$ und $(2,\,4)$ gelegt, mit $\mathbf{A}=\Bigl(\begin{smallmatrix}1&0\\1&1\\1&2\end{smallmatrix}\Bigr)$ und $\mathbf{y}=(1,\,2,\,4)^{\top}$.
 
 <ol class="al">
 
@@ -295,7 +296,7 @@ In welche Richtung sollte man $\mathbf{x}$ von $(1,\,1)$ aus ein kleines Stück 
 
 <li>
 
-Zeige, dass der Gradient an der Stelle $\hat{\mathbf{x}}=(\tfrac56,\,\tfrac32)^{\top}$ aus [Grundlagen 2](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/projektion-eigenwerte-und-zerlegungen.html) null ist.
+Zeige, dass der Gradient an der Stelle $\hat{\mathbf{x}}=(\tfrac56,\,\tfrac32)^{\top}$ aus [Kapitel 2](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/projektion-eigenwerte-und-zerlegungen.html) null ist.
 
 </li>
 

@@ -1,6 +1,8 @@
 ---
 title: Stufe 3: Strom und Spannung am Kondensator
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Der Kondensator
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Der Kondensator
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator
+knoten: Kapitel 3: Der Kondensator
 order: 1130400
 summary: Am Widerstand legt die Spannung den Strom im selben Moment fest.
 tags: Stromquelle
@@ -18,7 +20,7 @@ Am Widerstand legt die Spannung den Strom im selben Moment fest. Am Kondensator 
 :::satz Satz 3.1 (Strom und Spannung am Kondensator)
 <span class="anker" id="satz-3-1"></span>
 
-Mit Strom- und Spannungszählpfeil in gleicher Richtung ([Teil 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)) gilt für zeitabhängige Größen
+Mit Strom- und Spannungszählpfeil in gleicher Richtung ([Kapitel 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)) gilt für zeitabhängige Größen
 
 <span class="anker" id="gl-3-1"></span>
 <span class="anker" id="gl-3-2"></span>
@@ -26,7 +28,7 @@ $$\begin{aligned} i(t)&=\frac{\mathrm{d} q}{\mathrm{d} t}=C\,\frac{\mathrm{d} u(
 :::
 
 :::herleitung Strom und Spannung
-Strom ist Ladung je Zeit, $i=\mathrm{d} q/\mathrm{d} t$ ([Teil 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)). Einsetzen von $q=C\,u$ und Herausziehen der konstanten Zahl $C$ ergibt [(3.1)](#gl-3-1). Umgekehrt ist die Ladung die Fläche unter der Stromkurve, wie der Weg die Fläche unter der Geschwindigkeit ist ([Teil 1](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)): $q(t)=q(t_0)+\int_{t_0}^{t}i\,\mathrm{d} t'$. Teilen durch $C$ ergibt [(3.2)](#gl-3-2).
+Strom ist Ladung je Zeit, $i=\mathrm{d} q/\mathrm{d} t$ ([Kapitel 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)). Einsetzen von $q=C\,u$ und Herausziehen der konstanten Zahl $C$ ergibt [(3.1)](#gl-3-1). Umgekehrt ist die Ladung die Fläche unter der Stromkurve, wie der Weg die Fläche unter der Geschwindigkeit ist ([Kapitel 1](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)): $q(t)=q(t_0)+\int_{t_0}^{t}i\,\mathrm{d} t'$. Teilen durch $C$ ergibt [(3.2)](#gl-3-2).
 :::
 
 ⁠**So liest man das:** Kleinbuchstaben stehen für zeitabhängige Größen, $t'$ ist die Integrationsvariable, $u(t_0)$ die Spannung zur Startzeit. $i$ in A, $C$ in F, $\mathrm{d} u/\mathrm{d} t$ in V/s. 1 mA an 100 µF lässt die Spannung um 10 V/s steigen. **Vorzeichen:** $q$ ist die Ladung der Platte, in die der Strompfeil hineinzeigt. Bei $i>0$ wächst sie und $u$ steigt, bei $i<0$ sinkt $u$. **Gültigkeit:** $C$ muss konstant sein.

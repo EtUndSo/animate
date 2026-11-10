@@ -1,6 +1,8 @@
 ---
 title: 第 5 阶段：信号与频谱中的对称性
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / 傅里叶级数与变换
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / 傅里叶级数与变换
+adresse: elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation
+knoten: 第 3 章：傅里叶级数与变换
 order: 3230600
 summary: 信号是实的、偶的还是奇的，可以直接从其频谱看出。本阶段推导相应的规则。
 tags: 偶, 奇

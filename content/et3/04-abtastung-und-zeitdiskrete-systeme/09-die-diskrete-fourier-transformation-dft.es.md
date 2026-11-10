@@ -1,6 +1,8 @@
 ---
 title: Etapa 8: La transformada discreta de Fourier (DFT)
-pfad: Ingeniería eléctrica / 3.er semestre / Señales y sistemas / Muestreo y sistemas en tiempo discreto
+pfad: Ingeniería eléctrica / 3.er semestre / ET3 – Fundamentos de ingeniería eléctrica 3: señales y sistemas / Muestreo y sistemas en tiempo discreto
+adresse: elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme
+knoten: Capítulo 4: Muestreo y sistemas en tiempo discreto
 order: 3240900
 summary: S mathrm a(f) es una función continua, pero un ordenador necesita una cantidad finita de números.
 tags: 

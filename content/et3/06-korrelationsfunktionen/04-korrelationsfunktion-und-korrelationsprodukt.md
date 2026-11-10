@@ -1,6 +1,8 @@
 ---
 title: Stufe 3: Korrelationsfunktion und Korrelationsprodukt
-pfad: Elektrotechnik / 3. Semester / Signale und Systeme / Korrelationsfunktionen
+pfad: Elektrotechnik / 3. Semester / ET3 – Grundgebiete der Elektrotechnik 3: Signale und Systeme / Korrelationsfunktionen
+adresse: elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen
+knoten: Kapitel 6: Korrelationsfunktionen
 order: 3260400
 summary: Ein Echo ist dem Sendeimpuls ähnlich, aber verschoben.
 tags: Autokorrelationsfunktion, Kreuzkorrelationsfunktion, Korrelationsprodukt

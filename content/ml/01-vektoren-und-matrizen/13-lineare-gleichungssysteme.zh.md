@@ -1,7 +1,8 @@
 ---
 title: 线性方程组
 pfad: 计算机科学 / 机器学习 / 数学基础 / 向量与矩阵
-knoten: 基础篇 1：向量与矩阵
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: 第 1 章：向量与矩阵
 nachschlagen: ja
 order: 15211300
 summary: 到目前为止，都是给定输入 x ，求输出 Ax 。本节提出相反的问题：哪个输入产生给定的输出？这就是线性方程组。本节说明如何求解它，以及它何时无解、何时恰有一个解、何时有无穷多解。

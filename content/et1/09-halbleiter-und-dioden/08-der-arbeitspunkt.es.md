@@ -1,6 +1,8 @@
 ---
 title: Etapa 6: El punto de trabajo
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Semiconductores y diodos
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Semiconductores y diodos
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden
+knoten: Capítulo 9: Semiconductores y diodos
 order: 1190800
 summary: En una resistencia, U=R\,I da el resultado de inmediato.
 tags: recta de carga, punto de trabajo, Análisis del punto de trabajo, Síntesis del punto de trabajo, sin carga, cortocircuito, histéresis, iteración
@@ -13,7 +15,7 @@ lang: es
 En una resistencia, $U=R\,I$ da el resultado de inmediato. El diodo sigue otra curva. Esta etapa halla la tensión y la corriente del diodo en un circuito.
 :::
 
-**La idea.** Deben cumplirse dos condiciones a la vez. El diodo solo admite puntos de su curva característica. El resto del circuito, fuente y resistencia, solo admite puntos de la __recta de carga__ ([Parte 5](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)). El circuito encuentra la intersección por sí mismo: si $U_\mathrm D$ es demasiado pequeña, la resistencia entrega más corriente de la que deja pasar el diodo. La carga se acumula en el nudo entre ambos y eleva su potencial hasta que las dos corrientes son iguales.
+**La idea.** Deben cumplirse dos condiciones a la vez. El diodo solo admite puntos de su curva característica. El resto del circuito, fuente y resistencia, solo admite puntos de la __recta de carga__ ([capítulo 5](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)). El circuito encuentra la intersección por sí mismo: si $U_\mathrm D$ es demasiado pequeña, la resistencia entrega más corriente de la que deja pasar el diodo. La carga se acumula en el nudo entre ambos y eleva su potencial hasta que las dos corrientes son iguales.
 
 :::abbildung et1/k9arbeitsgerade 8
 Circuito del modelo de referencia y solución gráfica. En rojo, la recta de carga por los puntos sin carga y cortocircuito. En azul, la curva característica del diodo, intersección en 0,69 V y 4,31 mA. En verde, la curva característica de una resistencia de 250 $\Omega$ en lugar del diodo, intersección en 1 V y 4 mA.

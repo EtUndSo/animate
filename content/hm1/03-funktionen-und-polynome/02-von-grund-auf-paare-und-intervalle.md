@@ -1,13 +1,15 @@
 ---
 title: Von Grund auf: Paare und Intervalle
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Funktionen und Polynome
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Funktionen und Polynome
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/funktionen-und-polynome
+knoten: Kapitel 3: Funktionen und Polynome
 order: 1230200
 summary: Wann sich eine Gleichung rückwärts lösen lässt und warum jede Nullstelle einen Faktor abspaltet
 tags: kartesische Produkt, Intervalle, offen, abgeschlossen, halboffen
 lang: de
 ---
 
-Mengen, die Zeichen $\in$, $\subset$ und die Zahlbereiche kennt [Teil 1](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html). Dazu kommen zwei Bausteine. Das __kartesische Produkt__ (auch Kreuzprodukt) zweier Mengen ist die Menge aller geordneten Paare:
+Mengen, die Zeichen $\in$, $\subset$ und die Zahlbereiche kennt [Kapitel 1](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html). Dazu kommen zwei Bausteine. Das __kartesische Produkt__ (auch Kreuzprodukt) zweier Mengen ist die Menge aller geordneten Paare:
 
 $$A\times B:=\bigl\{(a,b):a\in A\ \wedge\ b\in B\bigr\}.$$
 

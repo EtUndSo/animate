@@ -1,6 +1,8 @@
 ---
 title: Etapa 2: Por qué circula corriente por el diodo bloqueado
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / El transistor bipolar
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / El transistor bipolar
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor
+knoten: Capítulo 10: El transistor bipolar
 order: 1200400
 summary: El diodo CB bloquea y, sin embargo, por él circulan miliamperios.
 tags: inyección, longitud de difusión, corriente de transferencia, región activa
@@ -43,7 +45,7 @@ El diodo CB bloquea y, sin embargo, por él circulan miliamperios. Esta etapa si
 
 </ol>
 
-Los electrones van del emisor al colector. La corriente convencional $I_\mathrm{C}$ se cuenta en sentido opuesto, del colector al emisor ([Parte 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)).
+Los electrones van del emisor al colector. La corriente convencional $I_\mathrm{C}$ se cuenta en sentido opuesto, del colector al emisor ([capítulo 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)).
 
 :::abbildung et1/k10basis 2
 Arriba: camino de los electrones en el punto de trabajo. La corriente de emisor de 2,01 mA se divide en 2 mA hacia el colector y 10 µ A hacia la base. Abajo: energía de un electrón en función de la posición, esquemática. $U_\mathrm{BE}$ baja el escalón pequeño del emisor, $U_\mathrm{CB}$ aumenta la caída hacia el colector.
@@ -64,7 +66,7 @@ $$I_\mathrm{C}=I_\mathrm{S}\,\mathrm{e}^{U_\mathrm{BE}/U_T},\qquad I_\mathrm{B}=
 Electrones y huecos cruzan la misma barrera. La densidad de electrones en el borde de la base del lado del emisor y la densidad de huecos en el borde del emisor del lado de la base crecen ambas con $\mathrm{e}^{U_\mathrm{BE}/U_T}$. La corriente de colector es proporcional a la primera densidad, igual que la recombinación en la base, y la corriente de huecos a la segunda. Todas las partes llevan el mismo factor, de modo que su cociente $B=I_\mathrm{C}/I_\mathrm{B}$ no depende de $U_\mathrm{BE}$.
 :::
 
-**¿Quién controla?** Físicamente controla $U_\mathrm{BE}$, porque solo la tensión reduce la barrera. La corriente de base es el precio que se paga por ello. Aun así, en los circuitos se calcula a menudo con $I_\mathrm{B}$: debido a $I_\mathrm{C}=B\,I_\mathrm{B}$, el transistor se comporta como una fuente de corriente controlada por corriente (CCCS, [Parte 6](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html)). Ambas visiones describen la misma proporcionalidad. El control mediante $U_\mathrm{BE}$ explica la ley exponencial; la visión mediante $I_\mathrm{B}$ es cómoda cuando una resistencia fija la corriente de base.
+**¿Quién controla?** Físicamente controla $U_\mathrm{BE}$, porque solo la tensión reduce la barrera. La corriente de base es el precio que se paga por ello. Aun así, en los circuitos se calcula a menudo con $I_\mathrm{B}$: debido a $I_\mathrm{C}=B\,I_\mathrm{B}$, el transistor se comporta como una fuente de corriente controlada por corriente (CCCS, [capítulo 6](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html)). Ambas visiones describen la misma proporcionalidad. El control mediante $U_\mathrm{BE}$ explica la ley exponencial; la visión mediante $I_\mathrm{B}$ es cómoda cuando una resistencia fija la corriente de base.
 
 ::::beispiel
 $U_\mathrm{BE}=0{,}6$ V da $I_\mathrm{C}=1{,}9\cdot10^{-13}\,\mathrm{A}\cdot\mathrm{e}^{23{,}08}=2{,}00$ mA, $I_\mathrm{B}=10$ µ A, $I_\mathrm{E}=2{,}01$ mA. Son $1{,}25\cdot10^{16}$ electrones por segundo en el colector, y allí llega el 99,5 % de la corriente de emisor. La función exponencial es sensible: $+18$ mV duplican la corriente ($U_T\ln2$), $+60$ mV la multiplican por diez ($U_T\ln10$), $+1$ mV aporta $+3{,}9$ %.

@@ -1,6 +1,8 @@
 ---
 title: Etapa 6: Distribución conjunta, independencia, incorrelación
-pfad: Ingeniería eléctrica / 3.er semestre / Señales y sistemas / Señales aleatorias
+pfad: Ingeniería eléctrica / 3.er semestre / ET3 – Fundamentos de ingeniería eléctrica 3: señales y sistemas / Señales aleatorias
+adresse: elektrotechnik/3-semester/signale-und-systeme/zufallssignale
+knoten: Capítulo 7: Señales aleatorias
 order: 3270700
 summary: Dos variables aleatorias a la vez: ¿cuándo están relacionadas y qué se deduce de ello para su suma?
 tags: distribución conjunta, estadísticamente independientes, incorreladas
@@ -28,7 +30,7 @@ De la independencia se deduce la incorrelación: $\varphi_{sg}=\int xp_s\mathrm{
 <span class="anker" id="gl-6-1"></span>
 $$p_s(x)=\int_{-\infty}^{\infty}p_{fg}(u,x-u)\,\mathrm{d} u=p_f(x)*p_g(x)\quad(\text{independientes}). \tag{6.1}$$
 
-Es la convolución de la [parte 1](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html), allí con el ejemplo de los dados. Dos variables con distribución uniforme dan una densidad triangular; tres, una que ya tiene casi forma de campana (fig. [2](#abb-2)).
+Es la convolución del [capítulo 1](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html), allí con el ejemplo de los dados. Dos variables con distribución uniforme dan una densidad triangular; tres, una que ya tiene casi forma de campana (fig. [2](#abb-2)).
 
 :::abbildung et3/k7summen 2
 Densidades de probabilidad de sumas de variables aleatorias independientes con distribución uniforme en $[-\frac12,\frac12]$. La suma de tres ya está cerca de la curva de Gauss con la misma varianza (en $x=0$: 0,75 frente a 0,80).

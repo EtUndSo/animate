@@ -1,6 +1,8 @@
 ---
 title: Stufe 2: Das Kosinus-Band
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Das Teilchen in der Box
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Das Teilchen in der Box
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box
+knoten: Kapitel 2: Das Teilchen in der Box
 order: 4120400
 summary: Für konstantes Potential lässt sich die diskrete Gleichung von Hand lösen.
 tags: Kosinus-Band, Brillouin-Zone, effektive Masse
@@ -47,7 +49,7 @@ $$v(k)=\frac{2t_0a}{\hbar}\sin(ka). \tag{2.2}$$
 
 Anders als beim freien Elektron wächst $v$ nicht unbegrenzt. Das Maximum $v_\text{max}=2t_0a/\hbar=5{,}8\cdot10^5$ m/s liegt bei $k=\pi/(2a)$. Am Rand ist $v=0$: $(-1)^\ell$ ist ein stehendes Muster, die Welle läuft nicht mehr.
 
-**Masse aus der Krümmung.** Nach [Teil 1](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/welle-teilchen-und-schrodinger-gleichung/welle-teilchen-und-schroedinger-gleichung.html) ist die Masse der Kehrwert der Krümmung von $E(k)$. Für jede andere Kurve als die freie Parabel heißt diese Größe __effektive Masse__: die Masse, mit der ein Elektron im Material auf eine Kraft reagiert.
+**Masse aus der Krümmung.** Nach [Kapitel 1](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/welle-teilchen-und-schrodinger-gleichung/welle-teilchen-und-schroedinger-gleichung.html) ist die Masse der Kehrwert der Krümmung von $E(k)$. Für jede andere Kurve als die freie Parabel heißt diese Größe __effektive Masse__: die Masse, mit der ein Elektron im Material auf eine Kraft reagiert.
 
 <span class="anker" id="gl-2-3"></span>
 $$m^*=\Bigl(\frac1{\hbar^2}\,\frac{\partial^2E(k)}{\partial k^2}\Bigr)^{-1}. \tag{2.3}$$

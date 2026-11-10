@@ -1,7 +1,8 @@
 ---
 title: Cálculo elemento a elemento y tensores
 pfad: Informática / Aprendizaje automático / Fundamentos matemáticos / Vectores y matrices
-knoten: Fundamentos 1: Vectores y matrices
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Capítulo 1: Vectores y matrices
 nachschlagen: ja
 order: 15211600
 summary: No todo cálculo con vectores y matrices es un producto de matrices.
@@ -110,7 +111,7 @@ Una imagen en color de $4\times4$ píxeles y tres canales de color es un tensor 
 ⁠**En resumen:** Un tensor es una disposición de números con un número cualquiera de ejes; el escalar, el vector y la matriz son los casos con $0$, $1$ y $2$ ejes.
 
 :::hintergrund El tensor de la física es otra cosa
-En física y en electrotecnia, un tensor es más que una disposición de números, por ejemplo el tensor de tensiones de un material o el tensor de permitividad de un cristal. Allí, al tensor le corresponde una regla que dice cómo cambian sus entradas cuando se gira el sistema de coordenadas; las entradas solas no lo constituyen. En el aprendizaje automático falta esta regla: en ese ámbito, un tensor es solo una disposición multidimensional de números. La palabra es la misma; el concepto, otro.
+En física, un tensor es más que una disposición de números, por ejemplo el tensor de inercia, que indica lo difícil que es hacer girar un cuerpo en torno a cada eje, o el tensor que describe con qué intensidad se estira o se comprime una viga cargada en cada dirección. Allí, al tensor le corresponde una regla que dice cómo cambian sus entradas cuando se gira el sistema de coordenadas; las entradas solas no lo constituyen. En el aprendizaje automático falta esta regla: en ese ámbito, un tensor es solo una disposición multidimensional de números. La palabra es la misma; el concepto, otro.
 :::
 
 ### Imágenes como tensores

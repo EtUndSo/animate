@@ -1,6 +1,8 @@
 ---
 title: Etapa 4: Pérdidas en la línea
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Potencia, adaptación y rendimiento
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Potencia, adaptación y rendimiento
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad
+knoten: Capítulo 7: Potencia, adaptación y rendimiento
 order: 1170500
 summary: Entre la fuente y la carga está la línea, y también ella es una resistencia.
 tags: caída de tensión, potencia de pérdidas, potencia útil, tensión nominal
@@ -54,7 +56,7 @@ La carga necesita 40 kW, $R_\mathrm{cable}=1\,\Omega$. Con $U_\mathrm{L}=400$�
 | Alta tensión | 110 kV | hasta unos 100 km | Alimentación de las redes de media tensión |
 | Muy alta tensión | 220 kV, 380 kV | de varios 100 a más de 1000 km | Interconexión en el país y en Europa |
 
-La alta tensión no se puede llevar hasta la vivienda: el aire se perfora a unos 3 kV/mm ([Parte 1](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)), por lo que las líneas aéreas necesitan distancias de varios metros. Los transformadores elevan la tensión alterna para el transporte y la reducen de nuevo antes de los consumidores.
+La alta tensión no se puede llevar hasta la vivienda: el aire se perfora a unos 3 kV/mm ([capítulo 1](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)), por lo que las líneas aéreas necesitan distancias de varios metros. Los transformadores elevan la tensión alterna para el transporte y la reducen de nuevo antes de los consumidores.
 
 :::frage Según $P=U^2/R$, la potencia crece con la tensión. ¿No deberían las tensiones altas traer más pérdidas?
 La fórmula es correcta, pero necesita la tensión en la misma resistencia. En el ejemplo, el cable no tiene 20 kV, sino $U_\mathrm{cable}=2$ V, y $(2\,\mathrm{V})^2/1\,\Omega$ son los 4 W. La tensión alta está en la carga. $U_\mathrm{cable}$ baja porque baja la corriente.

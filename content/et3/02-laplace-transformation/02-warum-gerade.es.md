@@ -1,6 +1,8 @@
 ---
 title: Etapa 1: Por qué precisamente $\mathrm{e}^{pt}$
-pfad: Ingeniería eléctrica / 3.er semestre / Señales y sistemas / Transformada de Laplace
+pfad: Ingeniería eléctrica / 3.er semestre / ET3 – Fundamentos de ingeniería eléctrica 3: señales y sistemas / Transformada de Laplace
+adresse: elektrotechnik/3-semester/signale-und-systeme/laplace-transformation
+knoten: Capítulo 2: Transformada de Laplace
 order: 3220200
 summary: Si se introduce e pt en la integral de convolución, se obtiene H(p)\,e pt : e pt es una función propia.
 tags: tasa de crecimiento, frecuencia

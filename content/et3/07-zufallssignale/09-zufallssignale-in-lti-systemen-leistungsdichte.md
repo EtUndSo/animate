@@ -1,6 +1,8 @@
 ---
 title: Stufe 8: Zufallssignale in LTI-Systemen, Leistungsdichte
-pfad: Elektrotechnik / 3. Semester / Signale und Systeme / Zufallssignale
+pfad: Elektrotechnik / 3. Semester / ET3 – Grundgebiete der Elektrotechnik 3: Signale und Systeme / Zufallssignale
+adresse: elektrotechnik/3-semester/signale-und-systeme/zufallssignale
+knoten: Kapitel 7: Zufallssignale
 order: 3270900
 summary: Was macht ein LTI-System mit einem Zufallssignal?
 tags: Leistungsdichtespektrum
@@ -41,10 +43,10 @@ Erwartungswert ins Doppelintegral ziehen. Bei Stationarität ist $\mathrm E\{s(t
 
 $$\varphi_{gg}(\tau)=\int\varphi_{ss}(\tau-\vartheta)\underbrace{\int h(\alpha)h(\alpha+\vartheta)\,\mathrm{d}\alpha}_{\varphi^E_{hh}(\vartheta)}\,\mathrm{d}\vartheta=\varphi_{ss}*\varphi^E_{hh}.$$
 
-Im Frequenzbereich wird $\varphi^E_{hh}$ zu $|H|^2$ ([Teil 6](/wissen/elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen/korrelationsfunktionen.html)).
+Im Frequenzbereich wird $\varphi^E_{hh}$ zu $|H|^2$ ([Kapitel 6](/wissen/elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen/korrelationsfunktionen.html)).
 :::
 
-⁠**So liest man das:** $\Phi_{ss}(f)$ gibt an, wie sich die Leistung auf die Frequenzen verteilt. Es ist reell, nie negativ und bei reellen Signalen gerade. Ein LTI-System multipliziert die Leistung bei jeder Frequenz mit $|H(f)|^2$, seine Phase spielt keine Rolle. Das ist dieselbe Regel wie für Energiesignale in [Teil 6](/wissen/elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen/korrelationsfunktionen.html), jetzt für Prozesse. (Zusatz: Streng genommen definiert man $\Phi_{ss}$ als Grenzwert $\lim_{T\to\infty}\frac1T\mathrm E\{|S_T(f)|^2\}$ über Kurzzeitspektren von Ausschnitten der Dauer $T$. Dass das dasselbe ist wie die Transformierte der AKF, ist die eigentliche Aussage des Wiener-Khintchine-Theorems.)
+⁠**So liest man das:** $\Phi_{ss}(f)$ gibt an, wie sich die Leistung auf die Frequenzen verteilt. Es ist reell, nie negativ und bei reellen Signalen gerade. Ein LTI-System multipliziert die Leistung bei jeder Frequenz mit $|H(f)|^2$, seine Phase spielt keine Rolle. Das ist dieselbe Regel wie für Energiesignale in [Kapitel 6](/wissen/elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen/korrelationsfunktionen.html), jetzt für Prozesse. (Zusatz: Streng genommen definiert man $\Phi_{ss}$ als Grenzwert $\lim_{T\to\infty}\frac1T\mathrm E\{|S_T(f)|^2\}$ über Kurzzeitspektren von Ausschnitten der Dauer $T$. Dass das dasselbe ist wie die Transformierte der AKF, ist die eigentliche Aussage des Wiener-Khintchine-Theorems.)
 
 :::ltspice Rauschen mit Mittelwert durch Tief- und Hochpass
 ⁠**Zeichnen:** Verhaltensquelle `bv` am Netz `s` mit `V=1+white(1e3*time)`. `white(x)` liefert Zufallswerte zwischen $-0{,}5$ und $0{,}5$, bei jedem ganzzahligen $x$ einen neuen, weich verbunden, hier also jede Millisekunde. Daran parallel ein RC-Tiefpass (`res` mit `1Meg` nach `tp`, `cap` mit `1u` nach Masse) und ein CR-Hochpass (`cap` mit `1u` nach `hp`, `res` mit `1Meg` nach Masse).

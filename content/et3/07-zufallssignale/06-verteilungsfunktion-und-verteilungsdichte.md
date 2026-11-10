@@ -1,6 +1,8 @@
 ---
 title: Stufe 5: Verteilungsfunktion und Verteilungsdichte
-pfad: Elektrotechnik / 3. Semester / Signale und Systeme / Zufallssignale
+pfad: Elektrotechnik / 3. Semester / ET3 – Grundgebiete der Elektrotechnik 3: Signale und Systeme / Zufallssignale
+adresse: elektrotechnik/3-semester/signale-und-systeme/zufallssignale
+knoten: Kapitel 7: Zufallssignale
 order: 3270600
 summary: Mittelwerte sagen nicht alles.
 tags: Verteilungsfunktion, Verteilungsdichte, Quantisierer

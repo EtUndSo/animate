@@ -1,7 +1,8 @@
 ---
 title: The condition number
 pfad: Computer Science / Machine Learning / Mathematical Foundations / Projection, Eigenvalues and Decompositions
-knoten: Foundations 2: Projection, Eigenvalues and Decompositions
+adresse: informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen
+knoten: Chapter 2: Projection, Eigenvalues and Decompositions
 nachschlagen: ja
 order: 15221300
 summary: Measured data are never exact, and a computer rounds at every step.
@@ -89,7 +90,7 @@ so $\lambda_1\approx2.005012$ and $\lambda_2\approx0.004988$, both positive. By 
 
 <span class="anker" id="stufe-12-3"></span>
 
-The background box in [Foundations 1, Section 14.6](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-6), contained a warning: a small determinant does not mean that a matrix is nearly singular. The condition number measures what was meant there.
+The background box in [Chapter 1, Section 14.6](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-6), contained a warning: a small determinant does not mean that a matrix is nearly singular. The condition number measures what was meant there.
 
 :::satz Theorem 12.3 (Distance to the nearest singular matrix)
 <span class="anker" id="satz-12-3"></span>
@@ -107,7 +108,7 @@ A singular matrix has rank at most $n-1$. By the Eckart–Young theorem with $k=
 So a large condition number means: a relatively small change makes the matrix singular. The determinant measures something else. By Exercise [29](die-singularwertzerlegung.html#aufg-29), $|\det\mathbf{A}|=d_1\cdots d_n$, the product of all stretches; it depends on the size of the matrix. The condition number is a ratio and does not change when $\mathbf{A}$ is multiplied by a number: $\kappa(c\mathbf{A})=\kappa(\mathbf{A})$ for $c\ne0$. It only measures how flat the ellipse is into which $\mathbf{A}$ transforms the unit circle.
 
 ::::beispiel [Worked example]
-The two matrices from [Foundations 1, Section 14.6](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-6): $0.1\cdot\mathbf{I}_{10}$ has the determinant $10^{-10}$, but all singular values are $0.1$ and $\kappa=1$; it is as well conditioned as possible. $\operatorname{diag}(1000,\ 0.001)$ has the determinant $1$, but $\kappa=1000/0.001=10^6$. For $\mathbf{A}=\bigl(\begin{smallmatrix}1&1\\1&1.01\end{smallmatrix}\bigr)$, the distance to the nearest singular matrix is $d_2\approx0.005$: changing entries by a few thousandths makes it singular. The singular matrix $\bigl(\begin{smallmatrix}1&1\\1&1\end{smallmatrix}\bigr)$ is at the distance $\lVert\bigl(\begin{smallmatrix}0&0\\0&0.01\end{smallmatrix}\bigr)\rVert_2=0.01$, slightly more than the minimum.
+The two matrices from [Chapter 1, Section 14.6](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-6): $0.1\cdot\mathbf{I}_{10}$ has the determinant $10^{-10}$, but all singular values are $0.1$ and $\kappa=1$; it is as well conditioned as possible. $\operatorname{diag}(1000,\ 0.001)$ has the determinant $1$, but $\kappa=1000/0.001=10^6$. For $\mathbf{A}=\bigl(\begin{smallmatrix}1&1\\1&1.01\end{smallmatrix}\bigr)$, the distance to the nearest singular matrix is $d_2\approx0.005$: changing entries by a few thousandths makes it singular. The singular matrix $\bigl(\begin{smallmatrix}1&1\\1&1\end{smallmatrix}\bigr)$ is at the distance $\lVert\bigl(\begin{smallmatrix}0&0\\0&0.01\end{smallmatrix}\bigr)\rVert_2=0.01$, slightly more than the minimum.
 ::::
 
 ⁠**In short:** $1/\kappa(\mathbf{A})$ is the relative distance to the nearest singular matrix; the determinant says nothing about this, because it depends on the size of the matrix.

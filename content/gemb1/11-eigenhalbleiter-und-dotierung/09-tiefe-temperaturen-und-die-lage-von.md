@@ -1,6 +1,8 @@
 ---
 title: Stufe 7: Tiefe Temperaturen und die Lage von $E_\mathrm F$
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Eigenhalbleiter und Dotierung
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Eigenhalbleiter und Dotierung
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/eigenhalbleiter-und-dotierung
+knoten: Kapitel 11: Eigenhalbleiter und Dotierung
 order: 4210900
 summary: Bei tiefen Temperaturen reicht die Wärme nicht, um alle Donatoren zu ionisieren.
 tags: 

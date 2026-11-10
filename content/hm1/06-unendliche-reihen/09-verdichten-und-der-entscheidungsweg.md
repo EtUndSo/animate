@@ -1,6 +1,8 @@
 ---
 title: Stufe 7: Verdichten und der Entscheidungsweg
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Unendliche Reihen
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Unendliche Reihen
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/unendliche-reihen
+knoten: Kapitel 6: Unendliche Reihen
 order: 1260900
 summary: Bei frac1 nlog n schweigen Quotient und Wurzel ( alpha=1 ), und die Reihen sumfrac1 n s helfen auch nicht.
 tags: 
@@ -54,7 +56,7 @@ Das ist die harmonische Reihe mal einer Zahl, also divergiert $\sum_{n=2}^\infty
 
 ⁠**Grenzfall:** Für $a_n=\frac1{n^s}$ mit $s>0$ ist $2^k\,a_{(2^k)}=(2^{1-s})^k$, das ist genau die Aussage aus Stufe [5](absolute-konvergenz-und-vergleich.html#stufe-5).
 
-**Warum die Vergleichsreihen hier nicht helfen.** Der Logarithmus wächst langsamer als jede Wurzel: Für alle $m\in\mathbb{N}$ gilt ([Teil 5](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/exponentialfunktion-und-stetigkeit/exponentialfunktion-und-stetigkeit.html))
+**Warum die Vergleichsreihen hier nicht helfen.** Der Logarithmus wächst langsamer als jede Wurzel: Für alle $m\in\mathbb{N}$ gilt ([Kapitel 5](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/exponentialfunktion-und-stetigkeit/exponentialfunktion-und-stetigkeit.html))
 
 $$1<\log x<\sqrt[m]x=x^{\frac1m}\qquad\forall\,x>(4m^2)^m.$$
 

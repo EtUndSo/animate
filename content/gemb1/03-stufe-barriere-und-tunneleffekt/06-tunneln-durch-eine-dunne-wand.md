@@ -1,6 +1,8 @@
 ---
 title: Stufe 4: Tunneln durch eine dünne Wand
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Stufe, Barriere und Tunneleffekt
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Stufe, Barriere und Tunneleffekt
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/stufe-barriere-und-tunneleffekt
+knoten: Kapitel 3: Stufe, Barriere und Tunneleffekt
 order: 4130600
 summary: Bisher war das verbotene Gebiet unendlich lang.
 tags: Tunnelwahrscheinlichkeit

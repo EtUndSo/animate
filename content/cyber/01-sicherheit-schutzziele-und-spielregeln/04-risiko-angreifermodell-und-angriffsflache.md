@@ -1,6 +1,8 @@
 ---
 title: Risiko, Angreifermodell und Angriffsfläche
 pfad: Informatik / Cybersecurity / Sicherheit, Schutzziele und Spielregeln
+adresse: informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln
+knoten: Kapitel 1: Sicherheit, Schutzziele und Spielregeln
 order: 6110400
 summary: Kein System ist gegen alles geschützt, und vollständiger Schutz wäre unbezahlbar.
 tags: Eintrittshäufigkeit, Summenzeichen, Erwartungswert, unabhängig, Produktregel, Risiko, Risikomatrix, Gesamtrisiko
@@ -282,7 +284,7 @@ Ein Angreifer, der selbst zur angegriffenen Organisation gehört, heißt __Innen
 Ein System ist immer nur *gegenüber einem Angreifermodell* sicher. Bei der Wahl des Modells ist man vorsichtig und nimmt eher zu viel als zu wenig an: dass Angreifer unbemerkt handeln können, dass sie das System genau studieren und dass sie es immer wieder versuchen.
 
 ::::beispiel
-Für eine private Notizen-App auf dem Handy ist ein vernünftiges Angreifermodell: ein Dieb, der das Handy stiehlt, keine besonderen Mittel hat und das Gerät weiterverkaufen will. Eine Bildschirmsperre und ein verschlüsselter Speicher genügen dagegen. Für die Steuerung eines Stromnetzes sieht das Modell anders aus: staatliche Gruppen mit großem Budget, monatelanger Geduld und vielleicht einem Innentäter. Dagegen genügt das nicht annähernd.
+Für eine private Notizen-App auf dem Handy ist ein vernünftiges Angreifermodell: ein Dieb, der das Handy stiehlt, keine besonderen Mittel hat und das Gerät weiterverkaufen will. Eine Bildschirmsperre und ein verschlüsselter Speicher genügen dagegen. Für die Steuerung des Wasserwerks einer Großstadt sieht das Modell anders aus: staatliche Gruppen mit großem Budget, monatelanger Geduld und vielleicht einem Innentäter. Dagegen genügt das nicht annähernd.
 ::::
 
 ⁠**Kurz gesagt:** Ein Angreifermodell legt fest, gegen wen ein System schützen soll; erst damit lässt sich sagen, ob ein Schutz genügt.

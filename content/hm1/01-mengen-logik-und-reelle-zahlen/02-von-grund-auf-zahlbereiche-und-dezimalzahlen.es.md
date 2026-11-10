@@ -1,6 +1,8 @@
 ---
 title: Desde cero: Sistemas numéricos y números decimales
-pfad: Ingeniería eléctrica / 1.er semestre / Matemáticas superiores 1 / Conjuntos, lógica y números reales
+pfad: Ingeniería eléctrica / 1.er semestre / HöMa1 – Matemáticas superiores 1 / Conjuntos, lógica y números reales
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen
+knoten: Capítulo 1: Conjuntos, lógica y números reales
 order: 1210200
 summary: Qué hay que suponer sobre los números y por qué la raíz cuadrada de 2 no es una fracción
 tags: números naturales, números enteros, números racionales, número real, irracionales
@@ -20,4 +22,4 @@ $$x=\pm\Bigl(m+\frac{a_1}{10}+\frac{a_2}{100}+\frac{a_3}{1000}+\dots\Bigr). \tag
 $\mathbb{R}$ es el conjunto de los números reales. Los números de $\mathbb{R}$ que no son una fracción se llaman __irracionales__.
 :::
 
-⁠**Cómo leerlo:** $3/8=0{,}375$ termina, $5/11=0{,}4545\ldots$ es periódico, y toda fracción tiene una de estas dos formas. $\sqrt2=1{,}41421356\ldots$ nunca llega a ser periódico. Se cumple $\mathbb{N}\subset\mathbb{Z}\subset\mathbb{Q}\subset\mathbb{R}$. Esta definición es una solución provisional: no explica qué es una suma infinita (Parte 4) y no es única: $1{,}000\ldots$ y $0{,}999\ldots$ son el mismo número. La etapa [6](das-vollstandigkeitsaxiom.html#stufe-6) la sustituye por axiomas.
+⁠**Cómo leerlo:** $3/8=0{,}375$ termina, $5/11=0{,}4545\ldots$ es periódico, y toda fracción tiene una de estas dos formas. $\sqrt2=1{,}41421356\ldots$ nunca llega a ser periódico. Se cumple $\mathbb{N}\subset\mathbb{Z}\subset\mathbb{Q}\subset\mathbb{R}$. Esta definición es una solución provisional: no explica qué es una suma infinita (capítulo 4) y no es única: $1{,}000\ldots$ y $0{,}999\ldots$ son el mismo número. La etapa [6](das-vollstandigkeitsaxiom.html#stufe-6) la sustituye por axiomas.

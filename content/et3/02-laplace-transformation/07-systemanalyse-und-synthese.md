@@ -1,6 +1,8 @@
 ---
 title: Systemanalyse und -synthese
-pfad: Elektrotechnik / 3. Semester / Signale und Systeme / Laplace-Transformation
+pfad: Elektrotechnik / 3. Semester / ET3 – Grundgebiete der Elektrotechnik 3: Signale und Systeme / Laplace-Transformation
+adresse: elektrotechnik/3-semester/signale-und-systeme/laplace-transformation
+knoten: Kapitel 2: Laplace-Transformation
 order: 3220700
 summary: Ein System aus mehreren Teilsystemen lässt sich im Bildbereich mit einfacher Algebra analysieren.
 tags: Rückkopplung, Vorwärtszweig, Summierstelle, Rückführung, Integrierer, Differenzierer, Proportionalglied, direkte Form

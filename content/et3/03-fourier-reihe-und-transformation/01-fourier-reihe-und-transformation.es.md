@@ -1,7 +1,9 @@
 ---
 title: Visión general: Serie de Fourier y transformada de Fourier
 kurz: Visión general
-pfad: Ingeniería eléctrica / 3.er semestre / Señales y sistemas / Serie y transformada de Fourier
+pfad: Ingeniería eléctrica / 3.er semestre / ET3 – Fundamentos de ingeniería eléctrica 3: señales y sistemas / Serie y transformada de Fourier
+adresse: elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation
+knoten: Capítulo 3: Serie y transformada de Fourier
 order: 3230100
 summary: Toda señal como superposición de oscilaciones
 tags: espectro
@@ -10,7 +12,7 @@ lang: es
 
 ## De qué trata
 
-La [parte 2](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html) ha mostrado que toda señal es una superposición de bloques $\mathrm{e}^{pt}$ y que un sistema LTI solo multiplica cada bloque por un número. La descripción de Fourier usa de ellos únicamente los bloques del eje imaginario, $p=\mathrm{j}2\pi f$: oscilaciones puras $\mathrm{e}^{\mathrm{j}2\pi ft}$, que ni crecen ni decaen. Esto tiene una gran ventaja. Una oscilación tiene una frecuencia que se puede oír, medir y filtrar. El __espectro__ $S(f)$ indica con qué amplitud y con qué fase está contenida cada frecuencia en la señal.
+El [capítulo 2](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html) ha mostrado que toda señal es una superposición de bloques $\mathrm{e}^{pt}$ y que un sistema LTI solo multiplica cada bloque por un número. La descripción de Fourier usa de ellos únicamente los bloques del eje imaginario, $p=\mathrm{j}2\pi f$: oscilaciones puras $\mathrm{e}^{\mathrm{j}2\pi ft}$, que ni crecen ni decaen. Esto tiene una gran ventaja. Una oscilación tiene una frecuencia que se puede oír, medir y filtrar. El __espectro__ $S(f)$ indica con qué amplitud y con qué fase está contenida cada frecuencia en la señal.
 
 
 

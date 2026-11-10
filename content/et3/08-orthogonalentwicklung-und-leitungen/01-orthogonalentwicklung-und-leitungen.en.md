@@ -1,7 +1,9 @@
 ---
 title: Overview: Orthogonal Expansion and Transmission Lines
 kurz: Overview
-pfad: Electrical Engineering / 3rd Semester / Signals and Systems / Orthogonal Expansion and Transmission Lines
+pfad: Electrical Engineering / 3rd Semester / ET3 – Fundamentals of Electrical Engineering 3: Signals and Systems / Orthogonal Expansion and Transmission Lines
+adresse: elektrotechnik/3-semester/signale-und-systeme/orthogonalentwicklung-und-leitungen
+knoten: Chapter 8: Orthogonal Expansion and Transmission Lines
 order: 3280100
 summary: Two supplementary topics: signals as vectors, waves on electrical transmission lines
 tags: 
@@ -10,7 +12,7 @@ lang: en
 
 ## What this is about
 
-This chapter adds two topics to Parts 1 to 7. The first generalizes the Fourier series: a signal is decomposed in terms of arbitrary orthogonal functions, just as a vector is decomposed into its components. The second shows what happens on a long line: voltage and current travel as waves, which can be reflected at the end. The optimal quantizer, which would be a candidate for a third supplementary topic, is already covered in [Part 7](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/zufallssignale/zufallssignale.html) (Stage 5).
+This chapter adds two topics to [Chapters 1](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html) to 7. The first generalizes the Fourier series: a signal is decomposed in terms of arbitrary orthogonal functions, just as a vector is decomposed into its components. The second shows what happens on a long line: voltage and current travel as waves, which can be reflected at the end. The optimal quantizer, which would be a candidate for a third supplementary topic, is already covered in [Chapter 7](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/zufallssignale/zufallssignale.html) (Stage 5).
 
 
 **How to work with this chapter.** The sections build on each other, and every new term has its own subsection with an example. Expandable boxes contain background (why something is the way it is and where it comes from), derivations and simulation hints; you do not need them to read on. Try the exercises (★ to ★★★) yourself first; the solution expands right below each exercise.

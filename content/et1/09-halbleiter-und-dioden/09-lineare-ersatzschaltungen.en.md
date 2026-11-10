@@ -1,6 +1,8 @@
 ---
 title: Stage 7: Linear equivalent circuits
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / Semiconductors and Diodes
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / Semiconductors and Diodes
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden
+knoten: Chapter 9: Semiconductors and Diodes
 order: 1190900
 summary: With several diodes, several exponential equations become coupled, and that can no longer be done by hand.
 tags: Ideal diode, Diode with forward voltage, forward voltage
@@ -70,7 +72,7 @@ $n$ diodes have $2^n$ combinations, so a good first assumption pays off. A look 
 ::::beispiel
 Fig. [9](#abb-9) bottom: 5 V and 2 V feed node X through 1 k$\Omega$ and a diode each; from there $R_3=2\,\mathrm{k\Omega}$ leads to ground. $U_\mathrm F=0.7$ V.
 
-⁠*Assumption 1: Both conduct.* The node rule ([Part 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)) at X reads $(4.3\,\mathrm{V}-\varphi_\mathrm X)/R_1+(1.3\,\mathrm{V}-\varphi_\mathrm X)/R_2=\varphi_\mathrm X/R_3$. This gives $\varphi_\mathrm X=2.24$ V, $I_\mathrm{D1}=2.06$ mA and $I_\mathrm{D2}=-0.94$ mA. The negative current is a contradiction.
+⁠*Assumption 1: Both conduct.* The node rule ([Chapter 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)) at X reads $(4.3\,\mathrm{V}-\varphi_\mathrm X)/R_1+(1.3\,\mathrm{V}-\varphi_\mathrm X)/R_2=\varphi_\mathrm X/R_3$. This gives $\varphi_\mathrm X=2.24$ V, $I_\mathrm{D1}=2.06$ mA and $I_\mathrm{D2}=-0.94$ mA. The negative current is a contradiction.
 
 ⁠*Assumption 2: D$_1$ conducts, D$_2$ blocks.* Then $I=(5\,\mathrm{V}-0.7\,\mathrm{V})/3\,\mathrm{k\Omega}=1.43$ mA and $\varphi_\mathrm X=2.87$ V. Across D$_2$ is $U_\mathrm{D2}=2\,\mathrm{V}-2.87\,\mathrm{V}=-0.87$ V. That is smaller than $U_\mathrm F$, no contradiction. The APs are D$_1$ (0.7 V | 1.43 mA) and D$_2$ ($-0.87$ V | 0). The full simulation gives 2.89 V and 1.45 mA.
 

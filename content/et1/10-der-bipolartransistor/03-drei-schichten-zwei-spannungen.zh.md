@@ -1,6 +1,8 @@
 ---
 title: 第 1 阶段：三层结构，两个电压
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 双极型晶体管
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 双极型晶体管
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor
+knoten: 第 10 章：双极型晶体管
 order: 1200300
 summary: 二极管有两个接线端和一条特性曲线。晶体管有三个接线端。本阶段说明它的结构，并数一数有多少个量是自由的。
 tags: npn 晶体管, BE 二极管, CB 二极管, pnp 晶体管, 电路符号, 集电极电流, 基极电流, 发射极电流
@@ -31,11 +33,11 @@ $$I_\mathrm{E}=I_\mathrm{B}+I_\mathrm{C},\qquad U_\mathrm{CE}=U_\mathrm{CB}+U_\m
 ⁠**如何理解：**$I_\mathrm{C}$ 是__集电极电流__，随类型不同从微安到安培。$I_\mathrm{B}$ 是小得多的__基极电流__，$I_\mathrm{E}$ 是__发射极电流__。$U_\mathrm{BE}$ 加在 BE 二极管上，约为 0.6 V。$U_\mathrm{CE}$ 从约 0.2 V 到几十伏。$U_\mathrm{CB}$ 是 CB 二极管的反向电压。**适用条件：**节点定律和网孔定律在任何工作状态下都成立。
 
 :::herleitung 有多少个量是自由的
-有 $n$ 个接线端的元件有 $n$ 个电流。它不储存电荷，所以节点定律（[第 2 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)）消去一个电流。它有 $n$ 个电位，但只有电位差才有意义，所以剩下 $n-1$ 个电压。二极管（$n=2$）有一个电压、一个电流和一条曲线。晶体管（$n=3$）有两个电压和两个电流。其内部通过两个方程把它们联系起来，
+有 $n$ 个接线端的元件有 $n$ 个电流。它不储存电荷，所以节点定律（[第 2 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)）消去一个电流。它有 $n$ 个电位，但只有电位差才有意义，所以剩下 $n-1$ 个电压。二极管（$n=2$）有一个电压、一个电流和一条曲线。晶体管（$n=3$）有两个电压和两个电流。其内部通过两个方程把它们联系起来，
 
 $$I_\mathrm{B}=f(U_\mathrm{BE},U_\mathrm{CE}),\qquad I_\mathrm{C}=g(U_\mathrm{BE},U_\mathrm{CE}).$$
 
-所以它是一个二端口网络（[第 6 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html)），两个端口共用发射极。
+所以它是一个二端口网络（[第 6 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html)），两个端口共用发射极。
 :::
 
 ::::beispiel

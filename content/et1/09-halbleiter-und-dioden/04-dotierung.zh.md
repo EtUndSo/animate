@@ -1,6 +1,8 @@
 ---
 title: 第 2 阶段：掺杂
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 半导体与二极管
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 半导体与二极管
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden
+knoten: 第 9 章：半导体与二极管
 order: 1190400
 summary: 纯硅的载流子太少，而且其数目强烈依赖于温度。本阶段用杂质原子确定载流子的种类和数目。
 tags: 价电子, 共价键, 施主, 受主, n 区, p 区, 多数载流子, 少数载流子

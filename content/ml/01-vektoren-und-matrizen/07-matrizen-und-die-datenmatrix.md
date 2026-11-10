@@ -1,7 +1,8 @@
 ---
 title: Matrizen und die Datenmatrix
 pfad: Informatik / Machine Learning / Mathematische Grundlagen / Vektoren und Matrizen
-knoten: Grundlagen 1: Vektoren und Matrizen
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Kapitel 1: Vektoren und Matrizen
 nachschlagen: ja
 order: 15210700
 summary: Ein Datensatz besteht aus vielen Vektoren gleicher Länge.

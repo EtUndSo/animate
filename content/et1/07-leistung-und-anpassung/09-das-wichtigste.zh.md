@@ -1,6 +1,8 @@
 ---
 title: 要点
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 功率、匹配与效率
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 功率、匹配与效率
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad
+knoten: 第 7 章：功率、匹配与效率
 order: 1170900
 summary: 为什么在功率最大时有一半能量留在电源中
 tags: 焦耳热, 功率匹配, 效率, 电压匹配, 电流匹配

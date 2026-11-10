@@ -1,6 +1,8 @@
 ---
 title: Stufe 5: Spin und Pauli-Prinzip
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Atome und Orbitale
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Atome und Orbitale
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/atome-und-orbitale
+knoten: Kapitel 4: Atome und Orbitale
 order: 4140700
 summary: Bisher gab es ein Elektron.
 tags: ununterscheidbar, magnetische Spinquantenzahl, antisymmetrisch

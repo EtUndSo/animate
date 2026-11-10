@@ -1,6 +1,8 @@
 ---
 title: Stufe 2: Gleichmäßige Konvergenz
-pfad: Elektrotechnik / 3. Semester / Höhere Mathematik 3 / Konvergenz von Funktionenfolgen
+pfad: Elektrotechnik / 3. Semester / HöMa3 – Höhere Mathematik 3 / Konvergenz von Funktionenfolgen
+adresse: elektrotechnik/3-semester/hohere-mathematik-3/konvergenz-von-funktionenfolgen
+knoten: Kapitel 6: Konvergenz von Funktionenfolgen
 order: 3160400
 summary: Diese Stufe verlangt ein gemeinsames Tempo für alle Stellen und zeigt, wie man das prüft, auch ohne die Grenzfunktion zu kennen.
 tags: Gleichmäßige Konvergenz

@@ -1,6 +1,8 @@
 ---
 title: Stage 5: Evaluating the convolution
-pfad: Electrical Engineering / 3rd Semester / Signals and Systems / LTI Systems and Convolution
+pfad: Electrical Engineering / 3rd Semester / ET3 – Fundamentals of Electrical Engineering 3: Signals and Systems / LTI Systems and Convolution
+adresse: elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung
+knoten: Chapter 1: LTI Systems and Convolution
 order: 3210600
 summary: The integral (4.2) has to be evaluated for concrete signals.
 tags: 

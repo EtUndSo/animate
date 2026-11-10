@@ -1,6 +1,8 @@
 ---
 title: Lo esencial
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Cuadripolos
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Cuadripolos
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore
+knoten: Capítulo 6: Cuadripolos
 order: 1161300
 summary: Por qué cuatro números sustituyen a toda una red y cada forma de parámetros es solo otra elección
 tags: condición de puerto, parámetros del cuadripolo, forma de impedancia, forma de admitancia, forma híbrida, forma en cadena
@@ -103,7 +105,7 @@ Potencia: $P=U_1I_1+U_2I_2$; activo si es posible $P<0$.
 </ul>
 :::
 
-**Mirada a la [Parte 7](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad/leistung-und-anpassung.html).** La potencia $P$ de la etapa [10](eigenschaften-und-alle-formen-im-uberblick.html#stufe-10) lleva a la siguiente pregunta: ¿con qué carga entrega una fuente o un cuadripolo la mayor potencia, y cuánto cuesta eso en rendimiento?
+**Mirada al [capítulo 7](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad/leistung-und-anpassung.html).** La potencia $P$ de la etapa [10](eigenschaften-und-alle-formen-im-uberblick.html#stufe-10) lleva a la siguiente pregunta: ¿con qué carga entrega una fuente o un cuadripolo la mayor potencia, y cuánto cuesta eso en rendimiento?
 
 **Un principio detrás de todos los resultados.** De las cuatro magnitudes de puerto se eligen dos como causas; las otras dos son los efectos. Esta elección no cambia nada en el cuadripolo, solo en el cálculo, y de ella se sigue cada resultado.
 

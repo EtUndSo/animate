@@ -1,6 +1,8 @@
 ---
 title: Stufe 2: Ladung
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Ladung, Feld und Potenzial
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Ladung, Feld und Potenzial
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial
+knoten: Kapitel 1: Ladung, Feld und Potenzial
 order: 1110400
 summary: Diese Stufe klärt die erste Frage: Was ist Ladung, wie entsteht ein geladener Körper, und was bleibt dabei erhalten?
 tags: Elektronenmangel, Elektronenüberschuss, Elementarladung, Ladungserhaltung, Leiter, Isolator

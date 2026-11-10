@@ -1,6 +1,8 @@
 ---
 title: Etapa 6: Conversión, T y $\pi$
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Cuadripolos
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Cuadripolos
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore
+knoten: Capítulo 6: Cuadripolos
 order: 1160800
 summary: La forma Z y la forma Y describen el mismo cuadripolo.
 tags: 
@@ -45,7 +47,7 @@ $$Y_{12}=-\frac{Z_{12}}{Z_{11}Z_{22}-Z_{12}Z_{21}},\qquad Y_{22}=\frac{Z_{11}}{Z
 <span class="anker" id="gl-6-2"></span>
 $$\mathbf Y_\mathrm{T}=\frac1D\begin{pmatrix}R_\mathrm{b}+R_\mathrm{c}&-R_\mathrm{b}\\-R_\mathrm{b}&R_\mathrm{a}+R_\mathrm{b}\end{pmatrix},\qquad \mathbf Y_\pi=\begin{pmatrix}G_1+G_2&-G_2\\-G_2&G_2+G_3\end{pmatrix}. \tag{6.2}$$
 
-Igualando ambas resultan $G_2=-Y_{12}$, $G_1=Y_{11}+Y_{12}$ y $G_3=Y_{22}+Y_{21}$. Para $G_3=0$, $\mathbf Y_\pi$ se convierte en el par $I_1=(G_1+G_2)U_1-G_2U_2$, $I_2=-G_2U_1+G_2U_2$. Esta es la transformación estrella-triángulo de la [Parte 5](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html): T es la estrella; $\pi$, el triángulo. La descripción con parámetros Z conduce por sí sola a la red en T; la descripción con parámetros Y, a la red en $\pi$, su dual. A la inversa, a todo cuadripolo con $Z_{12}=Z_{21}$ le corresponde un circuito equivalente en T y otro en $\pi$ sin fuentes (etapa [10](eigenschaften-und-alle-formen-im-uberblick.html#stufe-10)).
+Igualando ambas resultan $G_2=-Y_{12}$, $G_1=Y_{11}+Y_{12}$ y $G_3=Y_{22}+Y_{21}$. Para $G_3=0$, $\mathbf Y_\pi$ se convierte en el par $I_1=(G_1+G_2)U_1-G_2U_2$, $I_2=-G_2U_1+G_2U_2$. Esta es la transformación estrella-triángulo del [capítulo 5](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html): T es la estrella; $\pi$, el triángulo. La descripción con parámetros Z conduce por sí sola a la red en T; la descripción con parámetros Y, a la red en $\pi$, su dual. A la inversa, a todo cuadripolo con $Z_{12}=Z_{21}$ le corresponde un circuito equivalente en T y otro en $\pi$ sin fuentes (etapa [10](eigenschaften-und-alle-formen-im-uberblick.html#stufe-10)).
 
 :::abbildung et1/k6tpi 8
 Dos circuitos, el mismo cuadripolo. A la izquierda, la red en T con 15, 20 y 20 $\Omega$; a la derecha, la red en $\pi$ equivalente con 50, 50 y 66,7 $\Omega$. Ambas tienen $\det\mathbf Z=1000\,\Omega^2$. En los puertos, ninguna medición las distingue.

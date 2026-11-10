@@ -1,7 +1,8 @@
 ---
 title: Distances et unités
 pfad: Informatique / Apprentissage automatique / Fondements mathématiques / Vecteurs et matrices
-knoten: Fondements 1 : Vecteurs et matrices
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Chapitre 1 : Vecteurs et matrices
 nachschlagen: ja
 order: 15210500
 summary: Deux exemples se ressemblent lorsque leurs vecteurs sont proches l’un de l’autre.
@@ -78,7 +79,7 @@ La distance euclidienne additionne des carrés de mètres carrés, de pièces et
 
 Pour rendre les caractéristiques comparables, on considère chaque caractéristique séparément, sur l’ensemble des exemples. Dans le tableau [1](vektoren-daten-als-zahlenlisten.html#tab-1), ce sont les colonnes : les surfaces de tous les appartements forment le vecteur $\mathbf{v}=(60,\,40,\,90,\,70)^{\top}\in\mathbb{R}^4$. Un tel vecteur appartient à une caractéristique et a autant de composantes qu’il y a d’exemples. On l’appelle ici la __colonne de la caractéristique__.
 
-Pour la comparaison, ce n’est pas la grandeur des surfaces qui compte, mais l’ampleur de leurs différences. On mesure donc chaque surface comme un écart à la moyenne. En électrotechnique, cette étape s’appelle : retirer la composante continue et ne garder que la composante alternative.
+Pour la comparaison, ce n’est pas la grandeur des surfaces qui compte, mais l’ampleur de leurs différences. On mesure donc chaque surface comme un écart à la moyenne. C’est aussi ainsi que l’on décrit les tailles des enfants d’une classe : « $5$ cm de plus que la moyenne » en dit plus sur un enfant que « $1{,}45$ m ».
 
 :::definition Définition 4.2 (Vecteur centré)
 <span class="anker" id="satz-4-2"></span>
@@ -107,12 +108,12 @@ La moyenne des surfaces et la somme des écarts à la moyenne, en $\mathrm m^2$.
 
 <span class="anker" id="stufe-4-4"></span>
 
-L’ampleur des variations d’une caractéristique se voit à la grandeur de ses écarts. Une valeur absolue typique d’une composante est la valeur efficace de la sous-section [3.6](normen-die-groe-eines-vektors.html#stufe-3-6). Appliquée au vecteur centré, elle donne l’écart typique à la moyenne. Dans le langage de l’électrotechnique : la valeur efficace de la composante alternative.
+L’ampleur des variations d’une caractéristique se voit à la grandeur de ses écarts. Une valeur absolue typique d’une composante est la moyenne quadratique de la sous-section [3.6](normen-die-groe-eines-vektors.html#stufe-3-6). Appliquée au vecteur centré, elle donne l’écart typique à la moyenne.
 
 :::definition Définition 4.3 (Écart type)
 <span class="anker" id="satz-4-3"></span>
 
-L’__écart type__ d’un vecteur $\mathbf{v}\in\mathbb{R}^N$ est la valeur efficace de son vecteur centré :
+L’__écart type__ d’un vecteur $\mathbf{v}\in\mathbb{R}^N$ est la moyenne quadratique de son vecteur centré :
 
 <span class="anker" id="gl-4-3"></span>
 $$\operatorname{std}(\mathbf{v})=\operatorname{rms}(\tilde{\mathbf{v}})=\frac{\lVert\mathbf{v}-\bar v\,\mathbf 1\rVert}{\sqrt N}=\sqrt{\frac1N\sum_{i=1}^N(v_i-\bar v)^2} . \tag{4.3}$$
@@ -128,14 +129,14 @@ L’écart type des surfaces : élever les écarts au carré, en faire la moyen
 :::
 ::::
 
-⁠**En bref :** L’écart type est la valeur efficace des écarts à la moyenne, la variation typique d’une caractéristique.
+⁠**En bref :** L’écart type est la moyenne quadratique des écarts à la moyenne, la variation typique d’une caractéristique.
 
-:::hintergrund La composante continue et la composante alternative se partagent la puissance
-Un vecteur est la somme de sa composante continue $\bar v\,\mathbf 1$ et de sa composante alternative $\tilde{\mathbf{v}}$. Pour le carré de la longueur, les règles de calcul du produit scalaire donnent
+:::hintergrund La moyenne et les écarts se partagent le carré moyen
+Un vecteur est la somme du vecteur constant $\bar v\,\mathbf 1$ et de ses écarts $\tilde{\mathbf{v}}$. Pour le carré de la longueur, les règles de calcul du produit scalaire donnent
 
 $$\lVert\bar v\,\mathbf 1+\tilde{\mathbf{v}}\rVert^2=\bar v^2\,\mathbf 1^{\top}\mathbf 1+2\,\bar v\,\mathbf 1^{\top}\tilde{\mathbf{v}}+\lVert\tilde{\mathbf{v}}\rVert^2=N\bar v^2+0+\lVert\tilde{\mathbf{v}}\rVert^2 ,$$
 
-parce que la somme des écarts est nulle. En divisant par $N$, on obtient $\operatorname{rms}(\mathbf{v})^2=\bar v^2+\operatorname{std}(\mathbf{v})^2$. C’est la même décomposition que pour un courant mixte, dont la puissance dans une résistance se compose de la puissance de la composante continue et de celle de la composante alternative. Pour les surfaces : $\operatorname{rms}^2=(3600+1600+8100+4900)/4=4550=65^2+325$.
+parce que la somme des écarts est nulle. En divisant par $N$, on obtient $\operatorname{rms}(\mathbf{v})^2=\bar v^2+\operatorname{std}(\mathbf{v})^2$. Autrement dit : le carré moyen des valeurs est le carré de leur moyenne plus le carré moyen de leurs écarts. Un grand carré moyen peut donc provenir de grandes valeurs ou de fortes variations, et la formule sépare les deux. Pour les surfaces : $\operatorname{rms}^2=(3600+1600+8100+4900)/4=4550=65^2+325$.
 :::
 
 ### Standardiser
@@ -197,13 +198,13 @@ La distance des valeurs standardisées est donc la distance ordinaire dans laque
 Mais la standardisation est elle-même une décision. Elle donne à chaque caractéristique le même poids dans la distance, même à une caractéristique qui ne joue aucun rôle pour la question posée. Et une caractéristique qui a la même valeur pour tous les exemples a un écart type nul et ne peut pas être standardisée ; mais elle ne distingue pas non plus les exemples et ne contribue à aucune distance.
 :::
 
-:::aufgabe Exercice 9 ★ Composante continue et composante alternative
+:::aufgabe Exercice 9 ★ Moyenne et écarts
 <span class="anker" id="aufg-9"></span>
 
-Un signal a pour échantillons $\mathbf{x}=(1,\,3,\,1,\,-1)^{\top}$. Calculez la moyenne, le vecteur centré, l’écart type et la valeur efficace. Vérifiez que $\operatorname{rms}(\mathbf{x})^2=\bar x^2+\operatorname{std}(\mathbf{x})^2$.
+La température à sept heures du matin vaut, sur quatre jours, $\mathbf{x}=(1,\,3,\,1,\,-1)^{\top}$ degrés Celsius. Calculez la moyenne, le vecteur centré, l’écart type et la moyenne quadratique. Vérifiez que $\operatorname{rms}(\mathbf{x})^2=\bar x^2+\operatorname{std}(\mathbf{x})^2$.
 
 :::loesung
-La moyenne vaut $\bar x=(1+3+1-1)/4=1$, le vecteur centré est $\tilde{\mathbf{x}}=(0,\,2,\,0,\,-2)^{\top}$. L’écart type vaut $\sqrt{(0+4+0+4)/4}=\sqrt2\approx1{,}414$, la valeur efficace $\sqrt{(1+9+1+1)/4}=\sqrt3\approx1{,}732$. Vérification : $\operatorname{rms}^2=3=1^2+(\sqrt2)^2=\bar x^2+\operatorname{std}^2$. La composante continue et la composante alternative se partagent la « puissance » $3$ dans le rapport $1:2$.
+La moyenne vaut $\bar x=(1+3+1-1)/4=1$, le vecteur centré est $\tilde{\mathbf{x}}=(0,\,2,\,0,\,-2)^{\top}$. L’écart type vaut $\sqrt{(0+4+0+4)/4}=\sqrt2\approx1{,}414$, la moyenne quadratique $\sqrt{(1+9+1+1)/4}=\sqrt3\approx1{,}732$. Vérification : $\operatorname{rms}^2=3=1^2+(\sqrt2)^2=\bar x^2+\operatorname{std}^2$. La moyenne et les écarts se partagent le carré moyen $3$ dans le rapport $1:2$.
 :::
 :::
 

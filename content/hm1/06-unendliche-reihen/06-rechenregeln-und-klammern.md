@@ -1,6 +1,8 @@
 ---
 title: Stufe 4: Rechenregeln und Klammern
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Unendliche Reihen
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Unendliche Reihen
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/unendliche-reihen
+knoten: Kapitel 6: Unendliche Reihen
 order: 1260600
 summary: Endliche Summen darf man gliedweise addieren, mit einer Zahl multiplizieren und beliebig klammern.
 tags: Index-Folge

@@ -1,7 +1,8 @@
 ---
 title: Distances and units
 pfad: Computer Science / Machine Learning / Mathematical Foundations / Vectors and Matrices
-knoten: Foundations 1: Vectors and Matrices
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Chapter 1: Vectors and Matrices
 nachschlagen: ja
 order: 15210500
 summary: Two examples are similar if their vectors lie close together.
@@ -78,7 +79,7 @@ The Euclidean distance adds squares of square meters, rooms and kilometers. Comp
 
 To make features comparable, you look at each feature on its own across all examples. In Table [1](vektoren-daten-als-zahlenlisten.html#tab-1) these are the columns: the floor areas of all apartments form the vector $\mathbf{v}=(60,\,40,\,90,\,70)^{\top}\in\mathbb{R}^4$. Such a vector belongs to one feature and has as many components as there are examples. Here it is called the __feature column__.
 
-For the comparison, what matters is not how large the floor areas are but how much they differ. You therefore measure each floor area as a deviation from the average. In electrical engineering this step is called removing the DC component and keeping only the AC component.
+For the comparison, what matters is not how large the floor areas are but how much they differ. You therefore measure each floor area as a deviation from the average. This is also how you describe the heights of children in a school class: “$5$ cm taller than the average” says more about a child than “$1.45$ m”.
 
 :::definition Definition 4.2 (Centered vector)
 <span class="anker" id="satz-4-2"></span>
@@ -107,7 +108,7 @@ The mean of the floor areas and the sum of the deviations from the mean, in $\ma
 
 <span class="anker" id="stufe-4-4"></span>
 
-How much a feature fluctuates can be seen from the size of its deviations. A typical magnitude of a component is the RMS value from Subsection [3.6](normen-die-groe-eines-vektors.html#stufe-3-6). Applied to the centered vector, it is the typical deviation from the mean. In the language of electrical engineering: the RMS value of the AC component.
+How much a feature fluctuates can be seen from the size of its deviations. A typical magnitude of a component is the RMS value from Subsection [3.6](normen-die-groe-eines-vektors.html#stufe-3-6). Applied to the centered vector, it is the typical deviation from the mean.
 
 :::definition Definition 4.3 (Standard deviation)
 <span class="anker" id="satz-4-3"></span>
@@ -130,12 +131,12 @@ The standard deviation of the floor areas: square the deviations, average them, 
 
 ⁠**In short:** The standard deviation is the RMS value of the deviations from the mean, the typical fluctuation of a feature.
 
-:::hintergrund The DC and AC components share the power
-A vector is the sum of its DC component $\bar v\,\mathbf 1$ and its AC component $\tilde{\mathbf{v}}$. For the squared length, the rules for the dot product give
+:::hintergrund The mean and the deviations share the mean square
+A vector is the sum of the constant vector $\bar v\,\mathbf 1$ and its deviations $\tilde{\mathbf{v}}$. For the squared length, the rules for the dot product give
 
 $$\lVert\bar v\,\mathbf 1+\tilde{\mathbf{v}}\rVert^2=\bar v^2\,\mathbf 1^{\top}\mathbf 1+2\,\bar v\,\mathbf 1^{\top}\tilde{\mathbf{v}}+\lVert\tilde{\mathbf{v}}\rVert^2=N\bar v^2+0+\lVert\tilde{\mathbf{v}}\rVert^2 ,$$
 
-because the deviations add up to zero. Dividing by $N$ turns this into $\operatorname{rms}(\mathbf{v})^2=\bar v^2+\operatorname{std}(\mathbf{v})^2$. This is the same split as for a current with DC and AC components, whose power in a resistor is the sum of the power of the DC component and that of the AC component. For the floor areas: $\operatorname{rms}^2=(3600+1600+8100+4900)/4=4550=65^2+325$.
+because the deviations add up to zero. Dividing by $N$ turns this into $\operatorname{rms}(\mathbf{v})^2=\bar v^2+\operatorname{std}(\mathbf{v})^2$. In words: the mean square of the values is the square of their mean plus the mean square of their deviations. So a large mean square can come from large values or from strong fluctuations, and the formula separates the two. For the floor areas: $\operatorname{rms}^2=(3600+1600+8100+4900)/4=4550=65^2+325$.
 :::
 
 ### Standardizing
@@ -197,13 +198,13 @@ So the distance between the standardized values is the ordinary distance in whic
 Standardizing, however, is itself a decision. It gives every feature the same weight in the distance, even a feature that plays no role at all for the question at hand. And a feature that has the same value in all examples has standard deviation zero and cannot be standardized; but it also does not distinguish the examples and contributes nothing to any distance.
 :::
 
-:::aufgabe Exercise 9 ★ DC and AC components
+:::aufgabe Exercise 9 ★ Mean and deviations
 <span class="anker" id="aufg-9"></span>
 
-A signal has the samples $\mathbf{x}=(1,\,3,\,1,\,-1)^{\top}$. Compute the mean, the centered vector, the standard deviation and the RMS value. Check that $\operatorname{rms}(\mathbf{x})^2=\bar x^2+\operatorname{std}(\mathbf{x})^2$.
+The temperature at seven in the morning on four days is $\mathbf{x}=(1,\,3,\,1,\,-1)^{\top}$ degrees Celsius. Compute the mean, the centered vector, the standard deviation and the RMS value. Check that $\operatorname{rms}(\mathbf{x})^2=\bar x^2+\operatorname{std}(\mathbf{x})^2$.
 
 :::loesung
-The mean is $\bar x=(1+3+1-1)/4=1$, and the centered vector is $\tilde{\mathbf{x}}=(0,\,2,\,0,\,-2)^{\top}$. The standard deviation is $\sqrt{(0+4+0+4)/4}=\sqrt2\approx1.414$, and the RMS value is $\sqrt{(1+9+1+1)/4}=\sqrt3\approx1.732$. Check: $\operatorname{rms}^2=3=1^2+(\sqrt2)^2=\bar x^2+\operatorname{std}^2$. The DC and AC components share the “power” $3$ in the ratio $1:2$.
+The mean is $\bar x=(1+3+1-1)/4=1$, and the centered vector is $\tilde{\mathbf{x}}=(0,\,2,\,0,\,-2)^{\top}$. The standard deviation is $\sqrt{(0+4+0+4)/4}=\sqrt2\approx1.414$, and the RMS value is $\sqrt{(1+9+1+1)/4}=\sqrt3\approx1.732$. Check: $\operatorname{rms}^2=3=1^2+(\sqrt2)^2=\bar x^2+\operatorname{std}^2$. The mean and the deviations share the mean square $3$ in the ratio $1:2$.
 :::
 :::
 

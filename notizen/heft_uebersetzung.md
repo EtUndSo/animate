@@ -8,7 +8,7 @@ Regeln:
 - Englisch amerikanische Schreibweise. Begriffe: Stufe = stage, Aufgabe = exercise, Spannung = voltage, Strom = current, Knoten = node, Masche = mesh/loop, Zählpfeil = reference arrow, Ersatzquelle = equivalent source. Das Wort Arbeitsheft wird workbook, cuaderno, 本册 (so erkennt es der Umwandler).
 - Wörter: Verbindlich sind die Bildwörter in tools/szenen/<modul>_teil<N>.py (`s.tr`), die Titel in tools/heft_zu_artikel.py (MODULE["<modul>"], dort stehen auch die fr- und tr-Titel aller Teile) und die Wahl aus Teil 1: en ground, curl-free; es tensión, nudo, masa; zh 电位, 接地点. Zählpfeile: en passive sign convention (Verbraucherzählpfeil), active sign convention (Erzeugerzählpfeil).
 - Titelblock wie ET3: „Workbook“, „Cuaderno de trabajo“, 练习册; Datum en `31~October 2026`. Im Fließtext heißt das Heft aber workbook, cuaderno, 本册.
-- Verweise auf andere Teile: `Part~2`, `Parte~2`, `第 2 部分` (so werden sie auf der Website zu Links). In den Zusatzreihen (ML, Cybersecurity, Programmieren, Linux) gelten die Wendungen im Abschnitt „Verweise auf andere Hefte“ unten; dort wird auch „…, Abschnitt M“ zum Link auf den Abschnitt.
+- Verweise auf andere Hefte (seit 09.11.2026 in allen Modulen „Kapitel“): `Chapter~2`, `capítulo~2`, `第~2~章`, `chapitre~2`, `Bölüm~2`, aus einem anderen Modul mit Kurznamen (`HöMa1, Chapter~2`). Genau die Wendungen im Abschnitt „Verweise auf andere Hefte“ unten; dort wird auch „…, Abschnitt M“ zum Link auf den Abschnitt.
 - In zh hat SimSun keine Kursive: Im Fließtext `\emph` zu `\textbf`.
 - `\markboth` nach `\section*` in allen Sprachen setzen. Deutsche `\pagebreak` nicht übernehmen, sondern je Sprache prüfen, dass kein Boxtitel allein am Seitenfuß steht, und nötige Umbrüche selbst setzen.
 - Absatzüberschriften wie in ET3: „How to work with this workbook.“, „Cómo trabajar con el cuaderno.“, „如何使用本册。“; Lösungen = Solutions, Soluciones, 解答; kernbox-Titel: Key points, Lo esencial, 要点.
@@ -26,7 +26,7 @@ Der Umwandler (tools/heft_zu_artikel.py) erkennt Kästen und Verweise an festen 
 |---|---|---|
 | Arbeitsheft im Fließtext | cahier (Titelblock: „Cahier d’exercices“) | çalışma kitabı mit Endungen: …kitabında, …kitabının, …kitabına, …kitabını, …kitabından, …kitabıyla, Plural …kitapları… (Titelblock: „Çalışma Kitabı“). Keine Possessivformen wie „kitabımız“. |
 | daraus wird auf der Website | chapitre | bölüm (mit passender Endung) |
-| Verweis auf einen Teil | `Partie~2` | `Kısım~2` (Endung mit Apostroph: `Kısım~2'de`) |
+| Verweis auf ein Heft (seit 09.11.2026) | `chapitre~2` (Artikel: „le chapitre~2“, „du chapitre~2“, am Satzanfang „Le chapitre~2“) | `Bölüm~2` (Endung mit Apostroph: `Bölüm~2'de`) |
 | Absatz „So arbeitest du …“ | „Comment travailler avec ce cahier.“ | „Bu çalışma kitabıyla nasıl çalışılır?“ |
 | Absatz „Ein Prinzip …“ | „Un principe derrière tous les résultats.“ | „Tüm sonuçların ardındaki tek ilke.“ |
 | kernbox „Die Antwort in drei Sätzen (…)“ | „La réponse en trois phrases (à la fin du cahier, elles devraient vous sembler évidentes)“ | „Üç cümlede cevap (çalışma kitabının sonunda bunlar size apaçık gelmeli)“ |
@@ -50,23 +50,21 @@ Beispiele stehen im Kasten `\begin{beispiel}[Wort]{Titel} … \end{beispiel}` (U
 - Titel ohne Schlusspunkt (? und ! bleiben). fr: kein Leerzeichen vor dem Doppelpunkt nötig, die Präambel setzt „Exemple~:“.
 - Anfang und Ende des Kastens an genau derselben Stelle wie im Deutschen; der Strukturvergleich zählt die Umgebung mit.
 
-## Verweise auf andere Hefte (Zusatzreihen, seit 06.11.2026)
+## Verweise auf andere Hefte (alle Module, seit 09.11.2026)
 
-Der Umwandler erkennt nur genau diese Wendungen (mit `~` oder Leerzeichen) und macht daraus Links auf Artikel und Abschnitt. Die Nummer M (13.5, 3) bleibt in allen Sprachen mit Punkt. Endungen im Türkischen mit Apostroph hinter der letzten Zahl (`Temeller~1, Kesim~13.5'te`).
+Jedes Heft heißt „Kapitel N“, gezählt in seinem Bereich (ML-Grundlagen, ML-Pfad, Python, C, C++, Linux, jedes übrige Modul). Der Umwandler erkennt genau diese Wendungen (mit `~` oder Leerzeichen) und macht daraus Links auf Artikel und Abschnitt. Die Nummer M (13.5, 3) bleibt in allen Sprachen mit Punkt. Vollständige Formentabelle (Modulnamen, Bereichsnamen, Titelzeilen, türkische Endungen): `notizen/kapitel_umstellung.md`.
 
 | Zweck | de | en | es | fr | tr | zh |
 |---|---|---|---|---|---|---|
-| ML-Grundlagen-Heft | `Grundlagen~1` | `Foundations~1` | `Fundamentos~1` (ohne Artikel: „de Fundamentos~1“) | `Fondements~1` (ohne Artikel: „dans Fondements~1“) | `Temeller~1` | `基础篇~1` |
-| … mit Abschnitt | `Grundlagen~1, Abschnitt~13.5` | `Foundations~1, Section~13.5` | `Fundamentos~1, sección~13.5` | `Fondements~1, section~13.5` | `Temeller~1, Kesim~13.5` | `基础篇~1~第~13.5~节` |
+| Heft im selben Bereich | `Kapitel~2` | `Chapter~2` | `capítulo~2` mit Artikel: „el capítulo~2“, „del capítulo~2“, „al capítulo~2“, „en el capítulo~2“; „(capítulo~2)“; Satzanfang „El capítulo~2“ | `chapitre~2`: „le chapitre~2“, „du chapitre~2“, „au chapitre~2“, „dans le chapitre~2“; „(chapitre~2)“; Satzanfang „Le chapitre~2“ | `Bölüm~2` (immer groß; Endung an der Zahl: `Bölüm~2'de`) | `第~2~章` |
+| … mit Abschnitt | `Kapitel~2, Abschnitt~13.5` | `Chapter~2, Section~13.5` | `capítulo~2, sección~13.5` | `chapitre~2, section~13.5` | `Bölüm~2, Kesim~13.5` | `第~2~章第~13.5~节` |
 | zwei Abschnitte | `…, Abschnitte~10.1 und~11.4` | `…, Sections~10.1 and~11.4` | `…, secciones~10.1 y~11.4` | `…, sections~10.1 et~11.4` | `…, Kesim~10.1 ve~11.4` | `…第~10.1~节和第~11.4~节` |
-| ML-Pfad-Heft (Teil N = Kap N+7) | `Teil~1` | `Part~1` | `Parte~1` | `Partie~1` | `Kısım~1` | `第~1~部分` |
-| Programmieren | `Programmieren, Python~2, Abschnitt~3` | `Programming, Python~2, Section~3` | `Programación, Python~2, sección~3` | `Programmation, Python~2, section~3` | `Programlama, Python~2, Kesim~3` | `编程，Python~2~第~3~节` |
-| … später C, C++ | `Programmieren, C~1`, `Programmieren, C++~1` | `Programming, C~1` … | `Programación, C~1` … | `Programmation, C~1` … | `Programlama, C~1` … | `编程，C~1` … |
-| Linux und Kommandozeile | `Linux~2, Abschnitt~3` | `Linux~2, Section~3` | `Linux~2, sección~3` | `Linux~2, section~3` | `Linux~2, Kesim~3` | `Linux~2~第~3~节` |
+| anderer Bereich oder anderes Modul | `Python, Kapitel~2, Abschnitt~3` | `Python, Chapter~2, Section~3` | `Python, capítulo~2, sección~3` | `Python, chapitre~2, section~3` | `Python, Bölüm~2, Kesim~3` | `Python~第~2~章第~3~节` |
+| Kurznamen | Python, C, C++, Linux, Cybersecurity, Machine Learning, Grundlagen, ET1, ET3, GEMB1, HöMa1, HöMa3 | … Cybersecurity, Machine Learning, Foundations … | … Ciberseguridad, Aprendizaje automático, Fundamentos … | … Cybersécurité, Apprentissage automatique, Fondements … | … Siber Güvenlik, Makine Öğrenmesi, Temeller … | … 网络安全, 机器学习, 数学基础 … (lateinische Kurznamen mit `~` vor 第, chinesische direkt: `数学基础第~1~章`) |
 
-- „Python~3“ allein ist kein Verweis (Sprachversion), deshalb steht bei Programmieren immer der Bereichsname davor. „Linux~6.8“ (Versionsnummer) wird nie verlinkt.
-- Titelblock der ML-Grundlagen (Zeile unter dem Untertitel): de `Mathematische Grundlagen für Machine Learning, Grundlagen~N`, en `Mathematical Foundations for Machine Learning, Foundations~N`, es `Fundamentos matemáticos para el aprendizaje automático, Fundamentos~N`, fr `Fondements mathématiques pour l’apprentissage automatique, Fondements~N`, tr `Makine Öğrenmesi için Matematiksel Temeller, Temeller~N`, zh `机器学习数学基础，基础篇~N`. ML-Pfad wie bisher „Arbeitsheft Machine Learning, Teil~N“ / `Workbook Machine Learning, Part~N` usw.
-- Auf der Website heißen die Bereiche: Mathematische Grundlagen / Mathematical Foundations / Fundamentos matemáticos / Fondements mathématiques / Matematiksel Temeller / 数学基础; Programmieren / Programming / Programación / Programmation / Programlama / 编程; Linux und Kommandozeile / Linux and the Command Line / Linux y la línea de comandos / Linux et ligne de commande / Linux ve Komut Satırı / Linux 与命令行.
+- Nicht mehr verwenden: `Part~N`, `Parte~N`, `Partie~N`, `Kısım~N`, `第~N~部分`, `Foundations~N`, `Fundamentos~N`, `Fondements~N`, `Temeller~N`, `基础篇~N`, `Programming, Python~N`, `Linux~N` (der Umwandler erkennt sie nur übergangsweise). „Python~3“ und „Linux~6.8“ allein sind Versionen.
+- Titelzeile (unter dem Untertitel): en `Workbook <Bereich>, Chapter~N. Version: …`, es `Cuaderno de trabajo <Bereich>, capítulo~N. Versión: …`, zh `<Bereich> 练习册，第~N~章。版本：…`, fr `Cahier d’exercices <Bereich>, chapitre~N. Version : …`, tr `Çalışma Kitabı <Bereich>, Bölüm~N. Sürüm: …`; <Bereich> je Sprache in `notizen/kapitel_umstellung.md` (z. B. en „Machine Learning, Mathematical Foundations“, „Programming, Python“).
+- Auf der Website heißen die Bereiche: Mathematische Grundlagen / Mathematical Foundations / Fundamentos matemáticos / Fondements mathématiques / Matematiksel Temeller / 数学基础; Programmieren / Programming / Programación / Programmation / Programlama / 编程 (darin Python, C, C++); Linux und Kommandozeile / Linux and the Command Line / Linux y la línea de comandos / Linux et ligne de commande / Linux ve Komut Satırı / Linux 与命令行. Jedes Heft steht im Baum als „Kapitel N: Titel“ (Chapter, Capítulo, 第 N 章, Chapitre, Bölüm).
 
 ## Abbildungen (Szenentexte)
 

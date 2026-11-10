@@ -1,6 +1,8 @@
 ---
 title: 第 3 阶段：星形与三角形
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 电源与等效电源
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 电源与等效电源
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen
+knoten: 第 5 章：电源与等效电源
 order: 1150500
 summary: 不平衡的电桥既没有组，也没有对称性。星形-三角形变换把网络的一部分换掉，使组出现。
 tags: 三角形, 星形, 邻接元件, 二端口网络, \pi 形网络, T 形网络, 衰减器
@@ -53,7 +55,7 @@ $$R_\mathrm{AB}=4\,\Omega+(4\,\Omega+20\,\Omega)\parallel(8\,\Omega+16\,\Omega)=
 
 ⁠**检验**（接线端 3 断开时的接线端 1、2）：星形为 $4+4=8\,\Omega$，三角形为 $10\,\Omega\parallel40\,\Omega=8\,\Omega$。**极限情况：**三个相等的三角形电阻给出的星形电阻是其三分之一。当 $R_{12}\to0$ 时，$R_{10}$ 和 $R_{20}$ 趋于零，$R_{30}$ 变为 $R_{23}\parallel R_{31}$，这正是被短路的三角形。
 
-**$\pi$ 与 T。** 对__二端口网络__（[第 6 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html)），三角形和星形的画法是输入在左、输出在右。这时三角形称为__$\pi$ 形网络__，星形称为__T 形网络__。公式和规则不变。在通信工程中，__衰减器__就是这样构成的，它把信号按固定倍数减弱，并在两对接线端上呈现相同的输入电阻（功率匹配，[第 7 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad/leistung-und-anpassung.html)）。由电感线圈和电容器组成的滤波器也可以任选其中一种形式构成。
+**$\pi$ 与 T。** 对__二端口网络__（[第 6 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html)），三角形和星形的画法是输入在左、输出在右。这时三角形称为__$\pi$ 形网络__，星形称为__T 形网络__。公式和规则不变。在通信工程中，__衰减器__就是这样构成的，它把信号按固定倍数减弱，并在两对接线端上呈现相同的输入电阻（功率匹配，[第 7 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad/leistung-und-anpassung.html)）。由电感线圈和电容器组成的滤波器也可以任选其中一种形式构成。
 
 :::frage 应该变换哪个三角形？
 任何一个变换后能出现组的三角形。在电桥中，下面的三角形也可以，甚至可以把一个星形变换成三角形。结果总是一样的。

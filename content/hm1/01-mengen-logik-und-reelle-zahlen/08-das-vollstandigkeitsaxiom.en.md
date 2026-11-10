@@ -1,6 +1,8 @@
 ---
 title: Stage 6: The completeness axiom
-pfad: Electrical Engineering / 1st Semester / Higher Mathematics 1 / Sets, Logic and Real Numbers
+pfad: Electrical Engineering / 1st Semester / HöMa1 – Higher Mathematics 1 / Sets, Logic and Real Numbers
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen
+knoten: Chapter 1: Sets, Logic and Real Numbers
 order: 1210800
 summary: mathbb Q satisfies all the axioms so far.
 tags: bounded above, upper bound, bounded below, lower bound, bounded, supremum, infimum, maximum
@@ -85,7 +87,7 @@ A totally ordered field $\mathbb K$ is called __complete__ if every nonempty set
 There is essentially exactly one totally ordered, complete field that contains $\mathbb{Q}$. It is the __field of real numbers__ $\mathbb{R}$; its order agrees on $\mathbb{Q}$ with the usual one.
 :::
 
-⁠**How to read it:** The proof goes too far here; the meaning is enough: The three groups of axioms fix $\mathbb{R}$ uniquely up to renaming, which is why one may speak of *the* real numbers. This replaces the provisional definition. The field $\{0,1\}$ satisfies only the field axioms, $\mathbb{Q}$ also the order axioms, only $\mathbb{R}$ all three groups. Equivalent to (V) is the requirement that every Cauchy sequence converges (Part 4).
+⁠**How to read it:** The proof goes too far here; the meaning is enough: The three groups of axioms fix $\mathbb{R}$ uniquely up to renaming, which is why one may speak of *the* real numbers. This replaces the provisional definition. The field $\{0,1\}$ satisfies only the field axioms, $\mathbb{Q}$ also the order axioms, only $\mathbb{R}$ all three groups. Equivalent to (V) is the requirement that every Cauchy sequence converges (Chapter 4).
 
 :::satz Theorem 6.5 (Consequences of completeness)
 <span class="anker" id="satz-6-5"></span>

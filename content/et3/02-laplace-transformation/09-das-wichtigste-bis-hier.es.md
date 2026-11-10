@@ -1,6 +1,8 @@
 ---
 title: Lo esencial hasta aquí
-pfad: Ingeniería eléctrica / 3.er semestre / Señales y sistemas / Transformada de Laplace
+pfad: Ingeniería eléctrica / 3.er semestre / ET3 – Fundamentos de ingeniería eléctrica 3: señales y sistemas / Transformada de Laplace
+adresse: elektrotechnik/3-semester/signale-und-systeme/laplace-transformation
+knoten: Capítulo 2: Transformada de Laplace
 order: 3220900
 summary: Toda señal como superposición de $\mathrm{e}^{pt}$, y por qué un sistema LTI convierte esto en una multiplicación
 tags: 

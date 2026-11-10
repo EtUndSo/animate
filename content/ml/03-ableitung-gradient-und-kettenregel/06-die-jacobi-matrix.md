@@ -1,7 +1,8 @@
 ---
 title: Die Jacobi-Matrix
 pfad: Informatik / Machine Learning / Mathematische Grundlagen / Ableitung, Gradient und Kettenregel
-knoten: Grundlagen 3: Ableitung, Gradient und Kettenregel
+adresse: informatik/machine-learning/mathematische-grundlagen/ableitung-gradient-und-kettenregel
+knoten: Kapitel 3: Ableitung, Gradient und Kettenregel
 nachschlagen: ja
 order: 15230600
 summary: Viele Rechenschritte liefern nicht eine Zahl, sondern mehrere: Ein Matrix-Vektor-Produkt macht aus einem Vektor einen anderen.
@@ -19,7 +20,7 @@ Viele Rechenschritte liefern nicht eine Zahl, sondern mehrere: Ein Matrix-Vektor
 
 <span class="anker" id="stufe-5-1"></span>
 
-In [Grundlagen 1, Abschnitt 8](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8), bildete eine lineare Abbildung $\mathbf{x}\mapsto\mathbf{A}\mathbf{x}$ Vektoren des $\mathbb{R}^n$ auf Vektoren des $\mathbb{R}^m$ ab, und in [Grundlagen 1, Abschnitt 15.2](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/elementweise-rechnen-und-tensoren.html#stufe-15-2), wurde eine Funktion auf jede Komponente eines Vektors einzeln angewandt. In beiden Fällen kommen aus einem Vektor mehrere Zahlen heraus. Jede von ihnen ist für sich eine Funktion mehrerer Variablen.
+In [Kapitel 1, Abschnitt 8](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8), bildete eine lineare Abbildung $\mathbf{x}\mapsto\mathbf{A}\mathbf{x}$ Vektoren des $\mathbb{R}^n$ auf Vektoren des $\mathbb{R}^m$ ab, und in [Kapitel 1, Abschnitt 15.2](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/elementweise-rechnen-und-tensoren.html#stufe-15-2), wurde eine Funktion auf jede Komponente eines Vektors einzeln angewandt. In beiden Fällen kommen aus einem Vektor mehrere Zahlen heraus. Jede von ihnen ist für sich eine Funktion mehrerer Variablen.
 
 :::definition Definition 5.1 (Vektorwertige Funktion)
 <span class="anker" id="satz-5-1"></span>
@@ -77,7 +78,7 @@ Die erste Spalte $(2,\,2)^{\top}$ sagt: Wächst $x_1$ um ein kleines $h$, wachse
 
 <span class="anker" id="stufe-5-3"></span>
 
-Jede Komponente hat ihre lineare Näherung [(3.4)](partielle-ableitungen-und-der-gradient.html#gl-3-4). Schreibt man alle $m$ Näherungen untereinander, so stehen links die Komponenten von $\mathbf{g}(\mathbf{x}+\mathbf{h})$ und rechts die Zeilen der Jacobi-Matrix mal $\mathbf{h}$. Das ist nach der Zeilensicht aus [Grundlagen 1, Abschnitt 7.2](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrix-vektor-produkt.html#stufe-7-2), ein Matrix-Vektor-Produkt.
+Jede Komponente hat ihre lineare Näherung [(3.4)](partielle-ableitungen-und-der-gradient.html#gl-3-4). Schreibt man alle $m$ Näherungen untereinander, so stehen links die Komponenten von $\mathbf{g}(\mathbf{x}+\mathbf{h})$ und rechts die Zeilen der Jacobi-Matrix mal $\mathbf{h}$. Das ist nach der Zeilensicht aus [Kapitel 1, Abschnitt 7.2](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrix-vektor-produkt.html#stufe-7-2), ein Matrix-Vektor-Produkt.
 
 :::satz Satz 5.3 (Lineare Näherung einer vektorwertigen Funktion)
 <span class="anker" id="satz-5-3"></span>
@@ -92,7 +93,7 @@ $$\mathbf{g}(\mathbf{x}+\mathbf{h})=\mathbf{g}(\mathbf{x})+\mathbf{J}_{\mathbf{g
 Die Komponente $i$ von $\mathbf{J}_{\mathbf{g}}(\mathbf{x})\,\mathbf{h}$ ist $\nabla g_i(\mathbf{x})^{\top}\mathbf{h}$. Nach der Definition der Differenzierbarkeit [(3.5)](partielle-ableitungen-und-der-gradient.html#gl-3-5) geht für jedes $i$ der Quotient $r_i(\mathbf{h})/\lVert\mathbf{h}\rVert$ gegen $0$. Weil $\lVert\mathbf{r}\rVert\le|r_1|+\dots+|r_m|$ ist, geht auch $\lVert\mathbf{r}(\mathbf{h})\rVert/\lVert\mathbf{h}\rVert$ gegen $0$.
 :::
 
-In der Nähe von $\mathbf{x}$ wirkt $\mathbf{g}$ also wie die lineare Abbildung $\mathbf{h}\mapsto\mathbf{J}_{\mathbf{g}}(\mathbf{x})\,\mathbf{h}$, und nach [Grundlagen 1, Abschnitt 8.2](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-2), gehört zu jeder linearen Abbildung genau eine Matrix. Die Jacobi-Matrix ist diese Matrix. Unter der Lupe verformt $\mathbf{g}$ ein kleines Gitter um $\mathbf{x}$ so, wie die Matrix $\mathbf{J}_{\mathbf{g}}(\mathbf{x})$ das Einheitsgitter verformt: Es wird gedreht, gestreckt oder geschert, aber gerade Linien bleiben fast gerade.
+In der Nähe von $\mathbf{x}$ wirkt $\mathbf{g}$ also wie die lineare Abbildung $\mathbf{h}\mapsto\mathbf{J}_{\mathbf{g}}(\mathbf{x})\,\mathbf{h}$, und nach [Kapitel 1, Abschnitt 8.2](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-2), gehört zu jeder linearen Abbildung genau eine Matrix. Die Jacobi-Matrix ist diese Matrix. Unter der Lupe verformt $\mathbf{g}$ ein kleines Gitter um $\mathbf{x}$ so, wie die Matrix $\mathbf{J}_{\mathbf{g}}(\mathbf{x})$ das Einheitsgitter verformt: Es wird gedreht, gestreckt oder geschert, aber gerade Linien bleiben fast gerade.
 
 ::::beispiel [Rechenbeispiel]
 Für $\mathbf{g}$ aus [(5.1)](#gl-5-1) an der Stelle $(1,\,2)$ und $\mathbf{h}=(0{,}1;\ -0{,}1)^{\top}$ ist
@@ -150,7 +151,7 @@ Für $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\0&-1\\3&1\end{smallmatrix}\bigr)$
 ⁠**Kurz gesagt:** Die Jacobi-Matrix von $\mathbf{x}\mapsto\mathbf{A}\mathbf{x}+\mathbf{b}$ ist $\mathbf{A}$; die einer elementweisen Funktion ist die Diagonalmatrix der einzelnen Ableitungen.
 
 :::hintergrund Die Determinante der Jacobi-Matrix als Flächenfaktor
-Nach [Grundlagen 1, Abschnitt 14.3](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-3), vervielfacht eine lineare Abbildung den Flächeninhalt jeder Figur um denselben Faktor $|\det\mathbf{A}|$. Weil $\mathbf{g}$ im Kleinen wie $\mathbf{J}_{\mathbf{g}}(\mathbf{x})$ wirkt, gilt das ungefähr auch für $\mathbf{g}$: Ein kleines Quadrat um $\mathbf{x}$ mit dem Flächeninhalt $F$ geht in eine Figur über, die fast ein Parallelogramm mit dem Flächeninhalt $|\det\mathbf{J}_{\mathbf{g}}(\mathbf{x})|\cdot F$ ist. Für $\mathbf{g}$ aus [(5.1)](#gl-5-1) ist $\det\mathbf{J}_{\mathbf{g}}(1,2)=2\cdot4-1\cdot2=6$: In der Nähe von $(1,\,2)$ vergrößert $\mathbf{g}$ Flächen etwa auf das Sechsfache. Ein bekanntes Beispiel sind Polarkoordinaten, $\mathbf{g}(r,\varphi)=(r\cos\varphi,\ r\sin\varphi)^{\top}$. Ihre Jacobi-Matrix hat die Spalten $(\cos\varphi,\,\sin\varphi)^{\top}$ und $(-r\sin\varphi,\,r\cos\varphi)^{\top}$ und die Determinante $r\cos^2\varphi+r\sin^2\varphi=r$. Ein kleines Rechteck der Seiten $\Delta r$ und $\Delta\varphi$ wird zu einem Stück eines Kreisrings mit dem Flächeninhalt etwa $r\,\Delta r\,\Delta\varphi$, weil der Bogen zum Winkel $\Delta\varphi$ im Abstand $r$ die Länge $r\,\Delta\varphi$ hat.
+Nach [Kapitel 1, Abschnitt 14.3](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-3), vervielfacht eine lineare Abbildung den Flächeninhalt jeder Figur um denselben Faktor $|\det\mathbf{A}|$. Weil $\mathbf{g}$ im Kleinen wie $\mathbf{J}_{\mathbf{g}}(\mathbf{x})$ wirkt, gilt das ungefähr auch für $\mathbf{g}$: Ein kleines Quadrat um $\mathbf{x}$ mit dem Flächeninhalt $F$ geht in eine Figur über, die fast ein Parallelogramm mit dem Flächeninhalt $|\det\mathbf{J}_{\mathbf{g}}(\mathbf{x})|\cdot F$ ist. Für $\mathbf{g}$ aus [(5.1)](#gl-5-1) ist $\det\mathbf{J}_{\mathbf{g}}(1,2)=2\cdot4-1\cdot2=6$: In der Nähe von $(1,\,2)$ vergrößert $\mathbf{g}$ Flächen etwa auf das Sechsfache. Ein bekanntes Beispiel sind Polarkoordinaten, $\mathbf{g}(r,\varphi)=(r\cos\varphi,\ r\sin\varphi)^{\top}$. Ihre Jacobi-Matrix hat die Spalten $(\cos\varphi,\,\sin\varphi)^{\top}$ und $(-r\sin\varphi,\,r\cos\varphi)^{\top}$ und die Determinante $r\cos^2\varphi+r\sin^2\varphi=r$. Ein kleines Rechteck der Seiten $\Delta r$ und $\Delta\varphi$ wird zu einem Stück eines Kreisrings mit dem Flächeninhalt etwa $r\,\Delta r\,\Delta\varphi$, weil der Bogen zum Winkel $\Delta\varphi$ im Abstand $r$ die Länge $r\,\Delta\varphi$ hat.
 :::
 
 :::aufgabe Aufgabe 17 ★ Jacobi-Matrizen berechnen
@@ -219,7 +220,7 @@ $$\mathbf{J}_{\mathbf{g}}\mathbf{h}=\begin{pmatrix}0{,}2+0{,}1\\0{,}05-0{,}2\end
 
 Genau ist $\mathbf{g}(2{,}05;\ 0{,}9)=(4{,}2025-0{,}9;\ 1{,}845)^{\top}=(3{,}3025;\ 1{,}845)^{\top}$.
 
-(b) Der zweite Ausgang ändert sich in linearer Näherung um $h_1+2h_2$; das ist null für $\mathbf{h}$ in Richtung $(2,\,-1)^{\top}$. Dann ändert sich der erste Ausgang um $4\cdot2-1\cdot(-1)=9$ je Einheit dieser Richtung. Es müssen sich also beide Eingänge ändern: $x_1$ wächst, $x_2$ fällt halb so viel, etwa $\mathbf{h}=(0{,}02;\ -0{,}01)^{\top}$ mit der Wirkung $(0{,}09;\ 0)^{\top}$.
+(b) Der zweite Ausgang ändert sich in linearer Näherung um $h_1+2h_2$; das ist null für $\mathbf{h}$ in Richtung $(2,\,-1)^{\top}$. Bei einem Schritt um genau diesen Vektor ändert sich dann der erste Ausgang um $4\cdot2-1\cdot(-1)=9$. Es müssen sich also beide Eingänge ändern: $x_1$ wächst, $x_2$ fällt halb so viel, etwa $\mathbf{h}=(0{,}02;\ -0{,}01)^{\top}$ mit der Wirkung $(0{,}09;\ 0)^{\top}$.
 :::
 :::
 
@@ -249,6 +250,6 @@ Die Bilder bilden fast ein Parallelogramm. Schätze seinen Flächeninhalt mit de
 
 $$\mathbf{g}(1,2)=\begin{pmatrix}2\\6\end{pmatrix},\quad \mathbf{g}(1{,}1;\,2)=\begin{pmatrix}2{,}2\\6{,}2\end{pmatrix},\quad \mathbf{g}(1{,}1;\,2{,}1)=\begin{pmatrix}2{,}31\\6{,}61\end{pmatrix},\quad \mathbf{g}(1;\,2{,}1)=\begin{pmatrix}2{,}1\\6{,}41\end{pmatrix}.$$
 
-(b) Die Bilder der beiden Kanten, die von $\mathbf{g}(1,2)$ ausgehen, sind $(0{,}2;\ 0{,}2)^{\top}$ und $(0{,}1;\ 0{,}41)^{\top}$. Das von ihnen aufgespannte Parallelogramm hat nach [Grundlagen 1, Abschnitt 14.1](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-1), den Flächeninhalt $|0{,}2\cdot0{,}41-0{,}1\cdot0{,}2|=0{,}062$. Die Jacobi-Matrix sagt $|\det\mathbf{J}_{\mathbf{g}}(1,2)|\cdot0{,}01=6\cdot0{,}01=0{,}06$ voraus. Die Abweichung kommt daher, dass das Quadrat nicht beliebig klein ist; die vierte Ecke liegt mit $(2{,}31;\ 6{,}61)$ auch nur fast dort, wo ein echtes Parallelogramm sie hätte, bei $(2{,}3;\ 6{,}61)$.
+(b) Die Bilder der beiden Kanten, die von $\mathbf{g}(1,2)$ ausgehen, sind $(0{,}2;\ 0{,}2)^{\top}$ und $(0{,}1;\ 0{,}41)^{\top}$. Das von ihnen aufgespannte Parallelogramm hat nach [Kapitel 1, Abschnitt 14.1](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-1), den Flächeninhalt $|0{,}2\cdot0{,}41-0{,}1\cdot0{,}2|=0{,}062$. Die Jacobi-Matrix sagt $|\det\mathbf{J}_{\mathbf{g}}(1,2)|\cdot0{,}01=6\cdot0{,}01=0{,}06$ voraus. Die Abweichung kommt daher, dass das Quadrat nicht beliebig klein ist; die vierte Ecke liegt mit $(2{,}31;\ 6{,}61)$ auch nur fast dort, wo ein echtes Parallelogramm sie hätte, bei $(2{,}3;\ 6{,}61)$.
 :::
 :::

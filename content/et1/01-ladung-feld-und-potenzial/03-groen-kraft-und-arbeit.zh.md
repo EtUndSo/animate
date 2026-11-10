@@ -1,6 +1,8 @@
 ---
 title: 第 1 阶段：物理量、力与功
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 电荷、电场与电位
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 电荷、电场与电位
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial
+knoten: 第 1 章：电荷、电场与电位
 order: 1110300
 summary: 电压将被证明是单位电荷所得的功。为此需要带单位的物理量、力、功和动能。
 tags: 定性, 定量, 欧姆定律, 物理量, 国际单位制, 基本量, 电流, 国际单位制词头
@@ -13,7 +15,7 @@ lang: zh
 电压将被证明是单位电荷所得的功。为此需要带单位的物理量、力、功和动能。
 :::
 
-**基本思路。** 从雪地里进来的人觉得房间暖和，从桑拿房出来的人觉得房间凉快。这样的判断是__定性__的。温度计对两人都显示 21 °C，这才是__定量__的：一个带标度的数，与由谁测量无关。物理学正是用这样的量来表述它的定律，例如__欧姆定律__ $U=R\cdot I$（[第 2 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)）。本章中最重要的力学量是功：沿路径作用的力传递能量，而且只有力沿路径方向的分量才起作用。举起背包要克服重力做功，水平地背着它走则不做功（图 [2](#abb-2)）。
+**基本思路。** 从雪地里进来的人觉得房间暖和，从桑拿房出来的人觉得房间凉快。这样的判断是__定性__的。温度计对两人都显示 21 °C，这才是__定量__的：一个带标度的数，与由谁测量无关。物理学正是用这样的量来表述它的定律，例如__欧姆定律__ $U=R\cdot I$（[第 2 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)）。本章中最重要的力学量是功：沿路径作用的力传递能量，而且只有力沿路径方向的分量才起作用。举起背包要克服重力做功，水平地背着它走则不做功（图 [2](#abb-2)）。
 
 :::definition 定义 1.1 (物理量)
 <span class="anker" id="satz-1-1"></span>

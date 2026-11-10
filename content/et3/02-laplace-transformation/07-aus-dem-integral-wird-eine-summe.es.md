@@ -1,6 +1,8 @@
 ---
 title: Etapa 4: La integral se convierte en una suma
-pfad: Ingeniería eléctrica / 3.er semestre / Señales y sistemas / Transformada de Laplace
+pfad: Ingeniería eléctrica / 3.er semestre / ET3 – Fundamentos de ingeniería eléctrica 3: señales y sistemas / Transformada de Laplace
+adresse: elektrotechnik/3-semester/signale-und-systeme/laplace-transformation
+knoten: Capítulo 2: Transformada de Laplace
 order: 3220700
 summary: La suposición, al pie de la letra: para las señales de las que casi siempre se trata en teoría de sistemas, la señal es una suma finita de exponenciales complejas.
 tags: descomposición en fracciones parciales, estabilidad, respuesta natural

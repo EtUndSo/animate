@@ -1,6 +1,8 @@
 ---
 title: 第 5 阶段：结构类型与自放电
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 电容器
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 电容器
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator
+knoten: 第 3 章：电容器
 order: 1130600
 summary: 100 µF 的空气平行极板将有 3.4 公顷大。实际的电容器通过 A 、 d 和 varepsilon 解决这个问题。每种结构都要为此付出各自的代价。
 tags: 电解液, 有极性, 自愈, 漏电流, 绝缘电阻
@@ -57,7 +59,7 @@ lang: zh
 
 上表汇总了常见的范围。__自愈__的意思是：发生击穿时，缺陷周围的金属薄层蒸发，短路消失，只损失极小的面积。电解电容器则在缺陷处重新生成氧化层。
 
-**自放电。** 没有完美的绝缘体。电介质中含有少量可移动的电荷，因此有微小的电流从一块极板流到另一块极板，这就是__漏电流__。在等效电路中，理想电容器上并联一个__绝缘电阻__ $R_\mathrm{I}$。理想情况下 $R_\mathrm{I}\to\infty$，断开的电容器永远保持其电荷。实际上它按 $R_\mathrm{I}\,C$ 的节奏释放电荷（第 [10](entladen-und-zeitkonstante.html#stufe-10) 阶段）。利用材料的电阻率 $\rho$（[第 2 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)），有 $R_\mathrm{I}=\rho\,d/A$，再结合式 [(4.1)](plattenkondensator-und-dielektrikum.html#gl-4-1) 得
+**自放电。** 没有完美的绝缘体。电介质中含有少量可移动的电荷，因此有微小的电流从一块极板流到另一块极板，这就是__漏电流__。在等效电路中，理想电容器上并联一个__绝缘电阻__ $R_\mathrm{I}$。理想情况下 $R_\mathrm{I}\to\infty$，断开的电容器永远保持其电荷。实际上它按 $R_\mathrm{I}\,C$ 的节奏释放电荷（第 [10](entladen-und-zeitkonstante.html#stufe-10) 阶段）。利用材料的电阻率 $\rho$（[第 2 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)），有 $R_\mathrm{I}=\rho\,d/A$，再结合式 [(4.1)](plattenkondensator-und-dielektrikum.html#gl-4-1) 得
 
 <span class="anker" id="gl-5-1"></span>
 $$R_\mathrm{I}\,C=\rho\,\varepsilon. \tag{5.1}$$

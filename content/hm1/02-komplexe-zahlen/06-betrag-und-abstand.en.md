@@ -1,6 +1,8 @@
 ---
 title: Stage 5: Absolute value and distance
-pfad: Electrical Engineering / 1st Semester / Higher Mathematics 1 / Complex Numbers
+pfad: Electrical Engineering / 1st Semester / HöMa1 – Higher Mathematics 1 / Complex Numbers
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen
+knoten: Chapter 2: Complex Numbers
 order: 1220600
 summary: Complex numbers cannot be ordered, but they can be measured.
 tags: distance, reverse triangle inequality
@@ -10,7 +12,7 @@ lang: en
 <span class="anker" id="stufe-5"></span>
 
 :::zweck
-Complex numbers cannot be ordered, but they can be measured. This stage carries distance and absolute value over from [Part 1](/wissen/en/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html) to the plane and shows which rules survive.
+Complex numbers cannot be ordered, but they can be measured. This stage carries distance and absolute value over from [Chapter 1](/wissen/en/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html) to the plane and shows which rules survive.
 :::
 
 **The idea.** In $\mathbb{R}$, $|x|$ measures the distance from the origin. In the plane the Pythagorean theorem takes over: The segment from 0 to $z$ is the hypotenuse of a right triangle with the legs $|x|$ and $|y|$ (Fig. [5](#abb-5), left). The distance between two points is the hypotenuse over the differences of their coordinates. The result is real, so “greater than” is allowed again here.
@@ -28,7 +30,7 @@ For $z=x+\mathrm{i}y$ and $w=u+\mathrm{i}v$ with real $x,y,u,v$, let
 $$d(z,w):=\sqrt{(x-u)^2+(y-v)^2},\qquad |z|:=d(z,0)=\sqrt{x^2+y^2}. \tag{5.1}$$
 :::
 
-⁠**How to read it:** Under the root stands a real number greater than or equal to zero, and $\sqrt a$ is the nonnegative solution of $b^2=a$ ([Part 1](/wissen/en/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html)). The __distance__ $d(z,w)$ depends only on the difference: $d(z,w)=|z-w|$. **Limiting case:** For real $z$, $|z|=\sqrt{x^2}=|x|$, the absolute value from [Part 1](/wissen/en/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html).
+⁠**How to read it:** Under the root stands a real number greater than or equal to zero, and $\sqrt a$ is the nonnegative solution of $b^2=a$ ([Chapter 1](/wissen/en/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html)). The __distance__ $d(z,w)$ depends only on the difference: $d(z,w)=|z-w|$. **Limiting case:** For real $z$, $|z|=\sqrt{x^2}=|x|$, the absolute value from [Chapter 1](/wissen/en/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html).
 
 :::satz Theorem 5.2 (Rules for absolute value and distance)
 <span class="anker" id="satz-5-2"></span>

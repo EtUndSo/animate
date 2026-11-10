@@ -1,7 +1,8 @@
 ---
 title: Valeurs propres et vecteurs propres
 pfad: Informatique / Apprentissage automatique / Fondements mathématiques / Projection, valeurs propres et décompositions
-knoten: Fondements 2 : Projection, valeurs propres et décompositions
+adresse: informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen
+knoten: Chapitre 2 : Projection, valeurs propres et décompositions
 nachschlagen: ja
 order: 15220700
 summary: Une matrice fait à la fois tourner et étire la plupart des vecteurs.
@@ -21,7 +22,7 @@ Une matrice fait à la fois tourner et étire la plupart des vecteurs. Mais il e
 
 La recherche des facteurs d’étirement mène à des équations polynomiales, et toutes n’ont pas de solutions réelles. Cette sous-section rassemble ce que ce chapitre utilise sur les nombres complexes.
 
-**Nombres complexes.** Un nombre complexe $z=x+\mathrm j\,y$ se compose de la partie réelle $x$ et de la partie imaginaire $y$, deux nombres réels. L’unité imaginaire vérifie $\mathrm j^2=-1$. L’électrotechnique écrit $\mathrm j$ au lieu de $i$, car $i$ est déjà réservé au courant.
+**Nombres complexes.** Un nombre complexe $z=x+\mathrm j\,y$ se compose de la partie réelle $x$ et de la partie imaginaire $y$, deux nombres réels. L’unité imaginaire vérifie $\mathrm j^2=-1$. Beaucoup de livres de mathématiques la notent $\mathrm i$ ; ce chapitre écrit, comme Python, un $\mathrm j$ droit, car Python écrit le nombre $3+4\,\mathrm j$ sous la forme `3+4j`, et $i$ reste libre comme indice.
 
 **Conjugué et module.** Le __conjugué__ de $z$ est le nombre $z^*=x-\mathrm j\,y$. On a $z\,z^*=x^2+y^2=|z|^2$, le carré du module, un nombre réel qui n’est nul que pour $z=0$. Un nombre est réel si et seulement si $z=z^*$. La conjugaison est compatible avec la somme et le produit : $(z+w)^*=z^*+w^*$ et $(zw)^*=z^*w^*$. Pour un vecteur $\mathbf{v}$ à composantes complexes, $\mathbf{v}^*$ désigne dans ce chapitre le vecteur des composantes conjuguées, non transposé. On a alors
 
@@ -45,7 +46,7 @@ Le produit scalaire $(\mathbf{v}^*)^{\top}\mathbf{v}$ pour $\mathbf{v}=(1,-\math
 
 <span class="anker" id="stufe-6-2"></span>
 
-Dans [Fondements 1, section 8.3](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-3), des matrices faisaient tourner, étiraient et cisaillaient la grille du plan. Ce faisant, la plupart des flèches changent de direction. Mais pour certaines matrices, il existe des directions dans lesquelles une flèche reste sur sa droite passant par l’origine : elle est seulement étirée, comprimée ou retournée (Fig. [17](#abb-17)).
+Dans le [chapitre 1, section 8.3](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-3), des matrices faisaient tourner, étiraient et cisaillaient la grille du plan. Ce faisant, la plupart des flèches changent de direction. Mais pour certaines matrices, il existe des directions dans lesquelles une flèche reste sur sa droite passant par l’origine : elle est seulement étirée, comprimée ou retournée (Fig. [17](#abb-17)).
 
 :::abbildung ml/k2eigen 17
 La matrice $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ envoie le cercle unité (en gris) sur une ellipse (en bleu). La flèche $\mathbf{v}_1=(1,1)^{\top}/\sqrt2$ (en rouge) reste sur sa droite et est étirée d’un facteur cinq, la flèche $\mathbf{v}_2=(1,-2)^{\top}/\sqrt5$ (en vert) d’un facteur deux ; leurs images sont dessinées en clair. Les droites grises sont les deux directions propres. Le vecteur unitaire $\mathbf{e}_1$, en revanche, est envoyé sur $(4,2)^{\top}$ (en tirets) et change de direction.
@@ -74,19 +75,19 @@ Donc $(1,\,1)^{\top}$ est un vecteur propre associé à la valeur propre $5$, et
 
 ⁠**En bref :** Un vecteur propre n’est pas tourné par la matrice, mais seulement multiplié par un nombre ; ce nombre est la valeur propre.
 
-:::hintergrund Les fonctions propres, vous les connaissez déjà
-En signaux et systèmes, on rencontre la même idée pour des fonctions au lieu de vecteurs. Un système LTI de réponse impulsionnelle $h(t)$ répond à la fonction exponentielle $\mathrm e^{pt}$ de fréquence complexe $p$, notée $s$ dans beaucoup d’ouvrages, par
+:::hintergrund La même idée pour des suites infiniment longues : les intérêts composés
+Un solde de $100$ euros croît, avec $5$ % d’intérêts par an, à $100$, $105$, $110{,}25$, … euros, en général à $a_n=100\cdot1{,}05^n$ au bout de $n$ années. La règle « remplacer chaque valeur par celle de l’année suivante » transforme une suite $(a_0,a_1,a_2,\dots)$ en la suite $(a_1,a_2,a_3,\dots)$. Elle est linéaire : si l’on décale la somme de deux suites, on obtient la somme des suites décalées, et de même pour les multiples. Pour le solde, elle donne
 
-$$\int_{-\infty}^{\infty}h(\tau)\,\mathrm e^{p(t-\tau)}\,\mathrm{d}\tau=H(p)\,\mathrm e^{pt},\qquad H(p)=\int_{-\infty}^{\infty}h(\tau)\,\mathrm e^{-p\tau}\,\mathrm{d}\tau ,$$
+$$(105;\ 110{,}25;\ \dots)=1{,}05\cdot(100;\ 105;\ \dots) .$$
 
-pour tous les $p$ pour lesquels l’intégrale existe. La forme de l’entrée est conservée, seul un facteur numérique s’y ajoute : $\mathrm e^{pt}$ est une fonction propre du système, et la valeur propre est la valeur $H(p)$ de la fonction de transfert. L’équation [(6.1)](#gl-6-1) dit la même chose pour une matrice. Un système LTI est une application linéaire de signaux vers des signaux, une matrice une application linéaire de vecteurs vers des vecteurs ; dans les deux cas, il existe des entrées qui sont seulement multipliées par un nombre.
+La forme de la suite est conservée, seul un facteur numérique s’y ajoute : la suite $a_n=100\cdot1{,}05^n$ est un vecteur propre du décalage, et la valeur propre est le facteur d’intérêt $1{,}05$. L’équation [(6.1)](#gl-6-1) dit la même chose pour une matrice. Le décalage n’a d’ailleurs pas d’autres vecteurs propres que de telles suites : de $a_{n+1}=\lambda\,a_n$ pour tout $n$ découle $a_n=a_0\,\lambda^n$. Dans les deux cas, pour les suites comme pour les vecteurs, il existe des objets que la règle linéaire multiplie seulement par un nombre.
 :::
 
 ### Le polynôme caractéristique
 
 <span class="anker" id="stufe-6-3"></span>
 
-Comment trouver des valeurs propres sans les deviner ? On réécrit [(6.1)](#gl-6-1) de façon que tout soit du même côté : $\mathbf{A}\mathbf{v}-\lambda\mathbf{v}=\mathbf{0}$, c’est-à-dire $(\mathbf{A}-\lambda\mathbf{I})\mathbf{v}=\mathbf{0}$. On cherche un $\lambda$ pour lequel ce système homogène a une solution $\mathbf{v}\ne\mathbf{0}$. D’après [Fondements 1, section 11.5](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/einheitsmatrix-und-inverse.html#stufe-11-5), cela signifie que la matrice $\mathbf{A}-\lambda\mathbf{I}$ n’est pas inversible. D’après [Fondements 1, section 14.6](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-6), c’est le cas si et seulement si son déterminant est nul.
+Comment trouver des valeurs propres sans les deviner ? On réécrit [(6.1)](#gl-6-1) de façon que tout soit du même côté : $\mathbf{A}\mathbf{v}-\lambda\mathbf{v}=\mathbf{0}$, c’est-à-dire $(\mathbf{A}-\lambda\mathbf{I})\mathbf{v}=\mathbf{0}$. On cherche un $\lambda$ pour lequel ce système homogène a une solution $\mathbf{v}\ne\mathbf{0}$. D’après le [chapitre 1, section 11.5](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/einheitsmatrix-und-inverse.html#stufe-11-5), cela signifie que la matrice $\mathbf{A}-\lambda\mathbf{I}$ n’est pas inversible. D’après le [chapitre 1, section 14.6](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-6), c’est le cas si et seulement si son déterminant est nul.
 
 :::definition Définition 6.2 (Polynôme caractéristique)
 <span class="anker" id="satz-6-2"></span>
@@ -205,7 +206,7 @@ Une matrice réelle peut donc avoir des valeurs propres complexes. Comme son pol
 ⁠**En bref :** Une matrice réelle peut avoir des valeurs propres complexes, toujours par paires de nombres conjugués ; une rotation d’angle $\alpha$ a pour valeurs propres $\mathrm e^{\pm\mathrm j\alpha}$.
 
 :::hintergrund Tourner, c’est multiplier par $\mathrm e^{\mathrm j\alpha}$
-Pour les électrotechniciens, ce résultat est familier. On identifie la flèche $(x_1,\,x_2)^{\top}$ au nombre complexe $z=x_1+\mathrm jx_2$, comme pour un phaseur. Une rotation d’angle $\alpha$ est alors la multiplication par $\mathrm e^{\mathrm j\alpha}$ : $\mathrm e^{\mathrm j\alpha}z=(x_1\cos\alpha-x_2\sin\alpha)+\mathrm j\,(x_1\sin\alpha+x_2\cos\alpha)$, et ce sont exactement les deux composantes de $\mathbf{Q}\mathbf{x}$ pour la matrice de rotation de [Fondements 1, section 8.3](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-3). En notation complexe, la rotation est donc une multiplication par un nombre, et ce nombre est une valeur propre. La seconde valeur propre $\mathrm e^{-\mathrm j\alpha}$ correspond à l’écriture conjuguée $z^*$, qui tourne dans le sens contraire.
+Avec les nombres complexes, on voit le résultat directement. On identifie la flèche $(x_1,\,x_2)^{\top}$ au nombre complexe $z=x_1+\mathrm jx_2$, c’est-à-dire à un point du plan complexe. Une rotation d’angle $\alpha$ est alors la multiplication par $\mathrm e^{\mathrm j\alpha}$ : $\mathrm e^{\mathrm j\alpha}z=(x_1\cos\alpha-x_2\sin\alpha)+\mathrm j\,(x_1\sin\alpha+x_2\cos\alpha)$, et ce sont exactement les deux composantes de $\mathbf{Q}\mathbf{x}$ pour la matrice de rotation du [chapitre 1, section 8.3](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-3). En notation complexe, la rotation est donc une multiplication par un nombre, et ce nombre est une valeur propre. La seconde valeur propre $\mathrm e^{-\mathrm j\alpha}$ correspond à l’écriture conjuguée $z^*$, qui tourne dans le sens contraire.
 :::
 
 ### Valeurs propres multiples
@@ -221,7 +222,7 @@ La __multiplicité algébrique__ d’une valeur propre $\lambda$ est la multipli
 :::
 
 ::::beispiel [Exemple de calcul]
-La matrice $2\mathbf{I}=\operatorname{diag}(2;\,2)$ a $p(\lambda)=(2-\lambda)^2$ : la valeur propre $2$ est de multiplicité algébrique $2$. Le cisaillement $\bigl(\begin{smallmatrix}1&1\\0&1\end{smallmatrix}\bigr)$ de [Fondements 1, section 8.3](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-3), a $p(\lambda)=(1-\lambda)^2$ : la valeur propre $1$ est elle aussi de multiplicité algébrique $2$. La matrice $\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ a deux valeurs propres distinctes, chacune de multiplicité algébrique $1$.
+La matrice $2\mathbf{I}=\operatorname{diag}(2;\,2)$ a $p(\lambda)=(2-\lambda)^2$ : la valeur propre $2$ est de multiplicité algébrique $2$. Le cisaillement $\bigl(\begin{smallmatrix}1&1\\0&1\end{smallmatrix}\bigr)$ du [chapitre 1, section 8.3](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-3), a $p(\lambda)=(1-\lambda)^2$ : la valeur propre $1$ est elle aussi de multiplicité algébrique $2$. La matrice $\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ a deux valeurs propres distinctes, chacune de multiplicité algébrique $1$.
 ::::
 
 ⁠**En bref :** La multiplicité algébrique compte combien de fois une valeur propre apparaît comme racine du polynôme caractéristique.
@@ -297,7 +298,7 @@ $\mathbf{A}^{\top}$ a les mêmes valeurs propres que $\mathbf{A}$, mais en gén�
 :::
 
 :::beweis Règles de calcul
-(i) $\mathbf{A}^2\mathbf{v}=\mathbf{A}(\lambda\mathbf{v})=\lambda\mathbf{A}\mathbf{v}=\lambda^2\mathbf{v}$, et ainsi de suite. (ii) $(\mathbf{A}+\beta\mathbf{I})\mathbf{v}=\lambda\mathbf{v}+\beta\mathbf{v}$. (iii) D’après [(6.5)](#gl-6-5), $\det\mathbf{A}$ est le produit des valeurs propres ; il est donc non nul si et seulement si aucune valeur propre n’est nulle. En multipliant $\mathbf{A}\mathbf{v}=\lambda\mathbf{v}$ par $\mathbf{A}^{-1}$, on obtient $\mathbf{v}=\lambda\mathbf{A}^{-1}\mathbf{v}$. (iv) D’après [Fondements 1, section 14.5](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5), $\det(\mathbf{A}^{\top}-\lambda\mathbf{I})=\det\bigl((\mathbf{A}-\lambda\mathbf{I})^{\top}\bigr)=\det(\mathbf{A}-\lambda\mathbf{I})$ ; les deux matrices ont le même polynôme caractéristique.
+(i) $\mathbf{A}^2\mathbf{v}=\mathbf{A}(\lambda\mathbf{v})=\lambda\mathbf{A}\mathbf{v}=\lambda^2\mathbf{v}$, et ainsi de suite. (ii) $(\mathbf{A}+\beta\mathbf{I})\mathbf{v}=\lambda\mathbf{v}+\beta\mathbf{v}$. (iii) D’après [(6.5)](#gl-6-5), $\det\mathbf{A}$ est le produit des valeurs propres ; il est donc non nul si et seulement si aucune valeur propre n’est nulle. En multipliant $\mathbf{A}\mathbf{v}=\lambda\mathbf{v}$ par $\mathbf{A}^{-1}$, on obtient $\mathbf{v}=\lambda\mathbf{A}^{-1}\mathbf{v}$. (iv) D’après le [chapitre 1, section 14.5](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5), $\det(\mathbf{A}^{\top}-\lambda\mathbf{I})=\det\bigl((\mathbf{A}-\lambda\mathbf{I})^{\top}\bigr)=\det(\mathbf{A}-\lambda\mathbf{I})$ ; les deux matrices ont le même polynôme caractéristique.
 :::
 
 ::::beispiel [Exemple de calcul]
@@ -330,7 +331,7 @@ $\mathbf{A}_3$ : trace $2$, déterminant $1-9=-8$, donc $\lambda^2-2\lambda-8=(\
 Montrez que les valeurs propres d’une matrice triangulaire supérieure sont ses coefficients diagonaux. Déterminez les valeurs propres et les vecteurs propres de $\Bigl(\begin{smallmatrix}2&1&0\\0&3&1\\0&0&5\end{smallmatrix}\Bigr)$.
 
 :::loesung
-Pour une matrice triangulaire supérieure, $\mathbf{A}-\lambda\mathbf{I}$ est encore une matrice triangulaire supérieure, de coefficients diagonaux $a_{ii}-\lambda$. D’après [Fondements 1, section 14.4](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-4), son déterminant est le produit des coefficients diagonaux : $p(\lambda)=(a_{11}-\lambda)\cdots(a_{nn}-\lambda)$. Les racines sont les coefficients diagonaux.
+Pour une matrice triangulaire supérieure, $\mathbf{A}-\lambda\mathbf{I}$ est encore une matrice triangulaire supérieure, de coefficients diagonaux $a_{ii}-\lambda$. D’après le [chapitre 1, section 14.4](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-4), son déterminant est le produit des coefficients diagonaux : $p(\lambda)=(a_{11}-\lambda)\cdots(a_{nn}-\lambda)$. Les racines sont les coefficients diagonaux.
 
 Pour la matrice donnée, les valeurs propres sont donc $2$, $3$ et $5$. Pour $2$ : $\mathbf{A}-2\mathbf{I}=\Bigl(\begin{smallmatrix}0&1&0\\0&1&1\\0&0&3\end{smallmatrix}\Bigr)$ exige $v_3=0$ et $v_2=0$, vecteur propre $(1,\,0,\,0)^{\top}$. Pour $3$ : $\Bigl(\begin{smallmatrix}-1&1&0\\0&0&1\\0&0&2\end{smallmatrix}\Bigr)$ exige $v_3=0$ et $v_2=v_1$, vecteur propre $(1,\,1,\,0)^{\top}$. Pour $5$ : $\Bigl(\begin{smallmatrix}-3&1&0\\0&-2&1\\0&0&0\end{smallmatrix}\Bigr)$ exige $v_2=3v_1$ et $v_3=2v_2$, vecteur propre $(1,\,3,\,6)^{\top}$. Vérification : $\mathbf{A}(1,\,3,\,6)^{\top}=(2+3,\ 9+6,\ 30)^{\top}=5\,(1,\,3,\,6)^{\top}$.
 :::

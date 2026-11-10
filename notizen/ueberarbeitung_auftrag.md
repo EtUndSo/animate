@@ -12,15 +12,15 @@ Du überarbeitest **ein** deutsches Arbeitsheft: Modul und Teil nennt dir die Na
 
 1. `C:\Users\info\PycharmProjects\pythonanimation\notizen\UEBERARBEITUNG.md`: der maßgebliche Leitfaden, besonders §2 (ein Begriff nach dem anderen, Theorie vor Praxis), §3 und §3a (Hintergrund-Kästen mit recherchiertem Warum) sowie §4 (keine Vorgriffe).
 2. Die beiden abgenommenen Muster, je ein vollständiger Abschnitt und der Abschluss:
-   - ET3 Teil 2: `C:\Bücher\ET3\Arbeitshefte\kap2_stufen.tex` (Abschnitt 1), `kap2_stufen_b.tex` (Ende), `kap2_loesungen.tex` (Anfang).
-   - HöMa3 Teil 1: `C:\Bücher\HöMa3\Arbeitshefte\kap1_stufen.tex` (ein Abschnitt und Ende).
-3. Den alten Auftrag deines Moduls (`notizen/heft_auftrag_<modul>.md`, für ET3 siehe unten). Quellen, Dateinamen, Bezeichnungen, Szenen und Bauen gelten weiter. Gliederung in „Stufen“, Längengrenzen und F/A-Kästen sind ersetzt.
+   - ET3, Kapitel 2: `C:\Bücher\ET3\Arbeitshefte\kap2_stufen.tex` (Abschnitt 1), `kap2_stufen_b.tex` (Ende), `kap2_loesungen.tex` (Anfang).
+   - HöMa3, Kapitel 1: `C:\Bücher\HöMa3\Arbeitshefte\kap1_stufen.tex` (ein Abschnitt und Ende).
+3. Den alten Auftrag deines Moduls (`notizen/heft_auftrag_<modul>.md`, für ET3 siehe unten). Quellen, Dateinamen, Bezeichnungen, Szenen und Bauen gelten weiter. Gliederung in „Stufen“, Längengrenzen und F/A-Kästen sind ersetzt. Ausnahme Benennung (seit 09.11.2026): Hefte heißen „Kapitel N“, Rückverweise „Kapitel~N, Abschnitt~M“ bzw. „<Kurzname>, Kapitel~N, …“, nicht mehr „Teil~N“ (UEBERARBEITUNG §4, `notizen/kapitel_umstellung.md`); was die alten Aufträge dazu sagen, gilt nicht mehr.
 4. Das alte Heft vollständig. Was sich bewährt hat (Beispiele, Abbildungen, Aufgaben, Antworten auf Fragen), wird übernommen, aber an die richtige Stelle gesetzt und einzeln erklärt.
 
 ## Quellen je Modul
 | Modul | Ordner | Skript/Folien (Text mit Seitenmarken) | Hinweise |
 |---|---|---|---|
-| et3 | `C:\Bücher\ET3\Arbeitshefte` | `C:\Bücher\EtUndSo\_volltext\et3_skript.txt` (`=== Seite N` = PDF-Seite); PDF `C:\Bücher\ET3\GDET3_Vorlesungsskript_Ausgabe2019_20250828 (3).pdf`, PDF-Seite = gedruckte Seite + 6 | Teil N folgt im Wesentlichen Skript-Kapitel N; das alte Heft zeigt, welche Kapitel dazugehören. Szenen `tools/szenen/et3_teil<N>.py`, Namen `et3/k<N>name`. |
+| et3 | `C:\Bücher\ET3\Arbeitshefte` | `C:\Bücher\EtUndSo\_volltext\et3_skript.txt` (`=== Seite N` = PDF-Seite); PDF `C:\Bücher\ET3\GDET3_Vorlesungsskript_Ausgabe2019_20250828 (3).pdf`, PDF-Seite = gedruckte Seite + 6 | Heft-Kapitel N folgt im Wesentlichen Skript-Kapitel N; das alte Heft zeigt, welche Kapitel dazugehören. Szenen `tools/szenen/et3_teil<N>.py`, Namen `et3/k<N>name`. |
 | hm3 | `C:\Bücher\HöMa3\Arbeitshefte` | `C:\Bücher\EtUndSo\_volltext\hm3_skript.txt`; PDF `C:\Bücher\HöMa3\HM3_Skript_24_25.pdf`, PDF-Seite = Skriptseite + 2 | Zusammenfassungen in `C:\Bücher\HöMa3\Zusammenfassungen` (Kap 1–4). Auftrag `notizen/heft_auftrag_hm3.md`. |
 | et1 | `C:\Bücher\ET1\Arbeitshefte` | `C:\Bücher\EtUndSo\_volltext\get1_clean.txt` | Auftrag `notizen/heft_auftrag_et1.md`. |
 | hm1 | `C:\Bücher\HöMa1\Arbeitshefte` | `C:\Bücher\EtUndSo\_volltext\hm1_folien.txt` plus Mitschriften | Auftrag `notizen/heft_auftrag_hm1.md`. |

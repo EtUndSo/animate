@@ -1,6 +1,8 @@
 ---
-title: Von Grund auf: Was aus Teil 2 und Teil 6 gebraucht wird
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Kristallwachstum und reziprokes Gitter
+title: Von Grund auf: Was aus Kapitel 2 und Kapitel 6 gebraucht wird
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Kristallwachstum und reziprokes Gitter
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/kristallwachstum-und-reziprokes-gitter
+knoten: Kapitel 7: Kristallwachstum und reziprokes Gitter
 order: 4170200
 summary: Wie aus Sand ein Einkristall wird und wie eine Welle sein Gitter sieht
 tags: 
@@ -27,4 +29,4 @@ Netzebenen sind Scharen paralleler Ebenen durch Gitterpunkte. Ihre Millerschen I
 <span class="anker" id="gl-0-2"></span>
 $$E(k)=2t_0\bigl(1-\cos(ka)\bigr)+V_0,\qquad v(k)=\frac{2t_0a}{\hbar}\sin(ka),\qquad t_0=\frac{\hbar^2}{2ma^2}. \tag{0.2}$$
 
-Das ist das Kosinus-Band. $k$ und $k+2\pi/a$ liefern an allen Punkten dieselben Zahlen, sie sind dieselbe Welle. Den eindeutigen Bereich $-\pi/a\le k\le\pi/a$ nannte [Teil 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html) erste Brillouin-Zone, kurz Zone. Im Raum lautet die ebene Welle $\mathrm{e}^{\mathrm{j}\boldsymbol k\cdot\boldsymbol r}$ mit dem Wellenvektor $\boldsymbol k$ und $\lambda=2\pi/|\boldsymbol k|$.
+Das ist das Kosinus-Band. $k$ und $k+2\pi/a$ liefern an allen Punkten dieselben Zahlen, sie sind dieselbe Welle. Den eindeutigen Bereich $-\pi/a\le k\le\pi/a$ nannte [Kapitel 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html) erste Brillouin-Zone, kurz Zone. Im Raum lautet die ebene Welle $\mathrm{e}^{\mathrm{j}\boldsymbol k\cdot\boldsymbol r}$ mit dem Wellenvektor $\boldsymbol k$ und $\lambda=2\pi/|\boldsymbol k|$.

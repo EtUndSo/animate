@@ -1,6 +1,8 @@
 ---
 title: Key points
-pfad: Electrical Engineering / 3rd Semester / Signals and Systems / Fourier Series and Transform
+pfad: Electrical Engineering / 3rd Semester / ET3 – Fundamentals of Electrical Engineering 3: Signals and Systems / Fourier Series and Transform
+adresse: elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation
+knoten: Chapter 3: Fourier Series and Transform
 order: 3231300
 summary: Every signal as a superposition of oscillations
 tags: 

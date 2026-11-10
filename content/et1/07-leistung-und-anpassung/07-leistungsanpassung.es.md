@@ -1,6 +1,8 @@
 ---
 title: Etapa 6: Adaptación de potencia
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Potencia, adaptación y rendimiento
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Potencia, adaptación y rendimiento
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad
+knoten: Capítulo 7: Potencia, adaptación y rendimiento
 order: 1170700
 summary: La tabla muestra un máximo de P L .
 tags: potencia de cortocircuito
@@ -13,7 +15,7 @@ lang: es
 La tabla muestra un máximo de $P_\mathrm{L}$. Esta etapa lo encuentra y explica por qué está justo en $R_\mathrm{L}=R_\mathrm{i}$.
 :::
 
-**La idea.** Dos influencias actúan en sentidos opuestos. Con $R_\mathrm{L}$ pequeña llegan muchos culombios, pero casi toda su energía se queda en $R_\mathrm{i}$. Con $R_\mathrm{L}$ grande, cada culombio cede casi todo en la carga, pero llegan pocos. La recta $U_\mathrm{L}=U_\mathrm{q}-R_\mathrm{i}I$ de la [Parte 5](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html) lo hace visible: $P_\mathrm{L}=U_\mathrm{L}I$ es el área del rectángulo bajo ella (fig. [7](#abb-7)). Es máxima cuando su esquina está en el centro de la recta, con la mitad de la corriente y la mitad de la tensión. Entonces, en $R_\mathrm{i}$ y en $R_\mathrm{L}$ cae la misma tensión con la misma corriente, de modo que ambas resistencias son iguales.
+**La idea.** Dos influencias actúan en sentidos opuestos. Con $R_\mathrm{L}$ pequeña llegan muchos culombios, pero casi toda su energía se queda en $R_\mathrm{i}$. Con $R_\mathrm{L}$ grande, cada culombio cede casi todo en la carga, pero llegan pocos. La recta $U_\mathrm{L}=U_\mathrm{q}-R_\mathrm{i}I$ del [capítulo 5](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html) lo hace visible: $P_\mathrm{L}=U_\mathrm{L}I$ es el área del rectángulo bajo ella (fig. [7](#abb-7)). Es máxima cuando su esquina está en el centro de la recta, con la mitad de la corriente y la mitad de la tensión. Entonces, en $R_\mathrm{i}$ y en $R_\mathrm{L}$ cae la misma tensión con la misma corriente, de modo que ambas resistencias son iguales.
 
 :::abbildung et1/k7rechteck 7
 Recta de la fuente de la batería con tres puntos de trabajo. Azul: $P_\mathrm{L}$, rectángulo de $I$ y $U_\mathrm{L}$. Rojo: $P_\mathrm{v}$, rectángulo de $I$ y $U_\mathrm{Ri}$. Ambos juntos son $P_\mathrm{q}=U_\mathrm{q}I$. La esquina central da el mayor rectángulo azul.

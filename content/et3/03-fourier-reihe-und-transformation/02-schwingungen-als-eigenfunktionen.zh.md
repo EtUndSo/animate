@@ -1,6 +1,8 @@
 ---
 title: 第 1 阶段：作为特征函数的振荡
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / 傅里叶级数与变换
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / 傅里叶级数与变换
+adresse: elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation
+knoten: 第 3 章：傅里叶级数与变换
 order: 3230200
 summary: 在基本单元 e pt 中，从现在起只使用纯振荡。本阶段说明 LTI 系统对它们起什么作用。
 tags: 频率响应

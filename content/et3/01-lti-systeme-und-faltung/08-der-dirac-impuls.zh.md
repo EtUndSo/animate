@@ -1,6 +1,8 @@
 ---
 title: 第 7 阶段：狄拉克冲激
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / LTI 系统与卷积
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / LTI 系统与卷积
+adresse: elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung
+knoten: 第 1 章：LTI 系统与卷积
 order: 3210800
 summary: 狄拉克冲激就是第 4 阶段中的那个极限对象。它不是普通的函数。它的全部性质都源于一个事实：它只通过自己的面积起作用。
 tags: 广义函数, 理想延时器, 广义求导

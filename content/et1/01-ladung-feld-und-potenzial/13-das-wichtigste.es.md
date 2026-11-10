@@ -1,6 +1,8 @@
 ---
 title: Lo esencial
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Carga, campo y potencial
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Carga, campo y potencial
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial
+knoten: Capítulo 1: Carga, campo y potencial
 order: 1111300
 summary: Por qué la tensión es una diferencia y qué hace con una carga
 tags: 
@@ -109,7 +111,7 @@ Inducción: $u_\mathrm{ind}=-N\,\mathrm{d}\Phi/\mathrm{d} t$; entonces el campo 
 </ul>
 :::
 
-**Mirada a la [Parte 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html).** En un cable, el campo impulsa muchísimas cargas a la vez: fluye carga, surge una corriente. La [Parte 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html) muestra por qué la tensión y la corriente son proporcionales y cómo se reparten en una red.
+**Mirada al [capítulo 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html).** En un cable, el campo impulsa muchísimas cargas a la vez: fluye carga, surge una corriente. El [capítulo 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html) muestra por qué la tensión y la corriente son proporcionales y cómo se reparten en una red.
 
 **Un principio detrás de todos los resultados.** La fuerza y la energía de una carga dependen de las demás cargas de alrededor y de ella misma. Al dividir por la propia carga queda una propiedad del lugar: la fuerza se convierte en intensidad de campo; la energía, en potencial.
 

@@ -1,6 +1,8 @@
 ---
 title: Stage 9: Elementary inequalities
-pfad: Electrical Engineering / 1st Semester / Higher Mathematics 1 / Sets, Logic and Real Numbers
+pfad: Electrical Engineering / 1st Semester / HöMa1 – Higher Mathematics 1 / Sets, Logic and Real Numbers
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen
+knoten: Chapter 1: Sets, Logic and Real Numbers
 order: 1211100
 summary: Often an expression cannot be calculated, only estimated.
 tags: Bernoulli, Young, Means, geometric mean, arithmetic mean, Cauchy-Schwarz, Minkowski, vector
@@ -61,7 +63,7 @@ $$\sqrt{\sum_{i=1}^n(x_i+y_i)^2}\le\sqrt{\sum_{i=1}^nx_i^2}+\sqrt{\sum_{i=1}^ny_
 </ol>
 :::
 
-⁠**How to read it:** $\vec x=(x_1,\dots,x_n)$ is a __vector__, a list of $n$ numbers, and $\|\vec x\|$ its __norm__. For $n=2$ this is, by Pythagoras, the length of the arrow from the origin to the point $(x_1,x_2)$. Then [(9.2)](#gl-9-2) is the triangle inequality for arrows, and in Part 8 [(9.1)](#gl-9-1) turns into the dot product. In Young, $\varepsilon$ is an exchange rate: A small $x$ term costs a large $y$ term. **Why the hypotheses:** Bernoulli: $x=-4$, $n=3$ gives $-27>-11$, false, so $x>-1$ is needed. For $x=0$ or $n=1$ there is equality. Means: $x=y=-1$ gives $1\le-1$, false. Young: $\varepsilon=-1$ makes the right side negative.
+⁠**How to read it:** $\vec x=(x_1,\dots,x_n)$ is a __vector__, a list of $n$ numbers, and $\|\vec x\|$ its __norm__. For $n=2$ this is, by Pythagoras, the length of the arrow from the origin to the point $(x_1,x_2)$. Then [(9.2)](#gl-9-2) is the triangle inequality for arrows, and in Chapter 8 [(9.1)](#gl-9-1) turns into the dot product. In Young, $\varepsilon$ is an exchange rate: A small $x$ term costs a large $y$ term. **Why the hypotheses:** Bernoulli: $x=-4$, $n=3$ gives $-27>-11$, false, so $x>-1$ is needed. For $x=0$ or $n=1$ there is equality. Means: $x=y=-1$ gives $1\le-1$, false. Young: $\varepsilon=-1$ makes the right side negative.
 
 :::abbildung hm1/k1mittel 9
 Left, the means as a semicircle: The radius is the arithmetic mean, the height above the dividing point the geometric mean. The height is never greater than the radius. Right, Bernoulli for $n=3$: The line touches the curve at $x=0$ and lies below it for $x>-1$.

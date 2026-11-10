@@ -1,6 +1,8 @@
 ---
 title: Stage 8: Random signals in LTI systems, power spectrum
-pfad: Electrical Engineering / 3rd Semester / Signals and Systems / Random Signals
+pfad: Electrical Engineering / 3rd Semester / ET3 – Fundamentals of Electrical Engineering 3: Signals and Systems / Random Signals
+adresse: elektrotechnik/3-semester/signale-und-systeme/zufallssignale
+knoten: Chapter 7: Random Signals
 order: 3270900
 summary: What does an LTI system do to a random signal?
 tags: power spectral density
@@ -41,10 +43,10 @@ Move the expected value into the double integral. For a stationary process, $\ma
 
 $$\varphi_{gg}(\tau)=\int\varphi_{ss}(\tau-\vartheta)\underbrace{\int h(\alpha)h(\alpha+\vartheta)\,\mathrm{d}\alpha}_{\varphi^E_{hh}(\vartheta)}\,\mathrm{d}\vartheta=\varphi_{ss}*\varphi^E_{hh}.$$
 
-In the frequency domain, $\varphi^E_{hh}$ becomes $|H|^2$ ([Part 6](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen/korrelationsfunktionen.html)).
+In the frequency domain, $\varphi^E_{hh}$ becomes $|H|^2$ ([Chapter 6](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen/korrelationsfunktionen.html)).
 :::
 
-⁠**How to read it:** $\Phi_{ss}(f)$ indicates how the power is distributed over the frequencies. It is real, never negative and, for real signals, even. An LTI system multiplies the power at each frequency by $|H(f)|^2$; its phase plays no role. This is the same rule as for energy signals in [Part 6](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen/korrelationsfunktionen.html), now for processes. (Note: strictly speaking, $\Phi_{ss}$ is defined as the limit $\lim_{T\to\infty}\frac1T\mathrm E\{|S_T(f)|^2\}$ over short-time spectra of segments of duration $T$. That this is the same as the transform of the ACF is the actual statement of the Wiener–Khinchin theorem.)
+⁠**How to read it:** $\Phi_{ss}(f)$ indicates how the power is distributed over the frequencies. It is real, never negative and, for real signals, even. An LTI system multiplies the power at each frequency by $|H(f)|^2$; its phase plays no role. This is the same rule as for energy signals in [Chapter 6](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen/korrelationsfunktionen.html), now for processes. (Note: strictly speaking, $\Phi_{ss}$ is defined as the limit $\lim_{T\to\infty}\frac1T\mathrm E\{|S_T(f)|^2\}$ over short-time spectra of segments of duration $T$. That this is the same as the transform of the ACF is the actual statement of the Wiener–Khinchin theorem.)
 
 :::ltspice Noise with a mean value through low-pass and high-pass
 ⁠**Draw:** a behavioural source `bv` at net `s` with `V=1+white(1e3*time)`. `white(x)` returns random values between $-0.5$ and $0.5$, a new one at every integer $x$, joined smoothly, so here every millisecond. Connected to it in parallel, an RC low-pass (`res` with `1Meg` to `tp`, `cap` with `1u` to ground) and a CR high-pass (`cap` with `1u` to `hp`, `res` with `1Meg` to ground).

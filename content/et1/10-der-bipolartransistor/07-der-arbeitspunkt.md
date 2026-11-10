@@ -1,6 +1,8 @@
 ---
 title: Stufe 5: Der Arbeitspunkt
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Der Bipolartransistor
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Der Bipolartransistor
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor
+knoten: Kapitel 10: Der Bipolartransistor
 order: 1200700
 summary: Welcher Bereich gilt, weiß man vorher nicht.
 tags: Arbeitsgerade, Versorgungsspannung
@@ -13,7 +15,7 @@ lang: de
 Welcher Bereich gilt, weiß man vorher nicht. Diese Stufe bestimmt den Arbeitspunkt durch Annehmen und Prüfen und zeichnet ihn als Schnittpunkt.
 :::
 
-**Die Idee.** Der Transistor liefert seine Kennlinien, der Stromkreis Maschengleichungen. Beide müssen zugleich gelten. Das Ergebnis ist der Arbeitspunkt (AP), wie in [Teil 5](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html) der Schnitt einer Kennlinie mit einer Geraden. Weil jeder Bereich ein anderes Ersatzschaltbild hat, nimmt man einen Bereich an, rechnet linear und prüft. Ein Widerspruch zu den Bedingungen [(4.1)](drei-bereiche-drei-ersatzschaltbilder.html#gl-4-1) bis [(4.3)](drei-bereiche-drei-ersatzschaltbilder.html#gl-4-3) verrät die falsche Annahme.
+**Die Idee.** Der Transistor liefert seine Kennlinien, der Stromkreis Maschengleichungen. Beide müssen zugleich gelten. Das Ergebnis ist der Arbeitspunkt (AP), wie in [Kapitel 5](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html) der Schnitt einer Kennlinie mit einer Geraden. Weil jeder Bereich ein anderes Ersatzschaltbild hat, nimmt man einen Bereich an, rechnet linear und prüft. Ein Widerspruch zu den Bedingungen [(4.1)](drei-bereiche-drei-ersatzschaltbilder.html#gl-4-1) bis [(4.3)](drei-bereiche-drei-ersatzschaltbilder.html#gl-4-3) verrät die falsche Annahme.
 
 :::abbildung et1/k10arbeit 6
 Links die Schaltung des Rechenmodells. Rechts die linearisierten Ausgangskennlinien mit der Arbeitsgeraden von $(0;\,4\,\mathrm{mA})$ nach $(12\,\mathrm{V};\,0)$. Sie trifft die Linie $I_\mathrm{B}=10$ µ A im Arbeitspunkt A. S ist der Punkt in der Sättigung, Z der Punkt im Sperrbereich.

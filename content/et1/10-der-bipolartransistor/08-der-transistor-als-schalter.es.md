@@ -1,6 +1,8 @@
 ---
 title: Etapa 6: El transistor como interruptor
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / El transistor bipolar
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / El transistor bipolar
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor
+knoten: Capítulo 10: El transistor bipolar
 order: 1200800
 summary: Un interruptor debe estar del todo abierto o del todo cerrado.
 tags: inversor, niveles lógicos, hipérbola de potencia

@@ -1,6 +1,8 @@
 ---
 title: Divergenz, Rotation und Laplace-Operator
-pfad: Elektrotechnik / 3. Semester / Höhere Mathematik 3 / Differentialrechnung für Vektorfelder
+pfad: Elektrotechnik / 3. Semester / HöMa3 – Höhere Mathematik 3 / Differentialrechnung für Vektorfelder
+adresse: elektrotechnik/3-semester/hohere-mathematik-3/differentialrechnung-fur-vektorfelder
+knoten: Kapitel 1: Differentialrechnung für Vektorfelder
 order: 3110400
 summary: Ein Vektorfeld hat an jedem Punkt eine Jacobi-Matrix mit n 2 Einträgen.
 tags: Kreuzprodukt, Determinante, Spur, schiefsymmetrisch, symmetrischen Anteil, schiefsymmetrische Anteil, Divergenz, Quellendichte

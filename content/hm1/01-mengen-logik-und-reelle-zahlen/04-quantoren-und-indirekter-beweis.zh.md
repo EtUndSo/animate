@@ -1,6 +1,8 @@
 ---
 title: 第 2 阶段：量词与反证法
-pfad: 电气工程 / 第 1 学期 / 高等数学 1 / 集合、逻辑与实数
+pfad: 电气工程 / 第 1 学期 / HöMa1 – 高等数学 1 / 集合、逻辑与实数
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen
+knoten: 第 1 章：集合、逻辑与实数
 order: 1210400
 summary: 所有公理都具有“对所有 x 存在 y ”的形式。本阶段说明如何阅读和否定这样的语句，以及如何把否定变成证明。
 tags: 全称量词, 存在量词, 反例, 反证假设, 罗素悖论

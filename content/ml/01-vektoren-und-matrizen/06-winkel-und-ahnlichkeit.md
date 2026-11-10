@@ -1,7 +1,8 @@
 ---
 title: Winkel und Ähnlichkeit
 pfad: Informatik / Machine Learning / Mathematische Grundlagen / Vektoren und Matrizen
-knoten: Grundlagen 1: Vektoren und Matrizen
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Kapitel 1: Vektoren und Matrizen
 nachschlagen: ja
 order: 15210600
 summary: Zwei Vektoren können in ähnliche Richtungen zeigen, auch wenn sie verschieden lang sind.
@@ -59,11 +60,11 @@ und die Wurzel daraus ist (N3).
 ⁠**Kurz gesagt:** Das Skalarprodukt ist dem Betrag nach höchstens das Produkt der Längen, und genau dann gleich, wenn die Vektoren auf einer Geraden durch den Nullpunkt liegen.
 
 :::hintergrund Warum das Skalarprodukt Muster erkennt: die genaue Aussage
-In Unterabschnitt [2.4](das-skalarprodukt.html#stufe-2-4) war der Mustervergleich eine Anschauung: Das Skalarprodukt $\mathbf{w}^{\top}\mathbf{x}$ ist groß, wenn das Signal dem Muster folgt. Die Cauchy-Schwarz-Ungleichung macht daraus eine genaue Aussage. Vergleicht man nur Signale mit derselben Länge $\lVert\mathbf{x}\rVert$, so liegt $\mathbf{w}^{\top}\mathbf{x}$ immer zwischen $-\lVert\mathbf{w}\rVert\,\lVert\mathbf{x}\rVert$ und $+\lVert\mathbf{w}\rVert\,\lVert\mathbf{x}\rVert$. Den größten Wert erreicht genau das Signal, das ein positives Vielfaches des Musters ist, den kleinsten das negative Vielfache. Unter allen Signalen gleicher Energie schlägt der Vergleich also am stärksten beim Muster selbst an.
+In Unterabschnitt [2.4](das-skalarprodukt.html#stufe-2-4) war der Mustervergleich eine Anschauung: Das Skalarprodukt $\mathbf{w}^{\top}\mathbf{x}$ ist groß, wenn der Verlauf dem Muster folgt. Die Cauchy-Schwarz-Ungleichung macht daraus eine genaue Aussage. Vergleicht man nur Verläufe mit derselben Länge $\lVert\mathbf{x}\rVert$, so liegt $\mathbf{w}^{\top}\mathbf{x}$ immer zwischen $-\lVert\mathbf{w}\rVert\,\lVert\mathbf{x}\rVert$ und $+\lVert\mathbf{w}\rVert\,\lVert\mathbf{x}\rVert$. Den größten Wert erreicht genau der Verlauf, der ein positives Vielfaches des Musters ist, den kleinsten das negative Vielfache. Unter allen gleich langen Verläufen schlägt der Vergleich also am stärksten beim Muster selbst an.
 
-⁠**Rechenbeispiel:** Das Wechselmuster $\mathbf{w}=(1,-1,1,-1)^{\top}$ hat die Länge $2$. Unter allen Signalen der Länge $2$ liefert $\mathbf{x}=\mathbf{w}$ den größten Wert $4=2\cdot2$, das Signal $(2,0,0,0)^{\top}$ nur $2$ und $\mathbf{x}=-\mathbf{w}$ den kleinsten Wert $-4$.
+⁠**Rechenbeispiel:** Das Wechselmuster $\mathbf{w}=(1,-1,1,-1)^{\top}$ hat die Länge $2$. Unter allen Verläufen der Länge $2$ liefert $\mathbf{x}=\mathbf{w}$ den größten Wert $4=2\cdot2$, der Verlauf $(2,0,0,0)^{\top}$ nur $2$ und $\mathbf{x}=-\mathbf{w}$ den kleinsten Wert $-4$.
 
-In der Nachrichtentechnik ist das die Grundlage des Korrelationsempfängers und des signalangepassten Filters (*matched filter*). Ein solches Filter hat als Impulsantwort das zeitlich gespiegelte Sendesignal; zum Abtastzeitpunkt berechnet es dadurch genau das Skalarprodukt aus empfangenem Signal und Sendesignal. Dass dieses Filter das Verhältnis von Signal zu Rauschen größtmöglich macht, wird mit eben dieser Ungleichung bewiesen.
+Dieselbe Aussage nutzt jede Suche, die Texte oder Bilder als Vektoren beschreibt: Unter allen gleich langen Vektoren liefert derjenige das größte Skalarprodukt mit der Anfrage, der ein positives Vielfaches der Anfrage ist. Damit die Länge das Ergebnis nicht verfälscht, bringt man vorher alle Vektoren auf dieselbe Länge.
 :::
 
 ### Der Winkel zwischen zwei Vektoren
@@ -134,23 +135,23 @@ $(1,\,2,\,2)^{\top}$ und $(2,\,0,\,-1)^{\top}$ sind orthogonal, denn $2+0-2=0$. 
 ::::
 
 ::::beispiel [Rechenbeispiel 2] zwei Muster, die sich nicht stören
-Das Gleichmuster $\mathbf 1=(1,\,1,\,1,\,1)^{\top}$ und das Wechselmuster $\mathbf{w}=(1,\,-1,\,1,\,-1)^{\top}$ aus Unterabschnitt [2.4](das-skalarprodukt.html#stufe-2-4) sind orthogonal, $\mathbf 1^{\top}\mathbf{w}=0$. Ein Signal, das aus $2$-mal dem Gleichmuster und $1$-mal dem Wechselmuster besteht, ist $\mathbf{x}=2\cdot\mathbf 1+\mathbf{w}=(3,\,1,\,3,\,1)^{\top}$. Der Vergleich mit dem Gleichmuster ergibt $\mathbf 1^{\top}\mathbf{x}=8=2\cdot4$, der Vergleich mit dem Wechselmuster $\mathbf{w}^{\top}\mathbf{x}=4=1\cdot4$ (Abb. [23](#abb-23)). Jeder Vergleich findet genau seinen eigenen Anteil, mal $\lVert\mathbf 1\rVert^2=\lVert\mathbf{w}\rVert^2=4$; der andere Anteil stört ihn nicht.
+Das Gleichmuster $\mathbf 1=(1,\,1,\,1,\,1)^{\top}$ und das Wechselmuster $\mathbf{w}=(1,\,-1,\,1,\,-1)^{\top}$ aus Unterabschnitt [2.4](das-skalarprodukt.html#stufe-2-4) sind orthogonal, $\mathbf 1^{\top}\mathbf{w}=0$. Ein Verlauf, der aus $2$-mal dem Gleichmuster und $1$-mal dem Wechselmuster besteht, ist $\mathbf{x}=2\cdot\mathbf 1+\mathbf{w}=(3,\,1,\,3,\,1)^{\top}$. Der Vergleich mit dem Gleichmuster ergibt $\mathbf 1^{\top}\mathbf{x}=8=2\cdot4$, der Vergleich mit dem Wechselmuster $\mathbf{w}^{\top}\mathbf{x}=4=1\cdot4$ (Abb. [23](#abb-23)). Jeder Vergleich findet genau seinen eigenen Anteil, mal $\lVert\mathbf 1\rVert^2=\lVert\mathbf{w}\rVert^2=4$; der andere Anteil stört ihn nicht.
 
 :::abbildung ml/k1rortho 23
-Die beiden Muster sind orthogonal (oben). Der Vergleich des Signals $\mathbf{x}=2\cdot\mathbf 1+\mathbf{w}$ mit jedem Muster liefert dessen Anteil mal $4$.
+Die beiden Muster sind orthogonal (oben). Der Vergleich des Verlaufs $\mathbf{x}=2\cdot\mathbf 1+\mathbf{w}$ mit jedem Muster liefert dessen Anteil mal $4$.
 :::
 ::::
 
 ⁠**Kurz gesagt:** Orthogonal heißt Skalarprodukt null; orthogonale Pfeile stehen senkrecht aufeinander, und für sie gilt der Satz des Pythagoras.
 
 :::hintergrund Warum orthogonale Muster sich nicht stören, und was das mit Fourier-Koeffizienten zu tun hat
-Ist ein Signal eine Linearkombination $\mathbf{x}=\alpha\,\mathbf 1+\beta\,\mathbf{w}$ zweier orthogonaler Muster, so ist nach den Rechenregeln
+Ist ein Verlauf eine Linearkombination $\mathbf{x}=\alpha\,\mathbf 1+\beta\,\mathbf{w}$ zweier orthogonaler Muster, so ist nach den Rechenregeln
 
 $$\mathbf 1^{\top}\mathbf{x}=\alpha\,\mathbf 1^{\top}\mathbf 1+\beta\,\mathbf 1^{\top}\mathbf{w}=\alpha\,\lVert\mathbf 1\rVert^2+0 ,\qquad\text{also}\qquad \alpha=\frac{\mathbf 1^{\top}\mathbf{x}}{\lVert\mathbf 1\rVert^2} .$$
 
 Der Vergleich mit einem Muster misst also nur dessen eigenen Anteil, weil der Beitrag des anderen Musters mit dem Faktor $\mathbf 1^{\top}\mathbf{w}=0$ verschwindet. Wären die Muster nicht orthogonal, würde jeder Vergleich auch ein Stück des anderen Anteils mitzählen.
 
-Genau so sind die Koeffizienten einer Fourier-Reihe gebaut. Für ein Signal $s(t)$ mit der Periode $T$ und $\omega_0=2\pi/T$ ist
+Genau so sind die Koeffizienten einer Fourier-Reihe gebaut, die eine periodische Kurve, etwa den Klang eines gehaltenen Tons, in Kosinus- und Sinusschwingungen zerlegt. Für eine Funktion $s(t)$ mit der Periode $T$ und $\omega_0=2\pi/T$ ist
 
 $$a_k=\frac{2}{T}\int_0^Ts(t)\cos(k\omega_0t)\,\mathrm{d} t=\frac{\int_0^Ts(t)\cos(k\omega_0t)\,\mathrm{d} t}{\int_0^T\cos^2(k\omega_0t)\,\mathrm{d} t}\qquad(k\ge1),$$
 

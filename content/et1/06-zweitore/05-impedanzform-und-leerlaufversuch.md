@@ -1,6 +1,8 @@
 ---
 title: Stufe 3: Impedanzform und Leerlaufversuch
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Zweitore
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Zweitore
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore
+knoten: Kapitel 6: Zweitore
 order: 1160500
 summary: Die erste Wahl: Die Ströme sind die Ursachen.
 tags: Z-Parameter, Eingangsleerlaufwiderstand, Ausgangsleerlaufwiderstand, Leerlaufübertragungswiderstand, Zweipolgrößen, Transfergrößen, Impedanz
@@ -48,7 +50,7 @@ $$\mathbf Z=\begin{pmatrix}R_\mathrm{a}+R_\mathrm{b}&R_\mathrm{b}\\mathbb{R}_\ma
 <span class="anker" id="gl-3-3"></span>
 $$Z_{11}=Z_{22}=(R_\mathrm{x}+R_\mathrm{y})\parallel(R_\mathrm{x}+R_\mathrm{y})=\frac{R_\mathrm{x}+R_\mathrm{y}}{2},\qquad Z_{21}=Z_{12}=\frac{R_\mathrm{y}-R_\mathrm{x}}{2}. \tag{3.3}$$
 
-⁠**Grenzfälle:** Für $R_\mathrm{b}\to0$ sind $Z_{12}=Z_{21}=0$: Der Querzweig ist ein Draht, die Tore sind entkoppelt. Für $R_\mathrm{x}=R_\mathrm{y}$ ist die Brücke abgeglichen ([Teil 4](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-und-spannung-messen/strom-und-spannung-messen.html)), und wieder ist $Z_{21}=0$.
+⁠**Grenzfälle:** Für $R_\mathrm{b}\to0$ sind $Z_{12}=Z_{21}=0$: Der Querzweig ist ein Draht, die Tore sind entkoppelt. Für $R_\mathrm{x}=R_\mathrm{y}$ ist die Brücke abgeglichen ([Kapitel 4](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-und-spannung-messen/strom-und-spannung-messen.html)), und wieder ist $Z_{21}=0$.
 
 :::frage Warum ein Strom und nicht eine Spannung am Eingang? Eine Spannungsquelle habe ich eher zur Hand.
 Das geht auch. Es zählt nur, dass das andere Tor offen ist. Dann misst man $U_1$ und $I_1$ und bildet den Quotienten. Der eingeprägte Strom passt nur zur Denkweise der Form: Er ist die Ursache, die Spannungen sind die Wirkungen.

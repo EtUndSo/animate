@@ -1,6 +1,8 @@
 ---
 title: Stufe 7: Lineare Ersatzschaltungen
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Halbleiter und Dioden
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Halbleiter und Dioden
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden
+knoten: Kapitel 9: Halbleiter und Dioden
 order: 1190900
 summary: Mit mehreren Dioden koppeln sich mehrere Exponentialgleichungen, und von Hand geht das nicht mehr.
 tags: Ideale Diode, Diode mit Durchlassspannung, Durchlassspannung
@@ -70,7 +72,7 @@ $n$ Dioden haben $2^n$ Kombinationen, also lohnt eine gute erste Annahme. Hilfre
 ::::beispiel
 Abb. [9](#abb-9) unten: 5 V und 2 V speisen über je 1 k$\Omega$ und eine Diode den Knoten X, von dort führt $R_3=2\,\mathrm{k\Omega}$ zur Masse. $U_\mathrm F=0{,}7$ V.
 
-⁠*Annahme 1: Beide leiten.* Die Knotenregel ([Teil 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)) an X lautet $(4{,}3\,\mathrm{V}-\varphi_\mathrm X)/R_1+(1{,}3\,\mathrm{V}-\varphi_\mathrm X)/R_2=\varphi_\mathrm X/R_3$. Daraus folgt $\varphi_\mathrm X=2{,}24$ V, $I_\mathrm{D1}=2{,}06$ mA und $I_\mathrm{D2}=-0{,}94$ mA. Der negative Strom ist ein Widerspruch.
+⁠*Annahme 1: Beide leiten.* Die Knotenregel ([Kapitel 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)) an X lautet $(4{,}3\,\mathrm{V}-\varphi_\mathrm X)/R_1+(1{,}3\,\mathrm{V}-\varphi_\mathrm X)/R_2=\varphi_\mathrm X/R_3$. Daraus folgt $\varphi_\mathrm X=2{,}24$ V, $I_\mathrm{D1}=2{,}06$ mA und $I_\mathrm{D2}=-0{,}94$ mA. Der negative Strom ist ein Widerspruch.
 
 ⁠*Annahme 2: D$_1$ leitet, D$_2$ sperrt.* Dann ist $I=(5\,\mathrm{V}-0{,}7\,\mathrm{V})/3\,\mathrm{k\Omega}=1{,}43$ mA und $\varphi_\mathrm X=2{,}87$ V. An D$_2$ liegt $U_\mathrm{D2}=2\,\mathrm{V}-2{,}87\,\mathrm{V}=-0{,}87$ V. Das ist kleiner als $U_\mathrm F$, kein Widerspruch. Die AP sind D$_1$ (0,7 V | 1,43 mA) und D$_2$ ($-0{,}87$ V | 0). Die volle Simulation liefert 2,89 V und 1,45 mA.
 

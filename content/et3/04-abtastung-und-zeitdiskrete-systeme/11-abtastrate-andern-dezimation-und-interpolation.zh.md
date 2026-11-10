@@ -1,6 +1,8 @@
 ---
 title: 第 10 阶段：改变采样率——抽取与内插
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / 采样与离散时间系统
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / 采样与离散时间系统
+adresse: elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme
+knoten: 第 4 章：采样与离散时间系统
 order: 3241100
 summary: 序列在事后可以用更低或更高的速率来表示。对于频谱，适用的规则与最初采样时相同。
 tags: 

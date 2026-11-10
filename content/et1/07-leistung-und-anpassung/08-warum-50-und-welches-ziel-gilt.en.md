@@ -1,6 +1,8 @@
 ---
 title: Stage 7: Why 50 %, and which goal applies
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / Power, Matching and Efficiency
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / Power, Matching and Efficiency
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad
+knoten: Chapter 7: Power, Matching and Efficiency
 order: 1170800
 summary: The power maximum wastes half.
 tags: 
@@ -48,7 +50,7 @@ At the battery, $R_\mathrm{L}=200\,\Omega$ gives the voltage 8.91 V, 99 % of
 
 ⁠**Communications engineering.** The powers are in the µ W range. A receiver can only take what the antenna offers. The absolute power counts, not the fraction, and the heat in the source does no harm. An antenna with 10 mV and 50 $\Omega$ delivers exactly 0.5 µ W to 50 $\Omega$, but only 0.165 µ W to 5 $\Omega$ or 500 $\Omega$.
 
-**Equivalent sources: the maximum stays, the 50 % do not.** Often the source is a network. Fig. [9](#abb-9) shows a source with $R_\mathrm{q}$ and, in parallel with it, $R$. With respect to the terminals A, B, it is an equivalent source ([Part 5](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)) with $R_\mathrm{i}=R_\mathrm{q}\parallel R$ and $U_\mathrm{OC}=U_\mathrm{q}R/(R_\mathrm{q}+R)$. For the load, only the terminal line counts, so the maximum lies at $R_\mathrm{L}=R_\mathrm{i}$, with
+**Equivalent sources: the maximum stays, the 50 % do not.** Often the source is a network. Fig. [9](#abb-9) shows a source with $R_\mathrm{q}$ and, in parallel with it, $R$. With respect to the terminals A, B, it is an equivalent source ([Chapter 5](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)) with $R_\mathrm{i}=R_\mathrm{q}\parallel R$ and $U_\mathrm{OC}=U_\mathrm{q}R/(R_\mathrm{q}+R)$. For the load, only the terminal line counts, so the maximum lies at $R_\mathrm{L}=R_\mathrm{i}$, with
 
 <span class="anker" id="gl-7-2"></span>
 $$U_\mathrm{L}=U_\mathrm{q}\,\frac{R}{2(R_\mathrm{q}+R)},\qquad P_\mathrm{L}=\frac{U_\mathrm{L}^2}{R_\mathrm{L}}=\frac{U_\mathrm{q}^2\,R}{4\,R_\mathrm{q}(R_\mathrm{q}+R)}. \tag{7.2}$$

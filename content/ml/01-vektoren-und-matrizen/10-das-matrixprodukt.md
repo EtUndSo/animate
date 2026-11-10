@@ -1,7 +1,8 @@
 ---
 title: Das Matrixprodukt
 pfad: Informatik / Machine Learning / Mathematische Grundlagen / Vektoren und Matrizen
-knoten: Grundlagen 1: Vektoren und Matrizen
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Kapitel 1: Vektoren und Matrizen
 nachschlagen: ja
 order: 15211000
 summary: Zwei lineare Abbildungen hintereinander ergeben wieder eine lineare Abbildung, also eine Matrix.
@@ -165,7 +166,7 @@ Schaltet man mehrere lineare Rechenstufen hintereinander, so entsteht keine neue
 Sind $f(\mathbf{x})=\mathbf{B}\mathbf{x}$ und $g(\mathbf{u})=\mathbf{A}\mathbf{u}$ linear, so ist die Hintereinanderausführung $\mathbf{x}\mapsto g(f(\mathbf{x}))$ wieder linear, und zwar mit der einen Matrix $\mathbf{A}\mathbf{B}$. Dasselbe gilt für jede endliche Kette von linearen Stufen.
 :::
 
-Wie viele lineare Stufen man auch hintereinanderschaltet, das Ergebnis lässt sich immer mit einer einzigen Matrix in einem Schritt ausrechnen. Was eine Kette linearer Stufen kann, kann also schon eine einzelne Matrix. Aus Signale und Systeme kennt man dasselbe: Zwei lineare Systeme in Kette bilden zusammen wieder ein lineares System.
+Wie viele lineare Stufen man auch hintereinanderschaltet, das Ergebnis lässt sich immer mit einer einzigen Matrix in einem Schritt ausrechnen. Was eine Kette linearer Stufen kann, kann also schon eine einzelne Matrix. Im Kleinen kennt man das vom Einkaufen: Rechnet man einen Preis erst von Euro in Dollar um und zieht dann $10$ % Rabatt ab, so ist das zusammen ein einziger Umrechnungsfaktor.
 
 ::::beispiel [Rechenbeispiel]
 Eine erste Stufe macht aus drei Zahlen zwei, $\mathbf{B}=\bigl(\begin{smallmatrix}1&2&0\\0&1&-1\end{smallmatrix}\bigr)$, eine zweite aus zwei Zahlen wieder drei, $\mathbf{A}=\Bigl(\begin{smallmatrix}2&1\\1&-1\\0&3\end{smallmatrix}\Bigr)$. Zusammen ist das die eine Matrix

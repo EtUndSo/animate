@@ -1,6 +1,8 @@
 ---
 title: Etapa 9: Conexión en serie y divisor de tensión
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Corriente, resistencia y leyes de Kirchhoff
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Corriente, resistencia y leyes de Kirchhoff
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff
+knoten: Capítulo 2: Corriente, resistencia y leyes de Kirchhoff
 order: 1121000
 summary: Muchas redes se componen de dos patrones básicos.
 tags: conexión en serie, resistencia total, sin carga, convertidor digital-analógico, bits, búfer, comparador, decodificador

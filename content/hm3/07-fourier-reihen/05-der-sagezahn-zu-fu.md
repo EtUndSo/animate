@@ -1,6 +1,8 @@
 ---
 title: Stufe 4: Der Sägezahn zu Fuß
-pfad: Elektrotechnik / 3. Semester / Höhere Mathematik 3 / Fourier-Reihen
+pfad: Elektrotechnik / 3. Semester / HöMa3 – Höhere Mathematik 3 / Fourier-Reihen
+adresse: elektrotechnik/3-semester/hohere-mathematik-3/fourier-reihen
+knoten: Kapitel 7: Fourier-Reihen
 order: 3170500
 summary: Stufe 3 ließ offen, ob eine Fourier-Reihe konvergiert.
 tags: 
@@ -70,7 +72,7 @@ und die Reihe konvergiert gleichmäßig.
 :::
 
 :::beweis Integral des Sägezahns
-Für $x\in(0,2\pi)$ ist $\frac{(\pi-x)^2}4=-\int_\pi^x\frac{\pi-y}2\,\mathrm{d} y=-\int_\pi^x\sum_{k\ge1}\frac{\sin ky}k\,\mathrm{d} y$. Das Intervall zwischen $\pi$ und $x$ liegt in einem $[\alpha,2\pi-\alpha]$, dort ist die Konvergenz gleichmäßig. Summe und Integral dürfen also vertauscht werden ([Teil 6](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/konvergenz-von-funktionenfolgen/konvergenz-von-funktionenfolgen.html)):
+Für $x\in(0,2\pi)$ ist $\frac{(\pi-x)^2}4=-\int_\pi^x\frac{\pi-y}2\,\mathrm{d} y=-\int_\pi^x\sum_{k\ge1}\frac{\sin ky}k\,\mathrm{d} y$. Das Intervall zwischen $\pi$ und $x$ liegt in einem $[\alpha,2\pi-\alpha]$, dort ist die Konvergenz gleichmäßig. Summe und Integral dürfen also vertauscht werden ([Kapitel 6](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/konvergenz-von-funktionenfolgen/konvergenz-von-funktionenfolgen.html)):
 
 $$\frac{(\pi-x)^2}4=-\sum_{k\ge1}\int_\pi^x\frac{\sin ky}k\,\mathrm{d} y=\sum_{k\ge1}\frac{\cos kx}{k^2}-\sum_{k\ge1}\frac{(-1)^k}{k^2}.$$
 

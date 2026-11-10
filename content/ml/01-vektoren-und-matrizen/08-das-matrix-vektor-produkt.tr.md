@@ -1,7 +1,8 @@
 ---
 title: Matris-vektör çarpımı
 pfad: Bilgisayar Bilimleri / Makine Öğrenmesi / Matematiksel Temeller / Vektörler ve Matrisler
-knoten: Temeller 1: Vektörler ve Matrisler
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Bölüm 1: Vektörler ve Matrisler
 nachschlagen: ja
 order: 15210800
 summary: Aynı ağırlıklı toplam bir veri kümesinin bütün örnekleri için hesaplanmak isteniyor.

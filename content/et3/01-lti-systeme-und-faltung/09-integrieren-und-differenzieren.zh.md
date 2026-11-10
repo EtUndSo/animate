@@ -1,6 +1,8 @@
 ---
 title: 第 8 阶段：积分与微分
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / LTI 系统与卷积
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / LTI 系统与卷积
+adresse: elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung
+knoten: 第 1 章：LTI 系统与卷积
 order: 3210900
 summary: 积分器和微分器都是 LTI 系统。它们把阶跃响应和冲激响应联系起来，并使我们能够由 RC 电路的阶跃响应得到它的冲激响应。
 tags: 积分器, 微分器, 冲激偶

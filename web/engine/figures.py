@@ -110,7 +110,12 @@ def clip_segment(a, b, box):
             if r < t0:
                 return None
             t1 = min(t1, r)
-    return (a[0] + t0 * dx, a[1] + t0 * dy), (a[0] + t1 * dx, a[1] + t1 * dy)
+    # An endpoint inside the box is returned EXACTLY (not a + 1·(b − a), which differs in the last bit): clip_run
+    # joins consecutive pieces by equality, so a curve inside the panel stays one run instead of falling apart into
+    # two-point pieces (drawn separately they looked dashed).
+    p0 = (a[0], a[1]) if t0 == 0.0 else (a[0] + t0 * dx, a[1] + t0 * dy)
+    p1 = (b[0], b[1]) if t1 == 1.0 else (a[0] + t1 * dx, a[1] + t1 * dy)
+    return p0, p1
 
 
 def clip_run(run, box):
@@ -511,7 +516,7 @@ def build_table(args, style, axes):
         for side in (-1, 1):
             x = tl[0] + off_x + (0.0 if side < 0 else ncol * cw) + side * 0.12
             top = np.array([x, tl[1] - off_y, 0.0]); bot = np.array([x, tl[1] - off_y - H, 0.0])
-            bulge = np.array([-side * 0.22, 0.0, 0.0])
+            bulge = np.array([side * 0.22, 0.0, 0.0])  # outwards: "(" on the left, ")" on the right (was mirrored)
             arc = AnimObject()
             arc.points = np.array([top - np.array([side * 0.1, 0, 0]), top + bulge * 1.2, bot + bulge * 1.2, bot - np.array([side * 0.1, 0, 0])])
             arc.color = col; arc.stroke_width = 2.0 * sw
@@ -523,9 +528,19 @@ def build_table(args, style, axes):
             ln = Line(np.array([x0, y0 - k * ch, 0.0]), np.array([x1, y0 - k * ch, 0.0])); ln.color = col; ln.stroke_width = sw; obj.add(ln)
         for k in range(ncol + 1):
             ln = Line(np.array([x0 + k * cw, y0, 0.0]), np.array([x0 + k * cw, y1, 0.0])); ln.color = col; ln.stroke_width = sw; obj.add(ln)
+    obj._cells, obj._hl_boxes = {}, {}                # for Indicate on single cells (scene_model._prepare_cell_boxes)
+    hl_color = (0.96, 0.62, 0.20)
+
+    def cell_box(i, j):                               # a transparent highlight box under cell (i, j)
+        c = cell_center(i, j)
+        box = Polygon([c + np.array([-cw / 2, -ch / 2, 0]), c + np.array([cw / 2, -ch / 2, 0]), c + np.array([cw / 2, ch / 2, 0]), c + np.array([-cw / 2, ch / 2, 0])])
+        box.color = hl_color; box.fill_color = hl_color; box.fill_opacity = 0.0; box.stroke_width = 0.0
+        return box
+    obj._cell_box = cell_box
     for i, r in enumerate(rows):
         for j, t in enumerate(r):
             if t:
+                obj._cells[(i, j)] = None
                 obj.add(Text(t, position=cell_center(i, j), font_size=fs, color=col))
     for i, t in enumerate(rl):
         if t:

@@ -1,6 +1,8 @@
 ---
 title: Stage 10: Changing the sampling rate, decimation and interpolation
-pfad: Electrical Engineering / 3rd Semester / Signals and Systems / Sampling and Discrete-Time Systems
+pfad: Electrical Engineering / 3rd Semester / ET3 – Fundamentals of Electrical Engineering 3: Signals and Systems / Sampling and Discrete-Time Systems
+adresse: elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme
+knoten: Chapter 4: Sampling and Discrete-Time Systems
 order: 3241100
 summary: A sequence can afterwards be represented at a lower or higher rate.
 tags: 

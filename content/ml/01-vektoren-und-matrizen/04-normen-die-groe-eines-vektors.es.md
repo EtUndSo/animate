@@ -1,7 +1,8 @@
 ---
 title: Normas: el tamaño de un vector
 pfad: Informática / Aprendizaje automático / Fundamentos matemáticos / Vectores y matrices
-knoten: Fundamentos 1: Vectores y matrices
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Capítulo 1: Vectores y matrices
 nachschlagen: ja
 order: 15210400
 summary: ¿Qué tamaño tiene un vector?
@@ -219,41 +220,41 @@ Según la norma 1, ambos son igual de buenos: los dos se equivocan en total en $
 En la norma euclídea, cada desviación entra al cuadrado. Una desviación de $0{,}1$ aporta $0{,}01$, pero una desviación de $10$ aporta $100$. El cuadrado hace más pequeños los números pequeños y más grandes los grandes. Por eso, un único error grande de $40$ aporta $1600$, cuatro veces más que cuatro errores de $10$ cada uno juntos. La norma 1, en cambio, crece igual de rápido en todas partes: cada unidad de desviación cuesta lo mismo, pertenezca a un error pequeño o a uno grande. Por eso distingue también claramente entre «exactamente cero» y «un poco desviado», mientras que la suma de cuadrados apenas hace diferencia entre ambos. Qué propiedad se quiere depende de la tarea, y precisamente por eso hay varias normas.
 :::
 
-### El valor eficaz
+### El valor cuadrático medio
 
 <span class="anker" id="stufe-3-6"></span>
 
 La norma euclídea crece con el número de componentes. Si se evalúa a un tasador con cuatro viviendas y a otro con cuatrocientas, el segundo tiene un vector de error mucho más largo, aunque estime igual de bien en cada vivienda. Si se quieren comparar los errores por cada ejemplo, hay que descontar el número de componentes.
 
-:::definition Definición 3.6 (Valor eficaz)
+:::definition Definición 3.6 (Valor cuadrático medio)
 <span class="anker" id="satz-3-6"></span>
 
-El __valor eficaz__ de un vector $\mathbf{x}\in\mathbb{R}^n$ es
+El __valor cuadrático medio__ de un vector $\mathbf{x}\in\mathbb{R}^n$ es
 
 <span class="anker" id="gl-3-6"></span>
 $$\operatorname{rms}(\mathbf{x})=\frac{\lVert\mathbf{x}\rVert}{\sqrt n}=\sqrt{\frac1n\sum_{i=1}^nx_i^2} . \tag{3.6}$$
 :::
 
-La abreviatura rms significa *root mean square*: la raíz de la media de los cuadrados. El valor eficaz es un valor absoluto típico de una componente. Si todas las componentes tienen el mismo valor absoluto $a$, el valor eficaz es exactamente $a$.
+La abreviatura rms significa *root mean square*: la raíz de la media de los cuadrados. El valor cuadrático medio es un valor absoluto típico de una componente. Si todas las componentes tienen el mismo valor absoluto $a$, el valor cuadrático medio es exactamente $a$.
 
-El nombre se conoce de la electrotecnia: el valor eficaz de una tensión alterna es la raíz de la media temporal de su cuadrado. Para una señal muestreada, [(3.6)](#gl-3-6) es el mismo cálculo con muestras en lugar de una integral. Si se muestrea un seno a lo largo de exactamente un periodo en $n\ge3$ puntos equiespaciados, se obtiene incluso exactamente el valor eficaz $1/\sqrt2$ del seno.
+¿Por qué elevar primero al cuadrado y extraer la raíz al final? Si se promedian las propias componentes, las positivas y las negativas se compensan entre sí: un tasador que una vez estima $20$ de más y otra vez $20$ de menos estaría en promedio en $0$. Los cuadrados nunca son negativos, y la raíz devuelve el resultado a la unidad de las componentes. El cálculo [(3.6)](#gl-3-6) también puede aplicarse a curvas: si se evalúa un seno a lo largo de exactamente un periodo en $n\ge3$ puntos equiespaciados, se obtiene exactamente $1/\sqrt2$, el mismo valor que se obtiene al promediar sobre todos los puntos del periodo.
 
 ::::beispiel [Ejemplo numérico]
-Los vectores de error de los tasadores de la subsección anterior tienen los valores eficaces $\operatorname{rms}(\hat{\mathbf{y}}_{\mathrm A}-\mathbf{y})=20/\sqrt4=10$ y $\operatorname{rms}(\hat{\mathbf{y}}_{\mathrm B}-\mathbf{y})=40/\sqrt4=20$ mil euros: A se equivoca típicamente en $10$ mil euros. Un seno de amplitud $1$, muestreado en cuatro puntos equiespaciados de un periodo, tiene las muestras $\mathbf{x}=(0,\,1,\,0,\,-1)^{\top}$ y el valor eficaz $1/\sqrt2\approx0{,}707$ (fig. [17](#abb-17)).
+Los vectores de error de los tasadores de la subsección anterior tienen los valores cuadráticos medios $\operatorname{rms}(\hat{\mathbf{y}}_{\mathrm A}-\mathbf{y})=20/\sqrt4=10$ y $\operatorname{rms}(\hat{\mathbf{y}}_{\mathrm B}-\mathbf{y})=40/\sqrt4=20$ mil euros: A se equivoca típicamente en $10$ mil euros. Un seno con valor máximo $1$, evaluado en cuatro puntos equiespaciados de un periodo, tiene los valores $\mathbf{x}=(0,\,1,\,0,\,-1)^{\top}$ y el valor cuadrático medio $1/\sqrt2\approx0{,}707$ (fig. [17](#abb-17)).
 
 :::abbildung ml/k1rrms 17
-El valor eficaz de un seno muestreado: sumar los cuadrados, dividir por el número de componentes, extraer la raíz.
+El valor cuadrático medio de un seno en cuatro puntos: sumar los cuadrados, dividir por el número de componentes, extraer la raíz.
 :::
 ::::
 
-⁠**En resumen:** El valor eficaz $\lVert\mathbf{x}\rVert/\sqrt n$ es el valor absoluto típico de una componente y hace comparables vectores de distinta longitud.
+⁠**En resumen:** El valor cuadrático medio $\lVert\mathbf{x}\rVert/\sqrt n$ es el valor absoluto típico de una componente y hace comparables vectores de distinta longitud.
 
 :::hintergrund ¿Cuántas componentes pueden ser grandes?
-El valor eficaz limita cuántas componentes pueden tener un valor absoluto grande. Si $k$ de las $n$ componentes tienen un valor absoluto de al menos $a>0$, solo estas $k$ componentes aportan ya al menos $k\,a^2$ a la suma de cuadrados. La suma de cuadrados completa es $n\operatorname{rms}(\mathbf{x})^2$, así que $k\,a^2\le n\operatorname{rms}(\mathbf{x})^2$, o bien
+El valor cuadrático medio limita cuántas componentes pueden tener un valor absoluto grande. Si $k$ de las $n$ componentes tienen un valor absoluto de al menos $a>0$, solo estas $k$ componentes aportan ya al menos $k\,a^2$ a la suma de cuadrados. La suma de cuadrados completa es $n\operatorname{rms}(\mathbf{x})^2$, así que $k\,a^2\le n\operatorname{rms}(\mathbf{x})^2$, o bien
 
 $$\frac kn\le\Bigl(\frac{\operatorname{rms}(\mathbf{x})}{a}\Bigr)^2 .$$
 
-Como mucho la fracción $(\operatorname{rms}/a)^2$ de las componentes puede tener, por tanto, un valor absoluto de al menos $a$. Como mucho una cuarta parte de las componentes puede alcanzar el doble del valor eficaz, y como mucho un uno por ciento, diez veces el valor eficaz. En el tasador B, con $\operatorname{rms}=20$, como mucho un $(20/30)^2=4/9\approx44$ % de los errores puede ser de $30$ o más; en realidad es uno de cuatro, es decir, el $25$ %. Esta acotación se llama desigualdad de Chebyshov.
+Como mucho la fracción $(\operatorname{rms}/a)^2$ de las componentes puede tener, por tanto, un valor absoluto de al menos $a$. Como mucho una cuarta parte de las componentes puede alcanzar el doble del valor cuadrático medio, y como mucho un uno por ciento, diez veces el valor cuadrático medio. En el tasador B, con $\operatorname{rms}=20$, como mucho un $(20/30)^2=4/9\approx44$ % de los errores puede ser de $30$ o más; en realidad es uno de cuatro, es decir, el $25$ %. Esta acotación se llama desigualdad de Chebyshov.
 :::
 
 :::aufgabe Ejercicio 7 ★ Calcular normas
@@ -293,7 +294,7 @@ La agente inmobiliaria de la subsección [2.2](das-skalarprodukt.html#stufe-2-2
 
 <li>
 
-Calcula el vector de error, sus tres normas y su valor eficaz. ¿En qué vivienda se equivoca más?
+Calcula el vector de error, sus tres normas y su valor cuadrático medio. ¿En qué vivienda se equivoca más?
 
 </li>
 
@@ -306,8 +307,8 @@ Calcula el vector de error, sus tres normas y su valor eficaz. ¿En qué viviend
 </ol>
 
 :::loesung
-(a) El vector de error es $\hat{\mathbf{y}}-\mathbf{y}=(188-200,\ 126-130,\ 286-290,\ 232-240)^{\top}=(-12,\,-4,\,-4,\,-8)^{\top}$. Sus normas: $\lVert\cdot\rVert_1=28$, $\lVert\cdot\rVert_2=\sqrt{144+16+16+64}=\sqrt{240}\approx15{,}49$, $\lVert\cdot\rVert_\infty=12$; valor eficaz, $\sqrt{240}/2\approx7{,}75$ mil euros. Donde más se equivoca es en la vivienda 1, en $12$ mil euros.
+(a) El vector de error es $\hat{\mathbf{y}}-\mathbf{y}=(188-200,\ 126-130,\ 286-290,\ 232-240)^{\top}=(-12,\,-4,\,-4,\,-8)^{\top}$. Sus normas: $\lVert\cdot\rVert_1=28$, $\lVert\cdot\rVert_2=\sqrt{144+16+16+64}=\sqrt{240}\approx15{,}49$, $\lVert\cdot\rVert_\infty=12$; valor cuadrático medio, $\sqrt{240}/2\approx7{,}75$ mil euros. Donde más se equivoca es en la vivienda 1, en $12$ mil euros.
 
-(b) Todos los errores son negativos: las estimaciones de la agente inmobiliaria son sistemáticamente demasiado bajas, y su error tiene una componente continua. Con un suplemento de $7$ mil euros, el vector de error pasa a ser $(-5,\,3,\,3,\,-1)^{\top}$, con $\lVert\cdot\rVert_1=12$, $\lVert\cdot\rVert_2=\sqrt{25+9+9+1}=\sqrt{44}\approx6{,}63$, $\lVert\cdot\rVert_\infty=5$ y el valor eficaz $\sqrt{44}/2\approx3{,}32$. Ha mejorado según las tres normas. El suplemento $7$ es exactamente la media de los valores absolutos de los errores, $(12+4+4+8)/4=7$: resta la componente continua del error y deja solo la componente alterna.
+(b) Todos los errores son negativos: las estimaciones de la agente inmobiliaria son sistemáticamente demasiado bajas, y su error tiene una parte común que está presente en todas las componentes. Con un suplemento de $7$ mil euros, el vector de error pasa a ser $(-5,\,3,\,3,\,-1)^{\top}$, con $\lVert\cdot\rVert_1=12$, $\lVert\cdot\rVert_2=\sqrt{25+9+9+1}=\sqrt{44}\approx6{,}63$, $\lVert\cdot\rVert_\infty=5$ y el valor cuadrático medio $\sqrt{44}/2\approx3{,}32$. Ha mejorado según las tres normas. El suplemento $7$ es exactamente la media de los valores absolutos de los errores, $(12+4+4+8)/4=7$: resta esta parte común, es decir, la media del error, y deja solo las desviaciones respecto de ella.
 :::
 :::

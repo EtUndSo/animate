@@ -1,6 +1,8 @@
 ---
 title: Stufe 3: Was ein LTI-System ist
-pfad: Elektrotechnik / 3. Semester / Signale und Systeme / LTI-Systeme und Faltung
+pfad: Elektrotechnik / 3. Semester / ET3 – Grundgebiete der Elektrotechnik 3: Signale und Systeme / LTI-Systeme und Faltung
+adresse: elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung
+knoten: Kapitel 1: LTI-Systeme und Faltung
 order: 3210400
 summary: Das RC-Glied hat zwei Eigenschaften, auf denen alles Weitere beruht: Es ist linear und zeitinvariant.
 tags: System, Transformation, linear, zeitinvariant, LTI-System

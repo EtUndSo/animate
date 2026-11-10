@@ -1,6 +1,8 @@
 ---
 title: Stufe 4: Plattenkondensator und Dielektrikum
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Der Kondensator
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Der Kondensator
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator
+knoten: Kapitel 3: Der Kondensator
 order: 1130500
 summary: Woher kommt der Wert von C ?
 tags: Polarisation, gebundene Ladung, Permittivität, Dielektrizitätszahl, Durchschlag, Verschiebungsstrom
@@ -13,7 +15,7 @@ lang: de
 Woher kommt der Wert von $C$? Bei zwei ebenen Platten folgt er aus Fläche, Abstand und dem Stoff dazwischen. Diese Stufe leitet die Formel her und erklärt, was der Isolator bewirkt.
 :::
 
-**Die Idee.** Bei fester Spannung $U$ und festem Abstand $d$ liegt das Feld $E=U/d$ fest ([Teil 1](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)). Das Feld sagt, wie dicht die Feldlinien stehen, und jede Linie beginnt auf einer Ladung. Fest liegt also die Ladung je Fläche. Doppelte Fläche heißt deshalb doppelte Ladung. Halber Abstand heißt doppeltes Feld und damit doppelte Ladung je Fläche.
+**Die Idee.** Bei fester Spannung $U$ und festem Abstand $d$ liegt das Feld $E=U/d$ fest ([Kapitel 1](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)). Das Feld sagt, wie dicht die Feldlinien stehen, und jede Linie beginnt auf einer Ladung. Fest liegt also die Ladung je Fläche. Doppelte Fläche heißt deshalb doppelte Ladung. Halber Abstand heißt doppeltes Feld und damit doppelte Ladung je Fläche.
 
 Der Isolator erhöht die Kapazität zusätzlich. Seine Elektronen bleiben zwar bei ihren Atomen, aber das Feld verschiebt in jedem Atom oder Molekül die positive gegen die negative Ladung ein kleines Stück. Diese Verschiebung heißt __Polarisation__. Im Inneren heben sich benachbarte Enden auf, an den Oberflächen bleibt eine __gebundene Ladung__ stehen, gegenüber der Plusplatte negativ (Abb. [4](#abb-4) rechts). Auf ihr endet ein Teil der Feldlinien, das Feld zwischen den Platten würde schwächer. Die Batterie hält aber $U$ und damit $E$ fest, also schiebt sie Ladung nach, bis das Feld wieder stimmt. Bei gleicher Spannung sitzt mehr Ladung auf den Platten.
 
@@ -30,14 +32,14 @@ Für zwei ebene Platten der Fläche $A$ im Abstand $d$ mit einem Dielektrikum, d
 $$C=\varepsilon\,\frac{A}{d},\qquad\varepsilon=\varepsilon_0\,\varepsilon_\mathrm{r},\qquad\varepsilon_0=8{,}854\cdot10^{-12}\,\frac{\mathrm{A\,s}}{\mathrm{V\,m}}. \tag{4.1}$$
 :::
 
-⁠**So liest man das:** $C$ steigt mit größerer Fläche $A$ (in m$^2$, das kursive $A$ ist nicht die Platte A aus Stufe [1](warum-strom-in-einen-isolator-fliet.html#stufe-1)), kleinerem Abstand $d$ (in m) und größerem $\varepsilon$. $\varepsilon_0$ ist die elektrische Feldkonstante aus [Teil 1](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html). $\varepsilon$ heißt __Permittivität__, die reine Zahl $\varepsilon_\mathrm{r}$ heißt __Dielektrizitätszahl__ und gibt an, um welchen Faktor der Stoff die Kapazität gegenüber Vakuum erhöht. Luft zählt mit dem Wert 1, der Fehler beträgt 0,06 %. **Gültigkeit:** $d$ muss klein gegen die Plattenbreite sein. Sonst zählt das Streufeld am Rand ([Teil 1](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)), im Plattenpaar mit 3 mm Abstand und 10 cm Breite erhöht es $C$ um rund 10 %. Für Überschläge reicht [(4.1)](#gl-4-1).
+⁠**So liest man das:** $C$ steigt mit größerer Fläche $A$ (in m$^2$, das kursive $A$ ist nicht die Platte A aus Stufe [1](warum-strom-in-einen-isolator-fliet.html#stufe-1)), kleinerem Abstand $d$ (in m) und größerem $\varepsilon$. $\varepsilon_0$ ist die elektrische Feldkonstante aus [Kapitel 1](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html). $\varepsilon$ heißt __Permittivität__, die reine Zahl $\varepsilon_\mathrm{r}$ heißt __Dielektrizitätszahl__ und gibt an, um welchen Faktor der Stoff die Kapazität gegenüber Vakuum erhöht. Luft zählt mit dem Wert 1, der Fehler beträgt 0,06 %. **Gültigkeit:** $d$ muss klein gegen die Plattenbreite sein. Sonst zählt das Streufeld am Rand ([Kapitel 1](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)), im Plattenpaar mit 3 mm Abstand und 10 cm Breite erhöht es $C$ um rund 10 %. Für Überschläge reicht [(4.1)](#gl-4-1).
 
 | Stoff | Luft | Papier | Glimmer | Porzellan | Wasser | Kondensatorkeramik |
 |---|---|---|---|---|---|---|
 | $\varepsilon_\mathrm{r}$ | 1 | $\approx2$ | $\approx5$ | $\approx6$ | $\approx81$ | 60 bis 3000 |
 
 :::herleitung Vom Feldlinienbild zur Formel
-Eine Punktladung erzeugt das Feld $E=\frac{Q}{4\pi\varepsilon_0r^2}=\frac{Q}{\varepsilon_0\cdot4\pi r^2}$. Im Nenner steht die Kugelfläche, durch die alle ihre Feldlinien laufen. Also gilt nach [Teil 1](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html): Die Feldstärke ist die Ladung, geteilt durch $\varepsilon_0$ und durch die Fläche, die ihre Linien gleichmäßig durchlaufen. Im Plattenpaar laufen alle Linien der Ladung $Q$ parallel durch die Fläche $A$:
+Eine Punktladung erzeugt das Feld $E=\frac{Q}{4\pi\varepsilon_0r^2}=\frac{Q}{\varepsilon_0\cdot4\pi r^2}$. Im Nenner steht die Kugelfläche, durch die alle ihre Feldlinien laufen. Also gilt nach [Kapitel 1](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html): Die Feldstärke ist die Ladung, geteilt durch $\varepsilon_0$ und durch die Fläche, die ihre Linien gleichmäßig durchlaufen. Im Plattenpaar laufen alle Linien der Ladung $Q$ parallel durch die Fläche $A$:
 
 $$E=\frac{Q}{\varepsilon_0\,A},\qquad U=E\,d=\frac{Q\,d}{\varepsilon_0\,A}\quad\Longrightarrow\quad C=\frac QU=\varepsilon_0\,\frac Ad.$$
 
@@ -48,10 +50,10 @@ Mit Dielektrikum enden Linien auf der gebundenen Ladung $Q_\mathrm{g}$, durch de
 Das Plattenpaar hat $C=8{,}854\cdot10^{-12}\,\mathrm{F/m}\cdot0{,}01\,\mathrm{m^2}/0{,}003\,\mathrm{m}=29{,}5$ pF. Mit Keramik der Zahl $\varepsilon_\mathrm{r}=1000$ wären es 29,5 nF. Für 100 µF bräuchte man bei 3 mm Luft die Fläche $A=C\,d/\varepsilon_0=33\,900\,\mathrm{m^2}$, das sind 3,4 Hektar. Deshalb arbeiten reale Kondensatoren mit dünnen Schichten (Stufe [5](bauformen-und-selbstentladung.html#stufe-5)).
 ::::
 
-⁠**Kontrolle:** Die Einheit stimmt: $\frac{\mathrm{A\,s}}{\mathrm{V\,m}}\cdot\frac{\mathrm{m^2}}{\mathrm{m}}=\frac{\mathrm{A\,s}}{\mathrm V}=\mathrm F$. **Grenzfall:** Für $d\to0$ wüchse $C$ unbegrenzt. Das verhindert der __Durchschlag__: Bei $E_\mathrm{max}$ wird das Dielektrikum leitend, in Luft bei 3 MV/m ([Teil 1](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)). Dünne Schichten brauchen deshalb einen festen Stoff, und jeder Kondensator hat eine Höchstspannung $U_\mathrm{max}=E_\mathrm{max}\,d$.
+⁠**Kontrolle:** Die Einheit stimmt: $\frac{\mathrm{A\,s}}{\mathrm{V\,m}}\cdot\frac{\mathrm{m^2}}{\mathrm{m}}=\frac{\mathrm{A\,s}}{\mathrm V}=\mathrm F$. **Grenzfall:** Für $d\to0$ wüchse $C$ unbegrenzt. Das verhindert der __Durchschlag__: Bei $E_\mathrm{max}$ wird das Dielektrikum leitend, in Luft bei 3 MV/m ([Kapitel 1](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)). Dünne Schichten brauchen deshalb einen festen Stoff, und jeder Kondensator hat eine Höchstspannung $U_\mathrm{max}=E_\mathrm{max}\,d$.
 
 :::zusatz Der Verschiebungsstrom
-Mit $u=E\,d$ und [(4.1)](#gl-4-1) wird [(3.1)](strom-und-spannung-am-kondensator.html#gl-3-1) zu $i=\varepsilon A\,\mathrm{d} E/\mathrm{d} t$. In der Lücke fließt keine Ladung, aber dort ändert sich das Feld, und diese Änderung hat genau die Größe des Stroms in den Drähten. Maxwell nannte sie __Verschiebungsstrom__. Sie erzeugt in der Lücke dasselbe Magnetfeld wie der Strom im Draht (Durchflutungsgesetz, [Teil 1](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)). Für das Magnetfeld ist der Kreis also geschlossen.
+Mit $u=E\,d$ und [(4.1)](#gl-4-1) wird [(3.1)](strom-und-spannung-am-kondensator.html#gl-3-1) zu $i=\varepsilon A\,\mathrm{d} E/\mathrm{d} t$. In der Lücke fließt keine Ladung, aber dort ändert sich das Feld, und diese Änderung hat genau die Größe des Stroms in den Drähten. Maxwell nannte sie __Verschiebungsstrom__. Sie erzeugt in der Lücke dasselbe Magnetfeld wie der Strom im Draht (Durchflutungsgesetz, [Kapitel 1](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)). Für das Magnetfeld ist der Kreis also geschlossen.
 :::
 
 :::frage Wasser hat $\varepsilon_\mathrm{r}=81$. Warum baut niemand Wasserkondensatoren?

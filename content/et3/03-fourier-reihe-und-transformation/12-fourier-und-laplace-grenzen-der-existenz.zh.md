@@ -1,6 +1,8 @@
 ---
 title: 第 11 阶段：傅里叶变换与拉普拉斯变换——存在性的界限
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / 傅里叶级数与变换
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / 傅里叶级数与变换
+adresse: elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation
+knoten: 第 3 章：傅里叶级数与变换
 order: 3231200
 summary: 傅里叶积分在什么情况下存在？它与拉普拉斯变换有什么关系？
 tags: 中心极限定理
@@ -13,7 +15,7 @@ lang: zh
 傅里叶积分在什么情况下存在？它与拉普拉斯变换有什么关系？
 :::
 
-存在的一个充分条件是绝对可积，即 $\int|s(t)|\mathrm{d} t<\infty$。拉普拉斯变换先用 $\mathrm{e}^{-\sigma t}$ 加权，从而扩大了可变换信号的范围（[第 2 部分](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html)）：
+存在的一个充分条件是绝对可积，即 $\int|s(t)|\mathrm{d} t<\infty$。拉普拉斯变换先用 $\mathrm{e}^{-\sigma t}$ 加权，从而扩大了可变换信号的范围（[第 2 章](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html)）：
 
 $$S_{\mathcal{L}}(\sigma+\mathrm{j}2\pi f)=\mathcal{F}\bigl\{s(t)\mathrm{e}^{-\sigma t}\bigr\}(f).$$
 

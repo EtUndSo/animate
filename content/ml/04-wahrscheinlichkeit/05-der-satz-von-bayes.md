@@ -1,7 +1,8 @@
 ---
 title: Der Satz von Bayes
 pfad: Informatik / Machine Learning / Mathematische Grundlagen / Wahrscheinlichkeit
-knoten: Grundlagen 4: Wahrscheinlichkeit
+adresse: informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit
+knoten: Kapitel 4: Wahrscheinlichkeit
 nachschlagen: ja
 order: 15240500
 summary: Häufig kennt man, wie wahrscheinlich ein Befund bei einer Ursache ist, und will umgekehrt wissen, wie wahrscheinlich die Ursache ist, wenn man den Befund beobachtet hat.
@@ -147,7 +148,7 @@ Wie wahrscheinlich ist eine Person mit negativem Test gesund?
 :::aufgabe Aufgabe 10 ★★ Zwei Kartons
 <span class="anker" id="aufg-10"></span>
 
-In Karton A liegen Widerstände, von denen $3$ von $10$ außerhalb der Toleranz liegen, in Karton B nur $1$ von $10$. Jemand wählt mit einem Münzwurf einen Karton und zieht daraus einen Widerstand. Er liegt außerhalb der Toleranz.
+In Karton A liegen Äpfel, von denen $3$ von $10$ angefault sind, in Karton B nur $1$ von $10$. Jemand wählt mit einem Münzwurf einen Karton und zieht daraus einen Apfel. Er ist angefault.
 
 <ol class="al">
 
@@ -159,16 +160,16 @@ Wie wahrscheinlich stammt er aus Karton A?
 
 <li>
 
-Aus demselben Karton wird ein zweiter Widerstand gezogen (der erste wird zurückgelegt). Wie wahrscheinlich liegt auch er außerhalb der Toleranz?
+Aus demselben Karton wird ein zweiter Apfel gezogen (der erste wird zurückgelegt). Wie wahrscheinlich ist auch er angefault?
 
 </li>
 
 </ol>
 
 :::loesung
-(a) Mit $T$ = „außerhalb der Toleranz“ ist $P(T)=0{,}5\cdot0{,}3+0{,}5\cdot0{,}1=0{,}2$ und $P(\text A\mid T)=0{,}15/0{,}2=0{,}75$.
+(a) Mit $T$ = „angefault“ ist $P(T)=0{,}5\cdot0{,}3+0{,}5\cdot0{,}1=0{,}2$ und $P(\text A\mid T)=0{,}15/0{,}2=0{,}75$.
 
-(b) Nach der ersten Beobachtung gilt $P(\text A)=0{,}75$ und $P(\text B)=0{,}25$. Die totale Wahrscheinlichkeit mit diesen neuen Gewichten ergibt $0{,}75\cdot0{,}3+0{,}25\cdot0{,}1=0{,}25$. Vor der ersten Ziehung war die Wahrscheinlichkeit $0{,}2$. Der erste Widerstand außerhalb der Toleranz macht den schlechteren Karton wahrscheinlicher und damit auch einen zweiten solchen Widerstand. Die beiden Ziehungen sind bedingt unabhängig gegeben den Karton, aber nicht unabhängig.
+(b) Nach der ersten Beobachtung gilt $P(\text A)=0{,}75$ und $P(\text B)=0{,}25$. Die totale Wahrscheinlichkeit mit diesen neuen Gewichten ergibt $0{,}75\cdot0{,}3+0{,}25\cdot0{,}1=0{,}25$. Vor der ersten Ziehung war die Wahrscheinlichkeit $0{,}2$. Der erste angefaulte Apfel macht den schlechteren Karton wahrscheinlicher und damit auch einen zweiten angefaulten Apfel. Die beiden Ziehungen sind bedingt unabhängig gegeben den Karton, aber nicht unabhängig.
 :::
 :::
 

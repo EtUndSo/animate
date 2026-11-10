@@ -1,6 +1,8 @@
 ---
 title: Stage 2: Four quantities, two equations, four numbers
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / Two-Port Networks
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / Two-Port Networks
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore
+knoten: Chapter 6: Two-Port Networks
 order: 1160400
 summary: Four port quantities are four unknowns.
 tags: two-port functions, symmetric arrow system, chain-arrow system, mixed arrow system
@@ -13,7 +15,7 @@ lang: en
 Four port quantities are four unknowns. This stage shows why the two-port contributes exactly two equations and why they contain only four numbers.
 :::
 
-**The idea.** Source and load each supply one equation between the voltage and the current of their port. Two are missing, and the two-port supplies them. If you specify two port quantities, say both currents, all the currents and voltages inside are fixed, and so are the other two port quantities. The specified quantities are the causes, the others the effects. If the two-port is linear and contains no independent sources, superposition from [Part 5](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html) applies: Each effect is the sum of the part due to the first cause and the part due to the second cause, each part proportional to its cause. Two effects times two causes give four factors.
+**The idea.** Source and load each supply one equation between the voltage and the current of their port. Two are missing, and the two-port supplies them. If you specify two port quantities, say both currents, all the currents and voltages inside are fixed, and so are the other two port quantities. The specified quantities are the causes, the others the effects. If the two-port is linear and contains no independent sources, superposition from [Chapter 5](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html) applies: Each effect is the sum of the part due to the first cause and the part due to the second cause, each part proportional to its cause. Two effects times two causes give four factors.
 
 :::satz Theorem 2.1 (Two-port equations)
 <span class="anker" id="satz-2-1"></span>
@@ -31,7 +33,7 @@ $$y_1=p_{11}x_1+p_{12}x_2,\qquad y_2=p_{21}x_1+p_{22}x_2. \tag{2.2}$$
 
 ⁠**How to read it:** The first digit of a parameter names the effect, the second the cause. The parameters depend only on the two-port, not on source or load. Four quantities can be split into two causes and two effects in six ways. The four forms of this chapter are the usual ones. **Validity:** [(2.1)](#gl-2-1) also holds for nonlinear two-ports, then as curves. For the transistor, this describes either the behavior for DC quantities or the signal behavior for small AC quantities. A transformer with separate windings transmits only time-varying quantities. [(2.2)](#gl-2-2) requires linearity.
 
-**Reference arrows.** To make the signs unique, a convention is needed (Fig. [3](#abb-3)). In the __symmetric arrow system__, also called the mathematical sign convention, the passive sign convention from [Part 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html) applies at both ports: The current arrows point into the two-port. In the __chain-arrow system__, also called the technical arrow system, it applies only at the input; at the output the active sign convention applies: The output current points out, toward the load. This chapter uses the __mixed arrow system__: $I_1$ and $I_2$ always point in. Where the chain form needs the current flowing out, it writes it explicitly as $-I_2$. A load therefore gives a negative $I_2$ in normal operation.
+**Reference arrows.** To make the signs unique, a convention is needed (Fig. [3](#abb-3)). In the __symmetric arrow system__, also called the mathematical sign convention, the passive sign convention from [Chapter 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html) applies at both ports: The current arrows point into the two-port. In the __chain-arrow system__, also called the technical arrow system, it applies only at the input; at the output the active sign convention applies: The output current points out, toward the load. This chapter uses the __mixed arrow system__: $I_1$ and $I_2$ always point in. Where the chain form needs the current flowing out, it writes it explicitly as $-I_2$. A load therefore gives a negative $I_2$ in normal operation.
 
 :::abbildung et1/k6zaehlpfeile 3
 The three arrow systems. Left, symmetric: Both currents point into the two-port. Center, chain arrows: The output current points toward the load. Right, mixed, as in this chapter: $I_2$ stays defined as on the left, and the current to the load is called $-I_2$.

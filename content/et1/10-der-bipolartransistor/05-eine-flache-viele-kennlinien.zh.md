@@ -1,6 +1,8 @@
 ---
 title: 第 3 阶段：一个曲面，多条特性曲线
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 双极型晶体管
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 双极型晶体管
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor
+knoten: 第 10 章：双极型晶体管
 order: 1200500
 summary: 数据手册给出多条坐标轴不同的特性曲线。本阶段把它们归结为同一个对象。
 tags: 特性曲线, 截面, 曲线族, 输入特性曲线, 控制特性曲线, 电流控制特性曲线, 输出特性曲线, 传输特性曲线
@@ -13,7 +15,7 @@ lang: zh
 数据手册给出多条坐标轴不同的特性曲线。本阶段把它们归结为同一个对象。
 :::
 
-**基本思路。** $I_\mathrm{C}$ 依赖于两个电压。两个变量的函数是一个曲面，就像地图上方的地形：地图的两个方向是 $U_\mathrm{BE}$ 和 $U_\mathrm{CE}$，地形的高度是 $I_\mathrm{C}$（图 [3](#abb-3)）。固定一个电压，就得到一条__特性曲线__（两个量之间的关系，[第 5 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)），它是地形的一个__截面__。多个平行截面构成__曲线族__。所以并不存在许多种依赖关系，而只有一个地形的多种视图。沿 $U_\mathrm{BE}$ 方向是一面陡坡（红色），沿 $U_\mathrm{CE}$ 方向先是一道棱边，然后是几乎水平的平面（绿色）。
+**基本思路。** $I_\mathrm{C}$ 依赖于两个电压。两个变量的函数是一个曲面，就像地图上方的地形：地图的两个方向是 $U_\mathrm{BE}$ 和 $U_\mathrm{CE}$，地形的高度是 $I_\mathrm{C}$（图 [3](#abb-3)）。固定一个电压，就得到一条__特性曲线__（两个量之间的关系，[第 5 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)），它是地形的一个__截面__。多个平行截面构成__曲线族__。所以并不存在许多种依赖关系，而只有一个地形的多种视图。沿 $U_\mathrm{BE}$ 方向是一面陡坡（红色），沿 $U_\mathrm{CE}$ 方向先是一道棱边，然后是几乎水平的平面（绿色）。
 
 :::abbildung et1/k10flaeche 3
 参考模型的曲面 $I_\mathrm{C}(U_\mathrm{BE},U_\mathrm{CE})$。红色：$U_\mathrm{CE}=6$ V 处的截面，呈指数型。绿色：$U_\mathrm{BE}=0.6$ V 处的截面，先陡后几乎水平。两者在工作点相交。

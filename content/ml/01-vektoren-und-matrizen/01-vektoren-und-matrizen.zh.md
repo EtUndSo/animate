@@ -1,8 +1,9 @@
 ---
-title: 概览: 基础篇 1 – 向量与矩阵
+title: 概览: 向量与矩阵
 kurz: 概览
 pfad: 计算机科学 / 机器学习 / 数学基础 / 向量与矩阵
-knoten: 基础篇 1：向量与矩阵
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: 第 1 章：向量与矩阵
 nachschlagen: ja
 order: 15210100
 summary: 数据即数字列表， 模型即线性映射

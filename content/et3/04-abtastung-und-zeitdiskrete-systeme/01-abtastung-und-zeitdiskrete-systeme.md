@@ -1,7 +1,9 @@
 ---
 title: Überblick: Abtastung und zeitdiskrete Systeme
 kurz: Überblick
-pfad: Elektrotechnik / 3. Semester / Signale und Systeme / Abtastung und zeitdiskrete Systeme
+pfad: Elektrotechnik / 3. Semester / ET3 – Grundgebiete der Elektrotechnik 3: Signale und Systeme / Abtastung und zeitdiskrete Systeme
+adresse: elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme
+knoten: Kapitel 4: Abtastung und zeitdiskrete Systeme
 order: 3240100
 summary: Vom kontinuierlichen Signal zur Zahlenfolge: Abtasttheorem, diskrete Faltung, DFT, FFT und z-Transformation
 tags: Abtastwerten
@@ -10,7 +12,7 @@ lang: de
 
 ## Worum es geht
 
-Ein Rechner kann keine Funktion $s(t)$ speichern, nur eine Folge von Zahlen. Man misst das Signal deshalb im festen Takt $T$ und arbeitet mit den __Abtastwerten__ $s(nT)$. Zwei Fragen bestimmen dieses Kapitel: *Geht dabei Information verloren?* Und: *Wie rechnet man mit Zahlenfolgen so, wie die [Teile 1](/wissen/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html) bis 3 mit Funktionen gerechnet haben?*
+Ein Rechner kann keine Funktion $s(t)$ speichern, nur eine Folge von Zahlen. Man misst das Signal deshalb im festen Takt $T$ und arbeitet mit den __Abtastwerten__ $s(nT)$. Zwei Fragen bestimmen dieses Kapitel: *Geht dabei Information verloren?* Und: *Wie rechnet man mit Zahlenfolgen so, wie die [Kapitel 1](/wissen/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html) bis 3 mit Funktionen gerechnet haben?*
 
 
 

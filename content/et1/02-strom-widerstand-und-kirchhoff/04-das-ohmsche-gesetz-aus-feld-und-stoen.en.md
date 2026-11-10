@@ -1,6 +1,8 @@
 ---
 title: Stage 3: Ohm's law from field and collisions
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / Current, Resistance and Kirchhoff's Laws
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / Current, Resistance and Kirchhoff's Laws
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff
+knoten: Chapter 2: Current, Resistance and Kirchhoff's Laws
 order: 1120400
 summary: Stage 2 has shown that the drift is proportional to the field.
 tags: conductivity, resistivity, conductance, linear, homogeneous, power
@@ -36,7 +38,7 @@ Current density of the electrons, Stage [1](strom-ist-bewegte-ladung.html#stufe
 
 $$\vec j=q\,\vec v_\mathrm D=(-n\,e)(-\mu\,\vec E)=n\,e\,\mu\,\vec E=\sigma\,\vec E.$$
 
-The field is uniform, so $U=E\,L$ ([Part 1](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)). Thus
+The field is uniform, so $U=E\,L$ ([Chapter 1](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)). Thus
 
 $$I=j\,A=\sigma\,E\,A=\frac{\sigma\,A}{L}\,U\quad\Longrightarrow\quad U=\frac{L}{\sigma\,A}\,I=R\,I.$$
 :::
@@ -55,7 +57,7 @@ The wire has $R=\rho\,L/A=34\,\mathrm{m\Omega}$. At 3 mA, 0.10 mV drops acro
 
 ⁠**Limiting cases:** Twice the length at the same voltage halves the field and thus the current. Twice the cross section acts like two wires side by side; the current doubles. $U=0$ gives $I=0$.
 
-**Where the energy goes.** At each collision, the electron gives the kinetic energy gained in the field to the lattice. The lattice vibrates more strongly, and that is heat. Each coulomb gives up the energy $U$ in joules, and $I$ coulombs pass per second. The __power__, the energy per time, is therefore $P=U\,I=R\,I^2$. The chain converts $9\,\mathrm{V}\cdot3\,\mathrm{mA}=27$ mW. [Part 7](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad/leistung-und-anpassung.html) treats power in more detail.
+**Where the energy goes.** At each collision, the electron gives the kinetic energy gained in the field to the lattice. The lattice vibrates more strongly, and that is heat. Each coulomb gives up the energy $U$ in joules, and $I$ coulombs pass per second. The __power__, the energy per time, is therefore $P=U\,I=R\,I^2$. The chain converts $9\,\mathrm{V}\cdot3\,\mathrm{mA}=27$ mW. [Chapter 7](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad/leistung-und-anpassung.html) treats power in more detail.
 
 :::frage You can always calculate $R=U/I$. So what does Ohm's law still say?
 The quotient $U/I$ exists for every component. The law says more: it is *constant*, independent of $U$. That is a statement about the material and follows from the fixed flight time. It does not hold for an incandescent lamp (Stage [4](reale-widerstande-werte-und-temperatur.html#stufe-4)).

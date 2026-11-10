@@ -1,6 +1,8 @@
 ---
 title: Stage 10: Limit of the picture: magnetism and induction
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / Charge, Field and Potential
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / Charge, Field and Potential
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial
+knoten: Chapter 1: Charge, Field and Potential
 order: 1111200
 summary: Everything so far held for charges at rest.
 tags: magnetic field, coil, induction, electromagnetism, curl field, right-hand rule, conventional current direction, magnetic flux
@@ -19,7 +21,7 @@ Everything so far held for charges at rest. This stage shows what changes when c
 Left: cross section of a wire; the current $I$ flows into the page. The magnetic field $H$ runs in circles around the wire, and compass needles align their red tips with it. Right: a moving bar magnet changes the magnetic flux $\Phi$ through the coil. As long as it moves, the meter shows the voltage $u_\mathrm{ind}$.
 :::
 
-The direction of the magnetic field is given by the __right-hand rule__: the thumb points in the conventional current direction, the fingers in the direction of the field. The __conventional current direction__ runs from plus to minus; the electrons in the wire move the opposite way ([Part 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)).
+The direction of the magnetic field is given by the __right-hand rule__: the thumb points in the conventional current direction, the fingers in the direction of the field. The __conventional current direction__ runs from plus to minus; the electrons in the wire move the opposite way ([Chapter 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)).
 
 :::satz Theorem 10.1 (Law of induction)
 <span class="anker" id="satz-10-1"></span>

@@ -1,6 +1,8 @@
 ---
 title: Stufe 2: Die Kontinuitätsgleichung
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Diffusion, Rekombination und Grundgleichungen
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Diffusion, Rekombination und Grundgleichungen
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/diffusion-rekombination-und-grundgleichungen
+knoten: Kapitel 13: Diffusion, Rekombination und Grundgleichungen
 order: 4230400
 summary: Das Fick-Gesetz nennt den Strom zu einer bekannten Dichte.
 tags: Quellenterm, Senkenterm, Sedimentation, Diffusionsgleichung

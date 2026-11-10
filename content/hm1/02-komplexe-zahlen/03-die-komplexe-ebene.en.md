@@ -1,6 +1,8 @@
 ---
 title: Stage 2: The complex plane
-pfad: Electrical Engineering / 1st Semester / Higher Mathematics 1 / Complex Numbers
+pfad: Electrical Engineering / 1st Semester / HöMa1 – Higher Mathematics 1 / Complex Numbers
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen
+knoten: Chapter 2: Complex Numbers
 order: 1220300
 summary: A pair is a point.
 tags: real axis, imaginary axis, purely imaginary, Gaussian plane

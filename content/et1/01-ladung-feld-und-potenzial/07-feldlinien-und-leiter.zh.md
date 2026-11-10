@@ -1,6 +1,8 @@
 ---
 title: 第 5 阶段：电场线与导体
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 电荷、电场与电位
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 电荷、电场与电位
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial
+knoten: 第 1 章：电荷、电场与电位
 order: 1110700
 summary: 电场线让人一眼看清整个电场。借助它们还能明白金属对电场有什么作用。
 tags: 静电感应, 电场线, 源, 汇, 屏蔽, 均匀, 边缘场

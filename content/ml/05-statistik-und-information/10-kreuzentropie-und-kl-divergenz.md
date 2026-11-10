@@ -1,7 +1,8 @@
 ---
 title: Kreuzentropie und KL-Divergenz
 pfad: Informatik / Machine Learning / Mathematische Grundlagen / Statistik und Information
-knoten: Grundlagen 5: Statistik und Information
+adresse: informatik/machine-learning/mathematische-grundlagen/statistik-und-information
+knoten: Kapitel 5: Statistik und Information
 nachschlagen: ja
 order: 15251000
 summary: Wer eine Quelle mit einem Code verschlüsselt, der für eine andere Verteilung gebaut wurde, braucht im Mittel mehr Binärziffern.
@@ -87,7 +88,7 @@ Die Deutung als Codelänge ist mehr als ein Bild. Für einen Code, der für $\ma
 
 Dass der Mehraufwand nie negativ ist, folgt aus einer einzigen Ungleichung. Sie stand schon als Rechenbeispiel in Unterabschnitt [5.1](die-maximum-likelihood-schatzung.html#stufe-5-1): Für alle $x>0$ ist $\ln x\le x-1$, mit Gleichheit nur bei $x=1$ [(5.1)](die-maximum-likelihood-schatzung.html#gl-5-1).
 
-Abb. [20](#abb-20) zeigt, was sie bedeutet. Die Gerade $y=x-1$ ist die Tangente an $\ln x$ an der Stelle $x=1$, denn dort hat $\ln$ den Wert $0$ und die Steigung $1/x=1$. Die zweite Ableitung von $\ln x$ ist $-1/x^2<0$; nach [Grundlagen 3, Abschnitt 1.5](/wissen/informatik/machine-learning/mathematische-grundlagen/ableitung-gradient-und-kettenregel/die-ableitung.html#stufe-1-5), biegt sich der Graph deshalb überall nach unten von seinen Tangenten weg. Er liegt also ganz unter der Tangente und berührt sie nur bei $x=1$.
+Abb. [20](#abb-20) zeigt, was sie bedeutet. Die Gerade $y=x-1$ ist die Tangente an $\ln x$ an der Stelle $x=1$, denn dort hat $\ln$ den Wert $0$ und die Steigung $1/x=1$. Die zweite Ableitung von $\ln x$ ist $-1/x^2<0$; nach [Kapitel 3, Abschnitt 1.5](/wissen/informatik/machine-learning/mathematische-grundlagen/ableitung-gradient-und-kettenregel/die-ableitung.html#stufe-1-5), biegt sich der Graph deshalb überall nach unten von seinen Tangenten weg. Er liegt also ganz unter der Tangente und berührt sie nur bei $x=1$.
 
 :::abbildung ml/k5lnx 20
 Der natürliche Logarithmus liegt überall unter seiner Tangente $y=x-1$ an der Stelle $x=1$ und berührt sie nur dort.
@@ -146,7 +147,7 @@ Die Ungleichung trägt den Namen des amerikanischen Physikers Josiah Willard Gib
 
 <span class="anker" id="stufe-9-5"></span>
 
-Die KL-Divergenz ist nie negativ und nur für gleiche Verteilungen null, so wie ein Abstand. Zwei andere Eigenschaften eines Abstands aus [Grundlagen 1, Abschnitt 4.1](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/abstande-und-einheiten.html#stufe-4-1), hat sie aber nicht: Sie ist nicht symmetrisch, und die Dreiecksungleichung gilt nicht. Die Rechenbeispiele dieses Unterabschnitts sind in nat angegeben, wie alle KL-Divergenzen von hier an.
+Die KL-Divergenz ist nie negativ und nur für gleiche Verteilungen null, so wie ein Abstand. Zwei andere Eigenschaften eines Abstands aus [Kapitel 1, Abschnitt 4.1](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/abstande-und-einheiten.html#stufe-4-1), hat sie aber nicht: Sie ist nicht symmetrisch, und die Dreiecksungleichung gilt nicht. Die Rechenbeispiele dieses Unterabschnitts sind in nat angegeben, wie alle KL-Divergenzen von hier an.
 
 ::::beispiel [Rechenbeispiel]
 Für $\mathbf{p}=(0{,}5;\ 0{,}5)^{\top}$ und $\mathbf{r}=(0{,}9;\ 0{,}1)^{\top}$ ist

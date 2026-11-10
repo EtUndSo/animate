@@ -1,6 +1,8 @@
 ---
 title: 第 4 阶段：为什么电流按指数增长
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 半导体与二极管
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 半导体与二极管
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden
+knoten: 第 9 章：半导体与二极管
 order: 1190600
 summary: 势垒已经建立。本阶段加上外部电压，说明为什么电流在一个方向上按指数增长，在另一个方向上几乎为零。
 tags: 反向饱和电流, 热电压, 十倍程, 体电阻

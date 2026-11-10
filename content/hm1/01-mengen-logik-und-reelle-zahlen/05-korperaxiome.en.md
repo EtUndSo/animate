@@ -1,6 +1,8 @@
 ---
 title: Stage 3: Field axioms
-pfad: Electrical Engineering / 1st Semester / Higher Mathematics 1 / Sets, Logic and Real Numbers
+pfad: Electrical Engineering / 1st Semester / HöMa1 – Higher Mathematics 1 / Sets, Logic and Real Numbers
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen
+knoten: Chapter 1: Sets, Logic and Real Numbers
 order: 1210500
 summary: Which few rules for plus and times must be assumed so that all other rules of arithmetic become provable?
 tags: operation, distributive law, difference, quotient
@@ -34,7 +36,7 @@ An __operation__ assigns to any two elements an element of the same set. A set $
 In addition there are (AM) $x\cdot(y+z)=(x\cdot y)+(x\cdot z)$ (__distributive law__) and (NNE) $0\ne1$.
 :::
 
-⁠**How to read it:** Here $0$ and $1$ are just names for two distinguished elements. Minus and divided-by are not separate operations: $x-y:=x+(-y)$ and $\frac yx:=y\cdot x^{-1}$. By agreement, multiplication comes before addition, and $xy:=x\cdot y$. Whatever follows from the axioms holds in every field, hence also for the complex numbers in [Part 2](/wissen/en/elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen/komplexe-zahlen.html). Examples are $\mathbb{Q}$ and $\mathbb{R}$. $\mathbb{N}$ is not a field (no 0, no $-1$), nor is $\mathbb{Z}$ (2 has no inverse). The smallest field is $\{0,1\}$ with $1+1=0$, the addition of digital electronics (XOR). **Why the hypotheses:** Without (NNE), $\{0\}$ would be a field. Without $x\ne0$ in (M4), we would get $1=0\cdot0^{-1}=0$ by (iii) below.
+⁠**How to read it:** Here $0$ and $1$ are just names for two distinguished elements. Minus and divided-by are not separate operations: $x-y:=x+(-y)$ and $\frac yx:=y\cdot x^{-1}$. By agreement, multiplication comes before addition, and $xy:=x\cdot y$. Whatever follows from the axioms holds in every field, hence also for the complex numbers in [Chapter 2](/wissen/en/elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen/komplexe-zahlen.html). Examples are $\mathbb{Q}$ and $\mathbb{R}$. $\mathbb{N}$ is not a field (no 0, no $-1$), nor is $\mathbb{Z}$ (2 has no inverse). The smallest field is $\{0,1\}$ with $1+1=0$, the addition of digital electronics (XOR). **Why the hypotheses:** Without (NNE), $\{0\}$ would be a field. Without $x\ne0$ in (M4), we would get $1=0\cdot0^{-1}=0$ by (iii) below.
 
 :::satz Theorem 3.2 (Rules of arithmetic in a field)
 <span class="anker" id="satz-3-2"></span>
@@ -105,7 +107,7 @@ $(-3)(-5)=15$, $\frac23+\frac57=\frac{14+15}{21}=\frac{29}{21}$, $\frac34:\frac5
 ⁠**Limiting case** $v=u=1$: The sum rule becomes $x+y=x+y$.
 
 :::frage I know this from school. Why a proof?
-They are familiar for $\mathbb{Q}$ and $\mathbb{R}$. But they are not among the axioms, and only the proof shows where they hold: in every field. The school rule “squares are not negative,” by contrast, does not follow from this list and fails in [Part 2](/wissen/en/elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen/komplexe-zahlen.html). Besides, you practice reasoning on content whose result you already know.
+They are familiar for $\mathbb{Q}$ and $\mathbb{R}$. But they are not among the axioms, and only the proof shows where they hold: in every field. The school rule “squares are not negative,” by contrast, does not follow from this list and fails in [Chapter 2](/wissen/en/elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen/komplexe-zahlen.html). Besides, you practice reasoning on content whose result you already know.
 :::
 
 :::aufgabe Exercise 4 ★★ Proving in a field

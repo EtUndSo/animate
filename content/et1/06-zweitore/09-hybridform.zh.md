@@ -1,6 +1,8 @@
 ---
 title: 第 7 阶段：混合形式
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 二端口网络
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 二端口网络
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore
+knoten: 第 6 章：二端口网络
 order: 1160900
 summary: 对放大器来说，在输入端给定电流、在输出端给定电压都很容易。本阶段把原因混合起来。
 tags: H 参数, 短路输入电阻, 短路电流比, 开路反向电压比, 开路输出电导

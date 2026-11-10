@@ -1,6 +1,8 @@
 ---
 title: Stage 4: Division, and what is lost
-pfad: Electrical Engineering / 1st Semester / Higher Mathematics 1 / Complex Numbers
+pfad: Electrical Engineering / 1st Semester / HöMa1 – Higher Mathematics 1 / Complex Numbers
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen
+knoten: Chapter 2: Complex Numbers
 order: 1220500
 summary: Stage 3 provides a real product.
 tags: 
@@ -49,10 +51,10 @@ Check: $(1-\mathrm{i})(1+2\mathrm{i})=1+2\mathrm{i}-\mathrm{i}-2\mathrm{i}^2=3+\
 :::satz Theorem 4.2 ($\mathbb{C}$ is a field)
 <span class="anker" id="satz-4-2"></span>
 
-$\mathbb{C}$ with $+$ and $\cdot$ satisfies all field axioms from [Part 1](/wissen/en/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html): commutative, associative and distributive laws, neutral elements $0\ne1$, the negative $-z$ for every $z$ and the reciprocal $1/z$ for every $z\ne0$.
+$\mathbb{C}$ with $+$ and $\cdot$ satisfies all field axioms from [Chapter 1](/wissen/en/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html): commutative, associative and distributive laws, neutral elements $0\ne1$, the negative $-z$ for every $z$ and the reciprocal $1/z$ for every $z\ne0$.
 :::
 
-⁠**How to read it:** What follows in [Part 1](/wissen/en/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html) from the field axioms alone also holds in $\mathbb{C}$: arithmetic with fractions, the binomial formulas and the inference from $zw=0$ to $z=0$ or $w=0$.
+⁠**How to read it:** What follows in [Chapter 1](/wissen/en/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html) from the field axioms alone also holds in $\mathbb{C}$: arithmetic with fractions, the binomial formulas and the inference from $zw=0$ to $z=0$ or $w=0$.
 
 :::beweis Idea
 Addition works separately and inherits all laws from $\mathbb{R}$, with $-z=-x-\mathrm{i}y$. [(1.2)](paare-statt-einzelner-zahlen.html#gl-1-2) does not change when the indices 1 and 2 are swapped: Multiplication is commutative. The associative and distributive laws are shown by computing both sides according to [(1.2)](paare-statt-einzelner-zahlen.html#gl-1-2). $(1,0)\odot(x,y)=(x,y)$ shows the unit element, [(4.1)](#gl-4-1) the axiom (M4), the reciprocal.
@@ -61,7 +63,7 @@ Addition works separately and inherits all laws from $\mathbb{R}$, with $-z=-x-\
 :::satz Theorem 4.3 ($\mathbb{C}$ is not ordered)
 <span class="anker" id="satz-4-3"></span>
 
-There is no relation “$>0$” on $\mathbb{C}$ with the order axioms from [Part 1](/wissen/en/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html): (T1) For every $x$, exactly one of $x>0$, $x=0$, $-x>0$ holds. (T2) From $x>0$ and $y>0$ follows $x+y>0$. (T3) From $x>0$ and $y>0$ follows $x\cdot y>0$.
+There is no relation “$>0$” on $\mathbb{C}$ with the order axioms from [Chapter 1](/wissen/en/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html): (T1) For every $x$, exactly one of $x>0$, $x=0$, $-x>0$ holds. (T2) From $x>0$ and $y>0$ follows $x+y>0$. (T3) From $x>0$ and $y>0$ follows $x\cdot y>0$.
 :::
 
 ⁠**How to read it:** For non-real numbers, $z<w$ and $z>0$ have no meaning. Only real quantities such as $\operatorname{Re}(z)$ or $|z|$ may be compared.

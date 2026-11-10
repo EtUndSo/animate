@@ -1,6 +1,8 @@
 ---
-title: Von Grund auf: Was aus den Teilen 4 bis 6 gebraucht wird
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Potenzreihen und Eulersche Formel
+title: Von Grund auf: Was aus den Kapiteln 4 bis 6 gebraucht wird
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Potenzreihen und Eulersche Formel
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/potenzreihen-und-eulersche-formel
+knoten: Kapitel 7: Potenzreihen und Eulersche Formel
 order: 1270200
 summary: Wie eine einzige Reihe Exponentialfunktion, Sinus und Cosinus enthält und warum Multiplizieren komplexer Zahlen Drehen und Strecken ist
 tags: Reihe, Teilsummen, absolut konvergent, stetig
@@ -37,4 +39,4 @@ Eine __Reihe__ $\sum_{n=0}^\infty b_n$ ist der Grenzwert ihrer __Teilsummen__ $s
 
 </ul>
 
-Aus [Teil 5](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/exponentialfunktion-und-stetigkeit/exponentialfunktion-und-stetigkeit.html) kommen $\exp(x)=\lim_{n\to\infty}(1+\frac xn)^n$ und $\exp(1)=\mathrm{e}$, außerdem der Begriff __stetig__ (eine kleine Änderung von $x$ ändert $f(x)$ nur wenig) und der Zwischenwertsatz. Sinus, Cosinus und $\pi$ baut dieses Kapitel neu auf.
+Aus [Kapitel 5](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/exponentialfunktion-und-stetigkeit/exponentialfunktion-und-stetigkeit.html) kommen $\exp(x)=\lim_{n\to\infty}(1+\frac xn)^n$ und $\exp(1)=\mathrm{e}$, außerdem der Begriff __stetig__ (eine kleine Änderung von $x$ ändert $f(x)$ nur wenig) und der Zwischenwertsatz. Sinus, Cosinus und $\pi$ baut dieses Kapitel neu auf.

@@ -1,7 +1,8 @@
 ---
 title: 线性无关、基与秩
 pfad: 计算机科学 / 机器学习 / 数学基础 / 向量与矩阵
-knoten: 基础篇 1：向量与矩阵
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: 第 1 章：向量与矩阵
 nachschlagen: ja
 order: 15211400
 summary: 列表中有些向量并不带来新东西，因为它们可以由其他向量组合而成。本节度量一个矩阵包含多少个真正不同的方向，并说明如果特征把同样的信息记录了两次，这对数据意味着什么。

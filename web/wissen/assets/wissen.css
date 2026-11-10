@@ -23,8 +23,8 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--fbody);lin
 a{color:var(--accent);text-decoration:none;} a:hover{text-decoration:underline;}
 kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px solid var(--border);border-radius:5px;padding:1px 5px;}
 .topbar{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:14px;padding:11px 18px;background:var(--bar);border-bottom:1px solid var(--bar-rand);}
-.brand{font-family:var(--fdisp);font-weight:800;font-size:19px;letter-spacing:-.02em;color:var(--bar-ink);}
-.brand span{color:var(--bar-ink);} .brand span.so{color:var(--bar-hl);}
+.brand{font-family:var(--fdisp);font-weight:800;font-size:19px;letter-spacing:-.02em;color:#ff9650;}   /* Logo: „Et“ orange wie „Editor öffnen“, „So“ rot (Wunsch des Users 09.11.2026) */
+.brand span{color:var(--bar-ink);} .brand span.so{color:#ff4d4d;}
 .topbar .searchBtn{margin-left:auto;display:flex;align-items:center;gap:8px;background:var(--bar-soft);border:1px solid var(--bar-rand);color:var(--bar-ink);
   border-radius:10px;padding:8px 13px;font:inherit;font-size:14px;cursor:pointer;}
 .topbar .searchBtn:hover{border-color:var(--bar-hl);}
@@ -163,6 +163,31 @@ kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px s
 .article figure.abb .abb-edit{display:inline-flex;align-items:center;gap:6px;padding:5px 11px;border:1px solid var(--accent);border-radius:8px;
   background:var(--panel);color:var(--accent);font-size:13px;font-weight:600;line-height:1.3;white-space:nowrap;}
 .article figure.abb .abb-edit:hover{text-decoration:none;background:color-mix(in srgb,var(--accent) 10%,var(--panel));}
+/* Animierte Abbildung (data-anim, wissen.js): das bewegte SVG an der Stelle des Bilds, darunter die Spielerleiste
+   (Start/Stopp gefüllt grün, Neustart, Schritt zurück/vor, Zeitleiste mit orangen Sprungmarken, Zeit). */
+.article figure.abb svg.abb-anim{display:block;margin:0 auto;max-width:100%;height:auto;border-radius:8px;background:#fff;}
+.abb-spieler{display:flex;align-items:center;gap:6px;margin:8px 2px 0;}
+.abb-spieler button{flex:none;display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;padding:0;
+  border:1px solid var(--accent);border-radius:8px;background:var(--panel);color:var(--accent);cursor:pointer;}
+.abb-spieler button:hover{background:color-mix(in srgb,var(--accent) 12%,var(--panel));}
+.abb-spieler button.as-play{background:var(--accent);color:var(--on-accent);}
+.abb-spieler button.as-play:hover{background:color-mix(in srgb,var(--accent) 85%,var(--ink));}
+.abb-spieler button:focus-visible,.abb-spieler input:focus-visible{outline:2px solid var(--accent3);outline-offset:2px;}
+.abb-spieler svg{width:16px;height:16px;fill:currentColor;}
+.abb-spieler .as-leiste{position:relative;flex:1;min-width:64px;height:32px;display:flex;align-items:center;}
+.abb-spieler input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:32px;margin:0;background:transparent;cursor:pointer;}
+.abb-spieler input[type=range]::-webkit-slider-runnable-track{height:4px;border-radius:2px;
+  background:linear-gradient(to right,var(--accent) var(--as-p,0%),color-mix(in srgb,var(--muted) 35%,transparent) var(--as-p,0%));}
+.abb-spieler input[type=range]::-moz-range-track{height:4px;border-radius:2px;background:color-mix(in srgb,var(--muted) 35%,transparent);}
+.abb-spieler input[type=range]::-moz-range-progress{height:4px;border-radius:2px;background:var(--accent);}
+.abb-spieler input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:14px;margin-top:-5px;border-radius:50%;
+  background:var(--accent);border:2px solid var(--panel);box-shadow:0 0 0 1px var(--accent);}
+.abb-spieler input[type=range]::-moz-range-thumb{width:10px;height:10px;border-radius:50%;background:var(--accent);border:2px solid var(--panel);
+  box-shadow:0 0 0 1px var(--accent);}
+.abb-spieler .as-marke{position:absolute;top:50%;width:2px;height:10px;margin:-5px 0 0 -1px;border-radius:1px;background:var(--accent3);
+  pointer-events:none;}
+.abb-spieler .as-zeit{flex:none;min-width:6.2em;text-align:right;font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap;}
+@media(max-width:480px){ .abb-spieler{gap:5px;} .abb-spieler .as-zeit{display:none;} .abb-spieler button{width:30px;height:30px;} }
 /* Fassung wählen: kompakt | ausführlich, jeweils mit Lesezeit */
 .fassung{display:inline-flex;margin:.1em 0 1.2em;border:1px solid var(--border);border-radius:10px;overflow:hidden;background:var(--soft);}
 .fassung .f-btn{display:flex;align-items:baseline;gap:8px;padding:7px 15px;color:var(--muted);font-weight:600;font-size:14.5px;}
@@ -341,6 +366,7 @@ details.beispiel[open]>summary::before{transform:rotate(90deg);}
 details.beispiel .bsp-k{font-family:var(--fdisp);font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--accent3);margin-right:9px;}
 .bsp-body{padding:0 16px 10px;border-top:1px solid var(--border);}
 .bsp-body>p:first-child{margin-top:12px;}
+.article figure.abb,.article details [id]{scroll-margin-top:72px;}   /* Sprung auf eine Abbildung (auch im Kasten): nicht unter der Kopfleiste */
 /* ---------- Grüne Leiste, modern (Variante B, 04.11.2026) ---------- */
 .article h1{font-weight:800;letter-spacing:-.03em;line-height:1.08;}
 .article h2{font-weight:700;letter-spacing:-.022em;} .article h3{font-weight:700;letter-spacing:-.015em;}

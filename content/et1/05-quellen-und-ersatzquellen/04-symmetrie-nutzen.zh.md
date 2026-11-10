@@ -1,6 +1,8 @@
 ---
 title: 第 2 阶段：利用对称性
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 电源与等效电源
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 电源与等效电源
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen
+knoten: 第 5 章：电源与等效电源
 order: 1150400
 summary: 有些网络不含任何组。这时对称性给出等电位的节点，把它们连接起来就出现了组。
 tags: 半电路
@@ -73,10 +75,10 @@ $$R_\mathrm{AB}=\frac R3+\frac R6+\frac R3=\frac56R=10\,\Omega.$$
 :::aufgabe 练习 2 ★ 预测无电流
 <span class="anker" id="aufg-2"></span>
 
-从 A 经 10 $\Omega$ 到节点 C，经 30 $\Omega$ 到节点 D；从 C 经 20 $\Omega$、从 D 经 60 $\Omega$ 到 B。C 和 D 之间接跨接电阻 $R_\mathrm{Q}$（[第 4 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-und-spannung-messen/strom-und-spannung-messen.html)的电桥）。(a) 证明即使没有对称性，C 和 D 的电位也相同。(b) 计算 $R_\mathrm{Q}\to\infty$ 和 $R_\mathrm{Q}\to0$ 时的 $R_\mathrm{AB}$。(c) 对 $R_\mathrm{Q}=47\,\Omega$ 可得出什么结论？
+从 A 经 10 $\Omega$ 到节点 C，经 30 $\Omega$ 到节点 D；从 C 经 20 $\Omega$、从 D 经 60 $\Omega$ 到 B。C 和 D 之间接跨接电阻 $R_\mathrm{Q}$（[第 4 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-und-spannung-messen/strom-und-spannung-messen.html)的电桥）。(a) 证明即使没有对称性，C 和 D 的电位也相同。(b) 计算 $R_\mathrm{Q}\to\infty$ 和 $R_\mathrm{Q}\to0$ 时的 $R_\mathrm{AB}$。(c) 对 $R_\mathrm{Q}=47\,\Omega$ 可得出什么结论？
 
 :::loesung
-(a) $R_\mathrm{Q}$ 中无电流时，两条支路都是比例相同的分压器：$\frac{20}{10+20}=\frac{60}{30+60}=\frac23$。这时 C 和 D 电位相同，$R_\mathrm{Q}$ 中确实没有电流。这就是该网络的唯一解（[第 4 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-und-spannung-messen/strom-und-spannung-messen.html)的电桥平衡）。
+(a) $R_\mathrm{Q}$ 中无电流时，两条支路都是比例相同的分压器：$\frac{20}{10+20}=\frac{60}{30+60}=\frac23$。这时 C 和 D 电位相同，$R_\mathrm{Q}$ 中确实没有电流。这就是该网络的唯一解（[第 4 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-und-spannung-messen/strom-und-spannung-messen.html)的电桥平衡）。
 
 (b) $R_\mathrm{Q}\to\infty$：$(10\,\Omega+20\,\Omega)\parallel(30\,\Omega+60\,\Omega)=22.5\,\Omega$。$R_\mathrm{Q}\to0$：$10\,\Omega\parallel30\,\Omega+20\,\Omega\parallel60\,\Omega=7.5\,\Omega+15\,\Omega=22.5\,\Omega$。
 

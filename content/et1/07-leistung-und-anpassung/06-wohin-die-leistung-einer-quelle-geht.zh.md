@@ -1,6 +1,8 @@
 ---
 title: 第 5 阶段：电源的功率去了哪里
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 功率、匹配与效率
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 功率、匹配与效率
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad
+knoten: 第 7 章：功率、匹配与效率
 order: 1170600
 summary: 电源内部也有电阻。本阶段建立功率平衡，并定义效率。
 tags: 
@@ -36,7 +38,7 @@ $$\eta=\frac{P_\mathrm{L}}{P_\mathrm{q}}=\frac{I\,U_\mathrm{L}}{I\,U_\mathrm{q}}
 ⁠**如何理解：**$P_\mathrm{q}$ 是电源产生的功率，$P_\mathrm{v}$ 是其内阻中的损耗功率，$P_\mathrm{L}$ 是有用功率。$U_\mathrm{Ri}=R_\mathrm{i}I$ 是 $R_\mathrm{i}$ 上的电压。$\eta$ 是 0 和 1 之间的纯数，只取决于比值 $R_\mathrm{L}/R_\mathrm{i}$。**适用条件：**这适用于理想电源、$R_\mathrm{i}$ 和 $R_\mathrm{L}$ 的串联。对于等效电源，内部的量并不正确（第 [7](warum-50-und-welches-ziel-gilt.html#stufe-7) 阶段）。
 
 :::herleitung 功率平衡就是网孔定律乘以电流
-网孔定律为 $U_\mathrm{q}=U_\mathrm{Ri}+U_\mathrm{L}$。乘以 $I$ 得 $P_\mathrm{q}=P_\mathrm{v}+P_\mathrm{L}$。在式 [(5.2)](#gl-5-2) 中 $I$ 被约去，因为两个电阻流过相同的电流。分压器（[第 2 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)）给出 $U_\mathrm{L}=U_\mathrm{q}\,R_\mathrm{L}/(R_\mathrm{L}+R_\mathrm{i})$。
+网孔定律为 $U_\mathrm{q}=U_\mathrm{Ri}+U_\mathrm{L}$。乘以 $I$ 得 $P_\mathrm{q}=P_\mathrm{v}+P_\mathrm{L}$。在式 [(5.2)](#gl-5-2) 中 $I$ 被约去，因为两个电阻流过相同的电流。分压器（[第 2 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)）给出 $U_\mathrm{L}=U_\mathrm{q}\,R_\mathrm{L}/(R_\mathrm{L}+R_\mathrm{i})$。
 :::
 
 ::::beispiel

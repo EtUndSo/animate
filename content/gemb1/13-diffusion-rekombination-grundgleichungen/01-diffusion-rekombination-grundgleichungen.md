@@ -1,7 +1,9 @@
 ---
 title: Überblick: Diffusion, Rekombination und Grundgleichungen
 kurz: Überblick
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Diffusion, Rekombination und Grundgleichungen
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Diffusion, Rekombination und Grundgleichungen
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/diffusion-rekombination-und-grundgleichungen
+knoten: Kapitel 13: Diffusion, Rekombination und Grundgleichungen
 order: 4230100
 summary: Wie weit zusätzliche Ladungsträger kommen und welche Gleichungen alles zusammenfassen
 tags: Diffusion, Teilchenstromdichte, Fick-Gesetz, Kontinuitätsgleichung, Generation, Rekombination, Einstein-Beziehung, Diffusionslänge
@@ -21,13 +23,13 @@ Der Weg führt über acht Begriffe. __Diffusion__ ist die Ausbreitung von Teilch
 
 <li>
 
-⁠**Silizium bei 300 K:** $k_\mathrm BT/e=25{,}85$ mV, $\varepsilon_0\varepsilon_\mathrm r=1{,}04\cdot10^{-10}$ A s/(V m), $n_\mathrm i=8{,}9\cdot10^{9}\,\mathrm{cm^{-3}}$ ([Teil 11](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/eigenhalbleiter-und-dotierung/eigenhalbleiter-und-dotierung.html)).
+⁠**Silizium bei 300 K:** $k_\mathrm BT/e=25{,}85$ mV, $\varepsilon_0\varepsilon_\mathrm r=1{,}04\cdot10^{-10}$ A s/(V m), $n_\mathrm i=8{,}9\cdot10^{9}\,\mathrm{cm^{-3}}$ ([Kapitel 11](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/eigenhalbleiter-und-dotierung/eigenhalbleiter-und-dotierung.html)).
 
 </li>
 
 <li>
 
-⁠**Probe:** n-Silizium, $N_\mathrm D=10^{16}\,\mathrm{cm^{-3}}$, $\mu_\mathrm n=1200$ und $\mu_\mathrm p=419\,\mathrm{cm^2/(V\,s)}$ ([Teil 12](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/strom-im-halbleiter/strom-im-halbleiter.html)), $\tau_\text{rec}=1$ µ s.
+⁠**Probe:** n-Silizium, $N_\mathrm D=10^{16}\,\mathrm{cm^{-3}}$, $\mu_\mathrm n=1200$ und $\mu_\mathrm p=419\,\mathrm{cm^2/(V\,s)}$ ([Kapitel 12](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/strom-im-halbleiter/strom-im-halbleiter.html)), $\tau_\text{rec}=1$ µ s.
 
 </li>
 

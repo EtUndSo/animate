@@ -1,6 +1,8 @@
 ---
 title: 第 5 阶段：节点电位法
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 网孔电流法与节点电位法
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 网孔电流法与节点电位法
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/maschenstrom-und-knotenpotentialverfahren
+knoten: 第 8 章：网孔电流法与节点电位法
 order: 1180700
 summary: 网孔定律已经解决，剩下 k-1 条节点定律和 k-1 个未知量。本阶段列出这些方程，并第二次求解同一网络。
 tags: 互电导
@@ -24,7 +26,7 @@ lang: zh
 
 <li>
 
-把实际电压源变换为实际电流源：$I_\mathrm q=U_\mathrm q/R$，同一电阻改为并联（[第 5 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)）。
+把实际电压源变换为实际电流源：$I_\mathrm q=U_\mathrm q/R$，同一电阻改为并联（[第 5 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)）。
 
 </li>
 
@@ -84,7 +86,7 @@ $I_{\mathrm q\mu}$ 是节点处的电源电流之和，流入节点时为正。
 在节点 $\mu$ 处，经每个电导 $G_a$ 流向相邻节点 $\nu$ 的电流为 $G_a\,(U_\mu-U_\nu)$，流向参考节点的电流为 $G_a\,U_\mu$。这些电流之和等于注入的 $I_{\mathrm q\mu}$。整理后，$U_\mu$ 前面是所有 $G_a$ 之和，$U_\nu$ 前面是 $\mu$ 和 $\nu$ 之间电导之和的负值。节点 $\nu$ 得到相同的元素，因为电导没有方向。所以 $\mathbf Y$ 是对称的。
 :::
 
-⁠**如何理解：**第 $\mu$ 行是节点定律：左边是经电导流出的所有电流，右边是电源推入的电流。第 $\nu$ 列表示：把节点 $\nu$ 保持在 1 V，其他节点保持在 0 V，就必须在节点 $\nu$ 注入电流 $Y_{\nu\nu}$，并在每个相邻节点 $\mu$ 抽出电流 $-Y_{\mu\nu}$。这正是[第 6 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html)的短路试验。**适用条件：**网络含电导和固定电流源。理想电压源放不进来，因为它没有有限的电导（第 [9](die-modifizierte-knotenanalyse.html#stufe-9) 阶段）。
+⁠**如何理解：**第 $\mu$ 行是节点定律：左边是经电导流出的所有电流，右边是电源推入的电流。第 $\nu$ 列表示：把节点 $\nu$ 保持在 1 V，其他节点保持在 0 V，就必须在节点 $\nu$ 注入电流 $Y_{\nu\nu}$，并在每个相邻节点 $\mu$ 抽出电流 $-Y_{\mu\nu}$。这正是[第 6 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html)的短路试验。**适用条件：**网络含电导和固定电流源。理想电压源放不进来，因为它没有有限的电导（第 [9](die-modifizierte-knotenanalyse.html#stufe-9) 阶段）。
 
 :::abbildung et1/k8yspalte 5
 左：用于节点电位法的模型电路，电池已变换为电流源。右：去掉电源，节点 1 为 1 V，节点 2 为 0 V。经 $G_1$、$G_2$、$G_3$ 流出 $1+0.25+0.5=1.75$ mA，这就是 $Y_{11}$。这 0.5 mA 到达节点 2，必须在那里抽出，这就是 $Y_{21}=-0.5$ mS。
@@ -111,7 +113,7 @@ $$\begin{pmatrix}G_1+G_2+G_3&-G_3\\-G_3&G_3+G_4+G_5\end{pmatrix}\begin{pmatrix}U
 :::
 
 :::frage 变换之后，在网孔图中 $R_5$ 上有 2 mA 向上，而在原始网络中有 2 mA 向下。哪个对？
-原始网络。等效电源只在接线端上一致（[第 5 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)）。在节点 2 和接地点，两种形式给出相同的结果，而在电源内部，电流的含义不同。因此，内部量要在原始网络中由接线端电压计算。
+原始网络。等效电源只在接线端上一致（[第 5 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)）。在节点 2 和接地点，两种形式给出相同的结果，而在电源内部，电流的含义不同。因此，内部量要在原始网络中由接线端电压计算。
 :::
 
 :::aufgabe 练习 6 ★★ 三个节点和一个参考

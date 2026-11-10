@@ -1,7 +1,8 @@
 ---
 title: Matris çarpımı
 pfad: Bilgisayar Bilimleri / Makine Öğrenmesi / Matematiksel Temeller / Vektörler ve Matrisler
-knoten: Temeller 1: Vektörler ve Matrisler
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Bölüm 1: Vektörler ve Matrisler
 nachschlagen: ja
 order: 15211000
 summary: Art arda uygulanan iki doğrusal dönüşüm yine bir doğrusal dönüşüm, yani bir matris verir.
@@ -165,7 +166,7 @@ Birkaç doğrusal hesap aşaması art arda bağlanırsa yeni türden bir dönü�
 $f(\mathbf{x})=\mathbf{B}\mathbf{x}$ ve $g(\mathbf{u})=\mathbf{A}\mathbf{u}$ doğrusalsa $\mathbf{x}\mapsto g(f(\mathbf{x}))$ bileşkesi de doğrusaldır, hem de tek bir $\mathbf{A}\mathbf{B}$ matrisiyle. Aynı şey, doğrusal aşamalardan oluşan sonlu her zincir için geçerlidir.
 :::
 
-Kaç doğrusal aşama art arda bağlanırsa bağlansın, sonuç her zaman tek bir matrisle tek adımda hesaplanabilir. Demek ki doğrusal aşamalardan oluşan bir zincirin yapabildiğini tek bir matris de yapabilir. Sinyaller ve sistemler alanından aynı şey bilinir: Zincir hâlinde bağlanmış iki doğrusal sistem birlikte yine doğrusal bir sistem oluşturur.
+Kaç doğrusal aşama art arda bağlanırsa bağlansın, sonuç her zaman tek bir matrisle tek adımda hesaplanabilir. Demek ki doğrusal aşamalardan oluşan bir zincirin yapabildiğini tek bir matris de yapabilir. Küçük ölçekte bu, alışverişten bilinir: Bir fiyat önce avrodan dolara çevrilir, sonra $10$ % indirim düşülürse ikisi birlikte tek bir çevirme çarpanıdır.
 
 ::::beispiel [Sayısal örnek]
 Birinci aşama üç sayıdan iki sayı üretir, $\mathbf{B}=\bigl(\begin{smallmatrix}1&2&0\\0&1&-1\end{smallmatrix}\bigr)$; ikinci aşama iki sayıdan yine üç sayı üretir, $\mathbf{A}=\Bigl(\begin{smallmatrix}2&1\\1&-1\\0&3\end{smallmatrix}\Bigr)$. Birlikte bunlar tek bir matristir:

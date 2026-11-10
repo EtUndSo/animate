@@ -1,6 +1,8 @@
 ---
 title: Stage 6: A recursive system
-pfad: Electrical Engineering / 3rd Semester / Signals and Systems / Sampling and Discrete-Time Systems
+pfad: Electrical Engineering / 3rd Semester / ET3 – Fundamentals of Electrical Engineering 3: Signals and Systems / Sampling and Discrete-Time Systems
+adresse: elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme
+knoten: Chapter 4: Sampling and Discrete-Time Systems
 order: 3240700
 summary: The simplest IIR system shows how feedback produces an infinitely long impulse response and when the system is stable.
 tags: causal, stable
@@ -18,14 +20,14 @@ The system $g(n)=s(n)+b\,g(n-1)$ adds the last output, weighted by $b$, to the i
 <span class="anker" id="gl-6-1"></span>
 $$h(n)=\delta(n)+b\,h(n-1)\quad\Longrightarrow\quad h(0)=1,\ h(1)=b,\ h(2)=b^2,\dots\quad\Longrightarrow\quad h(n)=\varepsilon(n)\,b^n. \tag{6.1}$$
 
-The impulse circulates in the feedback loop again and again and is multiplied by $b$ each time. The system is __causal__ ($h(n)=0$ for $n<0$). It is __stable__ if $\sum_n|h(n)|<\infty$ (the discrete counterpart of [Part 1](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html)), so here exactly for $|b|<1$, with $\sum_n|b|^n=\frac{1}{1-|b|}$.
+The impulse circulates in the feedback loop again and again and is multiplied by $b$ each time. The system is __causal__ ($h(n)=0$ for $n<0$). It is __stable__ if $\sum_n|h(n)|<\infty$ (the discrete counterpart of [Chapter 1](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html)), so here exactly for $|b|<1$, with $\sum_n|b|^n=\frac{1}{1-|b|}$.
 
 **Response to a rectangular sequence.** Input $s(n)=\varepsilon(n)-\varepsilon(n-M)$ ($M$ ones). With the convolution sum and the formula for the geometric sum $\sum_{k=0}^nq^k=\frac{1-q^{n+1}}{1-q}$:
 
 <span class="anker" id="gl-6-2"></span>
 $$g(n)=\begin{cases}0&n<0,\\[2pt]\displaystyle\sum_{m=0}^{n}b^{n-m}=\frac{1-b^{n+1}}{1-b}&0\le n<M,\\[8pt]\displaystyle\sum_{m=0}^{M-1}b^{n-m}=\frac{b^{n-M+1}-b^{n+1}}{1-b}&n\ge M.\end{cases} \tag{6.2}$$
 
-In the reference model ($b=0.6$, $M=4$): $g=1,\ 1.6,\ 1.96,\ 2.176$, then $1.306,\ 0.783,\ 0.470,\dots$, each value 0.6 times the previous one (Fig. [5](#abb-5)). This is the discrete counterpart of the response of the RC circuit to a rectangular pulse in [Part 1](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html).
+In the reference model ($b=0.6$, $M=4$): $g=1,\ 1.6,\ 1.96,\ 2.176$, then $1.306,\ 0.783,\ 0.470,\dots$, each value 0.6 times the previous one (Fig. [5](#abb-5)). This is the discrete counterpart of the response of the RC circuit to a rectangular pulse in [Chapter 1](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html).
 
 :::abbildung et3/k4rek 5
 The recursive system with $b=0.6$. Left: the impulse response. Right: the response to four ones; it rises to 2.176 and then decays by the factor 0.6 per clock cycle.

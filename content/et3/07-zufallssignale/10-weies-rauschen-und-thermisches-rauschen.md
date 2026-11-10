@@ -1,6 +1,8 @@
 ---
 title: Stufe 9: Weißes Rauschen und thermisches Rauschen
-pfad: Elektrotechnik / 3. Semester / Signale und Systeme / Zufallssignale
+pfad: Elektrotechnik / 3. Semester / ET3 – Grundgebiete der Elektrotechnik 3: Signale und Systeme / Zufallssignale
+adresse: elektrotechnik/3-semester/signale-und-systeme/zufallssignale
+knoten: Kapitel 7: Zufallssignale
 order: 3271000
 summary: Das wichtigste Modell für Störungen: Rauschen mit gleicher Leistungsdichte bei allen Frequenzen.
 tags: weißes Rauschen

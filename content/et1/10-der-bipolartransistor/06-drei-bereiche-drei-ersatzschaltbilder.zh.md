@@ -1,6 +1,8 @@
 ---
 title: 第 4 阶段：三个工作区，三种等效电路
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 双极型晶体管
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 双极型晶体管
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor
+knoten: 第 10 章：双极型晶体管
 order: 1200600
 summary: 含指数函数的电路很难手工求解。本阶段用三个线性片段代替曲面。
 tags: 截止区, 饱和区, 阈值电压, 饱和电压, 等效电路
@@ -13,7 +15,7 @@ lang: zh
 含指数函数的电路很难手工求解。本阶段用三个线性片段代替曲面。
 :::
 
-**基本思路。** 两个二极管各自可以导通或截止。由此得到各种工作状态。BE 二极管截止时，没有电子出发，什么也不流动。这就是__截止区__。BE 二极管导通而 CB 二极管截止时，集电极收走所有电子，$I_\mathrm{C}=B\,I_\mathrm{B}$ 成立。这就是放大区。如果 $U_\mathrm{CE}$ 下降到 CB 二极管也明显导通，集电极就会送回电子。这时它不能再收走全部电子，基区被电子充满，$I_\mathrm{C}$ 保持在 $B\,I_\mathrm{B}$ 以下。这就是__饱和区__。和二极管（[第 9 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)）一样，用直线代替曲线：输入特性曲线在 0.6 V 处有一个拐点，电流控制特性曲线变成斜率为 $B$ 的直线，在饱和时折成水平，输出特性曲线在 0.2 V 右侧变成水平（图 [6](der-arbeitspunkt.html#abb-6)）。
+**基本思路。** 两个二极管各自可以导通或截止。由此得到各种工作状态。BE 二极管截止时，没有电子出发，什么也不流动。这就是__截止区__。BE 二极管导通而 CB 二极管截止时，集电极收走所有电子，$I_\mathrm{C}=B\,I_\mathrm{B}$ 成立。这就是放大区。如果 $U_\mathrm{CE}$ 下降到 CB 二极管也明显导通，集电极就会送回电子。这时它不能再收走全部电子，基区被电子充满，$I_\mathrm{C}$ 保持在 $B\,I_\mathrm{B}$ 以下。这就是__饱和区__。和二极管（[第 9 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)）一样，用直线代替曲线：输入特性曲线在 0.6 V 处有一个拐点，电流控制特性曲线变成斜率为 $B$ 的直线，在饱和时折成水平，输出特性曲线在 0.2 V 右侧变成水平（图 [6](der-arbeitspunkt.html#abb-6)）。
 
 :::definition 定义 4.1 (npn 晶体管的工作区)
 <span class="anker" id="satz-4-1"></span>

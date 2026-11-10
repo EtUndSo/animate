@@ -1,6 +1,8 @@
 ---
 title: Etapa 10: Conexión en paralelo, divisor de corriente y carga
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Corriente, resistencia y leyes de Kirchhoff
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Corriente, resistencia y leyes de Kirchhoff
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff
+knoten: Capítulo 2: Corriente, resistencia y leyes de Kirchhoff
 order: 1121100
 summary: El segundo patrón básico: resistencias una junto a otra.
 tags: conexión en paralelo, divisor de corriente, resistencia de carga
@@ -56,7 +58,7 @@ Izquierda: divisor de tensión con carga. Derecha: $U_2$ frente a $R_\mathrm L$ 
 :::
 
 ::::beispiel
-Para la cadena, el error relativo $\delta=(U_{2,0}-U_2)/U_{2,0}$ respecto a los 3 V sin carga es: $R_\mathrm L=1\,\mathrm{k\Omega}$ da 40 %, $10\,\mathrm{k\Omega}$ da 6,3 %, $100\,\mathrm{k\Omega}$ da 0,66 %. El error es $\delta=R_\mathrm i/(R_\mathrm i+R_\mathrm L)$ con $R_\mathrm i=R_1\parallel R_2$ (ejercicio [11](#aufg-11)). El divisor actúa, pues, como una fuente con la resistencia interna $R_\mathrm i$ ([Parte 5](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)).
+Para la cadena, el error relativo $\delta=(U_{2,0}-U_2)/U_{2,0}$ respecto a los 3 V sin carga es: $R_\mathrm L=1\,\mathrm{k\Omega}$ da 40 %, $10\,\mathrm{k\Omega}$ da 6,3 %, $100\,\mathrm{k\Omega}$ da 0,66 %. El error es $\delta=R_\mathrm i/(R_\mathrm i+R_\mathrm L)$ con $R_\mathrm i=R_1\parallel R_2$ (ejercicio [11](#aufg-11)). El divisor actúa, pues, como una fuente con la resistencia interna $R_\mathrm i$ ([capítulo 5](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)).
 ::::
 
 :::ltspice Medir la carga
@@ -67,7 +69,7 @@ Para la cadena, el error relativo $\delta=(U_{2,0}-U_2)/U_{2,0}$ respecto a los 
 ⁠**Lo que ves:** El SPICE Error Log da $U_2$ para cada paso: 1,80 V; 2,25 V; 2,70 V; 2,81 V; 2,98 V. Compara el valor para $6\,\mathrm{k\Omega}$ con el ejercicio [11](#aufg-11)(b).
 :::
 
-**Aplicación: escalera R-2R.** El divisor de corriente sustenta un segundo convertidor D/A (fig. [12](#abb-12)). El truco es la autosemejanza: en el último nudo hay $2R\parallel2R=R$. Con la $R$ anterior, eso vuelve a dar $2R$. Así, cada nudo ve $2R$ hacia la derecha y $2R$ hacia abajo, su corriente se reparte 1:1, y de nudo a nudo la tensión se reduce a la mitad (divisor de $R$ y $2R\parallel2R$). La fuente entrega $I_\mathrm{ref}=U_\mathrm{ref}/R$, y surgen las corrientes con peso binario $I_\mathrm{ref}/2$, $I_\mathrm{ref}/4$, $I_\mathrm{ref}/8$, etc. Un circuito exterior ([Parte 11](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker/der-operationsverstaerker.html)) mantiene la barra colectora al potencial de masa. Por eso, todas las $2R$ ven abajo el mismo potencial, tanto si conmutan a la barra como a masa, y las corrientes no cambian al conmutar. El bit cercano a la fuente es el más significativo (MSB, most significant bit); el del final, el menos significativo (LSB). $I_\mathrm{sal}$ es la suma de las corrientes conectadas.
+**Aplicación: escalera R-2R.** El divisor de corriente sustenta un segundo convertidor D/A (fig. [12](#abb-12)). El truco es la autosemejanza: en el último nudo hay $2R\parallel2R=R$. Con la $R$ anterior, eso vuelve a dar $2R$. Así, cada nudo ve $2R$ hacia la derecha y $2R$ hacia abajo, su corriente se reparte 1:1, y de nudo a nudo la tensión se reduce a la mitad (divisor de $R$ y $2R\parallel2R$). La fuente entrega $I_\mathrm{ref}=U_\mathrm{ref}/R$, y surgen las corrientes con peso binario $I_\mathrm{ref}/2$, $I_\mathrm{ref}/4$, $I_\mathrm{ref}/8$, etc. Un circuito exterior ([capítulo 11](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker/der-operationsverstaerker.html)) mantiene la barra colectora al potencial de masa. Por eso, todas las $2R$ ven abajo el mismo potencial, tanto si conmutan a la barra como a masa, y las corrientes no cambian al conmutar. El bit cercano a la fuente es el más significativo (MSB, most significant bit); el del final, el menos significativo (LSB). $I_\mathrm{sal}$ es la suma de las corrientes conectadas.
 
 :::abbildung et1/k2r2r 12
 Escalera R-2R con $R=1\,\mathrm{k\Omega}$ a $U_\mathrm{ref}=8$ V. En rojo, las tensiones de nudo; en azul, las corrientes de rama. Los interruptores están en el número 1010: hacia la barra colectora van $4\,\mathrm{mA}+1\,\mathrm{mA}=5$ mA.

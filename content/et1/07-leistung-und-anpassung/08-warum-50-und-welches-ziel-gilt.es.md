@@ -1,6 +1,8 @@
 ---
 title: Etapa 7: Por qué el 50 %, y qué objetivo se aplica
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Potencia, adaptación y rendimiento
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Potencia, adaptación y rendimiento
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad
+knoten: Capítulo 7: Potencia, adaptación y rendimiento
 order: 1170800
 summary: El máximo de potencia desperdicia la mitad.
 tags: 
@@ -48,7 +50,7 @@ En la batería, $R_\mathrm{L}=200\,\Omega$ da la tensión de 8,91 V, el 99 %
 
 ⁠**Ingeniería de comunicaciones.** Las potencias están en el rango de los µ W. Un receptor solo puede tomar lo que ofrece la antena. Cuenta la potencia absoluta, no la fracción, y el calor en la fuente no perjudica. Una antena de 10 mV y 50 $\Omega$ entrega a 50 $\Omega$ exactamente 0,5 µ W, y a 5 $\Omega$ o 500 $\Omega$ solo 0,165 µ W.
 
-**Fuentes equivalentes: el máximo se mantiene, el 50 % no.** A menudo, la fuente es una red. La fig. [9](#abb-9) muestra una fuente con $R_\mathrm{q}$ y, en paralelo, $R$. Respecto a los terminales A, B es una fuente equivalente ([Parte 5](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)) con $R_\mathrm{i}=R_\mathrm{q}\parallel R$ y $U_\mathrm{CA}=U_\mathrm{q}R/(R_\mathrm{q}+R)$. Para la carga solo cuenta la recta en los terminales, de modo que el máximo está en $R_\mathrm{L}=R_\mathrm{i}$, con
+**Fuentes equivalentes: el máximo se mantiene, el 50 % no.** A menudo, la fuente es una red. La fig. [9](#abb-9) muestra una fuente con $R_\mathrm{q}$ y, en paralelo, $R$. Respecto a los terminales A, B es una fuente equivalente ([capítulo 5](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)) con $R_\mathrm{i}=R_\mathrm{q}\parallel R$ y $U_\mathrm{CA}=U_\mathrm{q}R/(R_\mathrm{q}+R)$. Para la carga solo cuenta la recta en los terminales, de modo que el máximo está en $R_\mathrm{L}=R_\mathrm{i}$, con
 
 <span class="anker" id="gl-7-2"></span>
 $$U_\mathrm{L}=U_\mathrm{q}\,\frac{R}{2(R_\mathrm{q}+R)},\qquad P_\mathrm{L}=\frac{U_\mathrm{L}^2}{R_\mathrm{L}}=\frac{U_\mathrm{q}^2\,R}{4\,R_\mathrm{q}(R_\mathrm{q}+R)}. \tag{7.2}$$

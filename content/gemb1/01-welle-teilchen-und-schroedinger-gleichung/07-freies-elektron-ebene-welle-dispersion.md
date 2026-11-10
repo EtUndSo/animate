@@ -1,6 +1,8 @@
 ---
 title: Stufe 5: Freies Elektron, ebene Welle, Dispersion
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Welle, Teilchen und Schrödinger-Gleichung
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Welle, Teilchen und Schrödinger-Gleichung
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/welle-teilchen-und-schrodinger-gleichung
+knoten: Kapitel 1: Welle, Teilchen und Schrödinger-Gleichung
 order: 4110700
 summary: Die Gleichung steht.
 tags: frei, Dispersionsrelation, ebene Welle

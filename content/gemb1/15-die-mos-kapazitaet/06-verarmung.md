@@ -1,6 +1,8 @@
 ---
 title: Stufe 4: Verarmung
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Die MOS-Kapazität
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Die MOS-Kapazität
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/die-mos-kapazitat
+knoten: Kapitel 15: Die MOS-Kapazität
 order: 4250600
 summary: Bei V mathrm G>0 drückt das Gate die Löcher von der Grenzfläche weg.
 tags: Verarmungszone, Substratsteuerfaktor
@@ -13,7 +15,7 @@ lang: de
 Bei $V_\mathrm G>0$ drückt das Gate die Löcher von der Grenzfläche weg. Diese Stufe berechnet, wie breit die entstehende Zone wird und welche Spannung dazu gehört.
 :::
 
-**Die Idee.** Das Gate stößt die freien Löcher ins Substrat. Zurück bleiben die ortsfesten Akzeptorionen $N_\mathrm A^-$. Sie sind vollständig ionisiert, denn $E_\mathrm F$ liegt weit über dem Akzeptorniveau, und Elektronen gibt es noch fast keine. Die Raumladung besteht also nur aus Ionen, wie auf einer Seite des p-n-Übergangs ([Teil 14](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/der-p-n-ubergang/der-p-n-uebergang.html)). Mehr als alle Löcher kann das Gate nicht entfernen. Mehr Ladung geht deshalb nur, wenn die Zone tiefer ins Substrat wächst. Ihre Dichte bleibt dabei $eN_\mathrm A$.
+**Die Idee.** Das Gate stößt die freien Löcher ins Substrat. Zurück bleiben die ortsfesten Akzeptorionen $N_\mathrm A^-$. Sie sind vollständig ionisiert, denn $E_\mathrm F$ liegt weit über dem Akzeptorniveau, und Elektronen gibt es noch fast keine. Die Raumladung besteht also nur aus Ionen, wie auf einer Seite des p-n-Übergangs ([Kapitel 14](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/der-p-n-ubergang/der-p-n-uebergang.html)). Mehr als alle Löcher kann das Gate nicht entfernen. Mehr Ladung geht deshalb nur, wenn die Zone tiefer ins Substrat wächst. Ihre Dichte bleibt dabei $eN_\mathrm A$.
 
 :::satz Satz 4.1 (Verarmungszone in der Schottky-Näherung)
 <span class="anker" id="satz-4-1"></span>

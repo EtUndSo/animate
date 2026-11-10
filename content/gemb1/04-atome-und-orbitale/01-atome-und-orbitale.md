@@ -1,7 +1,9 @@
 ---
 title: Überblick: Atome und Orbitale
 kurz: Überblick
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Atome und Orbitale
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Atome und Orbitale
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/atome-und-orbitale
+knoten: Kapitel 4: Atome und Orbitale
 order: 4140100
 summary: Welche Zustände Elektronen im Atom haben und wie sie sich darauf verteilen
 tags: Coulomb-Potential, Atomorbital, Quantenzahl, Spin, Pauli-Prinzip, Hundsche Regel, Elektronenkonfiguration, Periodensystem
@@ -33,7 +35,7 @@ Der Weg führt über acht Begriffe. Das __Coulomb-Potential__ ist die Energielan
 
 <li>
 
-⁠**Vorausgesetzt:** Schrödinger-Gleichung ([Teil 1](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/welle-teilchen-und-schrodinger-gleichung/welle-teilchen-und-schroedinger-gleichung.html)), Box bis 3D mit Entartung ([Teil 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html)), Abklingen im klassisch verbotenen Gebiet ([Teil 3](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/stufe-barriere-und-tunneleffekt/stufe-barriere-und-tunneleffekt.html)).
+⁠**Vorausgesetzt:** Schrödinger-Gleichung ([Kapitel 1](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/welle-teilchen-und-schrodinger-gleichung/welle-teilchen-und-schroedinger-gleichung.html)), Box bis 3D mit Entartung ([Kapitel 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html)), Abklingen im klassisch verbotenen Gebiet ([Kapitel 3](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/stufe-barriere-und-tunneleffekt/stufe-barriere-und-tunneleffekt.html)).
 
 </li>
 

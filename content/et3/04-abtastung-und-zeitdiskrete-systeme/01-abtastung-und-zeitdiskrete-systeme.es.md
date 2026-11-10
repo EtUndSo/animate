@@ -1,7 +1,9 @@
 ---
 title: Visión general: Muestreo y sistemas en tiempo discreto
 kurz: Visión general
-pfad: Ingeniería eléctrica / 3.er semestre / Señales y sistemas / Muestreo y sistemas en tiempo discreto
+pfad: Ingeniería eléctrica / 3.er semestre / ET3 – Fundamentos de ingeniería eléctrica 3: señales y sistemas / Muestreo y sistemas en tiempo discreto
+adresse: elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme
+knoten: Capítulo 4: Muestreo y sistemas en tiempo discreto
 order: 3240100
 summary: De la señal continua a la secuencia de números: teorema de muestreo, convolución discreta, DFT, FFT y transformada z
 tags: muestras
@@ -10,7 +12,7 @@ lang: es
 
 ## De qué trata
 
-Un ordenador no puede almacenar una función $s(t)$, solo una secuencia de números. Por eso se mide la señal con un periodo de muestreo fijo $T$ y se trabaja con las __muestras__ $s(nT)$. Dos preguntas guían este capítulo: *¿Se pierde información en el proceso?* Y: *¿cómo se calcula con secuencias de números del mismo modo en que las partes 1 a 3 calculaban con funciones?*
+Un ordenador no puede almacenar una función $s(t)$, solo una secuencia de números. Por eso se mide la señal con un periodo de muestreo fijo $T$ y se trabaja con las __muestras__ $s(nT)$. Dos preguntas guían este capítulo: *¿Se pierde información en el proceso?* Y: *¿cómo se calcula con secuencias de números del mismo modo en que los [capítulos 1](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html) a 3 calculaban con funciones?*
 
 
 

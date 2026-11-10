@@ -1,7 +1,8 @@
 ---
 title: Le produit scalaire
 pfad: Informatique / Apprentissage automatique / Fondements mathématiques / Vecteurs et matrices
-knoten: Fondements 1 : Vecteurs et matrices
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Chapitre 1 : Vecteurs et matrices
 nachschlagen: ja
 order: 15210300
 summary: Deux vecteurs de même longueur donnent un seul nombre lorsqu’on multiplie leurs composantes correspondantes et qu’on additionne les produits.
@@ -156,23 +157,23 @@ La facture d’électricité comme produit scalaire : prix fois quantité pour 
 
 <span class="anker" id="stufe-2-4"></span>
 
-Il s’agit de vérifier si un signal mesuré saute alternativement vers le haut et vers le bas d’un échantillon à l’autre. Pour cela, on écrit le motif recherché sous forme de vecteur, ici $\mathbf{w}=(1,\,-1,\,1,\,-1)^{\top}$, et l’on forme le produit scalaire avec le signal.
+La température extérieure est relevée toutes les douze heures, alternativement à midi et à minuit. Quatre valeurs consécutives forment un vecteur, appelé ici *série temporelle*. Il s’agit de vérifier si elle saute alternativement vers le haut et vers le bas d’une valeur à l’autre, comme le laisse attendre l’alternance du jour et de la nuit. Pour cela, on écrit le motif recherché sous forme de vecteur, ici $\mathbf{w}=(1,\,-1,\,1,\,-1)^{\top}$, et l’on forme le produit scalaire avec la série temporelle.
 
-La Fig. [10](#abb-10) montre ce qui se passe alors. Chaque échantillon est multiplié par la valeur du motif à la même position. Si le signal a, en une position, le même signe que le motif, le produit est positif ; s’il a le signe opposé, le produit est négatif. Si le signal suit partout le motif, les contributions positives s’accumulent en une grande somme. Si le signal n’a rien à voir avec le motif, les contributions positives et négatives se compensent.
+La Fig. [10](#abb-10) montre ce qui se passe alors. Chaque valeur est multipliée par la valeur du motif à la même position. Si la série temporelle a, en une position, le même signe que le motif, le produit est positif ; si elle a le signe opposé, le produit est négatif. Si la série temporelle suit partout le motif, les contributions positives s’accumulent en une grande somme. Si la série temporelle n’a rien à voir avec le motif, les contributions positives et négatives se compensent.
 
 :::abbildung ml/k1muster 10
-Comparaison avec un motif par le produit scalaire. En haut le motif $\mathbf{w}=(1,-1,1,-1)^{\top}$, au milieu deux signaux, en bas les produits $w_j\,x_j$ en chaque position $j$. À gauche, le signal $\mathbf{x}=(2,-1,3,-2)^{\top}$ saute au rythme du motif : tous les produits sont positifs, la somme vaut $8$. À droite, $\mathbf{x}'=(2,2,3,3)^{\top}$ croît régulièrement : les produits se compensent, la somme vaut $0$.
+Comparaison avec un motif par le produit scalaire. En haut le motif $\mathbf{w}=(1,-1,1,-1)^{\top}$, au milieu deux séries temporelles de température en degrés Celsius, en bas les produits $w_j\,x_j$ en chaque position $j$. À gauche, la série temporelle $\mathbf{x}=(2,-1,3,-2)^{\top}$ saute au rythme du motif : tous les produits sont positifs, la somme vaut $8$. À droite, $\mathbf{x}'=(2,2,3,3)^{\top}$ croît régulièrement : les produits se compensent, la somme vaut $0$.
 :::
 
 Plus précisément : la contribution de la position $j$ au produit scalaire $\mathbf{w}^{\top}\mathbf{x}$ est $w_jx_j$. Elle est positive lorsque $w_j$ et $x_j$ ont le même signe, et négative lorsqu’ils sont de signes opposés. Plus les valeurs absolues sont grandes aux positions où les signes concordent, plus le produit scalaire est grand.
 
-En traitement du signal, on connaît ce calcul sous le nom de corrélation. L’intercorrélation de deux suites réelles $x[n]$ et $y[n]$ pour un décalage nul vaut $\sum_nx[n]\,y[n]$. Si l’on écrit les échantillons de deux signaux de longueur finie sous forme de vecteurs $\mathbf{x}$ et $\mathbf{y}$, c’est exactement le produit scalaire $\mathbf{x}^{\top}\mathbf{y}$. L’énergie d’un signal, $\sum_nx[n]^2$, est de même $\mathbf{x}^{\top}\mathbf{x}$. La comparaison avec un motif n’est donc pas un nouvel outil, mais celui-là même avec lequel un corrélateur cherche un motif connu dans un signal.
+Pour les suites de nombres, ce calcul porte un nom particulier. La somme $\sum_nx[n]\,y[n]$ de deux suites réelles $x[n]$ et $y[n]$ s’appelle leur intercorrélation pour un décalage nul. Si l’on écrit les valeurs de deux suites de longueur finie sous forme de vecteurs $\mathbf{x}$ et $\mathbf{y}$, c’est exactement le produit scalaire $\mathbf{x}^{\top}\mathbf{y}$. La somme des carrés d’une suite, $\sum_nx[n]^2$, est de même $\mathbf{x}^{\top}\mathbf{x}$. La comparaison avec un motif n’est donc pas un nouvel outil, mais le calcul même avec lequel on cherche un motif connu dans une longue suite de nombres.
 
 ::::beispiel [Exemple de calcul]
-Avec le motif alterné $\mathbf{w}=(1,\,-1,\,1,\,-1)^{\top}$, on a $\mathbf{w}^{\top}\mathbf{x}=8$ pour $\mathbf{x}=(2,\,-1,\,3,\,-2)^{\top}$ et $\mathbf{w}^{\top}\mathbf{x}'=0$ pour $\mathbf{x}'=(2,\,2,\,3,\,3)^{\top}$ (Fig. [11](#abb-11)). Avec le motif constant $\mathbf 1=(1,\,1,\,1,\,1)^{\top}$, c’est l’inverse : $\mathbf 1^{\top}\mathbf{x}=2$, mais $\mathbf 1^{\top}\mathbf{x}'=10$. Le signal $\mathbf{x}$ est donc surtout alterné, $\mathbf{x}'$ surtout constant.
+Avec le motif alterné $\mathbf{w}=(1,\,-1,\,1,\,-1)^{\top}$, on a $\mathbf{w}^{\top}\mathbf{x}=8$ pour $\mathbf{x}=(2,\,-1,\,3,\,-2)^{\top}$ et $\mathbf{w}^{\top}\mathbf{x}'=0$ pour $\mathbf{x}'=(2,\,2,\,3,\,3)^{\top}$ (Fig. [11](#abb-11)). Avec le motif constant $\mathbf 1=(1,\,1,\,1,\,1)^{\top}$, c’est l’inverse : $\mathbf 1^{\top}\mathbf{x}=2$, mais $\mathbf 1^{\top}\mathbf{x}'=10$. La série temporelle $\mathbf{x}$ alterne donc surtout entre le jour et la nuit, $\mathbf{x}'$ est surtout constante.
 
 :::abbildung ml/k1rmuster 11
-Le motif alterné $\mathbf{w}$ avec deux signaux. En haut, $\mathbf{x}$ suit le motif : les quatre produits sont positifs. En bas, $\mathbf{x}'$ croît régulièrement : les produits se compensent deux à deux.
+Le motif alterné $\mathbf{w}$ avec deux séries temporelles. En haut, $\mathbf{x}$ suit le motif : les quatre produits sont positifs. En bas, $\mathbf{x}'$ croît régulièrement : les produits se compensent deux à deux.
 :::
 ::::
 
@@ -181,7 +182,7 @@ La somme pondérée de l’agente immobilière est elle aussi une comparaison av
 ⁠**En bref :** Le produit scalaire $\mathbf{w}^{\top}\mathbf{x}$ est grand lorsque $\mathbf{x}$ a de grandes valeurs là où le motif $\mathbf{w}$ a de grandes valeurs de même signe ; c’est la corrélation pour un décalage nul.
 
 :::hintergrund La fonction de corrélation n’est faite que de produits scalaires
-L’intercorrélation ne compare pas un signal à un motif en une seule position, mais pour chaque décalage possible. Pour chaque décalage $k$, sa valeur est un produit scalaire : celui du signal avec le motif décalé de $k$ pas. Toute la fonction de corrélation est donc une suite de produits scalaires, un par décalage. Là où le motif se trouve dans le signal, les contributions positives s’accumulent, et la fonction de corrélation y atteint sa plus grande valeur. C’est ainsi qu’un récepteur radar trouve l’écho de sa propre impulsion et qu’un récepteur radio trouve le début d’une trame de données connue. En apprentissage automatique, le décalage reste le plus souvent fixé à zéro : on compare un exemple dans son ensemble à un motif.
+L’intercorrélation ne compare pas une suite à un motif en une seule position, mais pour chaque décalage possible. Pour chaque décalage $k$, sa valeur est un produit scalaire : celui de la suite avec le motif décalé de $k$ positions. Toute la fonction de corrélation est donc une suite de produits scalaires, un par décalage. Là où le motif se trouve dans la suite, les contributions positives s’accumulent, et la fonction de corrélation y est particulièrement grande. C’est ainsi que l’on trouve, dans un long enregistrement sonore, l’endroit où apparaît un son connu, par exemple un gong, et, dans une photo, les endroits qui ressemblent à un petit extrait d’image. En apprentissage automatique, le décalage reste le plus souvent fixé à zéro : on compare un exemple dans son ensemble à un motif.
 :::
 
 :::aufgabe Exercice 4 ★ Vérifier les règles de calcul
@@ -230,10 +231,10 @@ Un collègue affirme : « Chez l’agente immobilière, ce sont les pièces qu
 :::
 :::
 
-:::aufgabe Exercice 6 ★★ Un motif pour les signaux croissants
+:::aufgabe Exercice 6 ★★ Un motif pour les séries temporelles croissantes
 <span class="anker" id="aufg-6"></span>
 
-Il s’agit de vérifier si un signal de quatre échantillons est croissant. On propose comme motif $\mathbf{w}=(-3,\,-1,\,1,\,3)^{\top}$.
+Il s’agit de vérifier si une série temporelle de quatre valeurs, par exemple la température sur quatre jours consécutifs, est croissante. On propose comme motif $\mathbf{w}=(-3,\,-1,\,1,\,3)^{\top}$.
 
 <ol class="al">
 
@@ -245,15 +246,15 @@ Calculez $\mathbf{w}^{\top}\mathbf{x}$ pour $\mathbf{x}=(1,2,3,4)^{\top}$, $(4,3
 
 <li>
 
-Pourquoi tout signal constant $c\,\mathbf1$ donne-t-il exactement zéro ? Utilisez $\mathbf 1^{\top}\mathbf{w}$.
+Pourquoi toute série temporelle constante $c\,\mathbf1$ donne-t-elle exactement zéro ? Utilisez $\mathbf 1^{\top}\mathbf{w}$.
 
 </li>
 
 </ol>
 
 :::loesung
-(a) $\mathbf{w}^{\top}(1,2,3,4)^{\top}=-3-2+3+12=10$ : le signal croît, le résultat est nettement positif. $\mathbf{w}^{\top}(4,3,2,1)^{\top}=-12-3+2+3=-10$ : le signal décroît, le résultat est tout aussi nettement négatif. $\mathbf{w}^{\top}(5,5,5,5)^{\top}=-15-5+5+15=0$ : constant, pas de croissance. $\mathbf{w}^{\top}(1,3,2,4)^{\top}=-3-3+2+12=8$ : le signal croît dans l’ensemble, avec un retour en arrière au milieu, et le résultat est un peu plus petit que pour la croissance régulière. Le motif pondère négativement les premières valeurs et positivement les dernières ; il réagit donc selon que les dernières valeurs sont plus grandes que les premières ou non.
+(a) $\mathbf{w}^{\top}(1,2,3,4)^{\top}=-3-2+3+12=10$ : la série temporelle croît, le résultat est nettement positif. $\mathbf{w}^{\top}(4,3,2,1)^{\top}=-12-3+2+3=-10$ : la série temporelle décroît, le résultat est tout aussi nettement négatif. $\mathbf{w}^{\top}(5,5,5,5)^{\top}=-15-5+5+15=0$ : constant, pas de croissance. $\mathbf{w}^{\top}(1,3,2,4)^{\top}=-3-3+2+12=8$ : la série temporelle croît dans l’ensemble, avec un retour en arrière au milieu, et le résultat est un peu plus petit que pour la croissance régulière. Le motif pondère négativement les premières valeurs et positivement les dernières ; il réagit donc selon que les dernières valeurs sont plus grandes que les premières ou non.
 
-(b) $\mathbf 1^{\top}\mathbf{w}=-3-1+1+3=0$. Pour un signal constant, on a donc $\mathbf{w}^{\top}(c\,\mathbf 1)=c\,\mathbf{w}^{\top}\mathbf 1=c\cdot0=0$. Comme la somme des poids est nulle, le motif ignore complètement une composante continue commune : il ne mesure que des différences entre les échantillons.
+(b) $\mathbf 1^{\top}\mathbf{w}=-3-1+1+3=0$. Pour une série temporelle constante, on a donc $\mathbf{w}^{\top}(c\,\mathbf 1)=c\,\mathbf{w}^{\top}\mathbf 1=c\cdot0=0$. Comme la somme des poids est nulle, le motif ignore complètement un montant fixe ajouté à toutes les valeurs : il ne mesure que des différences entre les valeurs. Qu’il fasse $10$ degrés de plus les quatre jours ne change pas le résultat.
 :::
 :::

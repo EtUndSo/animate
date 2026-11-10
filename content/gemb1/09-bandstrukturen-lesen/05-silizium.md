@@ -1,6 +1,8 @@
 ---
 title: Stufe 3: Silizium
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Bandstrukturen lesen
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Bandstrukturen lesen
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/bandstrukturen-lesen
+knoten: Kapitel 9: Bandstrukturen lesen
 order: 4190500
 summary: Graphen kam mit einem Orbital je Atom aus.
 tags: Tal, Rotationsellipsoid
@@ -40,7 +42,7 @@ Links: **qualitative Skizze** der Silizium-Bänder, nicht maßstäblich und nich
 
 <li>
 
-⁠**Valenzbandkante.** Das Maximum liegt bei $\Gamma$. Die obersten Zustände sind p-artig, und $x,y,z$ sind im Würfel gleichwertig. Deshalb treffen sich dort zwei Bänder mit verschiedener Krümmung, wie die Paare in der quadratischen Box aus [Teil 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html): Das Valenzband ist bei $\Gamma$ **2-fach entartet** (auch: degeneriert). Ein drittes liegt wegen einer kleinen magnetischen Wirkung des Spins 44 meV tiefer. Knapp unter $E_\mathrm V$ sind die Flächen konstanter Energie fast Kugeln um $\Gamma$.
+⁠**Valenzbandkante.** Das Maximum liegt bei $\Gamma$. Die obersten Zustände sind p-artig, und $x,y,z$ sind im Würfel gleichwertig. Deshalb treffen sich dort zwei Bänder mit verschiedener Krümmung, wie die Paare in der quadratischen Box aus [Kapitel 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html): Das Valenzband ist bei $\Gamma$ **2-fach entartet** (auch: degeneriert). Ein drittes liegt wegen einer kleinen magnetischen Wirkung des Spins 44 meV tiefer. Knapp unter $E_\mathrm V$ sind die Flächen konstanter Energie fast Kugeln um $\Gamma$.
 
 </li>
 
@@ -53,7 +55,7 @@ Links: **qualitative Skizze** der Silizium-Bänder, nicht maßstäblich und nich
 </ul>
 
 ::::beispiel
-Es ist $2\pi/a=11{,}57\,\mathrm{nm^{-1}}$, das Minimum liegt bei $9{,}83\,\mathrm{nm^{-1}}$. Mit dem Zellvolumen $a^3/4$ gibt es $2{,}50\cdot10^{22}$ Zellen je cm$^3$. Die vier Valenzbänder fassen $2{,}0\cdot10^{23}\,\mathrm{cm^{-3}}$ Elektronen, genau die vier Außenelektronen der $5{,}0\cdot10^{22}$ Atome je cm$^3$. **Kontrolle:** Bei $\Gamma$ ist $g_0=4$. Zwei s-Orbitale ergeben dann $E_\mathrm s\mp4V_\mathrm{ss}$: dieselbe Aufspaltung wie $E_\sigma$ und $E_{\sigma^*}$ aus [Teil 8](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/vom-atom-zum-band/vom-atom-zum-band.html), verstärkt durch vier Nachbarn.
+Es ist $2\pi/a=11{,}57\,\mathrm{nm^{-1}}$, das Minimum liegt bei $9{,}83\,\mathrm{nm^{-1}}$. Mit dem Zellvolumen $a^3/4$ gibt es $2{,}50\cdot10^{22}$ Zellen je cm$^3$. Die vier Valenzbänder fassen $2{,}0\cdot10^{23}\,\mathrm{cm^{-3}}$ Elektronen, genau die vier Außenelektronen der $5{,}0\cdot10^{22}$ Atome je cm$^3$. **Kontrolle:** Bei $\Gamma$ ist $g_0=4$. Zwei s-Orbitale ergeben dann $E_\mathrm s\mp4V_\mathrm{ss}$: dieselbe Aufspaltung wie $E_\sigma$ und $E_{\sigma^*}$ aus [Kapitel 8](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/vom-atom-zum-band/vom-atom-zum-band.html), verstärkt durch vier Nachbarn.
 ::::
 
 :::frage Im Atom ist jedes sp$^3$-Orbital halb voll, im Kristall ist das Valenzband ganz voll. Woher kommen die zusätzlichen Elektronen?

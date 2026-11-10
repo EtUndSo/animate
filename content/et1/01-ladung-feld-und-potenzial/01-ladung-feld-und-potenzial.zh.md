@@ -1,7 +1,9 @@
 ---
 title: 概览: 电荷、电场与电位
 kurz: 概览
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 电荷、电场与电位
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 电荷、电场与电位
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial
+knoten: 第 1 章：电荷、电场与电位
 order: 1110100
 summary: 为什么电压是一个差值 它对电荷起什么作用
 tags: 电压, 电荷, 电场, 电位, 参考点, 电阻
@@ -46,7 +48,7 @@ lang: zh
 
 <li>
 
-⁠**电路：**同一节电池接在两个串联的电阻上，第一个电阻上为 6 V，第二个上为 3 V。__电阻__是一种元件，流过它的电荷在其中以热的形式释放能量（[第 2 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)）。
+⁠**电路：**同一节电池接在两个串联的电阻上，第一个电阻上为 6 V，第二个上为 3 V。__电阻__是一种元件，流过它的电荷在其中以热的形式释放能量（[第 2 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)）。
 
 </li>
 

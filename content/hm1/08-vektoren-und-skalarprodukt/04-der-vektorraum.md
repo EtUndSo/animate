@@ -1,6 +1,8 @@
 ---
 title: Stufe 2: Der Vektorraum
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Vektoren und Skalarprodukt
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Vektoren und Skalarprodukt
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/vektoren-und-skalarprodukt
+knoten: Kapitel 8: Vektoren und Skalarprodukt
 order: 1280400
 summary: Polynome haben keine Pfeilspitze, und doch rechnet man mit ihnen wie mit Pfeilen.
 tags: kommutative Gruppe, Kommutativgesetz, Assoziativgesetz, neutrales Element, Inverses, Vektorraum, linearer Raum, Vektoraddition

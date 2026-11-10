@@ -1,7 +1,8 @@
 ---
 title: 距离与单位
 pfad: 计算机科学 / 机器学习 / 数学基础 / 向量与矩阵
-knoten: 基础篇 1：向量与矩阵
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: 第 1 章：向量与矩阵
 nachschlagen: ja
 order: 15210500
 summary: 如果两个样本的向量彼此靠近，它们就相似。本节度量距离，说明结果取决于所选的单位，并介绍一种使各特征可以相互比较的方法。
@@ -78,7 +79,7 @@ $$\text{A}=(60,\,2)^{\top},\qquad \text{B}=(63,\,4)^{\top},\qquad \text{C}=(54,\
 
 为了使各特征可以相互比较，要对每个特征单独考察它在所有样本上的取值。在表 [1](vektoren-daten-als-zahlenlisten.html#tab-1) 中，这就是各列：所有公寓的面积构成向量 $\mathbf{v}=(60,\,40,\,90,\,70)^{\top}\in\mathbb{R}^4$。这样的向量属于一个特征，它的分量个数与样本个数相同。这里称它为__特征列__。
 
-在比较时，重要的不是面积有多大，而是它们彼此相差多少。因此，把每个面积都作为与平均值的偏差来度量。在电工学中，这一步称为：去掉直流分量，只保留交流分量。
+在比较时，重要的不是面积有多大，而是它们彼此相差多少。因此，把每个面积都作为与平均值的偏差来度量。描述一个班级里孩子们的身高也是这样：“比平均高 $5$ cm”比“$1.45$ m”更能说明一个孩子的情况。
 
 :::definition 定义 4.2 (中心化向量)
 <span class="anker" id="satz-4-2"></span>
@@ -107,12 +108,12 @@ $$\tilde{\mathbf{v}}=\mathbf{v}-\bar v\,\mathbf 1=(v_1-\bar v,\,\dots,\,v_N-\bar
 
 <span class="anker" id="stufe-4-4"></span>
 
-一个特征波动有多大，可以从它的偏差大小看出。一个分量的典型大小就是第 [3.6](normen-die-groe-eines-vektors.html#stufe-3-6) 小节中的有效值。把它用于中心化向量，就得到与均值的典型偏差。用电工学的语言来说：交流分量的有效值。
+一个特征波动有多大，可以从它的偏差大小看出。一个分量的典型大小就是第 [3.6](normen-die-groe-eines-vektors.html#stufe-3-6) 小节中的均方根值。把它用于中心化向量，就得到与均值的典型偏差。
 
 :::definition 定义 4.3 (标准差)
 <span class="anker" id="satz-4-3"></span>
 
-向量 $\mathbf{v}\in\mathbb{R}^N$ 的__标准差__是它的中心化向量的有效值：
+向量 $\mathbf{v}\in\mathbb{R}^N$ 的__标准差__是它的中心化向量的均方根值：
 
 <span class="anker" id="gl-4-3"></span>
 $$\operatorname{std}(\mathbf{v})=\operatorname{rms}(\tilde{\mathbf{v}})=\frac{\lVert\mathbf{v}-\bar v\,\mathbf 1\rVert}{\sqrt N}=\sqrt{\frac1N\sum_{i=1}^N(v_i-\bar v)^2} . \tag{4.3}$$
@@ -128,14 +129,14 @@ $$\operatorname{std}(\mathbf{v})=\operatorname{rms}(\tilde{\mathbf{v}})=\frac{\l
 :::
 ::::
 
-⁠**简而言之：**标准差是与均值的偏差的有效值，即一个特征的典型波动。
+⁠**简而言之：**标准差是与均值的偏差的均方根值，即一个特征的典型波动。
 
-:::hintergrund 直流分量和交流分量分担功率
-一个向量是它的直流分量 $\bar v\,\mathbf 1$ 与交流分量 $\tilde{\mathbf{v}}$ 之和。对于长度的平方，点积的运算规则给出
+:::hintergrund 均值和偏差分担均方值
+一个向量是常向量 $\bar v\,\mathbf 1$ 与它的偏差 $\tilde{\mathbf{v}}$ 之和。对于长度的平方，点积的运算规则给出
 
 $$\lVert\bar v\,\mathbf 1+\tilde{\mathbf{v}}\rVert^2=\bar v^2\,\mathbf 1^{\top}\mathbf 1+2\,\bar v\,\mathbf 1^{\top}\tilde{\mathbf{v}}+\lVert\tilde{\mathbf{v}}\rVert^2=N\bar v^2+0+\lVert\tilde{\mathbf{v}}\rVert^2 ,$$
 
-因为偏差之和为零。除以 $N$，就变成 $\operatorname{rms}(\mathbf{v})^2=\bar v^2+\operatorname{std}(\mathbf{v})^2$。这与交直流混合电流的分解相同：它在电阻上的功率等于直流分量的功率与交流分量的功率之和。对于面积：$\operatorname{rms}^2=(3600+1600+8100+4900)/4=4550=65^2+325$。
+因为偏差之和为零。除以 $N$，就变成 $\operatorname{rms}(\mathbf{v})^2=\bar v^2+\operatorname{std}(\mathbf{v})^2$。用文字来说：各值的均方值等于它们均值的平方加上它们偏差的均方值。所以较大的均方值既可能来自较大的值，也可能来自较强的波动，而这个公式把两者分开。对于面积：$\operatorname{rms}^2=(3600+1600+8100+4900)/4=4550=65^2+325$。
 :::
 
 ### 标准化
@@ -197,13 +198,13 @@ $$\lVert\mathbf{z}_a-\mathbf{z}_b\rVert^2=\sum_{j=1}^d\frac{(x_{aj}-x_{bj})^2}{s
 不过，标准化本身也是一种决定。它在距离中给每个特征相同的权重，即使某个特征对所讨论的问题毫无作用。一个在所有样本中取值都相同的特征，标准差为零，无法标准化；但它也区分不了样本，对任何距离都没有贡献。
 :::
 
-:::aufgabe 练习 9 ★ 直流分量与交流分量
+:::aufgabe 练习 9 ★ 均值与偏差
 <span class="anker" id="aufg-9"></span>
 
-一个信号的采样值为 $\mathbf{x}=(1,\,3,\,1,\,-1)^{\top}$。计算均值、中心化向量、标准差和有效值。验证 $\operatorname{rms}(\mathbf{x})^2=\bar x^2+\operatorname{std}(\mathbf{x})^2$。
+四天里早上七点的温度为 $\mathbf{x}=(1,\,3,\,1,\,-1)^{\top}$ 摄氏度。计算均值、中心化向量、标准差和均方根值。验证 $\operatorname{rms}(\mathbf{x})^2=\bar x^2+\operatorname{std}(\mathbf{x})^2$。
 
 :::loesung
-均值为 $\bar x=(1+3+1-1)/4=1$，中心化向量为 $\tilde{\mathbf{x}}=(0,\,2,\,0,\,-2)^{\top}$。标准差为 $\sqrt{(0+4+0+4)/4}=\sqrt2\approx1.414$，有效值为 $\sqrt{(1+9+1+1)/4}=\sqrt3\approx1.732$。验算：$\operatorname{rms}^2=3=1^2+(\sqrt2)^2=\bar x^2+\operatorname{std}^2$。直流分量与交流分量按 $1:2$ 的比例分担“功率”$3$。
+均值为 $\bar x=(1+3+1-1)/4=1$，中心化向量为 $\tilde{\mathbf{x}}=(0,\,2,\,0,\,-2)^{\top}$。标准差为 $\sqrt{(0+4+0+4)/4}=\sqrt2\approx1.414$，均方根值为 $\sqrt{(1+9+1+1)/4}=\sqrt3\approx1.732$。验算：$\operatorname{rms}^2=3=1^2+(\sqrt2)^2=\bar x^2+\operatorname{std}^2$。均值和偏差按 $1:2$ 的比例分担均方值 $3$。
 :::
 :::
 

@@ -1,7 +1,8 @@
 ---
 title: Das Wichtigste bis hier
 pfad: Informatik / Programmieren / Python / Programme und der Python-Interpreter
-knoten: Python 1: Programme und der Python-Interpreter
+adresse: informatik/programmieren/python/programme-und-der-python-interpreter
+knoten: Kapitel 1: Programme und der Python-Interpreter
 order: 6020800
 summary: Was ein Programm ist, wie Python es ausführt, interaktiv rechnen, Skripte schreiben und Fehlermeldungen lesen
 tags: 

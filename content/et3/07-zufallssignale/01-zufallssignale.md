@@ -1,7 +1,9 @@
 ---
 title: Überblick: Zufallssignale
 kurz: Überblick
-pfad: Elektrotechnik / 3. Semester / Signale und Systeme / Zufallssignale
+pfad: Elektrotechnik / 3. Semester / ET3 – Grundgebiete der Elektrotechnik 3: Signale und Systeme / Zufallssignale
+adresse: elektrotechnik/3-semester/signale-und-systeme/zufallssignale
+knoten: Kapitel 7: Zufallssignale
 order: 3270100
 summary: Mittelwerte, Verteilungen, Leistungsdichte, Rauschen in Systemen und der optimale Empfänger
 tags: 
@@ -33,7 +35,7 @@ Das Rauschen eines Widerstands, Sprache, ein Datenstrom: Solche Signale kann man
 
 <li>
 
-⁠**Rekursives System** $g(n)=s(n)+0{,}6\,g(n-1)$ aus [Teil 4](/wissen/elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme/abtastung-und-zeitdiskrete-systeme.html).
+⁠**Rekursives System** $g(n)=s(n)+0{,}6\,g(n-1)$ aus [Kapitel 4](/wissen/elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme/abtastung-und-zeitdiskrete-systeme.html).
 
 </li>
 

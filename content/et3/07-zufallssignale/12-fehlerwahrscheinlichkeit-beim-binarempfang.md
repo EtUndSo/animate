@@ -1,6 +1,8 @@
 ---
 title: Stufe 11: Fehlerwahrscheinlichkeit beim Binärempfang
-pfad: Elektrotechnik / 3. Semester / Signale und Systeme / Zufallssignale
+pfad: Elektrotechnik / 3. Semester / ET3 – Grundgebiete der Elektrotechnik 3: Signale und Systeme / Zufallssignale
+adresse: elektrotechnik/3-semester/signale-und-systeme/zufallssignale
+knoten: Kapitel 7: Zufallssignale
 order: 3271200
 summary: Der Empfänger soll entscheiden: Wurde der Impuls gesendet oder nicht?
 tags: 

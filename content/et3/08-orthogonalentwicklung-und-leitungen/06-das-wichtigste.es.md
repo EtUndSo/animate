@@ -1,6 +1,8 @@
 ---
 title: Lo esencial
-pfad: Ingeniería eléctrica / 3.er semestre / Señales y sistemas / Desarrollo ortogonal y líneas de transmisión
+pfad: Ingeniería eléctrica / 3.er semestre / ET3 – Fundamentos de ingeniería eléctrica 3: señales y sistemas / Desarrollo ortogonal y líneas de transmisión
+adresse: elektrotechnik/3-semester/signale-und-systeme/orthogonalentwicklung-und-leitungen
+knoten: Capítulo 8: Desarrollo ortogonal y líneas de transmisión
 order: 3280600
 summary: Dos temas complementarios: señales como vectores, ondas en líneas eléctricas
 tags: 

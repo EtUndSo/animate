@@ -1,6 +1,8 @@
 ---
 title: 要点
-pfad: 电气工程 / 第 1 学期 / 高等数学 1 / 集合、逻辑与实数
+pfad: 电气工程 / 第 1 学期 / HöMa1 – 高等数学 1 / 集合、逻辑与实数
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen
+knoten: 第 1 章：集合、逻辑与实数
 order: 1211200
 summary: 关于数必须预设什么 以及为什么 2 的平方根不是分数
 tags: 

@@ -1,6 +1,8 @@
 ---
 title: Stage 9: What voltage does to a charge
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / Charge, Field and Potential
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / Charge, Field and Potential
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial
+knoten: Chapter 1: Charge, Field and Potential
 order: 1111100
 summary: This stage brings field, potential and voltage together on a single electron: What force acts, what energy does it gain, how fast does it get?
 tags: electronvolt

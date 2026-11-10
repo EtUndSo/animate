@@ -1,7 +1,9 @@
 ---
 title: 概览: 电流、电阻与基尔霍夫定律
 kurz: 概览
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 电流、电阻与基尔霍夫定律
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 电流、电阻与基尔霍夫定律
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff
+knoten: 第 2 章：电流、电阻与基尔霍夫定律
 order: 1120100
 summary: 为什么电子缓慢爬行，电流却立刻出现， 以及为什么电路网络服从守恒定律
 tags: 电流, 电阻, 欧姆定律, 节点定律, 网孔定律
@@ -36,7 +38,7 @@ lang: zh
 
 <li>
 
-⁠**串联链：**[第 1 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)的 9 V 电池接在两个串联电阻 $R_1=2\,\mathrm{k\Omega}$ 和 $R_2=1\,\mathrm{k\Omega}$ 上。电流为 3 mA，$R_1$ 上为 6 V，$R_2$ 上为 3 V。
+⁠**串联链：**[第 1 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)的 9 V 电池接在两个串联电阻 $R_1=2\,\mathrm{k\Omega}$ 和 $R_2=1\,\mathrm{k\Omega}$ 上。电流为 3 mA，$R_1$ 上为 6 V，$R_2$ 上为 3 V。
 
 </li>
 

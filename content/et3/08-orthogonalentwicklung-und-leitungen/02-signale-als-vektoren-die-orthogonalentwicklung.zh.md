@@ -1,6 +1,8 @@
 ---
 title: 第 1 阶段：作为向量的信号——正交展开
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / 正交展开与传输线
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / 正交展开与传输线
+adresse: elektrotechnik/3-semester/signale-und-systeme/orthogonalentwicklung-und-leitungen
+knoten: 第 8 章：正交展开与传输线
 order: 3280200
 summary: 傅里叶级数把信号分解为振荡。同样的做法适用于任何正交函数系。本阶段说明如何求出系数，以及为什么这些系数给出最佳逼近。
 tags: 正交, 标准正交, 广义帕塞瓦尔定理
@@ -13,7 +15,7 @@ lang: zh
 傅里叶级数把信号分解为振荡。同样的做法适用于任何正交函数系。本阶段说明如何求出系数，以及为什么这些系数给出最佳逼近。
 :::
 
-**思路。** 空间中的向量相对于相互垂直的单位向量 $\vec e_i$ 具有分量 $b_i=\vec f\cdot\vec e_i$。对于区间 $[0,T]$ 上的信号，积分 $\int_0^Tf(t)g(t)\mathrm{d} t$ 起着内积的作用。若该积分为零，则称两个信号__正交__（[第 6 部分](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen/korrelationsfunktionen.html)）。由 $M$ 个函数 $s_i(t)$ 组成的函数系称为__标准正交__的，条件是
+**思路。** 空间中的向量相对于相互垂直的单位向量 $\vec e_i$ 具有分量 $b_i=\vec f\cdot\vec e_i$。对于区间 $[0,T]$ 上的信号，积分 $\int_0^Tf(t)g(t)\mathrm{d} t$ 起着内积的作用。若该积分为零，则称两个信号__正交__（[第 6 章](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen/korrelationsfunktionen.html)）。由 $M$ 个函数 $s_i(t)$ 组成的函数系称为__标准正交__的，条件是
 
 <span class="anker" id="gl-1-1"></span>
 $$\int_0^Ts_i(t)\,s_j(t)\,\mathrm{d} t=\begin{cases}1&i=j\\0&i\neq j\end{cases}. \tag{1.1}$$
@@ -39,7 +41,7 @@ $$\frac{\partial E_r}{\partial b_j}=-2\int_0^T\Bigl(f-\sum_ib_is_i\Bigr)s_j\,\ma
 由于标准正交性，和式中只剩下 $i=j$ 一项。代入这些 $b_i$ 并把平方展开，交叉项同样由于标准正交性而消失：$E_r=E_f-2\sum b_i^2+\sum b_i^2=E_f-\sum b_i^2$。
 :::
 
-⁠**如何理解：**每个系数都单独确定，与其他系数无关。增加一个基函数时，原有的系数保持不变。这就是正交函数系的优点，与傅里叶级数（[第 3 部分](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)）完全一样。$b_i$ 就是互相关 $\varphi^E_{fs_i}(0)$。正因为如此，可以用一组相关滤波器 $h_i(t)=s_i(T-t)$ 来测量这些系数，只需在 $t=T$ 时刻对它们的输出采样（[第 7 部分](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/zufallssignale/zufallssignale.html)）。
+⁠**如何理解：**每个系数都单独确定，与其他系数无关。增加一个基函数时，原有的系数保持不变。这就是正交函数系的优点，与傅里叶级数（[第 3 章](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)）完全一样。$b_i$ 就是互相关 $\varphi^E_{fs_i}(0)$。正因为如此，可以用一组相关滤波器 $h_i(t)=s_i(T-t)$ 来测量这些系数，只需在 $t=T$ 时刻对它们的输出采样（[第 7 章](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/zufallssignale/zufallssignale.html)）。
 
 ::::beispiel
 $[0,1]$ 上的 $f(t)=t^2$，$E_f=\frac15$。取 $s_0=1$ 和 $s_1=\sqrt3(2t-1)$：

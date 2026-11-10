@@ -1,6 +1,8 @@
 ---
 title: Etapa 6: Nudos, ramas, mallas
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Corriente, resistencia y leyes de Kirchhoff
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Corriente, resistencia y leyes de Kirchhoff
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff
+knoten: Capítulo 2: Corriente, resistencia y leyes de Kirchhoff
 order: 1120700
 summary: Una red tiene muchas incógnitas.
 tags: nudo, rama, grafo, malla, árbol, ramas de enlace, linealmente independientes, completo

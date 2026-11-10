@@ -1,6 +1,8 @@
 ---
 title: 第 3 阶段：域公理
-pfad: 电气工程 / 第 1 学期 / 高等数学 1 / 集合、逻辑与实数
+pfad: 电气工程 / 第 1 学期 / HöMa1 – 高等数学 1 / 集合、逻辑与实数
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen
+knoten: 第 1 章：集合、逻辑与实数
 order: 1210500
 summary: 关于加法和乘法，必须假设哪几条规则，才能证明其余所有运算法则？
 tags: 运算, 分配律, 差, 商
@@ -34,7 +36,7 @@ __运算__把任意两个元素对应到同一集合的一个元素。带有两�
 此外还有 (AM) $x\cdot(y+z)=(x\cdot y)+(x\cdot z)$（__分配律__）和 (NNE) $0\ne1$。
 :::
 
-⁠**如何理解：**这里的 $0$ 和 $1$ 只是两个特定元素的名字。减法和除法不是单独的运算：$x-y:=x+(-y)$，$\frac yx:=y\cdot x^{-1}$。约定“先乘后加”，并约定 $xy:=x\cdot y$。凡是从公理推出的结论，在每个域中都成立，因而也适用于[第 2 部分](/wissen/zh/elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen/komplexe-zahlen.html)的复数。$\mathbb{Q}$ 和 $\mathbb{R}$ 是例子。$\mathbb{N}$ 不是域（没有 0，没有 $-1$），$\mathbb{Z}$ 也不是（2 没有逆元）。最小的域是 $\{0,1\}$，其中 $1+1=0$，这就是数字电路中的加法（XOR）。**为什么需要这些前提：**没有 (NNE)，$\{0\}$ 就是域了。(M4) 中没有 $x\ne0$，由下面的 (iii) 就会得到 $1=0\cdot0^{-1}=0$。
+⁠**如何理解：**这里的 $0$ 和 $1$ 只是两个特定元素的名字。减法和除法不是单独的运算：$x-y:=x+(-y)$，$\frac yx:=y\cdot x^{-1}$。约定“先乘后加”，并约定 $xy:=x\cdot y$。凡是从公理推出的结论，在每个域中都成立，因而也适用于[第 2 章](/wissen/zh/elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen/komplexe-zahlen.html)的复数。$\mathbb{Q}$ 和 $\mathbb{R}$ 是例子。$\mathbb{N}$ 不是域（没有 0，没有 $-1$），$\mathbb{Z}$ 也不是（2 没有逆元）。最小的域是 $\{0,1\}$，其中 $1+1=0$，这就是数字电路中的加法（XOR）。**为什么需要这些前提：**没有 (NNE)，$\{0\}$ 就是域了。(M4) 中没有 $x\ne0$，由下面的 (iii) 就会得到 $1=0\cdot0^{-1}=0$。
 
 :::satz 定理 3.2 (域中的运算法则)
 <span class="anker" id="satz-3-2"></span>
@@ -105,7 +107,7 @@ $(-3)(-5)=15$，$\frac23+\frac57=\frac{14+15}{21}=\frac{29}{21}$，$\frac34:\fra
 ⁠**极限情况** $v=u=1$：加法法则变为 $x+y=x+y$。
 
 :::frage 这些我在学校就知道了。为什么还要证明？
-对 $\mathbb{Q}$ 和 $\mathbb{R}$ 来说，这些规则是熟悉的。但它们不在公理之中，只有证明才说明它们在哪里成立：在每个域中。而学校里的规则“平方不为负”却不能从这份清单推出，并在[第 2 部分](/wissen/zh/elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen/komplexe-zahlen.html)失效。此外，这也是在用结果已知的内容练习推理。
+对 $\mathbb{Q}$ 和 $\mathbb{R}$ 来说，这些规则是熟悉的。但它们不在公理之中，只有证明才说明它们在哪里成立：在每个域中。而学校里的规则“平方不为负”却不能从这份清单推出，并在[第 2 章](/wissen/zh/elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen/komplexe-zahlen.html)失效。此外，这也是在用结果已知的内容练习推理。
 :::
 
 :::aufgabe 练习 4 ★★ 在域中证明

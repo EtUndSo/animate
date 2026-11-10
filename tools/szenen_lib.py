@@ -37,6 +37,15 @@ TEXT = 26                  # normale Beschriftung
 ZAHL = 24                  # Achsenzahlen
 ACHSTITEL = 26             # Achsen- und Teilbildtitel
 FORMEL = 30                # Formeln von summe(), produkt(), skalarprodukt() (LaTeX wirkt bei gleicher Größe kleiner)
+PX = 135.0                 # Szenenpixel je Szeneneinheit
+TT_ZELLE = 0.6             # Schreibmaschinenschrift (s.text(..., schrift="tt")): Breite einer Zeichenzelle in em
+
+
+def tt_breite(groesse=TEXT, zeichen=1):
+    """Breite von `zeichen` Zellen der Schreibmaschinenschrift in Szeneneinheiten (groesse = Schriftgröße in
+    Szenenpixeln wie bei s.text). Ein chinesisches Zeichen belegt zwei Zellen. Spalte i einer links ausgerichteten
+    Zeile, die bei x0 beginnt, fängt bei x0 + tt_breite(groesse, i) an."""
+    return TT_ZELLE * groesse * zeichen / PX
 
 
 def daten(pfad, x=1, y=2):
@@ -83,11 +92,18 @@ def _zahl(v):
 
 
 class Szene:
-    def __init__(self, name, margin=24):
+    def __init__(self, name, margin=24, reihenfolge=None):
+        """reihenfolge = was oben liegt: "anlegen" = Reihenfolge des Anlegens (was später angelegt wird, liegt oben,
+        auch wenn es per Animation erscheint; Empfehlung für neue Szenen), "erscheinen" = ein Objekt mit
+        Erscheinen-Animation legt sich über alles, was schon sichtbar ist. None (Standard) = "erscheinen", wie alle
+        Szenen vor dem 10.11.2026; die Szenendatei bleibt dann ohne Eintrag (notizen/animationen.md §6)."""
         self.name = name
         self.objects, self.strings = [], {}
         self.n = 0
         self.margin = margin
+        if reihenfolge not in (None, "anlegen", "erscheinen"):
+            raise ValueError('reihenfolge ist "anlegen", "erscheinen" oder None')
+        self.reihenfolge = reihenfolge
 
     # ---------------------------------------------------------------------------- intern
     def _add(self, typ, props, on=None):
@@ -170,10 +186,14 @@ class Szene:
     def linie(self, on, a, b, farbe=SCHWARZ, dicke=3, dash=""):
         return self._add("Line", {"start": [a[0], a[1], 0], "end": [b[0], b[1], 0], "color": farbe, "stroke_width": dicke, "dash": dash}, on)
 
-    def weg(self, on, fx, fy, t0, t1, farbe=BLAU, dicke=4, pfeile="", n=161, dash=""):
-        """Parametrischer Weg; pfeile = "0.25;0.75": Richtungsmarken an diesen Stellen, "" = keine."""
-        return self._add("ParametricCurve", {"fx": fx, "fy": fy, "t_min": t0, "t_max": t1, "samples": n, "show_arrow": bool(pfeile), "arrow_at": pfeile,
-                                             "color": farbe, "stroke_width": dicke, "dash": dash}, on)
+    def weg(self, on, fx, fy, t0, t1, farbe=BLAU, dicke=4, pfeile="", n=161, dash="", spitze=None):
+        """Parametrischer Weg; pfeile = "0.25;0.75": Richtungsmarken an diesen Stellen, "" = keine.
+        spitze = Länge jeder Richtungsmarke in Szeneneinheiten (Standard 0.22; für kurze Wege kleiner, z. B. 0.11)."""
+        p = {"fx": fx, "fy": fy, "t_min": t0, "t_max": t1, "samples": n, "show_arrow": bool(pfeile), "arrow_at": pfeile,
+             "color": farbe, "stroke_width": dicke, "dash": dash}
+        if spitze is not None:
+            p["head_size"] = float(spitze)
+        return self._add("ParametricCurve", p, on)
 
     def band(self, on, x0, x1, y0, y1, farbe=BLAU, deckung=0.15):
         return self._add("Band", {"x_min": x0, "x_max": x1, "y_min": y0, "y_max": y1, "full_height": False, "full_width": False, "label": "",
@@ -195,8 +215,24 @@ class Szene:
                                     "font_size": groesse, "row_gap": zeile, "swatch_len": 0.4, "gap": 0.12, "color": SCHWARZ, "stroke_width": 4}, on)
 
     # ---------------------------------------------------------------------------- Text und Blöcke
-    def text(self, on, s, pos, groesse=TEXT, ausrichtung="left", farbe=SCHWARZ):
-        return self._add("Text", {"text": s, "position": [pos[0], pos[1], 0], "font_size": groesse, "align": ausrichtung, "color": farbe}, on)
+    def text(self, on, s, pos, groesse=TEXT, ausrichtung="left", farbe=SCHWARZ, schrift=None, roh=None):
+        """Beschriftung. Ohne Zusatz Rich-Text: _x tief, ^x hoch, \\alpha, \\\\ Zeilenumbruch; $ { } verschwinden;
+        Dezimalpunkte werden in de/es/fr/tr zum Komma.
+        schrift="tt": Schreibmaschinenschrift (Terminalzeilen, Code, Werkzeugausgaben). Jedes Zeichen steht in einer
+          Zelle fester Breite (tt_breite), mehrere Leerzeichen bleiben, Spalten stehen untereinander, ein chinesisches
+          Zeichen belegt zwei Zellen; ' und ` bleiben gerade; Dezimalpunkte bleiben Punkte. Kostet nur die Zeichen
+          selbst (keine Formel-Glyphen). Ohne roh=False ist tt immer roh.
+        roh=True: der Text wörtlich (_ ^ \\ $ { } sind gewöhnliche Zeichen, Dateinamen wie einkauf_alt.txt oder C:\\
+          ohne Maskierung; ein echter Zeilenumbruch "\\n" bricht die Zeile). @schluessel aus s.tr gilt weiter."""
+        p = {"text": s, "position": [pos[0], pos[1], 0], "font_size": groesse, "align": ausrichtung, "color": farbe}
+        if schrift not in (None, "sans", "tt", "mono"):
+            raise ValueError('schrift ist None, "tt" oder "sans"')
+        mono = schrift in ("tt", "mono")
+        if mono:
+            p["font"] = "mono"
+        if roh or (roh is None and mono):
+            p["raw"] = True
+        return self._add("Text", p, on)
 
     def box(self, s, mitte, breite=0, hoehe=0, form="rect", groesse=TEXT, farbe=SCHWARZ, fuellung="#ffffff", deckung=1.0, dicke=3, dash=""):
         return self._add("TextBox", {"text": s, "center": [mitte[0], mitte[1], 0], "width": breite, "height": hoehe, "shape": form, "padding": 0.2,
@@ -219,6 +255,17 @@ class Szene:
              "size": groesse, "color": farbe, "stroke_width": dicke}
         p.update(kw)
         return self._add("Device", p)
+
+    def tabelle(self, zeilen, links_oben, zelle_b=1.2, zelle_h=0.6, zeilenkoepfe=(), spaltenkoepfe=(), klammern=False,
+                groesse=ZAHL, farbe=SCHWARZ, markiert=(), on=None):
+        """Tabelle oder Matrix (klammern=True): zeilen = [[a, b], [c, d]] (Text oder Zahl), links_oben = linke obere Ecke.
+        markiert = [(z, s), ...] fest hinterlegte Zellen; einzelne Zellen kurz betonen: s.betonen(id, zelle=(z, s))."""
+        zellen = ";".join(",".join(str(x) for x in z) for z in zeilen)
+        return self._add("Table", {"cells": zellen, "row_labels": ",".join(zeilenkoepfe), "col_labels": ",".join(spaltenkoepfe),
+                                   "highlight": ";".join("%d,%d" % rc for rc in markiert), "brackets": bool(klammern),
+                                   "cell_w": zelle_b, "cell_h": zelle_h, "position": [links_oben[0], links_oben[1], 0],
+                                   "font_size": groesse, "color": farbe, "fill_color": "#f5c542", "fill_opacity": 0.35,
+                                   "stroke_width": 1.5}, on)
 
     def draht(self, *pkte, farbe=SCHWARZ, dicke=3):
         """Leitung durch die Punkte (mehrere gerade Stücke)."""
@@ -260,21 +307,35 @@ class Szene:
         p.update(props)
         return p
 
+    @staticmethod
+    def _index_exakt(p, index, exakt):
+        """Laufindex und exakte Brüche nur eintragen, wenn sie vom Standard abweichen (alte Szenendateien bleiben gleich)."""
+        if index != "i":
+            if not (isinstance(index, str) and len(index) == 1 and index.isalpha() and index.isascii() and index != "e"):
+                raise ValueError('index ist ein lateinischer Buchstabe außer e, z. B. "k"')
+            p["index"] = index
+        if exakt:
+            p["exact"] = True
+        return p
+
     def summe(self, term, von=1, bis="n", mitte=(0, 0), groesse=None, breite=7.0, summanden=3, alle_schritte=True,
-              farbe=SCHWARZ, laufzeit=5, **props):
+              farbe=SCHWARZ, laufzeit=5, index="i", exakt=False, **props):
         """Σ_{i=von}^{bis} term. term in der Ausdruckssprache des Editors mit dem Laufindex i ("1/i^2", "(-1)^i/i",
         "2^(-i)"); bis = Zahl oder Buchstabe ("n": symbolisch, dann bleiben die Summanden Ausdrücke, ohne Summe).
         summanden: so viele Summanden vorn, dann ⋯ und die letzten zwei (sind es höchstens summanden + 2, alle).
         Brüche bleiben exakt (1/4), eine Summe mit Bruch bekommt zusätzlich ihren Dezimalwert.
+        index = anderer Laufindex (ein Buchstabe, z. B. "k"); term schreibt dann k statt i.
+        exakt=True: exakt mit ganzen Zahlen rechnen, Brüche mit beliebig großem Nenner (3/131072, Summe 13107/131072);
+          ohne exakt werden Brüche mit Nenner über 10000 als Dezimalzahl gezeigt.
         **props: weitere Props der Editor-Operation (z. B. value_color="#…")."""
-        p = {"sum_mode": "number", "term": term, "from": von, "to": str(bis)}
+        p = self._index_exakt({"sum_mode": "number", "term": term, "from": von, "to": str(bis)}, index, exakt)
         p.update(self._rechnung(mitte, FORMEL if groesse is None else groesse, breite, summanden, alle_schritte, farbe, laufzeit, props))
         return self._operation("Summation", p)
 
     def produkt(self, term, von=1, bis="n", mitte=(0, 0), groesse=None, breite=7.0, summanden=3, alle_schritte=True,
-                farbe=SCHWARZ, laufzeit=5, **props):
-        """∏_{i=von}^{bis} term, sonst wie summe() (Faktoren statt Summanden, verbunden mit ·)."""
-        p = {"sum_mode": "number", "term": term, "from": von, "to": str(bis)}
+                farbe=SCHWARZ, laufzeit=5, index="i", exakt=False, **props):
+        """∏_{i=von}^{bis} term, sonst wie summe() (Faktoren statt Summanden, verbunden mit ·; index, exakt ebenso)."""
+        p = self._index_exakt({"sum_mode": "number", "term": term, "from": von, "to": str(bis)}, index, exakt)
         p.update(self._rechnung(mitte, FORMEL if groesse is None else groesse, breite, summanden, alle_schritte, farbe, laufzeit, props))
         return self._operation("BigProduct", p)
 
@@ -307,22 +368,166 @@ class Szene:
         p.update(self._rechnung(mitte, FORMEL if groesse is None else groesse, breite, summanden, alle_schritte, farbe, laufzeit, props))
         return self._operation("DotProduct", p)
 
-    def formel(self, tex, mitte=(0, 0), hoehe=0.25, farbe=SCHWARZ):
+    def formel(self, tex, mitte=(0, 0), hoehe=0.25, farbe=SCHWARZ, zeilenweise=False, dauer=None):
         """Eine LaTeX-Formel als Bild (MathTex, gesetzt von MathJax), z. B. s.formel(r"\\hat y = \\sigma(\\mathbf w^\\top \\mathbf x)").
         hoehe = Höhe der GANZEN Formel in Szeneneinheiten (eine Zeile ohne Bruch: 0.25 passt zu FORMEL = 30, mit
         Bruch oder Σ entsprechend mehr). mitte in Szeneneinheiten, auch in Szenen mit Achsen.
-        Dezimalzahlen mit Punkt schreiben (0.5): Die Sprache macht daraus 0,5 (de, es, fr, tr); Längen wie 0.5em bleiben."""
-        return self._add("MathTex", {"tex": tex, "height": hoehe, "position": [mitte[0], mitte[1], 0], "color": farbe})
+        Dezimalzahlen mit Punkt schreiben (0.5): Die Sprache macht daraus 0,5 (de, es, fr, tr); Längen wie 0.5em bleiben.
+        zeilenweise=True: Auf der Website erscheint die Formel Zeile für Zeile (Rechnung in aligned: ein Rechenschritt
+        je Zeile, Sprungmarke je Zeile); dauer = Gesamtdauer (Standard 1,2 s je Zeile). Das Bild bleibt dasselbe."""
+        oid = self._add("MathTex", {"tex": tex, "height": hoehe, "position": [mitte[0], mitte[1], 0], "color": farbe})
+        if zeilenweise:
+            zeilen = tex.count("\\\\") + 1 - sum(tex.count("\\begin{%s}" % u) for u in ("pmatrix", "bmatrix", "vmatrix", "matrix", "cases", "array"))
+            self.animation("FadeIn", oid, dauer if dauer is not None else 1.2 * max(1, zeilen), lines=True)
+        return oid
+
+    # ---------------------------------------------------------------------------- Zeitachse (Animationen)
+    # Jede Abbildung darf eine Zeitachse haben: Auf der Website läuft sie mit Start/Stopp-Knopf ab
+    # (export_szenen.py --animiert), das statische Bild und das PDF zeigen ihr Endbild. Jeder Aufruf hängt einen neuen
+    # Schritt an; Aufrufe in "with s.gleichzeitig():" teilen sich einen Schritt. Ziele sind die ids der Objekte
+    # (Rückgabewerte von s.kurve, s.box, ...). Objekte mit einer Erscheinen-Animation sind vorher unsichtbar.
+    # Anleitung: notizen/animationen.md.
+    def animation(self, art, ziel, dauer=1.0, **werte):
+        """Eine Animation des Editors (art = Create, Write, FadeIn, GrowFromCenter, FadeOut, Shift, MoveTo, Rotate,
+        Scale, Indicate, Transform, ReplacementTransform, TransformMatchingTex, MoveAlongPath) mit ihren Werten
+        (vector, point, angle in Grad, factor, around, to, row, col, cell). Ergebnis: die id der Animation."""
+        anims = self.__dict__.setdefault("_anims", [])
+        if not anims:
+            basis = self.model                                 # wie _operation: model() trägt die Zeitachse ein
+
+            def model_mit_zeitachse():
+                m = basis()
+                m["model"]["animations"] = json.loads(json.dumps(self._anims))
+                m["counters"]["nextAnimId"] = len(self._anims) + 1
+                return m
+            self.model = model_mit_zeitachse
+        gruppe = self.__dict__.get("_gruppe")
+        if gruppe is not None:                                 # in gleichzeitig(): ein gemeinsamer Schritt
+            if gruppe[0] is None:
+                gruppe[0] = self._schritt_neu()
+            schritt = gruppe[0]
+        else:
+            schritt = self._schritt_neu()
+        a = {"id": "a%d" % (len(anims) + 1), "type": art, "target": ziel, "run_time": float(dauer), "step": schritt}
+        a.update({k: v for k, v in werte.items() if v is not None})
+        anims.append(a)
+        return a["id"]
+
+    def _schritt_neu(self):
+        anims = self.__dict__.get("_anims") or []
+        return (max(a["step"] for a in anims) + 1) if anims else 0
+
+    class _Gleichzeitig:
+        def __init__(self, s):
+            self.s = s
+
+        def __enter__(self):
+            self.s._gruppe = [None]
+            return self.s
+
+        def __exit__(self, *exc):
+            self.s._gruppe = None
+            return False
+
+    def gleichzeitig(self):
+        """with s.gleichzeitig(): s.zeichnen(k); s.einblenden(t)  -> beide Animationen laufen zusammen."""
+        return Szene._Gleichzeitig(self)
+
+    # Erscheinen
+    def zeichnen(self, ziel, dauer=1.5):
+        """Linie, Kurve, Pfeil, Umriss zeichnet sich (Create)."""
+        return self.animation("Create", ziel, dauer)
+
+    def schreiben(self, ziel, dauer=1.0):
+        """Text oder Formel erscheint Strich für Strich (Write)."""
+        return self.animation("Write", ziel, dauer)
+
+    def einblenden(self, *ziele, dauer=0.6, nacheinander=False):
+        """Ein oder mehrere Objekte blenden ein (FadeIn); mehrere zusammen, mit nacheinander=True eines nach dem anderen."""
+        if nacheinander or len(ziele) == 1:
+            return [self.animation("FadeIn", z, dauer) for z in ziele][-1]
+        with self.gleichzeitig():
+            for z in ziele:
+                self.animation("FadeIn", z, dauer)
+
+    def wachsen(self, ziel, dauer=0.8):
+        """Wächst aus seiner Mitte (GrowFromCenter), z. B. ein Punkt oder Kasten."""
+        return self.animation("GrowFromCenter", ziel, dauer)
+
+    # Verschwinden (L1)
+    def ausblenden(self, *ziele, dauer=0.6):
+        """Objekte blenden aus (FadeOut); sie fehlen dann im Endbild und im PDF."""
+        with self.gleichzeitig():
+            for z in ziele:
+                self.animation("FadeOut", z, dauer)
+
+    # Bewegen
+    def verschieben(self, ziel, dx, dy, dauer=1.0):
+        """Um (dx, dy) Szeneneinheiten verschieben (Shift); im Endbild steht das Objekt am Ziel."""
+        return self.animation("Shift", ziel, dauer, vector=[dx, dy, 0])
+
+    def bewegen_zu(self, ziel, x, y, dauer=1.0):
+        """Mitte des Objekts nach (x, y) (MoveTo, Szeneneinheiten)."""
+        return self.animation("MoveTo", ziel, dauer, point=[x, y, 0])
+
+    def drehen(self, ziel, grad, um=None, dauer=1.0):
+        """Um grad Grad drehen (gegen den Uhrzeiger), um die eigene Mitte oder um den Punkt um=(x, y) (Zeiger)."""
+        return self.animation("Rotate", ziel, dauer, angle=grad, around=[um[0], um[1], 0] if um else None)
+
+    def skalieren(self, ziel, faktor, um=None, dauer=1.0):
+        return self.animation("Scale", ziel, dauer, factor=faktor, around=[um[0], um[1], 0] if um else None)
+
+    def entlang(self, ziel, weg, dauer=2.0):
+        """Objekt läuft auf dem Weg (id einer Kurve) entlang (MoveAlongPath)."""
+        return self.animation("MoveAlongPath", ziel, dauer, path=weg)
+
+    # Betonen
+    def betonen(self, ziel, dauer=0.9, zeile=None, spalte=None, zelle=None):
+        """Kurz hervorheben (Indicate). Bei einer Tabelle (s.tabelle) nur eine Zeile, Spalte oder Zelle (zeile, spalte)
+        ab 0 gezählt, ohne Kopfzeile/-spalte (L9)."""
+        return self.animation("Indicate", ziel, dauer, row=zeile, col=spalte, cell=list(zelle) if zelle else None)
+
+    def pause(self, dauer=0.8):
+        """Haltepunkt: nichts bewegt sich (Schritt „Wait“), z. B. zwischen zwei Rechenschritten."""
+        return self.animation("Wait", None, dauer)
+
+    # Umformen (L2)
+    def umformen(self, ziel, zu, dauer=1.2, passend=False):
+        """ziel nimmt die Form von zu an (Transform). zu ist nur Vorlage und wird nie selbst gezeichnet; im Endbild
+        steht ziel in der Form von zu. passend=True bei zwei Formeln: gleiche Zeichen wandern an ihren neuen Platz,
+        die übrigen blenden aus bzw. ein (TransformMatchingTex).
+        Zwei Texte (s.text): Inhalt, Farbe, Größe, Lage und Schrift gehen auf die Vorlage über; der alte Text blendet in
+        der ersten Hälfte aus, der neue in der zweiten ein. Im Endbild steht nur der neue Text (bequemer: ersetzen)."""
+        return self.animation("TransformMatchingTex" if passend else "Transform", ziel, dauer, to=zu)
+
+    def ersetzen(self, ziel, text, farbe=None, dauer=0.8, groesse=None):
+        """Inhalt eines s.text ändern (z. B. ein Zähler, eine Datei bekommt einen neuen Namen): legt die Vorlage selbst an
+        (gleiche Lage, Ausrichtung, Schrift; neuer Text, wahlweise neue Farbe/Größe) und formt um. Im Endbild, in .svg
+        und PDF steht nur der neue Text, kein unsichtbarer Rest. Ergebnis: die id der Animation."""
+        o = next((x for x in self.objects if x["id"] == ziel), None)
+        if o is None or o["type"] != "Text":
+            raise ValueError("ersetzen: %s ist kein s.text" % ziel)
+        p = json.loads(json.dumps(o["props"]))
+        p["text"] = text
+        if farbe is not None:
+            p["color"] = farbe
+        if groesse is not None:
+            p["font_size"] = groesse
+        vorlage = self._add("Text", p, o.get("on"))
+        return self.umformen(ziel, vorlage, dauer)
 
     # ---------------------------------------------------------------------------- Ablegen
     def model(self):
-        return {"v": 1, "counters": {"nextId": self.n + 1, "nextAnimId": 1, "nextCompId": 1},
-                "model": {"objects": self.objects, "animations": [], "computations": [],
-                          "background": {"color": "#ffffff", "transparent": False, "shadows": True, "axes_on_top": False},
-                          "playMode": "sequential", "angleUnit": "rad", "domain": "real",
-                          "camera": {"mode": "2d", "theta": 0.6, "phi": 1.0, "zoom": 1.0},
-                          "export": {"mode": "content", "margin": self.margin, "scale": 0.55, "frame": None},
-                          "lang": "de", "strings": self.strings}}
+        m = {"v": 1, "counters": {"nextId": self.n + 1, "nextAnimId": 1, "nextCompId": 1},
+             "model": {"objects": self.objects, "animations": [], "computations": [],
+                       "background": {"color": "#ffffff", "transparent": False, "shadows": True, "axes_on_top": False},
+                       "playMode": "sequential", "angleUnit": "rad", "domain": "real",
+                       "camera": {"mode": "2d", "theta": 0.6, "phi": 1.0, "zoom": 1.0},
+                       "export": {"mode": "content", "margin": self.margin, "scale": 0.55, "frame": None},
+                       "lang": "de", "strings": self.strings}}
+        if getattr(self, "reihenfolge", None):                 # nur wenn gewählt: ältere Szenendateien bleiben gleich
+            m["model"]["drawOrder"] = "creation" if self.reihenfolge == "anlegen" else "appearance"
+        return m
 
     def speichern(self):
         p = SZENEN / (self.name + ".json")

@@ -1,6 +1,8 @@
 ---
 title: Stufe 4: Diffusionsstrom und Einstein-Beziehung
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Diffusion, Rekombination und Grundgleichungen
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Diffusion, Rekombination und Grundgleichungen
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/diffusion-rekombination-und-grundgleichungen
+knoten: Kapitel 13: Diffusion, Rekombination und Grundgleichungen
 order: 4230600
 summary: Elektronen und Löcher sind geladen, ihre Diffusion ist also ein elektrischer Strom.
 tags: 
@@ -24,14 +26,14 @@ Für Elektronen (Ladung $-e$) und Löcher (Ladung $+e$) gilt
 $$j_{\mathrm n,\text{diff}}=+e\,D_\mathrm n\frac{\partial n}{\partial x},\quad j_{\mathrm p,\text{diff}}=-e\,D_\mathrm p\frac{\partial p}{\partial x},\qquad D_\mathrm n=\frac{k_\mathrm BT}e\,\mu_\mathrm n,\quad D_\mathrm p=\frac{k_\mathrm BT}e\,\mu_\mathrm p. \tag{4.1}$$
 :::
 
-⁠**So liest man das:** $k_\mathrm BT/e$ ist eine Spannung, 25,85 mV bei 300 K. Damit hat $D_\mathrm n$ die Einheit $\mathrm V\cdot\mathrm{cm^2/(V\,s)}=\mathrm{cm^2/s}$. Für Teilchen der Ladung $z_ie$ lautet die Beziehung $D_i=k_\mathrm BT\,\mu_i/(|z_i|\,e)$. Abb. [4](#abb-4) zeigt die Vorzeichen. **Gültigkeit:** konstante Temperatur, Boltzmann-Näherung der Besetzung ([Teil 10](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/zustandsdichte-und-fermi-verteilung/zustandsdichte-und-fermi-verteilung.html)), also kein entartetes Band.
+⁠**So liest man das:** $k_\mathrm BT/e$ ist eine Spannung, 25,85 mV bei 300 K. Damit hat $D_\mathrm n$ die Einheit $\mathrm V\cdot\mathrm{cm^2/(V\,s)}=\mathrm{cm^2/s}$. Für Teilchen der Ladung $z_ie$ lautet die Beziehung $D_i=k_\mathrm BT\,\mu_i/(|z_i|\,e)$. Abb. [4](#abb-4) zeigt die Vorzeichen. **Gültigkeit:** konstante Temperatur, Boltzmann-Näherung der Besetzung ([Kapitel 10](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/zustandsdichte-und-fermi-verteilung/zustandsdichte-und-fermi-verteilung.html)), also kein entartetes Band.
 
 :::abbildung gemb1/k13vorzeichen 4
 Teilchenstrom und elektrischer Strom in den vier Fällen. Drift: Das Feld treibt beide Sorten in entgegengesetzte Richtungen, die Ströme addieren sich. Diffusion: Beide Sorten laufen in dieselbe Richtung, ihre Ströme sind entgegengesetzt.
 :::
 
 :::herleitung Aus den Stößen: das erste Moment ohne Feld
-Stationär und ohne Feld bleibt von [(0.1)](von-grund-auf-was-aus-fruheren-teilen-gebraucht-wird.html#gl-0-1) nur $v\,\partial f/\partial x=-(f-f^0)/\tau_\text{scat}$. Multipliziere mit $v$ und summiere über alle Zustände je Länge (erstes Moment wie in [Teil 12](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/strom-im-halbleiter/strom-im-halbleiter.html), wegen $k=m^*v/\hbar$ gleichwertig zum Faktor $k$):
+Stationär und ohne Feld bleibt von [(0.1)](von-grund-auf-was-aus-fruheren-teilen-gebraucht-wird.html#gl-0-1) nur $v\,\partial f/\partial x=-(f-f^0)/\tau_\text{scat}$. Multipliziere mit $v$ und summiere über alle Zustände je Länge (erstes Moment wie in [Kapitel 12](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/strom-im-halbleiter/strom-im-halbleiter.html), wegen $k=m^*v/\hbar$ gleichwertig zum Faktor $k$):
 
 $$\tau_\text{scat}\,\frac{\partial}{\partial x}\,\frac1L\sum_kv^2f=-\frac1L\sum_kv\,f+\frac1L\sum_kv\,f^0.$$
 

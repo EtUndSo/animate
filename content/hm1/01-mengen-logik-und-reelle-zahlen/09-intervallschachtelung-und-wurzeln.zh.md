@@ -1,6 +1,8 @@
 ---
 title: 第 7 阶段：区间套与平方根
-pfad: 电气工程 / 第 1 学期 / 高等数学 1 / 集合、逻辑与实数
+pfad: 电气工程 / 第 1 学期 / HöMa1 – 高等数学 1 / 集合、逻辑与实数
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen
+knoten: 第 1 章：集合、逻辑与实数
 order: 1210900
 summary: 公理保证了分界的存在。本阶段把这一点变成一种构造方法，并由此证明 x 2=2 在 mathbb R 中恰有一个正解。
 tags: 区间, 非负数, 平方根

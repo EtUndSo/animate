@@ -1,0 +1,209 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 7,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      0.1,
+      1.1,
+      0.2
+     ],
+     "y_range": [
+      330,
+      470,
+      20
+     ],
+     "x_length": 5.6,
+     "y_length": 3.4,
+     "origin": [
+      0.4,
+      0.1,
+      0
+     ],
+     "title": "",
+     "x_label": "@zachse",
+     "y_label": "@rachse",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "0.2;0.4;0.6;0.8;1",
+     "y_ticks": "340;360;380;400;420;440;460",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": true,
+     "title_at": "left",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center",
+     "grid_x": true,
+     "grid_y": true,
+     "grid_color": "#d9d9d9",
+     "grid_width": 1
+    }
+   },
+   {
+    "id": "o2",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "20000*(x/100)/(1-(1+x/100)^(-60))",
+     "color": "#2a78d6",
+     "stroke_width": 5,
+     "dash": "",
+     "x_range": [
+      0.1,
+      1.1
+     ]
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o3",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "400",
+     "color": "#eb6834",
+     "stroke_width": 5,
+     "dash": "",
+     "x_range": [
+      0.1,
+      1.1
+     ]
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o4",
+    "type": "Dot",
+    "props": {
+     "center": [
+      0.618341,
+      400,
+      0
+     ],
+     "radius": 0.08,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o5",
+    "type": "Text",
+    "props": {
+     "text": "@zins",
+     "position": [
+      0.64,
+      388,
+      0
+     ],
+     "font_size": 22,
+     "align": "left",
+     "color": "#111111"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o6",
+    "type": "Legend",
+    "props": {
+     "labels": "@{l_rate};@{l_verlangt}",
+     "colors": "2a78d6;eb6834",
+     "styles": "-;-",
+     "position": [
+      0.13,
+      462,
+      0
+     ],
+     "font_size": 22,
+     "row_gap": 0.34,
+     "swatch_len": 0.4,
+     "gap": 0.12,
+     "color": "#111111",
+     "stroke_width": 4
+    },
+    "on": "o1"
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "zachse": {
+    "de": "Monatszins r in %",
+    "en": "monthly rate r in %",
+    "es": "interés mensual r en %",
+    "zh": "月利率 r（%）",
+    "fr": "taux mensuel r en %",
+    "tr": "aylık faiz r (%)"
+   },
+   "rachse": {
+    "de": "Monatsrate in Euro",
+    "en": "monthly payment in euros",
+    "es": "cuota mensual en euros",
+    "zh": "月供（欧元）",
+    "fr": "mensualité en euros",
+    "tr": "aylık taksit (avro)"
+   },
+   "zins": {
+    "de": "gesuchter Zins 0.618 %",
+    "en": "rate sought 0.618 %",
+    "es": "interés buscado 0.618 %",
+    "zh": "所求利率 0.618 %",
+    "fr": "taux cherché 0.618 %",
+    "tr": "aranan faiz 0.618 %"
+   },
+   "l_rate": {
+    "de": "Rate zum Zins r",
+    "en": "payment for rate r",
+    "es": "cuota para el interés r",
+    "zh": "利率 r 对应的月供",
+    "fr": "mensualité pour le taux r",
+    "tr": "r faizine göre taksit"
+   },
+   "l_verlangt": {
+    "de": "verlangte Rate 400 Euro",
+    "en": "required payment 400 euros",
+    "es": "cuota exigida 400 euros",
+    "zh": "要求的月供 400 欧元",
+    "fr": "mensualité demandée 400 euros",
+    "tr": "istenen taksit 400 avro"
+   }
+  }
+ }
+}

@@ -1,6 +1,8 @@
 ---
 title: Stufe 3: Zwei Atome teilen Elektronen
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Chemische Bindung
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Chemische Bindung
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/chemische-bindung
+knoten: Kapitel 5: Chemische Bindung
 order: 4150500
 summary: Zwei Wasserstoffatome haben dieselbe Elektronegativität.
 tags: bindendes Molekülorbital, antibindendes Molekülorbital, \sigma-Orbital, Kopplungsenergie
@@ -36,7 +38,7 @@ $$\begin{pmatrix}E_\mathrm{AO}&-V_\mathrm{ss}\\-V_\mathrm{ss}&E_\mathrm{AO}\end{
 Zwei Elektronen im bindenden Orbital gewinnen $E_\mathrm B=2(E_\mathrm{AO}-E_\sigma)=2V_\mathrm{ss}$.
 :::
 
-⁠**So liest man das:** $\phi_\mathrm A,\phi_\mathrm B$ sind die Atomorbitale, $E_\mathrm{AO}$ ihre Energie, in H$_2$ also 1s mit $-13{,}6$ eV. Die __Kopplungsenergie__ $V_\mathrm{ss}>0$ spielt dieselbe Rolle wie der Hüpfparameter $t_0$ in [Teil 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html): [(3.1)](#gl-3-1) ist die Hamilton-Matrix zweier gekoppelter Plätze. Sie fällt mit dem Abstand wie die Ausläufer der Orbitale ([Teil 3](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/stufe-barriere-und-tunneleffekt/stufe-barriere-und-tunneleffekt.html)), bei Wasserstoff ungefähr wie $\mathrm{e}^{-r/r_1}$. **Gültigkeit:** zwei gleiche Atome, $\int\phi_\mathrm A\phi_\mathrm B\,\mathrm{d} V$ vernachlässigt. Das ist grob, denn dieses Überlappintegral ist in H$_2$ 0,75. Mit ihm steigt $\sigma^*$ stärker, als $\sigma$ sinkt. Die Elektronen stoßen sich außerdem ab, $V_\mathrm{ss}$ ist ein effektiver Wert.
+⁠**So liest man das:** $\phi_\mathrm A,\phi_\mathrm B$ sind die Atomorbitale, $E_\mathrm{AO}$ ihre Energie, in H$_2$ also 1s mit $-13{,}6$ eV. Die __Kopplungsenergie__ $V_\mathrm{ss}>0$ spielt dieselbe Rolle wie der Hüpfparameter $t_0$ in [Kapitel 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html): [(3.1)](#gl-3-1) ist die Hamilton-Matrix zweier gekoppelter Plätze. Sie fällt mit dem Abstand wie die Ausläufer der Orbitale ([Kapitel 3](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/stufe-barriere-und-tunneleffekt/stufe-barriere-und-tunneleffekt.html)), bei Wasserstoff ungefähr wie $\mathrm{e}^{-r/r_1}$. **Gültigkeit:** zwei gleiche Atome, $\int\phi_\mathrm A\phi_\mathrm B\,\mathrm{d} V$ vernachlässigt. Das ist grob, denn dieses Überlappintegral ist in H$_2$ 0,75. Mit ihm steigt $\sigma^*$ stärker, als $\sigma$ sinkt. Die Elektronen stoßen sich außerdem ab, $V_\mathrm{ss}$ ist ein effektiver Wert.
 
 :::herleitung Von der Überlagerung zur Matrix
 Einsetzen in $\hat H\psi=E\psi$, Multiplizieren mit $\phi_\mathrm A$ und Integrieren ergibt $c_\mathrm AE_\mathrm{AO}+c_\mathrm BH_\mathrm{AB}=E\,c_\mathrm A$ mit $H_\mathrm{AB}=\int\phi_\mathrm A\hat H\phi_\mathrm B\,\mathrm{d} V=-V_\mathrm{ss}$. Mit $\phi_\mathrm B$ folgt die zweite Zeile. Das Minuszeichen stammt daher, dass $\hat H$ im Überlappgebiet vor allem die negative Energie im Feld der Kerne enthält. Die Bedingung $\det=0$ lautet $(E_\mathrm{AO}-E)^2=V_\mathrm{ss}^2$.
@@ -53,7 +55,7 @@ Aus $E_\mathrm B=4{,}75$ eV folgt $V_\mathrm{ss}=2{,}37$ eV, also $E_\sigma=
 ⁠**Grenzfälle:** Für $r\to\infty$ geht $V_\mathrm{ss}\to0$, beide Niveaus enden bei $E_\mathrm{AO}$. Zwei Heliumatome (1s$^2$) müssen beide Orbitale doppelt besetzen. Gewinn $-2V_\mathrm{ss}$ und Verlust $+2V_\mathrm{ss}$ heben sich auf, mit Überlappintegral überwiegt der Verlust. Darum bleibt Helium einatomig, und das ist der Mechanismus der Abstoßung voller Hüllen aus Stufe [1](die-energiekurve-der-bindung.html#stufe-1).
 
 :::frage Sinkt die Energie, weil das Elektron mehr Platz hat, oder weil es zwischen den Kernen sitzt?
-Beides gehört zusammen. Mehr Platz senkt die Krümmungsenergie wie in der längeren Box aus [Teil 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html). Im fertigen Molekül lässt sich die Kraft auf jeden Kern elektrostatisch verstehen: Die Ladung zwischen den Kernen zieht beide nach innen und hält ihrer Abstoßung die Waage.
+Beides gehört zusammen. Mehr Platz senkt die Krümmungsenergie wie in der längeren Box aus [Kapitel 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html). Im fertigen Molekül lässt sich die Kraft auf jeden Kern elektrostatisch verstehen: Die Ladung zwischen den Kernen zieht beide nach innen und hält ihrer Abstoßung die Waage.
 :::
 
 :::aufgabe Aufgabe 4 ★★ Orbitale füllen

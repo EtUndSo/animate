@@ -1,6 +1,8 @@
 ---
 title: Stufe 6: Welches Verfahren wann?
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Maschenstrom- und Knotenpotentialverfahren
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Maschenstrom- und Knotenpotentialverfahren
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/maschenstrom-und-knotenpotentialverfahren
+knoten: Kapitel 8: Maschenstrom- und Knotenpotentialverfahren
 order: 1180800
 summary: Beide Verfahren liefern dasselbe.
 tags: Dualität
@@ -49,7 +51,7 @@ Die Tabelle zeigt eine __Dualität__, eine Spiegelung: Tauscht man Masche und Kn
 Das Rechenmodell hat nach dem Umwandeln rechts $k=3$ und $z=5$. Es liegt mit $5>4$ über der Geraden, und tatsächlich waren es drei Maschen gegen zwei Knoten.
 ::::
 
-⁠**Grenzfall:** Die Brücke aus [Teil 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html) mit $k=4$ und $z=6$ liegt genau auf der Geraden. Dann entscheiden die Quellen: Eine ideale Spannungsquelle spricht für Maschen, denn sie steht dort auf der rechten Seite.
+⁠**Grenzfall:** Die Brücke aus [Kapitel 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html) mit $k=4$ und $z=6$ liegt genau auf der Geraden. Dann entscheiden die Quellen: Eine ideale Spannungsquelle spricht für Maschen, denn sie steht dort auf der rechten Seite.
 
 Simulatoren verwenden nur Knotenpotentiale. Die Maschen eines Netzes muss ein Programm erst suchen, und Fenster gibt es nur, wenn sich das Netz ohne Kreuzungen zeichnen lässt. Knoten dagegen stehen schon in der Schaltungsbeschreibung (Stufe [7](stempel-und-netzliste.html#stufe-7)).
 
@@ -97,6 +99,6 @@ Zeige: Fasst man an einem Netz zwei Bauteile in Reihe mit dem Knoten dazwischen 
 
 (c) $k=5$, $z=10$: $m=6$ gegen 4, Knotenpotentiale.
 
-(d) Der Knoten dazwischen entfällt und aus zwei Zweigen wird einer, also $m'=(z-1)-(k-1)+1=z-k+1=m$. Die Zählung aus [Teil 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html) kommt zum selben Schluss.
+(d) Der Knoten dazwischen entfällt und aus zwei Zweigen wird einer, also $m'=(z-1)-(k-1)+1=z-k+1=m$. Die Zählung aus [Kapitel 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html) kommt zum selben Schluss.
 :::
 :::

@@ -1,6 +1,8 @@
 ---
 title: Stufe 7: Maximum, Minimum, gleichmäßige Stetigkeit
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Exponentialfunktion und Stetigkeit
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Exponentialfunktion und Stetigkeit
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/exponentialfunktion-und-stetigkeit
+knoten: Kapitel 5: Exponentialfunktion und Stetigkeit
 order: 1250900
 summary: Hat eine stetige Funktion einen größten Wert?
 tags: Minimum, Maximum, nicht konstruktiv, gleichmäßig stetig

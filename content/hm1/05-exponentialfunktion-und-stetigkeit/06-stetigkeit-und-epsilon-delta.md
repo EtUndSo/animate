@@ -1,6 +1,8 @@
 ---
 title: Stufe 4: Stetigkeit und Epsilon-Delta
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Exponentialfunktion und Stetigkeit
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Exponentialfunktion und Stetigkeit
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/exponentialfunktion-und-stetigkeit
+knoten: Kapitel 5: Exponentialfunktion und Stetigkeit
 order: 1250600
 summary: Der Grenzwert schaut an f(x 0) vorbei.
 tags: stetig, rechtsseitig stetig, linksseitig stetig, stetig ergänzbar, stetige Ergänzung
@@ -64,7 +66,7 @@ $$\forall\,\varepsilon>0\ \ \exists\,\delta_0>0:\quad|f(x)-f(x_0)|<\varepsilon\q
 Gleichbedeutend: $\forall\,\varepsilon>0\ \exists\,\delta_0>0$ mit $\bigl(x\in U_{\delta_0}(x_0)\Rightarrow f(x)\in U_\varepsilon(f(x_0))\bigr)$.
 :::
 
-⁠**So liest man das:** Es ist das Spiel aus [Teil 4](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/folgen-und-grenzwerte/folgen-und-grenzwerte.html). Du gibst eine Toleranz $\varepsilon$ für den Ausgang vor, ich nenne $\delta_0$ für den Eingang. Ich gewinne, wenn alle Eingänge näher als $\delta_0$ an $x_0$ einen Ausgang näher als $\varepsilon$ an $f(x_0)$ erzeugen. $\delta_0=\delta_0(\varepsilon,x_0)$ darf von $\varepsilon$ und $x_0$ abhängen und muss so klein sein, dass $(x_0-\delta_0,x_0+\delta_0)\subset(a,b)$ gilt. Geometrisch bleibt das Graphenstück über dem $\delta_0$-Streifen im $\varepsilon$-Streifen (Abb. [4](#abb-4)).
+⁠**So liest man das:** Es ist das Spiel aus [Kapitel 4](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/folgen-und-grenzwerte/folgen-und-grenzwerte.html). Du gibst eine Toleranz $\varepsilon$ für den Ausgang vor, ich nenne $\delta_0$ für den Eingang. Ich gewinne, wenn alle Eingänge näher als $\delta_0$ an $x_0$ einen Ausgang näher als $\varepsilon$ an $f(x_0)$ erzeugen. $\delta_0=\delta_0(\varepsilon,x_0)$ darf von $\varepsilon$ und $x_0$ abhängen und muss so klein sein, dass $(x_0-\delta_0,x_0+\delta_0)\subset(a,b)$ gilt. Geometrisch bleibt das Graphenstück über dem $\delta_0$-Streifen im $\varepsilon$-Streifen (Abb. [4](#abb-4)).
 
 :::beweis Beide Richtungen
 „$\Leftarrow$“: Es gelte [(4.1)](#gl-4-1), und $\{x_n\}$ erfülle [(3.1)](grenzwerte-von-funktionen.html#gl-3-1). Sei $\varepsilon>0$ und $\delta_0$ wie in [(4.1)](#gl-4-1). Wegen $x_n\to x_0$ gibt es $N_0$ mit $|x_n-x_0|<\delta_0$ für alle $n>N_0$, also $|f(x_n)-f(x_0)|<\varepsilon$ für diese $n$. Das heißt $f(x_n)\to f(x_0)$.

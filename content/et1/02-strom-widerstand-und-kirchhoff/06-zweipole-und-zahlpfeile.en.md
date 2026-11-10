@@ -1,6 +1,8 @@
 ---
 title: Stage 5: Two-terminal elements and reference arrows
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / Current, Resistance and Kirchhoff's Laws
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / Current, Resistance and Kirchhoff's Laws
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff
+knoten: Chapter 2: Current, Resistance and Kirchhoff's Laws
 order: 1120600
 summary: From now on, what counts is no longer what happens inside the component, but what can be measured at its terminals.
 tags: two-terminal element, characteristic curve, black box, network, linear two-terminal element, nonlinear two-terminal element, passive sign convention, active sign convention
@@ -24,12 +26,12 @@ A __two-terminal element__ is a component that can be fully described by the cur
 $$G=\frac IU=\text{const}\quad\text{or}\quad R=\frac UI=\text{const}. \tag{5.1}$$
 :::
 
-⁠**How to read it:** Such a __linear two-terminal element__ is the ohmic resistor (Fig. [4](das-ohmsche-gesetz-aus-feld-und-stoen.html#abb-4) right, each straight line one value). Batteries and voltage sources also belong to the building blocks of linear networks, but their characteristic curve does not pass through the origin ([Part 5](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)). For a __nonlinear two-terminal element__ such as the incandescent lamp (Fig. [5](reale-widerstande-werte-und-temperatur.html#abb-5) right), $U/I$ depends on the operating point, and [(5.1)](#gl-5-1) does not hold there.
+⁠**How to read it:** Such a __linear two-terminal element__ is the ohmic resistor (Fig. [4](das-ohmsche-gesetz-aus-feld-und-stoen.html#abb-4) right, each straight line one value). Batteries and voltage sources also belong to the building blocks of linear networks, but their characteristic curve does not pass through the origin ([Chapter 5](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)). For a __nonlinear two-terminal element__ such as the incandescent lamp (Fig. [5](reale-widerstande-werte-und-temperatur.html#abb-5) right), $U/I$ depends on the operating point, and [(5.1)](#gl-5-1) does not hold there.
 
 :::definition Definition 5.2 (Sign conventions)
 <span class="anker" id="satz-5-2"></span>
 
-The voltage arrow points from 1 to 2 and means $U_{12}=\varphi_1-\varphi_2$ ([Part 1](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)). The current arrow counts positive charge in the direction of the arrow. In the __passive sign convention__ (PSC, load convention), the voltage and current arrows at a two-terminal element point in the same direction; in the __active sign convention__ (ASC, generator convention), they point in opposite directions. For a resistor,
+The voltage arrow points from 1 to 2 and means $U_{12}=\varphi_1-\varphi_2$ ([Chapter 1](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)). The current arrow counts positive charge in the direction of the arrow. In the __passive sign convention__ (PSC, load convention), the voltage and current arrows at a two-terminal element point in the same direction; in the __active sign convention__ (ASC, generator convention), they point in opposite directions. For a resistor,
 
 <span class="anker" id="gl-5-2"></span>
 $$U=R\,I\quad\text{(PSC)},\qquad U=-R\,I\quad\text{(ASC)}. \tag{5.2}$$

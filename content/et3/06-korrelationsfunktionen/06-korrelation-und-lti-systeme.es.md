@@ -1,6 +1,8 @@
 ---
 title: Etapa 5: Correlación y sistemas LTI
-pfad: Ingeniería eléctrica / 3.er semestre / Señales y sistemas / Funciones de correlación
+pfad: Ingeniería eléctrica / 3.er semestre / ET3 – Fundamentos de ingeniería eléctrica 3: señales y sistemas / Funciones de correlación
+adresse: elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen
+knoten: Capítulo 6: Funciones de correlación
 order: 3260600
 summary: ¿Qué le hace un sistema LTI a la FAC y a la densidad espectral de energía?
 tags: 
@@ -54,7 +56,7 @@ Determina $|G(f)|^2$ y, a partir de ahí, la energía de salida. Pista: $\int_{-
 
 <li>
 
-Compruébalo en el dominio del tiempo con $g(t)=t\,\mathrm{e}^{-t}\varepsilon(t)$ ([parte 1](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html), dos circuitos RC en cascada).
+Compruébalo en el dominio del tiempo con $g(t)=t\,\mathrm{e}^{-t}\varepsilon(t)$ ([capítulo 1](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html), dos circuitos RC en cascada).
 
 </li>
 

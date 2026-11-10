@@ -1,0 +1,879 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 30,
+  "nextAnimId": 35,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.45,
+      0.35,
+      0
+     ],
+     "width": 1.9,
+     "height": 1.3,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Text",
+    "props": {
+     "text": "@verz",
+     "position": [
+      -2.45,
+      1.22,
+      0
+     ],
+     "font_size": 20,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o3",
+    "type": "Text",
+    "props": {
+     "text": "@name",
+     "position": [
+      -3.25,
+      0.85,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Text",
+    "props": {
+     "text": "@nummer",
+     "position": [
+      -1.6,
+      0.85,
+      0
+     ],
+     "font_size": 18,
+     "align": "right",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o5",
+    "type": "Line",
+    "props": {
+     "start": [
+      -3.4,
+      0.72,
+      0
+     ],
+     "end": [
+      -1.5,
+      0.72,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Text",
+    "props": {
+     "text": "…",
+     "position": [
+      -3.25,
+      0.5,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o7",
+    "type": "Text",
+    "props": {
+     "text": "einkauf.txt",
+     "position": [
+      -3.25,
+      0.2,
+      0
+     ],
+     "font_size": 20,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Text",
+    "props": {
+     "text": "95361",
+     "position": [
+      -1.6,
+      0.2,
+      0
+     ],
+     "font_size": 20,
+     "align": "right",
+     "color": "#eb6834"
+    }
+   },
+   {
+    "id": "o9",
+    "type": "Text",
+    "props": {
+     "text": "…",
+     "position": [
+      -3.25,
+      -0.1,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o10",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -1.5,
+      0.2,
+      0
+     ],
+     "end": [
+      -0.77,
+      0.2,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.11,
+     "font_size": 26,
+     "color": "#eb6834",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o11",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.25,
+      0.35,
+      0
+     ],
+     "width": 2.0,
+     "height": 2.2,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#e3eefb",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Text",
+    "props": {
+     "text": "@ititel",
+     "position": [
+      0.25,
+      1.22,
+      0
+     ],
+     "font_size": 20,
+     "align": "center",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o13",
+    "type": "Text",
+    "props": {
+     "text": "@art",
+     "position": [
+      -0.6,
+      0.95,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o14",
+    "type": "Text",
+    "props": {
+     "text": "@rechte",
+     "position": [
+      -0.6,
+      0.72,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o15",
+    "type": "Text",
+    "props": {
+     "text": "@besitzer",
+     "position": [
+      -0.6,
+      0.48999999999999994,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o16",
+    "type": "Text",
+    "props": {
+     "text": "@groesse",
+     "position": [
+      -0.6,
+      0.2599999999999999,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o17",
+    "type": "Text",
+    "props": {
+     "text": "@zeiten",
+     "position": [
+      -0.6,
+      0.029999999999999916,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o18",
+    "type": "Text",
+    "props": {
+     "text": "@links",
+     "position": [
+      -0.6,
+      -0.20000000000000018,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o19",
+    "type": "Text",
+    "props": {
+     "text": "@lage",
+     "position": [
+      -0.6,
+      -0.43000000000000016,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o20",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.62,
+      0.95,
+      0
+     ],
+     "width": 1.3,
+     "height": 0.4,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#efefef",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o21",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.62,
+      0.25,
+      0
+     ],
+     "width": 1.3,
+     "height": 0.95,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#eb6834",
+     "fill_color": "#fdece3",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o22",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.62,
+      -0.47,
+      0
+     ],
+     "width": 1.3,
+     "height": 0.4,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#efefef",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o23",
+    "type": "Text",
+    "props": {
+     "text": "Milch",
+     "position": [
+      2.12,
+      0.58,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o24",
+    "type": "Text",
+    "props": {
+     "text": "Brot",
+     "position": [
+      2.12,
+      0.36,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o25",
+    "type": "Text",
+    "props": {
+     "text": "Äpfel",
+     "position": [
+      2.12,
+      0.13999999999999996,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o26",
+    "type": "Text",
+    "props": {
+     "text": "Kaffee",
+     "position": [
+      2.12,
+      -0.08000000000000007,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o27",
+    "type": "Text",
+    "props": {
+     "text": "@bloecke",
+     "position": [
+      2.62,
+      -0.9,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o28",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      1.25,
+      -0.43,
+      0
+     ],
+     "end": [
+      1.9500000000000002,
+      0.05,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.11,
+     "font_size": 26,
+     "color": "#eb6834",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o29",
+    "type": "Text",
+    "props": {
+     "text": "@note",
+     "position": [
+      0,
+      -1.3,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#333333"
+    }
+   }
+  ],
+  "animations": [
+   {
+    "id": "a1",
+    "type": "GrowFromCenter",
+    "target": "o1",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a2",
+    "type": "FadeIn",
+    "target": "o2",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a3",
+    "type": "FadeIn",
+    "target": "o3",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a4",
+    "type": "FadeIn",
+    "target": "o4",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a5",
+    "type": "FadeIn",
+    "target": "o5",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a6",
+    "type": "FadeIn",
+    "target": "o6",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a7",
+    "type": "FadeIn",
+    "target": "o7",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a8",
+    "type": "FadeIn",
+    "target": "o8",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a9",
+    "type": "FadeIn",
+    "target": "o9",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a10",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a11",
+    "type": "Indicate",
+    "target": "o7",
+    "run_time": 0.7,
+    "step": 2
+   },
+   {
+    "id": "a12",
+    "type": "Indicate",
+    "target": "o8",
+    "run_time": 0.7,
+    "step": 2
+   },
+   {
+    "id": "a13",
+    "type": "Create",
+    "target": "o10",
+    "run_time": 0.6,
+    "step": 3
+   },
+   {
+    "id": "a14",
+    "type": "GrowFromCenter",
+    "target": "o11",
+    "run_time": 0.6,
+    "step": 4
+   },
+   {
+    "id": "a15",
+    "type": "FadeIn",
+    "target": "o12",
+    "run_time": 0.6,
+    "step": 4
+   },
+   {
+    "id": "a16",
+    "type": "FadeIn",
+    "target": "o13",
+    "run_time": 0.8,
+    "step": 5
+   },
+   {
+    "id": "a17",
+    "type": "FadeIn",
+    "target": "o14",
+    "run_time": 0.8,
+    "step": 5
+   },
+   {
+    "id": "a18",
+    "type": "FadeIn",
+    "target": "o15",
+    "run_time": 0.8,
+    "step": 5
+   },
+   {
+    "id": "a19",
+    "type": "FadeIn",
+    "target": "o16",
+    "run_time": 0.8,
+    "step": 5
+   },
+   {
+    "id": "a20",
+    "type": "FadeIn",
+    "target": "o17",
+    "run_time": 0.8,
+    "step": 5
+   },
+   {
+    "id": "a21",
+    "type": "FadeIn",
+    "target": "o18",
+    "run_time": 0.8,
+    "step": 5
+   },
+   {
+    "id": "a22",
+    "type": "FadeIn",
+    "target": "o19",
+    "run_time": 0.8,
+    "step": 5
+   },
+   {
+    "id": "a23",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 6
+   },
+   {
+    "id": "a24",
+    "type": "Create",
+    "target": "o28",
+    "run_time": 0.6,
+    "step": 7
+   },
+   {
+    "id": "a25",
+    "type": "GrowFromCenter",
+    "target": "o20",
+    "run_time": 0.6,
+    "step": 8
+   },
+   {
+    "id": "a26",
+    "type": "GrowFromCenter",
+    "target": "o21",
+    "run_time": 0.6,
+    "step": 8
+   },
+   {
+    "id": "a27",
+    "type": "GrowFromCenter",
+    "target": "o22",
+    "run_time": 0.6,
+    "step": 8
+   },
+   {
+    "id": "a28",
+    "type": "FadeIn",
+    "target": "o23",
+    "run_time": 0.6,
+    "step": 8
+   },
+   {
+    "id": "a29",
+    "type": "FadeIn",
+    "target": "o24",
+    "run_time": 0.6,
+    "step": 8
+   },
+   {
+    "id": "a30",
+    "type": "FadeIn",
+    "target": "o25",
+    "run_time": 0.6,
+    "step": 8
+   },
+   {
+    "id": "a31",
+    "type": "FadeIn",
+    "target": "o26",
+    "run_time": 0.6,
+    "step": 8
+   },
+   {
+    "id": "a32",
+    "type": "FadeIn",
+    "target": "o27",
+    "run_time": 0.6,
+    "step": 8
+   },
+   {
+    "id": "a33",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 9
+   },
+   {
+    "id": "a34",
+    "type": "FadeIn",
+    "target": "o29",
+    "run_time": 0.6,
+    "step": 10
+   }
+  ],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "verz": {
+    "de": "Verzeichnis linuxk3",
+    "en": "directory linuxk3",
+    "es": "directorio linuxk3",
+    "zh": "目录 linuxk3",
+    "fr": "répertoire linuxk3",
+    "tr": "linuxk3 dizini"
+   },
+   "name": {
+    "de": "Name",
+    "en": "name",
+    "es": "nombre",
+    "zh": "名称",
+    "fr": "nom",
+    "tr": "ad"
+   },
+   "nummer": {
+    "de": "Nummer",
+    "en": "number",
+    "es": "número",
+    "zh": "编号",
+    "fr": "numéro",
+    "tr": "numara"
+   },
+   "ititel": {
+    "de": "Inode 95361",
+    "en": "inode 95361",
+    "es": "inodo 95361",
+    "zh": "inode 95361",
+    "fr": "inode 95361",
+    "tr": "inode 95361"
+   },
+   "art": {
+    "de": "Art: gewöhnliche Datei",
+    "en": "type: regular file",
+    "es": "tipo: archivo regular",
+    "zh": "类型：普通文件",
+    "fr": "type : fichier ordinaire",
+    "tr": "tür: normal dosya"
+   },
+   "rechte": {
+    "de": "Rechte: rw-r--r--",
+    "en": "permissions: rw-r--r--",
+    "es": "permisos: rw-r--r--",
+    "zh": "权限：rw-r--r--",
+    "fr": "droits : rw-r--r--",
+    "tr": "izinler: rw-r--r--"
+   },
+   "besitzer": {
+    "de": "Besitzer: student",
+    "en": "owner: student",
+    "es": "propietario: student",
+    "zh": "所有者：student",
+    "fr": "propriétaire : student",
+    "tr": "sahip: student"
+   },
+   "groesse": {
+    "de": "Größe: 25 Bytes",
+    "en": "size: 25 bytes",
+    "es": "tamaño: 25 bytes",
+    "zh": "大小：25 字节",
+    "fr": "taille : 25 octets",
+    "tr": "boyut: 25 bayt"
+   },
+   "zeiten": {
+    "de": "Zeitstempel",
+    "en": "timestamps",
+    "es": "marcas de tiempo",
+    "zh": "时间戳",
+    "fr": "horodatages",
+    "tr": "zaman damgaları"
+   },
+   "links": {
+    "de": "Links: 1",
+    "en": "links: 1",
+    "es": "enlaces: 1",
+    "zh": "链接数：1",
+    "fr": "liens : 1",
+    "tr": "bağlantı: 1"
+   },
+   "lage": {
+    "de": "Lage der Blöcke",
+    "en": "location of the blocks",
+    "es": "ubicación de los bloques",
+    "zh": "数据块的位置",
+    "fr": "emplacement des blocs",
+    "tr": "blokların yeri"
+   },
+   "bloecke": {
+    "de": "Datenblöcke",
+    "en": "data blocks",
+    "es": "bloques de datos",
+    "zh": "数据块",
+    "fr": "blocs de données",
+    "tr": "veri blokları"
+   },
+   "note": {
+    "de": "Der Name steht nur im Verzeichnis, nicht in der Inode.",
+    "en": "The name is only in the directory, not in the inode.",
+    "es": "El nombre solo está en el directorio, no en el inodo.",
+    "zh": "名称只在目录里，不在 inode 中。",
+    "fr": "Le nom n'est que dans le répertoire, pas dans l'inode.",
+    "tr": "Ad yalnızca dizinde durur, inode'da değil."
+   }
+  }
+ }
+}

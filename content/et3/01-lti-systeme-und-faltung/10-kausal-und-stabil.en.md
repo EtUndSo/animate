@@ -1,6 +1,8 @@
 ---
 title: Stage 9: Causal and stable
-pfad: Electrical Engineering / 3rd Semester / Signals and Systems / LTI Systems and Convolution
+pfad: Electrical Engineering / 3rd Semester / ET3 – Fundamentals of Electrical Engineering 3: Signals and Systems / LTI Systems and Convolution
+adresse: elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung
+knoten: Chapter 1: LTI Systems and Convolution
 order: 3211000
 summary: Two properties that every real system should have can be read directly from h(t) .
 tags: causal, stable

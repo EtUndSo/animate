@@ -1,6 +1,8 @@
 ---
 title: Etapa 6: Las reglas de cálculo (teoremas)
-pfad: Ingeniería eléctrica / 3.er semestre / Señales y sistemas / Serie y transformada de Fourier
+pfad: Ingeniería eléctrica / 3.er semestre / ET3 – Fundamentos de ingeniería eléctrica 3: señales y sistemas / Serie y transformada de Fourier
+adresse: elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation
+knoten: Capítulo 3: Serie y transformada de Fourier
 order: 3230700
 summary: En lugar de calcular cada integral de nuevo, se usan reglas: ¿qué le ocurre al espectro si se desplaza, se comprime, se deriva o se modula la señal?
 tags: densidad de energía

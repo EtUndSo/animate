@@ -1,6 +1,8 @@
 ---
 title: Stage 5: Why the input is transformed too
-pfad: Electrical Engineering / 3rd Semester / Signals and Systems / Laplace Transform
+pfad: Electrical Engineering / 3rd Semester / ET3 – Fundamentals of Electrical Engineering 3: Signals and Systems / Laplace Transform
+adresse: elektrotechnik/3-semester/signale-und-systeme/laplace-transformation
+knoten: Chapter 2: Laplace Transform
 order: 3220800
 summary: Every signal as a superposition of $\mathrm{e}^{pt}$, and why an LTI system turns this into a multiplication
 tags: 
@@ -63,7 +65,7 @@ Without $S(p)$ you know only the action on individual building blocks, but not w
 
 <li>
 
-⁠**Convolution without a system.** Convolution superposes shifted, weighted copies of a signal. The system is one interpretation of this operation, not the only one. An example with no system at all is the sum of two dice, treated in the chapter on convolution ([Part 1](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html)).
+⁠**Convolution without a system.** Convolution superposes shifted, weighted copies of a signal. The system is one interpretation of this operation, not the only one. An example with no system at all is the sum of two dice, treated in the chapter on convolution ([Chapter 1](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html)).
 
 </li>
 

@@ -1,6 +1,8 @@
 ---
 title: Stage 1: The meter is a component
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / Measuring Current and Voltage
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / Measuring Current and Voltage
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-und-spannung-messen
+knoten: Chapter 4: Measuring Current and Voltage
 order: 1140200
 summary: Before an error can be calculated, it must be clear what a meter is electrically: a component with two terminals and a resistance between them.
 tags: full-scale value

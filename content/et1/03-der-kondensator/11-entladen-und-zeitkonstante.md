@@ -1,6 +1,8 @@
 ---
 title: Stufe 10: Entladen und Zeitkonstante
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Der Kondensator
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Der Kondensator
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator
+knoten: Kapitel 3: Der Kondensator
 order: 1131100
 summary: Der geladene Kondensator gibt seine Ladung über einen Widerstand zurück.
 tags: 

@@ -1,6 +1,8 @@
 ---
 title: Stufe 4: Das Faltungsintegral
-pfad: Elektrotechnik / 3. Semester / Signale und Systeme / LTI-Systeme und Faltung
+pfad: Elektrotechnik / 3. Semester / ET3 – Grundgebiete der Elektrotechnik 3: Signale und Systeme / LTI-Systeme und Faltung
+adresse: elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung
+knoten: Kapitel 1: LTI-Systeme und Faltung
 order: 3210500
 summary: Mit Linearität und Zeitinvarianz lässt sich die Antwort auf jedes Signal aus der Antwort auf einen einzigen kurzen Impuls berechnen.
 tags: Dirac-Impuls, Impulsantwort

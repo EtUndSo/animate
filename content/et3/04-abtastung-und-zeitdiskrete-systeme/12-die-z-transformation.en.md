@@ -1,8 +1,10 @@
 ---
 title: Stage 11: The z-transform
-pfad: Electrical Engineering / 3rd Semester / Signals and Systems / Sampling and Discrete-Time Systems
+pfad: Electrical Engineering / 3rd Semester / ET3 – Fundamentals of Electrical Engineering 3: Signals and Systems / Sampling and Discrete-Time Systems
+adresse: elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme
+knoten: Chapter 4: Sampling and Discrete-Time Systems
 order: 3241200
-summary: Just as the Laplace transform extends the Fourier transform (Part 2), the z-transform extends the discrete-time Fourier transform: first weight exponentially, then transform.
+summary: Just as the Laplace transform extends the Fourier transform (Chapter 2), the z-transform extends the discrete-time Fourier transform: first weight exponentially, then transform.
 tags: unit circle
 lang: en
 ---
@@ -10,7 +12,7 @@ lang: en
 <span class="anker" id="stufe-11"></span>
 
 :::zweck
-Just as the Laplace transform extends the Fourier transform ([Part 2](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html)), the z-transform extends the discrete-time Fourier transform: first weight exponentially, then transform.
+Just as the Laplace transform extends the Fourier transform ([Chapter 2](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html)), the z-transform extends the discrete-time Fourier transform: first weight exponentially, then transform.
 :::
 
 **The idea.** Multiply the sequence by $\rho^{-n}$ ($\rho>0$) and transform: $\sum_ns(n)\rho^{-n}\mathrm{e}^{-\mathrm{j}2\pi fn}$. With $z=\rho\,\mathrm{e}^{\mathrm{j}2\pi f}$ this becomes a power series in $z^{-1}$. Equivalently: $z^n$ is an eigenfunction of every LSI system, because $z^{n-k}=z^{-k}z^n$, and the eigenvalue is $H(z)$:

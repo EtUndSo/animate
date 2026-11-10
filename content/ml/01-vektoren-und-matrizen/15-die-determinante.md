@@ -1,7 +1,8 @@
 ---
 title: Die Determinante
 pfad: Informatik / Machine Learning / Mathematische Grundlagen / Vektoren und Matrizen
-knoten: Grundlagen 1: Vektoren und Matrizen
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Kapitel 1: Vektoren und Matrizen
 nachschlagen: ja
 order: 15211500
 summary: Eine lineare Abbildung verformt das Gitter der Ebene, und dabei werden Flächen größer oder kleiner.

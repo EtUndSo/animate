@@ -1,6 +1,8 @@
 ---
 title: Etapa 6: La energía almacenada
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / El condensador
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / El condensador
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator
+knoten: Capítulo 3: El condensador
 order: 1130700
 summary: Cargar cuesta energía, porque cada carga adicional debe avanzar contra la tensión ya presente.
 tags: densidad de energía
@@ -13,7 +15,7 @@ lang: es
 Cargar cuesta energía, porque cada carga adicional debe avanzar contra la tensión ya presente. Esta etapa calcula cuánta es y dónde está después la energía.
 :::
 
-**La idea.** La tensión es energía por unidad de carga ([Parte 1](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)). Llevar la pequeña carga $\Delta q$ de la placa negativa a la positiva cuesta $\Delta W=u\,\Delta q$. Las primeras cargas no cuestan casi nada, porque aún no hay campo. Las últimas cuestan el importe completo $U$ por culombio. De media, cada carga paga $U/2$. Esa es el área bajo la recta $u=q/C$ (fig. [6](#abb-6) izquierda).
+**La idea.** La tensión es energía por unidad de carga ([capítulo 1](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)). Llevar la pequeña carga $\Delta q$ de la placa negativa a la positiva cuesta $\Delta W=u\,\Delta q$. Las primeras cargas no cuestan casi nada, porque aún no hay campo. Las últimas cuestan el importe completo $U$ por culombio. De media, cada carga paga $U/2$. Esa es el área bajo la recta $u=q/C$ (fig. [6](#abb-6) izquierda).
 
 :::satz Teorema 6.1 (Energía en el condensador)
 <span class="anker" id="satz-6-1"></span>
@@ -34,9 +36,9 @@ Aquí $w$ es la __densidad de energía__, la energía por unidad de volumen.
 ⁠**Cómo leerlo:** $W$ en J, $C$ en F, $U$ en V, $w$ en J/m$^3$. La tensión entra al cuadrado: el doble de tensión significa el doble de carga, y esta avanza contra el doble de tensión. $q$ es la carga durante el proceso de carga, $Q$ su valor final. **Validez:** $C$ constante, sin corriente de fuga.
 
 :::herleitung La energía a partir de fuerza y camino
-La fuerza sobre $\Delta q$ en el campo es $F=\Delta q\,E$ ([Parte 1](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)). A lo largo de la distancia $\Delta s$ entre las placas, eso cuesta $\Delta W=F\,\Delta s=\Delta q\,E\,\Delta s$. Con $E\,\Delta s=u$ resulta $\Delta W=\Delta q\,u$, y con $u=q/C$ es $\Delta W=\frac qC\,\Delta q$. Para $\Delta q$ pequeñas, la suma de todas las porciones se convierte en la integral [(6.1)](#gl-6-1).
+La fuerza sobre $\Delta q$ en el campo es $F=\Delta q\,E$ ([capítulo 1](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)). A lo largo de la distancia $\Delta s$ entre las placas, eso cuesta $\Delta W=F\,\Delta s=\Delta q\,E\,\Delta s$. Con $E\,\Delta s=u$ resulta $\Delta W=\Delta q\,u$, y con $u=q/C$ es $\Delta W=\frac qC\,\Delta q$. Para $\Delta q$ pequeñas, la suma de todas las porciones se convierte en la integral [(6.1)](#gl-6-1).
 
-El lado del circuito da el mismo resultado. La potencia (energía por unidad de tiempo) es $p=u\,i$ ([Parte 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)). Con $i=C\,\mathrm{d} u/\mathrm{d} t$ se obtiene $W=\int u\,i\,\mathrm{d} t=C\int_0^Uu\,\mathrm{d} u=\frac12CU^2$.
+El lado del circuito da el mismo resultado. La potencia (energía por unidad de tiempo) es $p=u\,i$ ([capítulo 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)). Con $i=C\,\mathrm{d} u/\mathrm{d} t$ se obtiene $W=\int u\,i\,\mathrm{d} t=C\int_0^Uu\,\mathrm{d} u=\frac12CU^2$.
 
 ⁠**Del componente al campo:** Sustituyendo $C=\varepsilon A/d$ y $U=E\,d$ en [(6.1)](#gl-6-1) se obtiene [(6.2)](#gl-6-2).
 :::

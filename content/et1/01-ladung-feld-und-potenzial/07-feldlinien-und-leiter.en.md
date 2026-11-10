@@ -1,6 +1,8 @@
 ---
 title: Stage 5: Field lines and conductors
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / Charge, Field and Potential
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / Charge, Field and Potential
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial
+knoten: Chapter 1: Charge, Field and Potential
 order: 1110700
 summary: Field lines show an entire field at a glance.
 tags: electrostatic induction, field line, sources, sinks, shielding, uniform, fringing field

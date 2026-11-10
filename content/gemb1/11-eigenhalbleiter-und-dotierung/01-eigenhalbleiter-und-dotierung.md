@@ -1,7 +1,9 @@
 ---
 title: Überblick: Eigenhalbleiter und Dotierung
 kurz: Überblick
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Eigenhalbleiter und Dotierung
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Eigenhalbleiter und Dotierung
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/eigenhalbleiter-und-dotierung
+knoten: Kapitel 11: Eigenhalbleiter und Dotierung
 order: 4210100
 summary: Wie viele Ladungsträger ein Halbleiter hat und wie man ihre Zahl festlegt
 tags: Halbleiter, Eigenhalbleiter, Dotierung, Donator, Akzeptor, Ladungsneutralität, Störstellenerschöpfung, Störstellenreserve
@@ -27,7 +29,7 @@ Der Weg führt über acht Begriffe. Ein __Halbleiter__ ist ein Kristall, dessen 
 
 <li>
 
-⁠**Silizium:** $E_\mathrm g=1{,}12$ eV, in den Rechnungen temperaturunabhängig. $m_\mathrm C^*=1{,}08\,m_0$ und $m_\mathrm V^*=0{,}81\,m_0$ wie in [Teil 10](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/zustandsdichte-und-fermi-verteilung/zustandsdichte-und-fermi-verteilung.html), also bei 300 K $N_\mathrm C=2{,}82\cdot10^{19}\,\mathrm{cm^{-3}}$ und $N_\mathrm V=1{,}83\cdot10^{19}\,\mathrm{cm^{-3}}$. Dazu $\varepsilon_\mathrm r=11{,}7$ und $5{,}0\cdot10^{22}$ Atome je cm$^3$.
+⁠**Silizium:** $E_\mathrm g=1{,}12$ eV, in den Rechnungen temperaturunabhängig. $m_\mathrm C^*=1{,}08\,m_0$ und $m_\mathrm V^*=0{,}81\,m_0$ wie in [Kapitel 10](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/zustandsdichte-und-fermi-verteilung/zustandsdichte-und-fermi-verteilung.html), also bei 300 K $N_\mathrm C=2{,}82\cdot10^{19}\,\mathrm{cm^{-3}}$ und $N_\mathrm V=1{,}83\cdot10^{19}\,\mathrm{cm^{-3}}$. Dazu $\varepsilon_\mathrm r=11{,}7$ und $5{,}0\cdot10^{22}$ Atome je cm$^3$.
 
 </li>
 

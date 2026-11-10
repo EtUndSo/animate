@@ -1,7 +1,8 @@
 ---
 title: La meilleure solution approchée
 pfad: Informatique / Apprentissage automatique / Fondements mathématiques / Projection, valeurs propres et décompositions
-knoten: Fondements 2 : Projection, valeurs propres et décompositions
+adresse: informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen
+knoten: Chapitre 2 : Projection, valeurs propres et décompositions
 nachschlagen: ja
 order: 15220400
 summary: Un système comportant plus d’équations que d’inconnues n’a en général pas de solution.
@@ -19,7 +20,7 @@ Un système comportant plus d’équations que d’inconnues n’a en général 
 
 <span class="anker" id="stufe-3-1"></span>
 
-Dans [Fondements 1, section 12.5](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-gleichungssysteme.html#stufe-12-5), deux poids, $w_1$ pour la surface et $w_2$ pour le nombre de pièces, devaient reproduire exactement les prix d’appartements. Avec les quatre appartements, c’est le système $\mathbf{A}\mathbf{w}=\mathbf{y}$ avec
+Dans le [chapitre 1, section 12.5](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-gleichungssysteme.html#stufe-12-5), deux poids, $w_1$ pour la surface et $w_2$ pour le nombre de pièces, devaient reproduire exactement les prix d’appartements. Avec les quatre appartements, c’est le système $\mathbf{A}\mathbf{w}=\mathbf{y}$ avec
 
 $$\mathbf{A}=\begin{pmatrix}60&2\\40&1\\90&4\\70&3\end{pmatrix},\qquad \mathbf{y}=\begin{pmatrix}200\\130\\290\\240\end{pmatrix}\ \text{milliers d’euros}.$$
 
@@ -36,10 +37,10 @@ $$\mathbf{r}=\mathbf{y}-\mathbf{A}\mathbf{x} \tag{3.1}$$
 le __résidu__ associé à $\mathbf{x}$.
 :::
 
-Le mot vient du latin et signifie « reste ». Le résidu est nul si et seulement si $\mathbf{x}$ résout le système. C’est le vecteur d’erreur de [Fondements 1, section 3.5](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/normen-die-groe-eines-vektors.html#stufe-3-5), avec le signe opposé ; sa longueur est la même.
+Le mot vient du latin et signifie « reste ». Le résidu est nul si et seulement si $\mathbf{x}$ résout le système. C’est le vecteur d’erreur du [chapitre 1, section 3.5](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/normen-die-groe-eines-vektors.html#stufe-3-5), avec le signe opposé ; sa longueur est la même.
 
 ::::beispiel [Exemple de calcul]
-Avec les poids $\mathbf{w}=(3,\,10)^{\top}$ de [Fondements 1](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html), on a $\mathbf{A}\mathbf{w}=(200,\,130,\,310,\,240)^{\top}$ et le résidu $\mathbf{r}=\mathbf{y}-\mathbf{A}\mathbf{w}=(0,\,0,\,-20,\,0)^{\top}$, de longueur $20$. Trois prix sont reproduits exactement, un autre est manqué de $20$ mille euros.
+Avec les poids $\mathbf{w}=(3,\,10)^{\top}$ du [chapitre 1](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html), on obtient $\mathbf{A}\mathbf{w}=(200,\,130,\,310,\,240)^{\top}$ et le résidu $\mathbf{r}=\mathbf{y}-\mathbf{A}\mathbf{w}=(0,\,0,\,-20,\,0)^{\top}$, de longueur $20$. Trois prix sont reproduits exactement, un autre est manqué de $20$ mille euros.
 ::::
 
 ⁠**En bref :** Le résidu $\mathbf{r}=\mathbf{y}-\mathbf{A}\mathbf{x}$ est le reste qu’un vecteur $\mathbf{x}$ laisse lorsqu’on résout $\mathbf{A}\mathbf{x}=\mathbf{y}$.
@@ -50,7 +51,7 @@ Avec les poids $\mathbf{w}=(3,\,10)^{\top}$ de [Fondements 1](/wissen/fr/inform
 
 Si le résidu ne peut pas s’annuler, il doit au moins être aussi petit que possible. On le mesure par sa longueur euclidienne.
 
-On peut se représenter le problème géométriquement. Quand $\mathbf{x}$ parcourt tous les vecteurs, $\mathbf{A}\mathbf{x}$ parcourt, d’après [Fondements 1, section 7.4](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrix-vektor-produkt.html#stufe-7-4), l’espace des colonnes de $\mathbf{A}$. La distance $\lVert\mathbf{y}-\mathbf{A}\mathbf{x}\rVert$ est la distance du point $\mathbf{y}$ au point $\mathbf{A}\mathbf{x}$ de l’espace des colonnes. On cherche donc le point de l’espace des colonnes le plus proche de $\mathbf{y}$ (Fig. [6](#abb-6)). Dans la section précédente, l’espace des colonnes était une droite ; maintenant, ce peut être un plan ou un sous-espace engendré de dimension supérieure.
+On peut se représenter le problème géométriquement. Quand $\mathbf{x}$ parcourt tous les vecteurs, $\mathbf{A}\mathbf{x}$ parcourt, d’après le [chapitre 1, section 7.4](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrix-vektor-produkt.html#stufe-7-4), l’espace des colonnes de $\mathbf{A}$. La distance $\lVert\mathbf{y}-\mathbf{A}\mathbf{x}\rVert$ est la distance du point $\mathbf{y}$ au point $\mathbf{A}\mathbf{x}$ de l’espace des colonnes. On cherche donc le point de l’espace des colonnes le plus proche de $\mathbf{y}$ (Fig. [6](#abb-6)). Dans la section précédente, l’espace des colonnes était une droite ; maintenant, ce peut être un plan ou un sous-espace engendré de dimension supérieure.
 
 :::definition Définition 3.2 (Meilleure solution approchée)
 <span class="anker" id="satz-3-2"></span>
@@ -68,7 +69,7 @@ Projection sur un plan de $\mathbb{R}^3$. Les colonnes $\mathbf{a}_1=(1,0,1)^{\t
 :::
 
 ::::beispiel [Exemple de calcul]
-La matrice $\mathbf{H}$ de [Fondements 1, section 7.4](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrix-vektor-produkt.html#stufe-7-4), a pour colonnes $\mathbf{a}_1=(1,\,0,\,1)^{\top}$ et $\mathbf{a}_2=(0,\,1,\,1)^{\top}$. Son espace des colonnes est le plan de tous les vecteurs dont la troisième composante est la somme des deux premières. Le vecteur $\mathbf{y}=(1,\,1,\,1)^{\top}$ n’en fait pas partie ; le système $\mathbf{H}\mathbf{x}=\mathbf{y}$ n’a donc pas de solution. Avec $\mathbf{x}=(1,\,0)^{\top}$, le résidu est $(0,\,1,\,0)^{\top}$, de longueur $1$ ; avec $\mathbf{x}=(1,\,1)^{\top}$, il vaut $(0,\,0,\,-1)^{\top}$, également de longueur $1$. La sous-section suivante dira si l’on peut faire mieux.
+La matrice $\mathbf{H}$ du [chapitre 1, section 7.4](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrix-vektor-produkt.html#stufe-7-4), a pour colonnes $\mathbf{a}_1=(1,\,0,\,1)^{\top}$ et $\mathbf{a}_2=(0,\,1,\,1)^{\top}$. Son espace des colonnes est le plan de tous les vecteurs dont la troisième composante est la somme des deux premières. Le vecteur $\mathbf{y}=(1,\,1,\,1)^{\top}$ n’en fait pas partie ; le système $\mathbf{H}\mathbf{x}=\mathbf{y}$ n’a donc pas de solution. Avec $\mathbf{x}=(1,\,0)^{\top}$, le résidu est $(0,\,1,\,0)^{\top}$, de longueur $1$ ; avec $\mathbf{x}=(1,\,1)^{\top}$, il vaut $(0,\,0,\,-1)^{\top}$, également de longueur $1$. La sous-section suivante dira si l’on peut faire mieux.
 ::::
 
 ⁠**En bref :** La meilleure solution approchée rend le résidu aussi court que possible ; géométriquement, elle cherche le point de l’espace des colonnes le plus proche de $\mathbf{y}$.
@@ -96,7 +97,7 @@ Au système $\mathbf{A}\mathbf{x}=\mathbf{y}$ avec $\mathbf{A}\in\mathbb{R}^{m\t
 $$\mathbf{A}^{\top}\mathbf{A}\,\hat{\mathbf{x}}=\mathbf{A}^{\top}\mathbf{y} . \tag{3.3}$$
 :::
 
-Le mot « normal » signifie ici « perpendiculaire », comme pour le vecteur normal d’un plan : les équations exigent que le résidu soit perpendiculaire à l’espace des colonnes. La matrice $\mathbf{A}^{\top}\mathbf{A}$ est la matrice de Gram des colonnes de [Fondements 1, section 10.4](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/transponierte-symmetrie-und-gram-matrix.html#stufe-10-4) ; elle est carrée, avec autant de lignes qu’il y a d’inconnues. Un grand système insoluble de $m$ équations devient un petit système de $n$ équations. Pour une seule colonne $\mathbf{a}$, on obtient $\mathbf{a}^{\top}\mathbf{a}\,\hat x=\mathbf{a}^{\top}\mathbf{y}$, la formule de la section précédente.
+Le mot « normal » signifie ici « perpendiculaire », comme pour le vecteur normal d’un plan : les équations exigent que le résidu soit perpendiculaire à l’espace des colonnes. La matrice $\mathbf{A}^{\top}\mathbf{A}$ est la matrice de Gram des colonnes du [chapitre 1, section 10.4](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/transponierte-symmetrie-und-gram-matrix.html#stufe-10-4) ; elle est carrée, avec autant de lignes qu’il y a d’inconnues. Un grand système insoluble de $m$ équations devient un petit système de $n$ équations. Pour une seule colonne $\mathbf{a}$, on obtient $\mathbf{a}^{\top}\mathbf{a}\,\hat x=\mathbf{a}^{\top}\mathbf{y}$, la formule de la section précédente.
 
 ::::beispiel [Exemple de calcul]
 Pour $\mathbf{H}$ et $\mathbf{y}=(1,\,1,\,1)^{\top}$, on a
@@ -163,10 +164,10 @@ $$\hat{\mathbf{x}}=(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top}\mathbf{y}
 :::
 
 :::beweis Inversibilité
-D’après [Fondements 1, section 13.5](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-5), la matrice carrée $\mathbf{A}^{\top}\mathbf{A}$ est inversible si et seulement si son noyau ne contient que le vecteur nul. Supposons $\mathbf{A}^{\top}\mathbf{A}\mathbf{z}=\mathbf{0}$. Alors on a aussi $\mathbf{z}^{\top}\mathbf{A}^{\top}\mathbf{A}\mathbf{z}=0$, donc $\lVert\mathbf{A}\mathbf{z}\rVert^2=0$ et $\mathbf{A}\mathbf{z}=\mathbf{0}$. Inversement, $\mathbf{A}\mathbf{z}=\mathbf{0}$ entraîne immédiatement $\mathbf{A}^{\top}\mathbf{A}\mathbf{z}=\mathbf{0}$. Les deux noyaux sont donc égaux. Le noyau de $\mathbf{A}$ ne contient que le vecteur nul si et seulement si les colonnes de $\mathbf{A}$ sont linéairement indépendantes.
+D’après le [chapitre 1, section 13.5](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-5), la matrice carrée $\mathbf{A}^{\top}\mathbf{A}$ est inversible si et seulement si son noyau ne contient que le vecteur nul. Supposons $\mathbf{A}^{\top}\mathbf{A}\mathbf{z}=\mathbf{0}$. Alors on a aussi $\mathbf{z}^{\top}\mathbf{A}^{\top}\mathbf{A}\mathbf{z}=0$, donc $\lVert\mathbf{A}\mathbf{z}\rVert^2=0$ et $\mathbf{A}\mathbf{z}=\mathbf{0}$. Inversement, $\mathbf{A}\mathbf{z}=\mathbf{0}$ entraîne immédiatement $\mathbf{A}^{\top}\mathbf{A}\mathbf{z}=\mathbf{0}$. Les deux noyaux sont donc égaux. Le noyau de $\mathbf{A}$ ne contient que le vecteur nul si et seulement si les colonnes de $\mathbf{A}$ sont linéairement indépendantes.
 :::
 
-Si les colonnes sont linéairement dépendantes, il existe une infinité de meilleures solutions approchées. On peut ajouter à l’une d’elles n’importe quel vecteur du noyau de $\mathbf{A}$ sans changer $\mathbf{A}\hat{\mathbf{x}}$. Le point le plus proche $\hat{\mathbf{y}}$ reste néanmoins unique, comme le montre le théorème de la sous-section précédente. Cela concorde avec [Fondements 1, section 13.6](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-6) : des caractéristiques dépendantes rendent les poids ambigus, mais pas les prédictions.
+Si les colonnes sont linéairement dépendantes, il existe une infinité de meilleures solutions approchées. On peut ajouter à l’une d’elles n’importe quel vecteur du noyau de $\mathbf{A}$ sans changer $\mathbf{A}\hat{\mathbf{x}}$. Le point le plus proche $\hat{\mathbf{y}}$ reste néanmoins unique, comme le montre le théorème de la sous-section précédente. Cela concorde avec le [chapitre 1, section 13.6](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-6) : des caractéristiques dépendantes rendent les poids ambigus, mais pas les prédictions.
 
 ::::beispiel [Exemple de calcul 1]
 Les colonnes de $\mathbf{H}$ sont linéairement indépendantes, et $\mathbf{H}^{\top}\mathbf{H}=\bigl(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\bigr)$ a pour inverse $\tfrac13\bigl(\begin{smallmatrix}2&-1\\-1&2\end{smallmatrix}\bigr)$. Avec [(3.5)](#gl-3-5), on obtient $\hat{\mathbf{x}}=\tfrac13\bigl(\begin{smallmatrix}2&-1\\-1&2\end{smallmatrix}\bigr)(2,\,2)^{\top}=(\tfrac23,\,\tfrac23)^{\top}$, comme plus haut.
@@ -184,7 +185,7 @@ Pour $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ et $\
 
 La théorie est maintenant complète, et elle s’applique à un problème de tous les jours. Trois points de mesure $(t,\,y)=(0,\,1)$, $(1,\,2)$ et $(2,\,4)$ doivent être décrits par une droite $y=x_1+x_2\,t$. Les trois points ne sont pas alignés. On cherche l’ordonnée à l’origine $x_1$ et la pente $x_2$ qui conviennent le mieux.
 
-Chaque point de mesure fournit une équation $x_1+x_2\,t_i=y_i$. Avec la colonne de uns pour l’ordonnée à l’origine, comme dans [Fondements 1, section 8.5](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-5), on obtient le système
+Chaque point de mesure fournit une équation $x_1+x_2\,t_i=y_i$. Avec la colonne de uns pour l’ordonnée à l’origine, comme dans le [chapitre 1, section 8.5](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-5), on obtient le système
 
 $$\mathbf{A}\mathbf{x}=\mathbf{y}\qquad\text{avec}\qquad \mathbf{A}=\begin{pmatrix}1&0\\1&1\\1&2\end{pmatrix},\qquad \mathbf{y}=\begin{pmatrix}1\\2\\4\end{pmatrix}.$$
 
@@ -210,11 +211,11 @@ Deux coefficients des équations normales de la droite des moindres carrés comm
 
 ⁠**En bref :** Une droite des moindres carrés est la meilleure solution approchée du système qui exige que tous les points de mesure soient sur la droite ; avec une colonne de uns, la somme de ses résidus est nulle.
 
-:::hintergrund Un filtre qui reproduit au mieux un signal
-Le même calcul sert à concevoir des filtres numériques. Un filtre de coefficients $h_0,\dots,h_{K-1}$ doit reproduire au mieux, à partir d’un signal d’entrée $x[n]$, un signal désiré $d[n]$, la sortie étant $\sum_kh_k\,x[n-k]$. Pour chaque instant $n$, c’est une équation pour les $K$ inconnues $h_k$ ; pour de nombreux instants, on obtient donc un système surdéterminé $\mathbf{X}\mathbf h=\mathbf d$. La ligne $n$ de $\mathbf{X}$ contient $x[n],x[n-1],\dots,x[n-K+1]$. Dans les équations normales $\mathbf{X}^{\top}\mathbf{X}\mathbf h=\mathbf{X}^{\top}\mathbf d$, le coefficient $(k,l)$ de $\mathbf{X}^{\top}\mathbf{X}$ est la somme $\sum_nx[n-k]\,x[n-l]$, c’est-à-dire, aux effets de bord près au début et à la fin du signal, l’autocorrélation de $x$ pour le décalage $l-k$. Dans $\mathbf{X}^{\top}\mathbf d$ figure l’intercorrélation de $d$ et de $x$. Ce sont exactement les produits scalaires de signaux décalés de [Fondements 1, section 2.4](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-skalarprodukt.html#stufe-2-4). D’après [(3.3)](#gl-3-3), le résidu $d[n]-\sum_kh_k\,x[n-k]$ du meilleur filtre est perpendiculaire à chaque signal d’entrée décalé : ce que le filtre ne peut pas reproduire n’a rien en commun avec aucun des signaux à partir desquels il compose la sortie.
+:::hintergrund Reproduire au mieux une suite à partir d’une autre
+Le même calcul construit des règles de prévision pour des suites de nombres. Une piscine en plein air veut reproduire au mieux ses ventes de glaces $d[n]$ du jour $n$ à partir du nombre $x[n]$ de ses visiteurs le jour $n$ et les jours précédents, avec la règle $\sum_kh_k\,x[n-k]$ et les poids $h_0,\dots,h_{K-1}$. Pour chaque jour $n$, c’est une équation pour les $K$ inconnues $h_k$ ; pour de nombreux jours, on obtient donc un système surdéterminé $\mathbf{X}\mathbf h=\mathbf d$. La ligne $n$ de $\mathbf{X}$ contient $x[n],x[n-1],\dots,x[n-K+1]$. Dans les équations normales $\mathbf{X}^{\top}\mathbf{X}\mathbf h=\mathbf{X}^{\top}\mathbf d$, le coefficient $(k,l)$ de $\mathbf{X}^{\top}\mathbf{X}$ est la somme $\sum_nx[n-k]\,x[n-l]$, c’est-à-dire, aux effets de bord près au début et à la fin de la suite, l’intercorrélation de $x$ avec elle-même pour le décalage $l-k$, l’autocorrélation. Dans $\mathbf{X}^{\top}\mathbf d$ figure l’intercorrélation de $d$ et de $x$. Ce sont exactement les produits scalaires de suites décalées du [chapitre 1, section 2.4](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-skalarprodukt.html#stufe-2-4). D’après [(3.3)](#gl-3-3), le résidu $d[n]-\sum_kh_k\,x[n-k]$ de la meilleure règle est perpendiculaire à chaque suite de visiteurs décalée : ce que la règle ne peut pas reproduire n’a rien en commun avec aucune des suites à partir desquelles elle compose sa prévision.
 :::
 
-### Les appartements : ce que Fondements 1 avait laissé ouvert
+### Les appartements : ce que le chapitre 1 avait laissé ouvert
 
 <span class="anker" id="stufe-3-7"></span>
 
@@ -231,7 +232,7 @@ La Fig. [10](#abb-10) détaille le calcul de deux des coefficients.
 Deux coefficients des équations normales des appartements comme produits scalaires : $\mathbf{a}_1=(60,40,90,70)^{\top}$ est la colonne des surfaces, $\mathbf{a}_2=(2,1,4,3)^{\top}$ la colonne des pièces, $\mathbf{y}=(200,130,290,240)^{\top}$ le vecteur des prix.
 :::
 
-Les deux colonnes sont linéairement indépendantes ; le déterminant vaut $18\,200\cdot30-730^2=13\,100$. Avec l’inverse de [Fondements 1, section 11.3](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/einheitsmatrix-und-inverse.html#stufe-11-3), on a
+Les deux colonnes sont linéairement indépendantes ; le déterminant vaut $18\,200\cdot30-730^2=13\,100$. Avec l’inverse du [chapitre 1, section 11.3](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/einheitsmatrix-und-inverse.html#stufe-11-3), on a
 
 $$\hat{\mathbf{w}}=\frac1{13\,100}\begin{pmatrix}30&-730\\-730&18\,200\end{pmatrix}\begin{pmatrix}60\,100\\2\,410\end{pmatrix}=\frac1{13\,100}\begin{pmatrix}43\,700\\-11\,000\end{pmatrix}=\begin{pmatrix}437/131\\-110/131\end{pmatrix}\approx\begin{pmatrix}3{,}336\\-0{,}840\end{pmatrix}.$$
 
@@ -239,13 +240,13 @@ Les prix estimés sont $\mathbf{A}\hat{\mathbf{w}}\approx(198{,}47;\ 132{,}60;\ 
 
 $$\mathbf{r}=\mathbf{y}-\mathbf{A}\hat{\mathbf{w}}=\frac{20}{131}\,(10,\,-17,\,-45,\,59)^{\top}\approx(1{,}53;\ -2{,}60;\ -6{,}87;\ 9{,}01)^{\top}$$
 
-de longueur $\lVert\mathbf{r}\rVert\approx11{,}72$. Les poids $(3,\,10)^{\top}$ de [Fondements 1](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html) reproduisaient exactement trois prix, mais laissaient un résidu de longueur $20$. La meilleure solution approchée ne reproduit exactement aucun prix, mais s’écarte nettement moins dans l’ensemble. Vérification : $\mathbf{A}^{\top}\mathbf{r}=\frac{20}{131}(600-680-4050+4130,\ 20-17-180+177)^{\top}=\mathbf{0}$.
+de longueur $\lVert\mathbf{r}\rVert\approx11{,}72$. Les poids $(3,\,10)^{\top}$ du [chapitre 1](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html) reproduisaient exactement trois prix, mais laissaient un résidu de longueur $20$. La meilleure solution approchée ne reproduit exactement aucun prix, mais s’écarte nettement moins dans l’ensemble. Vérification : $\mathbf{A}^{\top}\mathbf{r}=\frac{20}{131}(600-680-4050+4130,\ 20-17-180+177)^{\top}=\mathbf{0}$.
 ::::
 
 ⁠**En bref :** La meilleure solution approchée pour les appartements est formée des poids $\hat{\mathbf{w}}\approx(3{,}336;\ -0{,}840)^{\top}$ ; avec une longueur de $11{,}72$, son résidu est nettement plus court que tout résidu qui reproduit exactement trois prix.
 
 :::hintergrund Pourquoi le poids des pièces est négatif
-Un poids négatif pour le nombre de pièces semble d’abord faux : davantage de pièces ne devrait pas faire baisser le prix. Le calcul est pourtant juste, et la raison se trouve dans les données. Dans ces quatre appartements, la surface et le nombre de pièces augmentent ensemble : plus l’appartement est grand, plus il a de pièces. Les deux colonnes de $\mathbf{A}$ pointent donc presque dans la même direction ; d’après [Fondements 1, section 5.2](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/winkel-und-ahnlichkeit.html#stufe-5-2), le cosinus de leur angle vaut $730/\sqrt{18\,200\cdot30}\approx0{,}988$, l’angle n’est donc que d’environ $8{,}9^\circ$. La meilleure combinaison prend beaucoup de la colonne des surfaces et retranche un peu de la colonne des pièces, afin de compenser les écarts des appartements par rapport à la proportion commune. À surface égale, plus de pièces signifie ici des pièces plus petites, ce qui peut effectivement faire baisser un prix ; mais quatre appartements ne suffisent pas à montrer si c’est vrai. Comme dans [Fondements 1, section 13.6](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-6) : lorsque des caractéristiques portent presque la même information, les poids pris isolément disent peu de chose, les prédictions en revanche beaucoup.
+Un poids négatif pour le nombre de pièces semble d’abord faux : davantage de pièces ne devrait pas faire baisser le prix. Le calcul est pourtant juste, et la raison se trouve dans les données. Dans ces quatre appartements, la surface et le nombre de pièces augmentent ensemble : plus l’appartement est grand, plus il a de pièces. Les deux colonnes de $\mathbf{A}$ pointent donc presque dans la même direction ; d’après le [chapitre 1, section 5.2](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/winkel-und-ahnlichkeit.html#stufe-5-2), le cosinus de leur angle vaut $730/\sqrt{18\,200\cdot30}\approx0{,}988$, l’angle n’est donc que d’environ $8{,}9^\circ$. La meilleure combinaison prend beaucoup de la colonne des surfaces et retranche un peu de la colonne des pièces, afin de compenser les écarts des appartements par rapport à la proportion commune. À surface égale, plus de pièces signifie ici des pièces plus petites, ce qui peut effectivement faire baisser un prix ; mais quatre appartements ne suffisent pas à montrer si c’est vrai. Comme dans le [chapitre 1, section 13.6](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-6) : lorsque des caractéristiques portent presque la même information, les poids pris isolément disent peu de chose, les prédictions en revanche beaucoup.
 :::
 
 :::aufgabe Exercice 7 ★ Équations normales à la main

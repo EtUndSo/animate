@@ -1,6 +1,8 @@
 ---
 title: Rechenregeln und Identitäten für Divergenz und Rotation
-pfad: Elektrotechnik / 3. Semester / Höhere Mathematik 3 / Differentialrechnung für Vektorfelder
+pfad: Elektrotechnik / 3. Semester / HöMa3 – Höhere Mathematik 3 / Differentialrechnung für Vektorfelder
+adresse: elektrotechnik/3-semester/hohere-mathematik-3/differentialrechnung-fur-vektorfelder
+knoten: Kapitel 1: Differentialrechnung für Vektorfelder
 order: 3110500
 summary: Divergenz und Rotation schreibt man mit dem Nabla-Symbol wie ein Skalarprodukt und ein Kreuzprodukt.
 tags: Kronecker-Symbol, Spatprodukt, Graßmann-Identität, äußere Produkt, divergenzfrei, Wirbelfeld, Vektorpotential, Eichfreiheit

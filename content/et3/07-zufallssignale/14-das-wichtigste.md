@@ -1,6 +1,8 @@
 ---
 title: Das Wichtigste
-pfad: Elektrotechnik / 3. Semester / Signale und Systeme / Zufallssignale
+pfad: Elektrotechnik / 3. Semester / ET3 – Grundgebiete der Elektrotechnik 3: Signale und Systeme / Zufallssignale
+adresse: elektrotechnik/3-semester/signale-und-systeme/zufallssignale
+knoten: Kapitel 7: Zufallssignale
 order: 3271400
 summary: Mittelwerte, Verteilungen, Leistungsdichte, Rauschen in Systemen und der optimale Empfänger
 tags: 
@@ -18,7 +20,7 @@ Ein Zufallssignal beschreibt man durch Mittelwerte: Mittelwert, Leistung, Varian
 
 <li>
 
-Die Fourier-Transformierte der Autokorrelationsfunktion ist das Leistungsdichtespektrum. Ein LTI-System multipliziert es mit $|H(f)|^2$, genau wie bei Energiesignalen ([Teil 6](/wissen/elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen/korrelationsfunktionen.html)).
+Die Fourier-Transformierte der Autokorrelationsfunktion ist das Leistungsdichtespektrum. Ein LTI-System multipliziert es mit $|H(f)|^2$, genau wie bei Energiesignalen ([Kapitel 6](/wissen/elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen/korrelationsfunktionen.html)).
 
 </li>
 

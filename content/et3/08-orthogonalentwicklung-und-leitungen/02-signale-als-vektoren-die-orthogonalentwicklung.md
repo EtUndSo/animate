@@ -1,6 +1,8 @@
 ---
 title: Stufe 1: Signale als Vektoren, die Orthogonalentwicklung
-pfad: Elektrotechnik / 3. Semester / Signale und Systeme / Orthogonalentwicklung und Leitungen
+pfad: Elektrotechnik / 3. Semester / ET3 – Grundgebiete der Elektrotechnik 3: Signale und Systeme / Orthogonalentwicklung und Leitungen
+adresse: elektrotechnik/3-semester/signale-und-systeme/orthogonalentwicklung-und-leitungen
+knoten: Kapitel 8: Orthogonalentwicklung und Leitungen
 order: 3280200
 summary: Die Fourier-Reihe zerlegt ein Signal nach Schwingungen.
 tags: orthogonal, orthonormal, verallgemeinerte Parseval-Theorem
@@ -13,7 +15,7 @@ lang: de
 Die Fourier-Reihe zerlegt ein Signal nach Schwingungen. Dasselbe geht mit jedem System orthogonaler Funktionen. Diese Stufe zeigt, wie man die Koeffizienten findet und warum sie die beste Näherung liefern.
 :::
 
-**Die Idee.** Ein Vektor im Raum hat die Komponenten $b_i=\vec f\cdot\vec e_i$ bezüglich senkrechter Einheitsvektoren $\vec e_i$. Für Signale auf einem Intervall $[0,T]$ spielt das Integral $\int_0^Tf(t)g(t)\mathrm{d} t$ die Rolle des Skalarprodukts. Zwei Signale heißen __orthogonal__, wenn es null ist ([Teil 6](/wissen/elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen/korrelationsfunktionen.html)). Ein System von $M$ Funktionen $s_i(t)$ heißt __orthonormal__, wenn
+**Die Idee.** Ein Vektor im Raum hat die Komponenten $b_i=\vec f\cdot\vec e_i$ bezüglich senkrechter Einheitsvektoren $\vec e_i$. Für Signale auf einem Intervall $[0,T]$ spielt das Integral $\int_0^Tf(t)g(t)\mathrm{d} t$ die Rolle des Skalarprodukts. Zwei Signale heißen __orthogonal__, wenn es null ist ([Kapitel 6](/wissen/elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen/korrelationsfunktionen.html)). Ein System von $M$ Funktionen $s_i(t)$ heißt __orthonormal__, wenn
 
 <span class="anker" id="gl-1-1"></span>
 $$\int_0^Ts_i(t)\,s_j(t)\,\mathrm{d} t=\begin{cases}1&i=j\\0&i\neq j\end{cases}. \tag{1.1}$$
@@ -39,7 +41,7 @@ $$\frac{\partial E_r}{\partial b_j}=-2\int_0^T\Bigl(f-\sum_ib_is_i\Bigr)s_j\,\ma
 Die Orthonormalität lässt aus der Summe nur $i=j$ übrig. Setzt man diese $b_i$ ein und multipliziert aus, heben sich die gemischten Glieder wieder wegen der Orthonormalität weg: $E_r=E_f-2\sum b_i^2+\sum b_i^2=E_f-\sum b_i^2$.
 :::
 
-⁠**So liest man das:** Jeder Koeffizient wird für sich bestimmt, unabhängig von den anderen. Nimmt man eine Basisfunktion hinzu, ändern sich die bisherigen Koeffizienten nicht. Das ist der Vorteil orthogonaler Systeme, genau wie bei der Fourier-Reihe ([Teil 3](/wissen/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)). $b_i$ ist die Kreuzkorrelation $\varphi^E_{fs_i}(0)$. Deshalb kann man die Koeffizienten mit einer Bank von Korrelationsfiltern $h_i(t)=s_i(T-t)$ messen, deren Ausgänge man bei $t=T$ abtastet ([Teil 7](/wissen/elektrotechnik/3-semester/signale-und-systeme/zufallssignale/zufallssignale.html)).
+⁠**So liest man das:** Jeder Koeffizient wird für sich bestimmt, unabhängig von den anderen. Nimmt man eine Basisfunktion hinzu, ändern sich die bisherigen Koeffizienten nicht. Das ist der Vorteil orthogonaler Systeme, genau wie bei der Fourier-Reihe ([Kapitel 3](/wissen/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)). $b_i$ ist die Kreuzkorrelation $\varphi^E_{fs_i}(0)$. Deshalb kann man die Koeffizienten mit einer Bank von Korrelationsfiltern $h_i(t)=s_i(T-t)$ messen, deren Ausgänge man bei $t=T$ abtastet ([Kapitel 7](/wissen/elektrotechnik/3-semester/signale-und-systeme/zufallssignale/zufallssignale.html)).
 
 ::::beispiel
 $f(t)=t^2$ auf $[0,1]$, $E_f=\frac15$. Mit $s_0=1$ und $s_1=\sqrt3(2t-1)$:

@@ -1,6 +1,8 @@
 ---
 title: Stufe 4: Energiedichtespektrum
-pfad: Elektrotechnik / 3. Semester / Signale und Systeme / Korrelationsfunktionen
+pfad: Elektrotechnik / 3. Semester / ET3 – Grundgebiete der Elektrotechnik 3: Signale und Systeme / Korrelationsfunktionen
+adresse: elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen
+knoten: Kapitel 6: Korrelationsfunktionen
 order: 3260500
 summary: Was ist die Fourier-Transformierte einer Korrelationsfunktion?
 tags: Energiedichtespektrum, Kreuzenergiedichtespektrum
@@ -20,7 +22,7 @@ Was ist die Fourier-Transformierte einer Korrelationsfunktion? Sie zeigt, wie si
 $$\varphi^E_{ss}(\tau)=s^*(-\tau)*s(\tau)\;\circ\!\!-\!\!\bullet\;S^*(f)\,S(f)=|S(f)|^2,\qquad\varphi^E_{sg}(\tau)\;\circ\!\!-\!\!\bullet\;S^*(f)\,G(f). \tag{4.1}$$
 :::
 
-⁠**So liest man das:** $|S(f)|^2$ heißt __Energiedichtespektrum__. Es ist reell, nie negativ und bei reellen Signalen gerade in $f$. Die Phase des Signals geht verloren: Alle Signale mit demselben Betragsspektrum haben dieselbe AKF. $S^*G$ heißt __Kreuzenergiedichtespektrum__. Die Herleitung braucht nur Faltungssatz, Zeitspiegelung und Konjugation: $s^*(-\tau)\circ\!\!-\!\!\bullet\,S^*(f)$ ([Teil 3](/wissen/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)).
+⁠**So liest man das:** $|S(f)|^2$ heißt __Energiedichtespektrum__. Es ist reell, nie negativ und bei reellen Signalen gerade in $f$. Die Phase des Signals geht verloren: Alle Signale mit demselben Betragsspektrum haben dieselbe AKF. $S^*G$ heißt __Kreuzenergiedichtespektrum__. Die Herleitung braucht nur Faltungssatz, Zeitspiegelung und Konjugation: $s^*(-\tau)\circ\!\!-\!\!\bullet\,S^*(f)$ ([Kapitel 3](/wissen/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)).
 
 **Parseval.** Bei $\tau=0$ ist die AKF die Energie. Mit dem Flächensatz:
 
@@ -30,7 +32,7 @@ $$E_s=\varphi^E_{ss}(0)=\int_{-\infty}^{\infty}|s(t)|^2\,\mathrm{d} t=\int_{-\in
 Zwei orthogonale Signale haben auch orthogonale Spektren: $\int s^*g\,\mathrm{d} t=\int S^*G\,\mathrm{d} f=0$.
 
 ::::beispiel der Exponentialimpuls
-$s(t)=\varepsilon(t)\mathrm{e}^{-t}$ hat $S(f)=\frac{1}{1+\mathrm{j}2\pi f}$, also $|S|^2=\frac{1}{1+(2\pi f)^2}$. Das ist zugleich $\operatorname{Re}\{S\}$, und dessen Rücktransformation ist der gerade Anteil des Signals ([Teil 3](/wissen/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)):
+$s(t)=\varepsilon(t)\mathrm{e}^{-t}$ hat $S(f)=\frac{1}{1+\mathrm{j}2\pi f}$, also $|S|^2=\frac{1}{1+(2\pi f)^2}$. Das ist zugleich $\operatorname{Re}\{S\}$, und dessen Rücktransformation ist der gerade Anteil des Signals ([Kapitel 3](/wissen/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)):
 
 $$\varphi^E_{ss}(\tau)=\tfrac12\mathrm{e}^{-|\tau|},\qquad E_s=\varphi^E_{ss}(0)=\tfrac12.$$
 

@@ -1,6 +1,8 @@
 ---
 title: Etapa 5: Simetrías en la señal y en el espectro
-pfad: Ingeniería eléctrica / 3.er semestre / Señales y sistemas / Serie y transformada de Fourier
+pfad: Ingeniería eléctrica / 3.er semestre / ET3 – Fundamentos de ingeniería eléctrica 3: señales y sistemas / Serie y transformada de Fourier
+adresse: elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation
+knoten: Capítulo 3: Serie y transformada de Fourier
 order: 3230600
 summary: Si una señal es real, par o impar se ve de inmediato en su espectro.
 tags: par, impar

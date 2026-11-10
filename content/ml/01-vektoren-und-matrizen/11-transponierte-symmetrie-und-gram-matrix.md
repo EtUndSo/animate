@@ -1,7 +1,8 @@
 ---
 title: Transponierte, Symmetrie und Gram-Matrix
 pfad: Informatik / Machine Learning / Mathematische Grundlagen / Vektoren und Matrizen
-knoten: Grundlagen 1: Vektoren und Matrizen
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Kapitel 1: Vektoren und Matrizen
 nachschlagen: ja
 order: 15211100
 summary: Vertauscht man in einer Matrix Zeilen und Spalten, entsteht ihre Transponierte.

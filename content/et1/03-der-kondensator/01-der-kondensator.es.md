@@ -1,7 +1,9 @@
 ---
 title: Visión general: El condensador
 kurz: Visión general
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / El condensador
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / El condensador
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator
+knoten: Capítulo 3: El condensador
 order: 1130100
 summary: Cómo entra corriente en un aislante y dónde está después la energía
 tags: condensador, electrodo, dieléctrico, capacidad, condensador de placas paralelas, circuito RC
@@ -23,7 +25,7 @@ Cada placa es un __electrodo__; el aislante entre ellas se llama __dieléctrico_
 
 <li>
 
-⁠**Par de placas de la [Parte 1](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html):** placas cuadradas de 10 cm de lado (área $A=100$ cm$^2$), separación $d=3$ mm, aire entre ellas, tensión de 9 V. El campo es $E=3$ kV/m.
+⁠**Par de placas del [capítulo 1](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html):** placas cuadradas de 10 cm de lado (área $A=100$ cm$^2$), separación $d=3$ mm, aire entre ellas, tensión de 9 V. El campo es $E=3$ kV/m.
 
 </li>
 

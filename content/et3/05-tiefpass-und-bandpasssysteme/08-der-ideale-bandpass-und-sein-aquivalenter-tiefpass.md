@@ -1,6 +1,8 @@
 ---
 title: Stufe 7: Der ideale Bandpass und sein äquivalenter Tiefpass
-pfad: Elektrotechnik / 3. Semester / Signale und Systeme / Tiefpass- und Bandpasssysteme
+pfad: Elektrotechnik / 3. Semester / ET3 – Grundgebiete der Elektrotechnik 3: Signale und Systeme / Tiefpass- und Bandpasssysteme
+adresse: elektrotechnik/3-semester/signale-und-systeme/tiefpass-und-bandpasssysteme
+knoten: Kapitel 5: Tiefpass- und Bandpasssysteme
 order: 3250800
 summary: Ein Bandpass lässt ein Band um die Mittenfrequenz f 0 durch.
 tags: äquivalente Tiefpass, symmetrisch
@@ -18,7 +20,7 @@ Ein Bandpass lässt ein Band um die Mittenfrequenz $f_0$ durch. Diese Stufe zeig
 <span class="anker" id="gl-7-1"></span>
 $$H(f)=\operatorname{rect}\Bigl(\frac{f}{\Delta f}\Bigr)*\bigl[\delta(f+f_0)+\delta(f-f_0)\bigr]\;\bullet\!\!-\!\!\circ\;h(t)=\Delta f\operatorname{si}(\pi\Delta f\,t)\cdot2\cos(2\pi f_0t). \tag{7.1}$$
 
-Die Impulsantwort ist eine Schwingung mit $f_0$, deren Hüllkurve die Impulsantwort eines Tiefpasses der Bandbreite $\Delta f/2$ ist. Die Modulationsregel aus [Teil 3](/wissen/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html) erklärt es: Ein Tiefpass, dessen Spektrum nach $\pm f_0$ verschoben wird.
+Die Impulsantwort ist eine Schwingung mit $f_0$, deren Hüllkurve die Impulsantwort eines Tiefpasses der Bandbreite $\Delta f/2$ ist. Die Modulationsregel aus [Kapitel 3](/wissen/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html) erklärt es: Ein Tiefpass, dessen Spektrum nach $\pm f_0$ verschoben wird.
 
 **Äquivalenter Tiefpass.** Bei reeller Impulsantwort ist $H(-f)=H^*(f)$, die negative Hälfte enthält nichts Neues. Man behält nur die positiven Frequenzen, verdoppelt sie und schiebt sie um eine Trägerfrequenz $f_0$ nach links. Das Ergebnis ist der __äquivalente Tiefpass__ $H_T(f)$:
 

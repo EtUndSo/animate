@@ -1,6 +1,8 @@
 ---
 title: 从头开始：什么是电气工程，电荷从何而来
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 电荷、电场与电位
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 电荷、电场与电位
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial
+knoten: 第 1 章：电荷、电场与电位
 order: 1110200
 summary: 为什么电压是一个差值 它对电荷起什么作用
 tags: 电气工程, 原子, 质子, 中子, 电子, 电中性, 离子

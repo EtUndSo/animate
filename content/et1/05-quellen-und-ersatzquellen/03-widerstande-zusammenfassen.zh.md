@@ -1,6 +1,8 @@
 ---
 title: 第 1 阶段：合并电阻
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 电源与等效电源
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 电源与等效电源
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen
+knoten: 第 5 章：电源与等效电源
 order: 1150300
 summary: 不含电源的电阻网络在两个接线端上的特性曲线过原点，所以一个数就够了。本阶段通过逐步合并求出这个数。
 tags: 混联电路, 总电阻, 电导

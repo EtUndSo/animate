@@ -1,6 +1,8 @@
 ---
 title: Stage 9: Charging through a resistor
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / The Capacitor
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / The Capacitor
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator
+knoten: Chapter 3: The Capacitor
 order: 1131000
 summary: At a voltage source, the charging current depends on the capacitor voltage, and that depends on the charging current.
 tags: short circuit, open circuit, differential equation
@@ -21,7 +23,7 @@ The current brings charge, and $u_C$ rises. By Kirchhoff's voltage law, less rem
 Left, the RC circuit with reference arrows, Kirchhoff's voltage law $U_0=u_R+u_C$. Position 1 charges, position 2 discharges. Right, the two equivalent circuits: At $t=0$ the empty capacitor acts like a wire; after a long time the full one acts like open terminals.
 :::
 
-**The equation.** Kirchhoff's voltage law ([Part 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)) reads $U_0=u_R+u_C$. With Ohm's law $u_R=R\,i$ and with $i=C\,\mathrm{d} u_C/\mathrm{d} t$ from [(3.1)](strom-und-spannung-am-kondensator.html#gl-3-1) it follows that
+**The equation.** Kirchhoff's voltage law ([Chapter 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)) reads $U_0=u_R+u_C$. With Ohm's law $u_R=R\,i$ and with $i=C\,\mathrm{d} u_C/\mathrm{d} t$ from [(3.1)](strom-und-spannung-am-kondensator.html#gl-3-1) it follows that
 
 <span class="anker" id="gl-9-1"></span>
 $$U_0=R\,C\,\frac{\mathrm{d} u_C}{\mathrm{d} t}+u_C. \tag{9.1}$$

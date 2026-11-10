@@ -1,6 +1,8 @@
 ---
 title: Stufe 4: Warum der Strom exponentiell wächst
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Halbleiter und Dioden
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Halbleiter und Dioden
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden
+knoten: Kapitel 9: Halbleiter und Dioden
 order: 1190600
 summary: Die Barriere steht.
 tags: Sättigungssperrstrom, Temperaturspannung, Dekade, Bahnwiderstand

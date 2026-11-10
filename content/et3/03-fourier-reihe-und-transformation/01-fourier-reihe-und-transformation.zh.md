@@ -1,7 +1,9 @@
 ---
 title: 概览: 傅里叶级数与傅里叶变换
 kurz: 概览
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / 傅里叶级数与变换
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / 傅里叶级数与变换
+adresse: elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation
+knoten: 第 3 章：傅里叶级数与变换
 order: 3230100
 summary: 每个信号都是振荡的叠加
 tags: 频谱
@@ -10,7 +12,7 @@ lang: zh
 
 ## 本章内容
 
-[第 2 部分](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html)表明，每个信号都是基本单元 $\mathrm{e}^{pt}$ 的叠加，而 LTI 系统只是把每个基本单元乘以一个数。傅里叶描述只使用虚轴上的基本单元 $p=\mathrm{j}2\pi f$：既不增长也不衰减的纯振荡 $\mathrm{e}^{\mathrm{j}2\pi ft}$。这有一个很大的优点：振荡具有频率，而频率可以听到、测量和滤波。__频谱__ $S(f)$ 表明信号中各个频率分别以怎样的幅度和相位存在。
+[第 2 章](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html)表明，每个信号都是基本单元 $\mathrm{e}^{pt}$ 的叠加，而 LTI 系统只是把每个基本单元乘以一个数。傅里叶描述只使用虚轴上的基本单元 $p=\mathrm{j}2\pi f$：既不增长也不衰减的纯振荡 $\mathrm{e}^{\mathrm{j}2\pi ft}$。这有一个很大的优点：振荡具有频率，而频率可以听到、测量和滤波。__频谱__ $S(f)$ 表明信号中各个频率分别以怎样的幅度和相位存在。
 
 
 **所有结论背后的同一个原理。**

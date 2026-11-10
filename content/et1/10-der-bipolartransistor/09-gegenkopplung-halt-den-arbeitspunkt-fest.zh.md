@@ -1,6 +1,8 @@
 ---
 title: 第 7 阶段：负反馈稳定工作点
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 双极型晶体管
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 双极型晶体管
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor
+knoten: 第 10 章：双极型晶体管
 order: 1200900
 summary: 第 5 阶段的工作点依赖于 B 和 U BE ，而这两者都不可靠。本阶段说明电路如何自己把电流稳定住。
 tags: 电流负反馈, 电压负反馈
@@ -41,7 +43,7 @@ $R_\mathrm{B}$ 从集电极接到基极的电压负反馈：
 $$I_\mathrm{C}=\frac{U_\mathrm{CC}-U_\mathrm{BE}}{R_\mathrm{C}\bigl(1+\frac1B\bigr)+\frac{R_\mathrm{B}}{B}}\approx\frac{U_\mathrm{CC}-U_\mathrm{BE}}{R_\mathrm{C}+\frac{R_\mathrm{B}}{B}},\qquad\text{当 } R_\mathrm{C}\gg\frac{R_\mathrm{B}}{B}\text{ 时：}\ I_\mathrm{C}\approx\frac{U_\mathrm{CC}-U_\mathrm{BE}}{R_\mathrm{C}}. \tag{7.2}$$
 :::
 
-⁠**如何理解：**$U_\mathrm{q}$ 和 $R_\mathrm{i}$ 把分压器描述为等效电压源（[第 5 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)）：$U_\mathrm{q}$ 是它的开路电压，$R_\mathrm{i}$ 是它的内阻。在分母中，$R_\mathrm{E}$ 几乎完全起作用，$R_\mathrm{i}$ 则要除以 $B$。**适用条件：**放大区。这一点要在最后检验。这里 $U_\mathrm{BE}$ 是固定值；式 [(7.1)](#gl-7-1) 的最后一个近似要求 $U_\mathrm{q}$ 足够大。
+⁠**如何理解：**$U_\mathrm{q}$ 和 $R_\mathrm{i}$ 把分压器描述为等效电压源（[第 5 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)）：$U_\mathrm{q}$ 是它的开路电压，$R_\mathrm{i}$ 是它的内阻。在分母中，$R_\mathrm{E}$ 几乎完全起作用，$R_\mathrm{i}$ 则要除以 $B$。**适用条件：**放大区。这一点要在最后检验。这里 $U_\mathrm{BE}$ 是固定值；式 [(7.1)](#gl-7-1) 的最后一个近似要求 $U_\mathrm{q}$ 足够大。
 
 :::herleitung 由网孔得出公式
 分压器变成电源 $U_\mathrm{q}$ 串联 $R_\mathrm{i}$。利用 $I_\mathrm{E}=(1+B)I_\mathrm{B}$，经过基极和发射极的网孔方程为

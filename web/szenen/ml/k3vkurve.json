@@ -1115,31 +1115,41 @@
     "de": "Schrittweite h",
     "en": "step size h",
     "es": "paso h",
-    "zh": "步长 h"
+    "zh": "步长 h",
+    "fr": "pas h",
+    "tr": "adım büyüklüğü h"
    },
    "fl": {
     "de": "Fehler",
     "en": "error",
     "es": "error",
-    "zh": "误差"
+    "zh": "误差",
+    "fr": "erreur",
+    "tr": "hata"
    },
    "vg": {
     "de": "Vorwärtsdifferenz",
     "en": "forward difference",
     "es": "diferencia progresiva",
-    "zh": "前向差分"
+    "zh": "前向差分",
+    "fr": "différence avant",
+    "tr": "ileri fark"
    },
    "zg": {
     "de": "zentrale Differenz",
     "en": "central difference",
     "es": "diferencia central",
-    "zh": "中心差分"
+    "zh": "中心差分",
+    "fr": "différence centrée",
+    "tr": "merkezi fark"
    },
    "ab": {
     "de": "Abschätzungen",
     "en": "estimates",
     "es": "estimaciones",
-    "zh": "估计"
+    "zh": "估计",
+    "fr": "estimations",
+    "tr": "kestirimler"
    }
   }
  }

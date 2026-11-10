@@ -1,6 +1,8 @@
 ---
 title: Stufe 4: Koordinaten und Darstellungsmatrix
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Matrizen und lineare Gleichungssysteme
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Matrizen und lineare Gleichungssysteme
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/matrizen-und-lineare-gleichungssysteme
+knoten: Kapitel 10: Matrizen und lineare Gleichungssysteme
 order: 1300600
 summary: Bisher galt die Matrix nur für Zahlenräume mit Standardbasis.
 tags: Koordinatenabbildung, Koordinatenvektor, Darstellungsmatrix
@@ -115,7 +117,7 @@ Das heißt $(3+4x+5x^2)'=4+10x$. Der Kern besteht aus den konstanten Polynomen, 
 ::::
 
 ::::beispiel Spiegelung
-Sei $L:\mathbb{R}^2\to\mathbb{R}^2$ die Spiegelung an der Geraden $G=\operatorname{span}\{v\}$ mit $\|v\|=1$. Die Orthogonalprojektion ([Teil 8](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/vektoren-und-skalarprodukt/vektoren-und-skalarprodukt.html)) auf $G$ ist $\operatorname{Proj}_G(a)=\langle a,v\rangle v$. Von $a$ zum Lotfußpunkt führt $b=\operatorname{Proj}_G(a)-a$, das Spiegelbild liegt doppelt so weit: $L(a)=a+2b=2\langle a,v\rangle v-a$. Daraus ergeben sich $L(e_1)=2v_1v-e_1$ und $L(e_2)=2v_2v-e_2$, also
+Sei $L:\mathbb{R}^2\to\mathbb{R}^2$ die Spiegelung an der Geraden $G=\operatorname{span}\{v\}$ mit $\|v\|=1$. Die Orthogonalprojektion ([Kapitel 8](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/vektoren-und-skalarprodukt/vektoren-und-skalarprodukt.html)) auf $G$ ist $\operatorname{Proj}_G(a)=\langle a,v\rangle v$. Von $a$ zum Lotfußpunkt führt $b=\operatorname{Proj}_G(a)-a$, das Spiegelbild liegt doppelt so weit: $L(a)=a+2b=2\langle a,v\rangle v-a$. Daraus ergeben sich $L(e_1)=2v_1v-e_1$ und $L(e_2)=2v_2v-e_2$, also
 
 <span class="anker" id="gl-4-4"></span>
 $$\mathcal L_L^{\mathcal E,\mathcal E}=\begin{pmatrix}2v_1^2-1&2v_1v_2\\2v_1v_2&2v_2^2-1\end{pmatrix},\qquad\text{für }v=\bigl(\tfrac35,\tfrac45\bigr):\quad R:=\frac1{25}\begin{pmatrix}-7&24\\24&7\end{pmatrix}, \tag{4.4}$$

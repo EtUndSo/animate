@@ -1,6 +1,8 @@
 ---
 title: Stufe 5: Spannung anlegen
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Der p-n-Übergang
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Der p-n-Übergang
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/der-p-n-ubergang
+knoten: Kapitel 14: Der p-n-Übergang
 order: 4240700
 summary: Bisher lag keine äußere Spannung an.
 tags: Durchlassrichtung, Sperrrichtung
@@ -21,7 +23,7 @@ Bisher lag keine äußere Spannung an. Diese Stufe legt eine an. Sie zeigt, wie 
 Bänder bei $U_\mathrm{pn}=+0{,}4$ V, 0 und $-0{,}4$ V, n-Gebiet festgehalten, Schottky-Näherung. Orange: Barriere für Elektronen in eV. Grau: Zone. Blau und rot: Fermi-Energien der Elektronen und der Löcher, ihr Abstand ist $e|U_\mathrm{pn}|$. Bei Durchlass liegt $E_\mathrm{Fp}$ unter $E_\mathrm{Fn}$, bei Sperrung darüber.
 :::
 
-**Zwei Quasi-Fermi-Niveaus.** Eine Spannung ist eine Differenz von Fermi-Energien, also kann $E_\mathrm F$ nicht mehr überall gleich sein. Dafür hat [Teil 12](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/strom-im-halbleiter/strom-im-halbleiter.html) das Quasi-Fermi-Niveau eingeführt, das örtliche Fermi-Niveau außerhalb des Gleichgewichts. Hier reicht eines nicht mehr, denn Elektronen und Löcher sind nicht miteinander im Gleichgewicht. Unter sich sind sie es: Streuung stellt die Verteilung in jedem Band in rund 0,2 ps ein ([Teil 12](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/strom-im-halbleiter/strom-im-halbleiter.html)), Rekombination braucht 1 µ s, das $5\cdot10^{6}$-fache. Jede Sorte bekommt deshalb ihr eigenes Niveau.
+**Zwei Quasi-Fermi-Niveaus.** Eine Spannung ist eine Differenz von Fermi-Energien, also kann $E_\mathrm F$ nicht mehr überall gleich sein. Dafür hat [Kapitel 12](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/strom-im-halbleiter/strom-im-halbleiter.html) das Quasi-Fermi-Niveau eingeführt, das örtliche Fermi-Niveau außerhalb des Gleichgewichts. Hier reicht eines nicht mehr, denn Elektronen und Löcher sind nicht miteinander im Gleichgewicht. Unter sich sind sie es: Streuung stellt die Verteilung in jedem Band in rund 0,2 ps ein ([Kapitel 12](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/strom-im-halbleiter/strom-im-halbleiter.html)), Rekombination braucht 1 µ s, das $5\cdot10^{6}$-fache. Jede Sorte bekommt deshalb ihr eigenes Niveau.
 
 :::definition Definition 5.1 (Quasi-Fermi-Niveaus der beiden Sorten)
 <span class="anker" id="satz-5-1"></span>
@@ -34,7 +36,7 @@ $$n(x)=N_\mathrm C\exp\Bigl(-\frac{E_\mathrm C(x)-E_\mathrm{Fn}(x)}{k_\mathrm BT
 Daraus folgt $n\,p=n_\mathrm i^2\exp\bigl((E_\mathrm{Fn}-E_\mathrm{Fp})/(k_\mathrm BT)\bigr)$. Der Strom jeder Sorte ist $j_\mathrm n=\mu_\mathrm n\,n\,\mathrm{d} E_\mathrm{Fn}/\mathrm{d} x$ und $j_\mathrm p=\mu_\mathrm p\,p\,\mathrm{d} E_\mathrm{Fp}/\mathrm{d} x$.
 :::
 
-⁠**So liest man das:** Im Gleichgewicht ist $E_\mathrm{Fn}=E_\mathrm{Fp}=E_\mathrm F$ und $n\,p=n_\mathrm i^2$. Die Stromformeln folgen wie [(2.1)](der-ubergang-im-gleichgewicht.html#gl-2-1), denn die Rechnung benutzte nur die Dichte einer Sorte. Das Niveau einer Sorte ist flach, wo sie viele Träger hat: Dort reicht für jeden Strom ein kleines Gefälle. Ein Beispiel ohne Spannung ist Licht: Es hebt Elektronen aus dem Valenz- ins Leitungsband, und beide Niveaus trennen sich. Bei schwacher Injektion ([Teil 13](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/diffusion-rekombination-und-grundgleichungen/diffusion-rekombination-grundgleichungen.html)) bleiben die Minoritäten viel seltener als die Majoritäten. Dann behält das Niveau der Majoritäten seine Lage, nur das der Minoritäten wandert. Bei starker Injektion erreicht die Minoritätsdichte die Majoritätsdichte, und beide Niveaus bewegen sich.
+⁠**So liest man das:** Im Gleichgewicht ist $E_\mathrm{Fn}=E_\mathrm{Fp}=E_\mathrm F$ und $n\,p=n_\mathrm i^2$. Die Stromformeln folgen wie [(2.1)](der-ubergang-im-gleichgewicht.html#gl-2-1), denn die Rechnung benutzte nur die Dichte einer Sorte. Das Niveau einer Sorte ist flach, wo sie viele Träger hat: Dort reicht für jeden Strom ein kleines Gefälle. Ein Beispiel ohne Spannung ist Licht: Es hebt Elektronen aus dem Valenz- ins Leitungsband, und beide Niveaus trennen sich. Bei schwacher Injektion ([Kapitel 13](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/diffusion-rekombination-und-grundgleichungen/diffusion-rekombination-grundgleichungen.html)) bleiben die Minoritäten viel seltener als die Majoritäten. Dann behält das Niveau der Majoritäten seine Lage, nur das der Minoritäten wandert. Bei starker Injektion erreicht die Minoritätsdichte die Majoritätsdichte, und beide Niveaus bewegen sich.
 
 :::satz Satz 5.2 (Übergang mit Spannung)
 <span class="anker" id="satz-5-2"></span>

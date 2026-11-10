@@ -1,7 +1,8 @@
 ---
 title: Mittelwerte vieler Zufallsvariablen
 pfad: Informatik / Machine Learning / Mathematische Grundlagen / Wahrscheinlichkeit
-knoten: Grundlagen 4: Wahrscheinlichkeit
+adresse: informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit
+knoten: Kapitel 4: Wahrscheinlichkeit
 nachschlagen: ja
 order: 15241400
 summary: Mittelt man viele unabhängige Messungen, so wird das Ergebnis immer genauer, und seine Schwankungen haben fast immer dieselbe Glockenform, gleichgültig, wie die einzelnen Messungen verteilt sind.
@@ -35,7 +36,7 @@ Die Standardabweichung $\sigma/\sqrt n$ des Mittelwerts heißt __Standardfehler_
 Der Erwartungswert folgt aus der Linearität. Für die Varianz addieren sich nach [(10.4)](kovarianz-und-korrelation.html#gl-10-4) die $n$ Varianzen zu $n\sigma^2$, und der Faktor $\tfrac1n$ geht nach [(7.8)](erwartungswert-und-varianz.html#gl-7-8) quadriert ein: $\tfrac1{n^2}\cdot n\sigma^2=\sigma^2/n$. Dabei braucht man nur, dass die $X_i$ paarweise unkorreliert sind. Der Mittelwert wird also mit wachsendem $n$ genauer, aber langsam: Für die halbe Streuung braucht man viermal so viele Messungen, für ein Zehntel hundertmal so viele.
 
 ::::beispiel [Rechenbeispiel]
-Ein Messgerät habe Rauschen mit $\sigma=5\,\mathrm{mV}$. Der Mittelwert aus $16$ Messungen hat den Standardfehler $5/4=1{,}25\,\mathrm{mV}$, der aus $100$ Messungen $0{,}5\,\mathrm{mV}$. In der Signalverarbeitung heißt das: Mitteln über $n$ Wiederholungen verbessert das Verhältnis von Signal- zu Rauschamplitude um $\sqrt n$, das von Signal- zu Rauschleistung um $n$. Der Mittelwert von $100$ Würfen eines Würfels hat den Standardfehler $1{,}708/10\approx0{,}171$.
+Eine Küchenwaage habe Rauschen mit $\sigma=5\,\mathrm g$. Der Mittelwert aus $16$ Wägungen hat den Standardfehler $5/4=1{,}25\,\mathrm g$, der aus $100$ Wägungen $0{,}5\,\mathrm g$. Mitteln über $n$ Wiederholungen macht den zufälligen Fehler also $\sqrt n$-mal kleiner: Für ein zehnmal genaueres Ergebnis braucht man hundertmal so viele Messungen. Der Mittelwert von $100$ Würfen eines Würfels hat den Standardfehler $1{,}708/10\approx0{,}171$.
 ::::
 
 ⁠**Kurz gesagt:** Der Mittelwert von $n$ unabhängigen Größen hat denselben Erwartungswert und die Standardabweichung $\sigma/\sqrt n$: Er wird genauer, aber nur mit der Wurzel aus $n$.
@@ -122,17 +123,17 @@ $$P\Bigl(\frac{\bar X_n-\mu}{\sigma/\sqrt n}\le z\Bigr)\ \longrightarrow\ \Phi(z
 Für großes $n$ ist $\bar X_n$ also näherungsweise $\mathcal N(\mu,\sigma^2/n)$-verteilt und die Summe $X_1+\dots+X_n$ näherungsweise $\mathcal N(n\mu,\,n\sigma^2)$-verteilt. Der Satz ist ohne Beweis angegeben; der Beweis braucht mehr Analysis, als dieses Kapitel bereitstellt. Wie groß $n$ sein muss, hängt von der Verteilung der $X_i$ ab: Bei symmetrischen Verteilungen wie dem Würfel genügen wenige Summanden, bei sehr schiefen braucht man mehr. Für die Binomialverteilung als Summe von Bernoulli-Variablen sagt der Satz, dass $\mathrm{Bin}(n,\theta)$ für großes $n$ fast eine Normalverteilung mit $n\theta$ und $n\theta(1-\theta)$ ist; das war die erste Form des Satzes, gefunden 1733 von Abraham de Moivre.
 
 ::::beispiel [Rechenbeispiel]
-Für den Mittelwert von $1\,000$ Würfen ist $\sigma/\sqrt n=1{,}708/\sqrt{1000}\approx0{,}054$. Eine Abweichung von mindestens $0{,}1$ sind $0{,}1/0{,}054\approx1{,}85$ Standardfehler, also ist $P(|\bar X_{1000}-3{,}5|\ge0{,}1)\approx2\,\bigl(1-\Phi(1{,}85)\bigr)\approx0{,}064$. Ein Gerät mit beliebig verteiltem Rauschen der Standardabweichung $2\,\mathrm{mV}$ liefert über $100$ Messungen gemittelt einen Wert, der mit etwa $95\,\%$ Wahrscheinlichkeit um höchstens $1{,}96\cdot0{,}2\,\mathrm{mV}\approx0{,}39\,\mathrm{mV}$ vom wahren Wert abweicht.
+Für den Mittelwert von $1\,000$ Würfen ist $\sigma/\sqrt n=1{,}708/\sqrt{1000}\approx0{,}054$. Eine Abweichung von mindestens $0{,}1$ sind $0{,}1/0{,}054\approx1{,}85$ Standardfehler, also ist $P(|\bar X_{1000}-3{,}5|\ge0{,}1)\approx2\,\bigl(1-\Phi(1{,}85)\bigr)\approx0{,}064$. Eine Waage mit beliebig verteiltem Rauschen der Standardabweichung $2\,\mathrm g$ liefert über $100$ Wägungen gemittelt einen Wert, der mit etwa $95\,\%$ Wahrscheinlichkeit um höchstens $1{,}96\cdot0{,}2\,\mathrm g\approx0{,}39\,\mathrm g$ vom wahren Wert abweicht.
 ::::
 
 ⁠**Kurz gesagt:** Mittelwerte und Summen vieler unabhängiger Größen mit endlicher Varianz sind näherungsweise normalverteilt, gleich wie die einzelnen Größen verteilt sind.
 
 :::hintergrund Warum die Glocke entsteht: Faltung
-Aus Signale und Systeme kennt man die Faltung. Die Verteilung einer Summe unabhängiger Größen ist die Faltung ihrer Verteilungen: Die Augensumme $s$ zweier Würfel entsteht aus allen Paaren $(k,\,s-k)$, also ist $P(X+Y=s)=\sum_kP(X=k)\,P(Y=s-k)$, mit Dichten ebenso als Integral. Abb. [20](#abb-20) ist so berechnet. Die Faltung zweier Rechtecke ist ein Dreieck, die von drei Rechtecken ein Stück aus Parabeln, und wiederholte Faltung glättet jede Form weiter. Bei jeder Faltung addieren sich die Erwartungswerte und die Varianzen, wie Abschnitt [10](kovarianz-und-korrelation.html#stufe-10) gezeigt hat. Nach dem Standardisieren sind Erwartungswert und Varianz festgelegt, und alle feineren Eigenheiten der Ausgangsverteilung werden mit wachsendem $n$ ausgeglättet. Genauer: Die größte Abweichung zwischen der Verteilungsfunktion des standardisierten Mittelwerts und $\Phi$ ist höchstens eine feste Zahl mal $\mathbb{E}[|X-\mu|^3]/(\sigma^3\sqrt n)$; sie schrumpft also mit $1/\sqrt n$, und schiefe, weit ausladende Verteilungen brauchen mehr Summanden. Bei der Normalverteilung selbst ändert das Falten die Form gar nicht, denn die Summe unabhängiger normalverteilter Größen ist wieder normalverteilt. Sie ist deshalb die Form, auf die wiederholtes Falten zuläuft.
+Die Verteilung einer Summe unabhängiger Größen ist die Faltung ihrer Verteilungen, dieselbe Rechnung wie bei der Nachwirkung im Kaminofen aus [Kapitel 1, Abschnitt 8.2](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-2): Die Augensumme $s$ zweier Würfel entsteht aus allen Paaren $(k,\,s-k)$, also ist $P(X+Y=s)=\sum_kP(X=k)\,P(Y=s-k)$, mit Dichten ebenso als Integral. Abb. [20](#abb-20) ist so berechnet. Die Faltung zweier Rechtecke ist ein Dreieck, die von drei Rechtecken ein Stück aus Parabeln, und wiederholte Faltung glättet jede Form weiter. Bei jeder Faltung addieren sich die Erwartungswerte und die Varianzen, wie Abschnitt [10](kovarianz-und-korrelation.html#stufe-10) gezeigt hat. Nach dem Standardisieren sind Erwartungswert und Varianz festgelegt, und alle feineren Eigenheiten der Ausgangsverteilung werden mit wachsendem $n$ ausgeglättet. Genauer: Die größte Abweichung zwischen der Verteilungsfunktion des standardisierten Mittelwerts und $\Phi$ ist höchstens eine feste Zahl mal $\mathbb{E}[|X-\mu|^3]/(\sigma^3\sqrt n)$; sie schrumpft also mit $1/\sqrt n$, und schiefe, weit ausladende Verteilungen brauchen mehr Summanden. Bei der Normalverteilung selbst ändert das Falten die Form gar nicht, denn die Summe unabhängiger normalverteilter Größen ist wieder normalverteilt. Sie ist deshalb die Form, auf die wiederholtes Falten zuläuft.
 :::
 
 :::hintergrund Warum Rauschen so oft normalverteilt ist
-Das thermische Rauschen eines Widerstands entsteht aus der ungeordneten Wärmebewegung seiner Elektronen. Die Spannung an seinen Klemmen ist die Summe der Beiträge einer riesigen Zahl von Elektronen, von denen jedes für sich zufällig mal in die eine, mal in die andere Richtung driftet, unabhängig von den anderen. Nach dem zentralen Grenzwertsatz ist eine solche Summe normalverteilt, und das ist auch, was man misst. John B. Johnson hat dieses Rauschen 1928 gemessen, Harry Nyquist im selben Jahr seine Leistung erklärt: Im offenen Stromkreis ist der quadratische Mittelwert der Rauschspannung in einem Frequenzband das Vierfache des Produkts aus Boltzmann-Konstante, absoluter Temperatur, Widerstandswert und Bandbreite. Die Varianz der Rauschspannung ist also bekannt, und ihre Verteilung ist die Normalverteilung. Dasselbe Argument trägt weit: Ein Messfehler, der aus vielen kleinen, unabhängigen Störungen zusammengesetzt ist, ist näherungsweise normalverteilt. Deshalb ist die Normalverteilung die natürliche erste Annahme für das Rauschen $\nu$ in [(8.8)](wichtige-verteilungen.html#gl-8-8), und ein Fehler, der sich deutlich nicht normal verhält, ist ein Hinweis auf wenige große Störquellen.
+Ein Messfehler hat selten nur eine Ursache. Beim Wiegen tragen ein Luftzug, eine leichte Erschütterung, die Temperatur der Waage, ein nicht ganz gerader Boden und vieles mehr je ein kleines Stück bei, mal in die eine, mal in die andere Richtung und unabhängig voneinander. Nach dem zentralen Grenzwertsatz ist eine solche Summe vieler kleiner Beiträge näherungsweise normalverteilt. Sehen kann man das an einem Galtonbrett, einem schrägen Brett mit versetzten Reihen von Nägeln: Jede Kugel prallt an jeder Reihe zufällig nach links oder rechts ab, ihre Endlage ist die Summe vieler solcher kleinen Schritte, und unten stapeln sich die Kugeln zu einer Glocke. Dasselbe Argument erklärt, warum die Körpergrößen Erwachsener eines Geschlechts ungefähr glockenförmig verteilt sind: Viele Erbanlagen und Einflüsse der Umwelt tragen je ein kleines Stück bei. Ein Messfehler, der aus vielen kleinen, unabhängigen Störungen zusammengesetzt ist, ist also näherungsweise normalverteilt. Deshalb ist die Normalverteilung die natürliche erste Annahme für das Rauschen $\nu$ in [(8.8)](wichtige-verteilungen.html#gl-8-8), und ein Fehler, der sich deutlich nicht normal verhält, ist ein Hinweis auf wenige große Störquellen.
 :::
 
 :::aufgabe Aufgabe 41 ★ Dreißig Würfe (praktisch)
@@ -174,25 +175,25 @@ Wie viele Würfe bräuchtest du, damit der Standardfehler unter $0{,}05$ liegt?
 :::aufgabe Aufgabe 42 ★★ Wie oft messen?
 <span class="anker" id="aufg-42"></span>
 
-Ein Sensor hat Rauschen mit der Standardabweichung $5\,\mathrm{mV}$.
+Eine Küchenwaage hat Rauschen mit der Standardabweichung $5\,\mathrm g$.
 
 <ol class="al">
 
 <li>
 
-Wie viele Messungen muss man mitteln, damit der Standardfehler höchstens $0{,}5\,\mathrm{mV}$ ist?
+Wie viele Wägungen muss man mitteln, damit der Standardfehler höchstens $0{,}5\,\mathrm g$ ist?
 
 </li>
 
 <li>
 
-Wie viele, damit der Mittelwert nach der Tschebyschow-Ungleichung mit mindestens $95\,\%$ Wahrscheinlichkeit um weniger als $1\,\mathrm{mV}$ vom wahren Wert abweicht? Wie viele nach dem zentralen Grenzwertsatz?
+Wie viele, damit der Mittelwert nach der Tschebyschow-Ungleichung mit mindestens $95\,\%$ Wahrscheinlichkeit um weniger als $1\,\mathrm g$ vom wahren Wert abweicht? Wie viele nach dem zentralen Grenzwertsatz?
 
 </li>
 
 <li>
 
-Warum hilft Mitteln nicht gegen einen festen Versatz des Sensors?
+Warum hilft Mitteln nicht gegen einen festen Versatz der Waage?
 
 </li>
 

@@ -1,7 +1,8 @@
 ---
 title: Independence, basis and rank
 pfad: Computer Science / Machine Learning / Mathematical Foundations / Vectors and Matrices
-knoten: Foundations 1: Vectors and Matrices
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Chapter 1: Vectors and Matrices
 nachschlagen: ja
 order: 15211400
 summary: Some vectors in a list bring nothing new, because they can be put together from the others.

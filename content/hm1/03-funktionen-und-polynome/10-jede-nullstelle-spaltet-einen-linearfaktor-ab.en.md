@@ -1,6 +1,8 @@
 ---
 title: Stage 8: Every zero splits off a linear factor
-pfad: Electrical Engineering / 1st Semester / Higher Mathematics 1 / Functions and Polynomials
+pfad: Electrical Engineering / 1st Semester / HöMa1 – Higher Mathematics 1 / Functions and Polynomials
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/funktionen-und-polynome
+knoten: Chapter 3: Functions and Polynomials
 order: 1231000
 summary: Now the question from the beginning can be answered: Why does a factor belong to every solution of P(x)=0 , and how many solutions can there be?
 tags: m-fold zero, multiplicity
@@ -63,7 +65,7 @@ $$\begin{aligned} a_3&=-(x_1+x_2+x_3+x_4), & a_2&=x_1x_2+x_1x_3+x_1x_4+x_2x_3+x_
 Not every real polynomial has the form [(8.3)](#gl-8-3), as $x^2+1$ shows. That the form [(8.4)](#gl-8-4) always exists is harder and is not proved here.
 
 :::zusatz Why quadratic factors suffice
-In the complex numbers ([Part 2](/wissen/en/elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen/komplexe-zahlen.html)), every polynomial of degree $n\ge1$ has a zero (fundamental theorem of algebra). With real coefficients, along with $z$ also $\overline{z}$ is a zero, and $(x-z)(x-\overline{z})=x^2-2\operatorname{Re}(z)\,x+|z|^2$ is real. For $x^2+x+1$, $z=-\frac12+\frac{\sqrt3}{2}\,\mathrm{i}$.
+In the complex numbers ([Chapter 2](/wissen/en/elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen/komplexe-zahlen.html)), every polynomial of degree $n\ge1$ has a zero (fundamental theorem of algebra). With real coefficients, along with $z$ also $\overline{z}$ is a zero, and $(x-z)(x-\overline{z})=x^2-2\operatorname{Re}(z)\,x+|z|^2$ is real. For $x^2+x+1$, $z=-\frac12+\frac{\sqrt3}{2}\,\mathrm{i}$.
 :::
 
 ::::beispiel

@@ -1,6 +1,8 @@
 ---
 title: Lo esencial
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Medir corriente y tensión
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Medir corriente y tensión
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-und-spannung-messen
+knoten: Capítulo 4: Medir corriente y tensión
 order: 1140900
 summary: Por qué todo instrumento modifica el circuito y cómo medir con exactitud a pesar de ello
 tags: amperímetro, voltímetro, medición de corriente correcta, medición de tensión correcta, puente de Wheatstone, equilibrio
@@ -73,7 +75,7 @@ Desequilibrado: $U_\mathrm d\approx\frac14U_\mathrm q\,\Delta R/R$. Sin la tensi
 </ul>
 :::
 
-**Un principio detrás de todos los resultados.** Para el circuito, un instrumento de medida es una resistencia más. Todos los errores se deducen de las mismas reglas que en la [Parte 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html): regla de las mallas, regla de los nudos, ley de Ohm.
+**Un principio detrás de todos los resultados.** Para el circuito, un instrumento de medida es una resistencia más. Todos los errores se deducen de las mismas reglas que en el [capítulo 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html): regla de las mallas, regla de los nudos, ley de Ohm.
 
 | Resultado | De dónde viene |
 |---|---|

@@ -1,10 +1,11 @@
 ---
 title: Mehrere Zufallsvariablen
 pfad: Informatik / Machine Learning / Mathematische Grundlagen / Wahrscheinlichkeit
-knoten: Grundlagen 4: Wahrscheinlichkeit
+adresse: informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit
+knoten: Kapitel 4: Wahrscheinlichkeit
 nachschlagen: ja
 order: 15241000
-summary: Ein Datenpunkt besteht aus mehreren Zahlen, die vom selben Zufall abhängen: Fläche und Miete derselben Wohnung, zwei Abtastwerte desselben Signals.
+summary: Ein Datenpunkt besteht aus mehreren Zahlen, die vom selben Zufall abhängen: Fläche und Miete derselben Wohnung, die Temperaturen zweier aufeinanderfolgender Stunden.
 tags: Doppelintegral, gemeinsame Wahrscheinlichkeitsfunktion, gemeinsame Dichte, Randverteilung, marginalisiert, bedingte Verteilung, bedingte Dichte, bedingter Erwartungswert
 lang: de
 ---
@@ -12,7 +13,7 @@ lang: de
 <span class="anker" id="stufe-9"></span>
 
 :::zweck
-Ein Datenpunkt besteht aus mehreren Zahlen, die vom selben Zufall abhängen: Fläche und Miete derselben Wohnung, zwei Abtastwerte desselben Signals. Dieser Abschnitt beschreibt mehrere Zufallsvariablen zugleich durch ihre gemeinsame Verteilung, gewinnt daraus die Verteilungen der einzelnen und die bedingten Verteilungen und überträgt die Unabhängigkeit von Ereignissen auf Zufallsvariablen. Am Ende steht die Vorstellung, mit der das maschinelle Lernen einen Datensatz beschreibt: als viele unabhängige Ziehungen aus derselben Verteilung.
+Ein Datenpunkt besteht aus mehreren Zahlen, die vom selben Zufall abhängen: Fläche und Miete derselben Wohnung, die Temperaturen zweier aufeinanderfolgender Stunden. Dieser Abschnitt beschreibt mehrere Zufallsvariablen zugleich durch ihre gemeinsame Verteilung, gewinnt daraus die Verteilungen der einzelnen und die bedingten Verteilungen und überträgt die Unabhängigkeit von Ereignissen auf Zufallsvariablen. Am Ende steht die Vorstellung, mit der das maschinelle Lernen einen Datensatz beschreibt: als viele unabhängige Ziehungen aus derselben Verteilung.
 :::
 
 ### Was du dafür brauchst: Doppelintegrale
@@ -151,7 +152,7 @@ Zufallsvariablen $X_1,\dots,X_n$ heißen __unabhängig und identisch verteilt__,
 
 Für Datenpunkte mit mehreren Merkmalen gilt dasselbe: Die Zeilen $\mathbf{x}_1,\dots,\mathbf{x}_N$ einer Datenmatrix sind in diesem Bild $N$ unabhängige Ziehungen aus derselben gemeinsamen Verteilung der Merkmale. Die Verteilung, aus der sie stammen, ist unbekannt; die Daten sind das Einzige, was man von ihr sieht. Das ist der genaue Sinn der Aussage, ein Datensatz sei eine zufällige Auswahl: Ein anderer Datensatz derselben Größe wäre eine andere Stichprobe aus derselben Verteilung.
 
-Die Annahme ist nicht immer erfüllt, und man muss sie prüfen. Aufeinanderfolgende Abtastwerte eines Signals hängen meist voneinander ab, weil sich das Signal zwischen zwei Abtastzeitpunkten nur wenig ändert. Zehn Messungen an derselben Person sind sich ähnlicher als zehn Messungen an zehn Personen. Und wenn sich eine Fertigung im Lauf des Tages verstellt, sind die Teile vom Abend anders verteilt als die vom Morgen.
+Die Annahme ist nicht immer erfüllt, und man muss sie prüfen. Aufeinanderfolgende Werte eines Verlaufs hängen meist voneinander ab: Die Temperaturen zweier aufeinanderfolgender Minuten sind fast gleich, weil sich die Temperatur in einer Minute nur wenig ändert. Zehn Messungen an derselben Person sind sich ähnlicher als zehn Messungen an zehn Personen. Und wenn sich eine Fertigung im Lauf des Tages verstellt, sind die Teile vom Abend anders verteilt als die vom Morgen.
 
 ::::beispiel [Rechenbeispiel]
 Zehn Würfe eines fairen Würfels sind i.i.d. Jede bestimmte Folge, etwa $(3,1,4,1,5,6,2,6,5,3)$, hat die Wahrscheinlichkeit $(\tfrac16)^{10}\approx1{,}65\cdot10^{-8}$, weil die gemeinsame Wahrscheinlichkeitsfunktion das Produkt der zehn Randverteilungen ist. Zieht man aus dem Datensatz der vier Wohnungen mit Zurücklegen, jedes Mal jede Wohnung mit $\tfrac14$, so sind die Ziehungen i.i.d. mit der empirischen Verteilung aus Unterabschnitt [7.7](erwartungswert-und-varianz.html#stufe-7-7).
@@ -254,7 +255,7 @@ $1\,000$ Wohnungen, zufällig aus dem Melderegister einer Stadt gezogen.
 
 <li>
 
-$1\,000$ aufeinanderfolgende Abtastwerte eines Mikrofonsignals bei $48\,\mathrm{kHz}$.
+Die Außentemperatur, $1\,000$-mal im Abstand von einer Sekunde abgelesen.
 
 </li>
 
@@ -266,7 +267,7 @@ Je zehn Blutdruckmessungen an $100$ Personen, als $1\,000$ Zeilen gespeichert.
 
 <li>
 
-Die Messwerte eines Sensors, einer pro Tag, über ein Jahr.
+Die Mittagstemperatur auf einem Balkon, einmal pro Tag abgelesen, über ein Jahr.
 
 </li>
 
@@ -275,10 +276,10 @@ Die Messwerte eines Sensors, einer pro Tag, über ein Jahr.
 :::loesung
 (a) Ja, in guter Näherung. Die Ziehung ist zufällig, und bei einer großen Stadt ändert das Ziehen von $1\,000$ Wohnungen die Verteilung der übrigen kaum.
 
-(b) Nein. Bei $48\,\mathrm{kHz}$ liegen zwei Abtastwerte $21\,\mu\mathrm s$ auseinander; in dieser Zeit ändert sich ein Schallsignal nur wenig, und benachbarte Werte sind stark korreliert. Außerdem decken $1\,000$ Werte nur etwa $21\,\mathrm{ms}$ ab.
+(b) Nein. Zwei Werte liegen eine Sekunde auseinander; in dieser Zeit ändert sich die Temperatur kaum, und benachbarte Werte sind stark korreliert. Außerdem decken $1\,000$ Werte nur etwa $17$ Minuten ab.
 
 (c) Nein. Die zehn Messungen derselben Person hängen voneinander ab, weil sie den Blutdruck dieser Person messen. Unabhängig sind eher die $100$ Personen untereinander; jede Person ist dann ein Datenpunkt mit zehn Messungen.
 
-(d) Nur eingeschränkt. Messwerte im Abstand eines Tages können durch das Wetter, die Jahreszeit oder eine langsame Drift des Sensors zusammenhängen; im Sommer sind sie anders verteilt als im Winter. Man müsste prüfen, ob es solche Abhängigkeiten gibt.
+(d) Nur eingeschränkt. Messwerte im Abstand eines Tages können durch das Wetter, die Jahreszeit oder eine langsame Drift des Thermometers zusammenhängen; im Sommer sind sie anders verteilt als im Winter. Man müsste prüfen, ob es solche Abhängigkeiten gibt.
 :::
 :::

@@ -1,6 +1,8 @@
 ---
 title: Etapa 4: Resistencias reales: valores y temperatura
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Corriente, resistencia y leyes de Kirchhoff
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Corriente, resistencia y leyes de Kirchhoff
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff
+knoten: Capítulo 2: Corriente, resistencia y leyes de Kirchhoff
 order: 1120500
 summary: Hasta ahora, R era un número dado por el material y la forma.
 tags: resistencias de película metálica o de carbón, resistencias bobinadas, SMD, serie E, coeficiente de temperatura, PTC, conductor en frío, NTC
@@ -45,7 +47,7 @@ $$R(\vartheta)=R(\vartheta_0)\,\bigl(1+\alpha_{\vartheta_0}\,(\vartheta-\varthet
 Izquierda: $R/R_{20}$ frente a la temperatura para el cobre ($\alpha=3{,}9\cdot10^{-3}$ /K), la aleación compensada constantán y un conductor en caliente semiconductor (unos $-4\,\%$/K a 20 °C). Derecha: curva característica modelo de una lámpara incandescente de 9 V. En frío tiene $1{,}5\,\Omega$; en funcionamiento, con 0,5 A, tiene $18\,\Omega$. La curva pasa de una a otra de las dos rectas discontinuas.
 :::
 
-**Mecanismo.** Metales (cobre, plata, platino, wolframio): $n$ es fijo, una red cristalina más caliente vibra con más fuerza, el tiempo de vuelo $T$ baja, $\mu$ baja, $R$ sube. Semiconductores (silicio, germanio): a temperatura ambiente solo unos pocos electrones están libres. El calor libera más ([Parte 9](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)), $n$ crece mucho más deprisa de lo que cae $\mu$, $R$ baja. __Aleaciones compensadas__ como el constantán: predominan las colisiones con los átomos extraños incorporados irregularmente, que apenas dependen de la temperatura. Como alternativa se conectan en serie una PTC y una NTC, de modo que el aumento de una compense la disminución de la otra ($R_1\alpha_1+R_2\alpha_2=0$).
+**Mecanismo.** Metales (cobre, plata, platino, wolframio): $n$ es fijo, una red cristalina más caliente vibra con más fuerza, el tiempo de vuelo $T$ baja, $\mu$ baja, $R$ sube. Semiconductores (silicio, germanio): a temperatura ambiente solo unos pocos electrones están libres. El calor libera más ([capítulo 9](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)), $n$ crece mucho más deprisa de lo que cae $\mu$, $R$ baja. __Aleaciones compensadas__ como el constantán: predominan las colisiones con los átomos extraños incorporados irregularmente, que apenas dependen de la temperatura. Como alternativa se conectan en serie una PTC y una NTC, de modo que el aumento de una compense la disminución de la otra ($R_1\alpha_1+R_2\alpha_2=0$).
 
 ::::beispiel
 El hilo se calienta de 20 °C a 70 °C. De [(4.2)](#gl-4-2) se obtiene el factor $1+3{,}9\cdot10^{-3}\cdot50=1{,}195$, es decir, 40,6 m$\Omega$ en lugar de 34 m$\Omega$. Un caso extremo es el filamento de wolframio de la lámpara: el factor 12 de $1{,}5\,\Omega$ a $18\,\Omega$ corresponde según [(4.2)](#gl-4-2) a unos 2460 °C, como aproximación burda en este amplio intervalo.

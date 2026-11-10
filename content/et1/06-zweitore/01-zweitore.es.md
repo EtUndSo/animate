@@ -1,7 +1,9 @@
 ---
 title: Visión general: Cuadripolos
 kurz: Visión general
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Cuadripolos
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Cuadripolos
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore
+knoten: Capítulo 6: Cuadripolos
 order: 1160100
 summary: Por qué cuatro números sustituyen a toda una red y cada forma de parámetros es solo otra elección
 tags: cuadripolo, puerto
@@ -10,7 +12,7 @@ lang: es
 
 ## De qué trata
 
-Entre la fuente y la carga suele haber otra red: un cable, un filtro, un atenuador o un amplificador. Tiene un lado de entrada y un lado de salida, y desde fuera solo cuenta lo que hace con la tensión y la corriente. Una red con dos pares de terminales así se llama __cuadripolo__, y cada par de terminales es un __puerto__. La [Parte 5](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html) sustituyó una red en un par de terminales por dos números, la tensión equivalente y la resistencia interna. La pregunta de este capítulo es: *¿Cuántos números hacen falta con dos pares de terminales, y cómo se miden desde fuera?*
+Entre la fuente y la carga suele haber otra red: un cable, un filtro, un atenuador o un amplificador. Tiene un lado de entrada y un lado de salida, y desde fuera solo cuenta lo que hace con la tensión y la corriente. Una red con dos pares de terminales así se llama __cuadripolo__, y cada par de terminales es un __puerto__. El [capítulo 5](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html) sustituyó una red en un par de terminales por dos números, la tensión equivalente y la resistencia interna. La pregunta de este capítulo es: *¿Cuántos números hacen falta con dos pares de terminales, y cómo se miden desde fuera?*
 
 
 
@@ -21,7 +23,7 @@ Entre la fuente y la carga suele haber otra red: un cable, un filtro, un atenuad
 
 <li>
 
-⁠**Cuadripolo T:** una red en T ([Parte 5](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)) con la resistencia longitudinal $R_\mathrm{a}=15\,\Omega$ en la entrada, la resistencia transversal $R_\mathrm{b}=20\,\Omega$ hacia la línea inferior continua y la resistencia longitudinal $R_\mathrm{c}=20\,\Omega$ en la salida.
+⁠**Cuadripolo T:** una red en T ([capítulo 5](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)) con la resistencia longitudinal $R_\mathrm{a}=15\,\Omega$ en la entrada, la resistencia transversal $R_\mathrm{b}=20\,\Omega$ hacia la línea inferior continua y la resistencia longitudinal $R_\mathrm{c}=20\,\Omega$ en la salida.
 
 </li>
 

@@ -1,7 +1,8 @@
 ---
 title: Erwartungswert und Varianz
 pfad: Informatik / Machine Learning / Mathematische Grundlagen / Wahrscheinlichkeit
-knoten: Grundlagen 4: Wahrscheinlichkeit
+adresse: informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit
+knoten: Kapitel 4: Wahrscheinlichkeit
 nachschlagen: ja
 order: 15240800
 summary: Eine Verteilung besteht aus vielen Zahlen, oft aus unendlich vielen.
@@ -68,7 +69,7 @@ Der Erwartungswert eines fairen Würfels: Jede Augenzahl mit der Wahrscheinlichk
 
 <span class="anker" id="stufe-7-2"></span>
 
-Oft braucht man den Erwartungswert einer Größe, die aus $X$ berechnet wird: der Leistung $X^2$ einer Spannung $X$ oder des Gewinns $g(X)$ bei einem Spiel. $g(X)$ ist wieder eine Zufallsvariable, man könnte also erst ihre Verteilung bestimmen. Das ist unnötig: Jeder Wert $x_k$ von $X$ liefert den Wert $g(x_k)$ mit derselben Wahrscheinlichkeit.
+Oft braucht man den Erwartungswert einer Größe, die aus $X$ berechnet wird: der Fläche $X^2$ eines Quadrats mit der zufälligen Seitenlänge $X$ oder des Gewinns $g(X)$ bei einem Spiel. $g(X)$ ist wieder eine Zufallsvariable, man könnte also erst ihre Verteilung bestimmen. Das ist unnötig: Jeder Wert $x_k$ von $X$ liefert den Wert $g(x_k)$ mit derselben Wahrscheinlichkeit.
 
 :::satz Satz 7.2 (Erwartungswert einer Funktion)
 <span class="anker" id="satz-7-2"></span>
@@ -99,7 +100,7 @@ Es ist $\mathbb{E}[X^2]=\tfrac{91}6\approx15{,}17$, aber $(\mathbb{E}[X])^2=3{,}
 
 <span class="anker" id="stufe-7-3"></span>
 
-Rechnet man eine Spannung von Volt in Millivolt um oder addiert einen festen Versatz, so sollte sich der Erwartungswert genauso ändern. Und der Erwartungswert einer Summe sollte die Summe der Erwartungswerte sein, wie beim Durchschnitt von Zahlenlisten. Beides gilt, und das Zweite sogar ohne jede Voraussetzung über das Zusammenspiel der Summanden.
+Rechnet man ein Gewicht von Kilogramm in Gramm um oder addiert einen festen Versatz, so sollte sich der Erwartungswert genauso ändern. Und der Erwartungswert einer Summe sollte die Summe der Erwartungswerte sein, wie beim Durchschnitt von Zahlenlisten. Beides gilt, und das Zweite sogar ohne jede Voraussetzung über das Zusammenspiel der Summanden.
 
 Für zwei Zufallsvariablen $X$ und $Y$ auf demselben Ergebnisraum ist $X+Y$ die Zufallsvariable mit dem Wert $X(\omega)+Y(\omega)$ beim Ergebnis $\omega$.
 
@@ -119,7 +120,7 @@ Fasst man in [(7.1)](#gl-7-1) die Ergebnisse nach dem Wert von $X$ zusammen und 
 Mit vielen Summanden ist $\mathbb{E}[X_1+\dots+X_n]=\mathbb{E}[X_1]+\dots+\mathbb{E}[X_n]$. Besonders nützlich ist das mit Zählvariablen. Die __Indikatorvariable__ eines Ereignisses $A$ ist die Zufallsvariable $\mathbb 1_A$ mit dem Wert $1$, wenn $A$ eintritt, und $0$ sonst. Ihr Erwartungswert ist $\mathbb{E}[\mathbb 1_A]=0\cdot P(A^{\mathrm c})+1\cdot P(A)=P(A)$. Eine Anzahl ist eine Summe von Indikatorvariablen, also ist ihr Erwartungswert die Summe der Wahrscheinlichkeiten.
 
 ::::beispiel [Rechenbeispiel]
-Die Augensumme zweier Würfel hat den Erwartungswert $3{,}5+3{,}5=7$, ohne dass man die $36$ Paare durchgehen muss. Die Anzahl der Köpfe bei drei Münzwürfen ist $X=\mathbb 1_{A_1}+\mathbb 1_{A_2}+\mathbb 1_{A_3}$ mit $A_k$ = „Wurf $k$ zeigt Kopf“, also ist $\mathbb{E}[X]=3\cdot\tfrac12=1{,}5$, wie in Abb. [7](#abb-7). Für die Spannung $X$ in Volt mit $\mathbb{E}[X]=0{,}25\,\mathrm V$ hat die Angabe $1\,000\,X$ in Millivolt den Erwartungswert $250\,\mathrm{mV}$.
+Die Augensumme zweier Würfel hat den Erwartungswert $3{,}5+3{,}5=7$, ohne dass man die $36$ Paare durchgehen muss. Die Anzahl der Köpfe bei drei Münzwürfen ist $X=\mathbb 1_{A_1}+\mathbb 1_{A_2}+\mathbb 1_{A_3}$ mit $A_k$ = „Wurf $k$ zeigt Kopf“, also ist $\mathbb{E}[X]=3\cdot\tfrac12=1{,}5$, wie in Abb. [7](#abb-7). Für ein Gewicht $X$ in Kilogramm mit $\mathbb{E}[X]=0{,}25\,\mathrm{kg}$ hat die Angabe $1\,000\,X$ in Gramm den Erwartungswert $250\,\mathrm g$.
 ::::
 
 ⁠**Kurz gesagt:** Der Erwartungswert ist linear: Er vertauscht mit Vielfachen, Verschiebungen und Summen, auch wenn die Summanden voneinander abhängen.
@@ -128,7 +129,7 @@ Die Augensumme zweier Würfel hat den Erwartungswert $3{,}5+3{,}5=7$, ohne dass 
 
 <span class="anker" id="stufe-7-4"></span>
 
-Zwei Messgeräte können denselben Erwartungswert liefern und trotzdem verschieden gut sein: Das eine streut eng um ihn, das andere weit. Man möchte messen, wie weit die Werte typischerweise von $\mu=\mathbb{E}[X]$ abweichen. Der Erwartungswert der Abweichung selbst taugt dazu nicht, denn nach der Linearität ist $\mathbb{E}[X-\mu]=\mu-\mu=0$: Positive und negative Abweichungen heben sich immer auf. Man quadriert deshalb, wie bei der Standardabweichung eines Datensatzes in [Grundlagen 1, Abschnitt 4.4](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/abstande-und-einheiten.html#stufe-4-4).
+Zwei Waagen können denselben Erwartungswert liefern und trotzdem verschieden gut sein: Das eine streut eng um ihn, das andere weit. Man möchte messen, wie weit die Werte typischerweise von $\mu=\mathbb{E}[X]$ abweichen. Der Erwartungswert der Abweichung selbst taugt dazu nicht, denn nach der Linearität ist $\mathbb{E}[X-\mu]=\mu-\mu=0$: Positive und negative Abweichungen heben sich immer auf. Man quadriert deshalb, wie bei der Standardabweichung eines Datensatzes in [Grundlagen 1, Abschnitt 4.4](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/abstande-und-einheiten.html#stufe-4-4).
 
 :::definition Definition 7.4 (Varianz, Standardabweichung)
 <span class="anker" id="satz-7-4"></span>
@@ -143,7 +144,7 @@ Ihre __Standardabweichung__ ist $\sigma=\sqrt{\operatorname{Var}(X)}$. Man schre
 
 Die Varianz hat das Quadrat der Einheit von $X$, die Standardabweichung dieselbe Einheit wie $X$. Die Varianz ist nie negativ, und sie ist genau dann null, wenn $X$ mit Wahrscheinlichkeit $1$ den Wert $\mu$ hat. In [Grundlagen 3](/wissen/informatik/machine-learning/mathematische-grundlagen/ableitung-gradient-und-kettenregel/ableitung-gradient-und-kettenregel.html) bezeichnete $\sigma$ die logistische Funktion; in diesem Kapitel steht $\sigma$ immer für eine Standardabweichung.
 
-Ist $X$ eine Spannung ohne Gleichanteil, also mit $\mu=0$, so ist $\operatorname{Var}(X)=\mathbb{E}[X^2]$ der Erwartungswert des Quadrats. Das ist die mittlere Leistung, die diese Spannung an einem Widerstand von $1\,\Omega$ umsetzt, und $\sigma$ ist ihr Effektivwert aus [Grundlagen 1, Abschnitt 3.6](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/normen-die-groe-eines-vektors.html#stufe-3-6). Deshalb ist die Varianz die natürliche Kenngröße für Rauschen: Sie ist seine Leistung.
+Ist $\mu=0$, etwa beim Fehler einer Waage, die im Mittel richtig anzeigt, so ist $\operatorname{Var}(X)=\mathbb{E}[X^2]$ der Erwartungswert des Quadrats, und $\sigma=\sqrt{\mathbb{E}[X^2]}$ ist das Gegenstück zum quadratischen Mittelwert aus [Grundlagen 1, Abschnitt 3.6](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/normen-die-groe-eines-vektors.html#stufe-3-6). Deshalb ist die Varianz die natürliche Kenngröße für zufällige Fehler: Sie sagt, wie groß ihr Quadrat im Mittel ist.
 
 ::::beispiel [Rechenbeispiel]
 Beim fairen Würfel mit $\mu=3{,}5$ weichen die Augenzahlen um $2{,}5$, $1{,}5$ und $0{,}5$ nach links und nach rechts vom Erwartungswert ab. Ihre Quadrate, mit je $\tfrac16$ gewichtet, ergeben $\operatorname{Var}(X)=\tfrac{35}{12}\approx2{,}917$ (Abb. [10](#abb-10)) und $\sigma=\sqrt{35/12}\approx1{,}708$. Für die Anzahl der Köpfe mit $\mu=1{,}5$ ist $\operatorname{Var}(X)=2{,}25\cdot\tfrac18+0{,}25\cdot\tfrac38+0{,}25\cdot\tfrac38+2{,}25\cdot\tfrac18=0{,}75$ und $\sigma\approx0{,}866$.
@@ -153,7 +154,7 @@ Die Varianz eines fairen Würfels: die quadrierten Abweichungen vom Erwartungswe
 :::
 ::::
 
-⁠**Kurz gesagt:** Die Varianz ist der Erwartungswert der quadrierten Abweichung vom Erwartungswert, die Standardabweichung ihre Wurzel; bei einer Spannung ohne Gleichanteil ist die Varianz die Leistung an $1\,\Omega$.
+⁠**Kurz gesagt:** Die Varianz ist der Erwartungswert der quadrierten Abweichung vom Erwartungswert, die Standardabweichung ihre Wurzel; bei $\mu=0$ ist die Varianz das mittlere Quadrat.
 
 ### Die Verschiebungsformel
 
@@ -283,10 +284,10 @@ und $\operatorname{Var}(M)=\tfrac{791}{36}-\bigl(\tfrac{161}{36}\bigr)^2=\tfrac{
 :::
 :::
 
-:::aufgabe Aufgabe 19 ★★ Ein Sensor mit vier Stufen
+:::aufgabe Aufgabe 19 ★★ Ein Wetterbericht mit vier Stufen
 <span class="anker" id="aufg-19"></span>
 
-Ein Sensor meldet eine von vier Stufen $0,1,2,3$ mit den Wahrscheinlichkeiten $0{,}1$, $0{,}3$, $0{,}4$ und $0{,}2$.
+Ein Wetterbericht meldet für den nächsten Tag eine von vier Windstufen $0,1,2,3$ mit den Wahrscheinlichkeiten $0{,}1$, $0{,}3$, $0{,}4$ und $0{,}2$.
 
 <ol class="al">
 
@@ -304,7 +305,7 @@ Berechne die Varianz einmal nach der Definition und einmal nach der Verschiebung
 
 <li>
 
-Die Stufe wird in eine Spannung $U=0{,}5\,\mathrm V\cdot X+1\,\mathrm V$ umgesetzt. Gib Erwartungswert und Standardabweichung von $U$ an.
+Ein Fahrradkurier verlangt bei der Windstufe $X$ den Preis $U=0{,}5\,\text{Euro}\cdot X+1\,\text{Euro}$ je Kilometer. Gib Erwartungswert und Standardabweichung von $U$ an.
 
 </li>
 
@@ -315,7 +316,7 @@ Die Stufe wird in eine Spannung $U=0{,}5\,\mathrm V\cdot X+1\,\mathrm V$ umgeset
 
 (b) Nach der Definition: $2{,}89\cdot0{,}1+0{,}49\cdot0{,}3+0{,}09\cdot0{,}4+1{,}69\cdot0{,}2=0{,}289+0{,}147+0{,}036+0{,}338=0{,}81$. Nach der Verschiebungsformel: $\mathbb{E}[X^2]=0+0{,}3+1{,}6+1{,}8=3{,}7$ und $3{,}7-1{,}7^2=0{,}81$. Also $\sigma=0{,}9$.
 
-(c) $\mathbb{E}[U]=0{,}5\cdot1{,}7+1=1{,}85\,\mathrm V$ und $\sigma_U=0{,}5\cdot0{,}9=0{,}45\,\mathrm V$.
+(c) $\mathbb{E}[U]=0{,}5\cdot1{,}7+1=1{,}85$ Euro und $\sigma_U=0{,}5\cdot0{,}9=0{,}45$ Euro je Kilometer.
 :::
 :::
 
@@ -355,7 +356,7 @@ Prüfe das Ergebnis für $n=3$, indem du alle sechs Zuordnungen aufschreibst.
 :::
 :::
 
-:::aufgabe Aufgabe 21 ★★★ Effektivwert und Verschiebungsformel
+:::aufgabe Aufgabe 21 ★★★ Quadratischer Mittelwert und Verschiebungsformel
 <span class="anker" id="aufg-21"></span>
 
 In [Grundlagen 1](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html) galt für einen Vektor $\mathbf{v}\in\mathbb{R}^N$ die Zerlegung $\operatorname{rms}(\mathbf{v})^2=\bar v^2+\operatorname{std}(\mathbf{v})^2$.
@@ -370,7 +371,7 @@ Zeige, dass das die Verschiebungsformel [(7.7)](#gl-7-7) für die empirische Ver
 
 <li>
 
-Deute die Zerlegung für eine Spannung mit Gleichanteil: Was ist die Gesamtleistung an $1\,\Omega$, was die Leistung des Gleichanteils, was die des Wechselanteils?
+Deute die Zerlegung für die Tagestemperaturen eines Monats: Was beschreibt $\operatorname{rms}^2$, was $\bar v^2$, was $\operatorname{std}^2$? Warum kann ein Monat mit großem $\operatorname{rms}$ trotzdem sehr gleichmäßiges Wetter gehabt haben?
 
 </li>
 
@@ -385,7 +386,7 @@ Prüfe die Zerlegung für $\mathbf{v}=(1,\,3,\,1,\,-1)^{\top}$.
 :::loesung
 (a) Für die empirische Verteilung mit $P(X=v_i)=\tfrac1N$ ist $\mathbb{E}[X^2]=\tfrac1N\sum v_i^2=\operatorname{rms}(\mathbf{v})^2$, $\mathbb{E}[X]=\bar v$ und $\operatorname{Var}(X)=\operatorname{std}(\mathbf{v})^2$. Die Verschiebungsformel $\mathbb{E}[X^2]=\operatorname{Var}(X)+(\mathbb{E}[X])^2$ lautet dann $\operatorname{rms}(\mathbf{v})^2=\operatorname{std}(\mathbf{v})^2+\bar v^2$.
 
-(b) $\operatorname{rms}^2$ ist die gesamte mittlere Leistung an $1\,\Omega$, $\bar v^2$ die Leistung des Gleichanteils und $\operatorname{std}^2$ die des Wechselanteils. Die Leistungen addieren sich, weil der Wechselanteil im Mittel null ist und das gemischte Glied deshalb verschwindet.
+(b) $\operatorname{rms}^2$ ist das mittlere Quadrat der Temperaturen, $\bar v^2$ das Quadrat der Durchschnittstemperatur und $\operatorname{std}^2$ das mittlere Quadrat der Abweichungen vom Durchschnitt, also wie stark das Wetter von Tag zu Tag schwankt. Die beiden Teile addieren sich, weil die Abweichungen im Mittel null sind und das gemischte Glied deshalb verschwindet. Ein großes $\operatorname{rms}$ kann allein von einer hohen Durchschnittstemperatur kommen: Ein Monat mit jeden Tag genau $25$ Grad hat $\operatorname{rms}=25$, aber $\operatorname{std}=0$.
 
 (c) $\bar v=1$, $\operatorname{rms}^2=\tfrac{1+9+1+1}4=3$ und $\operatorname{std}^2=\tfrac{0+4+0+4}4=2$; tatsächlich ist $3=1+2$.
 :::

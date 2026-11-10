@@ -1,7 +1,9 @@
 ---
 title: Überblick: Fourier-Reihen
 kurz: Überblick
-pfad: Elektrotechnik / 3. Semester / Höhere Mathematik 3 / Fourier-Reihen
+pfad: Elektrotechnik / 3. Semester / HöMa3 – Höhere Mathematik 3 / Fourier-Reihen
+adresse: elektrotechnik/3-semester/hohere-mathematik-3/fourier-reihen
+knoten: Kapitel 7: Fourier-Reihen
 order: 3170100
 summary: Wie eine periodische Kurve in reine Schwingungen zerfällt
 tags: Fourier-Reihe, Fourier-Koeffizient, Fourier-Polynom, Bestapproximation, Parseval-Identität, Faltung, Dirichlet-Kern, Poisson-Kern
@@ -41,5 +43,5 @@ Alle drei Funktionen werden mit der Periode $2\pi$ auf ganz $\mathbb{R}$ fortges
 
 </ul>
 
-Vorausgesetzt werden komplexe Zahlen, die Eulersche Formel $\mathrm{e}^{\mathrm{i}x}=\cos x+\mathrm{i}\sin x$, partielle Integration und aus [Teil 6](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/konvergenz-von-funktionenfolgen/konvergenz-von-funktionenfolgen.html) gleichmäßige Konvergenz, der M-Test und das quadratische Mittel, dazu Parameterintegrale ([Teil 2](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/integralrechnung-im-rn/integralrechnung-im-rn.html)) und der Laplace-Operator in Polarkoordinaten ([Teil 4](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/koordinatentransformationen/koordinatentransformationen.html)).
+Vorausgesetzt werden komplexe Zahlen, die Eulersche Formel $\mathrm{e}^{\mathrm{i}x}=\cos x+\mathrm{i}\sin x$, partielle Integration und aus [Kapitel 6](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/konvergenz-von-funktionenfolgen/konvergenz-von-funktionenfolgen.html) gleichmäßige Konvergenz, der M-Test und das quadratische Mittel, dazu Parameterintegrale ([Kapitel 2](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/integralrechnung-im-rn/integralrechnung-im-rn.html)) und der Laplace-Operator in Polarkoordinaten ([Kapitel 4](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/koordinatentransformationen/koordinatentransformationen.html)).
 :::

@@ -1,6 +1,8 @@
 ---
 title: 第 4 阶段：理想电源
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 电源与等效电源
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 电源与等效电源
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen
+knoten: 第 5 章：电源与等效电源
 order: 1150600
 summary: 到目前为止，还缺少驱动电流的东西。本阶段引入向网络输送能量的两种基本元件。
 tags: 理想电压源, 理想电流源, 源电压, 源电流
@@ -13,7 +15,7 @@ lang: zh
 到目前为止，还缺少驱动电流的东西。本阶段引入向网络输送能量的两种基本元件。
 :::
 
-**基本思路。** 电源只把一个量固定下来。另一个量由所接的网络决定。__理想电压源__保持其接线端之间的电位差。流过多大的电流，由负载决定。__理想电流源__保持其支路中的电流。产生多大的电压，同样由负载决定。两者都是模型。它们造不出来，但稳压电源或晶体管电路（[第 10 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor/der-bipolartransistor.html)）在有限范围内可以接近它们。
+**基本思路。** 电源只把一个量固定下来。另一个量由所接的网络决定。__理想电压源__保持其接线端之间的电位差。流过多大的电流，由负载决定。__理想电流源__保持其支路中的电流。产生多大的电压，同样由负载决定。两者都是模型。它们造不出来，但稳压电源或晶体管电路（[第 10 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor/der-bipolartransistor.html)）在有限范围内可以接近它们。
 
 :::abbildung et1/k5ideal 5
 左：理想电压源，在图中是一条水平线，电压与电流无关。右：理想电流源，是一条竖直线，电流与电压无关。电路符号中的短线表示数值为零时的行为：沿线路方向画的，表示线路接通；横跨线路画的，表示线路断开。

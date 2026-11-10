@@ -1,0 +1,4 @@
+normalize_expr OK (14 cases)
+func eval OK: 3x^2 @2=12, (x+1)(x-1) @3=8, 2sin(pi/2)=2
+
+SYNTAX TESTS PASSED

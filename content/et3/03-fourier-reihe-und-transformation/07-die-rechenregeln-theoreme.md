@@ -1,6 +1,8 @@
 ---
 title: Stufe 6: Die Rechenregeln (Theoreme)
-pfad: Elektrotechnik / 3. Semester / Signale und Systeme / Fourier-Reihe und -Transformation
+pfad: Elektrotechnik / 3. Semester / ET3 – Grundgebiete der Elektrotechnik 3: Signale und Systeme / Fourier-Reihe und -Transformation
+adresse: elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation
+knoten: Kapitel 3: Fourier-Reihe und -Transformation
 order: 3230700
 summary: Statt jedes Integral neu auszurechnen, benutzt man Regeln: Was passiert mit dem Spektrum, wenn man das Signal verschiebt, staucht, ableitet, moduliert?
 tags: Energiedichte

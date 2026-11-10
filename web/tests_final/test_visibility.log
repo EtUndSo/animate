@@ -1,0 +1,3 @@
+operation output independent of input visibility OK: vis=4 hid=3 (Sum result kept)
+
+VISIBILITY TESTS PASSED

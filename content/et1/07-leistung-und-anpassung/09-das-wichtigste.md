@@ -1,6 +1,8 @@
 ---
 title: Das Wichtigste
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Leistung, Anpassung und Wirkungsgrad
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Leistung, Anpassung und Wirkungsgrad
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad
+knoten: Kapitel 7: Leistung, Anpassung und Wirkungsgrad
 order: 1170900
 summary: Warum am Leistungsmaximum die Hälfte der Energie in der Quelle bleibt
 tags: Stromwärme, Leistungsanpassung, Wirkungsgrad, Spannungsanpassung, Stromanpassung

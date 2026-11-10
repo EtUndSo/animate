@@ -1,6 +1,8 @@
 ---
 title: Stufe 9: FFT und schnelle Faltung
-pfad: Elektrotechnik / 3. Semester / Signale und Systeme / Abtastung und zeitdiskrete Systeme
+pfad: Elektrotechnik / 3. Semester / ET3 – Grundgebiete der Elektrotechnik 3: Signale und Systeme / Abtastung und zeitdiskrete Systeme
+adresse: elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme
+knoten: Kapitel 4: Abtastung und zeitdiskrete Systeme
 order: 3241000
 summary: Die DFT braucht M 2 Multiplikationen.
 tags: schnelle Fourier-Transformation, zyklische

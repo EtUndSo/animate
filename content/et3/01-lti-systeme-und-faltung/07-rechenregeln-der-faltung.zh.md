@@ -1,6 +1,8 @@
 ---
 title: 第 6 阶段：卷积的运算规则
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / LTI 系统与卷积
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / LTI 系统与卷积
+adresse: elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung
+knoten: 第 1 章：LTI 系统与卷积
 order: 3210700
 summary: 卷积在许多方面与乘法相似。每一条运算规则对系统都有其含义。
 tags: 卷积乘积, 理想无失真

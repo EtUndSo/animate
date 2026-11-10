@@ -1,6 +1,8 @@
 ---
 title: Stufe 2: Die komplexe Ebene
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Komplexe Zahlen
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Komplexe Zahlen
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen
+knoten: Kapitel 2: Komplexe Zahlen
 order: 1220300
 summary: Ein Paar ist ein Punkt.
 tags: reelle Achse, imaginären Achse, rein imaginären, Gaußsche Zahlenebene

@@ -1,6 +1,8 @@
 ---
 title: Etapa 5: Corriente y tensión a la vez
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Medir corriente y tensión
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Medir corriente y tensión
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-und-spannung-messen
+knoten: Capítulo 4: Medir corriente y tensión
 order: 1140600
 summary: Quien determina una resistencia a partir de R=U/I necesita ambos instrumentos.
 tags: 

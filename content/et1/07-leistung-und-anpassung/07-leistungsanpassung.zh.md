@@ -1,6 +1,8 @@
 ---
 title: 第 6 阶段：功率匹配
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 功率、匹配与效率
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 功率、匹配与效率
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad
+knoten: 第 7 章：功率、匹配与效率
 order: 1170700
 summary: 表中显示 P L 有一个最大值。本阶段求出它，并解释为什么它恰好位于 R L=R i 。
 tags: 短路功率
@@ -13,7 +15,7 @@ lang: zh
 表中显示 $P_\mathrm{L}$ 有一个最大值。本阶段求出它，并解释为什么它恰好位于 $R_\mathrm{L}=R_\mathrm{i}$。
 :::
 
-**基本思路。** 两种影响相互对抗。$R_\mathrm{L}$ 小时，到来的库仑多，但它们的能量几乎全部留在 $R_\mathrm{i}$ 中。$R_\mathrm{L}$ 大时，每库仑几乎把全部能量都释放在负载中，但到来的库仑少。[第 5 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)的直线 $U_\mathrm{L}=U_\mathrm{q}-R_\mathrm{i}I$ 使这一点一目了然：$P_\mathrm{L}=U_\mathrm{L}I$ 是直线下方矩形的面积（图 [7](#abb-7)）。当矩形的角位于直线中点，即电流和电压都为一半时，面积最大。这时 $R_\mathrm{i}$ 和 $R_\mathrm{L}$ 在相同电流下有相同的压降，所以两个电阻相等。
+**基本思路。** 两种影响相互对抗。$R_\mathrm{L}$ 小时，到来的库仑多，但它们的能量几乎全部留在 $R_\mathrm{i}$ 中。$R_\mathrm{L}$ 大时，每库仑几乎把全部能量都释放在负载中，但到来的库仑少。[第 5 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)的直线 $U_\mathrm{L}=U_\mathrm{q}-R_\mathrm{i}I$ 使这一点一目了然：$P_\mathrm{L}=U_\mathrm{L}I$ 是直线下方矩形的面积（图 [7](#abb-7)）。当矩形的角位于直线中点，即电流和电压都为一半时，面积最大。这时 $R_\mathrm{i}$ 和 $R_\mathrm{L}$ 在相同电流下有相同的压降，所以两个电阻相等。
 
 :::abbildung et1/k7rechteck 7
 电池的电源直线及三个工作点。蓝色：$P_\mathrm{L}$，由 $I$ 和 $U_\mathrm{L}$ 构成的矩形。红色：$P_\mathrm{v}$，由 $I$ 和 $U_\mathrm{Ri}$ 构成的矩形。两者合起来是 $P_\mathrm{q}=U_\mathrm{q}I$。中间的角给出最大的蓝色矩形。

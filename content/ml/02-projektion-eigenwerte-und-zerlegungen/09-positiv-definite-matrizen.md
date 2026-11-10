@@ -1,7 +1,8 @@
 ---
 title: Positiv definite Matrizen
 pfad: Informatik / Machine Learning / Mathematische Grundlagen / Projektion, Eigenwerte und Zerlegungen
-knoten: Grundlagen 2: Projektion, Eigenwerte und Zerlegungen
+adresse: informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen
+knoten: Kapitel 2: Projektion, Eigenwerte und Zerlegungen
 nachschlagen: ja
 order: 15220900
 summary: Eine quadratische Form ist eine Schüssel, wenn sie überall außer im Nullpunkt positiv ist.
@@ -122,7 +123,7 @@ sind die führenden Hauptminoren $2$, $\det\bigl(\begin{smallmatrix}2&1\\1&2\end
 
 <span class="anker" id="stufe-8-4"></span>
 
-In [Grundlagen 1, Abschnitt 10](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/transponierte-symmetrie-und-gram-matrix.html#stufe-10), tauchten die Gram-Matrizen $\mathbf{X}^{\top}\mathbf{X}$ und $\mathbf{X}\mathbf{X}^{\top}$ auf, und in diesem Kapitel $\mathbf{A}^{\top}\mathbf{A}$ in den Normalgleichungen. Sie sind immer positiv semidefinit, und der Grund ist einfach: Ihre quadratische Form ist ein Längenquadrat.
+In [Kapitel 1, Abschnitt 10](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/transponierte-symmetrie-und-gram-matrix.html#stufe-10), tauchten die Gram-Matrizen $\mathbf{X}^{\top}\mathbf{X}$ und $\mathbf{X}\mathbf{X}^{\top}$ auf, und in diesem Kapitel $\mathbf{A}^{\top}\mathbf{A}$ in den Normalgleichungen. Sie sind immer positiv semidefinit, und der Grund ist einfach: Ihre quadratische Form ist ein Längenquadrat.
 
 :::satz Satz 8.4 (Gram-Matrizen)
 <span class="anker" id="satz-8-4"></span>
@@ -200,7 +201,7 @@ Ist $\mathbf{A}=\mathbf L\mathbf L^{\top}$, so ist $\mathbf{x}^{\top}\mathbf{A}\
 
 $$\mathbf L=\begin{pmatrix}\sqrt a&0\\b/\sqrt a&\sqrt{c-b^2/a}\end{pmatrix},$$
 
-und für größere $n$ setzt man das Ergänzen Variable für Variable fort. Nach [Grundlagen 1, Abschnitt 14.5](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5), ist $\det\mathbf{A}=\det\mathbf L\cdot\det\mathbf L^{\top}=(l_{11}\cdots l_{nn})^2$.
+und für größere $n$ setzt man das Ergänzen Variable für Variable fort. Nach [Kapitel 1, Abschnitt 14.5](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5), ist $\det\mathbf{A}=\det\mathbf L\cdot\det\mathbf L^{\top}=(l_{11}\cdots l_{nn})^2$.
 
 ::::beispiel [Rechenbeispiel]
 Für $\mathbf{A}=\bigl(\begin{smallmatrix}4&2\\2&5\end{smallmatrix}\bigr)$ ist $a=4$, $b=2$, $c=5$, also $l_{11}=2$, $l_{21}=1$ und $l_{22}=\sqrt{5-1}=2$:

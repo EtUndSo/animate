@@ -1,8 +1,10 @@
 ---
 title: Stufe 8: Polardarstellung, Drehen und Strecken
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Potenzreihen und Eulersche Formel
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Potenzreihen und Eulersche Formel
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/potenzreihen-und-eulersche-formel
+knoten: Kapitel 7: Potenzreihen und Eulersche Formel
 order: 1271000
-summary: Diese Stufe löst die Ankündigung aus Teil 2 ein: Jede komplexe Zahl ist Länge mal Richtung, und Multiplizieren heißt Drehen und Strecken.
+summary: Diese Stufe löst die Ankündigung aus Kapitel 2 ein: Jede komplexe Zahl ist Länge mal Richtung, und Multiplizieren heißt Drehen und Strecken.
 tags: Einheitskreislinie, Argument, orientierte Winkel, Definitheit, Zeiger
 lang: de
 ---
@@ -10,7 +12,7 @@ lang: de
 <span class="anker" id="stufe-8"></span>
 
 :::zweck
-Diese Stufe löst die Ankündigung aus [Teil 2](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen/komplexe-zahlen.html) ein: Jede komplexe Zahl ist Länge mal Richtung, und Multiplizieren heißt Drehen und Strecken.
+Diese Stufe löst die Ankündigung aus [Kapitel 2](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen/komplexe-zahlen.html) ein: Jede komplexe Zahl ist Länge mal Richtung, und Multiplizieren heißt Drehen und Strecken.
 :::
 
 **Die Idee.** Jedes $z\ne0$ liegt auf genau einem Strahl vom Nullpunkt und hat einen Abstand $|z|$ von ihm. Teilt man durch $|z|$, landet man auf dem Einheitskreis, also bei einem $\mathrm{e}^{\mathrm{i}\varphi}$. Multipliziert man zwei solche Zahlen, addieren sich die Exponenten wegen der Funktionalgleichung, und die Längen multiplizieren sich. Die Multiplikation mit $w$ dreht also die ganze Ebene um den Winkel von $w$ und streckt sie um $|w|$. Das Dreieck $(0,1,z_2)$ in Abb. [8](#abb-8) geht in das ähnliche Dreieck $(0,z_1,z_1z_2)$ über.
@@ -72,10 +74,10 @@ $$z\cdot w=|z|\,|w|\,\mathrm{e}^{\mathrm{i}(\varphi+\psi)},\qquad\overline{z\cdo
 Außerdem ist $\arg(zw)=\varphi+\psi$, falls $\varphi+\psi<2\pi$, sonst $\arg(zw)=\varphi+\psi-2\pi$.
 :::
 
-⁠**So liest man das:** Beträge multiplizieren, Winkel addieren. $w=\mathrm{i}=\mathrm{e}^{\mathrm{i}\pi/2}$ ist die Vierteldrehung aus [Teil 2](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen/komplexe-zahlen.html), und $\mathrm{i}^2=-1$ heißt: zweimal $90^\circ$ sind $180^\circ$. Es folgt $z^n=|z|^n\mathrm{e}^{\mathrm{i}n\varphi}$. Konjugieren kehrt den Winkel um. Der Beweis ist [(8.1)](#gl-8-1) und die Funktionalgleichung, bei $1/z$ die Probe $z\cdot\frac1{|z|}\mathrm{e}^{-\mathrm{i}\varphi}=1$.
+⁠**So liest man das:** Beträge multiplizieren, Winkel addieren. $w=\mathrm{i}=\mathrm{e}^{\mathrm{i}\pi/2}$ ist die Vierteldrehung aus [Kapitel 2](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen/komplexe-zahlen.html), und $\mathrm{i}^2=-1$ heißt: zweimal $90^\circ$ sind $180^\circ$. Es folgt $z^n=|z|^n\mathrm{e}^{\mathrm{i}n\varphi}$. Konjugieren kehrt den Winkel um. Der Beweis ist [(8.1)](#gl-8-1) und die Funktionalgleichung, bei $1/z$ die Probe $z\cdot\frac1{|z|}\mathrm{e}^{-\mathrm{i}\varphi}=1$.
 
 ::::beispiel
-$z_1z_2=\sqrt{10}\sqrt5\,\mathrm{e}^{\mathrm{i}(0{,}3218+1{,}1071)}=\sqrt{50}\,\mathrm{e}^{1{,}4289\,\mathrm{i}}$, und $\sqrt{50}\cos1{,}4289=1$, $\sqrt{50}\sin1{,}4289=7$. Das ist $1+7\mathrm{i}$ aus [Teil 2](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen/komplexe-zahlen.html). Potenzen werden kurz: $(1+\mathrm{i})^8=(\sqrt2)^8\,\mathrm{e}^{8\mathrm{i}\pi/4}=16\,\mathrm{e}^{2\pi\mathrm{i}}=16$.
+$z_1z_2=\sqrt{10}\sqrt5\,\mathrm{e}^{\mathrm{i}(0{,}3218+1{,}1071)}=\sqrt{50}\,\mathrm{e}^{1{,}4289\,\mathrm{i}}$, und $\sqrt{50}\cos1{,}4289=1$, $\sqrt{50}\sin1{,}4289=7$. Das ist $1+7\mathrm{i}$ aus [Kapitel 2](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen/komplexe-zahlen.html). Potenzen werden kurz: $(1+\mathrm{i})^8=(\sqrt2)^8\,\mathrm{e}^{8\mathrm{i}\pi/4}=16\,\mathrm{e}^{2\pi\mathrm{i}}=16$.
 ::::
 
 :::satz Satz 8.3 (Rechenregeln in $\mathbb{C}$, Zusammenfassung)
@@ -84,7 +86,7 @@ $z_1z_2=\sqrt{10}\sqrt5\,\mathrm{e}^{\mathrm{i}(0{,}3218+1{,}1071)}=\sqrt{50}\,\
 Für alle $z,w\in\mathbb{C}$ gilt: (a) $\overline{z+w}=\overline z+\overline w$, (b) $\overline{z\cdot w}=\overline z\cdot\overline w$, (c) $|z|\ge0$ und ($|z|=0\Leftrightarrow z=0$), die __Definitheit__ des Betrags, (d) $|z+w|\le|z|+|w|$ (Dreiecksungleichung), (e) $|z\cdot w|=|z|\cdot|w|$, (f) $z\cdot\overline z=|z|^2$, (g) $\max\{|\operatorname{Re} z|,|\operatorname{Im} z|\}\le|z|\le|\operatorname{Re} z|+|\operatorname{Im} z|$, (h) $\frac1z=\overline z\cdot\frac1{|z|^2}$ für $z\ne0$.
 :::
 
-⁠**So liest man das:** Die Beweise stehen in [Teil 2](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen/komplexe-zahlen.html). Neu ist die Polarform: (b), (e), (f), (h) folgen aus [(8.3)](#gl-8-3), (g) aus $\operatorname{Re} z=|z|\cos\varphi$ und $|\cos\varphi|\le1$. Regel (h) zerlegt den Kehrwert in Abb. [8](#abb-8): $z/|z|^2$ spiegelt $z$ am Einheitskreis (der Betrag wird zum Kehrwert), die Konjugation spiegelt an der reellen Achse.
+⁠**So liest man das:** Die Beweise stehen in [Kapitel 2](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen/komplexe-zahlen.html). Neu ist die Polarform: (b), (e), (f), (h) folgen aus [(8.3)](#gl-8-3), (g) aus $\operatorname{Re} z=|z|\cos\varphi$ und $|\cos\varphi|\le1$. Regel (h) zerlegt den Kehrwert in Abb. [8](#abb-8): $z/|z|^2$ spiegelt $z$ am Einheitskreis (der Betrag wird zum Kehrwert), die Konjugation spiegelt an der reellen Achse.
 
 **Wo es gebraucht wird.** Eine Wechselspannung $u(t)=\hat U\cos(\omega t+\varphi_0)$ ist der Realteil von $\hat U\mathrm{e}^{\mathrm{i}\varphi_0}\cdot\mathrm{e}^{\mathrm{i}\omega t}$: Ein __Zeiger__ der Länge $\hat U$ läuft mit der Kreisfrequenz $\omega$ um den Nullpunkt, und die Spannung ist sein Schatten auf der reellen Achse. Der feste Faktor $\hat U\mathrm{e}^{\mathrm{i}\varphi_0}$ enthält Amplitude und Phase in einer Zahl. Die Elektrotechnik schreibt dafür $\mathrm{j}$ statt $\mathrm{i}$.
 

@@ -1,7 +1,8 @@
 ---
 title: 单位矩阵与逆矩阵
 pfad: 计算机科学 / 机器学习 / 数学基础 / 向量与矩阵
-knoten: 基础篇 1：向量与矩阵
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: 第 1 章：向量与矩阵
 nachschlagen: ja
 order: 15211200
 summary: 有些线性映射可以撤销，有些则不能。本节介绍什么都不改变的矩阵，以及使映射反向的逆矩阵，并阐明逆矩阵何时存在。

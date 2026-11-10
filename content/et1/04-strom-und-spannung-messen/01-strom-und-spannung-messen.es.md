@@ -1,7 +1,9 @@
 ---
 title: Visión general: Medir corriente y tensión
 kurz: Visión general
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Medir corriente y tensión
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Medir corriente y tensión
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-und-spannung-messen
+knoten: Capítulo 4: Medir corriente y tensión
 order: 1140100
 summary: Por qué todo instrumento modifica el circuito y cómo medir con exactitud a pesar de ello
 tags: resistencia interna, mecanismo de medida, rango de medida

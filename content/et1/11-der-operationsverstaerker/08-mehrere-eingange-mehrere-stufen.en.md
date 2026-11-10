@@ -1,6 +1,8 @@
 ---
 title: Stage 6: Several inputs, several stages
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / The Operational Amplifier
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / The Operational Amplifier
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker
+knoten: Chapter 11: The Operational Amplifier
 order: 1210800
 summary: The rule was for one input and one op amp.
 tags: summing amplifier, difference amplifier
@@ -13,7 +15,7 @@ lang: en
 The rule was for one input and one op amp. This stage shows that it handles several inputs and whole chains without a new idea, because all the equations remain linear.
 :::
 
-**The idea.** In the __summing amplifier__, several resistors lead to the minus input (Fig. [8](#abb-8)). The node stays at 0 V, so each source sees only its own resistor and drives $U_{\mathrm{E}i}/R_{\mathrm{E}i}$, independently of the others. The virtual ground decouples the sources. All the currents together flow through $R_\mathrm{F}$, the feedback resistor. In the __difference amplifier__, one voltage arrives at each input. Here the superposition from [Part 5](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html) helps: you calculate each source on its own, and the other becomes a wire.
+**The idea.** In the __summing amplifier__, several resistors lead to the minus input (Fig. [8](#abb-8)). The node stays at 0 V, so each source sees only its own resistor and drives $U_{\mathrm{E}i}/R_{\mathrm{E}i}$, independently of the others. The virtual ground decouples the sources. All the currents together flow through $R_\mathrm{F}$, the feedback resistor. In the __difference amplifier__, one voltage arrives at each input. Here the superposition from [Chapter 5](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html) helps: you calculate each source on its own, and the other becomes a wire.
 
 :::satz Theorem 6.1 (Summing amplifier, difference amplifier, chain)
 <span class="anker" id="satz-6-1"></span>
@@ -45,7 +47,7 @@ Left, the summing amplifier: the currents of the three sources meet at the node 
 
 **Procedure for larger circuits.** First determine the potentials of the inputs, then calculate stage by stage from left to right. In a chain, each output is the input of the next stage, a potential with a fixed value.
 
-:::frage In Part 6, two-ports in a chain loaded each other. Why may I multiply here?
+:::frage In Chapter 6, two-ports in a chain loaded each other. Why may I multiply here?
 Because the output resistance of the first stage is almost zero. The 10 k$\Omega$ of the second stage load 3.75 m$\Omega$, and the voltage loss is $4\cdot10^{-7}$ of the value. The loop of the first stage compensates for it.
 :::
 

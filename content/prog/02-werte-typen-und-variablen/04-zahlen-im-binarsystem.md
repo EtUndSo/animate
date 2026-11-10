@@ -1,7 +1,8 @@
 ---
 title: Zahlen im Binärsystem
 pfad: Informatik / Programmieren / Python / Werte, Typen und Variablen
-knoten: Python 2: Werte, Typen und Variablen
+adresse: informatik/programmieren/python/werte-typen-und-variablen
+knoten: Kapitel 2: Werte, Typen und Variablen
 order: 6030400
 summary: Rechner speichern Zahlen als Folgen von Nullen und Einsen.
 tags: Basis, Binärzahl, Bit, Byte, Hexadezimalzahl, Binärbruch, Verdopplungsverfahren
@@ -42,7 +43,7 @@ Im gewohnten Dezimalsystem ist $B=10$: $4705=4\cdot10^3+7\cdot10^2+0\cdot10^1+5\
 
 <span class="anker" id="stufe-3-2"></span>
 
-Eine Speicherzelle des Rechners unterscheidet nur zwei Zustände, etwa ob ein Kondensator geladen ist oder nicht. Für Zahlen braucht man deshalb ein Stellenwertsystem mit nur zwei Ziffern.
+Eine Speicherzelle des Rechners unterscheidet nur zwei Zustände, wie ein Lichtschalter: an oder aus. Für Zahlen braucht man deshalb ein Stellenwertsystem mit nur zwei Ziffern.
 
 **Schalter, die verdoppeln.** Man stelle sich eine Reihe von Schaltern vor. Der rechte zählt 1, der nächste 2, dann 4, 8, 16: Jeder zählt doppelt so viel wie sein rechter Nachbar. Die Zahl ist die Summe der Werte aller eingeschalteten Schalter.
 
@@ -208,7 +209,7 @@ Bei `bin` fehlen die beiden führenden Nullen der ersten Vierergruppe; Python l�
 
 <span class="anker" id="stufe-3-6"></span>
 
-Messwerte haben Nachkommastellen. Auch sie muss ein Rechner mit Nullen und Einsen schreiben können.
+Preise, Gewichte und Temperaturen haben Nachkommastellen. Auch sie muss ein Rechner mit Nullen und Einsen schreiben können.
 
 **Stellen rechts vom Komma.** Im Dezimalsystem bedeuten die Stellen rechts vom Komma Zehntel, Hundertstel, Tausendstel. Im Binärsystem halbiert sich der Stellenwert von Stelle zu Stelle: Halbe, Viertel, Achtel, Sechzehntel.
 
@@ -455,28 +456,28 @@ $12{,}5=\frac{25}2$: endlich, $12{,}5=8+4+\frac12=1100{,}1_2$.
 :::
 :::
 
-:::aufgabe Aufgabe 11 ★★ Die Auflösung eines Analog-Digital-Umsetzers
+:::aufgabe Aufgabe 11 ★★ Wie fein wiegt eine Küchenwaage?
 <span class="anker" id="aufg-11"></span>
 
-Ein Analog-Digital-Umsetzer liefert für jede gemessene Spannung eine ganze Zahl aus 12 Bit. Der Bereich von 0 bis $5\,\mathrm V$ wird dabei in gleich breite Stufen geteilt, eine Stufe für jedes Bitmuster.
+Eine digitale Küchenwaage speichert jedes Gewicht als ganze Zahl aus 12 Bit. Der Bereich von 0 bis $5\,\mathrm{kg}$ wird dabei in gleich breite Stufen geteilt, eine Stufe für jedes Bitmuster.
 
 <ol class="al">
 
 <li>
 
-Wie viele Stufen gibt es, und welche Zahl liefert der Umsetzer höchstens?
+Wie viele Stufen gibt es, und welche Zahl speichert die Waage höchstens?
 
 </li>
 
 <li>
 
-Wie breit ist eine Stufe in Millivolt? Rechne mit Python.
+Wie breit ist eine Stufe in Gramm? Rechne mit Python.
 
 </li>
 
 <li>
 
-Ist die Stufenbreite in Volt ein endlicher Binärbruch? Begründe mit Satz [3.6](#satz-3-6).
+Ist die Stufenbreite in Kilogramm ein endlicher Binärbruch? Begründe mit Satz [3.6](#satz-3-6).
 
 </li>
 
@@ -494,7 +495,7 @@ Ist die Stufenbreite in Volt ein endlicher Binärbruch? Begründe mit Satz [3.6
 1.220703125
 ```
 
-Eine Stufe ist $1{,}220703125\,\mathrm{mV}$ breit.
+Eine Stufe ist $1{,}220703125\,\mathrm g$ breit: Gewichte, die weniger als eine Stufe auseinanderliegen, kann diese Waage nicht sicher unterscheiden.
 
 (c) $\frac5{4096}\cdot2^{12}=5$ ist ganz, also ist die Stufenbreite ein endlicher Binärbruch: $\frac{5}{4096}=101_2\cdot2^{-12}=0{,}000000000101_2$. Deshalb zeigt Python auch keine Rundungsstellen: Das Ergebnis ist exakt, denn auch $1{,}220703125=\frac{625}{512}$ hat einen Nenner, der eine Zweierpotenz ist.
 :::

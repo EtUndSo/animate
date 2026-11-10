@@ -1,0 +1,402 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 14,
+  "nextAnimId": 17,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.72,
+      0.0,
+      0
+     ],
+     "width": 3.2,
+     "height": 1.5,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#f6f6f4",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o2",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.72,
+      0.0,
+      0
+     ],
+     "width": 3.2,
+     "height": 1.5,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#f6f6f4",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o3",
+    "type": "Text",
+    "props": {
+     "text": "@f1",
+     "position": [
+      -1.72,
+      0.98,
+      0
+     ],
+     "font_size": 20,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Text",
+    "props": {
+     "text": "@f2",
+     "position": [
+      1.72,
+      0.98,
+      0
+     ],
+     "font_size": 20,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o5",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{student@labor:}\\lower{0.25em}{\\texttt{~}}\\texttt{\\$}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.15,
+     "position": [
+      -2.57,
+      0.5,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o6",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{cd /etc}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.15,
+     "position": [
+      -1.5856,
+      0.5,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o7",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{student@labor:/etc\\$}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.15,
+     "position": [
+      -2.4519,
+      0.25,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o8",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{exit}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.15,
+     "position": [
+      -1.4675,
+      0.25,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o9",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{student@labor:}\\lower{0.25em}{\\texttt{~}}\\texttt{\\$}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.15,
+     "position": [
+      0.87,
+      0.5,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o10",
+    "type": "Text",
+    "props": {
+     "text": "@bleibt",
+     "position": [
+      1.72,
+      -0.12,
+      0
+     ],
+     "font_size": 20,
+     "align": "center",
+     "color": "#00823c"
+    }
+   },
+   {
+    "id": "o11",
+    "type": "Text",
+    "props": {
+     "text": "@weiter",
+     "position": [
+      1.72,
+      -0.45,
+      0
+     ],
+     "font_size": 20,
+     "align": "center",
+     "color": "#00823c"
+    }
+   },
+   {
+    "id": "o12",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.72,
+      0.0,
+      0
+     ],
+     "width": 3.2,
+     "height": 1.5,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#ffffff",
+     "fill_color": "#ffffff",
+     "fill_opacity": 0.65,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o13",
+    "type": "Text",
+    "props": {
+     "text": "@beendet",
+     "position": [
+      -1.72,
+      -0.35,
+      0
+     ],
+     "font_size": 20,
+     "align": "center",
+     "color": "#c82828"
+    }
+   }
+  ],
+  "animations": [
+   {
+    "id": "a1",
+    "type": "GrowFromCenter",
+    "target": "o1",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a2",
+    "type": "GrowFromCenter",
+    "target": "o2",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a3",
+    "type": "FadeIn",
+    "target": "o3",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a4",
+    "type": "FadeIn",
+    "target": "o4",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a5",
+    "type": "FadeIn",
+    "target": "o5",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a6",
+    "type": "FadeIn",
+    "target": "o9",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a7",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a8",
+    "type": "FadeIn",
+    "target": "o6",
+    "run_time": 0.6,
+    "step": 3
+   },
+   {
+    "id": "a9",
+    "type": "FadeIn",
+    "target": "o7",
+    "run_time": 0.6,
+    "step": 4
+   },
+   {
+    "id": "a10",
+    "type": "Indicate",
+    "target": "o9",
+    "run_time": 0.8,
+    "step": 5
+   },
+   {
+    "id": "a11",
+    "type": "FadeIn",
+    "target": "o10",
+    "run_time": 0.8,
+    "step": 5
+   },
+   {
+    "id": "a12",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 6
+   },
+   {
+    "id": "a13",
+    "type": "FadeIn",
+    "target": "o8",
+    "run_time": 0.5,
+    "step": 7
+   },
+   {
+    "id": "a14",
+    "type": "FadeIn",
+    "target": "o12",
+    "run_time": 0.8,
+    "step": 8
+   },
+   {
+    "id": "a15",
+    "type": "FadeIn",
+    "target": "o13",
+    "run_time": 0.8,
+    "step": 8
+   },
+   {
+    "id": "a16",
+    "type": "FadeIn",
+    "target": "o11",
+    "run_time": 0.6,
+    "step": 9
+   }
+  ],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "f1": {
+    "de": "Fenster 1: Sitzung 1",
+    "en": "window 1: session 1",
+    "es": "ventana 1: sesión 1",
+    "zh": "窗口 1：会话 1",
+    "fr": "fenêtre 1 : session 1",
+    "tr": "pencere 1: oturum 1"
+   },
+   "f2": {
+    "de": "Fenster 2: Sitzung 2",
+    "en": "window 2: session 2",
+    "es": "ventana 2: sesión 2",
+    "zh": "窗口 2：会话 2",
+    "fr": "fenêtre 2 : session 2",
+    "tr": "pencere 2: oturum 2"
+   },
+   "bleibt": {
+    "de": "bleibt in ~",
+    "en": "stays in ~",
+    "es": "sigue en ~",
+    "zh": "仍在 ~",
+    "fr": "reste dans ~",
+    "tr": "~ içinde kalır"
+   },
+   "weiter": {
+    "de": "läuft weiter",
+    "en": "keeps running",
+    "es": "sigue en marcha",
+    "zh": "继续运行",
+    "fr": "continue de tourner",
+    "tr": "çalışmaya devam eder"
+   },
+   "beendet": {
+    "de": "Shell beendet",
+    "en": "shell has ended",
+    "es": "la shell terminó",
+    "zh": "Shell 已结束",
+    "fr": "shell terminé",
+    "tr": "kabuk sona erdi"
+   }
+  }
+ }
+}

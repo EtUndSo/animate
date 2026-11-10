@@ -1,6 +1,8 @@
 ---
 title: Stage 4: Autocorrelation, covariance and cross-correlation
-pfad: Electrical Engineering / 3rd Semester / Signals and Systems / Random Signals
+pfad: Electrical Engineering / 3rd Semester / ET3 – Fundamentals of Electrical Engineering 3: Signals and Systems / Random Signals
+adresse: elektrotechnik/3-semester/signale-und-systeme/zufallssignale
+knoten: Chapter 7: Random Signals
 order: 3270500
 summary: How fast does a random signal change?
 tags: autocovariance function
@@ -19,7 +21,7 @@ How fast does a random signal change? The ACF tells you: how similar the signal 
 <span class="anker" id="gl-4-1"></span>
 $$\varphi_{ss}(0)=L_s,\qquad\varphi_{ss}(\tau)=\varphi_{ss}(-\tau),\qquad|\varphi_{ss}(\tau)|\le\varphi_{ss}(0). \tag{4.1}$$
 
-For ergodic processes, $\varphi_{ss}(\tau)=\overline{s(t)s(t+\tau)}$, that is, the ACF of a power signal from [Part 6](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen/korrelationsfunktionen.html).
+For ergodic processes, $\varphi_{ss}(\tau)=\overline{s(t)s(t+\tau)}$, that is, the ACF of a power signal from [Chapter 6](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen/korrelationsfunktionen.html).
 :::
 
 :::herleitung Maximum at $\tau=0$

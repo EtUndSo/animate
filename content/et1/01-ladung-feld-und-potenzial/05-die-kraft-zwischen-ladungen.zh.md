@@ -1,6 +1,8 @@
 ---
 title: 第 3 阶段：电荷之间的力
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 电荷、电场与电位
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 电荷、电场与电位
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial
+knoten: 第 1 章：电荷、电场与电位
 order: 1110500
 summary: 带电体彼此施力。本阶段把“相互吸引”变成一条带数字的定律。
 tags: 真空介电常数, 点电荷, 叠加

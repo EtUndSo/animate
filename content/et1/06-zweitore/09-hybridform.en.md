@@ -1,6 +1,8 @@
 ---
 title: Stage 7: Hybrid form
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / Two-Port Networks
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / Two-Port Networks
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore
+knoten: Chapter 6: Two-Port Networks
 order: 1160900
 summary: With an amplifier, it is easy to specify the current at the input and the voltage at the output.
 tags: H parameters, short-circuit input resistance, short-circuit current ratio, open-circuit reverse voltage ratio, open-circuit output conductance

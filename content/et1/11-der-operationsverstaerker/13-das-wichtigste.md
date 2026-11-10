@@ -1,6 +1,8 @@
 ---
 title: Das Wichtigste
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Der Operationsverstärker
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Der Operationsverstärker
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker
+knoten: Kapitel 11: Der Operationsverstärker
 order: 1211300
 summary: Wie aus einem riesigen, ungenauen Faktor ein Bauteil wird, dessen Verhalten nur noch die Widerstände bestimmen
 tags: Differenzverstärker, Schleifenverstärkung, virtuelle Masse, Rauschen, Komparator

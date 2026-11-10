@@ -1,6 +1,8 @@
 ---
 title: Stage 7: Stamps and netlist
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / Mesh Current and Node Voltage Analysis
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / Mesh Current and Node Voltage Analysis
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/maschenstrom-und-knotenpotentialverfahren
+knoten: Chapter 8: Mesh Current and Node Voltage Analysis
 order: 1180900
 summary: A program sees no meshes and rearranges nothing.
 tags: stamp, netlist, sparse
@@ -41,7 +43,7 @@ A fixed current source that pushes $I_\mathrm q$ through itself from $k$ to $i$ 
 </ul>
 :::
 
-⁠**How to read it:** First, each of the $k$ nodes gets a row and a column, including the reference node. This full matrix has determinant zero, because all rows have the sum zero: if you raise all potentials together, no additional current flows anywhere. Physically, a network determines only differences. Only fixing $U_0=0$ makes the solution unique: you delete column 0 because its unknown is zero, and row 0 because it follows from the other node rules ([Part 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)). What remains is $\mathbf Y$ from Stage [5](das-knotenpotentialverfahren.html#stufe-5). **Validity:** The stamps apply to linear components. Voltage sources follow in Stage [9](die-modifizierte-knotenanalyse.html#stufe-9).
+⁠**How to read it:** First, each of the $k$ nodes gets a row and a column, including the reference node. This full matrix has determinant zero, because all rows have the sum zero: if you raise all potentials together, no additional current flows anywhere. Physically, a network determines only differences. Only fixing $U_0=0$ makes the solution unique: you delete column 0 because its unknown is zero, and row 0 because it follows from the other node rules ([Chapter 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)). What remains is $\mathbf Y$ from Stage [5](das-knotenpotentialverfahren.html#stufe-5). **Validity:** The stamps apply to linear components. Voltage sources follow in Stage [9](die-modifizierte-knotenanalyse.html#stufe-9).
 
 **Netlist.** A circuit diagram is stored as a __netlist__: one line per component, consisting of name, nodes and value. In SPICE, `R3 1 2 2k` means: resistor between the nodes 1 and 2. `I2 0 2 4m` means: 4 mA through the source from node 0 to node 2. The program goes through the list line by line and stamps. If a new node name appears, the matrix grows by one row and one column. Nobody has to know its size beforehand. The rigid format dates from the 1970s, when SPICE was written in FORTRAN and each line occupied a punched card.
 
@@ -70,11 +72,11 @@ Each row sums to zero. If you delete row and column 0, the system from Stage [5
 **Large networks.** A node is usually connected to only two to five neighbors, so almost all positions of a large matrix are zero. It is called __sparse__. The simulator stores only the nonzero entries and solves the system by stepwise elimination. Cramer's rule would be useless for this: a determinant with 20 rows has around $2.4\cdot10^{18}$ products following the pattern of [(0.1)](von-grund-auf-drei-gleichungen-drei-unbekannte.html#gl-0-1).
 
 :::zusatz Alternating current, capacitor, diode
-With sinusoidal quantities you calculate with complex conductances, the admittances. That is where the letters $Y$ and $Z$ come from. A capacitor has the same stamp as a conductance. An impedance $Z$ can be entered only as $Y=1/Z$ as long as it is not zero; a coil at frequency zero breaks this. Stage [9](die-modifizierte-knotenanalyse.html#stufe-9) solves this problem. The simulator replaces nonlinear components such as diodes ([Part 9](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)) by the tangent of their characteristic curve, stamps it and repeats this until nothing changes any more.
+With sinusoidal quantities you calculate with complex conductances, the admittances. That is where the letters $Y$ and $Z$ come from. A capacitor has the same stamp as a conductance. An impedance $Z$ can be entered only as $Y=1/Z$ as long as it is not zero; a coil at frequency zero breaks this. Stage [9](die-modifizierte-knotenanalyse.html#stufe-9) solves this problem. The simulator replaces nonlinear components such as diodes ([Chapter 9](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)) by the tangent of their characteristic curve, stamps it and repeats this until nothing changes any more.
 :::
 
 :::frage Why may you delete precisely the row of the reference node?
-Each of the $k$ node equations follows from the others ([Part 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)). You could delete any of them. You delete the row of the reference node because, together with its column, a symmetric matrix results again and because the current into ground is rarely of interest.
+Each of the $k$ node equations follows from the others ([Chapter 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)). You could delete any of them. You delete the row of the reference node because, together with its column, a symmetric matrix results again and because the current into ground is rarely of interest.
 :::
 
 :::aufgabe Exercise 9 ★★ From the netlist to the solution

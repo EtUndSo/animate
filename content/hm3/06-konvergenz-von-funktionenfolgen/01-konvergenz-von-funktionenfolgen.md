@@ -1,7 +1,9 @@
 ---
 title: Überblick: Konvergenz von Funktionenfolgen
 kurz: Überblick
-pfad: Elektrotechnik / 3. Semester / Höhere Mathematik 3 / Konvergenz von Funktionenfolgen
+pfad: Elektrotechnik / 3. Semester / HöMa3 – Höhere Mathematik 3 / Konvergenz von Funktionenfolgen
+adresse: elektrotechnik/3-semester/hohere-mathematik-3/konvergenz-von-funktionenfolgen
+knoten: Kapitel 6: Konvergenz von Funktionenfolgen
 order: 3160100
 summary: Wann man mit dem Grenzwert rechnen darf wie mit den Näherungen
 tags: Funktionenfolge, punktweise Konvergenz, gleichmäßige Konvergenz, Funktionenreihe, Konvergenzradius, Supremumsnorm, Vollständigkeit, Konvergenz im quadratischen Mittel
@@ -39,5 +41,5 @@ Der Weg führt über acht Begriffe. Eine __Funktionenfolge__ ist eine Folge, der
 
 </ul>
 
-Vorausgesetzt werden das Integral einer Variablen und der Hauptsatz ([Teil 2](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/integralrechnung-im-rn/integralrechnung-im-rn.html)). Folgen, Reihen und das Supremum wiederholt der nächste Abschnitt. $n$ zählt immer die Glieder einer Folge, $x$ ist die Stelle auf der Achse.
+Vorausgesetzt werden das Integral einer Variablen und der Hauptsatz ([Kapitel 2](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/integralrechnung-im-rn/integralrechnung-im-rn.html)). Folgen, Reihen und das Supremum wiederholt der nächste Abschnitt. $n$ zählt immer die Glieder einer Folge, $x$ ist die Stelle auf der Achse.
 :::

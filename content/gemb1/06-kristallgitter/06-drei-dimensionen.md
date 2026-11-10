@@ -1,6 +1,8 @@
 ---
 title: Stufe 4: Drei Dimensionen
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Kristallgitter
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Kristallgitter
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/kristallgitter
+knoten: Kapitel 6: Kristallgitter
 order: 4160600
 summary: Im Raum kommen zu den drei Längen drei Winkel hinzu.
 tags: Kristallachsen, Elementarzelle, Gitterwinkel, primitiv, basiszentriert, innenzentriert, flächenzentriert, einfach kubische

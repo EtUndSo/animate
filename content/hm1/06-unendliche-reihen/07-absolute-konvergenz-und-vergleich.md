@@ -1,6 +1,8 @@
 ---
 title: Stufe 5: Absolute Konvergenz und Vergleich
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Unendliche Reihen
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Unendliche Reihen
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/unendliche-reihen
+knoten: Kapitel 6: Unendliche Reihen
 order: 1260700
 summary: Stufe 3 braucht ein strenges Vorzeichenmuster.
 tags: absolut konvergent, bedingt konvergent, majorisiert, Majorante, Minorante
@@ -48,7 +50,7 @@ Mit $\bar S_N:=\sum_{k=1}^N|a_k|$ gilt: $\sum_{n=1}^\infty a_n$ ist absolut konv
 :::beweis Dreiecksungleichung und Monotonie
 (i) Sei $\varepsilon>0$. Das Cauchy-Kriterium für $\sum|a_k|$ gibt ein $N_0$ mit $\sum_{k=m+1}^n|a_k|<\varepsilon$ für alle $n>m>N_0$. Die Dreiecksungleichung ergibt $\bigl|\sum_{k=m+1}^na_k\bigr|\le\sum_{k=m+1}^n|a_k|<\varepsilon$, und das Cauchy-Kriterium für $\sum a_k$ ist erfüllt.
 
-(ii) $\{\bar S_N\}$ wächst monoton. Ist die Folge beschränkt, konvergiert sie nach dem Monotonie-Lemma. Konvergente Folgen sind beschränkt ([Teil 4](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/folgen-und-grenzwerte/folgen-und-grenzwerte.html)).
+(ii) $\{\bar S_N\}$ wächst monoton. Ist die Folge beschränkt, konvergiert sie nach dem Monotonie-Lemma. Konvergente Folgen sind beschränkt ([Kapitel 4](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/folgen-und-grenzwerte/folgen-und-grenzwerte.html)).
 :::
 
 :::satz Satz 5.3 (Vergleichskriterium)

@@ -1,6 +1,8 @@
 ---
 title: 第 9 阶段：正反馈与施密特触发器
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 运算放大器
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 运算放大器
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker
+knoten: 第 11 章：运算放大器
 order: 1211100
 summary: 若把同相放大器的两个输入端对调，同样的方程给出同样的数。但电路的行为完全不同。本阶段说明规则为什么在这里失效，以及实际发生了什么。
 tags: 迟滞, 施密特触发器, 不稳定

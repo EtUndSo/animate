@@ -1,6 +1,8 @@
 ---
 title: 第 4 阶段：因果近似
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / 低通与带通系统
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / 低通与带通系统
+adresse: elektrotechnik/3-semester/signale-und-systeme/tiefpass-und-bandpasssysteme
+knoten: 第 5 章：低通与带通系统
 order: 3250500
 summary: 如何构造一个尽可能接近理想低通的系统？把冲激响应延迟，再把剩余部分截掉。
 tags: 

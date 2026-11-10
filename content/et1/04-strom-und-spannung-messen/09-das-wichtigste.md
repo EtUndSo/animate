@@ -1,6 +1,8 @@
 ---
 title: Das Wichtigste
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Strom und Spannung messen
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Strom und Spannung messen
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-und-spannung-messen
+knoten: Kapitel 4: Strom und Spannung messen
 order: 1140900
 summary: Warum jedes Messgerät die Schaltung verändert und wie man trotzdem genau misst
 tags: Amperemeter, Voltmeter, stromrichtige Messung, spannungsrichtige Messung, Wheatstonesche Messbrücke, Abgleich
@@ -73,7 +75,7 @@ Verstimmt: $U_\mathrm d\approx\frac14U_\mathrm q\,\Delta R/R$. Ohne die gemeinsa
 </ul>
 :::
 
-**Ein Prinzip hinter allen Ergebnissen.** Für die Schaltung ist ein Messgerät ein weiterer Widerstand. Alle Fehler folgen aus denselben Regeln wie in [Teil 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html): Maschenregel, Knotenregel, ohmsches Gesetz.
+**Ein Prinzip hinter allen Ergebnissen.** Für die Schaltung ist ein Messgerät ein weiterer Widerstand. Alle Fehler folgen aus denselben Regeln wie in [Kapitel 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html): Maschenregel, Knotenregel, ohmsches Gesetz.
 
 | Ergebnis | Woher es kommt |
 |---|---|

@@ -1,7 +1,8 @@
 ---
 title: Die Ableitung
 pfad: Informatik / Machine Learning / Mathematische Grundlagen / Ableitung, Gradient und Kettenregel
-knoten: Grundlagen 3: Ableitung, Gradient und Kettenregel
+adresse: informatik/machine-learning/mathematische-grundlagen/ableitung-gradient-und-kettenregel
+knoten: Kapitel 3: Ableitung, Gradient und Kettenregel
 nachschlagen: ja
 order: 15230200
 summary: Die Ableitung misst, wie stark eine Funktion einer Variablen auf eine kleine Änderung ihrer Eingabe reagiert.
@@ -78,8 +79,10 @@ Ist $f$ an jeder Stelle differenzierbar, so ist $f'$ wieder eine Funktion: Sie o
 Nach [(1.2)](#gl-1-2) ist der Differenzenquotient von $f(x)=x^3$ an der Stelle $2$ gleich $12+6h+h^2$. Für $h\to0$ werden $6h$ und $h^2$ beliebig klein, also ist $f'(2)=12$. Dieselbe Rechnung an einer beliebigen Stelle $x$ ergibt mit $(x+h)^3=x^3+3x^2h+3xh^2+h^3$ den Quotienten $3x^2+3xh+h^2$ und damit $f'(x)=3x^2$.
 ::::
 
+Nicht jede Funktion ist überall differenzierbar. Eine typische Ausnahme ist ein __Knick__: eine Stelle, an der der Graph ohne Sprung weiterläuft, links von ihr aber eine andere Steigung hat als rechts. Die Sekantensteigungen mit $h>0$ nähern sich dort der Steigung rechts, die mit $h<0$ der Steigung links. Weil beide verschieden sind, gibt es keinen gemeinsamen Grenzwert und damit keine Ableitung; keine Gerade schmiegt sich beiden Seiten zugleich an. Das bekannteste Beispiel ist die Betragsfunktion $|x|$ an der Stelle $0$.
+
 ::::beispiel [Rechenbeispiel 2]
-Die Betragsfunktion $f(x)=|x|$ hat an der Stelle $0$ keine Ableitung. Ihr Differenzenquotient ist $|h|/h$, also $1$ für jedes $h>0$ und $-1$ für jedes $h<0$. Es gibt keine Zahl, der er von beiden Seiten nahekommt. Der Graph hat bei $0$ einen __Knick__: Links steigt er mit $-1$, rechts mit $+1$, und keine Gerade schmiegt sich beiden Seiten zugleich an. An jeder anderen Stelle ist $|x|$ differenzierbar, mit der Ableitung $1$ für $x>0$ und $-1$ für $x<0$.
+Die Betragsfunktion $f(x)=|x|$ hat an der Stelle $0$ keine Ableitung. Ihr Differenzenquotient ist $|h|/h$, also $1$ für jedes $h>0$ und $-1$ für jedes $h<0$. Es gibt keine Zahl, der er von beiden Seiten nahekommt. Der Graph hat bei $0$ einen Knick: Links steigt er mit $-1$, rechts mit $+1$. An jeder anderen Stelle ist $|x|$ differenzierbar, mit der Ableitung $1$ für $x>0$ und $-1$ für $x<0$.
 ::::
 
 ⁠**Kurz gesagt:** Die Ableitung $f'(x)$ ist der Grenzwert der Sekantensteigungen, also die Steigung der Tangente; an einem Knick gibt es sie nicht.

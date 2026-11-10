@@ -1,6 +1,8 @@
 ---
 title: Stufe 1: Die Schrödinger-Gleichung auf einem Gitter
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Das Teilchen in der Box
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Das Teilchen in der Box
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box
+knoten: Kapitel 2: Das Teilchen in der Box
 order: 4120300
 summary: Für ein beliebiges Potential V(x) gibt es keine Lösung als Formel.
 tags: Diskretisierung, Hüpfparameter, Hamilton-Matrix

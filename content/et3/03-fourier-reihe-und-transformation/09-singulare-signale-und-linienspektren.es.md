@@ -1,6 +1,8 @@
 ---
 title: Etapa 8: Señales singulares y espectros de líneas
-pfad: Ingeniería eléctrica / 3.er semestre / Señales y sistemas / Serie y transformada de Fourier
+pfad: Ingeniería eléctrica / 3.er semestre / ET3 – Fundamentos de ingeniería eléctrica 3: señales y sistemas / Serie y transformada de Fourier
+adresse: elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation
+knoten: Capítulo 3: Serie y transformada de Fourier
 order: 3230900
 summary: Las constantes, las oscilaciones, el escalón y las señales periódicas no son absolutamente integrables.
 tags: espectro de líneas, peine de Dirac

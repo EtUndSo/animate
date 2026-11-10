@@ -1,6 +1,8 @@
 ---
 title: Etapa 4: Densidad espectral de energía
-pfad: Ingeniería eléctrica / 3.er semestre / Señales y sistemas / Funciones de correlación
+pfad: Ingeniería eléctrica / 3.er semestre / ET3 – Fundamentos de ingeniería eléctrica 3: señales y sistemas / Funciones de correlación
+adresse: elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen
+knoten: Capítulo 6: Funciones de correlación
 order: 3260500
 summary: ¿Cuál es la transformada de Fourier de una función de correlación?
 tags: densidad espectral de energía, densidad espectral de energía cruzada
@@ -20,7 +22,7 @@ lang: es
 $$\varphi^E_{ss}(\tau)=s^*(-\tau)*s(\tau)\;\circ\!\!-\!\!\bullet\;S^*(f)\,S(f)=|S(f)|^2,\qquad\varphi^E_{sg}(\tau)\;\circ\!\!-\!\!\bullet\;S^*(f)\,G(f). \tag{4.1}$$
 :::
 
-⁠**Cómo leerlo:** $|S(f)|^2$ se llama __densidad espectral de energía__. Es real, nunca negativa y, en las señales reales, par en $f$. La fase de la señal se pierde: todas las señales con el mismo espectro de amplitud tienen la misma FAC. $S^*G$ se llama __densidad espectral de energía cruzada__. La deducción solo necesita el teorema de convolución, la reflexión en el tiempo y la conjugación: $s^*(-\tau)\circ\!\!-\!\!\bullet\,S^*(f)$ ([parte 3](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)).
+⁠**Cómo leerlo:** $|S(f)|^2$ se llama __densidad espectral de energía__. Es real, nunca negativa y, en las señales reales, par en $f$. La fase de la señal se pierde: todas las señales con el mismo espectro de amplitud tienen la misma FAC. $S^*G$ se llama __densidad espectral de energía cruzada__. La deducción solo necesita el teorema de convolución, la reflexión en el tiempo y la conjugación: $s^*(-\tau)\circ\!\!-\!\!\bullet\,S^*(f)$ ([capítulo 3](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)).
 
 **Parseval.** En $\tau=0$, la FAC es la energía. Con el teorema del área:
 
@@ -30,7 +32,7 @@ $$E_s=\varphi^E_{ss}(0)=\int_{-\infty}^{\infty}|s(t)|^2\,\mathrm{d} t=\int_{-\in
 Dos señales ortogonales tienen también espectros ortogonales: $\int s^*g\,\mathrm{d} t=\int S^*G\,\mathrm{d} f=0$.
 
 ::::beispiel el pulso exponencial
-$s(t)=\varepsilon(t)\mathrm{e}^{-t}$ tiene $S(f)=\frac{1}{1+\mathrm{j}2\pi f}$; por tanto, $|S|^2=\frac{1}{1+(2\pi f)^2}$. Esto es a la vez $\operatorname{Re}\{S\}$, y su transformada inversa es la parte par de la señal ([parte 3](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)):
+$s(t)=\varepsilon(t)\mathrm{e}^{-t}$ tiene $S(f)=\frac{1}{1+\mathrm{j}2\pi f}$; por tanto, $|S|^2=\frac{1}{1+(2\pi f)^2}$. Esto es a la vez $\operatorname{Re}\{S\}$, y su transformada inversa es la parte par de la señal ([capítulo 3](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)):
 
 $$\varphi^E_{ss}(\tau)=\tfrac12\mathrm{e}^{-|\tau|},\qquad E_s=\varphi^E_{ss}(0)=\tfrac12.$$
 

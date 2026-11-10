@@ -1,6 +1,8 @@
 ---
 title: Etapa 1: Por qué el silicio apenas conduce
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Semiconductores y diodos
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Semiconductores y diodos
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden
+knoten: Capítulo 9: Semiconductores y diodos
 order: 1190300
 summary: El metal conduce, el vidrio no, el silicio puro apenas.
 tags: niveles de energía, banda, zona prohibida, banda de valencia, banda de conducción, brecha de banda, energía de Fermi, metal
@@ -43,10 +45,10 @@ Cada electrón en la BC deja un hueco en la BV, así que el número de ambos es 
 :::
 
 ::::beispiel
-A 300 K, $W_\mathrm g/(k_\mathrm BT)=43{,}3$ y $\mathrm{e}^{-21{,}7}=3{,}9\cdot10^{-10}$. La densidad medida de electrones libres es $n_\mathrm i=10^{10}\,\mathrm{cm^{-3}}$. Eso es uno por cada $5\cdot10^{12}$ átomos, porque el silicio tiene $5\cdot10^{22}$ átomos por cm$^3$. El cobre tiene $8{,}5\cdot10^{12}$ veces más electrones libres ([Parte 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)).
+A 300 K, $W_\mathrm g/(k_\mathrm BT)=43{,}3$ y $\mathrm{e}^{-21{,}7}=3{,}9\cdot10^{-10}$. La densidad medida de electrones libres es $n_\mathrm i=10^{10}\,\mathrm{cm^{-3}}$. Eso es uno por cada $5\cdot10^{12}$ átomos, porque el silicio tiene $5\cdot10^{22}$ átomos por cm$^3$. El cobre tiene $8{,}5\cdot10^{12}$ veces más electrones libres ([capítulo 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)).
 ::::
 
-⁠**Casos límite:** Para $T\to0$, [(1.1)](#gl-1-1) tiende a cero: el silicio aísla. Cada 10 K de calentamiento duplican la fracción. Por eso la resistencia de un semiconductor baja con la temperatura ([Parte 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)).
+⁠**Casos límite:** Para $T\to0$, [(1.1)](#gl-1-1) tiende a cero: el silicio aísla. Cada 10 K de calentamiento duplican la fracción. Por eso la resistencia de un semiconductor baja con la temperatura ([capítulo 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)).
 
 :::frage ¿Por qué no conduce una banda llena, si está repleta de electrones?
 Porque la corriente necesita un movimiento en una dirección preferente. Para ello, un electrón tendría que pasar a un estado con algo más de energía. En la banda llena, todos esos estados están ocupados. Dos electrones solo podrían intercambiarse, y eso no cambia nada. El primer hueco hace conductora la banda.

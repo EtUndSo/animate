@@ -1,6 +1,8 @@
 ---
 title: Stage 2: Measuring similarity, the correlation coefficient
-pfad: Electrical Engineering / 3rd Semester / Signals and Systems / Correlation Functions
+pfad: Electrical Engineering / 3rd Semester / ET3 – Fundamentals of Electrical Engineering 3: Signals and Systems / Correlation Functions
+adresse: elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen
+knoten: Chapter 6: Correlation Functions
 order: 3260300
 summary: How do you measure with a single number how similar two signals are?
 tags: correlation coefficient, orthogonal
@@ -22,7 +24,7 @@ So the difference lies solely in the integral of the product. To keep the size o
 <span class="anker" id="gl-2-1"></span>
 $$p_{sg}=\frac{\int_{-\infty}^{\infty}s^*(t)\,g(t)\,\mathrm{d} t}{\sqrt{E_sE_g}}. \tag{2.1}$$
 
-⁠**How to read it:** $|p_{sg}|\le1$ (Cauchy–Schwarz inequality). $p=1$ means $s=a\,g$ with $a>0$: the same shape. $p=-1$ means $s=-a\,g$: the same shape, opposite sign. $p=0$ means $\int s^*g\,\mathrm{d} t=0$; the signals are __orthogonal__, like the harmonics of a Fourier series in [Part 3](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html). Example: $\operatorname{rect}(t)$ and $\Lambda(t)$ have $\int\operatorname{rect}\cdot\Lambda\,\mathrm{d} t=0.75$, $E_{\operatorname{rect}}=1$, $E_\Lambda=\frac23$, so $p=0.919$.
+⁠**How to read it:** $|p_{sg}|\le1$ (Cauchy–Schwarz inequality). $p=1$ means $s=a\,g$ with $a>0$: the same shape. $p=-1$ means $s=-a\,g$: the same shape, opposite sign. $p=0$ means $\int s^*g\,\mathrm{d} t=0$; the signals are __orthogonal__, like the harmonics of a Fourier series in [Chapter 3](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html). Example: $\operatorname{rect}(t)$ and $\Lambda(t)$ have $\int\operatorname{rect}\cdot\Lambda\,\mathrm{d} t=0.75$, $E_{\operatorname{rect}}=1$, $E_\Lambda=\frac23$, so $p=0.919$.
 
 :::aufgabe Exercise 2 ★★ Correlation coefficients
 <span class="anker" id="aufg-2"></span>

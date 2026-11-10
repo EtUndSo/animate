@@ -1,6 +1,8 @@
 ---
 title: Stufe 6: Division mit Rest
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Funktionen und Polynome
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Funktionen und Polynome
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/funktionen-und-polynome
+knoten: Kapitel 3: Funktionen und Polynome
 order: 1230800
 summary: Summe, Differenz und Produkt von Polynomen sind wieder Polynome, der Quotient meist nicht.
 tags: 

@@ -1,6 +1,8 @@
 ---
 title: Stage 1: Why silicon hardly conducts
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / Semiconductors and Diodes
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / Semiconductors and Diodes
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden
+knoten: Chapter 9: Semiconductors and Diodes
 order: 1190300
 summary: Metal conducts, glass does not, pure silicon hardly at all.
 tags: energy levels, band, forbidden zone, valence band, conduction band, band gap, Fermi energy, metal
@@ -43,10 +45,10 @@ Every electron in the CB leaves a hole in the VB, so the numbers of both are equ
 :::
 
 ::::beispiel
-At 300 K, $W_\mathrm g/(k_\mathrm BT)=43.3$ and $\mathrm{e}^{-21.7}=3.9\cdot10^{-10}$. The measured density of free electrons is $n_\mathrm i=10^{10}\,\mathrm{cm^{-3}}$. That is one per $5\cdot10^{12}$ atoms, because silicon has $5\cdot10^{22}$ atoms per cm$^3$. Copper has $8.5\cdot10^{12}$ times more free electrons ([Part 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)).
+At 300 K, $W_\mathrm g/(k_\mathrm BT)=43.3$ and $\mathrm{e}^{-21.7}=3.9\cdot10^{-10}$. The measured density of free electrons is $n_\mathrm i=10^{10}\,\mathrm{cm^{-3}}$. That is one per $5\cdot10^{12}$ atoms, because silicon has $5\cdot10^{22}$ atoms per cm$^3$. Copper has $8.5\cdot10^{12}$ times more free electrons ([Chapter 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)).
 ::::
 
-⁠**Limiting cases:** For $T\to0$, [(1.1)](#gl-1-1) goes to zero: silicon insulates. Every 10 K of warming doubles the fraction. That is why the resistance of a semiconductor falls with temperature ([Part 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)).
+⁠**Limiting cases:** For $T\to0$, [(1.1)](#gl-1-1) goes to zero: silicon insulates. Every 10 K of warming doubles the fraction. That is why the resistance of a semiconductor falls with temperature ([Chapter 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)).
 
 :::frage Why does a full band not conduct even though it is full of electrons?
 Because current needs motion in a preferred direction. For that, an electron would have to move into a state with slightly more energy. In a full band, every such state is occupied. Two electrons could only swap places, and that changes nothing. The first hole makes the band conductive.

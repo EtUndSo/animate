@@ -175,9 +175,47 @@ ANIMATION_TYPES = {
     "Rotate": _anim.Rotate, "Scale": _anim.Scale, "MoveTo": _anim.MoveTo,
     "MoveAlongPath": _anim.MoveAlongPath, "Indicate": _anim.Indicate,
     "ChangeValue": _anim.ChangeValue,
+    # L1 (disappear) and L2 (morph): the target morphs into the shape of the object named in args["to"]; that
+    # object is only a template and is never drawn itself (Manim: Transform(a, b) does not add b).
+    "FadeOut": _anim.FadeOut, "Transform": _anim.Transform, "ReplacementTransform": _anim.ReplacementTransform,
+    "TransformMatchingTex": _anim.TransformMatchingTex,
 }
 # Animations that make their target APPEAR, so we must NOT pre-add that target.
 _APPEARANCE = {"Create", "FadeIn", "GrowFromCenter", "Write"}
+_MORPH = {"Transform", "ReplacementTransform", "TransformMatchingTex"}
+
+
+def _morph_templates(animations):
+    """Ids of the objects that only serve as the end shape of a morph (args["to"]): built, never drawn."""
+    return {(a.get("args") or {}).get("to") for a in animations if a.get("type") in _MORPH} - {None}
+
+
+def _cell_selection(args, table):
+    """Cells (row, col) of a Table named by args cell=[r, c] | row=r | col=c (L9), within the table's text cells."""
+    cells = getattr(table, "_cells", {}) or {}
+    if args.get("cell") is not None:
+        r, c = (int(v) for v in list(args["cell"])[:2])
+        return [(r, c)] if (r, c) in cells else []
+    if args.get("row") is not None:
+        return sorted(k for k in cells if k[0] == int(args["row"]))
+    if args.get("col") is not None:
+        return sorted(k for k in cells if k[1] == int(args["col"]))
+    return []
+
+
+def _prepare_cell_boxes(animations, objects):
+    """Indicate on single Table cells (L9) needs a highlight box under each cell. The boxes are added BEFORE any
+    animation snapshots the table (structural change only at build time, ENGINE_CONTRACT), at the bottom of the
+    table's children, fully transparent; scenes without such an animation stay exactly as they were."""
+    for a in animations:
+        args = a.get("args") or {}
+        t = objects.get(a.get("target"))
+        if a.get("type") != "Indicate" or t is None or not hasattr(t, "_cells"):
+            continue
+        for rc in _cell_selection(args, t):
+            if rc not in t._hl_boxes:
+                t._hl_boxes[rc] = box = t._cell_box(*rc)
+                t.subObjects.insert(0, box)
 
 # Whitelisted names for user math expressions (no builtins -> safe even server-side).
 _SAFE_NAMES = {n: getattr(np, n) for n in
@@ -380,14 +418,15 @@ def _lookup(key):
             or next(iter(entry.values()), key))
 
 
-def _label_text(s):
+def _label_text(s, digits=True):
     """A label in the scene language. "@key" (the whole label) or "@{key}" (part of it) comes from the scene's
-    translation table, and decimal points between digits follow the language: 0.5 -> 0,5 in de, es, fr and tr."""
+    translation table, and decimal points between digits follow the language: 0.5 -> 0,5 in de, es, fr and tr.
+    digits=False keeps the points (a Text in the typewriter font or with raw text: code, tool output, file names)."""
     if re.fullmatch(r"@[\w.-]+", s):
         s = _lookup(s[1:])
     elif "@{" in s:
         s = _STRING_REF.sub(lambda m: _lookup(m.group(1)), s)
-    return localize_digits(s)
+    return localize_digits(s) if digits else s
 
 
 def _resolve_arg(key, value):
@@ -811,7 +850,7 @@ def _build_parametric_curve(args, style, axes):
             tdir = d / L
             perp = np.array([-tdir[1], tdir[0], 0.0])
             tip = world(ts[i])
-            head = 0.22
+            head = float(args.get("head_size", 0.22) or 0.22)       # length of the mark (scene units)
             back = tip - head * tdir
             tri = Polygon([tip, back + 0.5 * head * perp, back - 0.5 * head * perp], closed=True)
             tri.color = col
@@ -1270,6 +1309,8 @@ def _build_object(spec, objects, axes=None):
     t = spec["type"]
     args = {k: (v if (k == "func" and t in _RAW_FUNC_TYPES) else _resolve_arg(k, v))
             for k, v in spec.get("args", {}).items()}
+    if t == "Text" and isinstance(spec.get("args", {}).get("text"), str) and (args.get("raw") or args.get("font") == "mono"):
+        args["text"] = _label_text(spec["args"]["text"], digits=False)   # code / file names: 1.5M stays 1.5M
     # Styling is set as attributes AFTER construction (shapes don't take color in __init__).
     style = {k: args.pop(k) for k in list(args) if k in _STYLE_ATTRS}
     if t == "plot":                                         # a graph on an explicit axes
@@ -1435,7 +1476,22 @@ def _build_object(spec, objects, axes=None):
 
 def _build_animation(spec, objects):
     args = {k: _resolve_arg(k, v) for k, v in spec.get("args", {}).items()}
-    return ANIMATION_TYPES[spec["type"]](objects[spec["target"]], **args)
+    typ, target = spec["type"], objects[spec["target"]]
+    if typ in _MORPH:                                   # L2: morph into the template object args["to"]
+        to = objects.get(args.pop("to", None))
+        if to is None:
+            return None
+        return ANIMATION_TYPES[typ](target, to, **args)
+    if typ == "Indicate" and hasattr(target, "_cells") and any(args.get(k) is not None for k in ("cell", "row", "col")):
+        boxes = [target._hl_boxes[rc] for rc in _cell_selection(args, target) if rc in target._hl_boxes]
+        return _anim.IndicateCells(target, boxes)       # L9: one cell / row / column of a Table lights up
+    if typ == "FadeIn" and args.pop("lines", False):    # a formula row by row (calculation shown step by step)
+        return _anim.FadeInLines(target, **args)
+    if typ == "MoveAlongPath" and isinstance(args.get("path"), str):   # the path named by its object id
+        args["path"] = objects.get(args["path"])
+        if args["path"] is None:
+            return None
+    return ANIMATION_TYPES[typ](target, **args)
 
 
 # --- Computations: operations OVER objects (not objects themselves). Each references existing
@@ -1699,6 +1755,7 @@ class ModelScene(Scene):
         specs = self.model.get("objects", [])
         appearing = {a["target"] for a in self.model.get("animations", [])
                      if a["type"] in _APPEARANCE}
+        appearing |= _morph_templates(self.model.get("animations", []))   # morph templates are never drawn
         # Scene parameters first: their names must be known before any expression is compiled.
         _PARAMS.clear()
         for spec in specs:
@@ -1773,21 +1830,45 @@ class ModelScene(Scene):
         # steps run in ascending order. No step given -> each animation is its own step (sequential,
         # in list order), which keeps the old behaviour.
         self._appearance_anims = []                         # Create/FadeIn/... (kept fully shown statically)
+        _prepare_cell_boxes(self.model.get("animations", []), objects)
         for step in _group_by_step(self.model.get("animations", [])):
+            if all(spec.get("type") == "Wait" for spec in step):   # a pause on the timeline (nothing moves)
+                self.wait(max(float(spec.get("run_time", 1.0)) for spec in step))
+                continue
             anims = []
             for spec in step:
                 if spec.get("target") not in objects:       # dangling reference (deleted object) -> skip
                     continue
                 a = _build_animation(spec, objects)
+                if a is None:                               # e.g. a morph without its template object
+                    continue
                 a.run_time = spec.get("run_time", 1.0)
                 anims.append(a)
                 if spec.get("type") in _APPEARANCE:
                     self._appearance_anims.append(a)
             if anims:
                 self.play(*anims)                           # run_time=None -> each keeps its own
+                rel = [m * a.run_time for a in anims for m in getattr(a, "marks", [])[1:]]
+                if rel:                                     # row starts inside one animation (FadeInLines): jump marks
+                    self.timeline[-1]["marks_in"] = sorted(rel)
         if self.model.get("wait"):
             self.wait(self.model["wait"])
+        if self.model.get("draw_order") == "creation":
+            self._order_by_creation(specs, objects)
         self.run_updaters()          # settle updater-driven objects for the static (first) frame
+
+    def _order_by_creation(self, specs, objects):
+        """Draw order = order of the object list (draw_order "creation"): an object that appears by an animation keeps
+        its layer instead of going on top of everything visible (play() appends it). Objects of operations come after
+        all listed objects, in their own order. Only the painting order changes, never the timeline."""
+        rank = {}
+        for i, spec in enumerate(specs):
+            o = objects.get(spec.get("id"))
+            if o is not None:
+                rank.setdefault(id(o), i)
+        n = len(specs)
+        keyed = sorted(((rank.get(id(o), n + j), j, o) for j, o in enumerate(self.objectList)), key=lambda r: (r[0], r[1]))
+        self.objectList = [o for _, _, o in keyed]
 
     def show_static(self):
         """Edit-view (non-playing) state. construct() leaves animation targets at their END state (play()

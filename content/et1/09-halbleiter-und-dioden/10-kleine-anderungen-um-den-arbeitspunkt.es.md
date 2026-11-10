@@ -1,6 +1,8 @@
 ---
 title: Etapa 8: Pequeños cambios alrededor del punto de trabajo
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Semiconductores y diodos
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Semiconductores y diodos
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden
+knoten: Capítulo 9: Semiconductores y diodos
 order: 1191000
 summary: A menudo una pequeña señal va montada sobre una tensión continua, y solo cuenta el cambio.
 tags: resistencia diferencial, pequeña señal

@@ -1,7 +1,8 @@
 ---
 title: 矩阵-向量乘积
 pfad: 计算机科学 / 机器学习 / 数学基础 / 向量与矩阵
-knoten: 基础篇 1：向量与矩阵
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: 第 1 章：向量与矩阵
 nachschlagen: ja
 order: 15210800
 summary: 要对数据集中的所有样本计算同一个加权和。为此，本节引入矩阵与向量的乘积，并说明它的两种读法：按行读或按列读。

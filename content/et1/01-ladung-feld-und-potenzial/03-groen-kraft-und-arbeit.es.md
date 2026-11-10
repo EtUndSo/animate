@@ -1,6 +1,8 @@
 ---
 title: Etapa 1: Magnitudes, fuerza y trabajo
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Carga, campo y potencial
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Carga, campo y potencial
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial
+knoten: Capítulo 1: Carga, campo y potencial
 order: 1110300
 summary: La tensión resultará ser trabajo por unidad de carga.
 tags: cualitativos, cuantitativo, ley de Ohm, magnitud física, sistema de unidades SI, magnitudes básicas, corriente, prefijos SI
@@ -13,7 +15,7 @@ lang: es
 La tensión resultará ser trabajo por unidad de carga. Para ello hacen falta magnitudes con unidades, la fuerza, el trabajo y la energía cinética.
 :::
 
-**La idea.** Quien viene de la nieve dice que una habitación está caliente; quien sale de la sauna, que está fresca. Estos juicios son __cualitativos__. Un termómetro les indica a ambos 21 °C; eso es __cuantitativo__: un número con una escala, independiente de quién mida. Con estas magnitudes formula la física sus leyes, por ejemplo la __ley de Ohm__ $U=R\cdot I$ ([Parte 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)). La magnitud mecánica más importante de este capítulo es el trabajo: una fuerza que actúa a lo largo de un camino transfiere energía, y solo cuenta su componente en la dirección del camino. Quien levanta una mochila trabaja contra la gravedad; quien la lleva en horizontal, no (fig. [2](#abb-2)).
+**La idea.** Quien viene de la nieve dice que una habitación está caliente; quien sale de la sauna, que está fresca. Estos juicios son __cualitativos__. Un termómetro les indica a ambos 21 °C; eso es __cuantitativo__: un número con una escala, independiente de quién mida. Con estas magnitudes formula la física sus leyes, por ejemplo la __ley de Ohm__ $U=R\cdot I$ ([capítulo 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)). La magnitud mecánica más importante de este capítulo es el trabajo: una fuerza que actúa a lo largo de un camino transfiere energía, y solo cuenta su componente en la dirección del camino. Quien levanta una mochila trabaja contra la gravedad; quien la lleva en horizontal, no (fig. [2](#abb-2)).
 
 :::definition Definición 1.1 (Magnitud física)
 <span class="anker" id="satz-1-1"></span>

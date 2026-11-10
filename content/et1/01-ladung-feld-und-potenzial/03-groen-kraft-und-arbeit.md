@@ -1,6 +1,8 @@
 ---
 title: Stufe 1: Größen, Kraft und Arbeit
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Ladung, Feld und Potenzial
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Ladung, Feld und Potenzial
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial
+knoten: Kapitel 1: Ladung, Feld und Potenzial
 order: 1110300
 summary: Spannung wird sich als Arbeit je Ladung erweisen.
 tags: qualitativ, quantitativ, ohmsche Gesetz, physikalische Größe, SI-Einheitensystem, Basisgrößen, Strom, SI-Vorsätze
@@ -13,7 +15,7 @@ lang: de
 Spannung wird sich als Arbeit je Ladung erweisen. Dafür braucht man Größen mit Einheiten, die Kraft, die Arbeit und die Bewegungsenergie.
 :::
 
-**Die Idee.** Wer aus dem Schnee kommt, nennt einen Raum warm, wer aus der Sauna kommt, kühl. Solche Urteile sind __qualitativ__. Ein Thermometer zeigt beiden 21 °C, das ist __quantitativ__: eine Zahl mit Maßstab, unabhängig davon, wer misst. Mit solchen Größen formuliert die Physik ihre Gesetze, zum Beispiel das __ohmsche Gesetz__ $U=R\cdot I$ ([Teil 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)). Die wichtigste mechanische Größe dieses Kapitels ist die Arbeit: Eine Kraft, die längs eines Wegs wirkt, überträgt Energie, und es zählt nur ihr Anteil in Wegrichtung. Wer einen Rucksack hebt, arbeitet gegen die Schwerkraft, wer ihn waagerecht trägt, nicht (Abb. [2](#abb-2)).
+**Die Idee.** Wer aus dem Schnee kommt, nennt einen Raum warm, wer aus der Sauna kommt, kühl. Solche Urteile sind __qualitativ__. Ein Thermometer zeigt beiden 21 °C, das ist __quantitativ__: eine Zahl mit Maßstab, unabhängig davon, wer misst. Mit solchen Größen formuliert die Physik ihre Gesetze, zum Beispiel das __ohmsche Gesetz__ $U=R\cdot I$ ([Kapitel 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)). Die wichtigste mechanische Größe dieses Kapitels ist die Arbeit: Eine Kraft, die längs eines Wegs wirkt, überträgt Energie, und es zählt nur ihr Anteil in Wegrichtung. Wer einen Rucksack hebt, arbeitet gegen die Schwerkraft, wer ihn waagerecht trägt, nicht (Abb. [2](#abb-2)).
 
 :::definition Definition 1.1 (Physikalische Größe)
 <span class="anker" id="satz-1-1"></span>

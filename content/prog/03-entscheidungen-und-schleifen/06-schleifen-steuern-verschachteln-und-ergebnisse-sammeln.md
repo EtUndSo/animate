@@ -1,7 +1,8 @@
 ---
 title: Schleifen steuern, verschachteln und Ergebnisse sammeln
 pfad: Informatik / Programmieren / Python / Entscheidungen und Schleifen
-knoten: Python 3: Entscheidungen und Schleifen
+adresse: informatik/programmieren/python/entscheidungen-und-schleifen
+knoten: Kapitel 3: Entscheidungen und Schleifen
 order: 6040600
 summary: Eine Schleife muss nicht jeden Durchlauf vollständig ausführen und nicht immer bis zum Ende laufen.
 tags: verschachtelt, Akkumulator
@@ -29,7 +30,7 @@ Die Anweisung `break` im Block einer Schleife beendet diese Schleife sofort. Der
 :::
 
 ::::beispiel der kleinste Teiler
-Eine ganze Zahl $n\ge2$ ist eine Primzahl, wenn sie außer 1 und sich selbst keinen Teiler hat. Das Skript probiert die möglichen Teiler $t=2,3,\ldots$ der Reihe nach durch; beim ersten, der $n$ ohne Rest teilt, bricht es ab. Der Name `teiler` ist anfangs an `None` gebunden, das heißt hier „noch keiner gefunden“ ([Programmieren, Python 2, Abschnitt 7.6](/wissen/informatik/programmieren/python/werte-typen-und-variablen/wahrheitswerte-und-vergleiche.html#stufe-7-6)).
+Eine ganze Zahl $n\ge2$ ist eine Primzahl, wenn sie außer 1 und sich selbst keinen Teiler hat. Das Skript probiert die möglichen Teiler $t=2,3,\ldots$ der Reihe nach durch; beim ersten, der $n$ ohne Rest teilt, bricht es ab. Der Name `teiler` ist anfangs an `None` gebunden, das heißt hier „noch keiner gefunden“ ([Kapitel 2, Abschnitt 7.6](/wissen/informatik/programmieren/python/werte-typen-und-variablen/wahrheitswerte-und-vergleiche.html#stufe-7-6)).
 
 ```python kleinster_teiler.py
 # Den kleinsten Teiler einer ganzen Zahl n ab 2 suchen; ohne Teiler ist n eine Primzahl
@@ -93,9 +94,9 @@ Das Wort `else` führt hier leicht in die Irre, denn es hat nichts mit der Bedin
 
 <span class="anker" id="stufe-5-2"></span>
 
-Manchmal soll eine Schleife einzelne Werte auslassen, aber danach weiterlaufen, etwa einen defekten Messkanal.
+Manchmal soll eine Schleife einzelne Werte auslassen, aber danach weiterlaufen, etwa ein Hotelzimmer, in dem niemand gestört werden will.
 
-**Ein Gerät mit Defektaufkleber.** Wer eine Reihe von Messgeräten prüft, übergeht ein Gerät mit Defektaufkleber und macht mit dem nächsten weiter. Die Prüfung der Reihe hört dabei nicht auf, nur dieses eine Gerät fällt aus.
+**Ein Schild „Bitte nicht stören“.** Wer im Hotel die Zimmer eines Flurs reinigt, übergeht ein Zimmer mit diesem Schild und macht mit dem nächsten weiter. Die Runde hört dabei nicht auf, nur dieses eine Zimmer fällt aus.
 
 :::definition Definition 5.2 (`continue`)
 <span class="anker" id="satz-5-2"></span>
@@ -104,30 +105,30 @@ Die Anweisung `continue` im Block einer Schleife beendet nur den laufenden Durch
 :::
 
 ::::beispiel
-Von acht Kanälen ist Kanal 3 defekt:
+Von acht Zimmern hat Zimmer 3 das Schild an der Tür:
 
-```python kanaele.py
-# Messkanäle 0 bis 7 abfragen; Kanal 3 ist defekt und wird übersprungen
-for kanal in range(8):
-    if kanal == 3:
+```python zimmer.py
+# Hotelzimmer 1 bis 8 reinigen; an Zimmer 3 hängt "Bitte nicht stören", es wird übersprungen
+for zimmer in range(1, 9):
+    if zimmer == 3:
         continue
-    print("messe Kanal", kanal)
+    print("reinige Zimmer", zimmer)
 print("fertig")
 ```
 
 ```console Linux
-$ python3 kanaele.py
-messe Kanal 0
-messe Kanal 1
-messe Kanal 2
-messe Kanal 4
-messe Kanal 5
-messe Kanal 6
-messe Kanal 7
+$ python3 zimmer.py
+reinige Zimmer 1
+reinige Zimmer 2
+reinige Zimmer 4
+reinige Zimmer 5
+reinige Zimmer 6
+reinige Zimmer 7
+reinige Zimmer 8
 fertig
 ```
 
-Dasselbe ließe sich mit `if kanal != 3:` und dem eingerückten `print` schreiben. `continue` lohnt sich, wenn ein Durchlauf viele Zeilen hat und mehrere Gründe, ihn auszulassen: Jeder Grund bekommt eine kurze Prüfung am Anfang, und der eigentliche Block muss nicht immer tiefer eingerückt werden.
+Dasselbe ließe sich mit `if zimmer != 3:` und dem eingerückten `print` schreiben. `continue` lohnt sich, wenn ein Durchlauf viele Zeilen hat und mehrere Gründe, ihn auszulassen: Jeder Grund bekommt eine kurze Prüfung am Anfang, und der eigentliche Block muss nicht immer tiefer eingerückt werden.
 ::::
 
 ⁠**Kurz gesagt:** `continue` überspringt den Rest des laufenden Durchlaufs, die Schleife läuft weiter.
@@ -136,7 +137,7 @@ Dasselbe ließe sich mit `if kanal != 3:` und dem eingerückten `print` schreibe
 
 <span class="anker" id="stufe-5-3"></span>
 
-Für jede Zahl prüfen, ob sie eine Primzahl ist; für jedes Paar zweier Widerstände den Gesamtwiderstand ausrechnen: Solche Aufgaben brauchen eine Wiederholung in der Wiederholung.
+Für jede Zahl prüfen, ob sie eine Primzahl ist; für jedes Paar zweier Geschwindigkeiten den Durchschnitt ausrechnen: Solche Aufgaben brauchen eine Wiederholung in der Wiederholung.
 
 **Wie bei einer Uhr.** Der Minutenzeiger läuft einmal ganz herum, dann rückt der Stundenzeiger eine Stunde weiter, und der Minutenzeiger beginnt von vorn. Zwei ineinandergesetzte Schleifen arbeiten genauso. Mit einer äußeren Schleife über drei Zeilen und einer inneren über vier Spalten entsteht diese Reihenfolge der Durchläufe des inneren Blocks:
 
@@ -176,26 +177,26 @@ $ python3 primzahlen.py
 ```
 ::::
 
-::::beispiel zwei Widerstände für 150 $\Omega$
-Gesucht sind zwei Widerstände aus der Reihe 100 $\Omega$, 200 $\Omega$, …, 900 $\Omega$, die parallel geschaltet $R_1R_2/(R_1+R_2)=150$ $\Omega$ ergeben. Die innere Schleife beginnt bei `r1`, damit jedes Paar nur einmal vorkommt. Das Ergebnis ist ein `float`, deshalb vergleicht das Skript mit `math.isclose`:
+::::beispiel zwei Tempi für einen Schnitt von 30 km/h
+Wer eine Strecke mit dem Tempo $v_1$ hin- und mit dem Tempo $v_2$ zurückfährt, ist im Schnitt $2v_1v_2/(v_1+v_2)$ schnell ([Kapitel 1, Abschnitt 6.5](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/fehler-lesen-und-verstehen.html#stufe-6-5)). Gesucht sind zwei Tempi aus der Reihe 10 km/h, 20 km/h, …, 90 km/h, die im Schnitt genau 30 km/h ergeben. Für den Schnitt ist es gleich, welches der beiden Tempi hin und welches zurück gilt. Die innere Schleife beginnt deshalb bei `v1`, damit jedes Paar nur einmal vorkommt. Das Ergebnis ist ein `float`, deshalb vergleicht das Skript mit `math.isclose`:
 
-```python parallel_suche.py
-# Zwei Widerstände aus 100, 200, ..., 900 Ohm suchen, die parallel 150 Ohm ergeben
+```python schnitt_suche.py
+# Zwei Tempi aus 10, 20, ..., 90 km/h suchen, die hin und zurück im Schnitt 30 km/h ergeben
 import math
-for r1 in range(100, 1000, 100):
-    for r2 in range(r1, 1000, 100):          # r2 >= r1: jedes Paar nur einmal
-        r_par = r1 * r2 / (r1 + r2)
-        if math.isclose(r_par, 150):
-            print(r1, "Ohm parallel", r2, "Ohm ergibt", r_par, "Ohm")
+for v1 in range(10, 100, 10):
+    for v2 in range(v1, 100, 10):            # v2 >= v1: jedes Paar nur einmal
+        schnitt = 2 * v1 * v2 / (v1 + v2)
+        if math.isclose(schnitt, 30):
+            print(v1, "km/h und", v2, "km/h ergeben im Schnitt", schnitt, "km/h")
 ```
 
 ```console Linux
-$ python3 parallel_suche.py
-200 Ohm parallel 600 Ohm ergibt 150.0 Ohm
-300 Ohm parallel 300 Ohm ergibt 150.0 Ohm
+$ python3 schnitt_suche.py
+20 km/h und 60 km/h ergeben im Schnitt 30.0 km/h
+30 km/h und 30 km/h ergeben im Schnitt 30.0 km/h
 ```
 
-Hier hängt die Zahl der inneren Durchläufe vom äußeren Wert ab: neun für $R_1=100$ $\Omega$, acht für 200 $\Omega$, und so fort bis einer für 900 $\Omega$, zusammen 45 Paare statt $9\cdot9=81$.
+Hier hängt die Zahl der inneren Durchläufe vom äußeren Wert ab: neun für $v_1=10$ km/h, acht für 20 km/h, und so fort bis einer für 90 km/h, zusammen 45 Paare statt $9\cdot9=81$.
 ::::
 
 ⁠**Kurz gesagt:** In verschachtelten Schleifen läuft die innere bei jedem Durchlauf der äußeren ganz durch; `break` verlässt nur die innere.
@@ -264,10 +265,10 @@ Zur Kontrolle von Hand: Durch 3 teilbar sind 33 der Zahlen, durch 7 teilbar 14, 
 ::::
 
 ::::beispiel ein Produkt
-Auf wie viele Arten lassen sich fünf Messgeräte nacheinander anschließen? Für das erste gibt es 5 Möglichkeiten, für das zweite noch 4, und so weiter, zusammen $5\cdot4\cdot3\cdot2\cdot1$. Der Startwert eines Produkts ist 1:
+Auf wie viele Arten können sich fünf Personen in eine Reihe stellen? Für den ersten Platz gibt es 5 Möglichkeiten, für den zweiten noch 4, und so weiter, zusammen $5\cdot4\cdot3\cdot2\cdot1$. Der Startwert eines Produkts ist 1:
 
 ```python reihenfolgen.py
-# Akkumulator für ein Produkt: Auf wie viele Arten lassen sich 5 Messgeräte nacheinander anschließen?
+# Akkumulator für ein Produkt: Auf wie viele Arten können sich 5 Personen in eine Reihe stellen?
 anzahl = 1                      # Startwert: das leere Produkt
 for k in range(1, 6):
     anzahl = anzahl * k
@@ -290,62 +291,61 @@ Der Startwert ist so gewählt, dass er das Ergebnis nicht verändert: $0+x=x$ un
 
 <span class="anker" id="stufe-5-5"></span>
 
-Zwei Auswertungen, die man am Messplatz ständig braucht, sind Akkumulatoren: der Mittelwert mehrerer Messungen und der größte Wert einer Messreihe.
+Zwei Auswertungen, die man ständig braucht, sind Akkumulatoren: der Mittelwert mehrerer Zahlen und der größte Wert einer Reihe.
 
-**Der Mittelwert.** Der Mittelwert von $n$ Messwerten $U_1,\ldots,U_n$ ist ihre Summe geteilt durch $n$, $\bar U=\frac1n\sum_{k=1}^nU_k$. Das Skript fragt zuerst nach der Anzahl und dann nach jedem Wert; ein Akkumulator sammelt die Summe:
+**Der Mittelwert.** Der Mittelwert von $n$ Zahlen $x_1,\ldots,x_n$ ist ihre Summe geteilt durch $n$, $\bar x=\frac1n\sum_{k=1}^nx_k$. Das Skript fragt zuerst nach der Anzahl und dann nach jedem Wert, hier nach den Höchsttemperaturen von vier Tagen in Grad Celsius; ein Akkumulator sammelt die Summe:
 
 ```python mittelwert.py
-# Mittelwert mehrerer Messwerte, die man nacheinander eintippt
-anzahl = int(input("Anzahl der Messwerte: "))
+# Mittelwert mehrerer Zahlen, die man nacheinander eintippt
+anzahl = int(input("Anzahl der Werte: "))
 summe = 0.0
 for k in range(anzahl):
-    wert = float(input(f"Messwert {k + 1} in V: "))
+    wert = float(input(f"Wert {k + 1}: "))
     summe = summe + wert
-print(f"Mittelwert: {summe / anzahl:.3f} V")
+print(f"Mittelwert: {summe / anzahl:.2f}")
 ```
 
 ```console Linux
 $ python3 mittelwert.py
-Anzahl der Messwerte: 4
-Messwert 1 in V: 4.98
-Messwert 2 in V: 5.02
-Messwert 3 in V: 5.01
-Messwert 4 in V: 4.99
-Mittelwert: 5.000 V
+Anzahl der Werte: 4
+Wert 1: 18.4
+Wert 2: 21.2
+Wert 3: 19.7
+Wert 4: 20.7
+Mittelwert: 20.00
 ```
 
 Abb. [7](#abb-7) zeigt dieselbe Rechnung mit dem Summenzeichen.
 
 :::abbildung prog/k3rmittel 7
-Der Mittelwert der vier Messwerte aus `mittelwert.py` Schritt für Schritt: Die Schleife bildet die Summe, die Division durch die Anzahl folgt nach der Schleife.
+Der Mittelwert der vier Temperaturen aus `mittelwert.py` Schritt für Schritt: Die Schleife bildet die Summe, die Division durch die Anzahl folgt nach der Schleife.
 :::
 
-**Das Maximum.** Eine Quelle mit der Leerlaufspannung $U_0$ und dem Innenwiderstand $R_\mathrm i$ treibt durch einen Lastwiderstand $R$ den Strom $I=U_0/(R+R_\mathrm i)$. Im Lastwiderstand wird die Leistung
+**Das Maximum.** Ein rechteckiges Beet an einer Hauswand soll mit 40 m Zaun eingefasst werden; die Wand bildet die vierte Seite. Sind die beiden Seiten, die von der Wand weggehen, je $x$ lang, bleiben für die Seite gegenüber der Wand $40-2x$, und die Fläche ist
 
-$$P=I^2R=\frac{U_0^2\,R}{(R+R_\mathrm i)^2}$$
+$$A=x\,(40-2x).$$
 
-umgesetzt. Bei welchem $R$ ist sie am größten? Ein Akkumulator für das Maximum merkt sich den bisher größten Wert und ersetzt ihn, sobald ein größerer kommt; ein zweiter Name merkt sich, wo er auftrat. Als Startwert dient `0.0`, den jede echte Leistung übertrifft:
+Bei welchem $x$ ist sie am größten? Ein Akkumulator für das Maximum merkt sich den bisher größten Wert und ersetzt ihn, sobald ein größerer kommt; ein zweiter Name merkt sich, wo er auftrat. Als Startwert dient `0`, den jede echte Fläche übertrifft:
 
-```python anpassung.py
-# Leistungsanpassung: Bei welchem Lastwiderstand gibt eine Quelle die größte Leistung ab?
-u0 = 10.0            # Leerlaufspannung der Quelle in V
-r_i = 50.0           # Innenwiderstand der Quelle in Ohm
-beste_r = None
-beste_p = 0.0
-for r in range(10, 201, 10):
-    p = u0 ** 2 * r / (r + r_i) ** 2     # Leistung im Lastwiderstand in W
-    if p > beste_p:
-        beste_p = p
-        beste_r = r
-print(f"größte Leistung {beste_p:.3f} W bei R = {beste_r} Ohm")
+```python zaun.py
+# Ein Beet an der Hauswand mit 40 m Zaun: Bei welcher Breite x wird die Fläche am größten?
+zaun = 40            # Länge des Zauns in m
+beste_x = None
+beste_a = 0
+for x in range(1, 20):
+    a = x * (zaun - 2 * x)               # Fläche in Quadratmetern
+    if a > beste_a:
+        beste_a = a
+        beste_x = x
+print(f"größte Fläche {beste_a} Quadratmeter bei x = {beste_x} m")
 ```
 
 ```console Linux
-$ python3 anpassung.py
-größte Leistung 0.500 W bei R = 50 Ohm
+$ python3 zaun.py
+größte Fläche 200 Quadratmeter bei x = 10 m
 ```
 
-Das Maximum liegt bei $R=R_\mathrm i=50$ $\Omega$ und beträgt $U_0^2/(4R_\mathrm i)=0{,}5$ W. Das ist die Leistungsanpassung aus der Elektrotechnik: Eine Quelle gibt die größte Leistung ab, wenn der Lastwiderstand gleich ihrem Innenwiderstand ist. Die Schleife hat das Maximum nur unter den 20 geprüften Widerständen gefunden; dass es zwischen zwei Rasterpunkten kein größeres gibt, zeigt erst die Rechnung.
+Das Maximum liegt bei $x=10$ m und beträgt 200 m$^2$; das Beet ist dann doppelt so lang, wie es tief ist. Die Schleife hat das Maximum aber nur unter den 19 geprüften ganzen Längen gefunden. Dass es auch zwischen zwei Rasterpunkten kein größeres gibt, zeigt erst eine Rechnung: $A(x)$ ist eine nach unten geöffnete Parabel mit den Nullstellen 0 und 20, und ihr Scheitel liegt genau in der Mitte dazwischen, bei $x=10$.
 
 ⁠**Kurz gesagt:** Der Mittelwert ist ein Summen-Akkumulator geteilt durch die Anzahl, das Maximum ein Akkumulator, der nur bei einem größeren Wert ersetzt wird.
 
@@ -496,38 +496,38 @@ Summe: 5050  Formel: 5050
 Produkt: 2432902008176640000
 ```
 
-(a) Beide Wege liefern 5050. (b) Das Produkt ist exakt, weil alle Faktoren ganze Zahlen sind und `int` beliebig viele Stellen hat ([Programmieren, Python 2, Abschnitt 2.1](/wissen/informatik/programmieren/python/werte-typen-und-variablen/ganze-zahlen-und-rechenoperatoren.html#stufe-2-1)). Mit `float` wäre das Ergebnis über $2^{53}$ nicht mehr garantiert exakt.
+(a) Beide Wege liefern 5050. (b) Das Produkt ist exakt, weil alle Faktoren ganze Zahlen sind und `int` beliebig viele Stellen hat ([Kapitel 2, Abschnitt 2.1](/wissen/informatik/programmieren/python/werte-typen-und-variablen/ganze-zahlen-und-rechenoperatoren.html#stufe-2-1)). Mit `float` wäre das Ergebnis über $2^{53}$ nicht mehr garantiert exakt.
 :::
 :::
 
-:::aufgabe Aufgabe 23 ★★★ Ein Spannungsteiler für 3,3 V
+:::aufgabe Aufgabe 23 ★★★ Eine Schorle mit weniger Zucker
 <span class="anker" id="aufg-23"></span>
 
-Aus 5 V sollen mit einem Spannungsteiler etwa 3,3 V werden, $U_2=5\,\mathrm V\cdot R_2/(R_1+R_2)$. Zur Verfügung stehen Widerstände von 1 $\mathrm{k\Omega}$ bis 10 $\mathrm{k\Omega}$ in Schritten von 1 $\mathrm{k\Omega}$. Schreibe ein Skript mit zwei verschachtelten Schleifen und einem Akkumulator für die kleinste Abweichung $|U_2-3{,}3\,\mathrm V|$, das das beste Paar und seine Spannung ausgibt. Warum gibt es mehrere gleich gute Paare, und welches findet dein Skript?
+Apfelsaft enthält etwa 10 g Zucker je 100 ml. Mischt man $s$ Gläser Saft mit $w$ Gläsern Wasser, enthält die Schorle $10\,\mathrm g\cdot s/(s+w)$ Zucker je 100 ml. Von beidem nimmt man 1 bis 10 Gläser, und die Schorle soll möglichst nahe an 6,6 g je 100 ml liegen. Schreibe ein Skript mit zwei verschachtelten Schleifen, außen über $w$ und innen über $s$, und einem Akkumulator für die kleinste Abweichung $|\text{Zucker}-6{,}6\,\mathrm g|$, das das beste Paar und seinen Zuckergehalt ausgibt. Warum gibt es mehrere gleich gute Paare, und welches findet dein Skript?
 
 :::loesung
-Die äußere Schleife geht $R_1$ durch, die innere $R_2$; der Akkumulator merkt sich die kleinste Abweichung und das Paar dazu. Er beginnt mit `None`, damit das erste Paar sicher übernommen wird:
+Die äußere Schleife geht $w$ durch, die innere $s$; der Akkumulator merkt sich die kleinste Abweichung und das Paar dazu. Er beginnt mit `None`, damit das erste Paar sicher übernommen wird:
 
-```python spannungsteiler.py
-# Spannungsteiler 5 V -> etwa 3.3 V aus Widerständen von 1 kOhm bis 10 kOhm
+```python schorle.py
+# Schorle aus w Gläsern Wasser und s Gläsern Saft (je 1 bis 10): Zucker möglichst nahe an 6.6 g je 100 ml
 beste_abw = None
-for r1 in range(1, 11):
-    for r2 in range(1, 11):
-        u2 = 5 * r2 / (r1 + r2)
-        abw = abs(u2 - 3.3)
+for w in range(1, 11):
+    for s in range(1, 11):
+        zucker = 10 * s / (w + s)        # Saft hat etwa 10 g Zucker je 100 ml
+        abw = abs(zucker - 6.6)
         if beste_abw is None or abw < beste_abw:
             beste_abw = abw
-            beste_r1 = r1
-            beste_r2 = r2
-            beste_u2 = u2
-print(f"R1 = {beste_r1} kOhm, R2 = {beste_r2} kOhm, U2 = {beste_u2:.3f} V, Abweichung {beste_abw:.3f} V")
+            beste_w = w
+            beste_s = s
+            beste_zucker = zucker
+print(f"Wasser {beste_w}, Saft {beste_s}: {beste_zucker:.3f} g je 100 ml, Abweichung {beste_abw:.3f} g")
 ```
 
 ```console Linux
-$ python3 spannungsteiler.py
-R1 = 1 kOhm, R2 = 2 kOhm, U2 = 3.333 V, Abweichung 0.033 V
+$ python3 schorle.py
+Wasser 1, Saft 2: 6.667 g je 100 ml, Abweichung 0.067 g
 ```
 
-$U_2$ hängt nur vom Verhältnis $R_2/R_1$ ab. Die Paare (2 k$\Omega$, 4 k$\Omega$), (3, 6), (4, 8) und (5, 10) haben dasselbe Verhältnis 2 und dieselbe Spannung. Weil der Akkumulator nur bei einer echt kleineren Abweichung ersetzt wird (`<`, nicht `<=`), bleibt das zuerst gefundene Paar stehen, (1 k$\Omega$, 2 k$\Omega$). In der Praxis wählt man eher das Paar mit den größten Werten, (5 k$\Omega$, 10 k$\Omega$): Es zieht nur 0,33 mA statt 1,67 mA aus der Quelle.
+Der Zuckergehalt hängt nur vom Verhältnis $s/w$ ab. Die Paare mit 2 und 4, 3 und 6, 4 und 8 sowie 5 und 10 Gläsern Wasser und Saft haben dasselbe Verhältnis 2 und denselben Zuckergehalt. Weil der Akkumulator nur bei einer echt kleineren Abweichung ersetzt wird (`<`, nicht `<=`), bleibt das zuerst gefundene Paar stehen, 1 Glas Wasser und 2 Gläser Saft. In der Praxis wählt man das Paar nach der Menge, die man braucht: drei Gläser Schorle für einen Durstigen, fünfzehn für einen großen Krug.
 :::
 :::

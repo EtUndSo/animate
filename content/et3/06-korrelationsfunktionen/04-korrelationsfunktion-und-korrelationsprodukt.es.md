@@ -1,6 +1,8 @@
 ---
 title: Etapa 3: Función de correlación y producto de correlación
-pfad: Ingeniería eléctrica / 3.er semestre / Señales y sistemas / Funciones de correlación
+pfad: Ingeniería eléctrica / 3.er semestre / ET3 – Fundamentos de ingeniería eléctrica 3: señales y sistemas / Funciones de correlación
+adresse: elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen
+knoten: Capítulo 6: Funciones de correlación
 order: 3260400
 summary: Un eco se parece al pulso emitido, pero está desplazado.
 tags: función de autocorrelación, función de correlación cruzada, producto de correlación

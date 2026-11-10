@@ -1,6 +1,8 @@
 ---
 title: Stufe 6: Dichten
-pfad: Elektrotechnik / 3. Semester / Höhere Mathematik 3 / Wahrscheinlichkeitsrechnung
+pfad: Elektrotechnik / 3. Semester / HöMa3 – Höhere Mathematik 3 / Wahrscheinlichkeitsrechnung
+adresse: elektrotechnik/3-semester/hohere-mathematik-3/wahrscheinlichkeitsrechnung
+knoten: Kapitel 8: Wahrscheinlichkeitsrechnung
 order: 3180700
 summary: Eine Lebensdauer kann jeden Wert annehmen, und jeder einzelne Wert hat die Wahrscheinlichkeit null.
 tags: absolut stetig, Dichte, Standard-Normalverteilung, Borel-Algebra, Verteilung, Dirac-Masse
@@ -74,7 +76,7 @@ Die Substitution $y=(t-\mu)/\sigma$ zeigt für $X\sim\mathcal N(\mu,\sigma^2)$: 
 Für das Netzteil sei $U\sim\mathcal N(5,\;0{,}2^2)$ in Volt. Dann ist $\mathbb{P}(4{,}8<U\le5{,}4)=\Phi(2)-\Phi(-1)\approx0{,}9772-0{,}1587=0{,}8185$.
 ::::
 
-**Der Raum dahinter.** Zu einer stetigen Dichte $f$ auf $\Omega=\mathbb{R}$ möchte man $\mathbb{P}(A):=\int_Af(x)\,\mathrm{d} x$ setzen. Für offene Intervalle und endliche Vereinigungen davon ist das ein Integral aus [Teil 2](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/integralrechnung-im-rn/integralrechnung-im-rn.html). Diese Mengen bilden aber keine $\sigma$-Algebra, auch wenn man auf „offen“ verzichtet: Abzählbar viele Intervalle vereinigen sich im Allgemeinen nicht zu einer endlichen Vereinigung. Die kleinste $\sigma$-Algebra, die alle offenen Intervalle enthält, heißt __Borel-Algebra__ $\mathcal B$. Die Lebesguesche Integrationstheorie erlaubt das Integrieren über alle Mengen aus $\mathcal B$, das ergibt den Raum $(\mathbb{R},\mathcal B,\mathbb{P})$. Ebenso beschreibt $\mathbb{P}(A)=\int_A|\psi(\boldsymbol{x})|^2\,\mathrm{d}\boldsymbol{x}$ die Aufenthaltswahrscheinlichkeit eines Quantenteilchens mit Wellenfunktion $\psi:\mathbb{R}^3\to\mathbb{C}$, $\int_{\mathbb{R}^3}|\psi|^2\,\mathrm{d}\boldsymbol{x}=1$.
+**Der Raum dahinter.** Zu einer stetigen Dichte $f$ auf $\Omega=\mathbb{R}$ möchte man $\mathbb{P}(A):=\int_Af(x)\,\mathrm{d} x$ setzen. Für offene Intervalle und endliche Vereinigungen davon ist das ein Integral aus [Kapitel 2](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/integralrechnung-im-rn/integralrechnung-im-rn.html). Diese Mengen bilden aber keine $\sigma$-Algebra, auch wenn man auf „offen“ verzichtet: Abzählbar viele Intervalle vereinigen sich im Allgemeinen nicht zu einer endlichen Vereinigung. Die kleinste $\sigma$-Algebra, die alle offenen Intervalle enthält, heißt __Borel-Algebra__ $\mathcal B$. Die Lebesguesche Integrationstheorie erlaubt das Integrieren über alle Mengen aus $\mathcal B$, das ergibt den Raum $(\mathbb{R},\mathcal B,\mathbb{P})$. Ebenso beschreibt $\mathbb{P}(A)=\int_A|\psi(\boldsymbol{x})|^2\,\mathrm{d}\boldsymbol{x}$ die Aufenthaltswahrscheinlichkeit eines Quantenteilchens mit Wellenfunktion $\psi:\mathbb{R}^3\to\mathbb{C}$, $\int_{\mathbb{R}^3}|\psi|^2\,\mathrm{d}\boldsymbol{x}=1$.
 
 Für jede Zufallsvariable $X$ ist die __Verteilung__ das Wahrscheinlichkeitsmaß auf $\mathbb{R}$
 

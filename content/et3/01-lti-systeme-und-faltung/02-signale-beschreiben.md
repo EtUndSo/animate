@@ -1,6 +1,8 @@
 ---
 title: Stufe 1: Signale beschreiben
-pfad: Elektrotechnik / 3. Semester / Signale und Systeme / LTI-Systeme und Faltung
+pfad: Elektrotechnik / 3. Semester / ET3 – Grundgebiete der Elektrotechnik 3: Signale und Systeme / LTI-Systeme und Faltung
+adresse: elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung
+knoten: Kapitel 1: LTI-Systeme und Faltung
 order: 3210200
 summary: Bevor man Systeme untersucht, braucht man eine Sprache für Signale: einige Grundformen und zwei Operationen auf der Zeitachse, Verschieben und Dehnen.
 tags: Signal, normiert, Periodendauer, Frequenz

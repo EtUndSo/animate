@@ -1,6 +1,8 @@
 ---
 title: Etapa 10: El convertidor R-2R
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Fuentes y fuentes equivalentes
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Fuentes y fuentes equivalentes
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen
+knoten: Capítulo 5: Fuentes y fuentes equivalentes
 order: 1151200
 summary: Un procesador solo conoce bits; un altavoz necesita una tensión.
 tags: convertidor digital-analógico
@@ -39,7 +41,7 @@ La superposición da el mismo número. Ejemplo, la fuente $U_1$: en el nudo cent
 :::
 
 ::::beispiel
-Con $U_\mathrm{ref}=8$ V y $R=1$ k$\Omega$, los bits pesan 4 V, 2 V y 1 V. La posición 101 da 5 V. Una carga con $R_\mathrm{L}=R$ forma un divisor con $R_\mathrm{i}$ y reduce esto a la mitad, 2,5 V. Por eso, en los convertidores reales sigue un amplificador operacional ([Parte 11](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker/der-operationsverstaerker.html)) con una resistencia de entrada muy alta: prácticamente no consume corriente, y la escalera queda en circuito abierto.
+Con $U_\mathrm{ref}=8$ V y $R=1$ k$\Omega$, los bits pesan 4 V, 2 V y 1 V. La posición 101 da 5 V. Una carga con $R_\mathrm{L}=R$ forma un divisor con $R_\mathrm{i}$ y reduce esto a la mitad, 2,5 V. Por eso, en los convertidores reales sigue un amplificador operacional ([capítulo 11](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker/der-operationsverstaerker.html)) con una resistencia de entrada muy alta: prácticamente no consume corriente, y la escalera queda en circuito abierto.
 ::::
 
 ⁠**Casos límite:** La posición 000 da 0 V, la posición 111 da 7 V, un escalón por debajo de $U_\mathrm{ref}$.

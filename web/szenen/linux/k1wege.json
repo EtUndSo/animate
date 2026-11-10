@@ -1,0 +1,645 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 30,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.3655,
+      -0.050000000000000044,
+      0
+     ],
+     "width": 2.158,
+     "height": 3.1,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#efefef",
+     "fill_opacity": 1,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Text",
+    "props": {
+     "text": "@t_wsl",
+     "position": [
+      -2.3655,
+      1.8,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o3",
+    "type": "Text",
+    "props": {
+     "text": "@rechner",
+     "position": [
+      -2.3655,
+      -1.42,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o4",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.0,
+      -0.050000000000000044,
+      0
+     ],
+     "width": 2.158,
+     "height": 3.1,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#efefef",
+     "fill_opacity": 1,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o5",
+    "type": "Text",
+    "props": {
+     "text": "@t_vm",
+     "position": [
+      0.0,
+      1.8,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Text",
+    "props": {
+     "text": "@rechner",
+     "position": [
+      0.0,
+      -1.42,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o7",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.3655,
+      -0.050000000000000044,
+      0
+     ],
+     "width": 2.158,
+     "height": 3.1,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#efefef",
+     "fill_opacity": 1,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Text",
+    "props": {
+     "text": "@t_live",
+     "position": [
+      2.3655,
+      1.8,
+      0
+     ],
+     "font_size": 24,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o9",
+    "type": "Text",
+    "props": {
+     "text": "@rechner",
+     "position": [
+      2.3655,
+      -1.42,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o10",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.3655,
+      -0.9,
+      0
+     ],
+     "width": 1.826,
+     "height": 0.4,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#e3eefb",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o11",
+    "type": "Text",
+    "props": {
+     "text": "Windows",
+     "position": [
+      -2.3655,
+      -0.9,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o12",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.8635,
+      -0.2,
+      0
+     ],
+     "width": 0.7055,
+     "height": 0.4,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o13",
+    "type": "Text",
+    "props": {
+     "text": "Word",
+     "position": [
+      -2.8635,
+      -0.2,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o14",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.909,
+      0.0,
+      0
+     ],
+     "width": 0.913,
+     "height": 0.6,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#e6f3ea",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o15",
+    "type": "Text",
+    "props": {
+     "text": "@kvm",
+     "position": [
+      -1.909,
+      0.0,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o16",
+    "type": "Text",
+    "props": {
+     "text": "@neben",
+     "position": [
+      -2.3655,
+      0.95,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o17",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.0,
+      -0.9,
+      0
+     ],
+     "width": 1.826,
+     "height": 0.4,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#e3eefb",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o18",
+    "type": "Text",
+    "props": {
+     "text": "Windows",
+     "position": [
+      0.0,
+      -0.9,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o19",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.0,
+      -0.4,
+      0
+     ],
+     "width": 1.826,
+     "height": 0.4,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o20",
+    "type": "Text",
+    "props": {
+     "text": "VirtualBox",
+     "position": [
+      0.0,
+      -0.4,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o21",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.0,
+      0.2,
+      0
+     ],
+     "width": 1.909,
+     "height": 0.6,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#e6f3ea",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o22",
+    "type": "Text",
+    "props": {
+     "text": "@nachgebildet",
+     "position": [
+      0.0,
+      0.2,
+      0
+     ],
+     "font_size": 16,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o23",
+    "type": "Text",
+    "props": {
+     "text": "@abgeschottet",
+     "position": [
+      0.0,
+      1.0,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o24",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.3655,
+      -0.9,
+      0
+     ],
+     "width": 1.826,
+     "height": 0.4,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#dddddd",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o25",
+    "type": "Text",
+    "props": {
+     "text": "@ruht",
+     "position": [
+      2.3655,
+      -0.9,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o26",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.3655,
+      -0.15,
+      0
+     ],
+     "width": 1.909,
+     "height": 0.6,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#e6f3ea",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o27",
+    "type": "Text",
+    "props": {
+     "text": "@vomstick",
+     "position": [
+      2.3655,
+      -0.15,
+      0
+     ],
+     "font_size": 16,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o28",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.3655,
+      0.85,
+      0
+     ],
+     "width": 0.996,
+     "height": 0.36,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o29",
+    "type": "Text",
+    "props": {
+     "text": "@stick",
+     "position": [
+      2.3655,
+      0.85,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "rechner": {
+    "de": "ein Rechner",
+    "en": "one computer",
+    "es": "un ordenador",
+    "zh": "一台计算机",
+    "fr": "un ordinateur",
+    "tr": "bir bilgisayar"
+   },
+   "t_wsl": {
+    "de": "WSL 2",
+    "en": "WSL 2",
+    "es": "WSL 2",
+    "zh": "WSL 2",
+    "fr": "WSL 2",
+    "tr": "WSL 2"
+   },
+   "t_vm": {
+    "de": "virtuelle Maschine",
+    "en": "virtual machine",
+    "es": "máquina virtual",
+    "zh": "虚拟机",
+    "fr": "machine virtuelle",
+    "tr": "sanal makine"
+   },
+   "t_live": {
+    "de": "Live-USB-Stick",
+    "en": "live USB stick",
+    "es": "memoria USB live",
+    "zh": "Live U 盘",
+    "fr": "clé USB live",
+    "tr": "canlı USB bellek"
+   },
+   "kvm": {
+    "de": "kleine VM\nmit Linux",
+    "en": "small VM\nwith Linux",
+    "es": "VM pequeña\ncon Linux",
+    "zh": "小型虚拟机\n运行 Linux",
+    "fr": "petite VM\navec Linux",
+    "tr": "küçük VM\nLinux ile"
+   },
+   "neben": {
+    "de": "Linux läuft neben\nWindows-Programmen",
+    "en": "Linux runs alongside\nWindows programs",
+    "es": "Linux funciona junto a\nlos programas de Windows",
+    "zh": "Linux 与 Windows\n程序并行运行",
+    "fr": "Linux tourne à côté\ndes programmes Windows",
+    "tr": "Linux, Windows\nprogramlarının yanında çalışır"
+   },
+   "nachgebildet": {
+    "de": "nachgebildeter Rechner\nmit Linux im Fenster",
+    "en": "simulated computer\nwith Linux in a window",
+    "es": "ordenador simulado\ncon Linux en una ventana",
+    "zh": "模拟的计算机\n在窗口中运行 Linux",
+    "fr": "ordinateur simulé\navec Linux dans une fenêtre",
+    "tr": "taklit edilen bilgisayar\npencerede Linux"
+   },
+   "abgeschottet": {
+    "de": "abgeschottet, mit\nSicherungspunkten",
+    "en": "isolated, with\nsnapshots",
+    "es": "aislada, con\ninstantáneas",
+    "zh": "相互隔离，\n带快照",
+    "fr": "isolée, avec\ninstantanés",
+    "tr": "yalıtılmış,\nanlık görüntülerle"
+   },
+   "ruht": {
+    "de": "Windows ruht",
+    "en": "Windows at rest",
+    "es": "Windows en reposo",
+    "zh": "Windows 静止",
+    "fr": "Windows au repos",
+    "tr": "Windows bekler"
+   },
+   "vomstick": {
+    "de": "Linux vom Stick,\ndirekt auf der Hardware",
+    "en": "Linux from the stick,\ndirectly on the hardware",
+    "es": "Linux desde la memoria,\ndirectamente en el hardware",
+    "zh": "从 U 盘启动 Linux，\n直接运行在硬件上",
+    "fr": "Linux depuis la clé,\ndirectement sur le matériel",
+    "tr": "bellekten Linux,\ndoğrudan donanımda"
+   },
+   "stick": {
+    "de": "USB-Stick",
+    "en": "USB stick",
+    "es": "memoria USB",
+    "zh": "U 盘",
+    "fr": "clé USB",
+    "tr": "USB bellek"
+   }
+  }
+ }
+}

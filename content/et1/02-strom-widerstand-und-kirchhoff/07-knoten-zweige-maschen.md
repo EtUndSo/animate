@@ -1,6 +1,8 @@
 ---
 title: Stufe 6: Knoten, Zweige, Maschen
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Strom, Widerstand und Kirchhoff
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Strom, Widerstand und Kirchhoff
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff
+knoten: Kapitel 2: Strom, Widerstand und Kirchhoff
 order: 1120700
 summary: Ein Netz hat viele Unbekannte.
 tags: Knoten, Zweig, Graph, Masche, Baum, Verbindungszweige, linear unabhängig, vollständiges

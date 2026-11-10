@@ -1,7 +1,8 @@
 ---
 title: El determinante
 pfad: Informática / Aprendizaje automático / Fundamentos matemáticos / Vectores y matrices
-knoten: Fundamentos 1: Vectores y matrices
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Capítulo 1: Vectores y matrices
 nachschlagen: ja
 order: 15211500
 summary: Una aplicación lineal deforma la cuadrícula del plano, y al hacerlo las áreas se hacen mayores o menores.

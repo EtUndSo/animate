@@ -1,7 +1,9 @@
 ---
 title: Überblick: Unendliche Reihen
 kurz: Überblick
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Unendliche Reihen
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Unendliche Reihen
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/unendliche-reihen
+knoten: Kapitel 6: Unendliche Reihen
 order: 1260100
 summary: Wann hat eine Summe ohne Ende einen Wert?
 tags: Teilsumme, Reihe, Konvergenz, geometrische Reihe, harmonische Reihe, absolute Konvergenz, Quotientenkriterium, Umordnung
@@ -23,7 +25,7 @@ Die Antwort: Man addiert die ersten $N$ Zahlen, das ergibt eine __Teilsumme__, u
 
 <li>
 
-⁠**Halbierungsreihe:** $G_N=\sum_{n=0}^N(\frac12)^n$, also $1;\ 1{,}5;\ 1{,}75;\ \dots$ Das ist die Summenfolge aus [Teil 4](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/folgen-und-grenzwerte/folgen-und-grenzwerte.html). Sie strebt gegen 2.
+⁠**Halbierungsreihe:** $G_N=\sum_{n=0}^N(\frac12)^n$, also $1;\ 1{,}5;\ 1{,}75;\ \dots$ Das ist die Summenfolge aus [Kapitel 4](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/folgen-und-grenzwerte/folgen-und-grenzwerte.html). Sie strebt gegen 2.
 
 </li>
 

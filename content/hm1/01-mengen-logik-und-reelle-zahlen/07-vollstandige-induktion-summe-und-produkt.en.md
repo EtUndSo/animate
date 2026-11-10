@@ -1,6 +1,8 @@
 ---
 title: Stage 5: Mathematical induction, sum and product
-pfad: Electrical Engineering / 1st Semester / Higher Mathematics 1 / Sets, Logic and Real Numbers
+pfad: Electrical Engineering / 1st Semester / HöMa1 – Higher Mathematics 1 / Sets, Logic and Real Numbers
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen
+knoten: Chapter 1: Sets, Logic and Real Numbers
 order: 1210700
 summary: Statements about all ninmathbb N cannot be proved by trial.
 tags: base case, induction step, induction hypothesis, induction conclusion
@@ -78,7 +80,7 @@ Power laws for $x,y\ne0$, $p,q\in\mathbb{Z}$: $x^px^q=x^{p+q}$, $(x^p)^q=x^{p\cd
 </ol>
 :::
 
-⁠**How to read it:** (i) is induction over (A1), (A2), (M1), (M2). (ii) says “each with each”; that is (AM) repeated. For $p,q\in\mathbb{N}$, (iii) is renumbering: $x^px^q=\prod_{i=1}^{p+q}x=x^{p+q}$. **Why $x\ne0$:** $0^{-1}$ does not exist; for $x=0$ only exponents $n\ge0$ are allowed, and $0^n=0$ for $n\ge1$. For $x,y>0$ the laws also hold with rational exponents, for example $x^{1/2}=\sqrt x$ (Part 5).
+⁠**How to read it:** (i) is induction over (A1), (A2), (M1), (M2). (ii) says “each with each”; that is (AM) repeated. For $p,q\in\mathbb{N}$, (iii) is renumbering: $x^px^q=\prod_{i=1}^{p+q}x=x^{p+q}$. **Why $x\ne0$:** $0^{-1}$ does not exist; for $x=0$ only exponents $n\ge0$ are allowed, and $0^n=0$ for $n\ge1$. For $x,y>0$ the laws also hold with rational exponents, for example $x^{1/2}=\sqrt x$ (Chapter 5).
 
 :::abbildung hm1/k1induktion 5
 Left, each color is an L-shaped piece. Right, the induction step: $n^2$ grows by $2n+1$ squares.

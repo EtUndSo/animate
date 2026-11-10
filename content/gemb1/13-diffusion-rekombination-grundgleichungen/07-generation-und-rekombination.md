@@ -1,6 +1,8 @@
 ---
 title: Stufe 5: Generation und Rekombination
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Diffusion, Rekombination und Grundgleichungen
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Diffusion, Rekombination und Grundgleichungen
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/diffusion-rekombination-und-grundgleichungen
+knoten: Kapitel 13: Diffusion, Rekombination und Grundgleichungen
 order: 4230700
 summary: Bisher blieb die Zahl der Teilchen erhalten.
 tags: Überschussdichte, Injektion, schwach, stark, Rekombinationsraten, Rekombinationszeit, tiefe Störstellen
@@ -13,7 +15,7 @@ lang: de
 Bisher blieb die Zahl der Teilchen erhalten. Elektronen und Löcher entstehen und verschwinden aber paarweise. Diese Stufe findet das Gesetz, nach dem ein Überschuss abgebaut wird.
 :::
 
-**Die Idee.** Wärme hebt laufend Elektronen ins Leitungsband (Generation), und Elektronen fallen in Löcher zurück (Rekombination). Dabei verschwinden beide. Im Gleichgewicht sind die Raten gleich ([Teil 11](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/eigenhalbleiter-und-dotierung/eigenhalbleiter-und-dotierung.html)), deshalb gilt $n\,p=n_\mathrm i^2$. Licht mit $\hbar\omega>E_\mathrm g$ erzeugt zusätzliche Paare. Dann ist $n\,p>n_\mathrm i^2$: Elektron und Loch treffen sich öfter, als die Wärme nachliefert, und der Überschuss schrumpft. Je weniger davon übrig ist, desto langsamer geht es weiter. So entsteht ein exponentielles Abklingen.
+**Die Idee.** Wärme hebt laufend Elektronen ins Leitungsband (Generation), und Elektronen fallen in Löcher zurück (Rekombination). Dabei verschwinden beide. Im Gleichgewicht sind die Raten gleich ([Kapitel 11](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/eigenhalbleiter-und-dotierung/eigenhalbleiter-und-dotierung.html)), deshalb gilt $n\,p=n_\mathrm i^2$. Licht mit $\hbar\omega>E_\mathrm g$ erzeugt zusätzliche Paare. Dann ist $n\,p>n_\mathrm i^2$: Elektron und Loch treffen sich öfter, als die Wärme nachliefert, und der Überschuss schrumpft. Je weniger davon übrig ist, desto langsamer geht es weiter. So entsteht ein exponentielles Abklingen.
 
 :::definition Definition 5.1 (Überschuss und Injektion)
 <span class="anker" id="satz-5-1"></span>
@@ -51,7 +53,7 @@ Die Mehrheit bietet so viele Partner, dass jedes Loch unabhängig von den andere
 Links: Generation durch Licht und drei Wege der Rekombination. Rechts: Überschuss bei konstanter Beleuchtung ab $t=0$ und Abschalten bei $t=6\tau_\text{rec}$. Die Tangente trifft die Zeitachse nach $\tau_\text{rec}$.
 :::
 
-**Wohin die Energie geht.** Die Energie $E_\mathrm g$ wird auf drei Wegen frei (Abb. [5](#abb-5)): als Licht mit $\hbar\omega=E_\mathrm g$, als Wärme durch Phononen, oder in zwei Schritten über __tiefe Störstellen__ mit Niveaus nahe der Bandmitte. In Silizium und Germanium geht sie als Wärme ans Gitter, weil ihre Lücke indirekt ist ([Teil 9](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/bandstrukturen-lesen/bandstrukturen-lesen.html)), im direkten GaAs entsteht ein Lichtquant. $\tau_\text{rec}$ hängt von der Bandstruktur, der Dichte der Partner, der Dichte der Störstellen und der Temperatur ab. Reines Silizium und Germanium erreichen rund $10^{-3}$ s, Gold als tiefe Störstelle senkt das in Silizium bis auf $10^{-10}$ s, GaAs liegt bei $10^{-8}$ s. An Oberflächen ist die Rate viel höher als im Kristall.
+**Wohin die Energie geht.** Die Energie $E_\mathrm g$ wird auf drei Wegen frei (Abb. [5](#abb-5)): als Licht mit $\hbar\omega=E_\mathrm g$, als Wärme durch Phononen, oder in zwei Schritten über __tiefe Störstellen__ mit Niveaus nahe der Bandmitte. In Silizium und Germanium geht sie als Wärme ans Gitter, weil ihre Lücke indirekt ist ([Kapitel 9](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/bandstrukturen-lesen/bandstrukturen-lesen.html)), im direkten GaAs entsteht ein Lichtquant. $\tau_\text{rec}$ hängt von der Bandstruktur, der Dichte der Partner, der Dichte der Störstellen und der Temperatur ab. Reines Silizium und Germanium erreichen rund $10^{-3}$ s, Gold als tiefe Störstelle senkt das in Silizium bis auf $10^{-10}$ s, GaAs liegt bei $10^{-8}$ s. An Oberflächen ist die Rate viel höher als im Kristall.
 
 ::::beispiel
 Licht erzeuge in der Probe homogen $G_\mathrm p=10^{19}\,\mathrm{cm^{-3}\,s^{-1}}$. Aus $\partial\Delta p_\mathrm n/\partial t=G_\mathrm p-\Delta p_\mathrm n/\tau_\text{rec}$ und $\Delta p_\mathrm n(0)=0$ folgt
@@ -59,7 +61,7 @@ Licht erzeuge in der Probe homogen $G_\mathrm p=10^{19}\,\mathrm{cm^{-3}\,s^{-1}
 <span class="anker" id="gl-5-3"></span>
 $$\Delta p_\mathrm n(t)=G_\mathrm p\tau_\text{rec}\,\bigl(1-\mathrm{e}^{-t/\tau_\text{rec}}\bigr). \tag{5.3}$$
 
-Stationär sind das $10^{13}\,\mathrm{cm^{-3}}$: 0,1 % der Mehrheit, aber das $1{,}3\cdot10^{9}$-fache von $p_{\mathrm n0}=7{,}9\cdot10^{3}\,\mathrm{cm^{-3}}$. Die Injektion ist schwach, obwohl sich die Minderheit um neun Größenordnungen ändert. Der Zustand ist konstant, aber kein Gleichgewicht: Das Licht führt ständig Energie zu, und wegen $n\,p\ne n_\mathrm i^2$ passt keine gemeinsame Fermi-Energie zu beiden Sorten, jede hat ihr eigenes Quasi-Fermi-Niveau ([Teil 12](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/strom-im-halbleiter/strom-im-halbleiter.html)). Die Abklingzeit eines Photowiderstands ([Teil 12](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/strom-im-halbleiter/strom-im-halbleiter.html)) ist genau $\tau_\text{rec}$.
+Stationär sind das $10^{13}\,\mathrm{cm^{-3}}$: 0,1 % der Mehrheit, aber das $1{,}3\cdot10^{9}$-fache von $p_{\mathrm n0}=7{,}9\cdot10^{3}\,\mathrm{cm^{-3}}$. Die Injektion ist schwach, obwohl sich die Minderheit um neun Größenordnungen ändert. Der Zustand ist konstant, aber kein Gleichgewicht: Das Licht führt ständig Energie zu, und wegen $n\,p\ne n_\mathrm i^2$ passt keine gemeinsame Fermi-Energie zu beiden Sorten, jede hat ihr eigenes Quasi-Fermi-Niveau ([Kapitel 12](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/strom-im-halbleiter/strom-im-halbleiter.html)). Die Abklingzeit eines Photowiderstands ([Kapitel 12](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/strom-im-halbleiter/strom-im-halbleiter.html)) ist genau $\tau_\text{rec}$.
 ::::
 
 ⁠**Grenzfall:** Für $t\ll\tau_\text{rec}$ ist $\Delta p_\mathrm n\approx G_\mathrm pt$.

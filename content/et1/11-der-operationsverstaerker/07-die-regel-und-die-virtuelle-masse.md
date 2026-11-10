@@ -1,6 +1,8 @@
 ---
 title: Stufe 5: Die Regel und die virtuelle Masse
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Der Operationsverstärker
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Der Operationsverstärker
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker
+knoten: Kapitel 11: Der Operationsverstärker
 order: 1210700
 summary: Stufe 4 rechnete mit A .
 tags: invertierenden Verstärker

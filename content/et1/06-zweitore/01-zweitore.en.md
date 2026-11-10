@@ -1,7 +1,9 @@
 ---
 title: Overview: Two-Port Networks
 kurz: Overview
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / Two-Port Networks
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / Two-Port Networks
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore
+knoten: Chapter 6: Two-Port Networks
 order: 1160100
 summary: Why four numbers replace a whole network and every parameter form is just another choice
 tags: two-port, port
@@ -10,7 +12,7 @@ lang: en
 
 ## What this is about
 
-Between source and load there often sits another network: a cable, a filter, an attenuator or an amplifier. It has an input side and an output side, and from the outside all that counts is what it does to voltage and current. A network with two such terminal pairs is called a __two-port__, and each terminal pair is a __port__. [Part 5](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html) replaced a network at one terminal pair by two numbers, equivalent voltage and internal resistance. The question of this chapter is: *How many numbers do you need for two terminal pairs, and how do you measure them from the outside?*
+Between source and load there often sits another network: a cable, a filter, an attenuator or an amplifier. It has an input side and an output side, and from the outside all that counts is what it does to voltage and current. A network with two such terminal pairs is called a __two-port__, and each terminal pair is a __port__. [Chapter 5](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html) replaced a network at one terminal pair by two numbers, equivalent voltage and internal resistance. The question of this chapter is: *How many numbers do you need for two terminal pairs, and how do you measure them from the outside?*
 
 
 
@@ -21,7 +23,7 @@ Between source and load there often sits another network: a cable, a filter, an 
 
 <li>
 
-⁠**T two-port:** a T network ([Part 5](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)) with the series resistor $R_\mathrm{a}=15\,\Omega$ at the input, the shunt resistor $R_\mathrm{b}=20\,\Omega$ to the continuous lower line and the series resistor $R_\mathrm{c}=20\,\Omega$ at the output.
+⁠**T two-port:** a T network ([Chapter 5](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)) with the series resistor $R_\mathrm{a}=15\,\Omega$ at the input, the shunt resistor $R_\mathrm{b}=20\,\Omega$ to the continuous lower line and the series resistor $R_\mathrm{c}=20\,\Omega$ at the output.
 
 </li>
 

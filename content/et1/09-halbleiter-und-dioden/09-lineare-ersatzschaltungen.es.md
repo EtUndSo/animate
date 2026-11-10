@@ -1,6 +1,8 @@
 ---
 title: Etapa 7: Circuitos equivalentes lineales
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Semiconductores y diodos
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Semiconductores y diodos
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden
+knoten: Capítulo 9: Semiconductores y diodos
 order: 1190900
 summary: Con varios diodos se acoplan varias ecuaciones exponenciales, y a mano ya no es posible.
 tags: Diodo ideal, Diodo con tensión directa, tensión directa
@@ -70,7 +72,7 @@ $n$ diodos tienen $2^n$ combinaciones, así que compensa una buena primera supos
 ::::beispiel
 Fig. [9](#abb-9) abajo: 5 V y 2 V alimentan el nudo X, cada una a través de 1 k$\Omega$ y un diodo; de allí $R_3=2\,\mathrm{k\Omega}$ va a masa. $U_\mathrm F=0{,}7$ V.
 
-⁠*Suposición 1: ambos conducen.* La ley de los nudos ([Parte 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)) en X es $(4{,}3\,\mathrm{V}-\varphi_\mathrm X)/R_1+(1{,}3\,\mathrm{V}-\varphi_\mathrm X)/R_2=\varphi_\mathrm X/R_3$. De ello resulta $\varphi_\mathrm X=2{,}24$ V, $I_\mathrm{D1}=2{,}06$ mA e $I_\mathrm{D2}=-0{,}94$ mA. La corriente negativa es una contradicción.
+⁠*Suposición 1: ambos conducen.* La ley de los nudos ([capítulo 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)) en X es $(4{,}3\,\mathrm{V}-\varphi_\mathrm X)/R_1+(1{,}3\,\mathrm{V}-\varphi_\mathrm X)/R_2=\varphi_\mathrm X/R_3$. De ello resulta $\varphi_\mathrm X=2{,}24$ V, $I_\mathrm{D1}=2{,}06$ mA e $I_\mathrm{D2}=-0{,}94$ mA. La corriente negativa es una contradicción.
 
 ⁠*Suposición 2: D$_1$ conduce, D$_2$ bloquea.* Entonces $I=(5\,\mathrm{V}-0{,}7\,\mathrm{V})/3\,\mathrm{k\Omega}=1{,}43$ mA y $\varphi_\mathrm X=2{,}87$ V. En D$_2$ hay $U_\mathrm{D2}=2\,\mathrm{V}-2{,}87\,\mathrm{V}=-0{,}87$ V. Eso es menor que $U_\mathrm F$, sin contradicción. Los PT son D$_1$ (0,7 V | 1,43 mA) y D$_2$ ($-0{,}87$ V | 0). La simulación completa da 2,89 V y 1,45 mA.
 

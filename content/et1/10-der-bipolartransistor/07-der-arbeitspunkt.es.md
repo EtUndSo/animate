@@ -1,6 +1,8 @@
 ---
 title: Etapa 5: El punto de trabajo
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / El transistor bipolar
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / El transistor bipolar
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor
+knoten: Capítulo 10: El transistor bipolar
 order: 1200700
 summary: De antemano no se sabe qué región se aplica.
 tags: recta de carga, tensión de alimentación
@@ -13,7 +15,7 @@ lang: es
 De antemano no se sabe qué región se aplica. Esta etapa determina el punto de trabajo suponiendo y comprobando, y lo dibuja como una intersección.
 :::
 
-**La idea.** El transistor aporta sus curvas características; el circuito, las ecuaciones de malla. Ambas deben cumplirse a la vez. El resultado es el punto de trabajo (PT), como en la [Parte 5](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html) la intersección de una curva característica con una recta. Como cada región tiene otro circuito equivalente, se supone una región, se calcula linealmente y se comprueba. Una contradicción con las condiciones [(4.1)](drei-bereiche-drei-ersatzschaltbilder.html#gl-4-1) a [(4.3)](drei-bereiche-drei-ersatzschaltbilder.html#gl-4-3) delata la suposición falsa.
+**La idea.** El transistor aporta sus curvas características; el circuito, las ecuaciones de malla. Ambas deben cumplirse a la vez. El resultado es el punto de trabajo (PT), como en el [capítulo 5](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html) la intersección de una curva característica con una recta. Como cada región tiene otro circuito equivalente, se supone una región, se calcula linealmente y se comprueba. Una contradicción con las condiciones [(4.1)](drei-bereiche-drei-ersatzschaltbilder.html#gl-4-1) a [(4.3)](drei-bereiche-drei-ersatzschaltbilder.html#gl-4-3) delata la suposición falsa.
 
 :::abbildung et1/k10arbeit 6
 Izquierda, el circuito del modelo de referencia. Derecha, las curvas características de salida linealizadas con la recta de carga de $(0;\,4\,\mathrm{mA})$ a $(12\,\mathrm{V};\,0)$. Corta la línea $I_\mathrm{B}=10$ µ A en el punto de trabajo A. S es el punto en la saturación, Z el punto en la región de corte.

@@ -1,10 +1,11 @@
 ---
 title: 二次型
 pfad: 计算机科学 / 机器学习 / 数学基础 / 投影、特征值与矩阵分解
-knoten: 基础篇 2：投影、特征值与矩阵分解
+adresse: informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen
+knoten: 第 2 章：投影、特征值与矩阵分解
 nachschlagen: ja
 order: 15220600
-summary: 在多元函数中，除线性函数外，二次函数是最简单的。它们可以描述能量、误差的平方以及曲面。本节用矩阵来表示它们，展示碗形、槽形和鞍形三种基本形状，并说明在没有交叉项时如何从矩阵看出是哪种形状。
+summary: 在多元函数中，除线性函数外，二次函数是最简单的。它们可以描述距离的平方、误差的平方以及曲面。本节用矩阵来表示它们，展示碗形、槽形和鞍形三种基本形状，并说明在没有交叉项时如何从矩阵看出是哪种形状。
 tags: 二次型
 lang: zh
 ---
@@ -12,16 +13,16 @@ lang: zh
 <span class="anker" id="stufe-5"></span>
 
 :::zweck
-在多元函数中，除线性函数外，二次函数是最简单的。它们可以描述能量、误差的平方以及曲面。本节用矩阵来表示它们，展示碗形、槽形和鞍形三种基本形状，并说明在没有交叉项时如何从矩阵看出是哪种形状。
+在多元函数中，除线性函数外，二次函数是最简单的。它们可以描述距离的平方、误差的平方以及曲面。本节用矩阵来表示它们，展示碗形、槽形和鞍形三种基本形状，并说明在没有交叉项时如何从矩阵看出是哪种形状。
 :::
 
 ### 二次型
 
 <span class="anker" id="stufe-5-1"></span>
 
-在[基础篇 1 第 8.4 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-4)中，每个只有一个输出的线性函数都是各分量的加权和 $\mathbf{w}^{\top}\mathbf{x}$。次简单的一类函数，是把每两个分量的乘积加起来：像 $x_1^2$ 这样的平方项，以及像 $x_1x_2$ 这样的交叉项。电气工程中的一个例子是两个耦合线圈的磁场能量，线圈的电感为 $L_1$、$L_2$，互感为 $M$，分别通过电流 $i_1$ 和 $i_2$：
+在[第 1 章第 8.4 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-4)中，每个只有一个输出的线性函数都是各分量的加权和 $\mathbf{w}^{\top}\mathbf{x}$。次简单的一类函数，是把每两个分量的乘积加起来：像 $x_1^2$ 这样的平方项，以及像 $x_1x_2$ 这样的交叉项。日常生活中的一个例子是沿两条互不垂直的笔直道路散步。某人先沿第一条道路的单位向量 $\mathbf{u}$ 的方向走 $x_1$ km，再沿第二条道路的单位向量 $\mathbf{v}$ 的方向走 $x_2$ km；路程为负表示反方向。这时他位于 $x_1\mathbf{u}+x_2\mathbf{v}$，按点积的运算规则，他到起点的距离的平方为
 
-$$W=\tfrac12L_1i_1^2+M\,i_1i_2+\tfrac12L_2i_2^2 .$$
+$$d^2=\lVert x_1\mathbf{u}+x_2\mathbf{v}\rVert^2=x_1^2+2\,(\mathbf{u}^{\top}\mathbf{v})\,x_1x_2+x_2^2 .$$
 
 这样的和可以写成中间夹着一个矩阵的形式。
 
@@ -43,7 +44,7 @@ $$\mathbf{x}^{\top}\begin{pmatrix}a_{11}&a_{12}\\a_{21}&a_{22}\end{pmatrix}\math
 把 $\mathbf{x}$ 加倍，$f$ 就变为四倍：$f(c\,\mathbf{x})=c^2f(\mathbf{x})$。“二次”之名即由此而来。
 
 ::::beispiel [算例]
-对于 $\mathbf{A}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$，$f(\mathbf{x})=5x_1^2+4x_1x_2+2x_2^2$。在点 $\mathbf{x}=(1,\,-1)^{\top}$ 处，$f=5-4+2=3$；验算：$\mathbf{A}\mathbf{x}=(3,\,0)^{\top}$，$\mathbf{x}^{\top}\mathbf{A}\mathbf{x}=3$。图 [14](#abb-14) 在这一点逐项算出了双重和 [(5.1)](#gl-5-1)。在点 $(1,\,1)^{\top}$ 处，$f=11$；在原点处，$f=0$。两个线圈的能量为 $W=\tfrac12\,\mathbf i^{\top}\bigl(\begin{smallmatrix}L_1&M\\M&L_2\end{smallmatrix}\bigr)\,\mathbf i$，其中电流向量为 $\mathbf i=(i_1,\,i_2)^{\top}$；这个矩阵称为电感矩阵。
+对于 $\mathbf{A}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$，$f(\mathbf{x})=5x_1^2+4x_1x_2+2x_2^2$。在点 $\mathbf{x}=(1,\,-1)^{\top}$ 处，$f=5-4+2=3$；验算：$\mathbf{A}\mathbf{x}=(3,\,0)^{\top}$，$\mathbf{x}^{\top}\mathbf{A}\mathbf{x}=3$。图 [14](#abb-14) 在这一点逐项算出了双重和 [(5.1)](#gl-5-1)。在点 $(1,\,1)^{\top}$ 处，$f=11$；在原点处，$f=0$。散步的距离平方为 $d^2=\mathbf{x}^{\top}\bigl(\begin{smallmatrix}1&\mathbf{u}^{\top}\mathbf{v}\\\mathbf{u}^{\top}\mathbf{v}&1\end{smallmatrix}\bigr)\,\mathbf{x}$，其中 $\mathbf{x}=(x_1,\,x_2)^{\top}$；这个矩阵就是[第 1 章第 10 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/transponierte-symmetrie-und-gram-matrix.html#stufe-10)中两个方向 $\mathbf{u}$ 和 $\mathbf{v}$ 的格拉姆矩阵。若两条道路的夹角为 $60^\circ$，则 $\mathbf{u}^{\top}\mathbf{v}=\cos60^\circ=\tfrac12$，$d^2=x_1^2+x_1x_2+x_2^2$：在两条道路上各走 $1$ km 后，离起点 $\sqrt3\approx1.73$ km。
 
 :::abbildung ml/k2rqf 14
 $\mathbf{A}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ 的二次型在点 $\mathbf{x}=(1,-1)^{\top}$ 处按双重和计算：共四项，$\mathbf{A}$ 的每个元素对应一项。
@@ -153,7 +154,7 @@ $x_1^2+6x_1x_2+x_2^2=(x_1+3x_2)^2-8x_2^2$。两个系数符号不同：是鞍形
 ⁠**简而言之：**配方把二次型写成平方和；各平方项系数的符号表明它是碗形、槽形还是鞍形。
 
 :::hintergrund 配方就是高斯消元
-式 [(5.3)](#gl-5-3) 中的数，与把[基础篇 1 第 12.3 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-gleichungssysteme.html#stufe-12-3)的高斯消元法应用于对称矩阵 $\bigl(\begin{smallmatrix}a&b\\b&c\end{smallmatrix}\bigr)$ 时出现的数相同。为了在对角线下方得到零，从第二行减去第一行的 $\frac ba$ 倍，得到 $\bigl(\begin{smallmatrix}a&b\\0&c-b^2/a\end{smallmatrix}\bigr)$。这个阶梯形的对角元素，即所谓的主元，恰好就是各平方项的系数，而消元因子 $\frac ba$ 出现在第一个括号中。对于矩阵 $\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$：因子为 $0.4$，主元为 $5$ 和 $1.2$。有 $n$ 个变量时也照此继续：每一步消元都为一个变量配方。二次型是碗形，当且仅当所有主元都为正。由[基础篇 1 第 14.5 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5)的规则，主元之积等于行列式，这里是 $5\cdot1.2=6=5\cdot2-2\cdot2$。
+式 [(5.3)](#gl-5-3) 中的数，与把[第 1 章第 12.3 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-gleichungssysteme.html#stufe-12-3)的高斯消元法应用于对称矩阵 $\bigl(\begin{smallmatrix}a&b\\b&c\end{smallmatrix}\bigr)$ 时出现的数相同。为了在对角线下方得到零，从第二行减去第一行的 $\frac ba$ 倍，得到 $\bigl(\begin{smallmatrix}a&b\\0&c-b^2/a\end{smallmatrix}\bigr)$。这个阶梯形的对角元素，即所谓的主元，恰好就是各平方项的系数，而消元因子 $\frac ba$ 出现在第一个括号中。对于矩阵 $\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$：因子为 $0.4$，主元为 $5$ 和 $1.2$。有 $n$ 个变量时也照此继续：每一步消元都为一个变量配方。二次型是碗形，当且仅当所有主元都为正。由[第 1 章第 14.5 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5)的规则，主元之积等于行列式，这里是 $5\cdot1.2=6=5\cdot2-2\cdot2$。
 :::
 
 :::aufgabe 练习 14 ★ 二次型与矩阵
@@ -226,32 +227,32 @@ $f_3=(x_1+2x_2)^2-3x_2^2$：符号不同，是鞍形。取 $x_2=1$ 和 $x_1=-2$�
 :::
 :::
 
-:::aufgabe 练习 16 ★★ 耦合线圈
+:::aufgabe 练习 16 ★★ 两条道路
 <span class="anker" id="aufg-16"></span>
 
-两个耦合线圈的电感为 $L_1=4\,\mathrm{mH}$ 和 $L_2=1\,\mathrm{mH}$。
+对于第 [5.1](#stufe-5-1) 小节中沿方向为 $\mathbf{u}$ 和 $\mathbf{v}$ 的两条笔直道路的散步，$d^2=x_1^2+2\,(\mathbf{u}^{\top}\mathbf{v})\,x_1x_2+x_2^2$。
 
 <ol class="al">
 
 <li>
 
-对能量 $W=\tfrac12L_1i_1^2+M\,i_1i_2+\tfrac12L_2i_2^2$ 进行配方。
+对 $d^2$ 进行配方。
 
 </li>
 
 <li>
 
-$M$ 取哪些值时，对所有电流 $(i_1,\,i_2)\ne(0,\,0)$ 都有 $W>0$？由此对耦合系数 $k=M/\sqrt{L_1L_2}$ 能得出什么结论？
+$\mathbf{u}^{\top}\mathbf{v}$ 取哪些值时，对所有路程 $(x_1,\,x_2)\ne(0,\,0)$ 都有 $d^2>0$？为什么由[第 1 章第 5.1 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/winkel-und-ahnlichkeit.html#stufe-5-1)的柯西-施瓦茨不等式，$|\mathbf{u}^{\top}\mathbf{v}|$ 永远不会大于 $1$？$|\mathbf{u}^{\top}\mathbf{v}|=1$ 对这两条道路意味着什么？
 
 </li>
 
 </ol>
 
 :::loesung
-(a) 在式 [(5.3)](#gl-5-3) 中，$a=\tfrac12L_1$，$2b=M$，$c=\tfrac12L_2$，所以 $b/a=M/L_1$，$b^2/a=M^2/(2L_1)$：
+(a) 在式 [(5.3)](#gl-5-3) 中，$a=1$，$b=\mathbf{u}^{\top}\mathbf{v}$，$c=1$，所以 $b/a=\mathbf{u}^{\top}\mathbf{v}$，$b^2/a=(\mathbf{u}^{\top}\mathbf{v})^2$：
 
-$$W=\tfrac12L_1\Bigl(i_1+\frac M{L_1}\,i_2\Bigr)^2+\tfrac12\Bigl(L_2-\frac{M^2}{L_1}\Bigr)i_2^2=2\,\mathrm{mH}\,\Bigl(i_1+\frac M{4\,\mathrm{mH}}\,i_2\Bigr)^2+\Bigl(\frac12\,\mathrm{mH}-\frac{M^2}{8\,\mathrm{mH}}\Bigr)i_2^2 .$$
+$$d^2=\bigl(x_1+(\mathbf{u}^{\top}\mathbf{v})\,x_2\bigr)^2+\bigl(1-(\mathbf{u}^{\top}\mathbf{v})^2\bigr)\,x_2^2 .$$
 
-(b) 第一个系数为正。要使 $W>0$ 对所有电流 $\ne(0,\,0)$ 成立，充分必要条件是第二个系数也为正：$L_2-M^2/L_1>0$，即 $M^2<L_1L_2=4\,(\mathrm{mH})^2$，$|M|<2\,\mathrm{mH}$。对耦合系数而言，这意味着 $|k|=|M|/\sqrt{L_1L_2}<1$。在 $|k|=1$，即理想的全耦合情形下，二次型就只是槽形：对于相应的电流比 $i_1=-\tfrac M{L_1}\,i_2$，储存的能量将为零。所以，正是磁场能量永不为负这一事实迫使 $|k|\le1$。
+(b) 第一个系数为 $a=1>0$。要使 $d^2>0$ 对所有路程 $\ne(0,\,0)$ 成立，充分必要条件是第二个系数也为正：$1-(\mathbf{u}^{\top}\mathbf{v})^2>0$，即 $|\mathbf{u}^{\top}\mathbf{v}|<1$。由柯西-施瓦茨不等式，$|\mathbf{u}^{\top}\mathbf{v}|\le\lVert\mathbf{u}\rVert\,\lVert\mathbf{v}\rVert=1$，当且仅当 $\mathbf{v}=\pm\mathbf{u}$ 时取等号，也就是两条道路平行时。这时二次型就只是槽形：对于 $x_1=-(\mathbf{u}^{\top}\mathbf{v})\,x_2$，例如去 $1$ km 再回 $1$ km，人又回到了起点。对于两条真正相交的道路，$|\mathbf{u}^{\top}\mathbf{v}|<1$，每次 $(x_1,\,x_2)\ne(0,\,0)$ 的散步结束时，离起点的距离都为正。
 :::
 :::

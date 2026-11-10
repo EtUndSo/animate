@@ -1,7 +1,8 @@
 ---
 title: İç çarpım
 pfad: Bilgisayar Bilimleri / Makine Öğrenmesi / Matematiksel Temeller / Vektörler ve Matrisler
-knoten: Temeller 1: Vektörler ve Matrisler
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Bölüm 1: Vektörler ve Matrisler
 nachschlagen: ja
 order: 15210300
 summary: Bileşen sayısı aynı olan iki vektörün bileşenleri ikişer ikişer çarpılıp toplanırsa tek bir sayı elde edilir.
@@ -156,23 +157,23 @@ Kilovatsaatin fiyatı üç ayda $\mathbf{p}=(0{,}32;\ 0{,}34;\ 0{,}28)^{\top}$ a
 
 <span class="anker" id="stufe-2-4"></span>
 
-Bir ölçüm sinyalinin bir örnek değerden ötekine ileri geri sıçrayıp sıçramadığı denetlenmek isteniyor. Bunun için aranan örüntü bir vektör olarak yazılır, burada $\mathbf{w}=(1,\,-1,\,1,\,-1)^{\top}$, ve sinyalle iç çarpımı alınır.
+Dışarıdaki sıcaklık, sırayla öğlen ve gece yarısı olmak üzere on iki saatte bir okunur. Art arda dört değer bir vektör oluşturur; burada buna *zaman serisi* denir. Bu zaman serisinin, gündüz ile gecenin birbirini izlemesinden beklendiği gibi, bir değerden ötekine ileri geri sıçrayıp sıçramadığı denetlenmek isteniyor. Bunun için aranan örüntü bir vektör olarak yazılır, burada $\mathbf{w}=(1,\,-1,\,1,\,-1)^{\top}$, ve zaman serisiyle iç çarpımı alınır.
 
-Bu sırada ne olduğunu Şekil [10](#abb-10) gösteriyor. Her örnek değer, aynı yerdeki örüntü değeriyle çarpılır. Sinyalin bir yerdeki işareti örüntününkiyle aynıysa çarpım pozitiftir; ters işaretliyse negatiftir. Sinyal her yerde örüntüyü izliyorsa yalnızca pozitif katkılar birikir ve büyük bir toplam oluşur. Sinyalin örüntüyle bir ilgisi yoksa pozitif ve negatif katkılar birbirini götürür.
+Bu sırada ne olduğunu Şekil [10](#abb-10) gösteriyor. Her değer, aynı yerdeki örüntü değeriyle çarpılır. Zaman serisinin bir yerdeki işareti örüntününkiyle aynıysa çarpım pozitiftir; ters işaretliyse negatiftir. Zaman serisi her yerde örüntüyü izliyorsa yalnızca pozitif katkılar birikir ve büyük bir toplam oluşur. Zaman serisinin örüntüyle bir ilgisi yoksa pozitif ve negatif katkılar birbirini götürür.
 
 :::abbildung ml/k1muster 10
-İç çarpımla örüntü karşılaştırması. Üstte $\mathbf{w}=(1,-1,1,-1)^{\top}$ örüntüsü, ortada iki sinyal, altta her $j$ yerindeki $w_j\,x_j$ çarpımları. Solda $\mathbf{x}=(2,-1,3,-2)^{\top}$ sinyali örüntüyle aynı tempoda sıçrar: Bütün çarpımlar pozitiftir, toplam $8$ olur. Sağda $\mathbf{x}'=(2,2,3,3)^{\top}$ düzgün biçimde artar: Çarpımlar birbirini götürür, toplam $0$ olur.
+İç çarpımla örüntü karşılaştırması. Üstte $\mathbf{w}=(1,-1,1,-1)^{\top}$ örüntüsü, ortada santigrat derece cinsinden iki sıcaklık zaman serisi, altta her $j$ yerindeki $w_j\,x_j$ çarpımları. Solda $\mathbf{x}=(2,-1,3,-2)^{\top}$ zaman serisi örüntüyle aynı tempoda sıçrar: Bütün çarpımlar pozitiftir, toplam $8$ olur. Sağda $\mathbf{x}'=(2,2,3,3)^{\top}$ düzgün biçimde artar: Çarpımlar birbirini götürür, toplam $0$ olur.
 :::
 
 Kesin söylemek gerekirse: $j$ yerinin $\mathbf{w}^{\top}\mathbf{x}$ iç çarpımına katkısı $w_jx_j$ çarpımıdır. $w_j$ ile $x_j$ aynı işaretliyse bu katkı pozitif, ters işaretliyse negatiftir. İşaretlerin uyuştuğu yerlerdeki mutlak değerler ne kadar büyükse iç çarpım da o kadar büyüktür.
 
-Bu hesap sinyal işlemeden korelasyon olarak bilinir. İki gerçel $x[n]$ ve $y[n]$ dizisinin sıfır kaydırmadaki çapraz ilintisi $\sum_nx[n]\,y[n]$ toplamıdır. Sonlu uzunluktaki iki sinyalin örnek değerleri $\mathbf{x}$ ve $\mathbf{y}$ vektörleri olarak yazılırsa bu tam olarak $\mathbf{x}^{\top}\mathbf{y}$ iç çarpımıdır. Bir sinyalin enerjisi, $\sum_nx[n]^2$, aynı biçimde $\mathbf{x}^{\top}\mathbf{x}$ olur. Yani örüntü karşılaştırması yeni bir araç değildir; bir korelatörün bir sinyalde bilinen bir örüntüyü ararken kullandığı araçla aynıdır.
+Sayı dizileri için bu hesabın kendine özgü bir adı vardır. İki gerçel $x[n]$ ve $y[n]$ dizisinin $\sum_nx[n]\,y[n]$ toplamına bunların sıfır kaydırmadaki çapraz ilintisi denir. Sonlu uzunluktaki iki dizinin değerleri $\mathbf{x}$ ve $\mathbf{y}$ vektörleri olarak yazılırsa bu tam olarak $\mathbf{x}^{\top}\mathbf{y}$ iç çarpımıdır. Bir dizinin kareler toplamı, $\sum_nx[n]^2$, aynı biçimde $\mathbf{x}^{\top}\mathbf{x}$ olur. Yani örüntü karşılaştırması yeni bir araç değildir; uzun bir sayı dizisinde bilinen bir örüntü aranırken yapılan hesabın ta kendisidir.
 
 ::::beispiel [Sayısal örnek]
-İşaret değiştiren örüntü $\mathbf{w}=(1,\,-1,\,1,\,-1)^{\top}$ ile $\mathbf{x}=(2,\,-1,\,3,\,-2)^{\top}$ için $\mathbf{w}^{\top}\mathbf{x}=8$, $\mathbf{x}'=(2,\,2,\,3,\,3)^{\top}$ için $\mathbf{w}^{\top}\mathbf{x}'=0$ bulunur (Şekil [11](#abb-11)). Sabit örüntü $\mathbf 1=(1,\,1,\,1,\,1)^{\top}$ ile durum tersinedir: $\mathbf 1^{\top}\mathbf{x}=2$, ama $\mathbf 1^{\top}\mathbf{x}'=10$. Yani $\mathbf{x}$ büyük ölçüde işaret değiştiren, $\mathbf{x}'$ ise büyük ölçüde sabit kalan bir sinyaldir.
+İşaret değiştiren örüntü $\mathbf{w}=(1,\,-1,\,1,\,-1)^{\top}$ ile $\mathbf{x}=(2,\,-1,\,3,\,-2)^{\top}$ için $\mathbf{w}^{\top}\mathbf{x}=8$, $\mathbf{x}'=(2,\,2,\,3,\,3)^{\top}$ için $\mathbf{w}^{\top}\mathbf{x}'=0$ bulunur (Şekil [11](#abb-11)). Sabit örüntü $\mathbf 1=(1,\,1,\,1,\,1)^{\top}$ ile durum tersinedir: $\mathbf 1^{\top}\mathbf{x}=2$, ama $\mathbf 1^{\top}\mathbf{x}'=10$. Yani $\mathbf{x}$ zaman serisi büyük ölçüde gündüz ile gece arasında değişir, $\mathbf{x}'$ ise büyük ölçüde sabit kalır.
 
 :::abbildung ml/k1rmuster 11
-İşaret değiştiren örüntü $\mathbf{w}$ ve iki sinyal. Üstte $\mathbf{x}$ örüntüyü izler: Dört çarpımın hepsi pozitiftir. Altta $\mathbf{x}'$ düzgün biçimde artar: Çarpımlar ikişer ikişer birbirini götürür.
+İşaret değiştiren örüntü $\mathbf{w}$ ve iki zaman serisi. Üstte $\mathbf{x}$ örüntüyü izler: Dört çarpımın hepsi pozitiftir. Altta $\mathbf{x}'$ düzgün biçimde artar: Çarpımlar ikişer ikişer birbirini götürür.
 :::
 ::::
 
@@ -181,7 +182,7 @@ Emlakçının ağırlıklı toplamı da bir örüntü karşılaştırmasıdır. 
 ⁠**Kısacası:** $\mathbf{w}^{\top}\mathbf{x}$ iç çarpımı, $\mathbf{w}$ örüntüsünün aynı işaretle büyük değerler taşıdığı yerlerde $\mathbf{x}$ de büyük değerler taşıyorsa büyüktür; iç çarpım sıfır kaydırmadaki korelasyondur.
 
 :::hintergrund Korelasyon fonksiyonu baştan sona iç çarpımlardan oluşur
-Çapraz ilinti bir sinyali bir örüntüyle yalnızca tek bir konumda değil, olası her kaydırma için karşılaştırır. Her $k$ kaydırması için değeri bir iç çarpımdır: sinyal ile $k$ adım kaydırılmış örüntünün iç çarpımı. Yani korelasyon fonksiyonunun tamamı, her kaydırma için bir tane olmak üzere bir dizi iç çarpımdır. Örüntünün sinyalde bulunduğu yerde pozitif katkılar birikir ve korelasyon fonksiyonu orada en büyük değerini alır. Bir radar alıcısı kendi darbesinin yankısını, bir radyo alıcısı da bilinen bir veri çerçevesinin başlangıcını böyle bulur. Makine öğrenmesinde kaydırma çoğunlukla sıfırda sabit kalır: Bir örnek bütün olarak bir örüntüyle karşılaştırılır.
+Çapraz ilinti bir diziyi bir örüntüyle yalnızca tek bir konumda değil, olası her kaydırma için karşılaştırır. Her $k$ kaydırması için değeri bir iç çarpımdır: dizi ile $k$ konum kaydırılmış örüntünün iç çarpımı. Yani korelasyon fonksiyonunun tamamı, her kaydırma için bir tane olmak üzere bir dizi iç çarpımdır. Örüntünün dizide bulunduğu yerde pozitif katkılar birikir ve korelasyon fonksiyonu orada özellikle büyük olur. Uzun bir ses kaydında bilinen bir sesin, örneğin bir gong sesinin, geçtiği yer ve bir fotoğrafta küçük bir görüntü parçasına benzeyen yerler böyle bulunur. Makine öğrenmesinde kaydırma çoğunlukla sıfırda sabit kalır: Bir örnek bütün olarak bir örüntüyle karşılaştırılır.
 :::
 
 :::aufgabe Alıştırma 4 ★ Hesap kurallarını doğrulamak
@@ -230,10 +231,10 @@ Bir meslektaşınız şöyle diyor: “Emlakçıda en çok odalar önemli, en b�
 :::
 :::
 
-:::aufgabe Alıştırma 6 ★★ Artan sinyaller için bir örüntü
+:::aufgabe Alıştırma 6 ★★ Artan zaman serileri için bir örüntü
 <span class="anker" id="aufg-6"></span>
 
-Dört örnek değerli bir sinyalin artıp artmadığı denetlenmek isteniyor. Örüntü olarak $\mathbf{w}=(-3,\,-1,\,1,\,3)^{\top}$ öneriliyor.
+Dört değerli bir zaman serisinin, örneğin art arda dört günün sıcaklığının, artıp artmadığı denetlenmek isteniyor. Örüntü olarak $\mathbf{w}=(-3,\,-1,\,1,\,3)^{\top}$ öneriliyor.
 
 <ol class="al">
 
@@ -245,15 +246,15 @@ $\mathbf{x}=(1,2,3,4)^{\top}$, $(4,3,2,1)^{\top}$, $(5,5,5,5)^{\top}$ ve $(1,3,2
 
 <li>
 
-Neden her sabit $c\,\mathbf1$ sinyali tam olarak sıfır verir? $\mathbf 1^{\top}\mathbf{w}$ çarpımını kullanın.
+Neden her sabit $c\,\mathbf1$ zaman serisi tam olarak sıfır verir? $\mathbf 1^{\top}\mathbf{w}$ çarpımını kullanın.
 
 </li>
 
 </ol>
 
 :::loesung
-(a) $\mathbf{w}^{\top}(1,2,3,4)^{\top}=-3-2+3+12=10$: Sinyal artıyor, sonuç açıkça pozitif. $\mathbf{w}^{\top}(4,3,2,1)^{\top}=-12-3+2+3=-10$: Sinyal azalıyor, sonuç aynı ölçüde açıkça negatif. $\mathbf{w}^{\top}(5,5,5,5)^{\top}=-15-5+5+15=0$: sabit, artış yok. $\mathbf{w}^{\top}(1,3,2,4)^{\top}=-3-3+2+12=8$: Sinyal ortada bir kez geri düşse de genel olarak artıyor ve sonuç düzgün artıştakinden biraz küçük. Örüntü erken değerleri negatif, geç değerleri pozitif ağırlıklandırır; yani geç değerlerin erken değerlerden büyük olup olmadığına tepki verir.
+(a) $\mathbf{w}^{\top}(1,2,3,4)^{\top}=-3-2+3+12=10$: Zaman serisi artıyor, sonuç açıkça pozitif. $\mathbf{w}^{\top}(4,3,2,1)^{\top}=-12-3+2+3=-10$: Zaman serisi azalıyor, sonuç aynı ölçüde açıkça negatif. $\mathbf{w}^{\top}(5,5,5,5)^{\top}=-15-5+5+15=0$: sabit, artış yok. $\mathbf{w}^{\top}(1,3,2,4)^{\top}=-3-3+2+12=8$: Zaman serisi ortada bir kez geri düşse de genel olarak artıyor ve sonuç düzgün artıştakinden biraz küçük. Örüntü erken değerleri negatif, geç değerleri pozitif ağırlıklandırır; yani geç değerlerin erken değerlerden büyük olup olmadığına tepki verir.
 
-(b) $\mathbf 1^{\top}\mathbf{w}=-3-1+1+3=0$. Bu yüzden sabit bir sinyal için $\mathbf{w}^{\top}(c\,\mathbf 1)=c\,\mathbf{w}^{\top}\mathbf 1=c\cdot0=0$ olur. Ağırlıkların toplamı sıfır olduğundan örüntü ortak bir sabit bileşeni tamamen yok sayar: Yalnızca örnek değerler arasındaki farkları ölçer.
+(b) $\mathbf 1^{\top}\mathbf{w}=-3-1+1+3=0$. Bu yüzden sabit bir zaman serisi için $\mathbf{w}^{\top}(c\,\mathbf 1)=c\,\mathbf{w}^{\top}\mathbf 1=c\cdot0=0$ olur. Ağırlıkların toplamı sıfır olduğundan örüntü, bütün değerlere eklenen sabit bir miktarı tamamen yok sayar: Yalnızca değerler arasındaki farkları ölçer. Dört günün hepsinde havanın $10$ derece daha sıcak olması sonucu değiştirmez.
 :::
 :::

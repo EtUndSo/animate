@@ -1,7 +1,9 @@
 ---
 title: Overview: The Operational Amplifier
 kurz: Overview
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / The Operational Amplifier
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / The Operational Amplifier
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker
+knoten: Chapter 11: The Operational Amplifier
 order: 1210100
 summary: How a huge, imprecise factor turns into a component whose behavior is determined by the resistors alone
 tags: operational amplifier, open-loop gain, negative feedback
@@ -33,7 +35,7 @@ An __operational amplifier__, op amp for short, is an integrated amplifier made 
 
 <li>
 
-⁠**Differential stage:** transistors T from [Part 10](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor/der-bipolartransistor.html) ($B=200$, $U_T=26$ mV), $I_0=2$ mA, $R_\mathrm{C}=3$ k$\Omega$.
+⁠**Differential stage:** transistors T from [Chapter 10](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor/der-bipolartransistor.html) ($B=200$, $U_T=26$ mV), $I_0=2$ mA, $R_\mathrm{C}=3$ k$\Omega$.
 
 </li>
 

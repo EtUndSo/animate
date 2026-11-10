@@ -1,6 +1,8 @@
 ---
 title: Stufe 6: Das Newtonpotential
-pfad: Elektrotechnik / 3. Semester / Höhere Mathematik 3 / Koordinatentransformationen
+pfad: Elektrotechnik / 3. Semester / HöMa3 – Höhere Mathematik 3 / Koordinatentransformationen
+adresse: elektrotechnik/3-semester/hohere-mathematik-3/koordinatentransformationen
+knoten: Kapitel 4: Koordinatentransformationen
 order: 3140800
 summary: Eine verteilte Ladung oder Masse erzeugt ein Potential.
 tags: kompaktem Träger, Newtonpotential, Poisson-Gleichung, Kugelschale, Schalensatz
@@ -29,7 +31,7 @@ Die Funktion $u:\mathbb{R}^3\to\mathbb{R}$ ist zweimal stetig differenzierbar un
 $$-\Delta u=f\quad\text{in }\mathbb{R}^3\qquad\text{mit}\qquad u(\boldsymbol{x})\to0\quad\text{für }|\boldsymbol{x}|\to\infty. \tag{6.2}$$
 :::
 
-⁠**So liest man das:** $f$ ist die Quelldichte, etwa Ladung oder Masse je Volumen, $u$ ist das zugehörige Potential, und $\Delta=\operatorname{div}\nabla$ ist der Laplace-Operator aus [Teil 1](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/differentialrechnung-fur-vektorfelder/differentialrechnung-fuer-vektorfelder.html). Der Satz wird hier ohne Beweis benutzt. Die Existenz folgt aus Stufe [5](integrale-uber-eine-singularitat.html#stufe-5): Nach der Verschiebung $\boldsymbol{y}\mapsto\boldsymbol{x}-\boldsymbol{y}$ ist der Integrand $f(\boldsymbol{x}-\boldsymbol{y})/|\boldsymbol{y}|$ beschränkt durch $c/|\boldsymbol{y}|$ mit $c=\max|f|$, also ist $\alpha=1<3$. Ersetzt man im Nenner $|\boldsymbol{x}-\boldsymbol{y}|$ durch $\max\{|\boldsymbol{x}-\boldsymbol{y}|,\varepsilon\}$, ist der Integrand für jedes $\varepsilon>0$ stetig mit kompaktem Träger. Die Bedingungen lassen sich abschwächen: Statt des kompakten Trägers genügt ein passendes Abklingen von $f(\boldsymbol{x})$ für $|\boldsymbol{x}|\to\infty$.
+⁠**So liest man das:** $f$ ist die Quelldichte, etwa Ladung oder Masse je Volumen, $u$ ist das zugehörige Potential, und $\Delta=\operatorname{div}\nabla$ ist der Laplace-Operator aus [Kapitel 1](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/differentialrechnung-fur-vektorfelder/differentialrechnung-fuer-vektorfelder.html). Der Satz wird hier ohne Beweis benutzt. Die Existenz folgt aus Stufe [5](integrale-uber-eine-singularitat.html#stufe-5): Nach der Verschiebung $\boldsymbol{y}\mapsto\boldsymbol{x}-\boldsymbol{y}$ ist der Integrand $f(\boldsymbol{x}-\boldsymbol{y})/|\boldsymbol{y}|$ beschränkt durch $c/|\boldsymbol{y}|$ mit $c=\max|f|$, also ist $\alpha=1<3$. Ersetzt man im Nenner $|\boldsymbol{x}-\boldsymbol{y}|$ durch $\max\{|\boldsymbol{x}-\boldsymbol{y}|,\varepsilon\}$, ist der Integrand für jedes $\varepsilon>0$ stetig mit kompaktem Träger. Die Bedingungen lassen sich abschwächen: Statt des kompakten Trägers genügt ein passendes Abklingen von $f(\boldsymbol{x})$ für $|\boldsymbol{x}|\to\infty$.
 
 ::::beispiel die Kugelschale
 Für $0\le R_1<R_2$ sei $\mathcal S=\{\boldsymbol{y}:R_1\le|\boldsymbol{y}|\le R_2\}$ eine __Kugelschale__ mit konstanter Dichte $\rho>0$. Die Dichte springt am Rand, Satz [6.1](#satz-6-1) ist also nicht direkt anwendbar. Außerhalb von $\mathcal S$ hat das Integral aber gar keine Singularität, und das Potential ist
@@ -109,4 +111,4 @@ Das Integral existiert nach Stufe [5](integrale-uber-eine-singularitat.html#stu
 :::
 :::
 
-Warum die Formel [(6.1)](#gl-6-1) die Poisson-Gleichung löst, zeigt [Teil 5](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/integralsatze-im-raum/integralsaetze-im-raum.html).
+Warum die Formel [(6.1)](#gl-6-1) die Poisson-Gleichung löst, zeigt [Kapitel 5](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/integralsatze-im-raum/integralsaetze-im-raum.html).

@@ -1,6 +1,8 @@
 ---
 title: Stufe 8: Das Rezept
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Vom Atom zum Band
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Vom Atom zum Band
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/vom-atom-zum-band
+knoten: Kapitel 8: Vom Atom zum Band
 order: 4181000
 summary: Die letzten Rechnungen liefen immer gleich ab.
 tags: 
@@ -20,7 +22,7 @@ Die letzten Rechnungen liefen immer gleich ab. Diese Stufe fasst sie in neun Sch
 
 <li>
 
-Finde die Wigner-Seitz-Zelle des Kristalls ([Teil 6](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/kristallgitter/kristallgitter.html)) und bestimme die primitiven Gittervektoren.
+Finde die Wigner-Seitz-Zelle des Kristalls ([Kapitel 6](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/kristallgitter/kristallgitter.html)) und bestimme die primitiven Gittervektoren.
 
 </li>
 

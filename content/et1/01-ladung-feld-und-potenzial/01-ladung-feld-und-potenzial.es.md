@@ -1,7 +1,9 @@
 ---
 title: Visión general: Carga, campo y potencial
 kurz: Visión general
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Carga, campo y potencial
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Carga, campo y potencial
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial
+knoten: Capítulo 1: Carga, campo y potencial
 order: 1110100
 summary: Por qué la tensión es una diferencia y qué hace con una carga
 tags: tensión, carga, campo eléctrico, potencial, punto de referencia, resistencia
@@ -35,7 +37,7 @@ La respuesta pasa por dos conceptos. Un __campo eléctrico__ determina para cada
 
 <li>
 
-⁠**Circuito:** la misma batería conectada a dos resistencias en serie, 6 V en la primera y 3 V en la segunda. Una __resistencia__ es un componente en el que la carga que lo atraviesa cede energía en forma de calor ([Parte 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)).
+⁠**Circuito:** la misma batería conectada a dos resistencias en serie, 6 V en la primera y 3 V en la segunda. Una __resistencia__ es un componente en el que la carga que lo atraviesa cede energía en forma de calor ([capítulo 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)).
 
 </li>
 

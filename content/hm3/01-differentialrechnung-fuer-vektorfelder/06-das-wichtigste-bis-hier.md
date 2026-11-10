@@ -1,6 +1,8 @@
 ---
 title: Das Wichtigste bis hier
-pfad: Elektrotechnik / 3. Semester / Höhere Mathematik 3 / Differentialrechnung für Vektorfelder
+pfad: Elektrotechnik / 3. Semester / HöMa3 – Höhere Mathematik 3 / Differentialrechnung für Vektorfelder
+adresse: elektrotechnik/3-semester/hohere-mathematik-3/differentialrechnung-fur-vektorfelder
+knoten: Kapitel 1: Differentialrechnung für Vektorfelder
 order: 3110600
 summary: Was Ableiten heißt, wenn Eingang und Ausgang Vektoren sind
 tags: 

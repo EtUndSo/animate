@@ -1,0 +1,338 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 15,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Text",
+    "props": {
+     "text": "@vorher",
+     "position": [
+      -3.403,
+      1.35,
+      0
+     ],
+     "font_size": 22,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -3.071,
+      0.85,
+      0
+     ],
+     "width": 0.5146,
+     "height": 0.6,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#efefef",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o3",
+    "type": "Text",
+    "props": {
+     "text": "@tab",
+     "position": [
+      -3.071,
+      0.85,
+      0
+     ],
+     "font_size": 16,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o4",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.2905,
+      0.85,
+      0
+     ],
+     "width": 6.225,
+     "height": 0.6,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o5",
+    "type": "Text",
+    "props": {
+     "text": "@fat",
+     "position": [
+      0.2905,
+      0.85,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Text",
+    "props": {
+     "text": "@nachher",
+     "position": [
+      -3.403,
+      0.0,
+      0
+     ],
+     "font_size": 22,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o7",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -3.071,
+      -0.5,
+      0
+     ],
+     "width": 0.5146,
+     "height": 0.6,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#fdece3",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Text",
+    "props": {
+     "text": "@tab",
+     "position": [
+      -3.071,
+      -0.5,
+      0
+     ],
+     "font_size": 16,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o9",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.664,
+      -0.5,
+      0
+     ],
+     "width": 4.316,
+     "height": 0.6,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#fdece3",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o10",
+    "type": "Text",
+    "props": {
+     "text": "@kopie",
+     "position": [
+      -0.664,
+      -0.5,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o11",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.7845,
+      -0.5,
+      0
+     ],
+     "width": 0.581,
+     "height": 0.6,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#f8cdb5",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Text",
+    "props": {
+     "text": "EFI",
+     "position": [
+      1.7845,
+      -0.5,
+      0
+     ],
+     "font_size": 16,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o13",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.739,
+      -0.5,
+      0
+     ],
+     "width": 1.328,
+     "height": 0.6,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#efefef",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o14",
+    "type": "Text",
+    "props": {
+     "text": "@rest",
+     "position": [
+      2.739,
+      -0.5,
+      0
+     ],
+     "font_size": 16,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "tab": {
+    "de": "Tab.",
+    "en": "table",
+    "es": "tabla",
+    "zh": "分区表",
+    "fr": "table",
+    "tr": "tablo"
+   },
+   "vorher": {
+    "de": "vorher",
+    "en": "before",
+    "es": "antes",
+    "zh": "之前",
+    "fr": "avant",
+    "tr": "önce"
+   },
+   "fat": {
+    "de": "Partition 1: FAT32, 7,45 GB  –  Referat.pdf, Fotos, …",
+    "en": "partition 1: FAT32, 7.45 GB  –  report.pdf, photos, …",
+    "es": "partición 1: FAT32, 7,45 GB  –  trabajo.pdf, fotos, …",
+    "zh": "分区 1：FAT32，7.45 GB – 报告.pdf、照片……",
+    "fr": "partition 1 : FAT32, 7,45 Go  –  exposé.pdf, photos, …",
+    "tr": "bölüm 1: FAT32, 7,45 GB  –  ödev.pdf, fotoğraflar, …"
+   },
+   "nachher": {
+    "de": "nachher",
+    "en": "after",
+    "es": "después",
+    "zh": "之后",
+    "fr": "après",
+    "tr": "sonra"
+   },
+   "kopie": {
+    "de": "Kopie des Abbilds, 6,48 GB:\nISO-Dateisystem mit squashfs",
+    "en": "copy of the image, 6.48 GB:\nISO file system with squashfs",
+    "es": "copia de la imagen, 6,48 GB:\nsistema de archivos ISO con squashfs",
+    "zh": "映像的副本，6.48 GB：\n含 squashfs 的 ISO 文件系统",
+    "fr": "copie de l’image, 6,48 Go :\nsystème de fichiers ISO avec squashfs",
+    "tr": "kalıbın kopyası, 6,48 GB:\nsquashfs içeren ISO dosya sistemi"
+   },
+   "rest": {
+    "de": "Rest ungenutzt",
+    "en": "rest unused",
+    "es": "resto sin usar",
+    "zh": "其余未使用",
+    "fr": "reste inutilisé",
+    "tr": "kalan kullanılmıyor"
+   }
+  }
+ }
+}

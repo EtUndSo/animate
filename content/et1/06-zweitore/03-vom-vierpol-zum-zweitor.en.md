@@ -1,6 +1,8 @@
 ---
 title: Stage 1: From four-pole to two-port
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / Two-Port Networks
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / Two-Port Networks
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore
+knoten: Chapter 6: Two-Port Networks
 order: 1160300
 summary: A network with four terminals has three independent currents and three independent voltages.
 tags: four-pole, port quantities, four-pole theory, input, output, forward direction, reverse direction, elementary two-ports
@@ -13,7 +15,7 @@ lang: en
 A network with four terminals has three independent currents and three independent voltages. This stage shows which condition turns these into two currents and two voltages.
 :::
 
-**The idea.** A __four-pole__ is a network with four terminals. The node rule ([Part 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)) holds for the whole network as for one large node: One terminal current is fixed by the other three. The mesh rule likewise ties together the voltages between the terminals. Now if a two-terminal element, say a source, is connected to terminals 1 and 1$'$, a further statement is added: A two-terminal element has only two connections. Every charge it gives off at one it takes back at the other. The current that enters the network at terminal 1 must return at terminal 1$'$. The terminal pair behaves like a single access with one current and one voltage (Fig. [1](#abb-1) left).
+**The idea.** A __four-pole__ is a network with four terminals. The node rule ([Chapter 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)) holds for the whole network as for one large node: One terminal current is fixed by the other three. The mesh rule likewise ties together the voltages between the terminals. Now if a two-terminal element, say a source, is connected to terminals 1 and 1$'$, a further statement is added: A two-terminal element has only two connections. Every charge it gives off at one it takes back at the other. The current that enters the network at terminal 1 must return at terminal 1$'$. The terminal pair behaves like a single access with one current and one voltage (Fig. [1](#abb-1) left).
 
 :::definition Definition 1.1 (Four-pole, port, two-port)
 <span class="anker" id="satz-1-1"></span>
@@ -37,7 +39,7 @@ Its __port quantities__ are $U_1=U_{11'}$, $I_1$, $U_2=U_{22'}$ and $I_2$.
 Left: source, two-port and load. At both ports, each current returns at the second terminal, and energy flows in the forward direction from port 1 to port 2. Right: An external branch from terminal 1 to terminal 2 carries the current $I_\mathrm{x}$. Now a different current flows into 1 than out of 1$'$, and the terminal pairs are no longer ports.
 :::
 
-A two-port is a conceptually closed unit, accessible only through its ports. Its properties are fixed by the relations between the port quantities, and these can be calculated or measured. Usually a source is connected to port 1, the __input__, and a load to port 2, the __output__. Energy then flows in the __forward direction__ $1\to2$; the opposite direction is called the __reverse direction__. The two-port is a basic structure: Controlled sources are two-ports, transformers, amplifiers and transistors have three or four connections, large two-ports can be built from __elementary two-ports__, and two-ports joined together form a two-port again. The simplest examples are the voltage divider and the current divider ([Part 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)).
+A two-port is a conceptually closed unit, accessible only through its ports. Its properties are fixed by the relations between the port quantities, and these can be calculated or measured. Usually a source is connected to port 1, the __input__, and a load to port 2, the __output__. Energy then flows in the __forward direction__ $1\to2$; the opposite direction is called the __reverse direction__. The two-port is a basic structure: Controlled sources are two-ports, transformers, amplifiers and transistors have three or four connections, large two-ports can be built from __elementary two-ports__, and two-ports joined together form a two-port again. The simplest examples are the voltage divider and the current divider ([Chapter 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)).
 
 **Structure and classification.** If a two-port has a continuous line from terminal 1$'$ to 2$'$, the __ground line__, it is called __unbalanced__ (Fig. [2](#abb-2) left). It is really a three-pole, an improper four-pole. Network models of transistors and amplifiers are of this kind. A two-port that, like the bridge circuit, has no such line and is built as a mirror image about a center line is called __balanced__. By their behavior, two-ports are divided into linear time-invariant, time-varying and nonlinear ones. This chapter deals with the linear time-invariant ones.
 

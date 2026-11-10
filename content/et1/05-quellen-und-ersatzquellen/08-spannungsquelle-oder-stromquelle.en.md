@@ -1,6 +1,8 @@
 ---
 title: Stage 6: Voltage source or current source
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / Sources and Equivalent Sources
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / Sources and Equivalent Sources
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen
+knoten: Chapter 5: Sources and Equivalent Sources
 order: 1150800
 summary: There are two circuit diagrams for the same real source.
 tags: equivalent
@@ -47,7 +49,7 @@ The battery with 9 V and 2 $\Omega$ becomes $I_\mathrm{q}=4.5$ A and $G_\m
 **Which form do you choose?** For calculation both are equally good. You take the form that shows the behavior better: voltage sources have low resistance (ideally zero), current sources have high resistance (ideally infinite). If $R_\mathrm{q}$ is small compared with the load, the voltage hardly changes, and you choose the voltage-source form. If $R_\mathrm{q}$ is large compared with the load, the current hardly changes, and you choose the current-source form.
 
 :::frage If the two are the same, does the battery burn 40.5 W in the open circuit?
-No. On the right in Fig. [7](#abb-7), 4.5 A flows through 2 $\Omega$ in the open circuit, which with $P=UI$ ([Part 7](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad/leistung-und-anpassung.html)) would be 40.5 W. The real battery stays cold; the voltage-source picture with 0 W is the right one here. Equivalent circuits are correct at the terminals, not inside. What happens inside depends on the construction, not on the characteristic curve. The same is true at the operating point: 0.5 W against 32 W inside, 4 W outside in both cases.
+No. On the right in Fig. [7](#abb-7), 4.5 A flows through 2 $\Omega$ in the open circuit, which with $P=UI$ ([Chapter 7](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad/leistung-und-anpassung.html)) would be 40.5 W. The real battery stays cold; the voltage-source picture with 0 W is the right one here. Equivalent circuits are correct at the terminals, not inside. What happens inside depends on the construction, not on the characteristic curve. The same is true at the operating point: 0.5 W against 32 W inside, 4 W outside in both cases.
 :::
 
 :::aufgabe Exercise 7 ★ Converting

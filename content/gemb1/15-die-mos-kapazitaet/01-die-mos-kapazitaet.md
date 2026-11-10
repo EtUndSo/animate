@@ -1,7 +1,9 @@
 ---
 title: Überblick: Die MOS-Kapazität
 kurz: Überblick
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Die MOS-Kapazität
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Die MOS-Kapazität
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/die-mos-kapazitat
+knoten: Kapitel 15: Die MOS-Kapazität
 order: 4250100
 summary: Wie eine Spannung am Gate die Oberfläche eines Halbleiters umdreht
 tags: MIS-Kondensator, Gate, Oberflächenpotential, Flachbandfall, Akkumulation, Verarmung, Inversion, Schwellspannung
@@ -27,7 +29,7 @@ Der Weg führt über acht Begriffe. Der __MIS-Kondensator__ besteht aus Metall, 
 
 <li>
 
-⁠**Silizium:** $E_\mathrm g=1{,}12$ eV, $N_\mathrm C=2{,}82\cdot10^{19}\,\mathrm{cm^{-3}}$, $N_\mathrm V=1{,}83\cdot10^{19}\,\mathrm{cm^{-3}}$, $n_\mathrm i=8{,}9\cdot10^{9}\,\mathrm{cm^{-3}}$ wie in [Teil 11](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/eigenhalbleiter-und-dotierung/eigenhalbleiter-und-dotierung.html). Permittivität $\varepsilon=\varepsilon_0\varepsilon_\mathrm r=1{,}036\cdot10^{-10}$ F/m mit $\varepsilon_\mathrm r=11{,}7$. $E_\mathrm{Fi}$ gilt als Bandmitte, es liegt nur 6 meV darunter.
+⁠**Silizium:** $E_\mathrm g=1{,}12$ eV, $N_\mathrm C=2{,}82\cdot10^{19}\,\mathrm{cm^{-3}}$, $N_\mathrm V=1{,}83\cdot10^{19}\,\mathrm{cm^{-3}}$, $n_\mathrm i=8{,}9\cdot10^{9}\,\mathrm{cm^{-3}}$ wie in [Kapitel 11](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/eigenhalbleiter-und-dotierung/eigenhalbleiter-und-dotierung.html). Permittivität $\varepsilon=\varepsilon_0\varepsilon_\mathrm r=1{,}036\cdot10^{-10}$ F/m mit $\varepsilon_\mathrm r=11{,}7$. $E_\mathrm{Fi}$ gilt als Bandmitte, es liegt nur 6 meV darunter.
 
 </li>
 

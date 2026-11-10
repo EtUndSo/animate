@@ -1,6 +1,8 @@
 ---
 title: Stage 7: The ideal bandpass and its equivalent lowpass
-pfad: Electrical Engineering / 3rd Semester / Signals and Systems / Lowpass and Bandpass Systems
+pfad: Electrical Engineering / 3rd Semester / ET3 – Fundamentals of Electrical Engineering 3: Signals and Systems / Lowpass and Bandpass Systems
+adresse: elektrotechnik/3-semester/signale-und-systeme/tiefpass-und-bandpasssysteme
+knoten: Chapter 5: Lowpass and Bandpass Systems
 order: 3250800
 summary: A bandpass passes a band around the center frequency f 0 .
 tags: equivalent lowpass, symmetric
@@ -18,7 +20,7 @@ A bandpass passes a band around the center frequency $f_0$. This stage shows tha
 <span class="anker" id="gl-7-1"></span>
 $$H(f)=\operatorname{rect}\Bigl(\frac{f}{\Delta f}\Bigr)*\bigl[\delta(f+f_0)+\delta(f-f_0)\bigr]\;\bullet\!\!-\!\!\circ\;h(t)=\Delta f\operatorname{si}(\pi\Delta f\,t)\cdot2\cos(2\pi f_0t). \tag{7.1}$$
 
-The impulse response is an oscillation at $f_0$ whose envelope is the impulse response of a lowpass with the bandwidth $\Delta f/2$. The modulation rule from [Part 3](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html) explains this: it is a lowpass whose spectrum is shifted to $\pm f_0$.
+The impulse response is an oscillation at $f_0$ whose envelope is the impulse response of a lowpass with the bandwidth $\Delta f/2$. The modulation rule from [Chapter 3](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html) explains this: it is a lowpass whose spectrum is shifted to $\pm f_0$.
 
 **Equivalent lowpass.** For a real impulse response, $H(-f)=H^*(f)$; the negative half contains nothing new. Keep only the positive frequencies, double them and shift them to the left by a carrier frequency $f_0$. The result is the __equivalent lowpass__ $H_T(f)$:
 

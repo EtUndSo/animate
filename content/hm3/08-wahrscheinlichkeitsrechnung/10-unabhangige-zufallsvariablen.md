@@ -1,6 +1,8 @@
 ---
 title: Stufe 9: Unabhängige Zufallsvariablen
-pfad: Elektrotechnik / 3. Semester / Höhere Mathematik 3 / Wahrscheinlichkeitsrechnung
+pfad: Elektrotechnik / 3. Semester / HöMa3 – Höhere Mathematik 3 / Wahrscheinlichkeitsrechnung
+adresse: elektrotechnik/3-semester/hohere-mathematik-3/wahrscheinlichkeitsrechnung
+knoten: Kapitel 8: Wahrscheinlichkeitsrechnung
 order: 3181000
 summary: Zwei Größen können zusammenhängen oder nicht.
 tags: gemeinsame Verteilungsfunktion, Zufallsvektors, stochastisch unabhängig, unkorreliert
@@ -34,7 +36,7 @@ Sei $\Omega=[0,1]^2$ mit der Fläche als $\mathbb{P}$ wie in Stufe [3](zusatzwi
 
 $$\mathbb{E}(X)=\int_\Omega X(\omega)\,\mathbb{P}(\mathrm{d}\omega)=\int_0^1\!\!\int_0^1X(s,t)\,\mathrm{d} s\,\mathrm{d} t=\int_0^1g(s)\,\mathrm{d} s,\qquad\mathbb{E}(Y)=\int_0^1h(t)\,\mathrm{d} t.$$
 
-Das Doppelintegral von $g(s)h(t)$ zerfällt nach Fubini ([Teil 2](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/integralrechnung-im-rn/integralrechnung-im-rn.html)), also ist $\mathbb{E}(XY)=\mathbb{E}(X)\,\mathbb{E}(Y)$. Für $g(s)=s^2$, $h(t)=2t$ gibt das $\frac13\cdot1=\frac13$.
+Das Doppelintegral von $g(s)h(t)$ zerfällt nach Fubini ([Kapitel 2](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/integralrechnung-im-rn/integralrechnung-im-rn.html)), also ist $\mathbb{E}(XY)=\mathbb{E}(X)\,\mathbb{E}(Y)$. Für $g(s)=s^2$, $h(t)=2t$ gibt das $\frac13\cdot1=\frac13$.
 ::::
 
 :::satz Satz 9.2 (Unabhängigkeit im diskreten Fall)

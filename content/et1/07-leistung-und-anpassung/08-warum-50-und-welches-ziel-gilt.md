@@ -1,6 +1,8 @@
 ---
 title: Stufe 7: Warum 50 %, und welches Ziel gilt
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Leistung, Anpassung und Wirkungsgrad
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Leistung, Anpassung und Wirkungsgrad
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad
+knoten: Kapitel 7: Leistung, Anpassung und Wirkungsgrad
 order: 1170800
 summary: Das Leistungsmaximum verschwendet die Hälfte.
 tags: 
@@ -48,7 +50,7 @@ An der Batterie ergibt $R_\mathrm{L}=200\,\Omega$ die Spannung 8,91 V, 99 % 
 
 ⁠**Nachrichtentechnik.** Die Leistungen liegen im µ W-Bereich. Ein Empfänger kann nur nehmen, was die Antenne anbietet. Es zählt die absolute Leistung, nicht der Anteil, und die Wärme in der Quelle schadet nicht. Eine Antenne mit 10 mV und 50 $\Omega$ gibt an 50 $\Omega$ genau 0,5 µ W ab, an 5 $\Omega$ oder 500 $\Omega$ nur 0,165 µ W.
 
-**Ersatzquellen: Das Maximum bleibt, die 50 % nicht.** Oft ist die Quelle ein Netz. Abb. [9](#abb-9) zeigt eine Quelle mit $R_\mathrm{q}$ und parallel dazu $R$. Bezüglich der Klemmen A, B ist es eine Ersatzquelle ([Teil 5](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)) mit $R_\mathrm{i}=R_\mathrm{q}\parallel R$ und $U_\mathrm{LL}=U_\mathrm{q}R/(R_\mathrm{q}+R)$. Für die Last zählt nur die Klemmengerade, also liegt das Maximum bei $R_\mathrm{L}=R_\mathrm{i}$, mit
+**Ersatzquellen: Das Maximum bleibt, die 50 % nicht.** Oft ist die Quelle ein Netz. Abb. [9](#abb-9) zeigt eine Quelle mit $R_\mathrm{q}$ und parallel dazu $R$. Bezüglich der Klemmen A, B ist es eine Ersatzquelle ([Kapitel 5](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)) mit $R_\mathrm{i}=R_\mathrm{q}\parallel R$ und $U_\mathrm{LL}=U_\mathrm{q}R/(R_\mathrm{q}+R)$. Für die Last zählt nur die Klemmengerade, also liegt das Maximum bei $R_\mathrm{L}=R_\mathrm{i}$, mit
 
 <span class="anker" id="gl-7-2"></span>
 $$U_\mathrm{L}=U_\mathrm{q}\,\frac{R}{2(R_\mathrm{q}+R)},\qquad P_\mathrm{L}=\frac{U_\mathrm{L}^2}{R_\mathrm{L}}=\frac{U_\mathrm{q}^2\,R}{4\,R_\mathrm{q}(R_\mathrm{q}+R)}. \tag{7.2}$$

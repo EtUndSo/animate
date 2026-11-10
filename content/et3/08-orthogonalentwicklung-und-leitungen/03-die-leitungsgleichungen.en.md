@@ -1,6 +1,8 @@
 ---
 title: Stage 2: The transmission-line equations
-pfad: Electrical Engineering / 3rd Semester / Signals and Systems / Orthogonal Expansion and Transmission Lines
+pfad: Electrical Engineering / 3rd Semester / ET3 – Fundamentals of Electrical Engineering 3: Signals and Systems / Orthogonal Expansion and Transmission Lines
+adresse: elektrotechnik/3-semester/signale-und-systeme/orthogonalentwicklung-und-leitungen
+knoten: Chapter 8: Orthogonal Expansion and Transmission Lines
 order: 3280300
 summary: So far, lines were ideal connections.
 tags: per-unit-length parameters

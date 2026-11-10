@@ -1,6 +1,8 @@
 ---
 title: Stufe 5: Bauformen und Selbstentladung
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Der Kondensator
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Der Kondensator
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator
+knoten: Kapitel 3: Der Kondensator
 order: 1130600
 summary: 100 µF als Plattenpaar in Luft wären 3,4 Hektar groß.
 tags: Elektrolyt, gepolt, Selbstheilend, Leckstrom, Isolationswiderstand
@@ -57,7 +59,7 @@ Vier Wege zu großer Kapazität, schematische Schnitte, nicht maßstäblich. Rot
 
 Die Tabelle fasst die üblichen Bereiche zusammen. __Selbstheilend__ heißt: Bei einem Durchschlag verdampft die dünne Metallschicht rund um die Fehlstelle, der Kurzschluss verschwindet, und nur eine winzige Fläche geht verloren. Beim Elko bildet sich das Oxid an der Fehlstelle neu.
 
-**Selbstentladung.** Kein Isolator ist vollkommen. Das Dielektrikum enthält wenige bewegliche Ladungen, deshalb fließt ein winziger Strom von Platte zu Platte, der __Leckstrom__. Im Ersatzbild liegt parallel zum idealen Kondensator ein __Isolationswiderstand__ $R_\mathrm{I}$. Ideal ist $R_\mathrm{I}\to\infty$ und ein abgetrennter Kondensator hält seine Ladung für immer. Real gibt er sie im Takt $R_\mathrm{I}\,C$ ab (Stufe [10](entladen-und-zeitkonstante.html#stufe-10)). Mit dem spezifischen Widerstand $\rho$ des Stoffs ([Teil 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)) ist $R_\mathrm{I}=\rho\,d/A$, zusammen mit [(4.1)](plattenkondensator-und-dielektrikum.html#gl-4-1) folgt
+**Selbstentladung.** Kein Isolator ist vollkommen. Das Dielektrikum enthält wenige bewegliche Ladungen, deshalb fließt ein winziger Strom von Platte zu Platte, der __Leckstrom__. Im Ersatzbild liegt parallel zum idealen Kondensator ein __Isolationswiderstand__ $R_\mathrm{I}$. Ideal ist $R_\mathrm{I}\to\infty$ und ein abgetrennter Kondensator hält seine Ladung für immer. Real gibt er sie im Takt $R_\mathrm{I}\,C$ ab (Stufe [10](entladen-und-zeitkonstante.html#stufe-10)). Mit dem spezifischen Widerstand $\rho$ des Stoffs ([Kapitel 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)) ist $R_\mathrm{I}=\rho\,d/A$, zusammen mit [(4.1)](plattenkondensator-und-dielektrikum.html#gl-4-1) folgt
 
 <span class="anker" id="gl-5-1"></span>
 $$R_\mathrm{I}\,C=\rho\,\varepsilon. \tag{5.1}$$

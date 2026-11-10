@@ -1,0 +1,570 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 19,
+  "nextAnimId": 20,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.736,
+      0,
+      0
+     ],
+     "width": 1.33,
+     "height": 0.7,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#efefef",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Text",
+    "props": {
+     "text": "@fw",
+     "position": [
+      -2.736,
+      0,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o3",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.912,
+      0,
+      0
+     ],
+     "width": 1.33,
+     "height": 0.7,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#fdece3",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Text",
+    "props": {
+     "text": "@shim",
+     "position": [
+      -0.912,
+      0,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o5",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.912,
+      0,
+      0
+     ],
+     "width": 1.33,
+     "height": 0.7,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#fdece3",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Text",
+    "props": {
+     "text": "@grub",
+     "position": [
+      0.912,
+      0,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o7",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.736,
+      0,
+      0
+     ],
+     "width": 1.33,
+     "height": 0.7,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#e6f3ea",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Text",
+    "props": {
+     "text": "@kernel",
+     "position": [
+      2.736,
+      0,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o9",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -2.0672,
+      0,
+      0
+     ],
+     "end": [
+      -1.5808,
+      0,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.12,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o10",
+    "type": "Text",
+    "props": {
+     "text": "@laedt",
+     "position": [
+      -1.824,
+      0.22,
+      0
+     ],
+     "font_size": 16,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o11",
+    "type": "Text",
+    "props": {
+     "text": "@ms",
+     "position": [
+      -1.824,
+      -0.75,
+      0
+     ],
+     "font_size": 16,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o12",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -0.2432,
+      0,
+      0
+     ],
+     "end": [
+      0.2432,
+      0,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.12,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o13",
+    "type": "Text",
+    "props": {
+     "text": "@laedt",
+     "position": [
+      0.0,
+      0.22,
+      0
+     ],
+     "font_size": 16,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o14",
+    "type": "Text",
+    "props": {
+     "text": "@can",
+     "position": [
+      0.0,
+      -0.75,
+      0
+     ],
+     "font_size": 16,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o15",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      1.5808,
+      0,
+      0
+     ],
+     "end": [
+      2.0672,
+      0,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.12,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o16",
+    "type": "Text",
+    "props": {
+     "text": "@laedt",
+     "position": [
+      1.824,
+      0.22,
+      0
+     ],
+     "font_size": 16,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o17",
+    "type": "Text",
+    "props": {
+     "text": "@can",
+     "position": [
+      1.824,
+      -0.75,
+      0
+     ],
+     "font_size": 16,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o18",
+    "type": "Text",
+    "props": {
+     "text": "@abbruch",
+     "position": [
+      0.0,
+      -1.35,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#c82828"
+    }
+   }
+  ],
+  "animations": [
+   {
+    "id": "a1",
+    "type": "GrowFromCenter",
+    "target": "o1",
+    "run_time": 0.5,
+    "step": 0
+   },
+   {
+    "id": "a2",
+    "type": "FadeIn",
+    "target": "o2",
+    "run_time": 0.5,
+    "step": 0
+   },
+   {
+    "id": "a3",
+    "type": "Create",
+    "target": "o9",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a4",
+    "type": "FadeIn",
+    "target": "o10",
+    "run_time": 0.5,
+    "step": 2
+   },
+   {
+    "id": "a5",
+    "type": "FadeIn",
+    "target": "o11",
+    "run_time": 0.5,
+    "step": 2
+   },
+   {
+    "id": "a6",
+    "type": "GrowFromCenter",
+    "target": "o3",
+    "run_time": 0.5,
+    "step": 3
+   },
+   {
+    "id": "a7",
+    "type": "FadeIn",
+    "target": "o4",
+    "run_time": 0.5,
+    "step": 3
+   },
+   {
+    "id": "a8",
+    "type": "Create",
+    "target": "o12",
+    "run_time": 0.6,
+    "step": 4
+   },
+   {
+    "id": "a9",
+    "type": "FadeIn",
+    "target": "o13",
+    "run_time": 0.5,
+    "step": 5
+   },
+   {
+    "id": "a10",
+    "type": "FadeIn",
+    "target": "o14",
+    "run_time": 0.5,
+    "step": 5
+   },
+   {
+    "id": "a11",
+    "type": "GrowFromCenter",
+    "target": "o5",
+    "run_time": 0.5,
+    "step": 6
+   },
+   {
+    "id": "a12",
+    "type": "FadeIn",
+    "target": "o6",
+    "run_time": 0.5,
+    "step": 6
+   },
+   {
+    "id": "a13",
+    "type": "Create",
+    "target": "o15",
+    "run_time": 0.6,
+    "step": 7
+   },
+   {
+    "id": "a14",
+    "type": "FadeIn",
+    "target": "o16",
+    "run_time": 0.5,
+    "step": 8
+   },
+   {
+    "id": "a15",
+    "type": "FadeIn",
+    "target": "o17",
+    "run_time": 0.5,
+    "step": 8
+   },
+   {
+    "id": "a16",
+    "type": "GrowFromCenter",
+    "target": "o7",
+    "run_time": 0.5,
+    "step": 9
+   },
+   {
+    "id": "a17",
+    "type": "FadeIn",
+    "target": "o8",
+    "run_time": 0.5,
+    "step": 9
+   },
+   {
+    "id": "a18",
+    "type": "FadeIn",
+    "target": "o18",
+    "run_time": 0.6,
+    "step": 10
+   },
+   {
+    "id": "a19",
+    "type": "Indicate",
+    "target": "o18",
+    "run_time": 0.9,
+    "step": 11
+   }
+  ],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "fw": {
+    "de": "Firmware\nkennt Microsoft",
+    "en": "firmware\nknows Microsoft",
+    "es": "firmware\nconoce a Microsoft",
+    "zh": "固件\n认识微软",
+    "fr": "micrologiciel\nconnaît Microsoft",
+    "tr": "üretici yazılımı\nMicrosoft’u tanır"
+   },
+   "shim": {
+    "de": "shim\nkennt Canonical",
+    "en": "shim\nknows Canonical",
+    "es": "shim\nconoce a Canonical",
+    "zh": "shim\n认识 Canonical",
+    "fr": "shim\nconnaît Canonical",
+    "tr": "shim\nCanonical’ı tanır"
+   },
+   "grub": {
+    "de": "GRUB\nBootloader",
+    "en": "GRUB\nboot loader",
+    "es": "GRUB\ncargador de arranque",
+    "zh": "GRUB\n引导加载程序",
+    "fr": "GRUB\nchargeur d’amorçage",
+    "tr": "GRUB\nönyükleyici"
+   },
+   "kernel": {
+    "de": "Linux-Kernel\nvon Ubuntu",
+    "en": "Linux kernel\nfrom Ubuntu",
+    "es": "núcleo Linux\nde Ubuntu",
+    "zh": "Ubuntu 的\nLinux 内核",
+    "fr": "noyau Linux\nd’Ubuntu",
+    "tr": "Ubuntu’nun\nLinux çekirdeği"
+   },
+   "laedt": {
+    "de": "lädt",
+    "en": "loads",
+    "es": "carga",
+    "zh": "加载",
+    "fr": "charge",
+    "tr": "yükler"
+   },
+   "ms": {
+    "de": "prüft Siegel\nvon Microsoft",
+    "en": "checks seal\nfrom Microsoft",
+    "es": "comprueba el sello\nde Microsoft",
+    "zh": "检查微软的\n签名",
+    "fr": "vérifie le sceau\nde Microsoft",
+    "tr": "Microsoft mührünü\ndenetler"
+   },
+   "can": {
+    "de": "prüft Siegel\nvon Canonical",
+    "en": "checks seal\nfrom Canonical",
+    "es": "comprueba el sello\nde Canonical",
+    "zh": "检查 Canonical\n的签名",
+    "fr": "vérifie le sceau\nde Canonical",
+    "tr": "Canonical mührünü\ndenetler"
+   },
+   "abbruch": {
+    "de": "Passt ein Siegel nicht, bricht der Start an dieser Stelle ab.",
+    "en": "If a seal does not match, booting stops at that point.",
+    "es": "Si un sello no coincide, el arranque se detiene en ese punto.",
+    "zh": "签名不匹配时，启动就在该处中止。",
+    "fr": "Si un sceau ne correspond pas, le démarrage s’arrête à cet endroit.",
+    "tr": "Bir mühür uymazsa önyükleme o noktada durur."
+   }
+  }
+ }
+}

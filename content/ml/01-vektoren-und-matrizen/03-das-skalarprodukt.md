@@ -1,7 +1,8 @@
 ---
 title: Das Skalarprodukt
 pfad: Informatik / Machine Learning / Mathematische Grundlagen / Vektoren und Matrizen
-knoten: Grundlagen 1: Vektoren und Matrizen
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Kapitel 1: Vektoren und Matrizen
 nachschlagen: ja
 order: 15210300
 summary: Zwei Vektoren gleicher Länge ergeben eine einzige Zahl, wenn man ihre Komponenten paarweise multipliziert und addiert.
@@ -156,23 +157,23 @@ Die Stromrechnung als Skalarprodukt: Preis mal Menge für jeden Monat, dann die 
 
 <span class="anker" id="stufe-2-4"></span>
 
-Ein Messsignal soll darauf geprüft werden, ob es von Abtastwert zu Abtastwert hin und her springt. Dafür schreibt man das gesuchte Muster als Vektor auf, hier $\mathbf{w}=(1,\,-1,\,1,\,-1)^{\top}$, und bildet das Skalarprodukt mit dem Signal.
+Die Temperatur draußen wird alle zwölf Stunden abgelesen, abwechselnd mittags und um Mitternacht. Vier Werte hintereinander bilden einen Vektor, hier ein *Verlauf* genannt. Er soll darauf geprüft werden, ob er von Wert zu Wert hin und her springt, wie es der Wechsel von Tag und Nacht erwarten lässt. Dafür schreibt man das gesuchte Muster als Vektor auf, hier $\mathbf{w}=(1,\,-1,\,1,\,-1)^{\top}$, und bildet das Skalarprodukt mit dem Verlauf.
 
-Was dabei passiert, zeigt Abb. [10](#abb-10). Jeder Abtastwert wird mit dem Musterwert an derselben Stelle multipliziert. Hat das Signal an einer Stelle dasselbe Vorzeichen wie das Muster, ist das Produkt positiv; hat es das entgegengesetzte Vorzeichen, ist es negativ. Folgt das Signal dem Muster überall, sammeln sich lauter positive Beiträge zu einer großen Summe. Hat das Signal mit dem Muster nichts zu tun, heben sich positive und negative Beiträge gegenseitig auf.
+Was dabei passiert, zeigt Abb. [10](#abb-10). Jeder Wert wird mit dem Musterwert an derselben Stelle multipliziert. Hat der Verlauf an einer Stelle dasselbe Vorzeichen wie das Muster, ist das Produkt positiv; hat er das entgegengesetzte Vorzeichen, ist es negativ. Folgt der Verlauf dem Muster überall, sammeln sich lauter positive Beiträge zu einer großen Summe. Hat der Verlauf mit dem Muster nichts zu tun, heben sich positive und negative Beiträge gegenseitig auf.
 
 :::abbildung ml/k1muster 10
-Mustervergleich mit dem Skalarprodukt. Oben das Muster $\mathbf{w}=(1,-1,1,-1)^{\top}$, in der Mitte zwei Signale, unten die Produkte $w_j\,x_j$ an jeder Stelle $j$. Links springt das Signal $\mathbf{x}=(2,-1,3,-2)^{\top}$ im Takt des Musters: Alle Produkte sind positiv, die Summe ist $8$. Rechts steigt $\mathbf{x}'=(2,2,3,3)^{\top}$ gleichmäßig: Die Produkte heben sich auf, die Summe ist $0$.
+Mustervergleich mit dem Skalarprodukt. Oben das Muster $\mathbf{w}=(1,-1,1,-1)^{\top}$, in der Mitte zwei Temperaturverläufe in Grad Celsius, unten die Produkte $w_j\,x_j$ an jeder Stelle $j$. Links springt der Verlauf $\mathbf{x}=(2,-1,3,-2)^{\top}$ im Takt des Musters: Alle Produkte sind positiv, die Summe ist $8$. Rechts steigt $\mathbf{x}'=(2,2,3,3)^{\top}$ gleichmäßig: Die Produkte heben sich auf, die Summe ist $0$.
 :::
 
 Genau gesagt: Der Beitrag der Stelle $j$ zum Skalarprodukt $\mathbf{w}^{\top}\mathbf{x}$ ist $w_jx_j$. Er ist positiv, wenn $w_j$ und $x_j$ dasselbe Vorzeichen haben, und negativ, wenn sie entgegengesetzte Vorzeichen haben. Je größer die Beträge an Stellen mit übereinstimmendem Vorzeichen, desto größer das Skalarprodukt.
 
-Aus der Signalverarbeitung kennt man diese Rechnung als Korrelation. Die Kreuzkorrelation zweier reeller Folgen $x[n]$ und $y[n]$ an der Verschiebung null ist $\sum_nx[n]\,y[n]$. Schreibt man die Abtastwerte zweier Signale endlicher Länge als Vektoren $\mathbf{x}$ und $\mathbf{y}$, ist das genau das Skalarprodukt $\mathbf{x}^{\top}\mathbf{y}$. Die Energie eines Signals, $\sum_nx[n]^2$, ist ebenso $\mathbf{x}^{\top}\mathbf{x}$. Der Mustervergleich ist also kein neues Werkzeug, sondern dasselbe, mit dem ein Korrelator ein bekanntes Muster in einem Signal sucht.
+Für Zahlenfolgen hat diese Rechnung einen eigenen Namen. Die Summe $\sum_nx[n]\,y[n]$ zweier reeller Folgen $x[n]$ und $y[n]$ heißt ihre Kreuzkorrelation an der Verschiebung null. Schreibt man die Werte zweier Folgen endlicher Länge als Vektoren $\mathbf{x}$ und $\mathbf{y}$, ist das genau das Skalarprodukt $\mathbf{x}^{\top}\mathbf{y}$. Die Quadratsumme einer Folge, $\sum_nx[n]^2$, ist ebenso $\mathbf{x}^{\top}\mathbf{x}$. Der Mustervergleich ist also kein neues Werkzeug, sondern dieselbe Rechnung, mit der man in einer langen Zahlenfolge nach einem bekannten Muster sucht.
 
 ::::beispiel [Rechenbeispiel]
-Mit dem Wechselmuster $\mathbf{w}=(1,\,-1,\,1,\,-1)^{\top}$ ist $\mathbf{w}^{\top}\mathbf{x}=8$ für $\mathbf{x}=(2,\,-1,\,3,\,-2)^{\top}$ und $\mathbf{w}^{\top}\mathbf{x}'=0$ für $\mathbf{x}'=(2,\,2,\,3,\,3)^{\top}$ (Abb. [11](#abb-11)). Mit dem Gleichmuster $\mathbf 1=(1,\,1,\,1,\,1)^{\top}$ ist es umgekehrt: $\mathbf 1^{\top}\mathbf{x}=2$, aber $\mathbf 1^{\top}\mathbf{x}'=10$. Das Signal $\mathbf{x}$ wechselt also vor allem, $\mathbf{x}'$ ist vor allem gleichbleibend.
+Mit dem Wechselmuster $\mathbf{w}=(1,\,-1,\,1,\,-1)^{\top}$ ist $\mathbf{w}^{\top}\mathbf{x}=8$ für $\mathbf{x}=(2,\,-1,\,3,\,-2)^{\top}$ und $\mathbf{w}^{\top}\mathbf{x}'=0$ für $\mathbf{x}'=(2,\,2,\,3,\,3)^{\top}$ (Abb. [11](#abb-11)). Mit dem Gleichmuster $\mathbf 1=(1,\,1,\,1,\,1)^{\top}$ ist es umgekehrt: $\mathbf 1^{\top}\mathbf{x}=2$, aber $\mathbf 1^{\top}\mathbf{x}'=10$. Der Verlauf $\mathbf{x}$ wechselt also vor allem zwischen Tag und Nacht, $\mathbf{x}'$ ist vor allem gleichbleibend.
 
 :::abbildung ml/k1rmuster 11
-Das Wechselmuster $\mathbf{w}$ mit zwei Signalen. Oben folgt $\mathbf{x}$ dem Muster: Alle vier Produkte sind positiv. Unten steigt $\mathbf{x}'$ gleichmäßig: Die Produkte heben sich paarweise auf.
+Das Wechselmuster $\mathbf{w}$ mit zwei Verläufen. Oben folgt $\mathbf{x}$ dem Muster: Alle vier Produkte sind positiv. Unten steigt $\mathbf{x}'$ gleichmäßig: Die Produkte heben sich paarweise auf.
 :::
 ::::
 
@@ -181,7 +182,7 @@ Auch die gewichtete Summe der Maklerin ist ein Mustervergleich. Ihr Muster $\mat
 ⁠**Kurz gesagt:** Das Skalarprodukt $\mathbf{w}^{\top}\mathbf{x}$ ist groß, wenn $\mathbf{x}$ dort große Werte hat, wo das Muster $\mathbf{w}$ große Werte mit demselben Vorzeichen hat; es ist die Korrelation an der Verschiebung null.
 
 :::hintergrund Die Korrelationsfunktion besteht aus lauter Skalarprodukten
-Die Kreuzkorrelation vergleicht ein Signal nicht nur an einer Stelle mit einem Muster, sondern für jede mögliche Verschiebung. Für jede Verschiebung $k$ ist ihr Wert ein Skalarprodukt: das Signal mit dem um $k$ Takte verschobenen Muster. Die ganze Korrelationsfunktion ist also eine Reihe von Skalarprodukten, eines je Verschiebung. Wo das Muster im Signal steckt, sammeln sich die positiven Beiträge, und die Korrelationsfunktion hat dort ihren größten Wert. So findet ein Radarempfänger das Echo seines eigenen Pulses und ein Funkempfänger den Anfang eines bekannten Datenrahmens. Im maschinellen Lernen bleibt die Verschiebung meist fest bei null: Man vergleicht ein Beispiel als Ganzes mit einem Muster.
+Die Kreuzkorrelation vergleicht eine Folge nicht nur an einer Stelle mit einem Muster, sondern für jede mögliche Verschiebung. Für jede Verschiebung $k$ ist ihr Wert ein Skalarprodukt: die Folge mit dem um $k$ Stellen verschobenen Muster. Die ganze Korrelationsfunktion ist also eine Reihe von Skalarprodukten, eines je Verschiebung. Wo das Muster in der Folge steckt, sammeln sich die positiven Beiträge, und die Korrelationsfunktion ist dort besonders groß. So findet man in einer langen Tonaufnahme die Stelle, an der ein bekanntes Geräusch vorkommt, etwa ein Gong, und in einem Foto die Stellen, die einem kleinen Bildausschnitt ähneln. Im maschinellen Lernen bleibt die Verschiebung meist fest bei null: Man vergleicht ein Beispiel als Ganzes mit einem Muster.
 :::
 
 :::aufgabe Aufgabe 4 ★ Rechenregeln nachprüfen
@@ -230,10 +231,10 @@ Ein Kollege sagt: „Bei der Maklerin zählen die Zimmer am meisten, sie haben d
 :::
 :::
 
-:::aufgabe Aufgabe 6 ★★ Ein Muster für steigende Signale
+:::aufgabe Aufgabe 6 ★★ Ein Muster für steigende Verläufe
 <span class="anker" id="aufg-6"></span>
 
-Ein Signal mit vier Abtastwerten soll darauf geprüft werden, ob es ansteigt. Als Muster wird $\mathbf{w}=(-3,\,-1,\,1,\,3)^{\top}$ vorgeschlagen.
+Ein Verlauf mit vier Werten, etwa die Temperatur an vier Tagen hintereinander, soll darauf geprüft werden, ob er ansteigt. Als Muster wird $\mathbf{w}=(-3,\,-1,\,1,\,3)^{\top}$ vorgeschlagen.
 
 <ol class="al">
 
@@ -245,15 +246,15 @@ Berechne $\mathbf{w}^{\top}\mathbf{x}$ für $\mathbf{x}=(1,2,3,4)^{\top}$, $(4,3
 
 <li>
 
-Warum liefert jedes konstante Signal $c\,\mathbf1$ genau null? Benutze $\mathbf 1^{\top}\mathbf{w}$.
+Warum liefert jeder konstante Verlauf $c\,\mathbf1$ genau null? Benutze $\mathbf 1^{\top}\mathbf{w}$.
 
 </li>
 
 </ol>
 
 :::loesung
-(a) $\mathbf{w}^{\top}(1,2,3,4)^{\top}=-3-2+3+12=10$: Das Signal steigt, das Ergebnis ist deutlich positiv. $\mathbf{w}^{\top}(4,3,2,1)^{\top}=-12-3+2+3=-10$: Das Signal fällt, das Ergebnis ist ebenso deutlich negativ. $\mathbf{w}^{\top}(5,5,5,5)^{\top}=-15-5+5+15=0$: konstant, kein Anstieg. $\mathbf{w}^{\top}(1,3,2,4)^{\top}=-3-3+2+12=8$: Das Signal steigt im Ganzen, mit einem Rücksprung in der Mitte, und das Ergebnis ist etwas kleiner als beim gleichmäßigen Anstieg. Das Muster wiegt die frühen Werte negativ und die späten positiv; es reagiert also darauf, ob die späten Werte größer sind als die frühen.
+(a) $\mathbf{w}^{\top}(1,2,3,4)^{\top}=-3-2+3+12=10$: Der Verlauf steigt, das Ergebnis ist deutlich positiv. $\mathbf{w}^{\top}(4,3,2,1)^{\top}=-12-3+2+3=-10$: Der Verlauf fällt, das Ergebnis ist ebenso deutlich negativ. $\mathbf{w}^{\top}(5,5,5,5)^{\top}=-15-5+5+15=0$: konstant, kein Anstieg. $\mathbf{w}^{\top}(1,3,2,4)^{\top}=-3-3+2+12=8$: Der Verlauf steigt im Ganzen, mit einem Rücksprung in der Mitte, und das Ergebnis ist etwas kleiner als beim gleichmäßigen Anstieg. Das Muster wiegt die frühen Werte negativ und die späten positiv; es reagiert also darauf, ob die späten Werte größer sind als die frühen.
 
-(b) $\mathbf 1^{\top}\mathbf{w}=-3-1+1+3=0$. Für ein konstantes Signal ist deshalb $\mathbf{w}^{\top}(c\,\mathbf 1)=c\,\mathbf{w}^{\top}\mathbf 1=c\cdot0=0$. Weil die Gewichte sich zu null addieren, ignoriert das Muster einen gemeinsamen Gleichanteil ganz: Es misst nur Unterschiede zwischen den Abtastwerten.
+(b) $\mathbf 1^{\top}\mathbf{w}=-3-1+1+3=0$. Für einen konstanten Verlauf ist deshalb $\mathbf{w}^{\top}(c\,\mathbf 1)=c\,\mathbf{w}^{\top}\mathbf 1=c\cdot0=0$. Weil die Gewichte sich zu null addieren, ignoriert das Muster einen festen Betrag, der zu allen Werten addiert wird, ganz: Es misst nur Unterschiede zwischen den Werten. Ob es an allen vier Tagen $10$ Grad wärmer ist, ändert das Ergebnis nicht.
 :::
 :::

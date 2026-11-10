@@ -1,6 +1,8 @@
 ---
 title: Stufe 5: Viele Atome
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Vom Atom zum Band
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Vom Atom zum Band
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/vom-atom-zum-band
+knoten: Kapitel 8: Vom Atom zum Band
 order: 4180700
 summary: Ein Kristall hat nicht vier Atome, sondern unvorstellbar viele.
 tags: Einhüllende, quasikontinuierlich

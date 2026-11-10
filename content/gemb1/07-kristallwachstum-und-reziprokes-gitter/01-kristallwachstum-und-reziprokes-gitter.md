@@ -1,7 +1,9 @@
 ---
 title: Überblick: Kristallwachstum und reziprokes Gitter
 kurz: Überblick
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Kristallwachstum und reziprokes Gitter
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Kristallwachstum und reziprokes Gitter
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/kristallwachstum-und-reziprokes-gitter
+knoten: Kapitel 7: Kristallwachstum und reziprokes Gitter
 order: 4170100
 summary: Wie aus Sand ein Einkristall wird und wie eine Welle sein Gitter sieht
 tags: Einkristall, Wafer, reziprokes Gitter, Brillouin-Zone
@@ -21,7 +23,7 @@ Die zweite Frage folgt aus der Ordnung selbst. Elektronen sind Wellen, und eine 
 
 <li>
 
-⁠**Silizium:** Diamantstruktur, also FCC-Gitter mit zweiatomiger Basis ([Teil 6](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/kristallgitter/kristallgitter.html)), $a=0{,}5431$ nm, 8 Atome im Würfel. Daraus folgt $n_\mathrm{Si}=8/a^3=4{,}99\cdot10^{22}\,\mathrm{cm^{-3}}$. Dichte $\rho_\mathrm m=2{,}33\,\mathrm{g/cm^3}$.
+⁠**Silizium:** Diamantstruktur, also FCC-Gitter mit zweiatomiger Basis ([Kapitel 6](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/kristallgitter/kristallgitter.html)), $a=0{,}5431$ nm, 8 Atome im Würfel. Daraus folgt $n_\mathrm{Si}=8/a^3=4{,}99\cdot10^{22}\,\mathrm{cm^{-3}}$. Dichte $\rho_\mathrm m=2{,}33\,\mathrm{g/cm^3}$.
 
 </li>
 
@@ -33,13 +35,13 @@ Die zweite Frage folgt aus der Ordnung selbst. Elektronen sind Wellen, und eine 
 
 <li>
 
-⁠**Atomkette:** wie in [Teil 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html), $a=0{,}2$ nm, $m=m_0$, $V_0=0$, also $t_0=0{,}953$ eV. Rechengröße: $\hbar^2/(2m_0)=0{,}0381\,\mathrm{eV\,nm^2}$.
+⁠**Atomkette:** wie in [Kapitel 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html), $a=0{,}2$ nm, $m=m_0$, $V_0=0$, also $t_0=0{,}953$ eV. Rechengröße: $\hbar^2/(2m_0)=0{,}0381\,\mathrm{eV\,nm^2}$.
 
 </li>
 
 <li>
 
-⁠**Rechteckgitter:** Kanten $a_x=0{,}40$ nm und $a_y=0{,}60$ nm (in [Teil 6](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/kristallgitter/kristallgitter.html) hießen sie $a$ und $b$).
+⁠**Rechteckgitter:** Kanten $a_x=0{,}40$ nm und $a_y=0{,}60$ nm (in [Kapitel 6](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/kristallgitter/kristallgitter.html) hießen sie $a$ und $b$).
 
 </li>
 

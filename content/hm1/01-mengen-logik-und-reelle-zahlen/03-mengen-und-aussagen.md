@@ -1,6 +1,8 @@
 ---
 title: Stufe 1: Mengen und Aussagen
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Mengen, Logik und reelle Zahlen
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Mengen, Logik und reelle Zahlen
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen
+knoten: Kapitel 1: Mengen, Logik und reelle Zahlen
 order: 1210300
 summary: Axiome reden über „alle Zahlen mit einer Eigenschaft“ und über „wenn, dann“.
 tags: Venn-Diagramm, Elemente, Teilmenge, Obermenge, Vereinigung, Durchschnitt, Differenz, Komplement

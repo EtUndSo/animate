@@ -1,7 +1,8 @@
 ---
 title: Zufallsvariablen und Verteilungen
 pfad: Informatik / Machine Learning / Mathematische Grundlagen / Wahrscheinlichkeit
-knoten: Grundlagen 4: Wahrscheinlichkeit
+adresse: informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit
+knoten: Kapitel 4: Wahrscheinlichkeit
 nachschlagen: ja
 order: 15240700
 summary: Bisher waren Ereignisse Aussagen wie „gerade“ oder „defekt“.
@@ -12,7 +13,7 @@ lang: de
 <span class="anker" id="stufe-6"></span>
 
 :::zweck
-Bisher waren Ereignisse Aussagen wie „gerade“ oder „defekt“. Mit Daten rechnet man aber mit Zahlen: Augenzahlen, Spannungen, Mieten. Dieser Abschnitt führt Zufallsvariablen ein, Größen, deren Wert vom Zufall abhängt, und beschreibt, wie sich ihre Werte verteilen: bei endlich vielen Werten durch eine Liste von Wahrscheinlichkeiten, bei kontinuierlichen Werten durch eine Dichte, deren Fläche die Wahrscheinlichkeit ist. Die Verteilungsfunktion fasst beide Fälle zusammen.
+Bisher waren Ereignisse Aussagen wie „gerade“ oder „defekt“. Mit Daten rechnet man aber mit Zahlen: Augenzahlen, Temperaturen, Mieten. Dieser Abschnitt führt Zufallsvariablen ein, Größen, deren Wert vom Zufall abhängt, und beschreibt, wie sich ihre Werte verteilen: bei endlich vielen Werten durch eine Liste von Wahrscheinlichkeiten, bei kontinuierlichen Werten durch eine Dichte, deren Fläche die Wahrscheinlichkeit ist. Die Verteilungsfunktion fasst beide Fälle zusammen.
 :::
 
 ### Zufallsvariablen
@@ -82,7 +83,7 @@ Für $f(x)=2x$ auf $[0,\,1]$ ist $F(x)=x^2$ eine Stammfunktion, also $\int_0^12x
 
 <span class="anker" id="stufe-6-4"></span>
 
-Eine Zufallsvariable $T$ beschreibe den Zeitpunkt, zu dem ein Impuls innerhalb einer halben Sekunde eintrifft, wobei kein Zeitpunkt bevorzugt ist. Wie wahrscheinlich ist $T=0{,}2\,\mathrm s$ genau? Weil es unendlich viele mögliche Zeitpunkte gibt, die alle gleich wahrscheinlich sind, muss diese Wahrscheinlichkeit null sein; jeder positive Wert, unendlich oft addiert, ergäbe mehr als $1$. Sinnvoll sind nur Fragen nach Intervallen: Mit welcher Wahrscheinlichkeit liegt $T$ zwischen $0{,}1\,\mathrm s$ und $0{,}3\,\mathrm s$? Hier offenbar $0{,}2/0{,}5=0{,}4$. Solche Wahrscheinlichkeiten beschreibt man als Flächen unter einer Kurve.
+Eine Zufallsvariable $T$ beschreibe den Zeitpunkt, zu dem ein Regentropfen innerhalb einer halben Sekunde auf eine Fensterscheibe trifft, wobei kein Zeitpunkt bevorzugt ist. Wie wahrscheinlich ist $T=0{,}2\,\mathrm s$ genau? Weil es unendlich viele mögliche Zeitpunkte gibt, die alle gleich wahrscheinlich sind, muss diese Wahrscheinlichkeit null sein; jeder positive Wert, unendlich oft addiert, ergäbe mehr als $1$. Sinnvoll sind nur Fragen nach Intervallen: Mit welcher Wahrscheinlichkeit liegt $T$ zwischen $0{,}1\,\mathrm s$ und $0{,}3\,\mathrm s$? Hier offenbar $0{,}2/0{,}5=0{,}4$. Solche Wahrscheinlichkeiten beschreibt man als Flächen unter einer Kurve.
 
 :::definition Definition 6.3 (Dichte, stetige Zufallsvariable)
 <span class="anker" id="satz-6-3"></span>
@@ -142,7 +143,7 @@ Für die Anzahl der Köpfe ist $F(x)=0$ für $x<0$, $F(x)=\tfrac18$ für $0\le x
 ⁠**Kurz gesagt:** Die Verteilungsfunktion $F(x)=P(X\le x)$ steigt von $0$ auf $1$; bei diskreten Größen ist sie eine Treppe, bei stetig verteilten die Fläche links von $x$ mit $F'=p$.
 
 :::hintergrund Verteilungen, die weder diskret noch stetig sind
-Ein Verstärker, der höchstens $5\,\mathrm V$ ausgeben kann, liefert für jedes Eingangssignal, das eigentlich mehr ergäbe, genau $5\,\mathrm V$; man sagt, er geht in die Begrenzung. Ist die unbegrenzte Ausgangsspannung stetig verteilt und mit $10\,\%$ Wahrscheinlichkeit größer als $5\,\mathrm V$, so hat die tatsächliche Ausgangsspannung unterhalb von $5\,\mathrm V$ eine Dichte, aber der einzelne Wert $5\,\mathrm V$ hat die Wahrscheinlichkeit $0{,}1$. Ihre Verteilungsfunktion steigt erst stetig an und springt bei $5\,\mathrm V$ um $0{,}1$ auf $1$. Eine solche Verteilung hat weder eine Wahrscheinlichkeitsfunktion noch eine Dichte, wohl aber eine Verteilungsfunktion. Deshalb ist die Verteilungsfunktion die allgemeinste Beschreibung einer Verteilung.
+Die Regenmenge eines Tages ist an manchen Tagen genau $0$, weil es gar nicht regnet; an den anderen ist sie eine stetig verteilte positive Zahl. Regnet es an einem Ort an $60\,\%$ der Tage nicht, so hat der einzelne Wert $0\,\mathrm{mm}$ die Wahrscheinlichkeit $0{,}6$, aber oberhalb von $0\,\mathrm{mm}$ hat die Regenmenge eine Dichte. Ihre Verteilungsfunktion springt bei $0\,\mathrm{mm}$ von $0$ auf $0{,}6$ und steigt danach stetig auf $1$. Eine solche Verteilung hat weder eine Wahrscheinlichkeitsfunktion noch eine Dichte, wohl aber eine Verteilungsfunktion. Deshalb ist die Verteilungsfunktion die allgemeinste Beschreibung einer Verteilung.
 :::
 
 :::aufgabe Aufgabe 15 ★ Die Augensumme
@@ -220,27 +221,27 @@ Gib die Verteilungsfunktion an und prüfe $F'=p$. Wo ist die Dichte größer als
 :::aufgabe Aufgabe 17 ★★ Dichte und Einheit
 <span class="anker" id="aufg-17"></span>
 
-Das Rauschen eines Messgeräts sei gleichmäßig verteilt auf $[-0{,}5\,\mathrm{mV};\ 0{,}5\,\mathrm{mV}]$.
+Der Fehler einer Küchenwaage sei gleichmäßig verteilt auf $[-0{,}5\,\mathrm g;\ 0{,}5\,\mathrm g]$.
 
 <ol class="al">
 
 <li>
 
-Gib die Dichte in $1/\mathrm{mV}$ und in $1/\mathrm V$ an.
+Gib die Dichte in $1/\mathrm g$ und in $1/\mathrm{kg}$ an.
 
 </li>
 
 <li>
 
-Berechne mit beiden Angaben die Wahrscheinlichkeit, dass das Rauschen zwischen $0{,}1\,\mathrm{mV}$ und $0{,}3\,\mathrm{mV}$ liegt.
+Berechne mit beiden Angaben die Wahrscheinlichkeit, dass der Fehler zwischen $0{,}1\,\mathrm g$ und $0{,}3\,\mathrm g$ liegt.
 
 </li>
 
 </ol>
 
 :::loesung
-(a) Das Intervall ist $1\,\mathrm{mV}$ lang, also ist die Dichte $1\,\mathrm{mV}^{-1}$. In Volt ist das Intervall $0{,}001\,\mathrm V$ lang, und die Dichte ist $1\,000\,\mathrm V^{-1}$.
+(a) Das Intervall ist $1\,\mathrm g$ lang, also ist die Dichte $1\,\mathrm g^{-1}$. In Kilogramm ist das Intervall $0{,}001\,\mathrm{kg}$ lang, und die Dichte ist $1\,000\,\mathrm{kg}^{-1}$.
 
-(b) Mit Millivolt: $0{,}2\,\mathrm{mV}\cdot1\,\mathrm{mV}^{-1}=0{,}2$. Mit Volt: $0{,}0002\,\mathrm V\cdot1\,000\,\mathrm V^{-1}=0{,}2$. Die Höhe der Dichte hängt von der Einheit ab, die Wahrscheinlichkeit nicht.
+(b) Mit Gramm: $0{,}2\,\mathrm g\cdot1\,\mathrm g^{-1}=0{,}2$. Mit Kilogramm: $0{,}0002\,\mathrm{kg}\cdot1\,000\,\mathrm{kg}^{-1}=0{,}2$. Die Höhe der Dichte hängt von der Einheit ab, die Wahrscheinlichkeit nicht.
 :::
 :::

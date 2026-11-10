@@ -4,6 +4,7 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>EtUndSo — Erklärungen & Tools für Elektrotechnik</title>
+  <link rel="icon" href="/favicon.ico" sizes="32x32"/><link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
   <meta name="description" content="EtUndSo: verständliche, animierte Erklärungen und Werkzeuge zu Elektrotechnik- und Mathematik-Modulen — und so. Mit dem Browser-Editor zum selbst Nachbauen."/>
   <style>
     /* Vorlage „Kopfleiste“ wie im Wissensbereich: dunkelgrüne Leiste, Primär = Grün, Marke und Überschriften = Lila, Akzent = Orange.
@@ -13,7 +14,7 @@
       --bg:#ffffff; --panel:#ffffff; --ink:#16191a; --muted:#59605b; --border:#e6e8e6; --soft:#f6f7f6;
       --accent:#15633a; --accent2:#1b7f4a; --accent3:#c2410c; --green:#15633a; --on-accent:#ffffff;
       --bar:#123d29; --bar-ink:#eaf3ec; --bar-rand:#1f5a3d; --bar-hl:#ff9650;
-      --logo-et:#6ad19b; --logo-so:#ff4d4d;   /* Logo: „Et“ grün, „So“ rot (Wunsch des Users 09.11.2026) */
+      --logo-et:#ff9650; --logo-so:#ff4d4d;   /* Logo: „Et“ orange wie „Editor öffnen“, „So“ rot (Wunsch des Users 09.11.2026) */
       --font-display:"Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
       --font-body:system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
     }
@@ -36,11 +37,14 @@
     nav a.lnk{color:var(--bar-ink);font-weight:600;font-size:15px;}
     nav a.lnk:hover{color:var(--bar-hl);}
     nav a.navcta{background:var(--bar-hl);color:#2a1205;padding:8px 15px;border-radius:9px;font-weight:700;font-size:14px;}
+    /* Schmale Handys: Leiste passt sonst nicht (375 px liefen 18 px über) – „Videos“ (kommt erst) entfällt dort. */
+    @media (max-width:480px){ header.site{padding:12px 16px;gap:10px;} nav{gap:14px;} nav a.lnk[href="#videos"]{display:none;}
+      nav a.navcta{padding:7px 12px;font-size:13.5px;} }
 
     main{max-width:1040px;margin:0 auto;padding:16px 24px 72px;}
     .eyebrow{display:inline-block;font-size:12px;font-weight:700;color:var(--accent2);text-transform:uppercase;letter-spacing:.06em;}
 
-    .hero{display:grid;grid-template-columns:1.25fr .9fr;gap:36px;align-items:center;padding:52px 0 20px;}
+    .hero{display:grid;grid-template-columns:1.2fr 1fr;gap:36px;align-items:center;padding:52px 0 20px;}
     @media (max-width:760px){ .hero{grid-template-columns:1fr;gap:24px;padding-top:36px;} }
     .hero h1{font-family:var(--font-display);font-size:clamp(30px,5.2vw,50px);line-height:1.05;margin:12px 0 16px;letter-spacing:-0.025em;text-wrap:balance;}
     .hero h1 .u{background:linear-gradient(transparent 62%, color-mix(in srgb, var(--accent3) 55%, transparent) 62%);}
@@ -49,9 +53,21 @@
     .btn{display:inline-block;padding:13px 22px;border-radius:12px;font-weight:700;background:var(--accent);color:var(--on-accent);border:1.5px solid var(--accent);}
     .btn:hover{filter:brightness(1.06);}
     .btn.alt{background:transparent;color:var(--accent);}
-    .hero-art{background:var(--panel);border:1px solid var(--border);border-radius:18px;padding:18px;box-shadow:0 10px 30px rgba(16,22,31,.06);}
-    .hero-art svg{display:block;width:100%;height:auto;}
-    .hero-art .cap{margin-top:10px;font-size:12.5px;color:var(--muted);text-align:center;}
+    /* Hero: drei Editor-Abbildungen als übereinandergelegte Fotos. Die SVGs haben weißen Grund, daher ein weißer
+       Fotorand in beiden Modi; hell trennt ein feiner Rand vom weißen Seitengrund, dunkel trägt der Schatten. */
+    .photos{position:relative;aspect-ratio:1.12;max-width:500px;margin:0 auto;}
+    .photo{position:absolute;display:block;padding:7px;background:#fff;border:1px solid var(--border);border-radius:12px;
+           box-shadow:0 12px 28px rgba(16,22,31,.14),0 2px 6px rgba(16,22,31,.08);transition:transform .25s ease,box-shadow .25s ease;}
+    .photo img{display:block;width:100%;height:auto;border-radius:6px;}
+    .photo.p1{left:3%;top:2%;width:54%;transform:rotate(-7deg);z-index:1;}
+    .photo.p2{right:3%;top:10%;width:58%;transform:rotate(6deg);z-index:2;}
+    .photo.p3{left:20%;bottom:2%;width:70%;transform:rotate(-1.5deg);z-index:3;}
+    .photo:hover,.photo:focus-visible{z-index:5;transform:rotate(0) scale(1.04);box-shadow:0 18px 40px rgba(16,22,31,.22),0 3px 8px rgba(16,22,31,.10);}
+    .photo:focus-visible{outline:3px solid var(--accent);outline-offset:3px;}
+    :root[data-theme="dark"] .photo{border-color:transparent;box-shadow:0 14px 32px rgba(0,0,0,.55),0 2px 6px rgba(0,0,0,.4);}
+    :root[data-theme="dark"] .photo:hover,:root[data-theme="dark"] .photo:focus-visible{box-shadow:0 20px 44px rgba(0,0,0,.65),0 3px 8px rgba(0,0,0,.45);}
+    @media (prefers-reduced-motion:reduce){ .photo{transition:none;} }
+    .hero p.hero-cap{margin:14px auto 0;max-width:none;font-size:12.5px;text-align:center;}
 
     section{scroll-margin-top:72px;}
     .sec-head{margin:56px 0 18px;}
@@ -105,7 +121,11 @@
     .feat-list li::before{content:"";position:absolute;left:0;top:7px;width:12px;height:12px;border-radius:3px;background:var(--accent);}
     .feat-list li:nth-child(2)::before{background:var(--accent2);} .feat-list li:nth-child(3)::before{background:var(--accent3);}
     .feature .art{flex:1 1 280px;min-width:0;}
-    .feature .art svg{display:block;width:100%;height:auto;border:1px solid var(--border);border-radius:14px;background:var(--soft);}
+    .feature .art figure{margin:0;}
+    .feature .art video{display:block;width:100%;height:auto;aspect-ratio:16/9;border:1px solid var(--border);border-radius:14px;background:#fff;}
+    :root[data-theme="dark"] .feature .art video{border-color:transparent;box-shadow:0 10px 26px rgba(0,0,0,.45);}
+    .feature .art figcaption{margin-top:10px;font-size:12.5px;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 12px;justify-content:space-between;}
+    .feature .art figcaption a{font-weight:700;white-space:nowrap;}
 
     .how{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;}
     .step{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:20px;}
@@ -141,7 +161,7 @@
     <section class="hero">
       <div>
         <span class="eyebrow">Elektrotechnik — und so</span>
-        <h1>Elektrotechnik, <span class="u">verständlich</span> erklärt und animiert.</h1>
+        <h1>Elektrotechnik und So, <span class="u">ausführlich</span> erklärt und animiert.</h1>
         <p>EtUndSo bündelt Schritt-für-Schritt-Erklärungen, Animationen und Werkzeuge zu Elektrotechnik-
            und Mathematik-Modulen — und nebenbei ein paar andere Fächer. Was du siehst, kannst du im
            <strong>Editor</strong> direkt selbst nachbauen.</p>
@@ -151,16 +171,19 @@
         </div>
       </div>
       <div class="hero-art">
-        <!-- Fachgrafik: gedämpfte Schwingung y = e^(−x/6)·cos(x) auf Achsen -->
-        <svg viewBox="0 0 320 180" role="img" aria-label="Graph einer gedämpften Schwingung auf Koordinatenachsen">
-          <line x1="16" y1="90" x2="304" y2="90" style="stroke:var(--border)" stroke-width="2"/>
-          <line x1="40" y1="16" x2="40" y2="164" style="stroke:var(--border)" stroke-width="2"/>
-          <path id="env" d="" fill="none" style="stroke:var(--accent3)" stroke-width="2" stroke-dasharray="4 5" opacity=".8"/>
-          <path id="env2" d="" fill="none" style="stroke:var(--accent3)" stroke-width="2" stroke-dasharray="4 5" opacity=".8"/>
-          <path id="wave" d="" fill="none" style="stroke:var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle id="dot" r="4.5" style="fill:var(--accent2)"/>
-        </svg>
-        <div class="cap">Gebaut im Editor — Funktion, Hüllkurve, Marker.</div>
+        <!-- Drei Abbildungen aus den Artikeln (SVG-Export des Editors, web/abbildungen/de); jede öffnet ihre Szene. -->
+        <div class="photos">
+          <a class="photo p1" href="editor.html?scene=szenen/et1/k1feldlinien.json" title="Feldlinien – im Editor öffnen">
+            <img src="abbildungen/de/et1/k1feldlinien.svg" width="488" height="423" decoding="async"
+                 alt="Feldlinienbilder: ungleichnamige und gleichnamige Ladungen, Plattenpaar, Metallrohr zwischen Platten"/></a>
+          <a class="photo p2" href="editor.html?scene=szenen/beispiel/skalarprodukt.json" title="Skalarprodukt – im Editor öffnen">
+            <img src="abbildungen/de/beispiel/skalarprodukt.svg" width="381" height="192" decoding="async"
+                 alt="Skalarprodukt zweier Vektoren, Schritt für Schritt ausgerechnet: 360 + 30 + (−100) = 290"/></a>
+          <a class="photo p3" href="editor.html?scene=szenen/et1/k10flaeche.json" title="3D-Fläche – im Editor öffnen">
+            <img src="abbildungen/de/et1/k10flaeche.svg" width="432" height="295" decoding="async"
+                 alt="3D-Fläche: Kollektorstrom I_C eines Transistors über U_BE und U_CE"/></a>
+        </div>
+        <p class="hero-cap">Drei Abbildungen aus den Artikeln, gebaut im Editor. Ein Klick öffnet sie dort.</p>
       </div>
     </section>
 
@@ -199,10 +222,18 @@
           <a class="btn" href="editor.html">Editor öffnen →</a>
         </div>
         <div class="art">
-          <!-- angedeutete 3D-Fläche z = f(x,y) als Gitter -->
-          <svg viewBox="0 0 320 200" role="img" aria-label="Angedeutete 3D-Funktionsfläche als Gitternetz">
-            <g id="mesh" fill="none" style="stroke:var(--accent)" stroke-width="1.4" opacity=".9"></g>
-          </svg>
+          <!-- Szene web/szenen/startseite/fourier.json (tools/szenen/startseite.py), aufgenommen mit dem Video-Export
+               des Editors (tools/startseite_video.py). Nahtlose Schleife: letztes Bild = erstes Bild. -->
+          <figure>
+            <video id="editor-video" autoplay muted loop playsinline preload="auto" width="1920" height="1080"
+                   poster="startseite/fourier_poster.jpg"
+                   aria-label="Animation: Die Fourier-Reihe baut eine Rechteckschwingung Glied für Glied auf, mit Harmonischen und Amplitudenspektrum">
+              <source src="startseite/fourier.mp4" type="video/mp4"/>
+              <source src="startseite/fourier.webm" type="video/webm"/>
+            </video>
+            <figcaption><span>Fourier-Reihe einer Rechteckschwingung, Glied für Glied</span>
+              <a href="editor.html?scene=szenen/startseite/fourier.json">Im Editor öffnen →</a></figcaption>
+          </figure>
         </div>
       </div>
     </section>
@@ -246,36 +277,27 @@
   </footer>
 
   <script>
-  // Hero-Fachgrafik: gedämpfte Schwingung + Hüllkurve, rein zeichnerisch (kein Framework).
+  // Editor-Video: bei „Bewegung reduzieren“ nur das Poster (mit Bedienleiste, falls man es doch ansehen will);
+  // sonst läuft es nur, solange es zu sehen ist (spart Rechenzeit und Akku).
   (function(){
-    var W=320,H=180, x0=40, y0=90, xs=24, A=56, k=1/60, w=0.13;
-    function fx(px){ return x0 + px; }                       // pixel x along the axis
-    function fy(px){ return y0 - A*Math.exp(-k*px)*Math.cos(w*px); }
-    var wave="", env="", env2="";
-    for(var px=0;px<=256;px+=1){                              // 1-px-Abtastung -> glatte Kurve (vorher 4 -> kantig)
-      var cmd=(px===0?"M":"L");
-      wave += cmd+fx(px).toFixed(1)+" "+fy(px).toFixed(1)+" ";
-      env  += cmd+fx(px).toFixed(1)+" "+(y0-A*Math.exp(-k*px)).toFixed(1)+" ";
-      env2 += cmd+fx(px).toFixed(1)+" "+(y0+A*Math.exp(-k*px)).toFixed(1)+" ";
+    var v=document.getElementById("editor-video"); if(!v) return;
+    var still=window.matchMedia ? window.matchMedia("(prefers-reduced-motion: reduce)") : null;
+    var sichtbar=true;
+    function lauf(){
+      if(still && still.matches){
+        var lief=!v.paused || v.currentTime>0;
+        v.removeAttribute("autoplay"); v.autoplay=false; v.pause(); v.controls=true;
+        if(lief) v.load();                                   // zurück auf das Poster
+        return;
+      }
+      v.controls=false;
+      if(sichtbar){ var p=v.play(); if(p && p.catch) p.catch(function(){}); } else v.pause();
     }
-    var set=function(id,d){ var e=document.getElementById(id); if(e) e.setAttribute("d",d); };
-    set("wave",wave); set("env",env); set("env2",env2);
-    var dot=document.getElementById("dot"); if(dot){ dot.setAttribute("cx",fx(0)); dot.setAttribute("cy",fy(0)); }
-  })();
-  // Editor-Fachgrafik: isometrisches Gitternetz einer Fläche z=f(x,y).
-  (function(){
-    var g=document.getElementById("mesh"); if(!g) return;
-    var N=9, cx=160, cy=112, sx=15, sy=7.5, zc=46;
-    function P(i,j){
-      var fxy=Math.cos(i*0.6)*Math.sin(j*0.6);               // a gentle surface
-      var X=cx+(i-j)*sx, Y=cy+(i+j)*sy - fxy*zc;
-      return X.toFixed(1)+" "+Y.toFixed(1);
+    if(still){ if(still.addEventListener) still.addEventListener("change",lauf); else if(still.addListener) still.addListener(lauf); }
+    if("IntersectionObserver" in window){
+      new IntersectionObserver(function(es){ sichtbar=es[0].isIntersecting; if(!(still && still.matches)) lauf(); }).observe(v);
     }
-    var d="";
-    for(var i=0;i<N;i++){ d+="M"+P(i,0); for(var j=1;j<N;j++) d+="L"+P(i,j); }   // rows
-    for(var j2=0;j2<N;j2++){ d+="M"+P(0,j2); for(var i2=1;i2<N;i2++) d+="L"+P(i2,j2); } // cols
-    var path=document.createElementNS("http://www.w3.org/2000/svg","path");
-    path.setAttribute("d",d); g.appendChild(path);
+    lauf();
   })();
   </script>
   <script>

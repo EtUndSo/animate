@@ -1,6 +1,8 @@
 ---
 title: Stufe 8: Ergänzung: Das Metall als Potentialtopf
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Zustandsdichte und Fermi-Verteilung
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Zustandsdichte und Fermi-Verteilung
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/zustandsdichte-und-fermi-verteilung
+knoten: Kapitel 10: Zustandsdichte und Fermi-Verteilung
 order: 4201000
 summary: Im Metall liegt E mathrm F mitten im Band, die Boltzmann-Näherung versagt also.
 tags: quasi-freien, Potentialtopf, Einelektronennäherung, Fermi-Kugel, Fermi-Temperatur, Fermi-Geschwindigkeit, spezifische Wärme
@@ -42,7 +44,7 @@ Auflösen ergibt [(8.1)](#gl-8-1). **Kontrolle:** Die Kugel mit Radius $k_\mathr
 Kupfer: $E_\mathrm{F0}=7{,}03$ eV, rund 270-mal $k_\mathrm BT$. $k_\mathrm F=13{,}6\,\mathrm{nm^{-1}}$, $T_\mathrm F=8{,}2\cdot10^4$ K, das 60-Fache der Schmelztemperatur, und $v_\mathrm F=1{,}57\cdot10^6$ m/s, rund 13-mal so viel wie die klassische Geschwindigkeit $\sqrt{3k_\mathrm BT/m_0}$ bei 300 K. Mehr Elektronen je Volumen heben $E_\mathrm{F0}$.
 ::::
 
-**Endliche Temperatur.** Ein Metall erwärmt seine Elektronen über Stöße mit dem Gitter, bei denen Phononen ([Teil 9](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/bandstrukturen-lesen/bandstrukturen-lesen.html)) entstehen oder verschwinden. Aufnehmen können nur solche, die einen freien Platz in Reichweite finden, also die aus der Aufweichzone. Da $k_\mathrm BT\ll E_\mathrm F$ ist, ändert sich die Verteilung kaum, und der Anteil der angeregten Elektronen ist klein:
+**Endliche Temperatur.** Ein Metall erwärmt seine Elektronen über Stöße mit dem Gitter, bei denen Phononen ([Kapitel 9](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/bandstrukturen-lesen/bandstrukturen-lesen.html)) entstehen oder verschwinden. Aufnehmen können nur solche, die einen freien Platz in Reichweite finden, also die aus der Aufweichzone. Da $k_\mathrm BT\ll E_\mathrm F$ ist, ändert sich die Verteilung kaum, und der Anteil der angeregten Elektronen ist klein:
 
 <span class="anker" id="gl-8-2"></span>
 $$\frac{n_\mathrm{th}}n\approx\frac{4k_\mathrm BT}{E_\mathrm F},\qquad E_\mathrm F\approx E_\mathrm{F0}\Bigl(1-\frac{\pi^2}{12}\Bigl(\frac{k_\mathrm BT}{E_\mathrm{F0}}\Bigr)^2\Bigr). \tag{8.2}$$
@@ -63,7 +65,7 @@ Nein. Temperatur misst nach [(5.1)](die-fermi-verteilung.html#gl-5-1) nicht die 
 :::aufgabe Aufgabe 10 ★★ Aluminium
 <span class="anker" id="aufg-10"></span>
 
-Aluminium ist FCC mit $a=0{,}4050$ nm ([Teil 6](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/kristallgitter/kristallgitter.html)) und gibt drei Elektronen je Atom frei.
+Aluminium ist FCC mit $a=0{,}4050$ nm ([Kapitel 6](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/kristallgitter/kristallgitter.html)) und gibt drei Elektronen je Atom frei.
 
 <ol class="al">
 

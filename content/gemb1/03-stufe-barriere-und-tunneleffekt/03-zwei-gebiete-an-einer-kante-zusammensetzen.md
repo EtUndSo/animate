@@ -1,6 +1,8 @@
 ---
 title: Stufe 1: Zwei Gebiete an einer Kante zusammensetzen
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Stufe, Barriere und Tunneleffekt
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Stufe, Barriere und Tunneleffekt
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/stufe-barriere-und-tunneleffekt
+knoten: Kapitel 3: Stufe, Barriere und Tunneleffekt
 order: 4130300
 summary: Bisher war das Potential konstant oder die Wand unendlich hoch.
 tags: Stetigkeitsbedingung, Reflexionsamplitude, Transmissionsamplitude
@@ -70,7 +72,7 @@ Für $E=3$ eV und $V_0=2$ eV liefert [(0.3)](von-grund-auf-wellen-bei-konsta
 
 ⁠**Grenzfälle:** Für $V_0\to0$ ist $k_\mathrm{II}=k_\mathrm I$, also $B=0$ und $C=A$: Ohne Stufe wird nichts reflektiert. Für $E\to V_0$ geht $k_\mathrm{II}\to0$ und $B\to A$.
 
-:::frage In der Box aus Teil 2 hatte $\psi$ an der Wand einen Knick. Warum ist das hier verboten?
+:::frage In der Box aus Kapitel 2 hatte $\psi$ an der Wand einen Knick. Warum ist das hier verboten?
 Die Herleitung setzt ein endliches $V$ voraus. An einer unendlich hohen Wand ist das Integral nicht klein, $\psi'$ darf dort springen. An jeder endlichen Stufe bleibt die Kurve glatt. Ihre Krümmung $\psi''$ darf springen, ihre Steigung nicht.
 :::
 

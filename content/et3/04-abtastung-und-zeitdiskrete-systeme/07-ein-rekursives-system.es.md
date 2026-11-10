@@ -1,6 +1,8 @@
 ---
 title: Etapa 6: Un sistema recursivo
-pfad: Ingeniería eléctrica / 3.er semestre / Señales y sistemas / Muestreo y sistemas en tiempo discreto
+pfad: Ingeniería eléctrica / 3.er semestre / ET3 – Fundamentos de ingeniería eléctrica 3: señales y sistemas / Muestreo y sistemas en tiempo discreto
+adresse: elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme
+knoten: Capítulo 4: Muestreo y sistemas en tiempo discreto
 order: 3240700
 summary: En el sistema IIR más sencillo se ve cómo la realimentación genera una respuesta al impulso infinitamente larga y cuándo es estable el sistema.
 tags: causal, estable
@@ -18,14 +20,14 @@ El sistema $g(n)=s(n)+b\,g(n-1)$ suma a la entrada la última salida ponderada c
 <span class="anker" id="gl-6-1"></span>
 $$h(n)=\delta(n)+b\,h(n-1)\quad\Longrightarrow\quad h(0)=1,\ h(1)=b,\ h(2)=b^2,\dots\quad\Longrightarrow\quad h(n)=\varepsilon(n)\,b^n. \tag{6.1}$$
 
-El impulso recorre una y otra vez el lazo de realimentación y en cada vuelta se multiplica por $b$. El sistema es __causal__ ($h(n)=0$ para $n<0$). Es __estable__ si $\sum_n|h(n)|<\infty$ (el equivalente discreto de la [parte 1](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html)), es decir, aquí exactamente para $|b|<1$, con $\sum_n|b|^n=\frac{1}{1-|b|}$.
+El impulso recorre una y otra vez el lazo de realimentación y en cada vuelta se multiplica por $b$. El sistema es __causal__ ($h(n)=0$ para $n<0$). Es __estable__ si $\sum_n|h(n)|<\infty$ (el equivalente discreto del [capítulo 1](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html)), es decir, aquí exactamente para $|b|<1$, con $\sum_n|b|^n=\frac{1}{1-|b|}$.
 
 **Respuesta a una secuencia rectangular.** Entrada $s(n)=\varepsilon(n)-\varepsilon(n-M)$ ($M$ unos). Con la suma de convolución y la fórmula de la suma geométrica $\sum_{k=0}^nq^k=\frac{1-q^{n+1}}{1-q}$:
 
 <span class="anker" id="gl-6-2"></span>
 $$g(n)=\begin{cases}0&n<0,\\[2pt]\displaystyle\sum_{m=0}^{n}b^{n-m}=\frac{1-b^{n+1}}{1-b}&0\le n<M,\\[8pt]\displaystyle\sum_{m=0}^{M-1}b^{n-m}=\frac{b^{n-M+1}-b^{n+1}}{1-b}&n\ge M.\end{cases} \tag{6.2}$$
 
-En el modelo de referencia ($b=0{,}6$, $M=4$): $g=1;\ 1{,}6;\ 1{,}96;\ 2{,}176$, luego $1{,}306;\ 0{,}783;\ 0{,}470;\dots$, cada valor 0,6 veces el anterior (fig. [5](#abb-5)). Es el equivalente discreto de la respuesta del circuito RC al pulso rectangular de la [parte 1](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html).
+En el modelo de referencia ($b=0{,}6$, $M=4$): $g=1;\ 1{,}6;\ 1{,}96;\ 2{,}176$, luego $1{,}306;\ 0{,}783;\ 0{,}470;\dots$, cada valor 0,6 veces el anterior (fig. [5](#abb-5)). Es el equivalente discreto de la respuesta del circuito RC al pulso rectangular del [capítulo 1](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html).
 
 :::abbildung et3/k4rek 5
 El sistema recursivo con $b=0{,}6$. A la izquierda, la respuesta al impulso. A la derecha, la respuesta a cuatro unos: crece hasta 2,176 y después decae con el factor 0,6 por periodo de muestreo.

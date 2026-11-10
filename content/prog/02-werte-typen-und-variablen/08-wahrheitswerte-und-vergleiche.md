@@ -1,9 +1,10 @@
 ---
 title: Wahrheitswerte und Vergleiche
 pfad: Informatik / Programmieren / Python / Werte, Typen und Variablen
-knoten: Python 2: Werte, Typen und Variablen
+adresse: informatik/programmieren/python/werte-typen-und-variablen
+knoten: Kapitel 2: Werte, Typen und Variablen
 order: 6030800
-summary: Ob ein Messwert eine Grenze überschreitet und ob zwei Ergebnisse übereinstimmen, sind Fragen mit der Antwort ja oder nein.
+summary: Ob eine Temperatur eine Grenze überschreitet und ob zwei Ergebnisse übereinstimmen, sind Fragen mit der Antwort ja oder nein.
 tags: Vergleichsoperatoren, gleich bis auf die relative Toleranz
 lang: de
 ---
@@ -11,14 +12,14 @@ lang: de
 <span class="anker" id="stufe-7"></span>
 
 :::zweck
-Ob ein Messwert eine Grenze überschreitet und ob zwei Ergebnisse übereinstimmen, sind Fragen mit der Antwort ja oder nein. Dieser Abschnitt führt den Typ dafür ein, zeigt, wie man Zahlen vergleicht, warum man Gleitkommazahlen dabei nicht auf Gleichheit prüfen sollte, und was der Wert `None` bedeutet.
+Ob eine Temperatur eine Grenze überschreitet und ob zwei Ergebnisse übereinstimmen, sind Fragen mit der Antwort ja oder nein. Dieser Abschnitt führt den Typ dafür ein, zeigt, wie man Zahlen vergleicht, warum man Gleitkommazahlen dabei nicht auf Gleichheit prüfen sollte, und was der Wert `None` bedeutet.
 :::
 
 ### Der Typ `bool`
 
 <span class="anker" id="stufe-7-1"></span>
 
-„Ist die Spannung größer als 5 V?“ Die Antwort ist kein Zahlenwert, sondern ja oder nein. Python braucht Werte, die genau das ausdrücken.
+„Ist es draußen wärmer als $30\,{}^\circ\mathrm C$?“ Die Antwort ist kein Zahlenwert, sondern ja oder nein. Python braucht Werte, die genau das ausdrücken.
 
 **Ein Schalter mit zwei Stellungen.** Wie ein einzelnes Bit kennt ein Wahrheitswert nur zwei Zustände: wahr und falsch.
 
@@ -81,8 +82,8 @@ False
 True
 >>> "2" == 2
 False
->>> spannung = 5.3
->>> spannung > 5
+>>> temperatur = 31.5
+>>> temperatur > 30
 True
 ```
 ::::
@@ -129,7 +130,7 @@ Ob `==` bei Gleitkommazahlen `True` oder `False` liefert, hängt also vom Zufall
 
 Wenn `==` nicht taugt, wie prüft man dann, ob ein Ergebnis stimmt? Man fragt nicht „gleich?“, sondern „nah genug?“.
 
-**Wie bei Bauteiltoleranzen.** Ein Widerstand mit $4{,}7\,\mathrm{k\Omega}$ und 5 % Toleranz gilt als in Ordnung, wenn er um höchstens 5 % vom Nennwert abweicht. Die erlaubte Abweichung ist ein *Anteil* des Werts, keine feste Zahl von Ohm. Genauso vergleicht man Gleitkommazahlen.
+**Wie beim Abwiegen in der Küche.** Verlangt ein Rezept $500\,\mathrm g$ Mehl, sind $510\,\mathrm g$ kein Problem. Verlangt es $5\,\mathrm g$ Salz, wären $10\,\mathrm g$ mehr, also $15\,\mathrm g$, viel zu viel. Was als „genau genug“ gilt, ist ein *Anteil* des Werts, etwa 2 %, keine feste Zahl von Gramm. Genauso vergleicht man Gleitkommazahlen.
 
 :::definition Definition 7.4 (Vergleich mit relativer Toleranz)
 <span class="anker" id="satz-7-4"></span>
@@ -158,16 +159,16 @@ True
 
 $$|a-b|\le\max\bigl(r\cdot\max(|a|,|b|),\ t_{\mathrm{abs}}\bigr).$$
 
-Welcher Wert für $t_{\mathrm{abs}}$ passt, hängt von der Größe ab: Bei Spannungen in Volt vielleicht $10^{-9}$, bei Kapazitäten in Farad sicher viel weniger.
+Welcher Wert für $t_{\mathrm{abs}}$ passt, hängt von der Größe und ihrer Einheit ab: Bei Geldbeträgen in Euro ist $10^{-9}$ weit weniger als ein Cent; bei Entfernungen in Lichtjahren wären $10^{-9}$ schon fast $9500\,\mathrm{km}$, dort braucht man viel weniger.
 
 ⁠**Kurz gesagt:** Gleitkommazahlen vergleicht man mit relativer Toleranz, $|a-b|\le r\max(|a|,|b|)$; in der Nähe von 0 braucht man zusätzlich eine absolute Toleranz.
 
-:::hintergrund Dieselbe Prüfung in jedem Schaltungssimulator
-Ein Schaltungssimulator wie SPICE berechnet die Spannungen einer Schaltung mit nichtlinearen Bauteilen schrittweise: Er verbessert eine Schätzung so lange, bis sie sich nicht mehr nennenswert ändert. Ob sie das noch tut, prüft er mit genau dieser Art von Vergleich. Der freie Simulator ngspice verlangt zum Beispiel für jede Knotenspannung:
+:::hintergrund Dieselbe Prüfung beendet Rechenrezepte
+Das Heron-Rezept aus [Kapitel 1, Abschnitt 1.1](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/programme-und-programmiersprachen.html#stufe-1-1) verbessert eine Schätzung $g$ für $\sqrt a$ mit jedem Durchgang: Aus $g$ wird $\frac12\bigl(g+\frac ag\bigr)$. Ein Programm, das solche Durchgänge selbst wiederholt, muss entscheiden, wann es aufhört. Die übliche Regel: wenn sich die Schätzung nicht mehr nennenswert ändert. Ob sie das noch tut, prüft es mit genau dieser Art von Vergleich zwischen der alten Schätzung $g_{\mathrm{alt}}$ und der neuen $g_{\mathrm{neu}}$:
 
-$$|v_{k+1}-v_k|\le\mathrm{RELTOL}\cdot\max(|v_{k+1}|,|v_k|)+\mathrm{VNTOL},$$
+$$|g_{\mathrm{neu}}-g_{\mathrm{alt}}|\le\max\bigl(r\cdot\max(|g_{\mathrm{neu}}|,|g_{\mathrm{alt}}|),\ t_{\mathrm{abs}}\bigr).$$
 
-mit den Voreinstellungen $\mathrm{RELTOL}=10^{-3}$ und $\mathrm{VNTOL}=1\,\mu\mathrm V$. Die absolute Toleranz VNTOL gibt es aus demselben Grund wie oben: Liegt eine Knotenspannung nahe 0, würde ein rein relativer Vergleich eine Genauigkeit verlangen, die schon die Rundung der Gleitkommazahlen nicht mehr hergibt, und der Simulator käme nie zum Ende. Der einzige Unterschied: SPICE addiert die beiden Toleranzen, statt das Größere zu nehmen.
+Die absolute Toleranz braucht man aus demselben Grund wie oben. Für $a=0$ ist $\frac ag=0$, und jeder Durchgang halbiert nur die Schätzung. Die Änderung ist dann immer genau die Hälfte des alten Werts, und ein rein relativer Vergleich mit $r<\frac12$ ist nie erfüllt, obwohl die Schätzung schnell praktisch 0 ist. Ohne absolute Toleranz liefe das Rezept, von $g=1$ aus, 1075 Durchgänge lang, bis die Schätzung unter den kleinsten positiven `float` fällt und genau 0 wird; im nächsten Durchgang scheitert dann $\frac ag$ an der Division durch null. Manche Programme addieren die beiden Toleranzen auch, statt die größere zu nehmen; die erlaubte Abweichung ändert sich dadurch höchstens um den Faktor 2.
 :::
 
 ### Der Identitätsvergleich
@@ -245,7 +246,7 @@ None
 True
 ```
 
-Die erste Zeile schreibt `Hallo` und bindet `ergebnis` an den Wert des Aufrufs, also an `None`. Der interaktive Modus zeigt `None` nicht an; das ist der Grund, warum nach einem `print`-Aufruf keine zweite Zeile erscheint ([Programmieren, Python 1, Abschnitt 4.8](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/der-interaktive-modus.html#stufe-4-8)). Erst `print` macht `None` sichtbar.
+Die erste Zeile schreibt `Hallo` und bindet `ergebnis` an den Wert des Aufrufs, also an `None`. Der interaktive Modus zeigt `None` nicht an; das ist der Grund, warum nach einem `print`-Aufruf keine zweite Zeile erscheint ([Kapitel 1, Abschnitt 4.8](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/der-interaktive-modus.html#stufe-4-8)). Erst `print` macht `None` sichtbar.
 ::::
 
 ⁠**Kurz gesagt:** `None` bedeutet „kein Wert“; man prüft darauf mit `is None`.
@@ -281,69 +282,69 @@ False
 :::
 :::
 
-:::aufgabe Aufgabe 26 ★★ Ist der Widerstand in Ordnung?
+:::aufgabe Aufgabe 26 ★★ Ist das Brot in Ordnung?
 <span class="anker" id="aufg-26"></span>
 
-Ein Widerstand hat den Nennwert $4{,}7\,\mathrm{k\Omega}$ und 5 % Toleranz. Gemessen werden $4{,}52\,\mathrm{k\Omega}$ und $4{,}43\,\mathrm{k\Omega}$.
+Eine Bäckerei backt Brote mit dem Sollgewicht $750\,\mathrm g$ und lässt 5 % Abweichung zu. Gewogen werden zwei Brote mit $718\,\mathrm g$ und $709\,\mathrm g$.
 
 <ol class="al">
 
 <li>
 
-Prüfe beide Messwerte mit einem Ausdruck, der `True` oder `False` liefert. Die Toleranz bezieht sich auf den Nennwert.
+Prüfe beide Gewichte mit einem Ausdruck, der `True` oder `False` liefert. Die 5 % beziehen sich auf das Sollgewicht.
 
 </li>
 
 <li>
 
-Worin unterscheidet sich dein Ausdruck von der Definition in Unterabschnitt [7.4](#stufe-7-4)? Für welches Paar aus Messwert und Nennwert liefern beide Formen verschiedene Antworten? Gib ein Beispiel.
+Worin unterscheidet sich dein Ausdruck von der Definition in Unterabschnitt [7.4](#stufe-7-4)? Für welches Paar aus gewogenem Gewicht und Sollgewicht liefern beide Formen verschiedene Antworten? Gib ein Beispiel.
 
 </li>
 
 </ol>
 
 :::loesung
-(a) Erlaubt sind $5\,\%$ von $4700\,\Omega$, also $235\,\Omega$:
+(a) Erlaubt sind $5\,\%$ von $750\,\mathrm g$, also $37{,}5\,\mathrm g$:
 
 ```console
->>> nenn = 4700
->>> abs(4520 - nenn) <= 0.05 * nenn
+>>> soll = 750
+>>> abs(718 - soll) <= 0.05 * soll
 True
->>> abs(4430 - nenn) <= 0.05 * nenn
+>>> abs(709 - soll) <= 0.05 * soll
 False
 ```
 
-$4{,}52\,\mathrm{k\Omega}$ weicht um $180\,\Omega$ ab und ist in Ordnung, $4{,}43\,\mathrm{k\Omega}$ um $270\,\Omega$ und nicht.
+Das Brot mit $718\,\mathrm g$ weicht um $32\,\mathrm g$ ab und ist in Ordnung, das mit $709\,\mathrm g$ um $41\,\mathrm g$ und nicht.
 
-(b) Hier bezieht sich die Toleranz auf den Nennwert, in der Definition auf den größeren der beiden Beträge. Ist der Messwert größer als der Nennwert, ist die erlaubte Abweichung in der Definition etwas größer. Beispiel $4940\,\Omega$: Die Abweichung ist $240\,\Omega$; bezogen auf den Nennwert sind nur $235\,\Omega$ erlaubt, bezogen auf $\max(4940,4700)$ aber $247\,\Omega$:
+(b) Hier beziehen sich die 5 % auf das Sollgewicht, in der Definition auf den größeren der beiden Beträge. Ist das gewogene Gewicht größer als das Sollgewicht, ist die erlaubte Abweichung in der Definition etwas größer. Beispiel $789\,\mathrm g$: Die Abweichung ist $39\,\mathrm g$; bezogen auf das Sollgewicht sind nur $37{,}5\,\mathrm g$ erlaubt, bezogen auf $\max(789,750)$ aber $39{,}45\,\mathrm g$:
 
 ```console
->>> abs(4940 - nenn) <= 0.05 * nenn
+>>> abs(789 - soll) <= 0.05 * soll
 False
->>> abs(4940 - nenn) <= 0.05 * max(abs(4940), abs(nenn))
+>>> abs(789 - soll) <= 0.05 * max(abs(789), abs(soll))
 True
 ```
 
-Für Rundungsfehler mit $r=10^{-9}$ spielt der Unterschied keine Rolle; bei einer Bauteiltoleranz muss man sich an die Festlegung halten, dass sie sich auf den Nennwert bezieht.
+Für Rundungsfehler mit $r=10^{-9}$ spielt der Unterschied keine Rolle; bei einer Vorgabe wie der der Bäckerei muss man sich an die Festlegung halten, dass sie sich auf das Sollgewicht bezieht.
 :::
 :::
 
 :::aufgabe Aufgabe 27 ★★ Vergleiche nahe null
 <span class="anker" id="aufg-27"></span>
 
-Ein Programm prüft, ob ein berechneter Strom 0 ist. Herausgekommen ist `i = 3e-19`.
+Ein Programm rechnet Rezepte um und prüft, ob von einer Zutat nichts mehr übrig ist. Es rechnet in Kilogramm, und die kleinsten Zutaten wiegen einige Gramm, also einige $10^{-3}\,\mathrm{kg}$. Herausgekommen ist `rest = 3e-19`.
 
 <ol class="al">
 
 <li>
 
-Was liefern `i == 0` und der relative Vergleich mit $r=10^{-9}$?
+Was liefern `rest == 0` und der relative Vergleich mit $r=10^{-9}$?
 
 </li>
 
 <li>
 
-Wähle eine sinnvolle absolute Toleranz für Ströme in Ampere in einer Schaltung, in der Ströme im Milliamperebereich fließen, und prüfe mit der Formel mit beiden Toleranzen.
+Wähle eine sinnvolle absolute Toleranz für Mengen in Kilogramm, wenn die kleinsten Mengen einige Gramm wiegen, und prüfe mit der Formel mit beiden Toleranzen.
 
 </li>
 
@@ -353,19 +354,19 @@ Wähle eine sinnvolle absolute Toleranz für Ströme in Ampere in einer Schaltun
 (a)
 
 ```console
->>> i = 3e-19
->>> i == 0
+>>> rest = 3e-19
+>>> rest == 0
 False
->>> abs(i - 0) <= 1e-9 * max(abs(i), abs(0))
+>>> abs(rest - 0) <= 1e-9 * max(abs(rest), abs(0))
 False
 ```
 
 Beide sagen „nicht null“. Beim relativen Vergleich steht rechts $10^{-9}\cdot3\cdot10^{-19}$, und das ist kleiner als $3\cdot10^{-19}$: An der Null versagt der relative Vergleich immer.
 
-(b) Ströme im Milliamperebereich tragen Rundungsfehler von etwa $10^{-3}\cdot10^{-16}=10^{-19}\,\mathrm A$. Eine absolute Toleranz von $10^{-12}\,\mathrm A=1\,\mathrm{pA}$ liegt weit darüber und weit unter jedem Strom, der in der Schaltung zählt; derselbe Wert ist in SPICE als ABSTOL voreingestellt:
+(b) Mengen von einigen Gramm, also einigen $10^{-3}\,\mathrm{kg}$, tragen Rundungsfehler von etwa $10^{-3}\cdot10^{-16}=10^{-19}\,\mathrm{kg}$. Eine absolute Toleranz von $10^{-12}\,\mathrm{kg}$, einem Milliardstel Gramm, liegt weit darüber und weit unter jeder Menge, die in einer Küche zählt:
 
 ```console
->>> abs(i - 0) <= max(1e-9 * max(abs(i), abs(0)), 1e-12)
+>>> abs(rest - 0) <= max(1e-9 * max(abs(rest), abs(0)), 1e-12)
 True
 ```
 :::

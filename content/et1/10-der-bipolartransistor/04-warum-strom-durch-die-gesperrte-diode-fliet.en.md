@@ -1,6 +1,8 @@
 ---
 title: Stage 2: Why current flows through the blocking diode
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / The Bipolar Transistor
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / The Bipolar Transistor
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor
+knoten: Chapter 10: The Bipolar Transistor
 order: 1200400
 summary: The CB diode blocks, and yet milliamperes flow through it.
 tags: injection, diffusion length, transfer current, active region
@@ -43,7 +45,7 @@ The CB diode blocks, and yet milliamperes flow through it. This stage follows th
 
 </ol>
 
-The electrons run from the emitter to the collector. The conventional current $I_\mathrm{C}$ is counted the opposite way, from the collector to the emitter ([Part 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)).
+The electrons run from the emitter to the collector. The conventional current $I_\mathrm{C}$ is counted the opposite way, from the collector to the emitter ([Chapter 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)).
 
 :::abbildung et1/k10basis 2
 Top: path of the electrons at the operating point. The emitter current of 2.01 mA divides into 2 mA to the collector and 10 µ A to the base. Bottom: energy of an electron over position, schematic. $U_\mathrm{BE}$ lowers the small step at the emitter, $U_\mathrm{CB}$ deepens the steep drop to the collector.
@@ -64,7 +66,7 @@ $$I_\mathrm{C}=I_\mathrm{S}\,\mathrm{e}^{U_\mathrm{BE}/U_T},\qquad I_\mathrm{B}=
 Electrons and holes cross the same barrier. The electron density at the emitter edge of the base and the hole density at the base edge of the emitter both grow with $\mathrm{e}^{U_\mathrm{BE}/U_T}$. The collector current is proportional to the first density, as is the recombination in the base, and the hole current is proportional to the second. All parts carry the same factor, so their ratio $B=I_\mathrm{C}/I_\mathrm{B}$ does not depend on $U_\mathrm{BE}$.
 :::
 
-**Who controls?** Physically, $U_\mathrm{BE}$ controls, because only the voltage lowers the barrier. The base current is the price for it. In circuits one nevertheless often calculates with $I_\mathrm{B}$: because of $I_\mathrm{C}=B\,I_\mathrm{B}$, the transistor behaves like a current-controlled current source (CCCS, [Part 6](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html)). Both views describe the same proportionality. Control via $U_\mathrm{BE}$ explains the exponential law; the view via $I_\mathrm{B}$ is convenient when a resistor sets the base current.
+**Who controls?** Physically, $U_\mathrm{BE}$ controls, because only the voltage lowers the barrier. The base current is the price for it. In circuits one nevertheless often calculates with $I_\mathrm{B}$: because of $I_\mathrm{C}=B\,I_\mathrm{B}$, the transistor behaves like a current-controlled current source (CCCS, [Chapter 6](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html)). Both views describe the same proportionality. Control via $U_\mathrm{BE}$ explains the exponential law; the view via $I_\mathrm{B}$ is convenient when a resistor sets the base current.
 
 ::::beispiel
 $U_\mathrm{BE}=0.6$ V gives $I_\mathrm{C}=1.9\cdot10^{-13}\,\mathrm{A}\cdot\mathrm{e}^{23.08}=2.00$ mA, $I_\mathrm{B}=10$ µ A, $I_\mathrm{E}=2.01$ mA. That is $1.25\cdot10^{16}$ electrons per second in the collector, and 99.5 % of the emitter current arrives there. The exponential function is sensitive: $+18$ mV doubles the current ($U_T\ln2$), $+60$ mV multiplies it by ten ($U_T\ln10$), $+1$ mV brings $+3.9$ %.

@@ -1,6 +1,8 @@
 ---
 title: Etapa 10: Esquema en cuadratura y muestreo paso banda
-pfad: Ingeniería eléctrica / 3.er semestre / Señales y sistemas / Sistemas paso bajo y paso banda
+pfad: Ingeniería eléctrica / 3.er semestre / ET3 – Fundamentos de ingeniería eléctrica 3: señales y sistemas / Sistemas paso bajo y paso banda
+adresse: elektrotechnik/3-semester/signale-und-systeme/tiefpass-und-bandpasssysteme
+knoten: Capítulo 5: Sistemas paso bajo y paso banda
 order: 3251100
 summary: ¿Cómo se obtienen técnicamente las componentes en cuadratura?
 tags: 

@@ -1,6 +1,8 @@
 ---
 title: Stufe 7: Beweglichkeit und Leitfähigkeit
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Strom im Halbleiter
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Strom im Halbleiter
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/strom-im-halbleiter
+knoten: Kapitel 12: Strom im Halbleiter
 order: 4220900
 summary: (6.3) gilt für eine Trägersorte bei fester Streuzeit.
 tags: zweidimensionalen Elektronengas, Heterostruktur, \delta-Dotierung, Photoleitfähigkeit, Photowiderstand
@@ -36,7 +38,7 @@ Die Kurven in Abb. [7](#abb-7) rechnet ein Modell, bei Löchern mit 450 und 600
 
 $$\mu_\mathrm{ph}=1400\,\mathrm{\frac{cm^2}{V\,s}}\Bigl(\frac T{300\,\mathrm{K}}\Bigr)^{-3/2},\qquad\mu_\mathrm{ion}=8400\,\mathrm{\frac{cm^2}{V\,s}}\Bigl(\frac T{300\,\mathrm{K}}\Bigr)^{3/2}\Bigl(\frac N{10^{16}\,\mathrm{cm^{-3}}}\Bigr)^{-0{,}7}.$$
 
-Gemessene $\beta$ sind meist größer als $\frac32$, und es gibt leichte und schwere Träger ([Teil 9](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/bandstrukturen-lesen/bandstrukturen-lesen.html)). In $N_\mathrm C$, $N_\mathrm V$ und in $\mu$ stehen daher verschieden gemittelte Massen.
+Gemessene $\beta$ sind meist größer als $\frac32$, und es gibt leichte und schwere Träger ([Kapitel 9](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/bandstrukturen-lesen/bandstrukturen-lesen.html)). In $N_\mathrm C$, $N_\mathrm V$ und in $\mu$ stehen daher verschieden gemittelte Massen.
 
 | Stoff | Ge | Si | GaAs | InSb |
 |---|---|---|---|---|
@@ -52,7 +54,7 @@ Mit Elektronen und Löchern gilt
 $$\sigma=\sigma_\mathrm n+\sigma_\mathrm p=e\,(n\,\mu_\mathrm n+p\,\mu_\mathrm p). \tag{7.2}$$
 :::
 
-In den Bereichen aus [Teil 11](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/eigenhalbleiter-und-dotierung/eigenhalbleiter-und-dotierung.html) vereinfacht sich das. In II und III zählt nur die Mehrheit, die Minderheit trägt in der Probe bei 300 K nur das $3\cdot10^{-13}$-Fache bei.
+In den Bereichen aus [Kapitel 11](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/eigenhalbleiter-und-dotierung/eigenhalbleiter-und-dotierung.html) vereinfacht sich das. In II und III zählt nur die Mehrheit, die Minderheit trägt in der Probe bei 300 K nur das $3\cdot10^{-13}$-Fache bei.
 
 | Bereich | n-Typ, p-Typ | Temperaturgang |
 |---|---|---|

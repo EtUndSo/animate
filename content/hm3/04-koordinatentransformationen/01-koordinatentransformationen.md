@@ -1,7 +1,9 @@
 ---
 title: Überblick: Koordinatentransformationen
 kurz: Überblick
-pfad: Elektrotechnik / 3. Semester / Höhere Mathematik 3 / Koordinatentransformationen
+pfad: Elektrotechnik / 3. Semester / HöMa3 – Höhere Mathematik 3 / Koordinatentransformationen
+adresse: elektrotechnik/3-semester/hohere-mathematik-3/koordinatentransformationen
+knoten: Kapitel 4: Koordinatentransformationen
 order: 3140100
 summary: Was kostet es, wenn aus einem Kreis ein Rechteck wird?
 tags: Koordinatentransformation
@@ -39,5 +41,5 @@ Der Nutzen ist groß. Das Volumen eines Rotationskörpers, das Potential einer g
 
 </ul>
 
-Vorausgesetzt werden Jacobi-Matrix, Gradient, Divergenz und Rotation ([Teil 1](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/differentialrechnung-fur-vektorfelder/differentialrechnung-fuer-vektorfelder.html)), Mehrfachintegrale ([Teil 2](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/integralrechnung-im-rn/integralrechnung-im-rn.html)), Kurvenintegrale und Green in der Ebene ([Teil 3](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/kurvenintegrale/kurvenintegrale.html)). Vektoren sind fett gesetzt.
+Vorausgesetzt werden Jacobi-Matrix, Gradient, Divergenz und Rotation ([Kapitel 1](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/differentialrechnung-fur-vektorfelder/differentialrechnung-fuer-vektorfelder.html)), Mehrfachintegrale ([Kapitel 2](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/integralrechnung-im-rn/integralrechnung-im-rn.html)), Kurvenintegrale und Green in der Ebene ([Kapitel 3](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/kurvenintegrale/kurvenintegrale.html)). Vektoren sind fett gesetzt.
 :::

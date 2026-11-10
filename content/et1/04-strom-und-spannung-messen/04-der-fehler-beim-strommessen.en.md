@@ -1,6 +1,8 @@
 ---
 title: Stage 3: The error in measuring current
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / Measuring Current and Voltage
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / Measuring Current and Voltage
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-und-spannung-messen
+knoten: Chapter 4: Measuring Current and Voltage
 order: 1140400
 summary: The ammeter has to go into the circuit.
 tags: relative error

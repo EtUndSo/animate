@@ -1,7 +1,9 @@
 ---
 title: Overview: The Capacitor
 kurz: Overview
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / The Capacitor
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / The Capacitor
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator
+knoten: Chapter 3: The Capacitor
 order: 1130100
 summary: How current flows into an insulator and where the energy is afterward
 tags: capacitor, electrode, dielectric, capacitance, parallel-plate capacitor, RC circuit
@@ -23,7 +25,7 @@ Each plate is an __electrode__; the insulator between them is called the __diele
 
 <li>
 
-⁠**Pair of plates from [Part 1](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html):** square plates with 10 cm edge length (area $A=100$ cm$^2$), separation $d=3$ mm, air between them, 9 V voltage. The field is $E=3$ kV/m.
+⁠**Pair of plates from [Chapter 1](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html):** square plates with 10 cm edge length (area $A=100$ cm$^2$), separation $d=3$ mm, air between them, 9 V voltage. The field is $E=3$ kV/m.
 
 </li>
 

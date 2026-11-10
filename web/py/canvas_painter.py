@@ -2,7 +2,9 @@
 # Canvas 2D context (passed in from JavaScript via Pyodide). Cubic Béziers map 1:1 to Canvas'
 # bezierCurveTo, so there is no quality loss. Labels go through engine.richtext, so every label
 # may carry subscripts, superscripts, Greek letters and line breaks (U_{GS}, 10^{-16}, \alpha).
-from engine.richtext import parse as _parse_rich, is_plain as _is_plain, layout as _layout
+from engine.richtext import (parse as _parse_rich, is_plain as _is_plain, layout as _layout, text_lines as _text_lines,
+                             mono_line as _mono_line, MONO_CELL)
+from engine.svg_painter import MONO_FONT as _MONO_FONT   # the same typewriter fonts as the SVG export
 
 try:                                                # Pyodide: a JS method wants a real JS array
     from pyodide.ffi import to_js as _to_js
@@ -75,10 +77,30 @@ class CanvasPainter:
         except Exception:                               # stub contexts (tests): rough estimate
             return 0.55 * self._size * len(s)
 
-    def draw_text(self, text, px, py, font_size, color, opacity, align="center"):
+    def draw_text(self, text, px, py, font_size, color, opacity, align="center", font=None, raw=False):
         ctx = self.ctx
         ctx.fillStyle = _rgba(color, opacity)
         ctx.textBaseline = "middle"
+        if font == "mono" or raw:                       # typewriter cells / literal text, as SvgPainter._draw_lines
+            fs = float(font_size)
+            lines = _text_lines(text, raw)
+            n, lh = len(lines), _LINE_H * fs
+            ctx.font = f"{fs}px {_MONO_FONT}" if font == "mono" else f"{fs}px sans-serif"
+            for i, line in enumerate(lines):
+                y = py + (i - (n - 1) / 2.0) * lh
+                if font == "mono":
+                    cells, chars = _mono_line(line)
+                    cw = MONO_CELL * fs
+                    w = cells * cw
+                    left = px - w / 2.0 if align not in ("left", "right") else (px if align == "left" else px - w)
+                    ctx.textAlign = "center"
+                    for ch, c in chars:
+                        if ch != " ":
+                            ctx.fillText(ch, left + c * cw, y)
+                else:
+                    ctx.textAlign = align if align in ("left", "right", "center") else "center"
+                    ctx.fillText(line, px, y)
+            return
         if _is_plain(text):                             # fast path: exactly the classic single-run label
             ctx.font = f"{font_size}px sans-serif"
             ctx.textAlign = align if align in ("left", "right", "center") else "center"

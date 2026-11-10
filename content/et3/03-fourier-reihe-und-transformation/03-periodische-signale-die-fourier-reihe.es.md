@@ -1,6 +1,8 @@
 ---
 title: Etapa 2: Señales periódicas, la serie de Fourier
-pfad: Ingeniería eléctrica / 3.er semestre / Señales y sistemas / Serie y transformada de Fourier
+pfad: Ingeniería eléctrica / 3.er semestre / ET3 – Fundamentos de ingeniería eléctrica 3: señales y sistemas / Serie y transformada de Fourier
+adresse: elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation
+knoten: Capítulo 3: Serie y transformada de Fourier
 order: 3230300
 summary: Una señal periódica se repite al cabo de T .
 tags: frecuencia fundamental, armónicos, serie de Fourier, componente continua, ortogonales

@@ -1,6 +1,8 @@
 ---
 title: Etapa 6: Ecuaciones cuadráticas
-pfad: Ingeniería eléctrica / 1.er semestre / Matemáticas superiores 1 / Números complejos
+pfad: Ingeniería eléctrica / 1.er semestre / HöMa1 – Matemáticas superiores 1 / Números complejos
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen
+knoten: Capítulo 2: Números complejos
 order: 1220700
 summary: El objetivo era una solución de x 2=-1 .
 tags: solución doble, discriminante, representación polar
@@ -68,7 +70,7 @@ Así, $s=0{,}75$, $t=-1$ y $|D|=\sqrt{0{,}5625+1}=1{,}25$. De [(6.1)](#gl-6-1) s
 ⁠**Caso límite:** Para $q=0$, [(6.2)](#gl-6-2) da $z=-p/2\pm p/2$, es decir, $z=0$ y $z=-p$, en consonancia con $z(z+p)=0$.
 
 :::frage ¿Por qué no se puede calcular $\sqrt{-1}\cdot\sqrt{-1}=\sqrt{(-1)(-1)}=1$?
-La regla $\sqrt{ab}=\sqrt a\sqrt b$ de la [Parte 1](/wissen/es/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html) solo vale para $a,b\ge0$. Para números negativos la raíz no está definida: $w^2=-1$ tiene dos soluciones equivalentes, y ninguna de ellas es «la» raíz. Por eso este capítulo escribe $w^2=D$ y no $w=\sqrt D$.
+La regla $\sqrt{ab}=\sqrt a\sqrt b$ del [capítulo 1](/wissen/es/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html) solo vale para $a,b\ge0$. Para números negativos la raíz no está definida: $w^2=-1$ tiene dos soluciones equivalentes, y ninguna de ellas es «la» raíz. Por eso este capítulo escribe $w^2=D$ y no $w=\sqrt D$.
 :::
 
 :::aufgabe Ejercicio 8 ★★ Resolver ecuaciones cuadráticas
@@ -85,4 +87,4 @@ La regla $\sqrt{ab}=\sqrt a\sqrt b$ de la [Parte 1](/wissen/es/elektrotechnik/1
 :::
 :::
 
-**Perspectiva.** Un punto del plano también se puede indicar mediante valor absoluto y ángulo. Entonces, al multiplicar, se multiplican los valores absolutos y se suman los ángulos; el giro de la etapa [2](die-komplexe-ebene.html#stufe-2) es el caso particular $|\mathrm{i}|=1$ y ángulo $90^\circ$. Esta __representación polar__, la forma exponencial y las raíces $n$-ésimas necesitan el seno, el coseno y la función exponencial, y por eso llegan en la Parte 7.
+**Perspectiva.** Un punto del plano también se puede indicar mediante valor absoluto y ángulo. Entonces, al multiplicar, se multiplican los valores absolutos y se suman los ángulos; el giro de la etapa [2](die-komplexe-ebene.html#stufe-2) es el caso particular $|\mathrm{i}|=1$ y ángulo $90^\circ$. Esta __representación polar__, la forma exponencial y las raíces $n$-ésimas necesitan el seno, el coseno y la función exponencial, y por eso llegan en el capítulo 7.

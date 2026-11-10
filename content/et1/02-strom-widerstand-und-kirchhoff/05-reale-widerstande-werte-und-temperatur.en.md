@@ -1,6 +1,8 @@
 ---
 title: Stage 4: Real resistors: values and temperature
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / Current, Resistance and Kirchhoff's Laws
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / Current, Resistance and Kirchhoff's Laws
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff
+knoten: Chapter 2: Current, Resistance and Kirchhoff's Laws
 order: 1120500
 summary: So far, R was a number from material and shape.
 tags: Metal-film or carbon-film resistors, Wire-wound resistors, SMD, E series, temperature coefficient, PTC, cold conductor, NTC
@@ -45,7 +47,7 @@ $$R(\vartheta)=R(\vartheta_0)\,\bigl(1+\alpha_{\vartheta_0}\,(\vartheta-\varthet
 Left: $R/R_{20}$ versus temperature for copper ($\alpha=3.9\cdot10^{-3}$ /K), the compensated alloy constantan and a semiconductor hot conductor (around $-4\,\%$/K at 20 °C). Right: model characteristic of a 9 V incandescent lamp. Cold, it has $1.5\,\Omega$; in operation at 0.5 A it has $18\,\Omega$. The curve changes between the two dashed straight lines.
 :::
 
-**Mechanism.** Metals (copper, silver, platinum, tungsten): $n$ is fixed, a warmer lattice vibrates more strongly, the flight time $T$ falls, $\mu$ falls, $R$ rises. Semiconductors (silicon, germanium): at room temperature only a few electrons are free. Heat frees more ([Part 9](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)), $n$ grows much faster than $\mu$ falls, $R$ falls. __Compensated alloys__ such as constantan: the collisions with the irregularly embedded impurity atoms predominate and hardly depend on temperature. Alternatively, a PTC and an NTC are placed in series so that the increase of one offsets the decrease of the other ($R_1\alpha_1+R_2\alpha_2=0$).
+**Mechanism.** Metals (copper, silver, platinum, tungsten): $n$ is fixed, a warmer lattice vibrates more strongly, the flight time $T$ falls, $\mu$ falls, $R$ rises. Semiconductors (silicon, germanium): at room temperature only a few electrons are free. Heat frees more ([Chapter 9](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)), $n$ grows much faster than $\mu$ falls, $R$ falls. __Compensated alloys__ such as constantan: the collisions with the irregularly embedded impurity atoms predominate and hardly depend on temperature. Alternatively, a PTC and an NTC are placed in series so that the increase of one offsets the decrease of the other ($R_1\alpha_1+R_2\alpha_2=0$).
 
 ::::beispiel
 The wire warms up from 20 °C to 70 °C. From [(4.2)](#gl-4-2) follows the factor $1+3.9\cdot10^{-3}\cdot50=1.195$, so 40.6 m$\Omega$ instead of 34 m$\Omega$. An extreme case is the tungsten filament of the lamp: the factor 12 from $1.5\,\Omega$ to $18\,\Omega$ corresponds by [(4.2)](#gl-4-2) to around 2460 °C, as a rough approximation over this large span.

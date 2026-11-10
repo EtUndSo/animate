@@ -1,6 +1,8 @@
 ---
 title: Stage 4: From periodic to non-repeating signals
-pfad: Electrical Engineering / 3rd Semester / Signals and Systems / Fourier Series and Transform
+pfad: Electrical Engineering / 3rd Semester / ET3 – Fundamentals of Electrical Engineering 3: Signals and Systems / Fourier Series and Transform
+adresse: elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation
+knoten: Chapter 3: Fourier Series and Transform
 order: 3230500
 summary: A single pulse is not periodic.
 tags: spectral density
@@ -32,16 +34,16 @@ $$S(f)=\int_{-\infty}^{\infty}s(t)\,\mathrm{e}^{-\mathrm{j}2\pi ft}\,\mathrm{d} 
 Shorthand: $s(t)\;\circ\!\!-\!\!\bullet\;S(f)$ or $S(f)=\mathcal{F}\{s(t)\}$.
 :::
 
-⁠**How to read it:** $S(f)$ is a __spectral density__: weight per frequency interval. If $s$ is a voltage in V, $S$ has the unit V/Hz. The inverse transform builds the signal from all oscillations, each with the weight $S(f)\,\mathrm{d} f$. A sufficient condition for existence is $\int|s(t)|\mathrm{d} t<\infty$. The Fourier transform is the Laplace transform on the imaginary axis, $S(f)=S_{\mathcal{L}}(\mathrm{j}2\pi f)$, provided the axis lies in the region of convergence ([Part 2](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html)).
+⁠**How to read it:** $S(f)$ is a __spectral density__: weight per frequency interval. If $s$ is a voltage in V, $S$ has the unit V/Hz. The inverse transform builds the signal from all oscillations, each with the weight $S(f)\,\mathrm{d} f$. A sufficient condition for existence is $\int|s(t)|\mathrm{d} t<\infty$. The Fourier transform is the Laplace transform on the imaginary axis, $S(f)=S_{\mathcal{L}}(\mathrm{j}2\pi f)$, provided the axis lies in the region of convergence ([Chapter 2](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html)).
 
-⁠**Convolution becomes a product.** As in [Part 2](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html): $s(t)*h(t)\;\circ\!\!-\!\!\bullet\;S(f)\,H(f)$. From $s*\delta=s$ it follows that $S(f)\cdot\mathcal{F}\{\delta\}=S(f)$, so $\delta(t)\;\circ\!\!-\!\!\bullet\;1$: the Dirac impulse contains all frequencies with equal weight.
+⁠**Convolution becomes a product.** As in [Chapter 2](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html): $s(t)*h(t)\;\circ\!\!-\!\!\bullet\;S(f)\,H(f)$. From $s*\delta=s$ it follows that $S(f)\cdot\mathcal{F}\{\delta\}=S(f)$, so $\delta(t)\;\circ\!\!-\!\!\bullet\;1$: the Dirac impulse contains all frequencies with equal weight.
 
 ::::beispiel the exponential pulse
 The impulse response of the RC circuit, $h(t)=\frac1{RC}\varepsilon(t)\mathrm{e}^{-t/RC}$:
 
 $$H(f)=\frac1{RC}\int_0^\infty\mathrm{e}^{-(1/RC+\mathrm{j}2\pi f)t}\mathrm{d} t=\frac{1}{1+\mathrm{j}2\pi f\,RC}.$$
 
-This is the same frequency response as from AC analysis ([Part 1](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html)). So the impulse response contains all the information about the frequency behavior.
+This is the same frequency response as from AC analysis ([Chapter 1](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html)). So the impulse response contains all the information about the frequency behavior.
 ::::
 
 :::frage What is the difference between $S_p(k)$ and $S(f)$, apart from the fact that one is discrete?

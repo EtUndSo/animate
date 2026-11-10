@@ -1,6 +1,8 @@
 ---
 title: 第 2 阶段：传输线方程
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / 正交展开与传输线
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / 正交展开与传输线
+adresse: elektrotechnik/3-semester/signale-und-systeme/orthogonalentwicklung-und-leitungen
+knoten: 第 8 章：正交展开与传输线
 order: 3280300
 summary: 到目前为止，导线都被看作理想的连接。如果一条线路的长度与波长相比很长，信号通过它就需要一段可察觉的时间。本阶段建立描述这一现象的方程。
 tags: 单位长度参数

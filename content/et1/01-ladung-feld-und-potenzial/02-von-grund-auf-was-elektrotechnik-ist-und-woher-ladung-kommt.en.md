@@ -1,6 +1,8 @@
 ---
 title: From the ground up: What electrical engineering is and where charge comes from
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / Charge, Field and Potential
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / Charge, Field and Potential
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial
+knoten: Chapter 1: Charge, Field and Potential
 order: 1110200
 summary: Why voltage is a difference and what it does to a charge
 tags: electrical engineering, atom, protons, neutrons, electrons, neutral, ion

@@ -1,7 +1,8 @@
 ---
 title: Aplicaciones lineales
 pfad: Informática / Aprendizaje automático / Fundamentos matemáticos / Vectores y matrices
-knoten: Fundamentos 1: Vectores y matrices
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Capítulo 1: Vectores y matrices
 nachschlagen: ja
 order: 15210900
 summary: Una matriz no es solo una tabla, sino también una regla de cálculo que convierte un vector en otro.
@@ -19,7 +20,7 @@ Una matriz no es solo una tabla, sino también una regla de cálculo que convier
 
 <span class="anker" id="stufe-8-1"></span>
 
-Muchos cálculos convierten una lista de números en otra lista. A partir de las características de una vivienda se estiman el precio de compra y el alquiler; a partir de las muestras de una señal se obtiene una señal filtrada. Una regla así se llama __aplicación__ $f\colon\mathbb{R}^n\to\mathbb{R}^m$: asigna a cada vector $\mathbf{x}\in\mathbb{R}^n$ un vector $f(\mathbf{x})\in\mathbb{R}^m$.
+Muchos cálculos convierten una lista de números en otra lista. A partir de las características de una vivienda se estiman el precio de compra y el alquiler; a partir de las lecturas de un contador de agua se obtiene el consumo de cada mes. Una regla así se llama __aplicación__ $f\colon\mathbb{R}^n\to\mathbb{R}^m$: asigna a cada vector $\mathbf{x}\in\mathbb{R}^n$ un vector $f(\mathbf{x})\in\mathbb{R}^m$.
 
 El producto matriz-vector tiene dos propiedades especiales (subsección [7.1](das-matrix-vektor-produkt.html#stufe-7-1)): $\mathbf{A}(\mathbf{u}+\mathbf{v})=\mathbf{A}\mathbf{u}+\mathbf{A}\mathbf{v}$ y $\mathbf{A}(c\,\mathbf{x})=c\,\mathbf{A}\mathbf{x}$. Da igual sumar primero y aplicar después la matriz o hacerlo al revés, y lo mismo ocurre con multiplicar por un número. En el plano, estas propiedades se ven en una cuadrícula: una aplicación así convierte rectas de nuevo en rectas o en puntos aislados, deja el origen en su sitio y convierte líneas de cuadrícula paralelas y equidistantes de nuevo en líneas paralelas y equidistantes o en puntos.
 
@@ -40,8 +41,8 @@ La aplicación $f(\mathbf{x})=(x_1+x_2,\ 2x_1)^{\top}$ de $\mathbb{R}^2$ en $\ma
 
 ⁠**En resumen:** Una aplicación es lineal si conserva sumas y múltiplos; entonces lleva combinaciones lineales a combinaciones lineales.
 
-:::hintergrund La misma linealidad que en los sistemas LTI
-De la teoría de señales y sistemas se conoce el principio de superposición: un sistema lineal responde a la suma de dos señales de entrada con la suma de las dos respuestas, y a una señal amplificada con la respuesta amplificada en la misma proporción. Son exactamente las condiciones [(8.1)](#gl-8-1), solo que para señales en lugar de listas de números. Una señal muestreada de longitud finita es un vector (subsección [1.3](vektoren-daten-als-zahlenlisten.html#stufe-1-3)), y un sistema lineal que procesa tales señales es una aplicación lineal.
+:::hintergrund Linealidad en la caja del supermercado
+La caja de un supermercado calcula de forma lineal. Convierte la lista de las cantidades compradas en el importe, y si se ponen dos compras juntas en la cinta, cuesta la suma de los dos importes; si se compra el doble de todo, cuesta el doble. Son exactamente las condiciones [(8.1)](#gl-8-1). No sería lineal una tarifa con descuento por cantidad, en la que el doble cuesta menos que el doble del precio, ni una con cuota fija: en ella, la compra vacía ya cuesta algo, y eso viola $f(\mathbf{0})=\mathbf{0}$. También una grabación de sonido (subsección [1.3](vektoren-daten-als-zahlenlisten.html#stufe-1-3)) se procesa a menudo de forma lineal: quien primero mezcla dos grabaciones y luego les baja el volumen obtiene lo mismo que si baja el volumen de cada una por separado y después las mezcla.
 :::
 
 ### Toda aplicación lineal es una matriz
@@ -75,16 +76,16 @@ $$\mathbf{A}=\begin{pmatrix}1&1\\2&0\end{pmatrix},\qquad\text{y como comprobaci�
 
 ⁠**En resumen:** Las aplicaciones lineales y las matrices son lo mismo; la columna $j$ de la matriz es la imagen del vector unitario $\mathbf{e}_j$.
 
-:::hintergrund Un filtro como matriz: las columnas son las respuestas al impulso desplazadas
-Sea un filtro de tiempo discreto que calcula $y[n]=x[n]+0{,}5\,x[n-1]$ y procesa señales de tres muestras, sin que haya nada antes de la primera muestra. El filtro es lineal, así que tiene una matriz. Según [(8.2)](#gl-8-2), su columna $j$ es la respuesta al vector unitario $\mathbf{e}_j$, es decir, a un único impulso unitario en la posición $j$. Esta respuesta es la respuesta al impulso $(1;\,0{,}5)$, desplazada $j-1$ pasos:
+:::hintergrund Un efecto residual como matriz: las columnas son respuestas desplazadas
+En una estufa de leña, un leño entrega todo su calor en la hora en que arde y, en la hora siguiente, gracias a las brasas, todavía la mitad; es una imagen muy simplificada. Si en la hora $n$ se añaden exactamente $x[n]$ leños, el calor de esa hora, medido en leños, es $y[n]=x[n]+0{,}5\,x[n-1]$. Se consideran tres horas, y antes de la primera no ardía nada. El cálculo es lineal, así que tiene una matriz. Según [(8.2)](#gl-8-2), su columna $j$ es la respuesta al vector unitario $\mathbf{e}_j$, es decir, a un único leño en la hora $j$. Esta respuesta es $(1;\,0{,}5)$, desplazada $j-1$ horas:
 
 $$\mathbf{A}=\begin{pmatrix}1&0&0\\0{,}5&1&0\\0&0{,}5&1\end{pmatrix}.$$
 
-La tercera columna ya solo contiene el $1$, porque la señal termina tras tres muestras. Para $\mathbf{x}=(2,\,4,\,6)^{\top}$, la matriz da $(2,\,5,\,8)^{\top}$, lo mismo que la fórmula del filtro. Toda convolución de una señal finita es de este modo un producto matriz-vector, y el teorema anterior explica por qué: si se conoce la respuesta a cada impulso individual, se conoce el sistema entero.
+La tercera columna ya solo contiene el $1$, porque el periodo considerado termina tras tres horas. Para $\mathbf{x}=(2,\,4,\,6)^{\top}$, la matriz da $(2,\,5,\,8)^{\top}$, lo mismo que la fórmula. Todo efecto residual de este tipo con pesos fijos, llamado en matemáticas convolución, es de este modo un producto matriz-vector, y el teorema anterior explica por qué: si se conoce la respuesta a cada leño individual, se conoce la respuesta a cualquier secuencia de leños.
 :::
 
 :::hintergrund ¿Datos o aplicación? Dos papeles de la misma tabla
-Una matriz puede ser una colección de datos, como la matriz de datos $\mathbf{X}$, o una aplicación, como la matriz de un filtro. Formalmente, ambas cosas son lo mismo, y a veces la misma matriz desempeña los dos papeles a la vez: la matriz de datos es también la aplicación $\mathbf{w}\mapsto\mathbf{X}\mathbf{w}$, que convierte pesos en predicciones. Lleva el $\mathbb{R}^d$ de los pesos al $\mathbb{R}^N$ de las listas de predicciones. Por eso, al leer una fórmula, conviene preguntarse en qué papel aparece una matriz en ese momento.
+Una matriz puede ser una colección de datos, como la matriz de datos $\mathbf{X}$, o una aplicación, como la matriz de la estufa de leña del recuadro anterior. Formalmente, ambas cosas son lo mismo, y a veces la misma matriz desempeña los dos papeles a la vez: la matriz de datos es también la aplicación $\mathbf{w}\mapsto\mathbf{X}\mathbf{w}$, que convierte pesos en predicciones. Lleva el $\mathbb{R}^d$ de los pesos al $\mathbb{R}^N$ de las listas de predicciones. Por eso, al leer una fórmula, conviene preguntarse en qué papel aparece una matriz en ese momento.
 :::
 
 ### Aplicaciones lineales del plano
@@ -282,32 +283,32 @@ La imagen es el doble de la primera columna, una flecha de longitud $2$ a $30^\c
 :::
 :::
 
-:::aufgabe Ejercicio 20 ★★ Un diferenciador como matriz
+:::aufgabe Ejercicio 20 ★★ El consumo a partir de las lecturas del contador como matriz
 <span class="anker" id="aufg-20"></span>
 
-Un filtro calcula, a partir de una señal de cuatro muestras, las diferencias $y[n]=x[n]-x[n-1]$, donde antes de la primera muestra se supone $x[0]=0$, $n=1,\dots,4$.
+Un contador de agua nuevo muestra al final de cuatro meses las lecturas $x[1],\dots,x[4]$ en metros cúbicos; antes del primer mes marcaba $x[0]=0$. El consumo del mes $n$ es la diferencia $y[n]=x[n]-x[n-1]$, $n=1,\dots,4$.
 
 <ol class="al">
 
 <li>
 
-¿Por qué es lineal el filtro? Construye su matriz $4\times4$ calculando las respuestas a los cuatro impulsos unitarios.
+¿Por qué es lineal este cálculo? Construye su matriz $4\times4$ calculando las respuestas a los cuatro vectores unitarios.
 
 </li>
 
 <li>
 
-Calcula la respuesta a $\mathbf{x}=(1,\,2,\,4,\,7)^{\top}$ con la matriz y con la fórmula.
+Calcula el consumo correspondiente a las lecturas $\mathbf{x}=(1,\,2,\,4,\,7)^{\top}$ con la matriz y con la fórmula.
 
 </li>
 
 </ol>
 
 :::loesung
-(a) Cada componente de salida $y[n]=x[n]-x[n-1]$ es una suma fija de múltiplos de las componentes de entrada; por tanto, el filtro es lineal. La respuesta al impulso en la posición $1$, $\mathbf{x}=\mathbf{e}_1=(1,0,0,0)^{\top}$, es $(1,\,-1,\,0,\,0)^{\top}$: primero la señal salta a $1$ y luego vuelve a $0$. Del mismo modo, el filtro responde a $\mathbf{e}_2$ con $(0,\,1,\,-1,\,0)^{\top}$, a $\mathbf{e}_3$ con $(0,\,0,\,1,\,-1)^{\top}$ y a $\mathbf{e}_4$ con $(0,\,0,\,0,\,1)^{\top}$; con este último impulso, la señal termina antes de que vuelva a bajar. Estas respuestas son las columnas:
+(a) Cada componente $y[n]=x[n]-x[n-1]$ del resultado es una suma fija de múltiplos de las componentes de $\mathbf{x}$; por tanto, el cálculo es lineal. La respuesta al $1$ aislado en la posición $1$, $\mathbf{x}=\mathbf{e}_1=(1,0,0,0)^{\top}$, es $(1,\,-1,\,0,\,0)^{\top}$: primero la lectura sube a $1$ y luego vuelve a bajar a $0$. Del mismo modo, el cálculo responde a $\mathbf{e}_2$ con $(0,\,1,\,-1,\,0)^{\top}$, a $\mathbf{e}_3$ con $(0,\,0,\,1,\,-1)^{\top}$ y a $\mathbf{e}_4$ con $(0,\,0,\,0,\,1)^{\top}$; con este último $1$, los cuatro meses terminan antes de que la lectura vuelva a bajar. Estas respuestas son las columnas:
 
 $$\mathbf{A}=\begin{pmatrix}1&0&0&0\\-1&1&0&0\\0&-1&1&0\\0&0&-1&1\end{pmatrix}.$$
 
-(b) Con la matriz: $\mathbf{A}\,(1,2,4,7)^{\top}=(1,\ -1+2,\ -2+4,\ -4+7)^{\top}=(1,\,1,\,2,\,3)^{\top}$. Con la fórmula: $y[1]=1-0=1$, $y[2]=2-1=1$, $y[3]=4-2=2$, $y[4]=7-4=3$.
+(b) Con la matriz: $\mathbf{A}\,(1,2,4,7)^{\top}=(1,\ -1+2,\ -2+4,\ -4+7)^{\top}=(1,\,1,\,2,\,3)^{\top}$. Con la fórmula: $y[1]=1-0=1$, $y[2]=2-1=1$, $y[3]=4-2=2$, $y[4]=7-4=3$. En los cuatro meses se consumieron, por tanto, $1$, $1$, $2$ y $3$ metros cúbicos de agua.
 :::
 :::

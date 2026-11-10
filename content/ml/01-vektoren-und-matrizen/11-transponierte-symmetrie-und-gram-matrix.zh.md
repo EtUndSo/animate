@@ -1,7 +1,8 @@
 ---
 title: 转置、对称性与格拉姆矩阵
 pfad: 计算机科学 / 机器学习 / 数学基础 / 向量与矩阵
-knoten: 基础篇 1：向量与矩阵
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: 第 1 章：向量与矩阵
 nachschlagen: ja
 order: 15211100
 summary: 把矩阵的行与列互换，就得到它的转置。借助转置，一个数据集的所有点积都可以汇集在单个矩阵中：所有样本彼此之间的相似程度，以及所有特征彼此之间的关系。

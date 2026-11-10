@@ -1,6 +1,8 @@
 ---
 title: Stufe 1: Widerstände zusammenfassen
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Quellen und Ersatzquellen
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Quellen und Ersatzquellen
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen
+knoten: Kapitel 5: Quellen und Ersatzquellen
 order: 1150300
 summary: Ein Netz aus Widerständen ohne Quelle hat an zwei Klemmen eine Kennlinie durch den Ursprung, also genügt eine Zahl.
 tags: Gruppenschaltung, Gesamtwiderstand, Leitwert

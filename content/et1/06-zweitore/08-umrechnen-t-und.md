@@ -1,6 +1,8 @@
 ---
 title: Stufe 6: Umrechnen, T und $\pi$
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Zweitore
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Zweitore
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore
+knoten: Kapitel 6: Zweitore
 order: 1160800
 summary: Z-Form und Y-Form beschreiben dasselbe Zweitor.
 tags: 
@@ -45,7 +47,7 @@ $$Y_{12}=-\frac{Z_{12}}{Z_{11}Z_{22}-Z_{12}Z_{21}},\qquad Y_{22}=\frac{Z_{11}}{Z
 <span class="anker" id="gl-6-2"></span>
 $$\mathbf Y_\mathrm{T}=\frac1D\begin{pmatrix}R_\mathrm{b}+R_\mathrm{c}&-R_\mathrm{b}\\-R_\mathrm{b}&R_\mathrm{a}+R_\mathrm{b}\end{pmatrix},\qquad \mathbf Y_\pi=\begin{pmatrix}G_1+G_2&-G_2\\-G_2&G_2+G_3\end{pmatrix}. \tag{6.2}$$
 
-Setzt man beide gleich, entstehen $G_2=-Y_{12}$, $G_1=Y_{11}+Y_{12}$ und $G_3=Y_{22}+Y_{21}$. Für $G_3=0$ wird aus $\mathbf Y_\pi$ das Paar $I_1=(G_1+G_2)U_1-G_2U_2$, $I_2=-G_2U_1+G_2U_2$. Das ist die Stern-Dreieck-Transformation aus [Teil 5](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html): T ist der Stern, $\pi$ das Dreieck. Die Beschreibung mit Z-Parametern führt von selbst auf die T-Schaltung, die mit Y-Parametern auf die dazu duale $\pi$-Schaltung. Umgekehrt gehört zu jedem Zweitor mit $Z_{12}=Z_{21}$ eine T- und eine $\pi$-Ersatzschaltung ohne Quellen (Stufe [10](eigenschaften-und-alle-formen-im-uberblick.html#stufe-10)).
+Setzt man beide gleich, entstehen $G_2=-Y_{12}$, $G_1=Y_{11}+Y_{12}$ und $G_3=Y_{22}+Y_{21}$. Für $G_3=0$ wird aus $\mathbf Y_\pi$ das Paar $I_1=(G_1+G_2)U_1-G_2U_2$, $I_2=-G_2U_1+G_2U_2$. Das ist die Stern-Dreieck-Transformation aus [Kapitel 5](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html): T ist der Stern, $\pi$ das Dreieck. Die Beschreibung mit Z-Parametern führt von selbst auf die T-Schaltung, die mit Y-Parametern auf die dazu duale $\pi$-Schaltung. Umgekehrt gehört zu jedem Zweitor mit $Z_{12}=Z_{21}$ eine T- und eine $\pi$-Ersatzschaltung ohne Quellen (Stufe [10](eigenschaften-und-alle-formen-im-uberblick.html#stufe-10)).
 
 :::abbildung et1/k6tpi 8
 Zwei Schaltungen, dasselbe Zweitor. Links die T-Schaltung mit 15, 20 und 20 $\Omega$, rechts die gleichwertige $\pi$-Schaltung mit 50, 50 und 66,7 $\Omega$. Beide haben $\det\mathbf Z=1000\,\Omega^2$. An den Toren lassen sie sich durch keine Messung unterscheiden.

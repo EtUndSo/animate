@@ -1,9 +1,10 @@
 ---
 title: Variablen: Namen für Objekte
 pfad: Informatik / Programmieren / Python / Werte, Typen und Variablen
-knoten: Python 2: Werte, Typen und Variablen
+adresse: informatik/programmieren/python/werte-typen-und-variablen
+knoten: Kapitel 2: Werte, Typen und Variablen
 order: 6030700
-summary: Eine Rechnung mit Messwerten wird lesbar, wenn die Werte Namen haben: spannung / widerstand statt 5 / 470 .
+summary: Eine Rechnung wird lesbar, wenn die Werte Namen haben: preis / gewicht statt 4.49 / 0.45 .
 tags: Zuweisung, Variable, erweiterte Zuweisung
 lang: de
 ---
@@ -11,16 +12,16 @@ lang: de
 <span class="anker" id="stufe-6"></span>
 
 :::zweck
-Eine Rechnung mit Messwerten wird lesbar, wenn die Werte Namen haben: `spannung / widerstand` statt `5 / 470`. Dieser Abschnitt zeigt, wie Python einen Namen mit einem Objekt verbindet, welche Namen erlaubt sind und warum eine Zuweisung nichts kopiert.
+Eine Rechnung wird lesbar, wenn die Werte Namen haben: `preis / gewicht` statt `4.49 / 0.45`. Dieser Abschnitt zeigt, wie Python einen Namen mit einem Objekt verbindet, welche Namen erlaubt sind und warum eine Zuweisung nichts kopiert.
 :::
 
 ### Die Zuweisung
 
 <span class="anker" id="stufe-6-1"></span>
 
-Im interaktiven Modus hält der Unterstrich `_` das letzte Ergebnis fest ([Programmieren, Python 1, Abschnitt 4.4](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/der-interaktive-modus.html#stufe-4-4)), aber nur dieses eine und nur bis zur nächsten Rechnung. Wer einen Wert mehrmals braucht, will ihn unter einem selbst gewählten Namen aufheben.
+Im interaktiven Modus hält der Unterstrich `_` das letzte Ergebnis fest ([Kapitel 1, Abschnitt 4.4](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/der-interaktive-modus.html#stufe-4-4)), aber nur dieses eine und nur bis zur nächsten Rechnung. Wer einen Wert mehrmals braucht, will ihn unter einem selbst gewählten Namen aufheben.
 
-**Ein Etikett an den Kasten heften.** Ein Objekt ist ein Kasten im Arbeitsspeicher (Abb. [1](objekte-und-typen.html#abb-1)). Man kann ein Etikett mit einem Wort beschriften und es an einen Kasten heften. Über das Wort findet man den Kasten später wieder. Ein Wort ohne Anführungszeichen hält Python für einen solchen Namen; das hat schon der `NameError` in Python 1 gezeigt ([Programmieren, Python 1, Abschnitt 6.3](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/fehler-lesen-und-verstehen.html#stufe-6-3)).
+**Ein Etikett an den Kasten heften.** Ein Objekt ist ein Kasten im Arbeitsspeicher (Abb. [1](objekte-und-typen.html#abb-1)). Man kann ein Etikett mit einem Wort beschriften und es an einen Kasten heften. Über das Wort findet man den Kasten später wieder. Ein Wort ohne Anführungszeichen hält Python für einen solchen Namen; das hat schon der `NameError` in [Kapitel 1](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/programme-und-der-python-interpreter.html) gezeigt ([Kapitel 1, Abschnitt 6.3](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/fehler-lesen-und-verstehen.html#stufe-6-3)).
 
 :::definition Definition 6.1 (Zuweisung)
 <span class="anker" id="satz-6-1"></span>
@@ -35,19 +36,19 @@ Python wertet den Ausdruck rechts aus und verbindet dann den Namen links mit dem
 Das Gleichheitszeichen ist hier keine Gleichung wie in der Mathematik, sondern ein Auftrag: „Kapitel den Namen links an das Ergebnis rechts.“ Die Richtung ist fest: Der Name steht immer links.
 
 ::::beispiel
-Spannung, Widerstand und Strom aus dem ohmschen Gesetz:
+Preis, Gewicht und Kilopreis der Schokocreme aus [Kapitel 1, Abschnitt 4.4](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/der-interaktive-modus.html#stufe-4-4), dazu der Preis für 100 g:
 
 ```console
->>> spannung = 5
->>> widerstand = 470
->>> spannung / widerstand
-0.010638297872340425
->>> strom = spannung / widerstand
->>> strom * 1000
-10.638297872340425
+>>> preis = 4.49
+>>> gewicht = 0.45
+>>> preis / gewicht
+9.977777777777778
+>>> kilopreis = preis / gewicht
+>>> kilopreis / 10
+0.9977777777777778
 ```
 
-Nach einer Zuweisung zeigt der interaktive Modus nichts an. Eine Zuweisung ist eine Anweisung ([Programmieren, Python 1, Abschnitt 1.1](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/programme-und-programmiersprachen.html#stufe-1-1)) und kein Ausdruck; sie hat keinen Wert, den man anzeigen könnte. Ihr Ergebnis ist nur, dass der Name ab jetzt etwas bedeutet.
+Nach einer Zuweisung zeigt der interaktive Modus nichts an. Eine Zuweisung ist eine Anweisung ([Kapitel 1, Abschnitt 1.1](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/programme-und-programmiersprachen.html#stufe-1-1)) und kein Ausdruck; sie hat keinen Wert, den man anzeigen könnte. Ihr Ergebnis ist nur, dass der Name ab jetzt etwas bedeutet.
 ::::
 
 ⁠**Kurz gesagt:** `name = ausdruck` rechnet den Ausdruck aus und bindet den Namen an das Ergebnis.
@@ -72,17 +73,17 @@ Eine Variable entsteht mit ihrer ersten Zuweisung. Davor ist der Name unbekannt,
 Die Sitzung aus dem letzten Unterabschnitt geht weiter:
 
 ```console
->>> leistung
+>>> kg_fuer_zehn
 Traceback (most recent call last):
   File "<python-input-5>", line 1, in <module>
-    leistung
-NameError: name 'leistung' is not defined
->>> leistung = spannung * strom
->>> leistung
-0.05319148936170213
+    kg_fuer_zehn
+NameError: name 'kg_fuer_zehn' is not defined
+>>> kg_fuer_zehn = 10 / kilopreis
+>>> kg_fuer_zehn
+1.0022271714922049
 ```
 
-Erst die Zuweisung macht aus dem Namen `leistung` eine Variable. Danach steht im Zustandsdiagramm ein vierter Name mit einem Pfeil auf ein `float`-Objekt mit dem Wert $0{,}0532$.
+Erst die Zuweisung macht aus dem Namen `kg_fuer_zehn` eine Variable: So viele Kilogramm Schokocreme bekommt man für 10 Euro. Danach steht im Zustandsdiagramm ein vierter Name mit einem Pfeil auf ein `float`-Objekt mit dem Wert $1{,}002$.
 ::::
 
 ⁠**Kurz gesagt:** Eine Variable ist ein Name, der an ein Objekt gebunden ist; sie entsteht mit der ersten Zuweisung.
@@ -157,7 +158,7 @@ Ein Schlüsselwort ist ein Wort, das in Python eine feste Bedeutung hat. Python�
 | `import` | `in` | `is` | `lambda` | `nonlocal` | `not` | `or` |
 | `pass` | `raise` | `return` | `try` | `while` | `with` | `yield` |
 
-Buchstaben mit Umlaut sind in Namen erlaubt, `größe` ist ein gültiger Name. Üblich sind aber Namen aus Kleinbuchstaben ohne Umlaute, Wörter durch Unterstriche getrennt: `u_batterie`, `strom_ma`. Daran halten sich die Programme dieses Kapitels.
+Buchstaben mit Umlaut sind in Namen erlaubt, `größe` ist ein gültiger Name. Üblich sind aber Namen aus Kleinbuchstaben ohne Umlaute, Wörter durch Unterstriche getrennt: `preis_pro_kg`, `gewicht_g`. Daran halten sich die Programme dieses Kapitels.
 
 ::::beispiel
 Drei Verstöße, jeder mit seiner Meldung:
@@ -243,35 +244,36 @@ Auch eine erweiterte Zuweisung bindet den Namen neu: `zaehler += 1` erzeugt ein 
 
 <span class="anker" id="stufe-6-6"></span>
 
-Mit Variablen wird ein Skript zur wiederverwendbaren Rechnung: Die Annahmen stehen oben, jede einmal, und die Formeln darunter lesen sich wie im Lehrbuch. Python 1 hat den Vorwiderstand einer LED mit festen Zahlen ausgerechnet ([Programmieren, Python 1, Abschnitt 5.3](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/skripte-schreiben-und-ausfuhren.html#stufe-5-3)). Mit Namen sieht dasselbe Skript so aus:
+Mit Variablen wird ein Skript zur wiederverwendbaren Rechnung: Die Annahmen stehen oben, jede einmal, und die Formeln darunter lesen sich wie im Lehrbuch. Python 1 hat ein Rezept für Pizzateig mit festen Zahlen von 4 auf 6 Personen umgerechnet ([Programmieren, Python 1, Abschnitt 5.3](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/skripte-schreiben-und-ausfuhren.html#stufe-5-3)). Mit Namen sieht dasselbe Skript so aus:
 
-```python led_variablen.py
-# Vorwiderstand einer roten LED an einer 9-V-Batterie, mit Namen für jede Größe
-u_batterie = 9        # Spannung der Batterie in V
-u_led = 2.0           # Spannung an der LED in V
-strom = 0.020         # gewünschter Strom in A
+```python rezept_variablen.py
+# Pizzateig umrechnen, mit Namen für jede Größe
+personen = 6          # so viele essen mit
+personen_rezept = 4   # für so viele Personen ist das Rezept
+mehl_rezept = 500     # Mehl im Rezept in g
+wasser_rezept = 300   # Wasser im Rezept in ml
 
-u_widerstand = u_batterie - u_led    # Rest der Spannung liegt am Widerstand
-widerstand = u_widerstand / strom    # R = U / I
-leistung = u_widerstand * strom      # P = U * I
+faktor = personen / personen_rezept   # so oft braucht man das Rezept
+mehl = mehl_rezept * faktor
+wasser = wasser_rezept * faktor
 
-print("Vorwiderstand in Ohm:", widerstand)
-print("Leistung im Widerstand in W:", leistung)
+print("Mehl in g:", mehl)
+print("Wasser in ml:", wasser)
 ```
 
 ```console Windows (PowerShell)
-PS> py led_variablen.py
-Vorwiderstand in Ohm: 350.0
-Leistung im Widerstand in W: 0.14
+PS> py rezept_variablen.py
+Mehl in g: 750.0
+Wasser in ml: 450.0
 ```
 
 ```console Linux
-$ python3 led_variablen.py
-Vorwiderstand in Ohm: 350.0
-Leistung im Widerstand in W: 0.14
+$ python3 rezept_variablen.py
+Mehl in g: 750.0
+Wasser in ml: 450.0
 ```
 
-Für eine andere Batterie ändert man nur die zweite Zeile. Jeder Name sagt, was die Zahl bedeutet, und die Einheit steht im Kommentar dahinter, denn Python kennt keine Einheiten.
+Für eine andere Zahl von Gästen ändert man nur die zweite Zeile. Jeder Name sagt, was die Zahl bedeutet, und die Einheit steht im Kommentar dahinter, denn Python kennt keine Einheiten.
 
 ⁠**Kurz gesagt:** Variablen machen aus festen Zahlen benannte Annahmen; die Formeln darunter rechnen mit den Namen.
 
@@ -330,32 +332,32 @@ Am Ende ist $a=20$, $b=9$, $c=10$. Im interaktiven Modus:
 
 Welche Namen sind erlaubt, welche nicht, und welche sind erlaubt, aber ungünstig? Begründe.
 
-`spannung_1`, `1spannung`, `U_max`, `U-max`, `for`, `For`, `_zwischen`, `größe`, `type`
+`preis_1`, `1preis`, `T_max`, `T-max`, `for`, `For`, `_zwischen`, `größe`, `type`
 
 :::loesung
 <ul>
 
 <li>
 
-`spannung_1`: erlaubt und gut.
+`preis_1`: erlaubt und gut.
 
 </li>
 
 <li>
 
-`1spannung`: nicht erlaubt, beginnt mit einer Ziffer.
+`1preis`: nicht erlaubt, beginnt mit einer Ziffer.
 
 </li>
 
 <li>
 
-`U_max`: erlaubt; üblich wären Kleinbuchstaben, `u_max`. In einer Formel mit Formelzeichen kann der Großbuchstabe aber sinnvoll sein.
+`T_max`: erlaubt; üblich wären Kleinbuchstaben, `t_max`. In einer Formel mit Formelzeichen, etwa $T$ für eine Temperatur, kann der Großbuchstabe aber sinnvoll sein.
 
 </li>
 
 <li>
 
-`U-max`: nicht erlaubt; Python liest `U` minus `max`.
+`T-max`: nicht erlaubt; Python liest `T` minus `max`.
 
 </li>
 
@@ -431,51 +433,52 @@ $7\,/\!/\,2=3$; $3^3=27$; $27\,\%\,5=2$; $2-(2\cdot3)=-4$, die rechte Seite wird
 :::
 :::
 
-:::aufgabe Aufgabe 24 ★★ Das LED-Skript umbauen
+:::aufgabe Aufgabe 24 ★★ Das Rezept-Skript umbauen
 <span class="anker" id="aufg-24"></span>
 
 <ol class="al">
 
 <li>
 
-Ändere `led_variablen.py` für eine 12-V-Versorgung und eine blaue LED mit $3{,}1\,\mathrm V$ bei $15\,\mathrm{mA}$. Welche Zeilen musst du ändern?
+Ändere `rezept_variablen.py` für 9 Personen und einen Brotteig: Das Rezept ist für 4 Personen und braucht $600\,\mathrm g$ Mehl und $400\,\mathrm{ml}$ Wasser. Welche Zeilen musst du ändern?
 
 </li>
 
 <li>
 
-Ergänze eine Variable `strom_ma` für den Strom in Milliampere und gib sie mit aus. Warum ist es besser, sie aus `strom` zu berechnen, als die Zahl 15 noch einmal einzutippen?
+Ergänze eine Variable `mehl_kg` für das Mehl in Kilogramm und gib sie mit aus. Warum ist es besser, sie aus `mehl` zu berechnen, als die Zahl 1.35 von Hand einzutippen?
 
 </li>
 
 </ol>
 
 :::loesung
-(a) Nur die drei Annahmen oben ändern sich; die Formeln bleiben. (b) `strom_ma` wird aus `strom` berechnet. Ändert man später den Strom, stimmt die Anzeige in Milliampere automatisch mit, und es gibt keine zweite Stelle, an der man die Zahl vergessen könnte:
+(a) Nur die Annahmen oben ändern sich, hier drei davon: `personen`, `mehl_rezept` und `wasser_rezept`; das Rezept ist weiter für 4 Personen. Die Formeln bleiben. (b) `mehl_kg` wird aus `mehl` berechnet. Ändert man später die Zahl der Personen, stimmt die Anzeige in Kilogramm automatisch mit, und es gibt keine zweite Stelle, an der man die Zahl vergessen könnte:
 
-```python led_blau.py
-# Vorwiderstand einer blauen LED an 12 V, mit Namen für jede Größe
-u_batterie = 12       # Spannung der Versorgung in V
-u_led = 3.1           # Spannung an der LED in V
-strom = 0.015         # gewünschter Strom in A
+```python rezept_brot.py
+# Brotteig umrechnen, mit Namen für jede Größe
+personen = 9          # so viele essen mit
+personen_rezept = 4   # für so viele Personen ist das Rezept
+mehl_rezept = 600     # Mehl im Rezept in g
+wasser_rezept = 400   # Wasser im Rezept in ml
 
-u_widerstand = u_batterie - u_led    # Rest der Spannung liegt am Widerstand
-widerstand = u_widerstand / strom    # R = U / I
-leistung = u_widerstand * strom      # P = U * I
-strom_ma = strom * 1000              # Strom in mA, aus strom berechnet
+faktor = personen / personen_rezept   # so oft braucht man das Rezept
+mehl = mehl_rezept * faktor
+wasser = wasser_rezept * faktor
+mehl_kg = mehl / 1000                 # Mehl in kg, aus mehl berechnet
 
-print("Strom in mA:", strom_ma)
-print("Vorwiderstand in Ohm:", widerstand)
-print("Leistung im Widerstand in W:", leistung)
+print("Mehl in kg:", mehl_kg)
+print("Mehl in g:", mehl)
+print("Wasser in ml:", wasser)
 ```
 
 ```console Linux
-$ python3 led_blau.py
-Strom in mA: 15.0
-Vorwiderstand in Ohm: 593.3333333333334
-Leistung im Widerstand in W: 0.1335
+$ python3 rezept_brot.py
+Mehl in kg: 1.35
+Mehl in g: 1350.0
+Wasser in ml: 900.0
 ```
 
-Probe im Kopf: $8{,}9\,\mathrm V/15\,\mathrm{mA}\approx593\,\Omega$, $8{,}9\,\mathrm V\cdot15\,\mathrm{mA}\approx0{,}134\,\mathrm W$. Man nähme den nächsten Normwert darüber, etwa $620\,\Omega$, und einen Widerstand für mindestens $0{,}25\,\mathrm W$.
+Probe im Kopf: 9 Personen sind $2{,}25$-mal 4 Personen, und $2{,}25\cdot600\,\mathrm g=1350\,\mathrm g$, $2{,}25\cdot400\,\mathrm{ml}=900\,\mathrm{ml}$. Unter Windows (`py rezept_brot.py`) erscheint dieselbe Ausgabe.
 :::
 :::

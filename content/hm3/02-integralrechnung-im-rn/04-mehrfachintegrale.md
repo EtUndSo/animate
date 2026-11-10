@@ -1,6 +1,8 @@
 ---
 title: Mehrfachintegrale
-pfad: Elektrotechnik / 3. Semester / Höhere Mathematik 3 / Integralrechnung im Rⁿ
+pfad: Elektrotechnik / 3. Semester / HöMa3 – Höhere Mathematik 3 / Integralrechnung im Rⁿ
+adresse: elektrotechnik/3-semester/hohere-mathematik-3/integralrechnung-im-rn
+knoten: Kapitel 2: Integralrechnung im Rⁿ
 order: 3120400
 summary: Eine Funktion von zwei oder mehr Variablen soll über ein Rechteck oder einen Quader integriert werden.
 tags: Quader, Volumen, Abschluss, iteriertes Integral, Säulensumme, Mehrfachintegral, Volumenintegral, kompakten Träger

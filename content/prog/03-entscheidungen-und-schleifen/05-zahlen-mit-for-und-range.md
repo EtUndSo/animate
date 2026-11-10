@@ -1,9 +1,10 @@
 ---
 title: Zählen mit for und range
 pfad: Informatik / Programmieren / Python / Entscheidungen und Schleifen
-knoten: Python 3: Entscheidungen und Schleifen
+adresse: informatik/programmieren/python/entscheidungen-und-schleifen
+knoten: Kapitel 3: Entscheidungen und Schleifen
 order: 6040500
-summary: Oft steht schon vor der ersten Wiederholung fest, wie viele es werden: für jeden von acht Messkanälen, für jeden Widerstand einer Reihe.
+summary: Oft steht schon vor der ersten Wiederholung fest, wie viele es werden: für jeden Tag einer Woche, für jedes Jahr eines Sparplans.
 tags: for-Schleife, Schleifenvariable
 lang: de
 ---
@@ -11,7 +12,7 @@ lang: de
 <span class="anker" id="stufe-4"></span>
 
 :::zweck
-Oft steht schon vor der ersten Wiederholung fest, wie viele es werden: für jeden von acht Messkanälen, für jeden Widerstand einer Reihe. Mit `while` braucht man dafür einen Zähler, eine Bedingung und eine Zeile, die den Zähler erhöht, und vergisst man die letzte, läuft die Schleife endlos. Dieser Abschnitt führt eine Schleife ein, die das Zählen selbst übernimmt, und die Zahlenfolgen, die sie durchläuft.
+Oft steht schon vor der ersten Wiederholung fest, wie viele es werden: für jeden Tag einer Woche, für jedes Jahr eines Sparplans. Mit `while` braucht man dafür einen Zähler, eine Bedingung und eine Zeile, die den Zähler erhöht, und vergisst man die letzte, läuft die Schleife endlos. Dieser Abschnitt führt eine Schleife ein, die das Zählen selbst übernimmt, und die Zahlenfolgen, die sie durchläuft.
 :::
 
 ### Die `for`-Schleife
@@ -20,7 +21,7 @@ Oft steht schon vor der ersten Wiederholung fest, wie viele es werden: für jede
 
 Eine Schleife, die eine feste Folge von Werten abarbeitet, braucht keine eigene Bedingung: Sie endet, wenn die Folge zu Ende ist.
 
-**Ein Stufenschalter.** Man kann sich einen Stufenschalter vorstellen, der Stellung für Stellung weiterdreht: Bei jeder Stellung passiert dasselbe, und nach der letzten Stellung ist Schluss. Ein Name zeigt jeweils die aktuelle Stellung an.
+**Eine Treppe.** Wer eine Treppe hinaufsteigt, betritt eine Stufe nach der anderen: Auf jeder Stufe passiert dasselbe, und nach der letzten ist Schluss. Ein Name zeigt jeweils an, auf welcher Stufe man gerade steht.
 
 :::definition Definition 4.1 (`for`-Schleife)
 <span class="anker" id="satz-4-1"></span>
@@ -61,7 +62,7 @@ Mit `while` braucht dieselbe Schleife drei Zeilen mehr: `k = 0` vor der Schleife
 
 <span class="anker" id="stufe-4-2"></span>
 
-Nicht jede Folge beginnt bei 0 und geht in Einerschritten: Widerstände von 100 $\Omega$ bis 500 $\Omega$ in Schritten von 100 $\Omega$, ein Countdown von 10 abwärts.
+Nicht jede Folge beginnt bei 0 und geht in Einerschritten: Mengen von 100 g bis 500 g in Schritten von 100 g, ein Countdown von 10 abwärts.
 
 **Marken auf dem Zahlenstrahl.** Man setzt auf dem Zahlenstrahl eine erste Marke beim Start und dann weitere im festen Abstand, bis man die Stopp-Marke erreicht oder überschreitet. Die Stopp-Marke selbst gehört nicht dazu (Abb. [5](#abb-5)).
 
@@ -133,22 +134,22 @@ ValueError: range() arg 3 must not be zero
 
 `len(range(0, 100, 7))` ist $\lceil100/7\rceil=\lceil14{,}29\rceil=15$: die Zahlen 0, 7, 14, …, 98.
 
-Eine Tabelle von Strömen für Widerstände von 100 $\Omega$ bis 500 $\Omega$ braucht als Stopp 501, damit 500 noch dazugehört:
+Eine Preistabelle für 100 g bis 500 g Käse zu 18,90 Euro je Kilogramm braucht als Stopp 501, damit 500 noch dazugehört:
 
-```python strom_tabelle.py
-# Strom durch verschiedene Widerstände an 5 V
-u = 5.0
-for r in range(100, 501, 100):
-    print(f"R = {r} Ohm   I = {u / r * 1000:4.1f} mA")
+```python preis_tabelle.py
+# Preis für verschiedene Mengen Käse zu 18.90 Euro je kg
+kilopreis = 18.90
+for gramm in range(100, 501, 100):
+    print(f"{gramm} g kosten {kilopreis * gramm / 1000:5.2f} Euro")
 ```
 
 ```console Linux
-$ python3 strom_tabelle.py
-R = 100 Ohm   I = 50.0 mA
-R = 200 Ohm   I = 25.0 mA
-R = 300 Ohm   I = 16.7 mA
-R = 400 Ohm   I = 12.5 mA
-R = 500 Ohm   I = 10.0 mA
+$ python3 preis_tabelle.py
+100 g kosten  1.89 Euro
+200 g kosten  3.78 Euro
+300 g kosten  5.67 Euro
+400 g kosten  7.56 Euro
+500 g kosten  9.45 Euro
 ```
 
 Der häufigste Fehler mit `range` ist genau dieser: `range(1, 10)` liefert 1 bis 9, nicht 1 bis 10.
@@ -173,12 +174,12 @@ Ein `range` legt seine Zahlen nicht ab. Es speichert nur drei Zahlen, Start, Sto
 
 <span class="anker" id="stufe-4-3"></span>
 
-Eine Zeitachse soll die Zeitpunkte 0 ms, 0,1 ms, …, 1 ms durchlaufen. `range` nimmt aber nur ganze Zahlen an.
+Eine Stoppuhr soll die Zeitpunkte 0 s, 0,1 s, …, 1 s anzeigen. `range` nimmt aber nur ganze Zahlen an.
 
 Die Lösung ist dieselbe wie bei der Gleitkomma-Falle in Unterabschnitt [3.3](wiederholen-mit-while.html#stufe-3-3): Die Schleife zählt mit einer ganzen Zahl $k$, und den Zeitpunkt berechnet man in jedem Durchlauf neu als $t_k=k\cdot\Delta t$, hier als `k / 10`. Das folgende Skript stellt beide Wege nebeneinander, das fortgesetzte Addieren und die Rechnung aus dem Zähler:
 
 ```python zeitachse.py
-# Zeitpunkte 0 ms, 0.1 ms, ..., 1 ms: einmal aufaddiert, einmal aus dem ganzzahligen Zähler
+# Zeitpunkte 0 s, 0.1 s, ..., 1 s: einmal aufaddiert, einmal aus dem ganzzahligen Zähler
 t = 0.0
 for k in range(11):
     print(k, t, k / 10)
@@ -200,7 +201,7 @@ $ python3 zeitachse.py
 10 0.9999999999999999 1.0
 ```
 
-Die mittlere Spalte sammelt die Rundungsfehler auf, die rechte trifft jeden Zeitpunkt so genau, wie ein `float` ihn überhaupt darstellen kann. [Programmieren, Python 2, Abschnitt 5](/wissen/informatik/programmieren/python/werte-typen-und-variablen/rechnen-mit-gleitkommazahlen.html#stufe-5) hat in einer Aufgabe dieselbe Beobachtung mit dem interaktiven Modus gemacht; mit der Schleife sieht man alle Zeitpunkte auf einmal.
+Die mittlere Spalte sammelt die Rundungsfehler auf, die rechte trifft jeden Zeitpunkt so genau, wie ein `float` ihn überhaupt darstellen kann. [Kapitel 2, Abschnitt 5](/wissen/informatik/programmieren/python/werte-typen-und-variablen/rechnen-mit-gleitkommazahlen.html#stufe-5) hat in einer Aufgabe dieselbe Beobachtung mit dem interaktiven Modus gemacht; mit der Schleife sieht man alle Zeitpunkte auf einmal.
 
 ⁠**Kurz gesagt:** Für Schritte mit Gleitkommazahlen zählt `range` ganzzahlig, und den Wert berechnet man aus dem Zähler.
 
@@ -215,7 +216,7 @@ Beide Schleifen wiederholen einen Block. Welche man nimmt, hängt davon ab, was 
 | wann geeignet | Zahl der Durchläufe steht vorher fest | Ziel steht fest, Zahl der Durchläufe nicht |
 | wie sie endet | nach dem letzten Wert der Folge | wenn die Bedingung falsch ist |
 | Gefahr | keine Endlosschleife möglich | endlos, wenn der Block die Bedingung nicht ändert |
-| Beispiel | Tabelle für 5 Widerstände | Kondensator bis 1 % entladen |
+| Beispiel | Preistabelle für 5 Mengen | Tee bis 60 °C abkühlen |
 
 Ein Unterschied überrascht oft: Bindet man in einer `for`-Schleife die Schleifenvariable an einen anderen Wert, hat das auf den nächsten Durchlauf keine Wirkung, denn die Schleife bindet den Namen jedes Mal neu an den nächsten Wert aus dem `range`.
 
@@ -274,63 +275,63 @@ Für positive Schritte bestätigt die Formel aus Unterabschnitt [4.2](#stufe-4-
 :::
 :::
 
-:::aufgabe Aufgabe 16 ★★ Eine Leistungstabelle
+:::aufgabe Aufgabe 16 ★★ Eine Fahrzeittabelle
 <span class="anker" id="aufg-16"></span>
 
-Schreibe ein Skript, das für $U=12$ V und die Widerstände 100 $\Omega$, 200 $\Omega$, …, 1000 $\Omega$ die Leistung $P=U^2/R$ in Watt mit zwei Nachkommastellen ausgibt, eine Zeile je Widerstand. Welche Argumente braucht `range`?
+Schreibe ein Skript, das für ein Durchschnittstempo von 75 km/h und die Strecken 100 km, 200 km, …, 1000 km die Fahrzeit in Stunden mit zwei Nachkommastellen ausgibt, eine Zeile je Strecke. Welche Argumente braucht `range`?
 
 :::loesung
 Der Stopp muss über 1000 liegen, damit 1000 noch dazugehört: `range(100, 1001, 100)`.
 
-```python leistung_tabelle.py
-# Leistung P = U*U/R an 12 V für R = 100 Ohm bis 1000 Ohm
-u = 12.0
-for r in range(100, 1001, 100):
-    print(f"R = {r:4d} Ohm   P = {u * u / r:.2f} W")
+```python fahrzeit_tabelle.py
+# Fahrzeit bei 75 km/h im Schnitt für 100 km bis 1000 km
+tempo = 75.0
+for km in range(100, 1001, 100):
+    print(f"{km:4d} km   {km / tempo:5.2f} h")
 ```
 
 ```console Linux
-$ python3 leistung_tabelle.py
-R =  100 Ohm   P = 1.44 W
-R =  200 Ohm   P = 0.72 W
-R =  300 Ohm   P = 0.48 W
-R =  400 Ohm   P = 0.36 W
-R =  500 Ohm   P = 0.29 W
-R =  600 Ohm   P = 0.24 W
-R =  700 Ohm   P = 0.21 W
-R =  800 Ohm   P = 0.18 W
-R =  900 Ohm   P = 0.16 W
-R = 1000 Ohm   P = 0.14 W
+$ python3 fahrzeit_tabelle.py
+ 100 km    1.33 h
+ 200 km    2.67 h
+ 300 km    4.00 h
+ 400 km    5.33 h
+ 500 km    6.67 h
+ 600 km    8.00 h
+ 700 km    9.33 h
+ 800 km   10.67 h
+ 900 km   12.00 h
+1000 km   13.33 h
 ```
 
-Die Formatangabe `4d` hält die Widerstände rechtsbündig in vier Stellen, sodass die Spalten untereinanderstehen ([Programmieren, Python 2, Abschnitt 10.2](/wissen/informatik/programmieren/python/werte-typen-und-variablen/zeichenketten-eingabe-und-ausgabe.html#stufe-10-2)).
+Die Formatangabe `4d` hält die Strecken rechtsbündig in vier Stellen, `5.2f` die Zeiten in fünf Zeichen mit zwei Nachkommastellen, sodass die Spalten untereinanderstehen ([Kapitel 2, Abschnitt 10.2](/wissen/informatik/programmieren/python/werte-typen-und-variablen/zeichenketten-eingabe-und-ausgabe.html#stufe-10-2)).
 :::
 :::
 
-:::aufgabe Aufgabe 17 ★★ Eine Sekunde Audio
+:::aufgabe Aufgabe 17 ★★ Eine Minute Video
 <span class="anker" id="aufg-17"></span>
 
-Ein Audiosignal wird mit 48 kHz abgetastet, die Abtastzeitpunkte sind $t_k=k/48000$ s. Berechne $t_{48000}$, das genau 1 s sein sollte, auf drei Wegen: (a) mit einer Schleife, die 48 000-mal `1 / 48000` zu `t` addiert, (b) als `48000 * (1 / 48000)`, (c) als `48000 / 48000`. Welche Wege treffen 1,0 genau? Erkläre den Unterschied mit der Zahl der Rundungen.
+Ein Video zeigt 60 Bilder je Sekunde, Bild Nummer $k$ beginnt zur Zeit $t_k=k/60$ s. Berechne $t_{3600}$, das genau 60 s sein sollte, auf drei Wegen: (a) mit einer Schleife, die 3600-mal `1 / 60` zu `t` addiert, (b) als `3600 * (1 / 60)`, (c) als `3600 / 60`. Welche Wege treffen 60,0 genau? Erkläre den Unterschied mit der Zahl der Rundungen.
 
 :::loesung
-```python audio.py
-# Eine Sekunde bei 48 kHz: den letzten Abtastzeitpunkt auf drei Wegen berechnen
+```python video.py
+# Eine Minute Video mit 60 Bildern je Sekunde: den Zeitpunkt nach dem letzten Bild auf drei Wegen berechnen
 t = 0.0
-for k in range(48000):
-    t = t + 1 / 48000
-print("aufaddiert:   ", t)
-print("48000 * (1/48000):", 48000 * (1 / 48000))
-print("48000 / 48000:", 48000 / 48000)
+for k in range(3600):
+    t = t + 1 / 60
+print("aufaddiert:      ", t)
+print("3600 * (1 / 60): ", 3600 * (1 / 60))
+print("3600 / 60:       ", 3600 / 60)
 ```
 
 ```console Linux
-$ python3 audio.py
-aufaddiert:    1.000000000000893
-48000 * (1/48000): 1.0
-48000 / 48000: 1.0
+$ python3 video.py
+aufaddiert:       59.999999999997875
+3600 * (1 / 60):  60.0
+3600 / 60:        60.0
 ```
 
-(a) trifft 1 nicht: In jeder der 48 000 Additionen wird gerundet, und die Fehler häufen sich auf etwa $9\cdot10^{-13}$. (b) enthält zwei Rundungen, eine beim Bilden von `1 / 48000` und eine beim Multiplizieren. Hier gleichen sie sich so aus, dass genau 1,0 herauskommt; garantiert ist das nicht, `49 * (1 / 49)` ergibt zum Beispiel `0.9999999999999999`. (c) ist eine einzige, exakte Rechnung. Am sichersten berechnet man jeden Zeitpunkt deshalb als `k / 48000`: eine Rundung je Wert, nie aufgehäuft.
+(a) trifft 60 nicht: In jeder der 3600 Additionen wird gerundet, und die Fehler häufen sich auf etwa $2\cdot10^{-12}$. (b) enthält zwei Rundungen, eine beim Bilden von `1 / 60` und eine beim Multiplizieren. Hier gleichen sie sich so aus, dass genau 60,0 herauskommt; garantiert ist das nicht, `49 * (1 / 49)` ergibt zum Beispiel `0.9999999999999999`. (c) ist eine einzige, exakte Rechnung. Am sichersten berechnet man jeden Zeitpunkt deshalb als `k / 60`: eine Rundung je Wert, nie aufgehäuft.
 :::
 :::
 

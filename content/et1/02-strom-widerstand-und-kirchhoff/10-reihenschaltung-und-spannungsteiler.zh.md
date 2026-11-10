@@ -1,6 +1,8 @@
 ---
 title: 第 9 阶段：串联与分压器
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 电流、电阻与基尔霍夫定律
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 电流、电阻与基尔霍夫定律
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff
+knoten: 第 2 章：电流、电阻与基尔霍夫定律
 order: 1121000
 summary: 许多网络由两种基本模式组成。本阶段把串联的电阻合并，说明电压如何分配，并由此构造一个转换器。
 tags: 串联, 总电阻, 空载, 数模转换器, 比特, 缓冲器, 比较器, 译码器

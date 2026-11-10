@@ -1,6 +1,8 @@
 ---
 title: Stage 3: Current and voltage at the capacitor
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / The Capacitor
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / The Capacitor
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator
+knoten: Chapter 3: The Capacitor
 order: 1130400
 summary: At a resistor, the voltage fixes the current at the same moment.
 tags: current source
@@ -18,7 +20,7 @@ At a resistor, the voltage fixes the current at the same moment. At a capacitor 
 :::satz Theorem 3.1 (Current and voltage at the capacitor)
 <span class="anker" id="satz-3-1"></span>
 
-With the current and voltage reference arrows in the same direction ([Part 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)), the following holds for time-dependent quantities:
+With the current and voltage reference arrows in the same direction ([Chapter 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)), the following holds for time-dependent quantities:
 
 <span class="anker" id="gl-3-1"></span>
 <span class="anker" id="gl-3-2"></span>
@@ -26,7 +28,7 @@ $$\begin{aligned} i(t)&=\frac{\mathrm{d} q}{\mathrm{d} t}=C\,\frac{\mathrm{d} u(
 :::
 
 :::herleitung Current and voltage
-Current is charge per time, $i=\mathrm{d} q/\mathrm{d} t$ ([Part 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)). Substituting $q=C\,u$ and pulling out the constant number $C$ gives [(3.1)](#gl-3-1). Conversely, the charge is the area under the current curve, just as distance is the area under the velocity ([Part 1](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)): $q(t)=q(t_0)+\int_{t_0}^{t}i\,\mathrm{d} t'$. Dividing by $C$ gives [(3.2)](#gl-3-2).
+Current is charge per time, $i=\mathrm{d} q/\mathrm{d} t$ ([Chapter 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)). Substituting $q=C\,u$ and pulling out the constant number $C$ gives [(3.1)](#gl-3-1). Conversely, the charge is the area under the current curve, just as distance is the area under the velocity ([Chapter 1](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)): $q(t)=q(t_0)+\int_{t_0}^{t}i\,\mathrm{d} t'$. Dividing by $C$ gives [(3.2)](#gl-3-2).
 :::
 
 ⁠**How to read it:** Lowercase letters stand for time-dependent quantities, $t'$ is the integration variable, $u(t_0)$ the voltage at the starting time. $i$ in A, $C$ in F, $\mathrm{d} u/\mathrm{d} t$ in V/s. 1 mA into 100 µF makes the voltage rise at 10 V/s. **Sign:** $q$ is the charge of the plate into which the current arrow points. For $i>0$ it grows and $u$ rises; for $i<0$, $u$ falls. **Validity:** $C$ must be constant.

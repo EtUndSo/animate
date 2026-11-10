@@ -1,6 +1,8 @@
 ---
 title: Stufe 3: Der Einkristall
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Kristallwachstum und reziprokes Gitter
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Kristallwachstum und reziprokes Gitter
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/kristallwachstum-und-reziprokes-gitter
+knoten: Kapitel 7: Kristallwachstum und reziprokes Gitter
 order: 4170500
 summary: Polysilizium ist rein, aber seine Kristallite zeigen in alle Richtungen.
 tags: Czochralski-Verfahren, Impfkristall, Versetzungen, Segregation, Barren, Substrat, Zonenziehen
@@ -110,7 +112,7 @@ Jeder Wafer ist 775 µm dick, die Säge frisst je Schnitt 200 µm. Wie viele
 
 <li>
 
-Versetzungen laufen in $\{111\}$-Ebenen. Unter welchem Winkel zur Ziehachse $[100]$ läuft die steilste Linie einer solchen Ebene (Winkel aus [Teil 6](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/kristallgitter/kristallgitter.html))? Wie lang muss ein Hals von 3 mm mindestens sein, damit eine Versetzung vom einen Rand zum anderen läuft? Wie lang wäre das bei 300 mm?
+Versetzungen laufen in $\{111\}$-Ebenen. Unter welchem Winkel zur Ziehachse $[100]$ läuft die steilste Linie einer solchen Ebene (Winkel aus [Kapitel 6](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/kristallgitter/kristallgitter.html))? Wie lang muss ein Hals von 3 mm mindestens sein, damit eine Versetzung vom einen Rand zum anderen läuft? Wie lang wäre das bei 300 mm?
 
 </li>
 

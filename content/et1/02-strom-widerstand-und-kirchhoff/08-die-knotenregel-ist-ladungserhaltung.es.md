@@ -1,6 +1,8 @@
 ---
 title: Etapa 7: La ley de los nudos es conservación de la carga
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Corriente, resistencia y leyes de Kirchhoff
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Corriente, resistencia y leyes de Kirchhoff
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff
+knoten: Capítulo 2: Corriente, resistencia y leyes de Kirchhoff
 order: 1120800
 summary: El primer tipo de ecuación: ¿Qué exige la conservación de la carga en un nudo?
 tags: 
@@ -33,7 +35,7 @@ Izquierda: nudo con dos corrientes entrantes y tres salientes, suma 7 mA en ca
 :::
 
 :::herleitung La ley de los nudos a partir de la conservación de la carga
-Para la carga $Q_\mathrm K$ del nudo se cumple $\mathrm{d} Q_\mathrm K/\mathrm{d} t=\sum I_\nu$, porque la carga ni se crea ni desaparece. Una estimación con la [Parte 1](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html) muestra lo pequeña que queda $Q_\mathrm K$: una esfera metálica de 1 cm de radio tiene el potencial $\varphi=k_\mathrm C\,Q/r$ con la constante de Coulomb $k_\mathrm C=8{,}99\cdot10^{9}\,\mathrm{N\,m^2/C^2}$. Para 9 V bastan $Q=10$ pC. Un exceso de 3 mA los aporta en 3,3 ns. Por eso $\mathrm{d} Q_\mathrm K/\mathrm{d} t$ es despreciable frente a las corrientes, y queda $\sum I_\nu=0$.
+Para la carga $Q_\mathrm K$ del nudo se cumple $\mathrm{d} Q_\mathrm K/\mathrm{d} t=\sum I_\nu$, porque la carga ni se crea ni desaparece. Una estimación con el [capítulo 1](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html) muestra lo pequeña que queda $Q_\mathrm K$: una esfera metálica de 1 cm de radio tiene el potencial $\varphi=k_\mathrm C\,Q/r$ con la constante de Coulomb $k_\mathrm C=8{,}99\cdot10^{9}\,\mathrm{N\,m^2/C^2}$. Para 9 V bastan $Q=10$ pC. Un exceso de 3 mA los aporta en 3,3 ns. Por eso $\mathrm{d} Q_\mathrm K/\mathrm{d} t$ es despreciable frente a las corrientes, y queda $\sum I_\nu=0$.
 :::
 
 **Por qué sobra una ecuación.** Cada rama une dos nudos. Por eso su corriente aparece en exactamente dos ecuaciones de nudo, una vez con $+$ (entrante) y otra con $-$ (saliente). Si se suman las $k$ ecuaciones, todas las corrientes se cancelan. Una ecuación se deduce, pues, de las demás, y cualquier selección de $k-1$ ecuaciones es independiente.
@@ -47,7 +49,7 @@ La suma de las tres primeras es $I_0-I_\mathrm b-I_\mathrm d=0$, la cuarta ecuac
 ::::
 
 :::frage ¿Vale la ley también si en un nudo hay un condensador?
-Sí. La corriente hacia la placa es una corriente de rama como cualquier otra; la carga no se acumula en el nudo, sino en la placa. La [Parte 3](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html) trata este caso.
+Sí. La corriente hacia la placa es una corriente de rama como cualquier otra; la carga no se acumula en el nudo, sino en la placa. El [capítulo 3](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html) trata este caso.
 :::
 
 :::aufgabe Ejercicio 7 ★★ Aplicar la ley de los nudos

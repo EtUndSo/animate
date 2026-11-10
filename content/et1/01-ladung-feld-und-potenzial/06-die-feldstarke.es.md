@@ -1,6 +1,8 @@
 ---
 title: Etapa 4: La intensidad de campo
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Carga, campo y potencial
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Carga, campo y potencial
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial
+knoten: Capítulo 1: Carga, campo y potencial
 order: 1110600
 summary: La ley de Coulomb da la fuerza, pero no dice cómo llega a través del espacio vacío.
 tags: carga de prueba, intensidad de campo eléctrico
@@ -30,7 +32,7 @@ $$\vec E:=\lim_{Q\to0}\frac{\vec F}{Q},\qquad\text{es decir}\quad\vec F=Q\cdot\v
 La dirección de $\vec E$ es la de la fuerza sobre una carga de prueba positiva. El campo eléctrico asigna a cada lugar uno de estos vectores.
 :::
 
-⁠**Cómo leerlo:** La unidad es $[E]=\mathrm{N/C}=\mathrm{m\,kg\,A^{-1}\,s^{-3}}=\mathrm{V/m}$, porque $\mathrm V=\mathrm{J/C}=\mathrm{N\,m/C}$. Sobre una carga negativa, la fuerza actúa en sentido contrario a $\vec E$. Valores típicos: en un conductor por el que circula corriente 0,1 V/m, en la atmósfera con buen tiempo 100 a 200 V/m, en la superficie de una antena de radiodifusión 1 a 1000 V/m, en una línea de alta tensión $10^6$ V/m, en un condensador (componente de dos placas, [Parte 3](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html)) $10^6$ a $10^8$ V/m. A $3\cdot10^6$ V/m el aire se perfora y salta una chispa. **Validez:** El límite $Q\to0$ es necesario porque una carga de prueba grande desplaza las cargas que crean el campo, por ejemplo los electrones libres de una placa metálica. Pero lo que se quiere medir es el campo sin la carga de prueba.
+⁠**Cómo leerlo:** La unidad es $[E]=\mathrm{N/C}=\mathrm{m\,kg\,A^{-1}\,s^{-3}}=\mathrm{V/m}$, porque $\mathrm V=\mathrm{J/C}=\mathrm{N\,m/C}$. Sobre una carga negativa, la fuerza actúa en sentido contrario a $\vec E$. Valores típicos: en un conductor por el que circula corriente 0,1 V/m, en la atmósfera con buen tiempo 100 a 200 V/m, en la superficie de una antena de radiodifusión 1 a 1000 V/m, en una línea de alta tensión $10^6$ V/m, en un condensador (componente de dos placas, [capítulo 3](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html)) $10^6$ a $10^8$ V/m. A $3\cdot10^6$ V/m el aire se perfora y salta una chispa. **Validez:** El límite $Q\to0$ es necesario porque una carga de prueba grande desplaza las cargas que crean el campo, por ejemplo los electrones libres de una placa metálica. Pero lo que se quiere medir es el campo sin la carga de prueba.
 
 :::satz Teorema 4.2 (Campo de cargas puntuales)
 <span class="anker" id="satz-4-2"></span>

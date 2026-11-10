@@ -1,6 +1,8 @@
 ---
 title: Etapa 5: La regla y la masa virtual
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / El amplificador operacional
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / El amplificador operacional
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker
+knoten: Capítulo 11: El amplificador operacional
 order: 1210700
 summary: La etapa 4 calculó con A .
 tags: amplificador inversor

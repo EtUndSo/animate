@@ -1,6 +1,8 @@
 ---
 title: Etapa 4: El error al medir tensión
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Medir corriente y tensión
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Medir corriente y tensión
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-und-spannung-messen
+knoten: Capítulo 4: Medir corriente y tensión
 order: 1140500
 summary: El voltímetro está fuera del circuito y, aun así, circula corriente por él.
 tags: 
@@ -13,7 +15,7 @@ lang: es
 El voltímetro está fuera del circuito y, aun así, circula corriente por él. Esta etapa muestra cuándo eso reduce la tensión que debe medir.
 :::
 
-**La idea.** El voltímetro abre un segundo camino para la corriente entre dos nudos. Su corriente tiene que venir de algún sitio. Si una fuente de corriente (mantiene fija su corriente, [Parte 5](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)) alimenta la resistencia de carga $R_L$, la corriente fija se reparte: lo que circula por el voltímetro falta en $R_L$, y la tensión baja (fig. [5](#abb-5)). En cambio, si $R_L$ está conectada directamente a una fuente de tensión ideal, esta suministra la corriente adicional y nada cambia. Por tanto, los errores solo aparecen donde la corriente no puede afluir libremente. En el divisor de tensión, $R_1$ frena el suministro: la corriente total aumenta, en $R_1$ cae más tensión y el punto medio baja.
+**La idea.** El voltímetro abre un segundo camino para la corriente entre dos nudos. Su corriente tiene que venir de algún sitio. Si una fuente de corriente (mantiene fija su corriente, [capítulo 5](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)) alimenta la resistencia de carga $R_L$, la corriente fija se reparte: lo que circula por el voltímetro falta en $R_L$, y la tensión baja (fig. [5](#abb-5)). En cambio, si $R_L$ está conectada directamente a una fuente de tensión ideal, esta suministra la corriente adicional y nada cambia. Por tanto, los errores solo aparecen donde la corriente no puede afluir libremente. En el divisor de tensión, $R_1$ frena el suministro: la corriente total aumenta, en $R_1$ cae más tensión y el punto medio baja.
 
 :::abbildung et1/k4spannung 5
 El voltímetro (rango 10 V; en trazos, resistencia interna y aparato ideal) en dos circuitos equivalentes. En ambos desvía 13,6 µ A, y la lectura baja de 3 V a 2,727 V.
@@ -33,7 +35,7 @@ El error relativo es $f=-R_L/(R_L+R_\mathrm i)$; para $R_L\ll R_\mathrm i$, por 
 ⁠**Cómo leerlo:** La fracción es el factor de error. $R_L$ es la resistencia que el instrumento encuentra entre sus terminales. Para un error pequeño hace falta $R_\mathrm i\gg R_L$; lo ideal es $R_\mathrm i\to\infty$. **Validez:** fuentes ideales, resistencias independientes de la tensión.
 
 :::herleitung Factor de error
-Con la regla de los nudos $I_\mathrm q=I_{RL}'+I_{\mathrm{i}}$, la corriente se reparte entre dos resistencias en paralelo, y en ambas hay $U_L'$. Así pues, $U_L'=I_\mathrm q\,R_LR_\mathrm i/(R_L+R_\mathrm i)$, y simplificando $R_\mathrm i$ se obtiene [(4.1)](#gl-4-1). En el divisor, sin instrumento, $U_2=U\,R_2/(R_1+R_2)$. Con instrumento hay que sustituir $R_2$ por $R_2\parallel R_\mathrm i$ (divisor de tensión cargado, [Parte 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)):
+Con la regla de los nudos $I_\mathrm q=I_{RL}'+I_{\mathrm{i}}$, la corriente se reparte entre dos resistencias en paralelo, y en ambas hay $U_L'$. Así pues, $U_L'=I_\mathrm q\,R_LR_\mathrm i/(R_L+R_\mathrm i)$, y simplificando $R_\mathrm i$ se obtiene [(4.1)](#gl-4-1). En el divisor, sin instrumento, $U_2=U\,R_2/(R_1+R_2)$. Con instrumento hay que sustituir $R_2$ por $R_2\parallel R_\mathrm i$ (divisor de tensión cargado, [capítulo 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)):
 
 $$U_2'=U\,\frac{R_2R_\mathrm i}{R_1R_2+R_\mathrm i(R_1+R_2)} \quad\Rightarrow\quad \frac{U_2'}{U_2}=\frac{R_\mathrm i(R_1+R_2)}{R_1R_2+R_\mathrm i(R_1+R_2)}=\frac{1}{1+(R_1\parallel R_2)/R_\mathrm i}.$$
 :::

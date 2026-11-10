@@ -35,9 +35,14 @@ landet unter web/wissen/en/<dieselbe Adresse wie der deutsche Artikel>, jede Spr
 Übersicht und ihren Suchindex. Das Sprachmenü (Knopf „DE ▾“ in der Kopfleiste, auf schmalen Bildschirmen unter dem
 Titel) führt zur selben Seite in der anderen Sprache; Sprachen ohne Übersetzung dieser Seite sind ausgegraut.
 
-Weitere Kopffelder (tools/heft_zu_artikel.py schreibt sie für Module mit Bereichen, etwa ml):
-    knoten: Grundlagen 1: Vektoren und Matrizen   Aufschrift des letzten pfad-Knotens im Baum, in Brotkrumen und Suche;
-                                                  die Adresse kommt weiter aus pfad: (bleibt bei neuer Nummerierung).
+Weitere Kopffelder (tools/heft_zu_artikel.py schreibt sie für alle Hefte):
+    adresse: elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung
+                                                  Adresse der pfad-Knoten (je Knoten ein Slug, so viele wie pfad: Teile hat):
+                                                  Die Seite liegt dann unter adresse/<artikel>.html, auch wenn pfad: die Namen
+                                                  ändert („ET3 – Grundgebiete der Elektrotechnik 3: Signale und Systeme“).
+                                                  Ohne adresse: kommen die Slugs aus den deutschen pfad:-Namen.
+    knoten: Kapitel 1: Vektoren und Matrizen      Aufschrift des letzten pfad-Knotens im Baum, in Brotkrumen und Suche;
+                                                  die Adresse kommt weiter aus pfad: bzw. adresse: (bleibt bei neuer Nummerierung).
     nachschlagen: ja                              Nachschlage-Artikel: Darunter steht „Verwendet in“ mit allen Artikeln
                                                   derselben Sprache, die ihn (oder einen Anker darin) verlinken.
 Dateien content/**/_<name>[.<lang>].md sind keine Artikel, sondern ein kurzer Text zu einem Knoten der Übersicht:
@@ -308,8 +313,19 @@ def split_display(txt):
 ABB_N = [0]                                               # laufende Abbildungsnummer im Artikel (render_article setzt 0)
 _ABB_GEMELDET = set()                                     # jede fehlende Szene/SVG nur einmal melden
 
+_SVG_SIZE = {}                                            # svg_size je Pfad, einmal je Build (Dateien ändern sich nicht)
+
+
 def svg_size(path):
-    """(Breite, Höhe) aus dem <svg>-Kopf einer exportierten Abbildung, None wenn sie fehlt."""
+    """(Breite, Höhe) aus dem <svg>-Kopf einer exportierten Abbildung, None wenn sie fehlt. Jede Datei wird je Build nur
+    einmal gelesen (Messung 10.11.2026: das Öffnen kostet unter Windows etwa 5 ms, jede Abbildung kam bis zu dreimal)."""
+    key = str(path)
+    if key not in _SVG_SIZE:
+        _SVG_SIZE[key] = _svg_size_lesen(path)
+    return _SVG_SIZE[key]
+
+
+def _svg_size_lesen(path):
     try:
         head = path.read_text(encoding="utf-8")[:800]
     except OSError:
@@ -361,7 +377,17 @@ def abbildung_html(name, inner):
     else:
         _abb_melden(("json", name), f"web/szenen/{name}.json fehlt -> ohne Editor-Link")
     alt = caption_alt(cap_md) or f"{T('abbildung')} {k}"
-    return (f'<figure class="abb" id="abb-{k}"><img src="{ABB_URL}/{lang}/{name}.svg" width="{size[0]}" height="{size[1]}" '
+    # Animierte Fassung (tools/export_szenen.py --animiert): Der Spieler in wissen.js setzt sie an die Stelle des Bilds.
+    # Ohne sie (oder ohne Skript) bleibt das statische Bild, es zeigt das Endbild der Szene. Ist das statische Bild neuer
+    # (später ohne --animiert exportiert), wäre die Animation veraltet: dann bleibt das Bild, mit Meldung.
+    anim, a_svg = "", ABB_DIR / lang / (name + ".anim.svg")
+    if a_svg.is_file():
+        if a_svg.stat().st_mtime + 2 >= (ABB_DIR / lang / (name + ".svg")).stat().st_mtime:
+            anim = f' data-anim="{ABB_URL}/{lang}/{name}.anim.svg"'
+        else:
+            _abb_melden(("anim", lang, name), f"{ABB_URL}/{lang}/{name}.anim.svg ist älter als das Bild — "
+                        f"python tools/export_szenen.py --animiert {name} (bis dahin statisch)")
+    return (f'<figure class="abb" id="abb-{k}"{anim}><img src="{ABB_URL}/{lang}/{name}.svg" width="{size[0]}" height="{size[1]}" '
             f'alt="{html.escape(alt, quote=True)}" loading="lazy" decoding="async"/>'
             + (f'<div class="abb-knopf">{edit}</div>' if edit else "")
             + f'<figcaption><span class="abb-n">{T("abbildung")} {k}</span>{(" " + cap) if cap else ""}</figcaption></figure>')
@@ -595,7 +621,8 @@ def md_to_html(md):
             continue
         if s.startswith("|") and i + 1 < n and re.match(r"^\s*\|?[\s:|-]*-[\s:|-]*\|?\s*$", lines[i + 1].strip()):
             flush()                                   # GitHub-Tabelle: Kopfzeile + |---|---|-Trenner + Zeilen
-            cells = lambda row: [c.strip() for c in row.strip().strip("|").split("|")]
+            cells = lambda row: [c.strip().replace("\\|", "|")          # \| (GFM) ist ein | im Zelleninhalt, z. B. in `ls | wc`
+                                 for c in re.split(r"(?<!\\)\|", row.strip().strip("|"))]
             header = cells(s); i += 2; body = []
             while i < n and lines[i].strip().startswith("|"):
                 body.append(cells(lines[i].strip())); i += 1
@@ -664,12 +691,18 @@ def collect():
         if not pfad:
             print("  übersprungen (kein pfad:):", md_file.relative_to(SRC)); continue
         parts = [p.strip() for p in pfad.split("/") if p.strip()]
+        adr = [p.strip() for p in (meta.get("adresse") or "").split("/") if p.strip()]   # feste Slugs der Knoten
+        if adr and len(adr) != len(parts):
+            print("  adresse: passt nicht zu pfad: (Slugs aus pfad):", md_file.relative_to(SRC)); adr = []
         title = meta.get("title") or md_file.stem
         ov = (meta.get("order") or "").strip()
         order = int(ov) if ov.isdigit() else (int(re.match(r"(\d+)", stem).group(1)) if re.match(r"\d+", stem) else 999999)
         container, chain = roots[lang], []
-        for part in parts:
-            nd = container.setdefault(slugify(part) if lang == "de" else part, _new_node(part))
+        for i, part in enumerate(parts):
+            slug = adr[i] if adr else slugify(part)
+            nd = container.setdefault(slug if lang == "de" else part, _new_node(part))
+            if lang == "de":
+                nd["slug"] = slug
             chain.append(nd); container = nd["children"]
         if (meta.get("knoten") or "").strip():         # Aufschrift des letzten Knotens („Grundlagen 1: Vektoren und Matrizen“),
             chain[-1]["name"] = meta["knoten"].strip()  # die Adresse kommt weiter aus pfad: (bleibt bei neuer Nummerierung)
@@ -680,7 +713,7 @@ def collect():
             de_pfad[key] = path
             de_ordner.setdefault(str(md_file.parent), path.rsplit("/", 1)[0])
         else:                                          # ohne deutsches Gegenstück (veraltete Übersetzung): in den Ordner der
-            ordner = de_ordner.get(str(md_file.parent), "/".join(nd["slug"] for nd in chain))   # übrigen Artikel, sonst
+            ordner = de_ordner.get(str(md_file.parent), "/".join(adr) if adr else "/".join(nd["slug"] for nd in chain))   # übrigen Artikel, sonst
             path = lang + "/" + de_pfad.get(key, ordner + "/" + a_slug + ".html")               # laufen ihre Links ins Leere
         autor = (meta.get("autor") or "").strip().lower()
         if re.search(r"-mensch(-ausfuehrlich)?$", a_slug):   # Dateiname-Suffix genügt
@@ -709,7 +742,8 @@ def collect():
     for lang, pfad, text in hinweise:                  # Hinweis an seinen Knoten hängen (fehlt der Knoten in der Sprache: entfällt)
         container, nd = roots[lang], None
         for part in [p.strip() for p in pfad.split("/") if p.strip()]:
-            nd = container.get(slugify(part) if lang == "de" else part)
+            nd = container.get(slugify(part) if lang == "de" else part) or next(
+                (n for n in container.values() if n["name"] == part), None)   # Knoten mit adresse: (Slug ≠ Name)
             if nd is None:
                 break
             container = nd["children"]
@@ -777,6 +811,7 @@ def page_shell(title, desc, body, depth, alternates=None):
 <html lang="{LANG_NOW[0]}"><head>
 <meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>{html.escape(title)} — EtUndSo</title>
+<link rel="icon" href="/favicon.ico" sizes="32x32"/><link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
 <meta name="description" content="{html.escape(desc)}"/>{links}
 <script>try{{if(localStorage.getItem("animate-theme")==="dark")document.documentElement.setAttribute("data-theme","dark");}}catch(e){{}}</script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css"/>
@@ -888,9 +923,13 @@ def topbar(panels=False, prev_a=None, next_a=None, art=None):
             '<div id="searchResults" class="searchResults"></div>'
             f'<div class="searchHint">{T("suche_hint")}</div></div></div>')
 
+_TOC = {}                                              # Artikeltext -> Abschnittsliste (für die Nachbar-Karten)
+
+
 def render_article(art, tree, prev_a, next_a):
     ABB_N[0] = 0                                       # Abbildungen je Artikel ab 1 nummerieren
     body_html, toc = md_to_html(art["body"])
+    _TOC[art["body"]] = toc
     quiz_html = ""                                     # Quiz ganz unten, unter den Nachbar-Spalten (User 2026-10-21)
     qa = body_html.find('<aside class="callout cx-quiz">')
     if qa >= 0:
@@ -910,7 +949,9 @@ def render_article(art, tree, prev_a, next_a):
         arttoc = f'<nav class="arttoc" aria-label="{T("im_artikel")}"><div class="arttoc-h">{T("im_artikel")}</div><ul>' + \
             "".join(f'<li><a href="#{hid}">{html.escape(txt)}</a></li>' for hid, txt in toc) + "</ul></nav>"
     def _topics(a):                                    # Themen-Stichpunkte (##-Überschriften) eines Nachbarartikels
-        return "".join(f"<li>{html.escape(t)}</li>" for _, t in md_to_html(a["body"])[1])
+        if a["body"] not in _TOC:                      # einmal je Text (Messung 10.11.2026: sonst jeder Artikel dreimal gesetzt)
+            _TOC[a["body"]] = md_to_html(a["body"])[1]
+        return "".join(f"<li>{html.escape(t)}</li>" for _, t in _TOC[a["body"]])
     switch = ""                                        # Umschalter kompakt | ausführlich, mit Lesezeit
     if art.get("alt"):
         kompakt, ausf = (art, art["alt"]) if art["fassung"] == "kompakt" else (art["alt"], art)
@@ -972,8 +1013,9 @@ def verwendet_html(art):
              re.finditer(r'(?m)^###\s+(.+?)\s*\n\s*\n<span class="anker" id="(stufe-\d+-\d+)"></span>', art["body"])}
     rows = []
     for a, anker in sorted(eintr.values(), key=lambda x: (x[0]["order"], x[0]["title"])):
-        heft = a["crumbs"][-1][0] if a["crumbs"] else ""
-        text = (heft + " › " if heft else "") + (a["kurz"] or a["title"])
+        heft = a["crumbs"][-1][0] if a["crumbs"] else ""      # „Kapitel 2: …“, davor Bereich bzw. Modulkürzel („Python“, „ET3“)
+        oben = a["crumbs"][-2][0].split(" – ")[0] if len(a["crumbs"]) > 1 else ""
+        text = "".join(x + " › " for x in (oben, heft) if x) + (a["kurz"] or a["title"])
         zu = [k[6:].replace("-", ".") + " " + titel[k] for k in sorted(anker, key=lambda k: [int(x) for x in re.findall(r"\d+", k)] or [0])
               if k in titel]
         rows.append(f'<li><a href="/wissen/{a["path"]}">{html.escape(text)}</a>'
@@ -1156,7 +1198,7 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--fbody);lin
 a{color:var(--accent);text-decoration:none;} a:hover{text-decoration:underline;}
 kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px solid var(--border);border-radius:5px;padding:1px 5px;}
 .topbar{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:14px;padding:11px 18px;background:var(--bar);border-bottom:1px solid var(--bar-rand);}
-.brand{font-family:var(--fdisp);font-weight:800;font-size:19px;letter-spacing:-.02em;color:#6ad19b;}   /* Logo: „Et“ grün, „So“ rot (Wunsch des Users 09.11.2026) */
+.brand{font-family:var(--fdisp);font-weight:800;font-size:19px;letter-spacing:-.02em;color:#ff9650;}   /* Logo: „Et“ orange wie „Editor öffnen“, „So“ rot (Wunsch des Users 09.11.2026) */
 .brand span{color:var(--bar-ink);} .brand span.so{color:#ff4d4d;}
 .topbar .searchBtn{margin-left:auto;display:flex;align-items:center;gap:8px;background:var(--bar-soft);border:1px solid var(--bar-rand);color:var(--bar-ink);
   border-radius:10px;padding:8px 13px;font:inherit;font-size:14px;cursor:pointer;}
@@ -1296,6 +1338,31 @@ kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px s
 .article figure.abb .abb-edit{display:inline-flex;align-items:center;gap:6px;padding:5px 11px;border:1px solid var(--accent);border-radius:8px;
   background:var(--panel);color:var(--accent);font-size:13px;font-weight:600;line-height:1.3;white-space:nowrap;}
 .article figure.abb .abb-edit:hover{text-decoration:none;background:color-mix(in srgb,var(--accent) 10%,var(--panel));}
+/* Animierte Abbildung (data-anim, wissen.js): das bewegte SVG an der Stelle des Bilds, darunter die Spielerleiste
+   (Start/Stopp gefüllt grün, Neustart, Schritt zurück/vor, Zeitleiste mit orangen Sprungmarken, Zeit). */
+.article figure.abb svg.abb-anim{display:block;margin:0 auto;max-width:100%;height:auto;border-radius:8px;background:#fff;}
+.abb-spieler{display:flex;align-items:center;gap:6px;margin:8px 2px 0;}
+.abb-spieler button{flex:none;display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;padding:0;
+  border:1px solid var(--accent);border-radius:8px;background:var(--panel);color:var(--accent);cursor:pointer;}
+.abb-spieler button:hover{background:color-mix(in srgb,var(--accent) 12%,var(--panel));}
+.abb-spieler button.as-play{background:var(--accent);color:var(--on-accent);}
+.abb-spieler button.as-play:hover{background:color-mix(in srgb,var(--accent) 85%,var(--ink));}
+.abb-spieler button:focus-visible,.abb-spieler input:focus-visible{outline:2px solid var(--accent3);outline-offset:2px;}
+.abb-spieler svg{width:16px;height:16px;fill:currentColor;}
+.abb-spieler .as-leiste{position:relative;flex:1;min-width:64px;height:32px;display:flex;align-items:center;}
+.abb-spieler input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:32px;margin:0;background:transparent;cursor:pointer;}
+.abb-spieler input[type=range]::-webkit-slider-runnable-track{height:4px;border-radius:2px;
+  background:linear-gradient(to right,var(--accent) var(--as-p,0%),color-mix(in srgb,var(--muted) 35%,transparent) var(--as-p,0%));}
+.abb-spieler input[type=range]::-moz-range-track{height:4px;border-radius:2px;background:color-mix(in srgb,var(--muted) 35%,transparent);}
+.abb-spieler input[type=range]::-moz-range-progress{height:4px;border-radius:2px;background:var(--accent);}
+.abb-spieler input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:14px;margin-top:-5px;border-radius:50%;
+  background:var(--accent);border:2px solid var(--panel);box-shadow:0 0 0 1px var(--accent);}
+.abb-spieler input[type=range]::-moz-range-thumb{width:10px;height:10px;border-radius:50%;background:var(--accent);border:2px solid var(--panel);
+  box-shadow:0 0 0 1px var(--accent);}
+.abb-spieler .as-marke{position:absolute;top:50%;width:2px;height:10px;margin:-5px 0 0 -1px;border-radius:1px;background:var(--accent3);
+  pointer-events:none;}
+.abb-spieler .as-zeit{flex:none;min-width:6.2em;text-align:right;font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap;}
+@media(max-width:480px){ .abb-spieler{gap:5px;} .abb-spieler .as-zeit{display:none;} .abb-spieler button{width:30px;height:30px;} }
 /* Fassung wählen: kompakt | ausführlich, jeweils mit Lesezeit */
 .fassung{display:inline-flex;margin:.1em 0 1.2em;border:1px solid var(--border);border-radius:10px;overflow:hidden;background:var(--soft);}
 .fassung .f-btn{display:flex;align-items:baseline;gap:8px;padding:7px 15px;color:var(--muted);font-weight:600;font-size:14.5px;}
@@ -1474,6 +1541,7 @@ details.beispiel[open]>summary::before{transform:rotate(90deg);}
 details.beispiel .bsp-k{font-family:var(--fdisp);font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--accent3);margin-right:9px;}
 .bsp-body{padding:0 16px 10px;border-top:1px solid var(--border);}
 .bsp-body>p:first-child{margin-top:12px;}
+.article figure.abb,.article details [id]{scroll-margin-top:72px;}   /* Sprung auf eine Abbildung (auch im Kasten): nicht unter der Kopfleiste */
 /* ---------- Grüne Leiste, modern (Variante B, 04.11.2026) ---------- */
 .article h1{font-weight:800;letter-spacing:-.03em;line-height:1.08;}
 .article h2{font-weight:700;letter-spacing:-.022em;} .article h3{font-weight:700;letter-spacing:-.015em;}
@@ -1719,6 +1787,154 @@ var NICHTS={de:"Nichts gefunden für „{q}\".",en:"Nothing found for „{q}\"."
     document.querySelectorAll("a[data-alt]").forEach(function(a){ a.setAttribute("href",a.getAttribute("data-alt")); });
   }
   if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",apply); else apply();
+})();
+/* Animierte Abbildungen: figure.abb[data-anim] = Adresse der Datei <szene>.anim.svg (tools/szenen_animation.py). Sie ist
+   das Endbild plus Datenblock <metadata class="szenen-animation">; der Spieler setzt sie an die Stelle des Bilds und
+   bewegt die Elemente mit data-a. Start, wenn die Abbildung ins Bild kommt (in zugeklappten Kästen also erst beim
+   Aufklappen), Halt, wenn sie es verlässt; bei „Bewegung reduzieren“ kein Selbststart (Endbild). Ohne Skript, ohne
+   Datei oder bei einem Fehler bleibt das statische Bild. */
+(function(){
+  var figs=[].slice.call(document.querySelectorAll("figure.abb[data-anim]"));
+  if(!figs.length || !window.fetch || !window.DOMParser || !window.IntersectionObserver) return;
+  var L=(document.documentElement.lang||"de").slice(0,2);
+  var TX={de:{play:"Abspielen",pause:"Anhalten",neu:"Von vorn",zur:"Schritt zurück",vor:"Schritt vor",zeit:"Zeitleiste der Animation",von:"von",anim:"Animation"},
+    en:{play:"Play",pause:"Pause",neu:"Restart",zur:"Previous step",vor:"Next step",zeit:"Animation timeline",von:"of",anim:"Animation"},
+    es:{play:"Reproducir",pause:"Pausa",neu:"Reiniciar",zur:"Paso anterior",vor:"Paso siguiente",zeit:"Línea de tiempo de la animación",von:"de",anim:"Animación"},
+    zh:{play:"播放",pause:"暂停",neu:"重新开始",zur:"上一步",vor:"下一步",zeit:"动画时间轴",von:"/",anim:"动画"},
+    fr:{play:"Lire",pause:"Pause",neu:"Recommencer",zur:"Étape précédente",vor:"Étape suivante",zeit:"Chronologie de l’animation",von:"sur",anim:"Animation"},
+    tr:{play:"Oynat",pause:"Duraklat",neu:"Baştan başlat",zur:"Önceki adım",vor:"Sonraki adım",zeit:"Animasyon zaman çizelgesi",von:"/",anim:"Animasyon"}};
+  var tx=TX[L]||TX.en;
+  var reduce=window.matchMedia?window.matchMedia("(prefers-reduced-motion: reduce)"):{matches:false};
+  var ICON={play:'<path d="M5 3.5v13l11-6.5z"/>',pause:'<path d="M4.5 3.5h4v13h-4zM11.5 3.5h4v13h-4z"/>',
+    neu:'<path d="M10 3.2a6.8 6.8 0 1 1-6.6 8.4h2.1A4.8 4.8 0 1 0 10 5.2v2.6L5.8 4.2 10 .6z"/>',
+    zur:'<path d="M3.5 3.5h2.2v13H3.5zM16.5 3.5v13L7 10z"/>',vor:'<path d="M14.3 3.5h2.2v13h-2.2zM3.5 3.5v13L13 10z"/>'};
+  function knopf(cls,ic,lab){ var b=document.createElement("button"); b.type="button"; b.className=cls; b.setAttribute("aria-label",lab); b.title=lab;
+    b.innerHTML='<svg viewBox="0 0 20 20" aria-hidden="true">'+ICON[ic]+'</svg>'; return b; }
+  function zahl(t){ var s=(Math.round(t*10)/10).toFixed(1); return (L==="en"||L==="zh")?s:s.replace(".",","); }
+  // Wert einer Spur [k0,v0,k1,v1,…] im (gebrochenen) Bild f: Stufe = letzter Wert davor, sonst linear
+  function such(tr,f){ var n=tr.length>>1, lo=0, hi=n-1;
+    if(f<=tr[0]) return [0,0,0]; if(f>=tr[2*hi]) return [hi,hi,0];
+    while(hi-lo>1){ var m=(lo+hi)>>1; if(tr[2*m]<=f) lo=m; else hi=m; }
+    return [lo,hi,(f-tr[2*lo])/(tr[2*hi]-tr[2*lo])]; }
+  function stufe(tr,f){ return tr[2*such(tr,f)[0]+1]; }
+  function linear(tr,f){ var s=such(tr,f), a=tr[2*s[0]+1], b=tr[2*s[1]+1], w=s[2];
+    if(typeof a==="number") return a+(b-a)*w;
+    var o=[]; for(var i=0;i<a.length;i++) o.push(a[i]+(b[i]-a[i])*w); return o; }
+  function r(v,n){ var p=Math.pow(10,n); return Math.round(v*p)/p; }
+  function mische(a,b,w){ var o=new Array(a.length); for(var i=0;i<a.length;i++) o[i]=a[i]+(b[i]-a[i])*w; return o; }
+  function pfad(v,qc){ var o="", i=0;                    // Bézier-Kette(n) wie engine/svg_painter: M p0 C p1 p2 p3 …
+    for(var c=0;c<qc.length;c++){ var n=qc[c];
+      if(n){ o+="M"+r(v[2*i],1)+" "+r(v[2*i+1],1);
+        for(var k=1;k<n-2;k+=3){ var j=2*(i+k); o+="C"+r(v[j],1)+" "+r(v[j+1],1)+" "+r(v[j+2],1)+" "+r(v[j+3],1)+" "+r(v[j+4],1)+" "+r(v[j+5],1); } }
+      i+=n; }
+    return o; }
+  function rgb(c){ return "rgb("+Math.round(c[0])+","+Math.round(c[1])+","+Math.round(c[2])+")"; }
+  function setze(el,cache,name,v){ if(cache[name]===v) return; cache[name]=v; if(v===null) el.removeAttribute(name); else el.setAttribute(name,v); }
+  function texte(el){ return el.tagName.toLowerCase()==="g"?[].slice.call(el.querySelectorAll("text")):[el]; }
+
+  function Spieler(fig){
+    this.fig=fig; this.img=fig.querySelector("img"); this.t=0; this.lauf=false; this.gestartet=false; this.nutzer=false; this.auto=false;
+  }
+  Spieler.prototype.laden=function(){
+    var sp=this; if(sp.ladung) return sp.ladung;
+    sp.ladung=fetch(sp.fig.getAttribute("data-anim")).then(function(r){ if(!r.ok) throw new Error(r.status); return r.text(); }).then(function(txt){
+      var doc=new DOMParser().parseFromString(txt,"image/svg+xml"), svg=doc.documentElement;
+      var meta=svg&&svg.getElementsByTagName("metadata")[0];
+      if(!svg || svg.nodeName!=="svg" || !meta) throw new Error("kein animiertes SVG");
+      var D=JSON.parse(meta.textContent); meta.parentNode.removeChild(meta);
+      svg=document.importNode(svg,true);
+      var w=svg.getAttribute("width"), h=svg.getAttribute("height");
+      svg.setAttribute("class","abb-anim"); svg.setAttribute("role","img");
+      svg.setAttribute("aria-label",(sp.img&&sp.img.getAttribute("alt"))||tx.anim);
+      svg.style.aspectRatio=w+" / "+h;
+      sp.D=D; sp.dauer=D.dauer; sp.N=D.bilder; sp.svg=svg; sp.el=[]; sp.cache=[];
+      var nodes=svg.querySelectorAll("[data-a]");
+      for(var i=0;i<nodes.length;i++){ var e=nodes[i], k=+e.getAttribute("data-a"); sp.el[k]=e; sp.cache[k]={};
+        e._d0=e.getAttribute("d"); e._h0=e.innerHTML; }
+      if(sp.img) sp.img.parentNode.replaceChild(svg,sp.img); else sp.fig.insertBefore(svg,sp.fig.firstChild);
+      sp.leiste();
+      sp.zeige(reduce.matches?sp.dauer:0);
+      return sp;
+    });
+    sp.ladung.catch(function(){});                       // Fehler: das statische Bild bleibt stehen
+    return sp.ladung;
+  };
+  Spieler.prototype.leiste=function(){
+    var sp=this, bar=document.createElement("div"); bar.className="abb-spieler"; bar.setAttribute("role","group"); bar.setAttribute("aria-label",tx.anim);
+    sp.bPlay=knopf("as-play","play",tx.play); sp.bNeu=knopf("as-neu","neu",tx.neu);
+    bar.appendChild(sp.bPlay); bar.appendChild(sp.bNeu);
+    var marken=(sp.D.marken||[]).filter(function(m){ return m>0 && m<sp.dauer; });
+    sp.marken=marken;
+    if(marken.length){ sp.bZur=knopf("as-zur","zur",tx.zur); sp.bVor=knopf("as-vor","vor",tx.vor); bar.appendChild(sp.bZur); bar.appendChild(sp.bVor); }
+    var box=document.createElement("div"); box.className="as-leiste";
+    var rg=document.createElement("input"); rg.type="range"; rg.min="0"; rg.max=String(sp.N); rg.step="1"; rg.value="0"; rg.setAttribute("aria-label",tx.zeit);
+    box.appendChild(rg);
+    marken.forEach(function(m){ var s=document.createElement("span"); s.className="as-marke"; s.style.left="calc(7px + (100% - 14px) * "+(m/sp.dauer).toFixed(4)+")"; box.appendChild(s); });
+    bar.appendChild(box);
+    sp.zeit=document.createElement("span"); sp.zeit.className="as-zeit"; sp.zeit.setAttribute("aria-hidden","true"); bar.appendChild(sp.zeit);
+    sp.rg=rg; sp.svg.parentNode.insertBefore(bar,sp.svg.nextSibling);
+    sp.bPlay.addEventListener("click",function(){ if(sp.lauf){ sp.nutzer=true; sp.halt(); } else { sp.nutzer=false; sp.spiel(sp.t>=sp.dauer-1e-3?0:sp.t); } });
+    sp.bNeu.addEventListener("click",function(){ sp.nutzer=false; sp.spiel(0); });
+    if(sp.bZur){
+      sp.bZur.addEventListener("click",function(){ var z=0; for(var i=0;i<marken.length;i++) if(marken[i]<sp.t-0.15) z=marken[i]; sp.nutzer=true; sp.halt(); sp.zeige(z); });
+      sp.bVor.addEventListener("click",function(){ var z=sp.dauer; for(var i=marken.length-1;i>=0;i--) if(marken[i]>sp.t+0.05) z=marken[i]; sp.nutzer=true; sp.halt(); sp.zeige(z); });
+    }
+    rg.addEventListener("input",function(){ sp.nutzer=true; sp.halt(); sp.zeige(sp.dauer*(+rg.value)/sp.N); });
+  };
+  Spieler.prototype.zeige=function(t){
+    var sp=this; t=Math.max(0,Math.min(sp.dauer,t)); sp.t=t;
+    var f=sp.N*t/sp.dauer, data=sp.D.el;
+    for(var k=0;k<data.length;k++){
+      var e=sp.el[k], tr=data[k], c=sp.cache[k]; if(!e) continue;
+      if(tr.v) setze(e,c,"display",stufe(tr.v,f)?null:"none");
+      if(tr.h){ var hh=stufe(tr.h,f); if(c.h!==hh){ c.h=hh; e.innerHTML=hh===null?e._h0:hh; c.fo=c.fc=undefined; c.kinder=null; } }
+      if(tr.d){ var d=stufe(tr.d,f); setze(e,c,"d",d===null?e._d0:d); }
+      if(tr.q){ var s=such(tr.q,f), qa=tr.q[2*s[0]+1], qb=tr.q[2*s[1]+1];   // Punkte wandern (Umformen): linear
+        setze(e,c,"d",qa===null?e._d0:pfad((qb===null||s[2]===0)?qa:mische(qa,qb,s[2]),tr.qc)); }
+      if(tr.m){ var m=linear(tr.m,f);
+        setze(e,c,"transform",(Math.abs(m[0]-1)+Math.abs(m[1])+Math.abs(m[2])+Math.abs(m[3]-1)+Math.abs(m[4])+Math.abs(m[5])<1e-4)?null:
+          "matrix("+r(m[0],4)+" "+r(m[1],4)+" "+r(m[2],4)+" "+r(m[3],4)+" "+r(m[4],2)+" "+r(m[5],2)+")"); }
+      if(tr.p){ var p=linear(tr.p,f);
+        setze(e,c,"stroke-dasharray",(p[0]<0.05&&p[1]>999.95)?null:(p[0]<0.05?r(p[1],2)+" 2000":"0 "+r(p[0],2)+" "+r(p[1],2)+" 2000")); }
+      if(tr.so) setze(e,c,"stroke-opacity",String(r(linear(tr.so,f),3)));
+      if(tr.sw) setze(e,c,"stroke-width",String(r(linear(tr.sw,f),2)));
+      if(tr.sc) setze(e,c,"stroke",rgb(linear(tr.sc,f)));
+      if(tr.fo||tr.fc){
+        var ziele=(e.tagName.toLowerCase()==="g")?(c.kinder||(c.kinder=texte(e))):[e];
+        var fo=tr.fo?String(r(linear(tr.fo,f),3)):null, fc=tr.fc?rgb(linear(tr.fc,f)):null;
+        for(var j=0;j<ziele.length;j++){ var cc=ziele[j]===e?c:(ziele[j]._c||(ziele[j]._c={}));
+          if(fo!==null) setze(ziele[j],cc,"fill-opacity",fo); if(fc!==null) setze(ziele[j],cc,"fill",fc); }
+      }
+    }
+    if(sp.rg){ sp.rg.value=String(Math.round(f)); sp.rg.style.setProperty("--as-p",(100*t/sp.dauer).toFixed(2)+"%");
+      var txt=zahl(t)+" "+tx.von+" "+zahl(sp.dauer)+" s"; sp.rg.setAttribute("aria-valuetext",txt); sp.zeit.textContent=zahl(t)+" / "+zahl(sp.dauer)+" s"; }
+  };
+  Spieler.prototype.spiel=function(ab){
+    var sp=this; if(!sp.D) return;
+    if(ab!=null) sp.zeige(ab);
+    sp.lauf=true; sp.gestartet=true; sp.auto=false; sp.knopf();
+    var t0=performance.now(), s0=sp.t;
+    function tick(now){ if(!sp.lauf) return;
+      var t=s0+(now-t0)/1000; if(t>=sp.dauer){ sp.zeige(sp.dauer); sp.lauf=false; sp.knopf(); return; }
+      sp.zeige(t); sp.raf=requestAnimationFrame(tick); }
+    sp.raf=requestAnimationFrame(tick);
+  };
+  Spieler.prototype.halt=function(){ this.lauf=false; if(this.raf) cancelAnimationFrame(this.raf); this.knopf(); };
+  Spieler.prototype.knopf=function(){ var b=this.bPlay; if(!b) return; var l=this.lauf?tx.pause:tx.play;
+    b.setAttribute("aria-label",l); b.title=l; b.innerHTML='<svg viewBox="0 0 20 20" aria-hidden="true">'+ICON[this.lauf?"pause":"play"]+'</svg>'; };
+  Spieler.prototype.sichtbar=function(ja){
+    var sp=this; if(!sp.D) return; sp.imBild=ja;
+    if(ja){ if(reduce.matches || sp.nutzer || document.hidden) return;
+      if(!sp.gestartet) sp.spiel(0); else if(sp.auto){ sp.spiel(); } }
+    else if(sp.lauf){ sp.halt(); sp.auto=true; }
+  };
+  var spieler=figs.map(function(f){ return new Spieler(f); });
+  var nah=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ var sp=e.target._sp; nah.unobserve(e.target);
+      sp.laden().then(function(){ seh.observe(sp.fig); }); } }); },{rootMargin:"400px 0px"});
+  var seh=new IntersectionObserver(function(es){ es.forEach(function(e){ e.target._sp.sichtbar(e.isIntersecting && e.intersectionRatio>=0.35); }); },{threshold:[0,0.35,0.6]});
+  spieler.forEach(function(sp){ sp.fig._sp=sp; nah.observe(sp.fig); });
+  document.addEventListener("visibilitychange",function(){ spieler.forEach(function(sp){        // Tab im Hintergrund: anhalten
+    if(document.hidden){ if(sp.lauf){ sp.halt(); sp.auto=true; } } else if(sp.imBild) sp.sichtbar(true); }); });
 })();
 """
 

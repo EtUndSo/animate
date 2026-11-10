@@ -1,7 +1,9 @@
 ---
 title: 概览: 采样与离散时间系统
 kurz: 概览
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / 采样与离散时间系统
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / 采样与离散时间系统
+adresse: elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme
+knoten: 第 4 章：采样与离散时间系统
 order: 3240100
 summary: 从连续信号到数值序列： 采样定理、离散卷积、DFT、FFT 与 z 变换
 tags: 样本值
@@ -10,7 +12,7 @@ lang: zh
 
 ## 本章内容
 
-计算机无法存储函数 $s(t)$，只能存储数值序列。因此，人们以固定的时间间隔 $T$ 测量信号，并用__样本值__ $s(nT)$ 进行计算。本章围绕两个问题展开：**这一过程会丢失信息吗？**以及：**怎样像第 1 至[第 3 部分](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)对函数所做的那样，对数值序列进行计算？**
+计算机无法存储函数 $s(t)$，只能存储数值序列。因此，人们以固定的时间间隔 $T$ 测量信号，并用__样本值__ $s(nT)$ 进行计算。本章围绕两个问题展开：**这一过程会丢失信息吗？**以及：**怎样像第 1 至[第 3 章](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)对函数所做的那样，对数值序列进行计算？**
 
 
 **所有结论背后的同一个原理：一个域中离散，意味着另一个域中周期。**

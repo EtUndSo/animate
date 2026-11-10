@@ -1,6 +1,8 @@
 ---
 title: Stufe 9: Bandpasssignal durch Bandpasssystem
-pfad: Elektrotechnik / 3. Semester / Signale und Systeme / Tiefpass- und Bandpasssysteme
+pfad: Elektrotechnik / 3. Semester / ET3 – Grundgebiete der Elektrotechnik 3: Signale und Systeme / Tiefpass- und Bandpasssysteme
+adresse: elektrotechnik/3-semester/signale-und-systeme/tiefpass-und-bandpasssysteme
+knoten: Kapitel 5: Tiefpass- und Bandpasssysteme
 order: 3251000
 summary: Der Nutzen der Hüllkurven: Wie ein Bandpass auf ein Bandpasssignal wirkt, rechnet man vollständig im Tiefpassbereich.
 tags: 

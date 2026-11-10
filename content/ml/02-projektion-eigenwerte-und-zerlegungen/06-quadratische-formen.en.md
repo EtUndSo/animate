@@ -1,7 +1,8 @@
 ---
 title: Quadratic forms
 pfad: Computer Science / Machine Learning / Mathematical Foundations / Projection, Eigenvalues and Decompositions
-knoten: Foundations 2: Projection, Eigenvalues and Decompositions
+adresse: informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen
+knoten: Chapter 2: Projection, Eigenvalues and Decompositions
 nachschlagen: ja
 order: 15220600
 summary: After the linear functions, the quadratic ones are the simplest functions of several variables.
@@ -12,16 +13,16 @@ lang: en
 <span class="anker" id="stufe-5"></span>
 
 :::zweck
-After the linear functions, the quadratic ones are the simplest functions of several variables. They describe energies, squared errors and curved surfaces. This section writes them with a matrix, shows the three basic shapes bowl, trough and saddle, and explains how to tell from the matrix which shape you have, as long as it has no cross terms.
+After the linear functions, the quadratic ones are the simplest functions of several variables. They describe squared distances, squared errors and curved surfaces. This section writes them with a matrix, shows the three basic shapes bowl, trough and saddle, and explains how to tell from the matrix which shape you have, as long as it has no cross terms.
 :::
 
 ### Quadratic forms
 
 <span class="anker" id="stufe-5-1"></span>
 
-In [Foundations 1, Section 8.4](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-4), every linear function with one output was a weighted sum $\mathbf{w}^{\top}\mathbf{x}$ of the components. The next simplest kind of function sums products of two components each: squares such as $x_1^2$ and cross terms such as $x_1x_2$. An example from electrical engineering is the magnetic energy of two coupled coils with the inductances $L_1$, $L_2$ and the mutual inductance $M$, carrying the currents $i_1$ and $i_2$:
+In [Chapter 1, Section 8.4](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-4), every linear function with one output was a weighted sum $\mathbf{w}^{\top}\mathbf{x}$ of the components. The next simplest kind of function sums products of two components each: squares such as $x_1^2$ and cross terms such as $x_1x_2$. An example from everyday life is a walk along two straight roads that are not perpendicular to each other. Someone walks $x_1$ km in the direction of the unit vector $\mathbf{u}$ of the first road and then $x_2$ km in the direction of the unit vector $\mathbf{v}$ of the second; negative distances mean the opposite direction. They then stand at $x_1\mathbf{u}+x_2\mathbf{v}$, and by the rules of the dot product the square of their distance from the start is
 
-$$W=\tfrac12L_1i_1^2+M\,i_1i_2+\tfrac12L_2i_2^2 .$$
+$$d^2=\lVert x_1\mathbf{u}+x_2\mathbf{v}\rVert^2=x_1^2+2\,(\mathbf{u}^{\top}\mathbf{v})\,x_1x_2+x_2^2 .$$
 
 Such sums can be written with a matrix in the middle.
 
@@ -43,7 +44,7 @@ $$\mathbf{x}^{\top}\begin{pmatrix}a_{11}&a_{12}\\a_{21}&a_{22}\end{pmatrix}\math
 If you double $\mathbf{x}$, then $f$ quadruples: $f(c\,\mathbf{x})=c^2f(\mathbf{x})$. Hence the name.
 
 ::::beispiel [Worked example]
-For $\mathbf{A}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$, $f(\mathbf{x})=5x_1^2+4x_1x_2+2x_2^2$. At the point $\mathbf{x}=(1,\,-1)^{\top}$, $f=5-4+2=3$; as a check, $\mathbf{A}\mathbf{x}=(3,\,0)^{\top}$ and $\mathbf{x}^{\top}\mathbf{A}\mathbf{x}=3$. Fig. [14](#abb-14) works out the double sum [(5.1)](#gl-5-1) at this point term by term. At the point $(1,\,1)^{\top}$, $f=11$; at the origin, $f=0$. The energy of the two coils is $W=\tfrac12\,\mathbf i^{\top}\bigl(\begin{smallmatrix}L_1&M\\M&L_2\end{smallmatrix}\bigr)\,\mathbf i$ with the current vector $\mathbf i=(i_1,\,i_2)^{\top}$; the matrix is called the inductance matrix.
+For $\mathbf{A}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$, $f(\mathbf{x})=5x_1^2+4x_1x_2+2x_2^2$. At the point $\mathbf{x}=(1,\,-1)^{\top}$, $f=5-4+2=3$; as a check, $\mathbf{A}\mathbf{x}=(3,\,0)^{\top}$ and $\mathbf{x}^{\top}\mathbf{A}\mathbf{x}=3$. Fig. [14](#abb-14) works out the double sum [(5.1)](#gl-5-1) at this point term by term. At the point $(1,\,1)^{\top}$, $f=11$; at the origin, $f=0$. The squared distance of the walk is $d^2=\mathbf{x}^{\top}\bigl(\begin{smallmatrix}1&\mathbf{u}^{\top}\mathbf{v}\\\mathbf{u}^{\top}\mathbf{v}&1\end{smallmatrix}\bigr)\,\mathbf{x}$ with $\mathbf{x}=(x_1,\,x_2)^{\top}$; the matrix is the Gram matrix of the two directions $\mathbf{u}$ and $\mathbf{v}$ from [Chapter 1, Section 10](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/transponierte-symmetrie-und-gram-matrix.html#stufe-10). If the roads enclose the angle $60^\circ$, then $\mathbf{u}^{\top}\mathbf{v}=\cos60^\circ=\tfrac12$ and $d^2=x_1^2+x_1x_2+x_2^2$: after $1$ km on each of the two roads, you are $\sqrt3\approx1.73$ km from the start.
 
 :::abbildung ml/k2rqf 14
 The quadratic form of $\mathbf{A}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ at the point $\mathbf{x}=(1,-1)^{\top}$ as a double sum: four terms, one for each entry of $\mathbf{A}$.
@@ -153,7 +154,7 @@ $x_1^2+6x_1x_2+x_2^2=(x_1+3x_2)^2-8x_2^2$. The coefficients have different signs
 ⁠**In short:** Completing the square writes a quadratic form as a sum of squares; the signs of the coefficients of the squares show whether it is a bowl, a trough or a saddle.
 
 :::hintergrund Completing the square is Gaussian elimination
-The numbers in [(5.3)](#gl-5-3) are the same as in Gaussian elimination from [Foundations 1, Section 12.3](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-gleichungssysteme.html#stufe-12-3), applied to the symmetric matrix $\bigl(\begin{smallmatrix}a&b\\b&c\end{smallmatrix}\bigr)$. To produce a zero below the diagonal, you subtract $\frac ba$ times the first row from the second and obtain $\bigl(\begin{smallmatrix}a&b\\0&c-b^2/a\end{smallmatrix}\bigr)$. The diagonal entries of this echelon form, the so-called pivots, are exactly the coefficients of the squares, and the elimination factor $\frac ba$ appears in the first parenthesis. For the matrix $\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$: factor $0.4$, pivots $5$ and $1.2$. With $n$ variables you continue in the same way: each elimination step completes the square for one variable. The form is a bowl if and only if all pivots are positive. By the rules from [Foundations 1, Section 14.5](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5), the product of the pivots is the determinant, here $5\cdot1.2=6=5\cdot2-2\cdot2$.
+The numbers in [(5.3)](#gl-5-3) are the same as in Gaussian elimination from [Chapter 1, Section 12.3](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-gleichungssysteme.html#stufe-12-3), applied to the symmetric matrix $\bigl(\begin{smallmatrix}a&b\\b&c\end{smallmatrix}\bigr)$. To produce a zero below the diagonal, you subtract $\frac ba$ times the first row from the second and obtain $\bigl(\begin{smallmatrix}a&b\\0&c-b^2/a\end{smallmatrix}\bigr)$. The diagonal entries of this echelon form, the so-called pivots, are exactly the coefficients of the squares, and the elimination factor $\frac ba$ appears in the first parenthesis. For the matrix $\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$: factor $0.4$, pivots $5$ and $1.2$. With $n$ variables you continue in the same way: each elimination step completes the square for one variable. The form is a bowl if and only if all pivots are positive. By the rules from [Chapter 1, Section 14.5](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5), the product of the pivots is the determinant, here $5\cdot1.2=6=5\cdot2-2\cdot2$.
 :::
 
 :::aufgabe Exercise 14 ★ Forms and matrices
@@ -226,32 +227,32 @@ $f_3=(x_1+2x_2)^2-3x_2^2$: different signs, a saddle. If you choose $x_2=1$ and 
 :::
 :::
 
-:::aufgabe Exercise 16 ★★ Coupled coils
+:::aufgabe Exercise 16 ★★ Two roads
 <span class="anker" id="aufg-16"></span>
 
-Two coupled coils have $L_1=4\,\mathrm{mH}$ and $L_2=1\,\mathrm{mH}$.
+For the walk along two straight roads with the directions $\mathbf{u}$ and $\mathbf{v}$ from Subsection [5.1](#stufe-5-1), $d^2=x_1^2+2\,(\mathbf{u}^{\top}\mathbf{v})\,x_1x_2+x_2^2$.
 
 <ol class="al">
 
 <li>
 
-Complete the square in the energy $W=\tfrac12L_1i_1^2+M\,i_1i_2+\tfrac12L_2i_2^2$.
+Complete the square in $d^2$.
 
 </li>
 
 <li>
 
-For which values of $M$ is $W>0$ for all currents $(i_1,\,i_2)\ne(0,\,0)$? What follows from this for the coupling coefficient $k=M/\sqrt{L_1L_2}$?
+For which values of $\mathbf{u}^{\top}\mathbf{v}$ is $d^2>0$ for all distances $(x_1,\,x_2)\ne(0,\,0)$? Why can $|\mathbf{u}^{\top}\mathbf{v}|$ never be greater than $1$ by the Cauchy–Schwarz inequality from [Chapter 1, Section 5.1](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/winkel-und-ahnlichkeit.html#stufe-5-1), and what does $|\mathbf{u}^{\top}\mathbf{v}|=1$ mean for the two roads?
 
 </li>
 
 </ol>
 
 :::loesung
-(a) In [(5.3)](#gl-5-3), $a=\tfrac12L_1$, $2b=M$ and $c=\tfrac12L_2$, so $b/a=M/L_1$ and $b^2/a=M^2/(2L_1)$:
+(a) In [(5.3)](#gl-5-3), $a=1$, $b=\mathbf{u}^{\top}\mathbf{v}$ and $c=1$, so $b/a=\mathbf{u}^{\top}\mathbf{v}$ and $b^2/a=(\mathbf{u}^{\top}\mathbf{v})^2$:
 
-$$W=\tfrac12L_1\Bigl(i_1+\frac M{L_1}\,i_2\Bigr)^2+\tfrac12\Bigl(L_2-\frac{M^2}{L_1}\Bigr)i_2^2=2\,\mathrm{mH}\,\Bigl(i_1+\frac M{4\,\mathrm{mH}}\,i_2\Bigr)^2+\Bigl(\frac12\,\mathrm{mH}-\frac{M^2}{8\,\mathrm{mH}}\Bigr)i_2^2 .$$
+$$d^2=\bigl(x_1+(\mathbf{u}^{\top}\mathbf{v})\,x_2\bigr)^2+\bigl(1-(\mathbf{u}^{\top}\mathbf{v})^2\bigr)\,x_2^2 .$$
 
-(b) The first coefficient is positive. $W>0$ for all currents $\ne(0,\,0)$ holds if and only if the second is positive as well: $L_2-M^2/L_1>0$, so $M^2<L_1L_2=4\,(\mathrm{mH})^2$ and $|M|<2\,\mathrm{mH}$. For the coupling coefficient this means $|k|=|M|/\sqrt{L_1L_2}<1$. At $|k|=1$, the ideal case of perfect coupling, the form would only be a trough: for the matching current ratio $i_1=-\tfrac M{L_1}\,i_2$, the stored energy would be zero. So the fact that the energy of a magnetic field is never negative forces $|k|\le1$.
+(b) The first coefficient is $a=1>0$. $d^2>0$ for all distances $\ne(0,\,0)$ holds if and only if the second is positive as well: $1-(\mathbf{u}^{\top}\mathbf{v})^2>0$, so $|\mathbf{u}^{\top}\mathbf{v}|<1$. By the Cauchy–Schwarz inequality, $|\mathbf{u}^{\top}\mathbf{v}|\le\lVert\mathbf{u}\rVert\,\lVert\mathbf{v}\rVert=1$, with equality if and only if $\mathbf{v}=\pm\mathbf{u}$: when the two roads run parallel. Then the form would only be a trough: for $x_1=-(\mathbf{u}^{\top}\mathbf{v})\,x_2$, for instance $1$ km out and $1$ km back, you are standing at the start again. For two roads that really cross, $|\mathbf{u}^{\top}\mathbf{v}|<1$, and every walk with $(x_1,\,x_2)\ne(0,\,0)$ ends at a positive distance from the start.
 :::
 :::

@@ -11,7 +11,7 @@
     "id": "o1",
     "type": "MathTex",
     "props": {
-     "tex": "\\begin{aligned}\\bar U=\\frac14\\sum_{k=1}^{4}U_k&=\\frac14\\,(U_1+U_2+U_3+U_4)\\\\&=\\frac14\\,(4.98\\,\\mathrm V+5.02\\,\\mathrm V+5.01\\,\\mathrm V+4.99\\,\\mathrm V)\\\\&=\\frac14\\cdot 20.00\\,\\mathrm V\\\\&=5.00\\,\\mathrm V\\end{aligned}",
+     "tex": "\\begin{aligned}\\bar x=\\frac14\\sum_{k=1}^{4}x_k&=\\frac14\\,(x_1+x_2+x_3+x_4)\\\\&=\\frac14\\,(18.4+21.2+19.7+20.7)\\,{}^\\circ\\mathrm C\\\\&=\\frac14\\cdot 80.0\\,{}^\\circ\\mathrm C\\\\&=20.0\\,{}^\\circ\\mathrm C\\end{aligned}",
      "height": 2.2,
      "position": [
       0,

@@ -1,7 +1,8 @@
 ---
 title: Vom Quelltext zur Ausführung: Compiler und Interpreter
 pfad: Informatik / Programmieren / Python / Programme und der Python-Interpreter
-knoten: Python 1: Programme und der Python-Interpreter
+adresse: informatik/programmieren/python/programme-und-der-python-interpreter
+knoten: Kapitel 1: Programme und der Python-Interpreter
 order: 6020300
 summary: Der Prozessor versteht nur Maschinencode, Menschen schreiben Quelltext.
 tags: Compiler, ausführbare Datei, Interpreter, Python, CPython, Bytecode, Interpreterschleife
@@ -67,7 +68,7 @@ Die beiden Wege im Vergleich:
 ⁠**Kurz gesagt:** Ein Interpreter führt den Quelltext selbst aus, ohne eine ausführbare Datei zu erzeugen.
 
 :::hintergrund Warum Python einen Interpreter benutzt
-Ein Interpreter hat zwei Vorteile, die für Python den Ausschlag geben. Man kann eine Zeile eintippen und sieht sofort, was sie bewirkt, ohne Übersetzungsschritt dazwischen. Und derselbe Quelltext läuft unverändert unter Windows, Linux und macOS, auf PC-Prozessoren wie auf einem Raspberry Pi; nur den Interpreter selbst muss es für jedes System geben.
+Ein Interpreter hat zwei Vorteile, die für Python den Ausschlag geben. Man kann eine Zeile eintippen und sieht sofort, was sie bewirkt, ohne Übersetzungsschritt dazwischen. Und derselbe Quelltext läuft unverändert unter Windows, Linux und macOS, auf dem Prozessor eines PCs wie auf dem ganz anderen Prozessor eines neueren Mac; nur den Interpreter selbst muss es für jedes System geben.
 
 Der Preis ist Tempo. Der Interpreter muss bei jedem Schritt erst selbst Arbeit leisten, bevor die eigentliche Rechnung geschieht. Rechenintensive Programme schreibt man deshalb oft so, dass die schweren Teile in fertigem, übersetztem Maschinencode laufen, den Python nur aufruft.
 :::

@@ -1,6 +1,8 @@
 ---
 title: Stufe 1: Die Energiekurve der Bindung
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Chemische Bindung
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Chemische Bindung
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/chemische-bindung
+knoten: Kapitel 5: Chemische Bindung
 order: 4150300
 summary: Zwei weit entfernte Atome spüren einander nicht, und sehr dicht lassen sie sich nicht zusammendrücken.
 tags: freien Energie, Bindungsabstand, Gleichverteilungssatz, thermischen Ausdehnung, Ausdehnungskoeffizient

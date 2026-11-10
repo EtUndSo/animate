@@ -1,7 +1,8 @@
 ---
 title: Projektion auf eine Gerade
 pfad: Informatik / Machine Learning / Mathematische Grundlagen / Projektion, Eigenwerte und Zerlegungen
-knoten: Grundlagen 2: Projektion, Eigenwerte und Zerlegungen
+adresse: informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen
+knoten: Kapitel 2: Projektion, Eigenwerte und Zerlegungen
 nachschlagen: ja
 order: 15220300
 summary: Ein Punkt liegt neben einer Geraden.
@@ -21,7 +22,7 @@ Ein Punkt liegt neben einer Geraden. Welcher Punkt der Geraden liegt ihm am näc
 
 Eine Gerade durch den Nullpunkt besteht aus allen Vielfachen $t\,\mathbf{a}$ eines Richtungsvektors $\mathbf{a}\ne\mathbf{0}$. Gegeben ist ein Punkt $\mathbf{y}$, der nicht auf ihr liegen muss. Gesucht ist der Punkt der Geraden, der $\mathbf{y}$ am nächsten liegt.
 
-In [Grundlagen 1, Abschnitt 5.5](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/winkel-und-ahnlichkeit.html#stufe-5-5), warf ein Pfeil bei senkrechtem Lichteinfall einen Schatten auf eine Gerade. Der Endpunkt des Schattens ist der Punkt, an dem das Lot von $\mathbf{y}$ auf die Gerade trifft, der *Fußpunkt des Lots*. Die Verbindung von diesem Punkt zu $\mathbf{y}$ steht senkrecht auf der Geraden (Abb. [4](#abb-4)). Dass er der nächste Punkt ist, zeigt der nächste Unterabschnitt. Hier wird er zuerst ausgerechnet, und zwar auch dann, wenn $\mathbf{a}$ nicht normiert ist.
+In [Kapitel 1, Abschnitt 5.5](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/winkel-und-ahnlichkeit.html#stufe-5-5), warf ein Pfeil bei senkrechtem Lichteinfall einen Schatten auf eine Gerade. Der Endpunkt des Schattens ist der Punkt, an dem das Lot von $\mathbf{y}$ auf die Gerade trifft, der *Fußpunkt des Lots*. Die Verbindung von diesem Punkt zu $\mathbf{y}$ steht senkrecht auf der Geraden (Abb. [4](#abb-4)). Dass er der nächste Punkt ist, zeigt der nächste Unterabschnitt. Hier wird er zuerst ausgerechnet, und zwar auch dann, wenn $\mathbf{a}$ nicht normiert ist.
 
 :::herleitung Der Fußpunkt des Lots
 Der gesuchte Punkt liegt auf der Geraden, ist also $\hat x\,\mathbf{a}$ mit einer noch unbekannten Zahl $\hat x$. Die Verbindung $\mathbf{y}-\hat x\,\mathbf{a}$ soll senkrecht auf $\mathbf{a}$ stehen:
@@ -40,7 +41,7 @@ Es sei $\mathbf{a}\in\mathbb{R}^n$, $\mathbf{a}\ne\mathbf{0}$. Die __orthogonale
 $$\hat{\mathbf{y}}=\hat x\,\mathbf{a}\qquad\text{mit}\qquad\hat x=\frac{\mathbf{a}^{\top}\mathbf{y}}{\mathbf{a}^{\top}\mathbf{a}} . \tag{2.1}$$
 :::
 
-Der Punkt $\hat{\mathbf{y}}$ ist ein Vektor im $\mathbb{R}^n$; die Zahl $\hat x$ ist seine Koordinate längs $\mathbf{a}$. Beides darf man nicht verwechseln. Ist $\mathbf{a}$ normiert, so ist $\mathbf{a}^{\top}\mathbf{a}=1$ und $\hat{\mathbf{y}}=(\mathbf{a}^{\top}\mathbf{y})\,\mathbf{a}$, genau der Schattenpunkt aus [Grundlagen 1](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html).
+Der Punkt $\hat{\mathbf{y}}$ ist ein Vektor im $\mathbb{R}^n$; die Zahl $\hat x$ ist seine Koordinate längs $\mathbf{a}$. Beides darf man nicht verwechseln. Ist $\mathbf{a}$ normiert, so ist $\mathbf{a}^{\top}\mathbf{a}=1$ und $\hat{\mathbf{y}}=(\mathbf{a}^{\top}\mathbf{y})\,\mathbf{a}$, genau der Schattenpunkt aus [Kapitel 1](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html).
 
 :::abbildung ml/k2lot 4
 Die Projektion von $\mathbf{y}=(4,3)^{\top}$ auf die Gerade in Richtung $\mathbf{a}=(1,2)^{\top}$. Der Fußpunkt des Lots ist $\hat{\mathbf{y}}=2\mathbf{a}=(2,4)^{\top}$, die Verbindung $\mathbf{r}=(2,-1)^{\top}$ (blau) steht senkrecht auf der Geraden. Ein anderer Punkt der Geraden, etwa $(1,2)^{\top}$, ist weiter von $\mathbf{y}$ entfernt (gestrichelt): Das Dreieck aus $\mathbf{y}$, $\hat{\mathbf{y}}$ und $(1,2)^{\top}$ hat bei $\hat{\mathbf{y}}$ einen rechten Winkel, und die gestrichelte Seite ist seine Hypotenuse.
@@ -55,7 +56,7 @@ Die beiden Skalarprodukte der Projektion Schritt für Schritt: $\mathbf{a}^{\top
 ::::
 
 ::::beispiel [Rechenbeispiel 2]
-Für $\mathbf{a}=(3,\,4)^{\top}$ und $\mathbf{y}=(3,\,1)^{\top}$ ist $\hat x=(9+4)/25=0{,}52$ und $\hat{\mathbf{y}}=0{,}52\,(3,\,4)^{\top}=(1{,}56;\ 2{,}08)^{\top}$, derselbe Schattenpunkt wie in [Grundlagen 1](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html) mit dem normierten Vektor $(0{,}6;\ 0{,}8)^{\top}=\mathbf{a}/5$. Die Länge des Richtungsvektors spielt keine Rolle: Ersetzt man $\mathbf{a}$ durch $c\,\mathbf{a}$ mit $c\ne0$, so wird $\hat x$ zu $\hat x/c$, und $\hat{\mathbf{y}}$ bleibt gleich. Verdoppelt man dagegen $\mathbf{y}$, so verdoppelt sich auch $\hat{\mathbf{y}}$.
+Für $\mathbf{a}=(3,\,4)^{\top}$ und $\mathbf{y}=(3,\,1)^{\top}$ ist $\hat x=(9+4)/25=0{,}52$ und $\hat{\mathbf{y}}=0{,}52\,(3,\,4)^{\top}=(1{,}56;\ 2{,}08)^{\top}$, derselbe Schattenpunkt wie in [Kapitel 1](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html) mit dem normierten Vektor $(0{,}6;\ 0{,}8)^{\top}=\mathbf{a}/5$. Die Länge des Richtungsvektors spielt keine Rolle: Ersetzt man $\mathbf{a}$ durch $c\,\mathbf{a}$ mit $c\ne0$, so wird $\hat x$ zu $\hat x/c$, und $\hat{\mathbf{y}}$ bleibt gleich. Verdoppelt man dagegen $\mathbf{y}$, so verdoppelt sich auch $\hat{\mathbf{y}}$.
 ::::
 
 ⁠**Kurz gesagt:** Die Projektion von $\mathbf{y}$ auf die Gerade in Richtung $\mathbf{a}$ ist der Fußpunkt des Lots, $\hat{\mathbf{y}}=\frac{\mathbf{a}^{\top}\mathbf{y}}{\mathbf{a}^{\top}\mathbf{a}}\,\mathbf{a}$.
@@ -82,7 +83,7 @@ Man schreibt die Verbindung von $t\,\mathbf{a}$ zu $\mathbf{y}$ als Summe zweier
 
 $$\mathbf{y}-t\,\mathbf{a}=(\mathbf{y}-\hat{\mathbf{y}})+(\hat x-t)\,\mathbf{a} .$$
 
-Der erste Summand steht nach der Herleitung senkrecht auf $\mathbf{a}$, also auch auf dem zweiten. Nach dem Satz des Pythagoras aus [Grundlagen 1, Abschnitt 5.3](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/winkel-und-ahnlichkeit.html#stufe-5-3), ist das Längenquadrat der Summe die Summe der Längenquadrate, und das ist [(2.2)](#gl-2-2). Der zweite Summand auf der rechten Seite ist nie negativ und nur für $t=\hat x$ null. Also ist der Abstand genau für $t=\hat x$ am kleinsten.
+Der erste Summand steht nach der Herleitung senkrecht auf $\mathbf{a}$, also auch auf dem zweiten. Nach dem Satz des Pythagoras aus [Kapitel 1, Abschnitt 5.3](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/winkel-und-ahnlichkeit.html#stufe-5-3), ist das Längenquadrat der Summe die Summe der Längenquadrate, und das ist [(2.2)](#gl-2-2). Der zweite Summand auf der rechten Seite ist nie negativ und nur für $t=\hat x$ null. Also ist der Abstand genau für $t=\hat x$ am kleinsten.
 :::
 
 Für die Länge des Fußpunkts gilt $\lVert\hat{\mathbf{y}}\rVert=|\hat x|\,\lVert\mathbf{a}\rVert=|\mathbf{a}^{\top}\mathbf{y}|/\lVert\mathbf{a}\rVert=|\cos\varphi|\,\lVert\mathbf{y}\rVert$, wobei $\varphi$ der Winkel zwischen $\mathbf{a}$ und $\mathbf{y}$ ist. Das ist die Ankathete im rechtwinkligen Dreieck mit der Hypotenuse $\mathbf{y}$.
@@ -94,7 +95,7 @@ Im ersten Rechenbeispiel des vorigen Unterabschnitts ist $\lVert\mathbf{y}-\hat{
 ⁠**Kurz gesagt:** Der nächste Punkt einer Geraden ist der Fußpunkt des Lots, weil jeder Schritt längs der Geraden nach Pythagoras das Abstandsquadrat vergrößert.
 
 :::hintergrund Warum es genau einen nächsten Punkt gibt und dass das an der euklidischen Norm liegt
-Der Beweis benutzt den Satz des Pythagoras, und der gilt nur für Normen, die aus einem Skalarprodukt kommen. In [Grundlagen 1, Abschnitt 3.4](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/normen-die-groe-eines-vektors.html#stufe-3-4), stellte sich heraus, dass die Betragssummennorm keine solche Norm ist. Mit ihr geht die Eindeutigkeit tatsächlich verloren. Beispiel: die Gerade in Richtung $\mathbf{a}=(1,\,1)^{\top}$ und der Punkt $\mathbf{y}=(1,\,0)^{\top}$. Für $0\le t\le1$ ist
+Der Beweis benutzt den Satz des Pythagoras, und der gilt nur für Normen, die aus einem Skalarprodukt kommen. In [Kapitel 1, Abschnitt 3.4](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/normen-die-groe-eines-vektors.html#stufe-3-4), stellte sich heraus, dass die Betragssummennorm keine solche Norm ist. Mit ihr geht die Eindeutigkeit tatsächlich verloren. Beispiel: die Gerade in Richtung $\mathbf{a}=(1,\,1)^{\top}$ und der Punkt $\mathbf{y}=(1,\,0)^{\top}$. Für $0\le t\le1$ ist
 
 $$\lVert\mathbf{y}-t\,\mathbf{a}\rVert_1=|1-t|+|0-t|=(1-t)+t=1 ,$$
 
@@ -105,11 +106,11 @@ also gleich groß für alle Punkte zwischen $\mathbf{0}$ und $\mathbf{a}$; auße
 
 <span class="anker" id="stufe-2-3"></span>
 
-Die Vorschrift $\mathbf{y}\mapsto\hat{\mathbf{y}}$ ist linear: Die Summe zweier Punkte wird auf die Summe ihrer Projektionen abgebildet, ein Vielfaches auf das Vielfache. Nach [Grundlagen 1, Abschnitt 8.2](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-2), hat sie also eine Matrix. Man liest sie direkt ab, wenn man die Zahl $\mathbf{a}^{\top}\mathbf{y}$ an die andere Seite von $\mathbf{a}$ schreibt und das Matrixprodukt umklammert:
+Die Vorschrift $\mathbf{y}\mapsto\hat{\mathbf{y}}$ ist linear: Die Summe zweier Punkte wird auf die Summe ihrer Projektionen abgebildet, ein Vielfaches auf das Vielfache. Nach [Kapitel 1, Abschnitt 8.2](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-2), hat sie also eine Matrix. Man liest sie direkt ab, wenn man die Zahl $\mathbf{a}^{\top}\mathbf{y}$ an die andere Seite von $\mathbf{a}$ schreibt und das Matrixprodukt umklammert:
 
 $$\hat{\mathbf{y}}=\mathbf{a}\,\frac{\mathbf{a}^{\top}\mathbf{y}}{\mathbf{a}^{\top}\mathbf{a}}=\frac{\mathbf{a}\,\mathbf{a}^{\top}}{\mathbf{a}^{\top}\mathbf{a}}\,\mathbf{y} .$$
 
-Im Zähler steht das äußere Produkt aus [Grundlagen 1, Abschnitt 9.5](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrixprodukt.html#stufe-9-5).
+Im Zähler steht das äußere Produkt aus [Kapitel 1, Abschnitt 9.5](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrixprodukt.html#stufe-9-5).
 
 :::definition Definition 2.3 (Projektionsmatrix einer Geraden)
 <span class="anker" id="satz-2-3"></span>
@@ -139,7 +140,7 @@ Für $\mathbf{a}=(1,\,2)^{\top}$ ist
 
 $$\mathbf{P}=\frac15\begin{pmatrix}1&2\\2&4\end{pmatrix},\qquad \mathbf{P}\begin{pmatrix}4\\3\end{pmatrix}=\frac15\begin{pmatrix}4+6\\8+12\end{pmatrix}=\begin{pmatrix}2\\4\end{pmatrix}.$$
 
-Probe für $\mathbf{P}^2=\mathbf{P}$: $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)^2=\bigl(\begin{smallmatrix}5&10\\10&20\end{smallmatrix}\bigr)=5\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$, also $\mathbf{P}^2=\frac1{25}\cdot5\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)=\mathbf{P}$. Die Matrix $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ war in [Grundlagen 1, Abschnitt 11.5](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/einheitsmatrix-und-inverse.html#stufe-11-5), das Beispiel einer Matrix ohne Inverse. Jetzt ist klar, was sie tut: Sie ist das Fünffache einer Projektion und drückt die Ebene auf die Gerade in Richtung $(1,\,2)^{\top}$ platt.
+Probe für $\mathbf{P}^2=\mathbf{P}$: $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)^2=\bigl(\begin{smallmatrix}5&10\\10&20\end{smallmatrix}\bigr)=5\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$, also $\mathbf{P}^2=\frac1{25}\cdot5\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)=\mathbf{P}$. Die Matrix $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ war in [Kapitel 1, Abschnitt 11.5](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/einheitsmatrix-und-inverse.html#stufe-11-5), das Beispiel einer Matrix ohne Inverse. Jetzt ist klar, was sie tut: Sie ist das Fünffache einer Projektion und drückt die Ebene auf die Gerade in Richtung $(1,\,2)^{\top}$ platt.
 ::::
 
 ⁠**Kurz gesagt:** Die Projektion auf eine Gerade ist das Matrix-Vektor-Produkt mit $\mathbf{P}=\mathbf{a}\mathbf{a}^{\top}/(\mathbf{a}^{\top}\mathbf{a})$; diese Matrix ist symmetrisch und erfüllt $\mathbf{P}^2=\mathbf{P}$.
@@ -163,7 +164,7 @@ Eine Projektion $\mathbf{P}$ ist genau dann eine orthogonale Projektion, wenn $\
 :::
 
 :::beweis Orthogonal heißt symmetrisch
-Für alle $\mathbf{y},\mathbf{z}$ ist $(\mathbf{y}-\mathbf{P}\mathbf{y})^{\top}\mathbf{P}\mathbf{z}=\mathbf{y}^{\top}(\mathbf{I}-\mathbf{P})^{\top}\mathbf{P}\mathbf{z}$. Ist $\mathbf{P}^{\top}=\mathbf{P}$, so ist $(\mathbf{I}-\mathbf{P})^{\top}\mathbf{P}=\mathbf{P}-\mathbf{P}^2=\mathbf 0$, und der Ausdruck ist null. Ist umgekehrt der Ausdruck für alle $\mathbf{y},\mathbf{z}$ null, so ist die Matrix $(\mathbf{I}-\mathbf{P})^{\top}\mathbf{P}$ die Nullmatrix; mit $\mathbf{y}=\mathbf{e}_i$ und $\mathbf{z}=\mathbf{e}_l$ wählt der Ausdruck nämlich ihren Eintrag $(i,l)$ aus. Dann ist $\mathbf{P}=\mathbf{P}^{\top}\mathbf{P}$, und $\mathbf{P}^{\top}\mathbf{P}$ ist nach [Grundlagen 1, Abschnitt 10.2](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/transponierte-symmetrie-und-gram-matrix.html#stufe-10-2), symmetrisch.
+Für alle $\mathbf{y},\mathbf{z}$ ist $(\mathbf{y}-\mathbf{P}\mathbf{y})^{\top}\mathbf{P}\mathbf{z}=\mathbf{y}^{\top}(\mathbf{I}-\mathbf{P})^{\top}\mathbf{P}\mathbf{z}$. Ist $\mathbf{P}^{\top}=\mathbf{P}$, so ist $(\mathbf{I}-\mathbf{P})^{\top}\mathbf{P}=\mathbf{P}-\mathbf{P}^2=\mathbf 0$, und der Ausdruck ist null. Ist umgekehrt der Ausdruck für alle $\mathbf{y},\mathbf{z}$ null, so ist die Matrix $(\mathbf{I}-\mathbf{P})^{\top}\mathbf{P}$ die Nullmatrix; mit $\mathbf{y}=\mathbf{e}_i$ und $\mathbf{z}=\mathbf{e}_l$ wählt der Ausdruck nämlich ihren Eintrag $(i,l)$ aus. Dann ist $\mathbf{P}=\mathbf{P}^{\top}\mathbf{P}$, und $\mathbf{P}^{\top}\mathbf{P}$ ist nach [Kapitel 1, Abschnitt 10.2](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/transponierte-symmetrie-und-gram-matrix.html#stufe-10-2), symmetrisch.
 :::
 
 ::::beispiel [Rechenbeispiel]

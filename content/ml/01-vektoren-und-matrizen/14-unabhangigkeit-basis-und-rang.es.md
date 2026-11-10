@@ -1,7 +1,8 @@
 ---
 title: Independencia, base y rango
 pfad: Informática / Aprendizaje automático / Fundamentos matemáticos / Vectores y matrices
-knoten: Fundamentos 1: Vectores y matrices
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Capítulo 1: Vectores y matrices
 nachschlagen: ja
 order: 15211400
 summary: Algunos vectores de una lista no aportan nada nuevo, porque pueden componerse a partir de los demás.

@@ -1,6 +1,8 @@
 ---
 title: Stage 6: The rules of calculation (theorems)
-pfad: Electrical Engineering / 3rd Semester / Signals and Systems / Fourier Series and Transform
+pfad: Electrical Engineering / 3rd Semester / ET3 – Fundamentals of Electrical Engineering 3: Signals and Systems / Fourier Series and Transform
+adresse: elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation
+knoten: Chapter 3: Fourier Series and Transform
 order: 3230700
 summary: Instead of evaluating every integral anew, you use rules: what happens to the spectrum when the signal is shifted, compressed, differentiated or modulated?
 tags: energy density

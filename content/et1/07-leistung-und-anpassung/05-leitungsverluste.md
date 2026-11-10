@@ -1,6 +1,8 @@
 ---
 title: Stufe 4: Leitungsverluste
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Leistung, Anpassung und Wirkungsgrad
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Leistung, Anpassung und Wirkungsgrad
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad
+knoten: Kapitel 7: Leistung, Anpassung und Wirkungsgrad
 order: 1170500
 summary: Zwischen Quelle und Last liegt die Leitung, und auch sie ist ein Widerstand.
 tags: Spannungsabfall, Verlustleistung, Nutzleistung, Nennspannung
@@ -54,7 +56,7 @@ Die Last braucht 40 kW, $R_\mathrm{Kabel}=1\,\Omega$. Bei $U_\mathrm{L}=400$�
 | Hochspannung | 110 kV | bis rund 100 km | Versorgung der Mittelspannungsnetze |
 | Höchstspannung | 220 kV, 380 kV | einige 100 bis über 1000 km | Verbund im Land und in Europa |
 
-Bis in die Wohnung lässt sich Hochspannung nicht führen: Luft schlägt bei rund 3 kV/mm durch ([Teil 1](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)), Freileitungen brauchen deshalb Abstände von mehreren Metern. Transformatoren setzen die Wechselspannung für den Transport herauf und vor den Verbrauchern wieder herab.
+Bis in die Wohnung lässt sich Hochspannung nicht führen: Luft schlägt bei rund 3 kV/mm durch ([Kapitel 1](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)), Freileitungen brauchen deshalb Abstände von mehreren Metern. Transformatoren setzen die Wechselspannung für den Transport herauf und vor den Verbrauchern wieder herab.
 
 :::frage Nach $P=U^2/R$ wächst die Leistung mit der Spannung. Müssten höhere Spannungen nicht mehr Verlust bringen?
 Die Formel stimmt, aber sie braucht die Spannung am selben Widerstand. Am Kabel liegen im Beispiel nicht 20 kV, sondern $U_\mathrm{Kabel}=2$ V, und $(2\,\mathrm{V})^2/1\,\Omega$ sind die 4 W. Die hohe Spannung liegt an der Last. $U_\mathrm{Kabel}$ sinkt, weil der Strom sinkt.

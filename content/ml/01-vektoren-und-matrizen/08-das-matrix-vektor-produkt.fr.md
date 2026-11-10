@@ -1,7 +1,8 @@
 ---
 title: Le produit matrice-vecteur
 pfad: Informatique / Apprentissage automatique / Fondements mathématiques / Vecteurs et matrices
-knoten: Fondements 1 : Vecteurs et matrices
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Chapitre 1 : Vecteurs et matrices
 nachschlagen: ja
 order: 15210800
 summary: La même somme pondérée doit être calculée pour tous les exemples d’un jeu de données.

@@ -1,6 +1,8 @@
 ---
 title: Stage 2: Quantifiers and indirect proof
-pfad: Electrical Engineering / 1st Semester / Higher Mathematics 1 / Sets, Logic and Real Numbers
+pfad: Electrical Engineering / 1st Semester / HöMa1 – Higher Mathematics 1 / Sets, Logic and Real Numbers
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen
+knoten: Chapter 1: Sets, Logic and Real Numbers
 order: 1210400
 summary: All axioms have the form “for all x there is a y .” This stage clarifies how to read and negate such sentences, and how to turn a negation into a proof.
 tags: universal quantifier, existential quantifier, counterexample, contradiction hypothesis, Russell's paradox

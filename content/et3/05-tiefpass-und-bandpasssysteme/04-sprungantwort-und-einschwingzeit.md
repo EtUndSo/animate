@@ -1,6 +1,8 @@
 ---
 title: Stufe 3: Sprungantwort und Einschwingzeit
-pfad: Elektrotechnik / 3. Semester / Signale und Systeme / Tiefpass- und Bandpasssysteme
+pfad: Elektrotechnik / 3. Semester / ET3 – Grundgebiete der Elektrotechnik 3: Signale und Systeme / Tiefpass- und Bandpasssysteme
+adresse: elektrotechnik/3-semester/signale-und-systeme/tiefpass-und-bandpasssysteme
+knoten: Kapitel 5: Tiefpass- und Bandpasssysteme
 order: 3250400
 summary: Wie reagiert der ideale Tiefpass auf einen Sprung?
 tags: Integralsinus, Einschwingzeit
@@ -13,7 +15,7 @@ lang: de
 Wie reagiert der ideale Tiefpass auf einen Sprung? Wie schnell steigt er, und wie weit schießt er über?
 :::
 
-Die Sprungantwort ist das laufende Integral der Impulsantwort ([Teil 1](/wissen/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html)). Mit dem __Integralsinus__
+Die Sprungantwort ist das laufende Integral der Impulsantwort ([Kapitel 1](/wissen/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html)). Mit dem __Integralsinus__
 
 <span class="anker" id="gl-3-1"></span>
 $$\operatorname{Si}(x)=\int_0^x\operatorname{si}(\xi)\,\mathrm{d}\xi,\qquad\operatorname{Si}(-x)=-\operatorname{Si}(x),\qquad\operatorname{Si}(\infty)=\frac\pi2 \tag{3.1}$$
@@ -32,7 +34,7 @@ Das Integral bis $t$ teilt man bei 0. Der Teil von $-\infty$ bis 0 ist die halbe
 <span class="anker" id="gl-3-3"></span>
 $$t_e=\frac{h_\varepsilon(\infty)}{\max\dot h_\varepsilon}=\frac{1}{2f_\mathrm g}. \tag{3.3}$$
 
-Die Sprungantwort schießt um $8{,}95\,\%$ über (bei $t=\frac{1}{2f_\mathrm g}$). Das ist das Gibbs-Phänomen aus [Teil 3](/wissen/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html): Ein größeres $f_\mathrm g$ verkürzt die Einschwingzeit, das Überschwingen bleibt (Abb. [1](#abb-1)).
+Die Sprungantwort schießt um $8{,}95\,\%$ über (bei $t=\frac{1}{2f_\mathrm g}$). Das ist das Gibbs-Phänomen aus [Kapitel 3](/wissen/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html): Ein größeres $f_\mathrm g$ verkürzt die Einschwingzeit, das Überschwingen bleibt (Abb. [1](#abb-1)).
 
 :::abbildung et3/k5sprung 1
 Sprungantwort des idealen Tiefpasses für $f_\mathrm g=1$ Hz und 2 Hz. Gestrichelt die Rampe mit der größten Steigung: Ihre Anstiegszeit ist $t_e=1/(2f_\mathrm g)=0{,}5$ s. Beide Kurven schießen gleich weit über, auf 1,0895.

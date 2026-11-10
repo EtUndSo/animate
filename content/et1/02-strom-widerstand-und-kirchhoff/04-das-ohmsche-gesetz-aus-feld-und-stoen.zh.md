@@ -1,6 +1,8 @@
 ---
 title: 第 3 阶段：由电场和碰撞得出欧姆定律
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 电流、电阻与基尔霍夫定律
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 电流、电阻与基尔霍夫定律
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff
+knoten: 第 2 章：电流、电阻与基尔霍夫定律
 order: 1120400
 summary: 第 2 阶段表明：漂移与电场成正比。本阶段用几步就由此得出电路技术中最重要的定律。
 tags: 电导率, 电阻率, 电导, 线性, 均匀, 功率
@@ -36,7 +38,7 @@ $$\begin{aligned} \vec j&=\sigma\,\vec E,\qquad\sigma=n\,e\,\mu,\qquad\rho=\frac
 
 $$\vec j=q\,\vec v_\mathrm D=(-n\,e)(-\mu\,\vec E)=n\,e\,\mu\,\vec E=\sigma\,\vec E.$$
 
-电场是均匀的，所以 $U=E\,L$（[第 1 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)）。于是
+电场是均匀的，所以 $U=E\,L$（[第 1 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)）。于是
 
 $$I=j\,A=\sigma\,E\,A=\frac{\sigma\,A}{L}\,U\quad\Longrightarrow\quad U=\frac{L}{\sigma\,A}\,I=R\,I.$$
 :::
@@ -55,7 +57,7 @@ $$I=j\,A=\sigma\,E\,A=\frac{\sigma\,A}{L}\,U\quad\Longrightarrow\quad U=\frac{L}
 
 ⁠**极限情况：**电压不变时长度加倍，电场减半，电流也减半。横截面积加倍相当于两根并排的导线，电流加倍。$U=0$ 时 $I=0$。
 
-**能量去了哪里。** 每次碰撞时，电子把在电场中获得的动能交给晶格。晶格振动加剧，这就是热。每库仑电荷释放能量 $U$（以焦耳计），每秒通过 $I$ 库仑。因此，__功率__（单位时间的能量）为 $P=U\,I=R\,I^2$。串联链转换的功率为 $9\,\mathrm{V}\cdot3\,\mathrm{mA}=27$ mW。[第 7 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad/leistung-und-anpassung.html)将更详细地讨论功率。
+**能量去了哪里。** 每次碰撞时，电子把在电场中获得的动能交给晶格。晶格振动加剧，这就是热。每库仑电荷释放能量 $U$（以焦耳计），每秒通过 $I$ 库仑。因此，__功率__（单位时间的能量）为 $P=U\,I=R\,I^2$。串联链转换的功率为 $9\,\mathrm{V}\cdot3\,\mathrm{mA}=27$ mW。[第 7 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad/leistung-und-anpassung.html)将更详细地讨论功率。
 
 :::frage $R=U/I$ 总是可以算出来。那欧姆定律还说了什么？
 任何元件都有商 $U/I$。定律说的更多：这个商是**恒定**的，与 $U$ 无关。这是关于材料的陈述，源于固定的飞行时间。对白炽灯它不成立（第 [4](reale-widerstande-werte-und-temperatur.html#stufe-4) 阶段）。

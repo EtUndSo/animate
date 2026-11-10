@@ -1,7 +1,8 @@
 ---
 title: The singular value decomposition
 pfad: Computer Science / Machine Learning / Mathematical Foundations / Projection, Eigenvalues and Decompositions
-knoten: Foundations 2: Projection, Eigenvalues and Decompositions
+adresse: informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen
+knoten: Chapter 2: Projection, Eigenvalues and Decompositions
 nachschlagen: ja
 order: 15221000
 summary: Eigenvectors exist only for square matrices, and they are perpendicular to each other only for symmetric ones.
@@ -58,7 +59,7 @@ $$d_j=\sqrt{\lambda_j},\qquad d_1\ge d_2\ge\dots\ge d_n\ge0 , \tag{9.1}$$
 are called the __singular values__ of $\mathbf{A}$.
 :::
 
-Many books write $\sigma_j$ instead of $d_j$. Here the singular values always carry an index; the $d$ without an index from [Foundations 1](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html), the number of features, is something else.
+Many books write $\sigma_j$ instead of $d_j$. Here the singular values always carry an index; the $d$ without an index from [Chapter 1](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html), the number of features, is something else.
 
 :::satz Theorem 9.2 (Singular values and rank)
 <span class="anker" id="satz-9-2"></span>
@@ -136,7 +137,7 @@ $$\mathbf{A}=\sum_{j=1}^rd_j\,\mathbf{u}_j\mathbf{v}_j^{\top} . \tag{9.4}$$
 :::
 
 :::beweis Singular value decomposition
-For $j\le r$ we have $\mathbf{A}\mathbf{v}_j=d_j\mathbf{u}_j$. For $j>r$ we have $d_j=0$, so $\lVert\mathbf{A}\mathbf{v}_j\rVert=0$ and $\mathbf{A}\mathbf{v}_j=\mathbf{0}$. If $r<m$, extend $\mathbf{u}_1,\dots,\mathbf{u}_r$ to an orthonormal basis of $\mathbb{R}^m$, for instance with the Gram–Schmidt process as in the proof of the spectral theorem. By [Foundations 1, Section 9.2](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrixprodukt.html#stufe-9-2), column $j$ of $\mathbf{A}\mathbf{V}$ is the vector $\mathbf{A}\mathbf{v}_j$, and column $j$ of $\mathbf{U}\mathbf{D}$ is $d_j\mathbf{u}_j$ for $j\le r$ and the zero vector otherwise. So $\mathbf{A}\mathbf{V}=\mathbf{U}\mathbf{D}$. Because $\mathbf{V}$ is orthogonal, $\mathbf{V}\mathbf{V}^{\top}=\mathbf{I}$, and multiplying by $\mathbf{V}^{\top}$ from the right gives $\mathbf{A}=\mathbf{U}\mathbf{D}\mathbf{V}^{\top}$. The compact form follows from [Foundations 1, Section 9.5](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrixprodukt.html#stufe-9-5): column $j$ of $\mathbf{U}\mathbf{D}$ times row $j$ of $\mathbf{V}^{\top}$, summed over $j$; only the terms with $j\le r$ are nonzero.
+For $j\le r$ we have $\mathbf{A}\mathbf{v}_j=d_j\mathbf{u}_j$. For $j>r$ we have $d_j=0$, so $\lVert\mathbf{A}\mathbf{v}_j\rVert=0$ and $\mathbf{A}\mathbf{v}_j=\mathbf{0}$. If $r<m$, extend $\mathbf{u}_1,\dots,\mathbf{u}_r$ to an orthonormal basis of $\mathbb{R}^m$, for instance with the Gram–Schmidt process as in the proof of the spectral theorem. By [Chapter 1, Section 9.2](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrixprodukt.html#stufe-9-2), column $j$ of $\mathbf{A}\mathbf{V}$ is the vector $\mathbf{A}\mathbf{v}_j$, and column $j$ of $\mathbf{U}\mathbf{D}$ is $d_j\mathbf{u}_j$ for $j\le r$ and the zero vector otherwise. So $\mathbf{A}\mathbf{V}=\mathbf{U}\mathbf{D}$. Because $\mathbf{V}$ is orthogonal, $\mathbf{V}\mathbf{V}^{\top}=\mathbf{I}$, and multiplying by $\mathbf{V}^{\top}$ from the right gives $\mathbf{A}=\mathbf{U}\mathbf{D}\mathbf{V}^{\top}$. The compact form follows from [Chapter 1, Section 9.5](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrixprodukt.html#stufe-9-5): column $j$ of $\mathbf{U}\mathbf{D}$ times row $j$ of $\mathbf{V}^{\top}$, summed over $j$; only the terms with $j\le r$ are nonzero.
 :::
 
 The shape of $\mathbf{D}$ follows the shape of $\mathbf{A}$. For $m=3$ and $n=2$, for example, $\mathbf{D}=\Bigl(\begin{smallmatrix}d_1&0\\0&d_2\\0&0\end{smallmatrix}\Bigr)$. The usual abbreviation is SVD, for *singular value decomposition*.
@@ -189,7 +190,7 @@ $\mathbf{U}$ puts $\mathbf{e}_j$ onto $\mathbf{u}_j$, again a rotation or reflec
 
 </ol>
 
-So every linear map is, up to reflections, a rotation, a stretch along the axes and another rotation. It turns the unit circle into an ellipse and the unit sphere into an ellipsoid, with the semi-axes $d_j\mathbf{u}_j$. If $\det\mathbf{A}<0$, at least one reflection is involved, because by [Foundations 1, Section 14.5](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5), $\det\mathbf{A}=\det\mathbf{U}\cdot\det\mathbf{D}\cdot\det\mathbf{V}^{\top}$, and $\det\mathbf{D}\ge0$.
+So every linear map is, up to reflections, a rotation, a stretch along the axes and another rotation. It turns the unit circle into an ellipse and the unit sphere into an ellipsoid, with the semi-axes $d_j\mathbf{u}_j$. If $\det\mathbf{A}<0$, at least one reflection is involved, because by [Chapter 1, Section 14.5](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5), $\det\mathbf{A}=\det\mathbf{U}\cdot\det\mathbf{D}\cdot\det\mathbf{V}^{\top}$, and $\det\mathbf{D}\ge0$.
 
 :::abbildung ml/k2svd 23
 The matrix $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ as rotation, stretch, rotation. Top left, the unit circle with $\mathbf{v}_1=(1,2)^{\top}/\sqrt5$ (red) and $\mathbf{v}_2=(-2,1)^{\top}/\sqrt5$ (green). $\mathbf{V}^{\top}$ rotates by $-63.4^\circ$ and puts $\mathbf{v}_1$ onto $\mathbf{e}_1$ and $\mathbf{v}_2$ onto $\mathbf{e}_2$ (bottom left). $\mathbf{D}$ stretches the first axis by $d_1=4$ and the second by $d_2=1$ (bottom right). $\mathbf{U}$ rotates by $26.6^\circ$ and puts the axes onto $\mathbf{u}_1=(2,1)^{\top}/\sqrt5$ and $\mathbf{u}_2=(-1,2)^{\top}/\sqrt5$ (top right). The black point $\mathbf{x}=\mathbf{e}_2$ ends up at $\mathbf{A}\mathbf{x}=(3,2)^{\top}$ by either route. The direct route at the top is $\mathbf{A}$ itself: the unit circle becomes the ellipse with the semi-axes $4\,\mathbf{u}_1$ and $1\cdot\mathbf{u}_2$.
@@ -241,7 +242,7 @@ $\mathbf{v}_{r+1},\dots,\mathbf{v}_n$ is an orthonormal basis of the null space 
 (i) Every $\mathbf{A}\mathbf{x}=\sum_{j\le r}d_j(\mathbf{v}_j^{\top}\mathbf{x})\mathbf{u}_j$ lies in the span of $\mathbf{u}_1,\dots,\mathbf{u}_r$, and conversely $\mathbf{u}_j=\mathbf{A}(\mathbf{v}_j/d_j)$ is an image. The remaining columns of $\mathbf{U}$ are perpendicular to these, so by Section [4.4](projektion-auf-einen-unterraum.html#stufe-4-4) they span the orthogonal complement. (ii) Because the $\mathbf{u}_j$ are independent and the $d_j$ positive, $\mathbf{A}\mathbf{x}=\mathbf{0}$ if and only if $\mathbf{v}_j^{\top}\mathbf{x}=0$ for all $j\le r$, that is, if $\mathbf{x}$ has coordinates only along $\mathbf{v}_{r+1},\dots,\mathbf{v}_n$. Finally, $\mathbf{A}^{\top}=\mathbf{V}\mathbf{D}^{\top}\mathbf{U}^{\top}$ is a singular value decomposition of $\mathbf{A}^{\top}$ in which $\mathbf{U}$ and $\mathbf{V}$ swap roles; (i) for $\mathbf{A}^{\top}$ gives the rest.
 :::
 
-The numbers match the rank–nullity theorem from [Foundations 1, Section 13.5](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-5): the null space has dimension $n-r$.
+The numbers match the rank–nullity theorem from [Chapter 1, Section 13.5](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-5): the null space has dimension $n-r$.
 
 ::::beispiel [Worked example]
 The matrix $\mathbf{H}$ with the columns $(1,\,0,\,1)^{\top}$ and $(0,\,1,\,1)^{\top}$ from Section [3.2](die-beste-naherungslosung.html#stufe-3-2) has $\mathbf{H}^{\top}\mathbf{H}=\bigl(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\bigr)$ with the eigenvalues $3$ and $1$, hence the singular values $d_1=\sqrt3$ and $d_2=1$, and the right singular vectors $\mathbf{v}_1=(1,\,1)^{\top}/\sqrt2$, $\mathbf{v}_2=(1,\,-1)^{\top}/\sqrt2$. The left ones are
@@ -314,14 +315,18 @@ For $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$, we ha
 
 ⁠**In short:** The spectral norm $\lVert\mathbf{A}\rVert_2=d_1$ is the largest factor by which $\mathbf{A}$ lengthens a vector; the smallest is $d_n$.
 
-:::hintergrund Multiple antennas: parallel channels from the singular value decomposition
-A radio system with several transmit and receive antennas is called a MIMO system. Each receive antenna receives a mixture of all transmitted signals. In a simple model, the received vector is $\mathbf{y}=\mathbf{K}\mathbf{x}+\boldsymbol\nu$: $\mathbf{x}$ contains the transmitted signals of the antennas, the channel matrix $\mathbf{K}$ describes how strongly each transmit antenna arrives at each receive antenna, and $\boldsymbol\nu$ is the noise.
+:::hintergrund Two handles, one lever: separate controls from the singular value decomposition
+On a two-handle faucet, with one handle for hot and one for cold water, each handle changes the flow and the temperature at the same time. In a simplified model for small turns around a setting with equal amounts of hot and cold water, the turns $\Delta w$ of the hot handle and $\Delta k$ of the cold handle change the flow and the temperature by
 
-If transmitter and receiver know the decomposition $\mathbf{K}=\mathbf{U}\mathbf{D}\mathbf{V}^{\top}$, the transmitter sends $\mathbf{x}=\mathbf{V}\tilde{\mathbf{x}}$, and the receiver computes $\tilde{\mathbf{y}}=\mathbf{U}^{\top}\mathbf{y}$. Then
+$$\mathbf{y}=\begin{pmatrix}\Delta Q\\\Delta T\end{pmatrix}=\mathbf{K}\mathbf{x},\qquad \mathbf{x}=\begin{pmatrix}\Delta w\\\Delta k\end{pmatrix},\qquad \mathbf{K}=\begin{pmatrix}1&1\\2&-2\end{pmatrix},$$
 
-$$\tilde{\mathbf{y}}=\mathbf{U}^{\top}\mathbf{U}\mathbf{D}\mathbf{V}^{\top}\mathbf{V}\tilde{\mathbf{x}}+\mathbf{U}^{\top}\boldsymbol\nu=\mathbf{D}\tilde{\mathbf{x}}+\tilde{\boldsymbol\nu} .$$
+in suitable units. The matrix $\mathbf{K}^{\top}\mathbf{K}=\bigl(\begin{smallmatrix}5&-3\\-3&5\end{smallmatrix}\bigr)$ has the eigenvalues $8$ and $2$ with the eigenvectors $\mathbf{v}_1=(1,\,-1)^{\top}/\sqrt2$ and $\mathbf{v}_2=(1,\,1)^{\top}/\sqrt2$. So $d_1=\sqrt8=2\sqrt2$ and $d_2=\sqrt2$ are the singular values, and $\mathbf{K}\mathbf{v}_1=d_1\,(0,\,1)^{\top}$, $\mathbf{K}\mathbf{v}_2=d_2\,(1,\,0)^{\top}$. In words: turning both handles in opposite directions changes only the temperature, turning both in the same direction changes only the flow.
 
-The mixed channel has turned into $r$ separate channels: $\tilde y_j=d_j\tilde x_j+\tilde\nu_j$. Each carries its own data stream, with the gain $d_j$. The noise is only rotated in the process; its length stays the same, because $\mathbf{U}^{\top}$ is orthogonal. The number of usable parallel channels is the rank of the channel matrix, and the singular value of each channel tells how good it is. This is rotation, stretch, rotation in practice: the transmitter pre-rotates, the channel stretches, the receiver rotates back.
+With the decomposition $\mathbf{K}=\mathbf{U}\mathbf{D}\mathbf{V}^{\top}$, you no longer set the handles but the coordinates $\tilde{\mathbf{x}}=\mathbf{V}^{\top}\mathbf{x}$ in the directions $\mathbf{v}_1,\mathbf{v}_2$, and you read off the result in the coordinates $\tilde{\mathbf{y}}=\mathbf{U}^{\top}\mathbf{y}$. Then
+
+$$\tilde{\mathbf{y}}=\mathbf{U}^{\top}\mathbf{U}\mathbf{D}\mathbf{V}^{\top}\mathbf{V}\tilde{\mathbf{x}}=\mathbf{D}\tilde{\mathbf{x}} .$$
+
+The two coupled handles have turned into two separate controls: $\tilde y_j=d_j\tilde x_j$. A single-lever mixer tap puts this idea into practice. If you lift the lever, both supplies open together, and more water comes out at the same temperature; if you swing it, one supply opens and the other closes, and only the temperature changes. The number of separate controls is the rank of $\mathbf{K}$, and its singular value tells how strongly each one acts. This is rotation, stretch, rotation in everyday life: the lever rotates the inputs into the directions of the singular vectors, the water stretches each one by its singular value, and you read off the result again as flow and temperature.
 :::
 
 :::aufgabe Exercise 27 ★★ A decomposition by hand
@@ -438,7 +443,7 @@ Show: if $\mathbf{Q}$ is orthogonal, then $\mathbf{Q}\mathbf{A}$ and $\mathbf{A}
 </ol>
 
 :::loesung
-(a) By [Foundations 1, Section 14.5](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5), $\det\mathbf{A}=\det\mathbf{U}\cdot\det\mathbf{D}\cdot\det\mathbf{V}^{\top}$. The two orthogonal matrices have the determinant $\pm1$, and $\mathbf{D}$ is a diagonal matrix with the determinant $d_1\cdots d_n$. Hence $|\det\mathbf{A}|=d_1\cdots d_n$.
+(a) By [Chapter 1, Section 14.5](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5), $\det\mathbf{A}=\det\mathbf{U}\cdot\det\mathbf{D}\cdot\det\mathbf{V}^{\top}$. The two orthogonal matrices have the determinant $\pm1$, and $\mathbf{D}$ is a diagonal matrix with the determinant $d_1\cdots d_n$. Hence $|\det\mathbf{A}|=d_1\cdots d_n$.
 
 (b) From $\mathbf{A}=\mathbf{U}\mathbf{D}\mathbf{V}^{\top}$ it follows that $\mathbf{A}^{\top}\mathbf{A}=\mathbf{V}\mathbf{D}^{\top}\mathbf{D}\mathbf{V}^{\top}$ and $\mathbf{A}\mathbf{A}^{\top}=\mathbf{U}\mathbf{D}\mathbf{D}^{\top}\mathbf{U}^{\top}$. The diagonal matrices $\mathbf{D}^{\top}\mathbf{D}$ and $\mathbf{D}\mathbf{D}^{\top}$ have the same entries $d_j^2>0$ on the diagonal, only different numbers of zeros. The singular values of $\mathbf{A}^{\top}$ are the square roots of the eigenvalues of $(\mathbf{A}^{\top})^{\top}\mathbf{A}^{\top}=\mathbf{A}\mathbf{A}^{\top}$, so again the $d_j$, supplemented by zeros.
 

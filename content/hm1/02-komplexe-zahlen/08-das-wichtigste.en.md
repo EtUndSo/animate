@@ -1,6 +1,8 @@
 ---
 title: Key points
-pfad: Electrical Engineering / 1st Semester / Higher Mathematics 1 / Complex Numbers
+pfad: Electrical Engineering / 1st Semester / HöMa1 – Higher Mathematics 1 / Complex Numbers
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen
+knoten: Chapter 2: Complex Numbers
 order: 1220800
 summary: How a second axis makes $x^2=-1$ solvable and what is lost in the process
 tags: complex number, imaginary unit, complex plane, field, complex conjugate, absolute value, triangle inequality

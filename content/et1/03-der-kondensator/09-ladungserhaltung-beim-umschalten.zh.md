@@ -1,6 +1,8 @@
 ---
 title: 第 8 阶段：切换时的电荷守恒
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 电容器
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 电容器
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator
+knoten: 第 3 章：电容器
 order: 1130900
 summary: 切换已充电的电容器时，无需计算电流就能求出新的电压。只要数电荷就够了。
 tags: 
@@ -13,7 +15,7 @@ lang: zh
 切换已充电的电容器时，无需计算电流就能求出新的电压。只要数电荷就够了。
 :::
 
-**基本思路。** 在封闭系统中，电荷之和保持不变（[第 1 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)）。在电路中，如果从一个节点到接地点的每条路径都经过电容器，就形成这样的系统。这就是第 [7](parallel-und-reihenschaltung.html#stufe-7) 阶段的孤岛：电介质阻断了所有通路。电荷可以在孤岛内重新分布，但不能离开它。比较前后两种状态时，无需知道均衡过程是如何进行的。
+**基本思路。** 在封闭系统中，电荷之和保持不变（[第 1 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)）。在电路中，如果从一个节点到接地点的每条路径都经过电容器，就形成这样的系统。这就是第 [7](parallel-und-reihenschaltung.html#stufe-7) 阶段的孤岛：电介质阻断了所有通路。电荷可以在孤岛内重新分布，但不能离开它。比较前后两种状态时，无需知道均衡过程是如何进行的。
 
 :::satz 定理 8.1 (孤岛上的电荷守恒)
 <span class="anker" id="satz-8-1"></span>

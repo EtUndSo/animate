@@ -1,6 +1,8 @@
 ---
-title: Von Grund auf: Was aus Teil 9 gebraucht wird
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Der Bipolartransistor
+title: Von Grund auf: Was aus Kapitel 9 gebraucht wird
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Der Bipolartransistor
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor
+knoten: Kapitel 10: Der Bipolartransistor
 order: 1200200
 summary: Wie eine kleine Spannung einen großen Strom durch eine gesperrte Diode steuert
 tags: Löcher, pn-Übergang, Raumladungszone, Durchlassrichtung, Diffusion, Rekombination

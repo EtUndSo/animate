@@ -1,6 +1,8 @@
 ---
 title: 第 3 阶段：功率、收敛性与 LTI 系统
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / 傅里叶级数与变换
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / 傅里叶级数与变换
+adresse: elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation
+knoten: 第 3 章：傅里叶级数与变换
 order: 3230400
 summary: 每个谐波对信号的贡献有多大？截断的级数对信号的近似有多好？LTI 系统对周期输入起什么作用？
 tags: 功率, 部分和, 吉布斯现象

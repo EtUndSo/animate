@@ -1,0 +1,172 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 6,
+  "nextAnimId": 7,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Text",
+    "props": {
+     "text": "@kopf",
+     "position": [
+      -0.4,
+      0.75,
+      0
+     ],
+     "font_size": 20,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Text",
+    "props": {
+     "text": "@auf",
+     "position": [
+      1.5699999999999998,
+      0.43,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o3",
+    "type": "Text",
+    "props": {
+     "text": "df -h",
+     "position": [
+      2.75,
+      0.143,
+      0
+     ],
+     "font_size": 20,
+     "align": "left",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Text",
+    "props": {
+     "text": "df -H",
+     "position": [
+      2.75,
+      -0.198,
+      0
+     ],
+     "font_size": 20,
+     "align": "left",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o5",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\begin{aligned}1\\,081\\,101\\,176\\,832\\ \\mathrm{B} \\div 2^{30} &= 1006.85\\ \\mathrm{GiB} &&\\longrightarrow\\ \\texttt{1007G}\\\\1\\,081\\,101\\,176\\,832\\ \\mathrm{B} \\div 10^{12} &= 1.081\\ \\mathrm{TB} &&\\longrightarrow\\ \\texttt{1.1T}\\end{aligned}",
+     "height": 0.55,
+     "position": [
+      -0.4,
+      0.0,
+      0
+     ],
+     "color": "#111111"
+    }
+   }
+  ],
+  "animations": [
+   {
+    "id": "a1",
+    "type": "FadeIn",
+    "target": "o1",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a2",
+    "type": "FadeIn",
+    "target": "o2",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a3",
+    "type": "FadeIn",
+    "target": "o3",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a4",
+    "type": "FadeIn",
+    "target": "o4",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a5",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a6",
+    "type": "FadeIn",
+    "target": "o5",
+    "run_time": 2.6,
+    "step": 2,
+    "lines": true
+   }
+  ],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "kopf": {
+    "de": "df -h rechnet mit 1024, df -H mit 1000",
+    "en": "df -h works in 1024s, df -H in 1000s",
+    "es": "df -h calcula con 1024, df -H con 1000",
+    "zh": "df -h 按 1024 计算，df -H 按 1000 计算",
+    "fr": "df -h compte par 1024, df -H par 1000",
+    "tr": "df -h 1024 ile, df -H 1000 ile hesaplar"
+   },
+   "auf": {
+    "de": "aufgerundet",
+    "en": "rounded up",
+    "es": "redondeado hacia arriba",
+    "zh": "向上取整",
+    "fr": "arrondi au-dessus",
+    "tr": "yukarı yuvarlanmış"
+   }
+  }
+ }
+}

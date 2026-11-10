@@ -1,6 +1,8 @@
 ---
 title: Etapa 10: El filtro adaptado (matched filter)
-pfad: Ingeniería eléctrica / 3.er semestre / Señales y sistemas / Señales aleatorias
+pfad: Ingeniería eléctrica / 3.er semestre / ET3 – Fundamentos de ingeniería eléctrica 3: señales y sistemas / Señales aleatorias
+adresse: elektrotechnik/3-semester/signale-und-systeme/zufallssignale
+knoten: Capítulo 7: Señales aleatorias
 order: 3271100
 summary: Un pulso conocido s(t) llega con ruido.
 tags: filtro adaptado, correlador
@@ -17,7 +19,7 @@ Un pulso conocido $s(t)$ llega con ruido. ¿Con qué filtro se hace más visible
 
 $$\frac{S_a}{N}=\frac{g^2(T)}{\mathrm E\{n_e^2(T)\}}=\frac{\bigl[\int h(\tau)s(T-\tau)\mathrm{d}\tau\bigr]^2}{N_0\int|h(\tau)|^2\mathrm{d}\tau}=\frac{E_s}{N_0}\cdot\underbrace{\frac{\bigl[\int h(\tau)s(T-\tau)\mathrm{d}\tau\bigr]^2}{\int|h|^2\mathrm{d}\tau\int|s(T-\tau)|^2\mathrm{d}\tau}}_{=|p|^2\le1}.$$
 
-La fracción de la derecha es el cuadrado de un coeficiente de correlación ([parte 6](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen/korrelationsfunktionen.html)), entre $h(\tau)$ y $s(T-\tau)$. Vale como máximo 1, y lo alcanza exactamente cuando ambas tienen la misma forma.
+La fracción de la derecha es el cuadrado de un coeficiente de correlación ([capítulo 6](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen/korrelationsfunktionen.html)), entre $h(\tau)$ y $s(T-\tau)$. Vale como máximo 1, y lo alcanza exactamente cuando ambas tienen la misma forma.
 
 :::satz Teorema 10.1 (Filtro adaptado)
 <span class="anker" id="satz-10-1"></span>

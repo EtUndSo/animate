@@ -1,6 +1,8 @@
 ---
 title: Etapa 9: Rectificadores y bomba de carga
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Semiconductores y diodos
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Semiconductores y diodos
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden
+knoten: Capítulo 9: Semiconductores y diodos
 order: 1191100
 summary: El rectificador de media onda desperdicia una de cada dos semiondas.
 tags: rectificador en puente, filtrado
@@ -47,10 +49,10 @@ El pico es $12\,\mathrm{V}-1{,}4\,\mathrm{V}=10{,}6$ V; en el rectificador de 
 :::
 
 :::frage Esto todavía pulsa mucho. ¿Es ya tensión continua?
-Todavía no. Un condensador en paralelo con la carga (__filtrado__) se carga hasta el pico y alimenta la carga durante la pausa. En 10 ms pierde $\Delta U=I\,\Delta t/C$ ([Parte 3](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html)). Con $I=10{,}6$ mA y $C=470$ µ F son 0,23 V. Los diodos conducen entonces solo brevemente en el pico.
+Todavía no. Un condensador en paralelo con la carga (__filtrado__) se carga hasta el pico y alimenta la carga durante la pausa. En 10 ms pierde $\Delta U=I\,\Delta t/C$ ([capítulo 3](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html)). Con $I=10{,}6$ mA y $C=470$ µ F son 0,23 V. Los diodos conducen entonces solo brevemente en el pico.
 :::
 
-**Bomba de carga.** Genera a partir de una tensión continua $U_\mathrm e$ otra más alta, sin bobina. Aquí los diodos se consideran ideales (fig. [12](#abb-12)). *Paso 1:* El conmutador conecta la placa inferior de $C_1$ a masa. $C_1$ se carga a través de D$_1$ hasta $U_\mathrm e$. *Paso 2:* El conmutador conecta la placa inferior a $U_\mathrm e$. La tensión en $C_1$ no puede saltar ([Parte 3](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html)), así que la placa superior salta a $2U_\mathrm e$. D$_1$ bloquea porque ahora su cátodo está más alto, D$_2$ conduce y $C_1$ cede carga al condensador de salida $C_2$. Tras unos pocos ciclos, $U_\mathrm a\approx2U_\mathrm e$. En la práctica, pequeñas resistencias limitan los picos de corriente. Con más etapas de bombeo según el mismo esquema, la tensión sigue subiendo.
+**Bomba de carga.** Genera a partir de una tensión continua $U_\mathrm e$ otra más alta, sin bobina. Aquí los diodos se consideran ideales (fig. [12](#abb-12)). *Paso 1:* El conmutador conecta la placa inferior de $C_1$ a masa. $C_1$ se carga a través de D$_1$ hasta $U_\mathrm e$. *Paso 2:* El conmutador conecta la placa inferior a $U_\mathrm e$. La tensión en $C_1$ no puede saltar ([capítulo 3](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html)), así que la placa superior salta a $2U_\mathrm e$. D$_1$ bloquea porque ahora su cátodo está más alto, D$_2$ conduce y $C_1$ cede carga al condensador de salida $C_2$. Tras unos pocos ciclos, $U_\mathrm a\approx2U_\mathrm e$. En la práctica, pequeñas resistencias limitan los picos de corriente. Con más etapas de bombeo según el mismo esquema, la tensión sigue subiendo.
 
 :::abbildung et1/k9pumpe 12
 Bomba de carga; los caminos de corriente de los dos pasos están en color. Izquierda: $U_\mathrm e$ carga el condensador $C_1$. Derecha: $U_\mathrm e$ y la tensión en $C_1$ están en serie y alimentan $C_2$.

@@ -1,6 +1,8 @@
 ---
 title: Stufe 5: Gleiche Energie, verschiedene Zustände
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Das Teilchen in der Box
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Das Teilchen in der Box
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box
+knoten: Kapitel 2: Das Teilchen in der Box
 order: 4120700
 summary: Im Quadrat treffen sich manche Energien.
 tags: entartet, Entartungsgrad, Niveau, zufällige Entartung

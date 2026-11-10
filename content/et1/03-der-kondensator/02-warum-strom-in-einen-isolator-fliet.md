@@ -1,6 +1,8 @@
 ---
 title: Stufe 1: Warum Strom in einen Isolator fließt
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Der Kondensator
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Der Kondensator
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator
+knoten: Kapitel 3: Der Kondensator
 order: 1130200
 summary: Die Platten berühren sich nicht.
 tags: 
@@ -27,10 +29,10 @@ Links: das Plattenpaar beim Laden. Elektronen laufen von Platte A zum Pluspol, e
 Ein Kondensator besteht aus zwei Elektroden, die ein Dielektrikum trennt. Seine Ladung $Q$ ist die Ladung der positiven Elektrode, die andere trägt $-Q$. Strom durch den Kondensator heißt: An einem Anschluss fließt ein Strom hinein, am anderen im selben Moment derselbe Strom heraus.
 :::
 
-⁠**So liest man das:** Geladen heißt: Ladung ist getrennt, nicht hinzugefügt. Die Gesamtladung bleibt null. Jede Feldlinie, die auf A beginnt, endet auf B ([Teil 1](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)). Typisch sind Ladungen von Nanocoulomb bis Millicoulomb. **Gültigkeit:** Das Dielektrikum gilt als idealer Isolator, Stufe [5](bauformen-und-selbstentladung.html#stufe-5) nennt die Abweichung.
+⁠**So liest man das:** Geladen heißt: Ladung ist getrennt, nicht hinzugefügt. Die Gesamtladung bleibt null. Jede Feldlinie, die auf A beginnt, endet auf B ([Kapitel 1](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)). Typisch sind Ladungen von Nanocoulomb bis Millicoulomb. **Gültigkeit:** Das Dielektrikum gilt als idealer Isolator, Stufe [5](bauformen-und-selbstentladung.html#stufe-5) nennt die Abweichung.
 
 :::herleitung Warum an beiden Anschlüssen derselbe Strom fließt
-Angenommen, es fließt mehr hinein als heraus. Dann sammelt sich im Bauteil eine Nettoladung $Q_\mathrm{n}$, und das ganze Bauteil hebt sich im Potenzial gegen seine Umgebung. Wie stark, zeigt eine Kugel von der Größe eines Gehäuses, $r=1$ cm: Nach [Teil 1](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html) hat sie das Potenzial $\varphi=k\,Q_\mathrm{n}/r$, und schon 1 µC ergäbe 900 kV. Das Feld dieser Ladung bremst den Zufluss, lange bevor ein messbarer Unterschied entsteht. Also bleibt $Q_\mathrm{n}$ praktisch null, und die Knotenregel aus [Teil 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html) gilt für das Bauteil als Ganzes.
+Angenommen, es fließt mehr hinein als heraus. Dann sammelt sich im Bauteil eine Nettoladung $Q_\mathrm{n}$, und das ganze Bauteil hebt sich im Potenzial gegen seine Umgebung. Wie stark, zeigt eine Kugel von der Größe eines Gehäuses, $r=1$ cm: Nach [Kapitel 1](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html) hat sie das Potenzial $\varphi=k\,Q_\mathrm{n}/r$, und schon 1 µC ergäbe 900 kV. Das Feld dieser Ladung bremst den Zufluss, lange bevor ein messbarer Unterschied entsteht. Also bleibt $Q_\mathrm{n}$ praktisch null, und die Knotenregel aus [Kapitel 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html) gilt für das Bauteil als Ganzes.
 :::
 
 :::analogie

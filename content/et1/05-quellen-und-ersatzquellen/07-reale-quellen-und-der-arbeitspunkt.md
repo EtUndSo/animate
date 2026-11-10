@@ -1,6 +1,8 @@
 ---
 title: Stufe 5: Reale Quellen und der Arbeitspunkt
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Quellen und Ersatzquellen
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Quellen und Ersatzquellen
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen
+knoten: Kapitel 5: Quellen und Ersatzquellen
 order: 1150700
 summary: Eine Batterie hält ihre Spannung unter Last nicht.
 tags: Ersatzschaltbild, reale Spannungsquelle, reale Stromquelle, Arbeitsgerade, Arbeitspunkt
@@ -41,7 +43,7 @@ Der Mechanismus dahinter: Lieferte die Quelle mehr Strom, als die Last abnimmt, 
 Mit 16 $\Omega$ sind $I_\mathrm{A}=9\,\mathrm{V}/18\,\Omega=0{,}5$ A und $U_\mathrm{AB}=8$ V, innen fällt 1 V ab. Mit 2 $\Omega$ sind es 2,25 A und 4,5 V. Beide Punkte liegen auf der Geraden: $9\,\mathrm{V}-2\,\Omega\cdot2{,}25\,\mathrm{A}=4{,}5$ V. Ihr Abstand zeigt den Innenwiderstand als Steigung: $\Delta U_\mathrm{AB}/\Delta I_\mathrm{A}=3{,}5\,\mathrm{V}/(-1{,}75\,\mathrm{A})=-2\,\Omega$.
 ::::
 
-⁠**Grenzfälle:** Für $R_\mathrm{L}\to\infty$ liefert [(5.2)](#gl-5-2) den Leerlauf $U_\mathrm{AB}=U_\mathrm{q}$, für $R_\mathrm{L}\to0$ den Kurzschlussstrom $I_\mathrm{KS}=U_\mathrm{q}/R_\mathrm{q}=4{,}5$ A. Für $R_\mathrm{q}\to0$ bleibt die ideale Spannungsquelle. Auch eine nichtlineare Last lässt sich so behandeln: Ihre Kennlinie ist dann eine Kurve, der Schnittpunkt bleibt die Lösung ([Teil 9](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)).
+⁠**Grenzfälle:** Für $R_\mathrm{L}\to\infty$ liefert [(5.2)](#gl-5-2) den Leerlauf $U_\mathrm{AB}=U_\mathrm{q}$, für $R_\mathrm{L}\to0$ den Kurzschlussstrom $I_\mathrm{KS}=U_\mathrm{q}/R_\mathrm{q}=4{,}5$ A. Für $R_\mathrm{q}\to0$ bleibt die ideale Spannungsquelle. Auch eine nichtlineare Last lässt sich so behandeln: Ihre Kennlinie ist dann eine Kurve, der Schnittpunkt bleibt die Lösung ([Kapitel 9](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)).
 
 :::ltspice Die Kennlinie der Batterie
 ⁠**Zeichnen:** `voltage` mit 9 von `q` nach Masse, `res` mit 2 von `q` nach `a`. Als Last eine Stromquelle `current` namens `I1` von `a` nach Masse.
@@ -52,7 +54,7 @@ Mit 16 $\Omega$ sind $I_\mathrm{A}=9\,\mathrm{V}/18\,\Omega=0{,}5$ A und $U_
 :::
 
 :::frage Warum zeigt das Messgerät an einer Batterie 9 V, obwohl sie innen 2 $\Omega$ hat?
-Weil es fast keinen Strom zieht ([Teil 4](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-und-spannung-messen/strom-und-spannung-messen.html)). Mit 10 M$\Omega$ Eingangswiderstand fließen 0,9 µ A, innen fallen 1,8 µ V ab. Man misst praktisch den Leerlauf. Den Innenwiderstand sieht man erst unter Last.
+Weil es fast keinen Strom zieht ([Kapitel 4](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-und-spannung-messen/strom-und-spannung-messen.html)). Mit 10 M$\Omega$ Eingangswiderstand fließen 0,9 µ A, innen fallen 1,8 µ V ab. Man misst praktisch den Leerlauf. Den Innenwiderstand sieht man erst unter Last.
 :::
 
 :::aufgabe Aufgabe 6 ★ Das Licht beim Anlassen

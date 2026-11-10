@@ -1,0 +1,44 @@
+  OK   text_box: width of 'Hallo' from the Helvetica/Arial metrics
+  OK   text_box: centred on the anchor, +-0.56 em high
+  OK   text_box: left/right alignment
+  OK   text_box: subscript run is smaller and lower
+  OK   text_box: two lines are 1.25 em apart
+  OK   text_box: blank label draws nothing
+  OK   settings: defaults content / margin 24 / scale 0.55
+  OK   content crop contains every drawn path and label
+  OK   content crop = union box + 24 px margin (+ < 2 px rounding)
+  OK   blank text and empty space do not widen the crop
+  OK   displayed size = crop x 0.55 in whole pixels
+  OK   article SVG is well-formed XML
+  OK   SVG width/height = displayed size, viewBox = crop
+  OK   SVG uses the fixed Arial-compatible font
+  OK   white background rectangle covers exactly the crop
+  OK   info: narrow figure -> 26 px text appears at 26 x 0.55 = 14.3 px
+  OK   canvas mode: whole 1920x1080 frame at 0.55 -> 1056x594
+  OK   canvas mode: too wide for the column, text shrinks to 26*0.55*548/1056
+  OK   frame [-2,-1,2,1] -> 540x270 scene px -> 297x149 px
+  OK   frame maps to the canvas around its centre
+  OK   info.frame gives the crop back in world units
+  OK   frame under zoom 2: the same world region, twice as many scene px
+  OK   invalid settings fall back to defaults
+  OK   degenerate frame falls back to the content crop
+  OK   night-mode grey #d4d7dc -> white
+  OK   transparent stays transparent
+  OK   custom colour is kept
+  OK   transparent background -> no <rect>
+  OK   empty scene -> whole frame
+  OK   SvgPainter.to_svg() without arguments: 1920x1080, viewBox 0 0 1920 1080
+  OK   batch: editor catalogue read through node
+  OK   batch: hex colours -> RGB (toArgs)
+  OK   batch: FunctionGraph y_range dropped, catalogue props backfilled (ensureDefaults)
+  OK   batch: start/end component -> centre/rotation/length (ensureDefaults)
+  OK   batch: hidden object keeps visible:false and its panel
+  OK   batch: hidden animation skipped, sequential steps, Shift vector, Rotate in radians
+  OK   batch: background, axes_on_top, angle unit, export, lang, no WebGL
+  OK   batch: Σ in number mode is reported (browser only)
+  OK   batch: writes <out>/<lang>/<scene>.svg (subfolders kept)
+  OK   batch: frame [-3,-2,3,2] at scale 0.5 -> 405x270 px, grey -> white
+✗ ../x: ungültiger Name (erlaubt: a-z A-Z 0-9 _ - und / als Ordnertrenner)
+5 von 6 Bildern → C:\Users\info\AppData\Local\Temp\tmps747bfhb\out
+  OK   batch: names are validated
+EXPORT TESTS PASSED

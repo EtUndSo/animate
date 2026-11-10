@@ -1,6 +1,8 @@
 ---
 title: Lo esencial
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Corriente, resistencia y leyes de Kirchhoff
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Corriente, resistencia y leyes de Kirchhoff
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff
+knoten: Capítulo 2: Corriente, resistencia y leyes de Kirchhoff
 order: 1121200
 summary: Por qué los electrones se arrastran y la corriente está ahí al instante, y por qué las redes obedecen leyes de conservación
 tags: velocidad de deriva, densidad de corriente, divisor de tensión
@@ -103,7 +105,7 @@ Con carga: $U_2/U=(R_2\parallel R_\mathrm L)/(R_1+R_2\parallel R_\mathrm L)$, er
 </ul>
 :::
 
-**Mirada a la [Parte 3](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html).** Un nudo casi no almacena carga. El condensador de dos placas grandes hace lo contrario: almacena carga y energía.
+**Mirada al [capítulo 3](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html).** Un nudo casi no almacena carga. El condensador de dos placas grandes hace lo contrario: almacena carga y energía.
 
 **Un principio detrás de todos los resultados.** Dos leyes de conservación y un equilibrio sostienen el capítulo: la carga no se pierde, la energía no se pierde, y en el conductor el impulso del campo y el frenado de las colisiones se compensan.
 

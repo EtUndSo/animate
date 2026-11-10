@@ -1,6 +1,8 @@
 ---
 title: Stage 4: Order axioms
-pfad: Electrical Engineering / 1st Semester / Higher Mathematics 1 / Sets, Logic and Real Numbers
+pfad: Electrical Engineering / 1st Semester / HöMa1 – Higher Mathematics 1 / Sets, Logic and Real Numbers
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen
+knoten: Chapter 1: Sets, Logic and Real Numbers
 order: 1210600
 summary: The field axioms say nothing about “greater.” What assumptions lie behind calculating with inequalities?
 tags: totally ordered, Trichotomy
@@ -65,7 +67,7 @@ In a totally ordered field, for all $x,y,z,u,v$:
 | (e) Squaring | for $x\ge0$, $y\ge0$: $x^2\ge y^2\Leftrightarrow x\ge y$ |
 :::
 
-⁠**How to read it:** An inequality tolerates any addition, but only multiplication by positive numbers. For $z<0$ it flips: $x<y\wedge z<0\Rightarrow xz>yz$. For $z=0$, (O4) becomes $0<0$, false. If an ordered field contained an $i$ with $i\cdot i=-1$, then by (d) $-1>0$ and $1>0$, hence by (T2) $0>0$. That is why the complex numbers from [Part 2](/wissen/en/elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen/komplexe-zahlen.html) cannot be ordered. Instead of (T1) to (T3) one could equivalently take (O1) to (O4) as axioms.
+⁠**How to read it:** An inequality tolerates any addition, but only multiplication by positive numbers. For $z<0$ it flips: $x<y\wedge z<0\Rightarrow xz>yz$. For $z=0$, (O4) becomes $0<0$, false. If an ordered field contained an $i$ with $i\cdot i=-1$, then by (d) $-1>0$ and $1>0$, hence by (T2) $0>0$. That is why the complex numbers from [Chapter 2](/wissen/en/elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen/komplexe-zahlen.html) cannot be ordered. Instead of (T1) to (T3) one could equivalently take (O1) to (O4) as axioms.
 
 :::frage May I square an inequality?
 Only if both sides are not negative; that is (e). Without this assumption: $-3<2$, but $9>4$. Squaring reflects the negative part of the line into the positive one, like times $-1$ in Fig. [4](#abb-4).

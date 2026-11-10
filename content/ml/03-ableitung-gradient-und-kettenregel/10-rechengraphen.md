@@ -1,7 +1,8 @@
 ---
 title: Rechengraphen
 pfad: Informatik / Machine Learning / Mathematische Grundlagen / Ableitung, Gradient und Kettenregel
-knoten: Grundlagen 3: Ableitung, Gradient und Kettenregel
+adresse: informatik/machine-learning/mathematische-grundlagen/ableitung-gradient-und-kettenregel
+knoten: Kapitel 3: Ableitung, Gradient und Kettenregel
 nachschlagen: ja
 order: 15231000
 summary: Lange Formeln wertet ein Rechner Schritt für Schritt aus, und jeder Schritt ist eine einfache Operation mit bekannter Ableitung.

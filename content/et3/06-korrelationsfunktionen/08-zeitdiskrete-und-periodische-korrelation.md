@@ -1,6 +1,8 @@
 ---
 title: Stufe 7: Zeitdiskrete und periodische Korrelation
-pfad: Elektrotechnik / 3. Semester / Signale und Systeme / Korrelationsfunktionen
+pfad: Elektrotechnik / 3. Semester / ET3 – Grundgebiete der Elektrotechnik 3: Signale und Systeme / Korrelationsfunktionen
+adresse: elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen
+knoten: Kapitel 6: Korrelationsfunktionen
 order: 3260800
 summary: Für Abtastwerte wird aus dem Integral eine Summe.
 tags: schnelle Korrelation
@@ -29,7 +31,7 @@ Für abgetastete Tiefpasssignale gilt $\varphi^E_{sg}(mT)=T\sum_ns^*(nT)g((n+m)T
 $s=(1,2,1)$: $\varphi^E_{ss}=(1,4,6,4,1)$ für $m=-2,\dots,2$. Maximum $6=E_s$ bei $m=0$, gerade, fünf Werte statt drei. Probe mit Wiener-Khintchine bei $f=0$: $|S_\mathrm a(0)|^2=(1+2+1)^2=16=\sum_m\varphi^E_{ss}(m)$.
 ::::
 
-**Periodische Korrelation.** Wie bei der Faltung ([Teil 4](/wissen/elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme/abtastung-und-zeitdiskrete-systeme.html)) gilt für Folgen der Periode $M$
+**Periodische Korrelation.** Wie bei der Faltung ([Kapitel 4](/wissen/elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme/abtastung-und-zeitdiskrete-systeme.html)) gilt für Folgen der Periode $M$
 
 <span class="anker" id="gl-7-3"></span>
 $$\varphi^E_{sgd}(m)=\sum_{n=0}^{M-1}s_d^*(n)\,g_d(n+m)\;\circ\!\!-\!\!\bullet\;S_d^*(k)\,G_d(k). \tag{7.3}$$

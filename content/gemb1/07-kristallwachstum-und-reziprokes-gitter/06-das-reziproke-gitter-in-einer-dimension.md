@@ -1,6 +1,8 @@
 ---
 title: Stufe 4: Das reziproke Gitter in einer Dimension
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Kristallwachstum und reziprokes Gitter
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Kristallwachstum und reziprokes Gitter
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/kristallwachstum-und-reziprokes-gitter
+knoten: Kapitel 7: Kristallwachstum und reziprokes Gitter
 order: 4170600
 summary: Der Kristall ist fertig, und er ist periodisch.
 tags: k-Raum, reziproke Gittervektoren, reduziertes Zonenschema
@@ -10,7 +12,7 @@ lang: de
 <span class="anker" id="stufe-4"></span>
 
 :::zweck
-Der Kristall ist fertig, und er ist periodisch. In [Teil 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html) war das Kosinus-Band periodisch in $k$. Diese Stufe zeigt, warum das so sein muss und dass dahinter ein eigenes Gitter steht.
+Der Kristall ist fertig, und er ist periodisch. In [Kapitel 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html) war das Kosinus-Band periodisch in $k$. Diese Stufe zeigt, warum das so sein muss und dass dahinter ein eigenes Gitter steht.
 :::
 
 **Die Idee.** Eine Kette tastet eine Welle nur an den Punkten $x_\ell=\ell a$ ab. Legt man zu $k$ den Betrag $2\pi/a$ hinzu, dreht sich die Phase von Punkt zu Punkt einmal mehr ganz herum. Das Gitter merkt davon nichts. Deshalb wiederholt sich alles, was von $k$ abhängt, mit der Periode $2\pi/a$. Trägt man Wellenzahlen auf einer Achse auf, dem __k-Raum__, bilden die Werte $0,\pm2\pi/a,\pm4\pi/a,\dots$ selbst ein Punktgitter. Reziprok heißt Kehrwert: großer Abstand im Ort, kleiner Abstand im $k$-Raum.
@@ -58,7 +60,7 @@ Das ist eine Schar von Parabeln, deren Scheitel um die reziproken Gittervektoren
 Bei $a=0{,}2$ nm hat die Parabel am Zonenrand 9,40 eV. Der Zustand $k=40\,\mathrm{nm^{-1}}$ liegt außerhalb der Zone. Abzug von $G=31{,}4\,\mathrm{nm^{-1}}$ ergibt $k=8{,}58\,\mathrm{nm^{-1}}$, und [(4.3)](#gl-4-3) liefert mit $k+G=40\,\mathrm{nm^{-1}}$ die Energie 61 eV wie zuvor.
 ::::
 
-⁠**Grenzfall:** Für $a\to0$ wächst $G$ über alle Grenzen, die Kopien rücken ins Unendliche, und eine einzige Parabel bleibt: der freie Raum aus [Teil 1](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/welle-teilchen-und-schrodinger-gleichung/welle-teilchen-und-schroedinger-gleichung.html).
+⁠**Grenzfall:** Für $a\to0$ wächst $G$ über alle Grenzen, die Kopien rücken ins Unendliche, und eine einzige Parabel bleibt: der freie Raum aus [Kapitel 1](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/welle-teilchen-und-schrodinger-gleichung/welle-teilchen-und-schroedinger-gleichung.html).
 
 :::frage Die Dichte $|\psi|^2$ einer ebenen Welle ist doch überall gleich. Wozu dann die Bedingung?
 Richtig: Für eine einzelne Welle ist $|\mathrm{e}^{\mathrm{j} kx}|^2=1$ bei jedem $k$, und eine Welle mit beliebigem $k$ darf im Gitter existieren. Die Bedingung [(4.1)](#gl-4-1) betrifft die Teilwellen, aus denen eine gitterperiodische Größe besteht. Sie müssen selbst periodisch sein, die Welle $\psi$ muss es nicht.

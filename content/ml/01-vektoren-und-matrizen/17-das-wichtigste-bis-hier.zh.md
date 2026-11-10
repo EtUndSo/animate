@@ -1,7 +1,8 @@
 ---
 title: 本章要点
 pfad: 计算机科学 / 机器学习 / 数学基础 / 向量与矩阵
-knoten: 基础篇 1：向量与矩阵
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: 第 1 章：向量与矩阵
 nachschlagen: ja
 order: 15211700
 summary: 数据即数字列表， 模型即线性映射
@@ -26,7 +27,7 @@ lang: zh
 
 <li>
 
-范数衡量大小：$\lVert\mathbf{x}\rVert_2=\sqrt{\mathbf{x}^{\top}\mathbf{x}}$，$\lVert\mathbf{x}\rVert_1=\sum_j|x_j|$，$\lVert\mathbf{x}\rVert_\infty=\max_j|x_j|$；有效值为 $\lVert\mathbf{x}\rVert/\sqrt n$。距离 $\lVert\mathbf{u}-\mathbf{v}\rVert$ 取决于单位；标准化使距离与单位无关。
+范数衡量大小：$\lVert\mathbf{x}\rVert_2=\sqrt{\mathbf{x}^{\top}\mathbf{x}}$，$\lVert\mathbf{x}\rVert_1=\sum_j|x_j|$，$\lVert\mathbf{x}\rVert_\infty=\max_j|x_j|$；均方根值为 $\lVert\mathbf{x}\rVert/\sqrt n$。距离 $\lVert\mathbf{u}-\mathbf{v}\rVert$ 取决于单位；标准化使距离与单位无关。
 
 </li>
 

@@ -1,6 +1,8 @@
 ---
 title: 第 2 阶段：扩展量程
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 电流与电压的测量
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 电流与电压的测量
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-und-spannung-messen
+knoten: 第 4 章：电流与电压的测量
 order: 1140300
 summary: 表头的量程止于 50 µ A 和 100 mV。本阶段把它变成量程 10 mA 的电流表和量程 10 V 的电压表，并说明 R iA 和 R iV 从何而来。
 tags: 分流电阻, 串联电阻

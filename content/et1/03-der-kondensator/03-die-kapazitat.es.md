@@ -1,6 +1,8 @@
 ---
 title: Etapa 2: La capacidad
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / El condensador
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / El condensador
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator
+knoten: Capítulo 3: El condensador
 order: 1130300
 summary: ¿Cuánta carga mantiene una tensión dada en las placas?
 tags: 
@@ -13,7 +15,7 @@ lang: es
 ¿Cuánta carga mantiene una tensión dada en las placas? La respuesta es un solo número para cada componente.
 :::
 
-**La idea.** Si se duplica la carga en ambas placas, cada carga aporta su campo dos veces. Por la superposición de la [Parte 1](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html), el campo se duplica en cada lugar y su forma no cambia (fig. [2](#abb-2) izquierda). La tensión es la integral del campo de placa a placa, así que también se duplica. Por eso, $Q$ y $U$ son proporcionales. Su cociente no depende de cuánta carga haya en ese momento, sino solo de la forma, la separación y el material.
+**La idea.** Si se duplica la carga en ambas placas, cada carga aporta su campo dos veces. Por la superposición del [capítulo 1](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html), el campo se duplica en cada lugar y su forma no cambia (fig. [2](#abb-2) izquierda). La tensión es la integral del campo de placa a placa, así que también se duplica. Por eso, $Q$ y $U$ son proporcionales. Su cociente no depende de cuánta carga haya en ese momento, sino solo de la forma, la separación y el material.
 
 :::definition Definición 2.1 (Capacidad)
 <span class="anker" id="satz-2-1"></span>

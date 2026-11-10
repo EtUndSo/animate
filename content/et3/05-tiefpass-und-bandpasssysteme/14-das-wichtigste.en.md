@@ -1,6 +1,8 @@
 ---
 title: Key points
-pfad: Electrical Engineering / 3rd Semester / Signals and Systems / Lowpass and Bandpass Systems
+pfad: Electrical Engineering / 3rd Semester / ET3 – Fundamentals of Electrical Engineering 3: Signals and Systems / Lowpass and Bandpass Systems
+adresse: elektrotechnik/3-semester/signale-und-systeme/tiefpass-und-bandpasssysteme
+knoten: Chapter 5: Lowpass and Bandpass Systems
 order: 3251400
 summary: Distortionless transmission, ideal lowpass, complex envelope and group delay
 tags: 

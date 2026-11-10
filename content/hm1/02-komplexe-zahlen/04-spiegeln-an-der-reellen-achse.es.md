@@ -1,6 +1,8 @@
 ---
 title: Etapa 3: Reflejar en el eje real
-pfad: Ingeniería eléctrica / 1.er semestre / Matemáticas superiores 1 / Números complejos
+pfad: Ingeniería eléctrica / 1.er semestre / HöMa1 – Matemáticas superiores 1 / Números complejos
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen
+knoten: Capítulo 2: Números complejos
 order: 1220400
 summary: Todavía no se puede dividir por x+iy .
 tags: 

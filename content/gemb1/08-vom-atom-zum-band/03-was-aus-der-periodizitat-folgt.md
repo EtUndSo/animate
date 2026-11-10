@@ -1,6 +1,8 @@
 ---
 title: Stufe 1: Was aus der Periodizität folgt
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Vom Atom zum Band
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Vom Atom zum Band
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/vom-atom-zum-band
+knoten: Kapitel 8: Vom Atom zum Band
 order: 4180300
 summary: Die Atome eines Kristalls sitzen regelmäßig.
 tags: Rumpfion, periodisches Potential, Bloch-Funktion
@@ -13,7 +15,7 @@ lang: de
 Die Atome eines Kristalls sitzen regelmäßig. Diese Stufe zeigt, was allein daraus für jede Wellenfunktion folgt, noch ohne die Schrödinger-Gleichung zu lösen.
 :::
 
-**Die Idee.** Im Gitter sitzt ein __Rumpfion__, das Atom ohne seine äußeren Elektronen. Es zieht das Elektron an wie der Coulomb-Trichter aus [Teil 4](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/atome-und-orbitale/atome-und-orbitale.html). Im Kristall reiht sich Trichter an Trichter, nach einer Strecke $a$ wiederholt sich alles. Verschiebt man den Kristall um $a$, ändert sich für das Elektron nichts. Also darf sich nichts Messbares ändern: Die Aufenthaltswahrscheinlichkeit ist bei jedem Atom dieselbe. Von Zelle zu Zelle darf sich $\psi$ nur um einen Phasenfaktor ändern. Daraus folgt die ganze Stufe.
+**Die Idee.** Im Gitter sitzt ein __Rumpfion__, das Atom ohne seine äußeren Elektronen. Es zieht das Elektron an wie der Coulomb-Trichter aus [Kapitel 4](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/atome-und-orbitale/atome-und-orbitale.html). Im Kristall reiht sich Trichter an Trichter, nach einer Strecke $a$ wiederholt sich alles. Verschiebt man den Kristall um $a$, ändert sich für das Elektron nichts. Also darf sich nichts Messbares ändern: Die Aufenthaltswahrscheinlichkeit ist bei jedem Atom dieselbe. Von Zelle zu Zelle darf sich $\psi$ nur um einen Phasenfaktor ändern. Daraus folgt die ganze Stufe.
 
 :::definition Definition 1.1 (Periodisches Potential)
 <span class="anker" id="satz-1-1"></span>
@@ -21,7 +23,7 @@ Die Atome eines Kristalls sitzen regelmäßig. Diese Stufe zeigt, was allein dar
 Ein __periodisches Potential__ erfüllt $V(x+a)=V(x)$, in drei Dimensionen $V(\boldsymbol r+\boldsymbol A)=V(\boldsymbol r)$ für jeden Gittervektor $\boldsymbol A$. Dessen Komponenten sind im einfach kubischen Gitter ganzzahlige Vielfache der Gitterkonstanten $a$.
 :::
 
-Ein Kristall der Länge $L$ ist also eine große Box wie in [Teil 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html), deren Boden mit der Periode $a$ gewellt ist. Als Modell ersetzt man jeden Trichter durch einen Topf mit endlich hohen Wänden wie in [Teil 3](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/stufe-barriere-und-tunneleffekt/stufe-barriere-und-tunneleffekt.html) und erhält das Kammpotential (Abb. [1](#abb-1) oben). Die Form der Töpfe ändert die Zahlen, nicht die Aussagen.
+Ein Kristall der Länge $L$ ist also eine große Box wie in [Kapitel 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html), deren Boden mit der Periode $a$ gewellt ist. Als Modell ersetzt man jeden Trichter durch einen Topf mit endlich hohen Wänden wie in [Kapitel 3](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/stufe-barriere-und-tunneleffekt/stufe-barriere-und-tunneleffekt.html) und erhält das Kammpotential (Abb. [1](#abb-1) oben). Die Form der Töpfe ändert die Zahlen, nicht die Aussagen.
 
 :::satz Satz 1.2 (Bloch-Funktion)
 <span class="anker" id="satz-1-2"></span>
@@ -86,7 +88,7 @@ Drei Folgen:
 
 <li>
 
-⁠**Es gibt so viele $k$ wie Zellen.** Bei $N$ Zellen und der Bedingung $\psi(x+Na)=\psi(x)$ aus [Teil 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html) ist $\mathrm{e}^{\mathrm{j} kNa}=1$, also $k_n=n\cdot2\pi/(Na)$ mit ganzem $n$. Die Zone der Breite $2\pi/a$ enthält genau $N$ dieser Werte.
+⁠**Es gibt so viele $k$ wie Zellen.** Bei $N$ Zellen und der Bedingung $\psi(x+Na)=\psi(x)$ aus [Kapitel 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html) ist $\mathrm{e}^{\mathrm{j} kNa}=1$, also $k_n=n\cdot2\pi/(Na)$ mit ganzem $n$. Die Zone der Breite $2\pi/a$ enthält genau $N$ dieser Werte.
 
 </li>
 
@@ -96,7 +98,7 @@ Drei Folgen:
 In der Atomkette mit $a=0{,}25$ nm liegt der Zonenrand bei $\pi/a=12{,}6\,\mathrm{nm^{-1}}$. Eine 1 µm lange Kette hat $N=4000$ Zellen, die $k$ liegen im Abstand $2\pi/L=0{,}0063\,\mathrm{nm^{-1}}$. Bei $k=\pi/(2a)$ ist $\mathrm{e}^{\mathrm{j} ka}=\mathrm{j}$: Nach vier Atomen stimmt die Phase wieder.
 ::::
 
-⁠**Grenzfall:** Für konstantes $V$ ist $u_k$ konstant, und die ebene Welle aus [Teil 1](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/welle-teilchen-und-schrodinger-gleichung/welle-teilchen-und-schroedinger-gleichung.html) kehrt zurück.
+⁠**Grenzfall:** Für konstantes $V$ ist $u_k$ konstant, und die ebene Welle aus [Kapitel 1](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/welle-teilchen-und-schrodinger-gleichung/welle-teilchen-und-schroedinger-gleichung.html) kehrt zurück.
 
 :::frage Das Elektron sitzt doch bei einem Atom. Warum sollte es sich auf alle verteilen?
 Ein Zustand fester Energie ändert seine Dichte nicht, und im periodischen Potential ist kein Atom ausgezeichnet. Ein Elektron, das gerade bei einem Atom sitzt, ist ein Wellenpaket aus vielen $k$. Es hat keine scharfe Energie und läuft weiter.

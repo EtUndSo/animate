@@ -225,19 +225,25 @@
     "de": "Sekante h = 1: Steigung 19",
     "en": "secant h = 1: slope 19",
     "es": "secante h = 1: pendiente 19",
-    "zh": "割线 h = 1：斜率 19"
+    "zh": "割线 h = 1：斜率 19",
+    "fr": "sécante h = 1 : pente 19",
+    "tr": "kesen h = 1: eğim 19"
    },
    "s2": {
     "de": "Sekante h = 0.5: Steigung 15.25",
     "en": "secant h = 0.5: slope 15.25",
     "es": "secante h = 0.5: pendiente 15.25",
-    "zh": "割线 h = 0.5：斜率 15.25"
+    "zh": "割线 h = 0.5：斜率 15.25",
+    "fr": "sécante h = 0.5 : pente 15.25",
+    "tr": "kesen h = 0.5: eğim 15.25"
    },
    "tg": {
     "de": "Tangente: Steigung 12",
     "en": "tangent: slope 12",
     "es": "tangente: pendiente 12",
-    "zh": "切线：斜率 12"
+    "zh": "切线：斜率 12",
+    "fr": "tangente : pente 12",
+    "tr": "teğet: eğim 12"
    }
   }
  }

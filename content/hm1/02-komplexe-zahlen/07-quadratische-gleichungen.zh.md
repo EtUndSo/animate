@@ -1,6 +1,8 @@
 ---
 title: 第 6 阶段：二次方程
-pfad: 电气工程 / 第 1 学期 / 高等数学 1 / 复数
+pfad: 电气工程 / 第 1 学期 / HöMa1 – 高等数学 1 / 复数
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen
+knoten: 第 2 章：复数
 order: 1220700
 summary: 目标原本是求 x 2=-1 的解。本阶段说明 mathbb C 能做到更多：在其中每个二次方程都有解，即使系数是复数。
 tags: 二重解, 判别式, 极坐标表示
@@ -68,7 +70,7 @@ $$D=(2+1.5\mathrm{i})^2-(1+7\mathrm{i})=1.75+6\mathrm{i}-1-7\mathrm{i}=0.75-\mat
 ⁠**极限情况：**当 $q=0$ 时，式 [(6.2)](#gl-6-2) 给出 $z=-p/2\pm p/2$，即 $z=0$ 和 $z=-p$，与 $z(z+p)=0$ 相符。
 
 :::frage 为什么不能这样算：$\sqrt{-1}\cdot\sqrt{-1}=\sqrt{(-1)(-1)}=1$？
-[第 1 部分](/wissen/zh/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html)的法则 $\sqrt{ab}=\sqrt a\sqrt b$ 只对 $a,b\ge0$ 成立。对负数，根号没有定义：$w^2=-1$ 有两个地位相同的解，其中哪一个都不是“那个”平方根。所以本章写 $w^2=D$，而不写 $w=\sqrt D$。
+[第 1 章](/wissen/zh/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html)的法则 $\sqrt{ab}=\sqrt a\sqrt b$ 只对 $a,b\ge0$ 成立。对负数，根号没有定义：$w^2=-1$ 有两个地位相同的解，其中哪一个都不是“那个”平方根。所以本章写 $w^2=D$，而不写 $w=\sqrt D$。
 :::
 
 :::aufgabe 练习 8 ★★ 解二次方程
@@ -85,4 +87,4 @@ $$D=(2+1.5\mathrm{i})^2-(1+7\mathrm{i})=1.75+6\mathrm{i}-1-7\mathrm{i}=0.75-\mat
 :::
 :::
 
-**展望。** 平面上的点也可以用绝对值和角度来表示。这样，做乘法时绝对值相乘、角度相加，第 [2](die-komplexe-ebene.html#stufe-2) 阶段的旋转就是 $|\mathrm{i}|=1$、角度为 $90^\circ$ 的特例。这种__极坐标表示__、指数形式和 $n$ 次方根需要正弦、余弦和指数函数，所以留到第 7 部分。
+**展望。** 平面上的点也可以用绝对值和角度来表示。这样，做乘法时绝对值相乘、角度相加，第 [2](die-komplexe-ebene.html#stufe-2) 阶段的旋转就是 $|\mathrm{i}|=1$、角度为 $90^\circ$ 的特例。这种__极坐标表示__、指数形式和 $n$ 次方根需要正弦、余弦和指数函数，所以留到第 7 章。

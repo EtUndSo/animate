@@ -1,0 +1,60 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 2,
+  "nextAnimId": 2,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\begin{aligned}\\bar x=\\frac14\\sum_{k=1}^{4}x_k&=\\frac14\\,(x_1+x_2+x_3+x_4)\\\\&=\\frac14\\,(18.4+21.2+19.7+20.7)\\,{}^\\circ\\mathrm C\\\\&=\\frac14\\cdot 80.0\\,{}^\\circ\\mathrm C\\\\&=20.0\\,{}^\\circ\\mathrm C\\end{aligned}",
+     "height": 2.2,
+     "position": [
+      0,
+      0,
+      0
+     ],
+     "color": "#111111"
+    }
+   }
+  ],
+  "animations": [
+   {
+    "id": "a1",
+    "type": "FadeIn",
+    "target": "o1",
+    "run_time": 4.8,
+    "step": 0,
+    "lines": true
+   }
+  ],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {}
+ }
+}

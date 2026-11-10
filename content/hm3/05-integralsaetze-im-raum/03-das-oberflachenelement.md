@@ -1,6 +1,8 @@
 ---
 title: Stufe 2: Das Oberflächenelement
-pfad: Elektrotechnik / 3. Semester / Höhere Mathematik 3 / Integralsätze im Raum
+pfad: Elektrotechnik / 3. Semester / HöMa3 – Höhere Mathematik 3 / Integralsätze im Raum
+adresse: elektrotechnik/3-semester/hohere-mathematik-3/integralsatze-im-raum
+knoten: Kapitel 5: Integralsätze im Raum
 order: 3150300
 summary: Beim Biegen ändern sich Flächen.
 tags: metrischen Koeffizienten, metrische Tensor, Oberflächenelement, stückweise reguläre Fläche

@@ -1,6 +1,8 @@
 ---
 title: Stufe 7: Rechnen mit Kondensator und Diode
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Der Operationsverstärker
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Der Operationsverstärker
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker
+knoten: Kapitel 11: Der Operationsverstärker
 order: 1210900
 summary: Bisher machte ein Widerstand aus Spannung Strom und ein zweiter aus Strom Spannung.
 tags: 
@@ -38,7 +40,7 @@ Vier Schaltungen, eine Regel: Das linke Bauteil macht aus der Eingangsspannung e
 :::
 
 ::::beispiel [Beispiele]
-⁠*Integrierer* mit $R=10$ k$\Omega$, $C=10$ nF, also $R\,C=100$ µ s. Bei $U_\mathrm{E}=1$ V fließt ein fester Strom von 100 µ A. Anders als beim RC-Glied aus [Teil 3](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html) sinkt er nicht beim Laden, denn die Spannung an $R$ bleibt 1 V. $u_\mathrm{A}$ fällt gleichmäßig um 10 V/ms und erreicht $-11$ V nach 1,1 ms. Ein Rechteck $\pm1$ V mit 1 kHz wird zum Dreieck mit $\pm2{,}5$ V. *Differenzierer* mit demselben $R\,C$: Ein Dreieck $\pm1$ V mit 1 kHz steigt um 4 V/ms, $u_\mathrm{A}$ wird zum Rechteck mit $\pm0{,}4$ V. Für einen Sinus wächst sein Betrag mit der Frequenz, $\hat u_\mathrm{A}/\hat u_\mathrm{E}=2\pi f\,R\,C$: 0,63 bei 1 kHz, 62,8 bei 100 kHz. Deshalb verstärkt er hochfrequentes Rauschen (Stufe [1](rauschen.html#stufe-1)) besonders stark. *Logarithmierer* mit $R=10$ k$\Omega$ und $I_\mathrm{S}=1{,}9\cdot10^{-13}$ A: 0,1 V, 1 V, 10 V ergeben $-0{,}462$ V, $-0{,}522$ V, $-0{,}582$ V. Jede Dekade (Faktor 10) bringt $U_T\ln10=59{,}9$ mV. *Exponentialschaltung* mit denselben Werten: 0,5 V ergeben $-0{,}427$ V, je 18 mV mehr verdoppeln den Betrag.
+⁠*Integrierer* mit $R=10$ k$\Omega$, $C=10$ nF, also $R\,C=100$ µ s. Bei $U_\mathrm{E}=1$ V fließt ein fester Strom von 100 µ A. Anders als beim RC-Glied aus [Kapitel 3](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html) sinkt er nicht beim Laden, denn die Spannung an $R$ bleibt 1 V. $u_\mathrm{A}$ fällt gleichmäßig um 10 V/ms und erreicht $-11$ V nach 1,1 ms. Ein Rechteck $\pm1$ V mit 1 kHz wird zum Dreieck mit $\pm2{,}5$ V. *Differenzierer* mit demselben $R\,C$: Ein Dreieck $\pm1$ V mit 1 kHz steigt um 4 V/ms, $u_\mathrm{A}$ wird zum Rechteck mit $\pm0{,}4$ V. Für einen Sinus wächst sein Betrag mit der Frequenz, $\hat u_\mathrm{A}/\hat u_\mathrm{E}=2\pi f\,R\,C$: 0,63 bei 1 kHz, 62,8 bei 100 kHz. Deshalb verstärkt er hochfrequentes Rauschen (Stufe [1](rauschen.html#stufe-1)) besonders stark. *Logarithmierer* mit $R=10$ k$\Omega$ und $I_\mathrm{S}=1{,}9\cdot10^{-13}$ A: 0,1 V, 1 V, 10 V ergeben $-0{,}462$ V, $-0{,}522$ V, $-0{,}582$ V. Jede Dekade (Faktor 10) bringt $U_T\ln10=59{,}9$ mV. *Exponentialschaltung* mit denselben Werten: 0,5 V ergeben $-0{,}427$ V, je 18 mV mehr verdoppeln den Betrag.
 ::::
 
 ⁠**Grenzfälle:** $u_\mathrm{E}=0$ lässt den Integrierer stehen, er hält $u_\mathrm{A}(0)$. Bei $U_\mathrm{E}<0$ sperrt die Diode des Logarithmierers, die Rückführung ist unterbrochen, und der Ausgang läuft zum Anschlag: Die Regel gilt nur, solange der Rückweg leitet.

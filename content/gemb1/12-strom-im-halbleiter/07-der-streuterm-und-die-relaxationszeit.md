@@ -1,6 +1,8 @@
 ---
 title: Stufe 5: Der Streuterm und die Relaxationszeit
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Strom im Halbleiter
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Strom im Halbleiter
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/strom-im-halbleiter
+knoten: Kapitel 12: Strom im Halbleiter
 order: 4220700
 summary: (3.2) kennt keine Stöße, und Stufe 2 hat gezeigt, dass es ohne sie nicht geht.
 tags: Fermis Goldene Regel, Relaxationszeit-Näherung, Relaxationszeit
@@ -60,7 +62,7 @@ $$\frac{\partial f}{\partial t}+v\,\frac{\partial f}{\partial x}+\frac F\hbar\,\
 <span class="anker" id="gl-5-5"></span>
 $$\frac{\partial f}{\partial t}=\frac{\partial(f-f^0)}{\partial t}=-\frac{f-f^0}\tau\quad\Rightarrow\quad\delta f(t)=\delta f(t=0)\,\mathrm{e}^{-t/\tau},\qquad\delta f=f-f^0. \tag{5.5}$$
 
-Eine Anregung klingt auf der Zeitskala $\tau$ ab, daher der Name __Relaxationszeit__ ([Teil 1](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/welle-teilchen-und-schrodinger-gleichung/welle-teilchen-und-schroedinger-gleichung.html)). Mehrere Prozesse liefern je einen Term $-(f-f^0)/\tau_i$. Das ist [(2.2)](ohne-stoe-kein-gleichstrom.html#gl-2-2): $\tau$ in [(5.4)](#gl-5-4) ist $\tau_\text{scat}$.
+Eine Anregung klingt auf der Zeitskala $\tau$ ab, daher der Name __Relaxationszeit__ ([Kapitel 1](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/welle-teilchen-und-schrodinger-gleichung/welle-teilchen-und-schroedinger-gleichung.html)). Mehrere Prozesse liefern je einen Term $-(f-f^0)/\tau_i$. Das ist [(2.2)](ohne-stoe-kein-gleichstrom.html#gl-2-2): $\tau$ in [(5.4)](#gl-5-4) ist $\tau_\text{scat}$.
 
 ::::beispiel
 In der Probe ist $\tau_\text{scat}=0{,}18$ ps. Eine Abweichung ist nach 0,82 ps auf 1 % gefallen, das sind 4,6 Streuzeiten.

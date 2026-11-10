@@ -1,6 +1,8 @@
 ---
 title: Stufe 2: Wachstum, Logarithmus, allgemeine Potenz
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Exponentialfunktion und Stetigkeit
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Exponentialfunktion und Stetigkeit
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/exponentialfunktion-und-stetigkeit
+knoten: Kapitel 5: Exponentialfunktion und Stetigkeit
 order: 1250400
 summary: e x ist definiert.
 tags: natürlicher Logarithmus, allgemeine Potenz
@@ -64,7 +66,7 @@ $\lim_{n\to\infty}\mathrm{e}^{-n}=0$.
 
 (iv) Aus $x>4n^2$ folgt $\sqrt x>2n$, also $\frac x{2n}>\sqrt x$. Da $z_m(x)$ streng gegen $\mathrm{e}^x$ wächst, ist $\mathrm{e}^x>z_{2n}(x)=(1+\frac x{2n})^{2n}>(\sqrt x)^{2n}=x^n$.
 
-(v) Nach (i) ist $0<\mathrm{e}^{-n}=\frac1{\mathrm{e}^n}\le\frac1{1+n}$, und das ist eine Majorante ([Teil 4](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/folgen-und-grenzwerte/folgen-und-grenzwerte.html)).
+(v) Nach (i) ist $0<\mathrm{e}^{-n}=\frac1{\mathrm{e}^n}\le\frac1{1+n}$, und das ist eine Majorante ([Kapitel 4](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/folgen-und-grenzwerte/folgen-und-grenzwerte.html)).
 :::
 
 :::satz Satz 2.2 (Natürlicher Logarithmus)
@@ -119,7 +121,7 @@ $\log x<\sqrt[n]{x}<x$ für alle $x>(4n^2)^n$, $n\ge2$: $\log$ wächst schwäche
 ⁠**So liest man das:** $\log y$ ist der Exponent, mit dem man $\mathrm{e}$ potenzieren muss, um $y$ zu erhalten. Aus [(2.1)](#gl-2-1) folgen $\log1=0$, $\log\mathrm{e}=1$ und $\log\frac{1}{\mathrm{e}}=-1$. Für $y\le0$ gibt es keinen Logarithmus, $\mathrm{e}^x$ trifft diese Zahlen nie. Taschenrechner nennen diese Funktion meist $\ln$ und meinen mit $\log$ oft die Basis 10. Hier ist $\log10=2{,}3026$.
 
 :::beweis Eigenschaften des Logarithmus
-(i) Monotonie vererbt sich auf die Umkehrfunktion ([Teil 3](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/funktionen-und-polynome/funktionen-und-polynome.html)). (ii) Mit $u=\log x$, $v=\log y$ ist $\log(xy)=\log(\mathrm{e}^u\mathrm{e}^v)=\log(\mathrm{e}^{u+v})=u+v$. Aus $0=\log\frac yy=\log y+\log\frac1y$ folgt $\log\frac1y=-\log y$ und damit die zweite Formel. (iii) Induktion mit (ii). (iv) Aus $0<1+x\le\mathrm{e}^x$ folgt mit (i) und [(2.1)](#gl-2-1) $\log(1+x)\le x$. (v) Setze $y=\sqrt[n]{x}$, also $y>4n^2$ und $y^n=x$. Satz [2.1](#satz-2-1) (iv) gibt $\mathrm{e}^y>y^n=x$, Anwenden von $\log$ gibt $y>\log x$. Und $y<x$ gilt, weil $x>1$ und $n\ge2$ ist.
+(i) Monotonie vererbt sich auf die Umkehrfunktion ([Kapitel 3](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/funktionen-und-polynome/funktionen-und-polynome.html)). (ii) Mit $u=\log x$, $v=\log y$ ist $\log(xy)=\log(\mathrm{e}^u\mathrm{e}^v)=\log(\mathrm{e}^{u+v})=u+v$. Aus $0=\log\frac yy=\log y+\log\frac1y$ folgt $\log\frac1y=-\log y$ und damit die zweite Formel. (iii) Induktion mit (ii). (iv) Aus $0<1+x\le\mathrm{e}^x$ folgt mit (i) und [(2.1)](#gl-2-1) $\log(1+x)\le x$. (v) Setze $y=\sqrt[n]{x}$, also $y>4n^2$ und $y^n=x$. Satz [2.1](#satz-2-1) (iv) gibt $\mathrm{e}^y>y^n=x$, Anwenden von $\log$ gibt $y>\log x$. Und $y<x$ gilt, weil $x>1$ und $n\ge2$ ist.
 :::
 
 :::abbildung hm1/k5explog 2
@@ -147,7 +149,7 @@ Für $a,b>0$, $x,y\in\mathbb{R}$ gilt: (i) $(a\cdot b)^x=a^x\cdot b^x$, (ii) $a^
 (iv) $\log(\mathrm{e}^{x\log a})=x\log a$ nach [(2.1)](#gl-2-1). (i) $\mathrm{e}^{x\log(ab)}=\mathrm{e}^{x\log a+x\log b}=\mathrm{e}^{x\log a}\mathrm{e}^{x\log b}$. (ii) $(a^x)^y=\mathrm{e}^{y\log(a^x)}=\mathrm{e}^{yx\log a}$ nach (iv). (iii) $\mathrm{e}^{(x+y)\log a}=\mathrm{e}^{x\log a}\mathrm{e}^{y\log a}$. Rationale $x$: Satz [2.3](#satz-2-3) (ii), (iii) geben $q\log\sqrt[q]{a^p}=\log(a^p)=p\log a$, also $\sqrt[q]{a^p}=\mathrm{e}^{\frac pq\log a}$.
 :::
 
-⁠**So liest man das:** Die Regeln aus [Teil 1](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html) gelten jetzt für reelle Exponenten.
+⁠**So liest man das:** Die Regeln aus [Kapitel 1](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html) gelten jetzt für reelle Exponenten.
 
 ::::beispiel
 $2^{\sqrt2}=\mathrm{e}^{\sqrt2\cdot0{,}6931}=\mathrm{e}^{0{,}9803}=2{,}6651$.

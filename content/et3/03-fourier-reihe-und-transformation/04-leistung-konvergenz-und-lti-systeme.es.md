@@ -1,6 +1,8 @@
 ---
 title: Etapa 3: Potencia, convergencia y sistemas LTI
-pfad: Ingeniería eléctrica / 3.er semestre / Señales y sistemas / Serie y transformada de Fourier
+pfad: Ingeniería eléctrica / 3.er semestre / ET3 – Fundamentos de ingeniería eléctrica 3: señales y sistemas / Serie y transformada de Fourier
+adresse: elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation
+knoten: Capítulo 3: Serie y transformada de Fourier
 order: 3230400
 summary: ¿Cuánto aporta cada armónico a la señal, con qué precisión aproxima una serie truncada la señal y qué hace un sistema LTI con una entrada periódica?
 tags: potencia, suma parcial, fenómeno de Gibbs

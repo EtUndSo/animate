@@ -1,6 +1,8 @@
 ---
 title: Stufe 2: Vier Größen, zwei Gleichungen, vier Zahlen
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Zweitore
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Zweitore
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore
+knoten: Kapitel 6: Zweitore
 order: 1160400
 summary: Vier Torgrößen sind vier Unbekannte.
 tags: Zweitorfunktionen, symmetrischen Zählpfeilsystem, Kettenpfeilsystem, gemischte Pfeilsystem
@@ -13,7 +15,7 @@ lang: de
 Vier Torgrößen sind vier Unbekannte. Diese Stufe zeigt, warum das Zweitor genau zwei Gleichungen beiträgt und warum darin nur vier Zahlen stecken.
 :::
 
-**Die Idee.** Quelle und Last liefern je eine Gleichung zwischen Spannung und Strom ihres Tors. Es fehlen zwei, und die liefert das Zweitor. Gibt man zwei Torgrößen vor, etwa beide Ströme, liegen alle Ströme und Spannungen im Inneren fest, also auch die beiden übrigen Torgrößen. Die vorgegebenen Größen sind die Ursachen, die anderen die Wirkungen. Ist das Zweitor linear und enthält keine unabhängigen Quellen, gilt die Überlagerung aus [Teil 5](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html): Jede Wirkung ist die Summe aus dem Anteil der ersten und dem Anteil der zweiten Ursache, jeder Anteil proportional zu seiner Ursache. Zwei Wirkungen mal zwei Ursachen ergeben vier Faktoren.
+**Die Idee.** Quelle und Last liefern je eine Gleichung zwischen Spannung und Strom ihres Tors. Es fehlen zwei, und die liefert das Zweitor. Gibt man zwei Torgrößen vor, etwa beide Ströme, liegen alle Ströme und Spannungen im Inneren fest, also auch die beiden übrigen Torgrößen. Die vorgegebenen Größen sind die Ursachen, die anderen die Wirkungen. Ist das Zweitor linear und enthält keine unabhängigen Quellen, gilt die Überlagerung aus [Kapitel 5](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html): Jede Wirkung ist die Summe aus dem Anteil der ersten und dem Anteil der zweiten Ursache, jeder Anteil proportional zu seiner Ursache. Zwei Wirkungen mal zwei Ursachen ergeben vier Faktoren.
 
 :::satz Satz 2.1 (Zweitorgleichungen)
 <span class="anker" id="satz-2-1"></span>
@@ -31,7 +33,7 @@ $$y_1=p_{11}x_1+p_{12}x_2,\qquad y_2=p_{21}x_1+p_{22}x_2. \tag{2.2}$$
 
 ⁠**So liest man das:** Die erste Ziffer eines Parameters nennt die Wirkung, die zweite die Ursache. Die Parameter hängen nur vom Zweitor ab, nicht von Quelle oder Last. Vier Größen lassen sich auf sechs Arten in zwei Ursachen und zwei Wirkungen teilen. Gebräuchlich sind die vier Formen dieses Kapitels. **Gültigkeit:** [(2.1)](#gl-2-1) gilt auch für nichtlineare Zweitore, dann als Kurven. Beim Transistor beschreibt man so entweder das Verhalten für Gleichgrößen oder das Signalverhalten für kleine Wechselgrößen. Ein Transformator mit getrennten Wicklungen überträgt nur zeitveränderliche Größen. [(2.2)](#gl-2-2) verlangt Linearität.
 
-**Zählpfeile.** Damit die Vorzeichen eindeutig sind, braucht man eine Vereinbarung (Abb. [3](#abb-3)). Im __symmetrischen Zählpfeilsystem__, auch mathematische Vorzeichenrichtung genannt, gilt an beiden Toren das Verbraucherzählpfeilsystem aus [Teil 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html): Die Strompfeile zeigen in das Zweitor hinein. Im __Kettenpfeilsystem__, auch technisches Pfeilsystem genannt, gilt es nur am Eingang, am Ausgang gilt das Erzeugerzählpfeilsystem: Der Ausgangsstrom zeigt heraus, zur Last. Dieses Kapitel benutzt das __gemischte Pfeilsystem__: $I_1$ und $I_2$ zeigen immer hinein. Wo die Kettenform den herausfließenden Strom braucht, schreibt sie ihn ausdrücklich als $-I_2$. Eine Last ergibt deshalb im Normalbetrieb ein negatives $I_2$.
+**Zählpfeile.** Damit die Vorzeichen eindeutig sind, braucht man eine Vereinbarung (Abb. [3](#abb-3)). Im __symmetrischen Zählpfeilsystem__, auch mathematische Vorzeichenrichtung genannt, gilt an beiden Toren das Verbraucherzählpfeilsystem aus [Kapitel 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html): Die Strompfeile zeigen in das Zweitor hinein. Im __Kettenpfeilsystem__, auch technisches Pfeilsystem genannt, gilt es nur am Eingang, am Ausgang gilt das Erzeugerzählpfeilsystem: Der Ausgangsstrom zeigt heraus, zur Last. Dieses Kapitel benutzt das __gemischte Pfeilsystem__: $I_1$ und $I_2$ zeigen immer hinein. Wo die Kettenform den herausfließenden Strom braucht, schreibt sie ihn ausdrücklich als $-I_2$. Eine Last ergibt deshalb im Normalbetrieb ein negatives $I_2$.
 
 :::abbildung et1/k6zaehlpfeile 3
 Die drei Pfeilsysteme. Links symmetrisch: Beide Ströme zeigen in das Zweitor. Mitte Kettenpfeil: Der Ausgangsstrom zeigt zur Last. Rechts gemischt, wie in diesem Kapitel: $I_2$ bleibt definiert wie links, der Strom zur Last heißt $-I_2$.

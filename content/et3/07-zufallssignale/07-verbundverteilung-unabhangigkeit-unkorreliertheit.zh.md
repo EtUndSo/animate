@@ -1,6 +1,8 @@
 ---
 title: 第 6 阶段：联合分布、独立与不相关
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / 随机信号
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / 随机信号
+adresse: elektrotechnik/3-semester/signale-und-systeme/zufallssignale
+knoten: 第 7 章：随机信号
 order: 3270700
 summary: 同时考虑两个随机变量：它们何时相互关联？对它们的和又能得出什么？
 tags: 联合分布, 统计独立, 不相关
@@ -28,7 +30,7 @@ lang: zh
 <span class="anker" id="gl-6-1"></span>
 $$p_s(x)=\int_{-\infty}^{\infty}p_{fg}(u,x-u)\,\mathrm{d} u=p_f(x)*p_g(x)\quad(\text{独立}). \tag{6.1}$$
 
-这就是[第 1 部分](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html)中的卷积，它在那里出现于掷骰子的例子中。两个均匀分布变量之和具有三角形概率密度，三个变量之和的概率密度已近似呈钟形（图 [2](#abb-2)）。
+这就是[第 1 章](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html)中的卷积，它在那里出现于掷骰子的例子中。两个均匀分布变量之和具有三角形概率密度，三个变量之和的概率密度已近似呈钟形（图 [2](#abb-2)）。
 
 :::abbildung et3/k7summen 2
 独立随机变量之和的概率密度函数，每个变量都在 $[-\frac12,\frac12]$ 上均匀分布。仅仅三个变量之和，就已接近具有相同方差的高斯曲线（在 $x=0$ 处：0.75 对 0.80）。

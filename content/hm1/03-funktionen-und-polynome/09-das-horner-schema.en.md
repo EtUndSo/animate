@@ -1,6 +1,8 @@
 ---
 title: Stage 7: The Horner scheme
-pfad: Electrical Engineering / 1st Semester / Higher Mathematics 1 / Functions and Polynomials
+pfad: Electrical Engineering / 1st Semester / HöMa1 – Higher Mathematics 1 / Functions and Polynomials
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/funktionen-und-polynome
+knoten: Chapter 3: Functions and Polynomials
 order: 1230900
 summary: For the divisor x-x 0 the division is so regular that a scheme with three rows is enough.
 tags: Horner form

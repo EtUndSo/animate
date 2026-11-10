@@ -24,22 +24,43 @@ def fmt_number(s):
 
 
 def localize_digits(s):
-    """Decimal points between digits inside a label follow the language: "t = 0.5 s" -> "t = 0,5 s" (de, es, fr, tr)."""
-    return re.sub(r"(?<=\d)\.(?=\d)", ",", s) if _NUM_LANG[0] in COMMA_LANGS else s
+    """Decimal points between digits inside a label follow the language: "t = 0.5 s" -> "t = 0,5 s" (de, es, fr, tr).
+    Only numbers with ONE point: chains such as an IP address (10.0.2.15) or a version (1.2.3) stay as written."""
+    if _NUM_LANG[0] not in COMMA_LANGS:
+        return s
+    return re.sub(r"(?<![\d.])(\d+)\.(\d+)(?!\d)(?!\.\d)", r"\1,\2", s)
+
+
+FONTS = ("sans", "mono")                                           # Text.font: normal labels / typewriter (terminal, code)
 
 
 class Text(AnimObject):
     """A text label. Cairo draws it directly (via show_text), so a Text is NOT made of
     Bézier points. Its position is stored as the single 'point', so shift/scale/rotate move
     the label exactly like any other object.
+    font: "sans" (default, Arial-compatible) or "mono" (typewriter font on a fixed grid of cells, richtext.MONO_CELL).
+    raw:  True = the text is taken literally (no rich syntax: _ ^ \\ $ { } are ordinary characters, richtext.text_lines).
     """
-    def __init__(self, text, position=ORIGIN, font_size=28, color=(0.0, 0.0, 0.0), align="center"):
+    def __init__(self, text, position=ORIGIN, font_size=28, color=(0.0, 0.0, 0.0), align="center", font="sans", raw=False):
         super().__init__()
         self.text = text                                           # may be rich: U_{GS}, 10^{-3}, \alpha (richtext.py)
         self.font_size = font_size                                 # in pixels
         self.color = color
         self.align = align                                         # "center" | "left" | "right" (relative to the anchor)
+        self.font = font if font in FONTS else "sans"
+        self.raw = bool(raw)
         self.points = np.array([np.asarray(position, dtype=float)])  # (1,3): the anchor
+
+
+def text_style(obj):
+    """The painter keywords of a Text beyond the classic seven arguments: {} for an ordinary label (so painters written
+    before font/raw existed keep working), else {"font": "mono"} and/or {"raw": True}."""
+    st = {}
+    if getattr(obj, "font", "sans") == "mono":
+        st["font"] = "mono"
+    if getattr(obj, "raw", False):
+        st["raw"] = True
+    return st
 
 
 class DecimalNumber(Text):

@@ -1,6 +1,8 @@
 ---
 title: Uneigentliche Parameterintegrale
-pfad: Elektrotechnik / 3. Semester / Höhere Mathematik 3 / Integralrechnung im Rⁿ
+pfad: Elektrotechnik / 3. Semester / HöMa3 – Höhere Mathematik 3 / Integralrechnung im Rⁿ
+adresse: elektrotechnik/3-semester/hohere-mathematik-3/integralrechnung-im-rn
+knoten: Kapitel 2: Integralrechnung im Rⁿ
 order: 3120300
 summary: Läuft ein Parameterintegral bis ins Unendliche oder wird der Integrand an einem Rand unbeschränkt, dann gelten die Ergebnisse des letzten Abschnitts nicht mehr ohne Weiteres.
 tags: obere Schranke, Supremum, Maximum, uneigentliches Integral, uneigentlich integrierbar, absolut konvergent, Vergleichsfunktion, uneigentliches Parameterintegral

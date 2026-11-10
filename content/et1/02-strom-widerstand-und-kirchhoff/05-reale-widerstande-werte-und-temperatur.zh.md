@@ -1,6 +1,8 @@
 ---
 title: 第 4 阶段：实际电阻：阻值与温度
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 电流、电阻与基尔霍夫定律
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 电流、电阻与基尔霍夫定律
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff
+knoten: 第 2 章：电流、电阻与基尔霍夫定律
 order: 1120500
 summary: 到目前为止， R 是由材料和形状决定的一个数。买来的元件有标准化的阻值和容差，而且它的电阻随温度变化。
 tags: 金属膜或碳膜电阻, 线绕电阻, SMD, E 系列, 温度系数, PTC, 冷导体, NTC
@@ -45,7 +47,7 @@ $$R(\vartheta)=R(\vartheta_0)\,\bigl(1+\alpha_{\vartheta_0}\,(\vartheta-\varthet
 左：铜（$\alpha=3.9\cdot10^{-3}$ /K）、补偿合金康铜和半导体热导体（20 °C 时约 $-4\,\%$/K）的 $R/R_{20}$ 随温度的变化。右：9 V 白炽灯的模型特性曲线。冷态时为 $1.5\,\Omega$，在 0.5 A 的工作状态下为 $18\,\Omega$。曲线在两条虚线直线之间过渡。
 :::
 
-**机理。** 金属（铜、银、铂、钨）：$n$ 固定，较热的晶格振动更强，飞行时间 $T$ 下降，$\mu$ 下降，$R$ 上升。半导体（硅、锗）：室温下只有很少的电子是自由的。热使更多电子获得自由（[第 9 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)），$n$ 的增长远快于 $\mu$ 的下降，$R$ 下降。__补偿合金__（如康铜）：与不规则嵌入的杂质原子的碰撞占主导，而且几乎与温度无关。另一种办法是把一个 PTC 和一个 NTC 串联，使一个的增量抵消另一个的减量（$R_1\alpha_1+R_2\alpha_2=0$）。
+**机理。** 金属（铜、银、铂、钨）：$n$ 固定，较热的晶格振动更强，飞行时间 $T$ 下降，$\mu$ 下降，$R$ 上升。半导体（硅、锗）：室温下只有很少的电子是自由的。热使更多电子获得自由（[第 9 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)），$n$ 的增长远快于 $\mu$ 的下降，$R$ 下降。__补偿合金__（如康铜）：与不规则嵌入的杂质原子的碰撞占主导，而且几乎与温度无关。另一种办法是把一个 PTC 和一个 NTC 串联，使一个的增量抵消另一个的减量（$R_1\alpha_1+R_2\alpha_2=0$）。
 
 ::::beispiel
 导线从 20 °C 升温到 70 °C。由式 [(4.2)](#gl-4-2) 得因子 $1+3.9\cdot10^{-3}\cdot50=1.195$，即 40.6 m$\Omega$，而不是 34 m$\Omega$。一个极端的例子是灯的钨丝：从 $1.5\,\Omega$ 到 $18\,\Omega$ 的因子 12，按式 [(4.2)](#gl-4-2) 相当于约 2460 °C，这在如此大的范围内只是粗略的近似。

@@ -1,6 +1,8 @@
 ---
 title: 第 5 阶段：导纳形式与短路试验
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 二端口网络
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 二端口网络
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore
+knoten: 第 6 章：二端口网络
 order: 1160700
 summary: 第二种选择：电压是原因。本阶段把前面的内容全部移植过来，并说明为什么现在短路取代了开路的角色。
 tags: Y 参数, 导纳, 短路输入电导, 短路输出电导, 短路转移电导, 跨导, 输入特性曲线, 转移特性曲线
@@ -58,7 +60,7 @@ $$\mathbf Y=\begin{pmatrix}40&-20\\-20&35\end{pmatrix}\mathrm{mS}.$$
 **特性曲线。** Y 方程也可以画出来。__输入特性曲线__是固定 $U_2$ 时的 $I_1=f_1(U_1)$，__转移特性曲线__是固定 $U_2$ 时的 $I_2=f_2(U_1)$，__输出特性曲线__是固定 $U_1$ 时的 $I_2=f_3(U_2)$。线性二端口网络的这些曲线都是直线（图 [7](#abb-7)）：斜率是一个 Y 参数，固定值使其平行移动。固定参数的每个值给出一条直线，合起来形成一族曲线。
 
 :::abbildung et1/k6kennlinien 7
-T 形网络的特性曲线。左为输入特性曲线：斜率 $Y_{11}=40$ mS，$U_2$ 每一伏使曲线移动 $Y_{12}\cdot1\,\mathrm{V}=-20$ mA。中为转移特性曲线：斜率 $Y_{21}=-20$ mS。右为输出特性曲线：斜率 $Y_{22}=35$ mS。晶体管的这些曲线是弯曲的（[第 10 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor/der-bipolartransistor.html)）。
+T 形网络的特性曲线。左为输入特性曲线：斜率 $Y_{11}=40$ mS，$U_2$ 每一伏使曲线移动 $Y_{12}\cdot1\,\mathrm{V}=-20$ mA。中为转移特性曲线：斜率 $Y_{21}=-20$ mS。右为输出特性曲线：斜率 $Y_{22}=35$ mS。晶体管的这些曲线是弯曲的（[第 10 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor/der-bipolartransistor.html)）。
 :::
 
 :::frage 为什么 $Y_{11}$ 不等于 $1/Z_{11}$？两者描述的都是输入端。

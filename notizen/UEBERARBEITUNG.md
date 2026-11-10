@@ -39,6 +39,14 @@ Erst danach kommt der nächste Begriff. Dazu fünf feste Regeln:
   - Ein Beispiel steht dort, wo der Leser es mit dem bis dahin Erklärten verstehen kann. Bei der Laplace-Transformation ist das nach der Definition der Transformation, nicht vorher.
   - Der User sagte dazu: „Beispiele direkt am Anfang zu nennen … ist reine Verwirrung.“
 
+## 2b. Beispiele, die jeder kennt; übliche Wörter (seit 09.11.2026)
+Der User: „Wir sollten bei Themen außerhalb von Elektrotechnik nicht auf Elektrotechnik verweisen, denn Personen aus z.B. Informatik könnten es nicht kennen. Deshalb sollten wir immer allgemeine Beispiele/Metaphern/Anschauungen nutzen, die jeder kennt, egal ob er studiert hat oder nicht.“
+- **In den Themen der Informatik werden alle Bezüge zur Elektrotechnik durch allgemeine ersetzt.** Das sind Programmieren, Linux, Cybersecurity und Machine Learning. Der User: „alle Bezüge zu Elektrotechnik müssen durch allgemeine Bezüge ausgetauscht werden“, präzisiert: „Ich meinte nur in den Themen bei Informatik“.
+  - **Was:** Beispiele, Metaphern, Anschauungen und Anwendungen kommen aus dem Alltag oder aus Schulwissen, z. B. Bewegung, Wärme, Geld, Wege, Wetter, Noten, Einkauf.
+  - **Nicht mehr:** Schaltungen, Spannungen, Ströme, Bauteile, Messplätze, elektrische Felder und Ladungen.
+- **Elektrotechnik** (ET1, ET3, GEMB, **HöMa1, HöMa3**): Alle elektrotechnischen Bezüge bleiben. Der User: „bei Elektrotechnik können alle Bezüge bleiben, auch bei HöMa1 und Höma3“.
+- **Wortwahl:** Selten gebrauchte oder komisch klingende Wörter (z. B. „Messplatz“) werden durch übliche ersetzt. Fachbegriffe des Themas bleiben und werden erklärt. Der Prüfer achtet darauf (§7).
+
 ## 2a. Beispiele stehen im Kasten `beispiel`, auf der Website zugeklappt (seit 09.11.2026)
 Der User: „In den Artikeln kommen oft auch Beispiele vor (z.B. in der Einführung zu Python das Beispiel zur Berechnung der Wurzel von 2), diese sollten immer als auf- und zuklappbare Boxen eingebaut sein und standardmäßig geschlossen sein.“
 
@@ -113,6 +121,7 @@ Das ist der Teil, der die Hefte über das Skript hinaushebt: von „Formel auswe
 - Jeder Satz muss verständlich sein, wenn der Leser genau bis dorthin gelesen hat.
 - Kein „später“, kein Verweis auf spätere Abschnitte, kein Begriff aus einem späteren Abschnitt, auch nicht im Hintergrund-Kasten.
 - Rückverweise sind erwünscht.
+- **Benennung (seit 09.11.2026, Formen aller Sprachen in `notizen/kapitel_umstellung.md`):** Ein Heft heißt „Kapitel N“. Rückverweise im selben Modul „Kapitel~N“ bzw. „Kapitel~N, Abschnitt~M“, auf ein anderes Modul „<Kurzname>, Kapitel~N, Abschnitt~M“ (ET1, ET3, GEMB1, HöMa1, HöMa3, Python, Linux, Grundlagen, …); die Website macht daraus Links. Nicht mehr „Teil~N“. Titelzeile „Arbeitsheft <Modulname>, Kapitel~N. Stand: …“, z. B. „Arbeitsheft ET3 – Grundgebiete der Elektrotechnik 3: Signale und Systeme, Kapitel~2“.
 - „Worum es geht“ am Anfang nennt nur die Frage des Hefts und ihren Nutzen. Es nennt keine Ergebnisse und keine Begriffe, die erst später erklärt werden.
 
 ## 5. Vollständigkeit und Präzision
@@ -153,7 +162,7 @@ Das ist der Teil, der die Hefte über das Skript hinaushebt: von „Formel auswe
 - Tabellen als `table` mit `\caption` und `\label{tab:…}`.
 - Fußnotenzeichen in Tabellen als `$^{\mathrm a}$`, nicht `\textsuperscript`.
 - Stile für Blockschaltbilder (`blk`, `gn`, `sm`, `kn`, `vz`) stehen in der ET3-Präambel. Muster für Szenen: `tools/szenen/et3_teil2.py` (Klasse `Block`).
-- Pilot und Muster für alles: ET3 Teil 2 (Laplace), Stand 03.11.2026.
+- Pilot und Muster für alles: ET3, Kapitel 2 (Laplace), Stand 03.11.2026.
 
 ## 7. Ablauf je Heft
 1. Den Skript-Abschnitt und das alte Heft ganz lesen. Liste anlegen: Skript-Abschnitte, darin alle Begriffe in der Reihenfolge ihrer Einführung.

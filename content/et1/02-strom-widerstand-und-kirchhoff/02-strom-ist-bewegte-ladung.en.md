@@ -1,8 +1,10 @@
 ---
 title: Stage 1: Current is moving charge
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / Current, Resistance and Kirchhoff's Laws
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / Current, Resistance and Kirchhoff's Laws
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff
+knoten: Chapter 2: Current, Resistance and Kirchhoff's Laws
 order: 1120200
-summary: Part 1 considered charges at rest or flying individually.
+summary: Chapter 1 considered charges at rest or flying individually.
 tags: charge density, electric current, circuit, steady
 lang: en
 ---
@@ -10,7 +12,7 @@ lang: en
 <span class="anker" id="stufe-1"></span>
 
 :::zweck
-[Part 1](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html) considered charges at rest or flying individually. In a wire, countless charges move together. This stage gives this motion two measures.
+[Chapter 1](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html) considered charges at rest or flying individually. In a wire, countless charges move together. This stage gives this motion two measures.
 :::
 
 **The idea.** Stand at one spot of the conductor and measure how much charge passes per second. That depends on three things: how densely the charge sits, how fast it moves and how large the cross section is. In the time $\Delta t$, exactly the charge that was at most the distance $v\,\Delta t$ away beforehand passes through the area (Fig. [1](#abb-1)).

@@ -1,6 +1,8 @@
 ---
 title: Das Wichtigste
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Bandstrukturen lesen
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Bandstrukturen lesen
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/bandstrukturen-lesen
+knoten: Kapitel 9: Bandstrukturen lesen
 order: 4191100
 summary: Was Graphen, Silizium und GaAs unterscheidet und was eine Kurve über Leitung, Licht und Masse verrät
 tags: 
@@ -60,7 +62,7 @@ lang: de
 
 <li>
 
-Das Rezept aus [Teil 8](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/vom-atom-zum-band/vom-atom-zum-band.html) ergibt auch für echte Kristalle Bänder, ihre Zahl folgt aus den Orbitalen der Zelle, ihre Füllung aus den Elektronen der Zelle.
+Das Rezept aus [Kapitel 8](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/vom-atom-zum-band/vom-atom-zum-band.html) ergibt auch für echte Kristalle Bänder, ihre Zahl folgt aus den Orbitalen der Zelle, ihre Füllung aus den Elektronen der Zelle.
 
 </li>
 

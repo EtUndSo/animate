@@ -1,7 +1,9 @@
 ---
 title: Überblick: Strom im Halbleiter
 kurz: Überblick
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Strom im Halbleiter
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Strom im Halbleiter
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/strom-im-halbleiter
+knoten: Kapitel 12: Strom im Halbleiter
 order: 4220100
 summary: Wie aus einer verschobenen Besetzung ein Strom wird und was ihn bremst
 tags: Stromdichte, Streuung, Phonon, Verteilungsfunktion, Boltzmann-Transportgleichung, Beweglichkeit, Leitfähigkeit, Hall-Effekt
@@ -21,7 +23,7 @@ Der Weg führt über acht Begriffe. Die __Stromdichte__ ist der Strom je Quersch
 
 <li>
 
-⁠**Silizium bei 300 K** wie in [Teil 11](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/eigenhalbleiter-und-dotierung/eigenhalbleiter-und-dotierung.html): $k_\mathrm BT=25{,}85$ meV, $E_\mathrm g=1{,}12$ eV, $N_\mathrm C=2{,}82\cdot10^{19}\,\mathrm{cm^{-3}}$, $N_\mathrm V=1{,}83\cdot10^{19}\,\mathrm{cm^{-3}}$, $n_\mathrm i=8{,}9\cdot10^{9}\,\mathrm{cm^{-3}}$. **Probe:** n-Typ mit $N_\mathrm D=10^{16}\,\mathrm{cm^{-3}}$, $\Delta E_\mathrm D=45$ meV.
+⁠**Silizium bei 300 K** wie in [Kapitel 11](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/eigenhalbleiter-und-dotierung/eigenhalbleiter-und-dotierung.html): $k_\mathrm BT=25{,}85$ meV, $E_\mathrm g=1{,}12$ eV, $N_\mathrm C=2{,}82\cdot10^{19}\,\mathrm{cm^{-3}}$, $N_\mathrm V=1{,}83\cdot10^{19}\,\mathrm{cm^{-3}}$, $n_\mathrm i=8{,}9\cdot10^{9}\,\mathrm{cm^{-3}}$. **Probe:** n-Typ mit $N_\mathrm D=10^{16}\,\mathrm{cm^{-3}}$, $\Delta E_\mathrm D=45$ meV.
 
 </li>
 
@@ -33,7 +35,7 @@ Der Weg führt über acht Begriffe. Die __Stromdichte__ ist der Strom je Quersch
 
 <li>
 
-⁠**Kette:** $a=0{,}25$ nm, $t_0=0{,}5$ eV, Band $E(k)=E_\mathrm C+2t_0(1-\cos(ka))$ mit $m^*=1{,}22\,m_0$ an der Unterkante ([Teil 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html)). Alle Zahlen rechnet `rechnung_kap12.py` nach.
+⁠**Kette:** $a=0{,}25$ nm, $t_0=0{,}5$ eV, Band $E(k)=E_\mathrm C+2t_0(1-\cos(ka))$ mit $m^*=1{,}22\,m_0$ an der Unterkante ([Kapitel 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html)). Alle Zahlen rechnet `rechnung_kap12.py` nach.
 
 </li>
 

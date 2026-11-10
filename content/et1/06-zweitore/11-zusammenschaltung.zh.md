@@ -1,6 +1,8 @@
 ---
 title: 第 9 阶段：互联
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 二端口网络
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 二端口网络
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore
+knoten: 第 6 章：二端口网络
 order: 1161100
 summary: 第 8 阶段表明，级联适合 A 形式。本阶段一般地回答这个问题：哪种形式适合哪种互联？
 tags: 

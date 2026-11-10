@@ -1,6 +1,8 @@
 ---
 title: 第 8 阶段：离散傅里叶变换（DFT）
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / 采样与离散时间系统
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / 采样与离散时间系统
+adresse: elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme
+knoten: 第 4 章：采样与离散时间系统
 order: 3240900
 summary: S mathrm a(f) 是连续函数，而计算机需要的是有限多个数。对于有限长序列，频谱的有限多个样本值就足够了。
 tags: 

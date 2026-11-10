@@ -1,7 +1,9 @@
 ---
 title: Überblick: Potenzreihen und Eulersche Formel
 kurz: Überblick
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Potenzreihen und Eulersche Formel
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Potenzreihen und Eulersche Formel
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/potenzreihen-und-eulersche-formel
+knoten: Kapitel 7: Potenzreihen und Eulersche Formel
 order: 1270100
 summary: Wie eine einzige Reihe Exponentialfunktion, Sinus und Cosinus enthält und warum Multiplizieren komplexer Zahlen Drehen und Strecken ist
 tags: 
@@ -10,7 +12,7 @@ lang: de
 
 ## Worum es geht
 
-Auf dem Taschenrechner sind $\mathrm{e}^x$, $\sin x$ und $\cos x$ drei getrennte Tasten, und [Teil 2](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen/komplexe-zahlen.html) hat die Polarform offen gelassen. Die Frage lautet: *Wie hängen die drei Funktionen zusammen, und warum ist Multiplizieren in $\mathbb{C}$ ein Drehen und Strecken?*
+Auf dem Taschenrechner sind $\mathrm{e}^x$, $\sin x$ und $\cos x$ drei getrennte Tasten, und [Kapitel 2](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen/komplexe-zahlen.html) hat die Polarform offen gelassen. Die Frage lautet: *Wie hängen die drei Funktionen zusammen, und warum ist Multiplizieren in $\mathbb{C}$ ein Drehen und Strecken?*
 
 
 
@@ -33,7 +35,7 @@ Auf dem Taschenrechner sind $\mathrm{e}^x$, $\sin x$ und $\cos x$ drei getrennte
 
 <li>
 
-⁠**Zwei komplexe Zahlen aus [Teil 2](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen/komplexe-zahlen.html):** $z_1=3+\mathrm{i}$ und $z_2=1+2\mathrm{i}$ mit $z_1z_2=1+7\mathrm{i}$: Beträge $\sqrt{10}\cdot\sqrt5=\sqrt{50}$, Winkel $18{,}43^\circ+63{,}43^\circ=81{,}87^\circ$.
+⁠**Zwei komplexe Zahlen aus [Kapitel 2](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen/komplexe-zahlen.html):** $z_1=3+\mathrm{i}$ und $z_2=1+2\mathrm{i}$ mit $z_1z_2=1+7\mathrm{i}$: Beträge $\sqrt{10}\cdot\sqrt5=\sqrt{50}$, Winkel $18{,}43^\circ+63{,}43^\circ=81{,}87^\circ$.
 
 </li>
 

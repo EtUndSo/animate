@@ -1,6 +1,8 @@
 ---
 title: 第 1 阶段：电流为什么能流入绝缘体
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 电容器
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 电容器
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator
+knoten: 第 3 章：电容器
 order: 1130200
 summary: 两块极板并不接触。尽管如此，引线中的电流表却显示有电流。本阶段弄清楚哪些电荷移动到了哪里。
 tags: 
@@ -27,10 +29,10 @@ lang: zh
 电容器由两个电极和隔开它们的电介质组成。它的电荷 $Q$ 是正电极上的电荷，另一个电极带 $-Q$。电流流过电容器的含义是：在一个接线端有电流流入，在同一时刻另一个接线端有相同的电流流出。
 :::
 
-⁠**如何理解：**充电的意思是电荷被分离，而不是增加。总电荷仍为零。从 A 出发的每条电场线都终止于 B（[第 1 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)）。电荷的典型值从纳库仑到毫库仑。**适用条件：**电介质视为理想绝缘体，第 [5](bauformen-und-selbstentladung.html#stufe-5) 阶段说明实际偏差。
+⁠**如何理解：**充电的意思是电荷被分离，而不是增加。总电荷仍为零。从 A 出发的每条电场线都终止于 B（[第 1 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)）。电荷的典型值从纳库仑到毫库仑。**适用条件：**电介质视为理想绝缘体，第 [5](bauformen-und-selbstentladung.html#stufe-5) 阶段说明实际偏差。
 
 :::herleitung 为什么两个接线端的电流相同
-假设流入的多于流出的。那么元件中会积累净电荷 $Q_\mathrm{n}$，整个元件的电位相对于周围升高。升高多少，可用一个外壳大小的球来估计，$r=1$ cm：根据[第 1 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)，它的电位为 $\varphi=k\,Q_\mathrm{n}/r$，仅 1 µC 就会产生 900 kV。这些电荷的电场早在出现可测的差别之前就阻止了电荷继续流入。因此 $Q_\mathrm{n}$ 实际上保持为零，[第 2 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)的基尔霍夫电流定律对整个元件成立。
+假设流入的多于流出的。那么元件中会积累净电荷 $Q_\mathrm{n}$，整个元件的电位相对于周围升高。升高多少，可用一个外壳大小的球来估计，$r=1$ cm：根据[第 1 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)，它的电位为 $\varphi=k\,Q_\mathrm{n}/r$，仅 1 µC 就会产生 900 kV。这些电荷的电场早在出现可测的差别之前就阻止了电荷继续流入。因此 $Q_\mathrm{n}$ 实际上保持为零，[第 2 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)的基尔霍夫电流定律对整个元件成立。
 :::
 
 :::analogie

@@ -1,6 +1,8 @@
 ---
 title: 第 1 阶段：能量与功率
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / 相关函数
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / 相关函数
+adresse: elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen
+knoten: 第 6 章：相关函数
 order: 3260200
 summary: 在比较信号之前，需要一个度量信号“大小”的量。在系统理论中，这个量就是能量；对于无限长的信号，则是功率。
 tags: 信号能量, 能量信号, 功率, 功率信号

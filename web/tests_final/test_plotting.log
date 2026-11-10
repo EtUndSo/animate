@@ -1,0 +1,7 @@
+line OK: 1 piece, 49 pts
+sin(x) OK: 1 open piece, max bend 6.9 deg
+sin(1000x) OK: dense 10438 pts vs line 49 (honest, not a fake slow wave)
+tan(x) OK: split into 5 pieces at the poles
+no pole lines OK
+
+PLOTTING TESTS PASSED

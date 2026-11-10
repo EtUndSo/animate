@@ -1,7 +1,8 @@
 ---
 title: 奇异值分解
 pfad: 计算机科学 / 机器学习 / 数学基础 / 投影、特征值与矩阵分解
-knoten: 基础篇 2：投影、特征值与矩阵分解
+adresse: informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen
+knoten: 第 2 章：投影、特征值与矩阵分解
 nachschlagen: ja
 order: 15221000
 summary: 只有方阵才有特征向量，而且只有对称矩阵的特征向量才互相垂直。本节说明：每个矩阵，包括矩形矩阵，都有一对直角坐标系，一个在输入空间中，一个在输出空间中。矩阵把其中一个坐标系的每根轴映射为另一个坐标系中某根轴的倍数。由此得到每个矩阵的一种分解：旋转、拉伸、再旋转。
@@ -58,7 +59,7 @@ $$d_j=\sqrt{\lambda_j},\qquad d_1\ge d_2\ge\dots\ge d_n\ge0 , \tag{9.1}$$
 称为 $\mathbf{A}$ 的__奇异值__。
 :::
 
-许多书用 $\sigma_j$ 代替 $d_j$。本章中奇异值总是带下标；[基础篇 1](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html) 中不带下标的 $d$ 表示特征（feature）的个数，那是另一回事。
+许多书用 $\sigma_j$ 代替 $d_j$。本章中奇异值总是带下标；[第 1 章](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html)中不带下标的 $d$ 表示特征（feature）的个数，那是另一回事。
 
 :::satz 定理 9.2 (奇异值与秩)
 <span class="anker" id="satz-9-2"></span>
@@ -136,7 +137,7 @@ $$\mathbf{A}=\sum_{j=1}^rd_j\,\mathbf{u}_j\mathbf{v}_j^{\top} . \tag{9.4}$$
 :::
 
 :::beweis 奇异值分解
-对于 $j\le r$，有 $\mathbf{A}\mathbf{v}_j=d_j\mathbf{u}_j$。对于 $j>r$，有 $d_j=0$，所以 $\lVert\mathbf{A}\mathbf{v}_j\rVert=0$，$\mathbf{A}\mathbf{v}_j=\mathbf{0}$。若 $r<m$，就把 $\mathbf{u}_1,\dots,\mathbf{u}_r$ 扩充为 $\mathbb{R}^m$ 的一组标准正交基，例如像谱定理的证明中那样用格拉姆-施密特正交化。由[基础篇 1 第 9.2 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrixprodukt.html#stufe-9-2)，$\mathbf{A}\mathbf{V}$ 的第 $j$ 列是向量 $\mathbf{A}\mathbf{v}_j$，而 $\mathbf{U}\mathbf{D}$ 的第 $j$ 列在 $j\le r$ 时是 $d_j\mathbf{u}_j$，否则是零向量。所以 $\mathbf{A}\mathbf{V}=\mathbf{U}\mathbf{D}$。因为 $\mathbf{V}$ 是正交矩阵，$\mathbf{V}\mathbf{V}^{\top}=\mathbf{I}$，从右边乘以 $\mathbf{V}^{\top}$ 得 $\mathbf{A}=\mathbf{U}\mathbf{D}\mathbf{V}^{\top}$。紧凑形式由[基础篇 1 第 9.5 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrixprodukt.html#stufe-9-5)得出：$\mathbf{U}\mathbf{D}$ 的第 $j$ 列乘以 $\mathbf{V}^{\top}$ 的第 $j$ 行，再对 $j$ 求和；只有 $j\le r$ 的项不为零。
+对于 $j\le r$，有 $\mathbf{A}\mathbf{v}_j=d_j\mathbf{u}_j$。对于 $j>r$，有 $d_j=0$，所以 $\lVert\mathbf{A}\mathbf{v}_j\rVert=0$，$\mathbf{A}\mathbf{v}_j=\mathbf{0}$。若 $r<m$，就把 $\mathbf{u}_1,\dots,\mathbf{u}_r$ 扩充为 $\mathbb{R}^m$ 的一组标准正交基，例如像谱定理的证明中那样用格拉姆-施密特正交化。由[第 1 章第 9.2 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrixprodukt.html#stufe-9-2)，$\mathbf{A}\mathbf{V}$ 的第 $j$ 列是向量 $\mathbf{A}\mathbf{v}_j$，而 $\mathbf{U}\mathbf{D}$ 的第 $j$ 列在 $j\le r$ 时是 $d_j\mathbf{u}_j$，否则是零向量。所以 $\mathbf{A}\mathbf{V}=\mathbf{U}\mathbf{D}$。因为 $\mathbf{V}$ 是正交矩阵，$\mathbf{V}\mathbf{V}^{\top}=\mathbf{I}$，从右边乘以 $\mathbf{V}^{\top}$ 得 $\mathbf{A}=\mathbf{U}\mathbf{D}\mathbf{V}^{\top}$。紧凑形式由[第 1 章第 9.5 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrixprodukt.html#stufe-9-5)得出：$\mathbf{U}\mathbf{D}$ 的第 $j$ 列乘以 $\mathbf{V}^{\top}$ 的第 $j$ 行，再对 $j$ 求和；只有 $j\le r$ 的项不为零。
 :::
 
 $\mathbf{D}$ 的形状取决于 $\mathbf{A}$ 的形状。例如对于 $m=3$、$n=2$，$\mathbf{D}=\Bigl(\begin{smallmatrix}d_1&0\\0&d_2\\0&0\end{smallmatrix}\Bigr)$。常用的缩写是 SVD，取自英文名称 **singular value decomposition**。
@@ -189,7 +190,7 @@ $\mathbf{U}$ 把 $\mathbf{e}_j$ 转到 $\mathbf{u}_j$ 上，这又是一个旋�
 
 </ol>
 
-所以，除反射之外，每个线性映射都是一次旋转、一次沿坐标轴的拉伸和又一次旋转。它把单位圆变成椭圆，把单位球变成椭球，半轴为 $d_j\mathbf{u}_j$。若 $\det\mathbf{A}<0$，其中至少有一次反射，因为由[基础篇 1 第 14.5 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5)，$\det\mathbf{A}=\det\mathbf{U}\cdot\det\mathbf{D}\cdot\det\mathbf{V}^{\top}$，而 $\det\mathbf{D}\ge0$。
+所以，除反射之外，每个线性映射都是一次旋转、一次沿坐标轴的拉伸和又一次旋转。它把单位圆变成椭圆，把单位球变成椭球，半轴为 $d_j\mathbf{u}_j$。若 $\det\mathbf{A}<0$，其中至少有一次反射，因为由[第 1 章第 14.5 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5)，$\det\mathbf{A}=\det\mathbf{U}\cdot\det\mathbf{D}\cdot\det\mathbf{V}^{\top}$，而 $\det\mathbf{D}\ge0$。
 
 :::abbildung ml/k2svd 23
 矩阵 $\mathbf{A}=\bigl(\begin{smallmatrix}2&3\\0&2\end{smallmatrix}\bigr)$ 表示为旋转、拉伸、旋转。左上：单位圆，以及 $\mathbf{v}_1=(1,2)^{\top}/\sqrt5$（红色）和 $\mathbf{v}_2=(-2,1)^{\top}/\sqrt5$（绿色）。$\mathbf{V}^{\top}$ 旋转 $-63.4^\circ$，把 $\mathbf{v}_1$ 转到 $\mathbf{e}_1$ 上，把 $\mathbf{v}_2$ 转到 $\mathbf{e}_2$ 上（左下）。$\mathbf{D}$ 把第一根轴拉伸 $d_1=4$ 倍，把第二根轴拉伸 $d_2=1$ 倍（右下）。$\mathbf{U}$ 旋转 $26.6^\circ$，把两根轴转到 $\mathbf{u}_1=(2,1)^{\top}/\sqrt5$ 和 $\mathbf{u}_2=(-1,2)^{\top}/\sqrt5$ 上（右上）。黑点 $\mathbf{x}=\mathbf{e}_2$ 无论走哪条路，最后都落在 $\mathbf{A}\mathbf{x}=(3,2)^{\top}$。上方的直接路径就是 $\mathbf{A}$ 本身：单位圆变成半轴为 $4\,\mathbf{u}_1$ 和 $1\cdot\mathbf{u}_2$ 的椭圆。
@@ -241,7 +242,7 @@ $\mathbf{v}_{r+1},\dots,\mathbf{v}_n$ 是 $\mathbf{A}$ 的零空间的一组标�
 (i) 每个 $\mathbf{A}\mathbf{x}=\sum_{j\le r}d_j(\mathbf{v}_j^{\top}\mathbf{x})\mathbf{u}_j$ 都在 $\mathbf{u}_1,\dots,\mathbf{u}_r$ 张成的空间中；反过来，$\mathbf{u}_j=\mathbf{A}(\mathbf{v}_j/d_j)$ 是一个像。$\mathbf{U}$ 的其余各列垂直于这些向量，所以由第 [4.4](projektion-auf-einen-unterraum.html#stufe-4-4) 节，它们张成正交补。(ii) 由于各 $\mathbf{u}_j$ 线性无关且各 $d_j$ 为正，$\mathbf{A}\mathbf{x}=\mathbf{0}$ 当且仅当对所有 $j\le r$ 都有 $\mathbf{v}_j^{\top}\mathbf{x}=0$，即 $\mathbf{x}$ 只有沿 $\mathbf{v}_{r+1},\dots,\mathbf{v}_n$ 的坐标。最后，$\mathbf{A}^{\top}=\mathbf{V}\mathbf{D}^{\top}\mathbf{U}^{\top}$ 是 $\mathbf{A}^{\top}$ 的一个奇异值分解，其中 $\mathbf{U}$ 和 $\mathbf{V}$ 互换了角色；把 (i) 用于 $\mathbf{A}^{\top}$ 就得到其余结论。
 :::
 
-这些数与[基础篇 1 第 13.5 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-5)的秩-零化度定理相符：零空间的维数为 $n-r$。
+这些数与[第 1 章第 13.5 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-5)的秩-零化度定理相符：零空间的维数为 $n-r$。
 
 ::::beispiel [算例]
 第 [3.2](die-beste-naherungslosung.html#stufe-3-2) 节中列为 $(1,\,0,\,1)^{\top}$ 和 $(0,\,1,\,1)^{\top}$ 的矩阵 $\mathbf{H}$ 有 $\mathbf{H}^{\top}\mathbf{H}=\bigl(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\bigr)$，特征值为 $3$ 和 $1$，因此奇异值为 $d_1=\sqrt3$ 和 $d_2=1$，右奇异向量为 $\mathbf{v}_1=(1,\,1)^{\top}/\sqrt2$、$\mathbf{v}_2=(1,\,-1)^{\top}/\sqrt2$。左奇异向量为
@@ -314,14 +315,18 @@ $$d_n\,\lVert\mathbf{x}\rVert\le\lVert\mathbf{A}\mathbf{x}\rVert\le d_1\,\lVert\
 
 ⁠**简而言之：**谱范数 $\lVert\mathbf{A}\rVert_2=d_1$ 是 $\mathbf{A}$ 拉长向量的最大因子；最小因子是 $d_n$。
 
-:::hintergrund 多天线：由奇异值分解得到并行信道
-具有多个发射天线和接收天线的无线电系统称为 MIMO 系统。每个接收天线收到的都是所有发射信号的混合。在一个简单的模型中，接收到的向量为 $\mathbf{y}=\mathbf{K}\mathbf{x}+\boldsymbol\nu$：$\mathbf{x}$ 包含各天线的发射信号，信道矩阵 $\mathbf{K}$ 描述每个发射天线的信号以多大强度到达每个接收天线，$\boldsymbol\nu$ 是噪声。
+:::hintergrund 两个把手，一根手柄：由奇异值分解得到独立的调节量
+在双把手水龙头上，一个把手管热水，一个管冷水，每个把手都同时改变水量和温度。在一个简化模型中，考虑在热水和冷水一样多的设定附近的小幅转动：热水把手转动 $\Delta w$、冷水把手转动 $\Delta k$，水量和温度的变化为
 
-如果发射机和接收机都知道分解 $\mathbf{K}=\mathbf{U}\mathbf{D}\mathbf{V}^{\top}$，发射机就发送 $\mathbf{x}=\mathbf{V}\tilde{\mathbf{x}}$，接收机计算 $\tilde{\mathbf{y}}=\mathbf{U}^{\top}\mathbf{y}$。于是
+$$\mathbf{y}=\begin{pmatrix}\Delta Q\\\Delta T\end{pmatrix}=\mathbf{K}\mathbf{x},\qquad \mathbf{x}=\begin{pmatrix}\Delta w\\\Delta k\end{pmatrix},\qquad \mathbf{K}=\begin{pmatrix}1&1\\2&-2\end{pmatrix},$$
 
-$$\tilde{\mathbf{y}}=\mathbf{U}^{\top}\mathbf{U}\mathbf{D}\mathbf{V}^{\top}\mathbf{V}\tilde{\mathbf{x}}+\mathbf{U}^{\top}\boldsymbol\nu=\mathbf{D}\tilde{\mathbf{x}}+\tilde{\boldsymbol\nu} .$$
+单位取得合适。矩阵 $\mathbf{K}^{\top}\mathbf{K}=\bigl(\begin{smallmatrix}5&-3\\-3&5\end{smallmatrix}\bigr)$ 的特征值为 $8$ 和 $2$，特征向量为 $\mathbf{v}_1=(1,\,-1)^{\top}/\sqrt2$ 和 $\mathbf{v}_2=(1,\,1)^{\top}/\sqrt2$。因此 $d_1=\sqrt8=2\sqrt2$ 和 $d_2=\sqrt2$ 是奇异值，且 $\mathbf{K}\mathbf{v}_1=d_1\,(0,\,1)^{\top}$，$\mathbf{K}\mathbf{v}_2=d_2\,(1,\,0)^{\top}$。用文字来说：两个把手反向转动只改变温度，同向转动只改变水量。
 
-混合的信道变成了 $r$ 个独立的信道：$\tilde y_j=d_j\tilde x_j+\tilde\nu_j$。每个信道传输各自的数据流，增益为 $d_j$。在此过程中噪声只是被旋转，长度保持不变，因为 $\mathbf{U}^{\top}$ 是正交矩阵。可用的并行信道数就是信道矩阵的秩，每个信道的好坏由它的奇异值表明。这就是实践中的旋转、拉伸、旋转：发射机预先旋转，信道拉伸，接收机再转回来。
+有了分解 $\mathbf{K}=\mathbf{U}\mathbf{D}\mathbf{V}^{\top}$，调节的就不再是两个把手，而是沿方向 $\mathbf{v}_1,\mathbf{v}_2$ 的坐标 $\tilde{\mathbf{x}}=\mathbf{V}^{\top}\mathbf{x}$，结果则在坐标 $\tilde{\mathbf{y}}=\mathbf{U}^{\top}\mathbf{y}$ 中读出。于是
+
+$$\tilde{\mathbf{y}}=\mathbf{U}^{\top}\mathbf{U}\mathbf{D}\mathbf{V}^{\top}\mathbf{V}\tilde{\mathbf{x}}=\mathbf{D}\tilde{\mathbf{x}} .$$
+
+两个相互耦合的把手变成了两个独立的调节量：$\tilde y_j=d_j\tilde x_j$。单把手混水龙头实现的正是这一思想。抬起手柄，两路进水同时开大，出水更多而温度不变；左右扳动手柄，一路进水开大、另一路关小，只有温度改变。独立调节量的个数就是 $\mathbf{K}$ 的秩，每个调节量作用的强弱由它的奇异值表明。这就是日常生活中的旋转、拉伸、旋转：手柄把输入旋转到奇异向量的方向上，水把每个方向按其奇异值拉伸，读出的结果又是水量和温度。
 :::
 
 :::aufgabe 练习 27 ★★ 手算一个分解
@@ -438,7 +443,7 @@ $$\mathbf{A}=\begin{pmatrix}1/\sqrt2&0&1/\sqrt2\\1/\sqrt2&0&-1/\sqrt2\\0&1&0\end
 </ol>
 
 :::loesung
-(a) 由[基础篇 1 第 14.5 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5)，$\det\mathbf{A}=\det\mathbf{U}\cdot\det\mathbf{D}\cdot\det\mathbf{V}^{\top}$。两个正交矩阵的行列式为 $\pm1$，而 $\mathbf{D}$ 是对角矩阵，行列式为 $d_1\cdots d_n$。因此 $|\det\mathbf{A}|=d_1\cdots d_n$。
+(a) 由[第 1 章第 14.5 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5)，$\det\mathbf{A}=\det\mathbf{U}\cdot\det\mathbf{D}\cdot\det\mathbf{V}^{\top}$。两个正交矩阵的行列式为 $\pm1$，而 $\mathbf{D}$ 是对角矩阵，行列式为 $d_1\cdots d_n$。因此 $|\det\mathbf{A}|=d_1\cdots d_n$。
 
 (b) 由 $\mathbf{A}=\mathbf{U}\mathbf{D}\mathbf{V}^{\top}$ 得 $\mathbf{A}^{\top}\mathbf{A}=\mathbf{V}\mathbf{D}^{\top}\mathbf{D}\mathbf{V}^{\top}$ 和 $\mathbf{A}\mathbf{A}^{\top}=\mathbf{U}\mathbf{D}\mathbf{D}^{\top}\mathbf{U}^{\top}$。对角矩阵 $\mathbf{D}^{\top}\mathbf{D}$ 和 $\mathbf{D}\mathbf{D}^{\top}$ 的对角线上有相同的元素 $d_j^2>0$，只是零的个数不同。$\mathbf{A}^{\top}$ 的奇异值是 $(\mathbf{A}^{\top})^{\top}\mathbf{A}^{\top}=\mathbf{A}\mathbf{A}^{\top}$ 的特征值的平方根，因此仍是这些 $d_j$，再补上一些零。
 

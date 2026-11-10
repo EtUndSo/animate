@@ -1,7 +1,8 @@
 ---
 title: L’essentiel jusqu’ici
 pfad: Informatique / Apprentissage automatique / Fondements mathématiques / Projection, valeurs propres et décompositions
-knoten: Fondements 2 : Projection, valeurs propres et décompositions
+adresse: informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen
+knoten: Chapitre 2 : Projection, valeurs propres et décompositions
 nachschlagen: ja
 order: 15221400
 summary: Points les plus proches, directions naturelles et les briques d’une matrice

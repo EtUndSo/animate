@@ -1,0 +1,398 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 17,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.166,
+      -1.6,
+      0
+     ],
+     "width": 6.806,
+     "height": 0.42,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#efefef",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Text",
+    "props": {
+     "text": "@hw",
+     "position": [
+      0.166,
+      -1.6,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o3",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.166,
+      -1.0,
+      0
+     ],
+     "width": 6.806,
+     "height": 0.42,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#e3eefb",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Text",
+    "props": {
+     "text": "@wirt",
+     "position": [
+      0.166,
+      -1.0,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o5",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.1165,
+      -0.4,
+      0
+     ],
+     "width": 2.241,
+     "height": 0.42,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Text",
+    "props": {
+     "text": "@apps",
+     "position": [
+      -2.1165,
+      -0.4,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o7",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.328,
+      -0.4,
+      0
+     ],
+     "width": 4.482,
+     "height": 0.42,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#fdece3",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Text",
+    "props": {
+     "text": "@hv",
+     "position": [
+      1.328,
+      -0.4,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o9",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.328,
+      1.275,
+      0
+     ],
+     "width": 4.482,
+     "height": 2.55,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#00823c",
+     "fill_color": "#e6f3ea",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o10",
+    "type": "Text",
+    "props": {
+     "text": "@vm",
+     "position": [
+      -0.83,
+      2.35,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#00823c"
+    }
+   },
+   {
+    "id": "o11",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.328,
+      0.5,
+      0
+     ],
+     "width": 4.233,
+     "height": 0.62,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Text",
+    "props": {
+     "text": "@vhw",
+     "position": [
+      1.328,
+      0.5,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o13",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.328,
+      1.2,
+      0
+     ],
+     "width": 4.233,
+     "height": 0.42,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o14",
+    "type": "Text",
+    "props": {
+     "text": "@gast",
+     "position": [
+      1.328,
+      1.2,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o15",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.328,
+      1.8,
+      0
+     ],
+     "width": 4.233,
+     "height": 0.42,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o16",
+    "type": "Text",
+    "props": {
+     "text": "@pgast",
+     "position": [
+      1.328,
+      1.8,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "hw": {
+    "de": "echte Hardware: Prozessor, Arbeitsspeicher, SSD, Netzwerkkarte",
+    "en": "real hardware: processor, memory, SSD, network card",
+    "es": "hardware real: procesador, memoria, SSD, tarjeta de red",
+    "zh": "真实硬件：处理器、内存、SSD、网卡",
+    "fr": "matériel réel : processeur, mémoire, SSD, carte réseau",
+    "tr": "gerçek donanım: işlemci, bellek, SSD, ağ kartı"
+   },
+   "wirt": {
+    "de": "Wirt: Windows mit seinem Kernel",
+    "en": "host: Windows with its kernel",
+    "es": "anfitrión: Windows con su núcleo",
+    "zh": "宿主：Windows 及其内核",
+    "fr": "hôte : Windows avec son noyau",
+    "tr": "ana sistem: Windows ve çekirdeği"
+   },
+   "apps": {
+    "de": "Browser, Editor, …",
+    "en": "browser, editor, …",
+    "es": "navegador, editor, …",
+    "zh": "浏览器、编辑器……",
+    "fr": "navigateur, éditeur, …",
+    "tr": "tarayıcı, editör, …"
+   },
+   "hv": {
+    "de": "Hypervisor (z. B. VirtualBox)",
+    "en": "hypervisor (e.g. VirtualBox)",
+    "es": "hipervisor (p. ej., VirtualBox)",
+    "zh": "虚拟机监视器（如 VirtualBox）",
+    "fr": "hyperviseur (p. ex. VirtualBox)",
+    "tr": "hipervizör (ör. VirtualBox)"
+   },
+   "vm": {
+    "de": "virtuelle Maschine",
+    "en": "virtual machine",
+    "es": "máquina virtual",
+    "zh": "虚拟机",
+    "fr": "machine virtuelle",
+    "tr": "sanal makine"
+   },
+   "vhw": {
+    "de": "virtuelle Hardware:\n2 Kerne, 6 GB, Platte (eine Datei), Netzwerkkarte",
+    "en": "virtual hardware:\n2 cores, 6 GB, disk (a file), network card",
+    "es": "hardware virtual:\n2 núcleos, 6 GB, disco (un archivo), tarjeta de red",
+    "zh": "虚拟硬件：\n2 个核心、6 GB、磁盘（一个文件）、网卡",
+    "fr": "matériel virtuel :\n2 cœurs, 6 Go, disque (un fichier), carte réseau",
+    "tr": "sanal donanım:\n2 çekirdek, 6 GB, disk (bir dosya), ağ kartı"
+   },
+   "gast": {
+    "de": "Gast: Ubuntu mit eigenem Linux-Kernel",
+    "en": "guest: Ubuntu with its own Linux kernel",
+    "es": "invitado: Ubuntu con su propio núcleo Linux",
+    "zh": "客户机：带自己 Linux 内核的 Ubuntu",
+    "fr": "invité : Ubuntu avec son propre noyau Linux",
+    "tr": "konuk: kendi Linux çekirdeğiyle Ubuntu"
+   },
+   "pgast": {
+    "de": "Programme im Gast",
+    "en": "programs in the guest",
+    "es": "programas en el invitado",
+    "zh": "客户机中的程序",
+    "fr": "programmes dans l’invité",
+    "tr": "konuktaki programlar"
+   }
+  }
+ }
+}

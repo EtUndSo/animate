@@ -1,6 +1,8 @@
 ---
 title: Stufe 1: Warum Silizium kaum leitet
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Halbleiter und Dioden
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Halbleiter und Dioden
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden
+knoten: Kapitel 9: Halbleiter und Dioden
 order: 1190300
 summary: Metall leitet, Glas nicht, reines Silizium kaum.
 tags: Energieniveaus, Band, verbotene Zone, Valenzband, Leitungsband, Bandabstand, Fermi-Energie, Metall
@@ -43,10 +45,10 @@ Jedes Elektron im LB lässt ein Loch im VB zurück, also ist die Zahl beider gle
 :::
 
 ::::beispiel
-Bei 300 K ist $W_\mathrm g/(k_\mathrm BT)=43{,}3$ und $\mathrm{e}^{-21{,}7}=3{,}9\cdot10^{-10}$. Die gemessene Dichte der freien Elektronen beträgt $n_\mathrm i=10^{10}\,\mathrm{cm^{-3}}$. Das ist eines je $5\cdot10^{12}$ Atome, denn Silizium hat $5\cdot10^{22}$ Atome je cm$^3$. Kupfer hat $8{,}5\cdot10^{12}$-mal mehr freie Elektronen ([Teil 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)).
+Bei 300 K ist $W_\mathrm g/(k_\mathrm BT)=43{,}3$ und $\mathrm{e}^{-21{,}7}=3{,}9\cdot10^{-10}$. Die gemessene Dichte der freien Elektronen beträgt $n_\mathrm i=10^{10}\,\mathrm{cm^{-3}}$. Das ist eines je $5\cdot10^{12}$ Atome, denn Silizium hat $5\cdot10^{22}$ Atome je cm$^3$. Kupfer hat $8{,}5\cdot10^{12}$-mal mehr freie Elektronen ([Kapitel 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)).
 ::::
 
-⁠**Grenzfälle:** Für $T\to0$ geht [(1.1)](#gl-1-1) gegen null: Silizium isoliert. Je 10 K Erwärmung verdoppelt sich der Anteil. Deshalb sinkt der Widerstand eines Halbleiters mit der Temperatur ([Teil 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)).
+⁠**Grenzfälle:** Für $T\to0$ geht [(1.1)](#gl-1-1) gegen null: Silizium isoliert. Je 10 K Erwärmung verdoppelt sich der Anteil. Deshalb sinkt der Widerstand eines Halbleiters mit der Temperatur ([Kapitel 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)).
 
 :::frage Warum leitet ein volles Band nicht, obwohl es voller Elektronen steckt?
 Weil Strom eine Bewegung in Vorzugsrichtung braucht. Dafür müsste ein Elektron in einen Zustand mit etwas mehr Energie wechseln. Im vollen Band ist jeder solche Zustand besetzt. Zwei Elektronen könnten nur tauschen, und das ändert nichts. Das erste Loch macht das Band leitfähig.

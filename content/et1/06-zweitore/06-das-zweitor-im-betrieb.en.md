@@ -1,6 +1,8 @@
 ---
 title: Stage 4: The two-port in operation
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / Two-Port Networks
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / Two-Port Networks
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore
+knoten: Chapter 6: Two-Port Networks
 order: 1160600
 summary: In operation, no port is open.
 tags: reverse action, unilateral
@@ -28,7 +30,7 @@ The limiting cases are the open-circuit and the short-circuit input resistance:
 <span class="anker" id="gl-4-2"></span>
 $$Z_{1,\mathrm{OC}}=Z_{11},\qquad Z_{1,\mathrm{SC}}=Z_{11}-\frac{Z_{12}Z_{21}}{Z_{22}}. \tag{4.2}$$
 
-If a source $U_\mathrm{q}$, $R_\mathrm{q}$ feeds port 1, port 2 acts as an equivalent voltage source ([Part 5](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)) with
+If a source $U_\mathrm{q}$, $R_\mathrm{q}$ feeds port 1, port 2 acts as an equivalent voltage source ([Chapter 5](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)) with
 
 <span class="anker" id="gl-4-3"></span>
 $$U_\mathrm{i}=\frac{Z_{21}}{Z_{11}+R_\mathrm{q}}\,U_\mathrm{q},\qquad R_\mathrm{i}=Z_{22}-\frac{Z_{12}Z_{21}}{Z_{11}+R_\mathrm{q}}. \tag{4.3}$$
@@ -51,7 +53,7 @@ For the T two-port, $Z_{1,\mathrm{OC}}=35\,\Omega$ and $Z_{1,\mathrm{SC}}=35\,\O
 
 $$Z_1=35\,\Omega-\frac{400\,\Omega^2}{100\,\Omega}=31\,\Omega,\quad I_1=\frac{9\,\mathrm{V}}{5\,\Omega+31\,\Omega}=250\,\mathrm{mA},\quad I_2=-\frac{20}{100}\,I_1=-50\,\mathrm{mA}.$$
 
-At the input, $U_1=9\,\mathrm{V}-5\,\Omega\cdot250\,\mathrm{mA}=7.75$ V, at the output $U_2=60\,\Omega\cdot50\,\mathrm{mA}=3$ V. In $R_\mathrm{b}$, $I_1+I_2=200$ mA flows instead of 250 mA, which lowers $U_1$ by exactly 1 V (Fig. [5](#abb-5)). Seen from the load: $U_\mathrm{i}=\frac{20}{40}\cdot9\,\mathrm{V}=4.5$ V, $R_\mathrm{i}=40\,\Omega-400\,\Omega^2/40\,\Omega=30\,\Omega$. Then $I=4.5\,\mathrm{V}/90\,\Omega=50$ mA, the same current. So the equivalent source from [Part 5](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html) is contained in the four numbers.
+At the input, $U_1=9\,\mathrm{V}-5\,\Omega\cdot250\,\mathrm{mA}=7.75$ V, at the output $U_2=60\,\Omega\cdot50\,\mathrm{mA}=3$ V. In $R_\mathrm{b}$, $I_1+I_2=200$ mA flows instead of 250 mA, which lowers $U_1$ by exactly 1 V (Fig. [5](#abb-5)). Seen from the load: $U_\mathrm{i}=\frac{20}{40}\cdot9\,\mathrm{V}=4.5$ V, $R_\mathrm{i}=40\,\Omega-400\,\Omega^2/40\,\Omega=30\,\Omega$. Then $I=4.5\,\mathrm{V}/90\,\Omega=50$ mA, the same current. So the equivalent source from [Chapter 5](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html) is contained in the four numbers.
 ::::
 
 ⁠**Limiting cases:** $R_\mathrm{L}\to\infty$ gives $Z_1\to35\,\Omega$, $R_\mathrm{L}\to0$ gives $25\,\Omega$. Every load lies in between.

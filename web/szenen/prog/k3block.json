@@ -14,11 +14,11 @@
      "text": "",
      "center": [
       -1.45,
-      -0.16,
+      -0.15,
       0
      ],
      "width": 4.2,
-     "height": 0.64,
+     "height": 0.6,
      "shape": "rect",
      "padding": 0.2,
      "font_size": 26,
@@ -33,10 +33,10 @@
     "id": "o2",
     "type": "MathTex",
     "props": {
-     "tex": "\\begin{array}{l}\\texttt{u = float(input(\"Spannung in V: \"))}\\\\\\texttt{if u > 5.25:}\\\\\\hspace{2em}\\texttt{zuviel = u - 5.25}\\\\\\hspace{2em}\\texttt{print(f\"Achtung: ... zu hoch\")}\\\\\\texttt{print(\"Messung beendet\")}\\end{array}",
-     "height": 1.6,
+     "tex": "\\begin{array}{l}\\texttt{temp = float(input(\"Temperatur ...\"))}\\\\\\texttt{if temp > 23:}\\\\\\hspace{2em}\\texttt{zuviel = temp - 23}\\\\\\hspace{2em}\\texttt{print(f\"Achtung: ... zu warm\")}\\\\\\texttt{print(\"fertig\")}\\end{array}",
+     "height": 1.5,
      "position": [
-      -1.65,
+      -1.6,
       0.0,
       0
      ],
@@ -54,7 +54,7 @@
      ],
      "end": [
       0.9,
-      -0.336,
+      -0.315,
       0
      ],
      "color": "#111111",
@@ -68,12 +68,12 @@
     "props": {
      "start": [
       0.9,
-      -0.16,
+      -0.15,
       0
      ],
      "end": [
       1.05,
-      -0.16,
+      -0.15,
       0
      ],
      "color": "#111111",
@@ -88,7 +88,7 @@
      "text": "@block",
      "position": [
       1.15,
-      -0.16,
+      -0.15,
       0
      ],
      "font_size": 22,
@@ -103,7 +103,7 @@
      "text": "@kopf",
      "position": [
       1.15,
-      0.32,
+      0.3,
       0
      ],
      "font_size": 22,
@@ -117,12 +117,12 @@
     "props": {
      "start": [
       -2.1,
-      0.32,
+      0.3,
       0
      ],
      "end": [
       1.05,
-      0.32,
+      0.3,
       0
      ],
      "color": "#b5b5b5",
@@ -137,7 +137,7 @@
      "text": "@weiter",
      "position": [
       1.15,
-      -0.74,
+      -0.7,
       0
      ],
      "font_size": 22,
@@ -151,12 +151,12 @@
     "props": {
      "start": [
       -0.9,
-      -0.64,
+      -0.6,
       0
      ],
      "end": [
       1.05,
-      -0.64,
+      -0.6,
       0
      ],
      "color": "#b5b5b5",

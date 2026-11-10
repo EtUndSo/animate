@@ -1,6 +1,8 @@
 ---
 title: Etapa 6: El axioma de completitud
-pfad: Ingeniería eléctrica / 1.er semestre / Matemáticas superiores 1 / Conjuntos, lógica y números reales
+pfad: Ingeniería eléctrica / 1.er semestre / HöMa1 – Matemáticas superiores 1 / Conjuntos, lógica y números reales
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen
+knoten: Capítulo 1: Conjuntos, lógica y números reales
 order: 1210800
 summary: mathbb Q cumple todos los axiomas vistos hasta ahora.
 tags: acotado superiormente, cota superior, acotado inferiormente, cota inferior, acotado, supremo, ínfimo, máximo
@@ -85,7 +87,7 @@ Un cuerpo totalmente ordenado $\mathbb K$ se llama __completo__ si todo conjunto
 Existe esencialmente un solo cuerpo totalmente ordenado y completo que contiene a $\mathbb{Q}$. Es el __cuerpo de los números reales__ $\mathbb{R}$, y su orden coincide en $\mathbb{Q}$ con el habitual.
 :::
 
-⁠**Cómo leerlo:** La demostración nos llevaría demasiado lejos; aquí basta el significado: los tres grupos de axiomas fijan $\mathbb{R}$ de forma única salvo cambio de nombres, y por eso se puede hablar de *los* números reales. Esto sustituye a la definición provisional. El cuerpo $\{0,1\}$ cumple solo los axiomas de cuerpo, $\mathbb{Q}$ también el orden, y solo $\mathbb{R}$ los tres grupos. Equivalente a (V) es la exigencia de que toda sucesión de Cauchy converja (Parte 4).
+⁠**Cómo leerlo:** La demostración nos llevaría demasiado lejos; aquí basta el significado: los tres grupos de axiomas fijan $\mathbb{R}$ de forma única salvo cambio de nombres, y por eso se puede hablar de *los* números reales. Esto sustituye a la definición provisional. El cuerpo $\{0,1\}$ cumple solo los axiomas de cuerpo, $\mathbb{Q}$ también el orden, y solo $\mathbb{R}$ los tres grupos. Equivalente a (V) es la exigencia de que toda sucesión de Cauchy converja (capítulo 4).
 
 :::satz Teorema 6.5 (Consecuencias de la completitud)
 <span class="anker" id="satz-6-5"></span>

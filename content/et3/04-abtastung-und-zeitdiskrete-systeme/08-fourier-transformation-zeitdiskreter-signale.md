@@ -1,6 +1,8 @@
 ---
 title: Stufe 7: Fourier-Transformation zeitdiskreter Signale
-pfad: Elektrotechnik / 3. Semester / Signale und Systeme / Abtastung und zeitdiskrete Systeme
+pfad: Elektrotechnik / 3. Semester / ET3 – Grundgebiete der Elektrotechnik 3: Signale und Systeme / Abtastung und zeitdiskrete Systeme
+adresse: elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme
+knoten: Kapitel 4: Abtastung und zeitdiskrete Systeme
 order: 3240800
 summary: Welches Spektrum hat eine Zahlenfolge?
 tags: periodische Faltung

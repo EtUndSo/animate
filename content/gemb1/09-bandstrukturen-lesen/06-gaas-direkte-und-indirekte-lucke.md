@@ -1,6 +1,8 @@
 ---
 title: Stufe 4: GaAs, direkte und indirekte Lücke
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Bandstrukturen lesen
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Bandstrukturen lesen
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/bandstrukturen-lesen
+knoten: Kapitel 9: Bandstrukturen lesen
 order: 4190600
 summary: In Silizium liegen die beiden Bandkanten bei verschiedenen boldsymbol k .
 tags: direkt, indirekt, Phonon

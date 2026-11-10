@@ -1,6 +1,8 @@
 ---
 title: Stufe 1: Pfeile addieren und strecken
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Vektoren und Skalarprodukt
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Vektoren und Skalarprodukt
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/vektoren-und-skalarprodukt
+knoten: Kapitel 8: Vektoren und Skalarprodukt
 order: 1280300
 summary: Eine Kraft hat Stärke und Richtung, eine einzelne Zahl reicht dafür nicht.
 tags: Ursprung, Ortsvektor, Komponente, Nullvektor, Einheitsvektor, Gerade, Richtungsvektor, Parameterdarstellung

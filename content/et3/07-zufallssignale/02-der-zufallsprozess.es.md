@@ -1,6 +1,8 @@
 ---
 title: Etapa 1: El proceso aleatorio
-pfad: Ingeniería eléctrica / 3.er semestre / Señales y sistemas / Señales aleatorias
+pfad: Ingeniería eléctrica / 3.er semestre / ET3 – Fundamentos de ingeniería eléctrica 3: señales y sistemas / Señales aleatorias
+adresse: elektrotechnik/3-semester/signale-und-systeme/zufallssignale
+knoten: Capítulo 7: Señales aleatorias
 order: 3270200
 summary: ¿Cómo se describe una señal cuya evolución no se conoce?
 tags: función muestra, proceso aleatorio, variable aleatoria, valor esperado, función de autocorrelación

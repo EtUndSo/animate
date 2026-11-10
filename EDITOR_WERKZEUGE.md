@@ -61,6 +61,20 @@ Status „fertig“ heißt: gebaut, Engine-Tests grün (`web/tests/test_figures.
 | E1 | Vorlagen | Menü „Elektrotechnik · Vorlagen“: Kennlinienfeld mit Arbeitspunkt (Regler U_B), Diodenkennlinie halblogarithmisch, Bode-Diagramm Tiefpass (Regler f_g), Schaltplan Emitterschaltung, Kleinsignal-Ersatzschaltbild, Querschnitt NMOS, Wirkungskette Gegenkopplung. Quelle: `tools/editor_vorlagen.py` (fügt sie in `web/editor.js` ein) | fertig |
 | E2 | Tests | `web/tests/test_figures.py` (alle neuen Objekte, jede Bauteilart, Log-Achsen, Teilbilder, Parameter, Schnittpunkt, Tangente auf Log-Achse, SVG); Vertragstest um eine Szene mit allen neuen Objekten und Animationen erweitert; `tools/editor_shot.py` (Szene im Browser fotografieren); `tools/editor_ui_test.py` (18 Bedienprüfungen) | fertig |
 
+## F. Ergänzungen vom 10.11.2026 (Text, Ebenen, Rechenbilder)
+
+Anleitung mit Beispielen: `notizen/animationen.md` §7. Tests: `web/tests/test_text_werkzeuge.py`, `test_texspec.mjs`.
+
+| Nr. | Werkzeug | Was es kann | Status |
+|---|---|---|---|
+| F1 | Schreibmaschinenschrift | `Text.font` = mono: echte Zeichen in Zellen von 0,6 em, Spalten untereinander, mehrere Leerzeichen, gerade `'` und `` ` ``, kein Dezimalkomma; chinesische Zeichen zwei Zellen; gleich in Editor, `.svg`, `.anim.svg` und PDF (Consolas). `szenen_lib`: `s.text(..., schrift="tt")`, `tt_breite()` | fertig |
+| F2 | Rohtext | `Text.raw`: der Text wörtlich, ohne Rich-Text (`_ ^ \ $ { }`), echter Zeilenumbruch bricht. `s.text(..., roh=True)` | fertig |
+| F3 | Inhalt ändern | Transform Text → Text ändert Inhalt, Farbe, Größe, Lage, Schrift (aus-/einblenden), ohne Rest im Bild. `s.ersetzen(id, text, farbe)` | fertig |
+| F4 | Ebenen | Szenen-Einstellung „Ebenen“: wie angelegt (`drawOrder: creation`, Standard für neue Szenen) / wie erschienen (bisher). `Szene(..., reihenfolge="anlegen")`; der Export warnt bei Text unter deckender Fläche | fertig |
+| F5 | Richtungsmarke | `ParametricCurve.head_size` (Standard 0,22). `s.weg(..., spitze=…)` | fertig |
+| F6 | Σ/∏ erweitert | `index` (anderer Laufindex), `exact` (exakte Brüche, beliebiger Nenner). `s.summe(..., index="k", exakt=True)` | fertig |
+| F7 | Code in Formeln | `\mathtt{a.b}` ohne Abstand, gerade `'`/`` ` `` in `\texttt`, Code mit Klammern behält den Dezimalpunkt (`localizeTex`) | fertig |
+
 ## Nebenbei behobene Fehler
 
 - Wissenschaftliche Schreibweise in Ausdrücken: `1e-15` wurde als `1·e − 15` gelesen. Jetzt eine Zahl.

@@ -1,6 +1,8 @@
 ---
-title: 从头开始：第 9 部分中需要用到的内容
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 双极型晶体管
+title: 从头开始：第 9 章中需要用到的内容
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 双极型晶体管
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor
+knoten: 第 10 章：双极型晶体管
 order: 1200200
 summary: 小电压如何控制流过 截止二极管的大电流
 tags: 空穴, pn 结, 空间电荷区, 正向, 扩散, 复合

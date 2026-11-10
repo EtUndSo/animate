@@ -1,7 +1,9 @@
 ---
 title: Overview: Semiconductors and Diodes
 kurz: Overview
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / Semiconductors and Diodes
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / Semiconductors and Diodes
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden
+knoten: Chapter 9: Semiconductors and Diodes
 order: 1190100
 summary: How silicon becomes a valve for current and how to calculate with it
 tags: diode, semiconductor, Doping, charge carriers, pn junction, space-charge region, characteristic curve, operating point

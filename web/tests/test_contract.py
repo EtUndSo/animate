@@ -24,7 +24,8 @@ def snap(scene):
     def w(o):
         if len(o.points):
             rows.append((np.round(o.points, 4).tobytes(), round(o.fill_opacity, 4),
-                         round(o.stroke_opacity, 4), tuple(np.round(np.asarray(o.color, float), 3))))
+                         round(o.stroke_opacity, 4), tuple(np.round(np.asarray(o.color, float), 3)),
+                         getattr(o, "text", None), round(float(getattr(o, "font_size", 0) or 0), 4)))   # a label's content too
         for s in o.subObjects:
             w(s)
     for o in scene.objectList:
@@ -110,6 +111,41 @@ cases.append(("Scale", _mscene({"type": "Scale", "args": {"factor": 2}})))
 cases.append(("MoveTo", _mscene({"type": "MoveTo", "args": {"point": [2, 1, 0]}})))
 cases.append(("Indicate", _mscene({"type": "Indicate", "args": {}})))
 cases.append(("Write", _mscene({"type": "Write", "args": {}})))
+# L1/L2/L9 in the model (editor menu): FadeOut, morph into a template object (`to`, never drawn), Indicate on one
+# Table cell / row, a pause step (Wait), Rotate about a point
+cases.append(("FadeOut (model)", _mscene({"type": "FadeOut", "args": {}})))
+_MORPH_M = lambda typ: model_scene({"objects": [{"id": "s", "type": "Square", "args": {"side": 1}},
+                                                {"id": "c", "type": "Circle", "args": {"radius": 1.5}}],
+                                    "animations": [{"type": typ, "target": "s", "run_time": 2, "args": {"to": "c"}},
+                                                   {"type": "Shift", "target": "s", "run_time": 1, "args": {"vector": [1, 0, 0]}}],
+                                    "background": [1, 1, 1]})
+cases.append(("Transform to template (model)", _MORPH_M("Transform")))
+cases.append(("ReplacementTransform to template (model)", _MORPH_M("ReplacementTransform")))
+_TAB = {"id": "t", "type": "Table", "args": {"cells": "1,2;3,4", "position": [0, 0, 0]}}
+cases.append(("Indicate cell + row (model)", model_scene({"objects": [_TAB], "background": [1, 1, 1], "animations": [
+    {"type": "FadeIn", "target": "t", "run_time": 1, "step": 0},
+    {"type": "Indicate", "target": "t", "run_time": 1, "step": 1, "args": {"cell": [1, 0]}},
+    {"type": "Wait", "target": None, "run_time": 0.5, "step": 2},
+    {"type": "Indicate", "target": "t", "run_time": 1, "step": 3, "args": {"row": 0}}]})))
+cases.append(("Rotate about a point (model)", _mscene({"type": "Rotate", "args": {"angle": 1.57, "around": [2, 0, 0]}})))
+# E1 (10.11.2026): a label changes its content (Transform Text -> Text: text, colour, size, place; fade out / in), twice
+# in a row and shifted afterwards; typewriter / raw text; draw order of creation (only the painting order changes).
+_T = lambda i, t, x, col, **kw: {"id": i, "type": "Text", "args": dict({"text": t, "position": [x, 0, 0], "font_size": 24,
+                                                                        "color": col}, **kw)}
+cases.append(("Transform text -> text, twice (model)", model_scene({"objects": [
+    _T("t", "alt.txt", 0, [0, 0, 0], font="mono", raw=True), _T("v", "neu.txt", 1, [1, 0, 0], font="mono", raw=True),
+    _T("w", "C:\\ende_1", -1, [0, 0, 1], raw=True), {"id": "k", "type": "Square", "args": {"side": 1}}],
+    "animations": [{"type": "FadeIn", "target": "t", "run_time": 1, "step": 0},
+                   {"type": "Transform", "target": "t", "run_time": 1, "step": 1, "args": {"to": "v"}},
+                   {"type": "TransformMatchingTex", "target": "t", "run_time": 1, "step": 2, "args": {"to": "w"}},
+                   {"type": "Shift", "target": "t", "run_time": 1, "step": 3, "args": {"vector": [0, 1, 0]}},
+                   {"type": "GrowFromCenter", "target": "k", "run_time": 1, "step": 3}],
+    "background": [1, 1, 1], "draw_order": "creation"})))
+from engine.animation import FadeInLines  # noqa: E402
+def _lines(s):                               # a formula with three rows (glyphs stacked) appears row by row
+    m = MathTex([{"d": sq, "m": [1, 0, 0, 1, 20 * (i % 2), -30 * (i // 2)], "c": c} for i, c in enumerate("abcdef")], height=2.0)
+    s.play(FadeInLines(m), run_time=3)
+cases.append(("FadeIn lines (formula row by row)", eng(_lines)))
 
 # Σ step-by-step choreography (number mode) with synthetic glyph data
 _G = lambda ch: [{"d": sq, "m": [1, 0, 0, 1, 0, 0], "c": ch}]

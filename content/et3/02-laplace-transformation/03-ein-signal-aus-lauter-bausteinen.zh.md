@@ -1,6 +1,8 @@
 ---
 title: 第 2 阶段：完全由基本分量构成的信号
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / 拉普拉斯变换
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / 拉普拉斯变换
+adresse: elektrotechnik/3-semester/signale-und-systeme/laplace-transformation
+knoten: 第 2 章：拉普拉斯变换
 order: 3220300
 summary: 第 1 阶段的结论适用于单个基本分量。只有当每个信号都能由基本分量 e pt 构成时，它才真正有用。本阶段说明这确实可行、权重叫什么，以及其局限在哪里。
 tags: 绝对可积, 傅里叶表示, 频谱

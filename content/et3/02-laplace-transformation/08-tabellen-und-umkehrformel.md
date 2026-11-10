@@ -1,6 +1,8 @@
 ---
 title: Tabellen und Umkehrformel
-pfad: Elektrotechnik / 3. Semester / Signale und Systeme / Laplace-Transformation
+pfad: Elektrotechnik / 3. Semester / ET3 – Grundgebiete der Elektrotechnik 3: Signale und Systeme / Laplace-Transformation
+adresse: elektrotechnik/3-semester/signale-und-systeme/laplace-transformation
+knoten: Kapitel 2: Laplace-Transformation
 order: 3220800
 summary: Hier stehen die Rechenregeln und Transformationspaare auf einen Blick, ergänzt um einige weitere Regeln.
 tags: Fourier-Darstellung, Spektrum

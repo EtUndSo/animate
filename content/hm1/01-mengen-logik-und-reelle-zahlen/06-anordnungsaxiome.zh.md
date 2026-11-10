@@ -1,6 +1,8 @@
 ---
 title: 第 4 阶段：序公理
-pfad: 电气工程 / 第 1 学期 / 高等数学 1 / 集合、逻辑与实数
+pfad: 电气工程 / 第 1 学期 / HöMa1 – 高等数学 1 / 集合、逻辑与实数
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen
+knoten: 第 1 章：集合、逻辑与实数
 order: 1210600
 summary: 域公理对“大于”只字未提。不等式运算的背后有哪些假设？
 tags: 全序, 三分律
@@ -65,7 +67,7 @@ lang: zh
 | (e) 取平方 | 对 $x\ge0$，$y\ge0$：$x^2\ge y^2\Leftrightarrow x\ge y$ |
 :::
 
-⁠**如何理解：**不等式经得起任何加法，但只经得起乘以正数。当 $z<0$ 时它反向：$x<y\wedge z<0\Rightarrow xz>yz$。当 $z=0$ 时，(O4) 变为 $0<0$，这是假的。若有序域中存在 $i$ 使 $i\cdot i=-1$，由 (d) 就有 $-1>0$ 和 $1>0$，再由 (T2) 得 $0>0$。所以[第 2 部分](/wissen/zh/elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen/komplexe-zahlen.html)的复数无法定序。也可以等价地用 (O1) 到 (O4) 代替 (T1) 到 (T3) 作为公理。
+⁠**如何理解：**不等式经得起任何加法，但只经得起乘以正数。当 $z<0$ 时它反向：$x<y\wedge z<0\Rightarrow xz>yz$。当 $z=0$ 时，(O4) 变为 $0<0$，这是假的。若有序域中存在 $i$ 使 $i\cdot i=-1$，由 (d) 就有 $-1>0$ 和 $1>0$，再由 (T2) 得 $0>0$。所以[第 2 章](/wissen/zh/elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen/komplexe-zahlen.html)的复数无法定序。也可以等价地用 (O1) 到 (O4) 代替 (T1) 到 (T3) 作为公理。
 
 :::frage 不等式可以平方吗？
 只有两边都不为负时才行，这就是 (e)。没有这个前提：$-3<2$，但 $9>4$。平方把直线的负半部分反射到正半部分，就像图 [4](#abb-4) 中的乘 $-1$。

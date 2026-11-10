@@ -1,6 +1,8 @@
 ---
 title: 第 8 阶段：利用 $U_\mathrm{BE}$ 的两种电路
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 双极型晶体管
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 双极型晶体管
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor
+knoten: 第 10 章：双极型晶体管
 order: 1201000
 summary: 到目前为止， U BE 一直是干扰因素。本阶段利用它的两个性质： U BE 相同则电流相同，电流变化时 U BE 几乎不变。
 tags: 电流镜, 参考电流, 纹波
@@ -32,7 +34,7 @@ $$I_\mathrm{ref}=\frac{U_\mathrm{CC}-U_\mathrm{BE}}{R_\mathrm{ref}}=I_\mathrm{C1
 
 ⁠**极限情况：**当 $B\to\infty$ 时，$I_\mathrm{C2}=I_\mathrm{ref}$。
 
-**基本思路：稳压器。** 带滤波的整流器（[第 9 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)）提供的直流电压带有残余波动，即__纹波__。在稳压器（图 [9](#abb-9) 右侧）中，齐纳二极管把基极稳定在 $U_\mathrm{Z}$。发射极是输出端，比基极低一个二极管电压。如果负载取用更多电流使输出电压下降，$U_\mathrm{BE}$ 就增大，晶体管就多提供电流。输入电压的其余部分降在 $U_\mathrm{CE}$ 上。负载电流不流过 $R_1$，基极只需要它的 $B$ 分之一。所以齐纳二极管几乎不受负载影响。
+**基本思路：稳压器。** 带滤波的整流器（[第 9 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)）提供的直流电压带有残余波动，即__纹波__。在稳压器（图 [9](#abb-9) 右侧）中，齐纳二极管把基极稳定在 $U_\mathrm{Z}$。发射极是输出端，比基极低一个二极管电压。如果负载取用更多电流使输出电压下降，$U_\mathrm{BE}$ 就增大，晶体管就多提供电流。输入电压的其余部分降在 $U_\mathrm{CE}$ 上。负载电流不流过 $R_1$，基极只需要它的 $B$ 分之一。所以齐纳二极管几乎不受负载影响。
 
 :::satz 定理 8.2 (带齐纳二极管的稳压器)
 <span class="anker" id="satz-8-2"></span>

@@ -1,6 +1,8 @@
 ---
 title: Etapa 3: Respuesta al escalón y tiempo de subida
-pfad: Ingeniería eléctrica / 3.er semestre / Señales y sistemas / Sistemas paso bajo y paso banda
+pfad: Ingeniería eléctrica / 3.er semestre / ET3 – Fundamentos de ingeniería eléctrica 3: señales y sistemas / Sistemas paso bajo y paso banda
+adresse: elektrotechnik/3-semester/signale-und-systeme/tiefpass-und-bandpasssysteme
+knoten: Capítulo 5: Sistemas paso bajo y paso banda
 order: 3250400
 summary: ¿Cómo reacciona el paso bajo ideal a un escalón?
 tags: seno integral, tiempo de subida
@@ -13,7 +15,7 @@ lang: es
 ¿Cómo reacciona el paso bajo ideal a un escalón? ¿Con qué rapidez sube y cuánto sobrepasa el valor final?
 :::
 
-La respuesta al escalón es la integral acumulada de la respuesta al impulso ([parte 1](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html)). Con el __seno integral__
+La respuesta al escalón es la integral acumulada de la respuesta al impulso ([capítulo 1](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html)). Con el __seno integral__
 
 <span class="anker" id="gl-3-1"></span>
 $$\operatorname{Si}(x)=\int_0^x\operatorname{si}(\xi)\,\mathrm{d}\xi,\qquad\operatorname{Si}(-x)=-\operatorname{Si}(x),\qquad\operatorname{Si}(\infty)=\frac\pi2 \tag{3.1}$$
@@ -32,7 +34,7 @@ La integral hasta $t$ se divide en 0. La parte de $-\infty$ a 0 es la mitad del 
 <span class="anker" id="gl-3-3"></span>
 $$t_e=\frac{h_\varepsilon(\infty)}{\max\dot h_\varepsilon}=\frac{1}{2f_\mathrm g}. \tag{3.3}$$
 
-La sobreoscilación de la respuesta al escalón es del $8{,}95\,\%$ (en $t=\frac{1}{2f_\mathrm g}$). Es el fenómeno de Gibbs de la [parte 3](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html): un $f_\mathrm g$ mayor acorta el tiempo de subida; la sobreoscilación se mantiene (fig. [1](#abb-1)).
+La sobreoscilación de la respuesta al escalón es del $8{,}95\,\%$ (en $t=\frac{1}{2f_\mathrm g}$). Es el fenómeno de Gibbs del [capítulo 3](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html): un $f_\mathrm g$ mayor acorta el tiempo de subida; la sobreoscilación se mantiene (fig. [1](#abb-1)).
 
 :::abbildung et3/k5sprung 1
 Respuesta al escalón del paso bajo ideal para $f_\mathrm g=1$ Hz y 2 Hz. En trazo discontinuo, la rampa con la pendiente máxima: su tiempo de subida es $t_e=1/(2f_\mathrm g)=0{,}5$ s. Las dos curvas tienen la misma sobreoscilación: llegan hasta 1,0895.

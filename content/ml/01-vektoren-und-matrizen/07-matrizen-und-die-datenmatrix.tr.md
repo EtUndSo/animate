@@ -1,7 +1,8 @@
 ---
 title: Matrisler ve veri matrisi
 pfad: Bilgisayar Bilimleri / Makine Öğrenmesi / Matematiksel Temeller / Vektörler ve Matrisler
-knoten: Temeller 1: Vektörler ve Matrisler
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Bölüm 1: Vektörler ve Matrisler
 nachschlagen: ja
 order: 15210700
 summary: Bir veri kümesi, bileşen sayıları aynı olan birçok vektörden oluşur.

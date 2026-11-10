@@ -1,6 +1,8 @@
 ---
 title: Stage 5: Symmetries in the signal and in the spectrum
-pfad: Electrical Engineering / 3rd Semester / Signals and Systems / Fourier Series and Transform
+pfad: Electrical Engineering / 3rd Semester / ET3 – Fundamentals of Electrical Engineering 3: Signals and Systems / Fourier Series and Transform
+adresse: elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation
+knoten: Chapter 3: Fourier Series and Transform
 order: 3230600
 summary: Whether a signal is real, even or odd can be seen immediately from its spectrum.
 tags: even, odd

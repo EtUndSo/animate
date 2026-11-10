@@ -1,6 +1,8 @@
 ---
 title: Stage 5: Node voltage analysis
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / Mesh Current and Node Voltage Analysis
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / Mesh Current and Node Voltage Analysis
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/maschenstrom-und-knotenpotentialverfahren
+knoten: Chapter 8: Mesh Current and Node Voltage Analysis
 order: 1180700
 summary: The mesh rule is taken care of; k-1 node rules with k-1 unknowns remain.
 tags: coupling conductance
@@ -24,7 +26,7 @@ The method has four steps:
 
 <li>
 
-Convert real voltage sources into real current sources: $I_\mathrm q=U_\mathrm q/R$, the same resistor in parallel ([Part 5](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)).
+Convert real voltage sources into real current sources: $I_\mathrm q=U_\mathrm q/R$, the same resistor in parallel ([Chapter 5](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)).
 
 </li>
 
@@ -84,7 +86,7 @@ $I_{\mathrm q\mu}$ is the sum of the source currents at the node, positive if th
 At node $\mu$, the current $G_a\,(U_\mu-U_\nu)$ flows away through each conductance $G_a$ to the neighbor $\nu$, and $G_a\,U_\mu$ to the reference node. The sum of these currents equals the injected $I_{\mathrm q\mu}$. Sorting gives the sum of all $G_a$ in front of $U_\mu$ and minus the sum of the conductances between $\mu$ and $\nu$ in front of $U_\nu$. Node $\nu$ receives the same entry, because a conductance has no direction. That is why $\mathbf Y$ is symmetric.
 :::
 
-⁠**How to read it:** Row $\mu$ is the node rule: on the left stand all currents flowing away through conductances, on the right what the sources push in. Column $\nu$ says: if you hold node $\nu$ at 1 V and all others at 0 V, you must inject the current $Y_{\nu\nu}$ at node $\nu$ and draw the current $-Y_{\mu\nu}$ at each neighbor $\mu$. That is exactly the short-circuit test from [Part 6](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html). **Validity:** The network contains conductances and fixed current sources. An ideal voltage source does not fit in, because it has no finite conductance (Stage [9](die-modifizierte-knotenanalyse.html#stufe-9)).
+⁠**How to read it:** Row $\mu$ is the node rule: on the left stand all currents flowing away through conductances, on the right what the sources push in. Column $\nu$ says: if you hold node $\nu$ at 1 V and all others at 0 V, you must inject the current $Y_{\nu\nu}$ at node $\nu$ and draw the current $-Y_{\mu\nu}$ at each neighbor $\mu$. That is exactly the short-circuit test from [Chapter 6](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html). **Validity:** The network contains conductances and fixed current sources. An ideal voltage source does not fit in, because it has no finite conductance (Stage [9](die-modifizierte-knotenanalyse.html#stufe-9)).
 
 :::abbildung et1/k8yspalte 5
 Left: the model network for node voltage analysis; the battery is converted into a current source. Right: the sources are removed, node 1 is at 1 V, node 2 at 0 V. Through $G_1$, $G_2$, $G_3$, a total of $1+0.25+0.5=1.75$ mA flow away, which is $Y_{11}$. The 0.5 mA arrive at node 2 and must be drawn off there, which is $Y_{21}=-0.5$ mS.
@@ -111,7 +113,7 @@ Mesh currents have a direction that you choose, and so there are two possibiliti
 :::
 
 :::frage After the conversion, 2 mA flow upward through $R_5$ in the mesh picture, but 2 mA downward in the original network. Which is right?
-The original network. Equivalent sources agree only at the terminals ([Part 5](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)). At node 2 and at ground both forms deliver the same; inside the source the current means different things. That is why you calculate internal quantities in the original network from the terminal voltages.
+The original network. Equivalent sources agree only at the terminals ([Chapter 5](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)). At node 2 and at ground both forms deliver the same; inside the source the current means different things. That is why you calculate internal quantities in the original network from the terminal voltages.
 :::
 
 :::aufgabe Exercise 6 ★★ Three nodes and a reference

@@ -1,6 +1,8 @@
 ---
 title: Stufe 7: Die Zahl $\pi$ und die Wertetabelle
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Potenzreihen und Eulersche Formel
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Potenzreihen und Eulersche Formel
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/potenzreihen-und-eulersche-formel
+knoten: Kapitel 7: Potenzreihen und Eulersche Formel
 order: 1270900
 summary: In den Reihen kommt pi nicht vor.
 tags: 
@@ -70,7 +72,7 @@ Cosinus und Sinus mit den Punkten der Wertetabelle. Im Bereich $[0,2]$ fällt de
 :::beweis Vierteldrehungen zusammensetzen
 Spalte 0: Stufe [3](sinus-und-cosinus-als-reihen.html#stufe-3). Spalte $\pi/2$: Es ist $\cos\frac\pi2=0$, also $\sin^2\frac\pi2=1$ nach [(6.2)](die-eulersche-formel.html#gl-6-2). Wegen $\sin\frac\pi2>0$ ist $\sin\frac\pi2=1$ und $\mathrm{e}^{\mathrm{i}\pi/2}=\mathrm{i}$. Spalten $\pi$, $\frac32\pi$, $2\pi$: Die Funktionalgleichung gibt $\mathrm{e}^{\mathrm{i}\pi}=\mathrm{i}^2=-1$, $\mathrm{e}^{3\mathrm{i}\pi/2}=\mathrm{i}^3=-\mathrm{i}$ und $\mathrm{e}^{2\pi\mathrm{i}}=\mathrm{i}^4=1$. Sinus und Cosinus liest man mit [(6.1)](die-eulersche-formel.html#gl-6-1) ab.
 
-Spalte $\pi/4$: $w:=\mathrm{e}^{\mathrm{i}\pi/4}$ erfüllt $w^2=\mathrm{i}$. Nach [Teil 2](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen/komplexe-zahlen.html) hat $w^2=\mathrm{i}$ genau die Lösungen $\pm\frac1{\sqrt2}(1+\mathrm{i})$. Wegen $\sin\frac\pi4>0$ gilt das Pluszeichen.
+Spalte $\pi/4$: $w:=\mathrm{e}^{\mathrm{i}\pi/4}$ erfüllt $w^2=\mathrm{i}$. Nach [Kapitel 2](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen/komplexe-zahlen.html) hat $w^2=\mathrm{i}$ genau die Lösungen $\pm\frac1{\sqrt2}(1+\mathrm{i})$. Wegen $\sin\frac\pi4>0$ gilt das Pluszeichen.
 
 Periodizität: $\mathrm{e}^{\mathrm{i}(\varphi+2\pi)}=\mathrm{e}^{\mathrm{i}\varphi}\mathrm{e}^{2\pi\mathrm{i}}=\mathrm{e}^{\mathrm{i}\varphi}$. Real- und Imaginärteil ergeben die beiden anderen Formeln.
 :::
@@ -85,6 +87,6 @@ Dazu müsste die Länge einer krummen Linie erklärt sein, und das braucht Integ
 (a) Bestimme $\mathrm{e}^{3\mathrm{i}\pi/4}$, $\mathrm{e}^{7\mathrm{i}\pi/4}$ und $\cos\frac{11\pi}4$ aus der Tabelle. (b) Zeige mit $\mathrm{e}^{\mathrm{i}\pi/2}=\mathrm{i}$: $\cos(\varphi+\frac\pi2)=-\sin\varphi$ und $\sin(\varphi+\frac\pi2)=\cos\varphi$. Was bedeutet das in der Ebene? (c) Berechne $\cos1{,}57$ und $\cos1{,}58$ aus den Gliedern bis $x^8$. Welche Schranken für $\pi$ folgen?
 
 :::loesung
-(a) $\mathrm{e}^{3\mathrm{i}\pi/4}=\mathrm{e}^{\mathrm{i}\pi/2}\mathrm{e}^{\mathrm{i}\pi/4}=\frac{\mathrm{i}(1+\mathrm{i})}{\sqrt2}=\frac{-1+\mathrm{i}}{\sqrt2}$. $\mathrm{e}^{7\mathrm{i}\pi/4}=\mathrm{e}^{2\pi\mathrm{i}}\mathrm{e}^{-\mathrm{i}\pi/4}=\overline{\mathrm{e}^{\mathrm{i}\pi/4}}=\frac{1-\mathrm{i}}{\sqrt2}$. $\cos\frac{11\pi}4=\cos\frac{3\pi}4=-\frac1{\sqrt2}$ nach der Periodizität. (b) $\cos(\varphi+\frac\pi2)+\mathrm{i}\sin(\varphi+\frac\pi2)=\mathrm{i}\,\mathrm{e}^{\mathrm{i}\varphi}=-\sin\varphi+\mathrm{i}\cos\varphi$. Real- und Imaginärteil vergleichen. In der Ebene: Aus $(x,y)$ wird $(-y,x)$, die Vierteldrehung aus [Teil 2](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen/komplexe-zahlen.html). (c) Bis $x^8$ ist $\cos1{,}57\approx0{,}00082$ und $\cos1{,}58\approx-0{,}00918$, der Fehler ist höchstens rund $3\cdot10^{-5}$. Also ist $1{,}57<\chi<1{,}58$ und $3{,}14<\pi<3{,}16$.
+(a) $\mathrm{e}^{3\mathrm{i}\pi/4}=\mathrm{e}^{\mathrm{i}\pi/2}\mathrm{e}^{\mathrm{i}\pi/4}=\frac{\mathrm{i}(1+\mathrm{i})}{\sqrt2}=\frac{-1+\mathrm{i}}{\sqrt2}$. $\mathrm{e}^{7\mathrm{i}\pi/4}=\mathrm{e}^{2\pi\mathrm{i}}\mathrm{e}^{-\mathrm{i}\pi/4}=\overline{\mathrm{e}^{\mathrm{i}\pi/4}}=\frac{1-\mathrm{i}}{\sqrt2}$. $\cos\frac{11\pi}4=\cos\frac{3\pi}4=-\frac1{\sqrt2}$ nach der Periodizität. (b) $\cos(\varphi+\frac\pi2)+\mathrm{i}\sin(\varphi+\frac\pi2)=\mathrm{i}\,\mathrm{e}^{\mathrm{i}\varphi}=-\sin\varphi+\mathrm{i}\cos\varphi$. Real- und Imaginärteil vergleichen. In der Ebene: Aus $(x,y)$ wird $(-y,x)$, die Vierteldrehung aus [Kapitel 2](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen/komplexe-zahlen.html). (c) Bis $x^8$ ist $\cos1{,}57\approx0{,}00082$ und $\cos1{,}58\approx-0{,}00918$, der Fehler ist höchstens rund $3\cdot10^{-5}$. Also ist $1{,}57<\chi<1{,}58$ und $3{,}14<\pi<3{,}16$.
 :::
 :::

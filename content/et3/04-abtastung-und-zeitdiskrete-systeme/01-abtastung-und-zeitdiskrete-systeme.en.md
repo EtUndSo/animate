@@ -1,7 +1,9 @@
 ---
 title: Overview: Sampling and Discrete-Time Systems
 kurz: Overview
-pfad: Electrical Engineering / 3rd Semester / Signals and Systems / Sampling and Discrete-Time Systems
+pfad: Electrical Engineering / 3rd Semester / ET3 – Fundamentals of Electrical Engineering 3: Signals and Systems / Sampling and Discrete-Time Systems
+adresse: elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme
+knoten: Chapter 4: Sampling and Discrete-Time Systems
 order: 3240100
 summary: From the continuous signal to a sequence of numbers: sampling theorem, discrete convolution, DFT, FFT and z-transform
 tags: samples
@@ -10,7 +12,7 @@ lang: en
 
 ## What this is about
 
-A computer cannot store a function $s(t)$, only a sequence of numbers. The signal is therefore measured at fixed intervals $T$, and one works with the __samples__ $s(nT)$. Two questions shape this chapter: *Is information lost in the process?* And: *How do you calculate with sequences of numbers the way Parts 1 to 3 calculated with functions?*
+A computer cannot store a function $s(t)$, only a sequence of numbers. The signal is therefore measured at fixed intervals $T$, and one works with the __samples__ $s(nT)$. Two questions shape this chapter: *Is information lost in the process?* And: *How do you calculate with sequences of numbers the way [Chapters 1](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html) to 3 calculated with functions?*
 
 
 

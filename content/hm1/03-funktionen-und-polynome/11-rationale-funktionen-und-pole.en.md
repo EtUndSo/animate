@@ -1,6 +1,8 @@
 ---
 title: Stage 9: Rational functions and poles
-pfad: Electrical Engineering / 1st Semester / Higher Mathematics 1 / Functions and Polynomials
+pfad: Electrical Engineering / 1st Semester / HöMa1 – Higher Mathematics 1 / Functions and Polynomials
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/funktionen-und-polynome
+knoten: Chapter 3: Functions and Polynomials
 order: 1231100
 summary: The remainder T/Q from Stage 6 has points where its denominator becomes zero.
 tags: pole, order, gap, asymptote
@@ -37,7 +39,7 @@ a __gap__ if after canceling it is no longer a zero of the denominator.
 </ul>
 :::
 
-⁠**How to read it:** Near a pole, $R(x)=A(x)/(x-x_0)^{m_0}$ with $A(x_0)\neq0$: The numerator stays near $A(x_0)$, the denominator becomes arbitrarily small, and $|R|$ grows beyond every bound. (Part 4 makes this precise with limits.) Odd order means a sign change, even order none, for the same reason as in Stage [8](jede-nullstelle-spaltet-einen-linearfaktor-ab.html#stufe-8): $1/(x-2)^2$ equals $10\,000$ at $2.01$ and at $1.99$. At a gap $R$ stays finite, but there too $x_0\notin\mathcal D(R)$. **Example of a gap:** $L(x)=(x^2-4)/(x-2)$ agrees with $x+2$ for $x\neq2$, $L(2.01)=4.01$; at $x=2$ only one point of the graph is removed.
+⁠**How to read it:** Near a pole, $R(x)=A(x)/(x-x_0)^{m_0}$ with $A(x_0)\neq0$: The numerator stays near $A(x_0)$, the denominator becomes arbitrarily small, and $|R|$ grows beyond every bound. (Chapter 4 makes this precise with limits.) Odd order means a sign change, even order none, for the same reason as in Stage [8](jede-nullstelle-spaltet-einen-linearfaktor-ab.html#stufe-8): $1/(x-2)^2$ equals $10\,000$ at $2.01$ and at $1.99$. At a gap $R$ stays finite, but there too $x_0\notin\mathcal D(R)$. **Example of a gap:** $L(x)=(x^2-4)/(x-2)$ agrees with $x+2$ for $x\neq2$, $L(2.01)=4.01$; at $x=2$ only one point of the graph is removed.
 
 :::abbildung hm1/k3pole 10
 Left, $R=P/Q$: poles at $x=-1$ and $x=2$ (vertical dashed lines), zeros at $-2$, $\frac12$ and $3$. For large $|x|$, $R$ approaches the line $2x-1$, the polynomial part. Right, $L=(x^2-4)/(x-2)$: The graph is the line $x+2$ without the point at $x=2$.

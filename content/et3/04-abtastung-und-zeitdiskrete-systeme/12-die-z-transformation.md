@@ -1,8 +1,10 @@
 ---
 title: Stufe 11: Die z-Transformation
-pfad: Elektrotechnik / 3. Semester / Signale und Systeme / Abtastung und zeitdiskrete Systeme
+pfad: Elektrotechnik / 3. Semester / ET3 – Grundgebiete der Elektrotechnik 3: Signale und Systeme / Abtastung und zeitdiskrete Systeme
+adresse: elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme
+knoten: Kapitel 4: Abtastung und zeitdiskrete Systeme
 order: 3241200
-summary: Wie die Laplace-Transformation die Fourier-Transformation erweitert (Teil 2), so erweitert die z-Transformation die Fourier-Transformation zeitdiskreter Signale: erst exponentiell gewichten, dann transformieren.
+summary: Wie die Laplace-Transformation die Fourier-Transformation erweitert (Kapitel 2), so erweitert die z-Transformation die Fourier-Transformation zeitdiskreter Signale: erst exponentiell gewichten, dann transformieren.
 tags: Einheitskreis
 lang: de
 ---
@@ -10,7 +12,7 @@ lang: de
 <span class="anker" id="stufe-11"></span>
 
 :::zweck
-Wie die Laplace-Transformation die Fourier-Transformation erweitert ([Teil 2](/wissen/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html)), so erweitert die z-Transformation die Fourier-Transformation zeitdiskreter Signale: erst exponentiell gewichten, dann transformieren.
+Wie die Laplace-Transformation die Fourier-Transformation erweitert ([Kapitel 2](/wissen/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html)), so erweitert die z-Transformation die Fourier-Transformation zeitdiskreter Signale: erst exponentiell gewichten, dann transformieren.
 :::
 
 **Die Idee.** Man multipliziert die Folge mit $\rho^{-n}$ ($\rho>0$) und transformiert: $\sum_ns(n)\rho^{-n}\mathrm{e}^{-\mathrm{j}2\pi fn}$. Mit $z=\rho\,\mathrm{e}^{\mathrm{j}2\pi f}$ wird daraus eine Potenzreihe in $z^{-1}$. Gleichwertig: $z^n$ ist eine Eigenfunktion jedes LSI-Systems, denn $z^{n-k}=z^{-k}z^n$, und der Eigenwert ist $H(z)$:

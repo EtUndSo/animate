@@ -1,13 +1,15 @@
 ---
 title: Von Grund auf: Gesteuerte Quellen und Matrizen
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Zweitore
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Zweitore
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore
+knoten: Kapitel 6: Zweitore
 order: 1160200
 summary: Warum vier Zahlen ein ganzes Netzwerk ersetzen und jede Parameterform nur eine andere Wahl ist
 tags: gesteuerte Quelle, Matrix, Determinante, inverse Matrix, Einheitsmatrix
 lang: de
 ---
 
-Eine ideale Quelle aus [Teil 5](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html) liefert einen festen Wert. Eine __gesteuerte Quelle__ liefert einen Wert, der einer anderen Spannung oder einem anderen Strom an anderer Stelle der Schaltung proportional ist. Ihr Schaltzeichen ist eine Raute. Die Abkürzungen kommen aus dem Englischen (voltage bzw. current controlled voltage bzw. current source).
+Eine ideale Quelle aus [Kapitel 5](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html) liefert einen festen Wert. Eine __gesteuerte Quelle__ liefert einen Wert, der einer anderen Spannung oder einem anderen Strom an anderer Stelle der Schaltung proportional ist. Ihr Schaltzeichen ist eine Raute. Die Abkürzungen kommen aus dem Englischen (voltage bzw. current controlled voltage bzw. current source).
 
 | Name | Kürzel | Gesetz | Faktor |
 |---|---|---|---|
@@ -16,7 +18,7 @@ Eine ideale Quelle aus [Teil 5](/wissen/elektrotechnik/1-semester/grundlagen-de
 | spannungsgesteuerte Stromquelle | VCCS | $I=g\,U_\mathrm{s}$ | in S |
 | stromgesteuerte Stromquelle | CCCS | $I=\beta\,I_\mathrm{s}$ | ohne Einheit |
 
-Der Index s steht für die steuernde Größe. Das bekannteste Beispiel ist der Bipolartransistor ([Teil 10](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor/der-bipolartransistor.html)): Ein kleiner Basisstrom steuert einen großen Kollektorstrom. Die Energie dafür kommt aus der Versorgungsspannung, das Steuersignal liefert nur die Information. Steuergröße und Quelle sitzen an verschiedenen Stellen, deshalb ist jede gesteuerte Quelle von Natur aus ein Zweitor.
+Der Index s steht für die steuernde Größe. Das bekannteste Beispiel ist der Bipolartransistor ([Kapitel 10](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor/der-bipolartransistor.html)): Ein kleiner Basisstrom steuert einen großen Kollektorstrom. Die Energie dafür kommt aus der Versorgungsspannung, das Steuersignal liefert nur die Information. Steuergröße und Quelle sitzen an verschiedenen Stellen, deshalb ist jede gesteuerte Quelle von Natur aus ein Zweitor.
 
 Eine __Matrix__ ist ein rechteckiges Zahlenschema, hier fast immer mit zwei Zeilen und zwei Spalten. Fett gedruckte Buchstaben stehen für Matrizen und für Spalten aus zwei Größen. Beim Multiplizieren wird jede Zeile der linken Matrix mit jeder Spalte der rechten verrechnet, Element mal Element, dann addiert:
 

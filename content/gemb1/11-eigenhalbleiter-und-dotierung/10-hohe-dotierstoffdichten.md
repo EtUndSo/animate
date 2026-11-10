@@ -1,6 +1,8 @@
 ---
 title: Stufe 8: Hohe Dotierstoffdichten
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Eigenhalbleiter und Dotierung
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Eigenhalbleiter und Dotierung
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/eigenhalbleiter-und-dotierung
+knoten: Kapitel 11: Eigenhalbleiter und Dotierung
 order: 4211000
 summary: Alle Formeln setzten getrennte Störstellen und die Boltzmann-Näherung voraus.
 tags: Störstellenband, effektive Bandlücke, Bandlückenverengung
@@ -13,7 +15,7 @@ lang: de
 Alle Formeln setzten getrennte Störstellen und die Boltzmann-Näherung voraus. Diese Stufe zeigt, was geschieht, wenn die Donatoren so dicht sitzen, dass beides nicht mehr gilt.
 :::
 
-**Die Idee.** Die Bahn eines Donatorelektrons hat den Radius $r_\mathrm D=3{,}3$ nm. Rücken die Donatoren näher zusammen, überlappen ihre Wellenfunktionen. Dann geschieht dasselbe wie in [Teil 8](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/vom-atom-zum-band/vom-atom-zum-band.html) mit Atomen: Gleiche Niveaus koppeln und spalten auf. Aus dem scharfen Niveau wird ein __Störstellenband__. Es wird mit der Dichte breiter, erreicht das Leitungsband und verschmilzt mit ihm. Die Lücke schrumpft, und $E_\mathrm F$ wandert ins Band.
+**Die Idee.** Die Bahn eines Donatorelektrons hat den Radius $r_\mathrm D=3{,}3$ nm. Rücken die Donatoren näher zusammen, überlappen ihre Wellenfunktionen. Dann geschieht dasselbe wie in [Kapitel 8](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/vom-atom-zum-band/vom-atom-zum-band.html) mit Atomen: Gleiche Niveaus koppeln und spalten auf. Aus dem scharfen Niveau wird ein __Störstellenband__. Es wird mit der Dichte breiter, erreicht das Leitungsband und verschmilzt mit ihm. Die Lücke schrumpft, und $E_\mathrm F$ wandert ins Band.
 
 :::abbildung gemb1/k11hoch 8
 Oben: Donatoren (rot) mit ihren Bahnen im Maßstab, Fenster 44 nm breit, gedachte regelmäßige Anordnung. Unten: Zustandsdichte, nicht maßstäblich. Bei $10^{17}\,\mathrm{cm^{-3}}$ ein scharfes Niveau, bei $10^{18}\,\mathrm{cm^{-3}}$ ein Störstellenband, bei $10^{19}\,\mathrm{cm^{-3}}$ verschmilzt es mit dem Leitungsband, die Lücke verkleinert sich auf $E_\mathrm g^\mathrm{eff}$, und $E_\mathrm F$ liegt im Band.
@@ -25,7 +27,7 @@ Oben: Donatoren (rot) mit ihren Bahnen im Maßstab, Fenster 44 nm breit, gedac
 Die verkleinerte Lücke heißt __effektive Bandlücke__ $E_\mathrm g^\mathrm{eff}<E_\mathrm g$, der Effekt __Bandlückenverengung__ (englisch bandgap narrowing). Liegt $E_\mathrm F$ näher als $3k_\mathrm BT$ am Bandrand oder im Band, ist der Halbleiter entartet.
 :::
 
-⁠**So liest man das:** Das Verhältnis von Abstand $d=N_\mathrm D^{-1/3}$ und Radius entscheidet. Nach [Teil 8](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/vom-atom-zum-band/vom-atom-zum-band.html) fällt die Kopplung exponentiell mit dem Abstand, hier wie $\mathrm{e}^{-d/r_\mathrm D}$, denn die Abklingkonstante ist $1/r_\mathrm D$. Mit der Kopplung als Bruchteil von $\Delta E_\mathrm D$ ist das Band etwa $4\,\Delta E_\mathrm D\,\mathrm{e}^{-d/r_\mathrm D}$ breit. Das ist eine grobe Schätzung. **Folgen:** Im entarteten Halbleiter gelten [(0.1)](von-grund-auf-was-aus-fruheren-teilen-gebraucht-wird.html#gl-0-1) und damit $n\,p=n_\mathrm i^2$ nicht mehr. Man muss mit der vollen Fermi-Verteilung rechnen. Die Aktivierungsenergie verschwindet, also friert nichts mehr aus: $n$ bleibt bis $T\to0$ erhalten, der Stoff verhält sich metallisch.
+⁠**So liest man das:** Das Verhältnis von Abstand $d=N_\mathrm D^{-1/3}$ und Radius entscheidet. Nach [Kapitel 8](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/vom-atom-zum-band/vom-atom-zum-band.html) fällt die Kopplung exponentiell mit dem Abstand, hier wie $\mathrm{e}^{-d/r_\mathrm D}$, denn die Abklingkonstante ist $1/r_\mathrm D$. Mit der Kopplung als Bruchteil von $\Delta E_\mathrm D$ ist das Band etwa $4\,\Delta E_\mathrm D\,\mathrm{e}^{-d/r_\mathrm D}$ breit. Das ist eine grobe Schätzung. **Folgen:** Im entarteten Halbleiter gelten [(0.1)](von-grund-auf-was-aus-fruheren-teilen-gebraucht-wird.html#gl-0-1) und damit $n\,p=n_\mathrm i^2$ nicht mehr. Man muss mit der vollen Fermi-Verteilung rechnen. Die Aktivierungsenergie verschwindet, also friert nichts mehr aus: $n$ bleibt bis $T\to0$ erhalten, der Stoff verhält sich metallisch.
 
 ::::beispiel
 Mit 18,9 meV für $\Delta E_\mathrm D$ aus Stufe [4](warum-die-bindung-so-schwach-ist.html#stufe-4) ergibt sich:

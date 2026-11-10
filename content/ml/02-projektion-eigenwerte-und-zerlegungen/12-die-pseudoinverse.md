@@ -1,10 +1,11 @@
 ---
 title: Die Pseudoinverse
 pfad: Informatik / Machine Learning / Mathematische Grundlagen / Projektion, Eigenwerte und Zerlegungen
-knoten: Grundlagen 2: Projektion, Eigenwerte und Zerlegungen
+adresse: informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen
+knoten: Kapitel 2: Projektion, Eigenwerte und Zerlegungen
 nachschlagen: ja
 order: 15221200
-summary: In Grundlagen 1 hatte nur eine quadratische Matrix mit unabhängigen Spalten eine Inverse.
+summary: In Kapitel 1 hatte nur eine quadratische Matrix mit unabhängigen Spalten eine Inverse.
 tags: Linksinverse, Rechtsinverse, Pseudoinverse
 lang: de
 ---
@@ -12,7 +13,7 @@ lang: de
 <span class="anker" id="stufe-11"></span>
 
 :::zweck
-In [Grundlagen 1](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html) hatte nur eine quadratische Matrix mit unabhängigen Spalten eine Inverse. Dieser Abschnitt gibt jeder Matrix eine Art Inverse: eine, die von links umkehrt, wenn es mehr Gleichungen als Unbekannte gibt, eine, die von rechts umkehrt, wenn es weniger gibt, und eine für alle Fälle, die Pseudoinverse. Sie liefert immer die beste Näherungslösung und unter mehreren die kürzeste.
+In [Kapitel 1](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html) hatte nur eine quadratische Matrix mit unabhängigen Spalten eine Inverse. Dieser Abschnitt gibt jeder Matrix eine Art Inverse: eine, die von links umkehrt, wenn es mehr Gleichungen als Unbekannte gibt, eine, die von rechts umkehrt, wenn es weniger gibt, und eine für alle Fälle, die Pseudoinverse. Sie liefert immer die beste Näherungslösung und unter mehreren die kürzeste.
 :::
 
 ### Linksinverse
@@ -139,7 +140,7 @@ $$\lVert\mathbf{y}-\mathbf{A}\mathbf{x}\rVert^2=\lVert\mathbf{U}^{\top}\mathbf{y
 
 Die zweite Summe hängt nicht von $\mathbf{x}$ ab. Die erste ist genau dann null, also so klein wie möglich, wenn $c_j=\beta_j/d_j$ für alle $j\le r$ ist; die $c_j$ mit $j>r$ kommen gar nicht vor. Die besten Näherungslösungen sind also genau die $\mathbf{x}=\mathbf{V}\mathbf{c}$ mit $c_j=\beta_j/d_j$ für $j\le r$ und beliebigen $c_{r+1},\dots,c_n$. Ihre Länge ist $\lVert\mathbf{x}\rVert^2=\lVert\mathbf{c}\rVert^2=\sum_{j\le r}(\beta_j/d_j)^2+\sum_{j>r}c_j^2$, am kleinsten für $c_j=0$ bei $j>r$. Dieses $\mathbf{c}$ ist $\mathbf{D}^+\boldsymbol\beta$, also $\mathbf{x}=\mathbf{V}\mathbf{D}^+\mathbf{U}^{\top}\mathbf{y}=\mathbf{A}^+\mathbf{y}$.
 
-Bei unabhängigen Spalten gibt es nach Abschnitt [3.5](die-beste-naherungslosung.html#stufe-3-5) nur eine beste Näherungslösung, $(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top}\mathbf{y}$; sie muss mit $\mathbf{A}^+\mathbf{y}$ übereinstimmen, und zwar für jedes $\mathbf{y}$. Bei unabhängigen Zeilen ist der Rang nach [Grundlagen 1, Abschnitt 13.4](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-4), gleich $m$, der Spaltenraum also der ganze $\mathbb{R}^m$, und das System ist für jedes $\mathbf{y}$ lösbar; die besten Näherungslösungen sind die Lösungen, und die kürzeste ist nach Abschnitt [11.2](#stufe-11-2) $\mathbf G\mathbf{y}$.
+Bei unabhängigen Spalten gibt es nach Abschnitt [3.5](die-beste-naherungslosung.html#stufe-3-5) nur eine beste Näherungslösung, $(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top}\mathbf{y}$; sie muss mit $\mathbf{A}^+\mathbf{y}$ übereinstimmen, und zwar für jedes $\mathbf{y}$. Bei unabhängigen Zeilen ist der Rang nach [Kapitel 1, Abschnitt 13.4](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-4), gleich $m$, der Spaltenraum also der ganze $\mathbb{R}^m$, und das System ist für jedes $\mathbf{y}$ lösbar; die besten Näherungslösungen sind die Lösungen, und die kürzeste ist nach Abschnitt [11.2](#stufe-11-2) $\mathbf G\mathbf{y}$.
 :::
 
 ::::beispiel [Rechenbeispiel 1]

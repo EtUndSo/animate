@@ -1,7 +1,8 @@
 ---
 title: The determinant
 pfad: Computer Science / Machine Learning / Mathematical Foundations / Vectors and Matrices
-knoten: Foundations 1: Vectors and Matrices
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Chapter 1: Vectors and Matrices
 nachschlagen: ja
 order: 15211500
 summary: A linear map deforms the grid of the plane, and in the process areas become larger or smaller.

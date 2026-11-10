@@ -1,6 +1,8 @@
 ---
 title: Stage 8: Voltage and ground
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / Charge, Field and Potential
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / Charge, Field and Potential
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial
+knoten: Chapter 1: Charge, Field and Potential
 order: 1111000
 summary: The value of a potential depends on the reference point; the difference of two potentials does not.
 tags: voltage, ground, earth ground, circuit diagrams, reference arrow, nodes
@@ -79,7 +81,7 @@ Not through a single ground connection. Current needs a closed path, and the one
 :::
 
 :::ltspice Shifting ground
-⁠**Draw:** source `voltage` with `9` from `a` to `b`, `res` with `2k` from `a` to `m`, `res` with `1k` from `m` to `b`. Place the ground symbol first at `b`, then at `m`, then at `a`. LTspice always needs a ground. [Part 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html) explains the resistors; here they only provide the split into 6 V and 3 V.
+⁠**Draw:** source `voltage` with `9` from `a` to `b`, `res` with `2k` from `a` to `m`, `res` with `1k` from `m` to `b`. Place the ground symbol first at `b`, then at `m`, then at `a`. LTspice always needs a ground. [Chapter 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html) explains the resistors; here they only provide the split into 6 V and 3 V.
 
 ⁠**Directives:** `.op`, plus for each net without ground a measurement such as `.meas op pa FIND V(a)`. The net with ground has no value of its own; use 0 for it.
 

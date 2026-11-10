@@ -1,6 +1,8 @@
 ---
 title: Stage 4: Three regions, three equivalent circuits
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / The Bipolar Transistor
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / The Bipolar Transistor
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor
+knoten: Chapter 10: The Bipolar Transistor
 order: 1200600
 summary: With exponential functions, circuits can hardly be solved by hand.
 tags: cut-off region, saturation region, threshold voltage, saturation voltage, equivalent circuit
@@ -13,7 +15,7 @@ lang: en
 With exponential functions, circuits can hardly be solved by hand. This stage replaces the surface with three linear pieces.
 :::
 
-**The idea.** Each of the two diodes can conduct or block. This gives the operating states. If the BE diode blocks, no electron starts and nothing flows. This is the __cut-off region__. If it conducts and the CB diode blocks, the collector collects all the electrons, and $I_\mathrm{C}=B\,I_\mathrm{B}$ holds. This is the active region. If $U_\mathrm{CE}$ falls so far that the CB diode conducts noticeably as well, the collector sends electrons back. Then it can no longer collect them all, the base fills up with electrons, and $I_\mathrm{C}$ stays below $B\,I_\mathrm{B}$. This is the __saturation region__. As with the diode ([Part 9](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)), the curves are replaced by straight lines: the input characteristic gets a knee at 0.6 V, the current control characteristic becomes a straight line with slope $B$ that bends to horizontal in saturation, and the output characteristics become horizontal to the right of 0.2 V (Fig. [6](der-arbeitspunkt.html#abb-6)).
+**The idea.** Each of the two diodes can conduct or block. This gives the operating states. If the BE diode blocks, no electron starts and nothing flows. This is the __cut-off region__. If it conducts and the CB diode blocks, the collector collects all the electrons, and $I_\mathrm{C}=B\,I_\mathrm{B}$ holds. This is the active region. If $U_\mathrm{CE}$ falls so far that the CB diode conducts noticeably as well, the collector sends electrons back. Then it can no longer collect them all, the base fills up with electrons, and $I_\mathrm{C}$ stays below $B\,I_\mathrm{B}$. This is the __saturation region__. As with the diode ([Chapter 9](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)), the curves are replaced by straight lines: the input characteristic gets a knee at 0.6 V, the current control characteristic becomes a straight line with slope $B$ that bends to horizontal in saturation, and the output characteristics become horizontal to the right of 0.2 V (Fig. [6](der-arbeitspunkt.html#abb-6)).
 
 :::definition Definition 4.1 (Operating regions of the npn transistor)
 <span class="anker" id="satz-4-1"></span>

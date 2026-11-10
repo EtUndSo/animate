@@ -1,6 +1,8 @@
 ---
 title: 第 2 阶段：周期信号——傅里叶级数
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / 傅里叶级数与变换
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / 傅里叶级数与变换
+adresse: elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation
+knoten: 第 3 章：傅里叶级数与变换
 order: 3230300
 summary: 周期信号每经过 T 就重复一次。它可以由振荡构成，但只能由非常特定的振荡构成。本阶段说明是哪些振荡，以及如何求出它们的权重。
 tags: 基频, 谐波, 傅里叶级数, 直流分量, 正交

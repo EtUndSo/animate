@@ -1,6 +1,8 @@
 ---
 title: Stage 4: The error in measuring voltage
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / Measuring Current and Voltage
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / Measuring Current and Voltage
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-und-spannung-messen
+knoten: Chapter 4: Measuring Current and Voltage
 order: 1140500
 summary: The voltmeter lies outside the circuit, and yet current flows through it.
 tags: 
@@ -13,7 +15,7 @@ lang: en
 The voltmeter lies outside the circuit, and yet current flows through it. This stage shows when that lowers the voltage it is supposed to measure.
 :::
 
-**The idea.** The voltmeter opens a second current path between two nodes. Its current has to come from somewhere. If a current source (it holds its current fixed, [Part 5](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)) drives the load resistor $R_L$, the fixed current divides: whatever flows through the voltmeter is missing in $R_L$, and the voltage falls (Fig. [5](#abb-5)). If, on the other hand, $R_L$ hangs directly on an ideal voltage source, the source supplies the additional current and nothing changes. Errors therefore arise only where the current cannot flow in freely. In the voltage divider, $R_1$ slows the supply: the total current rises, more drops across $R_1$, and the midpoint falls.
+**The idea.** The voltmeter opens a second current path between two nodes. Its current has to come from somewhere. If a current source (it holds its current fixed, [Chapter 5](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)) drives the load resistor $R_L$, the fixed current divides: whatever flows through the voltmeter is missing in $R_L$, and the voltage falls (Fig. [5](#abb-5)). If, on the other hand, $R_L$ hangs directly on an ideal voltage source, the source supplies the additional current and nothing changes. Errors therefore arise only where the current cannot flow in freely. In the voltage divider, $R_1$ slows the supply: the total current rises, more drops across $R_1$, and the midpoint falls.
 
 :::abbildung et1/k4spannung 5
 The voltmeter (range 10 V, dashed: internal resistance and ideal device) on two equivalent circuits. In both it diverts 13.6 µ A, and the reading falls from 3 V to 2.727 V.
@@ -33,7 +35,7 @@ The relative error is $f=-R_L/(R_L+R_\mathrm i)$, so for $R_L\ll R_\mathrm i$, $
 ⁠**How to read it:** The fraction is the error factor. $R_L$ is the resistance the meter finds between its terminals. A small error requires $R_\mathrm i\gg R_L$, ideally $R_\mathrm i\to\infty$. **Validity:** ideal sources, resistances independent of the voltage.
 
 :::herleitung Error factor
-With the node rule $I_\mathrm q=I_{RL}'+I_{\mathrm{i}}$, the current divides between two parallel resistors, and $U_L'$ is across both. So $U_L'=I_\mathrm q\,R_LR_\mathrm i/(R_L+R_\mathrm i)$, and canceling $R_\mathrm i$ gives [(4.1)](#gl-4-1). On the divider, without a meter $U_2=U\,R_2/(R_1+R_2)$. With a meter, $R_2$ is replaced by $R_2\parallel R_\mathrm i$ (loaded voltage divider, [Part 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)):
+With the node rule $I_\mathrm q=I_{RL}'+I_{\mathrm{i}}$, the current divides between two parallel resistors, and $U_L'$ is across both. So $U_L'=I_\mathrm q\,R_LR_\mathrm i/(R_L+R_\mathrm i)$, and canceling $R_\mathrm i$ gives [(4.1)](#gl-4-1). On the divider, without a meter $U_2=U\,R_2/(R_1+R_2)$. With a meter, $R_2$ is replaced by $R_2\parallel R_\mathrm i$ (loaded voltage divider, [Chapter 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)):
 
 $$U_2'=U\,\frac{R_2R_\mathrm i}{R_1R_2+R_\mathrm i(R_1+R_2)} \quad\Rightarrow\quad \frac{U_2'}{U_2}=\frac{R_\mathrm i(R_1+R_2)}{R_1R_2+R_\mathrm i(R_1+R_2)}=\frac{1}{1+(R_1\parallel R_2)/R_\mathrm i}.$$
 :::

@@ -1,6 +1,8 @@
 ---
 title: Stufe 9: Die $n$-ten Wurzeln
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Potenzreihen und Eulersche Formel
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Potenzreihen und Eulersche Formel
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/potenzreihen-und-eulersche-formel
+knoten: Kapitel 7: Potenzreihen und Eulersche Formel
 order: 1271100
 summary: In mathbb R hat x 3=8 eine Lösung.
 tags: Einheitswurzeln
@@ -54,7 +56,7 @@ Seien $a=|a|\,\mathrm{e}^{\mathrm{i}\alpha}\ne0$ und $n\in\mathbb{N}$. Die Gleic
 $$z_k=|a|^{1/n}\,\mathrm{e}^{\mathrm{i}\varphi_k}\qquad\text{mit}\qquad\varphi_k=\frac{\alpha+2\pi k}n,\quad k=0,1,\dots,n-1. \tag{9.1}$$
 :::
 
-⁠**So liest man das:** $|a|^{1/n}$ ist die reelle Wurzel aus [Teil 3](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/funktionen-und-polynome/funktionen-und-polynome.html), also der Radius des Kreises. $\varphi_0$ ist der Startwinkel, und jeder Schritt dreht um $2\pi/n$. Für $a=1$ heißen die Lösungen __Einheitswurzeln__. **Gültigkeit:** Für $a=0$ ist $z=0$ die einzige Lösung.
+⁠**So liest man das:** $|a|^{1/n}$ ist die reelle Wurzel aus [Kapitel 3](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/funktionen-und-polynome/funktionen-und-polynome.html), also der Radius des Kreises. $\varphi_0$ ist der Startwinkel, und jeder Schritt dreht um $2\pi/n$. Für $a=1$ heißen die Lösungen __Einheitswurzeln__. **Gültigkeit:** Für $a=0$ ist $z=0$ die einzige Lösung.
 
 :::beweis Betrag und Winkel vergleichen
 Mit $z=|z|\,\mathrm{e}^{\mathrm{i}\varphi}$ lautet die Gleichung $|z|^n\mathrm{e}^{\mathrm{i}n\varphi}=|a|\,\mathrm{e}^{\mathrm{i}\alpha}$. Die Beträge ergeben $|z|=|a|^{1/n}$. Dann ist $\mathrm{e}^{\mathrm{i}n\varphi}=\mathrm{e}^{\mathrm{i}\alpha}$, nach Satz [9.1](#satz-9-1) (b) also $n\varphi=\alpha+2\pi k$ für ein $k\in\mathbb{Z}$. Umgekehrt löst jedes solche $\varphi$ die Gleichung. Die Werte $k=0,\dots,n-1$ ergeben verschiedene Richtungen, denn die $\varphi_k$ liegen in einem Bereich kürzer als $2\pi$. Ein um $n$ größeres $k$ ergibt $\varphi_k+2\pi$, also dieselbe Zahl.
@@ -72,7 +74,7 @@ $$z_0=2\,\mathrm{e}^{\mathrm{i}\pi/6}=\sqrt3+\mathrm{i},\qquad z_1=2\,\mathrm{e}
 Probe: $(\sqrt3+\mathrm{i})^2=2+2\sqrt3\,\mathrm{i}$ und $(2+2\sqrt3\,\mathrm{i})(\sqrt3+\mathrm{i})=2\sqrt3+2\mathrm{i}+6\mathrm{i}-2\sqrt3=8\mathrm{i}$.
 ::::
 
-⁠**Grenzfälle:** $n=1$ gibt $z_0=a$. $n=2$ gibt zwei gegenüberliegende Punkte, die Lösungen $\pm w$ aus [Teil 2](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen/komplexe-zahlen.html): Für $D=0{,}75-\mathrm{i}$ ist $\sqrt{|D|}=1{,}118=|1-0{,}5\mathrm{i}|$.
+⁠**Grenzfälle:** $n=1$ gibt $z_0=a$. $n=2$ gibt zwei gegenüberliegende Punkte, die Lösungen $\pm w$ aus [Kapitel 2](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen/komplexe-zahlen.html): Für $D=0{,}75-\mathrm{i}$ ist $\sqrt{|D|}=1{,}118=|1-0{,}5\mathrm{i}|$.
 
 :::frage In $\mathbb{R}$ hat $x^3=8$ nur eine Lösung, warum hier drei?
 Die reelle Lösung $2$ bleibt. In $\mathbb{C}$ kommen $2\,\mathrm{e}^{2\pi\mathrm{i}/3}$ und $2\,\mathrm{e}^{4\pi\mathrm{i}/3}$ neben der reellen Achse hinzu. Die Zahlengerade kennt nur die Richtungen $0$ und $\pi$.

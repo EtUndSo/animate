@@ -1,7 +1,8 @@
 ---
 title: Sistemas de ecuaciones lineales
 pfad: Informática / Aprendizaje automático / Fundamentos matemáticos / Vectores y matrices
-knoten: Fundamentos 1: Vectores y matrices
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Capítulo 1: Vectores y matrices
 nachschlagen: ja
 order: 15211300
 summary: Hasta ahora, la entrada x estaba dada y se buscaba la salida Ax .

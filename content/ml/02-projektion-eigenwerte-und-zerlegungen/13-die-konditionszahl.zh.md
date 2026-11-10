@@ -1,7 +1,8 @@
 ---
 title: 条件数
 pfad: 计算机科学 / 机器学习 / 数学基础 / 投影、特征值与矩阵分解
-knoten: 基础篇 2：投影、特征值与矩阵分解
+adresse: informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen
+knoten: 第 2 章：投影、特征值与矩阵分解
 nachschlagen: ja
 order: 15221300
 summary: 测量数据从来都不精确，计算机在每一步都要舍入。当方程组的右边稍有错误时，解会改变多少？本节说明：由奇异值得到的一个数就给出了答案，并说明它对正规方程意味着什么。
@@ -89,7 +90,7 @@ $$\lambda_{1,2}=\frac{2.01\pm\sqrt{2.01^2-0.04}}2=\frac{2.01\pm\sqrt{4.0001}}2\a
 
 <span class="anker" id="stufe-12-3"></span>
 
-[基础篇 1 第 14.6 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-6)的背景方框中有一个警告：行列式小并不意味着矩阵接近奇异。条件数衡量的正是那里所指的东西。
+[第 1 章第 14.6 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-6)的背景方框中有一个警告：行列式小并不意味着矩阵接近奇异。条件数衡量的正是那里所指的东西。
 
 :::satz 定理 12.3 (到最近奇异矩阵的距离)
 <span class="anker" id="satz-12-3"></span>
@@ -107,7 +108,7 @@ $$\min_{\mathbf{B}\ \text{奇异}}\frac{\lVert\mathbf{A}-\mathbf{B}\rVert_2}{\lV
 所以条件数大意味着：一个相对较小的改变就会使矩阵变成奇异的。行列式衡量的是另一回事。由练习 [29](die-singularwertzerlegung.html#aufg-29)，$|\det\mathbf{A}|=d_1\cdots d_n$，即所有拉伸之积；它取决于矩阵的大小。条件数是一个比值，把 $\mathbf{A}$ 乘以一个数时它不变：对 $c\ne0$，$\kappa(c\mathbf{A})=\kappa(\mathbf{A})$。它只衡量 $\mathbf{A}$ 把单位圆变成的那个椭圆有多扁。
 
 ::::beispiel [算例]
-[基础篇 1 第 14.6 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-6)中的两个矩阵：$0.1\cdot\mathbf{I}_{10}$ 的行列式为 $10^{-10}$，但所有奇异值都是 $0.1$，$\kappa=1$；它的条件已是最好。$\operatorname{diag}(1000,\ 0.001)$ 的行列式为 $1$，但 $\kappa=1000/0.001=10^6$。对于 $\mathbf{A}=\bigl(\begin{smallmatrix}1&1\\1&1.01\end{smallmatrix}\bigr)$，到最近奇异矩阵的距离为 $d_2\approx0.005$：把元素改变几个千分之一，它就变成奇异的。奇异矩阵 $\bigl(\begin{smallmatrix}1&1\\1&1\end{smallmatrix}\bigr)$ 到它的距离为 $\lVert\bigl(\begin{smallmatrix}0&0\\0&0.01\end{smallmatrix}\bigr)\rVert_2=0.01$，比最小值稍大。
+[第 1 章第 14.6 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-6)中的两个矩阵：$0.1\cdot\mathbf{I}_{10}$ 的行列式为 $10^{-10}$，但所有奇异值都是 $0.1$，$\kappa=1$；它的条件已是最好。$\operatorname{diag}(1000,\ 0.001)$ 的行列式为 $1$，但 $\kappa=1000/0.001=10^6$。对于 $\mathbf{A}=\bigl(\begin{smallmatrix}1&1\\1&1.01\end{smallmatrix}\bigr)$，到最近奇异矩阵的距离为 $d_2\approx0.005$：把元素改变几个千分之一，它就变成奇异的。奇异矩阵 $\bigl(\begin{smallmatrix}1&1\\1&1\end{smallmatrix}\bigr)$ 到它的距离为 $\lVert\bigl(\begin{smallmatrix}0&0\\0&0.01\end{smallmatrix}\bigr)\rVert_2=0.01$，比最小值稍大。
 ::::
 
 ⁠**简而言之：**$1/\kappa(\mathbf{A})$ 是到最近奇异矩阵的相对距离；行列式对此说明不了什么，因为它取决于矩阵的大小。

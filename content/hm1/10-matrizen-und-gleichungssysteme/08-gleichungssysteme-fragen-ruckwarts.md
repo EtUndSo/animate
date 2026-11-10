@@ -1,6 +1,8 @@
 ---
 title: Stufe 6: Gleichungssysteme fragen rückwärts
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Matrizen und lineare Gleichungssysteme
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Matrizen und lineare Gleichungssysteme
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/matrizen-und-lineare-gleichungssysteme
+knoten: Kapitel 10: Matrizen und lineare Gleichungssysteme
 order: 1300800
 summary: Bisher lief die Frage vorwärts: Zu x wird Ax gesucht.
 tags: lineares Gleichungssystem, Unbekannten, rechte Seite, homogen, inhomogen, Lösungsmenge, Rang, lösbar

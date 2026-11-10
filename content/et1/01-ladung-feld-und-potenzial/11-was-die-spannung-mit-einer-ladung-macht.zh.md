@@ -1,6 +1,8 @@
 ---
 title: 第 9 阶段：电压对电荷的作用
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 电荷、电场与电位
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 电荷、电场与电位
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial
+knoten: 第 1 章：电荷、电场与电位
 order: 1111100
 summary: 本阶段在单个电子身上把电场、电位和电压联系起来：受多大的力，获得多少能量，速度能达到多快？
 tags: 电子伏特

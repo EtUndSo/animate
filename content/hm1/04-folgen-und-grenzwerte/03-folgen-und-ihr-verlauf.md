@@ -1,6 +1,8 @@
 ---
 title: Stufe 1: Folgen und ihr Verlauf
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Folgen und Grenzwerte
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Folgen und Grenzwerte
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/folgen-und-grenzwerte
+knoten: Kapitel 4: Folgen und Grenzwerte
 order: 1240300
 summary: Ein Grenzwert braucht etwas, das sich einem Wert nähert.
 tags: Zahlenfolge, Folgenglieder, Index, Wertemenge, monoton wachsend, streng monoton wachsend, monoton fallend, streng monoton fallend
@@ -10,10 +12,10 @@ lang: de
 <span class="anker" id="stufe-1"></span>
 
 :::zweck
-Ein Grenzwert braucht etwas, das sich einem Wert nähert. Diese Stufe legt fest, was eine Folge ist, und beschreibt ihren Verlauf mit den Begriffen aus [Teil 3](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/funktionen-und-polynome/funktionen-und-polynome.html).
+Ein Grenzwert braucht etwas, das sich einem Wert nähert. Diese Stufe legt fest, was eine Folge ist, und beschreibt ihren Verlauf mit den Begriffen aus [Kapitel 3](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/funktionen-und-polynome/funktionen-und-polynome.html).
 :::
 
-**Die Idee.** Eine Folge ist eine nummerierte Liste ohne Ende: Jeder Platz $n$ bekommt genau eine Zahl. Eine Zuordnung, die jedem Eingang genau einen Wert gibt, ist eine Funktion ([Teil 3](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/funktionen-und-polynome/funktionen-und-polynome.html)), hier mit natürlichen Zahlen als Eingang. Deshalb besteht ihr Graph aus einzelnen Punkten, zwischen den Plätzen gibt es nichts (Abb. [1](#abb-1)).
+**Die Idee.** Eine Folge ist eine nummerierte Liste ohne Ende: Jeder Platz $n$ bekommt genau eine Zahl. Eine Zuordnung, die jedem Eingang genau einen Wert gibt, ist eine Funktion ([Kapitel 3](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/funktionen-und-polynome/funktionen-und-polynome.html)), hier mit natürlichen Zahlen als Eingang. Deshalb besteht ihr Graph aus einzelnen Punkten, zwischen den Plätzen gibt es nichts (Abb. [1](#abb-1)).
 
 :::definition Definition 1.1 (Folge)
 <span class="anker" id="satz-1-1"></span>

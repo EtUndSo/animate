@@ -1,6 +1,8 @@
 ---
 title: Stage 6: Power matching
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / Power, Matching and Efficiency
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / Power, Matching and Efficiency
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad
+knoten: Chapter 7: Power, Matching and Efficiency
 order: 1170700
 summary: The table shows a maximum of P L .
 tags: short-circuit power
@@ -13,7 +15,7 @@ lang: en
 The table shows a maximum of $P_\mathrm{L}$. This stage finds it and explains why it lies exactly at $R_\mathrm{L}=R_\mathrm{i}$.
 :::
 
-**The idea.** Two influences work against each other. With a small $R_\mathrm{L}$, many coulombs arrive, but almost all their energy stays in $R_\mathrm{i}$. With a large $R_\mathrm{L}$, each coulomb gives off almost everything in the load, but few arrive. The straight line $U_\mathrm{L}=U_\mathrm{q}-R_\mathrm{i}I$ from [Part 5](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html) makes this visible: $P_\mathrm{L}=U_\mathrm{L}I$ is the area of the rectangle under it (Fig. [7](#abb-7)). It is largest when its corner lies in the middle of the line, at half the current and half the voltage. Then the same voltage drops across $R_\mathrm{i}$ and $R_\mathrm{L}$ at the same current, so the two resistors are equal.
+**The idea.** Two influences work against each other. With a small $R_\mathrm{L}$, many coulombs arrive, but almost all their energy stays in $R_\mathrm{i}$. With a large $R_\mathrm{L}$, each coulomb gives off almost everything in the load, but few arrive. The straight line $U_\mathrm{L}=U_\mathrm{q}-R_\mathrm{i}I$ from [Chapter 5](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html) makes this visible: $P_\mathrm{L}=U_\mathrm{L}I$ is the area of the rectangle under it (Fig. [7](#abb-7)). It is largest when its corner lies in the middle of the line, at half the current and half the voltage. Then the same voltage drops across $R_\mathrm{i}$ and $R_\mathrm{L}$ at the same current, so the two resistors are equal.
 
 :::abbildung et1/k7rechteck 7
 Source line of the battery with three operating points. Blue: $P_\mathrm{L}$, rectangle of $I$ and $U_\mathrm{L}$. Red: $P_\mathrm{v}$, rectangle of $I$ and $U_\mathrm{Ri}$. Together they make $P_\mathrm{q}=U_\mathrm{q}I$. The middle corner gives the largest blue rectangle.

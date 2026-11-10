@@ -1,6 +1,8 @@
 ---
 title: Etapa 3: Potencia media con tensión sinusoidal
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Potencia, adaptación y rendimiento
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Potencia, adaptación y rendimiento
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad
+knoten: Capítulo 7: Potencia, adaptación y rendimiento
 order: 1170400
 summary: Con una tensión alterna, la potencia cambia constantemente.
 tags: amplitudes, periodo, frecuencia angular, valor eficaz

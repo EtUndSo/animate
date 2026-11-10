@@ -1,7 +1,8 @@
 ---
 title: 行列式
 pfad: 计算机科学 / 机器学习 / 数学基础 / 向量与矩阵
-knoten: 基础篇 1：向量与矩阵
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: 第 1 章：向量与矩阵
 nachschlagen: ja
 order: 15211500
 summary: 线性映射使平面的网格变形，面积在此过程中变大或变小。本节求出面积变化的倍数。这个倍数是单独一个数，即行列式，它还说明矩阵是否可逆。

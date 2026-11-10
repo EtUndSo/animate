@@ -1,6 +1,8 @@
 ---
 title: Das Wichtigste
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Maschenstrom- und Knotenpotentialverfahren
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Maschenstrom- und Knotenpotentialverfahren
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/maschenstrom-und-knotenpotentialverfahren
+knoten: Kapitel 8: Maschenstrom- und Knotenpotentialverfahren
 order: 1181200
 summary: Warum ein Netz mit wenigen Unbekannten auskommt
 tags: Maschenstromverfahren, Maschenstrom, Knotenpotentialverfahren, Knotenpotential, Bezugsknoten, Widerstandsmatrix, Leitwertmatrix, modifizierte Knotenanalyse

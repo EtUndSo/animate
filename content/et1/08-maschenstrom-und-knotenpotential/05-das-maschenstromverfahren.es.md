@@ -1,6 +1,8 @@
 ---
 title: Etapa 3: El análisis por mallas
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Análisis por mallas y por nudos
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Análisis por mallas y por nudos
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/maschenstrom-und-knotenpotentialverfahren
+knoten: Capítulo 8: Análisis por mallas y por nudos
 order: 1180500
 summary: La ley de los nudos ya está resuelta; quedan m leyes de las mallas con m incógnitas.
 tags: resistencia de acoplamiento
@@ -24,7 +26,7 @@ El método tiene cuatro pasos:
 
 <li>
 
-Convertir las fuentes de corriente reales en fuentes de tensión reales: $U_\mathrm q=I_\mathrm q\,R$, la misma resistencia en serie ([Parte 5](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)).
+Convertir las fuentes de corriente reales en fuentes de tensión reales: $U_\mathrm q=I_\mathrm q\,R$, la misma resistencia en serie ([capítulo 5](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)).
 
 </li>
 
@@ -73,7 +75,7 @@ $Z_{\mu\nu}$ es la __resistencia de acoplamiento__, la suma de las resistencias 
 
 <li>
 
-$U_{\mathrm q\mu}$ es la suma de las tensiones de fuente de la malla, positiva para cada fuente que impulsa la corriente de malla. Con flechas de tensión del polo positivo al negativo (CG, [Parte 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)) esto significa: una flecha contra el recorrido cuenta como positiva, una flecha con el recorrido como negativa.
+$U_{\mathrm q\mu}$ es la suma de las tensiones de fuente de la malla, positiva para cada fuente que impulsa la corriente de malla. Con flechas de tensión del polo positivo al negativo (CG, [capítulo 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)) esto significa: una flecha contra el recorrido cuenta como positiva, una flecha con el recorrido como negativa.
 
 </li>
 
@@ -84,7 +86,7 @@ $U_{\mathrm q\mu}$ es la suma de las tensiones de fuente de la malla, positiva p
 Para la malla $\mu$, la suma de todos los $R_a\,I_a$ es igual a la tensión impulsora $U_{\mathrm q\mu}$, porque las fuentes pasan al lado derecho. Aquí $I_a$ es la corriente en $R_a$, contada en el sentido de recorrido de $\mu$. Según [(2.1)](maschenstrome-erfullen-die-knotenregel.html#gl-2-1), $I_a=I_\mu+\sum_{\nu\neq\mu}\sigma_{a\nu}\,I_\nu$. Al reordenar queda delante de $I_\mu$ la suma de todos los $R_a$ y delante de $I_\nu$ la suma $\sum_a\sigma_{a\nu}R_a$ sobre las resistencias comunes. La malla $\nu$ recibe la misma resistencia con el mismo signo, porque «en el mismo sentido» es una relación entre dos mallas. Por eso $\mathbf Z$ es simétrica.
 :::
 
-⁠**Cómo leerlo:** La fila $\mu$ es la ley de las mallas de la malla $\mu$. La columna $\nu$ dice qué tensión produce un amperio de corriente de malla $\nu$ en cada malla. De ahí la unidad ohmio; aquí lo típico son kiloohmios. La letra $Z$ viene de impedancia ([Parte 6](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html)); aquí son resistencias puras. **Validez:** La red contiene resistencias lineales y fuentes de tensión fijas. La simetría es además una comprobación: un error al plantear suele destruirla.
+⁠**Cómo leerlo:** La fila $\mu$ es la ley de las mallas de la malla $\mu$. La columna $\nu$ dice qué tensión produce un amperio de corriente de malla $\nu$ en cada malla. De ahí la unidad ohmio; aquí lo típico son kiloohmios. La letra $Z$ viene de impedancia ([capítulo 6](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html)); aquí son resistencias puras. **Validez:** La red contiene resistencias lineales y fuentes de tensión fijas. La simetría es además una comprobación: un error al plantear suele destruirla.
 
 :::abbildung et1/k8maschen 3
 La red modelo para el análisis por mallas. A la derecha, la fuente de corriente se ha convertido en fuente de tensión. En rojo, las resistencias comunes $R_2$ y $R_4$: están fuera de la diagonal de $\mathbf Z$. I y III no tienen rama común; por eso $Z_{13}=0$.
@@ -115,13 +117,13 @@ No. El mismo sentido de giro solo es cómodo, porque entonces todos los elemento
 :::
 
 :::zusatz Fuente de corriente ideal
-Para $R_5\to\infty$, $U_\mathrm{q5}$ crece sin límite y la conversión falla ([Parte 5](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)). Las mallas se colocan entonces de modo que solo una pase por la fuente de corriente. Su corriente de malla es conocida. La ecuación de esa malla se omite, porque contiene la tensión desconocida de la fuente. Una incógnita menos, una ecuación menos.
+Para $R_5\to\infty$, $U_\mathrm{q5}$ crece sin límite y la conversión falla ([capítulo 5](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)). Las mallas se colocan entonces de modo que solo una pase por la fuente de corriente. Su corriente de malla es conocida. La ecuación de esa malla se omite, porque contiene la tensión desconocida de la fuente. Una incógnita menos, una ecuación menos.
 :::
 
-:::aufgabe Ejercicio 3 ★★ La red de la Parte 2
+:::aufgabe Ejercicio 3 ★★ La red del capítulo 2
 <span class="anker" id="aufg-3"></span>
 
-La red de la [Parte 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html) tiene una fuente ideal de 9 V entre $K_1$ y $K_4$ y $R_\mathrm a=2\,\mathrm{k\Omega}$ ($K_1K_2$), $R_\mathrm b=5\,\mathrm{k\Omega}$ ($K_2K_4$), $R_\mathrm c=3\,\mathrm{k\Omega}$ ($K_1K_3$), $R_\mathrm d=1\,\mathrm{k\Omega}$ ($K_3K_4$), $R_\mathrm e=2\,\mathrm{k\Omega}$ ($K_2K_3$). Las mallas van así: $I_\mathrm A$ por la fuente de $K_4$ a $K_1$, luego $K_2$ y de vuelta a $K_4$. $I_\mathrm B$ de $K_1$ a $K_3$, $K_2$ y de vuelta a $K_1$. $I_\mathrm C$ de $K_2$ a $K_3$, $K_4$ y de vuelta a $K_2$.
+La red del [capítulo 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html) tiene una fuente ideal de 9 V entre $K_1$ y $K_4$ y $R_\mathrm a=2\,\mathrm{k\Omega}$ ($K_1K_2$), $R_\mathrm b=5\,\mathrm{k\Omega}$ ($K_2K_4$), $R_\mathrm c=3\,\mathrm{k\Omega}$ ($K_1K_3$), $R_\mathrm d=1\,\mathrm{k\Omega}$ ($K_3K_4$), $R_\mathrm e=2\,\mathrm{k\Omega}$ ($K_2K_3$). Las mallas van así: $I_\mathrm A$ por la fuente de $K_4$ a $K_1$, luego $K_2$ y de vuelta a $K_4$. $I_\mathrm B$ de $K_1$ a $K_3$, $K_2$ y de vuelta a $K_1$. $I_\mathrm C$ de $K_2$ a $K_3$, $K_4$ y de vuelta a $K_2$.
 
 <ol class="al">
 
@@ -139,7 +141,7 @@ Calcula las corrientes de malla con la regla de Cramer.
 
 <li>
 
-Determina las cinco corrientes de las resistencias y compara con la [Parte 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html).
+Determina las cinco corrientes de las resistencias y compara con el [capítulo 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html).
 
 </li>
 
@@ -154,7 +156,7 @@ La matriz es simétrica.
 
 (b) $D=7(56-4)+2(-16-10)-5(4+35)=364-52-195=117$. $D_1=9\cdot52=468$, $D_2=234$, $D_3=351$. Por tanto, $I_\mathrm A=4$ mA, $I_\mathrm B=2$ mA, $I_\mathrm C=3$ mA.
 
-(c) $I_\mathrm a=I_\mathrm A-I_\mathrm B=2$ mA, $I_\mathrm b=I_\mathrm A-I_\mathrm C=1$ mA, $I_\mathrm c=I_\mathrm B=2$ mA, $I_\mathrm d=I_\mathrm C=3$ mA, $I_\mathrm e=I_\mathrm C-I_\mathrm B=1$ mA de $K_2$ a $K_3$. Es la tabla de la [Parte 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html), con tres ecuaciones en lugar de doce.
+(c) $I_\mathrm a=I_\mathrm A-I_\mathrm B=2$ mA, $I_\mathrm b=I_\mathrm A-I_\mathrm C=1$ mA, $I_\mathrm c=I_\mathrm B=2$ mA, $I_\mathrm d=I_\mathrm C=3$ mA, $I_\mathrm e=I_\mathrm C-I_\mathrm B=1$ mA de $K_2$ a $K_3$. Es la tabla del [capítulo 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html), con tres ecuaciones en lugar de doce.
 :::
 :::
 

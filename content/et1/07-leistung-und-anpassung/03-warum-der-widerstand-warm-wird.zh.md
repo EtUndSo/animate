@@ -1,6 +1,8 @@
 ---
 title: 第 2 阶段：电阻为什么会发热
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 功率、匹配与效率
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 功率、匹配与效率
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad
+knoten: 第 7 章：功率、匹配与效率
 order: 1170300
 summary: 在电阻中，能量离开电路。本阶段说明其机理以及由此产生的极限。
 tags: 额定功率, 双曲线
@@ -13,7 +15,7 @@ lang: zh
 在电阻中，能量离开电路。本阶段说明其机理以及由此产生的极限。
 :::
 
-**基本思路。** 电阻上加有电压时，其内部存在电场。电场使每个自由电子加速。经过飞行时间 $T$ 后，电子发生碰撞，又失去定向速度（[第 2 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)）。此时它的动能传给晶格，原子振动加剧，这种振动就是热（图 [2](#abb-2)）。电子只是传递者：在电阻之后，它的漂移与之前相同，因为电流和横截面积相同。它失去了电位，却没有变快。所以全部能量都进入了晶格。漂移本身可以忽略：在 0.44 µ m/s（[第 2 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)）时，一个电子携带 $8.8\cdot10^{-44}$ J，而在 9 V 上它释放 $1.44\cdot10^{-18}$ J，是前者的 $1.6\cdot10^{25}$ 倍。
+**基本思路。** 电阻上加有电压时，其内部存在电场。电场使每个自由电子加速。经过飞行时间 $T$ 后，电子发生碰撞，又失去定向速度（[第 2 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)）。此时它的动能传给晶格，原子振动加剧，这种振动就是热（图 [2](#abb-2)）。电子只是传递者：在电阻之后，它的漂移与之前相同，因为电流和横截面积相同。它失去了电位，却没有变快。所以全部能量都进入了晶格。漂移本身可以忽略：在 0.44 µ m/s（[第 2 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)）时，一个电子携带 $8.8\cdot10^{-44}$ J，而在 9 V 上它释放 $1.44\cdot10^{-18}$ J，是前者的 $1.6\cdot10^{25}$ 倍。
 
 :::abbildung et1/k7stoss 2
 单个电子的碰撞模型。飞行时，电场做的功（蓝）增长，并以动能的形式储存在电子中。碰撞时，晶格中的热量跃升 $W_1$（红）。每次碰撞之后，两条曲线一样高：一切都交给了晶格。
@@ -36,11 +38,11 @@ $$P\le P_\mathrm{max}. \tag{2.2}$$
 ⁠**如何理解：**小型膜式电阻的 $P_\mathrm{max}=250$ mW，暖风机转换 2 kW。公式是平方关系，因为电流起了两次作用：电流加倍意味着每秒的库仑数加倍，而由 $U=R\,I$，每库仑释放的能量也加倍。电流相同时（串联），热量随 $R$ 增大；电压相同时（并联），热量随 $R$ 减小。**适用条件：**$P=U\,I$ 总是成立，另外两种形式只适用于欧姆电阻（$R$ 与电流无关），并且 $U$ 和 $I$ 必须属于这个电阻。
 
 :::herleitung 从碰撞到 $U^2/R$
-在[第 2 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)的模型中，电子以 $a=e\,E/m_\mathrm e$ 加速，在路程 $s=\frac12a\,T^2$ 上达到 $v_\mathrm{max}=a\,T$。电场做功 $e\,E\,s=m_\mathrm e\,a\,s=\frac12m_\mathrm e(a\,T)^2=W_1$，恰好等于碰撞时的动能。体积 $A\,L$ 中有 $n\,A\,L$ 个自由电子，每个电子每秒碰撞 $1/T$ 次：
+在[第 2 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)的模型中，电子以 $a=e\,E/m_\mathrm e$ 加速，在路程 $s=\frac12a\,T^2$ 上达到 $v_\mathrm{max}=a\,T$。电场做功 $e\,E\,s=m_\mathrm e\,a\,s=\frac12m_\mathrm e(a\,T)^2=W_1$，恰好等于碰撞时的动能。体积 $A\,L$ 中有 $n\,A\,L$ 个自由电子，每个电子每秒碰撞 $1/T$ 次：
 
 $$P=n\,A\,L\,\frac{W_1}{T}=n\,A\,L\,\frac{e^2E^2\,T}{2\,m_\mathrm e}=\sigma\,E^2\,A\,L.$$
 
-其中 $\sigma=n\,e\,\mu$，$\mu=e\,T/(2\,m_\mathrm e)$（[第 2 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)）。由 $U=E\,L$ 和 $R=L/(\sigma A)$ 得 $P=U^2/R$。
+其中 $\sigma=n\,e\,\mu$，$\mu=e\,T/(2\,m_\mathrm e)$（[第 2 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)）。由 $U=E\,L$ 和 $R=L/(\sigma A)$ 得 $P=U^2/R$。
 :::
 
 **额定功率。** 温度不断上升，直到元件每秒向周围散发的热量等于内部产生的热量。所以功率越大，温度越高，而温度过高会损坏元件。在图 [3](#abb-3) 的图表中，极限是__双曲线__ $I=P_\mathrm{max}/U$，每个电阻是一条过原点的直线。它们的交点位于 $U_\mathrm{max}=\sqrt{P_\mathrm{max}\,R}$ 和 $I_\mathrm{max}=\sqrt{P_\mathrm{max}/R}$。

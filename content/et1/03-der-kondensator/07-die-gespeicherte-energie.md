@@ -1,6 +1,8 @@
 ---
 title: Stufe 6: Die gespeicherte Energie
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Der Kondensator
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Der Kondensator
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator
+knoten: Kapitel 3: Der Kondensator
 order: 1130700
 summary: Laden kostet Energie, denn jede weitere Ladung muss gegen die schon vorhandene Spannung laufen.
 tags: Energiedichte
@@ -13,7 +15,7 @@ lang: de
 Laden kostet Energie, denn jede weitere Ladung muss gegen die schon vorhandene Spannung laufen. Diese Stufe berechnet, wie viel es ist und wo die Energie danach steckt.
 :::
 
-**Die Idee.** Spannung ist Energie je Ladung ([Teil 1](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)). Bringt man die kleine Ladung $\Delta q$ von der negativen auf die positive Platte, kostet das $\Delta W=u\,\Delta q$. Die ersten Ladungen kosten fast nichts, weil noch kein Feld da ist. Die letzten kosten den vollen Betrag $U$ je Coulomb. Im Mittel zahlt jede Ladung $U/2$. Das ist die Fläche unter der Geraden $u=q/C$ (Abb. [6](#abb-6) links).
+**Die Idee.** Spannung ist Energie je Ladung ([Kapitel 1](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)). Bringt man die kleine Ladung $\Delta q$ von der negativen auf die positive Platte, kostet das $\Delta W=u\,\Delta q$. Die ersten Ladungen kosten fast nichts, weil noch kein Feld da ist. Die letzten kosten den vollen Betrag $U$ je Coulomb. Im Mittel zahlt jede Ladung $U/2$. Das ist die Fläche unter der Geraden $u=q/C$ (Abb. [6](#abb-6) links).
 
 :::satz Satz 6.1 (Energie im Kondensator)
 <span class="anker" id="satz-6-1"></span>
@@ -34,9 +36,9 @@ Dabei ist $w$ die __Energiedichte__, die Energie je Volumen.
 ⁠**So liest man das:** $W$ in J, $C$ in F, $U$ in V, $w$ in J/m$^3$. Die Spannung geht im Quadrat ein: Doppelte Spannung bedeutet doppelte Ladung, und die läuft gegen die doppelte Spannung. $q$ ist die Ladung während des Ladens, $Q$ ihr Endwert. **Gültigkeit:** $C$ konstant, kein Leckstrom.
 
 :::herleitung Energie aus Kraft und Weg
-Die Kraft auf $\Delta q$ im Feld ist $F=\Delta q\,E$ ([Teil 1](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)). Über den Abstand $\Delta s$ zwischen den Platten kostet das $\Delta W=F\,\Delta s=\Delta q\,E\,\Delta s$. Mit $E\,\Delta s=u$ folgt $\Delta W=\Delta q\,u$, und mit $u=q/C$ ist $\Delta W=\frac qC\,\Delta q$. Die Summe aller Portionen wird für kleine $\Delta q$ zum Integral [(6.1)](#gl-6-1).
+Die Kraft auf $\Delta q$ im Feld ist $F=\Delta q\,E$ ([Kapitel 1](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)). Über den Abstand $\Delta s$ zwischen den Platten kostet das $\Delta W=F\,\Delta s=\Delta q\,E\,\Delta s$. Mit $E\,\Delta s=u$ folgt $\Delta W=\Delta q\,u$, und mit $u=q/C$ ist $\Delta W=\frac qC\,\Delta q$. Die Summe aller Portionen wird für kleine $\Delta q$ zum Integral [(6.1)](#gl-6-1).
 
-Dasselbe Ergebnis liefert die Schaltungsseite. Die Leistung (Energie je Zeit) ist $p=u\,i$ ([Teil 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)). Mit $i=C\,\mathrm{d} u/\mathrm{d} t$ wird $W=\int u\,i\,\mathrm{d} t=C\int_0^Uu\,\mathrm{d} u=\frac12CU^2$.
+Dasselbe Ergebnis liefert die Schaltungsseite. Die Leistung (Energie je Zeit) ist $p=u\,i$ ([Kapitel 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)). Mit $i=C\,\mathrm{d} u/\mathrm{d} t$ wird $W=\int u\,i\,\mathrm{d} t=C\int_0^Uu\,\mathrm{d} u=\frac12CU^2$.
 
 ⁠**Vom Bauteil zum Feld:** Einsetzen von $C=\varepsilon A/d$ und $U=E\,d$ in [(6.1)](#gl-6-1) ergibt [(6.2)](#gl-6-2).
 :::

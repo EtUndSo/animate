@@ -1,6 +1,8 @@
 ---
 title: Stage 11: Fourier and Laplace, limits of existence
-pfad: Electrical Engineering / 3rd Semester / Signals and Systems / Fourier Series and Transform
+pfad: Electrical Engineering / 3rd Semester / ET3 – Fundamentals of Electrical Engineering 3: Signals and Systems / Fourier Series and Transform
+adresse: elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation
+knoten: Chapter 3: Fourier Series and Transform
 order: 3231200
 summary: When does the Fourier integral exist, and how is it related to the Laplace transform?
 tags: central limit theorem
@@ -13,7 +15,7 @@ lang: en
 When does the Fourier integral exist, and how is it related to the Laplace transform?
 :::
 
-A sufficient condition for existence is absolute integrability, $\int|s(t)|\mathrm{d} t<\infty$. The Laplace transform extends the class by weighting with $\mathrm{e}^{-\sigma t}$ first ([Part 2](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html)):
+A sufficient condition for existence is absolute integrability, $\int|s(t)|\mathrm{d} t<\infty$. The Laplace transform extends the class by weighting with $\mathrm{e}^{-\sigma t}$ first ([Chapter 2](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html)):
 
 $$S_{\mathcal{L}}(\sigma+\mathrm{j}2\pi f)=\mathcal{F}\bigl\{s(t)\mathrm{e}^{-\sigma t}\bigr\}(f).$$
 

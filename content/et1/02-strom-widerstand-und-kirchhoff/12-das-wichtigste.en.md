@@ -1,6 +1,8 @@
 ---
 title: Key points
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / Current, Resistance and Kirchhoff's Laws
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / Current, Resistance and Kirchhoff's Laws
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff
+knoten: Chapter 2: Current, Resistance and Kirchhoff's Laws
 order: 1121200
 summary: Why electrons crawl while the current is there at once, and why networks obey conservation laws
 tags: drift velocity, current density, voltage divider
@@ -103,7 +105,7 @@ Loaded: $U_2/U=(R_2\parallel R_\mathrm L)/(R_1+R_2\parallel R_\mathrm L)$, error
 </ul>
 :::
 
-**Looking ahead to [Part 3](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html).** A node stores almost no charge. The capacitor of two large plates does the opposite: it stores charge and energy.
+**Looking ahead to [Chapter 3](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html).** A node stores almost no charge. The capacitor of two large plates does the opposite: it stores charge and energy.
 
 **One principle behind all the results.** Two conservation laws and one equilibrium carry the chapter: charge is not lost, energy is not lost, and in the conductor the drive from the field and the braking from collisions balance each other.
 

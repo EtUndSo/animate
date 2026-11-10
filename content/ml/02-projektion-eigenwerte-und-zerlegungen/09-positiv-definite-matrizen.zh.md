@@ -1,7 +1,8 @@
 ---
 title: 正定矩阵
 pfad: 计算机科学 / 机器学习 / 数学基础 / 投影、特征值与矩阵分解
-knoten: 基础篇 2：投影、特征值与矩阵分解
+adresse: informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen
+knoten: 第 2 章：投影、特征值与矩阵分解
 nachschlagen: ja
 order: 15220900
 summary: 如果一个二次型除原点外处处为正，它就是碗形。本节给这一性质一个名称，并介绍检验它的几种判别法：借助特征值、借助主元以及借助行列式。此外还有两个推论：二次型在单位圆上的最大值和最小值，以及一种只有碗形才有的分解。
@@ -122,7 +123,7 @@ $$\mathbf{A}=\begin{pmatrix}2&1&0\\1&2&1\\0&1&2\end{pmatrix}$$
 
 <span class="anker" id="stufe-8-4"></span>
 
-[基础篇 1 第 10 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/transponierte-symmetrie-und-gram-matrix.html#stufe-10)中出现过格拉姆矩阵 $\mathbf{X}^{\top}\mathbf{X}$ 和 $\mathbf{X}\mathbf{X}^{\top}$；在本章中，$\mathbf{A}^{\top}\mathbf{A}$ 出现在正规方程里。它们总是半正定的，原因很简单：它们的二次型是一个长度的平方。
+[第 1 章第 10 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/transponierte-symmetrie-und-gram-matrix.html#stufe-10)中出现过格拉姆矩阵 $\mathbf{X}^{\top}\mathbf{X}$ 和 $\mathbf{X}\mathbf{X}^{\top}$；在本章中，$\mathbf{A}^{\top}\mathbf{A}$ 出现在正规方程里。它们总是半正定的，原因很简单：它们的二次型是一个长度的平方。
 
 :::satz 定理 8.4 (格拉姆矩阵)
 <span class="anker" id="satz-8-4"></span>
@@ -200,7 +201,7 @@ $$\mathbf{A}=\mathbf L\mathbf L^{\top} . \tag{8.3}$$
 
 $$\mathbf L=\begin{pmatrix}\sqrt a&0\\b/\sqrt a&\sqrt{c-b^2/a}\end{pmatrix},$$
 
-对于更大的 $n$，就逐个变量地继续配方。由[基础篇 1 第 14.5 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5)，$\det\mathbf{A}=\det\mathbf L\cdot\det\mathbf L^{\top}=(l_{11}\cdots l_{nn})^2$。
+对于更大的 $n$，就逐个变量地继续配方。由[第 1 章第 14.5 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5)，$\det\mathbf{A}=\det\mathbf L\cdot\det\mathbf L^{\top}=(l_{11}\cdots l_{nn})^2$。
 
 ::::beispiel [算例]
 对于 $\mathbf{A}=\bigl(\begin{smallmatrix}4&2\\2&5\end{smallmatrix}\bigr)$，有 $a=4$，$b=2$，$c=5$，所以 $l_{11}=2$，$l_{21}=1$，$l_{22}=\sqrt{5-1}=2$：

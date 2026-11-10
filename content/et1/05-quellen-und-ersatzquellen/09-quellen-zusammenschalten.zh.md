@@ -1,6 +1,8 @@
 ---
 title: 第 7 阶段：电源的组合
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 电源与等效电源
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 电源与等效电源
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen
+knoten: 第 5 章：电源与等效电源
 order: 1150900
 summary: 一个电源往往不够。串联提高电压，并联提高电流。本阶段计算这两种情况，并指出其中的危险。
 tags: 环流

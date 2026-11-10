@@ -1,0 +1,346 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 14,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.07,
+      0,
+      0
+     ],
+     "width": 2.61,
+     "height": 1.0,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#efefef",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Text",
+    "props": {
+     "text": "@basis",
+     "position": [
+      -2.07,
+      0,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o3",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.07,
+      0,
+      0
+     ],
+     "width": 2.61,
+     "height": 1.0,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#fdece3",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Text",
+    "props": {
+     "text": "@diff",
+     "position": [
+      2.07,
+      0,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o5",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.0,
+      1.7,
+      0
+     ],
+     "width": 2.25,
+     "height": 0.45,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Text",
+    "props": {
+     "text": "@gast",
+     "position": [
+      0.0,
+      1.7,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o7",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      1.125,
+      1.47,
+      0
+     ],
+     "end": [
+      2.07,
+      0.52,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.12,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o8",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      0.0,
+      1.47,
+      0
+     ],
+     "end": [
+      0.765,
+      0.52,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.12,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": "10,7",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o9",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      0.747,
+      0.0,
+      0
+     ],
+     "end": [
+      -0.747,
+      0.0,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.12,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": "10,7",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o10",
+    "type": "Text",
+    "props": {
+     "text": "@schreiben",
+     "position": [
+      1.8,
+      1.15,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o11",
+    "type": "Text",
+    "props": {
+     "text": "@lesen",
+     "position": [
+      0.18,
+      0.95,
+      0
+     ],
+     "font_size": 18,
+     "align": "right",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Text",
+    "props": {
+     "text": "@sonst",
+     "position": [
+      0.0,
+      0.22,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o13",
+    "type": "Text",
+    "props": {
+     "text": "@zurueck",
+     "position": [
+      2.07,
+      -0.8,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#c82828"
+    }
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "basis": {
+    "de": "Basisabbild\nStand beim Snapshot\nnur noch lesen",
+    "en": "base image\nstate at the snapshot\nread only",
+    "es": "imagen base\nestado en la instantánea\nsolo lectura",
+    "zh": "基础映像\n快照时的状态\n只读",
+    "fr": "image de base\nétat au moment de l’instantané\nlecture seule",
+    "tr": "temel kalıp\nanlık görüntüdeki durum\nyalnızca okunur"
+   },
+   "diff": {
+    "de": "Differenzabbild\nalle Änderungen\nseit dem Snapshot",
+    "en": "differencing image\nall changes\nsince the snapshot",
+    "es": "imagen diferencial\ntodos los cambios\ndesde la instantánea",
+    "zh": "差异映像\n快照之后的\n所有更改",
+    "fr": "image différentielle\ntoutes les modifications\ndepuis l’instantané",
+    "tr": "fark kalıbı\nanlık görüntüden bu yana\ntüm değişiklikler"
+   },
+   "gast": {
+    "de": "Gast liest und schreibt",
+    "en": "guest reads and writes",
+    "es": "el invitado lee y escribe",
+    "zh": "客户机读写",
+    "fr": "l’invité lit et écrit",
+    "tr": "konuk okur ve yazar"
+   },
+   "schreiben": {
+    "de": "schreiben",
+    "en": "write",
+    "es": "escribir",
+    "zh": "写入",
+    "fr": "écrire",
+    "tr": "yaz"
+   },
+   "lesen": {
+    "de": "lesen:\nzuerst hier",
+    "en": "read:\nhere first",
+    "es": "leer:\nprimero aquí",
+    "zh": "读取：\n先查这里",
+    "fr": "lire :\nd’abord ici",
+    "tr": "oku:\nönce burada"
+   },
+   "sonst": {
+    "de": "sonst hier",
+    "en": "otherwise here",
+    "es": "si no, aquí",
+    "zh": "否则查这里",
+    "fr": "sinon ici",
+    "tr": "yoksa burada"
+   },
+   "zurueck": {
+    "de": "Zurückspielen = dieses Abbild verwerfen",
+    "en": "restoring = discarding this image",
+    "es": "restaurar = descartar esta imagen",
+    "zh": "还原 = 丢弃此映像",
+    "fr": "restaurer = abandonner cette image",
+    "tr": "geri yükleme = bu kalıbı atma"
+   }
+  }
+ }
+}

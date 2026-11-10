@@ -1,6 +1,8 @@
 ---
 title: 第 6 阶段：晶体管作为开关
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 双极型晶体管
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 双极型晶体管
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor
+knoten: 第 10 章：双极型晶体管
 order: 1200800
 summary: 开关应当要么完全断开，要么完全接通。本阶段说明为什么开关要用负载线的两端，由此构成反相器，并给出元件的极限。
 tags: 反相器, 逻辑电平, 功率双曲线

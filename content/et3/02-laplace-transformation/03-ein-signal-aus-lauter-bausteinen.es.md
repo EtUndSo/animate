@@ -1,6 +1,8 @@
 ---
 title: Etapa 2: Una señal hecha solo de bloques elementales
-pfad: Ingeniería eléctrica / 3.er semestre / Señales y sistemas / Transformada de Laplace
+pfad: Ingeniería eléctrica / 3.er semestre / ET3 – Fundamentos de ingeniería eléctrica 3: señales y sistemas / Transformada de Laplace
+adresse: elektrotechnik/3-semester/signale-und-systeme/laplace-transformation
+knoten: Capítulo 2: Transformada de Laplace
 order: 3220300
 summary: La etapa 1 vale para un solo bloque elemental.
 tags: absolutamente integrable, representación de Fourier, espectro

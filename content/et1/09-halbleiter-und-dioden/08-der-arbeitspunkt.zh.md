@@ -1,6 +1,8 @@
 ---
 title: 第 6 阶段：工作点
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 半导体与二极管
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 半导体与二极管
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden
+knoten: 第 9 章：半导体与二极管
 order: 1190800
 summary: 对于电阻， U=R\,I 立刻给出结果。二极管遵循另一条曲线。本阶段求出二极管在电路中的电压和电流。
 tags: 负载线, 工作点, 工作点分析, 工作点综合, 开路, 短路, 迟滞, 迭代
@@ -13,7 +15,7 @@ lang: zh
 对于电阻，$U=R\,I$ 立刻给出结果。二极管遵循另一条曲线。本阶段求出二极管在电路中的电压和电流。
 :::
 
-**基本思路。** 两个条件必须同时成立。二极管只允许其特性曲线上的点。电路的其余部分，即电源和电阻，只允许__负载线__（[第 5 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)）上的点。电路会自行找到交点：若 $U_\mathrm D$ 太小，电阻提供的电流多于二极管通过的电流。电荷在两者之间的节点上积累，抬高其电位，直到两个电流相等。
+**基本思路。** 两个条件必须同时成立。二极管只允许其特性曲线上的点。电路的其余部分，即电源和电阻，只允许__负载线__（[第 5 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)）上的点。电路会自行找到交点：若 $U_\mathrm D$ 太小，电阻提供的电流多于二极管通过的电流。电荷在两者之间的节点上积累，抬高其电位，直到两个电流相等。
 
 :::abbildung et1/k9arbeitsgerade 8
 参考模型的电路和图解法。红色：通过开路点和短路点的负载线。蓝色：二极管的特性曲线，交点在 0.69 V 和 4.31 mA。绿色：用 250 $\Omega$ 电阻代替二极管时的特性曲线，交点在 1 V 和 4 mA。

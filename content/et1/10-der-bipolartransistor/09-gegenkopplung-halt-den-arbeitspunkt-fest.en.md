@@ -1,6 +1,8 @@
 ---
 title: Stage 7: Negative feedback holds the operating point in place
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / The Bipolar Transistor
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / The Bipolar Transistor
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor
+knoten: Chapter 10: The Bipolar Transistor
 order: 1200900
 summary: The operating point from Stage 5 depends on B and on U BE , and both are unreliable.
 tags: current feedback, voltage feedback
@@ -41,7 +43,7 @@ Voltage feedback with $R_\mathrm{B}$ from the collector to the base:
 $$I_\mathrm{C}=\frac{U_\mathrm{CC}-U_\mathrm{BE}}{R_\mathrm{C}\bigl(1+\frac1B\bigr)+\frac{R_\mathrm{B}}{B}}\approx\frac{U_\mathrm{CC}-U_\mathrm{BE}}{R_\mathrm{C}+\frac{R_\mathrm{B}}{B}},\qquad\text{for } R_\mathrm{C}\gg\frac{R_\mathrm{B}}{B}:\ I_\mathrm{C}\approx\frac{U_\mathrm{CC}-U_\mathrm{BE}}{R_\mathrm{C}}. \tag{7.2}$$
 :::
 
-⁠**How to read it:** $U_\mathrm{q}$ and $R_\mathrm{i}$ describe the divider as an equivalent voltage source ([Part 5](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)): $U_\mathrm{q}$ is its open-circuit voltage, $R_\mathrm{i}$ its internal resistance. In the denominator, $R_\mathrm{E}$ acts almost fully, $R_\mathrm{i}$ only divided by $B$. **Validity:** active region. This must be checked at the end. $U_\mathrm{BE}$ is a fixed value here; the last approximation in [(7.1)](#gl-7-1) needs a large $U_\mathrm{q}$.
+⁠**How to read it:** $U_\mathrm{q}$ and $R_\mathrm{i}$ describe the divider as an equivalent voltage source ([Chapter 5](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)): $U_\mathrm{q}$ is its open-circuit voltage, $R_\mathrm{i}$ its internal resistance. In the denominator, $R_\mathrm{E}$ acts almost fully, $R_\mathrm{i}$ only divided by $B$. **Validity:** active region. This must be checked at the end. $U_\mathrm{BE}$ is a fixed value here; the last approximation in [(7.1)](#gl-7-1) needs a large $U_\mathrm{q}$.
 
 :::herleitung The formulas from the meshes
 The divider becomes the source $U_\mathrm{q}$ with $R_\mathrm{i}$ in series. With $I_\mathrm{E}=(1+B)I_\mathrm{B}$, the mesh through base and emitter reads

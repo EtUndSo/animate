@@ -1,7 +1,9 @@
 ---
 title: 概览: 电源与等效电源
 kurz: 概览
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 电源与等效电源
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 电源与等效电源
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen
+knoten: 第 5 章：电源与等效电源
 order: 1150100
 summary: 为什么两个数就能代替整个网络
 tags: 
@@ -37,7 +39,7 @@ lang: zh
 
 <li>
 
-⁠**电池：**[第 1 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)中的 9 V 方形电池。其源电压（化学反应提供的电压）为 $U_\mathrm{q}=9$ V，内阻为 $R_\mathrm{q}=2\,\Omega$。
+⁠**电池：**[第 1 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)中的 9 V 方形电池。其源电压（化学反应提供的电压）为 $U_\mathrm{q}=9$ V，内阻为 $R_\mathrm{q}=2\,\Omega$。
 
 </li>
 

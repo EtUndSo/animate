@@ -1,6 +1,8 @@
 ---
 title: Stufe 2: Stationarität und Ergodizität
-pfad: Elektrotechnik / 3. Semester / Signale und Systeme / Zufallssignale
+pfad: Elektrotechnik / 3. Semester / ET3 – Grundgebiete der Elektrotechnik 3: Signale und Systeme / Zufallssignale
+adresse: elektrotechnik/3-semester/signale-und-systeme/zufallssignale
+knoten: Kapitel 7: Zufallssignale
 order: 3270300
 summary: Eine unendliche Schar hat man nie, meist nur ein einziges Signal.
 tags: stationär, ergodisch

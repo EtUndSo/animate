@@ -1,8 +1,10 @@
 ---
 title: 第 11 阶段：z 变换
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / 采样与离散时间系统
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / 采样与离散时间系统
+adresse: elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme
+knoten: 第 4 章：采样与离散时间系统
 order: 3241200
-summary: 正如拉普拉斯变换推广了傅里叶变换（第 2 部分），z 变换推广了离散时间傅里叶变换：先进行指数加权，再进行变换。
+summary: 正如拉普拉斯变换推广了傅里叶变换（第 2 章），z 变换推广了离散时间傅里叶变换：先进行指数加权，再进行变换。
 tags: 单位圆
 lang: zh
 ---
@@ -10,7 +12,7 @@ lang: zh
 <span class="anker" id="stufe-11"></span>
 
 :::zweck
-正如拉普拉斯变换推广了傅里叶变换（[第 2 部分](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html)），z 变换推广了离散时间傅里叶变换：先进行指数加权，再进行变换。
+正如拉普拉斯变换推广了傅里叶变换（[第 2 章](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html)），z 变换推广了离散时间傅里叶变换：先进行指数加权，再进行变换。
 :::
 
 **思路。** 将序列乘以 $\rho^{-n}$（$\rho>0$）再做变换：$\sum_ns(n)\rho^{-n}\mathrm{e}^{-\mathrm{j}2\pi fn}$。令 $z=\rho\,\mathrm{e}^{\mathrm{j}2\pi f}$，它就变成关于 $z^{-1}$ 的幂级数。等价的说法是：$z^n$ 是每个 LSI 系统的特征函数，因为 $z^{n-k}=z^{-k}z^n$，而特征值为 $H(z)$：

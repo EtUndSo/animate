@@ -1,6 +1,8 @@
 ---
 title: Stufe 5: Rechenregeln
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Folgen und Grenzwerte
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Folgen und Grenzwerte
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/folgen-und-grenzwerte
+knoten: Kapitel 4: Folgen und Grenzwerte
 order: 1240700
 summary: Epsilontik verlangt, den Grenzwert vorher zu kennen.
 tags: 

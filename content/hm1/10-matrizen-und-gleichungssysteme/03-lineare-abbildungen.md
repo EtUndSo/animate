@@ -1,8 +1,10 @@
 ---
 title: Stufe 1: Lineare Abbildungen
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Matrizen und lineare Gleichungssysteme
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Matrizen und lineare Gleichungssysteme
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/matrizen-und-lineare-gleichungssysteme
+knoten: Kapitel 10: Matrizen und lineare Gleichungssysteme
 order: 1300300
-summary: Die Teile 8 und 9 handeln von einzelnen Vektorräumen.
+summary: Die Kapitel 8 und 9 handeln von einzelnen Vektorräumen.
 tags: strukturerhaltend, linear, Nullabbildung, Identität, Punktauswertung, Linearisierung, affin
 lang: de
 ---
@@ -10,7 +12,7 @@ lang: de
 <span class="anker" id="stufe-1"></span>
 
 :::zweck
-Die [Teile 8](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/vektoren-und-skalarprodukt/vektoren-und-skalarprodukt.html) und 9 handeln von einzelnen Vektorräumen. Jetzt geht es um Abbildungen zwischen ihnen. Nützlich sind nur solche, die Addieren und Strecken nicht zerstören.
+Die [Kapitel 8](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/vektoren-und-skalarprodukt/vektoren-und-skalarprodukt.html) und 9 handeln von einzelnen Vektorräumen. Jetzt geht es um Abbildungen zwischen ihnen. Nützlich sind nur solche, die Addieren und Strecken nicht zerstören.
 :::
 
 **Die Idee.** Eine Abbildung ist linear, wenn die Reihenfolge keine Rolle spielt: Erst addieren und dann abbilden ergibt dasselbe wie erst abbilden und dann addieren. Für das Strecken gilt das Gleiche. Ein Parallelogramm aus zwei Pfeilen geht deshalb in ein Parallelogramm über und seine Diagonale in dessen Diagonale (Abb. [1](#abb-1)). Solche Abbildungen heißen auch __strukturerhaltend__.

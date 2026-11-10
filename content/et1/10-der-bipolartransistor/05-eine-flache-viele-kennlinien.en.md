@@ -1,6 +1,8 @@
 ---
 title: Stage 3: One surface, many characteristic curves
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / The Bipolar Transistor
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / The Bipolar Transistor
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor
+knoten: Chapter 10: The Bipolar Transistor
 order: 1200500
 summary: Data sheets show several characteristic curves with different axes.
 tags: characteristic curve, slice, family of curves, Input characteristic, Control characteristic, Current control characteristic, Output characteristic, transfer characteristic
@@ -13,7 +15,7 @@ lang: en
 Data sheets show several characteristic curves with different axes. This stage traces them back to one object.
 :::
 
-**The idea.** $I_\mathrm{C}$ depends on two voltages. A function of two variables is a surface, like a terrain over a map: the map has the directions $U_\mathrm{BE}$ and $U_\mathrm{CE}$, the height of the terrain is $I_\mathrm{C}$ (Fig. [3](#abb-3)). A __characteristic curve__ (relationship between two quantities, [Part 5](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)) arises when one voltage is held fixed: a __slice__ through the terrain. Several parallel slices give a __family of curves__. So there are not many dependencies, but one terrain with several views. In the direction of $U_\mathrm{BE}$ it is a steep slope (red), in the direction of $U_\mathrm{CE}$ an edge and then an almost horizontal plane (green).
+**The idea.** $I_\mathrm{C}$ depends on two voltages. A function of two variables is a surface, like a terrain over a map: the map has the directions $U_\mathrm{BE}$ and $U_\mathrm{CE}$, the height of the terrain is $I_\mathrm{C}$ (Fig. [3](#abb-3)). A __characteristic curve__ (relationship between two quantities, [Chapter 5](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)) arises when one voltage is held fixed: a __slice__ through the terrain. Several parallel slices give a __family of curves__. So there are not many dependencies, but one terrain with several views. In the direction of $U_\mathrm{BE}$ it is a steep slope (red), in the direction of $U_\mathrm{CE}$ an edge and then an almost horizontal plane (green).
 
 :::abbildung et1/k10flaeche 3
 The surface $I_\mathrm{C}(U_\mathrm{BE},U_\mathrm{CE})$ of the reference model. Red: slice at $U_\mathrm{CE}=6$ V, exponential. Green: slice at $U_\mathrm{BE}=0.6$ V, first steep, then almost horizontal. The two meet at the operating point.

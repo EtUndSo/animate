@@ -1,6 +1,8 @@
 ---
 title: Stufe 6: Bandbreite, Abstand und Besetzung
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Vom Atom zum Band
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Vom Atom zum Band
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/vom-atom-zum-band
+knoten: Kapitel 8: Vom Atom zum Band
 order: 4180800
 summary: Das Band ist 4V ss breit.
 tags: Gleichgewichtsabstand, erlaubtes Band, verbotene Band, Bändermodell, Valenzband, Leitungsband
@@ -24,7 +26,7 @@ Liegt das Niveau um $\Delta E$ unter dem Potential zwischen den Atomen, gilt nä
 $$V_\mathrm{ss}(r)\approx V_\mathrm{ss}(r_0)\,\mathrm{e}^{-\kappa(r-r_0)},\qquad\kappa=\frac{\sqrt{2m\,\Delta E}}{\hbar}. \tag{6.1}$$
 :::
 
-⁠**So liest man das:** Der __Gleichgewichtsabstand__ $r_0$ ist der Abstand, den die Atome im Kristall einnehmen. Der Faktor kommt aus [Teil 3](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/stufe-barriere-und-tunneleffekt/stufe-barriere-und-tunneleffekt.html): Zwischen den Atomen ist $\phi_1\propto\mathrm{e}^{-\kappa x}$ und $\phi_2\propto\mathrm{e}^{-\kappa(r-x)}$, ihr Produkt also $\mathrm{e}^{-\kappa r}$. Kurz gesagt: Dünne oder niedrige Barriere, starker Überlapp, breites Band. Dicke oder hohe Barriere, schwacher Überlapp, flaches Band. **Kontrolle:** Wasserstoff mit $\Delta E=13{,}6$ eV ergibt $\kappa=18{,}9\,\mathrm{nm^{-1}}=1/r_1$, genau den Abfall des 1s-Orbitals aus [Teil 4](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/atome-und-orbitale/atome-und-orbitale.html).
+⁠**So liest man das:** Der __Gleichgewichtsabstand__ $r_0$ ist der Abstand, den die Atome im Kristall einnehmen. Der Faktor kommt aus [Kapitel 3](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/stufe-barriere-und-tunneleffekt/stufe-barriere-und-tunneleffekt.html): Zwischen den Atomen ist $\phi_1\propto\mathrm{e}^{-\kappa x}$ und $\phi_2\propto\mathrm{e}^{-\kappa(r-x)}$, ihr Produkt also $\mathrm{e}^{-\kappa r}$. Kurz gesagt: Dünne oder niedrige Barriere, starker Überlapp, breites Band. Dicke oder hohe Barriere, schwacher Überlapp, flaches Band. **Kontrolle:** Wasserstoff mit $\Delta E=13{,}6$ eV ergibt $\kappa=18{,}9\,\mathrm{nm^{-1}}=1/r_1$, genau den Abfall des 1s-Orbitals aus [Kapitel 4](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/atome-und-orbitale/atome-und-orbitale.html).
 
 ::::beispiel
 Mit $\Delta E=5$ eV ist $\kappa=11{,}5\,\mathrm{nm^{-1}}$. Drückt man die Kette um 1 % zusammen, also um 2,5 pm, wächst $V_\mathrm{ss}$ um 2,9 %, und das Band wird 2,06 eV breit. Das nutzt man in Transistoren: Im Kanal, dem Gebiet, durch das der Strom fließt, wird das Gitter verspannt. Bei 90 nm Strukturgröße brachte Druck-Verspannung rund 30 % mehr Strom. Real ändert der Druck auch die Form der Bänder, das Bild ist vereinfacht. Ein kernnahes Niveau bei $-40$ eV hat dagegen $\kappa=32{,}4\,\mathrm{nm^{-1}}$. Seine Kopplung ist um den Faktor $\mathrm{e}^{-(32{,}4-11{,}5)\cdot0{,}25}=0{,}005$ kleiner, sein Band nur rund 10 meV breit.

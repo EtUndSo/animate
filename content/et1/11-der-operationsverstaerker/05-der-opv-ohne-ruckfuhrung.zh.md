@@ -1,6 +1,8 @@
 ---
 title: 第 3 阶段：没有反馈的运放
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 运算放大器
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 运算放大器
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker
+knoten: 第 11 章：运算放大器
 order: 1210500
 summary: 各放大级组合成一个只有几个引脚的器件。本阶段确定它的模型，并说明它在没有外部电路时做什么：比较。
 tags: 饱和, 理想运放, 闪速转换器

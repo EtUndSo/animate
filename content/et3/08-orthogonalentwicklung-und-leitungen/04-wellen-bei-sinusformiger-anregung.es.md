@@ -1,6 +1,8 @@
 ---
 title: Etapa 3: Ondas con excitación sinusoidal
-pfad: Ingeniería eléctrica / 3.er semestre / Señales y sistemas / Desarrollo ortogonal y líneas de transmisión
+pfad: Ingeniería eléctrica / 3.er semestre / ET3 – Fundamentos de ingeniería eléctrica 3: señales y sistemas / Desarrollo ortogonal y líneas de transmisión
+adresse: elektrotechnik/3-semester/signale-und-systeme/orthogonalentwicklung-und-leitungen
+knoten: Capítulo 8: Desarrollo ortogonal y líneas de transmisión
 order: 3280400
 summary: Con fasores, las ecuaciones en derivadas parciales se convierten en una ecuación ordinaria en la posición.
 tags: ecuación de onda, constante de propagación, impedancia característica, constante de atenuación, coeficiente de reflexión

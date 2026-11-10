@@ -1,8 +1,10 @@
 ---
 title: 第 8 阶段：受控源与放大器
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 网孔电流法与节点电位法
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 网孔电流法与节点电位法
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/maschenstrom-und-knotenpotentialverfahren
+knoten: 第 8 章：网孔电流法与节点电位法
 order: 1181000
-summary: 放大器含有受控源（第 6 部分）。本阶段给出它们的印记，并说明这对矩阵意味着什么。
+summary: 放大器含有受控源（第 6 章）。本阶段给出它们的印记，并说明这对矩阵意味着什么。
 tags: 电压控制电流源, 跨导, 电压增益, 负反馈, 跨阻
 lang: zh
 ---
@@ -10,10 +12,10 @@ lang: zh
 <span class="anker" id="stufe-8"></span>
 
 :::zweck
-放大器含有受控源（[第 6 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html)）。本阶段给出它们的印记，并说明这对矩阵意味着什么。
+放大器含有受控源（[第 6 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html)）。本阶段给出它们的印记，并说明这对矩阵意味着什么。
 :::
 
-**基本思路。** __电压控制电流源__（[第 6 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html)）是一种推广的电导。对电导，是自身的电压 $U_{ik}$ 控制从 $i$ 到 $k$ 的电流。对这种电源，控制它的是别处的电压 $U_{pq}$。行不变，因为电流在同样的节点流出和流入。列从 $i$、$k$ 移到 $p$、$q$，因为列对应的是起控制作用的电位。这样对称性就失去了。这是物理事实：输入作用于输出，反过来却不然。
+**基本思路。** __电压控制电流源__（[第 6 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html)）是一种推广的电导。对电导，是自身的电压 $U_{ik}$ 控制从 $i$ 到 $k$ 的电流。对这种电源，控制它的是别处的电压 $U_{pq}$。行不变，因为电流在同样的节点流出和流入。列从 $i$、$k$ 移到 $p$、$q$，因为列对应的是起控制作用的电位。这样对称性就失去了。这是物理事实：输入作用于输出，反过来却不然。
 
 :::satz 定理 8.1 (电压控制电流源的印记)
 <span class="anker" id="satz-8-1"></span>
@@ -21,7 +23,7 @@ lang: zh
 从 $i$ 到 $k$ 的电源 $I=g\,(U_p-U_q)$ 在 $(i,p)$ 和 $(k,q)$ 上加 $+g$，在 $(i,q)$ 和 $(k,p)$ 上加 $-g$。
 :::
 
-⁠**如何理解：**$g$ 是__跨导__，即单位控制电压产生的电流，单位为西门子，模型中为 50 mS。**适用条件：**电源应是线性的。晶体管只在工作点附近的小变化范围内才如此（[第 10 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor/der-bipolartransistor.html)）。
+⁠**如何理解：**$g$ 是__跨导__，即单位控制电压产生的电流，单位为西门子，模型中为 50 mS。**适用条件：**电源应是线性的。晶体管只在工作点附近的小变化范围内才如此（[第 10 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor/der-bipolartransistor.html)）。
 
 ::::beispiel 无负反馈
 一个 $I_\mathrm q=20$ µ A 的电流源，带 $G_\mathrm q=0.5$ mS，给节点 1 供电。那里有 $G_\mathrm i=0.5$ mS 接到接地点。电源 $g\,U_1$ 把电流从节点 2 抽到接地点，那里还接有 $G_\mathrm o=0.05$ mS 和 $G_\mathrm L=0.2$ mS。由印记得
@@ -34,7 +36,7 @@ $Y_{12}=0$，但 $Y_{21}=g$。由 $D=(G_\mathrm q+G_\mathrm i)(G_\mathrm o+G_\ma
 <span class="anker" id="gl-8-2"></span>
 $$U_1=\frac{I_\mathrm q}{G_\mathrm q+G_\mathrm i},\qquad U_2=-\frac{g\,I_\mathrm q}{(G_\mathrm q+G_\mathrm i)(G_\mathrm o+G_\mathrm L)},\qquad A_u=\frac{U_2}{U_1}=-\frac{g}{G_\mathrm o+G_\mathrm L}. \tag{8.2}$$
 
-模型中 $D=0.25$，$U_1=20$ mV，$U_2=-4$ V，__电压增益__ $A_u=-200$，与[第 6 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html)相同。负号的来源是受控电流从节点 2 流出。
+模型中 $D=0.25$，$U_1=20$ mV，$U_2=-4$ V，__电压增益__ $A_u=-200$，与[第 6 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html)相同。负号的来源是受控电流从节点 2 流出。
 ::::
 
 **有负反馈。** 输入和输出共同的下方连接点称为底点。把它与接地点断开，并在那里插入 $R_\mathrm S=1\,\mathrm{k\Omega}$，就出现节点 3（图 [8](#abb-8)）。这时输出电流流过 $R_\mathrm S$，抬高 $U_3$。这使控制电压 $U_1-U_3$ 下降，输出电流随之减小。这种输出对自身输入的反作用称为__负反馈__。
@@ -72,7 +74,7 @@ $$\frac{U_2}{I_\mathrm q}=\frac{G_\mathrm iG_\mathrm o-g\,G_\mathrm S}{(G_\mathr
 :::
 
 :::frage 为什么要主动降低增益？
-因为这样它几乎不再取决于跨导，而晶体管的 $g$ 分散性很大。在模型中把 $g$ 加倍，$A_u$ 只从 $-4.81$ 变到 $-4.90$。而没有 $R_\mathrm S$ 时，$-200$ 会变成 $-400$。结果接近 $-R_\mathrm L/R_\mathrm S=-5$，也就是由两个精确的电阻决定。[第 11 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker/der-operationsverstaerker.html)在运算放大器中利用了这一点。
+因为这样它几乎不再取决于跨导，而晶体管的 $g$ 分散性很大。在模型中把 $g$ 加倍，$A_u$ 只从 $-4.81$ 变到 $-4.90$。而没有 $R_\mathrm S$ 时，$-200$ 会变成 $-400$。结果接近 $-R_\mathrm L/R_\mathrm S=-5$，也就是由两个精确的电阻决定。[第 11 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker/der-operationsverstaerker.html)在运算放大器中利用了这一点。
 :::
 
 :::aufgabe 练习 10 ★★★ 输入电阻升高

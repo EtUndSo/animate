@@ -1,7 +1,8 @@
 ---
 title: Kovarianz und Korrelation
 pfad: Informatik / Machine Learning / Mathematische Grundlagen / Wahrscheinlichkeit
-knoten: Grundlagen 4: Wahrscheinlichkeit
+adresse: informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit
+knoten: Kapitel 4: Wahrscheinlichkeit
 nachschlagen: ja
 order: 15241100
 summary: Zwei Größen schwanken oft gemeinsam: Größere Wohnungen haben mehr Zimmer, an Sonnentagen wird mehr Rad gefahren.
@@ -53,7 +54,7 @@ Die Kovarianz von Sonne und Radfahren: Nur die Zelle, in der beide Größen $1$ 
 
 <span class="anker" id="stufe-10-2"></span>
 
-Zwei Störquellen addieren sich in einer Schaltung. Wie stark schwankt die Summe? Die Erwartungswerte addieren sich immer. Bei den Varianzen kommt es darauf an, wie die Störungen zusammenhängen: Schwanken sie im Gleichtakt, verstärken sie sich; schwanken sie gegeneinander, heben sie sich teilweise auf.
+Wer mit Bus und Zug zur Arbeit fährt, braucht für jede der beiden Strecken jeden Tag etwas unterschiedlich lange. Wie stark schwankt die Summe? Die Erwartungswerte addieren sich immer. Bei den Varianzen kommt es darauf an, wie die Schwankungen zusammenhängen: Schwanken sie im Gleichtakt, verstärken sie sich; schwanken sie gegeneinander, heben sie sich teilweise auf.
 
 :::satz Satz 10.2 (Varianz einer Summe)
 <span class="anker" id="satz-10-2"></span>
@@ -76,7 +77,7 @@ Mit den Abweichungen $\tilde X=X-\mu_X$ und $\tilde Y=Y-\mu_Y$ ist die Abweichun
 Die Standardabweichungen addieren sich dagegen nicht. Für unabhängige Größen ist $\sigma_{X+Y}=\sqrt{\sigma_X^2+\sigma_Y^2}$, kleiner als $\sigma_X+\sigma_Y$.
 
 ::::beispiel [Rechenbeispiel 1]
-Zwei unabhängige Rauschquellen mit den Standardabweichungen $3\,\mathrm{mV}$ und $4\,\mathrm{mV}$ ergeben zusammen die Varianz $9+16=25\,\mathrm{mV}^2$, also $\sigma=5\,\mathrm{mV}$ und nicht $7\,\mathrm{mV}$. Die Augensumme zweier Würfel hat die Varianz $2\cdot\tfrac{35}{12}=\tfrac{35}6\approx5{,}83$ und die Standardabweichung $2{,}415$, nicht $2\cdot1{,}708$.
+Die Fahrzeiten mit Bus und Zug schwanken unabhängig voneinander mit den Standardabweichungen $3\,\mathrm{min}$ und $4\,\mathrm{min}$. Die Gesamtzeit hat dann die Varianz $9+16=25\,\mathrm{min}^2$, also $\sigma=5\,\mathrm{min}$ und nicht $7\,\mathrm{min}$. Die Augensumme zweier Würfel hat die Varianz $2\cdot\tfrac{35}{12}=\tfrac{35}6\approx5{,}83$ und die Standardabweichung $2{,}415$, nicht $2\cdot1{,}708$.
 ::::
 
 ::::beispiel [Rechenbeispiel 2] die Binomialverteilung
@@ -91,7 +92,7 @@ Für die $10$ Teile bei $5\,\%$ Ausschuss ist $\operatorname{Var}(X)=10\cdot0{,}
 ⁠**Kurz gesagt:** Die Varianz einer Summe ist die Summe der Varianzen plus zweimal jede Kovarianz; bei unabhängigen Größen addieren sich die Varianzen, nicht die Standardabweichungen.
 
 :::hintergrund Warum sich Varianzen addieren und Standardabweichungen nicht
-Die Rechnung im Beweis ist die Rechnung für die Länge einer Vektorsumme: $\lVert\mathbf{a}+\mathbf{b}\rVert^2=\lVert\mathbf{a}\rVert^2+2\,\mathbf{a}^{\top}\mathbf{b}+\lVert\mathbf{b}\rVert^2$. Die Rolle des Skalarprodukts spielt die Kovarianz, die Rolle der Länge die Standardabweichung (Unterabschnitt [10.4](#stufe-10-4)). Unkorrelierte Größen entsprechen senkrechten Vektoren, und [(10.4)](#gl-10-4) ist der Satz des Pythagoras: Die Längen addieren sich nicht, ihre Quadrate schon. Zwei unabhängige Rauschquellen mit $3$ und $4\,\mathrm{mV}$ sind wie zwei senkrechte Katheten; die Summe ist die Hypotenuse mit $5\,\mathrm{mV}$. In der Elektrotechnik heißt das: Die Leistungen unabhängiger Rauschquellen addieren sich, ihre Effektivwerte addieren sich nur „quadratisch“. Dass sich die Varianzen unabhängiger Summanden addieren, wurde 1853 von Irénée-Jules Bienaymé ausgesprochen. Diese Eigenschaft ist der Hauptgrund, warum man Streuung mit Quadraten misst und nicht etwa mit dem mittleren Betrag der Abweichung: Für den mittleren Betrag gibt es keine solche Additionsregel.
+Die Rechnung im Beweis ist die Rechnung für die Länge einer Vektorsumme: $\lVert\mathbf{a}+\mathbf{b}\rVert^2=\lVert\mathbf{a}\rVert^2+2\,\mathbf{a}^{\top}\mathbf{b}+\lVert\mathbf{b}\rVert^2$. Die Rolle des Skalarprodukts spielt die Kovarianz, die Rolle der Länge die Standardabweichung (Unterabschnitt [10.4](#stufe-10-4)). Unkorrelierte Größen entsprechen senkrechten Vektoren, und [(10.4)](#gl-10-4) ist der Satz des Pythagoras: Die Längen addieren sich nicht, ihre Quadrate schon. Zwei unabhängige Fahrzeiten mit den Standardabweichungen $3$ und $4\,\mathrm{min}$ sind wie zwei senkrechte Katheten; die Summe ist die Hypotenuse mit $5\,\mathrm{min}$. Unabhängige Schwankungen addieren sich also nur „quadratisch“, und deshalb ist eine lange Kette unabhängiger Teilstrecken verlässlicher, als die Summe der einzelnen Standardabweichungen vermuten lässt. Dass sich die Varianzen unabhängiger Summanden addieren, wurde 1853 von Irénée-Jules Bienaymé ausgesprochen. Diese Eigenschaft ist der Hauptgrund, warum man Streuung mit Quadraten misst und nicht etwa mit dem mittleren Betrag der Abweichung: Für den mittleren Betrag gibt es keine solche Additionsregel.
 :::
 
 ### Der Korrelationskoeffizient
@@ -141,9 +142,9 @@ Für Sonne und Rad ist $\operatorname{Var}(S)=\operatorname{Var}(R)=0{,}4\cdot0{
 
 <span class="anker" id="stufe-10-4"></span>
 
-Die Rechenregeln der Kovarianz sind die eines Skalarprodukts aus [Grundlagen 1, Abschnitt 2.1](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-skalarprodukt.html#stufe-2-1). Sie ist symmetrisch und in jedem Argument linear: $\operatorname{Cov}(aX+bY,\,V)=a\,\operatorname{Cov}(X,V)+b\,\operatorname{Cov}(Y,V)$, eine direkte Folge der Linearität des Erwartungswerts. Und $\operatorname{Cov}(X,X)=\operatorname{Var}(X)\ge0$. Das legt eine geometrische Sprache nahe, in der Zufallsvariablen mit Erwartungswert $0$ wie Vektoren behandelt werden.
+Die Rechenregeln der Kovarianz sind die eines Skalarprodukts aus [Kapitel 1, Abschnitt 2.1](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-skalarprodukt.html#stufe-2-1). Sie ist symmetrisch und in jedem Argument linear: $\operatorname{Cov}(aX+bY,\,V)=a\,\operatorname{Cov}(X,V)+b\,\operatorname{Cov}(Y,V)$, eine direkte Folge der Linearität des Erwartungswerts. Und $\operatorname{Cov}(X,X)=\operatorname{Var}(X)\ge0$. Das legt eine geometrische Sprache nahe, in der Zufallsvariablen mit Erwartungswert $0$ wie Vektoren behandelt werden.
 
-| Vektoren (Grundlagen 1) | Zufallsvariablen mit Erwartungswert $0$ |
+| Vektoren (Kapitel 1) | Zufallsvariablen mit Erwartungswert $0$ |
 |---|---|
 | Skalarprodukt $\mathbf{a}^{\top}\mathbf{b}$ | Kovarianz $\operatorname{Cov}(X,Y)=\mathbb{E}[XY]$ |
 | Länge $\lVert\mathbf{a}\rVert$ | Standardabweichung $\sigma_X$ |
@@ -152,10 +153,10 @@ Die Rechenregeln der Kovarianz sind die eines Skalarprodukts aus [Grundlagen 1,
 | Cauchy-Schwarz $\vert \mathbf{a}^{\top}\mathbf{b}\vert \le\lVert\mathbf{a}\rVert\,\lVert\mathbf{b}\rVert$ | $\vert \operatorname{Cov}(X,Y)\vert \le\sigma_X\sigma_Y$, also $\vert \rho\vert \le1$ |
 | Pythagoras für senkrechte Vektoren | $\operatorname{Var}(X+Y)=\operatorname{Var}(X)+\operatorname{Var}(Y)$ für unkorrelierte |
 
-Für einen Datensatz wird das wörtlich. [Grundlagen 1, Abschnitt 5.4](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/winkel-und-ahnlichkeit.html#stufe-5-4), hat den Korrelationskoeffizienten zweier Merkmale als Kosinus des Winkels zwischen ihren zentrierten Merkmalsvektoren eingeführt. Das ist genau $\rho$ für die empirische Verteilung: Für zwei Merkmalsvektoren $\mathbf{a}$ und $\mathbf{b}$ mit den zentrierten Vektoren $\tilde{\mathbf{a}}$ und $\tilde{\mathbf{b}}$ ist die Kovarianz der empirischen Verteilung $\tfrac1N\tilde{\mathbf{a}}^{\top}\tilde{\mathbf{b}}$, ein Skalarprodukt der zentrierten Vektoren, und die Standardabweichungen sind $\tfrac1{\sqrt N}\lVert\tilde{\mathbf{a}}\rVert$ und $\tfrac1{\sqrt N}\lVert\tilde{\mathbf{b}}\rVert$. Der Faktor $\tfrac1N$ kürzt sich im Quotienten heraus (Unterabschnitt [10.6](#stufe-10-6)).
+Für einen Datensatz wird das wörtlich. [Kapitel 1, Abschnitt 5.4](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/winkel-und-ahnlichkeit.html#stufe-5-4), hat den Korrelationskoeffizienten zweier Merkmale als Kosinus des Winkels zwischen ihren zentrierten Merkmalsvektoren eingeführt. Das ist genau $\rho$ für die empirische Verteilung: Für zwei Merkmalsvektoren $\mathbf{a}$ und $\mathbf{b}$ mit den zentrierten Vektoren $\tilde{\mathbf{a}}$ und $\tilde{\mathbf{b}}$ ist die Kovarianz der empirischen Verteilung $\tfrac1N\tilde{\mathbf{a}}^{\top}\tilde{\mathbf{b}}$, ein Skalarprodukt der zentrierten Vektoren, und die Standardabweichungen sind $\tfrac1{\sqrt N}\lVert\tilde{\mathbf{a}}\rVert$ und $\tfrac1{\sqrt N}\lVert\tilde{\mathbf{b}}\rVert$. Der Faktor $\tfrac1N$ kürzt sich im Quotienten heraus (Unterabschnitt [10.6](#stufe-10-6)).
 
 ::::beispiel [Rechenbeispiel]
-Für die Rauschquellen mit $3$ und $4\,\mathrm{mV}$ aus Unterabschnitt [10.2](#stufe-10-2) sei nun $\rho=0{,}5$, etwa weil beide von derselben Versorgungsspannung gestört werden. Das entspricht zwei Vektoren der Längen $3$ und $4$ im Winkel von $60^\circ$. Die Summe hat die Varianz $9+16+2\cdot0{,}5\cdot3\cdot4=37$, also $\sigma\approx6{,}08\,\mathrm{mV}$, mehr als die $5\,\mathrm{mV}$ unkorrelierter Quellen.
+Für die Fahrzeiten mit $3$ und $4\,\mathrm{min}$ aus Unterabschnitt [10.2](#stufe-10-2) sei nun $\rho=0{,}5$, etwa weil bei Schnee Bus und Zug zugleich langsamer fahren. Das entspricht zwei Vektoren der Längen $3$ und $4$ im Winkel von $60^\circ$. Die Summe hat die Varianz $9+16+2\cdot0{,}5\cdot3\cdot4=37$, also $\sigma\approx6{,}08\,\mathrm{min}$, mehr als die $5\,\mathrm{min}$ unkorrelierter Fahrzeiten.
 ::::
 
 ⁠**Kurz gesagt:** Die Kovarianz rechnet wie ein Skalarprodukt; die Standardabweichung ist die Länge, der Korrelationskoeffizient der Kosinus des Winkels, und unkorreliert heißt senkrecht.
@@ -206,7 +207,7 @@ $$\operatorname{corr}(\mathbf{a},\mathbf{b})=\frac{\operatorname{cov}(\mathbf{a}
 der __empirische Korrelationskoeffizient__.
 :::
 
-Das ist die Kovarianz der empirischen Verteilung; sie ist durch $N$ geteilt wie die Standardabweichung in [Grundlagen 1, Abschnitt 4.4](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/abstande-und-einheiten.html#stufe-4-4). Mit $\mathbf{b}=\mathbf{a}$ ist $\operatorname{cov}(\mathbf{a},\mathbf{a})=\operatorname{std}(\mathbf{a})^2$. Kleingeschrieben unterscheiden $\operatorname{cov}$ und $\operatorname{corr}$ die Zahlen eines Datensatzes von den Größen $\operatorname{Cov}$ und $\rho$ einer Verteilung; wie in Unterabschnitt [7.7](erwartungswert-und-varianz.html#stufe-7-7) hängen sie davon ab, welche Daten zufällig gezogen wurden.
+Das ist die Kovarianz der empirischen Verteilung; sie ist durch $N$ geteilt wie die Standardabweichung in [Kapitel 1, Abschnitt 4.4](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/abstande-und-einheiten.html#stufe-4-4). Mit $\mathbf{b}=\mathbf{a}$ ist $\operatorname{cov}(\mathbf{a},\mathbf{a})=\operatorname{std}(\mathbf{a})^2$. Kleingeschrieben unterscheiden $\operatorname{cov}$ und $\operatorname{corr}$ die Zahlen eines Datensatzes von den Größen $\operatorname{Cov}$ und $\rho$ einer Verteilung; wie in Unterabschnitt [7.7](erwartungswert-und-varianz.html#stufe-7-7) hängen sie davon ab, welche Daten zufällig gezogen wurden.
 
 ::::beispiel [Rechenbeispiel]
 Drei Datenpunkte $(a_i,b_i)$, nämlich $(1,2)$, $(2,1)$ und $(3,3)$, haben die Mittelwerte $\bar a=\bar b=2$ und die zentrierten Vektoren $\tilde{\mathbf{a}}=(-1,\,0,\,1)^{\top}$ und $\tilde{\mathbf{b}}=(0,\,-1,\,1)^{\top}$. Abb. [14](#abb-14) rechnet $\operatorname{cov}(\mathbf{a},\mathbf{b})=\tfrac13$ und $\operatorname{std}(\mathbf{a})^2=\operatorname{std}(\mathbf{b})^2=\tfrac23$, also $\operatorname{corr}(\mathbf{a},\mathbf{b})=\frac{1/3}{2/3}=0{,}5$.
@@ -218,8 +219,8 @@ Empirische Kovarianz und Varianz der drei Datenpunkte: Skalarprodukte der zentri
 
 ⁠**Kurz gesagt:** Kovarianz und Korrelation eines Datensatzes sind die der empirischen Verteilung: das Skalarprodukt der zentrierten Vektoren durch $N$, und dessen Kosinus.
 
-:::hintergrund Zufallsprozesse: Kovarianzen innerhalb eines Signals
-Ein Rauschsignal ist eine Folge von Zufallsvariablen $X_1,X_2,\dots$, eine für jeden Abtastzeitpunkt; man nennt eine solche Folge einen __Zufallsprozess__. Aus Signale und Systeme kennt man seine Autokorrelation. Für einen Prozess mit Erwartungswert $0$ ist sie die Kovarianz $\mathbb{E}[X_nX_{n+k}]$ zweier Werte im Abstand $k$; hängt sie nur vom Abstand $k$ ab und nicht vom Zeitpunkt $n$, heißt der Prozess (schwach) stationär. Bei $k=0$ ist sie die Varianz, also die Leistung. Weißes Rauschen hat $\mathbb{E}[X_nX_{n+k}]=0$ für $k\ne0$: Seine Abtastwerte sind unkorreliert, und deshalb ist sein Leistungsdichtespektrum flach. Die meisten Signale sind nicht weiß; ihre Abtastwerte sind korreliert, und eine Folge von Abtastwerten ist dann keine i.i.d. Stichprobe im Sinn von Unterabschnitt [9.6](mehrere-zufallsvariablen.html#stufe-9-6).
+:::hintergrund Zufallsprozesse: Kovarianzen innerhalb eines Verlaufs
+Die Abweichungen der Tagestemperaturen vom langjährigen Mittel bilden eine Folge von Zufallsvariablen $X_1,X_2,\dots$, eine für jeden Tag; man nennt eine solche Folge einen __Zufallsprozess__. Für einen Prozess mit Erwartungswert $0$ heißt die Kovarianz $\mathbb{E}[X_nX_{n+k}]$ zweier Werte im Abstand $k$ seine Autokorrelation; hängt sie nur vom Abstand $k$ ab und nicht vom Zeitpunkt $n$, heißt der Prozess (schwach) stationär. Bei $k=0$ ist sie die Varianz. Ein Prozess mit $\mathbb{E}[X_nX_{n+k}]=0$ für $k\ne0$ heißt weißes Rauschen: Seine Werte sind unkorreliert, wie die Augenzahlen aufeinanderfolgender Würfelwürfe nach Abzug von $3{,}5$. Die meisten Verläufe sind nicht weiß: Ist es heute ungewöhnlich warm, ist es morgen wahrscheinlich auch noch. Ihre Werte sind korreliert, und eine Folge solcher Werte ist dann keine i.i.d. Stichprobe im Sinn von Unterabschnitt [9.6](mehrere-zufallsvariablen.html#stufe-9-6).
 :::
 
 :::aufgabe Aufgabe 29 ★ Kovarianz aus einer Tabelle
@@ -250,10 +251,10 @@ Berechne den Korrelationskoeffizienten.
 :::
 :::
 
-:::aufgabe Aufgabe 30 ★★ Die Differenzmessung
+:::aufgabe Aufgabe 30 ★★ Ein Paket auf der Personenwaage
 <span class="anker" id="aufg-30"></span>
 
-Zwei Sensoren messen dieselbe Größe; ihr Rauschen $X$ und $Y$ hat die Standardabweichungen $2\,\mathrm{mV}$ und $3\,\mathrm{mV}$ und den Korrelationskoeffizienten $\rho$.
+Wer ein Paket mit der Personenwaage wiegen will, stellt sich einmal ohne und einmal mit dem Paket darauf und bildet die Differenz. Die Fehler $X$ und $Y$ der beiden Anzeigen haben die Standardabweichungen $0{,}2\,\mathrm{kg}$ und $0{,}3\,\mathrm{kg}$ und den Korrelationskoeffizienten $\rho$.
 
 <ol class="al">
 
@@ -265,7 +266,7 @@ Berechne $\operatorname{Var}(X+Y)$ und $\operatorname{Var}(X-Y)$ für $\rho=0{,}
 
 <li>
 
-Wie verhält sich $\operatorname{Var}(X-Y)$ für $\rho\to1$? Warum misst man deshalb oft die Differenz zweier Signale, die dieselbe Störung abbekommen?
+Wie verhält sich $\operatorname{Var}(X-Y)$ für $\rho\to1$? Warum ist es deshalb geschickt, beide Wägungen auf derselben Waage kurz nacheinander zu machen?
 
 </li>
 
@@ -278,18 +279,18 @@ Für welches $\rho$ ist $\operatorname{Var}(X-Y)$ am kleinsten, und welchen Wert
 </ol>
 
 :::loesung
-(a) $\operatorname{Cov}(X,Y)=0{,}5\cdot2\cdot3=3\,\mathrm{mV}^2$. $\operatorname{Var}(X+Y)=4+9+6=19\,\mathrm{mV}^2$ und $\operatorname{Var}(X-Y)=4+9-6=7\,\mathrm{mV}^2$.
+(a) $\operatorname{Cov}(X,Y)=0{,}5\cdot0{,}2\cdot0{,}3=0{,}03\,\mathrm{kg}^2$. $\operatorname{Var}(X+Y)=0{,}04+0{,}09+0{,}06=0{,}19\,\mathrm{kg}^2$ und $\operatorname{Var}(X-Y)=0{,}04+0{,}09-0{,}06=0{,}07\,\mathrm{kg}^2$.
 
-(b) $\operatorname{Var}(X-Y)=13-12\rho$ geht für $\rho\to1$ gegen $1\,\mathrm{mV}^2$. Je stärker die Störungen gemeinsam schwanken, desto mehr heben sie sich in der Differenz auf. Ein Differenzverstärker nutzt das: Eine Störung, die beide Leitungen gleich trifft, erscheint in der Differenz nicht. Wären die beiden Störungen auch gleich groß, so würden sie sich bei $\rho=1$ ganz aufheben.
+(b) $\operatorname{Var}(X-Y)=0{,}13-0{,}12\,\rho$ (in $\mathrm{kg}^2$) geht für $\rho\to1$ gegen $0{,}01\,\mathrm{kg}^2$. Je stärker die Fehler gemeinsam schwanken, desto mehr heben sie sich in der Differenz auf. Ein Fehler, der beide Wägungen gleich trifft, etwa eine falsch eingestellte Null der Waage, erscheint in der Differenz nicht. Auf derselben Waage kurz nacheinander ist ein großer Teil des Fehlers gemeinsam, und $\rho$ ist nahe bei $1$. Wären die beiden Fehler auch gleich groß, so würden sie sich bei $\rho=1$ ganz aufheben.
 
-(c) $13-12\rho$ ist am kleinsten bei $\rho=1$, mit dem Wert $1\,\mathrm{mV}^2=(\sigma_Y-\sigma_X)^2$.
+(c) $0{,}13-0{,}12\,\rho$ ist am kleinsten bei $\rho=1$, mit dem Wert $0{,}01\,\mathrm{kg}^2=(\sigma_Y-\sigma_X)^2$.
 :::
 :::
 
 :::aufgabe Aufgabe 31 ★★ Die Wohnungen
 <span class="anker" id="aufg-31"></span>
 
-Die vier Wohnungen aus [Grundlagen 1](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html) haben die Flächen $(60,\,40,\,90,\,70)$ und die Zimmerzahlen $(2,\,1,\,4,\,3)$.
+Die vier Wohnungen aus [Kapitel 1](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html) haben die Flächen $(60,\,40,\,90,\,70)$ und die Zimmerzahlen $(2,\,1,\,4,\,3)$.
 
 <ol class="al">
 

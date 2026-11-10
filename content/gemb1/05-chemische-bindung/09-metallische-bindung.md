@@ -1,6 +1,8 @@
 ---
 title: Stufe 7: Metallische Bindung
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Chemische Bindung
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Chemische Bindung
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/chemische-bindung
+knoten: Kapitel 5: Chemische Bindung
 order: 4150900
 summary: Ein Lithiumatom hat ein Valenzelektron, aber viele Nachbarn.
 tags: Elektronengas
@@ -13,7 +15,7 @@ lang: de
 Ein Lithiumatom hat ein Valenzelektron, aber viele Nachbarn. Für Elektronenpaare zu allen reicht das nicht, und einen Partner, der das Elektron nimmt, gibt es unter Lithiumatomen auch nicht. Diese Stufe zeigt die dritte Lösung.
 :::
 
-**Die Idee.** Das äußerste Elektron ist nur schwach gebunden. Die näher am Kern liegenden, gefüllten Orbitale schirmen das Coulomb-Potential ab ([Teil 4](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/atome-und-orbitale/atome-und-orbitale.html)), und auf gleicher Tiefe ist der abgeschirmte Trichter schmaler (Abb. [7](#abb-7)). Wie in einer kürzeren Box liegt das Niveau dadurch höher, und das Atom ist leichter zu ionisieren. Geben alle Atome eines Verbunds Elektronen ab, nimmt sie niemand auf. Sie bleiben zwischen den Atomen, gehören allen zugleich und sind frei beweglich. Sie bilden ein __Elektronengas__. Zurück bleiben positive Atomrümpfe, meist mit Edelgaskonfiguration, und das negative Gas hält sie zusammen wie ein elektrostatischer Kleister. Das ist die metallische Bindung.
+**Die Idee.** Das äußerste Elektron ist nur schwach gebunden. Die näher am Kern liegenden, gefüllten Orbitale schirmen das Coulomb-Potential ab ([Kapitel 4](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/atome-und-orbitale/atome-und-orbitale.html)), und auf gleicher Tiefe ist der abgeschirmte Trichter schmaler (Abb. [7](#abb-7)). Wie in einer kürzeren Box liegt das Niveau dadurch höher, und das Atom ist leichter zu ionisieren. Geben alle Atome eines Verbunds Elektronen ab, nimmt sie niemand auf. Sie bleiben zwischen den Atomen, gehören allen zugleich und sind frei beweglich. Sie bilden ein __Elektronengas__. Zurück bleiben positive Atomrümpfe, meist mit Edelgaskonfiguration, und das negative Gas hält sie zusammen wie ein elektrostatischer Kleister. Das ist die metallische Bindung.
 
 :::abbildung gemb1/k5metall 7
 Links: Potentielle Energie $V(r)$ des 2s-Elektrons im Lithium ohne und mit den abschirmenden 1s-Elektronen (Modellkurven) und die zugehörigen Niveaus. Rechts: Atomrümpfe im Elektronengas.
@@ -31,7 +33,7 @@ $$\bar E_\mathrm{kin}=\frac1{12}\,\frac{h^2}{8m_0a^2}. \tag{7.1}$$
 ⁠**So liest man das:** Der Bruch rechts ist die Grundzustandsenergie einer Box der Breite $a$, also eines Elektrons auf dem Platz eines Atoms. Das gemeinsame Gas senkt die Bewegungsenergie auf ein Zwölftel, obwohl das Pauli-Prinzip die Elektronen in höhere Niveaus zwingt. Hinzu kommt die Anziehung: Jeder Rumpf sitzt mitten in negativer Ladung. **Gültigkeit:** Modell in einer Dimension ohne Abstoßung der Elektronen. Es erklärt das Vorzeichen, nicht die genaue Zahl.
 
 :::herleitung Niveaus zählen
-Die Niveaus sind $E_n=n^2h^2/(8m_0L^2)$ ([Teil 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html)) mit je zwei Elektronen, $N$ Elektronen füllen $n=1$ bis $N/2$. Mit $\sum_{n=1}^{N/2}n^2\approx(N/2)^3/3$ ist die Gesamtenergie $2\cdot\frac{N^3}{24}\cdot\frac{h^2}{8m_0N^2a^2}$. Geteilt durch $N$ kürzt sich jedes $N$ heraus.
+Die Niveaus sind $E_n=n^2h^2/(8m_0L^2)$ ([Kapitel 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html)) mit je zwei Elektronen, $N$ Elektronen füllen $n=1$ bis $N/2$. Mit $\sum_{n=1}^{N/2}n^2\approx(N/2)^3/3$ ist die Gesamtenergie $2\cdot\frac{N^3}{24}\cdot\frac{h^2}{8m_0N^2a^2}$. Geteilt durch $N$ kürzt sich jedes $N$ heraus.
 :::
 
 ::::beispiel

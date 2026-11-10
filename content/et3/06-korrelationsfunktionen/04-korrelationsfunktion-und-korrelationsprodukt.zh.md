@@ -1,6 +1,8 @@
 ---
 title: 第 3 阶段：相关函数与相关积
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / 相关函数
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / 相关函数
+adresse: elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen
+knoten: 第 6 章：相关函数
 order: 3260400
 summary: 回波与发送脉冲相似，但发生了时移。因此要对每个时移 tau 进行比较。
 tags: 自相关函数, 互相关函数, 相关积

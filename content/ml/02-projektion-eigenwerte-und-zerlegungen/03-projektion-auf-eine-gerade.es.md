@@ -1,7 +1,8 @@
 ---
 title: Proyección sobre una recta
 pfad: Informática / Aprendizaje automático / Fundamentos matemáticos / Proyección, valores propios y descomposiciones
-knoten: Fundamentos 2: Proyección, valores propios y descomposiciones
+adresse: informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen
+knoten: Capítulo 2: Proyección, valores propios y descomposiciones
 nachschlagen: ja
 order: 15220300
 summary: Un punto está junto a una recta.
@@ -21,7 +22,7 @@ Un punto está junto a una recta. ¿Qué punto de la recta es el más cercano a 
 
 Una recta que pasa por el origen consta de todos los múltiplos $t\,\mathbf{a}$ de un vector director $\mathbf{a}\ne\mathbf{0}$. Se da un punto $\mathbf{y}$, que no tiene por qué estar sobre ella. Se busca el punto de la recta más cercano a $\mathbf{y}$.
 
-En [Fundamentos 1, sección 5.5](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/winkel-und-ahnlichkeit.html#stufe-5-5), una flecha proyectaba una sombra sobre una recta con luz que incidía perpendicularmente. El extremo de la sombra es el punto en el que la perpendicular trazada desde $\mathbf{y}$ corta a la recta, el *pie de la perpendicular*. El vector que va de este punto a $\mathbf{y}$ es perpendicular a la recta (fig. [4](#abb-4)). Que es el punto más cercano lo muestra la subsección siguiente. Aquí primero se calcula, y además también para el caso en que $\mathbf{a}$ no está normalizado.
+En el [capítulo 1, sección 5.5](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/winkel-und-ahnlichkeit.html#stufe-5-5), una flecha proyectaba una sombra sobre una recta con luz que incidía perpendicularmente. El extremo de la sombra es el punto en el que la perpendicular trazada desde $\mathbf{y}$ corta a la recta, el *pie de la perpendicular*. El vector que va de este punto a $\mathbf{y}$ es perpendicular a la recta (fig. [4](#abb-4)). Que es el punto más cercano lo muestra la subsección siguiente. Aquí primero se calcula, y además también para el caso en que $\mathbf{a}$ no está normalizado.
 
 :::herleitung El pie de la perpendicular
 El punto buscado está sobre la recta, es decir, es $\hat x\,\mathbf{a}$ con un número $\hat x$ aún desconocido. El vector de unión $\mathbf{y}-\hat x\,\mathbf{a}$ debe ser perpendicular a $\mathbf{a}$:
@@ -40,7 +41,7 @@ Sea $\mathbf{a}\in\mathbb{R}^n$, $\mathbf{a}\ne\mathbf{0}$. La __proyección ort
 $$\hat{\mathbf{y}}=\hat x\,\mathbf{a}\qquad\text{con}\qquad\hat x=\frac{\mathbf{a}^{\top}\mathbf{y}}{\mathbf{a}^{\top}\mathbf{a}} . \tag{2.1}$$
 :::
 
-El punto $\hat{\mathbf{y}}$ es un vector de $\mathbb{R}^n$; el número $\hat x$ es su coordenada a lo largo de $\mathbf{a}$. No hay que confundir una cosa con la otra. Si $\mathbf{a}$ está normalizado, es $\mathbf{a}^{\top}\mathbf{a}=1$ y $\hat{\mathbf{y}}=(\mathbf{a}^{\top}\mathbf{y})\,\mathbf{a}$, exactamente el punto de sombra de [Fundamentos 1](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html).
+El punto $\hat{\mathbf{y}}$ es un vector de $\mathbb{R}^n$; el número $\hat x$ es su coordenada a lo largo de $\mathbf{a}$. No hay que confundir una cosa con la otra. Si $\mathbf{a}$ está normalizado, es $\mathbf{a}^{\top}\mathbf{a}=1$ y $\hat{\mathbf{y}}=(\mathbf{a}^{\top}\mathbf{y})\,\mathbf{a}$, exactamente el punto de sombra del [capítulo 1](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html).
 
 :::abbildung ml/k2lot 4
 La proyección de $\mathbf{y}=(4,3)^{\top}$ sobre la recta en la dirección de $\mathbf{a}=(1,2)^{\top}$. El pie de la perpendicular es $\hat{\mathbf{y}}=2\mathbf{a}=(2,4)^{\top}$; el vector de unión $\mathbf{r}=(2,-1)^{\top}$ (azul) es perpendicular a la recta. Otro punto de la recta, por ejemplo $(1,2)^{\top}$, está más lejos de $\mathbf{y}$ (a trazos): el triángulo formado por $\mathbf{y}$, $\hat{\mathbf{y}}$ y $(1,2)^{\top}$ tiene un ángulo recto en $\hat{\mathbf{y}}$, y el lado a trazos es su hipotenusa.
@@ -55,7 +56,7 @@ Los dos productos escalares de la proyección paso a paso: $\mathbf{a}^{\top}\ma
 ::::
 
 ::::beispiel [Ejemplo numérico 2]
-Para $\mathbf{a}=(3,\,4)^{\top}$ y $\mathbf{y}=(3,\,1)^{\top}$ se tiene $\hat x=(9+4)/25=0{,}52$ y $\hat{\mathbf{y}}=0{,}52\,(3,\,4)^{\top}=(1{,}56;\ 2{,}08)^{\top}$, el mismo punto de sombra que en [Fundamentos 1](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html) con el vector normalizado $(0{,}6;\ 0{,}8)^{\top}=\mathbf{a}/5$. La longitud del vector director no importa: si se sustituye $\mathbf{a}$ por $c\,\mathbf{a}$ con $c\ne0$, $\hat x$ pasa a ser $\hat x/c$, y $\hat{\mathbf{y}}$ no cambia. Si, en cambio, se duplica $\mathbf{y}$, también se duplica $\hat{\mathbf{y}}$.
+Para $\mathbf{a}=(3,\,4)^{\top}$ y $\mathbf{y}=(3,\,1)^{\top}$ se tiene $\hat x=(9+4)/25=0{,}52$ y $\hat{\mathbf{y}}=0{,}52\,(3,\,4)^{\top}=(1{,}56;\ 2{,}08)^{\top}$, el mismo punto de sombra que en el [capítulo 1](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html) con el vector normalizado $(0{,}6;\ 0{,}8)^{\top}=\mathbf{a}/5$. La longitud del vector director no importa: si se sustituye $\mathbf{a}$ por $c\,\mathbf{a}$ con $c\ne0$, $\hat x$ pasa a ser $\hat x/c$, y $\hat{\mathbf{y}}$ no cambia. Si, en cambio, se duplica $\mathbf{y}$, también se duplica $\hat{\mathbf{y}}$.
 ::::
 
 ⁠**En resumen:** La proyección de $\mathbf{y}$ sobre la recta en la dirección de $\mathbf{a}$ es el pie de la perpendicular, $\hat{\mathbf{y}}=\frac{\mathbf{a}^{\top}\mathbf{y}}{\mathbf{a}^{\top}\mathbf{a}}\,\mathbf{a}$.
@@ -82,7 +83,7 @@ Se escribe el vector que va de $t\,\mathbf{a}$ a $\mathbf{y}$ como suma de dos f
 
 $$\mathbf{y}-t\,\mathbf{a}=(\mathbf{y}-\hat{\mathbf{y}})+(\hat x-t)\,\mathbf{a} .$$
 
-El primer sumando es, según la deducción, perpendicular a $\mathbf{a}$ y, por tanto, también al segundo. Según el teorema de Pitágoras de [Fundamentos 1, sección 5.3](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/winkel-und-ahnlichkeit.html#stufe-5-3), el cuadrado de la longitud de la suma es la suma de los cuadrados de las longitudes, y eso es [(2.2)](#gl-2-2). El segundo sumando del lado derecho nunca es negativo y solo es cero para $t=\hat x$. Por tanto, la distancia es mínima exactamente para $t=\hat x$.
+El primer sumando es, según la deducción, perpendicular a $\mathbf{a}$ y, por tanto, también al segundo. Según el teorema de Pitágoras del [capítulo 1, sección 5.3](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/winkel-und-ahnlichkeit.html#stufe-5-3), el cuadrado de la longitud de la suma es la suma de los cuadrados de las longitudes, y eso es [(2.2)](#gl-2-2). El segundo sumando del lado derecho nunca es negativo y solo es cero para $t=\hat x$. Por tanto, la distancia es mínima exactamente para $t=\hat x$.
 :::
 
 Para la longitud del pie se cumple $\lVert\hat{\mathbf{y}}\rVert=|\hat x|\,\lVert\mathbf{a}\rVert=|\mathbf{a}^{\top}\mathbf{y}|/\lVert\mathbf{a}\rVert=|\cos\varphi|\,\lVert\mathbf{y}\rVert$, donde $\varphi$ es el ángulo entre $\mathbf{a}$ y $\mathbf{y}$. Es el cateto contiguo del triángulo rectángulo de hipotenusa $\mathbf{y}$.
@@ -94,7 +95,7 @@ En el primer ejemplo numérico de la subsección anterior es $\lVert\mathbf{y}-\
 ⁠**En resumen:** El punto más cercano de una recta es el pie de la perpendicular, porque, según Pitágoras, cada paso a lo largo de la recta aumenta el cuadrado de la distancia.
 
 :::hintergrund Por qué hay exactamente un punto más cercano y por qué eso se debe a la norma euclídea
-La demostración usa el teorema de Pitágoras, y este solo vale para normas que provienen de un producto escalar. En [Fundamentos 1, sección 3.4](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/normen-die-groe-eines-vektors.html#stufe-3-4), resultó que la norma 1 no es una norma de ese tipo. Con ella se pierde, en efecto, la unicidad. Ejemplo: la recta en la dirección de $\mathbf{a}=(1,\,1)^{\top}$ y el punto $\mathbf{y}=(1,\,0)^{\top}$. Para $0\le t\le1$ se tiene
+La demostración usa el teorema de Pitágoras, y este solo vale para normas que provienen de un producto escalar. En el [capítulo 1, sección 3.4](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/normen-die-groe-eines-vektors.html#stufe-3-4), resultó que la norma 1 no es una norma de ese tipo. Con ella se pierde, en efecto, la unicidad. Ejemplo: la recta en la dirección de $\mathbf{a}=(1,\,1)^{\top}$ y el punto $\mathbf{y}=(1,\,0)^{\top}$. Para $0\le t\le1$ se tiene
 
 $$\lVert\mathbf{y}-t\,\mathbf{a}\rVert_1=|1-t|+|0-t|=(1-t)+t=1 ,$$
 
@@ -105,11 +106,11 @@ es decir, el mismo valor para todos los puntos entre $\mathbf{0}$ y $\mathbf{a}$
 
 <span class="anker" id="stufe-2-3"></span>
 
-La regla $\mathbf{y}\mapsto\hat{\mathbf{y}}$ es lineal: la suma de dos puntos se transforma en la suma de sus proyecciones, y un múltiplo, en el múltiplo. Según [Fundamentos 1, sección 8.2](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-2), tiene, por tanto, una matriz. Se lee directamente si se escribe el número $\mathbf{a}^{\top}\mathbf{y}$ al otro lado de $\mathbf{a}$ y se reagrupa el producto de matrices:
+La regla $\mathbf{y}\mapsto\hat{\mathbf{y}}$ es lineal: la suma de dos puntos se transforma en la suma de sus proyecciones, y un múltiplo, en el múltiplo. Según el [capítulo 1, sección 8.2](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-2), tiene, por tanto, una matriz. Se lee directamente si se escribe el número $\mathbf{a}^{\top}\mathbf{y}$ al otro lado de $\mathbf{a}$ y se reagrupa el producto de matrices:
 
 $$\hat{\mathbf{y}}=\mathbf{a}\,\frac{\mathbf{a}^{\top}\mathbf{y}}{\mathbf{a}^{\top}\mathbf{a}}=\frac{\mathbf{a}\,\mathbf{a}^{\top}}{\mathbf{a}^{\top}\mathbf{a}}\,\mathbf{y} .$$
 
-En el numerador está el producto exterior de [Fundamentos 1, sección 9.5](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrixprodukt.html#stufe-9-5).
+En el numerador está el producto exterior del [capítulo 1, sección 9.5](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrixprodukt.html#stufe-9-5).
 
 :::definition Definición 2.3 (Matriz de proyección de una recta)
 <span class="anker" id="satz-2-3"></span>
@@ -139,7 +140,7 @@ Para $\mathbf{a}=(1,\,2)^{\top}$ se tiene
 
 $$\mathbf{P}=\frac15\begin{pmatrix}1&2\\2&4\end{pmatrix},\qquad \mathbf{P}\begin{pmatrix}4\\3\end{pmatrix}=\frac15\begin{pmatrix}4+6\\8+12\end{pmatrix}=\begin{pmatrix}2\\4\end{pmatrix}.$$
 
-Comprobación de $\mathbf{P}^2=\mathbf{P}$: $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)^2=\bigl(\begin{smallmatrix}5&10\\10&20\end{smallmatrix}\bigr)=5\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$; por tanto, $\mathbf{P}^2=\frac1{25}\cdot5\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)=\mathbf{P}$. La matriz $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ era en [Fundamentos 1, sección 11.5](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/einheitsmatrix-und-inverse.html#stufe-11-5), el ejemplo de una matriz sin inversa. Ahora está claro lo que hace: es cinco veces una proyección y aplasta el plano sobre la recta en la dirección de $(1,\,2)^{\top}$.
+Comprobación de $\mathbf{P}^2=\mathbf{P}$: $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)^2=\bigl(\begin{smallmatrix}5&10\\10&20\end{smallmatrix}\bigr)=5\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$; por tanto, $\mathbf{P}^2=\frac1{25}\cdot5\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)=\mathbf{P}$. La matriz $\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ era en el [capítulo 1, sección 11.5](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/einheitsmatrix-und-inverse.html#stufe-11-5), el ejemplo de una matriz sin inversa. Ahora está claro lo que hace: es cinco veces una proyección y aplasta el plano sobre la recta en la dirección de $(1,\,2)^{\top}$.
 ::::
 
 ⁠**En resumen:** La proyección sobre una recta es el producto matriz-vector con $\mathbf{P}=\mathbf{a}\mathbf{a}^{\top}/(\mathbf{a}^{\top}\mathbf{a})$; esta matriz es simétrica y cumple $\mathbf{P}^2=\mathbf{P}$.
@@ -163,7 +164,7 @@ Una proyección $\mathbf{P}$ es una proyección ortogonal si y solo si $\mathbf{
 :::
 
 :::beweis Ortogonal significa simétrica
-Para todos los $\mathbf{y},\mathbf{z}$ se tiene $(\mathbf{y}-\mathbf{P}\mathbf{y})^{\top}\mathbf{P}\mathbf{z}=\mathbf{y}^{\top}(\mathbf{I}-\mathbf{P})^{\top}\mathbf{P}\mathbf{z}$. Si $\mathbf{P}^{\top}=\mathbf{P}$, entonces $(\mathbf{I}-\mathbf{P})^{\top}\mathbf{P}=\mathbf{P}-\mathbf{P}^2=\mathbf 0$, y la expresión es cero. Si, a la inversa, la expresión es cero para todos los $\mathbf{y},\mathbf{z}$, la matriz $(\mathbf{I}-\mathbf{P})^{\top}\mathbf{P}$ es la matriz nula; en efecto, con $\mathbf{y}=\mathbf{e}_i$ y $\mathbf{z}=\mathbf{e}_l$ la expresión selecciona su entrada $(i,l)$. Entonces $\mathbf{P}=\mathbf{P}^{\top}\mathbf{P}$, y $\mathbf{P}^{\top}\mathbf{P}$ es simétrica según [Fundamentos 1, sección 10.2](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/transponierte-symmetrie-und-gram-matrix.html#stufe-10-2).
+Para todos los $\mathbf{y},\mathbf{z}$ se tiene $(\mathbf{y}-\mathbf{P}\mathbf{y})^{\top}\mathbf{P}\mathbf{z}=\mathbf{y}^{\top}(\mathbf{I}-\mathbf{P})^{\top}\mathbf{P}\mathbf{z}$. Si $\mathbf{P}^{\top}=\mathbf{P}$, entonces $(\mathbf{I}-\mathbf{P})^{\top}\mathbf{P}=\mathbf{P}-\mathbf{P}^2=\mathbf 0$, y la expresión es cero. Si, a la inversa, la expresión es cero para todos los $\mathbf{y},\mathbf{z}$, la matriz $(\mathbf{I}-\mathbf{P})^{\top}\mathbf{P}$ es la matriz nula; en efecto, con $\mathbf{y}=\mathbf{e}_i$ y $\mathbf{z}=\mathbf{e}_l$ la expresión selecciona su entrada $(i,l)$. Entonces $\mathbf{P}=\mathbf{P}^{\top}\mathbf{P}$, y $\mathbf{P}^{\top}\mathbf{P}$ es simétrica según el [capítulo 1, sección 10.2](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/transponierte-symmetrie-und-gram-matrix.html#stufe-10-2).
 :::
 
 ::::beispiel [Ejemplo numérico]

@@ -1,6 +1,8 @@
 ---
 title: Computerstrafrecht: was verboten ist
 pfad: Informatik / Cybersecurity / Sicherheit, Schutzziele und Spielregeln
+adresse: informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln
+knoten: Kapitel 1: Sicherheit, Schutzziele und Spielregeln
 order: 6110900
 summary: Was in einem eigenen Übungsaufbau eine Lernaufgabe ist, ist gegen ein fremdes System eine Straftat.
 tags: Straftatbestand, Tatbestandsmerkmalen, Vorsatz, Eventualvorsatz, rechtswidrig, Strafrahmen, Vergehen, Versuch
@@ -141,10 +143,10 @@ Ein Gast zeichnet im offenen Funknetz eines Cafés den Verkehr der anderen Gäst
 
 ⁠**Kurz gesagt:** Wer mit technischen Mitteln fremde Daten aus einer nichtöffentlichen Übermittlung oder aus der Abstrahlung eines Geräts abgreift, macht sich nach § 202b StGB strafbar, auch ohne Sicherung.
 
-:::hintergrund Warum hier keine Sicherung nötig ist, und ein Paragraph für Elektrotechniker
+:::hintergrund Warum hier keine Sicherung nötig ist, und warum auch die Abstrahlung von Geräten zählt
 Nach der Begründung des Gesetzes schützt § 202b dasselbe wie § 202a, das Interesse des Berechtigten an der Geheimhaltung. Nur zeigt sich dieses Interesse hier nicht durch eine Sicherung, sondern ergibt sich aus dem allgemeinen Recht, dass nichtöffentliche Kommunikation nichtöffentlich bleibt. Wer ein Telefongespräch führt, muss es nicht erst verschlüsseln, damit Mithören verboten ist. Die Vorschrift sollte gerade die Lücke schließen, die § 202a bei ungesicherten Übertragungen lässt; als technische Mittel nennt die Begründung ausdrücklich Geräte, die drahtlose Kommunikation erfassen.
 
-Die zweite Variante, die elektromagnetische Abstrahlung, betrifft die Elektrotechnik unmittelbar. Jedes Kabel, das schnell wechselnde Signale führt, strahlt ein schwaches Feld ab, und aus diesem Feld lassen sich unter Umständen die übertragenen Daten wiederherstellen, etwa der Inhalt eines Bildschirms aus einigen Metern Entfernung. Was die Feldtheorie als Nebenwirkung beschreibt und die elektromagnetische Verträglichkeit begrenzen soll, ist hier ein Angriffsweg. Der Gesetzgeber hat ihn ausdrücklich erfasst.
+Die zweite Variante, die elektromagnetische Abstrahlung, klingt exotisch, ist aber ein echter Angriffsweg. Ein Bildschirm, ein Kabel oder eine Tastatur sendet beim Betrieb ungewollt schwache Funkwellen aus, so wie ein Gespräch, das man durch eine dünne Wand noch leise hört, obwohl es nicht für einen bestimmt ist. Aus diesen Wellen lassen sich unter Umständen die Daten wiederherstellen, etwa der Inhalt eines Bildschirms aus einigen Metern Entfernung, ohne dass jemand das Gerät berührt. Hersteller begrenzen diese Abstrahlung, weil sie andere Geräte stören kann; für einen Lauscher ist sie eine Quelle. Der Gesetzgeber hat diesen Weg ausdrücklich erfasst.
 :::
 
 ### Vorbereiten des Ausspähens und Abfangens (§ 202c StGB)

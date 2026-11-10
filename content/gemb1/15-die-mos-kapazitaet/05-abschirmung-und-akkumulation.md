@@ -1,6 +1,8 @@
 ---
 title: Stufe 3: Abschirmung und Akkumulation
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Die MOS-Kapazität
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Die MOS-Kapazität
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/die-mos-kapazitat
+knoten: Kapitel 15: Die MOS-Kapazität
 order: 4250500
 summary: Bei V mathrm G<0 zieht das Gate Löcher an die Grenzfläche.
 tags: Debye-Länge, dielektrische Relaxationszeit
@@ -27,7 +29,7 @@ $$\Delta p(x)=\Delta p(0)\,\mathrm{e}^{-x/L_\mathrm D},\qquad L_\mathrm D=\sqrt{
 ⁠**So liest man das:** $L_\mathrm D$ ist die __Debye-Länge__ oder Abschirmlänge. $\sigma_p=eN_\mathrm A\mu_p$ ist die Leitfähigkeit, $D_p$ die Diffusionskonstante, $\tau_\varepsilon=\varepsilon/\sigma_p$ die __dielektrische Relaxationszeit__, in der ein Leiter eine Ladungsstörung ausgleicht. Für ein n-Substrat steht $N_\mathrm D$ statt $N_\mathrm A$. **Gültigkeit:** Nach [(2.3)](wie-sich-die-gatespannung-aufteilt.html#gl-2-3) ist $\Delta p(0)\approx-N_\mathrm A\varphi_\mathrm s/V_\mathrm T$, also verlangt die Formel $|\varphi_\mathrm s|\ll V_\mathrm T$. Das gilt für schwache Akkumulation ebenso wie für schwache Verarmung ($\Delta p<0$).
 
 :::herleitung Aus der Löcherbilanz und der Poisson-Gleichung
-Die Kontinuitätsgleichung mit Drift und Diffusion ([Teil 13](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/diffusion-rekombination-und-grundgleichungen/diffusion-rekombination-grundgleichungen.html)) lautet
+Die Kontinuitätsgleichung mit Drift und Diffusion ([Kapitel 13](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/diffusion-rekombination-und-grundgleichungen/diffusion-rekombination-grundgleichungen.html)) lautet
 
 $$\frac{\partial p}{\partial t}=-\frac{\partial p}{\partial x}\mu_p\mathcal E-p\mu_p\frac{\partial\mathcal E}{\partial x}+D_p\frac{\partial^2p}{\partial x^2}+G_p-R_p.$$
 
@@ -55,7 +57,7 @@ Das Rechenmodell hat $L_\mathrm D=23{,}6$ nm. Nach 109 nm ist die Störung a
 
 ⁠**Grenzfall:** Für $L_\mathrm D\to0$ wird die Halbleiterplatte zum Metall.
 
-**Starke Akkumulation.** Bei $|\Delta p|\gtrsim N_\mathrm A$ ist die Leitfähigkeit nicht mehr konstant, und die Differentialgleichung wird nichtlinear. Nach [(2.3)](wie-sich-die-gatespannung-aufteilt.html#gl-2-3) wächst $p(0)$ um den Faktor 10 je 60 mV. Die Ladung drängt sich in eine Schicht dünner als $L_\mathrm D$, die Bänder biegen an der Grenzfläche scharf nach oben, und die Grenzschicht verhält sich quasi metallisch. Bei $\varphi_\mathrm s=-0{,}166$ V erreicht $E_\mathrm V$ im Rechenmodell $E_\mathrm F$, die Oberfläche ist entartet ([Teil 11](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/eigenhalbleiter-und-dotierung/eigenhalbleiter-und-dotierung.html)). Deshalb bleibt $|\varphi_\mathrm s|$ klein, und fast die ganze Spannung liegt am Isolator:
+**Starke Akkumulation.** Bei $|\Delta p|\gtrsim N_\mathrm A$ ist die Leitfähigkeit nicht mehr konstant, und die Differentialgleichung wird nichtlinear. Nach [(2.3)](wie-sich-die-gatespannung-aufteilt.html#gl-2-3) wächst $p(0)$ um den Faktor 10 je 60 mV. Die Ladung drängt sich in eine Schicht dünner als $L_\mathrm D$, die Bänder biegen an der Grenzfläche scharf nach oben, und die Grenzschicht verhält sich quasi metallisch. Bei $\varphi_\mathrm s=-0{,}166$ V erreicht $E_\mathrm V$ im Rechenmodell $E_\mathrm F$, die Oberfläche ist entartet ([Kapitel 11](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/eigenhalbleiter-und-dotierung/eigenhalbleiter-und-dotierung.html)). Deshalb bleibt $|\varphi_\mathrm s|$ klein, und fast die ganze Spannung liegt am Isolator:
 
 <span class="anker" id="gl-3-3"></span>
 $$V_\mathrm G=-\frac{Q'_\mathrm{SC}}{C'_\mathrm{IS}}+\varphi_\mathrm s\approx-\frac{Q'_\mathrm{SC}}{C'_\mathrm{IS}}. \tag{3.3}$$

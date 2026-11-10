@@ -1,6 +1,8 @@
 ---
 title: Stufe 8: Was man an einer Bandstruktur abliest
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Bandstrukturen lesen
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Bandstrukturen lesen
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/bandstrukturen-lesen
+knoten: Kapitel 9: Bandstrukturen lesen
 order: 4191000
 summary: Alle Bausteine liegen vor.
 tags: Fermi-Energie
@@ -10,7 +12,7 @@ lang: de
 <span class="anker" id="stufe-8"></span>
 
 :::zweck
-Alle Bausteine liegen vor. Diese Stufe ordnet sie zu einem Verfahren, mit dem man aus jeder Bandstruktur die Eigenschaften eines Stoffs abliest, und schärft das Bild von Metall, Halbleiter und Isolator aus [Teil 8](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/vom-atom-zum-band/vom-atom-zum-band.html).
+Alle Bausteine liegen vor. Diese Stufe ordnet sie zu einem Verfahren, mit dem man aus jeder Bandstruktur die Eigenschaften eines Stoffs abliest, und schärft das Bild von Metall, Halbleiter und Isolator aus [Kapitel 8](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/vom-atom-zum-band/vom-atom-zum-band.html).
 :::
 
 **Die Idee.** Ein Band besteht aus diskreten $\boldsymbol k$-Zuständen, die so dicht liegen, dass sie zusammenhängend erscheinen. Je Volumen fasst es $2n_\mathrm I$ Elektronen mit der Dichte $n_\mathrm I$ der Rumpfionen. Man füllt von unten, und wo die Elektronen enden, entscheidet sich alles. Leitung heißt: Ein Feld ändert $k$, also muss ein Elektron in einen benachbarten freien Zustand wechseln können.
@@ -65,7 +67,7 @@ Schemabilder, nicht maßstäblich, mit der Fermi-Energie (rot). Blau: bei $T=0$ 
 
 **Metall.** Zwei Wege führen dorthin. Erstens kann das oberste Band nur teilweise gefüllt sein: Einwertige Metalle wie Natrium oder Kupfer haben $n_\mathrm I$ Elektronen auf $2n_\mathrm I$ Plätzen, das Band ist halb voll. Zweitens können sich in drei Dimensionen erlaubte Bänder überlappen. Zweiwertige Stoffe wie Magnesium müssten nach Schritt 1 ein Band genau füllen, doch das nächste beginnt tiefer, als das erste endet. Die Elektronen verteilen sich auf beide, und beide leiten, teils überwiegend durch Löcher. Schritt 1 gilt also nur ohne Überlapp.
 
-Ob man wie in [Teil 8](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/vom-atom-zum-band/vom-atom-zum-band.html) Atome annähert oder Elektronen in ein fertiges Gitter aus Rumpfionen füllt, beide Modelle ergeben dasselbe Bild.
+Ob man wie in [Kapitel 8](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/vom-atom-zum-band/vom-atom-zum-band.html) Atome annähert oder Elektronen in ein fertiges Gitter aus Rumpfionen füllt, beide Modelle ergeben dasselbe Bild.
 
 **Bandlücken.** Werte bei Raumtemperatur, dazu $m^*/m_0$ im Leitungsband:
 
@@ -76,7 +78,7 @@ Ob man wie in [Teil 8](/wissen/elektrotechnik/4-semester/elektronische-materiali
 | As | 2,16; 0,15 | 1,42; 0,067 | 0,355; 0,023 | Ge | 0,67 |
 | Sb | 1,58; 0,12 | 0,69; 0,041 | 0,17; 0,014 | Sn | 0 |
 
-Kubisches BN hat 6,4 eV. **So liest man das:** Weiter unten im Periodensystem sind mehr Orbitale der Atome besetzt, die Abstände werden länger, Lücke und effektive Masse schrumpfen. **Mechanismus:** Größerer Abstand schwächt die Bindung ([Teil 8](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/vom-atom-zum-band/vom-atom-zum-band.html)), bindende und antibindende Zustände rücken zusammen. Valenz- und Leitungsband stoßen sich ab wie die Bänder mit s-p-Kopplung in [Teil 8](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/vom-atom-zum-band/vom-atom-zum-band.html). Je näher sie sich kommen, desto stärker krümmen sie sich an der Kante, und desto kleiner ist $m^*$.
+Kubisches BN hat 6,4 eV. **So liest man das:** Weiter unten im Periodensystem sind mehr Orbitale der Atome besetzt, die Abstände werden länger, Lücke und effektive Masse schrumpfen. **Mechanismus:** Größerer Abstand schwächt die Bindung ([Kapitel 8](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/vom-atom-zum-band/vom-atom-zum-band.html)), bindende und antibindende Zustände rücken zusammen. Valenz- und Leitungsband stoßen sich ab wie die Bänder mit s-p-Kopplung in [Kapitel 8](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/vom-atom-zum-band/vom-atom-zum-band.html). Je näher sie sich kommen, desto stärker krümmen sie sich an der Kante, und desto kleiner ist $m^*$.
 
 ::::beispiel GaAs lesen
 Acht Elektronen, vier volle Bänder (Schritt 1). Kein Band schneidet $E_\mathrm F$ (2). $E_\mathrm g=1{,}42$ eV (3). Eine zweite Lücke rund 7 bis 10 eV unter $E_\mathrm V$ öffnet sich, weil Ga und As verschieden sind, wie in Aufgabe [2](graphen.html#aufg-2), und spielt für die Leitung keine Rolle. Die Lücke ist direkt (4). Das stark gekrümmte Leitungsband ergibt $m_\mathrm C^*=0{,}067\,m_0$ mit Entartung 1 im $\Gamma$-Tal, oben im Valenzband liegen schwere und leichte Löcher (5). Wie viele Elektronen bei gegebener Temperatur tatsächlich ins Leitungsband gelangen, bleibt die offene Frage.

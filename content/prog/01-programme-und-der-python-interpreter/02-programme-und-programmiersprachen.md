@@ -1,7 +1,8 @@
 ---
 title: Programme und Programmiersprachen
 pfad: Informatik / Programmieren / Python / Programme und der Python-Interpreter
-knoten: Python 1: Programme und der Python-Interpreter
+adresse: informatik/programmieren/python/programme-und-der-python-interpreter
+knoten: Kapitel 1: Programme und der Python-Interpreter
 order: 6020200
 summary: Ein Rechner tut nur, was man ihm Schritt für Schritt vorgibt.
 tags: Programm, Anweisung, Prozessor, Maschinenbefehl, Maschinencode, Programmiersprache, Syntax, Semantik
@@ -111,12 +112,12 @@ Wer das Newton-Verfahren aus der Mathematik kennt: Das Heron-Verfahren ist das N
 
 Die Schritte eines Programms führt im Rechner der __Prozessor__ aus, ein Chip, der rechnet und den Ablauf steuert. Seine Befehle sind viel einfacher als „bilde den Mittelwert von $g$ und $2/g$“.
 
-**Ein sehr wörtlicher Arbeiter.** Man kann sich den Prozessor als einen äußerst schnellen Arbeiter mit winzigem Wortschatz vorstellen. Er versteht Befehle wie „hole die Zahl aus Speicherplatz 12“, „addiere zwei Zahlen“, „teile zwei Zahlen“ oder „mach bei Befehl 3 weiter“. Mehr kann er nicht, aber davon schafft er Milliarden in jeder Sekunde. (Das Bild ist eine Vorstellungshilfe; der Prozessor versteht nichts im menschlichen Sinn, sondern schaltet.)
+**Ein sehr wörtlicher Arbeiter.** Man kann sich den Prozessor als einen äußerst schnellen Arbeiter mit winzigem Wortschatz vorstellen. Er versteht Befehle wie „hole die Zahl aus Speicherplatz 12“, „addiere zwei Zahlen“, „teile zwei Zahlen“ oder „mach bei Befehl 3 weiter“. Mehr kann er nicht, aber davon schafft er Milliarden in jeder Sekunde. (Das Bild ist eine Vorstellungshilfe; der Prozessor versteht nichts im menschlichen Sinn, sondern führt seine Befehle mechanisch aus.)
 
 :::definition Definition 1.2 (Maschinenbefehl)
 <span class="anker" id="satz-1-2"></span>
 
-Ein __Maschinenbefehl__ ist ein Befehl, den der Prozessor unmittelbar ausführen kann. Er steht im Speicher als Zahl; an dieser Zahl erkennt die Schaltung des Prozessors, was zu tun ist.
+Ein __Maschinenbefehl__ ist ein Befehl, den der Prozessor unmittelbar ausführen kann. Er steht im Speicher als Zahl; an dieser Zahl erkennt der Prozessor, was zu tun ist.
 :::
 
 Ein Programm, das nur aus Maschinenbefehlen besteht, heißt __Maschinencode__.
@@ -134,7 +135,7 @@ Hole die Zahl $g$ aus dem Speicher.
 
 <li>
 
-[Teile 2](/wissen/informatik/programmieren/python/werte-typen-und-variablen/werte-typen-und-variablen.html) durch diese Zahl.
+Teile 2 durch diese Zahl.
 
 </li>
 
@@ -158,13 +159,13 @@ Lege das Ergebnis als neues $g$ im Speicher ab.
 
 </ol>
 
-Jeder dieser Befehle ist im Speicher eine Zahl. Welche Zahl welchen Befehl bedeutet, ist für jede Familie von Prozessoren anders festgelegt. Die Prozessoren der meisten PCs verstehen andere Zahlen als die eines Smartphones oder eines Raspberry Pi. Maschinencode für den einen läuft auf dem anderen deshalb nicht.
+Jeder dieser Befehle ist im Speicher eine Zahl. Welche Zahl welchen Befehl bedeutet, ist für jede Familie von Prozessoren anders festgelegt. Die Prozessoren der meisten PCs verstehen andere Zahlen als die eines Smartphones. Maschinencode für den einen läuft auf dem anderen deshalb nicht.
 ::::
 
 ⁠**Kurz gesagt:** Der Prozessor versteht nur sehr einfache Maschinenbefehle, die als Zahlen im Speicher stehen, und jede Prozessorfamilie hat ihre eigenen.
 
 :::hintergrund Warum der Prozessor nur so einfache Befehle kennt
-Jeder Maschinenbefehl muss als Schaltung gebaut sein. Ein Rechenwerk aus Logikgattern addiert zwei Binärzahlen; ein Steuerwerk liest die Zahl des nächsten Befehls und schaltet die passenden Teile zusammen, etwa „Speicherplatz 12 an den Eingang des Rechenwerks, Ausgang zurück in den Speicher“. Je weniger und je einfachere Befehle es gibt, desto kleiner, schneller und sparsamer lässt sich diese Schaltung bauen. Alles Komplizierte entsteht durch Hintereinanderschalten vieler einfacher Befehle, so wie eine komplizierte Schaltung aus wenigen Arten von Bauelementen besteht.
+Jeder Maschinenbefehl ist im Chip des Prozessors fest eingebaut. Ein Teil des Prozessors, das Rechenwerk, addiert zum Beispiel zwei Zahlen. Ein anderer Teil, das Steuerwerk, liest die Zahl des nächsten Befehls und verbindet die passenden Teile miteinander, etwa „Speicherplatz 12 an den Eingang des Rechenwerks, Ergebnis zurück in den Speicher“. Je weniger und je einfachere Befehle es gibt, desto kleiner, schneller und sparsamer lässt sich der Chip bauen. Alles Komplizierte entsteht, indem viele einfache Befehle nacheinander ablaufen, so wie man aus wenigen Sorten von Legosteinen ein ganzes Schloss baut.
 
 Der Prozessor arbeitet dabei immer denselben Kreislauf ab: Befehl holen, Befehl entschlüsseln, Befehl ausführen, zum nächsten Befehl gehen.
 :::
@@ -190,7 +191,7 @@ Python, C und C++ sind Programmiersprachen. Den ersten Durchgang des Heron-Rezep
 (1 + 2 / 1) / 2
 ```
 
-Das Zeichen `/` bedeutet „geteilt durch“, `+` bedeutet „plus“, und die Klammern wirken wie in der Mathematik. Diese Zeile hat in Python genau eine Bedeutung: [Teile 2](/wissen/informatik/programmieren/python/werte-typen-und-variablen/werte-typen-und-variablen.html) durch 1, addiere 1, teile das Ergebnis durch 2.
+Das Zeichen `/` bedeutet „geteilt durch“, `+` bedeutet „plus“, und die Klammern wirken wie in der Mathematik. Diese Zeile hat in Python genau eine Bedeutung: Teile 2 durch 1, addiere 1, teile das Ergebnis durch 2.
 ::::
 
 ⁠**Kurz gesagt:** Eine Programmiersprache ist eine künstliche Sprache ohne Mehrdeutigkeit, in der man Programme aufschreibt.
@@ -348,7 +349,7 @@ In Python: `3 + * 4`.
 
 <li>
 
-Eine Anleitung: „Schließe den Widerstand an die Leitung mit der Lötöse an.“
+Eine Bitte: „Fotografiere die Frau mit der Kamera.“
 
 </li>
 
@@ -367,7 +368,7 @@ Ein Programm in C enthält `7 / 2` und soll 3,5 ergeben.
 
 (c) Syntax verletzt: Hinter `+` fehlt eine Zahl, bevor `*` folgt.
 
-(d) Mehrdeutig: Hat der Widerstand die Lötöse oder die Leitung? Ein Mensch fragt nach oder entscheidet nach dem Zusammenhang; in einer Programmiersprache darf es eine solche Stelle nicht geben.
+(d) Mehrdeutig: Hält die Frau eine Kamera in der Hand, oder sollst du die Kamera benutzen? Ein Mensch fragt nach oder entscheidet nach dem Zusammenhang; in einer Programmiersprache darf es eine solche Stelle nicht geben.
 
 (e) Erlaubter Text mit anderer Bedeutung als gemeint. Nach der Semantik von C ergibt `7 / 2` mit ganzen Zahlen 3, nicht 3,5. Wer in C 3,5 will, muss mindestens eine der Zahlen mit Nachkommastelle schreiben, etwa `7.0 / 2`.
 :::

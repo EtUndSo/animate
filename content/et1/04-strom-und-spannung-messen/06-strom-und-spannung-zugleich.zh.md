@@ -1,6 +1,8 @@
 ---
 title: 第 5 阶段：同时测量电流和电压
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 电流与电压的测量
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 电流与电压的测量
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-und-spannung-messen
+knoten: 第 4 章：电流与电压的测量
 order: 1140600
 summary: 用 R=U/I 求电阻时，两台仪表都要用。此时其中一台处在另一台的测量回路中。本阶段比较两种可能的电路。
 tags: 

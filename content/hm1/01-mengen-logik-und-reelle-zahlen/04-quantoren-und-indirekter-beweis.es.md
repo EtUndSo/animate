@@ -1,6 +1,8 @@
 ---
 title: Etapa 2: Cuantificadores y demostración indirecta
-pfad: Ingeniería eléctrica / 1.er semestre / Matemáticas superiores 1 / Conjuntos, lógica y números reales
+pfad: Ingeniería eléctrica / 1.er semestre / HöMa1 – Matemáticas superiores 1 / Conjuntos, lógica y números reales
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen
+knoten: Capítulo 1: Conjuntos, lógica y números reales
 order: 1210400
 summary: Todos los axiomas tienen la forma «para todo x existe un y ».
 tags: cuantificador universal, cuantificador existencial, contraejemplo, hipótesis de contradicción, antinomia de Russell

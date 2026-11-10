@@ -1,6 +1,8 @@
 ---
 title: Stage 8: Charge conservation when switching
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / The Capacitor
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / The Capacitor
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator
+knoten: Chapter 3: The Capacitor
 order: 1130900
 summary: If you switch charged capacitors, the new voltage can be found without any current calculation.
 tags: 
@@ -13,7 +15,7 @@ lang: en
 If you switch charged capacitors, the new voltage can be found without any current calculation. It is enough to count charge.
 :::
 
-**The idea.** In a closed system the sum of the charges stays constant ([Part 1](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)). In circuits, such a system arises when every path from a node to ground leads through a capacitor. This is the island from Stage [7](parallel-und-reihenschaltung.html#stufe-7): the dielectrics block all routes. Charge can redistribute within the island, but cannot leave it. If you compare before and after, you do not need to know how the equalization proceeded.
+**The idea.** In a closed system the sum of the charges stays constant ([Chapter 1](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)). In circuits, such a system arises when every path from a node to ground leads through a capacitor. This is the island from Stage [7](parallel-und-reihenschaltung.html#stufe-7): the dielectrics block all routes. Charge can redistribute within the island, but cannot leave it. If you compare before and after, you do not need to know how the equalization proceeded.
 
 :::satz Theorem 8.1 (Charge conservation on an island)
 <span class="anker" id="satz-8-1"></span>

@@ -1,7 +1,8 @@
 ---
 title: Le déterminant
 pfad: Informatique / Apprentissage automatique / Fondements mathématiques / Vecteurs et matrices
-knoten: Fondements 1 : Vecteurs et matrices
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Chapitre 1 : Vecteurs et matrices
 nachschlagen: ja
 order: 15211500
 summary: Une application linéaire déforme le quadrillage du plan, et les aires s’agrandissent ou rétrécissent.

@@ -1,7 +1,8 @@
 ---
 title: Matriz identidad e inversa
 pfad: Informática / Aprendizaje automático / Fundamentos matemáticos / Vectores y matrices
-knoten: Fundamentos 1: Vectores y matrices
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Capítulo 1: Vectores y matrices
 nachschlagen: ja
 order: 15211200
 summary: Algunas aplicaciones lineales pueden deshacerse; otras, no.

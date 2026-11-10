@@ -1,7 +1,8 @@
 ---
 title: El producto escalar
 pfad: Informática / Aprendizaje automático / Fundamentos matemáticos / Vectores y matrices
-knoten: Fundamentos 1: Vectores y matrices
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Capítulo 1: Vectores y matrices
 nachschlagen: ja
 order: 15210300
 summary: Dos vectores de la misma longitud dan un único número si se multiplican sus componentes por parejas y se suman los productos.
@@ -156,23 +157,23 @@ La factura de la luz como producto escalar: precio por cantidad para cada mes y,
 
 <span class="anker" id="stufe-2-4"></span>
 
-Se quiere comprobar si una señal medida salta arriba y abajo de una muestra a la siguiente. Para ello se escribe el patrón buscado como vector, aquí $\mathbf{w}=(1,\,-1,\,1,\,-1)^{\top}$, y se forma el producto escalar con la señal.
+La temperatura exterior se lee cada doce horas, alternando entre el mediodía y la medianoche. Cuatro valores seguidos forman un vector, al que aquí se llama *serie temporal*. Se quiere comprobar si salta arriba y abajo de un valor al siguiente, como cabe esperar por la alternancia del día y la noche. Para ello se escribe el patrón buscado como vector, aquí $\mathbf{w}=(1,\,-1,\,1,\,-1)^{\top}$, y se forma el producto escalar con la serie temporal.
 
-Lo que ocurre lo muestra la fig. [10](#abb-10). Cada muestra se multiplica por el valor del patrón en la misma posición. Si la señal tiene en una posición el mismo signo que el patrón, el producto es positivo; si tiene el signo contrario, es negativo. Si la señal sigue al patrón en todas partes, se acumulan solo contribuciones positivas en una suma grande. Si la señal no tiene nada que ver con el patrón, las contribuciones positivas y negativas se compensan entre sí.
+Lo que ocurre lo muestra la fig. [10](#abb-10). Cada valor se multiplica por el valor del patrón en la misma posición. Si la serie temporal tiene en una posición el mismo signo que el patrón, el producto es positivo; si tiene el signo contrario, es negativo. Si la serie temporal sigue al patrón en todas partes, se acumulan solo contribuciones positivas en una suma grande. Si la serie temporal no tiene nada que ver con el patrón, las contribuciones positivas y negativas se compensan entre sí.
 
 :::abbildung ml/k1muster 10
-Comparación con un patrón mediante el producto escalar. Arriba, el patrón $\mathbf{w}=(1,-1,1,-1)^{\top}$; en el centro, dos señales; abajo, los productos $w_j\,x_j$ en cada posición $j$. A la izquierda, la señal $\mathbf{x}=(2,-1,3,-2)^{\top}$ salta al ritmo del patrón: todos los productos son positivos y la suma es $8$. A la derecha, $\mathbf{x}'=(2,2,3,3)^{\top}$ sube de forma regular: los productos se compensan y la suma es $0$.
+Comparación con un patrón mediante el producto escalar. Arriba, el patrón $\mathbf{w}=(1,-1,1,-1)^{\top}$; en el centro, dos series temporales de temperatura en grados Celsius; abajo, los productos $w_j\,x_j$ en cada posición $j$. A la izquierda, la serie temporal $\mathbf{x}=(2,-1,3,-2)^{\top}$ salta al ritmo del patrón: todos los productos son positivos y la suma es $8$. A la derecha, $\mathbf{x}'=(2,2,3,3)^{\top}$ sube de forma regular: los productos se compensan y la suma es $0$.
 :::
 
 Dicho con precisión: la contribución de la posición $j$ al producto escalar $\mathbf{w}^{\top}\mathbf{x}$ es $w_jx_j$. Es positiva si $w_j$ y $x_j$ tienen el mismo signo, y negativa si tienen signos contrarios. Cuanto mayores sean los valores absolutos en las posiciones con signo coincidente, mayor será el producto escalar.
 
-En procesamiento de señales, este cálculo se conoce como correlación. La correlación cruzada de dos secuencias reales $x[n]$ e $y[n]$ con desplazamiento cero es $\sum_nx[n]\,y[n]$. Si se escriben las muestras de dos señales de longitud finita como vectores $\mathbf{x}$ y $\mathbf{y}$, esto es exactamente el producto escalar $\mathbf{x}^{\top}\mathbf{y}$. La energía de una señal, $\sum_nx[n]^2$, es igualmente $\mathbf{x}^{\top}\mathbf{x}$. La comparación con un patrón no es, por tanto, una herramienta nueva, sino la misma con la que un correlador busca un patrón conocido en una señal.
+Para secuencias de números, este cálculo tiene un nombre propio. La suma $\sum_nx[n]\,y[n]$ de dos secuencias reales $x[n]$ e $y[n]$ se llama su correlación cruzada con desplazamiento cero. Si se escriben los valores de dos secuencias de longitud finita como vectores $\mathbf{x}$ y $\mathbf{y}$, esto es exactamente el producto escalar $\mathbf{x}^{\top}\mathbf{y}$. La suma de cuadrados de una secuencia, $\sum_nx[n]^2$, es igualmente $\mathbf{x}^{\top}\mathbf{x}$. La comparación con un patrón no es, por tanto, una herramienta nueva, sino el mismo cálculo con el que se busca un patrón conocido en una secuencia larga de números.
 
 ::::beispiel [Ejemplo numérico]
-Con el patrón alternante $\mathbf{w}=(1,\,-1,\,1,\,-1)^{\top}$ se tiene $\mathbf{w}^{\top}\mathbf{x}=8$ para $\mathbf{x}=(2,\,-1,\,3,\,-2)^{\top}$ y $\mathbf{w}^{\top}\mathbf{x}'=0$ para $\mathbf{x}'=(2,\,2,\,3,\,3)^{\top}$ (fig. [11](#abb-11)). Con el patrón constante $\mathbf 1=(1,\,1,\,1,\,1)^{\top}$ ocurre al revés: $\mathbf 1^{\top}\mathbf{x}=2$, pero $\mathbf 1^{\top}\mathbf{x}'=10$. La señal $\mathbf{x}$, por tanto, alterna sobre todo; $\mathbf{x}'$ es sobre todo constante.
+Con el patrón alternante $\mathbf{w}=(1,\,-1,\,1,\,-1)^{\top}$ se tiene $\mathbf{w}^{\top}\mathbf{x}=8$ para $\mathbf{x}=(2,\,-1,\,3,\,-2)^{\top}$ y $\mathbf{w}^{\top}\mathbf{x}'=0$ para $\mathbf{x}'=(2,\,2,\,3,\,3)^{\top}$ (fig. [11](#abb-11)). Con el patrón constante $\mathbf 1=(1,\,1,\,1,\,1)^{\top}$ ocurre al revés: $\mathbf 1^{\top}\mathbf{x}=2$, pero $\mathbf 1^{\top}\mathbf{x}'=10$. La serie temporal $\mathbf{x}$, por tanto, alterna sobre todo entre el día y la noche; $\mathbf{x}'$ es sobre todo constante.
 
 :::abbildung ml/k1rmuster 11
-El patrón alternante $\mathbf{w}$ con dos señales. Arriba, $\mathbf{x}$ sigue al patrón: los cuatro productos son positivos. Abajo, $\mathbf{x}'$ sube de forma regular: los productos se compensan por parejas.
+El patrón alternante $\mathbf{w}$ con dos series temporales. Arriba, $\mathbf{x}$ sigue al patrón: los cuatro productos son positivos. Abajo, $\mathbf{x}'$ sube de forma regular: los productos se compensan por parejas.
 :::
 ::::
 
@@ -181,7 +182,7 @@ También la suma ponderada de la agente inmobiliaria es una comparación con un 
 ⁠**En resumen:** El producto escalar $\mathbf{w}^{\top}\mathbf{x}$ es grande si $\mathbf{x}$ tiene valores grandes allí donde el patrón $\mathbf{w}$ tiene valores grandes del mismo signo; es la correlación con desplazamiento cero.
 
 :::hintergrund La función de correlación consta solo de productos escalares
-La correlación cruzada no compara una señal con un patrón en una sola posición, sino para cada desplazamiento posible. Para cada desplazamiento $k$, su valor es un producto escalar: la señal con el patrón desplazado $k$ pasos. La función de correlación entera es, por tanto, una sucesión de productos escalares, uno por desplazamiento. Donde el patrón está contenido en la señal, se acumulan las contribuciones positivas, y la función de correlación tiene allí su valor máximo. Así encuentra un receptor de radar el eco de su propio pulso, y un receptor de radio el comienzo de una trama de datos conocida. En el aprendizaje automático, el desplazamiento suele quedar fijo en cero: se compara un ejemplo en su conjunto con un patrón.
+La correlación cruzada no compara una secuencia con un patrón en una sola posición, sino para cada desplazamiento posible. Para cada desplazamiento $k$, su valor es un producto escalar: la secuencia con el patrón desplazado $k$ posiciones. La función de correlación entera es, por tanto, una sucesión de productos escalares, uno por desplazamiento. Donde el patrón está contenido en la secuencia, se acumulan las contribuciones positivas, y la función de correlación es allí especialmente grande. Así se encuentra, en una grabación de sonido larga, el punto en que aparece un sonido conocido, por ejemplo un gong, y, en una foto, los lugares que se parecen a un pequeño recorte de imagen. En el aprendizaje automático, el desplazamiento suele quedar fijo en cero: se compara un ejemplo en su conjunto con un patrón.
 :::
 
 :::aufgabe Ejercicio 4 ★ Comprobar las reglas de cálculo
@@ -230,10 +231,10 @@ Un compañero dice: «Para la agente inmobiliaria, lo que más cuenta son las ha
 :::
 :::
 
-:::aufgabe Ejercicio 6 ★★ Un patrón para señales crecientes
+:::aufgabe Ejercicio 6 ★★ Un patrón para series temporales crecientes
 <span class="anker" id="aufg-6"></span>
 
-Se quiere comprobar si una señal con cuatro muestras crece. Como patrón se propone $\mathbf{w}=(-3,\,-1,\,1,\,3)^{\top}$.
+Se quiere comprobar si una serie temporal con cuatro valores, por ejemplo la temperatura en cuatro días seguidos, crece. Como patrón se propone $\mathbf{w}=(-3,\,-1,\,1,\,3)^{\top}$.
 
 <ol class="al">
 
@@ -245,15 +246,15 @@ Calcula $\mathbf{w}^{\top}\mathbf{x}$ para $\mathbf{x}=(1,2,3,4)^{\top}$, $(4,3,
 
 <li>
 
-¿Por qué toda señal constante $c\,\mathbf1$ da exactamente cero? Usa $\mathbf 1^{\top}\mathbf{w}$.
+¿Por qué toda serie temporal constante $c\,\mathbf1$ da exactamente cero? Usa $\mathbf 1^{\top}\mathbf{w}$.
 
 </li>
 
 </ol>
 
 :::loesung
-(a) $\mathbf{w}^{\top}(1,2,3,4)^{\top}=-3-2+3+12=10$: la señal crece, y el resultado es claramente positivo. $\mathbf{w}^{\top}(4,3,2,1)^{\top}=-12-3+2+3=-10$: la señal decrece, y el resultado es igual de claramente negativo. $\mathbf{w}^{\top}(5,5,5,5)^{\top}=-15-5+5+15=0$: constante, sin subida. $\mathbf{w}^{\top}(1,3,2,4)^{\top}=-3-3+2+12=8$: la señal crece en conjunto, con un retroceso en el medio, y el resultado es algo menor que con la subida regular. El patrón pondera negativamente los valores tempranos y positivamente los tardíos; reacciona, por tanto, a si los valores tardíos son mayores que los tempranos.
+(a) $\mathbf{w}^{\top}(1,2,3,4)^{\top}=-3-2+3+12=10$: la serie temporal crece, y el resultado es claramente positivo. $\mathbf{w}^{\top}(4,3,2,1)^{\top}=-12-3+2+3=-10$: la serie temporal decrece, y el resultado es igual de claramente negativo. $\mathbf{w}^{\top}(5,5,5,5)^{\top}=-15-5+5+15=0$: constante, sin subida. $\mathbf{w}^{\top}(1,3,2,4)^{\top}=-3-3+2+12=8$: la serie temporal crece en conjunto, con un retroceso en el medio, y el resultado es algo menor que con la subida regular. El patrón pondera negativamente los valores tempranos y positivamente los tardíos; reacciona, por tanto, a si los valores tardíos son mayores que los tempranos.
 
-(b) $\mathbf 1^{\top}\mathbf{w}=-3-1+1+3=0$. Por eso, para una señal constante, $\mathbf{w}^{\top}(c\,\mathbf 1)=c\,\mathbf{w}^{\top}\mathbf 1=c\cdot0=0$. Como los pesos suman cero, el patrón ignora por completo una componente continua común: solo mide diferencias entre las muestras.
+(b) $\mathbf 1^{\top}\mathbf{w}=-3-1+1+3=0$. Por eso, para una serie temporal constante, $\mathbf{w}^{\top}(c\,\mathbf 1)=c\,\mathbf{w}^{\top}\mathbf 1=c\cdot0=0$. Como los pesos suman cero, el patrón ignora por completo una cantidad fija que se suma a todos los valores: solo mide diferencias entre los valores. Que haga $10$ grados más de calor en los cuatro días no cambia el resultado.
 :::
 :::

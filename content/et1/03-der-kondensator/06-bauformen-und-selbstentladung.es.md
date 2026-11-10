@@ -1,6 +1,8 @@
 ---
 title: Etapa 5: Tipos constructivos y autodescarga
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / El condensador
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / El condensador
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator
+knoten: Capítulo 3: El condensador
 order: 1130600
 summary: 100 µF como par de placas en aire ocuparían 3,4 hectáreas.
 tags: electrolito, polarizado, Autorreparable, corriente de fuga, resistencia de aislamiento
@@ -57,7 +59,7 @@ Cuatro caminos hacia una gran capacidad, secciones esquemáticas, sin escala. En
 
 La tabla resume los rangos habituales. __Autorreparable__ significa: en una ruptura, la fina capa metálica se evapora alrededor del defecto, el cortocircuito desaparece y solo se pierde un área diminuta. En el condensador electrolítico, el óxido se forma de nuevo en el defecto.
 
-**Autodescarga.** Ningún aislante es perfecto. El dieléctrico contiene unas pocas cargas móviles, por lo que circula una corriente diminuta de placa a placa, la __corriente de fuga__. En el circuito equivalente hay, en paralelo con el condensador ideal, una __resistencia de aislamiento__ $R_\mathrm{I}$. Idealmente, $R_\mathrm{I}\to\infty$ y un condensador desconectado conserva su carga para siempre. En la realidad la cede al ritmo $R_\mathrm{I}\,C$ (etapa [10](entladen-und-zeitkonstante.html#stufe-10)). Con la resistividad $\rho$ del material ([Parte 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)) es $R_\mathrm{I}=\rho\,d/A$, y junto con [(4.1)](plattenkondensator-und-dielektrikum.html#gl-4-1) resulta
+**Autodescarga.** Ningún aislante es perfecto. El dieléctrico contiene unas pocas cargas móviles, por lo que circula una corriente diminuta de placa a placa, la __corriente de fuga__. En el circuito equivalente hay, en paralelo con el condensador ideal, una __resistencia de aislamiento__ $R_\mathrm{I}$. Idealmente, $R_\mathrm{I}\to\infty$ y un condensador desconectado conserva su carga para siempre. En la realidad la cede al ritmo $R_\mathrm{I}\,C$ (etapa [10](entladen-und-zeitkonstante.html#stufe-10)). Con la resistividad $\rho$ del material ([capítulo 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)) es $R_\mathrm{I}=\rho\,d/A$, y junto con [(4.1)](plattenkondensator-und-dielektrikum.html#gl-4-1) resulta
 
 <span class="anker" id="gl-5-1"></span>
 $$R_\mathrm{I}\,C=\rho\,\varepsilon. \tag{5.1}$$

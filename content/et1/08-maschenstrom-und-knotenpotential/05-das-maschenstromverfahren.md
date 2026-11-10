@@ -1,6 +1,8 @@
 ---
 title: Stufe 3: Das Maschenstromverfahren
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Maschenstrom- und Knotenpotentialverfahren
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Maschenstrom- und Knotenpotentialverfahren
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/maschenstrom-und-knotenpotentialverfahren
+knoten: Kapitel 8: Maschenstrom- und Knotenpotentialverfahren
 order: 1180500
 summary: Die Knotenregel ist erledigt, m Maschenregeln mit m Unbekannten bleiben.
 tags: Koppelwiderstand
@@ -24,7 +26,7 @@ Das Verfahren hat vier Schritte:
 
 <li>
 
-Reale Stromquellen in reale Spannungsquellen umwandeln: $U_\mathrm q=I_\mathrm q\,R$, derselbe Widerstand in Reihe ([Teil 5](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)).
+Reale Stromquellen in reale Spannungsquellen umwandeln: $U_\mathrm q=I_\mathrm q\,R$, derselbe Widerstand in Reihe ([Kapitel 5](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)).
 
 </li>
 
@@ -73,7 +75,7 @@ $Z_{\mu\nu}$ ist der __Koppelwiderstand__, die Summe der Widerstände, die beide
 
 <li>
 
-$U_{\mathrm q\mu}$ ist die Summe der Quellenspannungen in der Masche, positiv für jede Quelle, die den Maschenstrom antreibt. Bei Spannungspfeilen vom Plus- zum Minuspol (GZS, [Teil 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)) heißt das: Ein Pfeil gegen den Umlauf zählt positiv, ein Pfeil mit dem Umlauf negativ.
+$U_{\mathrm q\mu}$ ist die Summe der Quellenspannungen in der Masche, positiv für jede Quelle, die den Maschenstrom antreibt. Bei Spannungspfeilen vom Plus- zum Minuspol (GZS, [Kapitel 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)) heißt das: Ein Pfeil gegen den Umlauf zählt positiv, ein Pfeil mit dem Umlauf negativ.
 
 </li>
 
@@ -84,7 +86,7 @@ $U_{\mathrm q\mu}$ ist die Summe der Quellenspannungen in der Masche, positiv f�
 Für die Masche $\mu$ ist die Summe aller $R_a\,I_a$ gleich der treibenden Spannung $U_{\mathrm q\mu}$, weil die Quellen auf die rechte Seite wechseln. Dabei ist $I_a$ der Strom in $R_a$, gezählt im Umlaufsinn von $\mu$. Nach [(2.1)](maschenstrome-erfullen-die-knotenregel.html#gl-2-1) ist $I_a=I_\mu+\sum_{\nu\neq\mu}\sigma_{a\nu}\,I_\nu$. Umordnen ergibt vor $I_\mu$ die Summe aller $R_a$ und vor $I_\nu$ die Summe $\sum_a\sigma_{a\nu}R_a$ über die gemeinsamen Widerstände. Masche $\nu$ erhält denselben Widerstand mit demselben Vorzeichen, denn gleichsinnig ist eine Beziehung zwischen zwei Maschen. Deshalb ist $\mathbf Z$ symmetrisch.
 :::
 
-⁠**So liest man das:** Die Zeile $\mu$ ist die Maschenregel der Masche $\mu$. Die Spalte $\nu$ sagt, welche Spannung ein Ampere Maschenstrom $\nu$ in jeder Masche erzeugt. Daher die Einheit Ohm, typisch sind hier Kiloohm. Der Buchstabe $Z$ kommt von der Impedanz ([Teil 6](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html)), hier sind es reine Widerstände. **Gültigkeit:** Das Netz enthält lineare Widerstände und feste Spannungsquellen. Die Symmetrie ist zugleich eine Kontrolle: Ein Fehler beim Aufstellen zerstört sie meist.
+⁠**So liest man das:** Die Zeile $\mu$ ist die Maschenregel der Masche $\mu$. Die Spalte $\nu$ sagt, welche Spannung ein Ampere Maschenstrom $\nu$ in jeder Masche erzeugt. Daher die Einheit Ohm, typisch sind hier Kiloohm. Der Buchstabe $Z$ kommt von der Impedanz ([Kapitel 6](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html)), hier sind es reine Widerstände. **Gültigkeit:** Das Netz enthält lineare Widerstände und feste Spannungsquellen. Die Symmetrie ist zugleich eine Kontrolle: Ein Fehler beim Aufstellen zerstört sie meist.
 
 :::abbildung et1/k8maschen 3
 Das Rechenmodell für das Maschenstromverfahren. Rechts ist die Stromquelle in eine Spannungsquelle umgewandelt. Rot sind die gemeinsamen Widerstände $R_2$ und $R_4$: Sie stehen außerhalb der Diagonale von $\mathbf Z$. I und III haben keinen gemeinsamen Zweig, deshalb ist $Z_{13}=0$.
@@ -115,13 +117,13 @@ Nein. Gleiche Drehrichtung ist nur bequem, weil dann alle Nebendiagonalen negati
 :::
 
 :::zusatz Ideale Stromquelle
-Für $R_5\to\infty$ wächst $U_\mathrm{q5}$ ohne Grenze, das Umwandeln versagt ([Teil 5](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)). Man legt die Maschen dann so, dass nur eine durch die Stromquelle läuft. Ihr Maschenstrom ist bekannt. Die Maschengleichung dieser Masche lässt man weg, denn sie enthält die unbekannte Spannung der Quelle. Eine Unbekannte weniger, eine Gleichung weniger.
+Für $R_5\to\infty$ wächst $U_\mathrm{q5}$ ohne Grenze, das Umwandeln versagt ([Kapitel 5](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)). Man legt die Maschen dann so, dass nur eine durch die Stromquelle läuft. Ihr Maschenstrom ist bekannt. Die Maschengleichung dieser Masche lässt man weg, denn sie enthält die unbekannte Spannung der Quelle. Eine Unbekannte weniger, eine Gleichung weniger.
 :::
 
-:::aufgabe Aufgabe 3 ★★ Das Netz aus Teil 2
+:::aufgabe Aufgabe 3 ★★ Das Netz aus Kapitel 2
 <span class="anker" id="aufg-3"></span>
 
-Das Netz aus [Teil 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html) hat eine ideale Quelle mit 9 V zwischen $K_1$ und $K_4$ und $R_\mathrm a=2\,\mathrm{k\Omega}$ ($K_1K_2$), $R_\mathrm b=5\,\mathrm{k\Omega}$ ($K_2K_4$), $R_\mathrm c=3\,\mathrm{k\Omega}$ ($K_1K_3$), $R_\mathrm d=1\,\mathrm{k\Omega}$ ($K_3K_4$), $R_\mathrm e=2\,\mathrm{k\Omega}$ ($K_2K_3$). Die Maschen laufen so: $I_\mathrm A$ durch die Quelle von $K_4$ nach $K_1$, dann $K_2$, zurück nach $K_4$. $I_\mathrm B$ von $K_1$ nach $K_3$, $K_2$, zurück nach $K_1$. $I_\mathrm C$ von $K_2$ nach $K_3$, $K_4$, zurück nach $K_2$.
+Das Netz aus [Kapitel 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html) hat eine ideale Quelle mit 9 V zwischen $K_1$ und $K_4$ und $R_\mathrm a=2\,\mathrm{k\Omega}$ ($K_1K_2$), $R_\mathrm b=5\,\mathrm{k\Omega}$ ($K_2K_4$), $R_\mathrm c=3\,\mathrm{k\Omega}$ ($K_1K_3$), $R_\mathrm d=1\,\mathrm{k\Omega}$ ($K_3K_4$), $R_\mathrm e=2\,\mathrm{k\Omega}$ ($K_2K_3$). Die Maschen laufen so: $I_\mathrm A$ durch die Quelle von $K_4$ nach $K_1$, dann $K_2$, zurück nach $K_4$. $I_\mathrm B$ von $K_1$ nach $K_3$, $K_2$, zurück nach $K_1$. $I_\mathrm C$ von $K_2$ nach $K_3$, $K_4$, zurück nach $K_2$.
 
 <ol class="al">
 
@@ -139,7 +141,7 @@ Berechne die Maschenströme mit der cramerschen Regel.
 
 <li>
 
-Bestimme die fünf Widerstandsströme und vergleiche mit [Teil 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html).
+Bestimme die fünf Widerstandsströme und vergleiche mit [Kapitel 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html).
 
 </li>
 
@@ -154,7 +156,7 @@ Die Matrix ist symmetrisch.
 
 (b) $D=7(56-4)+2(-16-10)-5(4+35)=364-52-195=117$. $D_1=9\cdot52=468$, $D_2=234$, $D_3=351$. Also $I_\mathrm A=4$ mA, $I_\mathrm B=2$ mA, $I_\mathrm C=3$ mA.
 
-(c) $I_\mathrm a=I_\mathrm A-I_\mathrm B=2$ mA, $I_\mathrm b=I_\mathrm A-I_\mathrm C=1$ mA, $I_\mathrm c=I_\mathrm B=2$ mA, $I_\mathrm d=I_\mathrm C=3$ mA, $I_\mathrm e=I_\mathrm C-I_\mathrm B=1$ mA von $K_2$ nach $K_3$. Das ist die Tabelle aus [Teil 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html), mit drei Gleichungen statt zwölf.
+(c) $I_\mathrm a=I_\mathrm A-I_\mathrm B=2$ mA, $I_\mathrm b=I_\mathrm A-I_\mathrm C=1$ mA, $I_\mathrm c=I_\mathrm B=2$ mA, $I_\mathrm d=I_\mathrm C=3$ mA, $I_\mathrm e=I_\mathrm C-I_\mathrm B=1$ mA von $K_2$ nach $K_3$. Das ist die Tabelle aus [Kapitel 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html), mit drei Gleichungen statt zwölf.
 :::
 :::
 

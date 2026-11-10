@@ -1,6 +1,8 @@
 ---
 title: Stufe 2: Zählen
-pfad: Elektrotechnik / 3. Semester / Höhere Mathematik 3 / Wahrscheinlichkeitsrechnung
+pfad: Elektrotechnik / 3. Semester / HöMa3 – Höhere Mathematik 3 / Wahrscheinlichkeitsrechnung
+adresse: elektrotechnik/3-semester/hohere-mathematik-3/wahrscheinlichkeitsrechnung
+knoten: Kapitel 8: Wahrscheinlichkeitsrechnung
 order: 3180300
 summary: Sind die Ausgänge abzählbar, genügt ein Gewicht für jeden einzelnen.
 tags: diskreter Wahrscheinlichkeitsraum, Laplacesche Wahrscheinlichkeitsraum, Laplace-Experiment, Permutationen, Binomialkoeffizient
@@ -68,7 +70,7 @@ $$\mathbb{P}(\text{mindestens 2 defekt})=\frac{\binom42\binom{16}3+\binom43\bino
 ::::
 
 ::::beispiel Ableitungen
-Eine $k$-mal stetig differenzierbare Funktion von $n$ Variablen hat $\binom{n+k-1}k$ verschiedene partielle Ableitungen der Ordnung $k$. Nach dem Lemma von Schwarz ([Teil 1](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/differentialrechnung-fur-vektorfelder/differentialrechnung-fuer-vektorfelder.html)) zählt nur, wie oft nach jeder Variablen abgeleitet wird, das ist Fall (iv). Für $f(x,y)$ und $k=3$ sind das 4: $f_{xxx},f_{xxy},f_{xyy},f_{yyy}$.
+Eine $k$-mal stetig differenzierbare Funktion von $n$ Variablen hat $\binom{n+k-1}k$ verschiedene partielle Ableitungen der Ordnung $k$. Nach dem Lemma von Schwarz ([Kapitel 1](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/differentialrechnung-fur-vektorfelder/differentialrechnung-fuer-vektorfelder.html)) zählt nur, wie oft nach jeder Variablen abgeleitet wird, das ist Fall (iv). Für $f(x,y)$ und $k=3$ sind das 4: $f_{xxx},f_{xxy},f_{xyy},f_{yyy}$.
 ::::
 
 :::aufgabe Aufgabe 3 ★★ Fehler auf Platinen

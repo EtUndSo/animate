@@ -50,8 +50,234 @@ Reihenfolge: Pilot cyber 1, ml 1 → Abnahme durch den User → danach abwechsel
 ## Entscheidung des Users (09.11.2026): Cybersecurity zuerst, über Linux
 - Der User: „weiter mit den Themen bei Cybersecurity“. Auf Rückfrage: **erst Linux 1–8**, weil Cyber Teil 2 und 3 sie voraussetzen; danach Cyber Teil 2 („Schutzgrenzen“), Linux 9–10, Cyber Teil 3 („Linux-Sicherheit“), dann Cyber Teil 4–5 (Netzwerke).
 - Python 3 läuft zu Ende; Python 4, 5, 12, 13 und ML-Teil 1 folgen später.
+- **User, 09.11. abends:** „Fahre danach mit der Erstellung der Artikel zu Cybersecurity fort“ (nach der Kapitel-Umstellung).
+  - Umgesetzt als: weiter auf dem Cyber-Weg, also Linux 2 (Phase 1/2), weil Cyber Teil 2 Linux 1–8 voraussetzt. Der User kann direkt Cyber Teil 2 verlangen.
+  - Der Editor-Ausbau (L3 …) läuft als Werkzeug-Agent parallel. Er muss rückwärtsverträglich bleiben: Alle vorhandenen Szenen werden als Regressionstest exportiert, damit der Schreib-Agent nicht gestört wird.
 - Vorbereitet 09.11.: `MODULE["linux"]["hefte"]` 1–11 (sechs Sprachen), Heftordner `EtUndSo\Linux\Arbeitshefte` mit Präambeln (Kopie Programmieren), `tools/szenen/linux_teil1.py`.
-- **Beispiele zugeklappt (Wunsch des Users, 09.11.):** Umgebung `beispiel` (UEBERARBEITUNG §2a). Ein Werkzeug-Agent baut Präambeln, Konverter und build_wissen um und rüstet alle Module samt Übersetzungen nach; die Sicherung liegt im Scratchpad unter `beispiele_sicherung`. ML `kap1_*` erst nach Ende der G1-Übersetzung, Nachricht an den Agenten nötig. Linux 1 benutzt die Umgebung direkt.
+- **Beispiele zugeklappt (Wunsch des Users, 09.11.):** FERTIG 09.11.
+  - Umgebung `beispiel` in allen 54 Präambeln; Konverter und build_wissen angepasst (`<details class="beispiel">`, Sprung auf Anker klappt auf).
+  - 2297 Kästen in allen Modulen und Sprachen.
+  - Prüfung: URL-Menge gleich (nur +17 tr-Seiten G1), Struktur-Checks ohne neue Abweichung, 140 PDFs fehlerfrei.
+  - Sicherung und Protokolle im Scratchpad unter `beispiele_sicherung` bzw. `bsp`.
+  - **Offen:** 22 Fachbegriffe stehen mit `\fb` nur im Kasten, werden aber später benutzt (Liste in `scratchpad\bsp\umbau_bericht.txt`, Abschnitt „begriff“): et1 7, gemb1 4, hm1 4, hm3 2, cyber 3, ml 2. ml/Knick erledigt der G3-Übersetzer; cyber und ml/Mittelwert der Beispiele bei der ET-Überarbeitung; ET-Module samt Übersetzungen später mit einem kleinen Korrektur-Agenten.
+  - **Nicht rückgängig zu machen:** Die PDFs von HöMa3 Teil 3 und GEMB 16/17/19 sind aus dem unfertigen Stand neu gebaut.
+- **Übersetzung G3:** FERTIG 09.11. abends, alle fünf Sprachen.
+  - Seiten: de 74, en 73, es 74, zh 64, fr 75, tr 72; `pdf_pruefen` meldet überall 0 Stellen.
+  - Konverter: 13 Artikel, 20 Abbildungen, 42 Aufgaben, KaTeX ohne Fehler; build_wissen läuft.
+  - Sechs Korrekturen am deutschen Original, darunter Checkpointing-Aussage und V-Kurve; Liste im Brief `uebersetzung_brief_zusatzreihen.md`.
+  - Zweifelsfälle für Muttersprachler stehen im Brief, z. B. tr „eşlenik (adjoint)“, fr « nœud carré ».
+  - Offen: Titelblatt „Stand: 5. November 2026“; `zusammenfassung_kap3.md` nennt Checkpointing nur allgemein.
+- **Übersetzung, weiter:** G4, G5, Cyber 1 und Python 1–3 sind EE-frei. Wann sie kommen, wird nach Namensumstellung und Abbildungswellen entschieden.
+- **Adressänderung Python 3:** Die Seite „anwendung-der-arbeitspunkt-einer-diode“ heißt jetzt „anwendung-der-zinssatz-eines-ratenkredits“, weil der Inhalt ausgetauscht wurde. Die alte Adresse war veröffentlicht (e3311ac3). Es gibt keine Weiterleitung, weil build_wissen keine kennt.
+- **Beispiele für jeden (Wunsch des Users, 09.11.):** außerhalb der ET keine Elektrotechnik, nur Alltagsbeispiele; seltene Wörter ersetzen (UEBERARBEITUNG §2b).
+  - **Grep 09.11.:** ET-Bezüge in Python 1 (~80), Python 2 (~190), Python 3 (~320, eigener Abschnitt Diode), ML G4/G5 und Cyber 1 einzelne Stellen.
+  - **Präzisiert vom User:** Alle ET-Bezüge werden ersetzt, aber nur in der Informatik (Programmieren, Linux, Cyber, ML). ET1, ET3, GEMB, HöMa1 und HöMa3 bleiben unverändert.
+  - **Python 1 überarbeitet 09.11.** (46 S., pdf_pruefen 0, neues `code\kap1\heft_pruefen.py` 48 Blöcke 0 Abweichungen auf Windows/WSL; Tabelle alt→neu in zusammenfassung_kap1.md §7).
+  - **Python 2 überarbeitet 09.11.:**
+    - 87 S., pdf_pruefen 0; heft_pruefen Windows 113 / Linux 118 Blöcke ohne Abweichung; rechnung 90 Prüfungen.
+    - Szene k2rc → k2drehen (Uhrzeiger).
+    - Labels umbenannt, siehe zusammenfassung_kap2.md §7.
+    - „Zeiger“ nur noch für Uhrzeiger, komplexe Zahl = „Pfeil“.
+    - °C als `30\,{}^\circ\mathrm C`, weil KaTeX `30\,^\circ` nicht liest.
+  - **Python 3 überarbeitet 09.11.:**
+    - 83 S., pdf_pruefen 0; heft_pruefen Windows 191 / Linux 192 ohne Abweichung; rechnung 105 Prüfungen.
+    - Abschnitt 9 jetzt Ratenkredit (20 000 € / 60 × 400 € → 0,6183 % im Monat, effektiv 7,68 %).
+    - Neue Bezeichnungen: T(t), T_Z, T_0; x̄; K, R, n, S_k, q, f.
+    - k_B, U_T, I_S entfallen; `k3diode` → `k3kredit`.
+    - Offen: die Fremdsprachen-SVGs von k3if/k3block/k3elif/k3rmittel kommen mit der Übersetzung.
+  - **ML G1/G2/G4/G5 + Cyber 1 FERTIG 09.11.:**
+    - Tabellen alt→neu in den Zusammenfassungen (G1 §9, G2 §7, G4 §9, G5 §8, Cyber §…).
+    - G1/G2 in allen 6 Sprachen nachgezogen. Neue feste Wörter: „Verlauf“ (time series …), „quadratischer Mittelwert“ statt Effektivwert.
+    - Python 3: Monatszins heißt r, im Code `zins`; ZINS/RATE-Satz an der Microsoft-Doku belegt.
+    - Begriffe aus den Kästen in den Haupttext verschoben.
+    - Alle PDFs 0, Struktur-Checks wie vorher.
+    - Präambel-Wunsch: zh-Schreibmaschinenschrift (Warnung „TU/zi4/m/n undefined“ bei `\texttt`).
+    - Ursprünglicher Auftrag:
+    - Python 3: Monatszins i → anderes Symbol (i doppelt belegt), ZINS/RATE-Satz prüfen;
+    - Begriffe nur im Kasten verschieben (ML „Mittelwert der Beispiele“, Cyber „Erpressungssoftware“/„Sicherungskopie“/„Phishing“).
+- **Shotts (User, 09.11.):** „Ja, Shotts-Kapitel ganz lesen“. Ab Linux 2 liest der Schreib-Agent die Shotts-Kapitel seines Hefts ganz (Auftrag „Zuerst lesen“ 4a). Linux 1 kannte Shotts nur über die Recherche-Auszüge (Kap. 15).
+- **Umbenennung (Wunsch des Users, 09.11.):** „Die Bezeichnungen "Python 2" und "Python 3" sind verwirrend, weil es ja wirklich die Versionen von Python gibt … Sie sollten als Kapitel 2 bzw. 3 bezeichnet werden“.
+  - **Zielschema:**
+    - Anzeige im Python-Bereich „Kapitel N: Titel“; Titelzeile des PDFs „Arbeitsheft Programmieren, Python, Kapitel~N“;
+    - innerhalb von Programmieren „Kapitel~N, Abschnitt~M“;
+    - Verweise aus anderen Reihen „Python-Kapitel~N, Abschnitt~M“, sinngemäß in allen Sprachen;
+    - für C/C++ entsprechend „C-Kapitel“/„C++-Kapitel“ (C11, C++11 wären sonst ebenso missverständlich).
+    - Echte Versionsangaben („Python 3.13“) bleiben.
+  - **Umsetzung:** nach der Python-3-Überarbeitung durch einen Werkzeug-Agenten:
+    - Konverter `MODULE["prog"]` mit Namen und Link-Erkennung in 6 Sprachen;
+    - Hefte (prog, Linux 1, Cyber/ML-Verweise) samt Übersetzungen;
+    - Lernpfad Programmieren, Auftrag, Themenkarte;
+    - Neubau.
+  - **Erweitert vom User:** „Führe diese Schreibweise bzw. Unterkategoriesierung bei allen Modulen durch, sodass wir eine einheitliche Sortierung haben“. Das gilt also für alle Module: et1, et3, gemb1, hm1, hm3, cyber, ml (Grundlagen und Pfad), prog (Python, C, C++) und linux.
+  - **Einheitliches Schema:**
+    - Im Baum jedes Bereichs „Kapitel N: Titel“, nach N sortiert. Ersetzt „Teil N“, „Grundlagen N“, „Python N“, „Linux N“ und Titel ohne Nummer.
+    - Titelzeile im PDF: „Arbeitsheft <Bereich>, Kapitel~N“, z. B. „Arbeitsheft Programmieren, Python, Kapitel~3“ oder „Arbeitsheft Linux und Kommandozeile, Kapitel~1“.
+    - Verweise im selben Bereich: „Kapitel~N, Abschnitt~M“.
+    - Verweise in einen anderen Bereich: „<Kurzname>, Kapitel~N, Abschnitt~M“, Kurznamen Python, C, C++, Linux, Cybersecurity, Machine Learning, Grundlagen (= ML-Mathematik), HöMa 1 usw. Das gilt sinngemäß in allen sechs Sprachen.
+    - Überblicksartikel ohne Heftnummer im Titel (Linux 1 hatte „Überblick: Linux 1 – …“).
+    - **URLs bleiben unverändert.**
+  - **Modulnamen (User, 09.11.):** „erst die Abkürzung …, z.B. Gemb1 oder ET3 und dann den vollständigen Namen, der in den Skripten genannt wird. Bei ET3 steht aktuell nämlich "Signale und System". Das übersieht man vielleicht, wenn man eigentlich ET3 sucht“. Namen laut Titelseiten:
+    - ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse
+    - ET3 – Grundgebiete der Elektrotechnik 3: Signale und Systeme
+    - GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1
+    - HöMa1 – Höhere Mathematik 1
+    - HöMa3 – Höhere Mathematik 3 (Skript schreibt „III“; einheitlich arabisch)
+    - In allen 6 Sprachen: Abkürzung gleich, Name übersetzt.
+    - Die Informatik-Bereiche haben keine Skripte, sie bleiben.
+    - **URLs bleiben:** `basis` ist fest. Achtung: Bereichsnamen unter `bereiche` (z. B. „Mathematische Grundlagen“, „Python“, „C und C++“) gehen per slugify in die URL, dort den Slug festhalten.
+  - **Umsetzung:** ein Werkzeug-Agent, wenn Python-3-Überarbeitung, G3-Übersetzung und Animations-Agent fertig sind, und vor Linux 2.
+    - **Aufgeteilt am 09.11. abends auf zwei Agenten:**
+      1. Agent A: FERTIG 09.11.
+         - URL-Menge gleich (1677 HTML); content mit neuen Kopffeldern `adresse:`/`knoten:`.
+         - Probelauf: 338 Hefte.
+         - Vorher bestehende Fehler: et3 Kap 2 en/es/zh passen nicht zur Gliederung, hm1 Kap 3 es/zh unvollständig.
+         - Meine Entscheidungen zu seinen Fragen (User darf umwerfen):
+           - ET-Titelzeile mit vollem Modulnamen;
+           - GEMB-Ergänzungen „Kapitel N: Titel (Ergänzung)“;
+           - zh-Kurzname 数学基础.
+         - Agent B: FERTIG 10.11.
+           - 338 .tex umgestellt, 144 PDFs neu gebaut ohne neue Fehler.
+           - content: gleiche Dateinamen, keine Linkziele verloren. URL-Menge gleich (1677).
+           - Übergangsformen im Umwandler bleiben, bis et3 Kap 2 und hm1 Kap 3 (Übersetzungen) neu sind.
+           - hm3 Kap 3: .tex ist umgestellt, umwandeln erst nach seiner Überarbeitung.
+    - **Danach (10.11.):**
+      - Linux 2 FERTIG 10.11. (Phase 1, 2a, 2b; siehe Tabelle).
+      - Linux 3 **Phase 1 fertig 10.11.**:
+        - 10 Abschnitte, 61 Unterabschnitte, 37 Aufgaben (26 am Rechner), 49 `\szenenabb` (davon 4 Rechenbilder), etwa 21 800 Wörter.
+        - Lese-Nachweis geprüft: Shotts Kap. 2–4 (Z. 1076–2366) und 17 (Z. 8882–9506) ganz, OSTEP 39 ganz.
+        - Neues Prüfwerkzeug `code\kap3\sitzung.py`, weil die Blöcke aufeinander aufbauen.
+      - **Phase 2a fertig 10.11.:**
+        - 12 fachliche Korrekturen, u. a. Verzeichnisgröße nicht fest 4096, FHS heute bei freedesktop.org, „Dateisystem“ statt „Datenträger“ bei mv/Links, ext4 speichert die Art im Eintrag.
+        - uutils-Eigenheiten als „Stand uutils 0.8“ markiert.
+        - Doppelungen zu Kapitel 2 durch Verweise ersetzt; 8 Wortersetzungen.
+        - 8 Abbildungen gestrichen, 41 bleiben (Abschnitte 1–5: 20, 6–10: 21).
+        - Neues `code\kap3\heft_pruefen.py`: 106 von 108 Blöcken in frischer Sitzung, 0 Abweichungen; Rechnung 0 Abweichungen.
+        - `zusammenfassung_kap3.md` liegt vor.
+      - **Phase 2b-1 fertig 10.11.:**
+        - 20 Szenen animiert in 6 Sprachen (4,5–9,6 s, 13–181 KB, ≤ 525 px).
+        - Kontaktblatt de von mir angesehen; Zahlen stimmen (hostname-Bytes, Ä = 2 Bytes, ls-Sortierungen).
+        - Rich-Text-Fallen in `s.text` (`_ ^ \`) per Maskierung gelöst; Werkzeug-Wunsch: `s.text` „roh“, Pfeilspitzengröße bei `s.weg`.
+      - **Phase 2b-2 fertig 10.11., Linux 3 abgenommen:**
+        - 21 Szenen (5,5–9,6 s, 24–202 KB); Kontaktblatt de von mir angesehen, Inhalte stimmen (Inode/Links, du-Summe, find -size/-mtime, Muster-Tabelle).
+        - `Kap3_Dateien.pdf` 90 S., pdf_pruefen 0; zwei kleine Umstellungen gegen Overfull (10.2, Lösung a:k3wohin).
+        - 12 Artikel, 41 Abbildungen, 37 Aufgaben, 76 Beispiele zu, 0 KaTeX-Fehler; HTML 1686 → 1698, genau die 12 neuen Seiten.
+        - Alle 12 Seiten im Browser bei 390 px ohne Fehler und ohne waagrechtes Scrollen.
+        - Gemeinsames Werkzeug geändert (von mir geprüft, eine Zeile): `tools/pdf_pruefen.py` überspringt unsichtbare Textstücke (`alpha == 0`, ausgeblendete Texte animierter Szenen).
+        - `k3einkauf` (Hälfte 1) korrigiert: `\mathtt{einkauf.txt}` setzte einen Abstand nach dem Punkt, jetzt `\texttt`.
+        - Werkzeug-Wünsche: `s.text` Inhalt ersetzen ohne unsichtbaren Rest; `s.text` roh und in Schreibmaschinenschrift; Favicon-Link (404 auf `/favicon.ico` auf der ganzen Website).
+      - **Linux 4 Phase 1 fertig 10.11.:**
+        - 7 Abschnitte, 35 Unterabschnitte, 25 Aufgaben (23 am Rechner), 30 `\szenenabb`, etwa 16 600 + 3 300 Wörter.
+        - Lese-Nachweis geprüft: Shotts Kap. 6 (S. 56–70) und 27 ganz, OSTEP 5 ganz.
+        - `code\kap4\heft_pruefen.py`: 98 Blöcke, 0 Abweichungen; `sitzung.py` setzt SIGPIPE zurück, damit `yes | head` Status 141 liefert.
+      - **Linux 4 Phase 2a läuft.** Entschieden:
+        - §7 bleibt bei 4 Abbildungen.
+        - Aufgabe `|&` nur mit erklärter Regel.
+        - Here-Document ohne `$`.
+        - `bash -c 'exit 300'` nur, wenn `bash -c` eingeführt ist.
+        - PIPESTATUS als Rezept.
+        - 128 + n mit dash testen, ksh93 256 + n belegen.
+      - **Linux 4 Phase 2a fertig 10.11.:**
+        - Fachlich ergänzt: Regel „Pipe vor Umleitung“ samt genauer Wirkung von `|&`. Korrigiert: Gruppenklammern, Jahreszahlen zur Geschichte; ausdrücklich gesagt, dass dash `&>` nicht kennt.
+        - Dateien, die spätere Abschnitte voraussetzen, entstehen jetzt im Haupttext statt im zugeklappten Beispiel.
+        - `/dev/null` verweist auf Kapitel 3; Tabelle `tab:k4reihenfolge` gestrichen, die Abbildung ersetzt sie.
+        - `k4undsicher` gestrichen, 29 Abbildungen bleiben.
+        - 128 + n mit bash/dash getestet, ksh93 256 + n belegt.
+        - Code 97 Blöcke, 0 Abweichungen; Rechnung 53/0; `zusammenfassung_kap4.md` liegt vor.
+      - **Linux 4 Phase 2b fertig 10.11., abgenommen:**
+        - 29 Szenen (4,6–11,3 s, 13–195 KB, ≤ 543 px); Kontaktblatt de von mir angesehen, Inhalte stimmen (Reihenfolge der Umleitungen, PIPESTATUS, 141/130/127/126, Kürzungsfalle, `a && b || c`).
+        - `Kap4_Stroeme.pdf` 64 S., pdf_pruefen 0; 9 Artikel, 25 Aufgaben, 47 Beispiele zu, 0 KaTeX-Fehler.
+        - Gemeinsame Werkzeuge geändert (von mir geprüft): `|` in Tabellenzellen außerhalb von Formeln wird als `\|` geschrieben (`Heft.cell`), und build_wissen trennt Zellen nur an ungeschütztem `|`. Laut Agent ändert sich nur Linux 4 de.
+        - **Von mir nachgezogen:** Der Titel im Baum war „Programme verbinden: Ströme, Umleitung, Pipes, Exit-Status“, das Heft heißt „Ströme, Umleitung, Pipes und Exit-Status“. MODULE-Eintrag in 6 Sprachen auf den Heft-Titel geändert, neue Adresse `…/strome-umleitung-pipes-und-exit-status`; die Seiten waren unveröffentlicht. Konverter, Themenkarte und build_wissen neu.
+        - Regel im Auftrag ergänzt: Heft-Titel = MODULE-Titel; Abweichungen nennt Phase 1, Phase 2b passt MODULE an.
+        - Werkzeug-Wünsche: Linux-Helfer (`prozess`, `rohr`, `nummer`) in eine gemeinsame Datei; Warnung, wenn ein später erscheinender gefüllter Kasten Text verdeckt.
+        - Nach der Umbenennung: HTML weiter 1707, nur die 9 Adressen von Kapitel 4 neu (alte entfernt), alle 9 Seiten im Browser in Ordnung, Tabelle „Das Wichtigste“ mit 16 Zeilen × 2 Spalten.
+      - **Linux 5 Phase 1 fertig 10.11.:**
+        - 6 Abschnitte, 37 Unterabschnitte, 23 Aufgaben (22 am Rechner), 28 Szenen (1 Rechenbild), etwa 13 100 + 1 950 Wörter; Titel wie MODULE.
+        - Lese-Nachweis geprüft: Shotts Kap. 7, 11, 24 ganz.
+        - Code 91/92 Blöcke, 0 Abweichungen; Rechnung 60/0.
+        - `~/.bashrc` per SHA-256 wiederhergestellt.
+        - **Vorfall:** Einmal wurde WSL ohne `--exec` mit einer Pipe gestartet. Das löste Ubuntus einmalige Abfrage „Help improve Ubuntu“ (Berichte an Canonical) aus, und die Testzeile wurde als Antwort gelesen. In WSL ist keine Zustimmung gespeichert (`ubuntu-insights consent`: keine Datei); in Windows (Registry HKCU\Software, AppData) fand ich nichts. Dem User gemeldet. Regel „immer `--exec`“ in den Auftrag (Prüfumgebung) aufgenommen.
+      - **Linux 5 Phase 2a fertig 10.11.** (nach Pause fortgesetzt):
+        - Code 92/93 Blöcke, Rechnung 60, je 0 Abweichungen; `~/.bashrc` per SHA-256 unverändert; Lese-Nachweis: Heft samt Lösungen ganz.
+        - Fachlich korrigiert: „command not found“ kommt von Ubuntus command-not-found, nicht von bash; `hash` nach Verschieben (No such file, 127, bis `hash -r`); führendes Minus deutet das Programm (`--`); zsh NOMATCH; Tilde in Zuweisungen.
+        - Aufgaben 6(b), 12, 16(a) entschärft bzw. Regel ergänzt; Sitzungszustand hängt nicht mehr an zugeklappten Kästen; Vorgriff Regex gestrichen.
+        - Abbildungen 27 (5/4/5/5/4/4): `k5aliaserbe` gestrichen, `k5vorne` → `k5pathneu`; mehrere auf das Neue gekürzt (Wiederholung von k2suche/k2arten).
+        - Für 2b: `\verb` in tabularx und `"` unter babel-ngerman im PDF prüfen; MODULE-Titel unverändert.
+      - **Linux 5 Phase 2b wartet auf E1** (27 Szenen, ein Agent).
+      - **Linux 6 Phase 1 fertig 10.11.** (parallel zu E1): 10 Abschnitte, 50 Unterabschnitte, 29 Aufgaben, 34 Szenen (2 Rechenbilder `k6minuten`, `k6mittel`), etwa 20 800 Wörter. Daten: Lauftagebuch `laeufe.csv` statt Messdaten. Code 132 Blöcke, Rechnung 88, je 0 Abweichungen; `~/.bashrc` unverändert. Lese-Nachweis geprüft: Recherche-Dateien und Shotts Kap. 19/20 ganz. Neue Bezeichnungen: „Suchtext“, „Grundform“/„erweiterte Form“ (BRE/ERE), „Zeilenadresse“ (sed), „Bedingung“ (awk), „assoziatives Array“.
+      - **Linux 6 Phase 2a fertig 10.11.** (offene Fragen entschieden: de_DE-Sortierung knapp und als ungeprüft gekennzeichnet; kein `k6locale`; `k6automat` im Haupttext ok; Abschnitt 4 bleibt; Bentley/Knuth/McIlroy mit Namen und CACM, belegt):
+        - Fachlich: `sort -n` unter de_DE liest `10.5` als 105 (Tausenderpunkt); GNU `cut -c` zählt erst ab coreutils 9.11 (April 2026) Zeichen; `\+ \? \|` in der Grundform = GNU-Zugabe; „gierig“ von POSIX-längstem Treffer getrennt (Python `a|ab` → `a`, grep → `ab`); awk auch mit mawk geprüft.
+        - Sitzung hing an Beispielkästen (`kurz.csv`, `klein.csv`, `kopie.csv`) → jetzt Haupttext.
+        - 34 Abbildungen (4/4/4/2/3/4/4/4/4/1), Hälften: 2b-1 Abschnitte 1–5 (17), 2b-2 Abschnitte 6–10 (17). Geändert: `k6ausschnitt`, `k6haeufigkeit`, `k6sedi`, `k6automat`.
+        - Code 133 Blöcke, Rechnung 95, je 0 Abweichungen; `~/.bashrc` unverändert; Lese-Nachweis: Heft ganz; `zusammenfassung_kap6.md` liegt vor. Wortzahl ~24 500 (nach wc -w, Korrekturen glichen Kürzungen aus).
+        - Für 2b: KaTeX/Konverter bei `\texttt{[]-]}` (6.4), maskierten `\+ \? \|` (7.5) und `\verb` in Warnung 8.6 prüfen. Kapitel 10 verweist für Windows-Zeilenenden in Skripten auf Linux, Kapitel 6, Abschnitt 1.4.
+      - **Linux 7 Phase 1 läuft seit 10.11.** (Benutzer, Gruppen, Rechte; Testbenutzer nur vorübergehend, `/etc`-Dateien per SHA-256 vor/nach verglichen; Abgrenzung zu Cybersecurity, Kapitel 1, Abschnitt 5).
+      - **User 10.11.:** weiterhin nur ein Schreib-Agent gleichzeitig, auch über Bereichsgrenzen.
+      - **Reihenfolge danach:** E2 startet nach Commit oder „weiter“ des Users (parallel zu Linux 6 2a erlaubt). Linux 5 2b (27 Szenen, dazu `Kap2_Shell.pdf`/`Kap4_Stroeme.pdf` neu setzen) erst, wenn kein Werkzeug-Agent und kein anderer Schreib-Agent läuft; dann Linux 6 2b-1/2b-2.
+      - **Editor-Ausbau gestartet 10.11.** (User: „Weiter“, ohne Commit; letzter Commit weiter fca61c05). Plan, Werkzeug-Agenten nacheinander, jeder mit Regressionstest aller 809 Szenen:
+        - E1 Text und Werkzeugpflege, **fertig 10.11., von mir geprüft:** `s.text(schrift="tt")`/`roh=True`, `s.ersetzen`/`s.umformen` Text → Text, `\mathtt`-Punkt und gerade `'` in `\texttt`, `Szene(reihenfolge="anlegen")` + Warnung „Text unter deckender Fläche“, `szenen_ansehen.py --animiert`/`--ohne-export`, `s.weg(spitze=…)`, `s.summe(..., exakt=True)`, Favicon, `tools/szenen/linux_hilfen.py` (neu: `schreibmaschine("text")` am Dateianfang für Kapitel 5+), build_wissen 27 → 20 s (byte-gleich).
+          - Regression: 809 Szenen de/zh, nur `k2alias`, `k2fehlermeldung`, `k2rsuche`, `k4rohre` geändert (gerade Anführungszeichen, Kontaktblatt von mir angesehen); alle Szenen-Skripte bauen byte-gleiche JSON.
+          - Von mir nachgeprüft: 25 Testdateien (aus `web/` als Skript starten; zwei brauchen `PYTHONIOENCODING=utf-8`) und 2 Node-Tests grün; 1707 Seiten; Linux 2/4 bei 390 px ohne Fehler; Favicon 200.
+          - **Offen:** `Kap2_Shell.pdf` und `Kap4_Stroeme.pdf` (de) zeigen die vier geänderten Bilder erst nach neuem LaTeX-Lauf → Auftrag an Linux 5 2b.
+          - Hinweise für E2 im Bericht: `draw_text` nimmt `font="mono"`/`raw=True`; neue Szenen-Einstellungen an drei Stellen (`editor.js toPythonModel`, `export_szenen.python_model`, `sceneData`/`applyScene`); neue Schlüssel nur schreiben, wenn sie vom Standard abweichen; Regressionswerkzeuge im Scratchpad `editor_e1/` (`szenen_bauen.py`, `vergleich.py`, `wissen_vergleich.py`).
+        - E2 L3 Parameter über die Zeit.
+        - E3 L5 Gitter-Morph und L4 Kamera.
+        - E4 L6 Teilchen, L7 Operationen, L8 Code-Objekt, diskrete Faltung, komplexe Rechenbilder, Pfeil umhängen.
+        - Danach die Ansicht Szene ↔ Code, dann die Nachrüstwellen.
+        - **Verzahnung:** Phase 1 und 2a der Linux-Hefte laufen parallel zu den Werkzeug-Agenten, weil sie keine Repo-Werkzeuge benutzen. Phase 2b eines Hefts startet nie, während ein Werkzeug-Agent läuft, und umgekehrt.
+        - Ein Commit ist unsicher, solange ein Werkzeug-Agent läuft.
+      - (Linux 3, erledigt:) Phase 2b geteilt: 2b-1 baute die Szenen der Abschnitte 1–5, 2b-2 die Szenen der Abschnitte 6–10 sowie PDF, Artikel und Build.
+      - Den Editor-Ausbau starte ich erst, wenn der User committet hat. Er ändert gemeinsam benutzte Werkzeuge, und ein Commit mitten in seiner Arbeit wäre unsicher.
+      2. Agent B: Skript auf die Hefte anwenden, alle PDFs neu bauen, `pdf_pruefen`, neu umwandeln, build_wissen, URL-Vergleich.
+    - **Ausnahmen:** hm3 Kap 3 nicht aus dem .tex umwandeln, weil die Überarbeitung angehalten ist; dort nur die Markdown-Dateien umbenennen. GEMB 16+ nie umwandeln.
+    - Der User hatte vor dem Start nicht committet; letzter Commit fca61c05.
+    - Konverter-Namen und Link-Erkennung aller Module in 6 Sprachen;
+    - alle Hefte samt Übersetzungen (Verweise, Titelzeilen), dann PDFs neu und pdf_pruefen;
+    - Artikel neu, build_wissen, URL-Vergleich;
+    - Doku: Auftrag (Verweise), heft_uebersetzung, Lernpfade, Themenkarte.
+  - **Reihenfolge, je ein Schreib-Agent:**
+    1. nach Linux 1 Phase 2 die Überarbeitung von Python 1–3 (Heft für Heft, vor der Übersetzung);
+    2. die Einzelstellen in ML G1–G5 (G1/G2 samt Übersetzungen) und Cyber 1;
+    3. dann weiter mit Linux 2.
+  - **Spätere Python-Hefte:** Lernpfad- und WISSEN-Anwendungen ersetzen.
+- **Mehr Abbildungen, Animationen mit Start/Stopp (Wunsch des Users, 09.11.):**
+  - **Durchsicht fertig 09.11.** (`notizen/abbildungen_audit/UEBERSICHT.md`, 21 Paketdateien):
+    - 670 → 1237 Abbildungen; neue Vorschläge A 455 / B 123 / C 19; 651 vorhandene eignen sich zum Abspielen.
+    - 214 von 721 Artikeln hatten kein Bild; 85 von 95 Rechenbildern sind statisch.
+    - Editor-Lücken L1–L9, größter Hebel L3 (Parameter über die Zeit).
+    - Die Vorschläge zu GEMB 16/17/19 gelten erst, wenn diese Hefte erscheinen.
+  - **Entscheidungen des Users 09.11.:** animierte SVG (keine Videos) mit Start/Stopp, Neustart und Zeitleiste; neue Abbildungen nur als Editor-Szene, das PDF zeigt ihr Endbild (Makro), vorhandene TikZ bleiben.
+  - **Werkzeug-Agent FERTIG 09.11.** (Anleitung `notizen/animationen.md`; Regeln stehen jetzt im Auftrag, Abschnitt „Abbildungen“):
+    - `<szene>.anim.svg` = Endbild plus Datenblock, JS-Spieler mit Start/Stopp, Neustart, Schritt vor/zurück, Zeitleiste mit Sprungmarken.
+    - Größe 23–120 KB.
+    - L1/L2/L9 gebaut, Rechenbilder laufen Zeile für Zeile; `\szenenabb` in allen 54 Präambeln (Vektor-PDF über `szenen_pdf.py`).
+    - Fehlerbehebungen: clip_run, Ausdünnen der Kurven, Punktfolgen, `\textcolor`.
+    - Offen: L3 (geschätzt 2–3 Agenten-Tage), L4 Kamerafahrt (braucht einen projizierenden Spieler), build_wissen dauert jetzt etwa 7 min.
+    - Ursprünglicher Auftrag des Agenten:
+    - animierter SVG-Export, Spieler in build_wissen;
+    - L1/L2/L9 freischalten, Rechenbilder als Ablauf;
+    - PDF-Makro für Szenen;
+    - Engine-Fehler beheben;
+    - Doku `notizen/animationen.md`.
+  - **Danach:** die Regel in den Auftrag, dann das Nachrüsten in der Reihenfolge der Übersicht:
+    1. Rechenbilder und Artikel ohne Bild;
+    2. die Top 30;
+    3. vorhandene Bilder animieren, Heft für Heft;
+    4. L3;
+    5. die Reste.
+  - **Vorschlag der Durchsicht zur Zählregel:** Soll = das Größere aus Längen-Soll und Zahl der neuen Begriffe, 1–5; Rechenbilder in zugeklappten Kästen halb zählen. Der User antwortete „Ok“; ich nehme den Vorschlag als angenommen, Widerspruch steht ihm frei.
+  - **Auftrag des Users 09.11.:** „baue dem Editor alles ein, was er noch braucht um alle Szenen abbilden zu können, die wir haben wollen. Dann die passenden Grafiken/Animationen. Beides erst nachdem die aktuellen Agenten fertig sind“.
+    - Laufen gerade: Python-2-Überarbeitung, G3-Übersetzung, Animations-Werkzeug-Agent.
+    - **Danach Editor vervollständigen:** alle Lücken aus UEBERSICHT.md:
+      - L3 Parameter über die Zeit, L4 Kamera, L5 Gitter-Morph, L6 viele Teilchen, L7 weitere Operationen, L8 Code-Objekt;
+      - diskrete Faltung, komplexe Zahlen im Rechenbild, Namenspfeil umhängen;
+      - was der Animations-Agent offen lässt.
+      - Werkzeug-Agenten nacheinander, jeder mit Tests.
+    - **Vorgemerkt vom User (09.11.):** „die Funktion einzubauen, dass das im Editor gezeigte Foto als Code angezeigt wird bzw. andersherum“.
+      - Die Reiter „Code“ und „Both“ in `web/editor.html` sind bisher abgeschaltet („coming in Batch 5“).
+      - Ziel: Szene ↔ Python-Code (szenen_lib-Stil) in beide Richtungen, „Both“ zeigt beides nebeneinander und synchron.
+      - Termin: nach der Vervollständigung des Editors, sofern der User nichts anderes sagt.
+    - **Dann Grafiken/Animationen in Wellen:** je Heft ein Agent, der Szenen baut und `\szenenabb` ins Heft setzt, samt Bildunterschriften in allen vorhandenen Sprachen. Erst wenn die ET-Überarbeitung von Python/ML/Cyber durch ist, damit sich nichts überschneidet.
 - Vor Cyber Teil 2 noch offen: Cyber-LERNPFAD auf 12 Hefte und `MODULE["cyber"]` umstellen (nur Kap1 existiert, deshalb Dateinummer = Anzeige-Teil 1–12).
 
 ## Koordination
@@ -71,7 +297,23 @@ Wie der Haupt-Agent Agenten beauftragt, prüft und berichtet, steht in `notizen/
    - Python-Hefte (Bereich Programmieren) zuerst;
    - dann ML-Pfad Teil 1 „Lernen aus Daten“ (T08), mit „erst selbst bauen, dann Bibliothek“ und Verweisen statt Wiederholung.
 6. **Übersetzungen** (Grundlagen 1 läuft seit 06.11. abends): Grundlagen 1, 3, 4, 5, Cybersecurity Teil 1, Python 1, Python 2, Python 3, je ein Übersetzungs-Agent parallel zum Schreib-Agenten.
-7. **Werkzeug-Wünsche aus den Heften (offen):** `s.summe`/`s.produkt` mit anderem Laufindex als i und exakten großen Brüchen (3/131072); `code\kap2\heft_pruefen.py` als allgemeines Werkzeug nach `tools/`. Erledigt 06.11.: `\jj` in der Programmieren-Präambel, Code in `\texttt`/`\mathtt` behält in Szenen den Dezimalpunkt (editor.js localizeTex), Backticks in Artikeltiteln (build_wissen).
+7. **Werkzeug-Wünsche (offen):**
+   - aus dem Editor-Umbau (09.11.):
+     - Lade-Animation beim Öffnen und paralleles Laden sind fertig: bereit kalt 2,6 → 2,4 s, gedrosselt kalt 7,1 → 5,6 s, gedrosselt warm 3,5 → 1,9 s.
+     - Der User: „der große Umbau lohnt sich nicht, die Wartezeit ist ca. 5 Sekunden und die Lade-Animation reicht aus“. Also kein Web Worker, kein Snapshot.
+     - Offen: Das Render-Overlay benutzt `backdrop-filter: blur` und bremst vermutlich das Vorberechnen der Frames, nicht gemessen.
+   - aus der Startseite (09.11., Fourier-Video über `tools/startseite_video.py`):
+     - `exportVideo` liefert auf langsamen Geräten Zeitlupe, weil MediaRecorder mit der echten Uhr stempelt; wichtig für Animationen in Artikeln.
+     - `engine/figures.py` `clip_run` vergleicht Gleitkomma-Endpunkte auf Gleichheit, dadurch entstehen abgeschnittene Kurven gestrichelt.
+     - Der adaptive Plotter setzt über 8000 Punkte je Kurve.
+     - Größe: Ein 12,5-s-Video in 1080p hat 0,8 MB (MP4) bzw. 1,4 MB (WebM).
+   - aus Linux 1:
+   - localizeTex macht aus „10.0.2.15“ „10,0,2,15“; Punktfolgen mit mehreren Punkten (IP, Version) sollten unverändert bleiben;
+   - `\textcolor` in `s.formel` erzeugt einen schwarzen Balken;
+   - Szenen sind zu breit gezeichnet, Linux 1 staucht sie per FAKTOR.
+   - aus Linux 2 (10.11.): Schreibmaschinenschrift für `s.text` statt MathJax-`\texttt`; gerade `'`/`` ` `` in `\texttt`; Zeichenreihenfolge bei Erscheinen-Animationen dokumentieren; `szenen_ansehen.py` soll `.anim.svg` nicht veralten lassen.
+
+   Älter: `s.summe`/`s.produkt` mit anderem Laufindex als i und exakten großen Brüchen (3/131072); `code\kap2\heft_pruefen.py` als allgemeines Werkzeug nach `tools/`. Erledigt 06.11.: `\jj` in der Programmieren-Präambel, Code in `\texttt`/`\mathtt` behält in Szenen den Dezimalpunkt (editor.js localizeTex), Backticks in Artikeltiteln (build_wissen).
 
 ## Hefte
 
@@ -85,7 +327,19 @@ Wie der Haupt-Agent Agenten beauftragt, prüft und berichtet, steht in `notizen/
 | prog | 1 | Python 1: Programme und der Python-Interpreter | fertig 06.11. (45 S., 6 Abschnitte, 19 Aufgaben, 5 Abb.; Website de gebaut; zusammenfassung_kap1.md). Code in code\kap1 unter Windows 3.13 und WSL 3.14 getestet. Nicht getestet: neuer Python install manager (py install), VS Code, IDLE-Start. |
 | prog | 2 | Python 2: Werte, Typen und Variablen | fertig 06.11. (85 S., 10 Abschnitte, 41 Aufgaben, davon 37 am Rechner; 7 Abb. + 4 Rechenbilder; 25 Hintergrund-Kästen; Website de gebaut, 12 Artikel; zusammenfassung_kap2.md). Quellen laut Protokoll ganz gelesen. Alle 111/116 Code-Blöcke gegen Windows 3.13 und WSL 3.14 geprüft (code\kap2\heft_pruefen.py), rechnung_kap2.py 82 Prüfungen. pdf_pruefen 0. Endgültig, Übersetzung einreihen. |
 | prog | 3 | Python 3: Entscheidungen und Schleifen | fertig 09.11. (81 S., 9 Abschnitte, 35 Aufgaben, davon 30 am Rechner; 9 Abb. + 2 Rechenbilder, alle als Szene prog/k3…; 22 Hintergrund-Kästen, 3 Sätze mit 2 Beweisen; Website de gebaut, 11 Artikel; zusammenfassung_kap3.md). Quellen laut Protokoll ganz gelesen. heft_pruefen: 191 bzw. 192 Blöcke unter Windows 3.13 und WSL 3.14 ohne Abweichung, rechnung_kap3.py 92 Prüfungen. pdf_pruefen 0. Nicht live getestet: Auto-Einrücken im Windows-REPL, „^C“-Echo der Windows-Konsole. Endgültig, Übersetzung einreihen. |
-| linux | 1 | Linux 1: Ein Linux zum Üben (WSL 2, VM, Live-USB) | Phase 1 (Schreiben) läuft seit 09.11.; danach Phase 2 (Prüfen) |
+| linux | 1 | Linux 1: Ein Linux zum Üben (WSL 2, VM, Live-USB) | fertig 09.11. (zwei Phasen; 63 S., 9 Abschnitte, 28 Aufgaben, davon 9 am Rechner; 13 Abb. als Szenen linux/k1…; 47 Beispiel-Kästen, 24 Hintergrund, 9 Warnung; Website de gebaut, 11 Artikel; zusammenfassung_kap1.md). Quellen in Phase 1 ganz gelesen; Phase 2 hat das Heft ganz geprüft. Fachlich korrigiert: Hardware-Virtualisierung, Systemaufruf, Rechenfehler 2^32. Code-Abgleich `code\kap1\heft_pruefen.py` 40 Prüfungen, 0 Abweichungen; pdf_pruefen 0. Test-VM (Alpine in qemu) aufgeräumt. Ungetestet nach Doku: wsl --install, VirtualBox, Rufus/Etcher, Firmware, BitLocker. Kontext: Phase 1 637k, Phase 2 541k. Szenen werden per FAKTOR horizontal gestaucht, die Schrift bleibt. |
+| linux | 2 | Kapitel 2: Die Shell: erste Befehle | **Phase 1 fertig 10.11.**: 7 Abschnitte, 38 Unterabschnitte, 27 Aufgaben (16 am Rechner), 31 `\szenenabb`, etwa 18 800 Wörter. Code-Abgleich 130 Prüfungen, 0 Abweichungen; rechnung 33/0. Quellen ganz gelesen, Shotts Kap. 1/5/8 ganz (PDF in Recherche\Material). Kontext 554k. **Phase 2a fertig 10.11.:**
+  - fachlich korrigiert: free „used“ = total − available, df-Reserve 5 %, Strg+C/D, echo eingebaut, uutils/POSIX;
+  - neuer Unterabschnitt 4.4 Seitenanzeiger, Vorgriffe entfernt;
+  - 11 Wortersetzungen (Schreibmarke → Cursor u. a.);
+  - Code 130/0, Rechnung 37/0; zusammenfassung_kap2.md (142 Z.); Kontext 348k.
+  
+  **Phase 2b fertig 10.11., abgenommen:**
+  - 31 Szenen `linux/k2…` animiert in 6 Sprachen (3,8–11,1 s, 14–294 KB, ≤ 536 px), Vektor-PDFs in `abb/<sprache>`; Kontaktblatt de von mir angesehen, inhaltlich stimmig.
+  - `Kap2_Shell.pdf` 61 S., pdf_pruefen 0 (zwei Overfull durch kleine Umstellung in 6.5 und Lösung a:k2vierarten behoben).
+  - 9 Artikel, 27 Aufgaben, 0 KaTeX-Fehler; HTML 1677 → 1686, genau die 9 neuen Seiten; Browser (auch 390 px) ohne Fehler, Beispiele zu.
+  - Themenkarte: Terminal, Shell, Eingabeaufforderung, Befehl/Argument/Option, Hilfe, Verlauf, Tastenkürzel gelten als erklärt in Linux, Kapitel 2. Python, Kapitel 1 soll den Verweis „Linux, Kapitel 2“ beim nächsten Überarbeiten verlinken.
+  - Werkzeug-Wünsche → Editor-Ausbau: Schreibmaschinenschrift für `s.text` (MathJax-Zeichen kosten 1,5–2 KB); `'` und `` ` `` in `\texttt` werden typografisch (k2rsuche zeigt ‘un’); Erscheinen-Objekte liegen über allem (in animationen.md vermerken); `szenen_ansehen.py` exportiert ohne `--animiert` und macht `.anim.svg` veraltet (bis dahin Kontaktblatt aus `abb/de/*.pdf`). |
 | ml | G1 | Übersetzung en/es/zh/fr/tr | fertig 09.11. (en 89, zh 79, es 91, fr 93, tr 89 S.; je 0 Fehler, pdf_pruefen 0, Konverter ohne Warnung, je 17 Artikel; alle 42 k1-Szenen samt 27 Rechenbildern in allen Sprachen exportiert). 7 Korrekturen am deutschen Original in alle Fassungen übernommen, dazu Szenen k1ebene/k1reihenfolge ohne überlappende Achsenzahlen. Glossar um ~60 Einträge ergänzt. Offen: Gegenlesen fr/tr durch Muttersprachler; zh Merkmalsvektor = 特征向量 kollidiert mit Eigenvektor (mit englischem Zusatz gelöst); fr „produit extérieur“ (Glossar G2) ist mehrdeutig, Alternative „produit tensoriel“; Szene k1schatten: Beschriftung kreuzt die x₂-Achse. |
 | ml | 2 | Übersetzung en/es/zh/fr/tr | fertig 06.11. (alle sechs Sprachen 0 Fehler, je 14 Artikel; 7 Korrekturen am deutschen Original in alle Fassungen übernommen; Aufgabentitel a:k2detklein jetzt „Determinante 1, trotzdem schlechte Kondition“). Brief mit Glossar: notizen/uebersetzung_brief_zusatzreihen.md. |
 | cyber | 1 | Überarbeitung mit vollständigem Lesen + Rechenbilder | fertig 05.11. (74 S., 20 Aufgaben, 8 Abb. + 10 Rechenbilder; Website de gebaut). Alles ganz gelesen, Rechtsstand zum 05.11. unverändert (StGB zuletzt 20.03.2026, kein Reformentwurf). Endgültig, Übersetzung einreihen. Neu: Unterabschnitt Gesamtrisiko, CVSS-Formel im Haupttext, § 202a nach BGH 5 StR 614/19, Plattformregeln korrigiert (OverTheWire untersagt Passwörter, pwn.college bittet). Szene k1rcvss: Symbole W/E müssen in allen Sprachen gleich bleiben. |

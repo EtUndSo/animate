@@ -1,6 +1,8 @@
 ---
 title: Stufe 9: Gleichrichter und Ladungspumpe
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Halbleiter und Dioden
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Halbleiter und Dioden
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden
+knoten: Kapitel 9: Halbleiter und Dioden
 order: 1191100
 summary: Der Einweggleichrichter verschenkt jede zweite Halbwelle.
 tags: Brückengleichrichter, Glättung
@@ -47,10 +49,10 @@ Der Scheitel ist $12\,\mathrm{V}-1{,}4\,\mathrm{V}=10{,}6$ V, beim Einweggleic
 :::
 
 :::frage Das pulsiert noch stark. Ist das schon Gleichspannung?
-Noch nicht. Ein Kondensator parallel zur Last (__Glättung__) lädt sich auf den Scheitel und speist die Last in der Lücke. In 10 ms verliert er $\Delta U=I\,\Delta t/C$ ([Teil 3](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html)). Mit $I=10{,}6$ mA und $C=470$ µ F sind das 0,23 V. Die Dioden leiten dann nur noch kurz am Scheitel.
+Noch nicht. Ein Kondensator parallel zur Last (__Glättung__) lädt sich auf den Scheitel und speist die Last in der Lücke. In 10 ms verliert er $\Delta U=I\,\Delta t/C$ ([Kapitel 3](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html)). Mit $I=10{,}6$ mA und $C=470$ µ F sind das 0,23 V. Die Dioden leiten dann nur noch kurz am Scheitel.
 :::
 
-**Ladungspumpe.** Sie erzeugt aus einer Gleichspannung $U_\mathrm e$ eine höhere, ohne Spule. Die Dioden gelten hier als ideal (Abb. [12](#abb-12)). *Schritt 1:* Der Umschalter legt die untere Platte von $C_1$ an Masse. $C_1$ lädt sich über D$_1$ auf $U_\mathrm e$. *Schritt 2:* Der Umschalter legt die untere Platte an $U_\mathrm e$. Die Spannung an $C_1$ kann nicht springen ([Teil 3](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html)), also springt die obere Platte auf $2U_\mathrm e$. D$_1$ sperrt, weil ihre Kathode nun höher liegt, D$_2$ leitet, und $C_1$ gibt Ladung an den Ausgangskondensator $C_2$ ab. Nach wenigen Takten ist $U_\mathrm a\approx2U_\mathrm e$. In der Praxis begrenzen kleine Widerstände die Stromspitzen. Mit weiteren Pumpstufen nach demselben Schema steigt die Spannung weiter.
+**Ladungspumpe.** Sie erzeugt aus einer Gleichspannung $U_\mathrm e$ eine höhere, ohne Spule. Die Dioden gelten hier als ideal (Abb. [12](#abb-12)). *Schritt 1:* Der Umschalter legt die untere Platte von $C_1$ an Masse. $C_1$ lädt sich über D$_1$ auf $U_\mathrm e$. *Schritt 2:* Der Umschalter legt die untere Platte an $U_\mathrm e$. Die Spannung an $C_1$ kann nicht springen ([Kapitel 3](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html)), also springt die obere Platte auf $2U_\mathrm e$. D$_1$ sperrt, weil ihre Kathode nun höher liegt, D$_2$ leitet, und $C_1$ gibt Ladung an den Ausgangskondensator $C_2$ ab. Nach wenigen Takten ist $U_\mathrm a\approx2U_\mathrm e$. In der Praxis begrenzen kleine Widerstände die Stromspitzen. Mit weiteren Pumpstufen nach demselben Schema steigt die Spannung weiter.
 
 :::abbildung et1/k9pumpe 12
 Ladungspumpe; die Stromwege der beiden Schritte sind farbig. Links lädt $U_\mathrm e$ den Kondensator $C_1$. Rechts liegen $U_\mathrm e$ und die Spannung an $C_1$ in Reihe und speisen $C_2$.

@@ -1,6 +1,8 @@
 ---
 title: Stage 2: Slow electrons, immediate current
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / Current, Resistance and Kirchhoff's Laws
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / Current, Resistance and Kirchhoff's Laws
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff
+knoten: Chapter 2: Current, Resistance and Kirchhoff's Laws
 order: 1120300
 summary: Stage 1 needs a velocity v .
 tags: crystal lattice, mobility, mean free path
@@ -33,7 +35,7 @@ With Stage [1](strom-ist-bewegte-ladung.html#stufe-1), the current gives $v_\ma
 ⁠**How to read it:** $\vec v_\mathrm D$ is the drift velocity in m/s. The minus sign says: electrons are negative, they move against $\vec E$. $\mu$ is the __mobility__, the drift velocity per field strength, in $\mathrm{m^2/(V\,s)}$. It is a material constant, in copper $4.3\cdot10^{-3}\,\mathrm{m^2/(V\,s)}$. $T$ is the flight time, around 49 fs in copper. In this time, the electron covers on average the __mean free path__ $\lambda$. **Validity:** [(2.1)](#gl-2-1) is a model. It counts only the part of the velocity produced by the field. In addition, the electrons fly randomly in all directions at around 1600 km/s. This motion cancels on average, carries no current and is preserved in the collisions.
 
 :::herleitung From field to drift
-From $F=m_\mathrm e\,a$ and $F=e\,E$ ([Part 1](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)) follows the acceleration $a=e\,E/m_\mathrm e$. A flight starts with a directed part of zero, so $v(t)=a\,t$ and $v_\mathrm{max}=a\,T$. The sawtooth has the mean value $v_\mathrm{max}/2=e\,E\,T/(2\,m_\mathrm e)$. The velocity does not keep growing, because each collision resets it.
+From $F=m_\mathrm e\,a$ and $F=e\,E$ ([Chapter 1](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)) follows the acceleration $a=e\,E/m_\mathrm e$. A flight starts with a directed part of zero, so $v(t)=a\,t$ and $v_\mathrm{max}=a\,T$. The sawtooth has the mean value $v_\mathrm{max}/2=e\,E\,T/(2\,m_\mathrm e)$. The velocity does not keep growing, because each collision resets it.
 :::
 
 ::::beispiel
@@ -52,7 +54,7 @@ One meter of wire at three moments after the switch on the left closes. The fiel
 A bicycle chain is full of links everywhere. Push the pedal at the front and it moves at the back at the same moment, although each link moves only slowly. The analogy ends at the mechanism: chain links push one another mechanically, and the effect travels through the metal at the speed of sound. In the wire, a field travels, and its speed is close to the speed of light.
 :::
 
-:::frage Part 1 says that $\vec E=0$ in metal. Why is there a field in the wire, and how does it follow the curves?
+:::frage Chapter 1 says that $\vec E=0$ in metal. Why is there a field in the wire, and how does it follow the curves?
 $\vec E=0$ holds only in the state of rest, when all charges have come to rest. The source does not allow that: it removes electrons at one end and supplies them at the other, so the state of rest is never reached. A small field remains, here 0.10 mV/m. At bends, tiny charges collect on the wire surface. Their field steers $\vec E$ along the wire everywhere; otherwise the electrons would run into the wall, and the charge there would keep growing.
 :::
 

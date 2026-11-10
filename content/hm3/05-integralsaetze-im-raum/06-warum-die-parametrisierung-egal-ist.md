@@ -1,6 +1,8 @@
 ---
 title: Stufe 5: Warum die Parametrisierung egal ist
-pfad: Elektrotechnik / 3. Semester / Höhere Mathematik 3 / Integralsätze im Raum
+pfad: Elektrotechnik / 3. Semester / HöMa3 – Höhere Mathematik 3 / Integralsätze im Raum
+adresse: elektrotechnik/3-semester/hohere-mathematik-3/integralsatze-im-raum
+knoten: Kapitel 5: Integralsätze im Raum
 order: 3150600
 summary: Eine Fläche lässt sich auf viele Arten parametrisieren.
 tags: Parameterinvarianz
@@ -10,10 +12,10 @@ lang: de
 <span class="anker" id="stufe-5"></span>
 
 :::zweck
-Eine Fläche lässt sich auf viele Arten parametrisieren. Ein Integral soll aber zur Fläche gehören, nicht zur gewählten Beschreibung. Bei Kurven hat das [Teil 3](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/kurvenintegrale/kurvenintegrale.html) gezeigt. Diese Stufe überträgt es auf Flächen und zeigt, wo die Orientierung ins Spiel kommt.
+Eine Fläche lässt sich auf viele Arten parametrisieren. Ein Integral soll aber zur Fläche gehören, nicht zur gewählten Beschreibung. Bei Kurven hat das [Kapitel 3](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/kurvenintegrale/kurvenintegrale.html) gezeigt. Diese Stufe überträgt es auf Flächen und zeigt, wo die Orientierung ins Spiel kommt.
 :::
 
-**Die Idee.** Bei Kurven heben sich Tempo und Dauer im Integral auf ([Teil 3](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/kurvenintegrale/kurvenintegrale.html)). Bei Flächen ist es genauso: Ein dichteres Gitter hat kleinere Zellen, dafür mehr davon, und große Zellen zählen entsprechend mehr (Abb. [3](#abb-3)). Dass der Wert nicht von der Parametrisierung abhängt, heißt __Parameterinvarianz__.
+**Die Idee.** Bei Kurven heben sich Tempo und Dauer im Integral auf ([Kapitel 3](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/kurvenintegrale/kurvenintegrale.html)). Bei Flächen ist es genauso: Ein dichteres Gitter hat kleinere Zellen, dafür mehr davon, und große Zellen zählen entsprechend mehr (Abb. [3](#abb-3)). Dass der Wert nicht von der Parametrisierung abhängt, heißt __Parameterinvarianz__.
 
 :::abbildung hm3/k5invarianz 3
 Dieselbe Kreisscheibe mit zwei Gittern. Links die Parameter $(x,y)$, rechts $(r,\varphi)$. Die Zellen sehen verschieden aus, zusammen ergeben sie denselben Inhalt.

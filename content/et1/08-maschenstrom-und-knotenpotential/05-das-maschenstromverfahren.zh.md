@@ -1,6 +1,8 @@
 ---
 title: 第 3 阶段：网孔电流法
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 网孔电流法与节点电位法
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 网孔电流法与节点电位法
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/maschenstrom-und-knotenpotentialverfahren
+knoten: 第 8 章：网孔电流法与节点电位法
 order: 1180500
 summary: 节点定律已经解决，剩下 m 条网孔定律和 m 个未知量。本阶段列出这些方程，并说明为什么矩阵可以直接读出。
 tags: 互电阻
@@ -24,7 +26,7 @@ lang: zh
 
 <li>
 
-把实际电流源变换为实际电压源：$U_\mathrm q=I_\mathrm q\,R$，同一电阻改为串联（[第 5 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)）。
+把实际电流源变换为实际电压源：$U_\mathrm q=I_\mathrm q\,R$，同一电阻改为串联（[第 5 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)）。
 
 </li>
 
@@ -73,7 +75,7 @@ $Z_{\mu\nu}$ 是__互电阻__，即两个网孔共同经过的电阻之和：两
 
 <li>
 
-$U_{\mathrm q\mu}$ 是网孔中电源电压之和，每个驱动网孔电流的电源计为正。对于从正极指向负极的电压箭头（发电机惯例，[第 2 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)），这意味着：箭头与绕行方向相反时计为正，相同时计为负。
+$U_{\mathrm q\mu}$ 是网孔中电源电压之和，每个驱动网孔电流的电源计为正。对于从正极指向负极的电压箭头（发电机惯例，[第 2 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)），这意味着：箭头与绕行方向相反时计为正，相同时计为负。
 
 </li>
 
@@ -84,7 +86,7 @@ $U_{\mathrm q\mu}$ 是网孔中电源电压之和，每个驱动网孔电流的�
 对网孔 $\mu$，所有 $R_a\,I_a$ 之和等于驱动电压 $U_{\mathrm q\mu}$，因为电源被移到了右端。这里 $I_a$ 是 $R_a$ 中的电流，按 $\mu$ 的绕行方向计数。由式 [(2.1)](maschenstrome-erfullen-die-knotenregel.html#gl-2-1)，$I_a=I_\mu+\sum_{\nu\neq\mu}\sigma_{a\nu}\,I_\nu$。整理后，$I_\mu$ 前面是所有 $R_a$ 之和，$I_\nu$ 前面是公共电阻上的和 $\sum_a\sigma_{a\nu}R_a$。网孔 $\nu$ 得到相同的电阻和相同的符号，因为“同向”是两个网孔之间的关系。所以 $\mathbf Z$ 是对称的。
 :::
 
-⁠**如何理解：**第 $\mu$ 行是网孔 $\mu$ 的网孔定律。第 $\nu$ 列表示一安培网孔电流 $\nu$ 在每个网孔中产生的电压。因此单位是欧姆，这里典型值是千欧。字母 $Z$ 来自阻抗（[第 6 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html)），这里都是纯电阻。**适用条件：**网络含线性电阻和固定电压源。对称性同时也是一种检验：列方程时的错误通常会破坏它。
+⁠**如何理解：**第 $\mu$ 行是网孔 $\mu$ 的网孔定律。第 $\nu$ 列表示一安培网孔电流 $\nu$ 在每个网孔中产生的电压。因此单位是欧姆，这里典型值是千欧。字母 $Z$ 来自阻抗（[第 6 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html)），这里都是纯电阻。**适用条件：**网络含线性电阻和固定电压源。对称性同时也是一种检验：列方程时的错误通常会破坏它。
 
 :::abbildung et1/k8maschen 3
 用于网孔电流法的模型电路。右边的电流源已变换为电压源。红色是公共电阻 $R_2$ 和 $R_4$：它们出现在 $\mathbf Z$ 的对角线之外。I 和 III 没有公共支路，所以 $Z_{13}=0$。
@@ -115,13 +117,13 @@ $$D_2=5\cdot(-200)-9\cdot(-60)=-460,\qquad D_3=-1600+320+360=-920.$$
 :::
 
 :::zusatz 理想电流源
-$R_5\to\infty$ 时，$U_\mathrm{q5}$ 无限增大，变换失效（[第 5 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)）。这时要这样布置网孔，使得只有一个网孔穿过电流源。它的网孔电流是已知的。这个网孔的方程要省去，因为其中含有电源的未知电压。少一个未知量，也少一个方程。
+$R_5\to\infty$ 时，$U_\mathrm{q5}$ 无限增大，变换失效（[第 5 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)）。这时要这样布置网孔，使得只有一个网孔穿过电流源。它的网孔电流是已知的。这个网孔的方程要省去，因为其中含有电源的未知电压。少一个未知量，也少一个方程。
 :::
 
-:::aufgabe 练习 3 ★★ 第 2 部分的网络
+:::aufgabe 练习 3 ★★ 第 2 章的网络
 <span class="anker" id="aufg-3"></span>
 
-[第 2 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)的网络在 $K_1$ 和 $K_4$ 之间有一个 9 V 的理想电源，并有 $R_\mathrm a=2\,\mathrm{k\Omega}$（$K_1K_2$），$R_\mathrm b=5\,\mathrm{k\Omega}$（$K_2K_4$），$R_\mathrm c=3\,\mathrm{k\Omega}$（$K_1K_3$），$R_\mathrm d=1\,\mathrm{k\Omega}$（$K_3K_4$），$R_\mathrm e=2\,\mathrm{k\Omega}$（$K_2K_3$）。网孔这样走：$I_\mathrm A$ 穿过电源从 $K_4$ 到 $K_1$，再到 $K_2$，回到 $K_4$。$I_\mathrm B$ 从 $K_1$ 到 $K_3$、$K_2$，回到 $K_1$。$I_\mathrm C$ 从 $K_2$ 到 $K_3$、$K_4$，回到 $K_2$。
+[第 2 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)的网络在 $K_1$ 和 $K_4$ 之间有一个 9 V 的理想电源，并有 $R_\mathrm a=2\,\mathrm{k\Omega}$（$K_1K_2$），$R_\mathrm b=5\,\mathrm{k\Omega}$（$K_2K_4$），$R_\mathrm c=3\,\mathrm{k\Omega}$（$K_1K_3$），$R_\mathrm d=1\,\mathrm{k\Omega}$（$K_3K_4$），$R_\mathrm e=2\,\mathrm{k\Omega}$（$K_2K_3$）。网孔这样走：$I_\mathrm A$ 穿过电源从 $K_4$ 到 $K_1$，再到 $K_2$，回到 $K_4$。$I_\mathrm B$ 从 $K_1$ 到 $K_3$、$K_2$，回到 $K_1$。$I_\mathrm C$ 从 $K_2$ 到 $K_3$、$K_4$，回到 $K_2$。
 
 <ol class="al">
 
@@ -139,7 +141,7 @@ $R_5\to\infty$ 时，$U_\mathrm{q5}$ 无限增大，变换失效（[第 5 部分
 
 <li>
 
-求五个电阻电流，并与[第 2 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)比较。
+求五个电阻电流，并与[第 2 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)比较。
 
 </li>
 
@@ -154,7 +156,7 @@ $$\mathbf Z=\begin{pmatrix}7&-2&-5\\-2&7&-2\\-5&-2&8\end{pmatrix}\mathrm{k\Omega
 
 (b) $D=7(56-4)+2(-16-10)-5(4+35)=364-52-195=117$。$D_1=9\cdot52=468$，$D_2=234$，$D_3=351$。所以 $I_\mathrm A=4$ mA，$I_\mathrm B=2$ mA，$I_\mathrm C=3$ mA。
 
-(c) $I_\mathrm a=I_\mathrm A-I_\mathrm B=2$ mA，$I_\mathrm b=I_\mathrm A-I_\mathrm C=1$ mA，$I_\mathrm c=I_\mathrm B=2$ mA，$I_\mathrm d=I_\mathrm C=3$ mA，$I_\mathrm e=I_\mathrm C-I_\mathrm B=1$ mA，从 $K_2$ 到 $K_3$。这就是[第 2 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)的表，只用了三个方程而不是十二个。
+(c) $I_\mathrm a=I_\mathrm A-I_\mathrm B=2$ mA，$I_\mathrm b=I_\mathrm A-I_\mathrm C=1$ mA，$I_\mathrm c=I_\mathrm B=2$ mA，$I_\mathrm d=I_\mathrm C=3$ mA，$I_\mathrm e=I_\mathrm C-I_\mathrm B=1$ mA，从 $K_2$ 到 $K_3$。这就是[第 2 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)的表，只用了三个方程而不是十二个。
 :::
 :::
 

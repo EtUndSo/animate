@@ -1,7 +1,8 @@
 ---
 title: Vectores: datos como listas de números
 pfad: Informática / Aprendizaje automático / Fundamentos matemáticos / Vectores y matrices
-knoten: Fundamentos 1: Vectores y matrices
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Capítulo 1: Vectores y matrices
 nachschlagen: ja
 order: 15210200
 summary: Un ordenador solo sabe manejar números.
@@ -139,7 +140,7 @@ La vivienda 1 es el vector $\mathbf{x}_1=(60,\,2,\,3)^{\top}\in\mathbb{R}^3$. S
 ⁠**En resumen:** Un vector es una lista ordenada de números que puede dibujarse como punto o como flecha; un ejemplo con $d$ características es un vector de $\mathbb{R}^d$.
 
 :::hintergrund Qué es en realidad un vector
-Una lista de números es el vector con el que se calcula. En matemáticas, el concepto es más amplio: un vector es todo lo que puede sumarse y multiplicarse por un número sin salirse del tipo de objeto. Las flechas del plano entran en esta categoría, pero también las señales. Una señal muestreada $n$ veces es la lista de sus muestras $x[0],\dots,x[n-1]$, es decir, un vector de $\mathbb{R}^n$. Sumar dos señales significa superponerlas, y multiplicar una señal por un número significa amplificarla; ambas operaciones dan de nuevo una señal de la misma longitud.
+Una lista de números es el vector con el que se calcula. En matemáticas, el concepto es más amplio: un vector es todo lo que puede sumarse y multiplicarse por un número sin salirse del tipo de objeto. Las flechas del plano entran en esta categoría, pero también las grabaciones de sonido. Una grabación de sonido registra, a intervalos iguales y muy cortos, cuánto se desvía en cada momento la presión del aire de su valor en reposo. Con $n$ de estos valores $x[0],\dots,x[n-1]$, es un vector de $\mathbb{R}^n$. Sumar dos grabaciones significa mezclarlas, y multiplicar una grabación por un número significa subirle o bajarle el volumen; ambas operaciones dan de nuevo una grabación de la misma longitud.
 
 También una imagen es un vector. Una imagen en escala de grises de $28\times28$ píxeles consta de $784$ valores de luminosidad. Si se leen fila por fila, uno tras otro, la imagen es un punto de $\mathbb{R}^{784}$. Esta idea ya no puede dibujarse, pero se calcula con ella exactamente igual que con dos o tres componentes.
 :::
@@ -216,12 +217,14 @@ $$\tfrac12\,(60,\,2,\,3)^{\top}+\tfrac12\,(40,\,1,\,1)^{\top}=(50;\ 1{,}5;\ 2)^{
 Es una vivienda imaginaria que, en cada característica, está exactamente a medio camino entre las dos. El punto está en el centro del segmento de unión.
 ::::
 
-::::beispiel [Ejemplo numérico 3] la media de los ejemplos
-Si se toman todos los $N$ ejemplos con el coeficiente $1/N$, se obtiene la __media de los ejemplos__
+Hay una combinación lineal que se necesita con especial frecuencia en este capítulo. Si se toman todos los $N$ ejemplos con el coeficiente $1/N$, se obtiene la __media de los ejemplos__
 
 <span class="anker" id="gl-1-5"></span>
 $$\bar{\mathbf{x}}=\frac1N\sum_{i=1}^{N}\mathbf{x}_i . \tag{1.5}$$
 
+Es un ejemplo imaginario que, en cada característica, tiene el promedio de todos los ejemplos: su componente $j$-ésima es la media de las $j$-ésimas características.
+
+::::beispiel [Ejemplo numérico 3] la media de los ejemplos
 Para el conjunto de datos de viviendas, $\bar{\mathbf{x}}=(65;\ 2{,}5;\ 3)^{\top}$ (fig. [5](#abb-5)), la «vivienda media»: en promedio, $65\,\mathrm m^2$, $2{,}5$ habitaciones y $3$ km hasta el centro.
 
 :::abbildung ml/k1rmittelvektor 5

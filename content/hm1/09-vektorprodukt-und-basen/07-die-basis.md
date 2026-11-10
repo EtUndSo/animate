@@ -1,6 +1,8 @@
 ---
 title: Stufe 5: Die Basis
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Vektorprodukt und Basen
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Vektorprodukt und Basen
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/vektorprodukt-und-basen
+knoten: Kapitel 9: Vektorprodukt und Basen
 order: 1290700
 summary: Bisher waren Linearkombinationen Beispiele.
 tags: Basis, Koordinaten, Koordinatenvektor, Standardbasis
@@ -58,7 +60,7 @@ $\vec b_1,\dots,\vec b_n$ sind linear unabhängig.
 </ol>
 :::
 
-⁠**So liest man das:** (1) ist die Existenz der Adresse, (2) ihre Eindeutigkeit. Lineare Unabhängigkeit ([Teil 8](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/vektoren-und-skalarprodukt/vektoren-und-skalarprodukt.html)) ist die Eindeutigkeit für den Nullvektor, und das reicht schon für alle Vektoren.
+⁠**So liest man das:** (1) ist die Existenz der Adresse, (2) ihre Eindeutigkeit. Lineare Unabhängigkeit ([Kapitel 8](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/vektoren-und-skalarprodukt/vektoren-und-skalarprodukt.html)) ist die Eindeutigkeit für den Nullvektor, und das reicht schon für alle Vektoren.
 
 :::beweis Zwei Richtungen
 „$\Rightarrow$“: Nach [(5.1)](#gl-5-1) lässt sich jedes $\vec a\in V$ aus den $\vec b_j$ bauen, also gilt (1). Für (2) sei $\sum_j\alpha_j\vec b_j=\vec0$. Es gilt auch $\vec0=\sum_j0\cdot\vec b_j$. Wegen der Eindeutigkeit ist $\alpha_1=\dots=\alpha_n=0$.

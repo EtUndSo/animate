@@ -1,6 +1,8 @@
 ---
 title: 第 10 阶段：R-2R 转换器
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 电源与等效电源
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 电源与等效电源
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen
+knoten: 第 5 章：电源与等效电源
 order: 1151200
 summary: 处理器只认识比特，扬声器需要电压。R-2R 转换器完成这一翻译。它把叠加和等效电源集中在一个电路里。
 tags: 数模转换器
@@ -39,7 +41,7 @@ $$U_\mathrm{out}=\tfrac12\Bigl(\tfrac12\bigl(\tfrac12U_0+U_1\bigr)+U_2\Bigr)=\tf
 :::
 
 ::::beispiel
-取 $U_\mathrm{ref}=8$ V，$R=1$ k$\Omega$，各比特的权重为 4 V、2 V 和 1 V。位置 101 给出 5 V。负载 $R_\mathrm{L}=R$ 与 $R_\mathrm{i}$ 构成分压器，使其减半为 2.5 V。因此实际的转换器后面接一个输入电阻很高的运算放大器（[第 11 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker/der-operationsverstaerker.html)）：它几乎不取电流，梯形网络保持开路。
+取 $U_\mathrm{ref}=8$ V，$R=1$ k$\Omega$，各比特的权重为 4 V、2 V 和 1 V。位置 101 给出 5 V。负载 $R_\mathrm{L}=R$ 与 $R_\mathrm{i}$ 构成分压器，使其减半为 2.5 V。因此实际的转换器后面接一个输入电阻很高的运算放大器（[第 11 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker/der-operationsverstaerker.html)）：它几乎不取电流，梯形网络保持开路。
 ::::
 
 ⁠**极限情况：**位置 000 给出 0 V，位置 111 给出 7 V，比 $U_\mathrm{ref}$ 低一级。

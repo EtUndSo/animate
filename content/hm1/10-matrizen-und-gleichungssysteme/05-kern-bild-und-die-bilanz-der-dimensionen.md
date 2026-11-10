@@ -1,6 +1,8 @@
 ---
 title: Stufe 3: Kern, Bild und die Bilanz der Dimensionen
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Matrizen und lineare Gleichungssysteme
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Matrizen und lineare Gleichungssysteme
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/matrizen-und-lineare-gleichungssysteme
+knoten: Kapitel 10: Matrizen und lineare Gleichungssysteme
 order: 1300500
 summary: Die Presse P schickt verschiedene Vektoren auf dasselbe Ziel.
 tags: Bild, Urbild, Kern

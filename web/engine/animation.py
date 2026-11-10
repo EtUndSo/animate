@@ -204,6 +204,8 @@ class PulseColor(Animation):
             if len(o.points):
                 base = np.asarray(o.fill_color if o.fill_color is not None else o.color, dtype=float)
                 o.fill_color = tuple(base + (self.color - base) * w)
+                if getattr(o, "text", None) is not None:  # a label is drawn in `color`: tint that (Indicate on Text)
+                    o.color = o.fill_color
             stack.extend(o.subObjects)
 
 
@@ -335,6 +337,70 @@ class Indicate(PulseColor):
         super().__init__(target, factor=factor, color=color, **kwargs)
 
 
+def text_rows(obj, gap=1e-3):
+    """The children of a formula (glyph groups of a MathTex) grouped into display rows, top to bottom: children whose
+    vertical extents overlap belong to one row (a fraction or a Σ with limits stays in its row; rows of an `aligned`
+    block are separated by their row spacing). Returns a list of lists of children."""
+    spans = []
+    for g in obj.subObjects:
+        p = g.all_points()
+        if len(p):
+            spans.append((float(p[:, 1].max()), float(p[:, 1].min()), g))
+    spans.sort(key=lambda s: -s[0])
+    rows, lo = [], None
+    for top, bot, g in spans:
+        if rows and top >= lo - gap:                    # overlaps the current row (y up: rows go downwards)
+            rows[-1].append(g)
+            lo = min(lo, bot)
+        else:
+            rows.append([g])
+            lo = bot
+    return rows
+
+
+class FadeInLines(Animation):
+    """A formula appears row by row (FadeIn with lines=true): the rows of text_rows() fade in one after another within
+    the run time, each over its own share. Pure function of alpha; `marks` = the relative start of each row."""
+
+    appears = True
+
+    def __init__(self, target, **kwargs):
+        kwargs.setdefault("rate_func", linear)
+        super().__init__(target, **kwargs)
+
+    def begin(self):
+        super().begin()
+        self.rows = [[self.target.subObjects.index(g) for g in row] for row in text_rows(self.target)]
+        n = max(1, len(self.rows))
+        self.marks = [i / float(n) for i in range(n)]
+        _set_opacity(self.target, self.start, 0.0)
+
+    def interpolate(self, a):
+        n = max(1, len(self.rows))
+        for i, row in enumerate(self.rows):
+            w = smooth(max(0.0, min(1.0, a * n - i)))
+            for j in row:
+                _set_opacity(self.target.subObjects[j], self.start.subObjects[j], w)
+
+
+class IndicateCells(Animation):
+    """Light up single cells of a Table (L9): their highlight boxes (added at build time, transparent) fade to
+    `opacity` and back (sin bump). Pure function of alpha; the table itself is not touched."""
+
+    def __init__(self, target, boxes, opacity=0.55, **kwargs):
+        super().__init__(target, **kwargs)
+        self.boxes = list(boxes)
+        self.opacity = float(opacity)
+
+    def begin(self):
+        self.start = None                              # no snapshot: the boxes are set absolutely
+
+    def interpolate(self, a):
+        w = float(np.sin(np.pi * max(0.0, min(1.0, a))))
+        for b in self.boxes:
+            b.fill_opacity = self.opacity * w
+
+
 class Write(Create):
     """Write the target on (progressive stroke/glyph reveal) - Create, framed as 'Write' for text/formulas."""
     pass
@@ -392,14 +458,34 @@ def _collapsed_like(ref):
     return c
 
 
+def _copy_opacity(o, s):
+    o.fill_opacity, o.stroke_opacity = s.fill_opacity, s.stroke_opacity
+    for a, b in zip(o.subObjects, s.subObjects):
+        _copy_opacity(a, b)
+
+
+def _zero_opacity(o):
+    o.fill_opacity = o.stroke_opacity = 0.0
+    for a in o.subObjects:
+        _zero_opacity(a)
+
+
 def _as_rgb(col, fallback):
     if col is None:
         return np.asarray(fallback, dtype=float)
     return np.asarray(col, dtype=float)
 
 
+def _is_text(o):
+    """A Text label (one anchor point, drawn by the painter's draw_text, no children)."""
+    return getattr(o, "text", None) is not None and not o.subObjects
+
+
 class Transform(Animation):
-    """Morph `mobject` into `target_mobject` (it becomes the target; the target itself is not added)."""
+    """Morph `mobject` into `target_mobject` (it becomes the target; the target itself is not added).
+    Text -> Text: a label has no path to morph, so the label changes its CONTENT: anchor, size and colour move to the
+    template's, the old text fades out in the first half and the new text (with the template's align, font, raw) fades
+    in in the second half. At the end the label IS the template's text: one object, nothing invisible left behind."""
 
     appears = False
 
@@ -407,10 +493,41 @@ class Transform(Animation):
         super().__init__(mobject, **kwargs)
         self.target_mobject = target_mobject
 
+    def _text_morph(self):
+        """Begin a Text -> Text morph (called from begin when both are labels)."""
+        self.start = self.target.copy()
+        self._text = True
+
+    def _interp_text(self, a):
+        s, e, t = self.start, self.target_mobject, self.target
+        t.points = s.points + (e.points - s.points) * a
+        t.font_size = s.font_size + (e.font_size - s.font_size) * a
+        t.color = tuple(_as_rgb(s.color, (0, 0, 0)) + (_as_rgb(e.color, (0, 0, 0)) - _as_rgb(s.color, (0, 0, 0))) * a)
+        src, k = (s, 1.0 - 2.0 * a) if a < 0.5 else (e, 2.0 * a - 1.0)
+        t.text, t.align = src.text, getattr(src, "align", "center")
+        t.font, t.raw = getattr(src, "font", "sans"), getattr(src, "raw", False)
+        t.fill_opacity = src.fill_opacity * k
+        t.stroke_opacity = src.stroke_opacity * k
+
     def _reset_target(self):
-        self.target.points = np.zeros((0, 3))          # rebuild the target as a flat group of morphing leaves
-        self.target.subObjects = []
+        # Rebuild the target as a flat group of morphing leaves. The ORIGINAL geometry (own points, children) stays in
+        # the object: until the morph starts (alpha = 0) it is what is drawn, so animations before the morph (Create,
+        # FadeIn, Write on the same object) still act on it; once the morph runs, only the morphing leaves are drawn.
+        self._orig_points = self.target.points.copy()
+        self._orig = list(self.target.subObjects)
+        self.target.points = np.zeros((0, 3))
+        self.target.subObjects = list(self._orig)
         self._pairs = []
+
+    def _show_original(self, on):
+        if on:
+            self.target.points = self._orig_points.copy()
+            for o, s in zip(self._orig, self.start.subObjects):
+                _copy_opacity(o, s)
+        else:
+            self.target.points = np.zeros((0, 3))
+            for o in self._orig:
+                _zero_opacity(o)
 
     def _add_pair(self, sa, ea):
         """One morphing child: start-leaf sa -> end-leaf ea (point counts aligned, attrs interpolated)."""
@@ -434,6 +551,8 @@ class Transform(Animation):
         })
 
     def begin(self):
+        if _is_text(self.target) and _is_text(self.target_mobject):
+            return self._text_morph()
         self.start = self.target.copy()
         starts = []; _path_leaves_tf(self.start, starts)
         ends = []; _path_leaves_tf(self.target_mobject, ends)
@@ -450,6 +569,19 @@ class Transform(Animation):
             self._add_pair(sa, ea)
 
     def interpolate(self, a):
+        if getattr(self, "_text", False):              # Text -> Text: the content changes
+            return self._interp_text(a)
+        if not hasattr(self, "_orig"):                 # nothing to morph (no paths on either side)
+            return
+        if a <= 0.0:                                   # not started: the object as it was, morph leaves hidden
+            self._show_original(True)
+            for p in self._pairs:
+                c = p["child"]
+                c.points = p["sp"].copy()
+                c.fill_opacity = 0.0
+                c.stroke_opacity = 0.0
+            return
+        self._show_original(False)
         for p in self._pairs:
             c = p["child"]
             c.points = p["sp"] + (p["ep"] - p["sp"]) * a
@@ -477,6 +609,8 @@ class TransformMatchingTex(Transform):
     and formula rearrangements read as the SAME symbols moving (Manim's TransformMatchingTex)."""
 
     def begin(self):
+        if _is_text(self.target) and _is_text(self.target_mobject):
+            return self._text_morph()                  # two labels: the content changes (Transform)
         self.start = self.target.copy()
         src = list(self.start.subObjects) or [self.start]
         tgt = list(self.target_mobject.subObjects) or [self.target_mobject]

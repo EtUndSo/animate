@@ -1,0 +1,12 @@
+Addition OK: 14 squares, duration 4.0
+Subtraction OK: 14 squares, duration 4.4
+Multiplication OK: 12 squares (3 groups of 4)
+multiplication order OK: a*b = a groups of b (3*6 = 3 groups of 6)
+Division OK: 12 squares
+edit view OK: squares shown, no animation
+Subtraction seek OK: start 14 visible, end 6 (annihilation, not shown early)
+number-line mode OK: Addition=2 bars, Mult=4, Div=4, Sub=3
+hidden operation OK: not rendered
+FunctionGraph(x,y) -> surface OK: 256 faces
+
+ARITHMETIC / UNIFIED-GRAPH TESTS PASSED

@@ -1,6 +1,8 @@
 ---
 title: Stage 3: Backward: injective, surjective, bijective
-pfad: Electrical Engineering / 1st Semester / Higher Mathematics 1 / Functions and Polynomials
+pfad: Electrical Engineering / 1st Semester / HöMa1 – Higher Mathematics 1 / Functions and Polynomials
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/funktionen-und-polynome
+knoten: Chapter 3: Functions and Polynomials
 order: 1230500
 summary: Going forward, there is exactly one y for each x .
 tags: injective, surjective, bijective
@@ -63,13 +65,13 @@ A strictly monotonic real function $f:\mathcal D(f)\to\mathcal W(f)$ is bijectiv
 :::
 
 :::beweis Strictly monotonic implies bijective
-$f$ is surjective by definition of $\mathcal W(f)$. For injectivity we show the equivalent contrapositive ([Part 1](/wissen/en/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html)): From $x\neq y$ follows $f(x)\neq f(y)$. Let $x<y$ (otherwise swap the names). If $f$ is strictly increasing, then $f(x)<f(y)$; if $f$ is strictly decreasing, then $f(x)>f(y)$. In both cases $f(x)\neq f(y)$.
+$f$ is surjective by definition of $\mathcal W(f)$. For injectivity we show the equivalent contrapositive ([Chapter 1](/wissen/en/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html)): From $x\neq y$ follows $f(x)\neq f(y)$. Let $x<y$ (otherwise swap the names). If $f$ is strictly increasing, then $f(x)<f(y)$; if $f$ is strictly decreasing, then $f(x)>f(y)$. In both cases $f(x)\neq f(y)$.
 :::
 
 ⁠**How to read it:** The target here is exactly $\mathcal W(f)$. **Why “strictly” is needed:** On the horizontal piece in Fig. [3](gerade-monoton-beschrankt.html#abb-3), many $x$ have the same image. **The converse does not hold:** $f(x)=1/x$ on $\mathbb{R}\setminus\{0\}$ is bijective onto $\mathbb{R}\setminus\{0\}$, but not monotonic, because $-1<1$ gives $f(-1)<f(1)$, and $1<2$ gives $f(1)>f(2)$.
 
 ::::beispiel [Examples]
-By Theorems [2.2](gerade-monoton-beschrankt.html#satz-2-2) and [3.2](#satz-3-2), $f(x)=x^n$ is bijective onto its range, namely $\mathcal W(f)=\mathbb{R}_0^+$ for even $n$ on $\mathbb{R}_0^+$ and $\mathcal W(f)=\mathbb{R}$ for odd $n$ on $\mathbb{R}$. That every $y$ really is hit follows, as for $\sqrt y$, from the completeness of the real numbers ([Part 1](/wissen/en/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html)). Without monotonicity one computes directly: $f:\mathbb{R}\to\mathbb{R}$, $f(x)=2x-5$ is injective, because $2x-5=2y-5$ gives $x=y$, and surjective, because for given $y$, $x=(y+5)/2$ solves the equation.
+By Theorems [2.2](gerade-monoton-beschrankt.html#satz-2-2) and [3.2](#satz-3-2), $f(x)=x^n$ is bijective onto its range, namely $\mathcal W(f)=\mathbb{R}_0^+$ for even $n$ on $\mathbb{R}_0^+$ and $\mathcal W(f)=\mathbb{R}$ for odd $n$ on $\mathbb{R}$. That every $y$ really is hit follows, as for $\sqrt y$, from the completeness of the real numbers ([Chapter 1](/wissen/en/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html)). Without monotonicity one computes directly: $f:\mathbb{R}\to\mathbb{R}$, $f(x)=2x-5$ is injective, because $2x-5=2y-5$ gives $x=y$, and surjective, because for given $y$, $x=(y+5)/2$ solves the equation.
 ::::
 
 ⁠**Limiting case:** $f(x)=x$ is bijective; every height is hit exactly at $x=y$.

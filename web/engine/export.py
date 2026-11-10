@@ -27,7 +27,8 @@ import math
 import numpy as np
 
 from .renderer import paint_scene
-from .richtext import parse as _parse_rich, layout as _layout, plain as _plain
+from .richtext import (parse as _parse_rich, layout as _layout, plain as _plain, text_lines as _text_lines,
+                       mono_line as _mono_line, MONO_CELL)
 from .svg_painter import SvgPainter, SVG_FONT
 
 SCALE = 0.55              # scene px -> article px (24-28 px labels -> 13.2-15.4 px)
@@ -73,10 +74,37 @@ def char_em(ch):
     return 0.6
 
 
-def text_box(text, px, py, font_size, align="center"):
+def _lines_box(text, px, py, font_size, align, mono, raw):
+    """text_box of a raw and/or typewriter label (SvgPainter._draw_lines): mono lines are cells x MONO_CELL em wide."""
+    lines = _text_lines(text, raw)
+    n = len(lines)
+    fs = float(font_size)
+    lh = _LINE_H * fs
+    x0 = y0 = math.inf
+    x1 = y1 = -math.inf
+    for i, line in enumerate(lines):
+        if not line.strip():
+            continue
+        yc = py + (i - (n - 1) / 2.0) * lh
+        if mono:
+            cells, _chars = _mono_line(line)
+            w = cells * MONO_CELL * fs
+        else:
+            w = fs * sum(char_em(c) for c in line)
+        left = px if align == "left" else (px - w if align == "right" else px - w / 2.0)
+        x0, x1 = min(x0, left), max(x1, left + w)
+        y0, y1 = min(y0, yc - _ASCENT * fs), max(y1, yc + _ASCENT * fs)
+    if not math.isfinite(x0) or not math.isfinite(y0):
+        return None
+    return x0, y0, x1, y1
+
+
+def text_box(text, px, py, font_size, align="center", font=None, raw=False):
     """Pixel box (x0, y0, x1, y1) of a label exactly as SvgPainter.draw_text lays it out (rich runs with
     their sizes and baseline shifts, lines stacked around py, text-anchor from `align`), or None if the
-    label draws nothing visible."""
+    label draws nothing visible. font="mono" / raw=True: typewriter cells / literal text (richtext)."""
+    if font == "mono" or raw:
+        return _lines_box(text, px, py, font_size, align, font == "mono", raw)
     if not _plain(text).strip():
         return None
     lines = _parse_rich(text)
@@ -131,10 +159,10 @@ class BBoxPainter:
         lo, hi = a.min(axis=0), a.max(axis=0)
         self._add(lo[0] - h, lo[1] - h, hi[0] + h, hi[1] + h)
 
-    def draw_text(self, text, px, py, font_size, color, opacity, align="center"):
+    def draw_text(self, text, px, py, font_size, color, opacity, align="center", font=None, raw=False):
         if opacity <= 0:
             return
-        b = text_box(text, px, py, font_size, align)
+        b = text_box(text, px, py, font_size, align, font, raw)
         if b is not None:
             self._add(*b)
 

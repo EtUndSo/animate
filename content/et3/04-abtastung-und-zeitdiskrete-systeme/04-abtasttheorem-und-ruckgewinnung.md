@@ -1,6 +1,8 @@
 ---
 title: Stufe 3: Abtasttheorem und Rückgewinnung
-pfad: Elektrotechnik / 3. Semester / Signale und Systeme / Abtastung und zeitdiskrete Systeme
+pfad: Elektrotechnik / 3. Semester / ET3 – Grundgebiete der Elektrotechnik 3: Signale und Systeme / Abtastung und zeitdiskrete Systeme
+adresse: elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme
+knoten: Kapitel 4: Abtastung und zeitdiskrete Systeme
 order: 3240400
 summary: Wann lässt sich das Original aus den Abtastwerten exakt zurückgewinnen, und wie?
 tags: Tiefpasssignal, Nyquist-Rate, Alias, Anti-Aliasing-Filter
@@ -35,7 +37,7 @@ $$s(t)=\sum_{n=-\infty}^{\infty}s(nT)\,\operatorname{si}\Bigl(\pi\frac{t-nT}{T}\
 ⁠**So liest man das:** Bei $f_\mathrm A\ge2f_\mathrm g$ liegen die Kopien in Abb. [1](das-spektrum-des-abgetasteten-signals.html#abb-1) getrennt. Ein Tiefpass schneidet die Kopie bei $f=0$ aus, und die hat genau die Form des Originals. Im Zeitbereich heißt das: Jeder Abtastwert wird durch eine si-Funktion ersetzt, die an ihrem eigenen Abtastpunkt 1 ist und an allen anderen null (Abb. [2](#abb-2)). Ihre Summe trifft alle Abtastwerte und füllt die Lücken so, dass keine Frequenz über $f_\mathrm g$ entsteht. Die Mindestrate $2f_\mathrm g$ heißt __Nyquist-Rate__.
 
 :::herleitung Rückgewinnung
-Für $|f|\le f_\mathrm g$ liegt nur die Kopie $k=0$, also $S_\mathrm a(f)=\frac1TS(f)$. Mit $H_\mathrm{TP}=T\operatorname{rect}(f/2f_\mathrm g)$ ist $S_\mathrm a\cdot H_\mathrm{TP}=S$. Im Zeitbereich: $T\operatorname{rect}(f/2f_\mathrm g)\;\bullet\!\!-\!\!\circ\;2f_\mathrm gT\operatorname{si}(2\pi f_\mathrm gt)$ ([Teil 3](/wissen/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html), Rechteck und si). Mit [(1.2)](signalklassen-und-ideale-abtastung.html#gl-1-2) und $2f_\mathrm g=1/T$ wird $s_\mathrm a*\operatorname{si}(\pi t/T)=\sum_ns(nT)\operatorname{si}(\pi(t-nT)/T)$.
+Für $|f|\le f_\mathrm g$ liegt nur die Kopie $k=0$, also $S_\mathrm a(f)=\frac1TS(f)$. Mit $H_\mathrm{TP}=T\operatorname{rect}(f/2f_\mathrm g)$ ist $S_\mathrm a\cdot H_\mathrm{TP}=S$. Im Zeitbereich: $T\operatorname{rect}(f/2f_\mathrm g)\;\bullet\!\!-\!\!\circ\;2f_\mathrm gT\operatorname{si}(2\pi f_\mathrm gt)$ ([Kapitel 3](/wissen/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html), Rechteck und si). Mit [(1.2)](signalklassen-und-ideale-abtastung.html#gl-1-2) und $2f_\mathrm g=1/T$ wird $s_\mathrm a*\operatorname{si}(\pi t/T)=\sum_ns(nT)\operatorname{si}(\pi(t-nT)/T)$.
 :::
 
 :::abbildung et3/k4siinterp 2

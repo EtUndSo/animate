@@ -1,7 +1,8 @@
 ---
 title: Formas cuadráticas
 pfad: Informática / Aprendizaje automático / Fundamentos matemáticos / Proyección, valores propios y descomposiciones
-knoten: Fundamentos 2: Proyección, valores propios y descomposiciones
+adresse: informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen
+knoten: Capítulo 2: Proyección, valores propios y descomposiciones
 nachschlagen: ja
 order: 15220600
 summary: Después de las funciones lineales, las cuadráticas son las funciones de varias variables más sencillas.
@@ -12,16 +13,16 @@ lang: es
 <span class="anker" id="stufe-5"></span>
 
 :::zweck
-Después de las funciones lineales, las cuadráticas son las funciones de varias variables más sencillas. Describen energías, errores cuadráticos y superficies curvas. Esta sección las escribe con una matriz, muestra las tres formas básicas, cuenco, canal y silla, y explica cómo se reconoce en la matriz cuál de ellas se tiene, siempre que no haya términos cruzados.
+Después de las funciones lineales, las cuadráticas son las funciones de varias variables más sencillas. Describen distancias al cuadrado, errores cuadráticos y superficies curvas. Esta sección las escribe con una matriz, muestra las tres formas básicas, cuenco, canal y silla, y explica cómo se reconoce en la matriz cuál de ellas se tiene, siempre que no haya términos cruzados.
 :::
 
 ### Formas cuadráticas
 
 <span class="anker" id="stufe-5-1"></span>
 
-En [Fundamentos 1, sección 8.4](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-4), toda función lineal con una salida era una suma ponderada $\mathbf{w}^{\top}\mathbf{x}$ de las componentes. El siguiente tipo de función, en orden de sencillez, suma productos de dos componentes: cuadrados como $x_1^2$ y términos cruzados como $x_1x_2$. Un ejemplo de la electrotecnia es la energía magnética de dos bobinas acopladas con las inductancias $L_1$, $L_2$ y la inductancia mutua $M$, por las que circulan las corrientes $i_1$ e $i_2$:
+En el [capítulo 1, sección 8.4](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-4), toda función lineal con una salida era una suma ponderada $\mathbf{w}^{\top}\mathbf{x}$ de las componentes. El siguiente tipo de función, en orden de sencillez, suma productos de dos componentes: cuadrados como $x_1^2$ y términos cruzados como $x_1x_2$. Un ejemplo de la vida cotidiana es un paseo por dos calles rectas que no son perpendiculares entre sí. Alguien camina $x_1$ km en la dirección del vector unitario $\mathbf{u}$ de la primera calle y luego $x_2$ km en la dirección del vector unitario $\mathbf{v}$ de la segunda; los tramos negativos significan el sentido contrario. Entonces se encuentra en $x_1\mathbf{u}+x_2\mathbf{v}$, y para el cuadrado de su distancia al punto de partida se cumple, por las reglas de cálculo del producto escalar,
 
-$$W=\tfrac12L_1i_1^2+M\,i_1i_2+\tfrac12L_2i_2^2 .$$
+$$d^2=\lVert x_1\mathbf{u}+x_2\mathbf{v}\rVert^2=x_1^2+2\,(\mathbf{u}^{\top}\mathbf{v})\,x_1x_2+x_2^2 .$$
 
 Tales sumas pueden escribirse con una matriz en el centro.
 
@@ -43,7 +44,7 @@ $$\mathbf{x}^{\top}\begin{pmatrix}a_{11}&a_{12}\\a_{21}&a_{22}\end{pmatrix}\math
 Si se duplica $\mathbf{x}$, $f$ se cuadruplica: $f(c\,\mathbf{x})=c^2f(\mathbf{x})$. De ahí el nombre.
 
 ::::beispiel [Ejemplo numérico]
-Para $\mathbf{A}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ es $f(\mathbf{x})=5x_1^2+4x_1x_2+2x_2^2$. En el punto $\mathbf{x}=(1,\,-1)^{\top}$ es $f=5-4+2=3$; como control, $\mathbf{A}\mathbf{x}=(3,\,0)^{\top}$ y $\mathbf{x}^{\top}\mathbf{A}\mathbf{x}=3$. La fig. [14](#abb-14) calcula la doble suma [(5.1)](#gl-5-1) en este punto término a término. En el punto $(1,\,1)^{\top}$ es $f=11$; en el origen, $f=0$. La energía de las dos bobinas es $W=\tfrac12\,\mathbf i^{\top}\bigl(\begin{smallmatrix}L_1&M\\M&L_2\end{smallmatrix}\bigr)\,\mathbf i$ con el vector de corrientes $\mathbf i=(i_1,\,i_2)^{\top}$; la matriz se llama matriz de inductancias.
+Para $\mathbf{A}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ es $f(\mathbf{x})=5x_1^2+4x_1x_2+2x_2^2$. En el punto $\mathbf{x}=(1,\,-1)^{\top}$ es $f=5-4+2=3$; como control, $\mathbf{A}\mathbf{x}=(3,\,0)^{\top}$ y $\mathbf{x}^{\top}\mathbf{A}\mathbf{x}=3$. La fig. [14](#abb-14) calcula la doble suma [(5.1)](#gl-5-1) en este punto término a término. En el punto $(1,\,1)^{\top}$ es $f=11$; en el origen, $f=0$. El cuadrado de la distancia del paseo es $d^2=\mathbf{x}^{\top}\bigl(\begin{smallmatrix}1&\mathbf{u}^{\top}\mathbf{v}\\\mathbf{u}^{\top}\mathbf{v}&1\end{smallmatrix}\bigr)\,\mathbf{x}$ con $\mathbf{x}=(x_1,\,x_2)^{\top}$; la matriz es la matriz de Gram de las dos direcciones $\mathbf{u}$ y $\mathbf{v}$ del [capítulo 1, sección 10](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/transponierte-symmetrie-und-gram-matrix.html#stufe-10). Si las calles forman un ángulo de $60^\circ$, entonces $\mathbf{u}^{\top}\mathbf{v}=\cos60^\circ=\tfrac12$ y $d^2=x_1^2+x_1x_2+x_2^2$: después de $1$ km por cada una de las dos calles, uno está a $\sqrt3\approx1{,}73$ km del punto de partida.
 
 :::abbildung ml/k2rqf 14
 La forma cuadrática de $\mathbf{A}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ en el punto $\mathbf{x}=(1,-1)^{\top}$ como doble suma: cuatro términos, uno por cada entrada de $\mathbf{A}$.
@@ -153,7 +154,7 @@ $x_1^2+6x_1x_2+x_2^2=(x_1+3x_2)^2-8x_2^2$. Los coeficientes tienen signos distin
 ⁠**En resumen:** Completar cuadrados escribe una forma cuadrática como suma de cuadrados; los signos de los coeficientes de los cuadrados muestran si es un cuenco, un canal o una silla.
 
 :::hintergrund Completar cuadrados es la eliminación gaussiana
-Los números de [(5.3)](#gl-5-3) son los mismos que en la eliminación gaussiana de [Fundamentos 1, sección 12.3](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-gleichungssysteme.html#stufe-12-3), aplicada a la matriz simétrica $\bigl(\begin{smallmatrix}a&b\\b&c\end{smallmatrix}\bigr)$. Para producir un cero debajo de la diagonal, se resta de la segunda fila $\frac ba$ veces la primera y se obtiene $\bigl(\begin{smallmatrix}a&b\\0&c-b^2/a\end{smallmatrix}\bigr)$. Las entradas diagonales de esta forma escalonada, los llamados pivotes, son exactamente los coeficientes de los cuadrados, y el factor de eliminación $\frac ba$ está en el primer paréntesis. Para la matriz $\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$: factor $0{,}4$, pivotes $5$ y $1{,}2$. Con $n$ variables se continúa del mismo modo: cada paso de eliminación completa el cuadrado de una variable. La forma es un cuenco si y solo si todos los pivotes son positivos. El producto de los pivotes es, según las reglas de cálculo de [Fundamentos 1, sección 14.5](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5), el determinante, aquí $5\cdot1{,}2=6=5\cdot2-2\cdot2$.
+Los números de [(5.3)](#gl-5-3) son los mismos que en la eliminación gaussiana del [capítulo 1, sección 12.3](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-gleichungssysteme.html#stufe-12-3), aplicada a la matriz simétrica $\bigl(\begin{smallmatrix}a&b\\b&c\end{smallmatrix}\bigr)$. Para producir un cero debajo de la diagonal, se resta de la segunda fila $\frac ba$ veces la primera y se obtiene $\bigl(\begin{smallmatrix}a&b\\0&c-b^2/a\end{smallmatrix}\bigr)$. Las entradas diagonales de esta forma escalonada, los llamados pivotes, son exactamente los coeficientes de los cuadrados, y el factor de eliminación $\frac ba$ está en el primer paréntesis. Para la matriz $\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$: factor $0{,}4$, pivotes $5$ y $1{,}2$. Con $n$ variables se continúa del mismo modo: cada paso de eliminación completa el cuadrado de una variable. La forma es un cuenco si y solo si todos los pivotes son positivos. El producto de los pivotes es, según las reglas de cálculo del [capítulo 1, sección 14.5](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5), el determinante, aquí $5\cdot1{,}2=6=5\cdot2-2\cdot2$.
 :::
 
 :::aufgabe Ejercicio 14 ★ Formas y matrices
@@ -226,32 +227,32 @@ $f_3=(x_1+2x_2)^2-3x_2^2$: signos distintos, una silla. Si se eligen $x_2=1$ y $
 :::
 :::
 
-:::aufgabe Ejercicio 16 ★★ Bobinas acopladas
+:::aufgabe Ejercicio 16 ★★ Dos calles
 <span class="anker" id="aufg-16"></span>
 
-Dos bobinas acopladas tienen $L_1=4\,\mathrm{mH}$ y $L_2=1\,\mathrm{mH}$.
+Para el paseo por dos calles rectas con las direcciones $\mathbf{u}$ y $\mathbf{v}$ de la subsección [5.1](#stufe-5-1) es $d^2=x_1^2+2\,(\mathbf{u}^{\top}\mathbf{v})\,x_1x_2+x_2^2$.
 
 <ol class="al">
 
 <li>
 
-Completa cuadrados en la energía $W=\tfrac12L_1i_1^2+M\,i_1i_2+\tfrac12L_2i_2^2$.
+Completa cuadrados en $d^2$.
 
 </li>
 
 <li>
 
-¿Para qué valores de $M$ es $W>0$ para todas las corrientes $(i_1,\,i_2)\ne(0,\,0)$? ¿Qué se deduce de ello para el coeficiente de acoplamiento $k=M/\sqrt{L_1L_2}$?
+¿Para qué valores de $\mathbf{u}^{\top}\mathbf{v}$ es $d^2>0$ para todos los tramos $(x_1,\,x_2)\ne(0,\,0)$? ¿Por qué, según la desigualdad de Cauchy-Schwarz del [capítulo 1, sección 5.1](/wissen/es/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/winkel-und-ahnlichkeit.html#stufe-5-1), $|\mathbf{u}^{\top}\mathbf{v}|$ nunca puede ser mayor que $1$, y qué significa $|\mathbf{u}^{\top}\mathbf{v}|=1$ para las dos calles?
 
 </li>
 
 </ol>
 
 :::loesung
-(a) En [(5.3)](#gl-5-3) es $a=\tfrac12L_1$, $2b=M$ y $c=\tfrac12L_2$; por tanto, $b/a=M/L_1$ y $b^2/a=M^2/(2L_1)$:
+(a) En [(5.3)](#gl-5-3) es $a=1$, $b=\mathbf{u}^{\top}\mathbf{v}$ y $c=1$; por tanto, $b/a=\mathbf{u}^{\top}\mathbf{v}$ y $b^2/a=(\mathbf{u}^{\top}\mathbf{v})^2$:
 
-$$W=\tfrac12L_1\Bigl(i_1+\frac M{L_1}\,i_2\Bigr)^2+\tfrac12\Bigl(L_2-\frac{M^2}{L_1}\Bigr)i_2^2=2\,\mathrm{mH}\,\Bigl(i_1+\frac M{4\,\mathrm{mH}}\,i_2\Bigr)^2+\Bigl(\frac12\,\mathrm{mH}-\frac{M^2}{8\,\mathrm{mH}}\Bigr)i_2^2 .$$
+$$d^2=\bigl(x_1+(\mathbf{u}^{\top}\mathbf{v})\,x_2\bigr)^2+\bigl(1-(\mathbf{u}^{\top}\mathbf{v})^2\bigr)\,x_2^2 .$$
 
-(b) El primer coeficiente es positivo. Se cumple $W>0$ para todas las corrientes $\ne(0,\,0)$ si y solo si también el segundo es positivo: $L_2-M^2/L_1>0$, es decir, $M^2<L_1L_2=4\,(\mathrm{mH})^2$ y $|M|<2\,\mathrm{mH}$. Para el coeficiente de acoplamiento, esto significa $|k|=|M|/\sqrt{L_1L_2}<1$. Con $|k|=1$, el acoplamiento perfecto ideal, la forma sería solo un canal: para la relación de corrientes adecuada, $i_1=-\tfrac M{L_1}\,i_2$, la energía almacenada sería cero. Que la energía de un campo magnético nunca sea negativa obliga, por tanto, a que $|k|\le1$.
+(b) El primer coeficiente es $a=1>0$. Se cumple $d^2>0$ para todos los tramos $\ne(0,\,0)$ si y solo si también el segundo es positivo: $1-(\mathbf{u}^{\top}\mathbf{v})^2>0$, es decir, $|\mathbf{u}^{\top}\mathbf{v}|<1$. Según la desigualdad de Cauchy-Schwarz, $|\mathbf{u}^{\top}\mathbf{v}|\le\lVert\mathbf{u}\rVert\,\lVert\mathbf{v}\rVert=1$, con igualdad si y solo si $\mathbf{v}=\pm\mathbf{u}$: cuando las dos calles son paralelas. Entonces la forma sería solo un canal: para $x_1=-(\mathbf{u}^{\top}\mathbf{v})\,x_2$, por ejemplo $1$ km de ida y $1$ km de vuelta, uno vuelve a estar en el punto de partida. Para dos calles que de verdad se cruzan, $|\mathbf{u}^{\top}\mathbf{v}|<1$, y todo paseo con $(x_1,\,x_2)\ne(0,\,0)$ termina a una distancia positiva del punto de partida.
 :::
 :::

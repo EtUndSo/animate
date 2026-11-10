@@ -1,6 +1,8 @@
 ---
 title: 第 3 阶段：电容器上的电流与电压
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 电容器
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 电容器
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator
+knoten: 第 3 章：电容器
 order: 1130400
 summary: 在电阻上，电压在同一时刻决定电流。电容器则不同：这里电流取决于电压变化的快慢。本阶段建立这一定律。
 tags: 电流源
@@ -18,7 +20,7 @@ lang: zh
 :::satz 定理 3.1 (电容器上的电流与电压)
 <span class="anker" id="satz-3-1"></span>
 
-电流和电压的参考箭头方向相同时（[第 2 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)），对随时间变化的量有
+电流和电压的参考箭头方向相同时（[第 2 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)），对随时间变化的量有
 
 <span class="anker" id="gl-3-1"></span>
 <span class="anker" id="gl-3-2"></span>
@@ -26,7 +28,7 @@ $$\begin{aligned} i(t)&=\frac{\mathrm{d} q}{\mathrm{d} t}=C\,\frac{\mathrm{d} u(
 :::
 
 :::herleitung 电流与电压
-电流是单位时间的电荷，$i=\mathrm{d} q/\mathrm{d} t$（[第 2 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)）。代入 $q=C\,u$，并把常数 $C$ 提到导数之外，就得到式 [(3.1)](#gl-3-1)。反过来，电荷是电流曲线下的面积，正如路程是速度曲线下的面积（[第 1 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)）：$q(t)=q(t_0)+\int_{t_0}^{t}i\,\mathrm{d} t'$。除以 $C$ 就得到式 [(3.2)](#gl-3-2)。
+电流是单位时间的电荷，$i=\mathrm{d} q/\mathrm{d} t$（[第 2 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)）。代入 $q=C\,u$，并把常数 $C$ 提到导数之外，就得到式 [(3.1)](#gl-3-1)。反过来，电荷是电流曲线下的面积，正如路程是速度曲线下的面积（[第 1 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)）：$q(t)=q(t_0)+\int_{t_0}^{t}i\,\mathrm{d} t'$。除以 $C$ 就得到式 [(3.2)](#gl-3-2)。
 :::
 
 ⁠**如何理解：**小写字母表示随时间变化的量，$t'$ 是积分变量，$u(t_0)$ 是起始时刻的电压。$i$ 的单位为 A，$C$ 的单位为 F，$\mathrm{d} u/\mathrm{d} t$ 的单位为 V/s。1 mA 流入 100 µF 时，电压以 10 V/s 上升。**符号：**$q$ 是电流箭头所指向的那块极板上的电荷。$i>0$ 时它增加，$u$ 上升；$i<0$ 时 $u$ 下降。**适用条件：**$C$ 必须恒定。

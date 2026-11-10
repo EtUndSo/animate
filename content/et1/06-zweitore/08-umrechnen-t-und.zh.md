@@ -1,6 +1,8 @@
 ---
 title: 第 6 阶段：换算、T 与 $\pi$
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 二端口网络
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 二端口网络
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore
+knoten: 第 6 章：二端口网络
 order: 1160800
 summary: Z 形式和 Y 形式描述同一个二端口网络。本阶段说明如何从一种形式变到另一种形式，以及某种形式何时根本不存在。
 tags: 
@@ -45,7 +47,7 @@ $$Y_{12}=-\frac{Z_{12}}{Z_{11}Z_{22}-Z_{12}Z_{21}},\qquad Y_{22}=\frac{Z_{11}}{Z
 <span class="anker" id="gl-6-2"></span>
 $$\mathbf Y_\mathrm{T}=\frac1D\begin{pmatrix}R_\mathrm{b}+R_\mathrm{c}&-R_\mathrm{b}\\-R_\mathrm{b}&R_\mathrm{a}+R_\mathrm{b}\end{pmatrix},\qquad \mathbf Y_\pi=\begin{pmatrix}G_1+G_2&-G_2\\-G_2&G_2+G_3\end{pmatrix}. \tag{6.2}$$
 
-令两者相等，得 $G_2=-Y_{12}$，$G_1=Y_{11}+Y_{12}$，$G_3=Y_{22}+Y_{21}$。$G_3=0$ 时，$\mathbf Y_\pi$ 变为 $I_1=(G_1+G_2)U_1-G_2U_2$，$I_2=-G_2U_1+G_2U_2$ 这一对方程。这就是[第 5 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)的星形-三角形变换：T 是星形，$\pi$ 是三角形。用 Z 参数描述自然引出 T 形网络，用 Y 参数描述则引出与之对偶的 $\pi$ 形网络。反过来，每个 $Z_{12}=Z_{21}$ 的二端口网络都有一个不含电源的 T 形等效电路和一个 $\pi$ 形等效电路（第 [10](eigenschaften-und-alle-formen-im-uberblick.html#stufe-10) 阶段）。
+令两者相等，得 $G_2=-Y_{12}$，$G_1=Y_{11}+Y_{12}$，$G_3=Y_{22}+Y_{21}$。$G_3=0$ 时，$\mathbf Y_\pi$ 变为 $I_1=(G_1+G_2)U_1-G_2U_2$，$I_2=-G_2U_1+G_2U_2$ 这一对方程。这就是[第 5 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)的星形-三角形变换：T 是星形，$\pi$ 是三角形。用 Z 参数描述自然引出 T 形网络，用 Y 参数描述则引出与之对偶的 $\pi$ 形网络。反过来，每个 $Z_{12}=Z_{21}$ 的二端口网络都有一个不含电源的 T 形等效电路和一个 $\pi$ 形等效电路（第 [10](eigenschaften-und-alle-formen-im-uberblick.html#stufe-10) 阶段）。
 
 :::abbildung et1/k6tpi 8
 两种电路，同一个二端口网络。左为 15、20 和 20 $\Omega$ 的 T 形网络，右为等效的 50、50 和 66.7 $\Omega$ 的 $\pi$ 形网络。两者都有 $\det\mathbf Z=1000\,\Omega^2$。在端口上，任何测量都无法区分它们。

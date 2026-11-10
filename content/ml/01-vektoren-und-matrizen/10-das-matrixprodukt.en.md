@@ -1,7 +1,8 @@
 ---
 title: The matrix product
 pfad: Computer Science / Machine Learning / Mathematical Foundations / Vectors and Matrices
-knoten: Foundations 1: Vectors and Matrices
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Chapter 1: Vectors and Matrices
 nachschlagen: ja
 order: 15211000
 summary: Two linear maps applied one after the other again give a linear map, and therefore a matrix.
@@ -165,7 +166,7 @@ If you connect several linear computing stages in series, no new kind of map ari
 If $f(\mathbf{x})=\mathbf{B}\mathbf{x}$ and $g(\mathbf{u})=\mathbf{A}\mathbf{u}$ are linear, then the composition $\mathbf{x}\mapsto g(f(\mathbf{x}))$ is again linear, namely with the single matrix $\mathbf{A}\mathbf{B}$. The same holds for every finite chain of linear stages.
 :::
 
-No matter how many linear stages you connect in series, the result can always be computed with a single matrix in one step. So whatever a chain of linear stages can do, a single matrix can already do. From signals and systems you know the same thing: two linear systems connected in series together form a linear system again.
+No matter how many linear stages you connect in series, the result can always be computed with a single matrix in one step. So whatever a chain of linear stages can do, a single matrix can already do. On a small scale, you know this from shopping: if you first convert a price from euros to dollars and then deduct a $10$ % discount, the two together are a single conversion factor.
 
 ::::beispiel [Worked example]
 A first stage turns three numbers into two, $\mathbf{B}=\bigl(\begin{smallmatrix}1&2&0\\0&1&-1\end{smallmatrix}\bigr)$, a second turns two numbers back into three, $\mathbf{A}=\Bigl(\begin{smallmatrix}2&1\\1&-1\\0&3\end{smallmatrix}\Bigr)$. Together this is the single matrix

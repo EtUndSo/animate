@@ -1,7 +1,9 @@
 ---
 title: Overview: Power, Matching and Efficiency
 kurz: Overview
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / Power, Matching and Efficiency
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / Power, Matching and Efficiency
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad
+knoten: Chapter 7: Power, Matching and Efficiency
 order: 1170100
 summary: Why half of the energy stays in the source at the power maximum
 tags: internal resistance, load, power
@@ -21,7 +23,7 @@ A 9 V battery has 2 $\Omega$ of __internal resistance__, the resistance that
 
 <li>
 
-⁠**Battery:** the 9 V battery from [Part 5](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html) with the source voltage $U_\mathrm{q}=9$ V (the voltage supplied by the chemistry) and the internal resistance $R_\mathrm{i}=2\,\Omega$. [Part 5](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html) calls it $R_\mathrm{q}$ for a single source. The short-circuit current is $I_\mathrm{SC}=4.5$ A.
+⁠**Battery:** the 9 V battery from [Chapter 5](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html) with the source voltage $U_\mathrm{q}=9$ V (the voltage supplied by the chemistry) and the internal resistance $R_\mathrm{i}=2\,\Omega$. [Chapter 5](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html) calls it $R_\mathrm{q}$ for a single source. The short-circuit current is $I_\mathrm{SC}=4.5$ A.
 
 </li>
 

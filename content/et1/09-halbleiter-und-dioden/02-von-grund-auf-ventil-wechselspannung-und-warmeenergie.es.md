@@ -1,6 +1,8 @@
 ---
 title: Desde cero: Válvula, tensión alterna y energía térmica
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Semiconductores y diodos
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Semiconductores y diodos
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden
+knoten: Capítulo 9: Semiconductores y diodos
 order: 1190200
 summary: Cómo el silicio se convierte en una válvula para la corriente y cómo se calcula con ella
 tags: tensión alterna, valor de pico, frecuencia, rectificador de media onda, electronvoltio, energía térmica, constante de Boltzmann, distribución de Boltzmann
@@ -15,7 +17,7 @@ Izquierda: diodo con los terminales ánodo (A) y cátodo (K) en serie con una re
 
 La fig. [1](#abb-1) muestra el efecto de un diodo. La malla da $u_\mathrm e=u_\mathrm D+u_\mathrm a$. Si $u_\mathrm e$ es positiva, el diodo conduce, en él quedan unos 0,7 V y el resto cae en la resistencia. Si $u_\mathrm e$ es negativa, no circula corriente. Entonces $u_\mathrm a=0$ y el diodo soporta toda la tensión. La tensión alterna se convierte en una tensión con un solo signo. Este circuito se llama __rectificador de media onda__. Su pico es $12\,\mathrm{V}-0{,}7\,\mathrm{V}=11{,}3$ V.
 
-Para explicar el porqué, el capítulo necesita dos magnitudes de energía. El __electronvoltio__ (eV) es la energía que gana un electrón al recorrer 1 V ([Parte 1](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)): $1\,\mathrm{eV}=e\cdot1\,\mathrm{V}=1{,}602\cdot10^{-19}$ J. La __energía térmica__ surge porque los átomos y los electrones se mueven de forma desordenada a cualquier temperatura. Su medida es $k_\mathrm BT$, con la temperatura absoluta $T$ en K y la __constante de Boltzmann__ $k_\mathrm B$. A 300 K, $k_\mathrm BT=4{,}14\cdot10^{-21}\,\mathrm{J}=25{,}85$ meV. Las colisiones reparten esta energía de forma desigual: pocas partículas tienen mucha, muchas tienen poca. En equilibrio rige la __distribución de Boltzmann__:
+Para explicar el porqué, el capítulo necesita dos magnitudes de energía. El __electronvoltio__ (eV) es la energía que gana un electrón al recorrer 1 V ([capítulo 1](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)): $1\,\mathrm{eV}=e\cdot1\,\mathrm{V}=1{,}602\cdot10^{-19}$ J. La __energía térmica__ surge porque los átomos y los electrones se mueven de forma desordenada a cualquier temperatura. Su medida es $k_\mathrm BT$, con la temperatura absoluta $T$ en K y la __constante de Boltzmann__ $k_\mathrm B$. A 300 K, $k_\mathrm BT=4{,}14\cdot10^{-21}\,\mathrm{J}=25{,}85$ meV. Las colisiones reparten esta energía de forma desigual: pocas partículas tienen mucha, muchas tienen poca. En equilibrio rige la __distribución de Boltzmann__:
 
 <span class="anker" id="gl-0-1"></span>
 $$\text{fracción de partículas con al menos la energía }W=\mathrm{e}^{-W/(k_\mathrm BT)}. \tag{0.1}$$

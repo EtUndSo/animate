@@ -691,12 +691,12 @@
     "tr": "örüntü w"
    },
    "sig": {
-    "de": "Signal",
-    "en": "signal",
-    "es": "señal",
-    "zh": "信号",
-    "fr": "signal",
-    "tr": "sinyal"
+    "de": "Verlauf",
+    "en": "time series",
+    "es": "serie temporal",
+    "zh": "时间序列",
+    "fr": "série",
+    "tr": "zaman serisi"
    },
    "prod": {
     "de": "Produkte",

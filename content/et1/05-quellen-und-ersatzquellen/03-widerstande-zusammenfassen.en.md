@@ -1,6 +1,8 @@
 ---
 title: Stage 1: Combining resistors
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / Sources and Equivalent Sources
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / Sources and Equivalent Sources
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen
+knoten: Chapter 5: Sources and Equivalent Sources
 order: 1150300
 summary: A network of resistors without a source has, at two terminals, a characteristic curve through the origin, so one number is enough.
 tags: series-parallel circuit, total resistance, conductance

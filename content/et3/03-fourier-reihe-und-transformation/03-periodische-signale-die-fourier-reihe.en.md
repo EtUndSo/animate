@@ -1,6 +1,8 @@
 ---
 title: Stage 2: Periodic signals, the Fourier series
-pfad: Electrical Engineering / 3rd Semester / Signals and Systems / Fourier Series and Transform
+pfad: Electrical Engineering / 3rd Semester / ET3 – Fundamentals of Electrical Engineering 3: Signals and Systems / Fourier Series and Transform
+adresse: elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation
+knoten: Chapter 3: Fourier Series and Transform
 order: 3230300
 summary: A periodic signal repeats itself after T .
 tags: fundamental frequency, harmonics, Fourier series, DC component, orthogonal

@@ -1,6 +1,8 @@
 ---
 title: Stufe 4: Der Fehler beim Spannungsmessen
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Strom und Spannung messen
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Strom und Spannung messen
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-und-spannung-messen
+knoten: Kapitel 4: Strom und Spannung messen
 order: 1140500
 summary: Das Voltmeter liegt außerhalb des Stromkreises, und trotzdem fließt Strom durch es.
 tags: 
@@ -13,7 +15,7 @@ lang: de
 Das Voltmeter liegt außerhalb des Stromkreises, und trotzdem fließt Strom durch es. Diese Stufe zeigt, wann das die Spannung senkt, die es messen soll.
 :::
 
-**Die Idee.** Das Voltmeter öffnet zwischen zwei Knoten einen zweiten Strompfad. Sein Strom muss irgendwoher kommen. Treibt eine Stromquelle (sie hält ihren Strom fest, [Teil 5](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)) den Lastwiderstand $R_L$, teilt sich der feste Strom auf: Was durch das Voltmeter fließt, fehlt in $R_L$, und die Spannung sinkt (Abb. [5](#abb-5)). Hängt $R_L$ dagegen direkt an einer idealen Spannungsquelle, liefert sie den Zusatzstrom, und nichts ändert sich. Fehler entstehen also nur dort, wo der Strom nicht frei nachfließen kann. Beim Spannungsteiler bremst $R_1$ den Nachschub: Der Gesamtstrom steigt, an $R_1$ fällt mehr ab, die Mitte sinkt.
+**Die Idee.** Das Voltmeter öffnet zwischen zwei Knoten einen zweiten Strompfad. Sein Strom muss irgendwoher kommen. Treibt eine Stromquelle (sie hält ihren Strom fest, [Kapitel 5](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)) den Lastwiderstand $R_L$, teilt sich der feste Strom auf: Was durch das Voltmeter fließt, fehlt in $R_L$, und die Spannung sinkt (Abb. [5](#abb-5)). Hängt $R_L$ dagegen direkt an einer idealen Spannungsquelle, liefert sie den Zusatzstrom, und nichts ändert sich. Fehler entstehen also nur dort, wo der Strom nicht frei nachfließen kann. Beim Spannungsteiler bremst $R_1$ den Nachschub: Der Gesamtstrom steigt, an $R_1$ fällt mehr ab, die Mitte sinkt.
 
 :::abbildung et1/k4spannung 5
 Das Voltmeter (Bereich 10 V, gestrichelt: Innenwiderstand und ideales Gerät) an zwei gleichwertigen Schaltungen. In beiden zweigt es 13,6 µ A ab, und die Anzeige fällt von 3 V auf 2,727 V.
@@ -33,7 +35,7 @@ Der relative Fehler ist $f=-R_L/(R_L+R_\mathrm i)$, für $R_L\ll R_\mathrm i$ al
 ⁠**So liest man das:** Der Bruch ist der Fehlerfaktor. $R_L$ ist der Widerstand, den das Gerät zwischen seinen Anschlüssen vorfindet. Für einen kleinen Fehler braucht es $R_\mathrm i\gg R_L$, ideal $R_\mathrm i\to\infty$. **Gültigkeit:** ideale Quellen, Widerstände unabhängig von der Spannung.
 
 :::herleitung Fehlerfaktor
-Mit der Knotenregel $I_\mathrm q=I_{RL}'+I_{\mathrm{i}}$ teilt sich der Strom auf zwei parallele Widerstände auf, an beiden liegt $U_L'$. Also ist $U_L'=I_\mathrm q\,R_LR_\mathrm i/(R_L+R_\mathrm i)$, und Kürzen mit $R_\mathrm i$ ergibt [(4.1)](#gl-4-1). Am Teiler gilt ohne Gerät $U_2=U\,R_2/(R_1+R_2)$. Mit Gerät ist $R_2$ durch $R_2\parallel R_\mathrm i$ zu ersetzen (belasteter Spannungsteiler, [Teil 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)):
+Mit der Knotenregel $I_\mathrm q=I_{RL}'+I_{\mathrm{i}}$ teilt sich der Strom auf zwei parallele Widerstände auf, an beiden liegt $U_L'$. Also ist $U_L'=I_\mathrm q\,R_LR_\mathrm i/(R_L+R_\mathrm i)$, und Kürzen mit $R_\mathrm i$ ergibt [(4.1)](#gl-4-1). Am Teiler gilt ohne Gerät $U_2=U\,R_2/(R_1+R_2)$. Mit Gerät ist $R_2$ durch $R_2\parallel R_\mathrm i$ zu ersetzen (belasteter Spannungsteiler, [Kapitel 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)):
 
 $$U_2'=U\,\frac{R_2R_\mathrm i}{R_1R_2+R_\mathrm i(R_1+R_2)} \quad\Rightarrow\quad \frac{U_2'}{U_2}=\frac{R_\mathrm i(R_1+R_2)}{R_1R_2+R_\mathrm i(R_1+R_2)}=\frac{1}{1+(R_1\parallel R_2)/R_\mathrm i}.$$
 :::

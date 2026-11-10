@@ -1,6 +1,8 @@
 ---
 title: Stufe 5: Admittanzform und Kurzschlussversuch
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Zweitore
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Zweitore
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore
+knoten: Kapitel 6: Zweitore
 order: 1160700
 summary: Die zweite Wahl: Die Spannungen sind die Ursachen.
 tags: Y-Parameter, Admittanz, Kurzschlusseingangsleitwert, Kurzschlussausgangsleitwert, Kurzschlussübertragungsleitwert, Steilheit, Eingangskennlinie, Übertragungskennlinie
@@ -58,7 +60,7 @@ Probe mit dem Betrieb aus Stufe [4](das-zweitor-im-betrieb.html#stufe-4): $I_1=
 **Kennlinien.** Man kann die Y-Gleichungen auch zeichnen. Die __Eingangskennlinie__ ist $I_1=f_1(U_1)$ bei festem $U_2$, die __Übertragungskennlinie__ $I_2=f_2(U_1)$ bei festem $U_2$, die __Ausgangskennlinie__ $I_2=f_3(U_2)$ bei festem $U_1$. Beim linearen Zweitor sind es Geraden (Abb. [7](#abb-7)): Ihre Steigung ist ein Y-Parameter, der feste Wert verschiebt sie parallel. Jeder Wert des festen Parameters ergibt eine Gerade, zusammen entsteht eine Kurvenschar.
 
 :::abbildung et1/k6kennlinien 7
-Kennlinien des T-Zweitors. Links Eingangskennlinie: Steigung $Y_{11}=40$ mS, jedes Volt an $U_2$ schiebt sie um $Y_{12}\cdot1\,\mathrm{V}=-20$ mA. Mitte Übertragungskennlinie: Steigung $Y_{21}=-20$ mS. Rechts Ausgangskennlinie: Steigung $Y_{22}=35$ mS. Beim Transistor sind diese Kurven gekrümmt ([Teil 10](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor/der-bipolartransistor.html)).
+Kennlinien des T-Zweitors. Links Eingangskennlinie: Steigung $Y_{11}=40$ mS, jedes Volt an $U_2$ schiebt sie um $Y_{12}\cdot1\,\mathrm{V}=-20$ mA. Mitte Übertragungskennlinie: Steigung $Y_{21}=-20$ mS. Rechts Ausgangskennlinie: Steigung $Y_{22}=35$ mS. Beim Transistor sind diese Kurven gekrümmt ([Kapitel 10](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor/der-bipolartransistor.html)).
 :::
 
 :::frage Warum ist $Y_{11}$ nicht $1/Z_{11}$? Beides beschreibt doch den Eingang.

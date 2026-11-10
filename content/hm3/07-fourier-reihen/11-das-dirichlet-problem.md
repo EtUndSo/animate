@@ -1,6 +1,8 @@
 ---
 title: Stufe 10: Das Dirichlet-Problem
-pfad: Elektrotechnik / 3. Semester / Höhere Mathematik 3 / Fourier-Reihen
+pfad: Elektrotechnik / 3. Semester / HöMa3 – Höhere Mathematik 3 / Fourier-Reihen
+adresse: elektrotechnik/3-semester/hohere-mathematik-3/fourier-reihen
+knoten: Kapitel 7: Fourier-Reihen
 order: 3171100
 summary: Auf dem Rand einer Kreisscheibe sind Temperatur oder Potential vorgegeben.
 tags: Dirichlet-Problem, harmonisch, Poisson-Kern, Maximumprinzip
@@ -20,7 +22,7 @@ $$\Delta u=0\quad\text{in }\mathbb D,\qquad u=g\quad\text{auf }\partial\mathbb D
 
 Eine Funktion mit $\Delta u=0$ heißt __harmonisch__. Der Rand ist ein Kreis, also ist $\varphi\mapsto g(\mathrm{e}^{\mathrm{i}\varphi})$ eine $2\pi$-periodische Funktion mit einer Fourier-Reihe $\sum_kc_k\mathrm{e}^{\mathrm{i}k\varphi}$. Die Laplace-Gleichung ist linear. Man setzt also jeden Baustein einzeln ins Innere fort und addiert.
 
-**Die Bausteine im Inneren.** In Polarkoordinaten sei $u(r\mathrm{e}^{\mathrm{i}\varphi})=v(r,\varphi)$. Nach [Teil 4](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/koordinatentransformationen/koordinatentransformationen.html) lautet die Aufgabe
+**Die Bausteine im Inneren.** In Polarkoordinaten sei $u(r\mathrm{e}^{\mathrm{i}\varphi})=v(r,\varphi)$. Nach [Kapitel 4](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/koordinatentransformationen/koordinatentransformationen.html) lautet die Aufgabe
 
 $$\frac{\partial^2v}{\partial r^2}+\frac1r\frac{\partial v}{\partial r}+\frac1{r^2}\frac{\partial^2v}{\partial\varphi^2}=0,\qquad v(1,\varphi)=g(\mathrm{e}^{\mathrm{i}\varphi}).$$
 
@@ -70,7 +72,7 @@ $$u(r\mathrm{e}^{\mathrm{i}\varphi})=\frac1{2\pi}\int_0^{2\pi}\frac{1-r^2}{1-2r\
 ⁠**So liest man das:** Der Wert an der Stelle $r\mathrm{e}^{\mathrm{i}\varphi}$ ist ein gewichteter Mittelwert der Randwerte. Randpunkte nahe dieser Stelle zählen stark, ferne schwach.
 
 :::beweis Existenz
-Weil $v$ aus einer unendlichen Summe stammt, muss man die Lösungseigenschaft nachprüfen. Jeder Summand von $P_r$ ist harmonisch, die Reihe darf für $r<1$ gliedweise abgeleitet werden, also ist $P_r(\varphi-t)$ harmonisch in $(r,\varphi)$. Für jedes $\alpha>0$ sind $P_r$ und seine Ableitungen auf $[0,1-\alpha]\times[0,2\pi]$ gleichmäßig beschränkt. Nach dem Satz über Parameterintegrale ([Teil 2](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/integralrechnung-im-rn/integralrechnung-im-rn.html)) darf man in [(10.6)](#gl-10-6) unter dem Integral ableiten, also ist $u$ glatt und harmonisch. Die Randwerte nimmt $u$ nach Satz [10.1](#satz-10-1) an, denn $g$ ist stetig.
+Weil $v$ aus einer unendlichen Summe stammt, muss man die Lösungseigenschaft nachprüfen. Jeder Summand von $P_r$ ist harmonisch, die Reihe darf für $r<1$ gliedweise abgeleitet werden, also ist $P_r(\varphi-t)$ harmonisch in $(r,\varphi)$. Für jedes $\alpha>0$ sind $P_r$ und seine Ableitungen auf $[0,1-\alpha]\times[0,2\pi]$ gleichmäßig beschränkt. Nach dem Satz über Parameterintegrale ([Kapitel 2](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/integralrechnung-im-rn/integralrechnung-im-rn.html)) darf man in [(10.6)](#gl-10-6) unter dem Integral ableiten, also ist $u$ glatt und harmonisch. Die Randwerte nimmt $u$ nach Satz [10.1](#satz-10-1) an, denn $g$ ist stetig.
 :::
 
 **Eindeutigkeit: das Maximumprinzip.** Eine harmonische Funktion, die stetig bis zum Rand ist, nimmt Maximum und Minimum auf dem Rand an (__Maximumprinzip__).

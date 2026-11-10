@@ -2,6 +2,8 @@
 title: Überblick: Sicherheit verstehen
 kurz: Überblick
 pfad: Informatik / Cybersecurity / Sicherheit, Schutzziele und Spielregeln
+adresse: informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln
+knoten: Kapitel 1: Sicherheit, Schutzziele und Spielregeln
 order: 6110100
 summary: Schutzziele, Bedrohungen, Risiko und die Spielregeln aus Recht und Ethik
 tags: 

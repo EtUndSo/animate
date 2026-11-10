@@ -1,6 +1,8 @@
 ---
 title: Stufe 3: Wechselnde Vorzeichen
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Unendliche Reihen
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Unendliche Reihen
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/unendliche-reihen
+knoten: Kapitel 6: Unendliche Reihen
 order: 1260500
 summary: Die harmonische Reihe divergiert, weil jede Stufe nach oben führt.
 tags: alternierende Reihe

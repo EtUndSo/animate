@@ -1,6 +1,8 @@
 ---
 title: Stufe 7: Hybridform
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Zweitore
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Zweitore
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore
+knoten: Kapitel 6: Zweitore
 order: 1160900
 summary: Bei einem Verstärker ist es am Eingang leicht, den Strom vorzugeben, am Ausgang die Spannung.
 tags: H-Parameter, Kurzschlusseingangswiderstand, Kurzschlussstromübersetzung, Leerlauf-Spannungsrückwirkung, Leerlaufausgangsleitwert

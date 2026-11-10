@@ -1,6 +1,8 @@
 ---
 title: Etapa 4: Autocorrelación, covarianza y correlación cruzada
-pfad: Ingeniería eléctrica / 3.er semestre / Señales y sistemas / Señales aleatorias
+pfad: Ingeniería eléctrica / 3.er semestre / ET3 – Fundamentos de ingeniería eléctrica 3: señales y sistemas / Señales aleatorias
+adresse: elektrotechnik/3-semester/signale-und-systeme/zufallssignale
+knoten: Capítulo 7: Señales aleatorias
 order: 3270500
 summary: ¿Con qué rapidez cambia una señal aleatoria?
 tags: función de autocovarianza
@@ -19,7 +21,7 @@ lang: es
 <span class="anker" id="gl-4-1"></span>
 $$\varphi_{ss}(0)=L_s,\qquad\varphi_{ss}(\tau)=\varphi_{ss}(-\tau),\qquad|\varphi_{ss}(\tau)|\le\varphi_{ss}(0). \tag{4.1}$$
 
-Para procesos ergódicos, $\varphi_{ss}(\tau)=\overline{s(t)s(t+\tau)}$, es decir, la FAC de una señal de potencia de la [parte 6](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen/korrelationsfunktionen.html).
+Para procesos ergódicos, $\varphi_{ss}(\tau)=\overline{s(t)s(t+\tau)}$, es decir, la FAC de una señal de potencia del [capítulo 6](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen/korrelationsfunktionen.html).
 :::
 
 :::herleitung máximo en $\tau=0$

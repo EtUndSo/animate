@@ -1,6 +1,8 @@
 ---
 title: Stufe 2: Reflexion trotz genügender Energie
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Stufe, Barriere und Tunneleffekt
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Stufe, Barriere und Tunneleffekt
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/stufe-barriere-und-tunneleffekt
+knoten: Kapitel 3: Stufe, Barriere und Tunneleffekt
 order: 4130400
 summary: Das Elektron hat genug Energie für die Kante, klassisch käme jedes hinüber.
 tags: Teilchenstromdichte, Reflexionskoeffizient

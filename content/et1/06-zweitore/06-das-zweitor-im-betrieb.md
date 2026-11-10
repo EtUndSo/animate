@@ -1,6 +1,8 @@
 ---
 title: Stufe 4: Das Zweitor im Betrieb
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Zweitore
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Zweitore
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore
+knoten: Kapitel 6: Zweitore
 order: 1160600
 summary: Im Betrieb ist kein Tor offen.
 tags: Rückwirkung, rückwirkungsfrei
@@ -28,7 +30,7 @@ Die Grenzfälle sind der Leerlauf- und der Kurzschlusseingangswiderstand:
 <span class="anker" id="gl-4-2"></span>
 $$Z_{1,\mathrm{LL}}=Z_{11},\qquad Z_{1,\mathrm{KS}}=Z_{11}-\frac{Z_{12}Z_{21}}{Z_{22}}. \tag{4.2}$$
 
-Speist eine Quelle $U_\mathrm{q}$, $R_\mathrm{q}$ Tor 1, wirkt Tor 2 als Ersatzspannungsquelle ([Teil 5](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)) mit
+Speist eine Quelle $U_\mathrm{q}$, $R_\mathrm{q}$ Tor 1, wirkt Tor 2 als Ersatzspannungsquelle ([Kapitel 5](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)) mit
 
 <span class="anker" id="gl-4-3"></span>
 $$U_\mathrm{i}=\frac{Z_{21}}{Z_{11}+R_\mathrm{q}}\,U_\mathrm{q},\qquad R_\mathrm{i}=Z_{22}-\frac{Z_{12}Z_{21}}{Z_{11}+R_\mathrm{q}}. \tag{4.3}$$
@@ -51,7 +53,7 @@ Für das T-Zweitor ist $Z_{1,\mathrm{LL}}=35\,\Omega$ und $Z_{1,\mathrm{KS}}=35\
 
 $$Z_1=35\,\Omega-\frac{400\,\Omega^2}{100\,\Omega}=31\,\Omega,\quad I_1=\frac{9\,\mathrm{V}}{5\,\Omega+31\,\Omega}=250\,\mathrm{mA},\quad I_2=-\frac{20}{100}\,I_1=-50\,\mathrm{mA}.$$
 
-Am Eingang ist $U_1=9\,\mathrm{V}-5\,\Omega\cdot250\,\mathrm{mA}=7{,}75$ V, am Ausgang $U_2=60\,\Omega\cdot50\,\mathrm{mA}=3$ V. In $R_\mathrm{b}$ fließen $I_1+I_2=200$ mA statt 250 mA, das senkt $U_1$ um genau 1 V (Abb. [5](#abb-5)). Von der Last aus gesehen: $U_\mathrm{i}=\frac{20}{40}\cdot9\,\mathrm{V}=4{,}5$ V, $R_\mathrm{i}=40\,\Omega-400\,\Omega^2/40\,\Omega=30\,\Omega$. Dann ist $I=4{,}5\,\mathrm{V}/90\,\Omega=50$ mA, derselbe Strom. Die Ersatzquelle aus [Teil 5](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html) steckt also in den vier Zahlen.
+Am Eingang ist $U_1=9\,\mathrm{V}-5\,\Omega\cdot250\,\mathrm{mA}=7{,}75$ V, am Ausgang $U_2=60\,\Omega\cdot50\,\mathrm{mA}=3$ V. In $R_\mathrm{b}$ fließen $I_1+I_2=200$ mA statt 250 mA, das senkt $U_1$ um genau 1 V (Abb. [5](#abb-5)). Von der Last aus gesehen: $U_\mathrm{i}=\frac{20}{40}\cdot9\,\mathrm{V}=4{,}5$ V, $R_\mathrm{i}=40\,\Omega-400\,\Omega^2/40\,\Omega=30\,\Omega$. Dann ist $I=4{,}5\,\mathrm{V}/90\,\Omega=50$ mA, derselbe Strom. Die Ersatzquelle aus [Kapitel 5](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html) steckt also in den vier Zahlen.
 ::::
 
 ⁠**Grenzfälle:** $R_\mathrm{L}\to\infty$ ergibt $Z_1\to35\,\Omega$, $R_\mathrm{L}\to0$ ergibt $25\,\Omega$. Jede Last liegt dazwischen.

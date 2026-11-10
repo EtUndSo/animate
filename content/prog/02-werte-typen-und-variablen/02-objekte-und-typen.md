@@ -1,7 +1,8 @@
 ---
 title: Objekte und Typen
 pfad: Informatik / Programmieren / Python / Werte, Typen und Variablen
-knoten: Python 2: Werte, Typen und Variablen
+adresse: informatik/programmieren/python/werte-typen-und-variablen
+knoten: Kapitel 2: Werte, Typen und Variablen
 order: 6030200
 summary: Alles, womit Python rechnet, liegt als Objekt im Arbeitsspeicher.
 tags: Objekt, Typ, Identität, Methode
@@ -18,7 +19,7 @@ Alles, womit Python rechnet, liegt als Objekt im Arbeitsspeicher. Dieser Abschni
 
 <span class="anker" id="stufe-1-1"></span>
 
-Python 1 hat Zahlen wie 42 und Texte wie `"Hallo"` Werte genannt ([Programmieren, Python 1, Abschnitt 4.2](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/der-interaktive-modus.html#stufe-4-2)). Während Python mit einem Wert arbeitet, muss dieser Wert irgendwo stehen. Und Python muss wissen, was für ein Wert es ist: Mit der Zahl 42 kann man rechnen, mit dem Text aus den Zeichen 4 und 2 nicht.
+[Kapitel 1](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/programme-und-der-python-interpreter.html) hat Zahlen wie 42 und Texte wie `"Hallo"` Werte genannt ([Kapitel 1, Abschnitt 4.2](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/der-interaktive-modus.html#stufe-4-2)). Während Python mit einem Wert arbeitet, muss dieser Wert irgendwo stehen. Und Python muss wissen, was für ein Wert es ist: Mit der Zahl 42 kann man rechnen, mit dem Text aus den Zeichen 4 und 2 nicht.
 
 **Ein beschrifteter Kasten.** Man kann sich den Arbeitsspeicher als lange Reihe von Fächern vorstellen. Python legt jeden Wert in einen eigenen Kasten. Auf den Kasten schreibt es, welche Art von Wert darin liegt, und jeder Kasten steht an einem festen Platz mit einer Platznummer (Abb. [1](#abb-1)). Das ist ein Bild zur Orientierung: Wie der Speicher technisch aufgebaut ist, spielt für das Folgende keine Rolle.
 
@@ -83,7 +84,7 @@ Die drei Objekte aus Abb. [1](#abb-1) haben drei verschiedene Typen:
 |---|---|---|---|
 | `int` | integer | ganze Zahl | `42`, `-7`, `0` |
 | `float` | floating point number | Gleitkommazahl | `4.0`, `0.5`, `2.5e-3` |
-| `str` | string | Zeichenkette | `"42"`, `'Ohm'` |
+| `str` | string | Zeichenkette | `"42"`, `'Regen'` |
 
 Welchen Typ eine Zahl bekommt, entscheidet allein ihre Schreibweise: Ohne Punkt und ohne `e` ist sie ein `int`, mit Punkt oder mit `e` ein `float`. Deshalb ist auch `4e3` ein `float`, obwohl der Wert 4000 eine ganze Zahl ist:
 
@@ -109,13 +110,13 @@ Traceback (most recent call last):
 TypeError: can only concatenate str (not "int") to str
 ```
 
-Die Ausnahme ([Programmieren, Python 1, Abschnitt 6.3](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/fehler-lesen-und-verstehen.html#stufe-6-3)) hat die Art `TypeError`, auf Deutsch etwa „Typfehler“. Die Beschreibung sagt: An einen `str` kann man nur einen `str` anhängen, keinen `int`. Python wandelt die Zahl 3 also nicht von sich aus in den Text `"3"` um.
+Die Ausnahme ([Kapitel 1, Abschnitt 6.3](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/fehler-lesen-und-verstehen.html#stufe-6-3)) hat die Art `TypeError`, auf Deutsch etwa „Typfehler“. Die Beschreibung sagt: An einen `str` kann man nur einen `str` anhängen, keinen `int`. Python wandelt die Zahl 3 also nicht von sich aus in den Text `"3"` um.
 ::::
 
 ⁠**Kurz gesagt:** Der Typ sagt, was für ein Wert in einem Objekt steckt und was man mit ihm tun kann; `type` zeigt ihn an.
 
 :::hintergrund Woher Python beim Ausführen weiß, was das Pluszeichen tun soll
-Im Arbeitsspeicher stehen nur Zahlenmuster. Dasselbe Muster kann eine Zahl bedeuten oder eine Folge von Buchstaben, je nachdem, wie man es liest. Deshalb trägt in CPython jedes Objekt einen Verweis auf seinen Typ bei sich, gleich am Anfang seines Speicherbereichs. Trifft die Interpreterschleife ([Programmieren, Python 1, Abschnitt 2.4](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/vom-quelltext-zur-ausfuhrung-compiler-und-interpreter.html#stufe-2-4)) auf ein Pluszeichen, schaut sie bei beiden Werten nach dem Typ und führt die Additionsregel aus, die zu diesen Typen gehört. Gibt es keine passende Regel, löst sie einen `TypeError` aus.
+Im Arbeitsspeicher stehen nur Zahlenmuster. Dasselbe Muster kann eine Zahl bedeuten oder eine Folge von Buchstaben, je nachdem, wie man es liest. Deshalb trägt in CPython jedes Objekt einen Verweis auf seinen Typ bei sich, gleich am Anfang seines Speicherbereichs. Trifft die Interpreterschleife ([Kapitel 1, Abschnitt 2.4](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/vom-quelltext-zur-ausfuhrung-compiler-und-interpreter.html#stufe-2-4)) auf ein Pluszeichen, schaut sie bei beiden Werten nach dem Typ und führt die Additionsregel aus, die zu diesen Typen gehört. Gibt es keine passende Regel, löst sie einen `TypeError` aus.
 
 In der Sprache C ist das anders: Dort schreibt man im Quelltext zu jedem Speicherplatz dazu, welchen Typ er hat, und der Compiler wählt schon beim Übersetzen den passenden Maschinenbefehl. Im fertigen Programm steht der Typ nirgends mehr. Das macht C schneller, weil nichts nachgesehen werden muss. Python bezahlt die Nachfrage bei jeder Rechnung mit Zeit und gewinnt dafür Beweglichkeit: Dieselbe Zeile Quelltext kann einmal mit ganzen Zahlen, einmal mit Gleitkommazahlen und einmal mit Text arbeiten.
 :::
@@ -140,7 +141,7 @@ Die Identität ist eine lange, zufällig wirkende Zahl:
 ```console
 >>> id(42)
 11371408
->>> id("Ohm")
+>>> id("Regen")
 140493353858800
 ```
 
@@ -163,7 +164,7 @@ Eindeutig heißt: eindeutig unter den Objekten, die gleichzeitig bestehen. Ein O
 
 Manche Fähigkeiten eines Typs passen auf kein Rechenzeichen: einen Text in Großbuchstaben umwandeln oder eine Zahl als Bruch schreiben. Dafür bringt jeder Typ eigene Funktionen mit.
 
-**Funktionen, die zum Kasten gehören.** Eine Funktion ist ein fertiges Teilprogramm mit einem Namen ([Programmieren, Python 1, Abschnitt 4.7](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/der-interaktive-modus.html#stufe-4-7)). Manche Funktionen hängen an einem Typ wie Knöpfe an einem Gerät: Man drückt sie bei einem bestimmten Objekt, und sie arbeiten mit genau diesem Objekt.
+**Funktionen, die zum Kasten gehören.** Eine Funktion ist ein fertiges Teilprogramm mit einem Namen ([Kapitel 1, Abschnitt 4.7](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/der-interaktive-modus.html#stufe-4-7)). Manche Funktionen hängen an einem Typ wie Knöpfe an einem Gerät: Man drückt sie bei einem bestimmten Objekt, und sie arbeiten mit genau diesem Objekt.
 
 :::definition Definition 1.4 (Methode)
 <span class="anker" id="satz-1-4"></span>
@@ -175,8 +176,8 @@ Eine __Methode__ ist eine Funktion, die zu einem Typ gehört. Man ruft sie für 
 Der Typ `str` hat eine Methode `upper`, die den Text in Großbuchstaben liefert. Der Typ `float` hat eine Methode `as_integer_ratio`, die die Zahl als Bruch aus Zähler und Nenner schreibt:
 
 ```console
->>> "Ohm".upper()
-'OHM'
+>>> "Regen".upper()
+'REGEN'
 >>> (2.5).as_integer_ratio()
 (5, 2)
 >>> (2.5).upper()
@@ -236,13 +237,13 @@ Sage vorher, was der interaktive Modus anzeigt, und prüfe am Rechner. Erkläre 
 
 <li>
 
-`"Ohm" + "meter"`
+`"Regen" + "bogen"`
 
 </li>
 
 <li>
 
-`"Ohm" + 1`
+`"Regen" + 1`
 
 </li>
 
@@ -268,13 +269,13 @@ Sage vorher, was der interaktive Modus anzeigt, und prüfe am Rechner. Erkläre 
 
 :::loesung
 ```console
->>> "Ohm" + "meter"
-'Ohmmeter'
->>> "Ohm" + 1
+>>> "Regen" + "bogen"
+'Regenbogen'
+>>> "Regen" + 1
 Traceback (most recent call last):
   File "<python-input-1>", line 1, in <module>
-    "Ohm" + 1
-    ~~~~~~^~~
+    "Regen" + 1
+    ~~~~~~~~^~~
 TypeError: can only concatenate str (not "int") to str
 >>> "kilo".upper()
 'KILO'

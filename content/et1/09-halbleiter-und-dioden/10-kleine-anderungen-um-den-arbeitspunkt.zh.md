@@ -1,6 +1,8 @@
 ---
 title: 第 8 阶段：工作点附近的微小变化
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 半导体与二极管
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 半导体与二极管
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden
+knoten: 第 9 章：半导体与二极管
 order: 1191000
 summary: 小信号常常叠加在直流电压上，而只有变化量才重要。本阶段说明：对于微小变化，二极管相当于一个阻值由直流电流设定的电阻。
 tags: 微分电阻, 小信号

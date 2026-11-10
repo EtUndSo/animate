@@ -1,7 +1,8 @@
 ---
 title: Partielle Ableitungen und der Gradient
 pfad: Informatik / Machine Learning / Mathematische Grundlagen / Ableitung, Gradient und Kettenregel
-knoten: Grundlagen 3: Ableitung, Gradient und Kettenregel
+adresse: informatik/machine-learning/mathematische-grundlagen/ableitung-gradient-und-kettenregel
+knoten: Kapitel 3: Ableitung, Gradient und Kettenregel
 nachschlagen: ja
 order: 15230400
 summary: Hängt eine Zahl von vielen Eingängen ab, kann man jeden Eingang einzeln ein wenig verändern und die anderen festhalten.
@@ -19,7 +20,7 @@ Hängt eine Zahl von vielen Eingängen ab, kann man jeden Eingang einzeln ein we
 
 <span class="anker" id="stufe-3-1"></span>
 
-In [Grundlagen 1, Abschnitt 2.2](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-skalarprodukt.html#stufe-2-2), war die Vorhersage für eine Wohnung die gewichtete Summe $\hat y=\mathbf{w}^{\top}\mathbf{x}$ der Merkmale. Hält man die Merkmale fest und fragt, wie die Vorhersage von den Gewichten abhängt, so ist $\hat y$ eine Zahl, die von den $d$ Zahlen $w_1,\dots,w_d$ abhängt. Ebenso hängt die quadratische Form $\mathbf{x}^{\top}\mathbf{A}\mathbf{x}$ aus [Grundlagen 2, Abschnitt 5.1](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/quadratische-formen.html#stufe-5-1), von allen Komponenten von $\mathbf{x}$ ab. Für solche Zuordnungen braucht man einen eigenen Begriff.
+In [Kapitel 1, Abschnitt 2.2](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-skalarprodukt.html#stufe-2-2), war die Vorhersage für eine Wohnung die gewichtete Summe $\hat y=\mathbf{w}^{\top}\mathbf{x}$ der Merkmale. Hält man die Merkmale fest und fragt, wie die Vorhersage von den Gewichten abhängt, so ist $\hat y$ eine Zahl, die von den $d$ Zahlen $w_1,\dots,w_d$ abhängt. Ebenso hängt die quadratische Form $\mathbf{x}^{\top}\mathbf{A}\mathbf{x}$ aus [Kapitel 2, Abschnitt 5.1](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/quadratische-formen.html#stufe-5-1), von allen Komponenten von $\mathbf{x}$ ab. Für solche Zuordnungen braucht man einen eigenen Begriff.
 
 :::definition Definition 3.1 (Funktion mehrerer Variablen, Höhenlinie)
 <span class="anker" id="satz-3-1"></span>
@@ -54,7 +55,7 @@ Die __partielle Ableitung__ von $f:\mathbb{R}^d\to\mathbb{R}$ nach $x_j$ an der 
 <span class="anker" id="gl-3-2"></span>
 $$\frac{\partial f}{\partial x_j}(\mathbf{x})=\lim_{h\to0}\frac{f(\mathbf{x}+h\,\mathbf{e}_j)-f(\mathbf{x})}{h}, \tag{3.2}$$
 
-sofern der Grenzwert existiert. Dabei ist $\mathbf{e}_j$ der $j$-te Einheitsvektor aus [Grundlagen 1, Abschnitt 1.6](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-daten-als-zahlenlisten.html#stufe-1-6). Kurz schreibt man auch $\partial_jf(\mathbf{x})$.
+sofern der Grenzwert existiert. Dabei ist $\mathbf{e}_j$ der $j$-te Einheitsvektor aus [Kapitel 1, Abschnitt 1.6](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-daten-als-zahlenlisten.html#stufe-1-6). Kurz schreibt man auch $\partial_jf(\mathbf{x})$.
 :::
 
 Der Vektor $\mathbf{x}+h\,\mathbf{e}_j$ unterscheidet sich von $\mathbf{x}$ nur in der $j$-ten Komponente, und zwar um $h$. Die Definition ist also die gewöhnliche Ableitung aus Abschnitt [1.2](die-ableitung.html#stufe-1-2), angewandt auf die Funktion, die man erhält, wenn man alle Variablen außer $x_j$ festhält. Daraus folgt die Rechenregel: Man leitet nach $x_j$ ab und behandelt alle anderen Variablen wie Konstanten. Das Zeichen $\partial$ ist ein gerundetes d und erinnert daran, dass nur ein Teil der Variablen sich bewegt.
@@ -133,7 +134,7 @@ Die Änderung der linearen Näherung als Skalarprodukt aus Gradient und Verschie
 
 <span class="anker" id="stufe-3-5"></span>
 
-Die Näherung [(3.4)](#gl-3-4) wurde bisher nur plausibel gemacht. Für eine Variable folgte sie aus der Existenz der Ableitung. Bei mehreren Variablen genügt die Existenz der partiellen Ableitungen dafür nicht, wie das Gegenbeispiel unten zeigt. Man fordert deshalb die Näherung selbst: Ihr Fehler soll schneller verschwinden als die Verschiebung, so wie in [(1.4)](die-ableitung.html#gl-1-4) der Fehler $r(h)$ schneller verschwand als $h$. Durch einen Vektor kann man nicht teilen; statt durch $h$ teilt man deshalb durch die Länge $\lVert\mathbf{h}\rVert$ aus [Grundlagen 1, Abschnitt 3.1](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/normen-die-groe-eines-vektors.html#stufe-3-1).
+Die Näherung [(3.4)](#gl-3-4) wurde bisher nur plausibel gemacht. Für eine Variable folgte sie aus der Existenz der Ableitung. Bei mehreren Variablen genügt die Existenz der partiellen Ableitungen dafür nicht, wie das Gegenbeispiel unten zeigt. Man fordert deshalb die Näherung selbst: Ihr Fehler soll schneller verschwinden als die Verschiebung, so wie in [(1.4)](die-ableitung.html#gl-1-4) der Fehler $r(h)$ schneller verschwand als $h$. Durch einen Vektor kann man nicht teilen; statt durch $h$ teilt man deshalb durch die Länge $\lVert\mathbf{h}\rVert$ aus [Kapitel 1, Abschnitt 3.1](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/normen-die-groe-eines-vektors.html#stufe-3-1).
 
 :::definition Definition 3.4 (Differenzierbarkeit)
 <span class="anker" id="satz-3-4"></span>

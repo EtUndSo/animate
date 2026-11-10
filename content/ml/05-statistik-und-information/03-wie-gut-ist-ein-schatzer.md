@@ -1,7 +1,8 @@
 ---
 title: Wie gut ist ein Schätzer?
 pfad: Informatik / Machine Learning / Mathematische Grundlagen / Statistik und Information
-knoten: Grundlagen 5: Statistik und Information
+adresse: informatik/machine-learning/mathematische-grundlagen/statistik-und-information
+knoten: Kapitel 5: Statistik und Information
 nachschlagen: ja
 order: 15250300
 summary: Ein Schätzer trifft den wahren Parameter fast nie genau.
@@ -39,11 +40,11 @@ Der Schätzer heißt __erwartungstreu__ oder unverzerrt, wenn seine Verzerrung f
 Der Erwartungswert ist der über die Stichprobenverteilung, bei festem wahrem $\theta$. Ein erwartungstreuer Schätzer liegt also im Mittel über alle gedachten Datensätze genau richtig. Dass er für *jeden* Wert des Parameters stimmen muss, ist wesentlich: Ein Schätzer, der nur zufällig beim wahren Wert richtig liegt, nützt nichts, denn den wahren Wert kennt man nicht.
 
 :::warnung Zwei Bedeutungen von „bias“
-Englische Texte nennen auch den Achsenabschnitt $b$ einer affinen Vorschrift $\mathbf{w}^{\top}\mathbf{x}+b$ aus [Grundlagen 1, Abschnitt 8.5](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-5), „bias“. Das hat mit der Verzerrung eines Schätzers nichts zu tun. Dieses Kapitel sagt deshalb immer „Verzerrung“ und schreibt $\operatorname{Bias}(\hat\theta)$ nur als Formelzeichen.
+Englische Texte nennen auch den Achsenabschnitt $b$ einer affinen Vorschrift $\mathbf{w}^{\top}\mathbf{x}+b$ aus [Kapitel 1, Abschnitt 8.5](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-5), „bias“. Das hat mit der Verzerrung eines Schätzers nichts zu tun. Dieses Kapitel sagt deshalb immer „Verzerrung“ und schreibt $\operatorname{Bias}(\hat\theta)$ nur als Formelzeichen.
 :::
 
 ::::beispiel [Rechenbeispiel]
-Der Mittelwert $\bar X$ ist für jede Verteilung mit Erwartungswert $\mu$ ein erwartungstreuer Schätzer für $\mu$, denn nach der Linearität aus [Grundlagen 4, Abschnitt 7.3](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/erwartungswert-und-varianz.html#stufe-7-3), ist
+Der Mittelwert $\bar X$ ist für jede Verteilung mit Erwartungswert $\mu$ ein erwartungstreuer Schätzer für $\mu$, denn nach der Linearität aus [Kapitel 4, Abschnitt 7.3](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/erwartungswert-und-varianz.html#stufe-7-3), ist
 
 $$\mathbb{E}[\bar X]=\frac1N\sum_{i=1}^N\mathbb{E}[X_i]=\frac1N\cdot N\mu=\mu .$$
 
@@ -56,7 +57,7 @@ Für Münzwürfe ist $\bar X=N_1/N$, also ist auch der Anteil der Köpfe erwartu
 
 <span class="anker" id="stufe-2-2"></span>
 
-Erwartungstreue sagt nichts darüber, wie weit ein einzelner Schätzwert danebenliegen kann. Bild (b) in Abb. [4](#abb-4) ist erwartungstreu, aber die einzelnen Treffer sind schlecht. Das Maß für die Streuung ist die Varianz aus [Grundlagen 4, Abschnitt 7.4](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/erwartungswert-und-varianz.html#stufe-7-4), angewandt auf den Schätzer.
+Erwartungstreue sagt nichts darüber, wie weit ein einzelner Schätzwert danebenliegen kann. Bild (b) in Abb. [4](#abb-4) ist erwartungstreu, aber die einzelnen Treffer sind schlecht. Das Maß für die Streuung ist die Varianz aus [Kapitel 4, Abschnitt 7.4](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/erwartungswert-und-varianz.html#stufe-7-4), angewandt auf den Schätzer.
 
 :::definition Definition 2.2 (Varianz und Standardfehler eines Schätzers)
 <span class="anker" id="satz-2-2"></span>
@@ -67,10 +68,10 @@ Die Varianz $\operatorname{Var}(\hat\theta)$ eines Schätzers ist die Varianz se
 $$\operatorname{SE}(\hat\theta)=\sqrt{\operatorname{Var}(\hat\theta)} . \tag{2.2}$$
 :::
 
-Für den Mittelwert ist das der Standardfehler $\sigma/\sqrt N$ aus [Grundlagen 4, Abschnitt 13.1](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/mittelwerte-vieler-zufallsvariablen.html#stufe-13-1); die Abkürzung SE kommt vom englischen *standard error*. Der Standardfehler hat dieselbe Einheit wie der Parameter und gibt an, wie weit ein Schätzwert typischerweise vom Erwartungswert des Schätzers entfernt liegt.
+Für den Mittelwert ist das der Standardfehler $\sigma/\sqrt N$ aus [Kapitel 4, Abschnitt 13.1](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/mittelwerte-vieler-zufallsvariablen.html#stufe-13-1); die Abkürzung SE kommt vom englischen *standard error*. Der Standardfehler hat dieselbe Einheit wie der Parameter und gibt an, wie weit ein Schätzwert typischerweise vom Erwartungswert des Schätzers entfernt liegt.
 
 ::::beispiel [Rechenbeispiel]
-Für den Anteil der Köpfe $N_1/N$ ist $N_1$ binomialverteilt, also eine Summe von $N$ unabhängigen Bernoulli-Größen mit der Varianz $\theta(1-\theta)$ nach [Grundlagen 4, Abschnitt 8.1](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/wichtige-verteilungen.html#stufe-8-1). Mit [Grundlagen 4, Abschnitt 13.1](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/mittelwerte-vieler-zufallsvariablen.html#stufe-13-1), ist
+Für den Anteil der Köpfe $N_1/N$ ist $N_1$ binomialverteilt, also eine Summe von $N$ unabhängigen Bernoulli-Größen mit der Varianz $\theta(1-\theta)$ nach [Kapitel 4, Abschnitt 8.1](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/wichtige-verteilungen.html#stufe-8-1). Mit [Kapitel 4, Abschnitt 13.1](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/mittelwerte-vieler-zufallsvariablen.html#stufe-13-1), ist
 
 $$\operatorname{Var}\Bigl(\frac{N_1}N\Bigr)=\frac{\theta(1-\theta)}N,\qquad \operatorname{SE}\Bigl(\frac{N_1}N\Bigr)=\sqrt{\frac{\theta(1-\theta)}N} .$$
 
@@ -80,7 +81,7 @@ Wäre bei der verbogenen Münze $\theta=0{,}7$, so wäre der Standardfehler bei 
 ⁠**Kurz gesagt:** Die Varianz eines Schätzers misst, wie stark er von Datensatz zu Datensatz schwankt; ihre Wurzel ist der Standardfehler.
 
 :::hintergrund Den Standardfehler selbst schätzen
-Der Standardfehler $\sqrt{\theta(1-\theta)/N}$ enthält den unbekannten Parameter. In der Praxis setzt man den Schätzwert ein und erhält einen geschätzten Standardfehler, bei sieben Köpfen in zehn Würfen also $\sqrt{0{,}7\cdot0{,}3/10}\approx0{,}145$. Mit dem zentralen Grenzwertsatz aus [Grundlagen 4, Abschnitt 13.4](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/mittelwerte-vieler-zufallsvariablen.html#stufe-13-4), ist der Anteil der Köpfe bei großem $N$ näherungsweise normalverteilt. Deshalb liegt das Intervall „Schätzwert $\pm\,2$ Standardfehler“ in etwa $95\,\%$ der gedachten Wiederholungen so, dass es den wahren Parameter enthält. Man nennt es ein Konfidenzintervall. In der frequentistischen Sicht ist dabei das Intervall zufällig und der Parameter fest: Die $95\,\%$ beschreiben das Verfahren über viele Datensätze, nicht die Wahrscheinlichkeit, dass $\theta$ in einem bestimmten, schon berechneten Intervall liegt. Für zehn Würfe ist die Normalnäherung noch grob.
+Der Standardfehler $\sqrt{\theta(1-\theta)/N}$ enthält den unbekannten Parameter. In der Praxis setzt man den Schätzwert ein und erhält einen geschätzten Standardfehler, bei sieben Köpfen in zehn Würfen also $\sqrt{0{,}7\cdot0{,}3/10}\approx0{,}145$. Mit dem zentralen Grenzwertsatz aus [Kapitel 4, Abschnitt 13.4](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/mittelwerte-vieler-zufallsvariablen.html#stufe-13-4), ist der Anteil der Köpfe bei großem $N$ näherungsweise normalverteilt. Deshalb liegt das Intervall „Schätzwert $\pm\,2$ Standardfehler“ in etwa $95\,\%$ der gedachten Wiederholungen so, dass es den wahren Parameter enthält. Man nennt es ein Konfidenzintervall. In der frequentistischen Sicht ist dabei das Intervall zufällig und der Parameter fest: Die $95\,\%$ beschreiben das Verfahren über viele Datensätze, nicht die Wahrscheinlichkeit, dass $\theta$ in einem bestimmten, schon berechneten Intervall liegt. Für zehn Würfe ist die Normalnäherung noch grob.
 :::
 
 ### Der mittlere quadratische Fehler
@@ -110,13 +111,13 @@ $$\operatorname{MSE}(\hat\theta)=\operatorname{Bias}(\hat\theta)^2+\operatorname
 :::
 
 :::beweis Zerlegung
-Es sei $Y=\hat\theta-\theta$. Nach der Verschiebungsformel aus [Grundlagen 4, Abschnitt 7.5](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/erwartungswert-und-varianz.html#stufe-7-5), ist $\mathbb{E}[Y^2]=\operatorname{Var}(Y)+\mathbb{E}[Y]^2$. Links steht $\operatorname{MSE}(\hat\theta)$. Rechts ist $\mathbb{E}[Y]=\mathbb{E}[\hat\theta]-\theta=\operatorname{Bias}(\hat\theta)$, und $\operatorname{Var}(Y)=\operatorname{Var}(\hat\theta)$, denn das Abziehen der festen Zahl $\theta$ verschiebt die Verteilung nur und ändert nach [Grundlagen 4, Abschnitt 7.6](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/erwartungswert-und-varianz.html#stufe-7-6), die Varianz nicht.
+Es sei $Y=\hat\theta-\theta$. Nach der Verschiebungsformel aus [Kapitel 4, Abschnitt 7.5](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/erwartungswert-und-varianz.html#stufe-7-5), ist $\mathbb{E}[Y^2]=\operatorname{Var}(Y)+\mathbb{E}[Y]^2$. Links steht $\operatorname{MSE}(\hat\theta)$. Rechts ist $\mathbb{E}[Y]=\mathbb{E}[\hat\theta]-\theta=\operatorname{Bias}(\hat\theta)$, und $\operatorname{Var}(Y)=\operatorname{Var}(\hat\theta)$, denn das Abziehen der festen Zahl $\theta$ verschiebt die Verteilung nur und ändert nach [Kapitel 4, Abschnitt 7.6](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/erwartungswert-und-varianz.html#stufe-7-6), die Varianz nicht.
 :::
 
 Bei einem erwartungstreuen Schätzer ist der mittlere quadratische Fehler einfach die Varianz. Ein verzerrter Schätzer kann trotzdem den kleineren mittleren quadratischen Fehler haben, wenn er dafür weniger streut.
 
 ::::beispiel [Rechenbeispiel]
-Im Beispiel aus Unterabschnitt [1.4](schatzen-aus-einer-stichprobe.html#stufe-1-4) mit $\mu=2$ und $N=2$ hat $\bar X$ die Verzerrung $0$ und die Varianz $\tfrac13$, also $\operatorname{MSE}(\bar X)=\tfrac13\approx0{,}333$. Der geschrumpfte Schätzer $0{,}9\,\bar X$ hat den Erwartungswert $0{,}9\cdot2=1{,}8$, also die Verzerrung $-0{,}2$, und nach [Grundlagen 4, Abschnitt 7.6](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/erwartungswert-und-varianz.html#stufe-7-6), die Varianz $0{,}81\cdot\tfrac13=0{,}27$. Sein mittlerer quadratischer Fehler ist $0{,}04+0{,}27=0{,}31$, kleiner als der von $\bar X$. Abb. [5](#abb-5) rechnet ihn zur Probe direkt über die Stichprobenverteilung aus. Der Vorteil hängt aber vom unbekannten $\mu$ ab: Läge $\mu$ bei $10$, mit derselben Streuung, so hätte $0{,}9\,\bar X$ die Verzerrung $-1$ und den mittleren quadratischen Fehler $1+0{,}27=1{,}27$, viel mehr als $\bar X$.
+Im Beispiel aus Unterabschnitt [1.4](schatzen-aus-einer-stichprobe.html#stufe-1-4) mit $\mu=2$ und $N=2$ hat $\bar X$ die Verzerrung $0$ und die Varianz $\tfrac13$, also $\operatorname{MSE}(\bar X)=\tfrac13\approx0{,}333$. Der geschrumpfte Schätzer $0{,}9\,\bar X$ hat den Erwartungswert $0{,}9\cdot2=1{,}8$, also die Verzerrung $-0{,}2$, und nach [Kapitel 4, Abschnitt 7.6](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/erwartungswert-und-varianz.html#stufe-7-6), die Varianz $0{,}81\cdot\tfrac13=0{,}27$. Sein mittlerer quadratischer Fehler ist $0{,}04+0{,}27=0{,}31$, kleiner als der von $\bar X$. Abb. [5](#abb-5) rechnet ihn zur Probe direkt über die Stichprobenverteilung aus. Der Vorteil hängt aber vom unbekannten $\mu$ ab: Läge $\mu$ bei $10$, mit derselben Streuung, so hätte $0{,}9\,\bar X$ die Verzerrung $-1$ und den mittleren quadratischen Fehler $1+0{,}27=1{,}27$, viel mehr als $\bar X$.
 
 :::abbildung ml/k5rmse 5
 Der mittlere quadratische Fehler des Schätzers $0{,}9\,\bar X$ für $\mu=2$ als Summe über die fünf Werte der Stichprobenverteilung aus Abb. [2](schatzen-aus-einer-stichprobe.html#abb-2) (b), und seine Zerlegung in die quadrierte Verzerrung und die Varianz.
@@ -126,7 +127,7 @@ Der mittlere quadratische Fehler des Schätzers $0{,}9\,\bar X$ für $\mu=2$ als
 ⁠**Kurz gesagt:** Der mittlere quadratische Fehler ist die quadrierte Verzerrung plus die Varianz; ein leicht verzerrter Schätzer, der weniger streut, kann insgesamt genauer sein.
 
 :::hintergrund Warum sich Verzerrung und Streuung einfach addieren
-Schreibt man den Fehler als Summe $\hat\theta-\theta=(\hat\theta-\mathbb{E}[\hat\theta])+(\mathbb{E}[\hat\theta]-\theta)$, so ist der erste Teil die zufällige Schwankung und der zweite die feste Verzerrung. Beim Quadrieren entsteht ein Mischglied $2\,(\hat\theta-\mathbb{E}[\hat\theta])\,(\mathbb{E}[\hat\theta]-\theta)$. Sein Erwartungswert ist null, weil die Schwankung um den eigenen Erwartungswert im Mittel verschwindet und die Verzerrung eine feste Zahl ist, die man vor den Erwartungswert ziehen darf. Das ist derselbe Grund, aus dem sich in [Grundlagen 1, Abschnitt 4.3](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/abstande-und-einheiten.html#stufe-4-3), die Abweichungen vom Mittelwert zu null summieren. In der Sprache von [Grundlagen 4, Abschnitt 10.4](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/kovarianz-und-korrelation.html#stufe-10-4), wo die Kovarianz wie ein Skalarprodukt rechnet, steht die Schwankung senkrecht auf jeder festen Zahl, und das Quadrat der Summe zerfällt nach Pythagoras in zwei Quadrate. Weil beide nie negativ sind, kann man den Fehler nur verkleinern, indem man an der Verzerrung oder an der Streuung spart, und oft erkauft man das eine mit dem anderen.
+Schreibt man den Fehler als Summe $\hat\theta-\theta=(\hat\theta-\mathbb{E}[\hat\theta])+(\mathbb{E}[\hat\theta]-\theta)$, so ist der erste Teil die zufällige Schwankung und der zweite die feste Verzerrung. Beim Quadrieren entsteht ein Mischglied $2\,(\hat\theta-\mathbb{E}[\hat\theta])\,(\mathbb{E}[\hat\theta]-\theta)$. Sein Erwartungswert ist null, weil die Schwankung um den eigenen Erwartungswert im Mittel verschwindet und die Verzerrung eine feste Zahl ist, die man vor den Erwartungswert ziehen darf. Das ist derselbe Grund, aus dem sich in [Kapitel 1, Abschnitt 4.3](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/abstande-und-einheiten.html#stufe-4-3), die Abweichungen vom Mittelwert zu null summieren. In der Sprache von [Kapitel 4, Abschnitt 10.4](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/kovarianz-und-korrelation.html#stufe-10-4), wo die Kovarianz wie ein Skalarprodukt rechnet, steht die Schwankung senkrecht auf jeder festen Zahl, und das Quadrat der Summe zerfällt nach Pythagoras in zwei Quadrate. Weil beide nie negativ sind, kann man den Fehler nur verkleinern, indem man an der Verzerrung oder an der Streuung spart, und oft erkauft man das eine mit dem anderen.
 :::
 
 ### Konsistenz
@@ -144,7 +145,7 @@ Ein Schätzer $\hat\theta_N$ heißt __konsistent__, wenn für jedes $\varepsilon
 $$P\bigl(|\hat\theta_N-\theta|\ge\varepsilon\bigr)\longrightarrow0\qquad\text{für }N\to\infty . \tag{2.5}$$
 :::
 
-Wie klein man die Toleranz $\varepsilon$ auch wählt, mit genug Daten liegt der Schätzwert mit einer Wahrscheinlichkeit beliebig nahe bei $1$ näher als $\varepsilon$ am wahren Parameter. Das ist dieselbe Form wie das Gesetz der großen Zahlen aus [Grundlagen 4, Abschnitt 13.3](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/mittelwerte-vieler-zufallsvariablen.html#stufe-13-3).
+Wie klein man die Toleranz $\varepsilon$ auch wählt, mit genug Daten liegt der Schätzwert mit einer Wahrscheinlichkeit beliebig nahe bei $1$ näher als $\varepsilon$ am wahren Parameter. Das ist dieselbe Form wie das Gesetz der großen Zahlen aus [Kapitel 4, Abschnitt 13.3](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/mittelwerte-vieler-zufallsvariablen.html#stufe-13-3).
 
 :::satz Satz 2.6 (Konsistenz aus dem mittleren quadratischen Fehler)
 <span class="anker" id="satz-2-6"></span>
@@ -156,7 +157,7 @@ $$P\bigl(|\hat\theta_N-\theta|\ge\varepsilon\bigr)\le\frac{\operatorname{MSE}(\h
 :::
 
 :::beweis Konsistenz
-Wie beim Beweis der Tschebyschow-Ungleichung in [Grundlagen 4, Abschnitt 13.2](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/mittelwerte-vieler-zufallsvariablen.html#stufe-13-2): Es sei $A$ das Ereignis $|\hat\theta_N-\theta|\ge\varepsilon$. Dann ist $(\hat\theta_N-\theta)^2\ge\varepsilon^2\,\mathbb 1_A$ für jedes Ergebnis, und der Erwartungswert beider Seiten ergibt $\operatorname{MSE}(\hat\theta_N)\ge\varepsilon^2\,P(A)$.
+Wie beim Beweis der Tschebyschow-Ungleichung in [Kapitel 4, Abschnitt 13.2](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/mittelwerte-vieler-zufallsvariablen.html#stufe-13-2): Es sei $A$ das Ereignis $|\hat\theta_N-\theta|\ge\varepsilon$. Dann ist $(\hat\theta_N-\theta)^2\ge\varepsilon^2\,\mathbb 1_A$ für jedes Ergebnis, und der Erwartungswert beider Seiten ergibt $\operatorname{MSE}(\hat\theta_N)\ge\varepsilon^2\,P(A)$.
 :::
 
 ::::beispiel [Rechenbeispiel]
@@ -193,7 +194,7 @@ Ist $\hat\theta_2$ konsistent?
 </ol>
 
 :::loesung
-(a) Mit $\mathbb{E}[N_1]=N\theta$ ist $\mathbb{E}[\hat\theta_2]=\frac{N\theta+1}{N+2}$, also $\operatorname{Bias}(\hat\theta_2)=\frac{N\theta+1-(N+2)\theta}{N+2}=\frac{1-2\theta}{N+2}$. Mit $\operatorname{Var}(N_1)=N\theta(1-\theta)$ und [Grundlagen 4, Abschnitt 7.6](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/erwartungswert-und-varianz.html#stufe-7-6), ist $\operatorname{Var}(\hat\theta_2)=\frac{N\theta(1-\theta)}{(N+2)^2}$.
+(a) Mit $\mathbb{E}[N_1]=N\theta$ ist $\mathbb{E}[\hat\theta_2]=\frac{N\theta+1}{N+2}$, also $\operatorname{Bias}(\hat\theta_2)=\frac{N\theta+1-(N+2)\theta}{N+2}=\frac{1-2\theta}{N+2}$. Mit $\operatorname{Var}(N_1)=N\theta(1-\theta)$ und [Kapitel 4, Abschnitt 7.6](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/erwartungswert-und-varianz.html#stufe-7-6), ist $\operatorname{Var}(\hat\theta_2)=\frac{N\theta(1-\theta)}{(N+2)^2}$.
 
 (b) $\hat\theta_1$ ist erwartungstreu, also $\operatorname{MSE}(\hat\theta_1)=\theta(1-\theta)/10$. Für $\hat\theta_2$ addiert man das Quadrat der Verzerrung zur Varianz:
 
@@ -253,10 +254,10 @@ Berechne Verzerrung, Varianz und mittleren quadratischen Fehler. Warum muss die 
 :::
 :::
 
-:::aufgabe Aufgabe 5 ★★ Zwei Messgeräte
+:::aufgabe Aufgabe 5 ★★ Zwei Waagen
 <span class="anker" id="aufg-5"></span>
 
-Eine Spannung $\mu$ wird mit zwei Geräten je einmal gemessen. Die Messwerte $X_A$ und $X_B$ sind unabhängig, erwartungstreu und haben die Varianzen $\sigma_A^2=4\,\mathrm{mV}^2$ und $\sigma_B^2=1\,\mathrm{mV}^2$.
+Ein Brief mit dem Gewicht $\mu$ wird auf zwei Küchenwaagen je einmal gewogen. Die Messwerte $X_A$ und $X_B$ sind unabhängig, erwartungstreu und haben die Varianzen $\sigma_A^2=4\,\mathrm g^2$ und $\sigma_B^2=1\,\mathrm g^2$.
 
 <ol class="al">
 
@@ -283,9 +284,9 @@ Vergleiche den Standardfehler mit dem von $X_B$ allein und mit dem des einfachen
 :::loesung
 (a) Nach der Linearität ist $\mathbb{E}[\hat\mu]=w\mu+(1-w)\mu=\mu$, für jedes $w$.
 
-(b) Wegen der Unabhängigkeit ist $\operatorname{Var}(\hat\mu)=w^2\cdot4+(1-w)^2\cdot1$ in $\mathrm{mV}^2$. Die Ableitung nach $w$ ist $8w-2(1-w)=10w-2$; sie ist null bei $w=0{,}2$. Das ungenauere Gerät A bekommt also nur das Gewicht $0{,}2$. Allgemein ist $w=\sigma_B^2/(\sigma_A^2+\sigma_B^2)$: Jedes Gerät wird mit dem Kehrwert seiner Varianz gewichtet.
+(b) Wegen der Unabhängigkeit ist $\operatorname{Var}(\hat\mu)=w^2\cdot4+(1-w)^2\cdot1$ in $\mathrm g^2$. Die Ableitung nach $w$ ist $8w-2(1-w)=10w-2$; sie ist null bei $w=0{,}2$. Die ungenauere Waage A bekommt also nur das Gewicht $0{,}2$. Allgemein ist $w=\sigma_B^2/(\sigma_A^2+\sigma_B^2)$: Jede Waage wird mit dem Kehrwert ihrer Varianz gewichtet.
 
-(c) Bei $w=0{,}2$ ist $\operatorname{Var}(\hat\mu)=0{,}04\cdot4+0{,}64=0{,}8\,\mathrm{mV}^2$, der Standardfehler also $0{,}894\,\mathrm{mV}$. Gerät B allein hat $1\,\mathrm{mV}$, der einfache Mittelwert hat $\operatorname{Var}=0{,}25\cdot4+0{,}25=1{,}25\,\mathrm{mV}^2$, also $1{,}118\,\mathrm{mV}$. Der einfache Mittelwert ist schlechter als Gerät B allein; erst die richtige Gewichtung macht die zweite Messung nützlich.
+(c) Bei $w=0{,}2$ ist $\operatorname{Var}(\hat\mu)=0{,}04\cdot4+0{,}64=0{,}8\,\mathrm g^2$, der Standardfehler also $0{,}894\,\mathrm g$. Waage B allein hat $1\,\mathrm g$, der einfache Mittelwert hat $\operatorname{Var}=0{,}25\cdot4+0{,}25=1{,}25\,\mathrm g^2$, also $1{,}118\,\mathrm g$. Der einfache Mittelwert ist schlechter als Waage B allein; erst die richtige Gewichtung macht die zweite Messung nützlich.
 :::
 :::
 
@@ -319,6 +320,6 @@ Wie viele Würfe genügen nach dem zentralen Grenzwertsatz im ungünstigsten Fal
 
 (b) Verlangt ist $\frac1{4N\cdot0{,}05^2}\le0{,}05$, also $N\ge\frac1{4\cdot0{,}0025\cdot0{,}05}=2000$.
 
-(c) Nach dem zentralen Grenzwertsatz ist $N_1/N$ näherungsweise normalverteilt mit dem Standardfehler $\sqrt{0{,}25/N}$. Die Abweichung ist mit $95\,\%$ Wahrscheinlichkeit kleiner als $1{,}96$ Standardfehler, verlangt ist also $1{,}96\cdot0{,}5/\sqrt N\le0{,}05$, das heißt $\sqrt N\ge19{,}6$ und $N\ge385$. Die Schranke aus (a) gilt für jede Verteilung und nutzt nur die Varianz; sie ist deshalb grob, wie die Tschebyschow-Ungleichung in [Grundlagen 4, Abschnitt 13.2](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/mittelwerte-vieler-zufallsvariablen.html#stufe-13-2).
+(c) Nach dem zentralen Grenzwertsatz ist $N_1/N$ näherungsweise normalverteilt mit dem Standardfehler $\sqrt{0{,}25/N}$. Die Abweichung ist mit $95\,\%$ Wahrscheinlichkeit kleiner als $1{,}96$ Standardfehler, verlangt ist also $1{,}96\cdot0{,}5/\sqrt N\le0{,}05$, das heißt $\sqrt N\ge19{,}6$ und $N\ge385$. Die Schranke aus (a) gilt für jede Verteilung und nutzt nur die Varianz; sie ist deshalb grob, wie die Tschebyschow-Ungleichung in [Kapitel 4, Abschnitt 13.2](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/mittelwerte-vieler-zufallsvariablen.html#stufe-13-2).
 :::
 :::

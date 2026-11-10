@@ -1,7 +1,8 @@
 ---
 title: Ángulos y semejanza
 pfad: Informática / Aprendizaje automático / Fundamentos matemáticos / Vectores y matrices
-knoten: Fundamentos 1: Vectores y matrices
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Capítulo 1: Vectores y matrices
 nachschlagen: ja
 order: 15210600
 summary: Dos vectores pueden apuntar en direcciones parecidas aunque tengan longitudes distintas.
@@ -59,11 +60,11 @@ y su raíz es (N3).
 ⁠**En resumen:** El producto escalar es, en valor absoluto, como mucho el producto de las longitudes, y es igual a él si y solo si los vectores están en una recta que pasa por el origen.
 
 :::hintergrund Por qué el producto escalar reconoce patrones: el enunciado preciso
-En la subsección [2.4](das-skalarprodukt.html#stufe-2-4), la comparación con un patrón era una idea intuitiva: el producto escalar $\mathbf{w}^{\top}\mathbf{x}$ es grande si la señal sigue al patrón. La desigualdad de Cauchy-Schwarz lo convierte en un enunciado preciso. Si solo se comparan señales con la misma longitud $\lVert\mathbf{x}\rVert$, $\mathbf{w}^{\top}\mathbf{x}$ está siempre entre $-\lVert\mathbf{w}\rVert\,\lVert\mathbf{x}\rVert$ y $+\lVert\mathbf{w}\rVert\,\lVert\mathbf{x}\rVert$. El valor máximo lo alcanza exactamente la señal que es un múltiplo positivo del patrón; el mínimo, el múltiplo negativo. Entre todas las señales de la misma energía, la comparación responde, por tanto, con más fuerza al propio patrón.
+En la subsección [2.4](das-skalarprodukt.html#stufe-2-4), la comparación con un patrón era una idea intuitiva: el producto escalar $\mathbf{w}^{\top}\mathbf{x}$ es grande si la serie temporal sigue al patrón. La desigualdad de Cauchy-Schwarz lo convierte en un enunciado preciso. Si solo se comparan series temporales con la misma longitud $\lVert\mathbf{x}\rVert$, $\mathbf{w}^{\top}\mathbf{x}$ está siempre entre $-\lVert\mathbf{w}\rVert\,\lVert\mathbf{x}\rVert$ y $+\lVert\mathbf{w}\rVert\,\lVert\mathbf{x}\rVert$. El valor máximo lo alcanza exactamente la serie temporal que es un múltiplo positivo del patrón; el mínimo, el múltiplo negativo. Entre todas las series temporales de la misma longitud, la comparación responde, por tanto, con más fuerza al propio patrón.
 
-⁠**Ejemplo numérico:** El patrón alternante $\mathbf{w}=(1,-1,1,-1)^{\top}$ tiene la longitud $2$. Entre todas las señales de longitud $2$, $\mathbf{x}=\mathbf{w}$ da el valor máximo $4=2\cdot2$; la señal $(2,0,0,0)^{\top}$, solo $2$; y $\mathbf{x}=-\mathbf{w}$, el valor mínimo $-4$.
+⁠**Ejemplo numérico:** El patrón alternante $\mathbf{w}=(1,-1,1,-1)^{\top}$ tiene la longitud $2$. Entre todas las series temporales de longitud $2$, $\mathbf{x}=\mathbf{w}$ da el valor máximo $4=2\cdot2$; la serie temporal $(2,0,0,0)^{\top}$, solo $2$; y $\mathbf{x}=-\mathbf{w}$, el valor mínimo $-4$.
 
-En telecomunicaciones, esta es la base del receptor de correlación y del filtro adaptado (*matched filter*). Un filtro así tiene como respuesta al impulso la señal transmitida invertida en el tiempo; por ello, en el instante de muestreo calcula exactamente el producto escalar de la señal recibida y la señal transmitida. Que este filtro maximiza la relación señal-ruido se demuestra precisamente con esta desigualdad.
+El mismo enunciado lo aprovecha toda búsqueda que describe textos o imágenes como vectores: entre todos los vectores de la misma longitud, el que da el mayor producto escalar con la consulta es el que es un múltiplo positivo de la consulta. Para que la longitud no falsee el resultado, antes se llevan todos los vectores a la misma longitud.
 :::
 
 ### El ángulo entre dos vectores
@@ -134,23 +135,23 @@ $(1,\,2,\,2)^{\top}$ y $(2,\,0,\,-1)^{\top}$ son ortogonales, pues $2+0-2=0$. Su
 ::::
 
 ::::beispiel [Ejemplo numérico 2] dos patrones que no se estorban
-El patrón constante $\mathbf 1=(1,\,1,\,1,\,1)^{\top}$ y el patrón alternante $\mathbf{w}=(1,\,-1,\,1,\,-1)^{\top}$ de la subsección [2.4](das-skalarprodukt.html#stufe-2-4) son ortogonales, $\mathbf 1^{\top}\mathbf{w}=0$. Una señal que consta de $2$ veces el patrón constante y $1$ vez el patrón alternante es $\mathbf{x}=2\cdot\mathbf 1+\mathbf{w}=(3,\,1,\,3,\,1)^{\top}$. La comparación con el patrón constante da $\mathbf 1^{\top}\mathbf{x}=8=2\cdot4$; la comparación con el patrón alternante, $\mathbf{w}^{\top}\mathbf{x}=4=1\cdot4$ (fig. [23](#abb-23)). Cada comparación encuentra exactamente su propia parte, multiplicada por $\lVert\mathbf 1\rVert^2=\lVert\mathbf{w}\rVert^2=4$; la otra parte no la estorba.
+El patrón constante $\mathbf 1=(1,\,1,\,1,\,1)^{\top}$ y el patrón alternante $\mathbf{w}=(1,\,-1,\,1,\,-1)^{\top}$ de la subsección [2.4](das-skalarprodukt.html#stufe-2-4) son ortogonales, $\mathbf 1^{\top}\mathbf{w}=0$. Una serie temporal que consta de $2$ veces el patrón constante y $1$ vez el patrón alternante es $\mathbf{x}=2\cdot\mathbf 1+\mathbf{w}=(3,\,1,\,3,\,1)^{\top}$. La comparación con el patrón constante da $\mathbf 1^{\top}\mathbf{x}=8=2\cdot4$; la comparación con el patrón alternante, $\mathbf{w}^{\top}\mathbf{x}=4=1\cdot4$ (fig. [23](#abb-23)). Cada comparación encuentra exactamente su propia parte, multiplicada por $\lVert\mathbf 1\rVert^2=\lVert\mathbf{w}\rVert^2=4$; la otra parte no la estorba.
 
 :::abbildung ml/k1rortho 23
-Los dos patrones son ortogonales (arriba). La comparación de la señal $\mathbf{x}=2\cdot\mathbf 1+\mathbf{w}$ con cada patrón da su parte multiplicada por $4$.
+Los dos patrones son ortogonales (arriba). La comparación de la serie temporal $\mathbf{x}=2\cdot\mathbf 1+\mathbf{w}$ con cada patrón da su parte multiplicada por $4$.
 :::
 ::::
 
 ⁠**En resumen:** Ortogonal significa producto escalar cero; las flechas ortogonales son perpendiculares, y para ellas se cumple el teorema de Pitágoras.
 
 :::hintergrund Por qué los patrones ortogonales no se estorban, y qué tiene que ver con los coeficientes de Fourier
-Si una señal es una combinación lineal $\mathbf{x}=\alpha\,\mathbf 1+\beta\,\mathbf{w}$ de dos patrones ortogonales, según las reglas de cálculo se tiene
+Si una serie temporal es una combinación lineal $\mathbf{x}=\alpha\,\mathbf 1+\beta\,\mathbf{w}$ de dos patrones ortogonales, según las reglas de cálculo se tiene
 
 $$\mathbf 1^{\top}\mathbf{x}=\alpha\,\mathbf 1^{\top}\mathbf 1+\beta\,\mathbf 1^{\top}\mathbf{w}=\alpha\,\lVert\mathbf 1\rVert^2+0 ,\qquad\text{por tanto}\qquad \alpha=\frac{\mathbf 1^{\top}\mathbf{x}}{\lVert\mathbf 1\rVert^2} .$$
 
 La comparación con un patrón mide, por tanto, solo su propia parte, porque la contribución del otro patrón desaparece con el factor $\mathbf 1^{\top}\mathbf{w}=0$. Si los patrones no fueran ortogonales, cada comparación contaría también un trozo de la otra parte.
 
-Exactamente así están construidos los coeficientes de una serie de Fourier. Para una señal $s(t)$ con el periodo $T$ y $\omega_0=2\pi/T$ se tiene
+Exactamente así están construidos los coeficientes de una serie de Fourier, que descompone una curva periódica, por ejemplo el sonido de una nota sostenida, en oscilaciones coseno y seno. Para una función $s(t)$ con el periodo $T$ y $\omega_0=2\pi/T$ se tiene
 
 $$a_k=\frac{2}{T}\int_0^Ts(t)\cos(k\omega_0t)\,\mathrm{d} t=\frac{\int_0^Ts(t)\cos(k\omega_0t)\,\mathrm{d} t}{\int_0^T\cos^2(k\omega_0t)\,\mathrm{d} t}\qquad(k\ge1),$$
 

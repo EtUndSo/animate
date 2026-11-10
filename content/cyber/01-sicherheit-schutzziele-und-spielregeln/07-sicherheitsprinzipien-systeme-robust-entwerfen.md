@@ -1,6 +1,8 @@
 ---
 title: Sicherheitsprinzipien: Systeme robust entwerfen
 pfad: Informatik / Cybersecurity / Sicherheit, Schutzziele und Spielregeln
+adresse: informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln
+knoten: Kapitel 1: Sicherheit, Schutzziele und Spielregeln
 order: 6110700
 summary: Rechte richtig zu vergeben und zu prüfen genügt nicht, wenn der Mechanismus selbst Fehler hat.
 tags: mehreren Verteidigungslinien, Produktzeichen, Einfachheit, vertrauenswürdige Basis, offenen Verfahrens, der Mensch als Teil des Systems, Sicherheit von Anfang an

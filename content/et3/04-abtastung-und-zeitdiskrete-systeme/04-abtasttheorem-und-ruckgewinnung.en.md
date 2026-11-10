@@ -1,6 +1,8 @@
 ---
 title: Stage 3: The sampling theorem and reconstruction
-pfad: Electrical Engineering / 3rd Semester / Signals and Systems / Sampling and Discrete-Time Systems
+pfad: Electrical Engineering / 3rd Semester / ET3 – Fundamentals of Electrical Engineering 3: Signals and Systems / Sampling and Discrete-Time Systems
+adresse: elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme
+knoten: Chapter 4: Sampling and Discrete-Time Systems
 order: 3240400
 summary: When can the original be recovered exactly from the samples, and how?
 tags: low-pass (band-limited) signal, Nyquist rate, alias, anti-aliasing filter
@@ -35,7 +37,7 @@ $$s(t)=\sum_{n=-\infty}^{\infty}s(nT)\,\operatorname{si}\Bigl(\pi\frac{t-nT}{T}\
 ⁠**How to read it:** for $f_\mathrm A\ge2f_\mathrm g$ the copies in Fig. [1](das-spektrum-des-abgetasteten-signals.html#abb-1) lie apart. A low-pass filter cuts out the copy at $f=0$, and it has exactly the shape of the original. In the time domain this means: each sample is replaced by an si function that is 1 at its own sampling point and zero at all the others (Fig. [2](#abb-2)). Their sum hits all the samples and fills the gaps in such a way that no frequency above $f_\mathrm g$ arises. The minimum rate $2f_\mathrm g$ is called the __Nyquist rate__.
 
 :::herleitung Reconstruction
-For $|f|\le f_\mathrm g$ only the copy $k=0$ is present, so $S_\mathrm a(f)=\frac1TS(f)$. With $H_\mathrm{TP}=T\operatorname{rect}(f/2f_\mathrm g)$, $S_\mathrm a\cdot H_\mathrm{TP}=S$. In the time domain: $T\operatorname{rect}(f/2f_\mathrm g)\;\bullet\!\!-\!\!\circ\;2f_\mathrm gT\operatorname{si}(2\pi f_\mathrm gt)$ ([Part 3](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html), rectangle and si). With [(1.2)](signalklassen-und-ideale-abtastung.html#gl-1-2) and $2f_\mathrm g=1/T$ this gives $s_\mathrm a*\operatorname{si}(\pi t/T)=\sum_ns(nT)\operatorname{si}(\pi(t-nT)/T)$.
+For $|f|\le f_\mathrm g$ only the copy $k=0$ is present, so $S_\mathrm a(f)=\frac1TS(f)$. With $H_\mathrm{TP}=T\operatorname{rect}(f/2f_\mathrm g)$, $S_\mathrm a\cdot H_\mathrm{TP}=S$. In the time domain: $T\operatorname{rect}(f/2f_\mathrm g)\;\bullet\!\!-\!\!\circ\;2f_\mathrm gT\operatorname{si}(2\pi f_\mathrm gt)$ ([Chapter 3](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html), rectangle and si). With [(1.2)](signalklassen-und-ideale-abtastung.html#gl-1-2) and $2f_\mathrm g=1/T$ this gives $s_\mathrm a*\operatorname{si}(\pi t/T)=\sum_ns(nT)\operatorname{si}(\pi(t-nT)/T)$.
 :::
 
 :::abbildung et3/k4siinterp 2

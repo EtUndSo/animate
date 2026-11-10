@@ -1,6 +1,8 @@
 ---
 title: Stufe 7: Winkel, Cauchy-Schwarz, Parallelogramm
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Vektoren und Skalarprodukt
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Vektoren und Skalarprodukt
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/vektoren-und-skalarprodukt
+knoten: Kapitel 8: Vektoren und Skalarprodukt
 order: 1280900
 summary: In der Ebene ist ein Winkel ein Drehwinkel, im mathbb R 4 gibt es nichts zu zeichnen.
 tags: orientierte Winkel, Drehwinkel, Argument, nichtorientierte Winkel, Parallelogrammgleichung
@@ -29,7 +31,7 @@ wobei $\alpha=\arg(z_v)-\arg(z_u)\in(-2\pi,2\pi)$ der __orientierte Winkel__ (__
 ⁠**So liest man das:** $\arg(z)\in[0,2\pi)$ ist das __Argument__ von $z$, der Winkel von der positiven reellen Achse zum Zeiger von $z$. Der Winkel $\alpha$ ist die Drehung von $\vec u$ nach $\vec v$ mit Vorzeichen. Im Modell ist $\arg(3+i)=18{,}43^\circ$ und $\arg(1+2i)=63{,}43^\circ$, also $\alpha=45^\circ$. Die Formel gibt $\cos\alpha=\frac5{\sqrt{10}\sqrt5}=\frac1{\sqrt2}$. Vertauscht man die Vektoren, wird $\alpha$ zu $-\alpha$, $\cos$ bleibt gleich.
 
 :::beweis Über komplexe Zahlen
-Nach der Polarform ([Teil 7](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/potenzreihen-und-eulersche-formel/potenzreihen-und-eulersche-formel.html)) ist $z_u=|z_u|\,\mathrm{e}^{i\varphi}$, $z_v=|z_v|\,\mathrm{e}^{i\psi}$ mit $\varphi=\arg(z_u)$, $\psi=\arg(z_v)$, $|z_u|=\|\vec u\|$, $|z_v|=\|\vec v\|$. Mit $\alpha=\psi-\varphi$ und der Eulerschen Formel ist
+Nach der Polarform ([Kapitel 7](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/potenzreihen-und-eulersche-formel/potenzreihen-und-eulersche-formel.html)) ist $z_u=|z_u|\,\mathrm{e}^{i\varphi}$, $z_v=|z_v|\,\mathrm{e}^{i\psi}$ mit $\varphi=\arg(z_u)$, $\psi=\arg(z_v)$, $|z_u|=\|\vec u\|$, $|z_v|=\|\vec v\|$. Mit $\alpha=\psi-\varphi$ und der Eulerschen Formel ist
 
 $$\frac{z_v}{z_u}=\frac{\|\vec v\|}{\|\vec u\|}\,\mathrm{e}^{i\alpha}=\frac{\|\vec v\|}{\|\vec u\|}\bigl(\cos\alpha+i\sin\alpha\bigr).$$
 
@@ -49,7 +51,7 @@ $$|\langle\vec x,\vec y\rangle|\le\|\vec x\|\cdot\|\vec y\|. \tag{7.2}$$
 Gleichheit gilt genau dann, wenn $\vec x$ und $\vec y$ linear abhängig sind.
 :::
 
-⁠**So liest man das:** Das Skalarprodukt ist nie größer als das Produkt der Längen. Am größten wird es, wenn beide Vektoren auf einer Geraden durch $O$ liegen. Im Modell: $|\langle\vec a,\vec b\rangle|=5\le\sqrt{50}=7{,}07$. Die Form aus [Teil 1](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html) ist sogar stärker, denn dort steht links $\sum_i|x_iy_i|\ge|\sum_ix_iy_i|$.
+⁠**So liest man das:** Das Skalarprodukt ist nie größer als das Produkt der Längen. Am größten wird es, wenn beide Vektoren auf einer Geraden durch $O$ liegen. Im Modell: $|\langle\vec a,\vec b\rangle|=5\le\sqrt{50}=7{,}07$. Die Form aus [Kapitel 1](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html) ist sogar stärker, denn dort steht links $\sum_i|x_iy_i|\ge|\sum_ix_iy_i|$.
 
 :::beweis Der Rest hat Länge $\ge0$
 ⁠*Fall $\vec y=\vec0$.* Beide Seiten sind 0, es gilt Gleichheit, und $\vec x,\vec0$ sind linear abhängig.
@@ -97,7 +99,7 @@ $$\begin{aligned} \|\vec x+\vec y\|^2+\|\vec x-\vec y\|^2&=2\|\vec x\|^2+2\|\vec
 
 ⁠**So liest man das:** [(7.5)](#gl-7-5) heißt __Parallelogrammgleichung__: Die Quadrate der Diagonalen ergeben zusammen die Quadrate der vier Seiten. [(7.6)](#gl-7-6) sagt: Wer Längen messen kann, kennt auch das Skalarprodukt, also die Winkel. Beweis: Addieren beziehungsweise Subtrahieren der beiden Fälle von [(5.2)](skalarprodukt-norm-abstand.html#gl-5-2) mit $\vec z=\vec y$. Im Modell: $25+5=2\cdot10+2\cdot5$ und $25-5=4\cdot5$.
 
-**Dreiecksungleichung.** Aus [(5.2)](skalarprodukt-norm-abstand.html#gl-5-2) und [(7.2)](#gl-7-2) folgt $\|\vec x+\vec y\|^2\le\|\vec x\|^2+2\|\vec x\|\,\|\vec y\|+\|\vec y\|^2=(\|\vec x\|+\|\vec y\|)^2$. Das ist (N) aus Satz [5.2](skalarprodukt-norm-abstand.html#satz-5-2) ohne Umweg über [Teil 1](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html).
+**Dreiecksungleichung.** Aus [(5.2)](skalarprodukt-norm-abstand.html#gl-5-2) und [(7.2)](#gl-7-2) folgt $\|\vec x+\vec y\|^2\le\|\vec x\|^2+2\|\vec x\|\,\|\vec y\|+\|\vec y\|^2=(\|\vec x\|+\|\vec y\|)^2$. Das ist (N) aus Satz [5.2](skalarprodukt-norm-abstand.html#satz-5-2) ohne Umweg über [Kapitel 1](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html).
 
 :::aufgabe Aufgabe 8 ★★ Winkel am Würfel
 <span class="anker" id="aufg-8"></span>

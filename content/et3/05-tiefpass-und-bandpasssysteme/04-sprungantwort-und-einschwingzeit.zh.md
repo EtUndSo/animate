@@ -1,6 +1,8 @@
 ---
 title: 第 3 阶段：阶跃响应与上升时间
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / 低通与带通系统
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / 低通与带通系统
+adresse: elektrotechnik/3-semester/signale-und-systeme/tiefpass-und-bandpasssysteme
+knoten: 第 5 章：低通与带通系统
 order: 3250400
 summary: 理想低通对阶跃如何响应？它上升得有多快，过冲有多大？
 tags: 正弦积分, 上升时间
@@ -13,7 +15,7 @@ lang: zh
 理想低通对阶跃如何响应？它上升得有多快，过冲有多大？
 :::
 
-阶跃响应是冲激响应的变上限积分（[第 1 部分](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html)）。利用__正弦积分__
+阶跃响应是冲激响应的变上限积分（[第 1 章](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html)）。利用__正弦积分__
 
 <span class="anker" id="gl-3-1"></span>
 $$\operatorname{Si}(x)=\int_0^x\operatorname{si}(\xi)\,\mathrm{d}\xi,\qquad\operatorname{Si}(-x)=-\operatorname{Si}(x),\qquad\operatorname{Si}(\infty)=\frac\pi2 \tag{3.1}$$
@@ -32,7 +34,7 @@ $$h_\varepsilon(t)=\int_{-\infty}^t2f_\mathrm g\operatorname{si}(2\pi f_\mathrm 
 <span class="anker" id="gl-3-3"></span>
 $$t_e=\frac{h_\varepsilon(\infty)}{\max\dot h_\varepsilon}=\frac{1}{2f_\mathrm g}. \tag{3.3}$$
 
-阶跃响应的过冲为 $8.95\,\%$（在 $t=\frac{1}{2f_\mathrm g}$ 处）。这就是[第 3 部分](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)中的吉布斯现象：更大的 $f_\mathrm g$ 会缩短上升时间，但过冲保持不变（图 [1](#abb-1)）。
+阶跃响应的过冲为 $8.95\,\%$（在 $t=\frac{1}{2f_\mathrm g}$ 处）。这就是[第 3 章](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)中的吉布斯现象：更大的 $f_\mathrm g$ 会缩短上升时间，但过冲保持不变（图 [1](#abb-1)）。
 
 :::abbildung et3/k5sprung 1
 理想低通在 $f_\mathrm g=1$ Hz 和 2 Hz 时的阶跃响应。虚线：具有最大斜率的斜坡，其上升持续 $t_e=1/(2f_\mathrm g)=0.5$ s。两条曲线的过冲一样大，都达到 1.0895。

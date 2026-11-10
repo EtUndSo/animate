@@ -1,6 +1,8 @@
 ---
 title: 第 9 阶段：FFT 与快速卷积
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / 采样与离散时间系统
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / 采样与离散时间系统
+adresse: elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme
+knoten: 第 4 章：采样与离散时间系统
 order: 3241000
 summary: DFT 需要 M 2 次乘法。FFT 只需大约 M\,lb\,M 次。这样一来，经由频域计算卷积也变得很快。
 tags: 快速傅里叶变换, 循环

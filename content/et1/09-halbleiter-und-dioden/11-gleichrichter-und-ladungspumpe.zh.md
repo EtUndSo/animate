@@ -1,6 +1,8 @@
 ---
 title: 第 9 阶段：整流器与电荷泵
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 半导体与二极管
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 半导体与二极管
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden
+knoten: 第 9 章：半导体与二极管
 order: 1191100
 summary: 半波整流器白白浪费了每隔一个的半波。本阶段利用两个半波，并说明如何用二极管和电容器把电压升到电源电压以上。
 tags: 桥式整流器, 平滑
@@ -47,10 +49,10 @@ $$u_\mathrm a=\begin{cases}|u_\mathrm e|-2U_\mathrm F&|u_\mathrm e|>2U_\mathrm F
 :::
 
 :::frage 这个电压还脉动得很厉害。这已经是直流电压了吗？
-还不是。与负载并联的电容器（__平滑__）充电到峰值，并在间隙中向负载供电。在 10 ms 内它损失 $\Delta U=I\,\Delta t/C$（[第 3 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html)）。取 $I=10.6$ mA、$C=470$ µ F，这就是 0.23 V。此时二极管只在峰值处短暂导通。
+还不是。与负载并联的电容器（__平滑__）充电到峰值，并在间隙中向负载供电。在 10 ms 内它损失 $\Delta U=I\,\Delta t/C$（[第 3 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html)）。取 $I=10.6$ mA、$C=470$ µ F，这就是 0.23 V。此时二极管只在峰值处短暂导通。
 :::
 
-**电荷泵。** 它不用线圈，就能由直流电压 $U_\mathrm e$ 产生更高的电压。这里把二极管视为理想的（图 [12](#abb-12)）。**第 1 步：**转换开关把 $C_1$ 的下极板接地。$C_1$ 经 D$_1$ 充电到 $U_\mathrm e$。**第 2 步：**转换开关把下极板接到 $U_\mathrm e$。$C_1$ 上的电压不能跳变（[第 3 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html)），所以上极板跳变到 $2U_\mathrm e$。D$_1$ 截止，因为它的阴极现在更高；D$_2$ 导通，$C_1$ 向输出电容器 $C_2$ 放出电荷。经过几个周期后，$U_\mathrm a\approx2U_\mathrm e$。实际中用小电阻限制电流尖峰。按同样方式增加泵级，电压还能继续升高。
+**电荷泵。** 它不用线圈，就能由直流电压 $U_\mathrm e$ 产生更高的电压。这里把二极管视为理想的（图 [12](#abb-12)）。**第 1 步：**转换开关把 $C_1$ 的下极板接地。$C_1$ 经 D$_1$ 充电到 $U_\mathrm e$。**第 2 步：**转换开关把下极板接到 $U_\mathrm e$。$C_1$ 上的电压不能跳变（[第 3 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html)），所以上极板跳变到 $2U_\mathrm e$。D$_1$ 截止，因为它的阴极现在更高；D$_2$ 导通，$C_1$ 向输出电容器 $C_2$ 放出电荷。经过几个周期后，$U_\mathrm a\approx2U_\mathrm e$。实际中用小电阻限制电流尖峰。按同样方式增加泵级，电压还能继续升高。
 
 :::abbildung et1/k9pumpe 12
 电荷泵；两个步骤的电流路径用彩色标出。左：$U_\mathrm e$ 给电容器 $C_1$ 充电。右：$U_\mathrm e$ 与 $C_1$ 上的电压串联，向 $C_2$ 供电。

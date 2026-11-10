@@ -1,6 +1,8 @@
 ---
 title: Etapa 2: Estacionariedad y ergodicidad
-pfad: Ingeniería eléctrica / 3.er semestre / Señales y sistemas / Señales aleatorias
+pfad: Ingeniería eléctrica / 3.er semestre / ET3 – Fundamentos de ingeniería eléctrica 3: señales y sistemas / Señales aleatorias
+adresse: elektrotechnik/3-semester/signale-und-systeme/zufallssignale
+knoten: Capítulo 7: Señales aleatorias
 order: 3270300
 summary: Nunca se dispone de un conjunto infinito; normalmente solo de una única señal.
 tags: estacionario, ergódico

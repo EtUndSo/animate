@@ -1,13 +1,15 @@
 ---
 title: Von Grund auf: Abstand, Schranken, zwei Ungleichungen
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Folgen und Grenzwerte
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Folgen und Grenzwerte
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/folgen-und-grenzwerte
+knoten: Kapitel 4: Folgen und Grenzwerte
 order: 1240200
 summary: Was „beliebig nah“ heißt und warum die reellen Zahlen keine Lücke haben dürfen
 tags: Abstand, Abstandsregel, Supremum, Infimum, Vollständigkeitsaxiom
 lang: de
 ---
 
-Es gilt $\mathbb{N}=\{1,2,3,\dots\}$ und $\mathbb{N}_0=\mathbb{N}\cup\{0\}$. Das Zeichen $\forall$ heißt „für alle“, $\exists$ heißt „es gibt“ ([Teil 1](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html)). Aus [Teil 1](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html) werden vier Werkzeuge gebraucht.
+Es gilt $\mathbb{N}=\{1,2,3,\dots\}$ und $\mathbb{N}_0=\mathbb{N}\cup\{0\}$. Das Zeichen $\forall$ heißt „für alle“, $\exists$ heißt „es gibt“ ([Kapitel 1](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html)). Aus [Kapitel 1](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html) werden vier Werkzeuge gebraucht.
 
 ⁠**Betrag als Abstand.** $|x|$ ist $x$ für $x\ge0$ und $-x$ für $x<0$. Die Zahl $|x-y|$ ist der __Abstand__ von $x$ und $y$ auf der Zahlengeraden. Addiert man $a$ zu $-\varepsilon<x-a<\varepsilon$, folgt die __Abstandsregel__
 

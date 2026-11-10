@@ -1,6 +1,8 @@
 ---
 title: 第 10 阶段：匹配滤波器（相关滤波器）
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / 随机信号
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / 随机信号
+adresse: elektrotechnik/3-semester/signale-und-systeme/zufallssignale
+knoten: 第 7 章：随机信号
 order: 3271100
 summary: 一个已知的脉冲 s(t) 受噪声干扰后到达。用什么样的滤波器，才能使它在采样时刻 T 显现得最清楚？
 tags: 匹配滤波器, 相关接收机
@@ -17,7 +19,7 @@ lang: zh
 
 $$\frac{S_a}{N}=\frac{g^2(T)}{\mathrm E\{n_e^2(T)\}}=\frac{\bigl[\int h(\tau)s(T-\tau)\mathrm{d}\tau\bigr]^2}{N_0\int|h(\tau)|^2\mathrm{d}\tau}=\frac{E_s}{N_0}\cdot\underbrace{\frac{\bigl[\int h(\tau)s(T-\tau)\mathrm{d}\tau\bigr]^2}{\int|h|^2\mathrm{d}\tau\int|s(T-\tau)|^2\mathrm{d}\tau}}_{=|p|^2\le1}.$$
 
-右边的分式是 $h(\tau)$ 与 $s(T-\tau)$ 之间的相关系数（[第 6 部分](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen/korrelationsfunktionen.html)）的平方。它至多为 1，并且恰好在二者形状相同时等于 1。
+右边的分式是 $h(\tau)$ 与 $s(T-\tau)$ 之间的相关系数（[第 6 章](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen/korrelationsfunktionen.html)）的平方。它至多为 1，并且恰好在二者形状相同时等于 1。
 
 :::satz 定理 10.1 (匹配滤波器)
 <span class="anker" id="satz-10-1"></span>

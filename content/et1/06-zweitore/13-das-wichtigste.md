@@ -1,6 +1,8 @@
 ---
 title: Das Wichtigste
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Zweitore
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Zweitore
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore
+knoten: Kapitel 6: Zweitore
 order: 1161300
 summary: Warum vier Zahlen ein ganzes Netzwerk ersetzen und jede Parameterform nur eine andere Wahl ist
 tags: Torbedingung, Zweitorparameter, Impedanzform, Admittanzform, Hybridform, Kettenform
@@ -103,7 +105,7 @@ Leistung: $P=U_1I_1+U_2I_2$, aktiv, wenn $P<0$ möglich ist.
 </ul>
 :::
 
-**Ausblick auf [Teil 7](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad/leistung-und-anpassung.html).** Die Leistung $P$ aus Stufe [10](eigenschaften-und-alle-formen-im-uberblick.html#stufe-10) führt zur nächsten Frage: Bei welcher Last gibt eine Quelle oder ein Zweitor die größte Leistung ab, und was kostet das an Wirkungsgrad?
+**Ausblick auf [Kapitel 7](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad/leistung-und-anpassung.html).** Die Leistung $P$ aus Stufe [10](eigenschaften-und-alle-formen-im-uberblick.html#stufe-10) führt zur nächsten Frage: Bei welcher Last gibt eine Quelle oder ein Zweitor die größte Leistung ab, und was kostet das an Wirkungsgrad?
 
 **Ein Prinzip hinter allen Ergebnissen.** Von vier Torgrößen wählt man zwei als Ursachen, die anderen zwei sind die Wirkungen. Diese Wahl ändert nichts am Zweitor, nur an der Rechnung, und jedes Ergebnis folgt aus ihr.
 

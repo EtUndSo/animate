@@ -1,6 +1,8 @@
 ---
 title: Stufe 9: Gleichmäßige Konvergenz und Glattheit
-pfad: Elektrotechnik / 3. Semester / Höhere Mathematik 3 / Fourier-Reihen
+pfad: Elektrotechnik / 3. Semester / HöMa3 – Höhere Mathematik 3 / Fourier-Reihen
+adresse: elektrotechnik/3-semester/hohere-mathematik-3/fourier-reihen
+knoten: Kapitel 7: Fourier-Reihen
 order: 3171000
 summary: Wann konvergiert die Reihe überall gleich schnell, und was verraten die Koeffizienten über die Glattheit?
 tags: 
@@ -57,7 +59,7 @@ $$\frac{\mathrm{d}^\ell}{\mathrm{d} x^\ell}f(x)=\sum_{k\in\mathbb{Z}}(\mathrm{i}
 :::
 
 :::beweis Glattheit aus den Koeffizienten
-(i) M-Test mit $M_k=|c_k|$. Der gleichmäßige Grenzwert stetiger Funktionen ist stetig ([Teil 6](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/konvergenz-von-funktionenfolgen/konvergenz-von-funktionenfolgen.html)). (ii) Die $\ell$-te Ableitung des Summanden hat den Betrag $|k|^\ell|c_k|\le|k|^m|c_k|$ für $k\neq0$. Der M-Test gibt gleichmäßige Konvergenz aller abgeleiteten Reihen, und nach dem Satz über gliedweises Ableiten ([Teil 6](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/konvergenz-von-funktionenfolgen/konvergenz-von-funktionenfolgen.html)) ist [(9.1)](#gl-9-1) richtig.
+(i) M-Test mit $M_k=|c_k|$. Der gleichmäßige Grenzwert stetiger Funktionen ist stetig ([Kapitel 6](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/konvergenz-von-funktionenfolgen/konvergenz-von-funktionenfolgen.html)). (ii) Die $\ell$-te Ableitung des Summanden hat den Betrag $|k|^\ell|c_k|\le|k|^m|c_k|$ für $k\neq0$. Der M-Test gibt gleichmäßige Konvergenz aller abgeleiteten Reihen, und nach dem Satz über gliedweises Ableiten ([Kapitel 6](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/konvergenz-von-funktionenfolgen/konvergenz-von-funktionenfolgen.html)) ist [(9.1)](#gl-9-1) richtig.
 :::
 
 ⁠**So liest man das:** Wegen der gleichmäßigen Konvergenz darf man in $\langle f,\hat{\boldsymbol{e}}_k\rangle$ Summe und Integral tauschen. Die $c_k$ sind also wirklich die Fourier-Koeffizienten von $f$. Die Voraussetzungen sind hinreichend, nicht notwendig. Beim Dreieck ist $|c_k|=\frac2{\pi k^2}$ für ungerades $k$: (i) greift, also ist $w$ stetig. Für $m=1$ divergiert die Summe, und tatsächlich hat $w$ Knicke. Beim Rechteck divergiert schon $\sum|c_k|$, und $q$ springt.

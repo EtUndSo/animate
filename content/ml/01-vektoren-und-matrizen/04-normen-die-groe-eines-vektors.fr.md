@@ -1,7 +1,8 @@
 ---
 title: Normes : la grandeur d’un vecteur
 pfad: Informatique / Apprentissage automatique / Fondements mathématiques / Vecteurs et matrices
-knoten: Fondements 1 : Vecteurs et matrices
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Chapitre 1 : Vecteurs et matrices
 nachschlagen: ja
 order: 15210400
 summary: Quelle est la grandeur d’un vecteur ?
@@ -219,41 +220,41 @@ Selon la norme 1, les deux sont aussi bons l’un que l’autre : tous deux se 
 Dans la norme euclidienne, chaque écart intervient au carré. Un écart de $0{,}1$ contribue pour $0{,}01$, un écart de $10$ en revanche pour $100$. Le carré rend les petits nombres plus petits et les grands nombres plus grands. Une seule grosse erreur de $40$ contribue donc pour $1600$, quatre fois plus que quatre erreurs de $10$ réunies. La norme 1, en revanche, croît partout à la même vitesse : chaque unité d’écart coûte autant, qu’elle appartienne à une petite ou à une grande erreur. C’est pourquoi elle fait aussi une nette différence entre « exactement zéro » et « un peu à côté », alors que la somme des carrés ne fait guère de différence entre les deux. La propriété souhaitée dépend de la tâche, et c’est précisément pour cela qu’il existe plusieurs normes.
 :::
 
-### La valeur efficace
+### La moyenne quadratique
 
 <span class="anker" id="stufe-3-6"></span>
 
 La norme euclidienne croît avec le nombre de composantes. Si l’on évalue un expert sur quatre appartements et un autre sur quatre cents, le second a un vecteur d’erreur beaucoup plus long, même s’il estime aussi bien appartement par appartement. Si l’on veut comparer des erreurs ramenées à un seul exemple, il faut éliminer l’effet du nombre de composantes.
 
-:::definition Définition 3.6 (Valeur efficace)
+:::definition Définition 3.6 (Moyenne quadratique)
 <span class="anker" id="satz-3-6"></span>
 
-La __valeur efficace__ d’un vecteur $\mathbf{x}\in\mathbb{R}^n$ est
+La __moyenne quadratique__ d’un vecteur $\mathbf{x}\in\mathbb{R}^n$ est
 
 <span class="anker" id="gl-3-6"></span>
 $$\operatorname{rms}(\mathbf{x})=\frac{\lVert\mathbf{x}\rVert}{\sqrt n}=\sqrt{\frac1n\sum_{i=1}^nx_i^2} . \tag{3.6}$$
 :::
 
-L’abréviation rms signifie *root mean square* : la racine de la moyenne des carrés. La valeur efficace est une valeur absolue typique d’une composante. Si toutes les composantes ont la même valeur absolue $a$, la valeur efficace vaut exactement $a$.
+L’abréviation rms signifie *root mean square* : la racine de la moyenne des carrés. La moyenne quadratique est une valeur absolue typique d’une composante. Si toutes les composantes ont la même valeur absolue $a$, la moyenne quadratique vaut exactement $a$.
 
-Le nom est connu en électrotechnique : la valeur efficace d’une tension alternative est la racine de la moyenne temporelle de son carré. Pour un signal échantillonné, [(3.6)](#gl-3-6) est le même calcul, avec des échantillons au lieu d’une intégrale. Si l’on échantillonne une sinusoïde sur exactement une période en $n\ge3$ points régulièrement répartis, on obtient même exactement la valeur efficace $1/\sqrt2$ de la sinusoïde.
+Pourquoi d’abord élever au carré et extraire la racine à la fin ? Si l’on fait la moyenne des composantes elles-mêmes, les positives et les négatives se compensent : un expert qui estime une fois $20$ trop haut et une fois $20$ trop bas serait en moyenne à $0$. Les carrés ne sont jamais négatifs, et la racine ramène le résultat dans l’unité des composantes. Le calcul [(3.6)](#gl-3-6) s’applique aussi à des courbes : si l’on évalue une sinusoïde sur exactement une période en $n\ge3$ points régulièrement répartis, on obtient exactement $1/\sqrt2$, la même valeur que celle que l’on obtient en faisant la moyenne sur tous les points de la période.
 
 ::::beispiel [Exemple de calcul]
-Les vecteurs d’erreur des experts de la sous-section précédente ont pour valeurs efficaces $\operatorname{rms}(\hat{\mathbf{y}}_{\mathrm A}-\mathbf{y})=20/\sqrt4=10$ et $\operatorname{rms}(\hat{\mathbf{y}}_{\mathrm B}-\mathbf{y})=40/\sqrt4=20$ mille euros : A se trompe typiquement de $10$ mille euros. Une sinusoïde d’amplitude $1$, échantillonnée en quatre points régulièrement répartis sur une période, a pour échantillons $\mathbf{x}=(0,\,1,\,0,\,-1)^{\top}$ et pour valeur efficace $1/\sqrt2\approx0{,}707$ (Fig. [17](#abb-17)).
+Les vecteurs d’erreur des experts de la sous-section précédente ont pour moyennes quadratiques $\operatorname{rms}(\hat{\mathbf{y}}_{\mathrm A}-\mathbf{y})=20/\sqrt4=10$ et $\operatorname{rms}(\hat{\mathbf{y}}_{\mathrm B}-\mathbf{y})=40/\sqrt4=20$ mille euros : A se trompe typiquement de $10$ mille euros. Une sinusoïde de valeur maximale $1$, évaluée en quatre points régulièrement répartis sur une période, a pour valeurs $\mathbf{x}=(0,\,1,\,0,\,-1)^{\top}$ et pour moyenne quadratique $1/\sqrt2\approx0{,}707$ (Fig. [17](#abb-17)).
 
 :::abbildung ml/k1rrms 17
-La valeur efficace d’une sinusoïde échantillonnée : additionner les carrés, diviser par le nombre de composantes, extraire la racine.
+La moyenne quadratique d’une sinusoïde en quatre points : additionner les carrés, diviser par le nombre de composantes, extraire la racine.
 :::
 ::::
 
-⁠**En bref :** La valeur efficace $\lVert\mathbf{x}\rVert/\sqrt n$ est la valeur absolue typique d’une composante et rend comparables des vecteurs de longueurs différentes.
+⁠**En bref :** La moyenne quadratique $\lVert\mathbf{x}\rVert/\sqrt n$ est la valeur absolue typique d’une composante et rend comparables des vecteurs de longueurs différentes.
 
 :::hintergrund Combien de composantes peuvent être grandes ?
-La valeur efficace limite le nombre de composantes qui peuvent avoir une grande valeur absolue. Si $k$ des $n$ composantes ont une valeur absolue d’au moins $a>0$, ces $k$ composantes contribuent à elles seules au moins pour $k\,a^2$ à la somme des carrés. La somme des carrés complète vaut $n\operatorname{rms}(\mathbf{x})^2$, donc $k\,a^2\le n\operatorname{rms}(\mathbf{x})^2$, soit
+La moyenne quadratique limite le nombre de composantes qui peuvent avoir une grande valeur absolue. Si $k$ des $n$ composantes ont une valeur absolue d’au moins $a>0$, ces $k$ composantes contribuent à elles seules au moins pour $k\,a^2$ à la somme des carrés. La somme des carrés complète vaut $n\operatorname{rms}(\mathbf{x})^2$, donc $k\,a^2\le n\operatorname{rms}(\mathbf{x})^2$, soit
 
 $$\frac kn\le\Bigl(\frac{\operatorname{rms}(\mathbf{x})}{a}\Bigr)^2 .$$
 
-Une proportion d’au plus $(\operatorname{rms}/a)^2$ des composantes peut donc atteindre au moins $a$ en valeur absolue. Au plus un quart des composantes peut atteindre le double de la valeur efficace, au plus un pour cent dix fois la valeur efficace. Pour l’expert B, avec $\operatorname{rms}=20$, au plus $(20/30)^2=4/9\approx44$ % des erreurs peuvent valoir $30$ ou plus ; en réalité, c’est une sur quatre, soit $25$ %. Cette majoration s’appelle l’inégalité de Bienaymé-Tchebychev.
+Une proportion d’au plus $(\operatorname{rms}/a)^2$ des composantes peut donc atteindre au moins $a$ en valeur absolue. Au plus un quart des composantes peut atteindre le double de la moyenne quadratique, au plus un pour cent dix fois la moyenne quadratique. Pour l’expert B, avec $\operatorname{rms}=20$, au plus $(20/30)^2=4/9\approx44$ % des erreurs peuvent valoir $30$ ou plus ; en réalité, c’est une sur quatre, soit $25$ %. Cette majoration s’appelle l’inégalité de Bienaymé-Tchebychev.
 :::
 
 :::aufgabe Exercice 7 ★ Calculer des normes
@@ -293,7 +294,7 @@ L’agente immobilière de la sous-section [2.2](das-skalarprodukt.html#stufe-2
 
 <li>
 
-Calculez le vecteur d’erreur, ses trois normes et sa valeur efficace. Pour quel appartement se trompe-t-elle le plus ?
+Calculez le vecteur d’erreur, ses trois normes et sa moyenne quadratique. Pour quel appartement se trompe-t-elle le plus ?
 
 </li>
 
@@ -306,8 +307,8 @@ Que remarquez-vous au sujet des signes ? Désormais, l’agente immobilière a
 </ol>
 
 :::loesung
-(a) Le vecteur d’erreur est $\hat{\mathbf{y}}-\mathbf{y}=(188-200,\ 126-130,\ 286-290,\ 232-240)^{\top}=(-12,\,-4,\,-4,\,-8)^{\top}$. Ses normes : $\lVert\cdot\rVert_1=28$, $\lVert\cdot\rVert_2=\sqrt{144+16+16+64}=\sqrt{240}\approx15{,}49$, $\lVert\cdot\rVert_\infty=12$, valeur efficace $\sqrt{240}/2\approx7{,}75$ mille euros. C’est pour l’appartement 1 qu’elle se trompe le plus, de $12$ mille euros.
+(a) Le vecteur d’erreur est $\hat{\mathbf{y}}-\mathbf{y}=(188-200,\ 126-130,\ 286-290,\ 232-240)^{\top}=(-12,\,-4,\,-4,\,-8)^{\top}$. Ses normes : $\lVert\cdot\rVert_1=28$, $\lVert\cdot\rVert_2=\sqrt{144+16+16+64}=\sqrt{240}\approx15{,}49$, $\lVert\cdot\rVert_\infty=12$, moyenne quadratique $\sqrt{240}/2\approx7{,}75$ mille euros. C’est pour l’appartement 1 qu’elle se trompe le plus, de $12$ mille euros.
 
-(b) Toutes les erreurs sont négatives : l’agente immobilière estime systématiquement trop bas, son erreur a une composante continue. Avec un supplément de $7$ mille euros, le vecteur d’erreur devient $(-5,\,3,\,3,\,-1)^{\top}$, avec $\lVert\cdot\rVert_1=12$, $\lVert\cdot\rVert_2=\sqrt{25+9+9+1}=\sqrt{44}\approx6{,}63$, $\lVert\cdot\rVert_\infty=5$ et la valeur efficace $\sqrt{44}/2\approx3{,}32$. Elle s’est améliorée selon les trois normes. Le supplément $7$ est exactement la moyenne des valeurs absolues des erreurs, $(12+4+4+8)/4=7$ : il retire la composante continue de l’erreur et ne laisse que la composante alternative.
+(b) Toutes les erreurs sont négatives : l’agente immobilière estime systématiquement trop bas, son erreur a une part commune, présente dans toutes les composantes. Avec un supplément de $7$ mille euros, le vecteur d’erreur devient $(-5,\,3,\,3,\,-1)^{\top}$, avec $\lVert\cdot\rVert_1=12$, $\lVert\cdot\rVert_2=\sqrt{25+9+9+1}=\sqrt{44}\approx6{,}63$, $\lVert\cdot\rVert_\infty=5$ et la moyenne quadratique $\sqrt{44}/2\approx3{,}32$. Elle s’est améliorée selon les trois normes. Le supplément $7$ est exactement la moyenne des valeurs absolues des erreurs, $(12+4+4+8)/4=7$ : il retire cette part commune, c’est-à-dire la moyenne de l’erreur, et ne laisse que les écarts à celle-ci.
 :::
 :::

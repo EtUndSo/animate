@@ -1,6 +1,8 @@
 ---
 title: Etapa 8: Dos circuitos que aprovechan $U_\mathrm{BE}$
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / El transistor bipolar
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / El transistor bipolar
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor
+knoten: Capítulo 10: El transistor bipolar
 order: 1201000
 summary: Hasta ahora, U BE era una molestia.
 tags: espejo de corriente, corriente de referencia, rizado
@@ -32,7 +34,7 @@ Con $R_\mathrm{ref}=5{,}7$ k$\Omega$ es $I_\mathrm{ref}=2$ mA e $I_\mathrm{C
 
 ⁠**Caso límite:** para $B\to\infty$ es $I_\mathrm{C2}=I_\mathrm{ref}$.
 
-**La idea: regulador de tensión.** Un rectificador con filtrado ([Parte 9](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)) entrega una tensión continua con una ondulación residual, el __rizado__. En el regulador (fig. [9](#abb-9), derecha), un diodo Zener mantiene la base en $U_\mathrm{Z}$. El emisor es la salida y está una tensión de diodo más abajo. Si la tensión de salida baja porque la carga pide más corriente, $U_\mathrm{BE}$ crece y el transistor aporta más. En $U_\mathrm{CE}$ cae el resto de la tensión de entrada. La corriente de carga no pasa por $R_1$; la base solo necesita la $B$-ésima parte. El diodo Zener apenas se carga, por tanto.
+**La idea: regulador de tensión.** Un rectificador con filtrado ([capítulo 9](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)) entrega una tensión continua con una ondulación residual, el __rizado__. En el regulador (fig. [9](#abb-9), derecha), un diodo Zener mantiene la base en $U_\mathrm{Z}$. El emisor es la salida y está una tensión de diodo más abajo. Si la tensión de salida baja porque la carga pide más corriente, $U_\mathrm{BE}$ crece y el transistor aporta más. En $U_\mathrm{CE}$ cae el resto de la tensión de entrada. La corriente de carga no pasa por $R_1$; la base solo necesita la $B$-ésima parte. El diodo Zener apenas se carga, por tanto.
 
 :::satz Teorema 8.2 (Regulador de tensión con diodo Zener)
 <span class="anker" id="satz-8-2"></span>

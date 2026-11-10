@@ -1,6 +1,8 @@
 ---
 title: Stufe 4: Vier Atome und die Matrix
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Vom Atom zum Band
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Vom Atom zum Band
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/vom-atom-zum-band
+knoten: Kapitel 8: Vom Atom zum Band
 order: 4180600
 summary: Zwei Atome ergaben eine Matrix mit vier Einträgen.
 tags: Nächste-Nachbar-Näherung, Säkulargleichung
@@ -13,7 +15,7 @@ lang: de
 Zwei Atome ergaben eine Matrix mit vier Einträgen. Diese Stufe zeigt an vier Atomen, wie jeder Eintrag entsteht und welche man streichen darf. Das Verfahren gilt dann für beliebig viele Atome.
 :::
 
-**Die Idee.** Auf dem Gitter aus [Teil 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html) ist ein Orbital eine Liste von Zahlen, also ein Vektor, und ein Integral wird bis auf den Faktor $\Delta x$ zum Skalarprodukt: $\int\phi_{\ell'}^*\phi_\ell\,\mathrm{d} x\approx\sum_i\phi_{\ell'}^*(x_i)\,\phi_\ell(x_i)\,\Delta x$. Die Orbitale sind Basisvektoren, die $c_\ell$ die Koordinaten von $\psi$, und Projizieren heißt, Koordinaten abzulesen. So wird die Differentialgleichung eine Matrix mit so vielen Zeilen, wie es Orbitale gibt.
+**Die Idee.** Auf dem Gitter aus [Kapitel 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html) ist ein Orbital eine Liste von Zahlen, also ein Vektor, und ein Integral wird bis auf den Faktor $\Delta x$ zum Skalarprodukt: $\int\phi_{\ell'}^*\phi_\ell\,\mathrm{d} x\approx\sum_i\phi_{\ell'}^*(x_i)\,\phi_\ell(x_i)\,\Delta x$. Die Orbitale sind Basisvektoren, die $c_\ell$ die Koordinaten von $\psi$, und Projizieren heißt, Koordinaten abzulesen. So wird die Differentialgleichung eine Matrix mit so vielen Zeilen, wie es Orbitale gibt.
 
 **Der Ansatz.** Vier Atome im Abstand $a$, je ein s-Orbital, $n$ zählt die Lösungen:
 
@@ -68,7 +70,7 @@ Die Energien folgen aus der __Säkulargleichung__ $\det|\boldsymbol H-E\mathbf1|
 
 ⁠**So liest man das:** „Regulär“ heißt, dass rechts nur $E$ mal Einheitsmatrix steht. Die Hauptdiagonale ist die Energie am Atom, die Nebendiagonale die Kopplung zum Nachbarn. Vier Atome mit je einem s-Orbital ergeben vier Zustände, zu jedem $n$ gehört ein Eigenvektor $(c_1^{(n)},\dots,c_4^{(n)})$.
 
-**Die Lösung.** Mit $\xi=(E-E_\mathrm s)/V_\mathrm{ss}$ lautet das Polynom $\xi^4-3\xi^2+1=0$, also $\xi^2=(3\pm\sqrt5)/2$ und $\xi=\pm1{,}618$, $\pm0{,}618$. Dieselbe Matrix hat [Teil 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html) für die Box auf dem Gitter gelöst, dort mit $2t_0+V_0$ und $-t_0$. Für $N$ Atome gilt also
+**Die Lösung.** Mit $\xi=(E-E_\mathrm s)/V_\mathrm{ss}$ lautet das Polynom $\xi^4-3\xi^2+1=0$, also $\xi^2=(3\pm\sqrt5)/2$ und $\xi=\pm1{,}618$, $\pm0{,}618$. Dieselbe Matrix hat [Kapitel 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html) für die Box auf dem Gitter gelöst, dort mit $2t_0+V_0$ und $-t_0$. Für $N$ Atome gilt also
 
 <span class="anker" id="gl-4-4"></span>
 $$E_n=E_\mathrm s-2V_\mathrm{ss}\cos\frac{n\pi}{N+1},\qquad c_\ell^{(n)}=\sqrt{\frac2{N+1}}\,\sin\frac{n\pi\ell}{N+1},\qquad n=1,\dots,N. \tag{4.4}$$

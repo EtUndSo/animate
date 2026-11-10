@@ -1,7 +1,8 @@
 ---
 title: 矩阵与数据矩阵
 pfad: 计算机科学 / 机器学习 / 数学基础 / 向量与矩阵
-knoten: 基础篇 1：向量与矩阵
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: 第 1 章：向量与矩阵
 nachschlagen: ja
 order: 15210700
 summary: 一个数据集由许多分量个数相同的向量组成。本节把它们合成一张数字表格，即一个矩阵，并规定矩阵的写法和运算方法。

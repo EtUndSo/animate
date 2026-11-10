@@ -1,7 +1,8 @@
 ---
 title: Vectors: data as lists of numbers
 pfad: Computer Science / Machine Learning / Mathematical Foundations / Vectors and Matrices
-knoten: Foundations 1: Vectors and Matrices
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Chapter 1: Vectors and Matrices
 nachschlagen: ja
 order: 15210200
 summary: A computer can only handle numbers.
@@ -139,7 +140,7 @@ Apartment 1 is the vector $\mathbf{x}_1=(60,\,2,\,3)^{\top}\in\mathbb{R}^3$. It
 ⁠**In short:** A vector is an ordered list of numbers that can be drawn as a point or as an arrow; an example with $d$ features is a vector in $\mathbb{R}^d$.
 
 :::hintergrund What a vector really is
-A list of numbers is the vector you calculate with. Mathematically, the concept is broader: a vector is anything that can be added and multiplied by a number without leaving the kind of object. Arrows in the plane are vectors, but so are signals. A signal that was sampled $n$ times is the list of its samples $x[0],\dots,x[n-1]$, that is, a vector in $\mathbb{R}^n$. Adding two signals means superimposing them, and multiplying a signal by a number means amplifying it; both give a signal of the same length again.
+A list of numbers is the vector you calculate with. Mathematically, the concept is broader: a vector is anything that can be added and multiplied by a number without leaving the kind of object. Arrows in the plane are vectors, but so are audio recordings. An audio recording captures, at equal and very short intervals, how far the air pressure currently deviates from its resting value. With $n$ such values $x[0],\dots,x[n-1]$, it is a vector in $\mathbb{R}^n$. Adding two recordings means mixing them, and multiplying a recording by a number means making it louder or quieter; both give a recording of the same length again.
 
 An image is a vector, too. A grayscale image with $28\times28$ pixels consists of $784$ brightness values. If you read them row by row, one after another, the image is a point in $\mathbb{R}^{784}$. This picture can no longer be drawn, but you calculate with it exactly as with two or three components.
 :::
@@ -216,12 +217,14 @@ $$\tfrac12\,(60,\,2,\,3)^{\top}+\tfrac12\,(40,\,1,\,1)^{\top}=(50,\ 1.5,\ 2)^{\t
 This is an imaginary apartment that lies exactly halfway between the two in every feature. The point lies in the middle of the connecting segment.
 ::::
 
-::::beispiel [Worked example 3] the mean of the examples
-If you take all $N$ examples with the coefficient $1/N$, you get the __mean of the examples__
+One linear combination is needed especially often in this chapter. If you take all $N$ examples with the coefficient $1/N$, you get the __mean of the examples__
 
 <span class="anker" id="gl-1-5"></span>
 $$\bar{\mathbf{x}}=\frac1N\sum_{i=1}^{N}\mathbf{x}_i . \tag{1.5}$$
 
+It is an imagined example that has the average of all examples in every feature: its $j$-th component is the mean of the $j$-th features.
+
+::::beispiel [Worked example 3] the mean of the examples
 For the apartment dataset, $\bar{\mathbf{x}}=(65,\ 2.5,\ 3)^{\top}$ (Fig. [5](#abb-5)), the “average apartment”: on average $65\,\mathrm m^2$, $2.5$ rooms and $3$ km to the center.
 
 :::abbildung ml/k1rmittelvektor 5

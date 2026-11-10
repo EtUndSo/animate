@@ -1,6 +1,8 @@
 ---
 title: Stufe 2: Wie sich die Gatespannung aufteilt
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Die MOS-Kapazität
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Die MOS-Kapazität
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/die-mos-kapazitat
+knoten: Kapitel 15: Die MOS-Kapazität
 order: 4250400
 summary: Eine Spannung am Gate muss irgendwo abfallen.
 tags: Gatespannung

@@ -1,6 +1,8 @@
 ---
 title: 第 2 阶段：电荷
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 电荷、电场与电位
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 电荷、电场与电位
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial
+knoten: 第 1 章：电荷、电场与电位
 order: 1110400
 summary: 本阶段回答第一个问题：什么是电荷，带电体是怎样形成的，在这一过程中什么保持不变？
 tags: 缺少电子, 电子过剩, 元电荷, 电荷守恒, 导体, 绝缘体

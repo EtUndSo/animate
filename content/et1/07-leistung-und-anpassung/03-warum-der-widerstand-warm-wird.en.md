@@ -1,6 +1,8 @@
 ---
 title: Stage 2: Why the resistor gets warm
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / Power, Matching and Efficiency
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / Power, Matching and Efficiency
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad
+knoten: Chapter 7: Power, Matching and Efficiency
 order: 1170300
 summary: In the resistor, the energy leaves the circuit.
 tags: power rating, hyperbola
@@ -13,7 +15,7 @@ lang: en
 In the resistor, the energy leaves the circuit. This stage shows the mechanism and the limit that follows from it.
 :::
 
-**The idea.** If a voltage is applied to a resistor, there is a field in it. It accelerates every free electron. After the flight time $T$, the electron collides and loses its directed velocity again ([Part 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)). In doing so, its kinetic energy goes to the crystal lattice, the atoms vibrate more strongly, and this vibration is heat (Fig. [2](#abb-2)). The electron is only the messenger: behind the resistor it has the same drift as in front of it, because current and cross section are the same. It has lost potential without getting faster. So all the energy ends up in the lattice. The drift itself is negligible: at 0.44 µ m/s ([Part 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)), an electron carries $8.8\cdot10^{-44}$ J, while at 9 V it gives off $1.44\cdot10^{-18}$ J, which is $1.6\cdot10^{25}$ times as much.
+**The idea.** If a voltage is applied to a resistor, there is a field in it. It accelerates every free electron. After the flight time $T$, the electron collides and loses its directed velocity again ([Chapter 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)). In doing so, its kinetic energy goes to the crystal lattice, the atoms vibrate more strongly, and this vibration is heat (Fig. [2](#abb-2)). The electron is only the messenger: behind the resistor it has the same drift as in front of it, because current and cross section are the same. It has lost potential without getting faster. So all the energy ends up in the lattice. The drift itself is negligible: at 0.44 µ m/s ([Chapter 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)), an electron carries $8.8\cdot10^{-44}$ J, while at 9 V it gives off $1.44\cdot10^{-18}$ J, which is $1.6\cdot10^{25}$ times as much.
 
 :::abbildung et1/k7stoss 2
 Collision model for one electron. During flight, the work done by the field (blue) grows and is stored as kinetic energy in the electron. At the collision, the heat in the lattice jumps by $W_1$ (red). After each collision, both curves are equally high: everything goes to the lattice.
@@ -36,11 +38,11 @@ $$P\le P_\mathrm{max}. \tag{2.2}$$
 ⁠**How to read it:** A small film resistor has $P_\mathrm{max}=250$ mW, a fan heater converts 2 kW. The formula is quadratic because the current counts twice: twice the current means twice as many coulombs per second, and because of $U=R\,I$ each gives off twice as much. At equal current (series), the heat grows with $R$; at equal voltage (parallel), it falls with $R$. **Validity:** $P=U\,I$ always holds, the other two forms only for the ohmic resistor ($R$ independent of the current), and $U$ and $I$ must belong to this resistor.
 
 :::herleitung From collisions to $U^2/R$
-In the model from [Part 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html), an electron is accelerated at $a=e\,E/m_\mathrm e$ and reaches $v_\mathrm{max}=a\,T$ over the distance $s=\frac12a\,T^2$. The field does the work $e\,E\,s=m_\mathrm e\,a\,s=\frac12m_\mathrm e(a\,T)^2=W_1$, exactly the kinetic energy at the collision. The volume $A\,L$ contains $n\,A\,L$ free electrons, and each collides $1/T$ times per second:
+In the model from [Chapter 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html), an electron is accelerated at $a=e\,E/m_\mathrm e$ and reaches $v_\mathrm{max}=a\,T$ over the distance $s=\frac12a\,T^2$. The field does the work $e\,E\,s=m_\mathrm e\,a\,s=\frac12m_\mathrm e(a\,T)^2=W_1$, exactly the kinetic energy at the collision. The volume $A\,L$ contains $n\,A\,L$ free electrons, and each collides $1/T$ times per second:
 
 $$P=n\,A\,L\,\frac{W_1}{T}=n\,A\,L\,\frac{e^2E^2\,T}{2\,m_\mathrm e}=\sigma\,E^2\,A\,L.$$
 
-Here $\sigma=n\,e\,\mu$ and $\mu=e\,T/(2\,m_\mathrm e)$ ([Part 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)). With $U=E\,L$ and $R=L/(\sigma A)$, this becomes $P=U^2/R$.
+Here $\sigma=n\,e\,\mu$ and $\mu=e\,T/(2\,m_\mathrm e)$ ([Chapter 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)). With $U=E\,L$ and $R=L/(\sigma A)$, this becomes $P=U^2/R$.
 :::
 
 **Power rating.** The temperature rises until the component gives off as much heat per second to the surroundings as arises inside. More power therefore means a higher temperature, and too high a temperature destroys it. In the diagram of Fig. [3](#abb-3), the limit is the __hyperbola__ $I=P_\mathrm{max}/U$, and every resistor is a straight line through the origin. Their intersection lies at $U_\mathrm{max}=\sqrt{P_\mathrm{max}\,R}$ and $I_\mathrm{max}=\sqrt{P_\mathrm{max}/R}$.

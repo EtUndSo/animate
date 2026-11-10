@@ -1,6 +1,8 @@
 ---
 title: 第 4 阶段：自相关、协方差与互相关
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / 随机信号
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / 随机信号
+adresse: elektrotechnik/3-semester/signale-und-systeme/zufallssignale
+knoten: 第 7 章：随机信号
 order: 3270500
 summary: 随机信号变化得有多快？自相关函数给出答案：经过时间 tau 之后，信号与自身还有多相似。
 tags: 自协方差函数
@@ -19,7 +21,7 @@ lang: zh
 <span class="anker" id="gl-4-1"></span>
 $$\varphi_{ss}(0)=L_s,\qquad\varphi_{ss}(\tau)=\varphi_{ss}(-\tau),\qquad|\varphi_{ss}(\tau)|\le\varphi_{ss}(0). \tag{4.1}$$
 
-对各态历经过程，$\varphi_{ss}(\tau)=\overline{s(t)s(t+\tau)}$，即[第 6 部分](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen/korrelationsfunktionen.html)中功率信号的自相关函数。
+对各态历经过程，$\varphi_{ss}(\tau)=\overline{s(t)s(t+\tau)}$，即[第 6 章](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen/korrelationsfunktionen.html)中功率信号的自相关函数。
 :::
 
 :::herleitung $\tau=0$ 处的最大值

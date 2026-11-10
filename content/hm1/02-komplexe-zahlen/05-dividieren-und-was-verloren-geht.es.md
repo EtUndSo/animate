@@ -1,6 +1,8 @@
 ---
 title: Etapa 4: Dividir, y lo que se pierde
-pfad: Ingeniería eléctrica / 1.er semestre / Matemáticas superiores 1 / Números complejos
+pfad: Ingeniería eléctrica / 1.er semestre / HöMa1 – Matemáticas superiores 1 / Números complejos
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen
+knoten: Capítulo 2: Números complejos
 order: 1220500
 summary: La etapa 3 proporciona un producto real.
 tags: 
@@ -49,10 +51,10 @@ Comprobación: $(1-\mathrm{i})(1+2\mathrm{i})=1+2\mathrm{i}-\mathrm{i}-2\mathrm{
 :::satz Teorema 4.2 ($\mathbb{C}$ es un cuerpo)
 <span class="anker" id="satz-4-2"></span>
 
-$\mathbb{C}$ con $+$ y $\cdot$ cumple todos los axiomas de cuerpo de la [Parte 1](/wissen/es/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html): leyes conmutativa, asociativa y distributiva, elementos neutros $0\ne1$, para cada $z$ el opuesto $-z$ y para cada $z\ne0$ el inverso $1/z$.
+$\mathbb{C}$ con $+$ y $\cdot$ cumple todos los axiomas de cuerpo del [capítulo 1](/wissen/es/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html): leyes conmutativa, asociativa y distributiva, elementos neutros $0\ne1$, para cada $z$ el opuesto $-z$ y para cada $z\ne0$ el inverso $1/z$.
 :::
 
-⁠**Cómo leerlo:** Lo que en la [Parte 1](/wissen/es/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html) se deduce solo de los axiomas de cuerpo vale también en $\mathbb{C}$: el cálculo con fracciones, las identidades notables y la conclusión de $zw=0$ a $z=0$ o $w=0$.
+⁠**Cómo leerlo:** Lo que en el [capítulo 1](/wissen/es/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html) se deduce solo de los axiomas de cuerpo vale también en $\mathbb{C}$: el cálculo con fracciones, las identidades notables y la conclusión de $zw=0$ a $z=0$ o $w=0$.
 
 :::beweis Idea
 La suma se hace por separado y hereda todas las leyes de $\mathbb{R}$, con $-z=-x-\mathrm{i}y$. [(1.2)](paare-statt-einzelner-zahlen.html#gl-1-2) no cambia al intercambiar los índices 1 y 2: la multiplicación es conmutativa. Las leyes asociativa y distributiva se demuestran calculando ambos miembros según [(1.2)](paare-statt-einzelner-zahlen.html#gl-1-2). $(1,0)\odot(x,y)=(x,y)$ muestra el elemento unidad, [(4.1)](#gl-4-1) el axioma (M4), el inverso.
@@ -61,7 +63,7 @@ La suma se hace por separado y hereda todas las leyes de $\mathbb{R}$, con $-z=-
 :::satz Teorema 4.3 ($\mathbb{C}$ no es ordenado)
 <span class="anker" id="satz-4-3"></span>
 
-No existe ninguna relación «$>0$» en $\mathbb{C}$ con los axiomas de orden de la [Parte 1](/wissen/es/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html): (T1) Para cada $x$ se cumple exactamente una de $x>0$, $x=0$, $-x>0$. (T2) De $x>0$ e $y>0$ se deduce $x+y>0$. (T3) De $x>0$ e $y>0$ se deduce $x\cdot y>0$.
+No existe ninguna relación «$>0$» en $\mathbb{C}$ con los axiomas de orden del [capítulo 1](/wissen/es/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html): (T1) Para cada $x$ se cumple exactamente una de $x>0$, $x=0$, $-x>0$. (T2) De $x>0$ e $y>0$ se deduce $x+y>0$. (T3) De $x>0$ e $y>0$ se deduce $x\cdot y>0$.
 :::
 
 ⁠**Cómo leerlo:** Para números no reales, $z<w$ y $z>0$ no tienen significado. Solo se pueden comparar magnitudes reales como $\operatorname{Re}(z)$ o $|z|$.

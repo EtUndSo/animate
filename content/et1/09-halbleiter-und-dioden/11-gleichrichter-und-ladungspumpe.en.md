@@ -1,6 +1,8 @@
 ---
 title: Stage 9: Rectifiers and charge pump
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / Semiconductors and Diodes
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / Semiconductors and Diodes
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden
+knoten: Chapter 9: Semiconductors and Diodes
 order: 1191100
 summary: The half-wave rectifier wastes every second half-wave.
 tags: bridge rectifier, smoothing
@@ -47,10 +49,10 @@ The peak is $12\,\mathrm{V}-1.4\,\mathrm{V}=10.6$ V; for the half-wave rectifi
 :::
 
 :::frage This still pulses strongly. Is this already DC voltage?
-Not yet. A capacitor in parallel with the load (__smoothing__) charges to the peak and feeds the load during the gap. In 10 ms it loses $\Delta U=I\,\Delta t/C$ ([Part 3](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html)). With $I=10.6$ mA and $C=470$ µ F that is 0.23 V. The diodes then conduct only briefly at the peak.
+Not yet. A capacitor in parallel with the load (__smoothing__) charges to the peak and feeds the load during the gap. In 10 ms it loses $\Delta U=I\,\Delta t/C$ ([Chapter 3](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html)). With $I=10.6$ mA and $C=470$ µ F that is 0.23 V. The diodes then conduct only briefly at the peak.
 :::
 
-**Charge pump.** It produces a higher voltage from a DC voltage $U_\mathrm e$, without a coil. The diodes are treated as ideal here (Fig. [12](#abb-12)). *Step 1:* The changeover switch connects the bottom plate of $C_1$ to ground. $C_1$ charges through D$_1$ to $U_\mathrm e$. *Step 2:* The changeover switch connects the bottom plate to $U_\mathrm e$. The voltage across $C_1$ cannot jump ([Part 3](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html)), so the top plate jumps to $2U_\mathrm e$. D$_1$ blocks because its cathode is now higher, D$_2$ conducts, and $C_1$ gives charge to the output capacitor $C_2$. After a few cycles, $U_\mathrm a\approx2U_\mathrm e$. In practice, small resistors limit the current peaks. With further pump stages on the same scheme, the voltage rises further.
+**Charge pump.** It produces a higher voltage from a DC voltage $U_\mathrm e$, without a coil. The diodes are treated as ideal here (Fig. [12](#abb-12)). *Step 1:* The changeover switch connects the bottom plate of $C_1$ to ground. $C_1$ charges through D$_1$ to $U_\mathrm e$. *Step 2:* The changeover switch connects the bottom plate to $U_\mathrm e$. The voltage across $C_1$ cannot jump ([Chapter 3](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html)), so the top plate jumps to $2U_\mathrm e$. D$_1$ blocks because its cathode is now higher, D$_2$ conducts, and $C_1$ gives charge to the output capacitor $C_2$. After a few cycles, $U_\mathrm a\approx2U_\mathrm e$. In practice, small resistors limit the current peaks. With further pump stages on the same scheme, the voltage rises further.
 
 :::abbildung et1/k9pumpe 12
 Charge pump; the current paths of the two steps are in color. Left: $U_\mathrm e$ charges the capacitor $C_1$. Right: $U_\mathrm e$ and the voltage across $C_1$ are in series and feed $C_2$.

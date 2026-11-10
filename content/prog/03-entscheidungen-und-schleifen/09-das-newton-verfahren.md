@@ -1,7 +1,8 @@
 ---
 title: Das Newton-Verfahren
 pfad: Informatik / Programmieren / Python / Entscheidungen und Schleifen
-knoten: Python 3: Entscheidungen und Schleifen
+adresse: informatik/programmieren/python/entscheidungen-und-schleifen
+knoten: Kapitel 3: Entscheidungen und Schleifen
 order: 6040900
 summary: Die Bisektion fragt in jedem Schritt nur nach dem Vorzeichen von f und gewinnt damit ein Bit.
 tags: Tangente, Newton-Verfahren, quadratische Konvergenz
@@ -11,7 +12,7 @@ lang: de
 <span class="anker" id="stufe-8"></span>
 
 :::zweck
-Die Bisektion fragt in jedem Schritt nur nach dem Vorzeichen von $f$ und gewinnt damit ein Bit. Dieser Abschnitt zeigt ein Verfahren, das zusätzlich die Steigung von $f$ benutzt und dadurch die Zahl der gültigen Stellen in jedem Schritt etwa verdoppelt. Es ist das Heron-Verfahren aus Python 1, jetzt mit Begründung, warum es so schnell ist und wann es versagt.
+Die Bisektion fragt in jedem Schritt nur nach dem Vorzeichen von $f$ und gewinnt damit ein Bit. Dieser Abschnitt zeigt ein Verfahren, das zusätzlich die Steigung von $f$ benutzt und dadurch die Zahl der gültigen Stellen in jedem Schritt etwa verdoppelt. Es ist das Heron-Verfahren aus [Kapitel 1](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/programme-und-der-python-interpreter.html), jetzt mit Begründung, warum es so schnell ist und wann es versagt.
 :::
 
 ### Was du dafür brauchst: Ableitung und Tangente
@@ -68,7 +69,7 @@ Für $f(g)=g^2-a$ ist $f'(g)=2g$, und der Newton-Schritt lautet
 
 $$g_{n+1}=g_n-\frac{g_n^2-a}{2g_n}=\frac{2g_n^2-g_n^2+a}{2g_n}=\frac12\Bigl(g_n+\frac{a}{g_n}\Bigr).$$
 
-Das ist genau das Heron-Verfahren aus [Programmieren, Python 1, Abschnitte 1.1](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/programme-und-programmiersprachen.html#stufe-1-1) und [4.5](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/der-interaktive-modus.html#stufe-4-5): Das alte Rezept für die Wurzel ist das Newton-Verfahren für $x^2-a$. Als Skript mit einer Schleife, die stoppt, sobald $|g^2-a|\le10^{-12}$ ist:
+Das ist genau das Heron-Verfahren aus [Kapitel 1, Abschnitte 1.1](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/programme-und-programmiersprachen.html#stufe-1-1) und [4.5](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/der-interaktive-modus.html#stufe-4-5): Das alte Rezept für die Wurzel ist das Newton-Verfahren für $x^2-a$. Als Skript mit einer Schleife, die stoppt, sobald $|g^2-a|\le10^{-12}$ ist:
 
 ```python wurzel_newton.py
 # Quadratwurzel mit dem Newton-Verfahren: g -> g - f(g)/f'(g) mit f(g) = g*g - a und f'(g) = 2*g
@@ -98,8 +99,8 @@ Fünf Schritte statt 41. Die richtigen Stellen wachsen sichtbar: eine nach Schri
 
 ⁠**Kurz gesagt:** Für die Wurzel ist der Newton-Schritt das Heron-Rezept $\frac12(g+a/g)$, und es braucht für $\sqrt2$ fünf Schritte.
 
-:::hintergrund Warum das Heron-Rezept aus Python 1 eine Stufe daneben landete
-In [Programmieren, Python 1, Abschnitt 4.5](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/der-interaktive-modus.html#stufe-4-5) endete das Rezept in der Form `(g + 2/g) / 2` bei `1.414213562373095`, eine kleinste Stufe neben `2 ** 0.5`. Das Skript hier rechnet mit der Form `g - (g*g - 2)/(2*g)` und hört nach Schritt 5 bei `1.4142135623730951` auf. Beide Formen sind mathematisch gleich, aber sie runden verschieden, so wie zehnmal `+ 0.1` und `* 10` in [Programmieren, Python 2, Abschnitt 5.1](/wissen/informatik/programmieren/python/werte-typen-und-variablen/rechnen-mit-gleitkommazahlen.html#stufe-5-1). Ganz nahe am Ziel kommt bei der zweiten Form etwas hinzu: In `g*g - 2` werden zwei fast gleiche Zahlen voneinander abgezogen, und das Ergebnis besteht fast nur noch aus Rundungsfehlern, wie bei der Auslöschung in [Programmieren, Python 2, Abschnitt 5.4](/wissen/informatik/programmieren/python/werte-typen-und-variablen/rechnen-mit-gleitkommazahlen.html#stufe-5-4). Ließe man diese Form weiterlaufen, spränge $g$ deshalb ohne Ende zwischen `1.4142135623730951` und `1.414213562373095` hin und her; das Skript hat beim Abbruch zufällig den besseren der beiden erwischt. Die Heron-Form bleibt dagegen auf `1.414213562373095` stehen. Bei $\sqrt3$ treffen beide Formen mit dem Abbruch des Skripts den besten Wert. In einem Versuch mit 100 000 Zahlen zwischen 0,01 und 1000 lagen beide Formen nach vielen Schritten nie mehr als eine Stufe neben dem besten `float`; die Newton-Form pendelte in gut einem Viertel der Fälle zwischen zwei Nachbarn. Mehr kann ein Verfahren, das selbst mit gerundeten Zahlen rechnet, kaum versprechen, und Toleranzen wie $10^{-12}$ sind ohnehin viel gröber als eine Stufe.
+:::hintergrund Warum das Heron-Rezept aus Kapitel 1 eine Stufe daneben landete
+In [Kapitel 1, Abschnitt 4.5](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/der-interaktive-modus.html#stufe-4-5) endete das Rezept in der Form `(g + 2/g) / 2` bei `1.414213562373095`, eine kleinste Stufe neben `2 ** 0.5`. Das Skript hier rechnet mit der Form `g - (g*g - 2)/(2*g)` und hört nach Schritt 5 bei `1.4142135623730951` auf. Beide Formen sind mathematisch gleich, aber sie runden verschieden, so wie zehnmal `+ 0.1` und `* 10` in [Kapitel 2, Abschnitt 5.1](/wissen/informatik/programmieren/python/werte-typen-und-variablen/rechnen-mit-gleitkommazahlen.html#stufe-5-1). Ganz nahe am Ziel kommt bei der zweiten Form etwas hinzu: In `g*g - 2` werden zwei fast gleiche Zahlen voneinander abgezogen, und das Ergebnis besteht fast nur noch aus Rundungsfehlern, wie bei der Auslöschung in [Kapitel 2, Abschnitt 5.4](/wissen/informatik/programmieren/python/werte-typen-und-variablen/rechnen-mit-gleitkommazahlen.html#stufe-5-4). Ließe man diese Form weiterlaufen, spränge $g$ deshalb ohne Ende zwischen `1.4142135623730951` und `1.414213562373095` hin und her; das Skript hat beim Abbruch zufällig den besseren der beiden erwischt. Die Heron-Form bleibt dagegen auf `1.414213562373095` stehen. Bei $\sqrt3$ treffen beide Formen mit dem Abbruch des Skripts den besten Wert. In einem Versuch mit 100 000 Zahlen zwischen 0,01 und 1000 lagen beide Formen nach vielen Schritten nie mehr als eine Stufe neben dem besten `float`; die Newton-Form pendelte in gut einem Viertel der Fälle zwischen zwei Nachbarn. Mehr kann ein Verfahren, das selbst mit gerundeten Zahlen rechnet, kaum versprechen, und Toleranzen wie $10^{-12}$ sind ohnehin viel gröber als eine Stufe.
 :::
 
 ### Die Konvergenzgeschwindigkeit
@@ -207,7 +208,7 @@ Mit einer `while`-Schleife und der Bedingung $|f(x)|>\varepsilon$ wäre das eine
 11111.111060555555
 ```
 
-`wurzel_newton.py` würde für dieses $a$ nie aufhören. Abhilfe ist wie bei der Bisektion eine relative Toleranz, `abs(g * g - a) > 1e-12 * a` ([Programmieren, Python 2, Abschnitt 7.4](/wissen/informatik/programmieren/python/werte-typen-und-variablen/wahrheitswerte-und-vergleiche.html#stufe-7-4)).
+`wurzel_newton.py` würde für dieses $a$ nie aufhören. Abhilfe ist wie bei der Bisektion eine relative Toleranz, `abs(g * g - a) > 1e-12 * a` ([Kapitel 2, Abschnitt 7.4](/wissen/informatik/programmieren/python/werte-typen-und-variablen/wahrheitswerte-und-vergleiche.html#stufe-7-4)).
 
 **Weit weg ist es langsam.** Quadratische Konvergenz gilt erst nahe der Nullstelle. Für $\sqrt{25}$ mit dem Startwert 25 schrumpft der Fehler in den ersten Schritten nur um einen kleinen Faktor, von 20 auf 8 und dann auf etwa 2,5, bevor die Stellen sich zu verdoppeln beginnen:
 
@@ -232,7 +233,7 @@ Für $g_n\gg\sqrt a$ ist $\frac12(g_n+a/g_n)\approx g_n/2$: Weit oberhalb der Wu
 
 <span class="anker" id="stufe-8-6"></span>
 
-Für die Wurzel selbst schreibt man in der Praxis keine Schleife, sondern ruft `math.sqrt` auf ([Programmieren, Python 2, Abschnitt 8.2](/wissen/informatik/programmieren/python/werte-typen-und-variablen/module-math-und-sys.html#stufe-8-2)). Das folgende Skript stellt die Wege von Hand und den fertigen Weg mit derselben Toleranz nebeneinander:
+Für die Wurzel selbst schreibt man in der Praxis keine Schleife, sondern ruft `math.sqrt` auf ([Kapitel 2, Abschnitt 8.2](/wissen/informatik/programmieren/python/werte-typen-und-variablen/module-math-und-sys.html#stufe-8-2)). Das folgende Skript stellt die Wege von Hand und den fertigen Weg mit derselben Toleranz nebeneinander:
 
 ```python wurzel_vergleich.py
 # Wurzel aus 2 von Hand (Bisektion, Newton) und fertig (math.sqrt), mit derselben Toleranz 1e-12
@@ -288,7 +289,7 @@ Was `math.sqrt` zusätzlich leistet: Es ist für jede Zahl schnell und genau, oh
 ⁠**Kurz gesagt:** `math.sqrt` liefert in einem Aufruf das Ergebnis, das die Verfahren von Hand nur näherungsweise und mit sorgfältig gewählter Toleranz erreichen.
 
 :::hintergrund Was `math.sqrt` im Prozessor tut
-Das Modul `math` reicht die meisten Funktionen an die Mathematikbibliothek der Sprache C weiter. Für die Quadratwurzel haben übliche PC-Prozessoren (x86-64) einen eigenen Befehl, und die C-Bibliothek benutzt ihn. Die Norm IEEE 754 verlangt für die Wurzel dasselbe wie für die vier Grundrechenarten: Das Ergebnis ist der exakte Wert, gerundet auf den nächsten `float` ([Programmieren, Python 2, Abschnitt 5.1](/wissen/informatik/programmieren/python/werte-typen-und-variablen/rechnen-mit-gleitkommazahlen.html#stufe-5-1)). Für $\sqrt2$ lässt sich das nachprüfen: `1.4142135623730951` liegt $9{,}7\cdot10^{-17}$ über $\sqrt2$, der Nachbar `1.414213562373095` $1{,}25\cdot10^{-16}$ darunter. Wie der Befehl intern rechnet, ist Sache des Prozessors. Je nach Bauart bestimmt er die Wurzel Ziffer für Ziffer, ähnlich einer schriftlichen Rechnung, oder mit einer Newton-artigen Iteration, in beiden Fällen mit genug zusätzlichen Stellen, um richtig runden zu können.
+Das Modul `math` reicht die meisten Funktionen an die Mathematikbibliothek der Sprache C weiter. Für die Quadratwurzel haben übliche PC-Prozessoren (x86-64) einen eigenen Befehl, und die C-Bibliothek benutzt ihn. Die Norm IEEE 754 verlangt für die Wurzel dasselbe wie für die vier Grundrechenarten: Das Ergebnis ist der exakte Wert, gerundet auf den nächsten `float` ([Kapitel 2, Abschnitt 5.1](/wissen/informatik/programmieren/python/werte-typen-und-variablen/rechnen-mit-gleitkommazahlen.html#stufe-5-1)). Für $\sqrt2$ lässt sich das nachprüfen: `1.4142135623730951` liegt $9{,}7\cdot10^{-17}$ über $\sqrt2$, der Nachbar `1.414213562373095` $1{,}25\cdot10^{-16}$ darunter. Wie der Befehl intern rechnet, ist Sache des Prozessors. Je nach Bauart bestimmt er die Wurzel Ziffer für Ziffer, ähnlich einer schriftlichen Rechnung, oder mit einer Newton-artigen Iteration, in beiden Fällen mit genug zusätzlichen Stellen, um richtig runden zu können.
 :::
 
 ### Aufgaben zu Abschnitt [8](#stufe-8)

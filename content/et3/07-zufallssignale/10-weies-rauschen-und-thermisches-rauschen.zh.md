@@ -1,6 +1,8 @@
 ---
 title: 第 9 阶段：白噪声与热噪声
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / 随机信号
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / 随机信号
+adresse: elektrotechnik/3-semester/signale-und-systeme/zufallssignale
+knoten: 第 7 章：随机信号
 order: 3271000
 summary: 最重要的干扰模型：在所有频率上功率谱密度都相同的噪声。
 tags: 白噪声

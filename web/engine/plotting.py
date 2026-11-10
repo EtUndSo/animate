@@ -93,18 +93,57 @@ def plot_graph(value_at, x0, x1, to_world, world_width,
     rec(x0, out[0][1], x1, P(x1), 1)
     out.append((x1, P(x1)))
 
-    # split into continuous runs at discontinuities, build a Bézier chain per run
+    # split into continuous runs at discontinuities, build a Bézier chain per run (thinned: see _thin)
     segments, run = [], []
     for _x, w in out:
         if w is None:
             if len(run) >= 2:
-                segments.append(line_points(run))
+                segments.append(line_points(_thin(run)))
             run = []
         else:
             run.append(w)
     if len(run) >= 2:
-        segments.append(line_points(run))
+        segments.append(line_points(_thin(run)))
     return segments
+
+
+THIN_PX = 0.2                        # a sample closer than this (screen px) to the line through its neighbours goes
+THIN_MIN = 17                        # ...but every curve keeps at least this many evenly spread samples (Create from the
+#                                      centre needs an anchor near x = 0; MoveAlongPath and tests read the anchors)
+
+
+def _thin(run, eps=THIN_PX * _UNITS_PER_PIXEL):
+    """Ramer-Douglas-Peucker on one continuous run: drop the samples the polyline does not need (deviation below eps,
+    0.2 px). The adaptive sampler puts thousands of samples on a curve (up to max_points per curve, i.e. three times
+    as many Bézier points); after thinning a smooth curve keeps a few hundred, the drawing is the same within 0.2 px
+    and the article SVG and its animation stay small."""
+    P = np.asarray(run, dtype=float)
+    n = len(P)
+    if n <= 2:
+        return run
+    keep = np.zeros(n, dtype=bool)
+    keep[0] = keep[-1] = True
+    keep[np.linspace(0, n - 1, min(n, THIN_MIN)).round().astype(int)] = True   # a straight piece keeps a few anchors
+    stack = [(0, n - 1)]
+    while stack:
+        i, j = stack.pop()
+        if j <= i + 1:
+            continue
+        a, b = P[i], P[j]
+        ab = b - a
+        L2 = float(ab @ ab)
+        seg = P[i + 1:j] - a
+        if L2 < 1e-24:
+            d = np.sqrt((seg ** 2).sum(axis=1))
+        else:
+            t = np.clip(seg @ ab / L2, 0.0, 1.0)
+            d = np.sqrt(((seg - t[:, None] * ab) ** 2).sum(axis=1))
+        k = int(np.argmax(d))
+        if d[k] > eps:
+            m = i + 1 + k
+            keep[m] = True
+            stack += [(i, m), (m, j)]
+    return [p for p, k in zip(run, keep) if k]
 
 
 def build_graph(segments, color):

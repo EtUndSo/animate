@@ -1,7 +1,8 @@
 ---
 title: 最佳近似解
 pfad: 计算机科学 / 机器学习 / 数学基础 / 投影、特征值与矩阵分解
-knoten: 基础篇 2：投影、特征值与矩阵分解
+adresse: informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen
+knoten: 第 2 章：投影、特征值与矩阵分解
 nachschlagen: ja
 order: 15220400
 summary: 方程个数多于未知数个数的方程组通常无解。本节转而寻找尽可能好地满足方程组的未知数。它们由一个总是可解的较小方程组得出，其原因又是一个直角。
@@ -19,7 +20,7 @@ lang: zh
 
 <span class="anker" id="stufe-3-1"></span>
 
-在[基础篇 1 第 12.5 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-gleichungssysteme.html#stufe-12-5)中，两个权重，即面积的权重 $w_1$ 和房间数的权重 $w_2$，应当恰好给出公寓的价格。用全部四套公寓，就得到方程组 $\mathbf{A}\mathbf{w}=\mathbf{y}$，其中
+在[第 1 章第 12.5 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-gleichungssysteme.html#stufe-12-5)中，两个权重，即面积的权重 $w_1$ 和房间数的权重 $w_2$，应当恰好给出公寓的价格。用全部四套公寓，就得到方程组 $\mathbf{A}\mathbf{w}=\mathbf{y}$，其中
 
 $$\mathbf{A}=\begin{pmatrix}60&2\\40&1\\90&4\\70&3\end{pmatrix},\qquad \mathbf{y}=\begin{pmatrix}200\\130\\290\\240\end{pmatrix}\ \text{千欧元}.$$
 
@@ -36,10 +37,10 @@ $$\mathbf{r}=\mathbf{y}-\mathbf{A}\mathbf{x} \tag{3.1}$$
 称为 $\mathbf{x}$ 的__残差__。
 :::
 
-残差的西文名称（residual）源自拉丁语中表示“剩余”的词。残差为零，当且仅当 $\mathbf{x}$ 是方程组的解。它就是[基础篇 1 第 3.5 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/normen-die-groe-eines-vektors.html#stufe-3-5)中的误差向量，只是符号相反；长度相同。
+残差的西文名称（residual）源自拉丁语中表示“剩余”的词。残差为零，当且仅当 $\mathbf{x}$ 是方程组的解。它就是[第 1 章第 3.5 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/normen-die-groe-eines-vektors.html#stufe-3-5)中的误差向量，只是符号相反；长度相同。
 
 ::::beispiel [算例]
-用[基础篇 1](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html) 中的权重 $\mathbf{w}=(3,\,10)^{\top}$，得 $\mathbf{A}\mathbf{w}=(200,\,130,\,310,\,240)^{\top}$，残差为 $\mathbf{r}=\mathbf{y}-\mathbf{A}\mathbf{w}=(0,\,0,\,-20,\,0)^{\top}$，长度为 $20$。三个价格恰好命中，一个偏差 $20$ 千欧元。
+用[第 1 章](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html)中的权重 $\mathbf{w}=(3,\,10)^{\top}$，得 $\mathbf{A}\mathbf{w}=(200,\,130,\,310,\,240)^{\top}$，残差为 $\mathbf{r}=\mathbf{y}-\mathbf{A}\mathbf{w}=(0,\,0,\,-20,\,0)^{\top}$，长度为 $20$。三个价格恰好命中，一个偏差 $20$ 千欧元。
 ::::
 
 ⁠**简而言之：**残差 $\mathbf{r}=\mathbf{y}-\mathbf{A}\mathbf{x}$ 是用向量 $\mathbf{x}$ 去解 $\mathbf{A}\mathbf{x}=\mathbf{y}$ 时剩下的余量。
@@ -50,7 +51,7 @@ $$\mathbf{r}=\mathbf{y}-\mathbf{A}\mathbf{x} \tag{3.1}$$
 
 如果残差不能为零，至少应当让它尽可能小。衡量的标准是它的欧几里得长度。
 
-这个任务可以从几何上来想象。由[基础篇 1 第 7.4 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrix-vektor-produkt.html#stufe-7-4)，当 $\mathbf{x}$ 取遍所有向量时，$\mathbf{A}\mathbf{x}$ 取遍 $\mathbf{A}$ 的列空间。距离 $\lVert\mathbf{y}-\mathbf{A}\mathbf{x}\rVert$ 是点 $\mathbf{y}$ 到列空间中的点 $\mathbf{A}\mathbf{x}$ 的距离。所以我们要找列空间中离 $\mathbf{y}$ 最近的点（图 [6](#abb-6)）。在上一节中，列空间是一条直线；现在它可以是一个平面，或者是更高维的张成空间。
+这个任务可以从几何上来想象。由[第 1 章第 7.4 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrix-vektor-produkt.html#stufe-7-4)，当 $\mathbf{x}$ 取遍所有向量时，$\mathbf{A}\mathbf{x}$ 取遍 $\mathbf{A}$ 的列空间。距离 $\lVert\mathbf{y}-\mathbf{A}\mathbf{x}\rVert$ 是点 $\mathbf{y}$ 到列空间中的点 $\mathbf{A}\mathbf{x}$ 的距离。所以我们要找列空间中离 $\mathbf{y}$ 最近的点（图 [6](#abb-6)）。在上一节中，列空间是一条直线；现在它可以是一个平面，或者是更高维的张成空间。
 
 :::definition 定义 3.2 (最佳近似解)
 <span class="anker" id="satz-3-2"></span>
@@ -68,7 +69,7 @@ $$\lVert\mathbf{y}-\mathbf{A}\hat{\mathbf{x}}\rVert\le\lVert\mathbf{y}-\mathbf{A
 :::
 
 ::::beispiel [算例]
-[基础篇 1 第 7.4 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrix-vektor-produkt.html#stufe-7-4)中的矩阵 $\mathbf{H}$ 的列为 $\mathbf{a}_1=(1,\,0,\,1)^{\top}$ 和 $\mathbf{a}_2=(0,\,1,\,1)^{\top}$。它的列空间是第三个分量等于前两个分量之和的所有向量构成的平面。向量 $\mathbf{y}=(1,\,1,\,1)^{\top}$ 不在其中，所以方程组 $\mathbf{H}\mathbf{x}=\mathbf{y}$ 无解。取 $\mathbf{x}=(1,\,0)^{\top}$，残差为 $(0,\,1,\,0)^{\top}$，长度为 $1$；取 $\mathbf{x}=(1,\,1)^{\top}$，残差为 $(0,\,0,\,-1)^{\top}$，长度同样为 $1$。能否做得更好，下一小节给出答案。
+[第 1 章第 7.4 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrix-vektor-produkt.html#stufe-7-4)中的矩阵 $\mathbf{H}$ 的列为 $\mathbf{a}_1=(1,\,0,\,1)^{\top}$ 和 $\mathbf{a}_2=(0,\,1,\,1)^{\top}$。它的列空间是第三个分量等于前两个分量之和的所有向量构成的平面。向量 $\mathbf{y}=(1,\,1,\,1)^{\top}$ 不在其中，所以方程组 $\mathbf{H}\mathbf{x}=\mathbf{y}$ 无解。取 $\mathbf{x}=(1,\,0)^{\top}$，残差为 $(0,\,1,\,0)^{\top}$，长度为 $1$；取 $\mathbf{x}=(1,\,1)^{\top}$，残差为 $(0,\,0,\,-1)^{\top}$，长度同样为 $1$。能否做得更好，下一小节给出答案。
 ::::
 
 ⁠**简而言之：**最佳近似解使残差尽可能短；从几何上看，它寻找的是列空间中离 $\mathbf{y}$ 最近的点。
@@ -96,7 +97,7 @@ $$\mathbf{a}_j^{\top}(\mathbf{y}-\mathbf{A}\hat{\mathbf{x}})=0\qquad\text{对 }j
 $$\mathbf{A}^{\top}\mathbf{A}\,\hat{\mathbf{x}}=\mathbf{A}^{\top}\mathbf{y} . \tag{3.3}$$
 :::
 
-名称中的“正规”（normal）在这里意为“垂直”，与平面的法向量（normal vector）中的含义相同：这些方程要求残差垂直于列空间。矩阵 $\mathbf{A}^{\top}\mathbf{A}$ 是[基础篇 1 第 10.4 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/transponierte-symmetrie-und-gram-matrix.html#stufe-10-4)中各列的格拉姆矩阵；它是方阵，行数与未知数个数相同。一个有 $m$ 个方程的、无解的大方程组，变成了一个只有 $n$ 个方程的小方程组。对于单独一列 $\mathbf{a}$，它就是 $\mathbf{a}^{\top}\mathbf{a}\,\hat x=\mathbf{a}^{\top}\mathbf{y}$，即上一节的公式。
+名称中的“正规”（normal）在这里意为“垂直”，与平面的法向量（normal vector）中的含义相同：这些方程要求残差垂直于列空间。矩阵 $\mathbf{A}^{\top}\mathbf{A}$ 是[第 1 章第 10.4 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/transponierte-symmetrie-und-gram-matrix.html#stufe-10-4)中各列的格拉姆矩阵；它是方阵，行数与未知数个数相同。一个有 $m$ 个方程的、无解的大方程组，变成了一个只有 $n$ 个方程的小方程组。对于单独一列 $\mathbf{a}$，它就是 $\mathbf{a}^{\top}\mathbf{a}\,\hat x=\mathbf{a}^{\top}\mathbf{y}$，即上一节的公式。
 
 ::::beispiel [算例]
 对于 $\mathbf{H}$ 和 $\mathbf{y}=(1,\,1,\,1)^{\top}$，
@@ -163,10 +164,10 @@ $$\hat{\mathbf{x}}=(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top}\mathbf{y}
 :::
 
 :::beweis 可逆性
-由[基础篇 1 第 13.5 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-5)，方阵 $\mathbf{A}^{\top}\mathbf{A}$ 可逆，当且仅当它的零空间只含零向量。设 $\mathbf{A}^{\top}\mathbf{A}\mathbf{z}=\mathbf{0}$。那么也有 $\mathbf{z}^{\top}\mathbf{A}^{\top}\mathbf{A}\mathbf{z}=0$，即 $\lVert\mathbf{A}\mathbf{z}\rVert^2=0$，从而 $\mathbf{A}\mathbf{z}=\mathbf{0}$。反之，由 $\mathbf{A}\mathbf{z}=\mathbf{0}$ 立即得到 $\mathbf{A}^{\top}\mathbf{A}\mathbf{z}=\mathbf{0}$。所以两个零空间相等。$\mathbf{A}$ 的零空间只含零向量，当且仅当 $\mathbf{A}$ 的列线性无关。
+由[第 1 章第 13.5 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-5)，方阵 $\mathbf{A}^{\top}\mathbf{A}$ 可逆，当且仅当它的零空间只含零向量。设 $\mathbf{A}^{\top}\mathbf{A}\mathbf{z}=\mathbf{0}$。那么也有 $\mathbf{z}^{\top}\mathbf{A}^{\top}\mathbf{A}\mathbf{z}=0$，即 $\lVert\mathbf{A}\mathbf{z}\rVert^2=0$，从而 $\mathbf{A}\mathbf{z}=\mathbf{0}$。反之，由 $\mathbf{A}\mathbf{z}=\mathbf{0}$ 立即得到 $\mathbf{A}^{\top}\mathbf{A}\mathbf{z}=\mathbf{0}$。所以两个零空间相等。$\mathbf{A}$ 的零空间只含零向量，当且仅当 $\mathbf{A}$ 的列线性无关。
 :::
 
-如果各列线性相关，最佳近似解就有无穷多个。可以给其中一个加上 $\mathbf{A}$ 零空间中的任意向量，而不改变 $\mathbf{A}\hat{\mathbf{x}}$。不过，正如上一小节的定理所示，最近点 $\hat{\mathbf{y}}$ 仍是唯一的。这与[基础篇 1 第 13.6 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-6)相符：相关的特征使权重不唯一，但不会使预测值不唯一。
+如果各列线性相关，最佳近似解就有无穷多个。可以给其中一个加上 $\mathbf{A}$ 零空间中的任意向量，而不改变 $\mathbf{A}\hat{\mathbf{x}}$。不过，正如上一小节的定理所示，最近点 $\hat{\mathbf{y}}$ 仍是唯一的。这与[第 1 章第 13.6 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-6)相符：相关的特征使权重不唯一，但不会使预测值不唯一。
 
 ::::beispiel [算例 1]
 $\mathbf{H}$ 的列线性无关，$\mathbf{H}^{\top}\mathbf{H}=\bigl(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\bigr)$ 的逆矩阵为 $\tfrac13\bigl(\begin{smallmatrix}2&-1\\-1&2\end{smallmatrix}\bigr)$。由式 [(3.5)](#gl-3-5)，$\hat{\mathbf{x}}=\tfrac13\bigl(\begin{smallmatrix}2&-1\\-1&2\end{smallmatrix}\bigr)(2,\,2)^{\top}=(\tfrac23,\,\tfrac23)^{\top}$，与上面相同。
@@ -184,7 +185,7 @@ $\mathbf{H}$ 的列线性无关，$\mathbf{H}^{\top}\mathbf{H}=\bigl(\begin{smal
 
 现在理论已经完整，可以用于一个日常任务了。三个测量点 $(t,\,y)=(0,\,1)$、$(1,\,2)$ 和 $(2,\,4)$ 要用一条直线 $y=x_1+x_2\,t$ 来描述。这三个点不在同一条直线上。我们要找最合适的截距 $x_1$ 和斜率 $x_2$。
 
-每个测量点给出一个方程 $x_1+x_2\,t_i=y_i$。像[基础篇 1 第 8.5 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-5)那样，用全 1 列表示截距，就得到方程组
+每个测量点给出一个方程 $x_1+x_2\,t_i=y_i$。像[第 1 章第 8.5 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-5)那样，用全 1 列表示截距，就得到方程组
 
 $$\mathbf{A}\mathbf{x}=\mathbf{y}\qquad\text{其中}\qquad \mathbf{A}=\begin{pmatrix}1&0\\1&1\\1&2\end{pmatrix},\qquad \mathbf{y}=\begin{pmatrix}1\\2\\4\end{pmatrix}.$$
 
@@ -210,11 +211,11 @@ $$\mathbf{A}^{\top}\mathbf{A}=\begin{pmatrix}3&3\\3&5\end{pmatrix},\qquad \mathb
 
 ⁠**简而言之：**最小二乘直线是“所有测量点都在直线上”这一方程组的最佳近似解；有全 1 列时，它的残差之和为零。
 
-:::hintergrund 尽可能好地重现信号的滤波器
-设计数字滤波器时用的也是同样的计算。一个系数为 $h_0,\dots,h_{K-1}$ 的滤波器，要从输入信号 $x[n]$ 出发，以输出 $\sum_kh_k\,x[n-k]$ 尽可能好地重现期望信号 $d[n]$。对每个时间步 $n$，这都是关于 $K$ 个未知数 $h_k$ 的一个方程，所以对许多时间步而言，就是一个超定方程组 $\mathbf{X}\mathbf h=\mathbf d$。$\mathbf{X}$ 的第 $n$ 行包含 $x[n],x[n-1],\dots,x[n-K+1]$。在正规方程 $\mathbf{X}^{\top}\mathbf{X}\mathbf h=\mathbf{X}^{\top}\mathbf d$ 中，$\mathbf{X}^{\top}\mathbf{X}$ 的元素 $(k,l)$ 是和 $\sum_nx[n-k]\,x[n-l]$，除去信号首尾的边缘效应，它就是 $x$ 在延迟 $l-k$ 处的自相关。向量 $\mathbf{X}^{\top}\mathbf d$ 包含 $d$ 与 $x$ 的互相关。这些恰好是[基础篇 1 第 2.4 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-skalarprodukt.html#stufe-2-4)中平移信号的点积。由式 [(3.3)](#gl-3-3)，最佳滤波器的残差 $d[n]-\sum_kh_k\,x[n-k]$ 垂直于每个平移后的输入信号：滤波器无法重现的部分，与它用来组合输出的任何一个信号都毫无共同之处。
+:::hintergrund 由一个序列尽可能好地重现另一个序列
+同样的计算可以为数字序列建立预测规则。一个露天泳池想根据第 $n$ 天及之前几天的游客人数 $x[n]$，尽可能好地重现第 $n$ 天的冰淇淋销量 $d[n]$，所用规则为 $\sum_kh_k\,x[n-k]$，权重为 $h_0,\dots,h_{K-1}$。对每一天 $n$，这都是关于 $K$ 个未知数 $h_k$ 的一个方程，所以对许多天而言，就是一个超定方程组 $\mathbf{X}\mathbf h=\mathbf d$。$\mathbf{X}$ 的第 $n$ 行包含 $x[n],x[n-1],\dots,x[n-K+1]$。在正规方程 $\mathbf{X}^{\top}\mathbf{X}\mathbf h=\mathbf{X}^{\top}\mathbf d$ 中，$\mathbf{X}^{\top}\mathbf{X}$ 的元素 $(k,l)$ 是和 $\sum_nx[n-k]\,x[n-l]$，除去序列首尾的边缘效应，它就是 $x$ 与自身在延迟 $l-k$ 处的互相关，即自相关。向量 $\mathbf{X}^{\top}\mathbf d$ 包含 $d$ 与 $x$ 的互相关。这些恰好是[第 1 章第 2.4 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-skalarprodukt.html#stufe-2-4)中平移序列的点积。由式 [(3.3)](#gl-3-3)，最佳规则的残差 $d[n]-\sum_kh_k\,x[n-k]$ 垂直于每个平移后的游客序列：规则无法重现的部分，与它用来组合预测的任何一个序列都毫无共同之处。
 :::
 
-### 公寓：基础篇 1 留下的问题
+### 公寓：第 1 章留下的问题
 
 <span class="anker" id="stufe-3-7"></span>
 
@@ -231,7 +232,7 @@ $$\mathbf{A}^{\top}\mathbf{A}=\begin{pmatrix}18\,200&730\\730&30\end{pmatrix},\q
 公寓问题的正规方程中的两个元素作为点积：$\mathbf{a}_1=(60,40,90,70)^{\top}$ 是面积列，$\mathbf{a}_2=(2,1,4,3)^{\top}$ 是房间数列，$\mathbf{y}=(200,130,290,240)^{\top}$ 是价格向量。
 :::
 
-两列线性无关；行列式为 $18\,200\cdot30-730^2=13\,100$。用[基础篇 1 第 11.3 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/einheitsmatrix-und-inverse.html#stufe-11-3)中的逆矩阵，
+两列线性无关；行列式为 $18\,200\cdot30-730^2=13\,100$。用[第 1 章第 11.3 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/einheitsmatrix-und-inverse.html#stufe-11-3)中的逆矩阵，
 
 $$\hat{\mathbf{w}}=\frac1{13\,100}\begin{pmatrix}30&-730\\-730&18\,200\end{pmatrix}\begin{pmatrix}60\,100\\2\,410\end{pmatrix}=\frac1{13\,100}\begin{pmatrix}43\,700\\-11\,000\end{pmatrix}=\begin{pmatrix}437/131\\-110/131\end{pmatrix}\approx\begin{pmatrix}3.336\\-0.840\end{pmatrix}.$$
 
@@ -239,13 +240,13 @@ $$\hat{\mathbf{w}}=\frac1{13\,100}\begin{pmatrix}30&-730\\-730&18\,200\end{pmatr
 
 $$\mathbf{r}=\mathbf{y}-\mathbf{A}\hat{\mathbf{w}}=\frac{20}{131}\,(10,\,-17,\,-45,\,59)^{\top}\approx(1.53,\ -2.60,\ -6.87,\ 9.01)^{\top}$$
 
-长度为 $\lVert\mathbf{r}\rVert\approx11.72$。[基础篇 1](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html) 中的权重 $(3,\,10)^{\top}$ 恰好命中三个价格，但留下长度为 $20$ 的残差。最佳近似解一个价格也没有恰好命中，但总体偏差要小得多。验算：$\mathbf{A}^{\top}\mathbf{r}=\frac{20}{131}(600-680-4050+4130,\ 20-17-180+177)^{\top}=\mathbf{0}$。
+长度为 $\lVert\mathbf{r}\rVert\approx11.72$。[第 1 章](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html)中的权重 $(3,\,10)^{\top}$ 恰好命中三个价格，但留下长度为 $20$ 的残差。最佳近似解一个价格也没有恰好命中，但总体偏差要小得多。验算：$\mathbf{A}^{\top}\mathbf{r}=\frac{20}{131}(600-680-4050+4130,\ 20-17-180+177)^{\top}=\mathbf{0}$。
 ::::
 
 ⁠**简而言之：**公寓问题的最佳近似解是权重向量 $\hat{\mathbf{w}}\approx(3.336,\ -0.840)^{\top}$；它的残差长度为 $11.72$，比任何恰好命中三个价格的解的残差都短得多。
 
 :::hintergrund 为什么房间数的权重是负的
-房间数的权重为负，乍看起来不对：房间多了，价格不应该降低。然而计算是正确的，原因在于数据。在这四套公寓中，面积和房间数同步增长：公寓越大，房间越多。因此 $\mathbf{A}$ 的两列几乎指向同一方向；由[基础篇 1 第 5.2 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/winkel-und-ahnlichkeit.html#stufe-5-2)，它们夹角的余弦为 $730/\sqrt{18\,200\cdot30}\approx0.988$，所以夹角只有约 $8.9^\circ$。最佳组合取了大量的面积列，再减去少量的房间数列，以补偿各套公寓偏离共同比例的部分。在面积相同的情况下，这里房间更多意味着房间更小，这确实可能使价格降低；但仅凭四套公寓无法表明这是否属实。正如[基础篇 1 第 13.6 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-6)所说：当各特征携带的信息几乎相同时，单个权重说明不了多少，而预测值却很能说明问题。
+房间数的权重为负，乍看起来不对：房间多了，价格不应该降低。然而计算是正确的，原因在于数据。在这四套公寓中，面积和房间数同步增长：公寓越大，房间越多。因此 $\mathbf{A}$ 的两列几乎指向同一方向；由[第 1 章第 5.2 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/winkel-und-ahnlichkeit.html#stufe-5-2)，它们夹角的余弦为 $730/\sqrt{18\,200\cdot30}\approx0.988$，所以夹角只有约 $8.9^\circ$。最佳组合取了大量的面积列，再减去少量的房间数列，以补偿各套公寓偏离共同比例的部分。在面积相同的情况下，这里房间更多意味着房间更小，这确实可能使价格降低；但仅凭四套公寓无法表明这是否属实。正如[第 1 章第 13.6 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-6)所说：当各特征携带的信息几乎相同时，单个权重说明不了多少，而预测值却很能说明问题。
 :::
 
 :::aufgabe 练习 7 ★ 手算正规方程

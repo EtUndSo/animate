@@ -3,8 +3,8 @@
 Szenenname prog/k3<name> = \\label{fig:k3<name>} im Heft. Stil wie tools/szenen/prog_teil2.py (Kästen, Pfeile, Code mit s.formel).
 Bauen:  python tools/szenen/prog_teil3.py
 Export: python tools/export_szenen.py prog/k3if prog/k3block prog/k3elif prog/k3while prog/k3range prog/k3rquadrate
-            prog/k3rmittel prog/k3bisektion prog/k3newton prog/k3fehler prog/k3diode   (jedes Bild höchstens 548 px breit)
-Rechenbilder: k3rquadrate mit s.summe ("i^2", 1 bis 5), k3rmittel mit s.formel (Messwerte mit Einheit, Index k).
+            prog/k3rmittel prog/k3bisektion prog/k3newton prog/k3fehler prog/k3kredit   (jedes Bild höchstens 548 px breit)
+Rechenbilder: k3rquadrate mit s.summe ("i^2", 1 bis 5), k3rmittel mit s.formel (vier Temperaturen in °C, Index k).
 Code steht in s.formel als \\texttt{...}; dort bleibt der Dezimalpunkt (5.25) in allen Sprachen erhalten.
 Die Zahlen prüft C:\\Bücher\\EtUndSo\\Programmieren\\Arbeitshefte\\rechnung_kap3.py.
 """
@@ -55,18 +55,17 @@ def k3if():
     """Flussdiagramme: links if, rechts if mit else."""
     s = Szene("prog/k3if")
     ja, nein = ja_nein(s)
-    lesen = s.tr("lesen", "u einlesen", "read u", "leer u", "读取 u", fr="lire u", tr="u'yu oku")
+    lesen = s.tr("lesen", "temp einlesen", "read temp", "leer temp", "读取 temp", fr="lire temp", tr="temp'i oku")
     warn = s.tr("warn", "Warnung\nausgeben", "print\nwarning", "mostrar\naviso", "输出\n警告", fr="afficher\nl’alerte",
                 tr="uyarı\nyazdır")
-    ende = s.tr("ende", "„Messung beendet“", "“measurement done”", "«medición terminada»", "“测量结束”",
-                fr="« mesure terminée »", tr="„ölçüm bitti“")
+    ende = s.tr("ende", "„fertig“", "“done”", "«listo»", "“完成”", fr="« terminé »", tr="„bitti“")
     ok = s.tr("ok", "„in Ordnung“", "“OK”", "«en orden»", "“正常”", fr="« correct »", tr="„uygun“")
     s.formel(r"\texttt{if}", mitte=(-2.15, 2.65), hoehe=0.17)
     s.formel(r"\texttt{if}\ \text{+}\ \texttt{else}", mitte=(1.6, 2.65), hoehe=0.2)
     # links: if
     x = -2.15
     kasten(s, (x, 2.0), 1.6, 0.48, lesen)
-    raute(s, (x, 0.85), 1.75, 0.95, r"\texttt{u > 5.25}?")
+    raute(s, (x, 0.85), 1.75, 0.95, r"\texttt{temp > 23}?")
     kasten(s, (x, -0.55), 1.6, 0.72, warn)
     kasten(s, (x, -1.75), 2.2, 0.48, ende)
     pf(s, (x, 1.76), (x, 1.33))
@@ -80,7 +79,7 @@ def k3if():
     # rechts: if und else
     x = 1.6
     kasten(s, (x, 2.0), 1.6, 0.48, lesen)
-    raute(s, (x, 0.85), 1.75, 0.95, r"\texttt{u > 5.25}?")
+    raute(s, (x, 0.85), 1.75, 0.95, r"\texttt{temp > 23}?")
     kasten(s, (x - 1.15, -0.55), 1.35, 0.72, warn)
     kasten(s, (x + 1.15, -0.55), 1.35, 0.72, ok)
     kasten(s, (x, -1.75), 2.2, 0.48, ende)
@@ -97,13 +96,13 @@ def k3if():
 def k3block():
     """Einen Block erkennt man an der Einrückung: Kopfzeile, eingerückter Block, wieder links."""
     s = Szene("prog/k3block")
-    xc, yc, h = -1.65, 0.0, 1.6                     # Mitte und Höhe der Codezeilen
+    xc, yc, h = -1.6, 0.0, 1.5                      # Mitte und Höhe der Codezeilen
     zeile = h / 5                                    # Abstand der Zeilen
     s.box("", (-1.45, yc - 0.5 * zeile), breite=4.2, hoehe=2 * zeile, form="rect", farbe=BLAU, fuellung=BLAU_HELL,
           deckung=1, dicke=0)
-    s.formel(r'\begin{array}{l}\texttt{u = float(input("Spannung in V: "))}\\\texttt{if u > 5.25:}\\'
-             r'\hspace{2em}\texttt{zuviel = u - 5.25}\\\hspace{2em}\texttt{print(f"Achtung: ... zu hoch")}\\'
-             r'\texttt{print("Messung beendet")}\end{array}', mitte=(xc, yc), hoehe=h)
+    s.formel(r'\begin{array}{l}\texttt{temp = float(input("Temperatur ..."))}\\\texttt{if temp > 23:}\\'
+             r'\hspace{2em}\texttt{zuviel = temp - 23}\\\hspace{2em}\texttt{print(f"Achtung: ... zu warm")}\\'
+             r'\texttt{print("fertig")}\end{array}', mitte=(xc, yc), hoehe=h)
     kopf = s.tr("kopf", "Kopfzeile mit Doppelpunkt", "header line with colon", "cabecera con dos puntos",
                 "带冒号的首行", fr="en-tête avec deux-points", tr="iki nokta üst üsteli başlık")
     block = s.tr("block", "Block: läuft nur,\nwenn die Bedingung\nwahr ist", "block: runs only\nif the condition\nis true",
@@ -127,16 +126,16 @@ def k3elif():
     """Flussdiagramm von if, elif und else."""
     s = Szene("prog/k3elif")
     ja, nein = ja_nein(s)
-    lesen = s.tr("lesen", "u einlesen", "read u", "leer u", "读取 u", fr="lire u", tr="u'yu oku")
-    niedrig = s.tr("niedrig", "„zu niedrig“", "“too low”", "«demasiado baja»", "“过低”", fr="« trop basse »", tr="„çok düşük“")
+    lesen = s.tr("lesen", "temp einlesen", "read temp", "leer temp", "读取 temp", fr="lire temp", tr="temp'i oku")
+    niedrig = s.tr("niedrig", "„zu kalt“", "“too cold”", "«demasiado frío»", "“太冷”", fr="« trop froid »", tr="„çok soğuk“")
     ok = s.tr("ok", "„in Ordnung“", "“OK”", "«en orden»", "“正常”", fr="« correct »", tr="„uygun“")
-    hoch = s.tr("hoch", "„zu hoch“", "“too high”", "«demasiado alta»", "“过高”", fr="« trop haute »", tr="„çok yüksek“")
+    hoch = s.tr("hoch", "„zu warm“", "“too warm”", "«demasiado calor»", "“太热”", fr="« trop chaud »", tr="„çok sıcak“")
     weiter = s.tr("weiter", "weiter nach dem letzten Block", "continue after the last block", "seguir tras el último bloque",
                   "在最后一个代码块之后继续", fr="suite après le dernier bloc", tr="son bloktan sonra devam")
     x, xr, xj = -1.4, 1.75, 3.05
     kasten(s, (x, 2.55), 1.6, 0.46, lesen)
-    raute(s, (x, 1.4), 1.9, 0.95, r"\texttt{u < 4.75}?")
-    raute(s, (x, -0.1), 1.9, 0.95, r"\texttt{u <= 5.25}?")
+    raute(s, (x, 1.4), 1.9, 0.95, r"\texttt{temp < 20}?")
+    raute(s, (x, -0.1), 1.9, 0.95, r"\texttt{temp <= 23}?")
     kasten(s, (xr, 1.4), 1.9, 0.46, niedrig)
     kasten(s, (xr, -0.1), 1.9, 0.46, ok)
     kasten(s, (x, -1.35), 1.6, 0.46, hoch)
@@ -221,11 +220,11 @@ def k3rquadrate():
 
 
 def k3rmittel():
-    """Mittelwert der vier Messwerte aus mittelwert.py."""
+    """Mittelwert der vier Temperaturen aus mittelwert.py."""
     s = Szene("prog/k3rmittel")
-    s.formel(r"\begin{aligned}\bar U=\frac14\sum_{k=1}^{4}U_k&=\frac14\,(U_1+U_2+U_3+U_4)\\"
-             r"&=\frac14\,(4.98\,\mathrm V+5.02\,\mathrm V+5.01\,\mathrm V+4.99\,\mathrm V)\\"
-             r"&=\frac14\cdot 20.00\,\mathrm V\\&=5.00\,\mathrm V\end{aligned}", mitte=(0, 0), hoehe=2.2)
+    s.formel(r"\begin{aligned}\bar x=\frac14\sum_{k=1}^{4}x_k&=\frac14\,(x_1+x_2+x_3+x_4)\\"
+             r"&=\frac14\,(18.4+21.2+19.7+20.7)\,{}^\circ\mathrm C\\"
+             r"&=\frac14\cdot 80.0\,{}^\circ\mathrm C\\&=20.0\,{}^\circ\mathrm C\end{aligned}", mitte=(0, 0), hoehe=2.2)
     s.speichern()
 
 
@@ -320,26 +319,30 @@ def k3fehler():
 
 
 # ------------------------------------------------------------------ Abschnitt 9
-def k3diode():
-    """Diodenkennlinie und Arbeitsgerade, Schnittpunkt = Arbeitspunkt."""
-    s = Szene("prog/k3diode")
-    xl = s.tr("uachse", "U in V", "U in V", "U en V", "U / V", fr="U en V", tr="U (V)")
-    yl = s.tr("iachse", "Strom in mA", "current in mA", "corriente en mA", "电流 / mA", fr="courant en mA", tr="akım (mA)")
-    a = s.achsen((0.4, 0.66, 0.05), (0, 10, 2), breite=5.6, hoehe=3.4, mitte=(0.4, 0.1), xl=xl, yl=yl, gitter=True, rahmen=True)
-    s.kurve(a, "1e-9*(exp(x/0.02585)-1)", x=(0.4, 0.603), farbe=BLAU, dicke=5)
-    s.kurve(a, "5-x", x=(0.4, 0.66), farbe=ORANGE, dicke=5)
-    s.punkt(a, 0.574147, 4.425853, r=0.08)
-    ap = s.tr("ap", "Arbeitspunkt 0.574 V, 4.43 mA", "operating point 0.574 V, 4.43 mA", "punto de trabajo 0.574 V, 4.43 mA",
-              "工作点 0.574 V，4.43 mA", fr="point de fonctionnement 0.574 V, 4.43 mA", tr="çalışma noktası 0.574 V, 4.43 mA")
-    s.text(a, ap, (0.566, 5.4), KLEIN, "right")
-    diode = s.tr("l_diode", "Diode I_D", "diode I_D", "diodo I_D", "二极管 I_D", fr="diode I_D", tr="diyot I_D")
-    wid = s.tr("l_wid", "Widerstand I_R = (U₀ − U)/R", "resistor I_R = (U₀ − U)/R", "resistencia I_R = (U₀ − U)/R",
-               "电阻 I_R = (U₀ − U)/R", fr="résistance I_R = (U₀ − U)/R", tr="direnç I_R = (U₀ − U)/R")
-    s.legende(a, [(diode, BLAU, "-"), (wid, ORANGE, "-")], (0.41, 9.3), groesse=KLEIN)
+def k3kredit():
+    """Monatsrate über dem Monatszins (Annuitätenformel) und verlangte Rate 400 Euro, Schnittpunkt = gesuchter Zins."""
+    s = Szene("prog/k3kredit")
+    xl = s.tr("zachse", "Monatszins r in %", "monthly rate r in %", "interés mensual r en %", "月利率 r（%）",
+              fr="taux mensuel r en %", tr="aylık faiz r (%)")
+    yl = s.tr("rachse", "Monatsrate in Euro", "monthly payment in euros", "cuota mensual en euros", "月供（欧元）",
+              fr="mensualité en euros", tr="aylık taksit (avro)")
+    a = s.achsen((0.1, 1.1, 0.2), (330, 470, 20), breite=5.6, hoehe=3.4, mitte=(0.4, 0.1), xl=xl, yl=yl, gitter=True, rahmen=True,
+                 xticks="0.2;0.4;0.6;0.8;1", yticks="340;360;380;400;420;440;460")
+    s.kurve(a, "20000*(x/100)/(1-(1+x/100)^(-60))", x=(0.1, 1.1), farbe=BLAU, dicke=5)
+    s.kurve(a, "400", x=(0.1, 1.1), farbe=ORANGE, dicke=5)
+    s.punkt(a, 0.618341, 400, r=0.08)
+    zins = s.tr("zins", "gesuchter Zins 0.618 %", "rate sought 0.618 %", "interés buscado 0.618 %", "所求利率 0.618 %",
+                fr="taux cherché 0.618 %", tr="aranan faiz 0.618 %")
+    s.text(a, zins, (0.64, 388), KLEIN, "left")
+    rate = s.tr("l_rate", "Rate zum Zins r", "payment for rate r", "cuota para el interés r", "利率 r 对应的月供",
+                fr="mensualité pour le taux r", tr="r faizine göre taksit")
+    verlangt = s.tr("l_verlangt", "verlangte Rate 400 Euro", "required payment 400 euros", "cuota exigida 400 euros",
+                    "要求的月供 400 欧元", fr="mensualité demandée 400 euros", tr="istenen taksit 400 avro")
+    s.legende(a, [(rate, BLAU, "-"), (verlangt, ORANGE, "-")], (0.13, 462), groesse=KLEIN)
     s.speichern()
 
 
-SZENEN = (k3if, k3block, k3elif, k3while, k3range, k3rquadrate, k3rmittel, k3bisektion, k3newton, k3fehler, k3diode)
+SZENEN = (k3if, k3block, k3elif, k3while, k3range, k3rquadrate, k3rmittel, k3bisektion, k3newton, k3fehler, k3kredit)
 
 for f in SZENEN:
     f()

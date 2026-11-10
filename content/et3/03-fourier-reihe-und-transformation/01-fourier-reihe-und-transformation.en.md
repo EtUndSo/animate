@@ -1,7 +1,9 @@
 ---
 title: Overview: Fourier Series and the Fourier Transform
 kurz: Overview
-pfad: Electrical Engineering / 3rd Semester / Signals and Systems / Fourier Series and Transform
+pfad: Electrical Engineering / 3rd Semester / ET3 – Fundamentals of Electrical Engineering 3: Signals and Systems / Fourier Series and Transform
+adresse: elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation
+knoten: Chapter 3: Fourier Series and Transform
 order: 3230100
 summary: Every signal as a superposition of oscillations
 tags: spectrum
@@ -10,7 +12,7 @@ lang: en
 
 ## What this is about
 
-[Part 2](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html) showed that every signal is a superposition of building blocks $\mathrm{e}^{pt}$, and that an LTI system merely multiplies each building block by a number. The Fourier description uses only the building blocks on the imaginary axis, $p=\mathrm{j}2\pi f$: pure oscillations $\mathrm{e}^{\mathrm{j}2\pi ft}$ that neither grow nor decay. This has a big advantage. An oscillation has a frequency that you can hear, measure and filter. The __spectrum__ $S(f)$ tells you with which amplitude and phase each frequency is contained in the signal.
+[Chapter 2](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html) showed that every signal is a superposition of building blocks $\mathrm{e}^{pt}$, and that an LTI system merely multiplies each building block by a number. The Fourier description uses only the building blocks on the imaginary axis, $p=\mathrm{j}2\pi f$: pure oscillations $\mathrm{e}^{\mathrm{j}2\pi ft}$ that neither grow nor decay. This has a big advantage. An oscillation has a frequency that you can hear, measure and filter. The __spectrum__ $S(f)$ tells you with which amplitude and phase each frequency is contained in the signal.
 
 
 

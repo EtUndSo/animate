@@ -1,8 +1,10 @@
 ---
 title: Stufe 7: Wann ein Feld eine Rotation ist
-pfad: Elektrotechnik / 3. Semester / Höhere Mathematik 3 / Integralsätze im Raum
+pfad: Elektrotechnik / 3. Semester / HöMa3 – Höhere Mathematik 3 / Integralsätze im Raum
+adresse: elektrotechnik/3-semester/hohere-mathematik-3/integralsatze-im-raum
+knoten: Kapitel 5: Integralsätze im Raum
 order: 3150800
-summary: Aus Teil 3 weißt du, wann ein Feld ein Gradient ist.
+summary: Aus Kapitel 3 weißt du, wann ein Feld ein Gradient ist.
 tags: Rotationsfeld, Vektorpotential
 lang: de
 ---
@@ -10,7 +12,7 @@ lang: de
 <span class="anker" id="stufe-7"></span>
 
 :::zweck
-Aus [Teil 3](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/kurvenintegrale/kurvenintegrale.html) weißt du, wann ein Feld ein Gradient ist. Die entsprechende Frage für Rotationen führt auf eine andere Art von Loch im Gebiet.
+Aus [Kapitel 3](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/kurvenintegrale/kurvenintegrale.html) weißt du, wann ein Feld ein Gradient ist. Die entsprechende Frage für Rotationen führt auf eine andere Art von Loch im Gebiet.
 :::
 
 **Die Idee.** Ein Feld $\boldsymbol{F}$ heißt __Rotationsfeld__, wenn $\boldsymbol{F}=\operatorname{rot}\boldsymbol{A}$ für ein __Vektorpotential__ $\boldsymbol{A}$ gilt. Dann ist zwingend $\operatorname{div}\boldsymbol{F}=0$, denn $\operatorname{div}\operatorname{rot}=0$. Die Umkehrung gilt nicht überall. Beim Gradienten stört ein Loch, um das eine geschlossene *Kurve* läuft. Bei der Rotation stört ein Loch, das von einer geschlossenen *Fläche* eingeschlossen wird (Abb. [6](#abb-6)).

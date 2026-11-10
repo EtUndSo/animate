@@ -1,6 +1,8 @@
 ---
 title: Stage 5: Discrete-time signals and discrete convolution
-pfad: Electrical Engineering / 3rd Semester / Signals and Systems / Sampling and Discrete-Time Systems
+pfad: Electrical Engineering / 3rd Semester / ET3 – Fundamentals of Electrical Engineering 3: Signals and Systems / Sampling and Discrete-Time Systems
+adresse: elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme
+knoten: Chapter 4: Sampling and Discrete-Time Systems
 order: 3240600
 summary: From now on, all calculations use only the sequences of numbers s(n) .
 tags: discrete convolution, unit impulse, shift-invariant, LSI system, impulse response, difference, accumulation, FIR filter
@@ -13,7 +15,7 @@ lang: en
 From now on, all calculations use only the sequences of numbers $s(n)$. This stage carries convolution, elementary signals and LTI systems over to sequences.
 :::
 
-**Convolution of the samples.** If the input $s$ and the impulse response $h$ of a system are low-pass signals and sampling is at the Nyquist rate, each can be written as an si series [(3.3)](abtasttheorem-und-ruckgewinnung.html#gl-3-3). Because $\operatorname{si}(\pi t/T)*\operatorname{si}(\pi t/T)=T\operatorname{si}(\pi t/T)$ ([Part 3](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)), the samples of the output follow from the samples alone:
+**Convolution of the samples.** If the input $s$ and the impulse response $h$ of a system are low-pass signals and sampling is at the Nyquist rate, each can be written as an si series [(3.3)](abtasttheorem-und-ruckgewinnung.html#gl-3-3). Because $\operatorname{si}(\pi t/T)*\operatorname{si}(\pi t/T)=T\operatorname{si}(\pi t/T)$ ([Chapter 3](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)), the samples of the output follow from the samples alone:
 
 $$g(nT)=T\sum_{m=-\infty}^{\infty}s(mT)\,h\bigl((n-m)T\bigr).$$
 
@@ -28,7 +30,7 @@ $$\delta(n)=\begin{cases}1&n=0\\0&n\neq0\end{cases},\qquad \varepsilon(n)=\sum_{
 
 The __unit impulse__ $\delta(n)$ is an ordinary sequence, not a distribution: it has the value 1 at $n=0$. It is the identity element of discrete convolution, $s(n)*\delta(n)=s(n)$. A rectangle of $2M+1$ ones around $n=0$ is $\varepsilon(n+M)-\varepsilon(n-M-1)$.
 
-**Linear and shift-invariant.** A discrete-time system is called linear if the superposition principle holds, and __shift-invariant__ if $\operatorname{Tr}\{s(n-m)\}=g(n-m)$ for every integer $m$. A system with both properties is called an __LSI system__. With the __impulse response__ $h(n)=\operatorname{Tr}\{\delta(n)\}$ it follows, as in [Part 1](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html), that
+**Linear and shift-invariant.** A discrete-time system is called linear if the superposition principle holds, and __shift-invariant__ if $\operatorname{Tr}\{s(n-m)\}=g(n-m)$ for every integer $m$. A system with both properties is called an __LSI system__. With the __impulse response__ $h(n)=\operatorname{Tr}\{\delta(n)\}$ it follows, as in [Chapter 1](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html), that
 
 $$g(n)=\operatorname{Tr}\Bigl\{\sum_ms(m)\delta(n-m)\Bigr\}=\sum_ms(m)\operatorname{Tr}\{\delta(n-m)\}=\sum_ms(m)\,h(n-m).$$
 

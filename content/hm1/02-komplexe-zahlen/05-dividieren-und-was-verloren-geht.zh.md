@@ -1,6 +1,8 @@
 ---
 title: 第 4 阶段：除法，以及失去了什么
-pfad: 电气工程 / 第 1 学期 / 高等数学 1 / 复数
+pfad: 电气工程 / 第 1 学期 / HöMa1 – 高等数学 1 / 复数
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen
+knoten: 第 2 章：复数
 order: 1220500
 summary: 第 3 阶段给出了一个实数乘积。本阶段由此得到除法，证明 mathbb C 是一个域，并解释为什么没有序。
 tags: 
@@ -49,10 +51,10 @@ $$\frac{z_1}{z_2}=\frac{(3+\mathrm{i})(1-2\mathrm{i})}{(1+2\mathrm{i})(1-2\mathr
 :::satz 定理 4.2 ($\mathbb{C}$ 是域)
 <span class="anker" id="satz-4-2"></span>
 
-$\mathbb{C}$ 连同 $+$ 和 $\cdot$ 满足[第 1 部分](/wissen/zh/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html)的所有域公理：交换律、结合律和分配律，中性元 $0\ne1$，每个 $z$ 有相反数 $-z$，每个 $z\ne0$ 有倒数 $1/z$。
+$\mathbb{C}$ 连同 $+$ 和 $\cdot$ 满足[第 1 章](/wissen/zh/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html)的所有域公理：交换律、结合律和分配律，中性元 $0\ne1$，每个 $z$ 有相反数 $-z$，每个 $z\ne0$ 有倒数 $1/z$。
 :::
 
-⁠**如何理解：**[第 1 部分](/wissen/zh/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html)中仅由域公理得出的结论在 $\mathbb{C}$ 中同样成立：分数运算、二项式公式，以及由 $zw=0$ 推出 $z=0$ 或 $w=0$。
+⁠**如何理解：**[第 1 章](/wissen/zh/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html)中仅由域公理得出的结论在 $\mathbb{C}$ 中同样成立：分数运算、二项式公式，以及由 $zw=0$ 推出 $z=0$ 或 $w=0$。
 
 :::beweis 思路
 加法分别进行，从 $\mathbb{R}$ 继承全部法则，其中 $-z=-x-\mathrm{i}y$。式 [(1.2)](paare-statt-einzelner-zahlen.html#gl-1-2) 在交换下标 1 和 2 时不变：乘法是可交换的。结合律和分配律通过按式 [(1.2)](paare-statt-einzelner-zahlen.html#gl-1-2) 计算等式两边来证明。$(1,0)\odot(x,y)=(x,y)$ 说明单位元，式 [(4.1)](#gl-4-1) 说明公理 (M4)，即倒数。
@@ -61,7 +63,7 @@ $\mathbb{C}$ 连同 $+$ 和 $\cdot$ 满足[第 1 部分](/wissen/zh/elektrotechn
 :::satz 定理 4.3 ($\mathbb{C}$ 不是有序的)
 <span class="anker" id="satz-4-3"></span>
 
-$\mathbb{C}$ 上不存在满足[第 1 部分](/wissen/zh/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html)序公理的关系“$>0$”：(T1) 对每个 $x$，$x>0$、$x=0$、$-x>0$ 中恰有一个成立。(T2) 由 $x>0$ 和 $y>0$ 推出 $x+y>0$。(T3) 由 $x>0$ 和 $y>0$ 推出 $x\cdot y>0$。
+$\mathbb{C}$ 上不存在满足[第 1 章](/wissen/zh/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html)序公理的关系“$>0$”：(T1) 对每个 $x$，$x>0$、$x=0$、$-x>0$ 中恰有一个成立。(T2) 由 $x>0$ 和 $y>0$ 推出 $x+y>0$。(T3) 由 $x>0$ 和 $y>0$ 推出 $x\cdot y>0$。
 :::
 
 ⁠**如何理解：**对非实数，$z<w$ 和 $z>0$ 没有意义。只能比较 $\operatorname{Re}(z)$ 或 $|z|$ 这样的实数量。

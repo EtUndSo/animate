@@ -1,6 +1,8 @@
 ---
 title: Stufe 4: Vom periodischen zum einmaligen Signal
-pfad: Elektrotechnik / 3. Semester / Signale und Systeme / Fourier-Reihe und -Transformation
+pfad: Elektrotechnik / 3. Semester / ET3 – Grundgebiete der Elektrotechnik 3: Signale und Systeme / Fourier-Reihe und -Transformation
+adresse: elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation
+knoten: Kapitel 3: Fourier-Reihe und -Transformation
 order: 3230500
 summary: Ein einzelner Impuls ist nicht periodisch.
 tags: Spektraldichte
@@ -32,16 +34,16 @@ $$S(f)=\int_{-\infty}^{\infty}s(t)\,\mathrm{e}^{-\mathrm{j}2\pi ft}\,\mathrm{d} 
 Kurzschreibweise: $s(t)\;\circ\!\!-\!\!\bullet\;S(f)$ oder $S(f)=\mathcal{F}\{s(t)\}$.
 :::
 
-⁠**So liest man das:** $S(f)$ ist eine __Spektraldichte__: Gewicht pro Frequenzintervall. Ist $s$ eine Spannung in V, hat $S$ die Einheit V/Hz. Die Rücktransformation setzt das Signal aus allen Schwingungen zusammen, jede mit dem Gewicht $S(f)\,\mathrm{d} f$. Hinreichend für die Existenz ist $\int|s(t)|\mathrm{d} t<\infty$. Die Fourier-Transformierte ist die Laplace-Transformierte auf der imaginären Achse, $S(f)=S_{\mathcal{L}}(\mathrm{j}2\pi f)$, sofern diese im Konvergenzbereich liegt ([Teil 2](/wissen/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html)).
+⁠**So liest man das:** $S(f)$ ist eine __Spektraldichte__: Gewicht pro Frequenzintervall. Ist $s$ eine Spannung in V, hat $S$ die Einheit V/Hz. Die Rücktransformation setzt das Signal aus allen Schwingungen zusammen, jede mit dem Gewicht $S(f)\,\mathrm{d} f$. Hinreichend für die Existenz ist $\int|s(t)|\mathrm{d} t<\infty$. Die Fourier-Transformierte ist die Laplace-Transformierte auf der imaginären Achse, $S(f)=S_{\mathcal{L}}(\mathrm{j}2\pi f)$, sofern diese im Konvergenzbereich liegt ([Kapitel 2](/wissen/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html)).
 
-⁠**Faltung wird Produkt.** Wie in [Teil 2](/wissen/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html): $s(t)*h(t)\;\circ\!\!-\!\!\bullet\;S(f)\,H(f)$. Aus $s*\delta=s$ folgt $S(f)\cdot\mathcal{F}\{\delta\}=S(f)$, also $\delta(t)\;\circ\!\!-\!\!\bullet\;1$: Der Dirac-Impuls enthält alle Frequenzen mit gleichem Gewicht.
+⁠**Faltung wird Produkt.** Wie in [Kapitel 2](/wissen/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html): $s(t)*h(t)\;\circ\!\!-\!\!\bullet\;S(f)\,H(f)$. Aus $s*\delta=s$ folgt $S(f)\cdot\mathcal{F}\{\delta\}=S(f)$, also $\delta(t)\;\circ\!\!-\!\!\bullet\;1$: Der Dirac-Impuls enthält alle Frequenzen mit gleichem Gewicht.
 
 ::::beispiel der Exponentialimpuls
 Die Impulsantwort des RC-Glieds, $h(t)=\frac1{RC}\varepsilon(t)\mathrm{e}^{-t/RC}$:
 
 $$H(f)=\frac1{RC}\int_0^\infty\mathrm{e}^{-(1/RC+\mathrm{j}2\pi f)t}\mathrm{d} t=\frac{1}{1+\mathrm{j}2\pi f\,RC}.$$
 
-Das ist derselbe Frequenzgang wie aus der Wechselstromrechnung ([Teil 1](/wissen/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html)). Die Impulsantwort enthält also die ganze Information über das Frequenzverhalten.
+Das ist derselbe Frequenzgang wie aus der Wechselstromrechnung ([Kapitel 1](/wissen/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html)). Die Impulsantwort enthält also die ganze Information über das Frequenzverhalten.
 ::::
 
 :::frage Was ist der Unterschied zwischen $S_p(k)$ und $S(f)$, außer dass das eine diskret ist?

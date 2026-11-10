@@ -1,6 +1,8 @@
 ---
 title: 第 9 阶段：带通信号通过带通系统
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / 低通与带通系统
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / 低通与带通系统
+adresse: elektrotechnik/3-semester/signale-und-systeme/tiefpass-und-bandpasssysteme
+knoten: 第 5 章：低通与带通系统
 order: 3251000
 summary: 包络的用处：带通对带通信号的作用，可以完全在低通域中计算。
 tags: 

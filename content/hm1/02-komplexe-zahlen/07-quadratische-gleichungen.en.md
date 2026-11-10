@@ -1,6 +1,8 @@
 ---
 title: Stage 6: Quadratic equations
-pfad: Electrical Engineering / 1st Semester / Higher Mathematics 1 / Complex Numbers
+pfad: Electrical Engineering / 1st Semester / HöMa1 – Higher Mathematics 1 / Complex Numbers
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen
+knoten: Chapter 2: Complex Numbers
 order: 1220700
 summary: The goal was a solution of x 2=-1 .
 tags: double solution, discriminant, polar representation
@@ -68,7 +70,7 @@ So $s=0.75$, $t=-1$ and $|D|=\sqrt{0.5625+1}=1.25$. From [(6.1)](#gl-6-1) follow
 ⁠**Limiting case:** For $q=0$, [(6.2)](#gl-6-2) gives $z=-p/2\pm p/2$, so $z=0$ and $z=-p$, matching $z(z+p)=0$.
 
 :::frage Why can't you calculate $\sqrt{-1}\cdot\sqrt{-1}=\sqrt{(-1)(-1)}=1$?
-The rule $\sqrt{ab}=\sqrt a\sqrt b$ from [Part 1](/wissen/en/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html) holds only for $a,b\ge0$. For negative numbers the root is not defined: $w^2=-1$ has two solutions of equal standing, and neither of them is “the” root. That is why this chapter writes $w^2=D$ and not $w=\sqrt D$.
+The rule $\sqrt{ab}=\sqrt a\sqrt b$ from [Chapter 1](/wissen/en/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html) holds only for $a,b\ge0$. For negative numbers the root is not defined: $w^2=-1$ has two solutions of equal standing, and neither of them is “the” root. That is why this chapter writes $w^2=D$ and not $w=\sqrt D$.
 :::
 
 :::aufgabe Exercise 8 ★★ Solving quadratic equations
@@ -85,4 +87,4 @@ The rule $\sqrt{ab}=\sqrt a\sqrt b$ from [Part 1](/wissen/en/elektrotechnik/1-s
 :::
 :::
 
-**Outlook.** A point of the plane can also be specified by absolute value and angle. Then multiplication multiplies the absolute values and adds the angles; the rotation from Stage [2](die-komplexe-ebene.html#stufe-2) is the special case $|\mathrm{i}|=1$ and angle $90^\circ$. This __polar representation__, the exponential form and the $n$th roots need sine, cosine and the exponential function and therefore follow in Part 7.
+**Outlook.** A point of the plane can also be specified by absolute value and angle. Then multiplication multiplies the absolute values and adds the angles; the rotation from Stage [2](die-komplexe-ebene.html#stufe-2) is the special case $|\mathrm{i}|=1$ and angle $90^\circ$. This __polar representation__, the exponential form and the $n$th roots need sine, cosine and the exponential function and therefore follow in Chapter 7.

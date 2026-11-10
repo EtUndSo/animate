@@ -1,6 +1,8 @@
 ---
 title: Stage 1: Signals as vectors, the orthogonal expansion
-pfad: Electrical Engineering / 3rd Semester / Signals and Systems / Orthogonal Expansion and Transmission Lines
+pfad: Electrical Engineering / 3rd Semester / ET3 – Fundamentals of Electrical Engineering 3: Signals and Systems / Orthogonal Expansion and Transmission Lines
+adresse: elektrotechnik/3-semester/signale-und-systeme/orthogonalentwicklung-und-leitungen
+knoten: Chapter 8: Orthogonal Expansion and Transmission Lines
 order: 3280200
 summary: The Fourier series decomposes a signal into oscillations.
 tags: orthogonal, orthonormal, generalized Parseval theorem
@@ -13,7 +15,7 @@ lang: en
 The Fourier series decomposes a signal into oscillations. The same works with any system of orthogonal functions. This stage shows how to find the coefficients and why they give the best approximation.
 :::
 
-**The idea.** A vector in space has the components $b_i=\vec f\cdot\vec e_i$ with respect to perpendicular unit vectors $\vec e_i$. For signals on an interval $[0,T]$, the integral $\int_0^Tf(t)g(t)\mathrm{d} t$ plays the role of the scalar product. Two signals are called __orthogonal__ if it is zero ([Part 6](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen/korrelationsfunktionen.html)). A system of $M$ functions $s_i(t)$ is called __orthonormal__ if
+**The idea.** A vector in space has the components $b_i=\vec f\cdot\vec e_i$ with respect to perpendicular unit vectors $\vec e_i$. For signals on an interval $[0,T]$, the integral $\int_0^Tf(t)g(t)\mathrm{d} t$ plays the role of the scalar product. Two signals are called __orthogonal__ if it is zero ([Chapter 6](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen/korrelationsfunktionen.html)). A system of $M$ functions $s_i(t)$ is called __orthonormal__ if
 
 <span class="anker" id="gl-1-1"></span>
 $$\int_0^Ts_i(t)\,s_j(t)\,\mathrm{d} t=\begin{cases}1&i=j\\0&i\neq j\end{cases}. \tag{1.1}$$
@@ -39,7 +41,7 @@ $$\frac{\partial E_r}{\partial b_j}=-2\int_0^T\Bigl(f-\sum_ib_is_i\Bigr)s_j\,\ma
 Orthonormality leaves only $i=j$ in the sum. If these $b_i$ are substituted and the square is multiplied out, the mixed terms drop out, again because of orthonormality: $E_r=E_f-2\sum b_i^2+\sum b_i^2=E_f-\sum b_i^2$.
 :::
 
-⁠**How to read it:** Each coefficient is determined on its own, independently of the others. If you add a basis function, the previous coefficients do not change. This is the advantage of orthogonal systems, just as with the Fourier series ([Part 3](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)). $b_i$ is the cross-correlation $\varphi^E_{fs_i}(0)$. That is why the coefficients can be measured with a bank of correlation filters $h_i(t)=s_i(T-t)$ whose outputs are sampled at $t=T$ ([Part 7](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/zufallssignale/zufallssignale.html)).
+⁠**How to read it:** Each coefficient is determined on its own, independently of the others. If you add a basis function, the previous coefficients do not change. This is the advantage of orthogonal systems, just as with the Fourier series ([Chapter 3](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)). $b_i$ is the cross-correlation $\varphi^E_{fs_i}(0)$. That is why the coefficients can be measured with a bank of correlation filters $h_i(t)=s_i(T-t)$ whose outputs are sampled at $t=T$ ([Chapter 7](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/zufallssignale/zufallssignale.html)).
 
 ::::beispiel
 $f(t)=t^2$ on $[0,1]$, $E_f=\frac15$. With $s_0=1$ and $s_1=\sqrt3(2t-1)$:

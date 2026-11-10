@@ -1,6 +1,8 @@
 ---
 title: 第 8 阶段：叠加
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 电源与等效电源
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 电源与等效电源
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen
+knoten: 第 5 章：电源与等效电源
 order: 1151000
 summary: 如果网络的不同位置上有多个电源，只靠组就不够了。
 tags: 叠加法, 独立, 灵敏度
@@ -71,7 +73,7 @@ $$U_\mathrm{AB}=\frac{R_2}{R_1+R_2}\,U_\mathrm{q1}+\frac{R_1R_2}{R_1+R_2}\,I_\ma
 这就是式 [(8.1)](#gl-8-1) 的形式：每一项属于一个电源，系数中只含电阻。
 :::
 
-**界限：功率。** 电阻上的功率是电压的二次函数，$P=UI=U^2/R$（[第 7 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad/leistung-und-anpassung.html)）。在 $R_2$ 上，相加会得到 $(6\,\mathrm{V})^2/3\,\Omega+(3\,\mathrm{V})^2/3\,\Omega=15$ W。实际是 $(9\,\mathrm{V})^2/3\,\Omega=27$ W。缺少的是交叉项 $2U'U''/R_2=12$ W。功率不能叠加，电压和电流可以。后面会出现一个例外：对频率不同的交流量，交叉项的时间平均值为零。同样，一旦网络中有二极管，叠加也不再成立（[第 9 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)）。
+**界限：功率。** 电阻上的功率是电压的二次函数，$P=UI=U^2/R$（[第 7 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad/leistung-und-anpassung.html)）。在 $R_2$ 上，相加会得到 $(6\,\mathrm{V})^2/3\,\Omega+(3\,\mathrm{V})^2/3\,\Omega=15$ W。实际是 $(9\,\mathrm{V})^2/3\,\Omega=27$ W。缺少的是交叉项 $2U'U''/R_2=12$ W。功率不能叠加，电压和电流可以。后面会出现一个例外：对频率不同的交流量，交叉项的时间平均值为零。同样，一旦网络中有二极管，叠加也不再成立（[第 9 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)）。
 
 :::frage 为什么不能把关闭的电压源从网络中拿掉？
 因为零伏并不等于“什么都没有”。电源仍是线路的一部分，只是不再维持电压。把它拿掉，就切断了经过它的电流路径。那是电流源的情况，不是电压源的情况。

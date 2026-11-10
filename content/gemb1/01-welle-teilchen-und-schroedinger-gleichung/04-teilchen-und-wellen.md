@@ -1,6 +1,8 @@
 ---
 title: Stufe 2: Teilchen und Wellen
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Welle, Teilchen und Schrödinger-Gleichung
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Welle, Teilchen und Schrödinger-Gleichung
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/welle-teilchen-und-schrodinger-gleichung
+knoten: Kapitel 1: Welle, Teilchen und Schrödinger-Gleichung
 order: 4110400
 summary: Das Gasmodell behandelt Elektronen als Kugeln.
 tags: Photonen, Welle-Teilchen-Dualismus, Materiewelle, Wellenvektor, plancksche Wirkungsquantum

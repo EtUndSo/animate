@@ -1,6 +1,8 @@
 ---
 title: Stage 2: A signal made entirely of building blocks
-pfad: Electrical Engineering / 3rd Semester / Signals and Systems / Laplace Transform
+pfad: Electrical Engineering / 3rd Semester / ET3 – Fundamentals of Electrical Engineering 3: Signals and Systems / Laplace Transform
+adresse: elektrotechnik/3-semester/signale-und-systeme/laplace-transformation
+knoten: Chapter 2: Laplace Transform
 order: 3220300
 summary: Stage 1 applies to a single building block.
 tags: absolutely integrable, Fourier representation, spectrum

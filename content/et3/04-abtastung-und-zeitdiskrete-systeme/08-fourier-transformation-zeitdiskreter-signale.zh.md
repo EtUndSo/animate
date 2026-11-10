@@ -1,6 +1,8 @@
 ---
 title: 第 7 阶段：离散时间傅里叶变换
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / 采样与离散时间系统
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / 采样与离散时间系统
+adresse: elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme
+knoten: 第 4 章：采样与离散时间系统
 order: 3240800
 summary: 数值序列具有怎样的频谱？它就是理想采样信号的频谱，直接由样本值计算。
 tags: 周期卷积

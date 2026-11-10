@@ -1,6 +1,8 @@
 ---
 title: Stufe 8: Überlagerung
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Quellen und Ersatzquellen
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Quellen und Ersatzquellen
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen
+knoten: Kapitel 5: Quellen und Ersatzquellen
 order: 1151000
 summary: Stehen mehrere Quellen an verschiedenen Stellen im Netz, helfen Gruppen allein nicht.
 tags: Superpositionsverfahren, unabhängig, Empfindlichkeit
@@ -71,7 +73,7 @@ $$U_\mathrm{AB}=\frac{R_2}{R_1+R_2}\,U_\mathrm{q1}+\frac{R_1R_2}{R_1+R_2}\,I_\ma
 Das ist die Form [(8.1)](#gl-8-1): Jeder Summand gehört zu einer Quelle, die Koeffizienten enthalten nur Widerstände.
 :::
 
-**Die Grenze: Leistung.** Die Leistung in einem Widerstand ist quadratisch in der Spannung, $P=UI=U^2/R$ ([Teil 7](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad/leistung-und-anpassung.html)). In $R_2$ ergäbe Addieren $(6\,\mathrm{V})^2/3\,\Omega+(3\,\mathrm{V})^2/3\,\Omega=15$ W. Wahr sind $(9\,\mathrm{V})^2/3\,\Omega=27$ W. Es fehlt das Mischglied $2U'U''/R_2=12$ W. Leistungen darf man nicht überlagern, Spannungen und Ströme schon. Eine Ausnahme kommt später: Bei Wechselgrößen verschiedener Frequenz verschwindet das Mischglied im zeitlichen Mittel. Ebenso wenig gilt die Überlagerung, sobald eine Diode im Netz sitzt ([Teil 9](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)).
+**Die Grenze: Leistung.** Die Leistung in einem Widerstand ist quadratisch in der Spannung, $P=UI=U^2/R$ ([Kapitel 7](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad/leistung-und-anpassung.html)). In $R_2$ ergäbe Addieren $(6\,\mathrm{V})^2/3\,\Omega+(3\,\mathrm{V})^2/3\,\Omega=15$ W. Wahr sind $(9\,\mathrm{V})^2/3\,\Omega=27$ W. Es fehlt das Mischglied $2U'U''/R_2=12$ W. Leistungen darf man nicht überlagern, Spannungen und Ströme schon. Eine Ausnahme kommt später: Bei Wechselgrößen verschiedener Frequenz verschwindet das Mischglied im zeitlichen Mittel. Ebenso wenig gilt die Überlagerung, sobald eine Diode im Netz sitzt ([Kapitel 9](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)).
 
 :::frage Warum darf ich eine abgeschaltete Spannungsquelle nicht aus dem Netz herausnehmen?
 Weil aus null Volt nicht „nichts“ wird. Die Quelle bleibt ein Teil der Leitung, sie hält nur keine Spannung mehr. Nimmt man sie heraus, unterbricht man den Strompfad durch sie. Das wäre der Fall der Stromquelle, nicht der Spannungsquelle.

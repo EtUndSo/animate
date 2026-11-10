@@ -1,7 +1,8 @@
 ---
 title: Die größte Entropie
 pfad: Informatik / Machine Learning / Mathematische Grundlagen / Statistik und Information
-knoten: Grundlagen 5: Statistik und Information
+adresse: informatik/machine-learning/mathematische-grundlagen/statistik-und-information
+knoten: Kapitel 5: Statistik und Information
 nachschlagen: ja
 order: 15251100
 summary: Welche Verteilung ist am wenigsten vorhersagbar, wenn über sie nur wenig feststeht?
@@ -125,7 +126,7 @@ Abb. [21](#abb-21) zeigt das als Fläche: Die KL-Divergenz ist die Fläche unte
 
 <span class="anker" id="stufe-10-4"></span>
 
-Weiß man von einem Rauschen nur, wie groß seine Leistung ist, also seine Varianz, welche Verteilung soll man dann annehmen? Nach dem Hintergrund-Kasten in Unterabschnitt [10.1](#stufe-10-1) die mit der größten Entropie. Der folgende Satz sagt, welche das ist.
+Weiß man von einem Rauschen nur, wie groß seine Varianz ist, welche Verteilung soll man dann annehmen? Nach dem Hintergrund-Kasten in Unterabschnitt [10.1](#stufe-10-1) die mit der größten Entropie. Der folgende Satz sagt, welche das ist.
 
 :::satz Satz 10.4 (Größte Entropie bei fester Varianz)
 <span class="anker" id="satz-10-4"></span>
@@ -153,13 +154,13 @@ also $h(p)\le h(q)$, mit Gleichheit genau dann, wenn $p=q$ ist.
 Der Beweis zeigt den Mechanismus. Der Logarithmus einer Normalverteilungsdichte ist eine quadratische Funktion von $x$. Mittelt man ihn mit irgendeiner Dichte $p$, so kommt es nur auf deren Erwartungswert und Varianz an. Unter allen Dichten mit derselben Varianz hat deshalb $\int p\ln(1/q)$ denselben Wert, und die Gibbs-Ungleichung sortiert sie nach ihrem Abstand zur Normalverteilung.
 
 ::::beispiel [Rechenbeispiel]
-Die Gleichverteilung auf $[-a,\,a]$ hat nach [Grundlagen 4, Abschnitt 8.4](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/wichtige-verteilungen.html#stufe-8-4), die Varianz $(2a)^2/12=a^2/3$. Mit $a=\sqrt3\,\sigma$ hat sie also die Varianz $\sigma^2$ und die differentielle Entropie $\ln(2a)=\ln\sigma+\ln(2\sqrt3)\approx\ln\sigma+1{,}242$. Die Normalverteilung mit derselben Varianz hat $\tfrac12\ln(2\pi\mathrm{e})+\ln\sigma\approx\ln\sigma+1{,}419$, also $0{,}176$ nat mehr. Genau so groß ist die KL-Divergenz der Gleichverteilung zur Normalverteilung.
+Die Gleichverteilung auf $[-a,\,a]$ hat nach [Kapitel 4, Abschnitt 8.4](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/wichtige-verteilungen.html#stufe-8-4), die Varianz $(2a)^2/12=a^2/3$. Mit $a=\sqrt3\,\sigma$ hat sie also die Varianz $\sigma^2$ und die differentielle Entropie $\ln(2a)=\ln\sigma+\ln(2\sqrt3)\approx\ln\sigma+1{,}242$. Die Normalverteilung mit derselben Varianz hat $\tfrac12\ln(2\pi\mathrm{e})+\ln\sigma\approx\ln\sigma+1{,}419$, also $0{,}176$ nat mehr. Genau so groß ist die KL-Divergenz der Gleichverteilung zur Normalverteilung.
 ::::
 
 ⁠**Kurz gesagt:** Unter allen Verteilungen mit derselben Varianz hat die Normalverteilung die größte differentielle Entropie, $\tfrac12\ln(2\pi\mathrm{e}\,\sigma^2)$.
 
 :::hintergrund Der zweite Grund für normalverteiltes Rauschen
-[Grundlagen 4, Abschnitt 13.4](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/mittelwerte-vieler-zufallsvariablen.html#stufe-13-4), hat erklärt, warum Rauschen so oft normalverteilt ist: Es ist die Summe vieler kleiner, unabhängiger Beiträge, und der zentrale Grenzwertsatz macht daraus eine Normalverteilung. Der Satz dieses Unterabschnitts gibt einen zweiten, davon unabhängigen Grund für die Annahme. Kennt man von einem Rauschen nur seine Leistung, also seine Varianz, so ist die Normalverteilung diejenige Verteilung, die darüber hinaus am wenigsten festlegt. Jede andere Verteilung derselben Varianz hätte eine kleinere Entropie, enthielte also eine zusätzliche Struktur, für die man keinen Grund hat. Der erste Grund beschreibt, wie das Rauschen entsteht, der zweite, was man vernünftigerweise annimmt, wenn man das nicht weiß. Beide führen auf dieselbe Verteilung.
+[Kapitel 4, Abschnitt 13.4](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/mittelwerte-vieler-zufallsvariablen.html#stufe-13-4), hat erklärt, warum Rauschen so oft normalverteilt ist: Es ist die Summe vieler kleiner, unabhängiger Beiträge, und der zentrale Grenzwertsatz macht daraus eine Normalverteilung. Der Satz dieses Unterabschnitts gibt einen zweiten, davon unabhängigen Grund für die Annahme. Kennt man von einem Rauschen nur seine Varianz, so ist die Normalverteilung diejenige Verteilung, die darüber hinaus am wenigsten festlegt. Jede andere Verteilung derselben Varianz hätte eine kleinere Entropie, enthielte also eine zusätzliche Struktur, für die man keinen Grund hat. Der erste Grund beschreibt, wie das Rauschen entsteht, der zweite, was man vernünftigerweise annimmt, wenn man das nicht weiß. Beide führen auf dieselbe Verteilung.
 :::
 
 :::aufgabe Aufgabe 42 ★ Wie weit von der Gleichverteilung?

@@ -1,9 +1,10 @@
 ---
 title: Gleitkommazahlen: der Typ `float`
 pfad: Informatik / Programmieren / Python / Werte, Typen und Variablen
-knoten: Python 2: Werte, Typen und Variablen
+adresse: informatik/programmieren/python/werte-typen-und-variablen
+knoten: Kapitel 2: Werte, Typen und Variablen
 order: 6030500
-summary: Messwerte reichen von Pikofarad bis Megaohm und haben Nachkommastellen.
+summary: Größen aus Alltag und Wissenschaft reichen von der Dicke eines Haares bis zur Entfernung der Sonne und haben Nachkommastellen.
 tags: Gleitkommazahl, Mantisse, Exponent, Exponentenfeld, Mantissenfeld, Darstellungsfehler
 lang: de
 ---
@@ -11,16 +12,16 @@ lang: de
 <span class="anker" id="stufe-4"></span>
 
 :::zweck
-Messwerte reichen von Pikofarad bis Megaohm und haben Nachkommastellen. Dieser Abschnitt zeigt, wie Python solche Zahlen in 64 Bit speichert, und warum dabei schon beim Eintippen von `0.1` ein kleiner Fehler entsteht.
+Größen aus Alltag und Wissenschaft reichen von der Dicke eines Haares bis zur Entfernung der Sonne und haben Nachkommastellen. Dieser Abschnitt zeigt, wie Python solche Zahlen in 64 Bit speichert, und warum dabei schon beim Eintippen von `0.1` ein kleiner Fehler entsteht.
 :::
 
 ### Die Gleitkommadarstellung
 
 <span class="anker" id="stufe-4-1"></span>
 
-Ein Kondensator hat $2{,}2\cdot10^{-12}\,\mathrm F$, ein Widerstand $4{,}7\cdot10^{6}\,\Omega$. Dazwischen liegen 18 Zehnerpotenzen. Wollte man beide Werte mit einer festen Zahl von Stellen vor und hinter dem Komma speichern, bräuchte man Dutzende Ziffern, von denen fast alle null wären.
+Ein menschliches Haar ist etwa $7{,}5\cdot10^{-5}\,\mathrm m$ dick, die Sonne ist etwa $1{,}5\cdot10^{11}\,\mathrm m$ von der Erde entfernt. Dazwischen liegen 16 Zehnerpotenzen. Wollte man beide Werte mit einer festen Zahl von Stellen vor und hinter dem Komma speichern, bräuchte man Dutzende Ziffern, von denen fast alle null wären.
 
-**Wissenschaftliche Schreibweise.** Die Technik löst das mit der wissenschaftlichen Schreibweise: einige gültige Ziffern und eine Zehnerpotenz, die sagt, wo das Komma steht. $4{,}7\cdot10^{6}$ und $2{,}2\cdot10^{-12}$ brauchen beide nur zwei Ziffern und einen Exponenten. Das Komma „gleitet“ mit dem Exponenten an die richtige Stelle. Rechner machen dasselbe, nur im Binärsystem und mit einer festen Zahl von Binärstellen.
+**Wissenschaftliche Schreibweise.** Naturwissenschaft und Technik lösen das mit der wissenschaftlichen Schreibweise: einige gültige Ziffern und eine Zehnerpotenz, die sagt, wo das Komma steht. $7{,}5\cdot10^{-5}$ und $1{,}5\cdot10^{11}$ brauchen beide nur zwei Ziffern und einen Exponenten. Das Komma „gleitet“ mit dem Exponenten an die richtige Stelle. Rechner machen dasselbe, nur im Binärsystem und mit einer festen Zahl von Binärstellen.
 
 :::definition Definition 4.1 (Gleitkommazahl)
 <span class="anker" id="satz-4-1"></span>
@@ -52,7 +53,7 @@ Die 16 positiven Zahlen eines Gleitkommaformats mit drei Binärstellen und den E
 ⁠**Kurz gesagt:** Eine Gleitkommazahl ist Mantisse mal Zweierpotenz; mit fester Stellenzahl wächst der Abstand benachbarter Zahlen mit ihrem Betrag.
 
 :::hintergrund Warum wachsende Abstände genau das Richtige sind
-Der Abstand benachbarter Zahlen wächst im gleichen Verhältnis wie die Zahlen selbst. Der *relative* Abstand, also Abstand geteilt durch Betrag, bleibt deshalb ungefähr gleich: Im Spielzeugformat liegt er zwischen $\frac17$ und $\frac14$, egal ob man bei $0{,}5$ oder bei 6 schaut: von $0{,}5$ zum Nachbarn sind es $0{,}125$, ein Viertel von $0{,}5$, und von $3{,}5$ zum Nachbarn 4 sind es $0{,}5$, ein Siebtel von $3{,}5$. So arbeitet auch ein Messgerät mit automatischer Bereichswahl: Es zeigt immer etwa gleich viele gültige Ziffern, bei $4{,}700\,\mathrm{k\Omega}$ ebenso wie bei $1{,}000\,\mathrm{pF}$. Ein fester Abstand wäre für kleine Werte zu grob und für große unnötig fein. Gleitkommazahlen verteilen ihre Genauigkeit so, dass jede Zahl ungefähr gleich viele gültige Stellen hat.
+Der Abstand benachbarter Zahlen wächst im gleichen Verhältnis wie die Zahlen selbst. Der *relative* Abstand, also Abstand geteilt durch Betrag, bleibt deshalb ungefähr gleich: Im Spielzeugformat liegt er zwischen $\frac17$ und $\frac14$, egal ob man bei $0{,}5$ oder bei 6 schaut: von $0{,}5$ zum Nachbarn sind es $0{,}125$, ein Viertel von $0{,}5$, und von $3{,}5$ zum Nachbarn 4 sind es $0{,}5$, ein Siebtel von $3{,}5$. So spricht man auch im Alltag: Eine Großstadt hat „1,5 Millionen Einwohner“, ein Dorf „850 Einwohner“. In beiden Angaben zählen zwei oder drei Ziffern, und niemand nennt die Einwohnerzahl der Großstadt auf den Menschen genau. Ein fester Abstand wäre für kleine Werte zu grob und für große unnötig fein. Gleitkommazahlen verteilen ihre Genauigkeit so, dass jede Zahl ungefähr gleich viele gültige Stellen hat.
 :::
 
 ### Der Typ `float`
@@ -100,7 +101,7 @@ Die 64 Bit eines `float`, oben für die Zahl $6{,}5$, unten für die Zahl, die P
 ⁠**Kurz gesagt:** Ein `float` ist eine Gleitkommazahl mit 53 Binärstellen Mantisse, gespeichert in 64 Bit: Vorzeichen, Exponentenfeld, Mantissenfeld.
 
 :::hintergrund Woher die Norm kommt
-Bis in die 1980er-Jahre rechnete fast jeder Rechnerhersteller anders: mit anderen Stellenzahlen, anderen Rundungsregeln, anderen Antworten auf Überläufe. Dasselbe Programm lieferte auf zwei Maschinen verschiedene Ergebnisse, und numerische Software ließ sich kaum übertragen. Ein Ausschuss der IEEE, eines Verbands von Elektroingenieuren, erarbeitete deshalb eine gemeinsame Norm; sie erschien 1985 als IEEE 754. Maßgeblich daran beteiligt war der Mathematiker William Kahan aus Berkeley, der dafür 1989 den Turing-Preis erhielt. Die Norm wurde 2008 und 2019 überarbeitet; die Fassung von 2019 gilt heute.
+Bis in die 1980er-Jahre rechnete fast jeder Rechnerhersteller anders: mit anderen Stellenzahlen, anderen Rundungsregeln, anderen Antworten auf Überläufe. Dasselbe Programm lieferte auf zwei Maschinen verschiedene Ergebnisse, und numerische Software ließ sich kaum übertragen. Ein Ausschuss der IEEE, eines weltweiten Fachverbands von Ingenieuren und Informatikern, erarbeitete deshalb eine gemeinsame Norm; sie erschien 1985 als IEEE 754. Maßgeblich daran beteiligt war der Mathematiker William Kahan aus Berkeley, der dafür 1989 den Turing-Preis erhielt. Die Norm wurde 2008 und 2019 überarbeitet; die Fassung von 2019 gilt heute.
 :::
 
 ### Das Exponentenfeld

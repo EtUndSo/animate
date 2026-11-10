@@ -1,6 +1,8 @@
 ---
 title: Stufe 8: Cauchy-Folgen und die Axiome
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Folgen und Grenzwerte
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Folgen und Grenzwerte
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/folgen-und-grenzwerte
+knoten: Kapitel 4: Folgen und Grenzwerte
 order: 1241000
 summary: Die Pendelfolge ist nicht monoton, das Monotonie-Lemma greift nicht.
 tags: Cauchy-Folge, Intervallschachtelung
@@ -86,10 +88,10 @@ $$|a_n-a_m|\le|a_n-a|+|a-a_m|<\frac\varepsilon2+\frac\varepsilon2=\varepsilon.$$
 
 $$0\le b_n-c_n\le\varepsilon\qquad\forall\,n>N_0.$$
 
-Die Intervalle $[c_n,b_n]$ sind ineinander geschachtelt und werden beliebig kurz. Das ist eine __Intervallschachtelung__, nach [Teil 1](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html) enthalten sie genau eine Zahl $x\in\mathbb{R}$. An dieser Stelle wirkt die Vollständigkeit. Dann ist $\lim c_n=x=\lim b_n$, und Satz [8.1](#satz-8-1) (iv) gibt $a_n\to x$.
+Die Intervalle $[c_n,b_n]$ sind ineinander geschachtelt und werden beliebig kurz. Das ist eine __Intervallschachtelung__, nach [Kapitel 1](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html) enthalten sie genau eine Zahl $x\in\mathbb{R}$. An dieser Stelle wirkt die Vollständigkeit. Dann ist $\lim c_n=x=\lim b_n$, und Satz [8.1](#satz-8-1) (iv) gibt $a_n\to x$.
 :::
 
-**Was die Axiome für Folgen leisten.** Das Vollständigkeitsaxiom (V) aus [Teil 1](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html) lässt sich durch eine Forderung über Folgen ersetzen:
+**Was die Axiome für Folgen leisten.** Das Vollständigkeitsaxiom (V) aus [Kapitel 1](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html) lässt sich durch eine Forderung über Folgen ersetzen:
 
 | Axiome | Inhalt | Wirkung auf Folgen |
 |---|---|---|
@@ -98,7 +100,7 @@ Die Intervalle $[c_n,b_n]$ sind ineinander geschachtelt und werden beliebig kurz
 | Vollständigkeit, Infimumsversion (V) | Jede nach unten beschränkte, nicht leere Menge besitzt ein Infimum aus dem Körper | Existenz des Grenzwerts monotoner beschränkter Folgen (Stufe [7](monotone-folgen-und-die-vollstandigkeit.html#stufe-7)) |
 | Vollständigkeit, Cauchy-Version ($\widetilde{\mathrm V}$) | Jede Cauchy-Folge konvergiert mit Grenzwert im Körper | Existenz des Grenzwerts ohne Monotonie (diese Stufe) |
 
-$\mathbb{Q}$ erfüllt die ersten beiden Zeilen, $\mathbb{R}$ alle. Körperaxiome, Anordnung und (V) beschreiben $\mathbb{R}$ eindeutig ([Teil 1](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html)). Dasselbe leistet ($\widetilde{\mathrm V}$) anstelle von (V), wenn zusätzlich der Satz von Archimedes gilt (zu jeder Zahl gibt es eine größere natürliche Zahl). Aus (V) folgt er von selbst, neben ($\widetilde{\mathrm V}$) muss man ihn fordern. Die Cauchy-Version braucht nur einen Abstand, keine Ordnung. Deshalb überträgt sie sich auf $\mathbb{C}$ ([Teil 2](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen/komplexe-zahlen.html)), wo es keine Anordnung gibt.
+$\mathbb{Q}$ erfüllt die ersten beiden Zeilen, $\mathbb{R}$ alle. Körperaxiome, Anordnung und (V) beschreiben $\mathbb{R}$ eindeutig ([Kapitel 1](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html)). Dasselbe leistet ($\widetilde{\mathrm V}$) anstelle von (V), wenn zusätzlich der Satz von Archimedes gilt (zu jeder Zahl gibt es eine größere natürliche Zahl). Aus (V) folgt er von selbst, neben ($\widetilde{\mathrm V}$) muss man ihn fordern. Die Cauchy-Version braucht nur einen Abstand, keine Ordnung. Deshalb überträgt sie sich auf $\mathbb{C}$ ([Kapitel 2](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen/komplexe-zahlen.html)), wo es keine Anordnung gibt.
 
 :::frage Wenn benachbarte Glieder sich immer näher kommen, ist die Folge dann Cauchy?
 Nein. Für $\sqrt n$ geht der Nachbarabstand $\sqrt{n+1}-\sqrt n$ gegen 0 (Stufe [3](nullfolgen-vergleichen.html#stufe-3)), und doch wächst die Folge ohne Grenze. In [(8.2)](#gl-8-2) müssen alle Paare hinter $N_0$ nah sein, auch weit entfernte. Viele kleine Schritte können zusammen beliebig weit führen.

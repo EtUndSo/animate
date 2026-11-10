@@ -1,6 +1,8 @@
 ---
 title: 第 7 阶段：节点定律就是电荷守恒
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 电流、电阻与基尔霍夫定律
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 电流、电阻与基尔霍夫定律
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff
+knoten: 第 2 章：电流、电阻与基尔霍夫定律
 order: 1120800
 summary: 第一类方程：电荷守恒对节点有什么要求？
 tags: 
@@ -33,7 +35,7 @@ $$\sum_{\nu=1}^{N}I_\nu=0\quad\text{（所有箭头指向节点）},\qquad\sum I
 :::
 
 :::herleitung 由电荷守恒得节点定律
-节点上的电荷 $Q_\mathrm K$ 满足 $\mathrm{d} Q_\mathrm K/\mathrm{d} t=\sum I_\nu$，因为电荷既不产生也不消失。用[第 1 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)做一个估算，可以看出 $Q_\mathrm K$ 有多小：半径为 1 cm 的金属球的电位为 $\varphi=k_\mathrm C\,Q/r$，其中库仑常量 $k_\mathrm C=8.99\cdot10^{9}\,\mathrm{N\,m^2/C^2}$。要达到 9 V，$Q=10$ pC 就够了。3 mA 的过剩电流在 3.3 ns 内就能提供这些电荷。因此 $\mathrm{d} Q_\mathrm K/\mathrm{d} t$ 相对于电流可以忽略，于是剩下 $\sum I_\nu=0$。
+节点上的电荷 $Q_\mathrm K$ 满足 $\mathrm{d} Q_\mathrm K/\mathrm{d} t=\sum I_\nu$，因为电荷既不产生也不消失。用[第 1 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)做一个估算，可以看出 $Q_\mathrm K$ 有多小：半径为 1 cm 的金属球的电位为 $\varphi=k_\mathrm C\,Q/r$，其中库仑常量 $k_\mathrm C=8.99\cdot10^{9}\,\mathrm{N\,m^2/C^2}$。要达到 9 V，$Q=10$ pC 就够了。3 mA 的过剩电流在 3.3 ns 内就能提供这些电荷。因此 $\mathrm{d} Q_\mathrm K/\mathrm{d} t$ 相对于电流可以忽略，于是剩下 $\sum I_\nu=0$。
 :::
 
 **为什么有一个方程是多余的。** 每条支路连接两个节点。因此其电流恰好出现在两个节点方程中，一次带 $+$（流入），一次带 $-$（流出）。把 $k$ 个方程全部相加，所有电流都抵消了。所以一个方程可由其余方程得出，而任选 $k-1$ 个方程都是独立的。
@@ -47,7 +49,7 @@ $$\begin{aligned} K_1:&\quad +I_0-I_\mathrm a-I_\mathrm c=0, & K_2:&\quad +I_\ma
 ::::
 
 :::frage 节点上接电容器时，这条定律也成立吗？
-成立。流向极板的电流和其他支路电流一样，电荷不是聚集在节点上，而是聚集在极板上。[第 3 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html)将讨论这一点。
+成立。流向极板的电流和其他支路电流一样，电荷不是聚集在节点上，而是聚集在极板上。[第 3 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html)将讨论这一点。
 :::
 
 :::aufgabe 练习 7 ★★ 应用节点定律

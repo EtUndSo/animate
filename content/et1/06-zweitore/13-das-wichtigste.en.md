@@ -1,6 +1,8 @@
 ---
 title: Key points
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / Two-Port Networks
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / Two-Port Networks
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore
+knoten: Chapter 6: Two-Port Networks
 order: 1161300
 summary: Why four numbers replace a whole network and every parameter form is just another choice
 tags: port condition, two-port parameters, impedance form, admittance form, hybrid form, chain form
@@ -103,7 +105,7 @@ Power: $P=U_1I_1+U_2I_2$, active if $P<0$ is possible.
 </ul>
 :::
 
-**Looking ahead to [Part 7](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad/leistung-und-anpassung.html).** The power $P$ from Stage [10](eigenschaften-und-alle-formen-im-uberblick.html#stufe-10) leads to the next question: At which load does a source or a two-port deliver the greatest power, and what does that cost in efficiency?
+**Looking ahead to [Chapter 7](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad/leistung-und-anpassung.html).** The power $P$ from Stage [10](eigenschaften-und-alle-formen-im-uberblick.html#stufe-10) leads to the next question: At which load does a source or a two-port deliver the greatest power, and what does that cost in efficiency?
 
 **One principle behind all the results.** Of the four port quantities you choose two as causes; the other two are the effects. This choice changes nothing about the two-port, only the calculation, and every result follows from it.
 

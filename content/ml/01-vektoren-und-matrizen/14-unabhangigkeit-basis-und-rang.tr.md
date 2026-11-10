@@ -1,7 +1,8 @@
 ---
 title: Bağımsızlık, taban ve rank
 pfad: Bilgisayar Bilimleri / Makine Öğrenmesi / Matematiksel Temeller / Vektörler ve Matrisler
-knoten: Temeller 1: Vektörler ve Matrisler
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Bölüm 1: Vektörler ve Matrisler
 nachschlagen: ja
 order: 15211400
 summary: Bir listedeki bazı vektörler yeni bir şey getirmez, çünkü ötekilerden oluşturulabilirler.

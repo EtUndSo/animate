@@ -1,6 +1,8 @@
 ---
 title: 第 5 阶段：相关与 LTI 系统
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / 相关函数
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / 相关函数
+adresse: elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen
+knoten: 第 6 章：相关函数
 order: 3260600
 summary: LTI 系统对自相关函数和能量谱密度有什么作用？怎样用互相关来测量一个系统？
 tags: 
@@ -54,7 +56,7 @@ $\varphi^E_{gg}=g^*(-\tau)*g(\tau)=[s^*(-\tau)*h^*(-\tau)]*[s(\tau)*h(\tau)]$。
 
 <li>
 
-用 $g(t)=t\,\mathrm{e}^{-t}\varepsilon(t)$ 在时域中验证（[第 1 部分](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html)，两个级联的 RC 电路）。
+用 $g(t)=t\,\mathrm{e}^{-t}\varepsilon(t)$ 在时域中验证（[第 1 章](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html)，两个级联的 RC 电路）。
 
 </li>
 

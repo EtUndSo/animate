@@ -1,6 +1,8 @@
 ---
 title: Was geschützt wird: Schutzgut und Schutzziele
 pfad: Informatik / Cybersecurity / Sicherheit, Schutzziele und Spielregeln
+adresse: informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln
+knoten: Kapitel 1: Sicherheit, Schutzziele und Spielregeln
 order: 6110200
 summary: „Sicher“ bedeutet für sich allein nichts.
 tags: Dienst, Schutzgut, Verfügungsberechtigter, berechtigt, unbefugt, Schutzziel, CIA-Triade, Vertraulichkeit
@@ -201,6 +203,10 @@ Was nützt das sicherste Konto, wenn man an sein Geld nicht herankommt? Beim Bri
 __Verfügbarkeit__ heißt: Berechtigte können Informationen und Dienste nutzen, wann und wie es vorgesehen ist. Sie ist verletzt, wenn Berechtigte dabei behindert werden.
 :::
 
+Eine verbreitete Gefahr für die Verfügbarkeit hat einen eigenen Namen. Eine __Erpressungssoftware__ (englisch *ransomware*) ist ein Programm, das die Dateien eines Opfers verschlüsselt, sie also mit einem nur den Tätern bekannten Schlüssel unlesbar macht, und Geld für den Schlüssel verlangt. Damit ist zuerst die Verfügbarkeit verletzt, streng genommen auch die Integrität, denn die Dateien wurden verändert.
+
+Gegen den Verlust der Verfügbarkeit hilft vor allem eine __Sicherungskopie__ (englisch *backup*): eine zweite Kopie der Daten, die getrennt aufbewahrt wird und aus der man den alten Stand zurückholen kann. Wer nach einem Angriff mit Erpressungssoftware eine Sicherungskopie hat, spielt sie zurück und braucht den Schlüssel der Täter nicht.
+
 ::::beispiel [Beispiele]
 <ul>
 
@@ -212,13 +218,13 @@ Ein Onlineshop wird mit Millionen sinnloser Anfragen überschüttet und ist stun
 
 <li>
 
-Eine __Erpressungssoftware__ (englisch *ransomware*) verschlüsselt die Dateien eines Opfers, macht sie also mit einem nur den Tätern bekannten Schlüssel unlesbar, und verlangt Geld für den Schlüssel. Damit ist zuerst die Verfügbarkeit verletzt. Streng genommen auch die Integrität, denn die Dateien wurden verändert.
+Eine Erpressungssoftware verschlüsselt alle Dateien auf dem Rechner eines Handwerksbetriebs, auch Angebote und Rechnungen. Bis der Betrieb seine Daten zurückhat, kann er weder abrechnen noch neue Aufträge annehmen.
 
 </li>
 
 </ul>
 
-Gegen den Verlust der Verfügbarkeit hilft vor allem eine __Sicherungskopie__ (englisch *backup*): eine zweite Kopie der Daten, die getrennt aufbewahrt wird und aus der man den alten Stand zurückholen kann. Erpressungssoftware ist in Deutschland die größte Bedrohung für Unternehmen. Das Bundesamt für Sicherheit in der Informationstechnik (BSI) berichtet für den Zeitraum von Mitte 2024 bis Mitte 2025 von 950 polizeilich angezeigten Fällen, und in 72 % davon hatten die Täter die Daten vorher kopiert und drohten, sie zu veröffentlichen. Dann ist zusätzlich die Vertraulichkeit verletzt.
+Erpressungssoftware ist in Deutschland die größte Bedrohung für Unternehmen. Das Bundesamt für Sicherheit in der Informationstechnik (BSI) berichtet für den Zeitraum von Mitte 2024 bis Mitte 2025 von 950 polizeilich angezeigten Fällen, und in 72 % davon hatten die Täter die Daten vorher kopiert und drohten, sie zu veröffentlichen. Dann ist zusätzlich die Vertraulichkeit verletzt.
 ::::
 
 ⁠**Kurz gesagt:** Verfügbarkeit heißt, Berechtigte kommen an ihre Informationen und Dienste, wenn sie sie brauchen.
@@ -245,8 +251,10 @@ __Authentizität__ (Echtheit) heißt: Eine Information stammt tatsächlich von d
 
 Manche Lehrbücher zählen die Echtheit der Herkunft zur Integrität und sprechen dann von Herkunftsintegrität. Wer die Authentizität als eigenes Ziel nennt, meint dieselbe Eigenschaft.
 
+Ein häufiger Angriff auf die Authentizität hat einen eigenen Namen. Eine gefälschte Nachricht, die unter fremdem Absender zur Herausgabe von Zugangsdaten verleiten soll, heißt __Phishing__. Meist führt sie über einen Link auf eine nachgemachte Anmeldeseite, die der echten zum Verwechseln ähnlich sieht.
+
 ::::beispiel
-Eine E-Mail trägt als Absender „Prüfungsamt“ und fordert dazu auf, sich über einen Link mit Benutzername und Passwort anzumelden, „damit die Anmeldung zur Prüfung nicht verfällt“. Der Link führt auf eine nachgemachte Seite eines Fremden. Eine solche gefälschte Nachricht, die zur Herausgabe von Zugangsdaten verleiten soll, heißt __Phishing__. Verletzt ist die Authentizität der E-Mail. Gibt das Opfer sein Passwort ein, folgt daraus eine Verletzung der Vertraulichkeit.
+Eine E-Mail trägt als Absender „Prüfungsamt“ und fordert dazu auf, sich über einen Link mit Benutzername und Passwort anzumelden, „damit die Anmeldung zur Prüfung nicht verfällt“. Der Link führt auf eine nachgemachte Seite eines Fremden. Die E-Mail ist ein Fall von Phishing. Verletzt ist die Authentizität der E-Mail. Gibt das Opfer sein Passwort ein, folgt daraus eine Verletzung der Vertraulichkeit.
 ::::
 
 ⁠**Kurz gesagt:** Authentizität heißt, der angegebene Absender ist der echte.

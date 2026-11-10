@@ -1,6 +1,8 @@
 ---
 title: Stufe 2: Warum Strom durch die gesperrte Diode fließt
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Der Bipolartransistor
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Der Bipolartransistor
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor
+knoten: Kapitel 10: Der Bipolartransistor
 order: 1200400
 summary: Die CB-Diode sperrt, trotzdem fließen durch sie Milliampere.
 tags: Injektion, Diffusionslänge, Transferstrom, aktive Bereich
@@ -43,7 +45,7 @@ Die CB-Diode sperrt, trotzdem fließen durch sie Milliampere. Diese Stufe verfol
 
 </ol>
 
-Die Elektronen laufen vom Emitter zum Kollektor. Der technische Strom $I_\mathrm{C}$ zählt entgegengesetzt, vom Kollektor zum Emitter ([Teil 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)).
+Die Elektronen laufen vom Emitter zum Kollektor. Der technische Strom $I_\mathrm{C}$ zählt entgegengesetzt, vom Kollektor zum Emitter ([Kapitel 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)).
 
 :::abbildung et1/k10basis 2
 Oben: Weg der Elektronen im Arbeitspunkt. Der Emitterstrom von 2,01 mA teilt sich in 2 mA zum Kollektor und 10 µ A zur Basis. Unten: Energie eines Elektrons über dem Ort, schematisch. $U_\mathrm{BE}$ senkt die kleine Stufe am Emitter, $U_\mathrm{CB}$ vertieft den Abhang zum Kollektor.
@@ -64,7 +66,7 @@ $$I_\mathrm{C}=I_\mathrm{S}\,\mathrm{e}^{U_\mathrm{BE}/U_T},\qquad I_\mathrm{B}=
 Elektronen und Löcher überqueren dieselbe Barriere. Die Elektronendichte am Emitterrand der Basis und die Löcherdichte am Basisrand des Emitters wachsen beide mit $\mathrm{e}^{U_\mathrm{BE}/U_T}$. Der Kollektorstrom ist proportional zur ersten Dichte, die Rekombination in der Basis ebenso, der Löcherstrom zur zweiten. Alle Anteile tragen denselben Faktor, ihr Verhältnis $B=I_\mathrm{C}/I_\mathrm{B}$ hängt deshalb nicht von $U_\mathrm{BE}$ ab.
 :::
 
-**Wer steuert?** Physikalisch steuert $U_\mathrm{BE}$, denn nur die Spannung senkt die Barriere. Der Basisstrom ist der Preis dafür. In Schaltungen rechnet man trotzdem oft mit $I_\mathrm{B}$: Wegen $I_\mathrm{C}=B\,I_\mathrm{B}$ verhält sich der Transistor wie eine stromgesteuerte Stromquelle (CCCS, [Teil 6](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html)). Beide Sichten beschreiben dieselbe Proportionalität. Die Steuerung über $U_\mathrm{BE}$ erklärt das Exponentialgesetz, die Sicht über $I_\mathrm{B}$ ist bequem, wenn ein Widerstand den Basisstrom vorgibt.
+**Wer steuert?** Physikalisch steuert $U_\mathrm{BE}$, denn nur die Spannung senkt die Barriere. Der Basisstrom ist der Preis dafür. In Schaltungen rechnet man trotzdem oft mit $I_\mathrm{B}$: Wegen $I_\mathrm{C}=B\,I_\mathrm{B}$ verhält sich der Transistor wie eine stromgesteuerte Stromquelle (CCCS, [Kapitel 6](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html)). Beide Sichten beschreiben dieselbe Proportionalität. Die Steuerung über $U_\mathrm{BE}$ erklärt das Exponentialgesetz, die Sicht über $I_\mathrm{B}$ ist bequem, wenn ein Widerstand den Basisstrom vorgibt.
 
 ::::beispiel
 $U_\mathrm{BE}=0{,}6$ V ergibt $I_\mathrm{C}=1{,}9\cdot10^{-13}\,\mathrm{A}\cdot\mathrm{e}^{23{,}08}=2{,}00$ mA, $I_\mathrm{B}=10$ µ A, $I_\mathrm{E}=2{,}01$ mA. Das sind $1{,}25\cdot10^{16}$ Elektronen je Sekunde im Kollektor, und vom Emitterstrom kommen 99,5 % dort an. Die e-Funktion ist empfindlich: $+18$ mV verdoppeln den Strom ($U_T\ln2$), $+60$ mV verzehnfachen ihn ($U_T\ln10$), $+1$ mV bringt $+3{,}9$ %.

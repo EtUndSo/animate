@@ -1,6 +1,8 @@
 ---
 title: Stufe 6: Leistungsanpassung
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Leistung, Anpassung und Wirkungsgrad
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Leistung, Anpassung und Wirkungsgrad
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad
+knoten: Kapitel 7: Leistung, Anpassung und Wirkungsgrad
 order: 1170700
 summary: Die Tabelle zeigt ein Maximum von P L .
 tags: Kurzschlussleistung
@@ -13,7 +15,7 @@ lang: de
 Die Tabelle zeigt ein Maximum von $P_\mathrm{L}$. Diese Stufe findet es und erklärt, warum es genau bei $R_\mathrm{L}=R_\mathrm{i}$ liegt.
 :::
 
-**Die Idee.** Zwei Einflüsse arbeiten gegeneinander. Bei kleinem $R_\mathrm{L}$ kommen viele Coulomb, aber fast ihre ganze Energie bleibt in $R_\mathrm{i}$. Bei großem $R_\mathrm{L}$ gibt jedes Coulomb fast alles in der Last ab, aber es kommen wenige. Die Gerade $U_\mathrm{L}=U_\mathrm{q}-R_\mathrm{i}I$ aus [Teil 5](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html) macht das sichtbar: $P_\mathrm{L}=U_\mathrm{L}I$ ist die Fläche des Rechtecks unter ihr (Abb. [7](#abb-7)). Am größten ist es, wenn seine Ecke in der Mitte der Geraden liegt, bei halbem Strom und halber Spannung. Dann fällt an $R_\mathrm{i}$ und $R_\mathrm{L}$ dieselbe Spannung bei demselben Strom ab, also sind beide Widerstände gleich.
+**Die Idee.** Zwei Einflüsse arbeiten gegeneinander. Bei kleinem $R_\mathrm{L}$ kommen viele Coulomb, aber fast ihre ganze Energie bleibt in $R_\mathrm{i}$. Bei großem $R_\mathrm{L}$ gibt jedes Coulomb fast alles in der Last ab, aber es kommen wenige. Die Gerade $U_\mathrm{L}=U_\mathrm{q}-R_\mathrm{i}I$ aus [Kapitel 5](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html) macht das sichtbar: $P_\mathrm{L}=U_\mathrm{L}I$ ist die Fläche des Rechtecks unter ihr (Abb. [7](#abb-7)). Am größten ist es, wenn seine Ecke in der Mitte der Geraden liegt, bei halbem Strom und halber Spannung. Dann fällt an $R_\mathrm{i}$ und $R_\mathrm{L}$ dieselbe Spannung bei demselben Strom ab, also sind beide Widerstände gleich.
 
 :::abbildung et1/k7rechteck 7
 Quellengerade der Batterie mit drei Arbeitspunkten. Blau: $P_\mathrm{L}$, Rechteck aus $I$ und $U_\mathrm{L}$. Rot: $P_\mathrm{v}$, Rechteck aus $I$ und $U_\mathrm{Ri}$. Beide zusammen sind $P_\mathrm{q}=U_\mathrm{q}I$. Die mittlere Ecke ergibt das größte blaue Rechteck.

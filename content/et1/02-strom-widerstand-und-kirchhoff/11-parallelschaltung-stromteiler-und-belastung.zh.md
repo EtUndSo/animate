@@ -1,6 +1,8 @@
 ---
 title: 第 10 阶段：并联、分流器与负载
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 电流、电阻与基尔霍夫定律
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 电流、电阻与基尔霍夫定律
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff
+knoten: 第 2 章：电流、电阻与基尔霍夫定律
 order: 1121100
 summary: 第二种基本模式：并排的电阻。这样就能回答从分压器取用电流时会发生什么。
 tags: 并联, 分流器, 负载电阻
@@ -56,7 +58,7 @@ $$\frac{U_2}{U}=\frac{R_2\parallel R_\mathrm L}{R_1+R_2\parallel R_\mathrm L}=\f
 :::
 
 ::::beispiel
-对串联链，相对于空载 3 V 的相对误差 $\delta=(U_{2,0}-U_2)/U_{2,0}$ 为：$R_\mathrm L=1\,\mathrm{k\Omega}$ 时 40 %，$10\,\mathrm{k\Omega}$ 时 6.3 %，$100\,\mathrm{k\Omega}$ 时 0.66 %。误差为 $\delta=R_\mathrm i/(R_\mathrm i+R_\mathrm L)$，其中 $R_\mathrm i=R_1\parallel R_2$（练习 [11](#aufg-11)）。所以分压器的作用相当于一个内阻为 $R_\mathrm i$ 的电源（[第 5 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)）。
+对串联链，相对于空载 3 V 的相对误差 $\delta=(U_{2,0}-U_2)/U_{2,0}$ 为：$R_\mathrm L=1\,\mathrm{k\Omega}$ 时 40 %，$10\,\mathrm{k\Omega}$ 时 6.3 %，$100\,\mathrm{k\Omega}$ 时 0.66 %。误差为 $\delta=R_\mathrm i/(R_\mathrm i+R_\mathrm L)$，其中 $R_\mathrm i=R_1\parallel R_2$（练习 [11](#aufg-11)）。所以分压器的作用相当于一个内阻为 $R_\mathrm i$ 的电源（[第 5 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)）。
 ::::
 
 :::ltspice 测量负载影响
@@ -67,7 +69,7 @@ $$\frac{U_2}{U}=\frac{R_2\parallel R_\mathrm L}{R_1+R_2\parallel R_\mathrm L}=\f
 ⁠**你会看到：**SPICE Error Log 给出每一步的 $U_2$：1.80 V；2.25 V；2.70 V；2.81 V；2.98 V。把 $6\,\mathrm{k\Omega}$ 时的值与练习 [11](#aufg-11)(b) 比较。
 :::
 
-**应用：R-2R 梯形网络。** 分流器支撑着第二种 D/A 转换器（图 [12](#abb-12)）。诀窍是自相似性：最后一个节点上是 $2R\parallel2R=R$。加上前面的 $R$，又得到 $2R$。于是每个节点向右和向下看到的都是 $2R$，其电流按 1:1 分配，电压逐节点减半（由 $R$ 和 $2R\parallel2R$ 构成的分压器）。电源提供 $I_\mathrm{ref}=U_\mathrm{ref}/R$，于是得到按二进制加权的电流 $I_\mathrm{ref}/2$、$I_\mathrm{ref}/4$、$I_\mathrm{ref}/8$，依此类推。外部电路（[第 11 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker/der-operationsverstaerker.html)）把汇流线保持在接地点的电位上。因此，所有下方的 $2R$ 看到的电位都相同，无论它们接到汇流线还是接地，切换时电流都不变。靠近电源的比特是最高有效位（MSB，most significant bit），末端的是最低有效位（LSB）。$I_\mathrm{out}$ 是接通的各电流之和。
+**应用：R-2R 梯形网络。** 分流器支撑着第二种 D/A 转换器（图 [12](#abb-12)）。诀窍是自相似性：最后一个节点上是 $2R\parallel2R=R$。加上前面的 $R$，又得到 $2R$。于是每个节点向右和向下看到的都是 $2R$，其电流按 1:1 分配，电压逐节点减半（由 $R$ 和 $2R\parallel2R$ 构成的分压器）。电源提供 $I_\mathrm{ref}=U_\mathrm{ref}/R$，于是得到按二进制加权的电流 $I_\mathrm{ref}/2$、$I_\mathrm{ref}/4$、$I_\mathrm{ref}/8$，依此类推。外部电路（[第 11 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker/der-operationsverstaerker.html)）把汇流线保持在接地点的电位上。因此，所有下方的 $2R$ 看到的电位都相同，无论它们接到汇流线还是接地，切换时电流都不变。靠近电源的比特是最高有效位（MSB，most significant bit），末端的是最低有效位（LSB）。$I_\mathrm{out}$ 是接通的各电流之和。
 
 :::abbildung et1/k2r2r 12
 $R=1\,\mathrm{k\Omega}$、$U_\mathrm{ref}=8$ V 的 R-2R 梯形网络。红色为节点电压，蓝色为支路电流。开关处于数字 1010 的位置：流向汇流线的电流为 $4\,\mathrm{mA}+1\,\mathrm{mA}=5$ mA。

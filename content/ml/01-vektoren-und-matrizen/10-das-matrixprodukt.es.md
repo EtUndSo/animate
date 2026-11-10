@@ -1,7 +1,8 @@
 ---
 title: El producto de matrices
 pfad: Informática / Aprendizaje automático / Fundamentos matemáticos / Vectores y matrices
-knoten: Fundamentos 1: Vectores y matrices
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Capítulo 1: Vectores y matrices
 nachschlagen: ja
 order: 15211000
 summary: Dos aplicaciones lineales una tras otra dan de nuevo una aplicación lineal, es decir, una matriz.
@@ -165,7 +166,7 @@ Si se conectan varias etapas de cálculo lineales una tras otra, no surge ningú
 Si $f(\mathbf{x})=\mathbf{B}\mathbf{x}$ y $g(\mathbf{u})=\mathbf{A}\mathbf{u}$ son lineales, la composición $\mathbf{x}\mapsto g(f(\mathbf{x}))$ vuelve a ser lineal, y además con la única matriz $\mathbf{A}\mathbf{B}$. Lo mismo vale para toda cadena finita de etapas lineales.
 :::
 
-Por muchas etapas lineales que se conecten en serie, el resultado siempre puede calcularse con una única matriz en un solo paso. Todo lo que puede hacer una cadena de etapas lineales lo puede hacer ya, por tanto, una sola matriz. De la teoría de señales y sistemas se conoce lo mismo: dos sistemas lineales en cadena forman juntos de nuevo un sistema lineal.
+Por muchas etapas lineales que se conecten en serie, el resultado siempre puede calcularse con una única matriz en un solo paso. Todo lo que puede hacer una cadena de etapas lineales lo puede hacer ya, por tanto, una sola matriz. A pequeña escala, esto se conoce de las compras: si primero se convierte un precio de euros a dólares y luego se resta un $10$ % de descuento, ambas cosas juntas son un único factor de conversión.
 
 ::::beispiel [Ejemplo numérico]
 Una primera etapa convierte tres números en dos, $\mathbf{B}=\bigl(\begin{smallmatrix}1&2&0\\0&1&-1\end{smallmatrix}\bigr)$; una segunda convierte dos números de nuevo en tres, $\mathbf{A}=\Bigl(\begin{smallmatrix}2&1\\1&-1\\0&3\end{smallmatrix}\Bigr)$. Juntas son la única matriz

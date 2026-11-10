@@ -1,0 +1,7 @@
+convolution OK: (G*G)(0)=1.2533 (exact 1.2533)
+intersection OK: area=1.2230 (exact lens 1.2284)
+disjoint OK: area 0
+computation Intersection+result OK: Schnitt = 1.223
+invalid computation skipped OK
+
+CALC/GEOMETRY TESTS PASSED

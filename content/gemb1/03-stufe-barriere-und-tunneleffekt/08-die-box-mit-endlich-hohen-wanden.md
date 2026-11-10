@@ -1,8 +1,10 @@
 ---
 title: Stufe 6: Die Box mit endlich hohen Wänden
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Stufe, Barriere und Tunneleffekt
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Stufe, Barriere und Tunneleffekt
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/stufe-barriere-und-tunneleffekt
+knoten: Kapitel 3: Stufe, Barriere und Tunneleffekt
 order: 4130800
-summary: Die Box aus Teil 2 hatte unendlich hohe Wände.
+summary: Die Box aus Kapitel 2 hatte unendlich hohe Wände.
 tags: gebundener Zustand
 lang: de
 ---
@@ -10,7 +12,7 @@ lang: de
 <span class="anker" id="stufe-6"></span>
 
 :::zweck
-Die Box aus [Teil 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html) hatte unendlich hohe Wände. Jetzt sind die Wände endlich. Diese Stufe setzt stehende Welle und Eindringen zusammen und zeigt, was das für die erlaubten Energien bedeutet.
+Die Box aus [Kapitel 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html) hatte unendlich hohe Wände. Jetzt sind die Wände endlich. Diese Stufe setzt stehende Welle und Eindringen zusammen und zeigt, was das für die erlaubten Energien bedeutet.
 :::
 
 **Die Idee.** Innen ist die Welle weiter eine stehende Welle. Die Wände sind jetzt Stufen mit $E<V_0$, also endet sie an der Wand nicht, sondern klingt mit der Eindringtiefe $\delta$ nach außen ab (Abb. [7](#abb-7)). Das Elektron hat dadurch mehr Raum. Eine längere Wellenlänge passt hinein, und mit dem kleineren $k$ sinkt die Energie. Hohe Niveaus liegen dicht unter der Oberkante, dort ist $V_0-E$ klein und $\delta$ groß. Sie reichen weit hinaus. Tiefe Niveaus bleiben fast gefangen.

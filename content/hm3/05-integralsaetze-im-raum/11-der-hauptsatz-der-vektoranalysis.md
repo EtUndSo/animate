@@ -1,6 +1,8 @@
 ---
 title: Stufe 10: Der Hauptsatz der Vektoranalysis
-pfad: Elektrotechnik / 3. Semester / Höhere Mathematik 3 / Integralsätze im Raum
+pfad: Elektrotechnik / 3. Semester / HöMa3 – Höhere Mathematik 3 / Integralsätze im Raum
+adresse: elektrotechnik/3-semester/hohere-mathematik-3/integralsatze-im-raum
+knoten: Kapitel 5: Integralsätze im Raum
 order: 3151100
 summary: Gradientenfelder sind wirbelfrei, Rotationsfelder sind quellenfrei.
 tags: 
@@ -31,7 +33,7 @@ $$\boldsymbol{F}=\nabla u+\nabla\times\boldsymbol{A}. \tag{10.1}$$
 :::beweis Quellen abspalten, Rest ist Rotation
 ⁠**Schritt 1.** $\operatorname{div}\boldsymbol{F}$ ist stetig differenzierbar. Nach Satz [9.1](poisson-gleichung.html#satz-9-1) gibt es also eine zweimal stetig differenzierbare Lösung $u$ von $\Delta u=\operatorname{div}\boldsymbol{F}$, das heißt $\operatorname{div}(\boldsymbol{F}-\nabla u)=0$ auf $\mathbb{R}^3$.
 
-⁠**Schritt 2.** Das Feld $\boldsymbol{F}-\nabla u$ ist also divergenzfrei auf $\mathbb{R}^3$, und der $\mathbb{R}^3$ ist sternförmig. Nach dem Poincaré-Lemma aus [Teil 3](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/kurvenintegrale/kurvenintegrale.html) gibt es ein stetig differenzierbares $\boldsymbol{A}$ mit $\boldsymbol{F}-\nabla u=\operatorname{rot}\boldsymbol{A}$. Die Formel für $\boldsymbol{A}$ aus dem Poincaré-Lemma zeigt mit dem Satz über Parameterintegrale, dass $\boldsymbol{A}$ zweimal stetig differenzierbar ist.
+⁠**Schritt 2.** Das Feld $\boldsymbol{F}-\nabla u$ ist also divergenzfrei auf $\mathbb{R}^3$, und der $\mathbb{R}^3$ ist sternförmig. Nach dem Poincaré-Lemma aus [Kapitel 3](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/kurvenintegrale/kurvenintegrale.html) gibt es ein stetig differenzierbares $\boldsymbol{A}$ mit $\boldsymbol{F}-\nabla u=\operatorname{rot}\boldsymbol{A}$. Die Formel für $\boldsymbol{A}$ aus dem Poincaré-Lemma zeigt mit dem Satz über Parameterintegrale, dass $\boldsymbol{A}$ zweimal stetig differenzierbar ist.
 :::
 
 ⁠**So liest man das:** $\nabla u$ trägt alle Quellen, $\nabla\times\boldsymbol{A}$ alle Wirbel. Zwei Zusätze:
@@ -40,7 +42,7 @@ $$\boldsymbol{F}=\nabla u+\nabla\times\boldsymbol{A}. \tag{10.1}$$
 
 <li>
 
-⁠**Eichung.** Das $\boldsymbol{A}$ ist nicht eindeutig, wie in [Teil 3](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/kurvenintegrale/kurvenintegrale.html). Addiert man $\nabla\psi$ mit $\Delta\psi=-\operatorname{div}\boldsymbol{A}$, ändert sich $\operatorname{rot}\boldsymbol{A}$ nicht, und man erreicht $\operatorname{div}\boldsymbol{A}=0$.
+⁠**Eichung.** Das $\boldsymbol{A}$ ist nicht eindeutig, wie in [Kapitel 3](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/kurvenintegrale/kurvenintegrale.html). Addiert man $\nabla\psi$ mit $\Delta\psi=-\operatorname{div}\boldsymbol{A}$, ändert sich $\operatorname{rot}\boldsymbol{A}$ nicht, und man erreicht $\operatorname{div}\boldsymbol{A}=0$.
 
 </li>
 

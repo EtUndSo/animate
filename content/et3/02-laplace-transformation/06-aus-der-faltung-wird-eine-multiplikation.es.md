@@ -1,6 +1,8 @@
 ---
 title: Etapa 3: La convolución se vuelve una multiplicación
-pfad: Ingeniería eléctrica / 3.er semestre / Señales y sistemas / Transformada de Laplace
+pfad: Ingeniería eléctrica / 3.er semestre / ET3 – Fundamentos de ingeniería eléctrica 3: señales y sistemas / Transformada de Laplace
+adresse: elektrotechnik/3-semester/signale-und-systeme/laplace-transformation
+knoten: Capítulo 2: Transformada de Laplace
 order: 3220600
 summary: La etapa 1 dice qué hace el sistema con un bloque elemental.
 tags: 

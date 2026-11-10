@@ -1,7 +1,8 @@
 ---
 title: Doğrusal dönüşümler
 pfad: Bilgisayar Bilimleri / Makine Öğrenmesi / Matematiksel Temeller / Vektörler ve Matrisler
-knoten: Temeller 1: Vektörler ve Matrisler
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Bölüm 1: Vektörler ve Matrisler
 nachschlagen: ja
 order: 15210900
 summary: Bir matris yalnızca bir tablo değil, aynı zamanda bir vektörden başka bir vektör üreten bir hesap kuralıdır.
@@ -19,7 +20,7 @@ Bir matris yalnızca bir tablo değil, aynı zamanda bir vektörden başka bir v
 
 <span class="anker" id="stufe-8-1"></span>
 
-Birçok hesap bir sayı listesinden başka bir liste üretir. Bir dairenin özniteliklerinden satış fiyatı ve kirası tahmin edilir; bir sinyalin örnek değerlerinden süzülmüş bir sinyal elde edilir. Böyle bir $f\colon\mathbb{R}^n\to\mathbb{R}^m$ kuralına __dönüşüm__ denir: Her $\mathbf{x}\in\mathbb{R}^n$ vektörüne bir $f(\mathbf{x})\in\mathbb{R}^m$ vektörü karşılık getirir.
+Birçok hesap bir sayı listesinden başka bir liste üretir. Bir dairenin özniteliklerinden satış fiyatı ve kirası tahmin edilir; bir su sayacının sayaç değerlerinden her ayın tüketimi elde edilir. Böyle bir $f\colon\mathbb{R}^n\to\mathbb{R}^m$ kuralına __dönüşüm__ denir: Her $\mathbf{x}\in\mathbb{R}^n$ vektörüne bir $f(\mathbf{x})\in\mathbb{R}^m$ vektörü karşılık getirir.
 
 Matris-vektör çarpımının iki özel niteliği vardır (alt kesim [7.1](das-matrix-vektor-produkt.html#stufe-7-1)): $\mathbf{A}(\mathbf{u}+\mathbf{v})=\mathbf{A}\mathbf{u}+\mathbf{A}\mathbf{v}$ ve $\mathbf{A}(c\,\mathbf{x})=c\,\mathbf{A}\mathbf{x}$. Önce toplamak ya da önce dönüştürmek fark etmez; önce bir sayıyla çarpmak ya da önce dönüştürmek de fark etmez. Düzlemde bu nitelikler bir ızgara üzerinde görülür: Böyle bir dönüşüm doğruları yine doğrulara ya da tek tek noktalara dönüştürür, orijini yerinde bırakır ve paralel, eşit aralıklı ızgara çizgilerini yine paralel, eşit aralıklı çizgilere ya da noktalara dönüştürür.
 
@@ -40,8 +41,8 @@ $\mathbb{R}^2$ uzayından $\mathbb{R}^2$ uzayına giden $f(\mathbf{x})=(x_1+x_2,
 
 ⁠**Kısacası:** Bir dönüşüm toplamları ve katları koruyorsa doğrusaldır; o zaman doğrusal bileşimleri doğrusal bileşimlere götürür.
 
-:::hintergrund LTI sistemlerdekiyle aynı doğrusallık
-Sinyaller ve sistemler alanından süperpozisyon ilkesi bilinir: Doğrusal bir sistem, iki giriş sinyalinin toplamına iki yanıtın toplamıyla, güçlendirilmiş bir sinyale de aynı oranda güçlendirilmiş yanıtla cevap verir. Bunlar tam olarak [(8.1)](#gl-8-1) koşullarıdır, yalnızca sayı listeleri yerine sinyaller için yazılmıştır. Sonlu uzunlukta örneklenmiş bir sinyal bir vektördür (alt kesim [1.3](vektoren-daten-als-zahlenlisten.html#stufe-1-3)) ve bu tür sinyalleri işleyen doğrusal bir sistem bir doğrusal dönüşümdür.
+:::hintergrund Süpermarket kasasında doğrusallık
+Bir süpermarketin kasası doğrusal hesap yapar. Satın alınan miktarların listesinden ödenecek tutarı çıkarır; iki alışveriş birlikte banda konursa iki tutarın toplamı ödenir; her şeyden iki kat alınırsa iki katı ödenir. Bunlar tam olarak [(8.1)](#gl-8-1) koşullarıdır. Miktar indirimli bir tarife, yani iki katın iki kat fiyattan daha ucuza geldiği bir tarife doğrusal olmazdı; sabit ücretli bir tarife de doğrusal olmazdı: Orada boş bir alışveriş bile bir şeye mal olur ve bu, $f(\mathbf{0})=\mathbf{0}$ koşulunu bozar. Bir ses kaydı da (alt kesim [1.3](vektoren-daten-als-zahlenlisten.html#stufe-1-3)) çoğu zaman doğrusal biçimde işlenir: İki kaydı önce karıştırıp sonra sesini alçaltan kişi, her birinin sesini ayrı ayrı alçaltıp sonra karıştıran kişiyle aynı sonucu elde eder.
 :::
 
 ### Her doğrusal dönüşüm bir matristir
@@ -75,16 +76,16 @@ $$\mathbf{A}=\begin{pmatrix}1&1\\2&0\end{pmatrix},\qquad\text{ve kontrol için}\
 
 ⁠**Kısacası:** Doğrusal dönüşümler ile matrisler aynı şeydir; matrisin $j$ numaralı sütunu $\mathbf{e}_j$ birim vektörünün görüntüsüdür.
 
-:::hintergrund Matris olarak bir süzgeç: Sütunlar kaydırılmış dürtü yanıtlarıdır
-Ayrık zamanlı bir süzgeç $y[n]=x[n]+0{,}5\,x[n-1]$ değerini hesaplasın ve üç örnek değerden oluşan sinyalleri işlesin; ilk örnek değerden önce girişte hiçbir şey olmasın. Süzgeç doğrusaldır, dolayısıyla bir matrisi vardır. [(8.2)](#gl-8-2) uyarınca bu matrisin $j$ numaralı sütunu, $\mathbf{e}_j$ birim vektörüne, yani $j$ numaralı yerdeki tek bir birim dürtüye verilen yanıttır. Bu yanıt, $j-1$ adım kaydırılmış $(1;\,0{,}5)$ dürtü yanıtıdır:
+:::hintergrund Matris olarak bir artçı etki: Sütunlar kaydırılmış yanıtlardır
+Bir odun sobasında bir odun, yandığı saat içinde ısısının tamamını, sonraki saatte ise kor sayesinde yarısını daha verir; bu, büyük ölçüde basitleştirilmiş bir resimdir. $n$ numaralı saatte tam olarak $x[n]$ odun eklenirse bu saatteki ısı, odun cinsinden ölçülürse, $y[n]=x[n]+0{,}5\,x[n-1]$ olur. Üç saat ele alınıyor; ilk saatten önce hiçbir şey yanmıyordu. Bu hesap doğrusaldır, dolayısıyla bir matrisi vardır. [(8.2)](#gl-8-2) uyarınca bu matrisin $j$ numaralı sütunu, $\mathbf{e}_j$ birim vektörüne, yani $j$ numaralı saatteki tek bir oduna verilen yanıttır. Bu yanıt, $j-1$ saat kaydırılmış $(1;\,0{,}5)$ yanıtıdır:
 
 $$\mathbf{A}=\begin{pmatrix}1&0&0\\0{,}5&1&0\\0&0{,}5&1\end{pmatrix}.$$
 
-Üçüncü sütunda yalnızca $1$ kalır, çünkü sinyal üç örnek değerden sonra biter. $\mathbf{x}=(2,\,4,\,6)^{\top}$ için matris $(2,\,5,\,8)^{\top}$ verir; süzgeç formülü de aynısını verir. Sonlu bir sinyalin her evrişimi bu şekilde bir matris-vektör çarpımıdır ve yukarıdaki teorem bunun nedenini açıklar: Tek tek her dürtüye verilen yanıt bilinirse bütün sistem bilinir.
+Üçüncü sütunda yalnızca $1$ kalır, çünkü ele alınan süre üç saatten sonra biter. $\mathbf{x}=(2,\,4,\,6)^{\top}$ için matris $(2,\,5,\,8)^{\top}$ verir; formül de aynısını verir. Matematikte evrişim adı verilen, sabit ağırlıklı her böyle artçı etki bu şekilde bir matris-vektör çarpımıdır ve yukarıdaki teorem bunun nedenini açıklar: Tek tek her oduna verilen yanıt bilinirse her odun dizisine verilen yanıt da bilinir.
 :::
 
 :::hintergrund Veri mi, dönüşüm mü? Aynı tablonun iki rolü
-Bir matris, $\mathbf{X}$ veri matrisi gibi bir veri topluluğu ya da bir süzgecin matrisi gibi bir dönüşüm olabilir. Biçimsel olarak ikisi aynı şeydir ve bazen aynı matris iki rolü birden üstlenir: Veri matrisi aynı zamanda ağırlıklardan tahminler üreten $\mathbf{w}\mapsto\mathbf{X}\mathbf{w}$ dönüşümüdür. Ağırlıkların $\mathbb{R}^d$ uzayını tahmin listelerinin $\mathbb{R}^N$ uzayına götürür. Bu yüzden bir formül okunurken bir matrisin o anda hangi rolde ortaya çıktığını sormak işe yarar.
+Bir matris, $\mathbf{X}$ veri matrisi gibi bir veri topluluğu ya da bir önceki kutudaki odun sobasının matrisi gibi bir dönüşüm olabilir. Biçimsel olarak ikisi aynı şeydir ve bazen aynı matris iki rolü birden üstlenir: Veri matrisi aynı zamanda ağırlıklardan tahminler üreten $\mathbf{w}\mapsto\mathbf{X}\mathbf{w}$ dönüşümüdür. Ağırlıkların $\mathbb{R}^d$ uzayını tahmin listelerinin $\mathbb{R}^N$ uzayına götürür. Bu yüzden bir formül okunurken bir matrisin o anda hangi rolde ortaya çıktığını sormak işe yarar.
 :::
 
 ### Düzlemin doğrusal dönüşümleri
@@ -282,32 +283,32 @@ Görüntü birinci sütunun iki katıdır: $30^\circ$ doğrultusundaki, uzunluğ
 :::
 :::
 
-:::aufgabe Alıştırma 20 ★★ Matris olarak bir fark alıcı
+:::aufgabe Alıştırma 20 ★★ Matris olarak sayaç değerlerinden tüketim
 <span class="anker" id="aufg-20"></span>
 
-Bir süzgeç, dört örnek değerli bir sinyalden $n=1,\dots,4$ için $y[n]=x[n]-x[n-1]$ farklarını hesaplıyor; ilk örnek değerden önce $x[0]=0$ kabul ediliyor.
+Yeni bir su sayacı dört ayın sonunda metreküp cinsinden $x[1],\dots,x[4]$ sayaç değerlerini gösteriyor; ilk aydan önce $x[0]=0$ değerindeydi. $n$ numaralı aydaki tüketim $y[n]=x[n]-x[n-1]$ farkıdır, $n=1,\dots,4$.
 
 <ol class="al">
 
 <li>
 
-Süzgeç neden doğrusaldır? Dört birim dürtüye verilen yanıtları hesaplayarak süzgecin $4\times4$ tipindeki matrisini kurun.
+Bu hesap neden doğrusaldır? Dört birim vektöre verilen yanıtları hesaplayarak hesabın $4\times4$ tipindeki matrisini kurun.
 
 </li>
 
 <li>
 
-$\mathbf{x}=(1,\,2,\,4,\,7)^{\top}$ girişine verilen yanıtı matrisle ve formülle hesaplayın.
+$\mathbf{x}=(1,\,2,\,4,\,7)^{\top}$ sayaç değerlerine karşılık gelen tüketimi matrisle ve formülle hesaplayın.
 
 </li>
 
 </ol>
 
 :::loesung
-(a) Her $y[n]=x[n]-x[n-1]$ çıkış bileşeni, giriş bileşenlerinin katlarının sabit bir toplamıdır; dolayısıyla süzgeç doğrusaldır. $1$ konumundaki dürtüye, yani $\mathbf{x}=\mathbf{e}_1=(1,0,0,0)^{\top}$ girişine verilen yanıt $(1,\,-1,\,0,\,0)^{\top}$ olur: Sinyal önce $1$ değerine sıçrar, sonra yeniden $0$ değerine döner. Aynı biçimde süzgeç $\mathbf{e}_2$ girişine $(0,\,1,\,-1,\,0)^{\top}$, $\mathbf{e}_3$ girişine $(0,\,0,\,1,\,-1)^{\top}$, $\mathbf{e}_4$ girişine de $(0,\,0,\,0,\,1)^{\top}$ yanıtını verir; bu son dürtüde sinyal, dürtü yeniden düşmeden önce biter. Bu yanıtlar matrisin sütunlarıdır:
+(a) Sonucun her $y[n]=x[n]-x[n-1]$ bileşeni, $\mathbf{x}$ bileşenlerinin katlarının sabit bir toplamıdır; dolayısıyla hesap doğrusaldır. $1$ konumundaki tek $1$ değerine, yani $\mathbf{x}=\mathbf{e}_1=(1,0,0,0)^{\top}$ vektörüne verilen yanıt $(1,\,-1,\,0,\,0)^{\top}$ olur: Sayaç değeri önce $1$ değerine çıkar, sonra yeniden $0$ değerine iner. Aynı biçimde hesap $\mathbf{e}_2$ vektörüne $(0,\,1,\,-1,\,0)^{\top}$, $\mathbf{e}_3$ vektörüne $(0,\,0,\,1,\,-1)^{\top}$, $\mathbf{e}_4$ vektörüne de $(0,\,0,\,0,\,1)^{\top}$ yanıtını verir; bu son $1$ değerinde dört ay, sayaç değeri yeniden düşmeden önce biter. Bu yanıtlar matrisin sütunlarıdır:
 
 $$\mathbf{A}=\begin{pmatrix}1&0&0&0\\-1&1&0&0\\0&-1&1&0\\0&0&-1&1\end{pmatrix}.$$
 
-(b) Matrisle: $\mathbf{A}\,(1,2,4,7)^{\top}=(1,\ -1+2,\ -2+4,\ -4+7)^{\top}=(1,\,1,\,2,\,3)^{\top}$. Formülle: $y[1]=1-0=1$, $y[2]=2-1=1$, $y[3]=4-2=2$, $y[4]=7-4=3$.
+(b) Matrisle: $\mathbf{A}\,(1,2,4,7)^{\top}=(1,\ -1+2,\ -2+4,\ -4+7)^{\top}=(1,\,1,\,2,\,3)^{\top}$. Formülle: $y[1]=1-0=1$, $y[2]=2-1=1$, $y[3]=4-2=2$, $y[4]=7-4=3$. Demek ki dört ayda sırasıyla $1$, $1$, $2$ ve $3$ metreküp su tüketilmiştir.
 :::
 :::

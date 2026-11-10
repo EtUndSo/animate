@@ -1,8 +1,10 @@
 ---
 title: 第 5 阶段：绝对值与距离
-pfad: 电气工程 / 第 1 学期 / 高等数学 1 / 复数
+pfad: 电气工程 / 第 1 学期 / HöMa1 – 高等数学 1 / 复数
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen
+knoten: 第 2 章：复数
 order: 1220600
-summary: 复数不能排序，但可以度量。本阶段把第 1 部分的距离和绝对值搬到平面上，并说明哪些法则得以保留。
+summary: 复数不能排序，但可以度量。本阶段把第 1 章的距离和绝对值搬到平面上，并说明哪些法则得以保留。
 tags: 距离, 反向三角不等式
 lang: zh
 ---
@@ -10,7 +12,7 @@ lang: zh
 <span class="anker" id="stufe-5"></span>
 
 :::zweck
-复数不能排序，但可以度量。本阶段把[第 1 部分](/wissen/zh/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html)的距离和绝对值搬到平面上，并说明哪些法则得以保留。
+复数不能排序，但可以度量。本阶段把[第 1 章](/wissen/zh/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html)的距离和绝对值搬到平面上，并说明哪些法则得以保留。
 :::
 
 **基本思路。** 在 $\mathbb{R}$ 中，$|x|$ 度量到原点的距离。在平面上由勾股定理承担这一任务：从 0 到 $z$ 的线段是一个直角三角形的斜边，两条直角边为 $|x|$ 和 $|y|$（图 [5](#abb-5)，左）。两点间的距离是以它们的坐标差为直角边的斜边。结果是实数，所以这里又可以说“大于”了。
@@ -28,7 +30,7 @@ lang: zh
 $$d(z,w):=\sqrt{(x-u)^2+(y-v)^2},\qquad |z|:=d(z,0)=\sqrt{x^2+y^2}. \tag{5.1}$$
 :::
 
-⁠**如何理解：**根号下是一个大于或等于零的实数，而 $\sqrt a$ 是 $b^2=a$ 的非负解（[第 1 部分](/wissen/zh/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html)）。__距离__ $d(z,w)$ 只取决于差：$d(z,w)=|z-w|$。**极限情况：**对实数 $z$，$|z|=\sqrt{x^2}=|x|$，即[第 1 部分](/wissen/zh/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html)的绝对值。
+⁠**如何理解：**根号下是一个大于或等于零的实数，而 $\sqrt a$ 是 $b^2=a$ 的非负解（[第 1 章](/wissen/zh/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html)）。__距离__ $d(z,w)$ 只取决于差：$d(z,w)=|z-w|$。**极限情况：**对实数 $z$，$|z|=\sqrt{x^2}=|x|$，即[第 1 章](/wissen/zh/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html)的绝对值。
 
 :::satz 定理 5.2 (绝对值与距离的运算法则)
 <span class="anker" id="satz-5-2"></span>

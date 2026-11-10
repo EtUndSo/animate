@@ -1,6 +1,8 @@
 ---
 title: 第 1 阶段：信号的描述
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / LTI 系统与卷积
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / LTI 系统与卷积
+adresse: elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung
+knoten: 第 1 章：LTI 系统与卷积
 order: 3210200
 summary: 在研究系统之前，需要一套描述信号的语言：几种基本形状，以及时间轴上的两种运算——平移和展缩。
 tags: 信号, 归一化, 周期, 频率

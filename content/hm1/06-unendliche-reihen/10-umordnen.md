@@ -1,6 +1,8 @@
 ---
 title: Stufe 8: Umordnen
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Unendliche Reihen
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Unendliche Reihen
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/unendliche-reihen
+knoten: Kapitel 6: Unendliche Reihen
 order: 1261000
 summary: Eine endliche Summe ändert sich nicht, wenn man die Summanden vertauscht.
 tags: Bijektion
@@ -18,7 +20,7 @@ Eine endliche Summe ändert sich nicht, wenn man die Summanden vertauscht. Für 
 :::definition Definition 8.1 (Umordnung)
 <span class="anker" id="satz-8-1"></span>
 
-Sei $k:\mathbb{N}\to\mathbb{N}$ eine __Bijektion__, also eine Zuordnung, die jede natürliche Zahl genau einmal trifft ([Teil 3](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/funktionen-und-polynome/funktionen-und-polynome.html)). Dann heißt $\sum_{n=1}^\infty a_{k(n)}$ eine Umordnung von $\sum_{n=1}^\infty a_n$.
+Sei $k:\mathbb{N}\to\mathbb{N}$ eine __Bijektion__, also eine Zuordnung, die jede natürliche Zahl genau einmal trifft ([Kapitel 3](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/funktionen-und-polynome/funktionen-und-polynome.html)). Dann heißt $\sum_{n=1}^\infty a_{k(n)}$ eine Umordnung von $\sum_{n=1}^\infty a_n$.
 :::
 
 ::::beispiel

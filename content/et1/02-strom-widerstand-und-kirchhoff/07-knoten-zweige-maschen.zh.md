@@ -1,6 +1,8 @@
 ---
 title: 第 6 阶段：节点、支路、网孔
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 电流、电阻与基尔霍夫定律
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 电流、电阻与基尔霍夫定律
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff
+knoten: 第 2 章：电流、电阻与基尔霍夫定律
 order: 1120700
 summary: 网络有许多未知量。计算之前先数一数：有多少电流和电压，可用的独立方程又有多少？
 tags: 节点, 支路, 图, 网孔, 树, 连支, 线性无关, 完备

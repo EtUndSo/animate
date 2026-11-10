@@ -1,6 +1,8 @@
 ---
 title: Stage 4: The integral becomes a sum
-pfad: Electrical Engineering / 3rd Semester / Signals and Systems / Laplace Transform
+pfad: Electrical Engineering / 3rd Semester / ET3 – Fundamentals of Electrical Engineering 3: Signals and Systems / Laplace Transform
+adresse: elektrotechnik/3-semester/signale-und-systeme/laplace-transformation
+knoten: Chapter 2: Laplace Transform
 order: 3220700
 summary: The conjecture taken literally: for the signals that system theory almost always deals with, the signal is a finite sum of complex exponentials.
 tags: partial fraction expansion, stability, natural response

@@ -1,8 +1,9 @@
 ---
-title: Überblick: Grundlagen 4 – Wahrscheinlichkeit
+title: Überblick: Wahrscheinlichkeit
 kurz: Überblick
 pfad: Informatik / Machine Learning / Mathematische Grundlagen / Wahrscheinlichkeit
-knoten: Grundlagen 4: Wahrscheinlichkeit
+adresse: informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit
+knoten: Kapitel 4: Wahrscheinlichkeit
 nachschlagen: ja
 order: 15240100
 summary: Unsicherheit rechnen: Ereignisse, Verteilungen, Kovarianz und die Normalverteilung
@@ -12,9 +13,9 @@ lang: de
 
 ## Worum es geht
 
-Daten sind nie ganz sicher. Misst man dieselbe Spannung zweimal, zeigt das Messgerät zwei verschiedene Werte, weil sich dem Signal ein Rauschen überlagert. Ein Datensatz mit hundert Wohnungen ist nur eine Auswahl aus allen Wohnungen einer Stadt; eine andere Auswahl hätte andere Zahlen geliefert. Und oft fehlt Information: Zwei Wohnungen mit gleicher Fläche, gleicher Zimmerzahl und gleicher Lage können trotzdem verschiedene Mieten haben, weil vieles, was den Preis bestimmt, gar nicht im Datensatz steht.
+Daten sind nie ganz sicher. Stellt man sich zweimal hintereinander auf dieselbe Personenwaage, zeigt sie oft zwei verschiedene Werte, weil sich dem wahren Gewicht ein kleiner zufälliger Fehler überlagert. Ein Datensatz mit hundert Wohnungen ist nur eine Auswahl aus allen Wohnungen einer Stadt; eine andere Auswahl hätte andere Zahlen geliefert. Und oft fehlt Information: Zwei Wohnungen mit gleicher Fläche, gleicher Zimmerzahl und gleicher Lage können trotzdem verschiedene Mieten haben, weil vieles, was den Preis bestimmt, gar nicht im Datensatz steht.
 
-Dieses Kapitel fragt: Wie rechnet man genau mit dem, was man nicht sicher weiß? Wie stark sollte eine Beobachtung die eigene Einschätzung ändern, etwa ein Alarm eines Prüfgeräts, das sich manchmal irrt? Was ist der typische Wert einer schwankenden Größe, und wie weit schwankt sie um ihn? Wie beschreibt man, dass zwei Größen gemeinsam schwanken? Und warum sehen die Schwankungen so vieler Messgrößen, vom Rauschen eines Widerstands bis zum Mittelwert vieler Messungen, immer wieder gleich aus?
+Dieses Kapitel fragt: Wie rechnet man genau mit dem, was man nicht sicher weiß? Wie stark sollte eine Beobachtung die eigene Einschätzung ändern, etwa ein Alarm eines Prüfgeräts, das sich manchmal irrt? Was ist der typische Wert einer schwankenden Größe, und wie weit schwankt sie um ihn? Wie beschreibt man, dass zwei Größen gemeinsam schwanken? Und warum sehen die Schwankungen so vieler Messgrößen, von den Körpergrößen vieler Menschen bis zum Mittelwert vieler Messungen, immer wieder gleich aus?
 
 Der Nutzen: Mit den Antworten kann man aus unsicheren Angaben sichere Schlüsse über Häufigkeiten ziehen, kann Fehlalarme und echte Befunde richtig gewichten und kann sagen, wie genau ein Mittelwert aus vielen Messungen ist. Fast jedes Verfahren, das aus Daten lernt, beschreibt seine Daten und seine Vorhersagen in dieser Sprache.
 

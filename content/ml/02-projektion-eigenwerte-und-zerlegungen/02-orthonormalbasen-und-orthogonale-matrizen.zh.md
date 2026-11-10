@@ -1,7 +1,8 @@
 ---
 title: 标准正交基与正交矩阵
 pfad: 计算机科学 / 机器学习 / 数学基础 / 投影、特征值与矩阵分解
-knoten: 基础篇 2：投影、特征值与矩阵分解
+adresse: informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen
+knoten: 第 2 章：投影、特征值与矩阵分解
 nachschlagen: ja
 order: 15220200
 summary: 有些坐标系用起来特别方便：它们的坐标轴两两垂直，每根轴上的单位长度都相同。在这样的坐标系中，求一个点的坐标不需要解方程组，长度直接由勾股定理得出。本节介绍这类坐标系及其对应的矩阵。
@@ -19,7 +20,7 @@ lang: zh
 
 <span class="anker" id="stufe-1-1"></span>
 
-在[基础篇 1 第 5.3 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/winkel-und-ahnlichkeit.html#stufe-5-3)中，若两个向量的点积为零，就称它们正交。恒定模式 $(1,1,1,1)^{\top}$ 和交替模式 $(1,-1,1,-1)^{\top}$ 就是一个例子：把信号与其中一个模式比较时，不会受到另一个模式的干扰。不过，比较得到的是该成分的 $4$ 倍，因为两个模式的长度都是 $2$。如果正交向量的长度还都是 $1$，这个因子也就消失了。
+在[第 1 章第 5.3 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/winkel-und-ahnlichkeit.html#stufe-5-3)中，若两个向量的点积为零，就称它们正交。恒定模式 $(1,1,1,1)^{\top}$ 和交替模式 $(1,-1,1,-1)^{\top}$ 就是一个例子：把时间序列与其中一个模式比较时，不会受到另一个模式的干扰。不过，比较得到的是该成分的 $4$ 倍，因为两个模式的长度都是 $2$。如果正交向量的长度还都是 $1$，这个因子也就消失了。
 
 设想把平面的两根坐标轴 $\mathbf{e}_1$ 和 $\mathbf{e}_2$ 整体转过某个角度。这两个箭头的长度仍然是 $1$，仍然互相垂直，只是指向了别的方向。
 
@@ -41,7 +42,7 @@ $$\mathbf{q}_i^{\top}\mathbf{q}_l=\begin{cases}1, & i=l,\\ 0, & i\ne l.\end{case
 :::
 
 :::beweis 线性无关性
-设 $c_1\mathbf{q}_1+\dots+c_k\mathbf{q}_k=\mathbf{0}$。两边同时与 $\mathbf{q}_l$ 作点积。由式 [(1.1)](#gl-1-1)，左边只剩下 $c_l\,\mathbf{q}_l^{\top}\mathbf{q}_l=c_l$ 这一项；右边为 $\mathbf{q}_l^{\top}\mathbf{0}=0$。所以 $c_l=0$，而且这对每个 $l$ 都成立。按照[基础篇 1 第 13.2 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-2)的定义，这些向量因此线性无关。
+设 $c_1\mathbf{q}_1+\dots+c_k\mathbf{q}_k=\mathbf{0}$。两边同时与 $\mathbf{q}_l$ 作点积。由式 [(1.1)](#gl-1-1)，左边只剩下 $c_l\,\mathbf{q}_l^{\top}\mathbf{q}_l=c_l$ 这一项；右边为 $\mathbf{q}_l^{\top}\mathbf{0}=0$。所以 $c_l=0$，而且这对每个 $l$ 都成立。按照[第 1 章第 13.2 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-2)的定义，这些向量因此线性无关。
 :::
 
 ::::beispiel [算例]
@@ -62,7 +63,7 @@ $$\mathbf{q}_1^{\top}\mathbf{q}_1=0.36+0.64=1,\qquad \mathbf{q}_2^{\top}\mathbf{
 
 <span class="anker" id="stufe-1-2"></span>
 
-根据[基础篇 1 第 13.3 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-3)，基就是一个坐标系：每个向量在其中都有唯一的表示。最方便的基是由标准正交向量组成的基。它们就像我们熟悉的坐标轴，只是转了一个角度。
+根据[第 1 章第 13.3 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-3)，基就是一个坐标系：每个向量在其中都有唯一的表示。最方便的基是由标准正交向量组成的基。它们就像我们熟悉的坐标轴，只是转了一个角度。
 
 :::definition 定义 1.3 (标准正交基)
 <span class="anker" id="satz-1-3"></span>
@@ -70,7 +71,7 @@ $$\mathbf{q}_1^{\top}\mathbf{q}_1=0.36+0.64=1,\qquad \mathbf{q}_2^{\top}\mathbf{
 由标准正交向量组成的基称为__标准正交基__。
 :::
 
-对整个 $\mathbb{R}^n$ 而言，只要找到 $n$ 个标准正交向量就够了。由上一小节的定理，它们线性无关。把它们写成一个 $n\times n$ 矩阵的列，这个矩阵的秩为 $n$，由[基础篇 1 第 13.5 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-5)，它的列空间就是整个 $\mathbb{R}^n$。因此这 $n$ 个向量张成 $\mathbb{R}^n$，构成一组基。同样，也可以为一个张成的空间（比如 $\mathbb{R}^3$ 中的一个平面）寻找标准正交基，也就是一组标准正交向量，它们张成的空间恰好就是给定的那个。
+对整个 $\mathbb{R}^n$ 而言，只要找到 $n$ 个标准正交向量就够了。由上一小节的定理，它们线性无关。把它们写成一个 $n\times n$ 矩阵的列，这个矩阵的秩为 $n$，由[第 1 章第 13.5 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-5)，它的列空间就是整个 $\mathbb{R}^n$。因此这 $n$ 个向量张成 $\mathbb{R}^n$，构成一组基。同样，也可以为一个张成的空间（比如 $\mathbb{R}^3$ 中的一个平面）寻找标准正交基，也就是一组标准正交向量，它们张成的空间恰好就是给定的那个。
 
 ::::beispiel [算例]
 向量 $\mathbf{q}_1=(0.6,\ 0.8)^{\top}$ 和 $\mathbf{q}_2=(-0.8,\ 0.6)^{\top}$ 是 $\mathbb{R}^2$ 中的两个标准正交向量，因此构成 $\mathbb{R}^2$ 的一组标准正交基。单位向量 $\mathbf{e}_1,\mathbf{e}_2,\mathbf{e}_3$ 构成 $\mathbb{R}^3$ 的一组标准正交基，称为标准基。$\mathbb{R}^3$ 中的平面 $\operatorname{span}\{\mathbf{e}_1,\mathbf{e}_2\}$ 有标准正交基 $\mathbf{e}_1,\mathbf{e}_2$。
@@ -82,9 +83,9 @@ $$\mathbf{q}_1^{\top}\mathbf{q}_1=0.36+0.64=1,\qquad \mathbf{q}_2^{\top}\mathbf{
 
 <span class="anker" id="stufe-1-3"></span>
 
-在一般的基下，要求出一个向量的坐标，必须解一个方程组。在[基础篇 1 第 13.3 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-3)中，$(3,\,2)^{\top}$ 在基 $(1,\,0)^{\top}$、$(1,\,1)^{\top}$ 下的坐标是 $1$ 和 $2$。而点积 $(1,0)(3,2)^{\top}=3$ 和 $(1,1)(3,2)^{\top}=5$ 则完全是另一回事。与此不同，在标准正交基下，坐标恰好就是点积。
+在一般的基下，要求出一个向量的坐标，必须解一个方程组。在[第 1 章第 13.3 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-3)中，$(3,\,2)^{\top}$ 在基 $(1,\,0)^{\top}$、$(1,\,1)^{\top}$ 下的坐标是 $1$ 和 $2$。而点积 $(1,0)(3,2)^{\top}=3$ 和 $(1,1)(3,2)^{\top}=5$ 则完全是另一回事。与此不同，在标准正交基下，坐标恰好就是点积。
 
-原因可以从[基础篇 1 第 5.5 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/winkel-und-ahnlichkeit.html#stufe-5-5)中影子长度的图景看出。对于归一化向量 $\mathbf{q}$，数 $\mathbf{q}^{\top}\mathbf{x}$ 是 $\mathbf{x}$ 在沿 $\mathbf{q}$ 方向的直线上的影子长度。在标准正交基下，每个坐标都是在各自坐标轴上的影子（图 [2](#abb-2)）。
+原因可以从[第 1 章第 5.5 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/winkel-und-ahnlichkeit.html#stufe-5-5)中影子长度的图景看出。对于归一化向量 $\mathbf{q}$，数 $\mathbf{q}^{\top}\mathbf{x}$ 是 $\mathbf{x}$ 在沿 $\mathbf{q}$ 方向的直线上的影子长度。在标准正交基下，每个坐标都是在各自坐标轴上的影子（图 [2](#abb-2)）。
 
 :::abbildung ml/k2onb 2
 标准正交基 $\mathbf{q}_1=(0.6,\,0.8)^{\top}$、$\mathbf{q}_2=(-0.8,\,0.6)^{\top}$（绿色）下的坐标。箭头 $\mathbf{x}=(3,1)^{\top}$ 在两根转过的坐标轴（灰色）上各投下一个影子，光线都是垂直照射的（虚线）。影子长度 $\mathbf{q}_1^{\top}\mathbf{x}=2.6$（蓝色）和 $\mathbf{q}_2^{\top}\mathbf{x}=-1.8$（橙色）就是坐标：$\mathbf{x}=2.6\,\mathbf{q}_1-1.8\,\mathbf{q}_2$。
@@ -127,21 +128,21 @@ $$c_1=\mathbf{q}_1^{\top}\mathbf{x}=1.8+0.8=2.6,\qquad c_2=\mathbf{q}_2^{\top}\m
 
 ⁠**简而言之：**在标准正交基下，每个坐标都是一个点积 $c_i=\mathbf{q}_i^{\top}\mathbf{x}$，坐标的平方和就是长度的平方。
 
-:::hintergrund 采样振荡构成标准正交基，以及帕塞瓦尔定理
+:::hintergrund 振荡构成标准正交基，以及帕塞瓦尔定理
 四个向量
 
 $$\begin{gathered} \mathbf{q}_1=\tfrac12(1,\,1,\,1,\,1)^{\top},\qquad \mathbf{q}_2=\tfrac1{\sqrt2}(1,\,0,\,-1,\,0)^{\top},\\ \mathbf{q}_3=\tfrac1{\sqrt2}(0,\,1,\,0,\,-1)^{\top},\qquad \mathbf{q}_4=\tfrac12(1,\,-1,\,1,\,-1)^{\top} \end{gathered}$$
 
-分别是直流分量、每四个采样点一个周期的余弦振荡和正弦振荡，以及每个采样点都变号的振荡的采样值，并且都已归一化。容易验证它们是标准正交的，因此构成 $\mathbb{R}^4$ 的一组标准正交基。每个含四个采样点的信号都是这四个振荡之和，由式 [(1.2)](#gl-1-2)，各部分的贡献就是点积。对于信号 $\mathbf{x}=(4,\,2,\,0,\,2)^{\top}$，得到 $\mathbf{q}_1^{\top}\mathbf{x}=4$，$\mathbf{q}_2^{\top}\mathbf{x}=4/\sqrt2=2\sqrt2$，$\mathbf{q}_3^{\top}\mathbf{x}=0$，$\mathbf{q}_4^{\top}\mathbf{x}=0$：该信号只由直流分量和余弦组成。
+分别是一个常数、每四步一个周期的余弦振荡和正弦振荡，以及每一步都变号的振荡的取值，并且都已归一化。容易验证它们是标准正交的，因此构成 $\mathbb{R}^4$ 的一组标准正交基。每个由四个值组成的时间序列，例如一天中四个时刻的气温，都是这四个振荡之和，由式 [(1.2)](#gl-1-2)，各部分的贡献就是点积。对于时间序列 $\mathbf{x}=(4,\,2,\,0,\,2)^{\top}$，得到 $\mathbf{q}_1^{\top}\mathbf{x}=4$，$\mathbf{q}_2^{\top}\mathbf{x}=4/\sqrt2=2\sqrt2$，$\mathbf{q}_3^{\top}\mathbf{x}=0$，$\mathbf{q}_4^{\top}\mathbf{x}=0$：该时间序列只由一个常数和一个余弦组成。
 
-式 [(1.2)](#gl-1-2) 中的第二个公式表明，信号的能量 $\lVert\mathbf{x}\rVert^2=24$ 等于各贡献的平方和 $16+8+0+0=24$。在信号处理中，这一结论称为帕塞瓦尔定理。离散傅里叶变换是用复振荡做的同一种分解。对 $N$ 个采样点，它的矩阵只有在用 $1/\sqrt N$ 归一化时才保持长度不变；没有这个因子，帕塞瓦尔定理中就会多出一个因子 $N$。
+式 [(1.2)](#gl-1-2) 中的第二个公式表明，时间序列的平方和 $\lVert\mathbf{x}\rVert^2=24$ 等于各贡献的平方和 $16+8+0+0=24$。在数学中，这一结论称为帕塞瓦尔定理。离散傅里叶变换是用复振荡做的同一种分解；例如，音乐软件就是用它把一个声音分解成各个音。对 $N$ 个值，它的矩阵只有在用 $1/\sqrt N$ 归一化时才保持长度不变；没有这个因子，帕塞瓦尔定理中就会多出一个因子 $N$。
 :::
 
 ### 正交矩阵
 
 <span class="anker" id="stufe-1-4"></span>
 
-把标准正交基的向量写成矩阵 $\mathbf{Q}=\begin{pmatrix}\mathbf{q}_1&\cdots&\mathbf{q}_n\end{pmatrix}$ 的列，式 [(1.2)](#gl-1-2) 中的两个公式都可以写成矩阵乘积。按照[基础篇 1 第 7.2 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrix-vektor-produkt.html#stufe-7-2)的行视角，所有坐标合起来构成向量 $\mathbf{c}=\mathbf{Q}^{\top}\mathbf{x}$，因为 $\mathbf{Q}^{\top}$ 的各行就是向量 $\mathbf{q}_i^{\top}$。反过来，按列视角有 $\mathbf{x}=\sum_ic_i\mathbf{q}_i=\mathbf{Q}\mathbf{c}$。所以矩阵 $\mathbf{Q}^{\top}$ 撤销了 $\mathbf{Q}$ 的作用。
+把标准正交基的向量写成矩阵 $\mathbf{Q}=\begin{pmatrix}\mathbf{q}_1&\cdots&\mathbf{q}_n\end{pmatrix}$ 的列，式 [(1.2)](#gl-1-2) 中的两个公式都可以写成矩阵乘积。按照[第 1 章第 7.2 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrix-vektor-produkt.html#stufe-7-2)的行视角，所有坐标合起来构成向量 $\mathbf{c}=\mathbf{Q}^{\top}\mathbf{x}$，因为 $\mathbf{Q}^{\top}$ 的各行就是向量 $\mathbf{q}_i^{\top}$。反过来，按列视角有 $\mathbf{x}=\sum_ic_i\mathbf{q}_i=\mathbf{Q}\mathbf{c}$。所以矩阵 $\mathbf{Q}^{\top}$ 撤销了 $\mathbf{Q}$ 的作用。
 
 :::definition 定义 1.5 (正交矩阵)
 <span class="anker" id="satz-1-5"></span>
@@ -158,7 +159,7 @@ $$\begin{gathered} \mathbf{q}_1=\tfrac12(1,\,1,\,1,\,1)^{\top},\qquad \mathbf{q}
 :::
 
 :::beweis 正交矩阵的逆
-各列标准正交，由第一小节，它们线性无关。由[基础篇 1 第 13.5 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-5)的定理，$\mathbf{Q}$ 因而可逆。将 $\mathbf{Q}^{\top}\mathbf{Q}=\mathbf{I}$ 从右边乘以 $\mathbf{Q}^{-1}$，得到 $\mathbf{Q}^{\top}=\mathbf{Q}^{-1}$，从而也有 $\mathbf{Q}\mathbf{Q}^{\top}=\mathbf{Q}\mathbf{Q}^{-1}=\mathbf{I}$。
+各列标准正交，由第一小节，它们线性无关。由[第 1 章第 13.5 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-5)的定理，$\mathbf{Q}$ 因而可逆。将 $\mathbf{Q}^{\top}\mathbf{Q}=\mathbf{I}$ 从右边乘以 $\mathbf{Q}^{-1}$，得到 $\mathbf{Q}^{\top}=\mathbf{Q}^{-1}$，从而也有 $\mathbf{Q}\mathbf{Q}^{\top}=\mathbf{Q}\mathbf{Q}^{-1}=\mathbf{I}$。
 :::
 
 关于名称说明一句。正交矩阵的列是标准正交的，而不仅仅是正交的；这个名称是历史沿袭下来的。对于列只是正交而未归一化的矩阵，并没有专门的名称。对这样的矩阵，$\mathbf{Q}^{\top}\mathbf{Q}$ 是一个对角矩阵，对角线上是各列长度的平方，但不是 $\mathbf{I}$。
@@ -168,7 +169,7 @@ $$\begin{gathered} \mathbf{q}_1=\tfrac12(1,\,1,\,1,\,1)^{\top},\qquad \mathbf{q}
 
 $$\mathbf{Q}=\begin{pmatrix}0.6&-0.8\\0.8&0.6\end{pmatrix},\qquad \mathbf{Q}^{\top}\mathbf{Q}=\begin{pmatrix}0.36+0.64&-0.48+0.48\\-0.48+0.48&0.64+0.36\end{pmatrix}=\mathbf{I} .$$
 
-$\mathbf{Q}^{\top}\mathbf{Q}$ 的元素就是第一小节中各列的点积；图 [1](#abb-1) 给出了非对角元素。所以无需任何计算即得 $\mathbf{Q}^{-1}=\mathbf{Q}^{\top}$。这个矩阵就是[基础篇 1 第 8.3 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-3)中 $\cos\alpha=0.6$、$\sin\alpha=0.8$ 的旋转矩阵，即逆时针旋转 $\alpha\approx53.13^\circ$。逆矩阵 $\mathbf{Q}^{\top}$ 以同样的角度转回去。
+$\mathbf{Q}^{\top}\mathbf{Q}$ 的元素就是第一小节中各列的点积；图 [1](#abb-1) 给出了非对角元素。所以无需任何计算即得 $\mathbf{Q}^{-1}=\mathbf{Q}^{\top}$。这个矩阵就是[第 1 章第 8.3 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-3)中 $\cos\alpha=0.6$、$\sin\alpha=0.8$ 的旋转矩阵，即逆时针旋转 $\alpha\approx53.13^\circ$。逆矩阵 $\mathbf{Q}^{\top}$ 以同样的角度转回去。
 ::::
 
 ⁠**简而言之：**正交矩阵是列向量标准正交的方阵；它的逆矩阵就是它的转置。
@@ -191,10 +192,10 @@ $$(\mathbf{Q}\mathbf{x})^{\top}(\mathbf{Q}\mathbf{y})=\mathbf{x}^{\top}\mathbf{y
 :::
 
 :::beweis 点积保持不变
-由[基础篇 1 第 10.1 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/transponierte-symmetrie-und-gram-matrix.html#stufe-10-1)的规则 $(\mathbf{A}\mathbf{B})^{\top}=\mathbf{B}^{\top}\mathbf{A}^{\top}$，有 $(\mathbf{Q}\mathbf{x})^{\top}(\mathbf{Q}\mathbf{y})=\mathbf{x}^{\top}\mathbf{Q}^{\top}\mathbf{Q}\mathbf{y}=\mathbf{x}^{\top}\mathbf{I}\mathbf{y}=\mathbf{x}^{\top}\mathbf{y}$。令 $\mathbf{y}=\mathbf{x}$ 即得关于长度的结论；由于夹角只由点积和长度算出，它也保持不变。对于行列式，利用[基础篇 1 第 14.5 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5)的规则：$1=\det\mathbf{I}=\det(\mathbf{Q}^{\top}\mathbf{Q})=\det\mathbf{Q}^{\top}\cdot\det\mathbf{Q}=(\det\mathbf{Q})^2$。
+由[第 1 章第 10.1 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/transponierte-symmetrie-und-gram-matrix.html#stufe-10-1)的规则 $(\mathbf{A}\mathbf{B})^{\top}=\mathbf{B}^{\top}\mathbf{A}^{\top}$，有 $(\mathbf{Q}\mathbf{x})^{\top}(\mathbf{Q}\mathbf{y})=\mathbf{x}^{\top}\mathbf{Q}^{\top}\mathbf{Q}\mathbf{y}=\mathbf{x}^{\top}\mathbf{I}\mathbf{y}=\mathbf{x}^{\top}\mathbf{y}$。令 $\mathbf{y}=\mathbf{x}$ 即得关于长度的结论；由于夹角只由点积和长度算出，它也保持不变。对于行列式，利用[第 1 章第 14.5 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5)的规则：$1=\det\mathbf{I}=\det(\mathbf{Q}^{\top}\mathbf{Q})=\det\mathbf{Q}^{\top}\cdot\det\mathbf{Q}=(\det\mathbf{Q})^2$。
 :::
 
-因此，正交矩阵像移动刚体一样移动空间，不使它变形。若 $\det\mathbf{Q}=1$，它是一个旋转。若 $\det\mathbf{Q}=-1$，它包含一次反射，因为由[基础篇 1 第 14.2 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-2)，负的行列式会使定向反转。
+因此，正交矩阵像移动刚体一样移动空间，不使它变形。若 $\det\mathbf{Q}=1$，它是一个旋转。若 $\det\mathbf{Q}=-1$，它包含一次反射，因为由[第 1 章第 14.2 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-2)，负的行列式会使定向反转。
 
 ::::beispiel [算例]
 上一小节的旋转把 $\mathbf{x}=(3,\,1)^{\top}$ 映射为 $\mathbf{Q}\mathbf{x}=(1.8-0.8,\ 2.4+0.6)^{\top}=(1,\,3)^{\top}$。两个向量长度的平方都是 $10$。该旋转的行列式为 $0.36+0.64=1$。矩阵 $\bigl(\begin{smallmatrix}0.6&0.8\\0.8&-0.6\end{smallmatrix}\bigr)$ 的列同样标准正交，但行列式为 $-0.36-0.64=-1$：它关于沿 $(2,\,1)^{\top}$ 方向的直线作反射，因为它把 $(2,\,1)^{\top}$ 映射为自身，把 $(-1,\,2)^{\top}$ 映射为 $(1,\,-2)^{\top}$。
@@ -219,7 +220,7 @@ $$(\mathbf{Q}\mathbf{x})^{\top}(\mathbf{Q}\mathbf{y})=\mathbf{x}^{\top}\mathbf{y
 :::
 
 :::beweis 矩形矩阵
-前两个结论与方阵的情形完全一样，由式 [(1.1)](#gl-1-1) 得出。关于第三个结论：矩阵 $\mathbf{Q}^{\top}$ 有 $k$ 行 $n$ 列。由[基础篇 1 第 13.5 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-5)的秩-零化度定理，它的零空间的维数为 $n-\operatorname{rank}\mathbf{Q}^{\top}\ge n-k\ge1$。所以存在向量 $\mathbf{z}\ne\mathbf{0}$ 使 $\mathbf{Q}^{\top}\mathbf{z}=\mathbf{0}$，对它有 $\mathbf{Q}\mathbf{Q}^{\top}\mathbf{z}=\mathbf{0}\ne\mathbf{z}$。因此 $\mathbf{Q}\mathbf{Q}^{\top}\ne\mathbf{I}$。
+前两个结论与方阵的情形完全一样，由式 [(1.1)](#gl-1-1) 得出。关于第三个结论：矩阵 $\mathbf{Q}^{\top}$ 有 $k$ 行 $n$ 列。由[第 1 章第 13.5 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-5)的秩-零化度定理，它的零空间的维数为 $n-\operatorname{rank}\mathbf{Q}^{\top}\ge n-k\ge1$。所以存在向量 $\mathbf{z}\ne\mathbf{0}$ 使 $\mathbf{Q}^{\top}\mathbf{z}=\mathbf{0}$，对它有 $\mathbf{Q}\mathbf{Q}^{\top}\mathbf{z}=\mathbf{0}\ne\mathbf{z}$。因此 $\mathbf{Q}\mathbf{Q}^{\top}\ne\mathbf{I}$。
 :::
 
 ::::beispiel [算例 1]
@@ -227,7 +228,7 @@ $$(\mathbf{Q}\mathbf{x})^{\top}(\mathbf{Q}\mathbf{y})=\mathbf{x}^{\top}\mathbf{y
 
 $$\mathbf{q}\mathbf{q}^{\top}=\begin{pmatrix}0.36&0.48\\0.48&0.64\end{pmatrix}\ne\mathbf{I} .$$
 
-它把 $(-0.8,\ 0.6)^{\top}$ 映射为 $\mathbf{0}$，把向量 $\mathbf{x}=(3,\,1)^{\top}$ 映射为 $(1.08+0.48,\ 1.44+0.64)^{\top}=(1.56,\ 2.08)^{\top}$。这恰好是[基础篇 1 第 5.5 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/winkel-und-ahnlichkeit.html#stufe-5-5)中 $\mathbf{x}$ 的影子的端点，因为 $\mathbf{q}\mathbf{q}^{\top}\mathbf{x}=\mathbf{q}\,(\mathbf{q}^{\top}\mathbf{x})=2.6\,\mathbf{q}$。
+它把 $(-0.8,\ 0.6)^{\top}$ 映射为 $\mathbf{0}$，把向量 $\mathbf{x}=(3,\,1)^{\top}$ 映射为 $(1.08+0.48,\ 1.44+0.64)^{\top}=(1.56,\ 2.08)^{\top}$。这恰好是[第 1 章第 5.5 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/winkel-und-ahnlichkeit.html#stufe-5-5)中 $\mathbf{x}$ 的影子的端点，因为 $\mathbf{q}\mathbf{q}^{\top}\mathbf{x}=\mathbf{q}\,(\mathbf{q}^{\top}\mathbf{x})=2.6\,\mathbf{q}$。
 ::::
 
 ::::beispiel [算例 2]

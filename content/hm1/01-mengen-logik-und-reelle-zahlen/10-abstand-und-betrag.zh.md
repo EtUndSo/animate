@@ -1,6 +1,8 @@
 ---
 title: 第 8 阶段：距离与绝对值
-pfad: 电气工程 / 第 1 学期 / 高等数学 1 / 集合、逻辑与实数
+pfad: 电气工程 / 第 1 学期 / HöMa1 – 高等数学 1 / 集合、逻辑与实数
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen
+knoten: 第 1 章：集合、逻辑与实数
 order: 1211000
 summary: 极限衡量两个数有多接近。为此需要距离，以及一条关于绕路的规则。
 tags: 距离, 绝对值, 三角不等式, 反向三角不等式

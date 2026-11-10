@@ -1,6 +1,8 @@
 ---
 title: Stufe 3: Nullfolgen vergleichen
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Folgen und Grenzwerte
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Folgen und Grenzwerte
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/folgen-und-grenzwerte
+knoten: Kapitel 4: Folgen und Grenzwerte
 order: 1240500
 summary: Bei sqrt n+4 -sqrt n steht n unter zwei Wurzeln, Auflösen nach n ist mühsam.
 tags: Majorante, Fakultät, geometrische Folge

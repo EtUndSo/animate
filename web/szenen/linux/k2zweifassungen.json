@@ -1,0 +1,715 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 24,
+  "nextAnimId": 37,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Text",
+    "props": {
+     "text": "@namen",
+     "position": [
+      0.0,
+      1.05,
+      0
+     ],
+     "font_size": 20,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.75,
+      -0.2,
+      0
+     ],
+     "width": 3.3,
+     "height": 1.55,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#eb6834",
+     "fill_color": "#fdece3",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o3",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.75,
+      -0.2,
+      0
+     ],
+     "width": 3.3,
+     "height": 1.55,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#e3eefb",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Text",
+    "props": {
+     "text": "uutils (Rust)",
+     "position": [
+      -1.75,
+      0.38,
+      0
+     ],
+     "font_size": 20,
+     "align": "center",
+     "color": "#eb6834"
+    }
+   },
+   {
+    "id": "o5",
+    "type": "Text",
+    "props": {
+     "text": "GNU coreutils (C)",
+     "position": [
+      1.75,
+      0.38,
+      0
+     ],
+     "font_size": 20,
+     "align": "center",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Text",
+    "props": {
+     "text": "@meisten",
+     "position": [
+      -1.75,
+      -0.75,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o7",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{ls}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.18,
+     "position": [
+      -2.8,
+      0.78,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o8",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{cat}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.18,
+     "position": [
+      -2.18,
+      0.78,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o9",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{uname}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.18,
+     "position": [
+      -1.56,
+      0.78,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o10",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{head}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.18,
+     "position": [
+      -0.94,
+      0.78,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o11",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{date}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.18,
+     "position": [
+      -0.32,
+      0.78,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o12",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{cp}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.18,
+     "position": [
+      0.3,
+      0.78,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o13",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{mv}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.18,
+     "position": [
+      0.92,
+      0.78,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o14",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{rm}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.18,
+     "position": [
+      1.54,
+      0.78,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o15",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{df}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.18,
+     "position": [
+      2.16,
+      0.78,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o16",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{true}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.18,
+     "position": [
+      2.78,
+      0.78,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o17",
+    "type": "Text",
+    "props": {
+     "text": "…",
+     "position": [
+      -2.05,
+      -0.38,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o18",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.25,
+      -0.2,
+      0
+     ],
+     "end": [
+      3.25,
+      -0.2,
+      0
+     ],
+     "color": "#2a78d6",
+     "stroke_width": 1.5,
+     "dash": "10,7"
+    }
+   },
+   {
+    "id": "o19",
+    "type": "Text",
+    "props": {
+     "text": "@vorsilbe",
+     "position": [
+      0.25,
+      -0.38,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o20",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{gnuls}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.18,
+     "position": [
+      0.65,
+      -0.7,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o21",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{gnucat}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.18,
+     "position": [
+      1.35,
+      -0.7,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o22",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{gnuuname}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.18,
+     "position": [
+      2.2,
+      -0.7,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o23",
+    "type": "Text",
+    "props": {
+     "text": "…",
+     "position": [
+      2.95,
+      -0.7,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   }
+  ],
+  "animations": [
+   {
+    "id": "a1",
+    "type": "FadeIn",
+    "target": "o1",
+    "run_time": 0.5,
+    "step": 0
+   },
+   {
+    "id": "a2",
+    "type": "GrowFromCenter",
+    "target": "o2",
+    "run_time": 0.7,
+    "step": 1
+   },
+   {
+    "id": "a3",
+    "type": "GrowFromCenter",
+    "target": "o3",
+    "run_time": 0.7,
+    "step": 1
+   },
+   {
+    "id": "a4",
+    "type": "FadeIn",
+    "target": "o4",
+    "run_time": 0.7,
+    "step": 1
+   },
+   {
+    "id": "a5",
+    "type": "FadeIn",
+    "target": "o5",
+    "run_time": 0.7,
+    "step": 1
+   },
+   {
+    "id": "a6",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a7",
+    "type": "FadeIn",
+    "target": "o7",
+    "run_time": 0.6,
+    "step": 3
+   },
+   {
+    "id": "a8",
+    "type": "FadeIn",
+    "target": "o8",
+    "run_time": 0.6,
+    "step": 3
+   },
+   {
+    "id": "a9",
+    "type": "FadeIn",
+    "target": "o9",
+    "run_time": 0.6,
+    "step": 3
+   },
+   {
+    "id": "a10",
+    "type": "FadeIn",
+    "target": "o10",
+    "run_time": 0.6,
+    "step": 3
+   },
+   {
+    "id": "a11",
+    "type": "FadeIn",
+    "target": "o11",
+    "run_time": 0.6,
+    "step": 3
+   },
+   {
+    "id": "a12",
+    "type": "FadeIn",
+    "target": "o12",
+    "run_time": 0.6,
+    "step": 3
+   },
+   {
+    "id": "a13",
+    "type": "FadeIn",
+    "target": "o13",
+    "run_time": 0.6,
+    "step": 3
+   },
+   {
+    "id": "a14",
+    "type": "FadeIn",
+    "target": "o14",
+    "run_time": 0.6,
+    "step": 3
+   },
+   {
+    "id": "a15",
+    "type": "FadeIn",
+    "target": "o15",
+    "run_time": 0.6,
+    "step": 3
+   },
+   {
+    "id": "a16",
+    "type": "FadeIn",
+    "target": "o16",
+    "run_time": 0.6,
+    "step": 3
+   },
+   {
+    "id": "a17",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 4
+   },
+   {
+    "id": "a18",
+    "type": "MoveTo",
+    "target": "o7",
+    "run_time": 1.2,
+    "step": 5,
+    "point": [
+     -2.9,
+     0.0,
+     0
+    ]
+   },
+   {
+    "id": "a19",
+    "type": "MoveTo",
+    "target": "o8",
+    "run_time": 1.2,
+    "step": 5,
+    "point": [
+     -2.25,
+     0.0,
+     0
+    ]
+   },
+   {
+    "id": "a20",
+    "type": "MoveTo",
+    "target": "o9",
+    "run_time": 1.2,
+    "step": 5,
+    "point": [
+     -1.5,
+     0.0,
+     0
+    ]
+   },
+   {
+    "id": "a21",
+    "type": "MoveTo",
+    "target": "o10",
+    "run_time": 1.2,
+    "step": 5,
+    "point": [
+     -0.7,
+     0.0,
+     0
+    ]
+   },
+   {
+    "id": "a22",
+    "type": "MoveTo",
+    "target": "o11",
+    "run_time": 1.2,
+    "step": 5,
+    "point": [
+     -2.75,
+     -0.38,
+     0
+    ]
+   },
+   {
+    "id": "a23",
+    "type": "MoveTo",
+    "target": "o12",
+    "run_time": 1.2,
+    "step": 5,
+    "point": [
+     0.55,
+     0.05,
+     0
+    ]
+   },
+   {
+    "id": "a24",
+    "type": "MoveTo",
+    "target": "o13",
+    "run_time": 1.2,
+    "step": 5,
+    "point": [
+     1.05,
+     0.05,
+     0
+    ]
+   },
+   {
+    "id": "a25",
+    "type": "MoveTo",
+    "target": "o14",
+    "run_time": 1.2,
+    "step": 5,
+    "point": [
+     1.55,
+     0.05,
+     0
+    ]
+   },
+   {
+    "id": "a26",
+    "type": "MoveTo",
+    "target": "o15",
+    "run_time": 1.2,
+    "step": 5,
+    "point": [
+     2.05,
+     0.05,
+     0
+    ]
+   },
+   {
+    "id": "a27",
+    "type": "MoveTo",
+    "target": "o16",
+    "run_time": 1.2,
+    "step": 5,
+    "point": [
+     2.6,
+     0.05,
+     0
+    ]
+   },
+   {
+    "id": "a28",
+    "type": "FadeIn",
+    "target": "o17",
+    "run_time": 0.5,
+    "step": 6
+   },
+   {
+    "id": "a29",
+    "type": "FadeIn",
+    "target": "o6",
+    "run_time": 0.5,
+    "step": 6
+   },
+   {
+    "id": "a30",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 7
+   },
+   {
+    "id": "a31",
+    "type": "Create",
+    "target": "o18",
+    "run_time": 0.8,
+    "step": 8
+   },
+   {
+    "id": "a32",
+    "type": "FadeIn",
+    "target": "o19",
+    "run_time": 0.8,
+    "step": 8
+   },
+   {
+    "id": "a33",
+    "type": "FadeIn",
+    "target": "o20",
+    "run_time": 0.8,
+    "step": 8
+   },
+   {
+    "id": "a34",
+    "type": "FadeIn",
+    "target": "o21",
+    "run_time": 0.8,
+    "step": 8
+   },
+   {
+    "id": "a35",
+    "type": "FadeIn",
+    "target": "o22",
+    "run_time": 0.8,
+    "step": 8
+   },
+   {
+    "id": "a36",
+    "type": "FadeIn",
+    "target": "o23",
+    "run_time": 0.8,
+    "step": 8
+   }
+  ],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "namen": {
+    "de": "Befehlsnamen",
+    "en": "command names",
+    "es": "nombres de comandos",
+    "zh": "命令名",
+    "fr": "noms de commandes",
+    "tr": "komut adları"
+   },
+   "meisten": {
+    "de": "die meisten Grundbefehle",
+    "en": "most core commands",
+    "es": "la mayoría de los comandos básicos",
+    "zh": "大多数基本命令",
+    "fr": "la plupart des commandes de base",
+    "tr": "temel komutların çoğu"
+   },
+   "vorsilbe": {
+    "de": "alle auch mit Vorsilbe gnu:",
+    "en": "all also with the prefix gnu:",
+    "es": "todos también con el prefijo gnu:",
+    "zh": "全部也可加前缀 gnu：",
+    "fr": "toutes aussi avec le préfixe gnu :",
+    "tr": "hepsi gnu ön ekiyle de:"
+   }
+  }
+ }
+}

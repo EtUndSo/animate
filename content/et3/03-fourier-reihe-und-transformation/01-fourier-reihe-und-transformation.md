@@ -1,7 +1,9 @@
 ---
 title: Überblick: Fourier-Reihe und Fourier-Transformation
 kurz: Überblick
-pfad: Elektrotechnik / 3. Semester / Signale und Systeme / Fourier-Reihe und -Transformation
+pfad: Elektrotechnik / 3. Semester / ET3 – Grundgebiete der Elektrotechnik 3: Signale und Systeme / Fourier-Reihe und -Transformation
+adresse: elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation
+knoten: Kapitel 3: Fourier-Reihe und -Transformation
 order: 3230100
 summary: Jedes Signal als Überlagerung von Schwingungen
 tags: Spektrum
@@ -10,7 +12,7 @@ lang: de
 
 ## Worum es geht
 
-[Teil 2](/wissen/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html) hat gezeigt: Jedes Signal ist eine Überlagerung von Bausteinen $\mathrm{e}^{pt}$, und ein LTI-System multipliziert jeden Baustein nur mit einer Zahl. Die Fourier-Beschreibung benutzt davon nur die Bausteine auf der imaginären Achse, $p=\mathrm{j}2\pi f$: reine Schwingungen $\mathrm{e}^{\mathrm{j}2\pi ft}$, die weder wachsen noch abklingen. Das hat einen großen Vorteil. Eine Schwingung hat eine Frequenz, die man hören, messen und filtern kann. Das __Spektrum__ $S(f)$ sagt, mit welcher Amplitude und Phase jede Frequenz im Signal steckt.
+[Kapitel 2](/wissen/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html) hat gezeigt: Jedes Signal ist eine Überlagerung von Bausteinen $\mathrm{e}^{pt}$, und ein LTI-System multipliziert jeden Baustein nur mit einer Zahl. Die Fourier-Beschreibung benutzt davon nur die Bausteine auf der imaginären Achse, $p=\mathrm{j}2\pi f$: reine Schwingungen $\mathrm{e}^{\mathrm{j}2\pi ft}$, die weder wachsen noch abklingen. Das hat einen großen Vorteil. Eine Schwingung hat eine Frequenz, die man hören, messen und filtern kann. Das __Spektrum__ $S(f)$ sagt, mit welcher Amplitude und Phase jede Frequenz im Signal steckt.
 
 
 

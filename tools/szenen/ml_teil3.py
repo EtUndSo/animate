@@ -41,10 +41,12 @@ def k3sekante():
     s.punkt(a, 2, 8, farbe=SCHWARZ, r=0.07)
     s.punkt(a, 3, 27, farbe=ROT, r=0.07)
     s.punkt(a, 2.5, 15.625, farbe=ORANGE, r=0.07)
-    s.tr("s1", "Sekante h = 1: Steigung 19", "secant h = 1: slope 19", "secante h = 1: pendiente 19", "割线 h = 1：斜率 19")
+    s.tr("s1", "Sekante h = 1: Steigung 19", "secant h = 1: slope 19", "secante h = 1: pendiente 19", "割线 h = 1：斜率 19",
+         fr="sécante h = 1 : pente 19", tr="kesen h = 1: eğim 19")
     s.tr("s2", "Sekante h = 0.5: Steigung 15.25", "secant h = 0.5: slope 15.25", "secante h = 0.5: pendiente 15.25",
-         "割线 h = 0.5：斜率 15.25")
-    s.tr("tg", "Tangente: Steigung 12", "tangent: slope 12", "tangente: pendiente 12", "切线：斜率 12")
+         "割线 h = 0.5：斜率 15.25", fr="sécante h = 0.5 : pente 15.25", tr="kesen h = 0.5: eğim 15.25")
+    s.tr("tg", "Tangente: Steigung 12", "tangent: slope 12", "tangente: pendiente 12", "切线：斜率 12",
+         fr="tangente : pente 12", tr="teğet: eğim 12")
     s.legende(a, [("f(x) = x³", BLAU, "-"), ("@{s1}", ROT, "-"), ("@{s2}", ORANGE, "-"), ("@{tg}", SCHWARZ, "--")], (1.1, 27.5))
     s.speichern()
 
@@ -52,10 +54,13 @@ def k3sekante():
 def k3lupe():
     s = Szene("ml/k3lupe")
     s.welt()
-    fenster = (((1, 3), (-5, 28), "1;2;3", ("x von 1 bis 3", "x from 1 to 3", "x de 1 a 3", "x 从 1 到 3")),
-               ((1.9, 2.1), (6.7, 9.4), "1.9;2;2.1", ("x von 1.9 bis 2.1", "x from 1.9 to 2.1", "x de 1.9 a 2.1", "x 从 1.9 到 2.1")),
+    fenster = (((1, 3), (-5, 28), "1;2;3", ("x von 1 bis 3", "x from 1 to 3", "x de 1 a 3", "x 从 1 到 3", "x de 1 à 3",
+                                             "x: 1 ile 3 arası")),
+               ((1.9, 2.1), (6.7, 9.4), "1.9;2;2.1", ("x von 1.9 bis 2.1", "x from 1.9 to 2.1", "x de 1.9 a 2.1", "x 从 1.9 到 2.1",
+                                                      "x de 1.9 à 2.1", "x: 1.9 ile 2.1 arası")),
                ((1.99, 2.01), (7.87, 8.13), "1.99;2;2.01",
-                ("x von 1.99 bis 2.01", "x from 1.99 to 2.01", "x de 1.99 a 2.01", "x 从 1.99 到 2.01")))
+                ("x von 1.99 bis 2.01", "x from 1.99 to 2.01", "x de 1.99 a 2.01", "x 从 1.99 到 2.01", "x de 1.99 à 2.01",
+                 "x: 1.99 ile 2.01 arası")))
     for k, (xr, yr, ticks, worte) in enumerate(fenster):
         mx = -2.4 + 2.4 * k
         a = s.achsen(xr, yr, breite=1.85, hoehe=1.9, mitte=(mx, -0.1), xticks=ticks, yticks="", yzahlen=False, ymarks=False)
@@ -82,10 +87,14 @@ def k3getriebe():
     s.linie(None, (x0, 1.2), (x0, -1.2), farbe=GRAU, dicke=2, dash=DASH)
     s.linie(None, (x0 + m * 0.01, 1.2), (x0 + m * 0.03, 0.0), farbe=GRAU, dicke=2, dash=DASH)
     s.linie(None, (x0 + m * 0.03, 0.0), (x0 + m * 0.2409, -1.2), farbe=GRAU, dicke=2, dash=DASH)
-    s.text(None, s.tr("st1", "Stufe 1: Faktor 3", "stage 1: factor 3", "etapa 1: factor 3", "第 1 级：因子 3"), (0.75, 0.62), KLEIN, "left")
-    s.text(None, s.tr("st2", "Stufe 2: Faktor 8", "stage 2: factor 8", "etapa 2: factor 8", "第 2 级：因子 8"), (1.75, -0.58), KLEIN, "left")
-    s.text(None, s.tr("zus", "zusammen: Δy ≈ 8 · 3 · Δx = 24 · 0.01 = 0.24", "together: Δy ≈ 8 · 3 · Δx = 24 · 0.01 = 0.24",
-                      "en total: Δy ≈ 8 · 3 · Δx = 24 · 0.01 = 0.24", "合计：Δy ≈ 8 · 3 · Δx = 24 · 0.01 = 0.24"), (0.6, -1.95), KLEIN, "center")
+    s.text(None, s.tr("st1", "Stufe 1: Faktor 3", "stage 1: factor 3", "etapa 1: factor 3", "第 1 级：因子 3",
+                      fr="étage 1 : facteur 3", tr="aşama 1: çarpan 3"), (0.75, 0.62), KLEIN, "left")
+    s.text(None, s.tr("st2", "Stufe 2: Faktor 8", "stage 2: factor 8", "etapa 2: factor 8", "第 2 级：因子 8",
+                      fr="étage 2 : facteur 8", tr="aşama 2: çarpan 8"), (1.75, -0.58), KLEIN, "left")
+    s.text(None, s.tr("zus", "zusammen: Δy ≈ 8 · 3 · Δx = 24 · 0.01 = 0.24", "combined: Δy ≈ 8 · 3 · Δx = 24 · 0.01 = 0.24",
+                      "en total: Δy ≈ 8 · 3 · Δx = 24 · 0.01 = 0.24", "合计：Δy ≈ 8 · 3 · Δx = 24 · 0.01 = 0.24",
+                      fr="au total : Δy ≈ 8 · 3 · Δx = 24 · 0.01 = 0.24", tr="toplam: Δy ≈ 8 · 3 · Δx = 24 · 0.01 = 0.24"),
+           (0.6, -1.95), KLEIN, "center")
     s.speichern()
 
 
@@ -105,10 +114,13 @@ def k3logistisch():
 def k3schnitt():
     s = Szene("ml/k3schnitt")
     s.welt()
-    t1 = s.tr("ta", "(a) Höhenlinien", "(a) contour lines", "(a) curvas de nivel", "(a) 等高线")
-    t2 = s.tr("tb", "(b) Schnitt x₂ = 2", "(b) section x₂ = 2", "(b) corte x₂ = 2", "(b) 截线 x₂ = 2")
-    t3 = s.tr("tc", "(c) Schnitt x₁ = 1", "(c) section x₁ = 1", "(c) corte x₁ = 1", "(c) 截线 x₁ = 1")
-    st = s.tr("st", "Steigung", "slope", "pendiente", "斜率")
+    t1 = s.tr("ta", "(a) Höhenlinien", "(a) contour lines", "(a) curvas de nivel", "(a) 等高线", fr="(a) lignes de niveau",
+              tr="(a) eş yükselti eğrileri")
+    t2 = s.tr("tb", "(b) Schnitt x₂ = 2", "(b) section x₂ = 2", "(b) corte x₂ = 2", "(b) 截线 x₂ = 2", fr="(b) coupe x₂ = 2",
+              tr="(b) kesit x₂ = 2")
+    t3 = s.tr("tc", "(c) Schnitt x₁ = 1", "(c) section x₁ = 1", "(c) corte x₁ = 1", "(c) 截线 x₁ = 1", fr="(c) coupe x₁ = 1",
+              tr="(c) kesit x₁ = 1")
+    st = s.tr("st", "Steigung", "slope", "pendiente", "斜率", fr="pente", tr="eğim")
     a = s.achsen((-2, 2), (0, 3.5), breite=1.55, hoehe=1.75, mitte=(-2.35, -0.05), xl="x₁", yl="x₂", xticks="-2;0;2", yticks="1;2;3")
     for c in (2, 4, 8, 10):
         s.kurve(a, "(sqrt(x^4+4*%d)-x^2)/2" % c, farbe=HELLGRAU, dicke=3)
@@ -267,8 +279,8 @@ ZEN = [(1.000e-01, 1.000e-02), (3.162e-02, 1.000e-03), (1.000e-02, 1.000e-04), (
 
 def k3vkurve():
     s = Szene("ml/k3vkurve")
-    hl = s.tr("hl", "Schrittweite h", "step size h", "paso h", "步长 h")
-    fl = s.tr("fl", "Fehler", "error", "error", "误差")
+    hl = s.tr("hl", "Schrittweite h", "step size h", "paso h", "步长 h", fr="pas h", tr="adım büyüklüğü h")
+    fl = s.tr("fl", "Fehler", "error", "error", "误差", fr="erreur", tr="hata")
     a = s.achsen((1e-15, 0.1), (1e-12, 10), breite=5.6, hoehe=3.6, mitte=(0.3, 0.1), xl=hl, yl=fl, xlog=True, ylog=True,
                  xticks="1e-15;1e-12;1e-9;1e-6;1e-3", yticks="1e-12;1e-9;1e-6;1e-3;1")
     s.kurve(a, "6*x+1.776/(10^15*x)", farbe=ROT, dicke=3, dash=DASH)
@@ -277,9 +289,11 @@ def k3vkurve():
         s.punkt(a, h, e, farbe=ROT, r=0.05)
     for h, e in ZEN:
         s.punkt(a, h, max(e, 1e-12), farbe=BLAU, r=0.05)
-    s.tr("vg", "Vorwärtsdifferenz", "forward difference", "diferencia progresiva", "前向差分")
-    s.tr("zg", "zentrale Differenz", "central difference", "diferencia central", "中心差分")
-    s.tr("ab", "Abschätzungen", "estimates", "estimaciones", "估计")
+    s.tr("vg", "Vorwärtsdifferenz", "forward difference", "diferencia progresiva", "前向差分", fr="différence avant",
+         tr="ileri fark")
+    s.tr("zg", "zentrale Differenz", "central difference", "diferencia central", "中心差分", fr="différence centrée",
+         tr="merkezi fark")
+    s.tr("ab", "Abschätzungen", "estimates", "estimaciones", "估计", fr="estimations", tr="kestirimler")
     s.legende(a, [("@{vg}", ROT, "o"), ("@{zg}", BLAU, "o"), ("@{ab}", GRAU, "--")], (2e-15, 2e-8))
     s.speichern()
 

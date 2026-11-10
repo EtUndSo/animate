@@ -1,8 +1,10 @@
 ---
 title: Stage 9: Modified nodal analysis
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / Mesh Current and Node Voltage Analysis
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / Mesh Current and Node Voltage Analysis
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/maschenstrom-und-knotenpotentialverfahren
+knoten: Chapter 8: Mesh Current and Node Voltage Analysis
 order: 1181100
-summary: An ideal voltage source has no conductance and no current-source form (Part 5).
+summary: An ideal voltage source has no conductance and no current-source form (Chapter 5).
 tags: current gain, transition frequency
 lang: en
 ---
@@ -10,7 +12,7 @@ lang: en
 <span class="anker" id="stufe-9"></span>
 
 :::zweck
-An ideal voltage source has no conductance and no current-source form ([Part 5](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)). This stage removes the last restriction. This is how SPICE calculates every circuit.
+An ideal voltage source has no conductance and no current-source form ([Chapter 5](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)). This stage removes the last restriction. This is how SPICE calculates every circuit.
 :::
 
 **The idea.** A voltage source fixes the voltage between two nodes. Its current only establishes itself through the network, so it is unknown. You take it as an additional unknown. An additional unknown requires an additional equation, and the source itself supplies it: the potential difference is $U_\mathrm q$. So exactly one mesh equation returns per voltage source; everything else remains node analysis (Fig. [9](#abb-9)).

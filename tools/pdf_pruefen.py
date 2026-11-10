@@ -72,7 +72,7 @@ def pruefen(pdf, aus, blatt):
                     zeilen.append((zt, fitz.Rect(l["bbox"])))
                 for s in l["spans"]:
                     t = s["text"].strip()
-                    if not t:
+                    if not t or s.get("alpha", 255) == 0:      # unsichtbar (ausgeblendeter Text einer animierten Szene)
                         continue
                     spans.append((t, fitz.Rect(s["bbox"]), id(l)))
                     if s["bbox"][2] > R + RAND_TOL or s["bbox"][0] < L - RAND_TOL:

@@ -1,7 +1,8 @@
 ---
 title: Eigenvalues and eigenvectors
 pfad: Computer Science / Machine Learning / Mathematical Foundations / Projection, Eigenvalues and Decompositions
-knoten: Foundations 2: Projection, Eigenvalues and Decompositions
+adresse: informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen
+knoten: Chapter 2: Projection, Eigenvalues and Decompositions
 nachschlagen: ja
 order: 15220700
 summary: A matrix rotates and stretches most vectors at the same time.
@@ -21,7 +22,7 @@ A matrix rotates and stretches most vectors at the same time. Some directions, h
 
 The search for stretch factors leads to polynomial equations, and not every one of them has real solutions. This subsection collects what this chapter uses about complex numbers.
 
-**Complex numbers.** A complex number $z=x+\mathrm j\,y$ consists of the real part $x$ and the imaginary part $y$, two real numbers. The imaginary unit satisfies $\mathrm j^2=-1$. Electrical engineering writes $\mathrm j$ instead of $i$, because $i$ is taken for the current.
+**Complex numbers.** A complex number $z=x+\mathrm j\,y$ consists of the real part $x$ and the imaginary part $y$, two real numbers. The imaginary unit satisfies $\mathrm j^2=-1$. Many mathematics books call it $\mathrm i$; this chapter, like Python, writes an upright $\mathrm j$, because Python writes the number $3+4\,\mathrm j$ as `3+4j`, and $i$ remains free as an index.
 
 **Conjugation and magnitude.** The __complex conjugate__ of $z$ is $z^*=x-\mathrm j\,y$. We have $z\,z^*=x^2+y^2=|z|^2$, the square of the magnitude, a real number that is zero only for $z=0$. A number is real if and only if $z=z^*$. Conjugation is compatible with sums and products: $(z+w)^*=z^*+w^*$ and $(zw)^*=z^*w^*$. For a vector $\mathbf{v}$ with complex components, $\mathbf{v}^*$ in this chapter denotes the vector of the conjugated components, not transposed. Then
 
@@ -45,7 +46,7 @@ The dot product $(\mathbf{v}^*)^{\top}\mathbf{v}$ for $\mathbf{v}=(1,-\mathrm j)
 
 <span class="anker" id="stufe-6-2"></span>
 
-In [Foundations 1, Section 8.3](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-3), the grid of the plane was rotated, stretched and sheared by matrices. In the process, most arrows change their direction. For some matrices, however, there are directions in which an arrow stays on its line through the origin: it is only stretched, compressed or flipped over (Fig. [17](#abb-17)).
+In [Chapter 1, Section 8.3](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-3), the grid of the plane was rotated, stretched and sheared by matrices. In the process, most arrows change their direction. For some matrices, however, there are directions in which an arrow stays on its line through the origin: it is only stretched, compressed or flipped over (Fig. [17](#abb-17)).
 
 :::abbildung ml/k2eigen 17
 The matrix $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ maps the unit circle (gray) to an ellipse (blue). The arrow $\mathbf{v}_1=(1,1)^{\top}/\sqrt2$ (red) stays on its line and is stretched to five times its length, the arrow $\mathbf{v}_2=(1,-2)^{\top}/\sqrt5$ (green) to twice its length; their images are drawn in light colors. The gray lines are the two eigendirections. The unit vector $\mathbf{e}_1$, by contrast, is mapped to $(4,2)^{\top}$ (dashed) and changes its direction.
@@ -74,19 +75,19 @@ So $(1,\,1)^{\top}$ is an eigenvector for the eigenvalue $5$, and $(1,\,-2)^{\to
 
 ⁠**In short:** An eigenvector is not rotated by the matrix, only multiplied by a number; this number is the eigenvalue.
 
-:::hintergrund You already know eigenfunctions
-From signals and systems you know the same idea for functions instead of vectors. An LTI system with the impulse response $h(t)$ responds to the exponential function $\mathrm e^{pt}$ with the complex frequency $p$, written $s$ in many books, with
+:::hintergrund The same idea for infinitely long sequences: compound interest
+A balance of $100$ euros grows with $5$ % interest per year to $100$, $105$, $110.25$, … euros, in general to $a_n=100\cdot1.05^n$ after $n$ years. The rule “replace each value by that of the following year” turns a sequence $(a_0,a_1,a_2,\dots)$ into the sequence $(a_1,a_2,a_3,\dots)$. It is linear: shifting the sum of two sequences gives the sum of the shifted sequences, and likewise for multiples. For the balance it gives
 
-$$\int_{-\infty}^{\infty}h(\tau)\,\mathrm e^{p(t-\tau)}\,\mathrm{d}\tau=H(p)\,\mathrm e^{pt},\qquad H(p)=\int_{-\infty}^{\infty}h(\tau)\,\mathrm e^{-p\tau}\,\mathrm{d}\tau ,$$
+$$(105,\ 110.25,\ \dots)=1.05\cdot(100,\ 105,\ \dots) .$$
 
-for all $p$ for which the integral exists. The shape of the input is preserved; the only thing added is a numerical factor: $\mathrm e^{pt}$ is an eigenfunction of the system, and the eigenvalue is the value $H(p)$ of the transfer function. Equation [(6.1)](#gl-6-1) says the same thing for a matrix. An LTI system is a linear map from signals to signals, a matrix is a linear map from vectors to vectors; in both cases there are inputs that are only multiplied by a number.
+The shape of the sequence is preserved; the only thing added is a numerical factor: the sequence $a_n=100\cdot1.05^n$ is an eigenvector of shifting, and the eigenvalue is the growth factor $1.05$. Equation [(6.1)](#gl-6-1) says the same thing for a matrix. Shifting also has no eigenvectors other than such sequences: from $a_{n+1}=\lambda\,a_n$ for all $n$ it follows that $a_n=a_0\,\lambda^n$. In both cases, for sequences as for vectors, there are things that the linear rule only multiplies by a number.
 :::
 
 ### The characteristic polynomial
 
 <span class="anker" id="stufe-6-3"></span>
 
-How do you find eigenvalues without guessing? Rewrite [(6.1)](#gl-6-1) so that everything is on one side: $\mathbf{A}\mathbf{v}-\lambda\mathbf{v}=\mathbf{0}$, that is, $(\mathbf{A}-\lambda\mathbf{I})\mathbf{v}=\mathbf{0}$. We are looking for a $\lambda$ for which this homogeneous system has a solution $\mathbf{v}\ne\mathbf{0}$. By [Foundations 1, Section 11.5](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/einheitsmatrix-und-inverse.html#stufe-11-5), this means: the matrix $\mathbf{A}-\lambda\mathbf{I}$ is not invertible. By [Foundations 1, Section 14.6](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-6), this is the case exactly when its determinant is zero.
+How do you find eigenvalues without guessing? Rewrite [(6.1)](#gl-6-1) so that everything is on one side: $\mathbf{A}\mathbf{v}-\lambda\mathbf{v}=\mathbf{0}$, that is, $(\mathbf{A}-\lambda\mathbf{I})\mathbf{v}=\mathbf{0}$. We are looking for a $\lambda$ for which this homogeneous system has a solution $\mathbf{v}\ne\mathbf{0}$. By [Chapter 1, Section 11.5](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/einheitsmatrix-und-inverse.html#stufe-11-5), this means: the matrix $\mathbf{A}-\lambda\mathbf{I}$ is not invertible. By [Chapter 1, Section 14.6](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-6), this is the case exactly when its determinant is zero.
 
 :::definition Definition 6.2 (Characteristic polynomial)
 <span class="anker" id="satz-6-2"></span>
@@ -205,7 +206,7 @@ So a real matrix can have complex eigenvalues. Because its characteristic polyno
 ⁠**In short:** A real matrix can have complex eigenvalues, always in conjugate pairs; a rotation by $\alpha$ has the eigenvalues $\mathrm e^{\pm\mathrm j\alpha}$.
 
 :::hintergrund Rotating means multiplying by $\mathrm e^{\mathrm j\alpha}$
-For electrical engineers this result is familiar. Identify the arrow $(x_1,\,x_2)^{\top}$ with the complex number $z=x_1+\mathrm jx_2$, as with a phasor. A rotation by $\alpha$ is then multiplication by $\mathrm e^{\mathrm j\alpha}$: $\mathrm e^{\mathrm j\alpha}z=(x_1\cos\alpha-x_2\sin\alpha)+\mathrm j\,(x_1\sin\alpha+x_2\cos\alpha)$, and these are exactly the two components of $\mathbf{Q}\mathbf{x}$ for the rotation matrix from [Foundations 1, Section 8.3](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-3). In complex notation, the rotation is thus a multiplication by a number, and this number is an eigenvalue. The second eigenvalue $\mathrm e^{-\mathrm j\alpha}$ belongs to the conjugate notation $z^*$, which rotates in the opposite direction.
+With complex numbers you can see the result directly. Identify the arrow $(x_1,\,x_2)^{\top}$ with the complex number $z=x_1+\mathrm jx_2$, that is, with a point of the complex plane. A rotation by $\alpha$ is then multiplication by $\mathrm e^{\mathrm j\alpha}$: $\mathrm e^{\mathrm j\alpha}z=(x_1\cos\alpha-x_2\sin\alpha)+\mathrm j\,(x_1\sin\alpha+x_2\cos\alpha)$, and these are exactly the two components of $\mathbf{Q}\mathbf{x}$ for the rotation matrix from [Chapter 1, Section 8.3](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-3). In complex notation, the rotation is thus a multiplication by a number, and this number is an eigenvalue. The second eigenvalue $\mathrm e^{-\mathrm j\alpha}$ belongs to the conjugate notation $z^*$, which rotates in the opposite direction.
 :::
 
 ### Multiple eigenvalues
@@ -221,7 +222,7 @@ The __algebraic multiplicity__ of an eigenvalue $\lambda$ is the multiplicity of
 :::
 
 ::::beispiel [Worked example]
-The matrix $2\mathbf{I}=\operatorname{diag}(2,\,2)$ has $p(\lambda)=(2-\lambda)^2$: the eigenvalue $2$ has algebraic multiplicity $2$. The shear $\bigl(\begin{smallmatrix}1&1\\0&1\end{smallmatrix}\bigr)$ from [Foundations 1, Section 8.3](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-3), has $p(\lambda)=(1-\lambda)^2$: the eigenvalue $1$ also has algebraic multiplicity $2$. The matrix $\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ has two different eigenvalues, each with algebraic multiplicity $1$.
+The matrix $2\mathbf{I}=\operatorname{diag}(2,\,2)$ has $p(\lambda)=(2-\lambda)^2$: the eigenvalue $2$ has algebraic multiplicity $2$. The shear $\bigl(\begin{smallmatrix}1&1\\0&1\end{smallmatrix}\bigr)$ from [Chapter 1, Section 8.3](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-3), has $p(\lambda)=(1-\lambda)^2$: the eigenvalue $1$ also has algebraic multiplicity $2$. The matrix $\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ has two different eigenvalues, each with algebraic multiplicity $1$.
 ::::
 
 ⁠**In short:** The algebraic multiplicity counts how often an eigenvalue occurs as a root of the characteristic polynomial.
@@ -297,7 +298,7 @@ $\mathbf{A}^{\top}$ has the same eigenvalues as $\mathbf{A}$, but in general dif
 :::
 
 :::beweis Rules
-(i) $\mathbf{A}^2\mathbf{v}=\mathbf{A}(\lambda\mathbf{v})=\lambda\mathbf{A}\mathbf{v}=\lambda^2\mathbf{v}$, and so on. (ii) $(\mathbf{A}+\beta\mathbf{I})\mathbf{v}=\lambda\mathbf{v}+\beta\mathbf{v}$. (iii) By [(6.5)](#gl-6-5), $\det\mathbf{A}$ is the product of the eigenvalues, so it is nonzero exactly when no eigenvalue is zero. Multiplying $\mathbf{A}\mathbf{v}=\lambda\mathbf{v}$ by $\mathbf{A}^{-1}$ gives $\mathbf{v}=\lambda\mathbf{A}^{-1}\mathbf{v}$. (iv) By [Foundations 1, Section 14.5](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5), $\det(\mathbf{A}^{\top}-\lambda\mathbf{I})=\det\bigl((\mathbf{A}-\lambda\mathbf{I})^{\top}\bigr)=\det(\mathbf{A}-\lambda\mathbf{I})$; both have the same characteristic polynomial.
+(i) $\mathbf{A}^2\mathbf{v}=\mathbf{A}(\lambda\mathbf{v})=\lambda\mathbf{A}\mathbf{v}=\lambda^2\mathbf{v}$, and so on. (ii) $(\mathbf{A}+\beta\mathbf{I})\mathbf{v}=\lambda\mathbf{v}+\beta\mathbf{v}$. (iii) By [(6.5)](#gl-6-5), $\det\mathbf{A}$ is the product of the eigenvalues, so it is nonzero exactly when no eigenvalue is zero. Multiplying $\mathbf{A}\mathbf{v}=\lambda\mathbf{v}$ by $\mathbf{A}^{-1}$ gives $\mathbf{v}=\lambda\mathbf{A}^{-1}\mathbf{v}$. (iv) By [Chapter 1, Section 14.5](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5), $\det(\mathbf{A}^{\top}-\lambda\mathbf{I})=\det\bigl((\mathbf{A}-\lambda\mathbf{I})^{\top}\bigr)=\det(\mathbf{A}-\lambda\mathbf{I})$; both have the same characteristic polynomial.
 :::
 
 ::::beispiel [Worked example]
@@ -330,7 +331,7 @@ $\mathbf{A}_3$: trace $2$, determinant $1-9=-8$, so $\lambda^2-2\lambda-8=(\lamb
 Show: the eigenvalues of an upper triangular matrix are its diagonal entries. Determine the eigenvalues and eigenvectors of $\Bigl(\begin{smallmatrix}2&1&0\\0&3&1\\0&0&5\end{smallmatrix}\Bigr)$.
 
 :::loesung
-For an upper triangular matrix, $\mathbf{A}-\lambda\mathbf{I}$ is again an upper triangular matrix, with the diagonal entries $a_{ii}-\lambda$. By [Foundations 1, Section 14.4](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-4), its determinant is the product of the diagonal entries: $p(\lambda)=(a_{11}-\lambda)\cdots(a_{nn}-\lambda)$. The roots are the diagonal entries.
+For an upper triangular matrix, $\mathbf{A}-\lambda\mathbf{I}$ is again an upper triangular matrix, with the diagonal entries $a_{ii}-\lambda$. By [Chapter 1, Section 14.4](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-4), its determinant is the product of the diagonal entries: $p(\lambda)=(a_{11}-\lambda)\cdots(a_{nn}-\lambda)$. The roots are the diagonal entries.
 
 For the given matrix, the eigenvalues are therefore $2$, $3$ and $5$. For $2$: $\mathbf{A}-2\mathbf{I}=\Bigl(\begin{smallmatrix}0&1&0\\0&1&1\\0&0&3\end{smallmatrix}\Bigr)$ requires $v_3=0$ and $v_2=0$, eigenvector $(1,\,0,\,0)^{\top}$. For $3$: $\Bigl(\begin{smallmatrix}-1&1&0\\0&0&1\\0&0&2\end{smallmatrix}\Bigr)$ requires $v_3=0$ and $v_2=v_1$, eigenvector $(1,\,1,\,0)^{\top}$. For $5$: $\Bigl(\begin{smallmatrix}-3&1&0\\0&-2&1\\0&0&0\end{smallmatrix}\Bigr)$ requires $v_2=3v_1$ and $v_3=2v_2$, eigenvector $(1,\,3,\,6)^{\top}$. Check: $\mathbf{A}(1,\,3,\,6)^{\top}=(2+3,\ 9+6,\ 30)^{\top}=5\,(1,\,3,\,6)^{\top}$.
 :::

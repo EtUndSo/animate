@@ -1,6 +1,8 @@
 ---
 title: Stufe 6: Der Transistor als Schalter
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Der Bipolartransistor
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Der Bipolartransistor
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor
+knoten: Kapitel 10: Der Bipolartransistor
 order: 1200800
 summary: Ein Schalter soll ganz aus oder ganz ein sein.
 tags: Inverter, Logikpegel, Leistungshyperbel

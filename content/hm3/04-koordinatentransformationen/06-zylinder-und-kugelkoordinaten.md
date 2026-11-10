@@ -1,6 +1,8 @@
 ---
 title: Stufe 4: Zylinder- und Kugelkoordinaten
-pfad: Elektrotechnik / 3. Semester / Höhere Mathematik 3 / Koordinatentransformationen
+pfad: Elektrotechnik / 3. Semester / HöMa3 – Höhere Mathematik 3 / Koordinatentransformationen
+adresse: elektrotechnik/3-semester/hohere-mathematik-3/koordinatentransformationen
+knoten: Kapitel 4: Koordinatentransformationen
 order: 3140600
 summary: Im Raum geht man genauso vor.
 tags: Zylinderkoordinaten, Rotationskörper, verallgemeinerten Zylinderkoordinaten, Kugelkoordinaten
@@ -29,7 +31,7 @@ machen daraus einen Quader. Hier ist $r$ ein relativer Radius, $p(z)=1$ ist der 
 <span class="anker" id="gl-4-2"></span>
 $$\operatorname{vol}(\mathcal R)=\int_{\mathcal R}1\,\mathrm{d} x\,\mathrm{d} y\,\mathrm{d} z=\int_a^b\!\!\int_0^1\!\!\int_0^{2\pi}r\,p(z)^2\,\mathrm{d}\varphi\,\mathrm{d} r\,\mathrm{d} z=\pi\int_a^bp(z)^2\,\mathrm{d} z. \tag{4.2}$$
 
-⁠**So liest man das:** $\pi p(z)^2$ ist die Fläche der Kreisscheibe in der Höhe $z$, der Körper ist ein Stapel solcher Scheiben, wie beim Prinzip von Cavalieri aus [Teil 2](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/integralrechnung-im-rn/integralrechnung-im-rn.html). **Kontrolle:** Für den Zylinder mit $p=R$ kommt $\pi R^2(b-a)$ heraus. Der Kuppelkörper hat das Profil $p(z)=\sqrt{4-z}$ auf $[0,4]$, und $\pi\int_0^4(4-z)\,\mathrm{d} z=8\pi$ stimmt mit dem Wert von oben überein. An der Spitze ist $p=0$, aber wie in Stufe [3](polarkoordinaten.html#stufe-3) genügt ein Grenzübergang.
+⁠**So liest man das:** $\pi p(z)^2$ ist die Fläche der Kreisscheibe in der Höhe $z$, der Körper ist ein Stapel solcher Scheiben, wie beim Prinzip von Cavalieri aus [Kapitel 2](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/integralrechnung-im-rn/integralrechnung-im-rn.html). **Kontrolle:** Für den Zylinder mit $p=R$ kommt $\pi R^2(b-a)$ heraus. Der Kuppelkörper hat das Profil $p(z)=\sqrt{4-z}$ auf $[0,4]$, und $\pi\int_0^4(4-z)\,\mathrm{d} z=8\pi$ stimmt mit dem Wert von oben überein. An der Spitze ist $p=0$, aber wie in Stufe [3](polarkoordinaten.html#stufe-3) genügt ein Grenzübergang.
 
 **Kugelkoordinaten.** Die __Kugelkoordinaten__ der Kugel $\overline{B_R(0)}\subset\mathbb{R}^3$ benutzen den Abstand $r$, den Winkel $\theta$ zur $z$-Achse und den Winkel $\varphi$ in der $x$-$y$-Ebene (Abb. [4](#abb-4)). Der Nordpol hat $\theta=0$, der Äquator $\theta=\frac\pi2$:
 

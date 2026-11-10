@@ -1,6 +1,8 @@
 ---
 title: Stufe 5: Polynome und Koeffizienten
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Funktionen und Polynome
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Funktionen und Polynome
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/funktionen-und-polynome
+knoten: Kapitel 3: Funktionen und Polynome
 order: 1230700
 summary: Die allgemeine Theorie steht.
 tags: Grad, Koeffizienten, Koeffizientenvergleichs, Mitternachtsformel, Diskriminante
@@ -74,7 +76,7 @@ Einsetzen bestätigt es: $-a(x_1+x_2)=-a\cdot\frac{-2b}{2a}=b$ und $ax_1x_2=\fra
 ⁠**Grenzfälle:** $D=0$ ergibt $x_1=x_2$. Für $D<0$ gibt es keine reelle Nullstelle, denn dann ist $ax^2+bx+c=a\bigl[(x+\frac{b}{2a})^2-\frac{D}{4a^2}\bigr]$, und die Klammer ist positiv. Also hat $x^2+\beta x+\gamma$ genau dann keine reelle Nullstelle, wenn $\beta^2-4\gamma<0$ ist.
 
 :::frage Warum setzt der Beweis nach dem Teilen durch $x$ nicht gleich $x=0$ ein? Da steht doch wieder ein Polynom.
-Links und rechts stehen Polynome, das stimmt. Die Gleichung ist aber nur für $x\neq0$ hergeleitet, und daraus folgt nicht sofort etwas über die Stelle 0. Der Umweg über kleine $|x|$ schließt genau diese Lücke. [Teil 5](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/exponentialfunktion-und-stetigkeit/exponentialfunktion-und-stetigkeit.html) nennt den dahinter liegenden Begriff Stetigkeit.
+Links und rechts stehen Polynome, das stimmt. Die Gleichung ist aber nur für $x\neq0$ hergeleitet, und daraus folgt nicht sofort etwas über die Stelle 0. Der Umweg über kleine $|x|$ schließt genau diese Lücke. [Kapitel 5](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/exponentialfunktion-und-stetigkeit/exponentialfunktion-und-stetigkeit.html) nennt den dahinter liegenden Begriff Stetigkeit.
 :::
 
 :::aufgabe Aufgabe 6 ★★ Koeffizientenvergleich

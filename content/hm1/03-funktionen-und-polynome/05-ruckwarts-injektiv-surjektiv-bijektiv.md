@@ -1,6 +1,8 @@
 ---
 title: Stufe 3: Rückwärts: injektiv, surjektiv, bijektiv
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Funktionen und Polynome
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Funktionen und Polynome
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/funktionen-und-polynome
+knoten: Kapitel 3: Funktionen und Polynome
 order: 1230500
 summary: Vorwärts gibt es zu jedem x genau ein y .
 tags: injektiv, surjektiv, bijektiv
@@ -63,13 +65,13 @@ Eine streng monotone reelle Funktion $f:\mathcal D(f)\to\mathcal W(f)$ ist bijek
 :::
 
 :::beweis Streng monoton ergibt bijektiv
-Surjektiv ist $f$ nach Definition von $\mathcal W(f)$. Für die Injektivität zeigt man die gleichwertige Kontraposition ([Teil 1](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html)): Aus $x\neq y$ folgt $f(x)\neq f(y)$. Sei $x<y$ (sonst vertausche die Namen). Ist $f$ streng wachsend, gilt $f(x)<f(y)$, ist $f$ streng fallend, gilt $f(x)>f(y)$. In beiden Fällen ist $f(x)\neq f(y)$.
+Surjektiv ist $f$ nach Definition von $\mathcal W(f)$. Für die Injektivität zeigt man die gleichwertige Kontraposition ([Kapitel 1](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html)): Aus $x\neq y$ folgt $f(x)\neq f(y)$. Sei $x<y$ (sonst vertausche die Namen). Ist $f$ streng wachsend, gilt $f(x)<f(y)$, ist $f$ streng fallend, gilt $f(x)>f(y)$. In beiden Fällen ist $f(x)\neq f(y)$.
 :::
 
 ⁠**So liest man das:** Das Ziel ist hier genau $\mathcal W(f)$. **Warum „streng“ nötig ist:** Auf dem waagerechten Stück in Abb. [3](gerade-monoton-beschrankt.html#abb-3) haben viele $x$ dasselbe Bild. **Die Umkehrung gilt nicht:** $f(x)=1/x$ auf $\mathbb{R}\setminus\{0\}$ ist bijektiv auf $\mathbb{R}\setminus\{0\}$, aber nicht monoton, denn $-1<1$ ergibt $f(-1)<f(1)$, und $1<2$ ergibt $f(1)>f(2)$.
 
 ::::beispiel [Beispiele]
-Nach Satz [2.2](gerade-monoton-beschrankt.html#satz-2-2) und [3.2](#satz-3-2) ist $f(x)=x^n$ bijektiv auf seinen Wertebereich, und zwar ist $\mathcal W(f)=\mathbb{R}_0^+$ für gerades $n$ auf $\mathbb{R}_0^+$ und $\mathcal W(f)=\mathbb{R}$ für ungerades $n$ auf $\mathbb{R}$. Dass wirklich jedes $y$ getroffen wird, folgt wie bei $\sqrt y$ aus der Vollständigkeit der reellen Zahlen ([Teil 1](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html)). Ohne Monotonie rechnet man direkt: $f:\mathbb{R}\to\mathbb{R}$, $f(x)=2x-5$ ist injektiv, denn $2x-5=2y-5$ ergibt $x=y$, und surjektiv, denn zu $y$ löst $x=(y+5)/2$ die Gleichung.
+Nach Satz [2.2](gerade-monoton-beschrankt.html#satz-2-2) und [3.2](#satz-3-2) ist $f(x)=x^n$ bijektiv auf seinen Wertebereich, und zwar ist $\mathcal W(f)=\mathbb{R}_0^+$ für gerades $n$ auf $\mathbb{R}_0^+$ und $\mathcal W(f)=\mathbb{R}$ für ungerades $n$ auf $\mathbb{R}$. Dass wirklich jedes $y$ getroffen wird, folgt wie bei $\sqrt y$ aus der Vollständigkeit der reellen Zahlen ([Kapitel 1](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html)). Ohne Monotonie rechnet man direkt: $f:\mathbb{R}\to\mathbb{R}$, $f(x)=2x-5$ ist injektiv, denn $2x-5=2y-5$ ergibt $x=y$, und surjektiv, denn zu $y$ löst $x=(y+5)/2$ die Gleichung.
 ::::
 
 ⁠**Grenzfall:** $f(x)=x$ ist bijektiv, jede Höhe wird genau bei $x=y$ getroffen.

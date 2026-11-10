@@ -1,6 +1,8 @@
 ---
 title: Etapa 8: Señal aleatoria y sistema LTI, densidad espectral
-pfad: Ingeniería eléctrica / 3.er semestre / Señales y sistemas / Señales aleatorias
+pfad: Ingeniería eléctrica / 3.er semestre / ET3 – Fundamentos de ingeniería eléctrica 3: señales y sistemas / Señales aleatorias
+adresse: elektrotechnik/3-semester/signale-und-systeme/zufallssignale
+knoten: Capítulo 7: Señales aleatorias
 order: 3270900
 summary: ¿Qué hace un sistema LTI con una señal aleatoria?
 tags: densidad espectral de potencia
@@ -41,10 +43,10 @@ Llevar el valor esperado dentro de la integral doble. Por la estacionariedad, $\
 
 $$\varphi_{gg}(\tau)=\int\varphi_{ss}(\tau-\vartheta)\underbrace{\int h(\alpha)h(\alpha+\vartheta)\,\mathrm{d}\alpha}_{\varphi^E_{hh}(\vartheta)}\,\mathrm{d}\vartheta=\varphi_{ss}*\varphi^E_{hh}.$$
 
-En el dominio de la frecuencia, $\varphi^E_{hh}$ se convierte en $|H|^2$ ([parte 6](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen/korrelationsfunktionen.html)).
+En el dominio de la frecuencia, $\varphi^E_{hh}$ se convierte en $|H|^2$ ([capítulo 6](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen/korrelationsfunktionen.html)).
 :::
 
-⁠**Cómo leerlo:** $\Phi_{ss}(f)$ indica cómo se reparte la potencia entre las frecuencias. Es real, nunca negativa y, en las señales reales, par. Un sistema LTI multiplica la potencia en cada frecuencia por $|H(f)|^2$; su fase no influye. Es la misma regla que para las señales de energía de la [parte 6](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen/korrelationsfunktionen.html), ahora para procesos. (Complemento: en sentido estricto, $\Phi_{ss}$ se define como el límite $\lim_{T\to\infty}\frac1T\mathrm E\{|S_T(f)|^2\}$ de espectros de tiempo corto de fragmentos de duración $T$. Que esto sea lo mismo que la transformada de la FAC es la afirmación propiamente dicha del teorema de Wiener-Khinchin.)
+⁠**Cómo leerlo:** $\Phi_{ss}(f)$ indica cómo se reparte la potencia entre las frecuencias. Es real, nunca negativa y, en las señales reales, par. Un sistema LTI multiplica la potencia en cada frecuencia por $|H(f)|^2$; su fase no influye. Es la misma regla que para las señales de energía del [capítulo 6](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen/korrelationsfunktionen.html), ahora para procesos. (Complemento: en sentido estricto, $\Phi_{ss}$ se define como el límite $\lim_{T\to\infty}\frac1T\mathrm E\{|S_T(f)|^2\}$ de espectros de tiempo corto de fragmentos de duración $T$. Que esto sea lo mismo que la transformada de la FAC es la afirmación propiamente dicha del teorema de Wiener-Khinchin.)
 
 :::ltspice Ruido con valor medio a través de un paso bajo y un paso alto
 ⁠**Esquema:** fuente de comportamiento `bv` en el nodo `s` con `V=1+white(1e3*time)`. `white(x)` da valores aleatorios entre $-0{,}5$ y $0{,}5$, uno nuevo en cada $x$ entero, unidos de forma suave; aquí, por tanto, uno cada milisegundo. Conectados en paralelo a ella, un paso bajo RC (`res` con `1Meg` hacia `tp`, `cap` con `1u` a masa) y un paso alto CR (`cap` con `1u` hacia `hp`, `res` con `1Meg` a masa).

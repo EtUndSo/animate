@@ -1,6 +1,8 @@
 ---
 title: 第 1 阶段：噪声
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 运算放大器
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 运算放大器
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker
+knoten: 第 11 章：运算放大器
 order: 1210300
 summary: 传感器只输出毫伏级信号，而每个导体都会产生随机的干扰电压。本阶段说明它从何而来、如何度量，以及放大器能对它做些什么。
 tags: 噪声电压密度, 信噪比, 分贝, 玻尔兹曼常数, 热噪声, 散粒噪声, 1/f 噪声, 白噪声

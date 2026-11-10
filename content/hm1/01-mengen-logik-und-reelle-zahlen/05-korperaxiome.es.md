@@ -1,6 +1,8 @@
 ---
 title: Etapa 3: Axiomas de cuerpo
-pfad: Ingeniería eléctrica / 1.er semestre / Matemáticas superiores 1 / Conjuntos, lógica y números reales
+pfad: Ingeniería eléctrica / 1.er semestre / HöMa1 – Matemáticas superiores 1 / Conjuntos, lógica y números reales
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen
+knoten: Capítulo 1: Conjuntos, lógica y números reales
 order: 1210500
 summary: ¿Qué pocas reglas para la suma y el producto hay que suponer para que todas las demás reglas de cálculo se puedan demostrar?
 tags: operación, ley distributiva, diferencia, cociente
@@ -34,7 +36,7 @@ Una __operación__ asigna a cada dos elementos un elemento del mismo conjunto. U
 A esto se añaden (AM) $x\cdot(y+z)=(x\cdot y)+(x\cdot z)$ (__ley distributiva__) y (NNE) $0\ne1$.
 :::
 
-⁠**Cómo leerlo:** Aquí $0$ y $1$ son solo nombres de dos elementos distinguidos. La resta y la división no son operaciones propias: $x-y:=x+(-y)$ y $\frac yx:=y\cdot x^{-1}$. Se acuerda que el producto va antes que la suma y que $xy:=x\cdot y$. Lo que se sigue de los axiomas vale en todo cuerpo, y por tanto también para los números complejos de la [Parte 2](/wissen/es/elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen/komplexe-zahlen.html). Ejemplos son $\mathbb{Q}$ y $\mathbb{R}$. $\mathbb{N}$ no es un cuerpo (no tiene 0 ni $-1$), $\mathbb{Z}$ tampoco (2 no tiene inverso). El cuerpo más pequeño es $\{0,1\}$ con $1+1=0$, la suma de la electrónica digital (XOR). **Por qué las hipótesis:** Sin (NNE), $\{0\}$ sería un cuerpo. Sin $x\ne0$ en (M4) sería $1=0\cdot0^{-1}=0$ por (iii) más abajo.
+⁠**Cómo leerlo:** Aquí $0$ y $1$ son solo nombres de dos elementos distinguidos. La resta y la división no son operaciones propias: $x-y:=x+(-y)$ y $\frac yx:=y\cdot x^{-1}$. Se acuerda que el producto va antes que la suma y que $xy:=x\cdot y$. Lo que se sigue de los axiomas vale en todo cuerpo, y por tanto también para los números complejos del [capítulo 2](/wissen/es/elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen/komplexe-zahlen.html). Ejemplos son $\mathbb{Q}$ y $\mathbb{R}$. $\mathbb{N}$ no es un cuerpo (no tiene 0 ni $-1$), $\mathbb{Z}$ tampoco (2 no tiene inverso). El cuerpo más pequeño es $\{0,1\}$ con $1+1=0$, la suma de la electrónica digital (XOR). **Por qué las hipótesis:** Sin (NNE), $\{0\}$ sería un cuerpo. Sin $x\ne0$ en (M4) sería $1=0\cdot0^{-1}=0$ por (iii) más abajo.
 
 :::satz Teorema 3.2 (Reglas de cálculo en un cuerpo)
 <span class="anker" id="satz-3-2"></span>
@@ -105,7 +107,7 @@ $(-3)(-5)=15$, $\frac23+\frac57=\frac{14+15}{21}=\frac{29}{21}$, $\frac34:\frac5
 ⁠**Caso límite** $v=u=1$: La regla de la suma se convierte en $x+y=x+y$.
 
 :::frage Eso ya lo sé de la escuela. ¿Para qué una demostración?
-Para $\mathbb{Q}$ y $\mathbb{R}$ son conocidas. Pero no están en los axiomas, y solo la demostración muestra dónde valen: en todo cuerpo. La regla escolar «los cuadrados no son negativos», en cambio, no se sigue de esta lista y deja de valer en la [Parte 2](/wissen/es/elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen/komplexe-zahlen.html). Además, se practica el razonamiento con contenidos cuyo resultado se conoce.
+Para $\mathbb{Q}$ y $\mathbb{R}$ son conocidas. Pero no están en los axiomas, y solo la demostración muestra dónde valen: en todo cuerpo. La regla escolar «los cuadrados no son negativos», en cambio, no se sigue de esta lista y deja de valer en el [capítulo 2](/wissen/es/elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen/komplexe-zahlen.html). Además, se practica el razonamiento con contenidos cuyo resultado se conoce.
 :::
 
 :::aufgabe Ejercicio 4 ★★ Demostrar en un cuerpo

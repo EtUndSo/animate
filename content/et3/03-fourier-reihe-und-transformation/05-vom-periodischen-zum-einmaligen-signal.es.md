@@ -1,6 +1,8 @@
 ---
 title: Etapa 4: De la señal periódica a la no periódica
-pfad: Ingeniería eléctrica / 3.er semestre / Señales y sistemas / Serie y transformada de Fourier
+pfad: Ingeniería eléctrica / 3.er semestre / ET3 – Fundamentos de ingeniería eléctrica 3: señales y sistemas / Serie y transformada de Fourier
+adresse: elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation
+knoten: Capítulo 3: Serie y transformada de Fourier
 order: 3230500
 summary: Un pulso aislado no es periódico.
 tags: densidad espectral
@@ -32,16 +34,16 @@ $$S(f)=\int_{-\infty}^{\infty}s(t)\,\mathrm{e}^{-\mathrm{j}2\pi ft}\,\mathrm{d} 
 Notación abreviada: $s(t)\;\circ\!\!-\!\!\bullet\;S(f)$ o $S(f)=\mathcal{F}\{s(t)\}$.
 :::
 
-⁠**Cómo leerlo:** $S(f)$ es una __densidad espectral__: peso por intervalo de frecuencia. Si $s$ es una tensión en V, $S$ tiene la unidad V/Hz. La transformada inversa compone la señal a partir de todas las oscilaciones, cada una con el peso $S(f)\,\mathrm{d} f$. Una condición suficiente para la existencia es $\int|s(t)|\mathrm{d} t<\infty$. La transformada de Fourier es la transformada de Laplace en el eje imaginario, $S(f)=S_{\mathcal{L}}(\mathrm{j}2\pi f)$, siempre que el eje imaginario esté en la región de convergencia ([parte 2](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html)).
+⁠**Cómo leerlo:** $S(f)$ es una __densidad espectral__: peso por intervalo de frecuencia. Si $s$ es una tensión en V, $S$ tiene la unidad V/Hz. La transformada inversa compone la señal a partir de todas las oscilaciones, cada una con el peso $S(f)\,\mathrm{d} f$. Una condición suficiente para la existencia es $\int|s(t)|\mathrm{d} t<\infty$. La transformada de Fourier es la transformada de Laplace en el eje imaginario, $S(f)=S_{\mathcal{L}}(\mathrm{j}2\pi f)$, siempre que el eje imaginario esté en la región de convergencia ([capítulo 2](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html)).
 
-⁠**La convolución se convierte en producto.** Como en la [parte 2](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html): $s(t)*h(t)\;\circ\!\!-\!\!\bullet\;S(f)\,H(f)$. De $s*\delta=s$ se sigue $S(f)\cdot\mathcal{F}\{\delta\}=S(f)$, es decir, $\delta(t)\;\circ\!\!-\!\!\bullet\;1$: el impulso de Dirac contiene todas las frecuencias con el mismo peso.
+⁠**La convolución se convierte en producto.** Como en el [capítulo 2](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html): $s(t)*h(t)\;\circ\!\!-\!\!\bullet\;S(f)\,H(f)$. De $s*\delta=s$ se sigue $S(f)\cdot\mathcal{F}\{\delta\}=S(f)$, es decir, $\delta(t)\;\circ\!\!-\!\!\bullet\;1$: el impulso de Dirac contiene todas las frecuencias con el mismo peso.
 
 ::::beispiel el pulso exponencial
 La respuesta al impulso del circuito RC, $h(t)=\frac1{RC}\varepsilon(t)\mathrm{e}^{-t/RC}$:
 
 $$H(f)=\frac1{RC}\int_0^\infty\mathrm{e}^{-(1/RC+\mathrm{j}2\pi f)t}\mathrm{d} t=\frac{1}{1+\mathrm{j}2\pi f\,RC}.$$
 
-Es la misma respuesta en frecuencia que da el cálculo de corriente alterna ([parte 1](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html)). Por tanto, la respuesta al impulso contiene toda la información sobre el comportamiento en frecuencia.
+Es la misma respuesta en frecuencia que da el cálculo de corriente alterna ([capítulo 1](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html)). Por tanto, la respuesta al impulso contiene toda la información sobre el comportamiento en frecuencia.
 ::::
 
 :::frage ¿Qué diferencia hay entre $S_p(k)$ y $S(f)$, aparte de que una es discreta?

@@ -1,6 +1,8 @@
 ---
 title: Etapa 2: El amplificador diferencial
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / El amplificador operacional
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / El amplificador operacional
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker
+knoten: Capítulo 11: El amplificador operacional
 order: 1210400
 summary: Una perturbación en ambas líneas debe desaparecer, y la diferencia entre ellas debe amplificarse.
 tags: tensión de modo común, entrada no inversora, entrada inversora
@@ -13,7 +15,7 @@ lang: es
 Una perturbación en ambas líneas debe desaparecer, y la diferencia entre ellas debe amplificarse. Para eso hace falta un circuito cuya salida dependa solo de la diferencia de dos tensiones.
 :::
 
-**La idea.** Dos transistores iguales T1 y T2 cuelgan por sus emisores del nudo común E (fig. [2](#abb-2)). Debajo está T3. Su base está a la tensión fija $U_\mathrm{bias}$, por lo que actúa como fuente de corriente ([Parte 10](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor/der-bipolartransistor.html)) y extrae del nudo la corriente fija $I_0$. Las corrientes de base son pequeñas, así que se cumple $I_\mathrm{C1}+I_\mathrm{C2}=I_0$. La suma está fijada; solo puede cambiar el reparto.
+**La idea.** Dos transistores iguales T1 y T2 cuelgan por sus emisores del nudo común E (fig. [2](#abb-2)). Debajo está T3. Su base está a la tensión fija $U_\mathrm{bias}$, por lo que actúa como fuente de corriente ([capítulo 10](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor/der-bipolartransistor.html)) y extrae del nudo la corriente fija $I_0$. Las corrientes de base son pequeñas, así que se cumple $I_\mathrm{C1}+I_\mathrm{C2}=I_0$. La suma está fijada; solo puede cambiar el reparto.
 
 Si ambas bases suben lo mismo, E sube con ellas, porque T3 mantiene fija la corriente y con ella $U_\mathrm{BE}$. No cambia nada. Esta parte común se llama __tensión de modo común__, $U_\mathrm{mc}=(\varphi_++\varphi_-)/2$. Si solo sube la base de T2, T2 toma más corriente. T1 recibe exactamente esa cantidad menos. En la resistencia de colector derecha cae más tensión; en la izquierda, menos, y la tensión entre los colectores se desvía.
 
@@ -49,7 +51,7 @@ En reposo circula 1 mA por cada rama, y los colectores están a $12\,\mathrm{V
 
 **Entrada.** Una señal de entrada $U_\mathrm{D}$ está aplicada a dos uniones BE en serie, y la resistencia de entrada es $2\,r_\mathrm{BE}=2B/S=10{,}4$ k$\Omega$. Con una corriente total de 20 µ A en lugar de 2 mA son 1,04 M$\Omega$, y cada base toma solo 50 nA. De ahí proceden $r_\mathrm{e}$ e $I_\mathrm{B}$ del modelo de referencia.
 
-**Del amplificador diferencial al AO.** $A_\mathrm{D}=U_{R_\mathrm{C}}/U_T$ se queda en unos pocos cientos, porque $U_{R_\mathrm{C}}$ no puede superar la alimentación. Un espejo de corriente ([Parte 10](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor/der-bipolartransistor.html)) en lugar de las resistencias lleva ambos cambios de corriente a un solo lado y actúa allí como la conexión en paralelo de dos $r_\mathrm{CE}$. Eso da $S\,r_\mathrm{CE}/2=U_\mathrm{Early}/(2U_T)\approx1400$. Detrás siguen una etapa amplificadora de tensión y un seguidor de emisor para la baja resistencia de salida. En conjunto son de $10^5$ a $10^6$. Este valor depende de $B$, $U_\mathrm{Early}$ y la temperatura: grande, pero impreciso.
+**Del amplificador diferencial al AO.** $A_\mathrm{D}=U_{R_\mathrm{C}}/U_T$ se queda en unos pocos cientos, porque $U_{R_\mathrm{C}}$ no puede superar la alimentación. Un espejo de corriente ([capítulo 10](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor/der-bipolartransistor.html)) en lugar de las resistencias lleva ambos cambios de corriente a un solo lado y actúa allí como la conexión en paralelo de dos $r_\mathrm{CE}$. Eso da $S\,r_\mathrm{CE}/2=U_\mathrm{Early}/(2U_T)\approx1400$. Detrás siguen una etapa amplificadora de tensión y un seguidor de emisor para la baja resistencia de salida. En conjunto son de $10^5$ a $10^6$. Este valor depende de $B$, $U_\mathrm{Early}$ y la temperatura: grande, pero impreciso.
 
 :::frage ¿Por qué hay en cada transistor solo la mitad de la diferencia si solo subo una base?
 Porque el nudo E sube la mitad con ella. T2 quiere más corriente, pero la suma está fijada, así que E sube hasta que T1 cede justo eso. La suma fija exige cambios iguales y opuestos de $U_\mathrm{BE}$. Poner toda la diferencia en una sola unión da el doble del $A_\mathrm{D}$ real.

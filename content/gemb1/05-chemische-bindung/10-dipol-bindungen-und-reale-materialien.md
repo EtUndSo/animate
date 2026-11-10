@@ -1,6 +1,8 @@
 ---
 title: Stufe 8: Dipol-Bindungen und reale Materialien
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Chemische Bindung
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Chemische Bindung
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/chemische-bindung
+knoten: Kapitel 5: Chemische Bindung
 order: 4151000
 summary: In H 2 O und CH 4 haben alle Atome die Edelgaskonfiguration, und doch werden beide bei tiefer Temperatur flüssig und fest.
 tags: Dipol, Van-der-Waals-Wechselwirkung, Dipolmoment, Polarisierbarkeit, Hydrathüllen, Wasserstoffbrückenbindung, Londonsche Dispersionswechselwirkung

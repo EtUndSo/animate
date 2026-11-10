@@ -1,6 +1,8 @@
 ---
 title: Etapa 7: El paso banda ideal y su paso bajo equivalente
-pfad: Ingeniería eléctrica / 3.er semestre / Señales y sistemas / Sistemas paso bajo y paso banda
+pfad: Ingeniería eléctrica / 3.er semestre / ET3 – Fundamentos de ingeniería eléctrica 3: señales y sistemas / Sistemas paso bajo y paso banda
+adresse: elektrotechnik/3-semester/signale-und-systeme/tiefpass-und-bandpasssysteme
+knoten: Capítulo 5: Sistemas paso bajo y paso banda
 order: 3250800
 summary: Un paso banda deja pasar una banda en torno a la frecuencia central f 0 .
 tags: paso bajo equivalente, simétrico
@@ -18,7 +20,7 @@ Un paso banda deja pasar una banda en torno a la frecuencia central $f_0$. Esta 
 <span class="anker" id="gl-7-1"></span>
 $$H(f)=\operatorname{rect}\Bigl(\frac{f}{\Delta f}\Bigr)*\bigl[\delta(f+f_0)+\delta(f-f_0)\bigr]\;\bullet\!\!-\!\!\circ\;h(t)=\Delta f\operatorname{si}(\pi\Delta f\,t)\cdot2\cos(2\pi f_0t). \tag{7.1}$$
 
-La respuesta al impulso es una oscilación de frecuencia $f_0$ cuya envolvente es la respuesta al impulso de un paso bajo de ancho de banda $\Delta f/2$. La regla de modulación de la [parte 3](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html) lo explica: es un paso bajo cuyo espectro se desplaza a $\pm f_0$.
+La respuesta al impulso es una oscilación de frecuencia $f_0$ cuya envolvente es la respuesta al impulso de un paso bajo de ancho de banda $\Delta f/2$. La regla de modulación del [capítulo 3](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html) lo explica: es un paso bajo cuyo espectro se desplaza a $\pm f_0$.
 
 **Paso bajo equivalente.** Con una respuesta al impulso real, $H(-f)=H^*(f)$: la mitad negativa no contiene nada nuevo. Se conservan solo las frecuencias positivas, se duplican y se desplazan hacia la izquierda una frecuencia portadora $f_0$. El resultado es el __paso bajo equivalente__ $H_T(f)$:
 

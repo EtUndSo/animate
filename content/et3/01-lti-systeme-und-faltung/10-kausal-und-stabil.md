@@ -1,6 +1,8 @@
 ---
 title: Stufe 9: Kausal und stabil
-pfad: Elektrotechnik / 3. Semester / Signale und Systeme / LTI-Systeme und Faltung
+pfad: Elektrotechnik / 3. Semester / ET3 – Grundgebiete der Elektrotechnik 3: Signale und Systeme / LTI-Systeme und Faltung
+adresse: elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung
+knoten: Kapitel 1: LTI-Systeme und Faltung
 order: 3211000
 summary: Zwei Eigenschaften, die jedes reale System haben soll, lassen sich direkt an h(t) ablesen.
 tags: kausal, stabil

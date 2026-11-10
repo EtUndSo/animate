@@ -1,6 +1,8 @@
 ---
 title: Stage 6: Joint distribution, independence, uncorrelatedness
-pfad: Electrical Engineering / 3rd Semester / Signals and Systems / Random Signals
+pfad: Electrical Engineering / 3rd Semester / ET3 – Fundamentals of Electrical Engineering 3: Signals and Systems / Random Signals
+adresse: elektrotechnik/3-semester/signale-und-systeme/zufallssignale
+knoten: Chapter 7: Random Signals
 order: 3270700
 summary: Two random variables at once: when are they related, and what follows for their sum?
 tags: joint distribution, statistically independent, uncorrelated
@@ -28,7 +30,7 @@ Independence implies uncorrelatedness: $\varphi_{sg}=\int xp_s\mathrm{d} x\cdot\
 <span class="anker" id="gl-6-1"></span>
 $$p_s(x)=\int_{-\infty}^{\infty}p_{fg}(u,x-u)\,\mathrm{d} u=p_f(x)*p_g(x)\quad(\text{independent}). \tag{6.1}$$
 
-This is the convolution from [Part 1](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html), where it appeared in the example of the dice. Two uniformly distributed variables give a triangular density, three give an almost bell-shaped one (Fig. [2](#abb-2)).
+This is the convolution from [Chapter 1](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html), where it appeared in the example of the dice. Two uniformly distributed variables give a triangular density, three give an almost bell-shaped one (Fig. [2](#abb-2)).
 
 :::abbildung et3/k7summen 2
 Probability density functions of sums of independent random variables, each uniformly distributed on $[-\frac12,\frac12]$. Even the sum of three lies close to the Gaussian curve with the same variance (at $x=0$: 0.75 versus 0.80).

@@ -1,0 +1,370 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 16,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.0,
+      1.4,
+      0
+     ],
+     "width": 4.144,
+     "height": 0.7,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#e6f3ea",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Text",
+    "props": {
+     "text": "@sicht",
+     "position": [
+      0.0,
+      1.4,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o3",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.0,
+      0.5,
+      0
+     ],
+     "width": 4.144,
+     "height": 0.7,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#fdece3",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Text",
+    "props": {
+     "text": "@ram",
+     "position": [
+      0.0,
+      0.5,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o5",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.0,
+      -0.4,
+      0
+     ],
+     "width": 4.144,
+     "height": 0.7,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#efefef",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Text",
+    "props": {
+     "text": "@sq",
+     "position": [
+      0.0,
+      -0.4,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o7",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.886,
+      -0.4,
+      0
+     ],
+     "width": 0.962,
+     "height": 0.42,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Text",
+    "props": {
+     "text": "@stick",
+     "position": [
+      -2.886,
+      -0.4,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o9",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -2.405,
+      -0.4,
+      0
+     ],
+     "end": [
+      -2.0868,
+      -0.4,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.12,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o10",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.886,
+      -1.35,
+      0
+     ],
+     "width": 1.184,
+     "height": 0.6,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#dddddd",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o11",
+    "type": "Text",
+    "props": {
+     "text": "@ssd",
+     "position": [
+      2.886,
+      -1.35,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Line",
+    "props": {
+     "start": [
+      2.183,
+      -0.7,
+      0
+     ],
+     "end": [
+      2.183,
+      0.8,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o13",
+    "type": "Line",
+    "props": {
+     "start": [
+      2.109,
+      -0.7,
+      0
+     ],
+     "end": [
+      2.183,
+      -0.7,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o14",
+    "type": "Line",
+    "props": {
+     "start": [
+      2.109,
+      0.8,
+      0
+     ],
+     "end": [
+      2.183,
+      0.8,
+      0
+     ],
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o15",
+    "type": "Text",
+    "props": {
+     "text": "@overlay",
+     "position": [
+      2.294,
+      0.05,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#111111"
+    }
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "sicht": {
+    "de": "Verzeichnisbaum, den die Programme sehen: /\nlesen und schreiben wie auf einer Platte",
+    "en": "directory tree the programs see: /\nread and write as on a disk",
+    "es": "árbol de directorios que ven los programas: /\nleer y escribir como en un disco",
+    "zh": "程序看到的目录树：/\n像在磁盘上一样读写",
+    "fr": "arborescence vue par les programmes : /\nlire et écrire comme sur un disque",
+    "tr": "programların gördüğü dizin ağacı: /\ndiskteki gibi okuma ve yazma"
+   },
+   "ram": {
+    "de": "obere Schicht im Arbeitsspeicher (tmpfs)\nnimmt alle Änderungen auf, ist beim Ausschalten weg",
+    "en": "upper layer in memory (tmpfs)\ntakes all changes, gone at power-off",
+    "es": "capa superior en la memoria (tmpfs)\nrecoge todos los cambios, desaparece al apagar",
+    "zh": "内存中的上层（tmpfs）\n接收所有更改，关机后消失",
+    "fr": "couche supérieure en mémoire (tmpfs)\nreçoit toutes les modifications, disparaît à l’arrêt",
+    "tr": "bellekteki üst katman (tmpfs)\ntüm değişiklikleri alır, kapatınca silinir"
+   },
+   "sq": {
+    "de": "untere Schicht: komprimiertes Abbild (squashfs)\ndas System vom Stick, nur lesbar",
+    "en": "lower layer: compressed image (squashfs)\nthe system from the stick, read only",
+    "es": "capa inferior: imagen comprimida (squashfs)\nel sistema de la memoria, solo lectura",
+    "zh": "下层：压缩映像（squashfs）\n来自 U 盘的系统，只读",
+    "fr": "couche inférieure : image compressée (squashfs)\nle système de la clé, lecture seule",
+    "tr": "alt katman: sıkıştırılmış kalıp (squashfs)\nbellekteki sistem, yalnızca okunur"
+   },
+   "stick": {
+    "de": "USB-Stick",
+    "en": "USB stick",
+    "es": "memoria USB",
+    "zh": "U 盘",
+    "fr": "clé USB",
+    "tr": "USB bellek"
+   },
+   "ssd": {
+    "de": "interne SSD\nnicht eingehängt",
+    "en": "internal SSD\nnot mounted",
+    "es": "SSD interno\nno montado",
+    "zh": "内置 SSD\n未挂载",
+    "fr": "SSD interne\nnon montée",
+    "tr": "dahili SSD\nbağlanmamış"
+   },
+   "overlay": {
+    "de": "Overlay:\nzusammen-\ngelegt",
+    "en": "overlay:\nmerged",
+    "es": "overlay:\nsuperpuestas",
+    "zh": "叠加：\n合并",
+    "fr": "overlay :\nsuperposées",
+    "tr": "overlay:\nbirleştirilmiş"
+   }
+  }
+ }
+}

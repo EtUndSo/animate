@@ -1,6 +1,8 @@
 ---
 title: 要点
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / 正交展开与传输线
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / 正交展开与传输线
+adresse: elektrotechnik/3-semester/signale-und-systeme/orthogonalentwicklung-und-leitungen
+knoten: 第 8 章：正交展开与传输线
 order: 3280600
 summary: 两个补充专题：作为向量的信号， 电传输线上的波
 tags: 

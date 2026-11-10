@@ -1,6 +1,8 @@
 ---
 title: Stage 5: Echo method and pulse-shaping filters
-pfad: Electrical Engineering / 3rd Semester / Signals and Systems / Lowpass and Bandpass Systems
+pfad: Electrical Engineering / 3rd Semester / ET3 – Fundamentals of Electrical Engineering 3: Signals and Systems / Lowpass and Bandpass Systems
+adresse: elektrotechnik/3-semester/signale-und-systeme/tiefpass-und-bandpasssysteme
+knoten: Chapter 5: Lowpass and Bandpass Systems
 order: 3250600
 summary: How do you design a lowpass with less overshoot?
 tags: echo, raised-cosine filter
@@ -34,7 +36,7 @@ This is the __raised-cosine filter__ (cosine roll-off filter). Its overshoot is 
 Impulse responses of the ideal lowpass and of the pulse-shaping filter (both with the area $T$). The pulse-shaping filter decays much faster: its largest side maximum is 2.7 % of the main maximum instead of 21.7 %.
 :::
 
-**Transversal filter (tapped delay line).** A sum of delayed, weighted copies is built with a chain of delay elements whose taps are weighted and added. So that no element has to reach into the future, everything is delayed together. This is the same structure as an FIR filter ([Part 4](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme/abtastung-und-zeitdiskrete-systeme.html)).
+**Transversal filter (tapped delay line).** A sum of delayed, weighted copies is built with a chain of delay elements whose taps are weighted and added. So that no element has to reach into the future, everything is delayed together. This is the same structure as an FIR filter ([Chapter 4](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme/abtastung-und-zeitdiskrete-systeme.html)).
 
 :::aufgabe Exercise 5 ★★ The raised-cosine filter
 <span class="anker" id="aufg-5"></span>
@@ -58,6 +60,6 @@ What is the value of $H$ at $f=0$ and at $f=f_\mathrm g=\frac{1}{2T}$? Why is th
 :::loesung
 (a) At $t=mT$, $\operatorname{si}(\pi(t\pm T)/T)$ equals 1 only for $m=\mp1$ and is zero otherwise. So $h(0)=1$, $h(\pm T)=\frac12$, and all other $h(nT)=0$. By [(5.1)](#gl-5-1): $H=T\operatorname{rect}(Tf)\bigl[1+\frac12\mathrm{e}^{\mathrm{j}2\pi Tf}+\frac12\mathrm{e}^{-\mathrm{j}2\pi Tf}\bigr]=T\operatorname{rect}(Tf)\bigl[1+\cos(2\pi Tf)\bigr]$.
 
-(b) $H(0)=2T$, $H(\frac{1}{2T})=T(1+\cos\pi)=0$. The slope $-2\pi T^2\sin(2\pi Tf)$ is also zero at $f=\frac{1}{2T}$. The frequency response goes to zero without a jump and without a kink. The smoother the spectrum, the faster the impulse response decays ([Part 3](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)).
+(b) $H(0)=2T$, $H(\frac{1}{2T})=T(1+\cos\pi)=0$. The slope $-2\pi T^2\sin(2\pi Tf)$ is also zero at $f=\frac{1}{2T}$. The frequency response goes to zero without a jump and without a kink. The smoother the spectrum, the faster the impulse response decays ([Chapter 3](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)).
 :::
 :::

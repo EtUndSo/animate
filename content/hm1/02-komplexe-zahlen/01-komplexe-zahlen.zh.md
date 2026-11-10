@@ -1,7 +1,9 @@
 ---
 title: 概览: 复数
 kurz: 概览
-pfad: 电气工程 / 第 1 学期 / 高等数学 1 / 复数
+pfad: 电气工程 / 第 1 学期 / HöMa1 – 高等数学 1 / 复数
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen
+knoten: 第 2 章：复数
 order: 1220100
 summary: 第二条坐标轴如何使 $x^2=-1$ 有解 以及由此失去了什么
 tags: 实部, 虚部

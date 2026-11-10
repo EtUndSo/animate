@@ -1,0 +1,768 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 27,
+  "nextAnimId": 31,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.75,
+      0.20000000000000007,
+      0
+     ],
+     "width": 3.34,
+     "height": 2.3,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#f4f4f4",
+     "fill_color": "#f4f4f4",
+     "fill_opacity": 1.0,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o2",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.75,
+      0.20000000000000007,
+      0
+     ],
+     "width": 3.34,
+     "height": 2.3,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#f4f4f4",
+     "fill_color": "#f4f4f4",
+     "fill_opacity": 1.0,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o3",
+    "type": "Text",
+    "props": {
+     "text": "@gedacht",
+     "position": [
+      -1.75,
+      1.6,
+      0
+     ],
+     "font_size": 20,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Text",
+    "props": {
+     "text": "@eingebaut",
+     "position": [
+      1.75,
+      1.6,
+      0
+     ],
+     "font_size": 20,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o5",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.55,
+      0.6,
+      0
+     ],
+     "width": 1.2,
+     "height": 0.85,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Text",
+    "props": {
+     "text": "@shell",
+     "position": [
+      -2.55,
+      0.85,
+      0
+     ],
+     "font_size": 20,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o7",
+    "type": "Text",
+    "props": {
+     "text": "@ordner",
+     "position": [
+      -2.55,
+      0.6,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o8",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\lower{0.25em}{\\texttt{~}}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.2,
+     "position": [
+      -2.55,
+      0.36,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o9",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.75,
+      0.6,
+      0
+     ],
+     "width": 1.2,
+     "height": 0.85,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#eb6834",
+     "fill_color": "#fdece3",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o10",
+    "type": "Text",
+    "props": {
+     "text": "@prog",
+     "position": [
+      -0.75,
+      0.85,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o11",
+    "type": "Text",
+    "props": {
+     "text": "@kopie",
+     "position": [
+      -0.75,
+      0.6,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o12",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\lower{0.25em}{\\texttt{~}}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.2,
+     "position": [
+      -0.75,
+      0.36,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o13",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{/etc}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.2,
+     "position": [
+      -0.75,
+      0.36,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o14",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -1.95,
+      0.6,
+      0
+     ],
+     "end": [
+      -1.35,
+      0.6,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.11,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o15",
+    "type": "Text",
+    "props": {
+     "text": "@startet",
+     "position": [
+      -1.65,
+      0.78,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o16",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.75,
+      0.6,
+      0
+     ],
+     "width": 1.26,
+     "height": 0.9,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#ffffff",
+     "fill_color": "#ffffff",
+     "fill_opacity": 0.7,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o17",
+    "type": "Text",
+    "props": {
+     "text": "@endet",
+     "position": [
+      -0.75,
+      -0.05,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o18",
+    "type": "Text",
+    "props": {
+     "text": "@bleibt",
+     "position": [
+      -2.55,
+      -0.05,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#00823c"
+    }
+   },
+   {
+    "id": "o19",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{student@labor:}\\lower{0.25em}{\\texttt{~}}\\texttt{\\$}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.15,
+     "position": [
+      -1.75,
+      -0.6,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o20",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.75,
+      0.6,
+      0
+     ],
+     "width": 1.6,
+     "height": 0.85,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o21",
+    "type": "Text",
+    "props": {
+     "text": "@shell",
+     "position": [
+      1.75,
+      0.85,
+      0
+     ],
+     "font_size": 20,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o22",
+    "type": "Text",
+    "props": {
+     "text": "@ordner",
+     "position": [
+      1.75,
+      0.6,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o23",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\lower{0.25em}{\\texttt{~}}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.2,
+     "position": [
+      1.75,
+      0.36,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o24",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{/etc}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.2,
+     "position": [
+      1.75,
+      0.36,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o25",
+    "type": "Text",
+    "props": {
+     "text": "@selbst",
+     "position": [
+      1.75,
+      -0.05,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#00823c"
+    }
+   },
+   {
+    "id": "o26",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{student@labor:/etc\\$}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.15,
+     "position": [
+      1.75,
+      -0.6,
+      0
+     ],
+     "color": "#111111"
+    }
+   }
+  ],
+  "animations": [
+   {
+    "id": "a1",
+    "type": "FadeIn",
+    "target": "o1",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a2",
+    "type": "FadeIn",
+    "target": "o2",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a3",
+    "type": "FadeIn",
+    "target": "o3",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a4",
+    "type": "FadeIn",
+    "target": "o4",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a5",
+    "type": "GrowFromCenter",
+    "target": "o5",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a6",
+    "type": "FadeIn",
+    "target": "o6",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a7",
+    "type": "FadeIn",
+    "target": "o7",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a8",
+    "type": "FadeIn",
+    "target": "o8",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a9",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a10",
+    "type": "Create",
+    "target": "o14",
+    "run_time": 0.7,
+    "step": 3
+   },
+   {
+    "id": "a11",
+    "type": "FadeIn",
+    "target": "o15",
+    "run_time": 0.7,
+    "step": 3
+   },
+   {
+    "id": "a12",
+    "type": "GrowFromCenter",
+    "target": "o9",
+    "run_time": 0.7,
+    "step": 3
+   },
+   {
+    "id": "a13",
+    "type": "FadeIn",
+    "target": "o10",
+    "run_time": 0.7,
+    "step": 3
+   },
+   {
+    "id": "a14",
+    "type": "FadeIn",
+    "target": "o11",
+    "run_time": 0.7,
+    "step": 3
+   },
+   {
+    "id": "a15",
+    "type": "FadeIn",
+    "target": "o12",
+    "run_time": 0.7,
+    "step": 3
+   },
+   {
+    "id": "a16",
+    "type": "TransformMatchingTex",
+    "target": "o12",
+    "run_time": 0.8,
+    "step": 4,
+    "to": "o13"
+   },
+   {
+    "id": "a17",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 5
+   },
+   {
+    "id": "a18",
+    "type": "FadeIn",
+    "target": "o16",
+    "run_time": 0.7,
+    "step": 6
+   },
+   {
+    "id": "a19",
+    "type": "FadeIn",
+    "target": "o17",
+    "run_time": 0.7,
+    "step": 6
+   },
+   {
+    "id": "a20",
+    "type": "FadeIn",
+    "target": "o18",
+    "run_time": 0.7,
+    "step": 7
+   },
+   {
+    "id": "a21",
+    "type": "FadeIn",
+    "target": "o19",
+    "run_time": 0.7,
+    "step": 7
+   },
+   {
+    "id": "a22",
+    "type": "Indicate",
+    "target": "o8",
+    "run_time": 0.6,
+    "step": 8
+   },
+   {
+    "id": "a23",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 9
+   },
+   {
+    "id": "a24",
+    "type": "GrowFromCenter",
+    "target": "o20",
+    "run_time": 0.6,
+    "step": 10
+   },
+   {
+    "id": "a25",
+    "type": "FadeIn",
+    "target": "o21",
+    "run_time": 0.6,
+    "step": 10
+   },
+   {
+    "id": "a26",
+    "type": "FadeIn",
+    "target": "o22",
+    "run_time": 0.6,
+    "step": 10
+   },
+   {
+    "id": "a27",
+    "type": "FadeIn",
+    "target": "o23",
+    "run_time": 0.6,
+    "step": 10
+   },
+   {
+    "id": "a28",
+    "type": "TransformMatchingTex",
+    "target": "o23",
+    "run_time": 0.8,
+    "step": 11,
+    "to": "o24"
+   },
+   {
+    "id": "a29",
+    "type": "FadeIn",
+    "target": "o25",
+    "run_time": 0.7,
+    "step": 12
+   },
+   {
+    "id": "a30",
+    "type": "FadeIn",
+    "target": "o26",
+    "run_time": 0.7,
+    "step": 12
+   }
+  ],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "gedacht": {
+    "de": "gedachtes Programm /usr/bin/cd",
+    "en": "imagined program /usr/bin/cd",
+    "es": "programa imaginario /usr/bin/cd",
+    "zh": "设想的程序 /usr/bin/cd",
+    "fr": "programme imaginaire /usr/bin/cd",
+    "tr": "varsayımsal program /usr/bin/cd"
+   },
+   "eingebaut": {
+    "de": "eingebauter Befehl cd",
+    "en": "builtin command cd",
+    "es": "comando interno cd",
+    "zh": "内置命令 cd",
+    "fr": "commande intégrée cd",
+    "tr": "yerleşik komut cd"
+   },
+   "shell": {
+    "de": "Shell",
+    "en": "shell",
+    "es": "shell",
+    "zh": "Shell",
+    "fr": "shell",
+    "tr": "kabuk"
+   },
+   "ordner": {
+    "de": "Ordner:",
+    "en": "folder:",
+    "es": "carpeta:",
+    "zh": "文件夹：",
+    "fr": "dossier :",
+    "tr": "klasör:"
+   },
+   "prog": {
+    "de": "Programm cd",
+    "en": "program cd",
+    "es": "programa cd",
+    "zh": "程序 cd",
+    "fr": "programme cd",
+    "tr": "cd programı"
+   },
+   "kopie": {
+    "de": "Kopie:",
+    "en": "copy:",
+    "es": "copia:",
+    "zh": "副本：",
+    "fr": "copie :",
+    "tr": "kopya:"
+   },
+   "startet": {
+    "de": "startet",
+    "en": "starts",
+    "es": "inicia",
+    "zh": "启动",
+    "fr": "lance",
+    "tr": "başlatır"
+   },
+   "endet": {
+    "de": "endet:\nKopie verloren",
+    "en": "ends:\ncopy is lost",
+    "es": "termina:\nla copia se pierde",
+    "zh": "结束：\n副本丢失",
+    "fr": "se termine :\ncopie perdue",
+    "tr": "biter:\nkopya kaybolur"
+   },
+   "bleibt": {
+    "de": "Shell bleibt in ~",
+    "en": "shell stays in ~",
+    "es": "la shell sigue en ~",
+    "zh": "Shell 仍在 ~",
+    "fr": "la shell reste dans ~",
+    "tr": "kabuk ~ içinde kalır"
+   },
+   "selbst": {
+    "de": "Shell wechselt selbst",
+    "en": "the shell changes itself",
+    "es": "la shell cambia ella misma",
+    "zh": "Shell 自己切换",
+    "fr": "la shell change elle-même",
+    "tr": "kabuk kendisi değiştirir"
+   }
+  }
+ }
+}

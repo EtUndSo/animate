@@ -1,6 +1,8 @@
 ---
 title: Etapa 7: Intervalos encajados y raíces
-pfad: Ingeniería eléctrica / 1.er semestre / Matemáticas superiores 1 / Conjuntos, lógica y números reales
+pfad: Ingeniería eléctrica / 1.er semestre / HöMa1 – Matemáticas superiores 1 / Conjuntos, lógica y números reales
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen
+knoten: Capítulo 1: Conjuntos, lógica y números reales
 order: 1210900
 summary: El axioma garantiza fronteras.
 tags: intervalo, números no negativos, raíz cuadrada

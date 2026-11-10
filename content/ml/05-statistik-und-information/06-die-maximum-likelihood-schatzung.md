@@ -1,7 +1,8 @@
 ---
 title: Die Maximum-Likelihood-Schätzung
 pfad: Informatik / Machine Learning / Mathematische Grundlagen / Statistik und Information
-knoten: Grundlagen 5: Statistik und Information
+adresse: informatik/machine-learning/mathematische-grundlagen/statistik-und-information
+knoten: Kapitel 5: Statistik und Information
 nachschlagen: ja
 order: 15250600
 summary: Der Parameterwert, unter dem die beobachteten Daten am wahrscheinlichsten sind, ist ein naheliegender Schätzer.
@@ -28,10 +29,10 @@ Die Funktion $f$ sei auf einem offenen Intervall $I$ differenzierbar, und an der
 :::
 
 :::beweis Waagrechte Tangente
-Weil $I$ offen ist, liegen Stellen $x^*+t$ mit kleinem $t$ auf beiden Seiten noch in $I$. Für $t>0$ ist $f(x^*+t)-f(x^*)\le0$, also ist der Differenzenquotient $\bigl(f(x^*+t)-f(x^*)\bigr)/t$ nicht positiv, und sein Grenzwert $f'(x^*)$ aus [Grundlagen 3, Abschnitt 1.2](/wissen/informatik/machine-learning/mathematische-grundlagen/ableitung-gradient-und-kettenregel/die-ableitung.html#stufe-1-2), auch nicht. Für $t<0$ ist der Zähler ebenfalls nicht positiv, der Nenner aber negativ, der Quotient also nicht negativ, und damit $f'(x^*)\ge0$. Beides zusammen ergibt $f'(x^*)=0$.
+Weil $I$ offen ist, liegen Stellen $x^*+t$ mit kleinem $t$ auf beiden Seiten noch in $I$. Für $t>0$ ist $f(x^*+t)-f(x^*)\le0$, also ist der Differenzenquotient $\bigl(f(x^*+t)-f(x^*)\bigr)/t$ nicht positiv, und sein Grenzwert $f'(x^*)$ aus [Kapitel 3, Abschnitt 1.2](/wissen/informatik/machine-learning/mathematische-grundlagen/ableitung-gradient-und-kettenregel/die-ableitung.html#stufe-1-2), auch nicht. Für $t<0$ ist der Zähler ebenfalls nicht positiv, der Nenner aber negativ, der Quotient also nicht negativ, und damit $f'(x^*)\ge0$. Beides zusammen ergibt $f'(x^*)=0$.
 :::
 
-Anschaulich: Wäre die Steigung am höchsten Punkt nicht null, so ginge es nach der linearen Näherung aus [Grundlagen 3, Abschnitt 1.3](/wissen/informatik/machine-learning/mathematische-grundlagen/ableitung-gradient-und-kettenregel/die-ableitung.html#stufe-1-3), in eine Richtung noch weiter bergauf. Die Umkehrung gilt nicht. Eine Nullstelle der Ableitung kann ein höchster Punkt sein, ein tiefster oder keins von beiden, wie bei $x^3$ an der Stelle $0$. Ob es ein höchster Punkt ist, entscheidet das Vorzeichen der Ableitung in der Umgebung.
+Anschaulich: Wäre die Steigung am höchsten Punkt nicht null, so ginge es nach der linearen Näherung aus [Kapitel 3, Abschnitt 1.3](/wissen/informatik/machine-learning/mathematische-grundlagen/ableitung-gradient-und-kettenregel/die-ableitung.html#stufe-1-3), in eine Richtung noch weiter bergauf. Die Umkehrung gilt nicht. Eine Nullstelle der Ableitung kann ein höchster Punkt sein, ein tiefster oder keins von beiden, wie bei $x^3$ an der Stelle $0$. Ob es ein höchster Punkt ist, entscheidet das Vorzeichen der Ableitung in der Umgebung.
 
 :::satz Satz 5.2 (Vorzeichenwechsel der Ableitung)
 <span class="anker" id="satz-5-2"></span>
@@ -104,7 +105,7 @@ Die Zahl $-\ln P(X=x_i\mid\theta)$ misst, wie überrascht ein Modell mit dem Par
 
 <span class="anker" id="stufe-5-3"></span>
 
-Vier Messungen derselben Spannung ergeben $4{,}9$, $5{,}3$, $5{,}1$ und $4{,}7\,\mathrm V$. Das Modell sei die Normalverteilung $\mathcal N(\mu,\sigma^2)$ aus [Grundlagen 4, Abschnitt 8.5](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/wichtige-verteilungen.html#stufe-8-5): $\mu$ ist der wahre Wert, $\sigma^2$ die Varianz des Rauschens. Gesucht ist der Maximum-Likelihood-Schätzer für $\mu$.
+Vier Wägungen desselben Pakets ergeben $4{,}9$, $5{,}3$, $5{,}1$ und $4{,}7\,\mathrm{kg}$. Das Modell sei die Normalverteilung $\mathcal N(\mu,\sigma^2)$ aus [Kapitel 4, Abschnitt 8.5](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/wichtige-verteilungen.html#stufe-8-5): $\mu$ ist der wahre Wert, $\sigma^2$ die Varianz des Rauschens. Gesucht ist der Maximum-Likelihood-Schätzer für $\mu$.
 
 Logarithmiert man die Dichte $p(x\mid\mu,\sigma^2)=\frac1{\sqrt{2\pi\sigma^2}}\exp\bigl(-\frac{(x-\mu)^2}{2\sigma^2}\bigr)$ mit den Rechenregeln [(4.1)](die-likelihood.html#gl-4-1), so bleibt $\ln p(x\mid\mu,\sigma^2)=-\tfrac12\ln(2\pi\sigma^2)-\frac{(x-\mu)^2}{2\sigma^2}$. Summiert über alle Werte ist die Log-Likelihood
 
@@ -129,13 +130,13 @@ In [(5.4)](#gl-5-4) hängt nur der zweite Summand von $\mu$ ab, und er ist die Q
 Bemerkenswert ist, dass die Antwort nicht von $\sigma^2$ abhängt: Wie stark das Rauschen auch ist, der plausibelste wahre Wert ist der Mittelwert.
 
 ::::beispiel [Rechenbeispiel]
-Für die vier Spannungen ist $\hat\mu_{\mathrm{ML}}=\tfrac14(4{,}9+5{,}3+5{,}1+4{,}7)=5{,}0\,\mathrm V$. [Grundlagen 2, Abschnitt 11.4](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/die-pseudoinverse.html#stufe-11-4), hat den Mittelwert mehrerer Messungen schon als beste Näherungslösung des Gleichungssystems „$x=x_i$ für alle $i$“ gefunden. Jetzt hat derselbe Wert eine zweite Bedeutung: Er ist der wahre Wert, der die Messungen am wahrscheinlichsten macht, wenn das Rauschen normalverteilt ist.
+Für die vier Wägungen ist $\hat\mu_{\mathrm{ML}}=\tfrac14(4{,}9+5{,}3+5{,}1+4{,}7)=5{,}0\,\mathrm{kg}$. [Kapitel 2, Abschnitt 11.4](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/die-pseudoinverse.html#stufe-11-4), hat den Mittelwert mehrerer Messungen schon als beste Näherungslösung des Gleichungssystems „$x=x_i$ für alle $i$“ gefunden. Jetzt hat derselbe Wert eine zweite Bedeutung: Er ist der wahre Wert, der die Messungen am wahrscheinlichsten macht, wenn das Rauschen normalverteilt ist.
 ::::
 
 ⁠**Kurz gesagt:** Bei normalverteilten Daten ist der Maximum-Likelihood-Schätzer für den Erwartungswert der Mittelwert, weil die Log-Likelihood bis auf Konstanten die negative Quadratsumme der Abweichungen ist.
 
 :::hintergrund Warum gerade der Mittelwert
-Der Mittelwert kommt heraus, weil die Normalverteilung die quadrierte Abweichung im Exponenten trägt. Der Logarithmus holt sie heraus, und aus „Likelihood maximieren“ wird „Quadratsumme minimieren“. Mit einer anderen Form des Rauschens ergibt sich ein anderer Schätzer. Hat das Rauschen etwa die Dichte $\frac1{2s}\exp(-|x-\mu|/s)$ mit einer Breite $s>0$, die sogenannte Laplace-Verteilung, so ist die Log-Likelihood bis auf eine Konstante $-\frac1s\sum_i|x_i-\mu|$. Diese Summe der Beträge ist am Median der Daten am kleinsten, den [Grundlagen 4, Abschnitt 7.7](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/erwartungswert-und-varianz.html#stufe-7-7), vorgestellt hat (Aufgabe [20](#aufg-20)). Die Laplace-Verteilung hat dickere Ausläufer als die Normalverteilung, große Abweichungen sind unter ihr also weniger überraschend. Ein Ausreißer zieht den Median deshalb kaum. Kommt zu den vier Spannungen eine Fehlmessung von $9{,}0\,\mathrm V$ hinzu, so springt der Mittelwert auf $5{,}8\,\mathrm V$, der Median nur auf $5{,}1\,\mathrm V$. Welches Mittel das beste ist, entscheidet also die angenommene Form des Rauschens.
+Der Mittelwert kommt heraus, weil die Normalverteilung die quadrierte Abweichung im Exponenten trägt. Der Logarithmus holt sie heraus, und aus „Likelihood maximieren“ wird „Quadratsumme minimieren“. Mit einer anderen Form des Rauschens ergibt sich ein anderer Schätzer. Hat das Rauschen etwa die Dichte $\frac1{2s}\exp(-|x-\mu|/s)$ mit einer Breite $s>0$, die sogenannte Laplace-Verteilung, so ist die Log-Likelihood bis auf eine Konstante $-\frac1s\sum_i|x_i-\mu|$. Diese Summe der Beträge ist am Median der Daten am kleinsten, den [Kapitel 4, Abschnitt 7.7](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/erwartungswert-und-varianz.html#stufe-7-7), vorgestellt hat (Aufgabe [20](#aufg-20)). Die Laplace-Verteilung hat dickere Ausläufer als die Normalverteilung, große Abweichungen sind unter ihr also weniger überraschend. Ein Ausreißer zieht den Median deshalb kaum. Kommt zu den vier Wägungen eine Fehlmessung von $9{,}0\,\mathrm{kg}$ hinzu, so springt der Mittelwert auf $5{,}8\,\mathrm{kg}$, der Median nur auf $5{,}1\,\mathrm{kg}$. Welches Mittel das beste ist, entscheidet also die angenommene Form des Rauschens.
 :::
 
 ### Die Normalverteilung: die Varianz
@@ -164,7 +165,7 @@ Sie ist positiv für $v<Q/N$, null bei $v=Q/N$ und negativ für $v>Q/N$. Nach de
 Der Maximum-Likelihood-Schätzer für die Varianz ist also genau der Schätzer mit dem Nenner $N$ aus Abschnitt [3](die-varianz-schatzen.html#stufe-3), der die Varianz im Mittel um den Faktor $(N-1)/N$ unterschätzt. Maximum Likelihood garantiert keine Erwartungstreue.
 
 ::::beispiel [Rechenbeispiel]
-Für die vier Spannungen ist $Q=0{,}01+0{,}09+0{,}01+0{,}09=0{,}2\,\mathrm V^2$ und $\hat\sigma^2_{\mathrm{ML}}=0{,}2/4=0{,}05\,\mathrm V^2$. Die Standardabweichung mit dem Nenner $N$, die [Grundlagen 1](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html) für Datensätze benutzt hat, ist also unter dem Normalverteilungsmodell die Maximum-Likelihood-Schätzung von $\sigma$; das zeigt der nächste Unterabschnitt. Hier ist sie $\sqrt{0{,}05}\approx0{,}224\,\mathrm V$.
+Für die vier Wägungen ist $Q=0{,}01+0{,}09+0{,}01+0{,}09=0{,}2\,\mathrm{kg}^2$ und $\hat\sigma^2_{\mathrm{ML}}=0{,}2/4=0{,}05\,\mathrm{kg}^2$. Die Standardabweichung mit dem Nenner $N$, die [Kapitel 1](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html) für Datensätze benutzt hat, ist also unter dem Normalverteilungsmodell die Maximum-Likelihood-Schätzung von $\sigma$; das zeigt der nächste Unterabschnitt. Hier ist sie $\sqrt{0{,}05}\approx0{,}224\,\mathrm{kg}$.
 ::::
 
 ⁠**Kurz gesagt:** Bei normalverteilten Daten schätzt Maximum Likelihood die Varianz mit dem Nenner $N$, also verzerrt.
@@ -189,13 +190,13 @@ Schreibt man das Modell mit $\eta$ statt mit $\theta$, so hat der Datensatz unte
 :::
 
 ::::beispiel [Rechenbeispiel]
-Weil $\sigma=\sqrt{\sigma^2}$ für positive Zahlen umkehrbar ist, ist die Maximum-Likelihood-Schätzung der Standardabweichung der vier Spannungen $\hat\sigma_{\mathrm{ML}}=\sqrt{0{,}05}\approx0{,}224\,\mathrm V$. Für die Münze ist die Chance $\theta/(1-\theta)$ umkehrbar, ihr Maximum-Likelihood-Schätzer also $0{,}7/0{,}3=7/3\approx2{,}33$: Kopf ist etwa $2{,}3$-mal so wahrscheinlich wie Zahl. Erwartungstreue übersteht solche Umrechnungen dagegen nicht. Nach Unterabschnitt [3.3](die-varianz-schatzen.html#stufe-3-3) ist $\hat\sigma^2_{N-1}$ erwartungstreu, seine Wurzel aber nicht.
+Weil $\sigma=\sqrt{\sigma^2}$ für positive Zahlen umkehrbar ist, ist die Maximum-Likelihood-Schätzung der Standardabweichung der vier Wägungen $\hat\sigma_{\mathrm{ML}}=\sqrt{0{,}05}\approx0{,}224\,\mathrm{kg}$. Für die Münze ist die Chance $\theta/(1-\theta)$ umkehrbar, ihr Maximum-Likelihood-Schätzer also $0{,}7/0{,}3=7/3\approx2{,}33$: Kopf ist etwa $2{,}3$-mal so wahrscheinlich wie Zahl. Erwartungstreue übersteht solche Umrechnungen dagegen nicht. Nach Unterabschnitt [3.3](die-varianz-schatzen.html#stufe-3-3) ist $\hat\sigma^2_{N-1}$ erwartungstreu, seine Wurzel aber nicht.
 ::::
 
 ⁠**Kurz gesagt:** Rechnet man den Parameter umkehrbar um, so rechnet man den Maximum-Likelihood-Schätzer einfach mit um.
 
 :::hintergrund Warum die Likelihood das Umbenennen übersteht
-Die Likelihood ist eine Funktion des Parameters, keine Dichte über ihm. Benennt man die Parameterwerte um, so wandert jeder Funktionswert unverändert zu seinem neuen Namen, und der höchste bleibt der höchste. Bei einer Dichte wäre das anders. Rechnet man eine Zufallsgröße nichtlinear um, so wird ihre Dichte nach dem Variablenwechsel aus [Grundlagen 4, Abschnitt 8.6](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/wichtige-verteilungen.html#stufe-8-6), mit dem Betrag der Ableitung der Umrechnung multipliziert, und dieser Faktor kann die Lage des Gipfels verschieben; [Grundlagen 4, Abschnitt 7.7](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/erwartungswert-und-varianz.html#stufe-7-7), hat das beim Modus bemerkt. Diese Unterscheidung wird in Abschnitt [7](die-maximum-a-posteriori-schatzung.html#stufe-7) wichtig, wo eine Dichte über den Parameter ins Spiel kommt.
+Die Likelihood ist eine Funktion des Parameters, keine Dichte über ihm. Benennt man die Parameterwerte um, so wandert jeder Funktionswert unverändert zu seinem neuen Namen, und der höchste bleibt der höchste. Bei einer Dichte wäre das anders. Rechnet man eine Zufallsgröße nichtlinear um, so wird ihre Dichte nach dem Variablenwechsel aus [Kapitel 4, Abschnitt 8.6](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/wichtige-verteilungen.html#stufe-8-6), mit dem Betrag der Ableitung der Umrechnung multipliziert, und dieser Faktor kann die Lage des Gipfels verschieben; [Kapitel 4, Abschnitt 7.7](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/erwartungswert-und-varianz.html#stufe-7-7), hat das beim Modus bemerkt. Diese Unterscheidung wird in Abschnitt [7](die-maximum-a-posteriori-schatzung.html#stufe-7) wichtig, wo eine Dichte über den Parameter ins Spiel kommt.
 :::
 
 :::aufgabe Aufgabe 16 ★ Höchste Punkte
@@ -378,7 +379,7 @@ Für $N$ Werte ist $\hat\theta_{\mathrm{ML}}$ der größte Wert $M$. Zeige $P(M\
 
 (b) $\hat\theta_{\mathrm{ML}}=2{,}1$, der größte Wert. Die Likelihood hat dort einen Sprung und keine waagrechte Tangente; rechts davon fällt sie überall. Der Satz über die waagrechte Tangente setzt voraus, dass das Maximum im Inneren eines Intervalls liegt, auf dem die Funktion differenzierbar ist; hier liegt es am Rand des Bereichs, in dem $\mathcal L$ nicht null ist.
 
-(c) $M\le m$ heißt, dass alle $N$ unabhängigen Werte höchstens $m$ sind; jeder ist es mit der Wahrscheinlichkeit $m/\theta$, also $P(M\le m)=(m/\theta)^N$. Abgeleitet ergibt das nach [Grundlagen 4, Abschnitt 6.5](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/zufallsvariablen-und-verteilungen.html#stufe-6-5), die Dichte $N\,m^{N-1}/\theta^N$, und $\mathbb{E}[M]=\int_0^\theta m\cdot\frac{Nm^{N-1}}{\theta^N}\,\mathrm{d} m=\frac N{N+1}\,\theta$. Der Schätzer ist also nicht erwartungstreu, er unterschätzt $\theta$ um den Faktor $N/(N+1)$; der Schätzer $\frac{N+1}NM$ wäre erwartungstreu.
+(c) $M\le m$ heißt, dass alle $N$ unabhängigen Werte höchstens $m$ sind; jeder ist es mit der Wahrscheinlichkeit $m/\theta$, also $P(M\le m)=(m/\theta)^N$. Abgeleitet ergibt das nach [Kapitel 4, Abschnitt 6.5](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/zufallsvariablen-und-verteilungen.html#stufe-6-5), die Dichte $N\,m^{N-1}/\theta^N$, und $\mathbb{E}[M]=\int_0^\theta m\cdot\frac{Nm^{N-1}}{\theta^N}\,\mathrm{d} m=\frac N{N+1}\,\theta$. Der Schätzer ist also nicht erwartungstreu, er unterschätzt $\theta$ um den Faktor $N/(N+1)$; der Schätzer $\frac{N+1}NM$ wäre erwartungstreu.
 :::
 :::
 

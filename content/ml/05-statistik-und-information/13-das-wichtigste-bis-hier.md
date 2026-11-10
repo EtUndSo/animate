@@ -1,7 +1,8 @@
 ---
 title: Das Wichtigste bis hier
 pfad: Informatik / Machine Learning / Mathematische Grundlagen / Statistik und Information
-knoten: Grundlagen 5: Statistik und Information
+adresse: informatik/machine-learning/mathematische-grundlagen/statistik-und-information
+knoten: Kapitel 5: Statistik und Information
 nachschlagen: ja
 order: 15251300
 summary: Aus Daten schätzen und Überraschung messen

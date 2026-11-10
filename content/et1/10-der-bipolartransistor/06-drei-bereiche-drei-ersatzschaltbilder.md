@@ -1,6 +1,8 @@
 ---
 title: Stufe 4: Drei Bereiche, drei Ersatzschaltbilder
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Der Bipolartransistor
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Der Bipolartransistor
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor
+knoten: Kapitel 10: Der Bipolartransistor
 order: 1200600
 summary: Mit e-Funktionen lassen sich Schaltungen von Hand kaum lösen.
 tags: Sperrbereich, Sättigungsbereich, Schwellspannung, Sättigungsspannung, Ersatzschaltbild
@@ -13,7 +15,7 @@ lang: de
 Mit e-Funktionen lassen sich Schaltungen von Hand kaum lösen. Diese Stufe ersetzt die Fläche durch drei lineare Stücke.
 :::
 
-**Die Idee.** Jede der beiden Dioden kann leiten oder sperren. Daraus ergeben sich die Betriebszustände. Sperrt die BE-Diode, startet kein Elektron, und nichts fließt. Das ist der __Sperrbereich__. Leitet sie und sperrt die CB-Diode, holt der Kollektor alle Elektronen ab, und es gilt $I_\mathrm{C}=B\,I_\mathrm{B}$. Das ist der aktive Bereich. Fällt $U_\mathrm{CE}$ so weit, dass auch die CB-Diode deutlich leitet, schickt der Kollektor Elektronen zurück. Dann kann er nicht mehr alle abholen, die Basis läuft mit Elektronen voll, und $I_\mathrm{C}$ bleibt unter $B\,I_\mathrm{B}$. Das ist der __Sättigungsbereich__. Wie bei der Diode ([Teil 9](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)) ersetzt man die Kurven durch Geraden: Die Eingangskennlinie bekommt einen Knick bei 0,6 V, die Stromsteuerkennlinie wird eine Gerade mit Steigung $B$, die in der Sättigung waagerecht abknickt, die Ausgangskennlinien werden rechts von 0,2 V waagerecht (Abb. [6](der-arbeitspunkt.html#abb-6)).
+**Die Idee.** Jede der beiden Dioden kann leiten oder sperren. Daraus ergeben sich die Betriebszustände. Sperrt die BE-Diode, startet kein Elektron, und nichts fließt. Das ist der __Sperrbereich__. Leitet sie und sperrt die CB-Diode, holt der Kollektor alle Elektronen ab, und es gilt $I_\mathrm{C}=B\,I_\mathrm{B}$. Das ist der aktive Bereich. Fällt $U_\mathrm{CE}$ so weit, dass auch die CB-Diode deutlich leitet, schickt der Kollektor Elektronen zurück. Dann kann er nicht mehr alle abholen, die Basis läuft mit Elektronen voll, und $I_\mathrm{C}$ bleibt unter $B\,I_\mathrm{B}$. Das ist der __Sättigungsbereich__. Wie bei der Diode ([Kapitel 9](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)) ersetzt man die Kurven durch Geraden: Die Eingangskennlinie bekommt einen Knick bei 0,6 V, die Stromsteuerkennlinie wird eine Gerade mit Steigung $B$, die in der Sättigung waagerecht abknickt, die Ausgangskennlinien werden rechts von 0,2 V waagerecht (Abb. [6](der-arbeitspunkt.html#abb-6)).
 
 :::definition Definition 4.1 (Arbeitsbereiche des npn-Transistors)
 <span class="anker" id="satz-4-1"></span>

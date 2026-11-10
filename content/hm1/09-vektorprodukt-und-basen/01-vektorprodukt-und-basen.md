@@ -1,7 +1,9 @@
 ---
 title: Überblick: Vektorprodukt und Basen
 kurz: Überblick
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Vektorprodukt und Basen
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Vektorprodukt und Basen
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/vektorprodukt-und-basen
+knoten: Kapitel 9: Vektorprodukt und Basen
 order: 1290100
 summary: Warum jeder Vektor in einem Koordinatensystem genau eine Darstellung hat und wie man ein rechtwinkliges baut
 tags: Vektorprodukt, Spatprodukt, Orthonormalsystem, Orthogonalprojektion, Basis, Dimension, Orthonormalbasis, Gram-Schmidt-Verfahren
@@ -23,7 +25,7 @@ Die Antwort führt über acht Begriffe. Das __Vektorprodukt__ macht aus zwei Vek
 
 <li>
 
-⁠**Zwei Vektoren im Raum ([Teil 8](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/vektoren-und-skalarprodukt/vektoren-und-skalarprodukt.html)):** $\vec u=(2,1,0)$, $\vec v=(0,1,2)$ mit $\vec u\times\vec v=(2,-4,2)$. Ihr Parallelogramm hat die Fläche $\sqrt{24}=4{,}899$. Die dritte Kante $\vec k=(1,0,2)$ ergibt einen schiefen Quader mit Volumen 6.
+⁠**Zwei Vektoren im Raum ([Kapitel 8](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/vektoren-und-skalarprodukt/vektoren-und-skalarprodukt.html)):** $\vec u=(2,1,0)$, $\vec v=(0,1,2)$ mit $\vec u\times\vec v=(2,-4,2)$. Ihr Parallelogramm hat die Fläche $\sqrt{24}=4{,}899$. Die dritte Kante $\vec k=(1,0,2)$ ergibt einen schiefen Quader mit Volumen 6.
 
 </li>
 
@@ -35,7 +37,7 @@ Die Antwort führt über acht Begriffe. Das __Vektorprodukt__ macht aus zwei Vek
 
 <li>
 
-⁠**Eine schiefe Basis der Ebene ([Teil 8](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/vektoren-und-skalarprodukt/vektoren-und-skalarprodukt.html)):** $\vec a=(3,1)$, $\vec b=(1,2)$. Der Vektor $(5,0)=2\vec a-\vec b$ hat darin die Koordinaten $2,-1$.
+⁠**Eine schiefe Basis der Ebene ([Kapitel 8](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/vektoren-und-skalarprodukt/vektoren-und-skalarprodukt.html)):** $\vec a=(3,1)$, $\vec b=(1,2)$. Der Vektor $(5,0)=2\vec a-\vec b$ hat darin die Koordinaten $2,-1$.
 
 </li>
 

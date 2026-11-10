@@ -1,6 +1,8 @@
 ---
 title: 要点
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / 采样与离散时间系统
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / 采样与离散时间系统
+adresse: elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme
+knoten: 第 4 章：采样与离散时间系统
 order: 3241300
 summary: 从连续信号到数值序列： 采样定理、离散卷积、DFT、FFT 与 z 变换
 tags: 

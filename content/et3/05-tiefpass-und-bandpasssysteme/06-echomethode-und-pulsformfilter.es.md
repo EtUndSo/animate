@@ -1,6 +1,8 @@
 ---
 title: Etapa 5: Método de ecos y filtros conformadores de pulsos
-pfad: Ingeniería eléctrica / 3.er semestre / Señales y sistemas / Sistemas paso bajo y paso banda
+pfad: Ingeniería eléctrica / 3.er semestre / ET3 – Fundamentos de ingeniería eléctrica 3: señales y sistemas / Sistemas paso bajo y paso banda
+adresse: elektrotechnik/3-semester/signale-und-systeme/tiefpass-und-bandpasssysteme
+knoten: Capítulo 5: Sistemas paso bajo y paso banda
 order: 3250600
 summary: ¿Cómo se diseña un paso bajo con menos sobreoscilación?
 tags: eco, filtro de coseno alzado
@@ -34,7 +36,7 @@ Este es el __filtro de coseno alzado__. Su sobreoscilación es del 2,7 % en lu
 Respuestas al impulso del paso bajo ideal y del filtro conformador de pulsos (ambas con área $T$). El filtro conformador de pulsos decae mucho más rápido: su mayor máximo secundario es el 2,7 % del máximo principal, en lugar del 21,7 %.
 :::
 
-**Filtro transversal.** Una suma de copias retardadas y ponderadas se construye con una cadena de elementos de retardo cuyas tomas se ponderan y se suman. Para que ningún elemento deba acceder al futuro, se retrasa todo en bloque. Es la misma estructura que un filtro FIR ([parte 4](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme/abtastung-und-zeitdiskrete-systeme.html)).
+**Filtro transversal.** Una suma de copias retardadas y ponderadas se construye con una cadena de elementos de retardo cuyas tomas se ponderan y se suman. Para que ningún elemento deba acceder al futuro, se retrasa todo en bloque. Es la misma estructura que un filtro FIR ([capítulo 4](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme/abtastung-und-zeitdiskrete-systeme.html)).
 
 :::aufgabe Ejercicio 5 ★★ El filtro de coseno alzado
 <span class="anker" id="aufg-5"></span>
@@ -58,6 +60,6 @@ Deduce $H(f)$ en [(5.3)](#gl-5-3) a partir de [(5.1)](#gl-5-1).
 :::loesung
 (a) En $t=mT$, $\operatorname{si}(\pi(t\pm T)/T)$ solo vale 1 para $m=\mp1$; en los demás casos es nula. Por tanto, $h(0)=1$, $h(\pm T)=\frac12$ y todos los demás $h(nT)=0$. Según [(5.1)](#gl-5-1): $H=T\operatorname{rect}(Tf)\bigl[1+\frac12\mathrm{e}^{\mathrm{j}2\pi Tf}+\frac12\mathrm{e}^{-\mathrm{j}2\pi Tf}\bigr]=T\operatorname{rect}(Tf)\bigl[1+\cos(2\pi Tf)\bigr]$.
 
-(b) $H(0)=2T$, $H(\frac{1}{2T})=T(1+\cos\pi)=0$. También la pendiente $-2\pi T^2\sin(2\pi Tf)$ es nula en $f=\frac{1}{2T}$. La respuesta en frecuencia llega a cero sin salto y sin punto anguloso. Cuanto más suave es el espectro, más rápido decae la respuesta al impulso ([parte 3](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)).
+(b) $H(0)=2T$, $H(\frac{1}{2T})=T(1+\cos\pi)=0$. También la pendiente $-2\pi T^2\sin(2\pi Tf)$ es nula en $f=\frac{1}{2T}$. La respuesta en frecuencia llega a cero sin salto y sin punto anguloso. Cuanto más suave es el espectro, más rápido decae la respuesta al impulso ([capítulo 3](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)).
 :::
 :::

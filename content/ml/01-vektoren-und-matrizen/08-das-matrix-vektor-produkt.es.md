@@ -1,7 +1,8 @@
 ---
 title: El producto matriz-vector
 pfad: Informática / Aprendizaje automático / Fundamentos matemáticos / Vectores y matrices
-knoten: Fundamentos 1: Vectores y matrices
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Capítulo 1: Vectores y matrices
 nachschlagen: ja
 order: 15210800
 summary: La misma suma ponderada debe calcularse para todos los ejemplos de un conjunto de datos.

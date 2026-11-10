@@ -1,6 +1,8 @@
 ---
 title: 第 11 阶段：二进制接收的误码率
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / 随机信号
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / 随机信号
+adresse: elektrotechnik/3-semester/signale-und-systeme/zufallssignale
+knoten: 第 7 章：随机信号
 order: 3271200
 summary: 接收机必须作出判决：脉冲发送了没有？它出错的频率有多高？
 tags: 

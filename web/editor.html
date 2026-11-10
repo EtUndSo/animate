@@ -4,11 +4,18 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>animate — Editor</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css"/>
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
+<link rel="icon" href="/favicon.ico" sizes="32x32"/><link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
+<!-- Start-up order (2026-11-09): Python (Pyodide + NumPy, ~10 MB) is the long pole, so the loader at the end of
+     <body> starts it at once; nothing in <head> blocks the first paint (the loading overlay shows immediately).
+     KaTeX (only the Σ fallback overlay) and MathJax load async; editor.js waits for MathJax before the first render. -->
+<link rel="preconnect" href="https://cdn.jsdelivr.net"/>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css" media="print" onload="this.media='all'"/>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
 <!-- MathJax SVG output (fontCache:'none' inlines glyph <path>s) -> we vectorise them into VMobjects -->
-<script>window.MathJax={svg:{fontCache:'none'},tex:{packages:{'[+]':['color']}},startup:{typeset:false}};</script>
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js"></script>
+<script>window.MathJax={loader:{load:['[tex]/color']},svg:{fontCache:'none'},tex:{packages:{'[+]':['color']}},startup:{typeset:false}};</script>
+<script>window.mathjaxLoaded=new Promise(function(r){window._mjSettle=r;});</script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js" onload="_mjSettle(true)" onerror="_mjSettle(false)"></script>
 <!-- apply the saved theme before first paint (DAY is the default) -> no flash -->
 <script>try{if(localStorage.getItem("animate-theme")!=="dark")document.documentElement.setAttribute("data-theme","light");}catch(e){}</script>
 <style>
@@ -68,12 +75,25 @@
   /* Pre-render overlay: a rotating "compute" gear + progress while all animation frames are rendered
      up front, so playback from the cache is perfectly smooth (the gear animates on the compositor, so it
      keeps spinning even while Pyodide is busy rendering frames). */
-  #prerender-overlay{position:absolute;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;gap:12px;
+  #prerender-overlay,#boot-overlay{position:absolute;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;gap:12px;
     border-radius:8px;z-index:6;color:#fff;font-weight:600;background:rgba(16,20,18,0.55);backdrop-filter:blur(2px);}
-  :root[data-theme="light"] #prerender-overlay{background:rgba(255,255,255,0.62);color:var(--ink);}
-  #prerender-overlay .gear{font-size:46px;line-height:1;animation:prspin 1.6s linear infinite;}
-  #prerender-overlay .pct{font-size:14px;letter-spacing:.02em;}
+  :root[data-theme="light"] #prerender-overlay,:root[data-theme="light"] #boot-overlay{background:rgba(255,255,255,0.62);color:var(--ink);}
+  #prerender-overlay .gear,#boot-overlay .gear{font-size:46px;line-height:1;animation:prspin 1.6s linear infinite;}
+  #prerender-overlay .pct,#boot-overlay .pct{font-size:14px;letter-spacing:.02em;}
   @keyframes prspin{to{transform:rotate(360deg);}}
+  /* Start-up overlay: the SAME gear as the pre-render overlay, visible from the first paint until the editor is
+     ready (step text + bar driven by window.editorBoot at the end of <body>). On failure: stopped gear + message.
+     No backdrop blur here: under it is only the empty canvas, and re-blurring behind the spinning gear every frame
+     cost ~0.8 s of Python start-up in software-composited browsers (measured 2026-11-09, headless Chromium). */
+  #boot-overlay{display:flex;z-index:7;backdrop-filter:none;}
+  #boot-overlay.off{display:none;}
+  #boot-overlay .bar{width:min(260px,60%);height:4px;border-radius:2px;background:rgba(255,255,255,.28);overflow:hidden;}
+  :root[data-theme="light"] #boot-overlay .bar{background:rgba(0,0,0,.12);}
+  #boot-overlay .bar>i{display:block;height:100%;width:0;background:var(--accent);transition:width .3s;}
+  #boot-overlay .msg{max-width:min(520px,86%);text-align:center;font-size:13px;font-weight:500;line-height:1.45;}
+  #boot-overlay .msg:empty{display:none;}
+  #boot-overlay.err .gear{animation:none;opacity:.45;}
+  #boot-overlay.err .bar{display:none;}
   .panels{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;align-items:start;}
   .card{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:12px;}
   .card h3{margin:0 0 8px;font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);}
@@ -177,12 +197,18 @@
       <canvas id="camgizmo" width="156" height="200" title="Drag an axis to rotate the camera around it; drag the centre to orbit freely"></canvas>
       <div id="sum-overlay"></div>
       <div id="prerender-overlay"><div class="gear">⚙</div><div class="pct" id="prerender-pct">Berechne … 0 %</div></div>
+      <div id="boot-overlay" role="status" aria-live="polite"><div class="gear" aria-hidden="true">⚙</div><div class="pct" id="boot-step">Lade Python … (1/4)</div><div class="bar" aria-hidden="true"><i id="boot-bar"></i></div><div class="msg" id="boot-msg"></div></div>
     </div>
     <div class="preview-mode">
       <label for="play-mode">Animations:</label>
       <select id="play-mode">
         <option value="sequential">sequential</option>
         <option value="parallel">simultaneous</option>
+      </select>
+      <label for="draw-order" style="margin-left:16px">Ebenen:</label>
+      <select id="draw-order" title="Was liegt oben? „wie angelegt“: die Reihenfolge der Objektliste, auch für Objekte, die per Animation erscheinen (Standard für neue Szenen). „wie erschienen“: ein erscheinendes Objekt legt sich über alles Sichtbare (ältere Szenen).">
+        <option value="creation">wie angelegt</option>
+        <option value="appearance">wie erschienen</option>
       </select>
       <label for="view-mode" style="margin-left:16px">View:</label>
       <select id="view-mode">
@@ -198,7 +224,7 @@
       <button id="pause-btn" title="Pause">⏸</button>
       <button id="end-btn" title="Skip to end">⏭</button>
       <button id="recompute-btn" title="Alle Animationen neu berechnen (verwirft den Frame-Cache)">⟳ Neu berechnen</button>
-      <span id="status">Loading engine …</span>
+      <span id="status">Loading Pyodide …</span>
       <label class="angle" for="domain-mode">Numbers:</label>
       <select id="domain-mode" class="angle">
         <option value="real">real</option>
@@ -236,8 +262,48 @@
   </div>
 </main>
 <script src="https://cdn.jsdelivr.net/pyodide/v0.27.2/full/pyodide.js"></script>
-<!-- load with a per-load cache-buster so a new deploy is picked up immediately (no stale editor.js) -->
-<script type="module">import("./editor.js?v=" + Date.now());</script>
+<script>
+/* Start-up loader (2026-11-09). Starts Python AT ONCE — Pyodide with NumPy as a start-up package, so NumPy
+   downloads while Pyodide boots — in parallel with editor.js, MathJax and the page itself, and drives the loading
+   overlay (#boot-overlay): step text, bar, error message. editor.js takes over via window.editorBoot:
+   .pyodide (promise), .step("engine"|"scene"), .done(), .fail(err). Steps only move forward. */
+window.editorBoot=(function(){
+  var PY="https://cdn.jsdelivr.net/pyodide/v0.27.2/full/";
+  var ORDER=["python","numpy","engine","scene"], TEXT={python:"Lade Python",numpy:"Lade NumPy",engine:"Lade Engine",scene:"Lade Szene"};
+  var cur=0, sub=0, over=false, $=function(i){return document.getElementById(i);};
+  function paint(){ $("boot-step").textContent=TEXT[ORDER[cur]]+" … ("+(cur+1)+"/"+ORDER.length+")";
+                    $("boot-bar").style.width=Math.round((cur+sub)/ORDER.length*100)+"%"; }
+  function step(k,s){ var i=ORDER.indexOf(k); s=s||0; if(over||i<cur||(i===cur&&s<=sub)) return;
+                      if(i>cur){ try{performance.mark("boot:"+k);}catch(e){} } cur=i; sub=s; paint(); }
+  function done(){ if(over) return; over=true; try{performance.mark("boot:ready");}catch(e){} $("boot-overlay").classList.add("off"); }
+  function fail(e){ if(over) return; over=true; var o=$("boot-overlay"); o.classList.remove("off"); o.classList.add("err");
+    $("boot-step").textContent="Der Editor konnte nicht geladen werden.";
+    var m=String((e&&e.message)||e).split("\n").filter(function(s){return s.trim();}).pop()||"";   // Python: last traceback line
+    $("boot-msg").textContent=(m.length>240?m.slice(0,240)+" …":m)+" — bitte die Internetverbindung prüfen und die Seite neu laden."; }
+  // Progress inside step 1/2 from the finished downloads (Resource Timing; harmless if unsupported).
+  var got={};
+  try{ new PerformanceObserver(function(l){ l.getEntries().forEach(function(e){ var n=e.name;
+      if(n.indexOf(PY)!==0) return;
+      if(/pyodide\.asm\.js$/.test(n)) got.js=1; else if(/pyodide\.asm\.wasm$/.test(n)) got.wasm=1;
+      else if(/python_stdlib\.zip$/.test(n)) got.std=1; else if(/numpy-[^/]*\.whl$/.test(n)) got.np=1; });
+    if(got.wasm&&got.std) step("numpy",got.np?0.6:0.2); else step("python",((got.js||0)+(got.wasm||0)+(got.std||0))/3*0.9);
+  }).observe({type:"resource",buffered:true}); }catch(e){}
+  setTimeout(function(){ if(!over) $("boot-msg").textContent="Das dauert länger als üblich. Beim ersten Öffnen werden rund 9 MB geladen (Python mit NumPy); danach kommt fast alles aus dem Browser-Cache."; }, 25000);
+  var py = typeof loadPyodide==="function"
+    ? loadPyodide({indexURL:PY, packages:["numpy"]})
+    : Promise.reject(new Error("Python (Pyodide) konnte nicht vom CDN geladen werden"));
+  py.catch(function(){});                    // handled in editor.js (boot) — no "unhandled rejection" noise before
+  paint();
+  return {pyodide:py, step:step, done:done, fail:fail};
+})();
+// editor.js: versioned by its own validator (ETag / Last-Modified, asked fresh every load) instead of Date.now(),
+// so an unchanged editor.js comes from the browser cache while a new deploy is still picked up at once.
+fetch("editor.js",{method:"HEAD",cache:"no-store"})
+  .then(function(r){ return (r.ok && (r.headers.get("ETag")||r.headers.get("Last-Modified"))) || String(Date.now()); },
+        function(){ return String(Date.now()); })
+  .then(function(v){ return import("./editor.js?v="+encodeURIComponent(v)); })
+  .catch(function(e){ console.error(e); editorBoot.fail(new Error("Editor-Skript konnte nicht geladen werden ("+((e&&e.message)||e)+")")); });
+</script>
 <script>fetch("version.json?v="+Date.now()).then(r=>r.json()).then(v=>{var e=document.getElementById("build-date");if(e&&v.updated)e.textContent=new Date(v.updated).toLocaleDateString("de-DE");}).catch(function(){});</script>
 <!-- anonymous usage counter: one "editor opened" tick per load (fire-and-forget, no identifiers) -->
 <script>fetch("/api/count?event=editor&mode=hit").catch(function(){});</script>

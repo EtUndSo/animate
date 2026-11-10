@@ -1,6 +1,8 @@
 ---
 title: Stufe 4: Reihen multiplizieren
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Potenzreihen und Eulersche Formel
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Potenzreihen und Eulersche Formel
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/potenzreihen-und-eulersche-formel
+knoten: Kapitel 7: Potenzreihen und Eulersche Formel
 order: 1270600
 summary: Wer exp(z)exp(w) ausrechnen will, muss zwei Reihen multiplizieren.
 tags: doppelt indizierte Folge, Doppelreihe, Binomialkoeffizienten
@@ -13,7 +15,7 @@ lang: de
 Wer $\exp(z)\exp(w)$ ausrechnen will, muss zwei Reihen multiplizieren. Diese Stufe klärt, in welcher Reihenfolge das erlaubt ist, und liefert die binomische Formel dazu.
 :::
 
-**Die Idee.** Zwei endliche Summen multipliziert man „jeder mit jedem“. Bei Reihen entsteht eine unendliche Tabelle (Abb. [4](#abb-4)), und man braucht eine Reihenfolge. [Teil 6](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/unendliche-reihen/unendliche-reihen.html) gibt die Antwort: Bei absoluter Konvergenz ist jede Reihenfolge gleich gut. Bei Potenzreihen bietet sich die Reihenfolge nach Diagonalen an, denn dort stehen alle Glieder mit derselben Potenz von $x$.
+**Die Idee.** Zwei endliche Summen multipliziert man „jeder mit jedem“. Bei Reihen entsteht eine unendliche Tabelle (Abb. [4](#abb-4)), und man braucht eine Reihenfolge. [Kapitel 6](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/unendliche-reihen/unendliche-reihen.html) gibt die Antwort: Bei absoluter Konvergenz ist jede Reihenfolge gleich gut. Bei Potenzreihen bietet sich die Reihenfolge nach Diagonalen an, denn dort stehen alle Glieder mit derselben Potenz von $x$.
 
 :::abbildung hm1/k7cauchy 4
 Das Produkt zweier Potenzreihen als Tabelle. In einer Diagonale ist $n+m=k$ fest, also steht dort überall $x^k$. Die Summe der Vorfaktoren einer Diagonale ist $c_k$.
@@ -23,7 +25,7 @@ Das Produkt zweier Potenzreihen als Tabelle. In einer Diagonale ist $n+m=k$ fest
 
 $$\sum_{i,j=1}^\infty a_{ij}:=\sum_{k=1}^\infty a_{\psi^{-1}(k)}$$
 
-zu einer gewöhnlichen Reihe über einen Index. Ist sie absolut konvergent, führt nach [Teil 6](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/unendliche-reihen/unendliche-reihen.html) jede Umordnung zum selben Grenzwert, also jedes $\psi$. Insbesondere darf man zuerst zeilenweise oder zuerst spaltenweise summieren:
+zu einer gewöhnlichen Reihe über einen Index. Ist sie absolut konvergent, führt nach [Kapitel 6](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/unendliche-reihen/unendliche-reihen.html) jede Umordnung zum selben Grenzwert, also jedes $\psi$. Insbesondere darf man zuerst zeilenweise oder zuerst spaltenweise summieren:
 
 <span class="anker" id="gl-4-1"></span>
 $$\sum_{i,j=1}^\infty a_{ij}=\sum_{i=1}^\infty\Bigl(\sum_{j=1}^\infty a_{ij}\Bigr)=\sum_{j=1}^\infty\Bigl(\sum_{i=1}^\infty a_{ij}\Bigr). \tag{4.1}$$
@@ -74,7 +76,7 @@ Für $n\in\mathbb{N}$ und $a,b\in\mathbb{C}$ gilt mit dem __Binomialkoeffiziente
 $$(a+b)^n=\sum_{k=0}^n\binom nk a^kb^{n-k}. \tag{4.3}$$
 :::
 
-⁠**So liest man das:** Für $n=2$ steht dort $b^2+2ab+a^2$. Der Mechanismus: Beim Ausmultiplizieren wählt man aus jeder der $n$ Klammern $a$ oder $b$. Das Produkt $a^kb^{n-k}$ entsteht so oft, wie man $k$ Klammern auswählen kann: $n(n-1)\cdots(n-k+1)$ geordnete Möglichkeiten, geteilt durch die $k!$ Reihenfolgen. Das benutzt nur Körperaxiome, also gilt es auch in $\mathbb{C}$. **Probe:** $(1+\mathrm{i})^4=1+4\mathrm{i}+6\mathrm{i}^2+4\mathrm{i}^3+\mathrm{i}^4=-4$ wie in [Teil 2](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen/komplexe-zahlen.html).
+⁠**So liest man das:** Für $n=2$ steht dort $b^2+2ab+a^2$. Der Mechanismus: Beim Ausmultiplizieren wählt man aus jeder der $n$ Klammern $a$ oder $b$. Das Produkt $a^kb^{n-k}$ entsteht so oft, wie man $k$ Klammern auswählen kann: $n(n-1)\cdots(n-k+1)$ geordnete Möglichkeiten, geteilt durch die $k!$ Reihenfolgen. Das benutzt nur Körperaxiome, also gilt es auch in $\mathbb{C}$. **Probe:** $(1+\mathrm{i})^4=1+4\mathrm{i}+6\mathrm{i}^2+4\mathrm{i}^3+\mathrm{i}^4=-4$ wie in [Kapitel 2](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen/komplexe-zahlen.html).
 
 :::frage Warum nach Diagonalen und nicht zeilenweise?
 Zeilenweise ist auch richtig, ergibt aber nur Zahl mal Reihe. Erst die Diagonalen machen aus dem Produkt wieder eine Potenzreihe.

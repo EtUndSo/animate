@@ -1,10 +1,11 @@
 ---
 title: La pseudo-inverse
 pfad: Informatique / Apprentissage automatique / Fondements mathématiques / Projection, valeurs propres et décompositions
-knoten: Fondements 2 : Projection, valeurs propres et décompositions
+adresse: informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen
+knoten: Chapitre 2 : Projection, valeurs propres et décompositions
 nachschlagen: ja
 order: 15221200
-summary: Dans Fondements 1, seule une matrice carrée à colonnes indépendantes avait une inverse.
+summary: Dans le chapitre 1, seule une matrice carrée à colonnes indépendantes avait une inverse.
 tags: inverse à gauche, inverse à droite, pseudo-inverse
 lang: fr
 ---
@@ -12,7 +13,7 @@ lang: fr
 <span class="anker" id="stufe-11"></span>
 
 :::zweck
-Dans [Fondements 1](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html), seule une matrice carrée à colonnes indépendantes avait une inverse. Cette section donne à toute matrice une sorte d’inverse : une qui inverse à gauche lorsqu’il y a plus d’équations que d’inconnues, une qui inverse à droite lorsqu’il y en a moins, et une pour tous les cas, la pseudo-inverse. Celle-ci fournit toujours une meilleure solution approchée et, s’il y en a plusieurs, la plus courte.
+Dans le [chapitre 1](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html), seule une matrice carrée à colonnes indépendantes avait une inverse. Cette section donne à toute matrice une sorte d’inverse : une qui inverse à gauche lorsqu’il y a plus d’équations que d’inconnues, une qui inverse à droite lorsqu’il y en a moins, et une pour tous les cas, la pseudo-inverse. Celle-ci fournit toujours une meilleure solution approchée et, s’il y en a plusieurs, la plus courte.
 :::
 
 ### Inverses à gauche
@@ -139,7 +140,7 @@ $$\lVert\mathbf{y}-\mathbf{A}\mathbf{x}\rVert^2=\lVert\mathbf{U}^{\top}\mathbf{y
 
 La seconde somme ne dépend pas de $\mathbf{x}$. La première est nulle, donc aussi petite que possible, si et seulement si $c_j=\beta_j/d_j$ pour tout $j\le r$ ; les $c_j$ avec $j>r$ n’y apparaissent pas du tout. Les meilleures solutions approchées sont donc exactement les $\mathbf{x}=\mathbf{V}\mathbf{c}$ avec $c_j=\beta_j/d_j$ pour $j\le r$ et $c_{r+1},\dots,c_n$ quelconques. Leur longueur vérifie $\lVert\mathbf{x}\rVert^2=\lVert\mathbf{c}\rVert^2=\sum_{j\le r}(\beta_j/d_j)^2+\sum_{j>r}c_j^2$ ; elle est minimale pour $c_j=0$ lorsque $j>r$. Ce $\mathbf{c}$ est $\mathbf{D}^+\boldsymbol\beta$, donc $\mathbf{x}=\mathbf{V}\mathbf{D}^+\mathbf{U}^{\top}\mathbf{y}=\mathbf{A}^+\mathbf{y}$.
 
-Si les colonnes sont indépendantes, il n’y a, d’après la section [3.5](die-beste-naherungslosung.html#stufe-3-5), qu’une seule meilleure solution approchée, $(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top}\mathbf{y}$ ; elle doit coïncider avec $\mathbf{A}^+\mathbf{y}$, et ce pour tout $\mathbf{y}$. Si les lignes sont indépendantes, le rang vaut $m$ d’après [Fondements 1, section 13.4](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-4) ; l’espace des colonnes est donc $\mathbb{R}^m$ tout entier, et le système est résoluble pour tout $\mathbf{y}$ ; les meilleures solutions approchées sont les solutions, et la plus courte est $\mathbf G\mathbf{y}$ d’après la section [11.2](#stufe-11-2).
+Si les colonnes sont indépendantes, il n’y a, d’après la section [3.5](die-beste-naherungslosung.html#stufe-3-5), qu’une seule meilleure solution approchée, $(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top}\mathbf{y}$ ; elle doit coïncider avec $\mathbf{A}^+\mathbf{y}$, et ce pour tout $\mathbf{y}$. Si les lignes sont indépendantes, le rang vaut $m$ d’après le [chapitre 1, section 13.4](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-4) ; l’espace des colonnes est donc $\mathbb{R}^m$ tout entier, et le système est résoluble pour tout $\mathbf{y}$ ; les meilleures solutions approchées sont les solutions, et la plus courte est $\mathbf G\mathbf{y}$ d’après la section [11.2](#stufe-11-2).
 :::
 
 ::::beispiel [Exemple de calcul 1]

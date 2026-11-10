@@ -1,6 +1,8 @@
 ---
 title: Etapa 9: Desigualdades elementales
-pfad: Ingeniería eléctrica / 1.er semestre / Matemáticas superiores 1 / Conjuntos, lógica y números reales
+pfad: Ingeniería eléctrica / 1.er semestre / HöMa1 – Matemáticas superiores 1 / Conjuntos, lógica y números reales
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen
+knoten: Capítulo 1: Conjuntos, lógica y números reales
 order: 1211100
 summary: A menudo una expresión no se puede calcular, solo acotar.
 tags: Bernoulli, Young, Medias, media geométrica, media aritmética, Cauchy-Schwarz, Minkowski, vector
@@ -61,7 +63,7 @@ $$\sqrt{\sum_{i=1}^n(x_i+y_i)^2}\le\sqrt{\sum_{i=1}^nx_i^2}+\sqrt{\sum_{i=1}^ny_
 </ol>
 :::
 
-⁠**Cómo leerlo:** $\vec x=(x_1,\dots,x_n)$ es un __vector__, una lista de $n$ números, y $\|\vec x\|$ su __norma__. Para $n=2$ es, por Pitágoras, la longitud de la flecha del origen al punto $(x_1,x_2)$. Entonces [(9.2)](#gl-9-2) es la desigualdad triangular para flechas, y en la Parte 8 de [(9.1)](#gl-9-1) surge el producto escalar. En Young, $\varepsilon$ es un tipo de cambio: un término pequeño en $x$ cuesta un término grande en $y$. **Por qué las hipótesis:** Bernoulli: $x=-4$, $n=3$ da $-27>-11$, falso, así que hace falta $x>-1$. Para $x=0$ o $n=1$ hay igualdad. Medias: $x=y=-1$ da $1\le-1$, falso. Young: $\varepsilon=-1$ hace negativo el lado derecho.
+⁠**Cómo leerlo:** $\vec x=(x_1,\dots,x_n)$ es un __vector__, una lista de $n$ números, y $\|\vec x\|$ su __norma__. Para $n=2$ es, por Pitágoras, la longitud de la flecha del origen al punto $(x_1,x_2)$. Entonces [(9.2)](#gl-9-2) es la desigualdad triangular para flechas, y en el capítulo 8 de [(9.1)](#gl-9-1) surge el producto escalar. En Young, $\varepsilon$ es un tipo de cambio: un término pequeño en $x$ cuesta un término grande en $y$. **Por qué las hipótesis:** Bernoulli: $x=-4$, $n=3$ da $-27>-11$, falso, así que hace falta $x>-1$. Para $x=0$ o $n=1$ hay igualdad. Medias: $x=y=-1$ da $1\le-1$, falso. Young: $\varepsilon=-1$ hace negativo el lado derecho.
 
 :::abbildung hm1/k1mittel 9
 A la izquierda, las medias como semicírculo: el radio es la media aritmética, la altura sobre el punto de división, la geométrica. La altura nunca es mayor que el radio. A la derecha, Bernoulli para $n=3$: la recta toca la curva en $x=0$ y queda por debajo para $x>-1$.

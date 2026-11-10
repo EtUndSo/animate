@@ -1,6 +1,8 @@
 ---
 title: Stufe 2: Kreisring und Kugelschale
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Zustandsdichte und Fermi-Verteilung
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Zustandsdichte und Fermi-Verteilung
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/zustandsdichte-und-fermi-verteilung
+knoten: Kapitel 10: Zustandsdichte und Fermi-Verteilung
 order: 4200400
 summary: In der Kette gibt es zu jeder Energie nur zwei Wellenvektoren.
 tags: 

@@ -1,6 +1,8 @@
 ---
 title: Stufe 1: Warum Teilchen ohne Kraft strömen
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Diffusion, Rekombination und Grundgleichungen
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Diffusion, Rekombination und Grundgleichungen
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/diffusion-rekombination-und-grundgleichungen
+knoten: Kapitel 13: Diffusion, Rekombination und Grundgleichungen
 order: 4230300
 summary: Bisher floss Strom nur, wenn ein Feld an den Ladungen zog.
 tags: Konvektion, Teilchenkonzentration, Transportphänomen, Diffusionskoeffizient, Stoßquerschnitt
@@ -41,7 +43,7 @@ Die Teilchenstromdichte ist dem Dichtegefälle proportional:
 $$\mathcal J=-D\,\frac{\partial N}{\partial x}\quad\text{in einer Richtung},\qquad\boldsymbol{\mathcal J}=-D\operatorname{grad}N\quad\text{allgemein}. \tag{1.2}$$
 :::
 
-⁠**So liest man das:** $D$ ist der __Diffusionskoeffizient__ in cm$^2$/s (nicht die Zustandsdichte $D(E)$ aus [Teil 10](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/zustandsdichte-und-fermi-verteilung/zustandsdichte-und-fermi-verteilung.html)). Das Minus sagt: Der Strom läuft zur kleineren Dichte. **Gültigkeit:** $N$ ändert sich auf der Länge $l_\mathrm{mfp}$ nur wenig.
+⁠**So liest man das:** $D$ ist der __Diffusionskoeffizient__ in cm$^2$/s (nicht die Zustandsdichte $D(E)$ aus [Kapitel 10](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/zustandsdichte-und-fermi-verteilung/zustandsdichte-und-fermi-verteilung.html)). Das Minus sagt: Der Strom läuft zur kleineren Dichte. **Gültigkeit:** $N$ ändert sich auf der Länge $l_\mathrm{mfp}$ nur wenig.
 
 :::herleitung Teilchen durch eine Ebene zählen
 Ein Teilchen, das die Ebene bei $x_\mathrm E$ erreicht, hatte seinen letzten Stoß im Mittel im Abstand $l_\mathrm{mfp}$. $v$ sei der Betrag seiner Geschwindigkeit längs $x$. Von den Teilchen bei $x_\mathrm E-l_\mathrm{mfp}$ läuft die Hälfte nach rechts, von denen bei $x_\mathrm E+l_\mathrm{mfp}$ die Hälfte nach links:

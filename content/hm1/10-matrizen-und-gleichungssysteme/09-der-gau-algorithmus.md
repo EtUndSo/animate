@@ -1,6 +1,8 @@
 ---
 title: Stufe 7: Der Gauß-Algorithmus
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Matrizen und lineare Gleichungssysteme
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Matrizen und lineare Gleichungssysteme
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/matrizen-und-lineare-gleichungssysteme
+knoten: Kapitel 10: Matrizen und lineare Gleichungssysteme
 order: 1300900
 summary: Stufe 6 beschreibt die Lösungsmenge, sagt aber nicht, wie man sie findet.
 tags: Gauß-Tableau, Vorwärtselimination, Pivot, Zeilenstufenform, Rückwärtseinsetzen, freie Variablen

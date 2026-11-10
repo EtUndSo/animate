@@ -1,6 +1,8 @@
 ---
 title: Stufe 6: Konvergenz im quadratischen Mittel
-pfad: Elektrotechnik / 3. Semester / Höhere Mathematik 3 / Fourier-Reihen
+pfad: Elektrotechnik / 3. Semester / HöMa3 – Höhere Mathematik 3 / Fourier-Reihen
+adresse: elektrotechnik/3-semester/hohere-mathematik-3/fourier-reihen
+knoten: Kapitel 7: Fourier-Reihen
 order: 3170700
 summary: Die Energie von T Nf bleibt unter der von f .
 tags: Treppenfunktionen, Parseval-Identität
@@ -65,7 +67,7 @@ $$\frac1{2\pi}\int_0^{2\pi}f(x)\,\overline{g(x)}\,\mathrm{d} x=\sum_{k\in\mathbb
 :::
 
 :::beweis Allgemeine Parseval-Identität
-Für die Polynome gilt wie in [(5.1)](die-beste-naherung.html#gl-5-1) $\langle T_Nf,T_Ng\rangle=\sum_{|k|\le N}c_k\overline{d_k}$. Die Summe konvergiert für $N\to\infty$ absolut, denn $|c_k\overline{d_k}|\le\frac12(|c_k|^2+|d_k|^2)$. Für die linke Seite gibt Cauchy-Schwarz ([Teil 6](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/konvergenz-von-funktionenfolgen/konvergenz-von-funktionenfolgen.html)) zusammen mit Bessel
+Für die Polynome gilt wie in [(5.1)](die-beste-naherung.html#gl-5-1) $\langle T_Nf,T_Ng\rangle=\sum_{|k|\le N}c_k\overline{d_k}$. Die Summe konvergiert für $N\to\infty$ absolut, denn $|c_k\overline{d_k}|\le\frac12(|c_k|^2+|d_k|^2)$. Für die linke Seite gibt Cauchy-Schwarz ([Kapitel 6](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/konvergenz-von-funktionenfolgen/konvergenz-von-funktionenfolgen.html)) zusammen mit Bessel
 
 $$|\langle f,g\rangle-\langle T_Nf,T_Ng\rangle|\le\|f-T_Nf\|_2\,\|g\|_2+\|f\|_2\,\|g-T_Ng\|_2\to0.$$
 :::
@@ -81,7 +83,7 @@ $$\sum_{k=1}^\infty\frac1{k^2}=\frac1\pi\int_0^{2\pi}\Bigl(\frac{\pi-x}2\Bigr)^2
 Damit ist auch die Zahl aus Stufe [4](der-sagezahn-zu-fu.html#stufe-4) bekannt: $C=\frac{\pi^2}4-\frac{\pi^2}6$, also $\sum_{k\ge1}\frac{(-1)^{k+1}}{k^2}=\frac{\pi^2}{12}$. **Kontrolle:** Für $f=1$ ist $c_0=1$, und beide Seiten von [(6.1)](#gl-6-1) sind 1.
 ::::
 
-**Der passende Raum.** Die Theorie legt den Vektorraum $\mathcal V=\{f=\sum_{k\in\mathbb{Z}}c_k\hat{\boldsymbol{e}}_k:c_k\in\mathbb{C},\ \sum_{k\in\mathbb{Z}}|c_k|^2<\infty\}$ nahe. Er ist unendlichdimensional, und die $\hat{\boldsymbol{e}}_k$ bilden eine Orthonormalbasis. Nach Satz [6.1](#satz-6-1) enthält er die Riemann-integrierbaren Funktionen, er ist aber größer. Weil die Konvergenz nur im quadratischen Mittel stattfindet, sind seine Elemente im Allgemeinen nicht punktweise definiert. Man kann ihn mit dem Hilbertraum $L^2((0,2\pi);\mathbb{C})$ aus [Teil 6](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/konvergenz-von-funktionenfolgen/konvergenz-von-funktionenfolgen.html) gleichsetzen. Dieselbe Theorie gilt mit einem passenden Skalarprodukt für andere Orthonormalsysteme, etwa Legendre-, Laguerre- und Tschebyschow-Polynome.
+**Der passende Raum.** Die Theorie legt den Vektorraum $\mathcal V=\{f=\sum_{k\in\mathbb{Z}}c_k\hat{\boldsymbol{e}}_k:c_k\in\mathbb{C},\ \sum_{k\in\mathbb{Z}}|c_k|^2<\infty\}$ nahe. Er ist unendlichdimensional, und die $\hat{\boldsymbol{e}}_k$ bilden eine Orthonormalbasis. Nach Satz [6.1](#satz-6-1) enthält er die Riemann-integrierbaren Funktionen, er ist aber größer. Weil die Konvergenz nur im quadratischen Mittel stattfindet, sind seine Elemente im Allgemeinen nicht punktweise definiert. Man kann ihn mit dem Hilbertraum $L^2((0,2\pi);\mathbb{C})$ aus [Kapitel 6](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/konvergenz-von-funktionenfolgen/konvergenz-von-funktionenfolgen.html) gleichsetzen. Dieselbe Theorie gilt mit einem passenden Skalarprodukt für andere Orthonormalsysteme, etwa Legendre-, Laguerre- und Tschebyschow-Polynome.
 
 :::frage Folgt daraus, dass $T_Nf(x)$ an jeder Stelle gegen $f(x)$ strebt?
 Nein. Ändert man $f$ an einer einzigen Stelle, ändert sich kein Integral, also kein $c_k$. Die Reihe kann den Wert an dieser Stelle gar nicht kennen. Das quadratische Mittel sieht nur das Ganze.

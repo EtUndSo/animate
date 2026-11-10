@@ -1,0 +1,648 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 28,
+  "nextAnimId": 1,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.18,
+      1.3,
+      0
+     ],
+     "width": 6.76,
+     "height": 0.7999999999999999,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#00823c",
+     "fill_color": "#e6f3ea",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o2",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.18,
+      0.0,
+      0
+     ],
+     "width": 6.76,
+     "height": 0.8,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#e3eefb",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o3",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.18,
+      -1.3,
+      0
+     ],
+     "width": 6.76,
+     "height": 0.7999999999999999,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#efefef",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Text",
+    "props": {
+     "text": "@prog",
+     "position": [
+      -3.08,
+      1.3,
+      0
+     ],
+     "font_size": 22,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o5",
+    "type": "Text",
+    "props": {
+     "text": "@bs",
+     "position": [
+      -3.08,
+      0.0,
+      0
+     ],
+     "font_size": 22,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Text",
+    "props": {
+     "text": "@hw",
+     "position": [
+      -3.08,
+      -1.3,
+      0
+     ],
+     "font_size": 22,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o7",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.72,
+      1.3,
+      0
+     ],
+     "width": 1.16,
+     "height": 0.45,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Text",
+    "props": {
+     "text": "@editor",
+     "position": [
+      -0.72,
+      1.3,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o9",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.72,
+      -1.3,
+      0
+     ],
+     "width": 1.16,
+     "height": 0.45,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o10",
+    "type": "Text",
+    "props": {
+     "text": "@cpu",
+     "position": [
+      -0.72,
+      -1.3,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o11",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.52,
+      1.3,
+      0
+     ],
+     "width": 1.16,
+     "height": 0.45,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Text",
+    "props": {
+     "text": "@browser",
+     "position": [
+      0.52,
+      1.3,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o13",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.52,
+      -1.3,
+      0
+     ],
+     "width": 1.16,
+     "height": 0.45,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o14",
+    "type": "Text",
+    "props": {
+     "text": "@ram",
+     "position": [
+      0.52,
+      -1.3,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o15",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.76,
+      1.3,
+      0
+     ],
+     "width": 1.16,
+     "height": 0.45,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o16",
+    "type": "Text",
+    "props": {
+     "text": "@terminal",
+     "position": [
+      1.76,
+      1.3,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o17",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.76,
+      -1.3,
+      0
+     ],
+     "width": 1.16,
+     "height": 0.45,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o18",
+    "type": "Text",
+    "props": {
+     "text": "SSD",
+     "position": [
+      1.76,
+      -1.3,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o19",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      3.0,
+      1.3,
+      0
+     ],
+     "width": 1.16,
+     "height": 0.45,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o20",
+    "type": "Text",
+    "props": {
+     "text": "@foto",
+     "position": [
+      3.0,
+      1.3,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o21",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      3.0,
+      -1.3,
+      0
+     ],
+     "width": 1.16,
+     "height": 0.45,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o22",
+    "type": "Text",
+    "props": {
+     "text": "@netz",
+     "position": [
+      3.0,
+      -1.3,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o23",
+    "type": "Text",
+    "props": {
+     "text": "@bs_text",
+     "position": [
+      -1.4,
+      0.0,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o24",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -2.68,
+      0.88,
+      0
+     ],
+     "end": [
+      -2.68,
+      0.42,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.12,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o25",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -2.68,
+      -0.42,
+      0
+     ],
+     "end": [
+      -2.68,
+      -0.88,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.12,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o26",
+    "type": "Text",
+    "props": {
+     "text": "@dienst",
+     "position": [
+      -2.56,
+      0.65,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o27",
+    "type": "Text",
+    "props": {
+     "text": "@steuern",
+     "position": [
+      -2.56,
+      -0.65,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#111111"
+    }
+   }
+  ],
+  "animations": [],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "prog": {
+    "de": "Programme",
+    "en": "programs",
+    "es": "programas",
+    "zh": "程序",
+    "fr": "programmes",
+    "tr": "programlar"
+   },
+   "bs": {
+    "de": "Betriebssystem",
+    "en": "operating system",
+    "es": "sistema operativo",
+    "zh": "操作系统",
+    "fr": "système d’exploitation",
+    "tr": "işletim sistemi"
+   },
+   "hw": {
+    "de": "Hardware",
+    "en": "hardware",
+    "es": "hardware",
+    "zh": "硬件",
+    "fr": "matériel",
+    "tr": "donanım"
+   },
+   "editor": {
+    "de": "Editor",
+    "en": "editor",
+    "es": "editor",
+    "zh": "编辑器",
+    "fr": "éditeur",
+    "tr": "editör"
+   },
+   "browser": {
+    "de": "Browser",
+    "en": "browser",
+    "es": "navegador",
+    "zh": "浏览器",
+    "fr": "navigateur",
+    "tr": "tarayıcı"
+   },
+   "terminal": {
+    "de": "Terminal",
+    "en": "terminal",
+    "es": "terminal",
+    "zh": "终端",
+    "fr": "terminal",
+    "tr": "terminal"
+   },
+   "foto": {
+    "de": "Fotoprogramm",
+    "en": "photo app",
+    "es": "app de fotos",
+    "zh": "照片程序",
+    "fr": "app photos",
+    "tr": "fotoğraf uygulaması"
+   },
+   "cpu": {
+    "de": "Prozessor",
+    "en": "processor",
+    "es": "procesador",
+    "zh": "处理器",
+    "fr": "processeur",
+    "tr": "işlemci"
+   },
+   "ram": {
+    "de": "Speicher",
+    "en": "memory",
+    "es": "memoria",
+    "zh": "内存",
+    "fr": "mémoire",
+    "tr": "bellek"
+   },
+   "netz": {
+    "de": "Netz",
+    "en": "network",
+    "es": "red",
+    "zh": "网络",
+    "fr": "réseau",
+    "tr": "ağ"
+   },
+   "bs_text": {
+    "de": "teilt die Hardware auf, schirmt die Programme voneinander ab,\nbietet einheitliche Dienste: Datei speichern, Speicher anfordern",
+    "en": "shares out the hardware, keeps programs apart,\noffers uniform services: save a file, request memory",
+    "es": "reparte el hardware, separa los programas entre sí,\nofrece servicios uniformes: guardar un archivo, pedir memoria",
+    "zh": "分配硬件，使程序彼此隔离，\n提供统一的服务：保存文件、申请内存",
+    "fr": "répartit le matériel, isole les programmes,\noffre des services uniformes : enregistrer un fichier, demander de la mémoire",
+    "tr": "donanımı paylaştırır, programları birbirinden ayırır,\ntek tip hizmetler sunar: dosya kaydetme, bellek isteme"
+   },
+   "dienst": {
+    "de": "Dienst anfordern",
+    "en": "request a service",
+    "es": "pedir un servicio",
+    "zh": "请求服务",
+    "fr": "demander un service",
+    "tr": "hizmet iste"
+   },
+   "steuern": {
+    "de": "steuern",
+    "en": "controls",
+    "es": "controla",
+    "zh": "控制",
+    "fr": "pilote",
+    "tr": "yönetir"
+   }
+  }
+ }
+}

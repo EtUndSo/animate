@@ -1,6 +1,8 @@
 ---
 title: Stage 5: Correlation and LTI systems
-pfad: Electrical Engineering / 3rd Semester / Signals and Systems / Correlation Functions
+pfad: Electrical Engineering / 3rd Semester / ET3 – Fundamentals of Electrical Engineering 3: Signals and Systems / Correlation Functions
+adresse: elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen
+knoten: Chapter 6: Correlation Functions
 order: 3260600
 summary: What does an LTI system do to the ACF and the energy spectral density?
 tags: 
@@ -54,7 +56,7 @@ Find $|G(f)|^2$ and from it the output energy. Hint: $\int_{-\infty}^\infty\frac
 
 <li>
 
-Check in the time domain with $g(t)=t\,\mathrm{e}^{-t}\varepsilon(t)$ ([Part 1](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html), two RC circuits in cascade).
+Check in the time domain with $g(t)=t\,\mathrm{e}^{-t}\varepsilon(t)$ ([Chapter 1](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html), two RC circuits in cascade).
 
 </li>
 

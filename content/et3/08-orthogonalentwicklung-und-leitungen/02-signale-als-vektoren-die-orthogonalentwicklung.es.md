@@ -1,6 +1,8 @@
 ---
 title: Etapa 1: Señales como vectores, el desarrollo ortogonal
-pfad: Ingeniería eléctrica / 3.er semestre / Señales y sistemas / Desarrollo ortogonal y líneas de transmisión
+pfad: Ingeniería eléctrica / 3.er semestre / ET3 – Fundamentos de ingeniería eléctrica 3: señales y sistemas / Desarrollo ortogonal y líneas de transmisión
+adresse: elektrotechnik/3-semester/signale-und-systeme/orthogonalentwicklung-und-leitungen
+knoten: Capítulo 8: Desarrollo ortogonal y líneas de transmisión
 order: 3280200
 summary: La serie de Fourier descompone una señal en oscilaciones.
 tags: ortogonales, ortonormal, teorema de Parseval generalizado
@@ -13,7 +15,7 @@ lang: es
 La serie de Fourier descompone una señal en oscilaciones. Lo mismo puede hacerse con cualquier sistema de funciones ortogonales. Esta etapa muestra cómo se hallan los coeficientes y por qué dan la mejor aproximación.
 :::
 
-**La idea.** Un vector en el espacio tiene las componentes $b_i=\vec f\cdot\vec e_i$ respecto a unos vectores unitarios perpendiculares $\vec e_i$. Para señales en un intervalo $[0,T]$, la integral $\int_0^Tf(t)g(t)\mathrm{d} t$ desempeña el papel del producto escalar. Dos señales se llaman __ortogonales__ si esa integral es nula ([parte 6](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen/korrelationsfunktionen.html)). Un sistema de $M$ funciones $s_i(t)$ se llama __ortonormal__ si
+**La idea.** Un vector en el espacio tiene las componentes $b_i=\vec f\cdot\vec e_i$ respecto a unos vectores unitarios perpendiculares $\vec e_i$. Para señales en un intervalo $[0,T]$, la integral $\int_0^Tf(t)g(t)\mathrm{d} t$ desempeña el papel del producto escalar. Dos señales se llaman __ortogonales__ si esa integral es nula ([capítulo 6](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen/korrelationsfunktionen.html)). Un sistema de $M$ funciones $s_i(t)$ se llama __ortonormal__ si
 
 <span class="anker" id="gl-1-1"></span>
 $$\int_0^Ts_i(t)\,s_j(t)\,\mathrm{d} t=\begin{cases}1&i=j\\0&i\neq j\end{cases}. \tag{1.1}$$
@@ -39,7 +41,7 @@ $$\frac{\partial E_r}{\partial b_j}=-2\int_0^T\Bigl(f-\sum_ib_is_i\Bigr)s_j\,\ma
 La ortonormalidad solo deja $i=j$ en la suma. Si se sustituyen estos $b_i$ y se desarrolla el cuadrado, los términos cruzados se anulan, de nuevo por la ortonormalidad: $E_r=E_f-2\sum b_i^2+\sum b_i^2=E_f-\sum b_i^2$.
 :::
 
-⁠**Cómo leerlo:** cada coeficiente se determina por separado, con independencia de los demás. Si se añade una función base, los coeficientes anteriores no cambian. Esa es la ventaja de los sistemas ortogonales, exactamente como en la serie de Fourier ([parte 3](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)). $b_i$ es la correlación cruzada $\varphi^E_{fs_i}(0)$. Por eso los coeficientes pueden medirse con un banco de filtros adaptados $h_i(t)=s_i(T-t)$, cuyas salidas se muestrean en $t=T$ ([parte 7](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/zufallssignale/zufallssignale.html)).
+⁠**Cómo leerlo:** cada coeficiente se determina por separado, con independencia de los demás. Si se añade una función base, los coeficientes anteriores no cambian. Esa es la ventaja de los sistemas ortogonales, exactamente como en la serie de Fourier ([capítulo 3](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)). $b_i$ es la correlación cruzada $\varphi^E_{fs_i}(0)$. Por eso los coeficientes pueden medirse con un banco de filtros adaptados $h_i(t)=s_i(T-t)$, cuyas salidas se muestrean en $t=T$ ([capítulo 7](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/zufallssignale/zufallssignale.html)).
 
 ::::beispiel
 $f(t)=t^2$ en $[0,1]$, $E_f=\frac15$. Con $s_0=1$ y $s_1=\sqrt3(2t-1)$:

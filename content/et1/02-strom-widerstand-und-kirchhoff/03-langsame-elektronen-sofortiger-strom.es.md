@@ -1,6 +1,8 @@
 ---
 title: Etapa 2: Electrones lentos, corriente inmediata
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Corriente, resistencia y leyes de Kirchhoff
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Corriente, resistencia y leyes de Kirchhoff
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff
+knoten: Capítulo 2: Corriente, resistencia y leyes de Kirchhoff
 order: 1120300
 summary: La etapa 1 necesita una velocidad v .
 tags: red cristalina, movilidad, recorrido libre medio
@@ -33,7 +35,7 @@ Con la etapa [1](strom-ist-bewegte-ladung.html#stufe-1), de la corriente se obt
 ⁠**Cómo leerlo:** $\vec v_\mathrm D$ es la velocidad de deriva en m/s. El signo menos dice: los electrones son negativos, avanzan en contra de $\vec E$. $\mu$ es la __movilidad__, la velocidad de deriva por unidad de intensidad de campo, en $\mathrm{m^2/(V\,s)}$. Es una constante del material, en el cobre $4{,}3\cdot10^{-3}\,\mathrm{m^2/(V\,s)}$. $T$ es el tiempo de vuelo, en el cobre unos 49 fs. En este tiempo, el electrón recorre en promedio el __recorrido libre medio__ $\lambda$. **Validez:** [(2.1)](#gl-2-1) es un modelo. Solo cuenta la parte de la velocidad producida por el campo. Además, los electrones vuelan desordenadamente en todas las direcciones a unos 1600 km/s. Este movimiento se anula en promedio, no transporta corriente y se mantiene en las colisiones.
 
 :::herleitung Del campo a la deriva
-De $F=m_\mathrm e\,a$ y $F=e\,E$ ([Parte 1](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)) se obtiene la aceleración $a=e\,E/m_\mathrm e$. Un vuelo empieza con la parte dirigida en cero, así que $v(t)=a\,t$ y $v_\mathrm{max}=a\,T$. El diente de sierra tiene el valor medio $v_\mathrm{max}/2=e\,E\,T/(2\,m_\mathrm e)$. La velocidad no sigue creciendo, porque cada colisión la devuelve a cero.
+De $F=m_\mathrm e\,a$ y $F=e\,E$ ([capítulo 1](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)) se obtiene la aceleración $a=e\,E/m_\mathrm e$. Un vuelo empieza con la parte dirigida en cero, así que $v(t)=a\,t$ y $v_\mathrm{max}=a\,T$. El diente de sierra tiene el valor medio $v_\mathrm{max}/2=e\,E\,T/(2\,m_\mathrm e)$. La velocidad no sigue creciendo, porque cada colisión la devuelve a cero.
 :::
 
 ::::beispiel
@@ -52,7 +54,7 @@ Un metro de hilo en tres momentos después de cerrar el interruptor de la izquie
 Una cadena de bicicleta está llena de eslabones por todas partes. Si se pedalea delante, se mueve detrás en el mismo momento, aunque cada eslabón avanza despacio. La analogía termina en el mecanismo: los eslabones se empujan mecánicamente y el efecto recorre el metal a la velocidad del sonido. En el hilo viaja un campo, y su velocidad es cercana a la de la luz.
 :::
 
-:::frage La Parte 1 dice que en el metal $\vec E=0$. ¿Por qué hay un campo en el hilo y cómo sigue las curvas?
+:::frage El capítulo 1 dice que en el metal $\vec E=0$. ¿Por qué hay un campo en el hilo y cómo sigue las curvas?
 $\vec E=0$ solo vale en estado de reposo, cuando todas las cargas se han detenido. La fuente no lo permite: extrae electrones por un extremo y los aporta por el otro, de modo que nunca se alcanza el reposo. Queda un pequeño campo, aquí 0,10 mV/m. En las curvas se acumulan cargas diminutas en la superficie del hilo. Su campo dirige $\vec E$ en todas partes a lo largo del hilo; de lo contrario, los electrones chocarían contra la pared y la carga allí seguiría creciendo.
 :::
 

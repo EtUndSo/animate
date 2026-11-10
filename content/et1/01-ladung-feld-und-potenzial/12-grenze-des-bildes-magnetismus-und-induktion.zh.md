@@ -1,6 +1,8 @@
 ---
 title: 第 10 阶段：这一图景的界限——磁与电磁感应
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 电荷、电场与电位
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 电荷、电场与电位
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial
+knoten: 第 1 章：电荷、电场与电位
 order: 1111200
 summary: 到目前为止的一切都适用于静止电荷。本阶段说明当电荷运动、磁场变化时会有什么改变，以及与路径无关这一性质在哪里终止。
 tags: 磁场, 线圈, 电磁感应, 电磁学, 涡旋场, 右手定则, 电流的规定方向, 磁通量
@@ -19,7 +21,7 @@ lang: zh
 左：导线的截面，电流 $I$ 垂直穿入纸面。磁场 $H$ 沿圆周环绕导线，指南针的红色尖端随之取向。右：运动的条形磁铁改变穿过线圈的磁通量 $\Phi$。只要它在运动，仪表就显示电压 $u_\mathrm{ind}$。
 :::
 
-磁场的方向由__右手定则__给出：拇指指向电流的规定方向，其余手指指向磁场方向。从正极到负极的方向称为__电流的规定方向__，导线中的电子沿相反方向运动（[第 2 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)）。
+磁场的方向由__右手定则__给出：拇指指向电流的规定方向，其余手指指向磁场方向。从正极到负极的方向称为__电流的规定方向__，导线中的电子沿相反方向运动（[第 2 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)）。
 
 :::satz 定理 10.1 (电磁感应定律)
 <span class="anker" id="satz-10-1"></span>

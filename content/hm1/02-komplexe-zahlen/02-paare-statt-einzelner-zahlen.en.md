@@ -1,6 +1,8 @@
 ---
 title: Stage 1: Pairs instead of single numbers
-pfad: Electrical Engineering / 1st Semester / Higher Mathematics 1 / Complex Numbers
+pfad: Electrical Engineering / 1st Semester / HöMa1 – Higher Mathematics 1 / Complex Numbers
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen
+knoten: Chapter 2: Complex Numbers
 order: 1220200
 summary: In mathbb R , the equation x 2=-1 has no solution.
 tags: standard form
@@ -13,7 +15,7 @@ lang: en
 In $\mathbb{R}$, the equation $x^2=-1$ has no solution. This stage builds a larger set of numbers in which the equation is solvable and which contains $\mathbb{R}$ unchanged.
 :::
 
-**The idea.** Every extension of the numbers solves an equation that had no solution before: $x+1=0$ leads from $\mathbb{N}$ to $\mathbb{Z}$, $2x=1$ from $\mathbb{Z}$ to $\mathbb{Q}$, $x^2=2$ from $\mathbb{Q}$ to $\mathbb{R}$. With $x^2=-1$ the case is different. The parabola $y=x^2$ never reaches the height $-1$ (Fig. [1](#abb-1)), because $x^2\ge0$ holds in $\mathbb{R}$ ([Part 1](/wissen/en/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html)). No point is missing between other points, as with $\sqrt2$; instead, every point of the number line is ruled out. The solution must lie beside the line. That is why a second coordinate is added: You calculate with pairs $(x,y)$. The pairs $(x,0)$ are to remain the real numbers, and $(0,1)$ is to have the square $(-1,0)$.
+**The idea.** Every extension of the numbers solves an equation that had no solution before: $x+1=0$ leads from $\mathbb{N}$ to $\mathbb{Z}$, $2x=1$ from $\mathbb{Z}$ to $\mathbb{Q}$, $x^2=2$ from $\mathbb{Q}$ to $\mathbb{R}$. With $x^2=-1$ the case is different. The parabola $y=x^2$ never reaches the height $-1$ (Fig. [1](#abb-1)), because $x^2\ge0$ holds in $\mathbb{R}$ ([Chapter 1](/wissen/en/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html)). No point is missing between other points, as with $\sqrt2$; instead, every point of the number line is ruled out. The solution must lie beside the line. That is why a second coordinate is added: You calculate with pairs $(x,y)$. The pairs $(x,0)$ are to remain the real numbers, and $(0,1)$ is to have the square $(-1,0)$.
 
 :::abbildung hm1/k2parabel 1
 The line $y=2$ meets the parabola twice; the solutions $\pm\sqrt2$ lie on the number line. The line $y=-1$ never meets it: No real $x$ solves $x^2=-1$.

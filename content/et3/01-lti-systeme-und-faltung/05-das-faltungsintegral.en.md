@@ -1,6 +1,8 @@
 ---
 title: Stage 4: The convolution integral
-pfad: Electrical Engineering / 3rd Semester / Signals and Systems / LTI Systems and Convolution
+pfad: Electrical Engineering / 3rd Semester / ET3 – Fundamentals of Electrical Engineering 3: Signals and Systems / LTI Systems and Convolution
+adresse: elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung
+knoten: Chapter 1: LTI Systems and Convolution
 order: 3210500
 summary: With linearity and time invariance, the response to any signal can be computed from the response to a single short pulse.
 tags: Dirac impulse, impulse response

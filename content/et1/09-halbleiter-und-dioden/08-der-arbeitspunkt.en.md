@@ -1,6 +1,8 @@
 ---
 title: Stage 6: The operating point
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / Semiconductors and Diodes
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / Semiconductors and Diodes
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden
+knoten: Chapter 9: Semiconductors and Diodes
 order: 1190800
 summary: For a resistor, U=R\,I gives the result at once.
 tags: load line, operating point, Operating point analysis, Operating point synthesis, no load, short circuit, hysteresis, iteration
@@ -13,7 +15,7 @@ lang: en
 For a resistor, $U=R\,I$ gives the result at once. The diode follows a different curve. This stage finds the voltage and current of the diode in a circuit.
 :::
 
-**The idea.** Two conditions must hold at the same time. The diode allows only points on its characteristic curve. The rest of the circuit, source and resistor, allows only points on the __load line__ ([Part 5](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)). The circuit finds the intersection by itself: if $U_\mathrm D$ is too small, the resistor supplies more current than the diode lets through. Charge piles up at the node between the two and raises its potential until both currents are equal.
+**The idea.** Two conditions must hold at the same time. The diode allows only points on its characteristic curve. The rest of the circuit, source and resistor, allows only points on the __load line__ ([Chapter 5](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)). The circuit finds the intersection by itself: if $U_\mathrm D$ is too small, the resistor supplies more current than the diode lets through. Charge piles up at the node between the two and raises its potential until both currents are equal.
 
 :::abbildung et1/k9arbeitsgerade 8
 Circuit of the reference model and graphical solution. Red: the load line through no load and short circuit. Blue: the characteristic curve of the diode, intersection at 0.69 V and 4.31 mA. Green: the characteristic curve of a 250 $\Omega$ resistor in place of the diode, intersection at 1 V and 4 mA.

@@ -1,6 +1,8 @@
 ---
 title: Etapa 8: Envolvente compleja y componentes en cuadratura
-pfad: Ingeniería eléctrica / 3.er semestre / Señales y sistemas / Sistemas paso bajo y paso banda
+pfad: Ingeniería eléctrica / 3.er semestre / ET3 – Fundamentos de ingeniería eléctrica 3: señales y sistemas / Sistemas paso bajo y paso banda
+adresse: elektrotechnik/3-semester/signale-und-systeme/tiefpass-und-bandpasssysteme
+knoten: Capítulo 5: Sistemas paso bajo y paso banda
 order: 3250900
 summary: Lo que vale para los sistemas vale también para las señales: una señal paso banda es una señal paso bajo sobre una portadora.
 tags: envolvente compleja, portadora compleja, componentes en cuadratura, envolvente
@@ -18,7 +20,7 @@ La transformada inversa de [(7.2)](der-ideale-bandpass-und-sein-aquivalenter-tie
 <span class="anker" id="gl-8-1"></span>
 $$h(t)=\operatorname{Re}\bigl\{h_T(t)\,\mathrm{e}^{\mathrm{j}2\pi f_0t}\bigr\},\qquad s(t)=\operatorname{Re}\bigl\{s_T(t)\,\mathrm{e}^{\mathrm{j}2\pi f_0t}\bigr\}. \tag{8.1}$$
 
-$s_T(t)$ se llama __envolvente compleja__, y $\mathrm{e}^{\mathrm{j}2\pi f_0t}$, __portadora compleja__. La mitad de su producto es la componente analítica de la [parte 3](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html), $s_+(t)=\frac12s_T(t)\mathrm{e}^{\mathrm{j}2\pi f_0t}$; es decir, $s_T=2s_+\mathrm{e}^{-\mathrm{j}2\pi f_0t}$.
+$s_T(t)$ se llama __envolvente compleja__, y $\mathrm{e}^{\mathrm{j}2\pi f_0t}$, __portadora compleja__. La mitad de su producto es la componente analítica del [capítulo 3](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html), $s_+(t)=\frac12s_T(t)\mathrm{e}^{\mathrm{j}2\pi f_0t}$; es decir, $s_T=2s_+\mathrm{e}^{-\mathrm{j}2\pi f_0t}$.
 
 :::satz Teorema 8.1 (Representación en cuadratura)
 <span class="anker" id="satz-8-1"></span>
@@ -34,7 +36,7 @@ $$\begin{aligned} s(t)&=s_{Tr}(t)\cos(2\pi f_0t)-s_{Ti}(t)\sin(2\pi f_0t),\\ s_{
 ⁠**Cómo leerlo:** $s_{Tr}$ y $s_{Ti}$ se llaman __componentes en cuadratura__ (en fase y en cuadratura): una modula el coseno de la portadora, y la otra, el seno. $|s_T|$ es la __envolvente__, que en un osciloscopio se ve como el «contorno» de la señal, y $\varphi_T$ es la desviación de fase de la portadora. Si la envolvente compleja es real (caso simétrico), $s(t)=s_T(t)\cos(2\pi f_0t)$: un coseno modulado en amplitud.
 
 :::herleitung Componentes en cuadratura
-[(8.2)](#gl-8-2): $\operatorname{Re}\{(s_{Tr}+\mathrm{j} s_{Ti})(\cos+\mathrm{j}\sin)\}=s_{Tr}\cos-s_{Ti}\sin$. Para [(8.3)](#gl-8-3), con $2s_+=s+\mathrm{j}\hat s$ ([parte 3](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)):
+[(8.2)](#gl-8-2): $\operatorname{Re}\{(s_{Tr}+\mathrm{j} s_{Ti})(\cos+\mathrm{j}\sin)\}=s_{Tr}\cos-s_{Ti}\sin$. Para [(8.3)](#gl-8-3), con $2s_+=s+\mathrm{j}\hat s$ ([capítulo 3](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)):
 
 $$s_T=(s+\mathrm{j}\hat s)(\cos-\mathrm{j}\sin)=(s\cos+\hat s\sin)+\mathrm{j}(\hat s\cos-s\sin).$$
 :::

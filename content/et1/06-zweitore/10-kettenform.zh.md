@@ -1,6 +1,8 @@
 ---
 title: 第 8 阶段：链式形式
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 二端口网络
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 二端口网络
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore
+knoten: 第 6 章：二端口网络
 order: 1161000
 summary: 二端口网络常常前后相接，一个的输出馈入下一个的输入。本阶段选择输出量作为原因，并由此得到矩阵乘积。
 tags: A 参数, 级联

@@ -1,6 +1,8 @@
 ---
 title: Etapa 2: El plano complejo
-pfad: Ingeniería eléctrica / 1.er semestre / Matemáticas superiores 1 / Números complejos
+pfad: Ingeniería eléctrica / 1.er semestre / HöMa1 – Matemáticas superiores 1 / Números complejos
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen
+knoten: Capítulo 2: Números complejos
 order: 1220300
 summary: Un par es un punto.
 tags: eje real, eje imaginario, imaginarios puros, plano de Gauss

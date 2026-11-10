@@ -1,6 +1,8 @@
 ---
 title: Das Wichtigste
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Funktionen und Polynome
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Funktionen und Polynome
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/funktionen-und-polynome
+knoten: Kapitel 3: Funktionen und Polynome
 order: 1231200
 summary: Wann sich eine Gleichung rückwärts lösen lässt und warum jede Nullstelle einen Faktor abspaltet
 tags: 
@@ -97,7 +99,7 @@ Pol: Nenner null, Zähler nach Kürzen nicht. Lücke: Faktor kürzt sich weg. F�
 </ul>
 :::
 
-**Ausblick auf [Teil 4](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/folgen-und-grenzwerte/folgen-und-grenzwerte.html).** „Über jede Grenze wachsen“ und „sich annähern“ sind hier Beschreibungen geblieben. [Teil 4](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/folgen-und-grenzwerte/folgen-und-grenzwerte.html) macht daraus den Grenzwert, zunächst für Folgen.
+**Ausblick auf [Kapitel 4](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/folgen-und-grenzwerte/folgen-und-grenzwerte.html).** „Über jede Grenze wachsen“ und „sich annähern“ sind hier Beschreibungen geblieben. [Kapitel 4](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/folgen-und-grenzwerte/folgen-und-grenzwerte.html) macht daraus den Grenzwert, zunächst für Folgen.
 
 **Ein Prinzip hinter allen Ergebnissen.** Eine Funktion gibt zu jedem $x$ genau ein $y$. Fast alles in diesem Kapitel stellt die umgekehrte Frage: Wie viele $x$ gehören zu einem gegebenen $y$?
 

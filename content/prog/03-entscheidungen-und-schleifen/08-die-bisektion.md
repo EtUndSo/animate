@@ -1,7 +1,8 @@
 ---
 title: Die Bisektion
 pfad: Informatik / Programmieren / Python / Entscheidungen und Schleifen
-knoten: Python 3: Entscheidungen und Schleifen
+adresse: informatik/programmieren/python/entscheidungen-und-schleifen
+knoten: Kapitel 3: Entscheidungen und Schleifen
 order: 6040800
 summary: Das Schrittverfahren tastet sich mit festen Schritten an die Lösung heran und ist deshalb langsam.
 tags: stetig, Bisektion, Schleifeninvariante
@@ -28,7 +29,7 @@ Eine Funktion heißt __stetig__ auf einem Intervall $[x_1,x_2]$, wenn ihr Graph 
 Ist $f$ stetig auf $[x_1,x_2]$ und haben $f(x_1)$ und $f(x_2)$ verschiedene Vorzeichen, dann gibt es mindestens eine Zahl $x^*$ mit $x_1<x^*<x_2$ und $f(x^*)=0$.
 :::
 
-Anschaulich: Wer ohne abzusetzen von unterhalb der $x$-Achse nach oberhalb zeichnet, muss sie irgendwo kreuzen. Ausführlich steht der Satz in Höhere Mathematik 1, Teil 5, Abschnitt 8.
+Anschaulich: Wer ohne abzusetzen von unterhalb der $x$-Achse nach oberhalb zeichnet, muss sie irgendwo kreuzen. Ausführlich steht der Satz in [HöMa1, Kapitel 5, Abschnitt 8](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/exponentialfunktion-und-stetigkeit/zwischenwerte-nullstellen-umkehrfunktion.html#stufe-8).
 
 ::::beispiel
 $f(x)=x^2-2$ ist stetig, und es ist $f(0)=-2<0$ und $f(2)=2>0$. Also hat $f$ zwischen 0 und 2 eine Nullstelle, nämlich $\sqrt2$.
@@ -156,7 +157,7 @@ Schritten, und die zurückgegebene Mitte ist höchstens $\varepsilon/2$ von eine
 Jeder Schritt ersetzt eine Grenze durch die Mitte, das Intervall wird also genau halb so breit. Nach $n$ Schritten ist es $L/2^n$ breit. Die Schleife läuft, solange die Breite größer als $\varepsilon$ ist, und endet nach dem ersten $n$ mit $L/2^n\le\varepsilon$, also mit $2^n\ge L/\varepsilon$ oder $n\ge\log_2(L/\varepsilon)$. Das kleinste solche $n$ ist die aufgerundete Zahl $\lceil\log_2(L/\varepsilon)\rceil$. Nach der Schleifeninvariante liegt im letzten Intervall eine Nullstelle, und die Mitte ist von jedem Punkt des Intervalls höchstens die halbe Breite, also höchstens $\varepsilon/2$, entfernt.
 :::
 
-Der Beweis rechnet mit exakten Mitten. In allen Beispielen dieses Kapitels sind die Mitten als `float` exakt darstellbar, denn sie sind Brüche mit Zweierpotenzen im Nenner und haben weniger als 53 Binärstellen.
+Der Beweis rechnet mit exakten Mitten. In den Beispielen dieses Abschnitts sind die Mitten als `float` exakt darstellbar, denn sie sind Brüche mit Zweierpotenzen im Nenner und haben weniger als 53 Binärstellen. Bei Grenzen wie 0,02, die schon selbst gerundet gespeichert sind, wird auch die Mitte gerundet, aber höchstens um eine kleinste Stufe der Gleitkommazahlen. Die Schrittzahl des Satzes stimmt dann weiter, außer wenn $L/2^n$ fast genau $\varepsilon$ ist.
 
 ::::beispiel
 Für $\sqrt2$ mit $[0,2]$ und $\varepsilon=10^{-12}$ ist $L/\varepsilon=2\cdot10^{12}$ und $\log_2(2\cdot10^{12})=40{,}86$, aufgerundet 41. Für $\sqrt{25}$ mit $[0,25]$ und $\varepsilon=0{,}01$ ist $\log_2 2500=11{,}29$, aufgerundet 12. Beides sind genau die Schrittzahlen der Skripte.
@@ -167,11 +168,11 @@ Für $\sqrt2$ mit $[0,2]$ und $\varepsilon=10^{-12}$ ist $L/\varepsilon=2\cdot10
 :::hintergrund Warum Halbieren so viel schneller ist als Abtasten
 Das Schrittverfahren aus Abschnitt [6](losungen-durch-probieren-raten-und-prufen-naherung-mit-toleranz.html#stufe-6) verkleinert den Bereich, in dem die Lösung noch liegen kann, in jedem Schritt um ein festes Stück $h$; die Zahl der Schritte wächst deshalb wie $L/h$. Die Bisektion halbiert den Bereich. Mit $n$ Schritten unterscheidet sie $2^n$ gleich breite Teilintervalle, und welches davon die Lösung enthält, legen die $n$ Ja-Nein-Antworten fest. Zehn Schritte unterscheiden schon $2^{10}=1024$, also etwa $10^3$ Teilintervalle, das sind drei Dezimalstellen. Für zwölf Stellen braucht man etwa $4\cdot10=40$ Schritte, statt $2\cdot10^{12}$ beim Abtasten mit der Schrittweite $\varepsilon$.
 
-Was diese Antworten sind, sieht man an der Tabelle in Unterabschnitt [7.2](#stufe-7-2). Schreibt man für „die Mitte wird linke Grenze“ eine 1 und für „die Mitte wird rechte Grenze“ eine 0, ergeben die ersten zwölf Schritte für $\sqrt2$ die Folge `1 0 1 1 0 1 0 1 0 0 0 0`. Das sind genau die ersten zwölf Binärziffern von $\sqrt2=1{,}01101010000\ldots_2$ ([Programmieren, Python 2, Abschnitt 3.6](/wissen/informatik/programmieren/python/werte-typen-und-variablen/zahlen-im-binarsystem.html#stufe-3-6)). Jeder Schritt der Bisektion bestimmt also ein weiteres Bit der Lösung, nicht mehr und nicht weniger.
+Was diese Antworten sind, sieht man an der Tabelle in Unterabschnitt [7.2](#stufe-7-2). Schreibt man für „die Mitte wird linke Grenze“ eine 1 und für „die Mitte wird rechte Grenze“ eine 0, ergeben die ersten zwölf Schritte für $\sqrt2$ die Folge `1 0 1 1 0 1 0 1 0 0 0 0`. Das sind genau die ersten zwölf Binärziffern von $\sqrt2=1{,}01101010000\ldots_2$ ([Kapitel 2, Abschnitt 3.6](/wissen/informatik/programmieren/python/werte-typen-und-variablen/zahlen-im-binarsystem.html#stufe-3-6)). Jeder Schritt der Bisektion bestimmt also ein weiteres Bit der Lösung, nicht mehr und nicht weniger.
 :::
 
 :::hintergrund Wie klein die Toleranz sein darf
-Die Breite des Intervalls kann nicht unter den Abstand benachbarter `float` sinken. Bei $\sqrt2$ ist dieser Abstand $\varepsilon_{\mathrm M}=2{,}2\cdot10^{-16}$. Verlangt man $\varepsilon=10^{-17}$, sind $\mathit{lo}$ und $\mathit{hi}$ nach 53 Schritten Nachbarn, `1.414213562373095` und `1.4142135623730951`. Ihre gerundete Mitte ist wieder einer der beiden, das Intervall wird nicht mehr kleiner, und die Bedingung `hi - lo > eps` bleibt für immer wahr: eine Endlosschleife. Abhilfe schaffen eine Toleranz, die zur Größe der Lösung passt, etwa `hi - lo > 1e-15 * hi` wie beim Vergleich mit relativer Toleranz in [Programmieren, Python 2, Abschnitt 7.4](/wissen/informatik/programmieren/python/werte-typen-und-variablen/wahrheitswerte-und-vergleiche.html#stufe-7-4), oder eine Höchstzahl von Schritten als Notbremse.
+Die Breite des Intervalls kann nicht unter den Abstand benachbarter `float` sinken. Bei $\sqrt2$ ist dieser Abstand $\varepsilon_{\mathrm M}=2{,}2\cdot10^{-16}$. Verlangt man $\varepsilon=10^{-17}$, sind $\mathit{lo}$ und $\mathit{hi}$ nach 53 Schritten Nachbarn, `1.414213562373095` und `1.4142135623730951`. Ihre gerundete Mitte ist wieder einer der beiden, das Intervall wird nicht mehr kleiner, und die Bedingung `hi - lo > eps` bleibt für immer wahr: eine Endlosschleife. Abhilfe schaffen eine Toleranz, die zur Größe der Lösung passt, etwa `hi - lo > 1e-15 * hi` wie beim Vergleich mit relativer Toleranz in [Kapitel 2, Abschnitt 7.4](/wissen/informatik/programmieren/python/werte-typen-und-variablen/wahrheitswerte-und-vergleiche.html#stufe-7-4), oder eine Höchstzahl von Schritten als Notbremse.
 :::
 
 ### Aufgaben zu Abschnitt [7](#stufe-7)

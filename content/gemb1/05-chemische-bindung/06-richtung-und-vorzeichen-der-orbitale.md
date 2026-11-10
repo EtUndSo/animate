@@ -1,6 +1,8 @@
 ---
 title: Stufe 4: Richtung und Vorzeichen der Orbitale
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Chemische Bindung
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Chemische Bindung
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/chemische-bindung
+knoten: Kapitel 5: Chemische Bindung
 order: 4150600
 summary: s-Orbitale sind rund.
 tags: \pi-Orbital, lokalisiert

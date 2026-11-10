@@ -1,7 +1,9 @@
 ---
 title: Overview: Sources and Equivalent Sources
 kurz: Overview
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / Sources and Equivalent Sources
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / Sources and Equivalent Sources
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen
+knoten: Chapter 5: Sources and Equivalent Sources
 order: 1150100
 summary: Why two numbers replace an entire network
 tags: 
@@ -23,7 +25,7 @@ The way there has three parts. Stages [1](widerstande-zusammenfassen.html#stufe
 
 <li>
 
-⁠**Battery:** the 9 V battery from [Part 1](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html). Its source voltage (the voltage supplied by the chemistry) is $U_\mathrm{q}=9$ V, its internal resistance $R_\mathrm{q}=2\,\Omega$.
+⁠**Battery:** the 9 V battery from [Chapter 1](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html). Its source voltage (the voltage supplied by the chemistry) is $U_\mathrm{q}=9$ V, its internal resistance $R_\mathrm{q}=2\,\Omega$.
 
 </li>
 

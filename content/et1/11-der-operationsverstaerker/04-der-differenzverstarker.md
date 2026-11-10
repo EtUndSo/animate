@@ -1,6 +1,8 @@
 ---
 title: Stufe 2: Der Differenzverstärker
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Der Operationsverstärker
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Der Operationsverstärker
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker
+knoten: Kapitel 11: Der Operationsverstärker
 order: 1210400
 summary: Eine Störung auf beiden Leitungen soll verschwinden, der Unterschied zwischen ihnen soll verstärkt werden.
 tags: Gleichtaktspannung, nicht-invertierender Eingang, invertierender Eingang
@@ -13,7 +15,7 @@ lang: de
 Eine Störung auf beiden Leitungen soll verschwinden, der Unterschied zwischen ihnen soll verstärkt werden. Dazu braucht man eine Schaltung, deren Ausgang nur von der Differenz zweier Spannungen abhängt.
 :::
 
-**Die Idee.** Zwei gleiche Transistoren T1 und T2 hängen mit den Emittern am gemeinsamen Knoten E (Abb. [2](#abb-2)). Darunter sitzt T3. Seine Basis liegt an der festen Spannung $U_\mathrm{bias}$, deshalb wirkt er als Stromquelle ([Teil 10](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor/der-bipolartransistor.html)) und zieht den festen Strom $I_0$ aus dem Knoten. Die Basisströme sind klein, also gilt $I_\mathrm{C1}+I_\mathrm{C2}=I_0$. Die Summe steht fest, nur die Aufteilung kann sich ändern.
+**Die Idee.** Zwei gleiche Transistoren T1 und T2 hängen mit den Emittern am gemeinsamen Knoten E (Abb. [2](#abb-2)). Darunter sitzt T3. Seine Basis liegt an der festen Spannung $U_\mathrm{bias}$, deshalb wirkt er als Stromquelle ([Kapitel 10](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor/der-bipolartransistor.html)) und zieht den festen Strom $I_0$ aus dem Knoten. Die Basisströme sind klein, also gilt $I_\mathrm{C1}+I_\mathrm{C2}=I_0$. Die Summe steht fest, nur die Aufteilung kann sich ändern.
 
 Steigen beide Basen um dasselbe Stück, steigt E mit, denn T3 hält den Strom fest und damit auch $U_\mathrm{BE}$. Es ändert sich nichts. Diesen gemeinsamen Anteil nennt man __Gleichtaktspannung__, $U_\mathrm{gl}=(\varphi_++\varphi_-)/2$. Steigt nur die Basis von T2, zieht T2 mehr Strom. T1 bekommt um genau diesen Betrag weniger. Am rechten Kollektorwiderstand fällt mehr Spannung ab, am linken weniger, und die Spannung zwischen den Kollektoren schlägt aus.
 
@@ -49,7 +51,7 @@ In Ruhe fließen je 1 mA, die Kollektoren liegen bei $12\,\mathrm{V}-3\,\mathr
 
 **Eingang.** Ein Eingangssignal $U_\mathrm{D}$ liegt an zwei BE-Strecken in Reihe, der Eingangswiderstand ist $2\,r_\mathrm{BE}=2B/S=10{,}4$ k$\Omega$. Bei 20 µ A Summenstrom statt 2 mA sind es 1,04 M$\Omega$, und jede Basis zieht nur 50 nA. Daher stammen $r_\mathrm{e}$ und $I_\mathrm{B}$ im Rechenmodell.
 
-**Vom Differenzverstärker zum OPV.** $A_\mathrm{D}=U_{R_\mathrm{C}}/U_T$ bleibt bei einigen Hundert, denn $U_{R_\mathrm{C}}$ kann die Versorgung nicht übersteigen. Ein Stromspiegel ([Teil 10](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor/der-bipolartransistor.html)) statt der Widerstände führt beide Stromänderungen auf eine Seite und wirkt dort wie die Parallelschaltung zweier $r_\mathrm{CE}$. Das ergibt $S\,r_\mathrm{CE}/2=U_\mathrm{Early}/(2U_T)\approx1400$. Dahinter folgen eine Spannungsverstärkerstufe und ein Emitterfolger für den niedrigen Ausgangswiderstand. Zusammen sind es $10^5$ bis $10^6$. Dieser Wert hängt von $B$, $U_\mathrm{Early}$ und der Temperatur ab: groß, aber ungenau.
+**Vom Differenzverstärker zum OPV.** $A_\mathrm{D}=U_{R_\mathrm{C}}/U_T$ bleibt bei einigen Hundert, denn $U_{R_\mathrm{C}}$ kann die Versorgung nicht übersteigen. Ein Stromspiegel ([Kapitel 10](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor/der-bipolartransistor.html)) statt der Widerstände führt beide Stromänderungen auf eine Seite und wirkt dort wie die Parallelschaltung zweier $r_\mathrm{CE}$. Das ergibt $S\,r_\mathrm{CE}/2=U_\mathrm{Early}/(2U_T)\approx1400$. Dahinter folgen eine Spannungsverstärkerstufe und ein Emitterfolger für den niedrigen Ausgangswiderstand. Zusammen sind es $10^5$ bis $10^6$. Dieser Wert hängt von $B$, $U_\mathrm{Early}$ und der Temperatur ab: groß, aber ungenau.
 
 :::frage Warum liegt an jedem Transistor nur die halbe Differenz, wenn ich nur eine Basis anhebe?
 Weil der Knoten E um die Hälfte mitgeht. T2 will mehr Strom, die Summe ist aber fest, also hebt sich E, bis T1 genau so viel abgibt. Die feste Summe verlangt entgegengesetzt gleiche Änderungen von $U_\mathrm{BE}$. Wer die ganze Differenz auf eine Strecke legt, erhält das Doppelte des wahren $A_\mathrm{D}$.

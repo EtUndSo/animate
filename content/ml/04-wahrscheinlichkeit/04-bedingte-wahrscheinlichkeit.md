@@ -1,7 +1,8 @@
 ---
 title: Bedingte Wahrscheinlichkeit
 pfad: Informatik / Machine Learning / Mathematische Grundlagen / Wahrscheinlichkeit
-knoten: Grundlagen 4: Wahrscheinlichkeit
+adresse: informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit
+knoten: Kapitel 4: Wahrscheinlichkeit
 nachschlagen: ja
 order: 15240400
 summary: Erfährt man etwas über den Ausgang eines Experiments, ändern sich die Wahrscheinlichkeiten.
@@ -114,7 +115,7 @@ Die Verkettung für drei Entnahmen ohne Zurücklegen: Jeder Faktor ist der Antei
 ::::
 
 :::warnung Zwei Kettenregeln
-Manche Texte nennen die Verkettung [(3.4)](#gl-3-4) „Kettenregel der Wahrscheinlichkeit“. Mit der Kettenregel der Ableitung aus [Grundlagen 3, Abschnitt 2.2](/wissen/informatik/machine-learning/mathematische-grundlagen/ableitung-gradient-und-kettenregel/die-kettenregel.html#stufe-2-2), hat sie nichts zu tun. Gemeinsam ist beiden nur, dass ein Ganzes als Produkt von Schritten geschrieben wird.
+Manche Texte nennen die Verkettung [(3.4)](#gl-3-4) „Kettenregel der Wahrscheinlichkeit“. Mit der Kettenregel der Ableitung aus [Kapitel 3, Abschnitt 2.2](/wissen/informatik/machine-learning/mathematische-grundlagen/ableitung-gradient-und-kettenregel/die-kettenregel.html#stufe-2-2), hat sie nichts zu tun. Gemeinsam ist beiden nur, dass ein Ganzes als Produkt von Schritten geschrieben wird.
 :::
 
 ⁠**Kurz gesagt:** Die gemeinsame Wahrscheinlichkeit ist bedingte Wahrscheinlichkeit mal Wahrscheinlichkeit der Bedingung; bei mehreren Ereignissen multipliziert man Schritt für Schritt.

@@ -388,19 +388,25 @@
     "de": "x von 1 bis 3",
     "en": "x from 1 to 3",
     "es": "x de 1 a 3",
-    "zh": "x 从 1 到 3"
+    "zh": "x 从 1 到 3",
+    "fr": "x de 1 à 3",
+    "tr": "x: 1 ile 3 arası"
    },
    "t1": {
     "de": "x von 1.9 bis 2.1",
     "en": "x from 1.9 to 2.1",
     "es": "x de 1.9 a 2.1",
-    "zh": "x 从 1.9 到 2.1"
+    "zh": "x 从 1.9 到 2.1",
+    "fr": "x de 1.9 à 2.1",
+    "tr": "x: 1.9 ile 2.1 arası"
    },
    "t2": {
     "de": "x von 1.99 bis 2.01",
     "en": "x from 1.99 to 2.01",
     "es": "x de 1.99 a 2.01",
-    "zh": "x 从 1.99 到 2.01"
+    "zh": "x 从 1.99 到 2.01",
+    "fr": "x de 1.99 à 2.01",
+    "tr": "x: 1.99 ile 2.01 arası"
    }
   }
  }

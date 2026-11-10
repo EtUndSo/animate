@@ -1,6 +1,8 @@
 ---
 title: Stufe 8: Zwischenwerte, Nullstellen, Umkehrfunktion
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Exponentialfunktion und Stetigkeit
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Exponentialfunktion und Stetigkeit
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/exponentialfunktion-und-stetigkeit
+knoten: Kapitel 5: Exponentialfunktion und Stetigkeit
 order: 1251000
 summary: Maximum und Minimum werden angenommen.
 tags: Nullstelle, Intervallhalbierungsmethode, Sekantenverfahren, Sekante, Fixpunkt
@@ -69,10 +71,10 @@ Sei $f:[a,b]\to\mathbb{R}$ stetig und streng monoton wachsend. Setze $A:=f(a)$, 
 :::
 
 :::beweis Surjektiv durch Zwischenwerte, stetig durch Einklemmen
-Aus $a<x<b$ folgt $A<f(x)<B$, also $\mathcal W(f)\subset[A,B]$, und [(8.1)](#gl-8-1) gibt $\mathcal W(f)=[A,B]$. Bijektivität und Monotonie von $g$ sind aus [Teil 3](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/funktionen-und-polynome/funktionen-und-polynome.html) bekannt. Stetigkeit bei $y_0\in(A,B)$, $x_0:=g(y_0)$: Sei $\varepsilon>0$ so klein, dass $[x_0-\varepsilon,x_0+\varepsilon]\subset[a,b]$. Dann ist $f(x_0-\varepsilon)<y_0<f(x_0+\varepsilon)$, und $\delta_0:=\min\{y_0-f(x_0-\varepsilon),\ f(x_0+\varepsilon)-y_0\}>0$. Für $|y-y_0|<\delta_0$ gilt $f(x_0-\varepsilon)<y<f(x_0+\varepsilon)$, und Anwenden von $g$ gibt $x_0-\varepsilon<g(y)<x_0+\varepsilon$. Am Rand läuft es einseitig genauso.
+Aus $a<x<b$ folgt $A<f(x)<B$, also $\mathcal W(f)\subset[A,B]$, und [(8.1)](#gl-8-1) gibt $\mathcal W(f)=[A,B]$. Bijektivität und Monotonie von $g$ sind aus [Kapitel 3](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/funktionen-und-polynome/funktionen-und-polynome.html) bekannt. Stetigkeit bei $y_0\in(A,B)$, $x_0:=g(y_0)$: Sei $\varepsilon>0$ so klein, dass $[x_0-\varepsilon,x_0+\varepsilon]\subset[a,b]$. Dann ist $f(x_0-\varepsilon)<y_0<f(x_0+\varepsilon)$, und $\delta_0:=\min\{y_0-f(x_0-\varepsilon),\ f(x_0+\varepsilon)-y_0\}>0$. Für $|y-y_0|<\delta_0$ gilt $f(x_0-\varepsilon)<y<f(x_0+\varepsilon)$, und Anwenden von $g$ gibt $x_0-\varepsilon<g(y)<x_0+\varepsilon$. Am Rand läuft es einseitig genauso.
 :::
 
-⁠**So liest man das:** Anders als in [Teil 3](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/funktionen-und-polynome/funktionen-und-polynome.html) muss man die Surjektivität nicht fordern. Für streng fallende $f$ gilt alles entsprechend. Ebenso für $f:(a,b)\to\mathbb{R}$ stetig und streng monoton, auch mit $a=-\infty$ oder $b=\infty$: Man schöpft $(a,b)$ durch Intervalle $[a_n,b_n]$ aus.
+⁠**So liest man das:** Anders als in [Kapitel 3](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/funktionen-und-polynome/funktionen-und-polynome.html) muss man die Surjektivität nicht fordern. Für streng fallende $f$ gilt alles entsprechend. Ebenso für $f:(a,b)\to\mathbb{R}$ stetig und streng monoton, auch mit $a=-\infty$ oder $b=\infty$: Man schöpft $(a,b)$ durch Intervalle $[a_n,b_n]$ aus.
 
 ::::beispiel [Beispiele]
 $\log$ ist auf $\mathbb{R}^+$ stetig, denn $\exp$ ist stetig und streng wachsend. $\sqrt[n]{x}$ ist auf $\mathbb{R}_0^+$ stetig. Auch $k^{-1}:[1;\ 3{,}718]\to[0,1]$ ist stetig (Abb. [8](#abb-8)), obwohl die bisherigen Funktionen keine Formel dafür liefern. **Voraussetzungen nötig:** Ohne Intervall kann $g$ springen: $f(x)=x$ auf $[0,1]$, $f(x)=x-1$ auf $(2,3]$ ist stetig und streng wachsend mit $\mathcal W(f)=[0,2]$, aber $g$ springt bei $y=1$ von 1 auf 2. Ohne strenge Monotonie gibt es keine Umkehrfunktion: $x^2$ auf $[-1,1]$.

@@ -1,6 +1,8 @@
 ---
 title: Stufe 6: Die Dimension
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Vektorprodukt und Basen
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Vektorprodukt und Basen
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/vektorprodukt-und-basen
+knoten: Kapitel 9: Vektorprodukt und Basen
 order: 1290800
 summary: Ein Vektorraum hat viele Basen.
 tags: endlichdimensional, unendlichdimensional, Dimension, Basisauswahl:

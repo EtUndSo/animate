@@ -1,6 +1,8 @@
 ---
 title: Etapa 6: Varias entradas, varias etapas
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / El amplificador operacional
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / El amplificador operacional
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker
+knoten: Capítulo 11: El amplificador operacional
 order: 1210800
 summary: La regla valía para una entrada y un AO.
 tags: sumador, restador
@@ -13,7 +15,7 @@ lang: es
 La regla valía para una entrada y un AO. Esta etapa muestra que trata varias entradas y cadenas enteras sin ninguna idea nueva, porque todas las ecuaciones siguen siendo lineales.
 :::
 
-**La idea.** En el __sumador__, varias resistencias llevan a la entrada negativa (fig. [8](#abb-8)). El nudo se queda en 0 V, así que cada fuente ve solo su propia resistencia e impulsa $U_{\mathrm{E}i}/R_{\mathrm{E}i}$, independientemente de las demás. La masa virtual desacopla las fuentes. Todas las corrientes juntas circulan por $R_\mathrm{F}$, la resistencia de realimentación. En el __restador__, una tensión llega a cada entrada. Aquí ayuda la superposición de la [Parte 5](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html): se calcula cada fuente por separado, y la otra se convierte en un cable.
+**La idea.** En el __sumador__, varias resistencias llevan a la entrada negativa (fig. [8](#abb-8)). El nudo se queda en 0 V, así que cada fuente ve solo su propia resistencia e impulsa $U_{\mathrm{E}i}/R_{\mathrm{E}i}$, independientemente de las demás. La masa virtual desacopla las fuentes. Todas las corrientes juntas circulan por $R_\mathrm{F}$, la resistencia de realimentación. En el __restador__, una tensión llega a cada entrada. Aquí ayuda la superposición del [capítulo 5](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html): se calcula cada fuente por separado, y la otra se convierte en un cable.
 
 :::satz Teorema 6.1 (Sumador, restador, cadena)
 <span class="anker" id="satz-6-1"></span>
@@ -45,7 +47,7 @@ A la izquierda, el sumador: las corrientes de las tres fuentes se encuentran en 
 
 **Procedimiento en circuitos mayores.** Primero se determinan los potenciales de las entradas; luego se calcula etapa por etapa de izquierda a derecha. En una cadena, cada salida es la entrada de la etapa siguiente, un potencial con un valor fijo.
 
-:::frage En la Parte 6, los cuadripolos en cadena se cargaban mutuamente. ¿Por qué puedo multiplicar aquí?
+:::frage En el capítulo 6, los cuadripolos en cadena se cargaban mutuamente. ¿Por qué puedo multiplicar aquí?
 Porque la resistencia de salida de la primera etapa es casi cero. Los 10 k$\Omega$ de la segunda etapa cargan 3,75 m$\Omega$, y la pérdida de tensión es $4\cdot10^{-7}$ del valor. El lazo de la primera etapa la compensa.
 :::
 

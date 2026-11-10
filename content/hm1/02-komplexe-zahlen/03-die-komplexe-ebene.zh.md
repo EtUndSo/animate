@@ -1,6 +1,8 @@
 ---
 title: 第 2 阶段：复平面
-pfad: 电气工程 / 第 1 学期 / 高等数学 1 / 复数
+pfad: 电气工程 / 第 1 学期 / HöMa1 – 高等数学 1 / 复数
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen
+knoten: 第 2 章：复数
 order: 1220300
 summary: 一个数对就是一个点。本阶段把复数画到平面上，并说明加法和乘以 i 在平面上的含义。
 tags: 实轴, 虚轴, 纯虚数, 高斯平面

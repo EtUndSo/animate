@@ -1,6 +1,8 @@
 ---
 title: Stufe 5: Korrelation und LTI-Systeme
-pfad: Elektrotechnik / 3. Semester / Signale und Systeme / Korrelationsfunktionen
+pfad: Elektrotechnik / 3. Semester / ET3 – Grundgebiete der Elektrotechnik 3: Signale und Systeme / Korrelationsfunktionen
+adresse: elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen
+knoten: Kapitel 6: Korrelationsfunktionen
 order: 3260600
 summary: Was macht ein LTI-System mit der AKF und dem Energiedichtespektrum?
 tags: 
@@ -54,7 +56,7 @@ Bestimme $|G(f)|^2$ und daraus die Ausgangsenergie. Tipp: $\int_{-\infty}^\infty
 
 <li>
 
-Prüfe im Zeitbereich mit $g(t)=t\,\mathrm{e}^{-t}\varepsilon(t)$ ([Teil 1](/wissen/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html), zwei RC-Glieder in Kette).
+Prüfe im Zeitbereich mit $g(t)=t\,\mathrm{e}^{-t}\varepsilon(t)$ ([Kapitel 1](/wissen/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html), zwei RC-Glieder in Kette).
 
 </li>
 

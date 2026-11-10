@@ -1,6 +1,8 @@
 ---
 title: 第 3 阶段：测量电流的误差
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 电流与电压的测量
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 电流与电压的测量
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-und-spannung-messen
+knoten: 第 4 章：电流与电压的测量
 order: 1140400
 summary: 电流表必须接入电路。本阶段计算它的内阻究竟使待测电流降低了多少。
 tags: 相对误差

@@ -1,6 +1,8 @@
 ---
 title: Stufe 2: Die Kapazität
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Der Kondensator
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Der Kondensator
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator
+knoten: Kapitel 3: Der Kondensator
 order: 1130300
 summary: Wie viel Ladung hält eine bestimmte Spannung auf den Platten?
 tags: 
@@ -13,7 +15,7 @@ lang: de
 Wie viel Ladung hält eine bestimmte Spannung auf den Platten? Die Antwort ist eine einzige Zahl je Bauteil.
 :::
 
-**Die Idee.** Verdoppelt man die Ladung auf beiden Platten, trägt jede Ladung ihr Feld doppelt bei. Nach der Überlagerung aus [Teil 1](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html) verdoppelt sich das Feld an jedem Ort, seine Form bleibt gleich (Abb. [2](#abb-2) links). Die Spannung ist das Integral des Felds von Platte zu Platte, also verdoppelt sie sich auch. $Q$ und $U$ sind deshalb proportional. Ihr Verhältnis hängt nicht davon ab, wie viel Ladung gerade da ist, sondern nur von Form, Abstand und Stoff.
+**Die Idee.** Verdoppelt man die Ladung auf beiden Platten, trägt jede Ladung ihr Feld doppelt bei. Nach der Überlagerung aus [Kapitel 1](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html) verdoppelt sich das Feld an jedem Ort, seine Form bleibt gleich (Abb. [2](#abb-2) links). Die Spannung ist das Integral des Felds von Platte zu Platte, also verdoppelt sie sich auch. $Q$ und $U$ sind deshalb proportional. Ihr Verhältnis hängt nicht davon ab, wie viel Ladung gerade da ist, sondern nur von Form, Abstand und Stoff.
 
 :::definition Definition 2.1 (Kapazität)
 <span class="anker" id="satz-2-1"></span>

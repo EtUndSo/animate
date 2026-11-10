@@ -1,6 +1,8 @@
 ---
 title: 第 9 阶段：因果与稳定
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / LTI 系统与卷积
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / LTI 系统与卷积
+adresse: elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung
+knoten: 第 1 章：LTI 系统与卷积
 order: 3211000
 summary: 每个实际系统都应具备的两个性质，可以直接从 h(t) 读出。
 tags: 因果, 稳定

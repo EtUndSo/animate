@@ -1,6 +1,8 @@
 ---
 title: Das Wichtigste
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Unendliche Reihen
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Unendliche Reihen
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/unendliche-reihen
+knoten: Kapitel 6: Unendliche Reihen
 order: 1261100
 summary: Wann hat eine Summe ohne Ende einen Wert?
 tags: 
@@ -90,7 +92,7 @@ Umordnen erhält den Wert bei absoluter Konvergenz, bei bedingter Konvergenz im 
 | Ergebnis | Woher es kommt |
 |---|---|
 | Wert einer Reihe | Die Teilsummen sind eine Folge, ihr Grenzwert ist der Wert (Stufe [1](eine-reihe-ist-eine-folge.html#stufe-1)) |
-| Geometrische Reihe | Geometrische Summe aus Teil 4 und $q^N\to0$ (Stufe [1](eine-reihe-ist-eine-folge.html#stufe-1)) |
+| Geometrische Reihe | Geometrische Summe aus Kapitel 4 und $q^N\to0$ (Stufe [1](eine-reihe-ist-eine-folge.html#stufe-1)) |
 | Cauchy-Kriterium, $a_n\to0$ | Cauchy-Folgen für $S_N$; ein Summand ist die Differenz zweier Teilsummen (Stufe [2](nullfolge-notig-aber-nicht-genug.html#stufe-2)) |
 | Divergenz der harmonischen Reihe | Immer größere Gruppen ergeben je mindestens $\frac12$, die Teilsummen sind unbeschränkt (Stufe [2](nullfolge-notig-aber-nicht-genug.html#stufe-2)) |
 | Leibniz-Kriterium | Gerade und ungerade Teilsummen sind monotone Folgen mit demselben Ziel (Stufe [3](wechselnde-vorzeichen.html#stufe-3)) |

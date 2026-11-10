@@ -1,6 +1,8 @@
 ---
 title: Stufe 4: Der Grenzwert
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Folgen und Grenzwerte
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Folgen und Grenzwerte
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/folgen-und-grenzwerte
+knoten: Kapitel 4: Folgen und Grenzwerte
 order: 1240600
 summary: Die Pendelfolge strebt nicht gegen 0, sondern gegen 2.
 tags: konvergent, Grenzwert, Epsilontik
@@ -26,7 +28,7 @@ $$\forall\,\varepsilon>0\quad\exists\,N_0\in\mathbb{N},\quad\text{so dass}\quad|
 Man schreibt $\lim_{n\to\infty}a_n=a$ oder $a_n\to a$ für $n\to\infty$.
 :::
 
-⁠**So liest man das:** Nach der Abstandsregel bedeutet $|a_n-a|<\varepsilon$, dass $a_n$ im offenen Intervall $(a-\varepsilon,a+\varepsilon)$ liegt, dem Epsilon-Schlauch um $a$. Er ist $2\varepsilon$ breit. Bis auf endlich viele Glieder liegen alle darin. Direkte Nachweise von [(4.1)](#gl-4-1) heißen __Epsilontik__. Dieselbe Technik trägt später Cauchy-Folgen (Stufe [8](cauchy-folgen-und-die-axiome.html#stufe-8)) und die Stetigkeit ([Teil 5](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/exponentialfunktion-und-stetigkeit/exponentialfunktion-und-stetigkeit.html)). Nullfolgen sind der Sonderfall $a=0$.
+⁠**So liest man das:** Nach der Abstandsregel bedeutet $|a_n-a|<\varepsilon$, dass $a_n$ im offenen Intervall $(a-\varepsilon,a+\varepsilon)$ liegt, dem Epsilon-Schlauch um $a$. Er ist $2\varepsilon$ breit. Bis auf endlich viele Glieder liegen alle darin. Direkte Nachweise von [(4.1)](#gl-4-1) heißen __Epsilontik__. Dieselbe Technik trägt später Cauchy-Folgen (Stufe [8](cauchy-folgen-und-die-axiome.html#stufe-8)) und die Stetigkeit ([Kapitel 5](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/exponentialfunktion-und-stetigkeit/exponentialfunktion-und-stetigkeit.html)). Nullfolgen sind der Sonderfall $a=0$.
 
 :::abbildung hm1/k4schlauch 5
 Der Epsilon-Schlauch um $a=2$ mit $\varepsilon=0{,}5$ und den Gliedern der Pendelfolge. Das Glied $a_6=2{,}5$ liegt genau auf dem Rand und damit nicht im offenen Intervall, $a_7=1{,}571$ liegt drin. Ab $N_0=6$ bleiben alle Glieder im Schlauch, die grauen bis $n=6$ zählen nicht.

@@ -1,7 +1,8 @@
 ---
 title: Açılar ve benzerlik
 pfad: Bilgisayar Bilimleri / Makine Öğrenmesi / Matematiksel Temeller / Vektörler ve Matrisler
-knoten: Temeller 1: Vektörler ve Matrisler
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Bölüm 1: Vektörler ve Matrisler
 nachschlagen: ja
 order: 15210600
 summary: İki vektör farklı uzunlukta olsalar bile benzer yönleri gösterebilir.
@@ -59,11 +60,11 @@ ve bunun karekökü (N3) eşitsizliğidir.
 ⁠**Kısacası:** İç çarpımın mutlak değeri en fazla uzunlukların çarpımı kadardır ve ancak ve ancak vektörler orijinden geçen bir doğru üzerindeyse bu çarpıma eşittir.
 
 :::hintergrund İç çarpım örüntüleri neden tanır: kesin ifade
-Örüntü karşılaştırması daha önce (alt kesim [2.4](das-skalarprodukt.html#stufe-2-4)) sezgisel bir resimdi: Sinyal örüntüyü izliyorsa $\mathbf{w}^{\top}\mathbf{x}$ iç çarpımı büyüktür. Cauchy-Schwarz eşitsizliği bundan kesin bir ifade çıkarır. Yalnızca aynı $\lVert\mathbf{x}\rVert$ uzunluğundaki sinyaller karşılaştırılırsa $\mathbf{w}^{\top}\mathbf{x}$ her zaman $-\lVert\mathbf{w}\rVert\,\lVert\mathbf{x}\rVert$ ile $+\lVert\mathbf{w}\rVert\,\lVert\mathbf{x}\rVert$ arasında kalır. En büyük değere tam olarak örüntünün pozitif bir katı olan sinyal ulaşır, en küçük değere negatif katı. Yani aynı enerjiye sahip bütün sinyaller arasında karşılaştırma en güçlü tepkiyi örüntünün kendisinde verir.
+Örüntü karşılaştırması daha önce (alt kesim [2.4](das-skalarprodukt.html#stufe-2-4)) sezgisel bir resimdi: Zaman serisi örüntüyü izliyorsa $\mathbf{w}^{\top}\mathbf{x}$ iç çarpımı büyüktür. Cauchy-Schwarz eşitsizliği bundan kesin bir ifade çıkarır. Yalnızca aynı $\lVert\mathbf{x}\rVert$ uzunluğundaki zaman serileri karşılaştırılırsa $\mathbf{w}^{\top}\mathbf{x}$ her zaman $-\lVert\mathbf{w}\rVert\,\lVert\mathbf{x}\rVert$ ile $+\lVert\mathbf{w}\rVert\,\lVert\mathbf{x}\rVert$ arasında kalır. En büyük değere tam olarak örüntünün pozitif bir katı olan zaman serisi ulaşır, en küçük değere negatif katı. Yani aynı uzunluktaki bütün zaman serileri arasında karşılaştırma en güçlü tepkiyi örüntünün kendisinde verir.
 
-⁠**Sayısal örnek:** İşaret değiştiren örüntü $\mathbf{w}=(1,-1,1,-1)^{\top}$ vektörünün uzunluğu $2$ olur. Uzunluğu $2$ olan bütün sinyaller arasında $\mathbf{x}=\mathbf{w}$ en büyük değeri, yani $4=2\cdot2$ değerini verir; $(2,0,0,0)^{\top}$ sinyali yalnızca $2$ verir, $\mathbf{x}=-\mathbf{w}$ ise en küçük değeri, yani $-4$ değerini verir.
+⁠**Sayısal örnek:** İşaret değiştiren örüntü $\mathbf{w}=(1,-1,1,-1)^{\top}$ vektörünün uzunluğu $2$ olur. Uzunluğu $2$ olan bütün zaman serileri arasında $\mathbf{x}=\mathbf{w}$ en büyük değeri, yani $4=2\cdot2$ değerini verir; $(2,0,0,0)^{\top}$ zaman serisi yalnızca $2$ verir, $\mathbf{x}=-\mathbf{w}$ ise en küçük değeri, yani $-4$ değerini verir.
 
-İletişim tekniğinde bu, korelasyon alıcısının ve uyumlu süzgecin (*matched filter*) temelidir. Böyle bir süzgecin dürtü yanıtı, gönderilen sinyalin zamanda ters çevrilmiş hâlidir; bu sayede örnekleme anında alınan sinyal ile gönderilen sinyalin iç çarpımını tam olarak hesaplar. Bu süzgecin sinyal-gürültü oranını mümkün olan en büyük değere çıkardığı da tam bu eşitsizlikle kanıtlanır.
+Metinleri ya da görüntüleri vektörlerle betimleyen her arama aynı ifadeden yararlanır: Aynı uzunluktaki bütün vektörler arasında sorguyla en büyük iç çarpımı, sorgunun pozitif bir katı olan vektör verir. Uzunluk sonucu bozmasın diye bütün vektörler önceden aynı uzunluğa getirilir.
 :::
 
 ### İki vektör arasındaki açı
@@ -134,23 +135,23 @@ $(1,\,2,\,2)^{\top}$ ve $(2,\,0,\,-1)^{\top}$ ortogonaldir, çünkü $2+0-2=0$. 
 ::::
 
 ::::beispiel [Sayısal örnek 2] birbirini bozmayan iki örüntü
-Sabit örüntü $\mathbf 1=(1,\,1,\,1,\,1)^{\top}$ ile işaret değiştiren örüntü $\mathbf{w}=(1,\,-1,\,1,\,-1)^{\top}$ (alt kesim [2.4](das-skalarprodukt.html#stufe-2-4)) ortogonaldir, $\mathbf 1^{\top}\mathbf{w}=0$. $2$ kez sabit örüntüden ve $1$ kez işaret değiştiren örüntüden oluşan bir sinyal $\mathbf{x}=2\cdot\mathbf 1+\mathbf{w}=(3,\,1,\,3,\,1)^{\top}$ olur. Sabit örüntüyle karşılaştırma $\mathbf 1^{\top}\mathbf{x}=8=2\cdot4$, işaret değiştiren örüntüyle karşılaştırma $\mathbf{w}^{\top}\mathbf{x}=4=1\cdot4$ verir (Şekil [23](#abb-23)). Her karşılaştırma tam olarak kendi payını, $\lVert\mathbf 1\rVert^2=\lVert\mathbf{w}\rVert^2=4$ ile çarpılmış olarak bulur; öteki pay onu bozmaz.
+Sabit örüntü $\mathbf 1=(1,\,1,\,1,\,1)^{\top}$ ile işaret değiştiren örüntü $\mathbf{w}=(1,\,-1,\,1,\,-1)^{\top}$ (alt kesim [2.4](das-skalarprodukt.html#stufe-2-4)) ortogonaldir, $\mathbf 1^{\top}\mathbf{w}=0$. $2$ kez sabit örüntüden ve $1$ kez işaret değiştiren örüntüden oluşan bir zaman serisi $\mathbf{x}=2\cdot\mathbf 1+\mathbf{w}=(3,\,1,\,3,\,1)^{\top}$ olur. Sabit örüntüyle karşılaştırma $\mathbf 1^{\top}\mathbf{x}=8=2\cdot4$, işaret değiştiren örüntüyle karşılaştırma $\mathbf{w}^{\top}\mathbf{x}=4=1\cdot4$ verir (Şekil [23](#abb-23)). Her karşılaştırma tam olarak kendi payını, $\lVert\mathbf 1\rVert^2=\lVert\mathbf{w}\rVert^2=4$ ile çarpılmış olarak bulur; öteki pay onu bozmaz.
 
 :::abbildung ml/k1rortho 23
-İki örüntü ortogonaldir (üstte). $\mathbf{x}=2\cdot\mathbf 1+\mathbf{w}$ sinyalinin her örüntüyle karşılaştırılması, o örüntünün payının $4$ katını verir.
+İki örüntü ortogonaldir (üstte). $\mathbf{x}=2\cdot\mathbf 1+\mathbf{w}$ zaman serisinin her örüntüyle karşılaştırılması, o örüntünün payının $4$ katını verir.
 :::
 ::::
 
 ⁠**Kısacası:** Ortogonal, iç çarpımın sıfır olması demektir; ortogonal oklar birbirine diktir ve onlar için Pisagor teoremi geçerlidir.
 
 :::hintergrund Ortogonal örüntüler neden birbirini bozmaz ve bunun Fourier katsayılarıyla ilgisi ne?
-Bir sinyal iki ortogonal örüntünün $\mathbf{x}=\alpha\,\mathbf 1+\beta\,\mathbf{w}$ doğrusal bileşimiyse hesap kurallarına göre şu olur:
+Bir zaman serisi iki ortogonal örüntünün $\mathbf{x}=\alpha\,\mathbf 1+\beta\,\mathbf{w}$ doğrusal bileşimiyse hesap kurallarına göre şu olur:
 
 $$\mathbf 1^{\top}\mathbf{x}=\alpha\,\mathbf 1^{\top}\mathbf 1+\beta\,\mathbf 1^{\top}\mathbf{w}=\alpha\,\lVert\mathbf 1\rVert^2+0 ,\qquad\text{yani}\qquad \alpha=\frac{\mathbf 1^{\top}\mathbf{x}}{\lVert\mathbf 1\rVert^2} .$$
 
 Yani bir örüntüyle karşılaştırma yalnızca o örüntünün kendi payını ölçer, çünkü öteki örüntünün katkısı $\mathbf 1^{\top}\mathbf{w}=0$ çarpanıyla kaybolur. Örüntüler ortogonal olmasaydı her karşılaştırma öteki payın bir parçasını da sayardı.
 
-Bir Fourier serisinin katsayıları da tam olarak böyle kurulmuştur. Periyodu $T$ olan bir $s(t)$ sinyali ve $\omega_0=2\pi/T$ için şu geçerlidir:
+Periyodik bir eğriyi, örneğin uzatılan bir notanın sesini, kosinüs ve sinüs salınımlarına ayıran bir Fourier serisinin katsayıları da tam olarak böyle kurulmuştur. Periyodu $T$ olan bir $s(t)$ fonksiyonu ve $\omega_0=2\pi/T$ için şu geçerlidir:
 
 $$a_k=\frac{2}{T}\int_0^Ts(t)\cos(k\omega_0t)\,\mathrm{d} t=\frac{\int_0^Ts(t)\cos(k\omega_0t)\,\mathrm{d} t}{\int_0^T\cos^2(k\omega_0t)\,\mathrm{d} t}\qquad(k\ge1),$$
 

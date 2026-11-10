@@ -1,7 +1,8 @@
 ---
 title: Die Kettenregel für mehrere Variablen
 pfad: Informatik / Machine Learning / Mathematische Grundlagen / Ableitung, Gradient und Kettenregel
-knoten: Grundlagen 3: Ableitung, Gradient und Kettenregel
+adresse: informatik/machine-learning/mathematische-grundlagen/ableitung-gradient-und-kettenregel
+knoten: Kapitel 3: Ableitung, Gradient und Kettenregel
 nachschlagen: ja
 order: 15230700
 summary: Rechnungen mit vielen Variablen sind Ketten von Funktionen mit vielen Ein- und Ausgängen.
@@ -19,7 +20,7 @@ Rechnungen mit vielen Variablen sind Ketten von Funktionen mit vielen Ein- und A
 
 <span class="anker" id="stufe-6-1"></span>
 
-Es seien zwei Stufen hintereinandergeschaltet: $\mathbf{g}:\mathbb{R}^n\to\mathbb{R}^m$ macht aus $\mathbf{x}$ den Zwischenvektor $\mathbf{u}=\mathbf{g}(\mathbf{x})$, und $\mathbf f:\mathbb{R}^m\to\mathbb{R}^p$ macht daraus $\mathbf{y}=\mathbf f(\mathbf{u})$. Man verfolgt eine kleine Änderung $\Delta\mathbf{x}$ wie in Abschnitt [2.2](die-kettenregel.html#stufe-2-2). Die erste Stufe gibt sie nach [(5.3)](die-jacobi-matrix.html#gl-5-3) als $\Delta\mathbf{u}\approx\mathbf{J}_{\mathbf{g}}\,\Delta\mathbf{x}$ weiter, die zweite als $\Delta\mathbf{y}\approx\mathbf{J}_{\mathbf f}\,\Delta\mathbf{u}\approx\mathbf{J}_{\mathbf f}\,\mathbf{J}_{\mathbf{g}}\,\Delta\mathbf{x}$. Aus dem Produkt zweier Zahlen wird das Produkt zweier Matrizen. Das passt zu [Grundlagen 1, Abschnitt 9.4](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrixprodukt.html#stufe-9-4): Zwei lineare Stufen hintereinander sind eine lineare Stufe, deren Matrix das Produkt der beiden Matrizen ist.
+Es seien zwei Stufen hintereinandergeschaltet: $\mathbf{g}:\mathbb{R}^n\to\mathbb{R}^m$ macht aus $\mathbf{x}$ den Zwischenvektor $\mathbf{u}=\mathbf{g}(\mathbf{x})$, und $\mathbf f:\mathbb{R}^m\to\mathbb{R}^p$ macht daraus $\mathbf{y}=\mathbf f(\mathbf{u})$. Man verfolgt eine kleine Änderung $\Delta\mathbf{x}$ wie in Abschnitt [2.2](die-kettenregel.html#stufe-2-2). Die erste Stufe gibt sie nach [(5.3)](die-jacobi-matrix.html#gl-5-3) als $\Delta\mathbf{u}\approx\mathbf{J}_{\mathbf{g}}\,\Delta\mathbf{x}$ weiter, die zweite als $\Delta\mathbf{y}\approx\mathbf{J}_{\mathbf f}\,\Delta\mathbf{u}\approx\mathbf{J}_{\mathbf f}\,\mathbf{J}_{\mathbf{g}}\,\Delta\mathbf{x}$. Aus dem Produkt zweier Zahlen wird das Produkt zweier Matrizen. Das passt zu [Kapitel 1, Abschnitt 9.4](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrixprodukt.html#stufe-9-4): Zwei lineare Stufen hintereinander sind eine lineare Stufe, deren Matrix das Produkt der beiden Matrizen ist.
 
 :::satz Satz 6.1 (Kettenregel für mehrere Variablen)
 <span class="anker" id="satz-6-1"></span>
@@ -107,7 +108,7 @@ $$\nabla(f\circ\mathbf{g})(\mathbf{x})=\mathbf{J}_{\mathbf{g}}(\mathbf{x})^{\top
 :::
 
 :::beweis Gradient einer Verkettung
-Nach [(6.1)](#gl-6-1) ist $\nabla(f\circ\mathbf{g})(\mathbf{x})^{\top}=\mathbf{J}_{f\circ\mathbf{g}}(\mathbf{x})=\mathbf{J}_f(\mathbf{u})\,\mathbf{J}_{\mathbf{g}}(\mathbf{x})=\nabla f(\mathbf{u})^{\top}\,\mathbf{J}_{\mathbf{g}}(\mathbf{x})$. Transponiert man beide Seiten mit der Regel $(\mathbf{A}\mathbf{B})^{\top}=\mathbf{B}^{\top}\mathbf{A}^{\top}$ aus [Grundlagen 1, Abschnitt 10.1](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/transponierte-symmetrie-und-gram-matrix.html#stufe-10-1), folgt die Behauptung.
+Nach [(6.1)](#gl-6-1) ist $\nabla(f\circ\mathbf{g})(\mathbf{x})^{\top}=\mathbf{J}_{f\circ\mathbf{g}}(\mathbf{x})=\mathbf{J}_f(\mathbf{u})\,\mathbf{J}_{\mathbf{g}}(\mathbf{x})=\nabla f(\mathbf{u})^{\top}\,\mathbf{J}_{\mathbf{g}}(\mathbf{x})$. Transponiert man beide Seiten mit der Regel $(\mathbf{A}\mathbf{B})^{\top}=\mathbf{B}^{\top}\mathbf{A}^{\top}$ aus [Kapitel 1, Abschnitt 10.1](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/transponierte-symmetrie-und-gram-matrix.html#stufe-10-1), folgt die Behauptung.
 :::
 
 Die Transponierte ist reine Buchführung: Sie entsteht, weil der Gradient als Spalte geschrieben wird, die Zeilen der Jacobi-Matrix aber zu den Ausgängen gehören. Inhaltlich sagt [(6.3)](#gl-6-3) dasselbe wie [(6.2)](#gl-6-2): Die Komponente $j$ von $\mathbf{J}_{\mathbf{g}}^{\top}\nabla f$ ist die Spalte $j$ von $\mathbf{J}_{\mathbf{g}}$ mal $\nabla f$, also die Summe über die Wege von $x_j$ aus. Ist die innere Funktion linear, $\mathbf{g}(\mathbf{x})=\mathbf{A}\mathbf{x}$, so wird daraus nach Abschnitt [5.4](die-jacobi-matrix.html#stufe-5-4) die Regel $\nabla_{\mathbf{x}}f(\mathbf{A}\mathbf{x})=\mathbf{A}^{\top}\,\nabla f(\mathbf{A}\mathbf{x})$. Der Index $\mathbf{x}$ am Nabla sagt, nach welcher Variablen der Gradient gebildet wird.

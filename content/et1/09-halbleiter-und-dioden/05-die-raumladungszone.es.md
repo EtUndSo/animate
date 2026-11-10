@@ -1,6 +1,8 @@
 ---
 title: Etapa 3: La zona de carga espacial
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Semiconductores y diodos
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Semiconductores y diodos
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden
+knoten: Capítulo 9: Semiconductores y diodos
 order: 1190500
 summary: Una pieza n y una pieza p son, por separado, solo resistencias.
 tags: difusión, carga espacial, deriva, tensión de difusión
@@ -37,7 +39,7 @@ Una pieza n y una pieza p son, por separado, solo resistencias. Esta etapa muest
 
 <li>
 
-⁠**El campo detiene la igualación.** Los iones crean un campo del lado n al lado p. Empuja a los electrones de vuelta a la región n y a los huecos de vuelta a la región p (__deriva__, [Parte 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)). La zona crece hasta que la corriente de deriva anula exactamente la corriente de difusión.
+⁠**El campo detiene la igualación.** Los iones crean un campo del lado n al lado p. Empuja a los electrones de vuelta a la región n y a los huecos de vuelta a la región p (__deriva__, [capítulo 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)). La zona crece hasta que la corriente de deriva anula exactamente la corriente de difusión.
 
 </li>
 
@@ -56,16 +58,16 @@ Para una unión abrupta, con la tensión térmica $U_T=k_\mathrm BT/e$, se cumpl
 $$U_\mathrm{D0}=U_T\ln\frac{N_\mathrm AN_\mathrm D}{n_\mathrm i^2},\qquad w=\sqrt{\frac{2\varepsilon}{e}\Bigl(\frac1{N_\mathrm A}+\frac1{N_\mathrm D}\Bigr)U_\mathrm{D0}},\qquad E_\mathrm{max}=\frac{2U_\mathrm{D0}}{w}. \tag{3.1}$$
 :::
 
-⁠**Cómo leerlo:** $U_\mathrm{D0}$ es la __tensión de difusión__, el escalón de potencial entre las dos regiones, de unos 0,7 a 0,9 V en el silicio. Camino del lado p, los electrones ven una barrera de energía $W_\mathrm B=e\,U_\mathrm{D0}$. $w$ es la anchura de la zona, $\varepsilon=\varepsilon_0\varepsilon_\mathrm r=1{,}04\cdot10^{-10}$ A s/(V m) la permitividad ([Parte 3](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html)). La zona penetra más en la región menos dopada: $w_\mathrm n/w_\mathrm p=N_\mathrm A/N_\mathrm D$. **Validez:** equilibrio; introduce las densidades en [(3.1)](#gl-3-1) en 1/m$^3$.
+⁠**Cómo leerlo:** $U_\mathrm{D0}$ es la __tensión de difusión__, el escalón de potencial entre las dos regiones, de unos 0,7 a 0,9 V en el silicio. Camino del lado p, los electrones ven una barrera de energía $W_\mathrm B=e\,U_\mathrm{D0}$. $w$ es la anchura de la zona, $\varepsilon=\varepsilon_0\varepsilon_\mathrm r=1{,}04\cdot10^{-10}$ A s/(V m) la permitividad ([capítulo 3](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html)). La zona penetra más en la región menos dopada: $w_\mathrm n/w_\mathrm p=N_\mathrm A/N_\mathrm D$. **Validez:** equilibrio; introduce las densidades en [(3.1)](#gl-3-1) en 1/m$^3$.
 
 :::herleitung Escalón de potencial y anchura
 ⁠**Escalón de potencial.** Un electrón en el lado p ha subido la barrera. Según [(0.1)](von-grund-auf-ventil-wechselspannung-und-warmeenergie.html#gl-0-1), para las densidades se cumple $n_\mathrm p/n_\mathrm n=\mathrm{e}^{-U_\mathrm{D0}/U_T}$. Con $n_\mathrm n=N_\mathrm D$ y $n_\mathrm p=n_\mathrm i^2/N_\mathrm A$ de [(2.1)](dotierung.html#gl-2-1) se obtiene la primera ecuación.
 
-⁠**Anchura.** Los dos lados llevan la misma carga, así que $N_\mathrm Aw_\mathrm p=N_\mathrm Dw_\mathrm n$. El campo crece linealmente desde los bordes hasta el límite y allí alcanza el valor de una carga superficial ([Parte 3](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html)), $E_\mathrm{max}=e\,N_\mathrm Dw_\mathrm n/\varepsilon$. La tensión es el área bajo la curva del campo, un triángulo: $U_\mathrm{D0}=\tfrac12E_\mathrm{max}w$. Con $w=w_\mathrm n+w_\mathrm p$ esto da [(3.1)](#gl-3-1).
+⁠**Anchura.** Los dos lados llevan la misma carga, así que $N_\mathrm Aw_\mathrm p=N_\mathrm Dw_\mathrm n$. El campo crece linealmente desde los bordes hasta el límite y allí alcanza el valor de una carga superficial ([capítulo 3](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html)), $E_\mathrm{max}=e\,N_\mathrm Dw_\mathrm n/\varepsilon$. La tensión es el área bajo la curva del campo, un triángulo: $U_\mathrm{D0}=\tfrac12E_\mathrm{max}w$. Con $w=w_\mathrm n+w_\mathrm p$ esto da [(3.1)](#gl-3-1).
 :::
 
 ::::beispiel
-$U_\mathrm{D0}=25{,}85\,\mathrm{mV}\cdot\ln10^{12}=0{,}714$ V, es decir, $27{,}6\,U_T$. Así, la barrera deja pasar la fracción $\mathrm{e}^{-27{,}6}=10^{-12}$, exactamente la relación $10^{4}/10^{16}$ de las densidades. Además, $w=0{,}43$ µ m, la mitad en cada región, y $E_\mathrm{max}=3{,}3$ MV/m, tanto como la intensidad de campo de ruptura del aire ([Parte 1](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)).
+$U_\mathrm{D0}=25{,}85\,\mathrm{mV}\cdot\ln10^{12}=0{,}714$ V, es decir, $27{,}6\,U_T$. Así, la barrera deja pasar la fracción $\mathrm{e}^{-27{,}6}=10^{-12}$, exactamente la relación $10^{4}/10^{16}$ de las densidades. Además, $w=0{,}43$ µ m, la mitad en cada región, y $E_\mathrm{max}=3{,}3$ MV/m, tanto como la intensidad de campo de ruptura del aire ([capítulo 1](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)).
 ::::
 
 ⁠**Casos límite:** Si un lado está mucho más dopado, la zona queda casi por completo en el otro. Diez veces más dopado en un lado solo sube $U_\mathrm{D0}$ 60 mV.

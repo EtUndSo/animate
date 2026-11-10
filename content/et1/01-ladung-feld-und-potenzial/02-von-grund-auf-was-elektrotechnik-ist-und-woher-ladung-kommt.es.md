@@ -1,6 +1,8 @@
 ---
 title: Desde cero: Qué es la ingeniería eléctrica y de dónde viene la carga
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Carga, campo y potencial
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Carga, campo y potencial
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial
+knoten: Capítulo 1: Carga, campo y potencial
 order: 1110200
 summary: Por qué la tensión es una diferencia y qué hace con una carga
 tags: ingeniería eléctrica, átomo, protones, neutrones, electrones, neutro, ion

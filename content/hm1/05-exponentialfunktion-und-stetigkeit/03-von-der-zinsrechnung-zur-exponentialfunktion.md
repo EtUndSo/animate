@@ -1,6 +1,8 @@
 ---
 title: Stufe 1: Von der Zinsrechnung zur Exponentialfunktion
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Exponentialfunktion und Stetigkeit
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Exponentialfunktion und Stetigkeit
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/exponentialfunktion-und-stetigkeit
+knoten: Kapitel 5: Exponentialfunktion und Stetigkeit
 order: 1250300
 summary: Potenzen a x gibt es bisher nur für rationale x .
 tags: Eulersche Zahl, Funktionalgleichung, kontinuierliche Verzinsung
@@ -74,7 +76,7 @@ Für alle $x,y\in\mathbb{R}$ gilt: (i) $\exp(0)=1$, (ii) $\exp(x+y)=\exp(x)\cdot
 
 ⁠**So liest man das:** Aus einer Addition am Eingang wird eine Multiplikation am Ausgang: Zehn Jahre Verzinsung sind fünf Jahre und noch einmal fünf.
 
-Für (ii) wird eine Formel gebraucht, die für $b=1$ die geometrische Summe aus [Teil 4](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/folgen-und-grenzwerte/folgen-und-grenzwerte.html) ist: Für $a,b\in\mathbb{R}$, $n\in\mathbb{N}$ gilt
+Für (ii) wird eine Formel gebraucht, die für $b=1$ die geometrische Summe aus [Kapitel 4](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/folgen-und-grenzwerte/folgen-und-grenzwerte.html) ist: Für $a,b\in\mathbb{R}$, $n\in\mathbb{N}$ gilt
 
 <span class="anker" id="gl-1-4"></span>
 $$a^n-b^n=(a-b)\sum_{k=1}^na^{n-k}\,b^{k-1}. \tag{1.4}$$
@@ -95,7 +97,7 @@ $$c^{\,n-1}\le\Bigl(1+\frac{|x|}n\Bigr)^n\Bigl(1+\frac{|y|}n\Bigr)^n=z_n(|x|)\,z
 denn $z_n(|x|)$ wächst gegen $\exp(|x|)$. Die Schranke $D$ hängt nicht von $n$ ab. Die Klammer ist damit betragsmäßig höchstens $\frac{|xy|}{n^2}\cdot n\,D=\frac{|xy|D}n$, und das ist eine Nullfolge.
 :::
 
-**Warum die Schreibweise $\mathrm{e}^x$ passt.** Für $a>0$, $p\in\mathbb{Z}$, $q\in\mathbb{N}$ ist die rationale Potenz $a^{p/q}:=\sqrt[q]{a^p}=(\sqrt[q]a)^p$ mit der Wurzel aus [Teil 3](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/funktionen-und-polynome/funktionen-und-polynome.html). Für $x=\frac pq$ gibt die Funktionalgleichung (für $p<0$ mit (iv))
+**Warum die Schreibweise $\mathrm{e}^x$ passt.** Für $a>0$, $p\in\mathbb{Z}$, $q\in\mathbb{N}$ ist die rationale Potenz $a^{p/q}:=\sqrt[q]{a^p}=(\sqrt[q]a)^p$ mit der Wurzel aus [Kapitel 3](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/funktionen-und-polynome/funktionen-und-polynome.html). Für $x=\frac pq$ gibt die Funktionalgleichung (für $p<0$ mit (iv))
 
 $$\bigl(\exp(x)\bigr)^q=\exp(qx)=\exp(p)=\bigl(\exp(1)\bigr)^p=\mathrm{e}^p.$$
 

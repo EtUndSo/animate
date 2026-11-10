@@ -1,6 +1,8 @@
 ---
 title: Stage 5: Real sources and the operating point
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / Sources and Equivalent Sources
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / Sources and Equivalent Sources
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen
+knoten: Chapter 5: Sources and Equivalent Sources
 order: 1150700
 summary: A battery does not hold its voltage under load.
 tags: equivalent circuit, real voltage source, real current source, load line, operating point
@@ -41,7 +43,7 @@ The mechanism behind it: if the source delivered more current than the load take
 With 16 $\Omega$, $I_\mathrm{A}=9\,\mathrm{V}/18\,\Omega=0.5$ A and $U_\mathrm{AB}=8$ V, and 1 V drops internally. With 2 $\Omega$ it is 2.25 A and 4.5 V. Both points lie on the line: $9\,\mathrm{V}-2\,\Omega\cdot2.25\,\mathrm{A}=4.5$ V. Their separation shows the internal resistance as a slope: $\Delta U_\mathrm{AB}/\Delta I_\mathrm{A}=3.5\,\mathrm{V}/(-1.75\,\mathrm{A})=-2\,\Omega$.
 ::::
 
-⁠**Limiting cases:** For $R_\mathrm{L}\to\infty$, [(5.2)](#gl-5-2) gives the open circuit $U_\mathrm{AB}=U_\mathrm{q}$, for $R_\mathrm{L}\to0$ the short-circuit current $I_\mathrm{SC}=U_\mathrm{q}/R_\mathrm{q}=4.5$ A. For $R_\mathrm{q}\to0$ the ideal voltage source remains. A nonlinear load can be treated the same way: its characteristic is then a curve, and the intersection is still the solution ([Part 9](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)).
+⁠**Limiting cases:** For $R_\mathrm{L}\to\infty$, [(5.2)](#gl-5-2) gives the open circuit $U_\mathrm{AB}=U_\mathrm{q}$, for $R_\mathrm{L}\to0$ the short-circuit current $I_\mathrm{SC}=U_\mathrm{q}/R_\mathrm{q}=4.5$ A. For $R_\mathrm{q}\to0$ the ideal voltage source remains. A nonlinear load can be treated the same way: its characteristic is then a curve, and the intersection is still the solution ([Chapter 9](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)).
 
 :::ltspice The characteristic curve of the battery
 ⁠**Draw:** `voltage` with 9 from `q` to ground, `res` with 2 from `q` to `a`. As a load, a current source `current` named `I1` from `a` to ground.
@@ -52,7 +54,7 @@ With 16 $\Omega$, $I_\mathrm{A}=9\,\mathrm{V}/18\,\Omega=0.5$ A and $U_\math
 :::
 
 :::frage Why does the meter show 9 V on a battery even though it has 2 $\Omega$ inside?
-Because it draws hardly any current ([Part 4](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-und-spannung-messen/strom-und-spannung-messen.html)). With an input resistance of 10 M$\Omega$, 0.9 µ A flows, and 1.8 µ V drops internally. You are practically measuring the open circuit. The internal resistance shows up only under load.
+Because it draws hardly any current ([Chapter 4](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-und-spannung-messen/strom-und-spannung-messen.html)). With an input resistance of 10 M$\Omega$, 0.9 µ A flows, and 1.8 µ V drops internally. You are practically measuring the open circuit. The internal resistance shows up only under load.
 :::
 
 :::aufgabe Exercise 6 ★ The lights during starting

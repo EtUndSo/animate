@@ -1,6 +1,8 @@
 ---
 title: Stage 6: Which method when?
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / Mesh Current and Node Voltage Analysis
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / Mesh Current and Node Voltage Analysis
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/maschenstrom-und-knotenpotentialverfahren
+knoten: Chapter 8: Mesh Current and Node Voltage Analysis
 order: 1180800
 summary: Both methods deliver the same result.
 tags: duality
@@ -49,7 +51,7 @@ The table shows a __duality__, a mirroring: if you swap mesh and node, current a
 After the conversion on the right, the model network has $k=3$ and $z=5$. With $5>4$ it lies above the line, and indeed there were three meshes against two nodes.
 ::::
 
-⁠**Limiting case:** The bridge from [Part 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html) with $k=4$ and $z=6$ lies exactly on the line. Then the sources decide: an ideal voltage source speaks for meshes, because there it stands on the right-hand side.
+⁠**Limiting case:** The bridge from [Chapter 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html) with $k=4$ and $z=6$ lies exactly on the line. Then the sources decide: an ideal voltage source speaks for meshes, because there it stands on the right-hand side.
 
 Simulators use only node voltages. A program must first search for the meshes of a network, and windows exist only if the network can be drawn without crossings. Nodes, on the other hand, are already in the circuit description (Stage [7](stempel-und-netzliste.html#stufe-7)).
 
@@ -97,6 +99,6 @@ Show: if in a network you combine two components in series together with the nod
 
 (c) $k=5$, $z=10$: $m=6$ against 4, node voltages.
 
-(d) The node between them disappears and two branches become one, so $m'=(z-1)-(k-1)+1=z-k+1=m$. The count from [Part 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html) reaches the same conclusion.
+(d) The node between them disappears and two branches become one, so $m'=(z-1)-(k-1)+1=z-k+1=m$. The count from [Chapter 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html) reaches the same conclusion.
 :::
 :::

@@ -1,7 +1,8 @@
 ---
 title: Normlar: bir vektörün büyüklüğü
 pfad: Bilgisayar Bilimleri / Makine Öğrenmesi / Matematiksel Temeller / Vektörler ve Matrisler
-knoten: Temeller 1: Vektörler ve Matrisler
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Bölüm 1: Vektörler ve Matrisler
 nachschlagen: ja
 order: 15210400
 summary: Bir vektör ne kadar büyüktür?
@@ -219,41 +220,41 @@ Mutlak değerler toplamı normuna göre ikisi de aynı derecede iyidir: İkisi d
 Öklid normunda her sapma karesiyle girer. $0{,}1$ büyüklüğünde bir sapma $0{,}01$ katkı yapar, $10$ büyüklüğünde bir sapma ise $100$. Kare almak küçük sayıları küçültür, büyük sayıları büyütür. Bu yüzden $40$ büyüklüğündeki tek bir büyük hata $1600$ katkı yapar; bu, her biri $10$ olan dört hatanın toplam katkısının dört katıdır. Mutlak değerler toplamı normu ise her yerde aynı hızla büyür: Sapmanın her birimi, ister küçük ister büyük bir hataya ait olsun, aynı ölçüde hesaba katılır. Bu yüzden bu norm “tam olarak sıfır” ile “biraz sapmış” arasında da belirgin bir ayrım yapar, kareler toplamı ise bu ikisi arasında neredeyse hiç fark gözetmez. Hangi özelliğin istendiği göreve bağlıdır; birden çok normun bulunmasının nedeni de tam olarak budur.
 :::
 
-### Etkin değer
+### Karesel ortalama değer
 
 <span class="anker" id="stufe-3-6"></span>
 
 Öklid normu bileşen sayısıyla birlikte büyür. Bir eksper dört daire, bir başkası dört yüz daire üzerinden değerlendirilirse, ikincisi daire başına aynı iyilikte tahmin yapsa bile çok daha uzun bir hata vektörüne sahip olur. Hatalar örnek başına karşılaştırılmak isteniyorsa bileşen sayısının etkisi hesaptan çıkarılmalıdır.
 
-:::definition Tanım 3.6 (Etkin değer)
+:::definition Tanım 3.6 (Karesel ortalama değer)
 <span class="anker" id="satz-3-6"></span>
 
-Bir $\mathbf{x}\in\mathbb{R}^n$ vektörünün __etkin değeri__ şudur:
+Bir $\mathbf{x}\in\mathbb{R}^n$ vektörünün __karesel ortalama değeri__ şudur:
 
 <span class="anker" id="gl-3-6"></span>
 $$\operatorname{rms}(\mathbf{x})=\frac{\lVert\mathbf{x}\rVert}{\sqrt n}=\sqrt{\frac1n\sum_{i=1}^nx_i^2} . \tag{3.6}$$
 :::
 
-rms kısaltması *root mean square* anlamına gelir: karelerin ortalamasının karekökü. Etkin değer bir bileşenin tipik mutlak değeridir. Bütün bileşenlerin mutlak değeri aynı $a$ sayısıysa etkin değer tam olarak $a$ olur.
+rms kısaltması *root mean square* anlamına gelir: karelerin ortalamasının karekökü. Karesel ortalama değer bir bileşenin tipik mutlak değeridir. Bütün bileşenlerin mutlak değeri aynı $a$ sayısıysa karesel ortalama değer tam olarak $a$ olur.
 
-Bu ad elektrik mühendisliğinden bilinir: Bir alternatif gerilimin etkin değeri, karesinin zaman ortalamasının kareköküdür. Örneklenmiş bir sinyal için [(3.6)](#gl-3-6), integral yerine örnek değerlerle yapılan aynı hesaptır. Bir sinüs tam bir periyot boyunca $n\ge3$ eşit aralıklı noktada örneklenirse, sinüsün $1/\sqrt2$ etkin değeri bile tam olarak elde edilir.
+Neden önce kare alınıp en sonda karekök alınır? Bileşenlerin kendilerinin ortalaması alınırsa pozitif ve negatif olanlar birbirini götürür: Bir kez $20$ fazla, bir kez $20$ eksik tahmin eden bir eksper ortalamada $0$'da kalırdı. Kareler hiçbir zaman negatif değildir ve karekök sonucu yeniden bileşenlerin birimine getirir. [(3.6)](#gl-3-6) hesabı eğrilere de uygulanabilir: Bir sinüs tam bir periyot boyunca $n\ge3$ eşit aralıklı noktada değerlendirilirse tam olarak $1/\sqrt2$ elde edilir; bu, periyodun bütün noktaları üzerinden ortalama alındığında elde edilen değerin aynısıdır.
 
 ::::beispiel [Sayısal örnek]
-Önceki alt kesimdeki eksperlerin hata vektörlerinin etkin değerleri $\operatorname{rms}(\hat{\mathbf{y}}_{\mathrm A}-\mathbf{y})=20/\sqrt4=10$ ve $\operatorname{rms}(\hat{\mathbf{y}}_{\mathrm B}-\mathbf{y})=40/\sqrt4=20$ bin avrodur: A tipik olarak $10$ bin avro yanılmıştır. Genliği $1$ olan ve bir periyot içinde eşit aralıklı dört noktada örneklenen bir sinüsün örnek değerleri $\mathbf{x}=(0,\,1,\,0,\,-1)^{\top}$, etkin değeri $1/\sqrt2\approx0{,}707$ olur (Şekil [17](#abb-17)).
+Önceki alt kesimdeki eksperlerin hata vektörlerinin karesel ortalama değerleri $\operatorname{rms}(\hat{\mathbf{y}}_{\mathrm A}-\mathbf{y})=20/\sqrt4=10$ ve $\operatorname{rms}(\hat{\mathbf{y}}_{\mathrm B}-\mathbf{y})=40/\sqrt4=20$ bin avrodur: A tipik olarak $10$ bin avro yanılmıştır. En büyük değeri $1$ olan ve bir periyot içinde eşit aralıklı dört noktada değerlendirilen bir sinüsün değerleri $\mathbf{x}=(0,\,1,\,0,\,-1)^{\top}$, karesel ortalama değeri $1/\sqrt2\approx0{,}707$ olur (Şekil [17](#abb-17)).
 
 :::abbildung ml/k1rrms 17
-Örneklenmiş bir sinüsün etkin değeri: Kareler toplanır, bileşen sayısına bölünür, karekök alınır.
+Bir sinüsün dört noktadaki karesel ortalama değeri: Kareler toplanır, bileşen sayısına bölünür, karekök alınır.
 :::
 ::::
 
-⁠**Kısacası:** $\lVert\mathbf{x}\rVert/\sqrt n$ etkin değeri bir bileşenin tipik mutlak değeridir ve bileşen sayıları farklı olan vektörleri karşılaştırılabilir kılar.
+⁠**Kısacası:** $\lVert\mathbf{x}\rVert/\sqrt n$ karesel ortalama değeri bir bileşenin tipik mutlak değeridir ve bileşen sayıları farklı olan vektörleri karşılaştırılabilir kılar.
 
 :::hintergrund Kaç bileşen büyük olabilir?
-Etkin değer, kaç bileşenin büyük bir mutlak değere sahip olabileceğini sınırlar. $n$ bileşenden $k$ tanesinin mutlak değeri en az $a>0$ ise, yalnızca bu $k$ bileşen kareler toplamına en az $k\,a^2$ katkı yapar. Kareler toplamının tamamı $n\operatorname{rms}(\mathbf{x})^2$ olduğundan $k\,a^2\le n\operatorname{rms}(\mathbf{x})^2$, yani
+Karesel ortalama değer, kaç bileşenin büyük bir mutlak değere sahip olabileceğini sınırlar. $n$ bileşenden $k$ tanesinin mutlak değeri en az $a>0$ ise, yalnızca bu $k$ bileşen kareler toplamına en az $k\,a^2$ katkı yapar. Kareler toplamının tamamı $n\operatorname{rms}(\mathbf{x})^2$ olduğundan $k\,a^2\le n\operatorname{rms}(\mathbf{x})^2$, yani
 
 $$\frac kn\le\Bigl(\frac{\operatorname{rms}(\mathbf{x})}{a}\Bigr)^2 .$$
 
-Demek ki bileşenlerin en fazla $(\operatorname{rms}/a)^2$ kadarlık bir payı en az $a$ büyüklüğünde olabilir. Bileşenlerin en fazla dörtte biri etkin değerin iki katına, en fazla yüzde biri on katına ulaşabilir. $\operatorname{rms}=20$ olan eksper B'de hataların en fazla $(20/30)^2=4/9\approx44$ % kadarı $30$ ya da daha büyük olabilir; gerçekte dört hatadan biri, yani $25$ % bu kadar büyüktür. Bu sınıra Çebişev eşitsizliği denir.
+Demek ki bileşenlerin en fazla $(\operatorname{rms}/a)^2$ kadarlık bir payı en az $a$ büyüklüğünde olabilir. Bileşenlerin en fazla dörtte biri karesel ortalama değerin iki katına, en fazla yüzde biri on katına ulaşabilir. $\operatorname{rms}=20$ olan eksper B'de hataların en fazla $(20/30)^2=4/9\approx44$ % kadarı $30$ ya da daha büyük olabilir; gerçekte dört hatadan biri, yani $25$ % bu kadar büyüktür. Bu sınıra Çebişev eşitsizliği denir.
 :::
 
 :::aufgabe Alıştırma 7 ★ Norm hesaplamak
@@ -293,7 +294,7 @@ Emlakçının tahminleri $\hat{\mathbf{y}}=(188,\,126,\,286,\,232)^{\top}$ idi (
 
 <li>
 
-Hata vektörünü, onun üç normunu ve etkin değerini hesaplayın. Emlakçı en çok hangi dairede yanılmıştır?
+Hata vektörünü, onun üç normunu ve karesel ortalama değerini hesaplayın. Emlakçı en çok hangi dairede yanılmıştır?
 
 </li>
 
@@ -306,8 +307,8 @@ Hata vektörünü, onun üç normunu ve etkin değerini hesaplayın. Emlakçı e
 </ol>
 
 :::loesung
-(a) Hata vektörü $\hat{\mathbf{y}}-\mathbf{y}=(188-200,\ 126-130,\ 286-290,\ 232-240)^{\top}=(-12,\,-4,\,-4,\,-8)^{\top}$ olur. Normları: $\lVert\cdot\rVert_1=28$, $\lVert\cdot\rVert_2=\sqrt{144+16+16+64}=\sqrt{240}\approx15{,}49$, $\lVert\cdot\rVert_\infty=12$; etkin değer $\sqrt{240}/2\approx7{,}75$ bin avro. Emlakçı en çok Daire 1'de, $12$ bin avro yanılmıştır.
+(a) Hata vektörü $\hat{\mathbf{y}}-\mathbf{y}=(188-200,\ 126-130,\ 286-290,\ 232-240)^{\top}=(-12,\,-4,\,-4,\,-8)^{\top}$ olur. Normları: $\lVert\cdot\rVert_1=28$, $\lVert\cdot\rVert_2=\sqrt{144+16+16+64}=\sqrt{240}\approx15{,}49$, $\lVert\cdot\rVert_\infty=12$; karesel ortalama değer $\sqrt{240}/2\approx7{,}75$ bin avro. Emlakçı en çok Daire 1'de, $12$ bin avro yanılmıştır.
 
-(b) Hataların hepsi negatiftir: Emlakçı her seferinde düşük tahmin ediyor; hatasının bir sabit bileşeni vardır. Tahminlere $7$ bin avro eklenince hata vektörü $(-5,\,3,\,3,\,-1)^{\top}$ olur; $\lVert\cdot\rVert_1=12$, $\lVert\cdot\rVert_2=\sqrt{25+9+9+1}=\sqrt{44}\approx6{,}63$, $\lVert\cdot\rVert_\infty=5$ ve etkin değer $\sqrt{44}/2\approx3{,}32$. Emlakçı üç normun hepsine göre daha iyi hâle gelmiştir. Eklenen $7$, tam olarak hataların mutlak değerlerinin ortalamasıdır, $(12+4+4+8)/4=7$: Hatanın sabit bileşenini çıkarır ve geriye yalnızca değişken bileşeni bırakır.
+(b) Hataların hepsi negatiftir: Emlakçı her seferinde düşük tahmin ediyor; hatasının, bütün bileşenlerde bulunan ortak bir payı vardır. Tahminlere $7$ bin avro eklenince hata vektörü $(-5,\,3,\,3,\,-1)^{\top}$ olur; $\lVert\cdot\rVert_1=12$, $\lVert\cdot\rVert_2=\sqrt{25+9+9+1}=\sqrt{44}\approx6{,}63$, $\lVert\cdot\rVert_\infty=5$ ve karesel ortalama değer $\sqrt{44}/2\approx3{,}32$. Emlakçı üç normun hepsine göre daha iyi hâle gelmiştir. Eklenen $7$, tam olarak hataların mutlak değerlerinin ortalamasıdır, $(12+4+4+8)/4=7$: Bu ortak payı, yani hatanın ortalamasını çıkarır ve geriye yalnızca ondan olan sapmaları bırakır.
 :::
 :::

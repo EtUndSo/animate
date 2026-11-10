@@ -1,6 +1,8 @@
 ---
 title: Etapa 8: Distancia y valor absoluto
-pfad: Ingeniería eléctrica / 1.er semestre / Matemáticas superiores 1 / Conjuntos, lógica y números reales
+pfad: Ingeniería eléctrica / 1.er semestre / HöMa1 – Matemáticas superiores 1 / Conjuntos, lógica y números reales
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen
+knoten: Capítulo 1: Conjuntos, lógica y números reales
 order: 1211000
 summary: Los límites miden lo cerca que están dos números.
 tags: distancia, valor absoluto, desigualdad triangular, desigualdad triangular inversa

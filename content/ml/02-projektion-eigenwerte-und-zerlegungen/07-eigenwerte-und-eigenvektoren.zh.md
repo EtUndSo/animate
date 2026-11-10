@@ -1,7 +1,8 @@
 ---
 title: 特征值与特征向量
 pfad: 计算机科学 / 机器学习 / 数学基础 / 投影、特征值与矩阵分解
-knoten: 基础篇 2：投影、特征值与矩阵分解
+adresse: informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen
+knoten: 第 2 章：投影、特征值与矩阵分解
 nachschlagen: ja
 order: 15220700
 summary: 矩阵对大多数向量既旋转又拉伸。但有些方向它不旋转：沿这种方向的箭头只是变长、变短或翻转。本节求出这些方向以及相应的拉伸因子。它们是矩阵的自然坐标轴。
@@ -21,7 +22,7 @@ lang: zh
 
 寻找拉伸因子会导出多项式方程，而并非每个多项式方程都有实数解。本小节汇总本章用到的复数知识。
 
-**复数。** 复数 $z=x+\mathrm j\,y$ 由实部 $x$ 和虚部 $y$ 这两个实数组成。虚数单位满足 $\mathrm j^2=-1$。电气工程中用 $\mathrm j$ 代替 $i$，因为 $i$ 已用来表示电流。
+**复数。** 复数 $z=x+\mathrm j\,y$ 由实部 $x$ 和虚部 $y$ 这两个实数组成。虚数单位满足 $\mathrm j^2=-1$。许多数学书把它记作 $\mathrm i$；本章像 Python 一样写成正体的 $\mathrm j$，因为 Python 把数 $3+4\,\mathrm j$ 写成 `3+4j`，而 $i$ 可以留作下标。
 
 **共轭与模。** $z$ 的__共轭复数__是 $z^*=x-\mathrm j\,y$。有 $z\,z^*=x^2+y^2=|z|^2$，即模的平方，它是一个实数，只在 $z=0$ 时为零。一个数是实数，当且仅当 $z=z^*$。共轭与加法和乘法相容：$(z+w)^*=z^*+w^*$，$(zw)^*=z^*w^*$。对于分量为复数的向量 $\mathbf{v}$，本章中 $\mathbf{v}^*$ 表示由各分量的共轭构成的向量，不作转置。于是
 
@@ -45,7 +46,7 @@ $\mathbf{v}=(1,-\mathrm j)^{\top}$ 的点积 $(\mathbf{v}^*)^{\top}\mathbf{v}$�
 
 <span class="anker" id="stufe-6-2"></span>
 
-在[基础篇 1 第 8.3 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-3)中，平面上的网格被矩阵旋转、拉伸和剪切。在此过程中，大多数箭头都会改变方向。但对某些矩阵，存在这样的方向：沿该方向的箭头仍然留在它所在的过原点的直线上，只是被拉伸、压缩或翻转（图 [17](#abb-17)）。
+在[第 1 章第 8.3 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-3)中，平面上的网格被矩阵旋转、拉伸和剪切。在此过程中，大多数箭头都会改变方向。但对某些矩阵，存在这样的方向：沿该方向的箭头仍然留在它所在的过原点的直线上，只是被拉伸、压缩或翻转（图 [17](#abb-17)）。
 
 :::abbildung ml/k2eigen 17
 矩阵 $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ 把单位圆（灰色）映射为一个椭圆（蓝色）。箭头 $\mathbf{v}_1=(1,1)^{\top}/\sqrt2$（红色）留在自己的直线上，被拉伸为原长的五倍；箭头 $\mathbf{v}_2=(1,-2)^{\top}/\sqrt5$（绿色）被拉伸为原长的两倍；它们的像用浅色画出。灰色直线是两个特征方向。相反，单位向量 $\mathbf{e}_1$ 被映射为 $(4,2)^{\top}$（虚线），方向发生了改变。
@@ -74,19 +75,19 @@ $$\mathbf{A}\begin{pmatrix}1\\1\end{pmatrix}=\begin{pmatrix}5\\5\end{pmatrix}=5\
 
 ⁠**简而言之：**特征向量不被矩阵旋转，只被乘以一个数；这个数就是特征值。
 
-:::hintergrund 你已经认识特征函数
-在信号与系统中，你已经见过同样的思想，只是对象是函数而不是向量。冲激响应为 $h(t)$ 的 LTI 系统，对复频率为 $p$（许多书中记作 $s$）的指数函数 $\mathrm e^{pt}$ 的响应为
+:::hintergrund 同样的思想用于无限长的序列：复利
+$100$ 欧元的存款余额在每年 $5$ % 的利息下增长为 $100$、$105$、$110.25$、… 欧元，一般地，$n$ 年后为 $a_n=100\cdot1.05^n$。规则“把每个值换成下一年的值”把序列 $(a_0,a_1,a_2,\dots)$ 变成序列 $(a_1,a_2,a_3,\dots)$。它是线性的：把两个序列之和平移，得到的是平移后序列之和，数乘也是如此。对这笔存款余额，它给出
 
-$$\int_{-\infty}^{\infty}h(\tau)\,\mathrm e^{p(t-\tau)}\,\mathrm{d}\tau=H(p)\,\mathrm e^{pt},\qquad H(p)=\int_{-\infty}^{\infty}h(\tau)\,\mathrm e^{-p\tau}\,\mathrm{d}\tau ,$$
+$$(105,\ 110.25,\ \dots)=1.05\cdot(100,\ 105,\ \dots) .$$
 
-这对所有使积分存在的 $p$ 成立。输入的形状保持不变，只多了一个数值因子：$\mathrm e^{pt}$ 是系统的特征函数，特征值是传递函数的值 $H(p)$。式 [(6.1)](#gl-6-1) 对矩阵说的是同一件事。LTI 系统是从信号到信号的线性映射，矩阵是从向量到向量的线性映射；在两种情况下，都存在只被乘以一个数的输入。
+序列的形状保持不变，只多了一个数值因子：序列 $a_n=100\cdot1.05^n$ 是平移的一个特征向量，特征值是利率因子 $1.05$。式 [(6.1)](#gl-6-1) 对矩阵说的是同一件事。除这类序列外，平移也没有别的特征向量：由对所有 $n$ 成立的 $a_{n+1}=\lambda\,a_n$ 可得 $a_n=a_0\,\lambda^n$。在两种情况下，无论是序列还是向量，都存在被线性规则只乘以一个数的对象。
 :::
 
 ### 特征多项式
 
 <span class="anker" id="stufe-6-3"></span>
 
-不靠猜测，怎样求特征值？把式 [(6.1)](#gl-6-1) 改写，使所有项都在一边：$\mathbf{A}\mathbf{v}-\lambda\mathbf{v}=\mathbf{0}$，即 $(\mathbf{A}-\lambda\mathbf{I})\mathbf{v}=\mathbf{0}$。我们要找这样的 $\lambda$，使这个齐次方程组有解 $\mathbf{v}\ne\mathbf{0}$。由[基础篇 1 第 11.5 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/einheitsmatrix-und-inverse.html#stufe-11-5)，这意味着：矩阵 $\mathbf{A}-\lambda\mathbf{I}$ 不可逆。由[基础篇 1 第 14.6 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-6)，这恰好在其行列式为零时成立。
+不靠猜测，怎样求特征值？把式 [(6.1)](#gl-6-1) 改写，使所有项都在一边：$\mathbf{A}\mathbf{v}-\lambda\mathbf{v}=\mathbf{0}$，即 $(\mathbf{A}-\lambda\mathbf{I})\mathbf{v}=\mathbf{0}$。我们要找这样的 $\lambda$，使这个齐次方程组有解 $\mathbf{v}\ne\mathbf{0}$。由[第 1 章第 11.5 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/einheitsmatrix-und-inverse.html#stufe-11-5)，这意味着：矩阵 $\mathbf{A}-\lambda\mathbf{I}$ 不可逆。由[第 1 章第 14.6 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-6)，这恰好在其行列式为零时成立。
 
 :::definition 定义 6.2 (特征多项式)
 <span class="anker" id="satz-6-2"></span>
@@ -205,7 +206,7 @@ $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ 的迹作�
 ⁠**简而言之：**实矩阵可以有复数特征值，它们总是成共轭对出现；旋转角为 $\alpha$ 的旋转的特征值为 $\mathrm e^{\pm\mathrm j\alpha}$。
 
 :::hintergrund 旋转就是乘以 $\mathrm e^{\mathrm j\alpha}$
-对电气工程师来说，这个结果并不陌生。像相量那样，把箭头 $(x_1,\,x_2)^{\top}$ 与复数 $z=x_1+\mathrm jx_2$ 等同起来。于是旋转 $\alpha$ 就是乘以 $\mathrm e^{\mathrm j\alpha}$：$\mathrm e^{\mathrm j\alpha}z=(x_1\cos\alpha-x_2\sin\alpha)+\mathrm j\,(x_1\sin\alpha+x_2\cos\alpha)$，这恰好是[基础篇 1 第 8.3 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-3)中旋转矩阵作用下 $\mathbf{Q}\mathbf{x}$ 的两个分量。因此，在复数写法中，旋转就是乘以一个数，而这个数正是一个特征值。第二个特征值 $\mathrm e^{-\mathrm j\alpha}$ 属于共轭写法 $z^*$，它按相反方向旋转。
+借助复数，可以直接看出这个结果。把箭头 $(x_1,\,x_2)^{\top}$ 与复数 $z=x_1+\mathrm jx_2$ 等同起来，也就是与复平面上的一个点等同起来。于是旋转 $\alpha$ 就是乘以 $\mathrm e^{\mathrm j\alpha}$：$\mathrm e^{\mathrm j\alpha}z=(x_1\cos\alpha-x_2\sin\alpha)+\mathrm j\,(x_1\sin\alpha+x_2\cos\alpha)$，这恰好是[第 1 章第 8.3 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-3)中旋转矩阵作用下 $\mathbf{Q}\mathbf{x}$ 的两个分量。因此，在复数写法中，旋转就是乘以一个数，而这个数正是一个特征值。第二个特征值 $\mathrm e^{-\mathrm j\alpha}$ 属于共轭写法 $z^*$，它按相反方向旋转。
 :::
 
 ### 多重特征值
@@ -221,7 +222,7 @@ $\mathbf{A}=\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ 的迹作�
 :::
 
 ::::beispiel [算例]
-矩阵 $2\mathbf{I}=\operatorname{diag}(2,\,2)$ 的特征多项式为 $p(\lambda)=(2-\lambda)^2$：特征值 $2$ 的代数重数为 $2$。[基础篇 1 第 8.3 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-3)中的剪切 $\bigl(\begin{smallmatrix}1&1\\0&1\end{smallmatrix}\bigr)$ 的特征多项式为 $p(\lambda)=(1-\lambda)^2$：特征值 $1$ 的代数重数也是 $2$。矩阵 $\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ 有两个不同的特征值，代数重数都是 $1$。
+矩阵 $2\mathbf{I}=\operatorname{diag}(2,\,2)$ 的特征多项式为 $p(\lambda)=(2-\lambda)^2$：特征值 $2$ 的代数重数为 $2$。[第 1 章第 8.3 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-3)中的剪切 $\bigl(\begin{smallmatrix}1&1\\0&1\end{smallmatrix}\bigr)$ 的特征多项式为 $p(\lambda)=(1-\lambda)^2$：特征值 $1$ 的代数重数也是 $2$。矩阵 $\bigl(\begin{smallmatrix}4&1\\2&3\end{smallmatrix}\bigr)$ 有两个不同的特征值，代数重数都是 $1$。
 ::::
 
 ⁠**简而言之：**代数重数计算一个特征值作为特征多项式的根出现了多少次。
@@ -297,7 +298,7 @@ $\mathbf{A}^{\top}$ 与 $\mathbf{A}$ 有相同的特征值，但一般有不同�
 :::
 
 :::beweis 运算规则
-(i) $\mathbf{A}^2\mathbf{v}=\mathbf{A}(\lambda\mathbf{v})=\lambda\mathbf{A}\mathbf{v}=\lambda^2\mathbf{v}$，依此类推。(ii) $(\mathbf{A}+\beta\mathbf{I})\mathbf{v}=\lambda\mathbf{v}+\beta\mathbf{v}$。(iii) 由式 [(6.5)](#gl-6-5)，$\det\mathbf{A}$ 是特征值之积，所以它不为零，当且仅当没有特征值为零。把 $\mathbf{A}\mathbf{v}=\lambda\mathbf{v}$ 乘以 $\mathbf{A}^{-1}$，得 $\mathbf{v}=\lambda\mathbf{A}^{-1}\mathbf{v}$。(iv) 由[基础篇 1 第 14.5 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5)，$\det(\mathbf{A}^{\top}-\lambda\mathbf{I})=\det\bigl((\mathbf{A}-\lambda\mathbf{I})^{\top}\bigr)=\det(\mathbf{A}-\lambda\mathbf{I})$；二者有相同的特征多项式。
+(i) $\mathbf{A}^2\mathbf{v}=\mathbf{A}(\lambda\mathbf{v})=\lambda\mathbf{A}\mathbf{v}=\lambda^2\mathbf{v}$，依此类推。(ii) $(\mathbf{A}+\beta\mathbf{I})\mathbf{v}=\lambda\mathbf{v}+\beta\mathbf{v}$。(iii) 由式 [(6.5)](#gl-6-5)，$\det\mathbf{A}$ 是特征值之积，所以它不为零，当且仅当没有特征值为零。把 $\mathbf{A}\mathbf{v}=\lambda\mathbf{v}$ 乘以 $\mathbf{A}^{-1}$，得 $\mathbf{v}=\lambda\mathbf{A}^{-1}\mathbf{v}$。(iv) 由[第 1 章第 14.5 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5)，$\det(\mathbf{A}^{\top}-\lambda\mathbf{I})=\det\bigl((\mathbf{A}-\lambda\mathbf{I})^{\top}\bigr)=\det(\mathbf{A}-\lambda\mathbf{I})$；二者有相同的特征多项式。
 :::
 
 ::::beispiel [算例]
@@ -330,7 +331,7 @@ $\mathbf{A}_3$：迹为 $2$，行列式为 $1-9=-8$，所以 $\lambda^2-2\lambda
 证明：上三角矩阵的特征值就是它的对角元素。求 $\Bigl(\begin{smallmatrix}2&1&0\\0&3&1\\0&0&5\end{smallmatrix}\Bigr)$ 的特征值和特征向量。
 
 :::loesung
-对于上三角矩阵，$\mathbf{A}-\lambda\mathbf{I}$ 仍是上三角矩阵，其对角元素为 $a_{ii}-\lambda$。由[基础篇 1 第 14.4 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-4)，它的行列式等于对角元素之积：$p(\lambda)=(a_{11}-\lambda)\cdots(a_{nn}-\lambda)$。它的根就是各对角元素。
+对于上三角矩阵，$\mathbf{A}-\lambda\mathbf{I}$ 仍是上三角矩阵，其对角元素为 $a_{ii}-\lambda$。由[第 1 章第 14.4 节](/wissen/zh/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-4)，它的行列式等于对角元素之积：$p(\lambda)=(a_{11}-\lambda)\cdots(a_{nn}-\lambda)$。它的根就是各对角元素。
 
 因此，给定矩阵的特征值为 $2$、$3$ 和 $5$。对于 $2$：$\mathbf{A}-2\mathbf{I}=\Bigl(\begin{smallmatrix}0&1&0\\0&1&1\\0&0&3\end{smallmatrix}\Bigr)$ 要求 $v_3=0$ 和 $v_2=0$，特征向量为 $(1,\,0,\,0)^{\top}$。对于 $3$：$\Bigl(\begin{smallmatrix}-1&1&0\\0&0&1\\0&0&2\end{smallmatrix}\Bigr)$ 要求 $v_3=0$ 和 $v_2=v_1$，特征向量为 $(1,\,1,\,0)^{\top}$。对于 $5$：$\Bigl(\begin{smallmatrix}-3&1&0\\0&-2&1\\0&0&0\end{smallmatrix}\Bigr)$ 要求 $v_2=3v_1$ 和 $v_3=2v_2$，特征向量为 $(1,\,3,\,6)^{\top}$。验算：$\mathbf{A}(1,\,3,\,6)^{\top}=(2+3,\ 9+6,\ 30)^{\top}=5\,(1,\,3,\,6)^{\top}$。
 :::

@@ -1,7 +1,9 @@
 ---
 title: Visión general: Números complejos
 kurz: Visión general
-pfad: Ingeniería eléctrica / 1.er semestre / Matemáticas superiores 1 / Números complejos
+pfad: Ingeniería eléctrica / 1.er semestre / HöMa1 – Matemáticas superiores 1 / Números complejos
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen
+knoten: Capítulo 2: Números complejos
 order: 1220100
 summary: Cómo un segundo eje hace resoluble $x^2=-1$ y qué se pierde por el camino
 tags: parte real, parte imaginaria

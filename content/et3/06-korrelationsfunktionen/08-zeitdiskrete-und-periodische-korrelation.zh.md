@@ -1,6 +1,8 @@
 ---
 title: 第 7 阶段：离散时间相关与周期相关
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / 相关函数
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / 相关函数
+adresse: elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen
+knoten: 第 6 章：相关函数
 order: 3260800
 summary: 对于样本值，积分变为求和。借助 DFT 可以快速计算相关。
 tags: 快速相关
@@ -29,7 +31,7 @@ $$\varphi^E_{ss}(m)\;\circ\!\!-\!\!\bullet\;|S_\mathrm a(f)|^2\ (\text{周期为
 $s=(1,2,1)$：当 $m=-2,\dots,2$ 时，$\varphi^E_{ss}=(1,4,6,4,1)$。最大值 $6=E_s$ 位于 $m=0$，偶对称，有五个值而不是三个。在 $f=0$ 处用维纳–辛钦定理验证：$|S_\mathrm a(0)|^2=(1+2+1)^2=16=\sum_m\varphi^E_{ss}(m)$。
 ::::
 
-**周期相关。** 与卷积的情形一样（[第 4 部分](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme/abtastung-und-zeitdiskrete-systeme.html)），对于周期为 $M$ 的序列有：
+**周期相关。** 与卷积的情形一样（[第 4 章](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme/abtastung-und-zeitdiskrete-systeme.html)），对于周期为 $M$ 的序列有：
 
 <span class="anker" id="gl-7-3"></span>
 $$\varphi^E_{sgd}(m)=\sum_{n=0}^{M-1}s_d^*(n)\,g_d(n+m)\;\circ\!\!-\!\!\bullet\;S_d^*(k)\,G_d(k). \tag{7.3}$$

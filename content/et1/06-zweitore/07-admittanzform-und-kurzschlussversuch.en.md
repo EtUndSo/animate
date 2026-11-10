@@ -1,6 +1,8 @@
 ---
 title: Stage 5: Admittance form and short-circuit test
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / Two-Port Networks
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / Two-Port Networks
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore
+knoten: Chapter 6: Two-Port Networks
 order: 1160700
 summary: The second choice: The voltages are the causes.
 tags: Y parameters, admittance, short-circuit input conductance, short-circuit output conductance, short-circuit transfer conductance, transconductance, input characteristic, transfer characteristic
@@ -58,7 +60,7 @@ Check with the operation from Stage [4](das-zweitor-im-betrieb.html#stufe-4): $
 **Characteristic curves.** The Y equations can also be drawn. The __input characteristic__ is $I_1=f_1(U_1)$ at fixed $U_2$, the __transfer characteristic__ $I_2=f_2(U_1)$ at fixed $U_2$, the __output characteristic__ $I_2=f_3(U_2)$ at fixed $U_1$. For a linear two-port they are straight lines (Fig. [7](#abb-7)): Their slope is a Y parameter, and the fixed value shifts them in parallel. Each value of the fixed parameter gives one line; together they form a family of curves.
 
 :::abbildung et1/k6kennlinien 7
-Characteristic curves of the T two-port. Left, input characteristic: slope $Y_{11}=40$ mS, each volt at $U_2$ shifts it by $Y_{12}\cdot1\,\mathrm{V}=-20$ mA. Center, transfer characteristic: slope $Y_{21}=-20$ mS. Right, output characteristic: slope $Y_{22}=35$ mS. For the transistor, these curves are bent ([Part 10](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor/der-bipolartransistor.html)).
+Characteristic curves of the T two-port. Left, input characteristic: slope $Y_{11}=40$ mS, each volt at $U_2$ shifts it by $Y_{12}\cdot1\,\mathrm{V}=-20$ mA. Center, transfer characteristic: slope $Y_{21}=-20$ mS. Right, output characteristic: slope $Y_{22}=35$ mS. For the transistor, these curves are bent ([Chapter 10](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor/der-bipolartransistor.html)).
 :::
 
 :::frage Why is $Y_{11}$ not $1/Z_{11}$? Both describe the input, after all.

@@ -1,6 +1,8 @@
 ---
 title: Stufe 3: Stern und Dreieck
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Quellen und Ersatzquellen
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Quellen und Ersatzquellen
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen
+knoten: Kapitel 5: Quellen und Ersatzquellen
 order: 1150500
 summary: Eine Brücke ohne Abgleich hat weder Gruppen noch Symmetrie.
 tags: Dreieck, Stern, Anlieger, Zweitoren, \pi-Schaltung, T-Schaltung, Dämpfungsglieder
@@ -53,7 +55,7 @@ $$R_\mathrm{AB}=4\,\Omega+(4\,\Omega+20\,\Omega)\parallel(8\,\Omega+16\,\Omega)=
 
 ⁠**Kontrolle** an den Klemmen 1, 2 bei offener Klemme 3: Der Stern hat $4+4=8\,\Omega$, das Dreieck $10\,\Omega\parallel40\,\Omega=8\,\Omega$. **Grenzfälle:** Drei gleiche Dreieckswiderstände ergeben einen Stern mit einem Drittel des Werts. Für $R_{12}\to0$ gehen $R_{10}$ und $R_{20}$ gegen null, und $R_{30}$ wird $R_{23}\parallel R_{31}$, genau das, was das kurzgeschlossene Dreieck ist.
 
-**$\pi$ und T.** Bei __Zweitoren__ ([Teil 6](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html)) zeichnet man Dreieck und Stern so, dass ein Eingang links und ein Ausgang rechts liegen. Das Dreieck heißt dann __$\pi$-Schaltung__, der Stern __T-Schaltung__. Formeln und Regeln bleiben. In der Nachrichtentechnik baut man so __Dämpfungsglieder__, die ein Signal um einen festen Faktor abschwächen und an beiden Klemmenpaaren denselben Eingangswiderstand zeigen (Leistungsanpassung, [Teil 7](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad/leistung-und-anpassung.html)). Auch Filter aus Spulen und Kondensatoren lassen sich wahlweise in der einen oder der anderen Form bauen.
+**$\pi$ und T.** Bei __Zweitoren__ ([Kapitel 6](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html)) zeichnet man Dreieck und Stern so, dass ein Eingang links und ein Ausgang rechts liegen. Das Dreieck heißt dann __$\pi$-Schaltung__, der Stern __T-Schaltung__. Formeln und Regeln bleiben. In der Nachrichtentechnik baut man so __Dämpfungsglieder__, die ein Signal um einen festen Faktor abschwächen und an beiden Klemmenpaaren denselben Eingangswiderstand zeigen (Leistungsanpassung, [Kapitel 7](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad/leistung-und-anpassung.html)). Auch Filter aus Spulen und Kondensatoren lassen sich wahlweise in der einen oder der anderen Form bauen.
 
 :::frage Welches Dreieck soll ich umwandeln?
 Jedes, nach dessen Umwandlung Gruppen entstehen. In einer Brücke geht auch das untere Dreieck oder sogar ein Stern, der in ein Dreieck verwandelt wird. Das Ergebnis ist immer dasselbe.

@@ -1,6 +1,8 @@
 ---
 title: Stufe 5: Vollständige Induktion, Summe und Produkt
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Mengen, Logik und reelle Zahlen
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Mengen, Logik und reelle Zahlen
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen
+knoten: Kapitel 1: Mengen, Logik und reelle Zahlen
 order: 1210700
 summary: Aussagen über alle ninmathbb N lassen sich nicht durch Probieren beweisen.
 tags: Induktionsanfang, Induktionsschritt, Induktionsvoraussetzung, Induktionsschluss
@@ -78,7 +80,7 @@ Potenzgesetze für $x,y\ne0$, $p,q\in\mathbb{Z}$: $x^px^q=x^{p+q}$, $(x^p)^q=x^{
 </ol>
 :::
 
-⁠**So liest man das:** (i) ist die Induktion über (A1), (A2), (M1), (M2). (ii) sagt „jeder mit jedem“, das ist (AM) wiederholt. Für $p,q\in\mathbb{N}$ ist (iii) Umnummerieren: $x^px^q=\prod_{i=1}^{p+q}x=x^{p+q}$. **Warum $x\ne0$:** $0^{-1}$ gibt es nicht, für $x=0$ sind nur Exponenten $n\ge0$ erlaubt, und $0^n=0$ für $n\ge1$. Für $x,y>0$ gelten die Gesetze auch mit rationalen Exponenten, etwa $x^{1/2}=\sqrt x$ ([Teil 5](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/exponentialfunktion-und-stetigkeit/exponentialfunktion-und-stetigkeit.html)).
+⁠**So liest man das:** (i) ist die Induktion über (A1), (A2), (M1), (M2). (ii) sagt „jeder mit jedem“, das ist (AM) wiederholt. Für $p,q\in\mathbb{N}$ ist (iii) Umnummerieren: $x^px^q=\prod_{i=1}^{p+q}x=x^{p+q}$. **Warum $x\ne0$:** $0^{-1}$ gibt es nicht, für $x=0$ sind nur Exponenten $n\ge0$ erlaubt, und $0^n=0$ für $n\ge1$. Für $x,y>0$ gelten die Gesetze auch mit rationalen Exponenten, etwa $x^{1/2}=\sqrt x$ ([Kapitel 5](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/exponentialfunktion-und-stetigkeit/exponentialfunktion-und-stetigkeit.html)).
 
 :::abbildung hm1/k1induktion 5
 Links ist jede Farbe ein Winkelstück. Rechts der Induktionsschritt: $n^2$ wächst um $2n+1$ Felder.

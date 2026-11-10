@@ -1,6 +1,8 @@
 ---
 title: Stufe 4: Warum die Bindung so schwach ist
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Eigenhalbleiter und Dotierung
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Eigenhalbleiter und Dotierung
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/eigenhalbleiter-und-dotierung
+knoten: Kapitel 11: Eigenhalbleiter und Dotierung
 order: 4210600
 summary: Ein freies Phosphoratom hält sein äußerstes Elektron mit rund 10 eV, im Kristall bleiben 45 meV.
 tags: 
@@ -29,7 +31,7 @@ $$\Delta E_\mathrm D\approx\frac{e^4m^*}{2\,(4\pi\varepsilon_\mathrm r\varepsilo
 :::
 
 :::herleitung Zwei Ersetzungen
-In [Teil 4](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/atome-und-orbitale/atome-und-orbitale.html) ist $|E_1|=m_0e^4/(8\varepsilon_0^2h^2)$. Das Potential unterscheidet sich nur durch $\varepsilon_0\to\varepsilon_\mathrm r\varepsilon_0$, die kinetische Energie durch $m_0\to m^*$. Also gilt dieselbe Rechnung mit diesen Ersetzungen, und mit $h=2\pi\hbar$ ist $8h^2=2(4\pi\hbar)^2$. Die Energie wächst mit der Masse und fällt mit $\varepsilon_\mathrm r^2$. Der Radius $r_1=4\pi\varepsilon_0\hbar^2/(m_0e^2)$ verhält sich umgekehrt zur Masse und wächst mit $\varepsilon_\mathrm r$.
+In [Kapitel 4](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/atome-und-orbitale/atome-und-orbitale.html) ist $|E_1|=m_0e^4/(8\varepsilon_0^2h^2)$. Das Potential unterscheidet sich nur durch $\varepsilon_0\to\varepsilon_\mathrm r\varepsilon_0$, die kinetische Energie durch $m_0\to m^*$. Also gilt dieselbe Rechnung mit diesen Ersetzungen, und mit $h=2\pi\hbar$ ist $8h^2=2(4\pi\hbar)^2$. Die Energie wächst mit der Masse und fällt mit $\varepsilon_\mathrm r^2$. Der Radius $r_1=4\pi\varepsilon_0\hbar^2/(m_0e^2)$ verhält sich umgekehrt zur Masse und wächst mit $\varepsilon_\mathrm r$.
 :::
 
 ⁠**So liest man das:** $\varepsilon_\mathrm r$ ist die relative Permittivität, $r_\mathrm D$ der Radius der Bahn um den Donator. Für Akzeptoren gilt dasselbe mit der Lochmasse: Das Loch umkreist die negative Ladung. **Gültigkeit:** Die Bahn muss groß gegen den Atomabstand sein, denn nur dann mittelt das Elektron über viele Atome, und $m^*$ und $\varepsilon_\mathrm r$ sind die richtigen Größen. Bei tiefen Störstellen ist das nicht der Fall, das Modell gilt dort nicht.
@@ -41,7 +43,7 @@ Mit $m_\mathrm l^*=0{,}19\,m_0$ und $\varepsilon_\mathrm r=11{,}7$ folgen $\Delt
 ⁠**Grenzfall:** Für $m^*=m_0$ und $\varepsilon_\mathrm r=1$ folgt wieder Wasserstoff.
 
 :::frage Warum zählt schon $E_\mathrm C$ als „frei“? Das Elektron ist doch noch im Kristall.
-Gebunden heißt im Modell: an einen Ort gefesselt. Im Leitungsband ist das Elektron eine laufende Welle durch den ganzen Kristall ([Teil 8](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/vom-atom-zum-band/vom-atom-zum-band.html)), es gehört keinem Rumpf mehr. Der Austritt aus dem Kristall spielt für die Dotierung keine Rolle.
+Gebunden heißt im Modell: an einen Ort gefesselt. Im Leitungsband ist das Elektron eine laufende Welle durch den ganzen Kristall ([Kapitel 8](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/vom-atom-zum-band/vom-atom-zum-band.html)), es gehört keinem Rumpf mehr. Der Austritt aus dem Kristall spielt für die Dotierung keine Rolle.
 :::
 
 :::aufgabe Aufgabe 5 ★★ GaAs als Wasserstoff

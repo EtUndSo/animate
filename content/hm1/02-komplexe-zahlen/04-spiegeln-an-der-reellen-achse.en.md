@@ -1,6 +1,8 @@
 ---
 title: Stage 3: Reflecting across the real axis
-pfad: Electrical Engineering / 1st Semester / Higher Mathematics 1 / Complex Numbers
+pfad: Electrical Engineering / 1st Semester / HöMa1 – Higher Mathematics 1 / Complex Numbers
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen
+knoten: Chapter 2: Complex Numbers
 order: 1220400
 summary: You cannot yet divide by x+iy .
 tags: 

@@ -1,6 +1,8 @@
 ---
 title: Stufe 9: Reihenschaltung und Spannungsteiler
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Strom, Widerstand und Kirchhoff
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Strom, Widerstand und Kirchhoff
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff
+knoten: Kapitel 2: Strom, Widerstand und Kirchhoff
 order: 1121000
 summary: Viele Netze setzen sich aus zwei Grundmustern zusammen.
 tags: Reihenschaltung, Gesamtwiderstand, unbelastet, Digital-Analog-Wandler, Bit, Puffer, Komparator, Decoder

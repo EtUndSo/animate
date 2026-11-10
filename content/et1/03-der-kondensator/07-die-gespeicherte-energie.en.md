@@ -1,6 +1,8 @@
 ---
 title: Stage 6: The stored energy
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / The Capacitor
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / The Capacitor
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator
+knoten: Chapter 3: The Capacitor
 order: 1130700
 summary: Charging costs energy, because every further charge has to run against the voltage already present.
 tags: energy density
@@ -13,7 +15,7 @@ lang: en
 Charging costs energy, because every further charge has to run against the voltage already present. This stage calculates how much it is and where the energy is afterward.
 :::
 
-**The idea.** Voltage is energy per charge ([Part 1](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)). Bringing the small charge $\Delta q$ from the negative to the positive plate costs $\Delta W=u\,\Delta q$. The first charges cost almost nothing, because there is no field yet. The last ones cost the full amount $U$ per coulomb. On average each charge pays $U/2$. This is the area under the line $u=q/C$ (Fig. [6](#abb-6) left).
+**The idea.** Voltage is energy per charge ([Chapter 1](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)). Bringing the small charge $\Delta q$ from the negative to the positive plate costs $\Delta W=u\,\Delta q$. The first charges cost almost nothing, because there is no field yet. The last ones cost the full amount $U$ per coulomb. On average each charge pays $U/2$. This is the area under the line $u=q/C$ (Fig. [6](#abb-6) left).
 
 :::satz Theorem 6.1 (Energy in the capacitor)
 <span class="anker" id="satz-6-1"></span>
@@ -34,9 +36,9 @@ Here $w$ is the __energy density__, the energy per volume.
 ⁠**How to read it:** $W$ in J, $C$ in F, $U$ in V, $w$ in J/m$^3$. The voltage enters squared: twice the voltage means twice the charge, and that runs against twice the voltage. $q$ is the charge during charging, $Q$ its final value. **Validity:** $C$ constant, no leakage current.
 
 :::herleitung Energy from force and distance
-The force on $\Delta q$ in the field is $F=\Delta q\,E$ ([Part 1](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)). Over the distance $\Delta s$ between the plates, this costs $\Delta W=F\,\Delta s=\Delta q\,E\,\Delta s$. With $E\,\Delta s=u$ it follows that $\Delta W=\Delta q\,u$, and with $u=q/C$, $\Delta W=\frac qC\,\Delta q$. For small $\Delta q$, the sum of all portions becomes the integral [(6.1)](#gl-6-1).
+The force on $\Delta q$ in the field is $F=\Delta q\,E$ ([Chapter 1](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)). Over the distance $\Delta s$ between the plates, this costs $\Delta W=F\,\Delta s=\Delta q\,E\,\Delta s$. With $E\,\Delta s=u$ it follows that $\Delta W=\Delta q\,u$, and with $u=q/C$, $\Delta W=\frac qC\,\Delta q$. For small $\Delta q$, the sum of all portions becomes the integral [(6.1)](#gl-6-1).
 
-The circuit side gives the same result. The power (energy per time) is $p=u\,i$ ([Part 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)). With $i=C\,\mathrm{d} u/\mathrm{d} t$, $W=\int u\,i\,\mathrm{d} t=C\int_0^Uu\,\mathrm{d} u=\frac12CU^2$.
+The circuit side gives the same result. The power (energy per time) is $p=u\,i$ ([Chapter 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)). With $i=C\,\mathrm{d} u/\mathrm{d} t$, $W=\int u\,i\,\mathrm{d} t=C\int_0^Uu\,\mathrm{d} u=\frac12CU^2$.
 
 ⁠**From the component to the field:** Substituting $C=\varepsilon A/d$ and $U=E\,d$ in [(6.1)](#gl-6-1) gives [(6.2)](#gl-6-2).
 :::

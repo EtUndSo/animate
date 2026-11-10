@@ -1,6 +1,8 @@
 ---
 title: Das Wichtigste
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Komplexe Zahlen
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Komplexe Zahlen
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen
+knoten: Kapitel 2: Komplexe Zahlen
 order: 1220800
 summary: Wie eine zweite Achse $x^2=-1$ lösbar macht und was dabei verloren geht
 tags: komplexe Zahl, imaginäre Einheit, komplexe Ebene, Körper, konjugiert komplexe Zahl, Betrag, Dreiecksungleichung

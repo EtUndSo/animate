@@ -1,6 +1,8 @@
 ---
 title: Stufe 6: Mehrere Eingänge, mehrere Stufen
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Der Operationsverstärker
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Der Operationsverstärker
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker
+knoten: Kapitel 11: Der Operationsverstärker
 order: 1210800
 summary: Die Regel galt für einen Eingang und einen OPV.
 tags: Addierer, Subtrahierer
@@ -13,7 +15,7 @@ lang: de
 Die Regel galt für einen Eingang und einen OPV. Diese Stufe zeigt, dass sie mehrere Eingänge und ganze Ketten ohne neue Idee behandelt, weil alle Gleichungen linear bleiben.
 :::
 
-**Die Idee.** Im __Addierer__ führen mehrere Widerstände auf den Minus-Eingang (Abb. [8](#abb-8)). Der Knoten bleibt auf 0 V, jede Quelle sieht also nur ihren eigenen Widerstand und treibt $U_{\mathrm{E}i}/R_{\mathrm{E}i}$, unabhängig von den anderen. Die virtuelle Masse entkoppelt die Quellen. Alle Ströme zusammen fließen durch $R_\mathrm{F}$, den Widerstand der Rückführung. Im __Subtrahierer__ kommt eine Spannung an jeden Eingang. Hier hilft die Überlagerung aus [Teil 5](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html): Man rechnet jede Quelle für sich, die andere wird zum Draht.
+**Die Idee.** Im __Addierer__ führen mehrere Widerstände auf den Minus-Eingang (Abb. [8](#abb-8)). Der Knoten bleibt auf 0 V, jede Quelle sieht also nur ihren eigenen Widerstand und treibt $U_{\mathrm{E}i}/R_{\mathrm{E}i}$, unabhängig von den anderen. Die virtuelle Masse entkoppelt die Quellen. Alle Ströme zusammen fließen durch $R_\mathrm{F}$, den Widerstand der Rückführung. Im __Subtrahierer__ kommt eine Spannung an jeden Eingang. Hier hilft die Überlagerung aus [Kapitel 5](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html): Man rechnet jede Quelle für sich, die andere wird zum Draht.
 
 :::satz Satz 6.1 (Addierer, Subtrahierer, Kette)
 <span class="anker" id="satz-6-1"></span>
@@ -45,7 +47,7 @@ Links der Addierer: Die Ströme der drei Quellen treffen sich am Knoten und flie
 
 **Vorgehen bei größeren Schaltungen.** Zuerst die Potenziale der Eingänge bestimmen, dann Stufe für Stufe von links nach rechts rechnen. In einer Kette ist jeder Ausgang der Eingang der nächsten Stufe, ein Potenzial mit festem Wert.
 
-:::frage In Teil 6 belasteten sich Zweitore in einer Kette gegenseitig. Warum darf ich hier multiplizieren?
+:::frage In Kapitel 6 belasteten sich Zweitore in einer Kette gegenseitig. Warum darf ich hier multiplizieren?
 Weil der Ausgangswiderstand der ersten Stufe fast null ist. Die 10 k$\Omega$ der zweiten Stufe belasten 3,75 m$\Omega$, der Spannungsverlust ist $4\cdot10^{-7}$ des Werts. Die Schleife der ersten Stufe gleicht ihn aus.
 :::
 

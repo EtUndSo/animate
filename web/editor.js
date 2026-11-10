@@ -49,9 +49,10 @@ const RESULT_CATALOG = {
   ],
 };
 const WEB_PY = ["canvas_painter.py", "editor_backend.py"];
-// Engine/Python files are fetched fresh each load (unique URL) so a cached .py can never go
-// stale against a newer editor.js — the "expected 3, got 2" class of bug cannot recur.
-const BUILD = Date.now();
+// Engine/Python files are REVALIDATED every load (fetchText: cache "no-cache" -> 304 when unchanged), so a cached
+// .py can never go stale against a newer editor.js — the "expected 3, got 2" class of bug cannot recur — while an
+// unchanged file is not downloaded again. All of them are fetched in parallel while Python loads (boot).
+const PYODIDE_URL = "https://cdn.jsdelivr.net/pyodide/v0.27.2/full/";
 
 // Palette + each type's editable properties (input type inferred from the default value).
 // Fill shapes start with fill_color == color (outline), so after creation the two match; the
@@ -93,7 +94,8 @@ const CATALOG = {
     CurveFamily:   { func:"sin(k*x)/k", param:"k", p_min:1, p_max:5, count:5, values:"", labels:"", x_min:-6, x_max:6, samples:120, fade:true, show_limit:false, limit_func:"", font_size:24, color:"#59a0eb", stroke_width:3, dash:"" },
     // Parametric curve (x(t),y(t)): polyline + orientation arrowhead. point_at="t" adds a running dot;
     // show_tangent/show_normal add vectors there. For circles, ellipses, Lissajous, spirals, paths.
-    ParametricCurve: { fx:"cos(t)", fy:"sin(t)", t_min:0, t_max:6.283185, samples:160, show_arrow:true, arrow_at:"", point_at:"", show_tangent:false, show_normal:false, color:"#59a0eb", stroke_width:4, dash:"" },
+    // head_size: length of each direction mark in scene units (smaller for short paths).
+    ParametricCurve: { fx:"cos(t)", fy:"sin(t)", t_min:0, t_max:6.283185, samples:160, show_arrow:true, arrow_at:"", head_size:0.22, point_at:"", show_tangent:false, show_normal:false, color:"#59a0eb", stroke_width:4, dash:"" },
     // Polar curve r(theta) -> (r·cosθ, r·sinθ). For cardioids, roses, spirals. var `theta` (alias t).
     PolarCurve:    { func:"1+cos(theta)", theta_min:0, theta_max:6.283185, samples:200, show_arrow:true, color:"#59a0eb", stroke_width:4, dash:"" },
     // Curve from a pasted table of numbers (one "x y" pair per line, or "x,y;x,y;…"): the article's
@@ -140,7 +142,9 @@ const CATALOG = {
   },
   "Allgemein · Text & LaTeX": {
     // Every label understands formula shorthand: U_{GS}, I_D, 10^{-16}, \alpha, \Omega, \mu, \cdot, line break \\.
-    Text:   { text:"Text", position:[0,0,0], font_size:40, align:"center", color:"#111111" },
+    // font: sans | mono (typewriter on fixed cells: terminal lines, code; columns and runs of spaces hold, no decimal
+    // comma). raw: the text literally (_ ^ \ $ { } are ordinary characters, a new line breaks the line).
+    Text:   { text:"Text", position:[0,0,0], font_size:40, align:"center", font:"sans", raw:false, color:"#111111" },
     MathTex:{ tex:"\\frac{a}{b}", height:1.2, position:[0,0,0], color:"#111111" },   // real LaTeX via MathJax -> VMobjects
     // Text in a box (block diagrams, chains of effect, callouts). shape: rect | round | diamond | ellipse;
     // width/height 0 = fit the text. Several lines with \\.
@@ -310,11 +314,14 @@ const SHAPE_TYPES = ["Circle", "Rectangle", "Square", "Triangle", "Polygon"];
 // result); max_width > 0 wraps long rows at that width (world units; 0 = one row across the whole frame).
 const COMPUTATIONS = {
   "Eigenständig · Reihen (Σ ∏ uᵀv)": {   // no operands; over an index i, from i=start to i=end (number or symbolic 'n')
+    // index: the running index of the number mode (one letter, not e; the term uses it: "3/2^(4k+1)" with index k).
+    // exact: rational terms are computed with whole numbers, fractions of any denominator stay fractions (3/131072);
+    // without it a fraction with a denominator above 10000 shows as a decimal.
     "Summation  (Σ)": { type:"Summation", kind:"summation",
-      props:{ sum_mode:"number", term:"1/i^2", from:1, to:"n", show_terms:3, all_steps:true, max_width:0, run_time:5, size:1.4, position:[0,0,0],
+      props:{ sum_mode:"number", term:"1/i^2", index:"i", exact:false, from:1, to:"n", show_terms:3, all_steps:true, max_width:0, run_time:5, size:1.4, position:[0,0,0],
               color:"#111111", var_color:"#ff7f0e", value_color:"#2ca02c", end_color:"#9467bd", pulse_color:"#66b3ff", bound_color:"#d62728" } },
     "Product  (∏)": { type:"BigProduct", kind:"product",
-      props:{ sum_mode:"number", term:"i", from:1, to:"n", show_terms:3, all_steps:true, max_width:0, run_time:5, size:1.4, position:[0,0,0],
+      props:{ sum_mode:"number", term:"i", index:"i", exact:false, from:1, to:"n", show_terms:3, all_steps:true, max_width:0, run_time:5, size:1.4, position:[0,0,0],
               color:"#111111", var_color:"#ff7f0e", value_color:"#2ca02c", end_color:"#9467bd", pulse_color:"#66b3ff", bound_color:"#d62728" } },
     // uᵀv = Σ_j u_j v_j of two typed-in number lists of equal length; u_name/v_name = bold vector names, index =
     // running index, upper = upper limit shown under/over the Σ ("" = the length, or e.g. "d").
@@ -507,12 +514,39 @@ function syncGL(res){
 }
 // Animations, grouped by KIND OF MOTION (appear/disappear vs. move).
 const ANIM_GROUPS = {
-  "Erscheinen": ["Create", "FadeIn", "Write", "GrowFromCenter"],
-  "Bewegen":    ["Shift", "MoveTo", "Rotate", "Scale"],
-  "Betonen":    ["Indicate"],
+  "Erscheinen":   ["Create", "FadeIn", "Write", "GrowFromCenter"],
+  "Verschwinden": ["FadeOut"],
+  "Bewegen":      ["Shift", "MoveTo", "Rotate", "Scale"],
+  "Umformen":     ["Transform", "ReplacementTransform", "TransformMatchingTex"],
+  "Betonen":      ["Indicate"],
 };
+const MORPH_TYPES = new Set(["Transform", "ReplacementTransform", "TransformMatchingTex"]);   // need a second object `to`
+// Steps: same step = together, ascending = one after another. An animation may carry its own `step` (scenes written
+// with tools/szenen_lib.py); without it each animation follows the previous one (sequential) or all share step 0
+// (parallel). tools/export_szenen.py mirrors this (anim_steps).
+function animSteps(list, mode){
+  let prev=-1;
+  return list.map(a=>{ if(mode==="parallel") return 0; prev = Number.isInteger(a.step) ? a.step : prev+1; return prev; });
+}
+function animArgs(a){
+  const args = a.type==="Shift"  ? { vector:a.vector }
+       : a.type==="MoveTo" ? { point:a.point }
+       : a.type==="Rotate" ? { angle:(a.angle||0)*Math.PI/180 }   // store degrees, send radians
+       : a.type==="Scale"  ? { factor:a.factor }
+       : MORPH_TYPES.has(a.type) ? { to:a.to||"" }
+       : {};
+  if((a.type==="Rotate" || a.type==="Scale") && Array.isArray(a.around)) args.around=a.around;
+  if(a.type==="Indicate") for(const k of ["cell","row","col"]) if(a[k]!=null) args[k]=a[k];
+  if(a.type==="FadeIn" && a.lines) args.lines=true;                // a formula row by row (szenen_lib formel(zeilenweise=True))
+  if(a.type==="MoveAlongPath" && a.path) args.path=a.path;          // id of the curve to run along
+  return args;
+}
 const ANIM_TYPES = Object.values(ANIM_GROUPS).flat();     // flat list (used where grouping isn't needed)
-const model = { objects: [], animations: [], computations: [], background: { color:"#ffffff", transparent:false, shadows:true, axes_on_top:false }, selectedId: null, selectedComp: null, playMode: "sequential", angleUnit: "rad", domain: "real", camera: { mode:"2d", theta:0.6, phi:1.0, zoom:1.0 }, export: { ...EXPORT_DEFAULTS } };
+// drawOrder: which object lies on top. "creation" = the order of the object list (what was added later is on top),
+// also for objects that appear by an animation; "appearance" = an object with an appearance animation goes on top
+// of everything visible when it appears (the behaviour before 10.11.2026; scenes saved without the key keep it).
+// A new scene (fresh editor, template) uses "creation".
+const model = { objects: [], animations: [], computations: [], background: { color:"#ffffff", transparent:false, shadows:true, axes_on_top:false }, selectedId: null, selectedComp: null, playMode: "sequential", drawOrder: "creation", angleUnit: "rad", domain: "real", camera: { mode:"2d", theta:0.6, phi:1.0, zoom:1.0 }, export: { ...EXPORT_DEFAULTS } };
 let nextId = 1, nextAnimId = 1, nextCompId = 1;
 let clipboard = null;                 // last copied object spec {type, props}, for paste/duplicate
 let orbitFn = null;                   // fast 3D re-aim (set after Pyodide boot)
@@ -544,14 +578,10 @@ function toPythonModel(){
   const bg = model.background.transparent ? null : hexToRgb(model.background.color);
   // Global play mode: "parallel" -> all animations share one step (run together);
   // "sequential" -> each its own step (run one after another, in list order).
-  const animations = model.animations.filter(a=>a.visible!==false).map((a,i)=>({   // eye-hidden -> skipped
-    type:a.type, target:a.target, run_time:a.run_time,
-    step: model.playMode==="parallel" ? 0 : i,
-    args: a.type==="Shift"  ? { vector:a.vector }
-        : a.type==="MoveTo" ? { point:a.point }
-        : a.type==="Rotate" ? { angle:(a.angle||0)*Math.PI/180 }   // store degrees, send radians
-        : a.type==="Scale"  ? { factor:a.factor }
-        : {},
+  const shown = model.animations.filter(a=>a.visible!==false);                     // eye-hidden -> skipped
+  const steps = animSteps(shown, model.playMode);
+  const animations = shown.map((a,i)=>({
+    type:a.type, target:a.target, run_time:a.run_time, step: steps[i], args: animArgs(a),
   }));
   const computations = model.computations.map(c=>{
     const def = COMP_DEFS[c.type];
@@ -574,6 +604,7 @@ function toPythonModel(){
   injectTexGlyphs(objects);                   // MathTex: resolve `tex` -> glyph data (async, cached)
   return { objects, animations, computations, background: bg, shadows: !!model.background.shadows,
            axes_on_top: model.background.axes_on_top === true,
+           draw_order: model.drawOrder === "creation" ? "creation" : "appearance",   // which object lies on top
            angle_unit: model.angleUnit, domain: model.domain, camera: model.camera,
            export: model.export,                     // article-figure export: crop mode, margin, scale, frame
            lang: model.lang, strings: model.strings, // labels via @key, number format of the language
@@ -1073,6 +1104,8 @@ function loadTemplate(tpl){
   model.background = Object.assign({ color:"#ffffff", transparent:false, shadows:true, axes_on_top:false }, model.background||{});
   migrateModel();                                   // backfill props the template spec omits (grid_color, …)
   if(tpl.playMode) model.playMode = tpl.playMode;
+  model.drawOrder = tpl.drawOrder || "creation";    // a template starts a new scene: the object list sets the layers
+  { const d=$("draw-order"); if(d) d.value=model.drawOrder; }
   model.camera = tpl.camera ? structuredClone(tpl.camera) : { mode:"2d", theta:0.6, phi:1.0 };
   const vm = $("view-mode"); if(vm) vm.value = model.camera.mode;      // sync the 2D/3D toggle
   model.selectedId = model.objects.length ? model.objects[0].id : null;
@@ -1086,6 +1119,7 @@ function addAnimation(type){
   else if(type==="MoveTo") a.point=[0,0,0];
   else if(type==="Rotate") a.angle=90;          // degrees
   else if(type==="Scale") a.factor=1.5;
+  else if(MORPH_TYPES.has(type)) a.to="";        // pick the shape to morph into in the properties
   model.animations.push(a);
   renderProps(); renderSceneAnims(); renderPreview();
 }
@@ -1207,7 +1241,7 @@ const LS_KEY = "animate.scene.v1";
 function sceneData(){
   return { v:1, counters:{ nextId, nextAnimId, nextCompId },
     model:{ objects:model.objects, animations:model.animations, computations:model.computations,
-            background:model.background, playMode:model.playMode, angleUnit:model.angleUnit, domain:model.domain, camera:model.camera,
+            background:model.background, playMode:model.playMode, drawOrder:model.drawOrder, angleUnit:model.angleUnit, domain:model.domain, camera:model.camera,
             export:model.export, lang:model.lang, strings:model.strings } };
 }
 function applyScene(data){
@@ -1217,6 +1251,7 @@ function applyScene(data){
   model.computations = m.computations || [];
   model.background = Object.assign({ color:"#ffffff", transparent:false, shadows:true, axes_on_top:false }, m.background || {});
   model.playMode = m.playMode || "sequential";
+  model.drawOrder = m.drawOrder === "creation" ? "creation" : "appearance";   // saved without the key: as before
   model.angleUnit = m.angleUnit || "rad";
   model.domain = m.domain || "real";
   model.camera = m.camera || { mode:"2d", theta:0.6, phi:1.0 };
@@ -1229,7 +1264,7 @@ function applyScene(data){
   const cc = data && data.counters;
   if(cc){ nextId=Math.max(nextId, cc.nextId||1); nextAnimId=Math.max(nextAnimId, cc.nextAnimId||1); nextCompId=Math.max(nextCompId, cc.nextCompId||1); }
   const set=(id,v)=>{ const e=$(id); if(e) e.value=v; };
-  set("play-mode",model.playMode); set("angle-unit",model.angleUnit); set("scene-lang",model.lang); set("domain-mode",model.domain); set("view-mode",model.camera.mode);
+  set("play-mode",model.playMode); set("draw-order",model.drawOrder); set("angle-unit",model.angleUnit); set("scene-lang",model.lang); set("domain-mode",model.domain); set("view-mode",model.camera.mode);
   renderSceneObjs(); renderComputations(); renderProps(); renderPreview();
 }
 function saveScene(){
@@ -1546,7 +1581,7 @@ function renderSceneAnims(){
     row.ondrop=(e)=>{ e.preventDefault(); row.classList.remove("drop-target"); const from=parseInt(e.dataTransfer.getData("text/plain"),10); if(!isNaN(from)&&from!==idx) reorderAnimation(from, idx); };
     const left=document.createElement("span"); left.className="label";
     const grip=document.createElement("span"); grip.textContent="⠿"; grip.style.cssText="cursor:grab;color:var(--muted);margin-right:6px"; left.appendChild(grip);
-    const nm=document.createElement("span"); nm.className="nm"; nm.textContent = a.type + " · " + (o?displayName(o):"(deleted)");
+    const nm=document.createElement("span"); nm.className="nm"; nm.textContent = a.type==="Wait" ? "Pause" : a.type + " · " + (o?displayName(o):"(deleted)");
     if(a.visible===false) nm.style.opacity="0.45";
     left.appendChild(nm);
     if(a.run_time!=null){ const t=document.createElement("span"); t.className="hint"; t.style.marginLeft="6px"; t.textContent=a.run_time+"s"; left.appendChild(t); }
@@ -1578,6 +1613,7 @@ const ENUMS = {
   "LabeledArrow.elbow":    ["none", "hv", "vh"],
   "VectorField.preset":    ["custom", "radial", "source", "sink", "vortex", "uniform"],
   "Text.align":            ["center", "left", "right"],
+  "Text.font":             ["sans", "mono"],
   "TextBox.shape":         ["rect", "round", "diamond", "ellipse"],
   "Band.label_at":         ["top", "center", "bottom"],
   "PointCloud.distribution": ["uniform", "exp_y", "exp_x"],
@@ -2190,6 +2226,23 @@ function renderAnimations(container, o){
       const vl=document.createElement("label"); vl.textContent="factor"; vr.appendChild(vl);
       vr.appendChild(numberInput(a.factor!=null?a.factor:1.5, (x)=>{ a.factor=x; renderPreview(); }));
       wrap.appendChild(vr);
+    } else if(MORPH_TYPES.has(a.type)){              // L2: the object whose shape the target takes (never drawn itself)
+      const vr=document.createElement("div"); vr.className="prop";
+      const vl=document.createElement("label"); vl.textContent="to"; vr.appendChild(vl);
+      const sel=document.createElement("select");
+      const none=document.createElement("option"); none.value=""; none.textContent="—"; sel.appendChild(none);
+      for(const x of model.objects){ if(x.id===o.id) continue;
+        const op=document.createElement("option"); op.value=x.id; op.textContent=displayName(x)+" ("+x.id+")"; sel.appendChild(op); }
+      sel.value=a.to||""; sel.onchange=()=>{ a.to=sel.value; renderPreview(); };
+      vr.appendChild(sel); wrap.appendChild(vr);
+    } else if(a.type==="Indicate" && o.type==="Table"){   // L9: one cell, row or column (empty = whole table)
+      for(const key of ["row","col"]){
+        const vr=document.createElement("div"); vr.className="prop";
+        const vl=document.createElement("label"); vl.textContent=key; vr.appendChild(vl);
+        const inp=document.createElement("input"); inp.type="number"; inp.step="1"; inp.min="0"; inp.placeholder="—";
+        inp.value=(a[key]!=null)?a[key]:""; inp.onchange=()=>{ a[key]=inp.value===""?null:parseInt(inp.value,10); renderPreview(); };
+        vr.appendChild(inp); wrap.appendChild(vr);
+      }
     }
   }
   const adder=document.createElement("div"); adder.style="margin-top:6px";
@@ -2210,15 +2263,22 @@ function renderAnimations(container, o){
 // of a longer name (sin, pi, min keep their i) EXCEPT right after '_' , so an index like a_i IS hit
 // (a_i -> a_1). The '_' is deliberately absent from the lookbehind set for exactly this reason.
 function _substI(src, rep){ return String(src).replace(/(?<![A-Za-z0-9])i(?![A-Za-z0-9_])/g, rep); }
+// The same for another running index v (one letter, props.index of Σ / ∏): k in "3/2^(4k+1)".
+function _substVar(src, v, rep){
+  if(v==="i") return _substI(src, rep);
+  return String(src).replace(new RegExp("(?<![A-Za-z0-9])"+v+"(?![A-Za-z0-9_])","g"), rep);
+}
+// props.index of Σ / ∏: one Latin letter except e (Euler's number); anything else is i.
+function _sumVar(p){ const v=String((p&&p.index)||"i").trim(); return /^[A-DF-Za-df-z]$/.test(v) ? v : "i"; }
 
 // Known function / constant names (everything else that is alphabetic is a FREE symbol, e.g. the a in
 // 1/a_i). A term with a free symbol can't yield a number - we then keep the substituted expression and
 // never print a (meaningless) numeric value or total.
 const _SUM_KNOWN=new Set(["i","pi","e","E","PI","sin","cos","tan","asin","acos","atan","atan2","exp",
   "log","ln","sqrt","abs","sinh","cosh","tanh","floor","ceil","round","sign","max","min","pow"]);
-function _termHasFreeSymbol(term){
+function _termHasFreeSymbol(term, v="i"){
   const ids=String(term||"").match(/[A-Za-z_][A-Za-z_0-9]*/g)||[];
-  return ids.some(id=> !_SUM_KNOWN.has(id));
+  return ids.some(id=> id!==v && (id==="i" || !_SUM_KNOWN.has(id)));
 }
 
 function exprToLatex(src){                 // our expression syntax -> LaTeX ( / -> \frac, ^ -> ^{}, * -> \cdot )
@@ -2250,7 +2310,7 @@ const _JS_FUNCS = { sin:Math.sin, cos:Math.cos, tan:Math.tan, asin:Math.asin, ac
   arcsin:Math.asin, arccos:Math.acos, arctan:Math.atan, sinh:Math.sinh, cosh:Math.cosh, tanh:Math.tanh,
   exp:Math.exp, log:Math.log, ln:Math.log, log10:Math.log10, log2:Math.log2, sqrt:Math.sqrt, abs:Math.abs,
   sign:Math.sign, floor:Math.floor, ceil:Math.ceil, round:Math.round, min:Math.min, max:Math.max, pow:Math.pow };
-function evalExprJS(src){
+function evalExprJS(src, v="i"){              // v = the running index (Σ / ∏ props.index)
   const s=String(src||"0"); let p=0;
   const peek=()=>{ while(p<s.length && /\s/.test(s[p])) p++; return s[p]; };
   const startsAtom=c=> c!==undefined && (c==="(" || /[0-9.A-Za-z_]/.test(c));
@@ -2279,7 +2339,7 @@ function evalExprJS(src){
       if(peek()!==")") for(;;){ args.push(expr()); if(peek()===","){ p++; continue; } break; }
       if(peek()!==")") throw new Error("')' expected"); p++;
       const f=_JS_FUNCS[nm]; return i=>f(...args.map(g=>g(i))); }
-    if(nm==="i") return i=>i;
+    if(nm===v) return i=>i;
     if(nm==="pi") return ()=>Math.PI;
     if(nm==="e") return ()=>Math.E;
     throw new Error("unknown name "+nm); }
@@ -2304,6 +2364,66 @@ function _approxFrac(x, maxDen=10000, tol=1e-9){
   // irrationals (sqrt2, pi, ...) fall through to a decimal instead of an ugly near-fraction.
   return (k1>0 && Math.abs(h1/k1 - x) < tol) ? [sign*h1, k1] : null;
 }
+// Exact rational evaluation of a term (props.exact of Σ / ∏): the same syntax as evalExprJS, computed with whole
+// numbers (BigInt fractions [p, q], q > 0, reduced), so 3/2^(4k+1) gives exactly 3/131072. Returns i => [p, q], or
+// null for that i when the term is not rational there (pi, e, sqrt, sin, a non-integer power, division by 0, ...);
+// the caller then falls back to the decimal evaluation.
+function _exactTermJS(src, v="i"){
+  const s=String(src||"0"); let p=0;
+  const B=BigInt, ZERO=B(0), ONE=B(1);
+  const absB=x=> x<ZERO ? -x : x;
+  const gcd=(a,b)=>{ a=absB(a); b=absB(b); while(b){ const t=a%b; a=b; b=t; } return a; };
+  const Q=(a,b)=>{ if(b===ZERO) return null; if(b<ZERO){ a=-a; b=-b; } const g=gcd(a,b)||ONE; return [a/g, b/g]; };
+  const add=(x,y)=> x&&y ? Q(x[0]*y[1]+y[0]*x[1], x[1]*y[1]) : null;
+  const sub=(x,y)=> x&&y ? Q(x[0]*y[1]-y[0]*x[1], x[1]*y[1]) : null;
+  const mul=(x,y)=> x&&y ? Q(x[0]*y[0], x[1]*y[1]) : null;
+  const div=(x,y)=> x&&y ? Q(x[0]*y[1], x[1]*y[0]) : null;
+  const trunc=x=> x[0]/x[1];                                   // BigInt division truncates toward zero
+  const floorQ=x=>{ const t=trunc(x); return [(x[0]<ZERO && t*x[1]!==x[0]) ? t-ONE : t, ONE]; };
+  const powQ=(x,y)=>{ if(!x||!y||y[1]!==ONE) return null; let e=y[0]; if(absB(e)>B(4096)) return null;
+    const neg=e<ZERO; if(neg) e=-e; const r=[x[0]**e, x[1]**e]; return neg ? Q(r[1], r[0]) : r; };
+  const cmp=(x,y)=> (x[0]*y[1]>y[0]*x[1]) ? 1 : (x[0]*y[1]<y[0]*x[1] ? -1 : 0);
+  const F={ abs:a=>a[0]<ZERO?[-a[0],a[1]]:a, floor:floorQ, ceil:a=>{ const f=floorQ([-a[0],a[1]]); return [-f[0],ONE]; },
+    round:a=>floorQ(add(a,[ONE,B(2)])), sign:a=>[a[0]>ZERO?ONE:(a[0]<ZERO?-ONE:ZERO),ONE],
+    min:(...a)=>a.reduce((m,x)=>cmp(x,m)<0?x:m), max:(...a)=>a.reduce((m,x)=>cmp(x,m)>0?x:m), pow:powQ };
+  const lit=t=>{ const m=/^([0-9]*)(?:\.([0-9]*))?(?:[eE]([-+]?[0-9]+))?$/.exec(t); if(!m) return null;
+    const fr=m[2]||"", ex=parseInt(m[3]||"0",10); let num=B((m[1]||"0")+fr), den=B(10)**B(fr.length);
+    if(ex>=0) num*=B(10)**B(ex); else den*=B(10)**B(-ex); return Q(num,den); };
+  const peek=()=>{ while(p<s.length && /\s/.test(s[p])) p++; return s[p]; };
+  const startsAtom=c=> c!==undefined && (c==="(" || /[0-9.A-Za-z_]/.test(c));
+  const lift=(f)=>(...g)=>i=>{ const a=g.map(h=>h(i)); return a.some(x=>!x) ? null : f(...a); };
+  function expr(){ let l=term(); for(;;){ const c=peek(); if(c!=="+" && c!=="-") return l;
+      p++; const r=term(); l=lift(c==="+"?add:sub)(l,r); } }
+  function term(){ let l=unary(); for(;;){ const c=peek();
+      if(c==="*" && s[p+1]!=="*"){ p++; l=lift(mul)(l,unary()); }
+      else if(c==="/"){ p++; l=lift(div)(l,unary()); }
+      else if(c==="%"){ p++; l=lift((a,b)=>{ const q=div(a,b); return q ? sub(a, mul(b,[trunc(q),ONE])) : null; })(l,unary()); }
+      else if(startsAtom(c)){ l=lift(mul)(l,power()); }
+      else return l; } }
+  function unary(){ const c=peek(); if(c==="-"){ p++; const a=unary(); return i=>{ const x=a(i); return x?[-x[0],x[1]]:null; }; }
+    if(c==="+"){ p++; return unary(); } return power(); }
+  function power(){ const b=atom(), c=peek();
+    if(c==="^" || (c==="*" && s[p+1]==="*")){ p+=(c==="^"?1:2); return lift(powQ)(b,unary()); }
+    return b; }
+  function atom(){ const c=peek();
+    if(c==="("){ p++; const e=expr(); if(peek()!==")") throw new Error("')' expected"); p++; return e; }
+    let m=/^(?:[0-9]+\.?[0-9]*|\.[0-9]+)(?:[eE][-+]?[0-9]+)?/.exec(s.slice(p));
+    if(m){ p+=m[0].length; const x=lit(m[0]); return ()=>x; }
+    m=/^[A-Za-z_][A-Za-z0-9_]*/.exec(s.slice(p));
+    if(!m) throw new Error("unexpected "+c);
+    p+=m[0].length; const nm=m[0];
+    if(peek()==="(" && Object.prototype.hasOwnProperty.call(_JS_FUNCS,nm)){
+      p++; const args=[];
+      if(peek()!==")") for(;;){ args.push(expr()); if(peek()===","){ p++; continue; } break; }
+      if(peek()!==")") throw new Error("')' expected"); p++;
+      const f=F[nm]; if(!f) return ()=>null;                        // sin, sqrt, exp, ...: not rational
+      return lift(f)(...args); }
+    if(nm===v) return i=>[B(i),ONE];
+    return ()=>null; }                                              // pi, e, free symbols: not rational
+  let fn; try { fn=expr(); if(peek()!==undefined) throw new Error("trailing input"); } catch(e){ return ()=>null; }
+  return (i)=>{ if(!Number.isInteger(i)) return null; try{ return fn(i); }catch(e){ return null; } };
+}
+function _fmtExact(r){ return r[1]===BigInt(1) ? String(r[0]) : (r[0]<BigInt(0)?"-":"")+"\\frac{"+String(r[0]<BigInt(0)?-r[0]:r[0])+"}{"+String(r[1])+"}"; }
 // Numbers in the formulas follow the scene language like the labels (engine/text.py COMMA_LANGS): 0.5 -> 0{,}5.
 function _locDec(s, lang){ return (lang==="de" || lang==="es" || lang==="fr" || lang==="tr") ? String(s).replace(/\./g, "{,}") : String(s); }
 function _fmtNum(v, lang){
@@ -2315,11 +2435,45 @@ function _fmtNum(v, lang){
 function _decStr(v, lang){ return isFinite(v) ? _locDec(String(+v.toPrecision(6)), lang) : "?"; }   // decimal form of the total
 // A typed LaTeX formula (MathTex) gets the same decimal sign: 0.5 -> 0{,}5 in de/es/fr/tr. Lengths such as
 // \hspace{0.5em} keep their point (TeX needs it), and so does code in \texttt{…} / \mathtt{…} (Python 4.0 stays 4.0).
+// Code is also set as in TeX, in every language (_ttFix): \mathtt{einkauf.txt} without the gap MathJax puts after
+// the point, ' and ` in \texttt straight as in a terminal (MathJax's typewriter font has only curly quotes there).
 function localizeTex(tex, lang){
-  const s=String(tex==null?"":tex);
-  if(_locDec("1.5", lang)==="1.5") return s;
-  return s.split(/(\\(?:texttt|mathtt)\{[^{}]*\})/).map((teil, i) => i % 2 ? teil :
-    teil.replace(/(\d)\.(\d+)(?!\d)(?!\s*(?:em|ex|pt|cm|mm|in|mu|px|pc|bp|dd|cc|sp)\b)/g, "$1{,}$2")).join("");
+  const dec=_locDec("1.5", lang)!=="1.5";
+  // Only a number with ONE decimal point (3.14 -> 3{,}14); a chain of several (IP address 10.0.2.15, version 1.2.3)
+  // stays as written, as do lengths (0.5em) and code (\texttt, \mathtt, also with braces or \$ \{ \} inside).
+  return _ttSegments(String(tex==null?"":tex)).map(g => g.kind ? _ttFix(g.kind, g.inner) : (!dec ? g.s :
+    g.s.replace(/(?<![\d.])(\d+)\.(\d+)(?!\d)(?!\.\d)(?!\s*(?:em|ex|pt|cm|mm|in|mu|px|pc|bp|dd|cc|sp)\b)/g, "$1{,}$2"))).join("");
+}
+// The text split into plain pieces {s} and code groups {kind:"texttt"|"mathtt", inner} (balanced braces, \{ \} \\ \$
+// inside are escapes). An unclosed group stays plain text.
+function _ttSegments(s){
+  const out=[]; let last=0; const re=/\\(texttt|mathtt)\s*\{/g; let m;
+  while((m=re.exec(s))){
+    let i=re.lastIndex, depth=1;
+    while(i<s.length && depth>0){ const c=s[i]; if(c==="\\"){ i+=2; continue; } if(c==="{") depth++; else if(c==="}") depth--; i++; }
+    if(depth>0) break;
+    if(m.index>last) out.push({ s:s.slice(last, m.index) });
+    out.push({ kind:m[1], inner:s.slice(re.lastIndex, i-1) });
+    last=i; re.lastIndex=i;
+  }
+  if(last<s.length) out.push({ s:s.slice(last) });
+  return out;
+}
+// Straight ' (a vertical stroke) and ` (the grave accent) on the 0.525 em typewriter cell, for \texttt.
+const _TT_QUOTE = "\\kern0.2275em\\rule[0.36em]{0.07em}{0.26em}\\kern0.2275em";
+const _TT_GRAVE = "\\kern0.0125em\\unicode{x60}\\kern0.0125em";
+function _ttFix(kind, inner){
+  if(kind==="mathtt") return "\\mathtt{"+inner.replace(/(?<!\\)\./g, "{.}")+"}";   // a.b: '.' is ordinary, no gap
+  if(!/(?<!\\)['`]/.test(inner)) return "\\texttt{"+inner+"}";
+  const parts=[]; let buf="";
+  for(let i=0;i<inner.length;i++){
+    const c=inner[i];
+    if(c==="\\"){ buf+=inner.slice(i, i+2); i++; continue; }
+    if(c==="'" || c==="`"){ if(buf) parts.push("\\texttt{"+buf+"}"); buf=""; parts.push(c==="'" ? _TT_QUOTE : _TT_GRAVE); continue; }
+    buf+=c;
+  }
+  if(buf) parts.push("\\texttt{"+buf+"}");
+  return "{"+parts.join("")+"}";
 }
 function _isProperFrac(v){ const f=_approxFrac(v); return !!(f && f[1]!==1); }   // true -> show "fraction = decimal"
 
@@ -2362,16 +2516,27 @@ function _sumTerms(c, lang){
   const p=c.props||{}, a=parseInt(p.from)||0, endRaw=String(p.to==null?"n":p.to).trim();
   const endNum=/^-?\d+$/.test(endRaw)?parseInt(endRaw):null;
   const B=endNum===null?(endRaw||"n"):String(endNum), k=Math.min(5,Math.max(1,parseInt(p.show_terms)||3)), term=p.term||"";
-  const O=_seriesOps(c), symTerm=_termHasFreeSymbol(term), ev=evalExprJS(term);
+  const V=_sumVar(p);                               // running index (props.index, default i)
+  const O=_seriesOps(c), symTerm=_termHasFreeSymbol(term, V), ev=evalExprJS(term, V);
+  // props.exact: rational terms exactly (BigInt fractions), any denominator; null where the term is not rational
+  const ex=p.exact ? _exactTermJS(term, V) : null;
+  const fmt=(i)=>{ const r=ex ? ex(i) : null; return r ? _fmtExact(r) : _fmtNum(ev(i), lang); };
   const par=_topSum(term) ? (lx=>"\\left("+lx+"\\right)") : (lx=>lx), Lt=par(exprToLatex(term));
   const terms=_seriesEntries(a, endNum, B, k).map(e=> e.t==="ell" ? { ell:true } : {
-    abstract:Lt, subst:par(exprToLatex(_substI(term, e.t==="sym" ? "("+e.lab+")" : String(e.i)))),
-    value:(e.t==="sym" || symTerm) ? null : _fmtNum(ev(e.i), lang) });
+    abstract:Lt, subst:par(exprToLatex(_substVar(term, V, e.t==="sym" ? "("+e.lab+")" : String(e.i)))),
+    value:(e.t==="sym" || symTerm) ? null : fmt(e.i) });
   let total=null;
-  if(endNum!==null && !symTerm){ let tot=O.init; for(let i=a;i<=endNum;i++){ const v=ev(i); if(isFinite(v)) tot=O.reduce(tot,v); }
-    total=[_fmtNum(tot, lang)].concat(_isProperFrac(tot) ? [_decStr(tot, lang)] : []); }   // fraction, then = decimal
+  if(endNum!==null && !symTerm){
+    let rt=ex ? (c.type==="BigProduct" ? [BigInt(1),BigInt(1)] : [BigInt(0),BigInt(1)]) : null;
+    if(rt) for(let i=a;i<=endNum && rt;i++){ const r=ex(i);           // exact total, if every term is rational
+      if(!r){ rt=null; break; }
+      const n=c.type==="BigProduct" ? [rt[0]*r[0], rt[1]*r[1]] : [rt[0]*r[1]+r[0]*rt[1], rt[1]*r[1]];
+      let g=n[0]<BigInt(0)?-n[0]:n[0], h=n[1]; while(h){ const t=g%h; g=h; h=t; } g=g||BigInt(1); rt=[n[0]/g, n[1]/g]; }
+    if(rt) total=[_fmtExact(rt)].concat(rt[1]!==BigInt(1) ? [_decStr(Number(rt[0])/Number(rt[1]), lang)] : []);
+    else { let tot=O.init; for(let i=a;i<=endNum;i++){ const v=ev(i); if(isFinite(v)) tot=O.reduce(tot,v); }
+      total=[_fmtNum(tot, lang)].concat(_isProperFrac(tot) ? [_decStr(tot, lang)] : []); } }   // fraction, then = decimal
   // no \color in the LaTeX (MathJax-reliable); the engine colours the pieces
-  return { O, head:O.opHead+"_{i="+a+"}^{"+B+"} "+Lt, var:"i", terms, total };
+  return { O, head:O.opHead+"_{"+V+"="+a+"}^{"+B+"} "+Lt, var:V, terms, total };
 }
 
 // Scalar product: the typed-in lists u, v ("3, 10, -4"; with ';' between the numbers a comma is the decimal
@@ -2578,7 +2743,19 @@ function _tex2glyphs(latex){            // one MathJax render -> glyph list (syn
   const rectD = (el)=>{ const x=+el.getAttribute("x")||0,y=+el.getAttribute("y")||0,w=+el.getAttribute("width")||0,h=+el.getAttribute("height")||0;
     return (w>0&&h>0) ? `M${x} ${y} h${w} v${h} h${-w} Z` : null; };
   const cells = Array.from(svg.querySelectorAll('[data-mml-node="mtd"]'));
-  const push = (o, el)=>{ const td=el.closest('[data-mml-node="mtd"]'); if(td) o.cell=cells.indexOf(td); glyphs.push(o); };
+  // \color / \textcolor: MathJax puts fill="<colour>" on a group; such a glyph keeps its colour (col, 0..1), all others
+  // take the colour of the MathTex. Inside an error (merror) nothing is taken: its background rect was a black bar.
+  const colOf = (el)=>{
+    for(let a=el.parentElement; a && a!==svg; a=a.parentElement){
+      const f=a.getAttribute("fill");
+      if(f && f!=="currentColor"){ const m=/rgba?\((\d+),\s*(\d+),\s*(\d+)/.exec(getComputedStyle(el).fill||"");
+        return m ? [+m[1]/255, +m[2]/255, +m[3]/255] : null; }
+    }
+    return null; };
+  const push = (o, el)=>{ if(el.closest('[data-mml-node="merror"]')) return;
+    const td=el.closest('[data-mml-node="mtd"]'); if(td) o.cell=cells.indexOf(td);
+    const col=colOf(el); if(col) o.col=col.map(x=>Math.round(x*1e4)/1e4);
+    glyphs.push(o); };
   try {
     // element -> <svg> user units (MathJax font units), independent of the ex size the page font gives the <svg>
     const root = svg.getScreenCTM(), inv = root ? root.inverse() : null;
@@ -2612,6 +2789,9 @@ function _tex2glyphs(latex){            // one MathJax render -> glyph list (syn
 async function texToGlyphs(latex){
   if(!window.MathJax || !MathJax.tex2svg) return [];
   try { await MathJax.startup.promise; } catch(e){}
+  // \textcolor{#c82828}{…}: in TeX '#' is the macro parameter character (MathJax stops with an error) -> RGB model
+  latex = String(latex || "").replace(/\\(textcolor|color)\s*\{\s*#([0-9a-fA-F]{6})\s*\}/g, (m, c, h)=>
+    "\\"+c+"[RGB]{"+[0,2,4].map(i=>parseInt(h.slice(i,i+2),16)).join(",")+"}");
   // the async render loads extensions MathJax only fetches on first use (\boldsymbol, \cancel, …); the
   // synchronous tex2svg below would print such a macro's name instead
   try { if(MathJax.tex2svgPromise) await MathJax.tex2svgPromise(String(latex || ""), {display:true}); } catch(e){}
@@ -2640,22 +2820,32 @@ function injectTexGlyphs(specs){              // turn each MathTex spec's `tex` 
   }
 }
 
-async function fetchText(p){ const r=await fetch(p); if(!r.ok) throw new Error(`fetch ${p} (${r.status})`); return r.text(); }
+async function fetchText(p){ const r=await fetch(p, {cache:"no-cache"}); if(!r.ok) throw new Error(`fetch ${p} (${r.status})`); return r.text(); }
+const _sleep = (ms)=>new Promise(r=>setTimeout(r, ms));
+// let the browser paint (new overlay step) before a long synchronous Python call; never stalls in a hidden tab
+const _nextPaint = ()=>Promise.race([new Promise(r=>requestAnimationFrame(()=>setTimeout(r, 0))), _sleep(60)]);
 
+// Start-up. editor.html already started Python (Pyodide + NumPy) and shows the loading overlay (window.editorBoot).
+// While Python downloads/boots, the engine sources are fetched in parallel and the scene is loaded, so its object
+// list is visible early; once Python is ready the engine is imported and the first frame rendered, then the overlay goes.
 async function boot(){
+  const B = window.editorBoot || { pyodide:null, step(){}, done(){}, fail(){} };
   buildPalette(); buildTemplates(); buildCompPalette(); renderSceneObjs(); renderComputations(); renderProps();
   setStatus("Loading Pyodide …");
-  const pyodide = await loadPyodide({ indexURL:"https://cdn.jsdelivr.net/pyodide/v0.27.2/full/" });
-  setStatus("Loading numpy …"); await pyodide.loadPackage("numpy");
-  setStatus("Loading engine …");
+  const srcP = Promise.all([...ENGINE_FILES.map(f=>fetchText(`engine/${f}`)), ...WEB_PY.map(f=>fetchText(`py/${f}`))]);
+  srcP.catch(()=>{});                                // awaited below; avoids an early "unhandled rejection"
+  await restoreScene();                              // needs no Python: object list + properties show right away
+  const pyodide = await (B.pyodide || loadPyodide({ indexURL:PYODIDE_URL, packages:["numpy"] }));
+  B.step("engine"); setStatus("Loading engine …"); await _nextPaint();
+  const src = await srcP;
   pyodide.FS.mkdir("engine");
-  for(const f of ENGINE_FILES) pyodide.FS.writeFile(`engine/${f}`, await fetchText(`engine/${f}?v=${BUILD}`));
-  for(const f of WEB_PY) pyodide.FS.writeFile(f, await fetchText(`py/${f}?v=${BUILD}`));
+  ENGINE_FILES.forEach((f,i)=>pyodide.FS.writeFile(`engine/${f}`, src[i]));
+  WEB_PY.forEach((f,i)=>pyodide.FS.writeFile(f, src[ENGINE_FILES.length+i]));
   const canvas=$("view");
   pyodide.globals.set("js_ctx", canvas.getContext("2d"));
   pyodide.globals.set("js_w", canvas.width);
   pyodide.globals.set("js_h", canvas.height);
-  await pyodide.runPythonAsync(await fetchText(`py/editor_backend.py?v=${BUILD}`));
+  await pyodide.runPythonAsync(src[ENGINE_FILES.length + WEB_PY.indexOf("editor_backend.py")]);
   renderModel = pyodide.globals.get("render_model");
   pickFn = pyodide.globals.get("pick");
   preparePlay = pyodide.globals.get("prepare_play");
@@ -2768,6 +2958,17 @@ async function boot(){
   };
   initViewCube(); initCamGizmo();
   setStatus("Ready ✓ — add an element on the left, or click in the view.");
+  B.step("scene"); await _nextPaint();
+  // MathJax loads async (editor.html): the tex-glyphs block caches an EMPTY glyph list if it is asked before
+  // MathJax is there, so the first render waits for it (normally long done; at most 20 s, then render anyway).
+  if(window.mathjaxLoaded) await Promise.race([window.mathjaxLoaded, _sleep(20000)]);
+  syncThemeBg(); clearTimeout(_timer); _doRender();  // first frame now (no 70 ms debounce)
+  B.done();
+}
+
+// Which scene the editor opens with; runs while Python is still loading (applyScene/loadTemplate need no Python,
+// their renderPreview() is a no-op until the engine is ready).
+async function restoreScene(){
   let restored=false;                  // ?scene=<url> (article links) > autosaved scene > start example
   // A link may only open scenes shipped with the site: a relative path below szenen/ ending in .json
   // (no other host, no "..", no query). The linked scene autosaves under its own key, so opening a
@@ -2786,7 +2987,7 @@ async function boot(){
   }
   if(!restored) try{ const raw=localStorage.getItem(LS_KEY); if(raw){ const data=JSON.parse(raw); if(data && data.model && (data.model.objects||[]).length){ applyScene(data); restored=true; } } }catch(e){}
   if(!restored) loadTemplate(START_EXAMPLE);        // greet with a 3D surface (not an empty editor)
-  syncThemeBg(); renderPreview();                   // canvas bg follows the theme: grey by night, white by day
+  syncThemeBg();                                    // canvas bg follows the theme: grey by night, white by day
 }
 
 $("reset-btn").onclick = () => resetPlay();
@@ -2801,6 +3002,10 @@ $("load-input").onchange = (e) => { if(e.target.files[0]) loadSceneFile(e.target
 
 $("play-mode").value = model.playMode;
 $("play-mode").onchange = (e) => { model.playMode = e.target.value; if(playing) stopPlay(); };
+if($("draw-order")){
+  $("draw-order").value = model.drawOrder;
+  $("draw-order").onchange = (e) => { model.drawOrder = e.target.value; stopPlay(); renderPreview(); };
+}
 
 $("angle-unit").value = model.angleUnit;
 $("angle-unit").onchange = (e) => { model.angleUnit = e.target.value; stopPlay(); renderPreview(); };
@@ -2981,4 +3186,4 @@ function repaintBg(){
   };
 })();
 
-boot().catch(e=>{ console.error(e); setStatus("Fehler: " + e.message); });
+boot().catch(e=>{ console.error(e); setStatus("Fehler: " + e.message); if(window.editorBoot) window.editorBoot.fail(e); });

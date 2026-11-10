@@ -1,6 +1,8 @@
 ---
 title: 第 9 阶段：用切线代替曲线
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 双极型晶体管
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 双极型晶体管
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor
+knoten: 第 10 章：双极型晶体管
 order: 1201100
 summary: 放大器围绕放大区中的一个固定点工作。在那里，小变化看到的不是指数函数，而是一条直线。本阶段读出它的斜率，并把它们画成等效电路。
 tags: 小信号, 偏导数, 输入电阻, 输出电阻, 厄利电压, 扩展等效电路, 小信号等效电路
@@ -13,7 +15,7 @@ lang: zh
 放大器围绕放大区中的一个固定点工作。在那里，小变化看到的不是指数函数，而是一条直线。本阶段读出它的斜率，并把它们画成等效电路。
 :::
 
-**基本思路。** 第 [4](drei-bereiche-drei-ersatzschaltbilder.html#stufe-4) 阶段的线性模型有两个缺陷。它把 BE 通路当作固定电压，所以输入电阻为零。它又把输出特性曲线当作水平线，所以电导为零。实际上这两个斜率都是有限的。对于工作点附近的小变化，只需采用在二极管（[第 9 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)）中用过的切线：第 [3](eine-flache-viele-kennlinien.html#stufe-3) 阶段的地形在那里变成一个平的斜面，每个方向有一个斜率。
+**基本思路。** 第 [4](drei-bereiche-drei-ersatzschaltbilder.html#stufe-4) 阶段的线性模型有两个缺陷。它把 BE 通路当作固定电压，所以输入电阻为零。它又把输出特性曲线当作水平线，所以电导为零。实际上这两个斜率都是有限的。对于工作点附近的小变化，只需采用在二极管（[第 9 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)）中用过的切线：第 [3](eine-flache-viele-kennlinien.html#stufe-3) 阶段的地形在那里变成一个平的斜面，每个方向有一个斜率。
 
 这种分解写成：总量等于直流分量加变化量，$u_\mathrm{BE}(t)=U_\mathrm{BE}+u_\mathrm{be}(t)$，$i_\mathrm{C}(t)=I_\mathrm{C}+i_\mathrm{c}(t)$。带小写下标的小写字母称为__小信号__。符号 $\partial$ 表示__偏导数__：固定其他变量，对一个变量求导，也就是一个截面的斜率。
 
@@ -47,7 +49,7 @@ $$i_\mathrm{b}=\frac{u_\mathrm{be}}{r_\mathrm{BE}},\qquad i_\mathrm{c}=S\,u_\mat
 
 **多小才算小？** 精确地说，$i_\mathrm{c}=I_\mathrm{C}(\mathrm{e}^{u_\mathrm{be}/U_T}-1)$，切线给出的是 $I_\mathrm{C}u_\mathrm{be}/U_T$。当 $u_\mathrm{be}=+1$ mV 时误差为 2 %，当 $+5$ mV 时误差为 10 %（$+424$ µ A 而不是 $+385$ µ A），而当 $-5$ mV 时只有 $-350$ µ A。正半波大于负半波，信号发生失真。在 26 mV 时切线已不可用。
 
-**从模型到等效电路。** 切线变成元件（图 [11](#abb-11)）。__扩展等效电路__包含直流分量。输入端是电源 $U_0$ 与 $r_\mathrm{BE}$ 串联。其中 $U_0=U_\mathrm{BE}-U_T=0.574$ V 是输入特性曲线的切线与坐标轴的交点。输出端是受控电流源 $I$ 与 $r_\mathrm{CE}$ 并联。它在点 A 输出 $I=1.85$ mA，其余 0.15 mA 流过 $r_\mathrm{CE}$。去掉直流分量，就得到__小信号等效电路__。这时恒定电源消失：恒定电压变成导线，$U_\mathrm{CC}$ 也是如此（叠加，[第 5 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)）。转换规则是：如果一个电流取决于它自身这对接线端上的电压，它就是电阻。如果它取决于别处的电压，它就是受控源，这里是电压控制电流源（VCCS，[第 6 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html)）。用二端口网络来表示，这就是 Y 参数 $Y_{11}=1/r_\mathrm{BE}$，$Y_{12}=0$，$Y_{21}=S$，$Y_{22}=G_\mathrm{CE}$。
+**从模型到等效电路。** 切线变成元件（图 [11](#abb-11)）。__扩展等效电路__包含直流分量。输入端是电源 $U_0$ 与 $r_\mathrm{BE}$ 串联。其中 $U_0=U_\mathrm{BE}-U_T=0.574$ V 是输入特性曲线的切线与坐标轴的交点。输出端是受控电流源 $I$ 与 $r_\mathrm{CE}$ 并联。它在点 A 输出 $I=1.85$ mA，其余 0.15 mA 流过 $r_\mathrm{CE}$。去掉直流分量，就得到__小信号等效电路__。这时恒定电源消失：恒定电压变成导线，$U_\mathrm{CC}$ 也是如此（叠加，[第 5 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)）。转换规则是：如果一个电流取决于它自身这对接线端上的电压，它就是电阻。如果它取决于别处的电压，它就是受控源，这里是电压控制电流源（VCCS，[第 6 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html)）。用二端口网络来表示，这就是 Y 参数 $Y_{11}=1/r_\mathrm{BE}$，$Y_{12}=0$，$Y_{21}=S$，$Y_{22}=G_\mathrm{CE}$。
 
 :::abbildung et1/k10kleinsignal 11
 左：导通状态下用于直流量的扩展等效电路。右：小信号等效电路：常量消失了，只剩下斜率。电源 $S\,u_\mathrm{be}$ 是沿 $U_\mathrm{BE}$ 方向的切线，$r_\mathrm{CE}$ 是沿 $U_\mathrm{CE}$ 方向的切线。

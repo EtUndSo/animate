@@ -1,6 +1,8 @@
 ---
 title: 第 10 阶段：放电与时间常数
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 电容器
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 电容器
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator
+knoten: 第 3 章：电容器
 order: 1131100
 summary: 已充电的电容器通过电阻把电荷放回。这是同一个方程，只是初始值不同。由此得到适用于 RC 电路中每个开关过程的规则。
 tags: 

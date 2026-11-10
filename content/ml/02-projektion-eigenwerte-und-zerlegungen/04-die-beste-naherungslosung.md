@@ -1,7 +1,8 @@
 ---
 title: Die beste Näherungslösung
 pfad: Informatik / Machine Learning / Mathematische Grundlagen / Projektion, Eigenwerte und Zerlegungen
-knoten: Grundlagen 2: Projektion, Eigenwerte und Zerlegungen
+adresse: informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen
+knoten: Kapitel 2: Projektion, Eigenwerte und Zerlegungen
 nachschlagen: ja
 order: 15220400
 summary: Ein Gleichungssystem mit mehr Gleichungen als Unbekannten hat meist keine Lösung.
@@ -19,7 +20,7 @@ Ein Gleichungssystem mit mehr Gleichungen als Unbekannten hat meist keine Lösun
 
 <span class="anker" id="stufe-3-1"></span>
 
-In [Grundlagen 1, Abschnitt 12.5](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-gleichungssysteme.html#stufe-12-5), sollten zwei Gewichte $w_1$ für die Fläche und $w_2$ für die Zimmerzahl die Preise von Wohnungen genau treffen. Mit allen vier Wohnungen ist das das System $\mathbf{A}\mathbf{w}=\mathbf{y}$ mit
+In [Kapitel 1, Abschnitt 12.5](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-gleichungssysteme.html#stufe-12-5), sollten zwei Gewichte $w_1$ für die Fläche und $w_2$ für die Zimmerzahl die Preise von Wohnungen genau treffen. Mit allen vier Wohnungen ist das das System $\mathbf{A}\mathbf{w}=\mathbf{y}$ mit
 
 $$\mathbf{A}=\begin{pmatrix}60&2\\40&1\\90&4\\70&3\end{pmatrix},\qquad \mathbf{y}=\begin{pmatrix}200\\130\\290\\240\end{pmatrix}\ \text{Tausend Euro}.$$
 
@@ -36,10 +37,10 @@ $$\mathbf{r}=\mathbf{y}-\mathbf{A}\mathbf{x} \tag{3.1}$$
 das __Residuum__ zu $\mathbf{x}$.
 :::
 
-Das Wort kommt vom lateinischen Wort für „Rest“. Das Residuum ist genau dann null, wenn $\mathbf{x}$ das System löst. Es ist der Fehlervektor aus [Grundlagen 1, Abschnitt 3.5](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/normen-die-groe-eines-vektors.html#stufe-3-5), mit umgekehrtem Vorzeichen; seine Länge ist dieselbe.
+Das Wort kommt vom lateinischen Wort für „Rest“. Das Residuum ist genau dann null, wenn $\mathbf{x}$ das System löst. Es ist der Fehlervektor aus [Kapitel 1, Abschnitt 3.5](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/normen-die-groe-eines-vektors.html#stufe-3-5), mit umgekehrtem Vorzeichen; seine Länge ist dieselbe.
 
 ::::beispiel [Rechenbeispiel]
-Mit den Gewichten $\mathbf{w}=(3,\,10)^{\top}$ aus [Grundlagen 1](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html) ist das Produkt $\mathbf{A}\mathbf{w}=(200,\,130,\,310,\,240)^{\top}$ und das Residuum $\mathbf{r}=\mathbf{y}-\mathbf{A}\mathbf{w}=(0,\,0,\,-20,\,0)^{\top}$ mit der Länge $20$. Drei Preise werden genau getroffen, einer um $20$ Tausend Euro verfehlt.
+Mit den Gewichten $\mathbf{w}=(3,\,10)^{\top}$ aus [Kapitel 1](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html) ist das Produkt $\mathbf{A}\mathbf{w}=(200,\,130,\,310,\,240)^{\top}$ und das Residuum $\mathbf{r}=\mathbf{y}-\mathbf{A}\mathbf{w}=(0,\,0,\,-20,\,0)^{\top}$ mit der Länge $20$. Drei Preise werden genau getroffen, einer um $20$ Tausend Euro verfehlt.
 ::::
 
 ⁠**Kurz gesagt:** Das Residuum $\mathbf{r}=\mathbf{y}-\mathbf{A}\mathbf{x}$ ist der Rest, den ein Vektor $\mathbf{x}$ beim Lösen von $\mathbf{A}\mathbf{x}=\mathbf{y}$ übrig lässt.
@@ -50,7 +51,7 @@ Mit den Gewichten $\mathbf{w}=(3,\,10)^{\top}$ aus [Grundlagen 1](/wissen/infor
 
 Wenn das Residuum nicht null werden kann, soll es wenigstens so klein wie möglich sein. Das Maß dafür ist seine euklidische Länge.
 
-Man kann sich die Aufgabe geometrisch vorstellen. Lässt man $\mathbf{x}$ alle Vektoren durchlaufen, so durchläuft $\mathbf{A}\mathbf{x}$ nach [Grundlagen 1, Abschnitt 7.4](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrix-vektor-produkt.html#stufe-7-4), den Spaltenraum von $\mathbf{A}$. Der Abstand $\lVert\mathbf{y}-\mathbf{A}\mathbf{x}\rVert$ ist der Abstand des Punkts $\mathbf{y}$ vom Punkt $\mathbf{A}\mathbf{x}$ im Spaltenraum. Gesucht ist also der Punkt des Spaltenraums, der $\mathbf{y}$ am nächsten liegt (Abb. [6](#abb-6)). Im vorigen Abschnitt war der Spaltenraum eine Gerade, jetzt kann er eine Ebene oder ein Spann höherer Dimension sein.
+Man kann sich die Aufgabe geometrisch vorstellen. Lässt man $\mathbf{x}$ alle Vektoren durchlaufen, so durchläuft $\mathbf{A}\mathbf{x}$ nach [Kapitel 1, Abschnitt 7.4](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrix-vektor-produkt.html#stufe-7-4), den Spaltenraum von $\mathbf{A}$. Der Abstand $\lVert\mathbf{y}-\mathbf{A}\mathbf{x}\rVert$ ist der Abstand des Punkts $\mathbf{y}$ vom Punkt $\mathbf{A}\mathbf{x}$ im Spaltenraum. Gesucht ist also der Punkt des Spaltenraums, der $\mathbf{y}$ am nächsten liegt (Abb. [6](#abb-6)). Im vorigen Abschnitt war der Spaltenraum eine Gerade, jetzt kann er eine Ebene oder ein Spann höherer Dimension sein.
 
 :::definition Definition 3.2 (Beste Näherungslösung)
 <span class="anker" id="satz-3-2"></span>
@@ -68,7 +69,7 @@ Projektion auf eine Ebene im $\mathbb{R}^3$. Die Spalten $\mathbf{a}_1=(1,0,1)^{
 :::
 
 ::::beispiel [Rechenbeispiel]
-Die Matrix $\mathbf{H}$ aus [Grundlagen 1, Abschnitt 7.4](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrix-vektor-produkt.html#stufe-7-4), hat die Spalten $\mathbf{a}_1=(1,\,0,\,1)^{\top}$ und $\mathbf{a}_2=(0,\,1,\,1)^{\top}$. Ihr Spaltenraum ist die Ebene aller Vektoren, deren dritte Komponente die Summe der ersten beiden ist. Der Vektor $\mathbf{y}=(1,\,1,\,1)^{\top}$ liegt nicht darin, das System $\mathbf{H}\mathbf{x}=\mathbf{y}$ hat also keine Lösung. Mit $\mathbf{x}=(1,\,0)^{\top}$ ist das Residuum $(0,\,1,\,0)^{\top}$ mit der Länge $1$, mit $\mathbf{x}=(1,\,1)^{\top}$ ist es $(0,\,0,\,-1)^{\top}$, ebenfalls mit der Länge $1$. Ob es besser geht, beantwortet der nächste Unterabschnitt.
+Die Matrix $\mathbf{H}$ aus [Kapitel 1, Abschnitt 7.4](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-matrix-vektor-produkt.html#stufe-7-4), hat die Spalten $\mathbf{a}_1=(1,\,0,\,1)^{\top}$ und $\mathbf{a}_2=(0,\,1,\,1)^{\top}$. Ihr Spaltenraum ist die Ebene aller Vektoren, deren dritte Komponente die Summe der ersten beiden ist. Der Vektor $\mathbf{y}=(1,\,1,\,1)^{\top}$ liegt nicht darin, das System $\mathbf{H}\mathbf{x}=\mathbf{y}$ hat also keine Lösung. Mit $\mathbf{x}=(1,\,0)^{\top}$ ist das Residuum $(0,\,1,\,0)^{\top}$ mit der Länge $1$, mit $\mathbf{x}=(1,\,1)^{\top}$ ist es $(0,\,0,\,-1)^{\top}$, ebenfalls mit der Länge $1$. Ob es besser geht, beantwortet der nächste Unterabschnitt.
 ::::
 
 ⁠**Kurz gesagt:** Die beste Näherungslösung macht das Residuum so kurz wie möglich; geometrisch sucht sie den Punkt des Spaltenraums, der $\mathbf{y}$ am nächsten liegt.
@@ -96,7 +97,7 @@ Zum System $\mathbf{A}\mathbf{x}=\mathbf{y}$ mit $\mathbf{A}\in\mathbb{R}^{m\tim
 $$\mathbf{A}^{\top}\mathbf{A}\,\hat{\mathbf{x}}=\mathbf{A}^{\top}\mathbf{y} . \tag{3.3}$$
 :::
 
-Das Wort „normal“ bedeutet hier „senkrecht“, wie beim Normalenvektor einer Ebene: Die Gleichungen verlangen, dass das Residuum senkrecht auf dem Spaltenraum steht. Die Matrix $\mathbf{A}^{\top}\mathbf{A}$ ist die Gram-Matrix der Spalten aus [Grundlagen 1, Abschnitt 10.4](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/transponierte-symmetrie-und-gram-matrix.html#stufe-10-4); sie ist quadratisch, mit so vielen Zeilen, wie es Unbekannte gibt. Aus einem großen, unlösbaren System mit $m$ Gleichungen wird ein kleines mit $n$ Gleichungen. Für eine einzige Spalte $\mathbf{a}$ steht dort $\mathbf{a}^{\top}\mathbf{a}\,\hat x=\mathbf{a}^{\top}\mathbf{y}$, die Formel aus dem vorigen Abschnitt.
+Das Wort „normal“ bedeutet hier „senkrecht“, wie beim Normalenvektor einer Ebene: Die Gleichungen verlangen, dass das Residuum senkrecht auf dem Spaltenraum steht. Die Matrix $\mathbf{A}^{\top}\mathbf{A}$ ist die Gram-Matrix der Spalten aus [Kapitel 1, Abschnitt 10.4](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/transponierte-symmetrie-und-gram-matrix.html#stufe-10-4); sie ist quadratisch, mit so vielen Zeilen, wie es Unbekannte gibt. Aus einem großen, unlösbaren System mit $m$ Gleichungen wird ein kleines mit $n$ Gleichungen. Für eine einzige Spalte $\mathbf{a}$ steht dort $\mathbf{a}^{\top}\mathbf{a}\,\hat x=\mathbf{a}^{\top}\mathbf{y}$, die Formel aus dem vorigen Abschnitt.
 
 ::::beispiel [Rechenbeispiel]
 Für $\mathbf{H}$ und $\mathbf{y}=(1,\,1,\,1)^{\top}$ ist
@@ -163,10 +164,10 @@ $$\hat{\mathbf{x}}=(\mathbf{A}^{\top}\mathbf{A})^{-1}\mathbf{A}^{\top}\mathbf{y}
 :::
 
 :::beweis Invertierbarkeit
-Nach [Grundlagen 1, Abschnitt 13.5](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-5), ist die quadratische Matrix $\mathbf{A}^{\top}\mathbf{A}$ genau dann invertierbar, wenn ihr Kern nur den Nullvektor enthält. Es sei $\mathbf{A}^{\top}\mathbf{A}\mathbf{z}=\mathbf{0}$. Dann ist auch $\mathbf{z}^{\top}\mathbf{A}^{\top}\mathbf{A}\mathbf{z}=0$, also $\lVert\mathbf{A}\mathbf{z}\rVert^2=0$ und $\mathbf{A}\mathbf{z}=\mathbf{0}$. Umgekehrt folgt aus $\mathbf{A}\mathbf{z}=\mathbf{0}$ sofort $\mathbf{A}^{\top}\mathbf{A}\mathbf{z}=\mathbf{0}$. Die beiden Kerne sind also gleich. Der Kern von $\mathbf{A}$ enthält genau dann nur den Nullvektor, wenn die Spalten von $\mathbf{A}$ linear unabhängig sind.
+Nach [Kapitel 1, Abschnitt 13.5](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-5), ist die quadratische Matrix $\mathbf{A}^{\top}\mathbf{A}$ genau dann invertierbar, wenn ihr Kern nur den Nullvektor enthält. Es sei $\mathbf{A}^{\top}\mathbf{A}\mathbf{z}=\mathbf{0}$. Dann ist auch $\mathbf{z}^{\top}\mathbf{A}^{\top}\mathbf{A}\mathbf{z}=0$, also $\lVert\mathbf{A}\mathbf{z}\rVert^2=0$ und $\mathbf{A}\mathbf{z}=\mathbf{0}$. Umgekehrt folgt aus $\mathbf{A}\mathbf{z}=\mathbf{0}$ sofort $\mathbf{A}^{\top}\mathbf{A}\mathbf{z}=\mathbf{0}$. Die beiden Kerne sind also gleich. Der Kern von $\mathbf{A}$ enthält genau dann nur den Nullvektor, wenn die Spalten von $\mathbf{A}$ linear unabhängig sind.
 :::
 
-Sind die Spalten linear abhängig, so gibt es unendlich viele beste Näherungslösungen. Zu einer von ihnen darf man jeden Vektor aus dem Kern von $\mathbf{A}$ addieren, ohne $\mathbf{A}\hat{\mathbf{x}}$ zu ändern. Der nächste Punkt $\hat{\mathbf{y}}$ ist trotzdem eindeutig, wie der Satz im vorigen Unterabschnitt zeigt. Das passt zu [Grundlagen 1, Abschnitt 13.6](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-6): Abhängige Merkmale machen die Gewichte mehrdeutig, nicht aber die Vorhersagen.
+Sind die Spalten linear abhängig, so gibt es unendlich viele beste Näherungslösungen. Zu einer von ihnen darf man jeden Vektor aus dem Kern von $\mathbf{A}$ addieren, ohne $\mathbf{A}\hat{\mathbf{x}}$ zu ändern. Der nächste Punkt $\hat{\mathbf{y}}$ ist trotzdem eindeutig, wie der Satz im vorigen Unterabschnitt zeigt. Das passt zu [Kapitel 1, Abschnitt 13.6](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-6): Abhängige Merkmale machen die Gewichte mehrdeutig, nicht aber die Vorhersagen.
 
 ::::beispiel [Rechenbeispiel 1]
 Die Spalten von $\mathbf{H}$ sind linear unabhängig, und $\mathbf{H}^{\top}\mathbf{H}=\bigl(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\bigr)$ hat die Inverse $\tfrac13\bigl(\begin{smallmatrix}2&-1\\-1&2\end{smallmatrix}\bigr)$. Mit [(3.5)](#gl-3-5) ist $\hat{\mathbf{x}}=\tfrac13\bigl(\begin{smallmatrix}2&-1\\-1&2\end{smallmatrix}\bigr)(2,\,2)^{\top}=(\tfrac23,\,\tfrac23)^{\top}$, wie oben.
@@ -184,7 +185,7 @@ Für $\mathbf{A}=\bigl(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\bigr)$ und $
 
 Jetzt ist die Theorie vollständig, und sie lässt sich auf eine alltägliche Aufgabe anwenden. Drei Messpunkte $(t,\,y)=(0,\,1)$, $(1,\,2)$ und $(2,\,4)$ sollen durch eine Gerade $y=x_1+x_2\,t$ beschrieben werden. Die drei Punkte liegen nicht auf einer gemeinsamen Geraden. Gesucht sind der Achsenabschnitt $x_1$ und die Steigung $x_2$, die am besten passen.
 
-Jeder Messpunkt liefert eine Gleichung $x_1+x_2\,t_i=y_i$. Mit der Einsenspalte für den Achsenabschnitt, wie in [Grundlagen 1, Abschnitt 8.5](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-5), ist das das System
+Jeder Messpunkt liefert eine Gleichung $x_1+x_2\,t_i=y_i$. Mit der Einsenspalte für den Achsenabschnitt, wie in [Kapitel 1, Abschnitt 8.5](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-5), ist das das System
 
 $$\mathbf{A}\mathbf{x}=\mathbf{y}\qquad\text{mit}\qquad \mathbf{A}=\begin{pmatrix}1&0\\1&1\\1&2\end{pmatrix},\qquad \mathbf{y}=\begin{pmatrix}1\\2\\4\end{pmatrix}.$$
 
@@ -210,11 +211,11 @@ Zwei Einträge der Normalgleichungen der Ausgleichsgeraden als Summen über die 
 
 ⁠**Kurz gesagt:** Eine Ausgleichsgerade ist die beste Näherungslösung des Systems, das verlangt, dass alle Messpunkte auf der Geraden liegen; mit einer Einsenspalte addieren sich ihre Residuen zu null.
 
-:::hintergrund Ein Filter, das ein Signal möglichst gut nachbildet
-Dieselbe Rechnung entwirft digitale Filter. Ein Filter mit den Koeffizienten $h_0,\dots,h_{K-1}$ soll aus einem Eingangssignal $x[n]$ ein gewünschtes Signal $d[n]$ möglichst gut nachbilden, mit dem Ausgang $\sum_kh_k\,x[n-k]$. Für jeden Takt $n$ ist das eine Gleichung für die $K$ Unbekannten $h_k$, für viele Takte also ein überbestimmtes System $\mathbf{X}\mathbf h=\mathbf d$. Die Zeile $n$ von $\mathbf{X}$ enthält $x[n],x[n-1],\dots,x[n-K+1]$. In den Normalgleichungen $\mathbf{X}^{\top}\mathbf{X}\mathbf h=\mathbf{X}^{\top}\mathbf d$ steht im Eintrag $(k,l)$ von $\mathbf{X}^{\top}\mathbf{X}$ die Summe $\sum_nx[n-k]\,x[n-l]$, bis auf Randeffekte am Anfang und Ende des Signals also die Autokorrelation von $x$ bei der Verschiebung $l-k$. In $\mathbf{X}^{\top}\mathbf d$ steht die Kreuzkorrelation von $d$ und $x$. Das sind genau die Skalarprodukte verschobener Signale aus [Grundlagen 1, Abschnitt 2.4](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-skalarprodukt.html#stufe-2-4). Das Residuum $d[n]-\sum_kh_k\,x[n-k]$ des besten Filters steht nach [(3.3)](#gl-3-3) senkrecht auf jedem verschobenen Eingangssignal: Was das Filter nicht nachbilden kann, hat mit keinem der Signale, aus denen es den Ausgang zusammensetzt, etwas gemeinsam.
+:::hintergrund Eine Folge aus einer anderen möglichst gut nachbilden
+Dieselbe Rechnung baut Vorhersageregeln für Zahlenfolgen. Ein Freibad will aus der Zahl $x[n]$ seiner Besucher am Tag $n$ und an den Tagen davor den Eisverkauf $d[n]$ am Tag $n$ möglichst gut nachbilden, mit der Regel $\sum_kh_k\,x[n-k]$ und den Gewichten $h_0,\dots,h_{K-1}$. Für jeden Tag $n$ ist das eine Gleichung für die $K$ Unbekannten $h_k$, für viele Tage also ein überbestimmtes System $\mathbf{X}\mathbf h=\mathbf d$. Die Zeile $n$ von $\mathbf{X}$ enthält $x[n],x[n-1],\dots,x[n-K+1]$. In den Normalgleichungen $\mathbf{X}^{\top}\mathbf{X}\mathbf h=\mathbf{X}^{\top}\mathbf d$ steht im Eintrag $(k,l)$ von $\mathbf{X}^{\top}\mathbf{X}$ die Summe $\sum_nx[n-k]\,x[n-l]$, bis auf Randeffekte am Anfang und Ende der Folge also die Kreuzkorrelation von $x$ mit sich selbst bei der Verschiebung $l-k$, die Autokorrelation. In $\mathbf{X}^{\top}\mathbf d$ steht die Kreuzkorrelation von $d$ und $x$. Das sind genau die Skalarprodukte verschobener Folgen aus [Kapitel 1, Abschnitt 2.4](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/das-skalarprodukt.html#stufe-2-4). Das Residuum $d[n]-\sum_kh_k\,x[n-k]$ der besten Regel steht nach [(3.3)](#gl-3-3) senkrecht auf jeder verschobenen Besucherfolge: Was die Regel nicht nachbilden kann, hat mit keiner der Folgen, aus denen sie ihre Vorhersage zusammensetzt, etwas gemeinsam.
 :::
 
-### Die Wohnungen: was Grundlagen 1 offen ließ
+### Die Wohnungen: was Kapitel 1 offen ließ
 
 <span class="anker" id="stufe-3-7"></span>
 
@@ -231,7 +232,7 @@ Abb. [10](#abb-10) rechnet zwei der Einträge vor.
 Zwei Einträge der Normalgleichungen der Wohnungen als Skalarprodukte: $\mathbf{a}_1=(60,40,90,70)^{\top}$ ist die Flächenspalte, $\mathbf{a}_2=(2,1,4,3)^{\top}$ die Zimmerspalte, $\mathbf{y}=(200,130,290,240)^{\top}$ der Preisvektor.
 :::
 
-Die beiden Spalten sind linear unabhängig, die Determinante ist $18\,200\cdot30-730^2=13\,100$. Mit der Inversen aus [Grundlagen 1, Abschnitt 11.3](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/einheitsmatrix-und-inverse.html#stufe-11-3), ist
+Die beiden Spalten sind linear unabhängig, die Determinante ist $18\,200\cdot30-730^2=13\,100$. Mit der Inversen aus [Kapitel 1, Abschnitt 11.3](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/einheitsmatrix-und-inverse.html#stufe-11-3), ist
 
 $$\hat{\mathbf{w}}=\frac1{13\,100}\begin{pmatrix}30&-730\\-730&18\,200\end{pmatrix}\begin{pmatrix}60\,100\\2\,410\end{pmatrix}=\frac1{13\,100}\begin{pmatrix}43\,700\\-11\,000\end{pmatrix}=\begin{pmatrix}437/131\\-110/131\end{pmatrix}\approx\begin{pmatrix}3{,}336\\-0{,}840\end{pmatrix}.$$
 
@@ -239,13 +240,13 @@ Die geschätzten Preise sind $\mathbf{A}\hat{\mathbf{w}}\approx(198{,}47;\ 132{,
 
 $$\mathbf{r}=\mathbf{y}-\mathbf{A}\hat{\mathbf{w}}=\frac{20}{131}\,(10,\,-17,\,-45,\,59)^{\top}\approx(1{,}53;\ -2{,}60;\ -6{,}87;\ 9{,}01)^{\top}$$
 
-mit der Länge $\lVert\mathbf{r}\rVert\approx11{,}72$. Die Gewichte $(3,\,10)^{\top}$ aus [Grundlagen 1](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html) trafen drei Preise genau, ließen aber ein Residuum der Länge $20$. Die beste Näherungslösung trifft keinen Preis genau, liegt aber insgesamt deutlich weniger daneben. Probe: $\mathbf{A}^{\top}\mathbf{r}=\frac{20}{131}(600-680-4050+4130,\ 20-17-180+177)^{\top}=\mathbf{0}$.
+mit der Länge $\lVert\mathbf{r}\rVert\approx11{,}72$. Die Gewichte $(3,\,10)^{\top}$ aus [Kapitel 1](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html) trafen drei Preise genau, ließen aber ein Residuum der Länge $20$. Die beste Näherungslösung trifft keinen Preis genau, liegt aber insgesamt deutlich weniger daneben. Probe: $\mathbf{A}^{\top}\mathbf{r}=\frac{20}{131}(600-680-4050+4130,\ 20-17-180+177)^{\top}=\mathbf{0}$.
 ::::
 
 ⁠**Kurz gesagt:** Die beste Näherungslösung für die Wohnungen sind die Gewichte $\hat{\mathbf{w}}\approx(3{,}336;\ -0{,}840)^{\top}$; ihr Residuum ist mit $11{,}72$ deutlich kürzer als jedes Residuum, das drei Preise genau trifft.
 
 :::hintergrund Warum das Gewicht der Zimmer negativ ist
-Ein negatives Gewicht für die Zimmerzahl sieht zunächst falsch aus: Mehr Zimmer sollten den Preis nicht senken. Die Rechnung ist trotzdem richtig, und der Grund liegt in den Daten. In diesen vier Wohnungen wachsen Fläche und Zimmerzahl gemeinsam: Je größer die Wohnung, desto mehr Zimmer hat sie. Die beiden Spalten von $\mathbf{A}$ zeigen deshalb fast in dieselbe Richtung; nach [Grundlagen 1, Abschnitt 5.2](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/winkel-und-ahnlichkeit.html#stufe-5-2), ist der Kosinus ihres Winkels $730/\sqrt{18\,200\cdot30}\approx0{,}988$, der Winkel also nur etwa $8{,}9^\circ$. Die beste Kombination nimmt viel von der Flächenspalte und zieht ein wenig von der Zimmerspalte wieder ab, um die Abweichungen der Wohnungen vom gemeinsamen Verhältnis auszugleichen. Bei gleicher Fläche bedeuten mehr Zimmer hier kleinere Zimmer, und das kann einen Preis tatsächlich senken; ob das stimmt, können vier Wohnungen aber nicht zeigen. Wie in [Grundlagen 1, Abschnitt 13.6](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-6), gilt: Wenn Merkmale fast dieselbe Information tragen, sagen die einzelnen Gewichte wenig, die Vorhersagen dagegen viel.
+Ein negatives Gewicht für die Zimmerzahl sieht zunächst falsch aus: Mehr Zimmer sollten den Preis nicht senken. Die Rechnung ist trotzdem richtig, und der Grund liegt in den Daten. In diesen vier Wohnungen wachsen Fläche und Zimmerzahl gemeinsam: Je größer die Wohnung, desto mehr Zimmer hat sie. Die beiden Spalten von $\mathbf{A}$ zeigen deshalb fast in dieselbe Richtung; nach [Kapitel 1, Abschnitt 5.2](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/winkel-und-ahnlichkeit.html#stufe-5-2), ist der Kosinus ihres Winkels $730/\sqrt{18\,200\cdot30}\approx0{,}988$, der Winkel also nur etwa $8{,}9^\circ$. Die beste Kombination nimmt viel von der Flächenspalte und zieht ein wenig von der Zimmerspalte wieder ab, um die Abweichungen der Wohnungen vom gemeinsamen Verhältnis auszugleichen. Bei gleicher Fläche bedeuten mehr Zimmer hier kleinere Zimmer, und das kann einen Preis tatsächlich senken; ob das stimmt, können vier Wohnungen aber nicht zeigen. Wie in [Kapitel 1, Abschnitt 13.6](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-6), gilt: Wenn Merkmale fast dieselbe Information tragen, sagen die einzelnen Gewichte wenig, die Vorhersagen dagegen viel.
 :::
 
 :::aufgabe Aufgabe 7 ★ Normalgleichungen von Hand

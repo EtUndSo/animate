@@ -1,7 +1,8 @@
 ---
 title: Vecteurs : les données comme listes de nombres
 pfad: Informatique / Apprentissage automatique / Fondements mathématiques / Vecteurs et matrices
-knoten: Fondements 1 : Vecteurs et matrices
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Chapitre 1 : Vecteurs et matrices
 nachschlagen: ja
 order: 15210200
 summary: Un ordinateur ne sait manipuler que des nombres.
@@ -139,7 +140,7 @@ L’appartement 1 est le vecteur $\mathbf{x}_1=(60,\,2,\,3)^{\top}\in\mathbb{R}
 ⁠**En bref :** Un vecteur est une liste ordonnée de nombres, que l’on peut dessiner comme un point ou comme une flèche ; un exemple à $d$ caractéristiques est un vecteur de $\mathbb{R}^d$.
 
 :::hintergrund Ce qu’est vraiment un vecteur
-Une liste de nombres est le vecteur avec lequel on calcule. En mathématiques, la notion est plus large : un vecteur est tout ce que l’on peut additionner et multiplier par un nombre sans sortir du type d’objet considéré. Les flèches du plan en font partie, mais aussi les signaux. Un signal échantillonné $n$ fois est la liste de ses échantillons $x[0],\dots,x[n-1]$, donc un vecteur de $\mathbb{R}^n$. Additionner deux signaux, c’est les superposer, et multiplier un signal par un nombre, c’est l’amplifier ; les deux opérations donnent de nouveau un signal de même longueur.
+Une liste de nombres est le vecteur avec lequel on calcule. En mathématiques, la notion est plus large : un vecteur est tout ce que l’on peut additionner et multiplier par un nombre sans sortir du type d’objet considéré. Les flèches du plan en font partie, mais aussi les enregistrements sonores. Un enregistrement sonore note, à intervalles égaux et très courts, de combien la pression de l’air s’écarte à cet instant de sa valeur au repos. Avec $n$ telles valeurs $x[0],\dots,x[n-1]$, c’est un vecteur de $\mathbb{R}^n$. Additionner deux enregistrements, c’est les mixer, et multiplier un enregistrement par un nombre, c’est le rendre plus fort ou plus faible ; les deux opérations donnent de nouveau un enregistrement de même longueur.
 
 Une image aussi est un vecteur. Une image en niveaux de gris de $28\times28$ pixels se compose de $784$ valeurs de luminosité. Si on les lit à la suite, ligne par ligne, l’image est un point de $\mathbb{R}^{784}$. Cette représentation ne se dessine plus, mais on calcule avec elle exactement comme avec deux ou trois composantes.
 :::
@@ -216,12 +217,14 @@ $$\tfrac12\,(60,\,2,\,3)^{\top}+\tfrac12\,(40,\,1,\,1)^{\top}=(50;\ 1{,}5;\ 2)^{
 C’est un appartement fictif qui se situe, pour chaque caractéristique, exactement entre les deux. Le point se trouve au milieu du segment qui les relie.
 ::::
 
-::::beispiel [Exemple de calcul 3] la moyenne des exemples
-Si l’on prend les $N$ exemples avec le coefficient $1/N$, on obtient la __moyenne des exemples__
+Une combinaison linéaire revient particulièrement souvent dans ce chapitre. Si l’on prend les $N$ exemples avec le coefficient $1/N$, on obtient la __moyenne des exemples__
 
 <span class="anker" id="gl-1-5"></span>
 $$\bar{\mathbf{x}}=\frac1N\sum_{i=1}^{N}\mathbf{x}_i . \tag{1.5}$$
 
+C’est un exemple fictif qui a, pour chaque caractéristique, la moyenne de tous les exemples : sa $j$-ième composante est la moyenne des $j$-ièmes caractéristiques.
+
+::::beispiel [Exemple de calcul 3] la moyenne des exemples
 Pour le jeu de données des appartements, $\bar{\mathbf{x}}=(65;\ 2{,}5;\ 3)^{\top}$ (Fig. [5](#abb-5)), l’« appartement moyen » : en moyenne $65\,\mathrm m^2$, $2{,}5$ pièces et $3$ km jusqu’au centre.
 
 :::abbildung ml/k1rmittelvektor 5

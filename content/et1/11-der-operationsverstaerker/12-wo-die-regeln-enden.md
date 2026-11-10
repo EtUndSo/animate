@@ -1,6 +1,8 @@
 ---
 title: Stufe 10: Wo die Regeln enden
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Der Operationsverstärker
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Der Operationsverstärker
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker
+knoten: Kapitel 11: Der Operationsverstärker
 order: 1211200
 summary: Bis hier war der OPV bis auf A und die Anschläge ideal.
 tags: Offsetspannung, Eingangsruhestrom, Gleichtaktunterdrückung, Transitfrequenz, Anstiegsrate, übersteuert

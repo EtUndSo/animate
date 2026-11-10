@@ -1,6 +1,8 @@
 ---
 title: Stufe 4: Ideale Quellen
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Quellen und Ersatzquellen
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Quellen und Ersatzquellen
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen
+knoten: Kapitel 5: Quellen und Ersatzquellen
 order: 1150600
 summary: Bisher fehlt, was den Strom antreibt.
 tags: ideale Spannungsquelle, ideale Stromquelle, Quellenspannung, Quellenstrom
@@ -13,7 +15,7 @@ lang: de
 Bisher fehlt, was den Strom antreibt. Diese Stufe führt die zwei Grundbausteine ein, die Energie in ein Netz bringen.
 :::
 
-**Die Idee.** Eine Quelle hält eine einzige Größe fest. Die andere bestimmt das angeschlossene Netz. Eine __ideale Spannungsquelle__ hält die Potenzialdifferenz zwischen ihren Klemmen. Welcher Strom dabei fließt, entscheidet die Last. Eine __ideale Stromquelle__ hält den Strom in ihrem Zweig. Welche Spannung sich dazu einstellt, entscheidet ebenfalls die Last. Beide sind Modelle. Bauen kann man sie nicht, ein geregeltes Netzteil oder eine Transistorschaltung ([Teil 10](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor/der-bipolartransistor.html)) kommt ihnen in einem begrenzten Bereich aber nahe.
+**Die Idee.** Eine Quelle hält eine einzige Größe fest. Die andere bestimmt das angeschlossene Netz. Eine __ideale Spannungsquelle__ hält die Potenzialdifferenz zwischen ihren Klemmen. Welcher Strom dabei fließt, entscheidet die Last. Eine __ideale Stromquelle__ hält den Strom in ihrem Zweig. Welche Spannung sich dazu einstellt, entscheidet ebenfalls die Last. Beide sind Modelle. Bauen kann man sie nicht, ein geregeltes Netzteil oder eine Transistorschaltung ([Kapitel 10](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor/der-bipolartransistor.html)) kommt ihnen in einem begrenzten Bereich aber nahe.
 
 :::abbildung et1/k5ideal 5
 Links die ideale Spannungsquelle: Im Diagramm eine Waagerechte, die Spannung hängt nicht vom Strom ab. Rechts die ideale Stromquelle: eine Senkrechte, der Strom hängt nicht von der Spannung ab. Der Strich im Schaltzeichen zeigt das Verhalten beim Wert null: Längs durchgezogen ist die Leitung geschlossen, quer ist sie unterbrochen.

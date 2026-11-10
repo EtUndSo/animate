@@ -1,6 +1,8 @@
 ---
 title: Stage 2: The ideal lowpass
-pfad: Electrical Engineering / 3rd Semester / Signals and Systems / Lowpass and Bandpass Systems
+pfad: Electrical Engineering / 3rd Semester / ET3 – Fundamentals of Electrical Engineering 3: Signals and Systems / Lowpass and Bandpass Systems
+adresse: elektrotechnik/3-semester/signale-und-systeme/tiefpass-und-bandpasssysteme
+knoten: Chapter 5: Lowpass and Bandpass Systems
 order: 3250300
 summary: The ideal lowpass passes all frequencies up to f mathrm g unchanged and blocks all frequencies above.
 tags: signal duration
@@ -27,7 +29,7 @@ $$H(f)=\operatorname{rect}\Bigl(\frac{f}{2f_\mathrm g}\Bigr)\qquad\bullet\!\!-\!
 <span class="anker" id="gl-2-2"></span>
 $$t_m=\frac{1}{h_{\max}}\int_{-\infty}^{\infty}h(t)\,\mathrm{d} t=\frac{H(0)}{h_{\max}}. \tag{2.2}$$
 
-For the ideal lowpass, $H(0)=1$ and $h_{\max}=2f_\mathrm g$, so $t_m=\frac{1}{2f_\mathrm g}$ and $f_\mathrm g\cdot t_m=\frac12$. In general, lowpass filters satisfy $f_\mathrm g\cdot t_m=\text{const.}$: double the bandwidth means half the response duration. This is the similarity theorem from [Part 3](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html).
+For the ideal lowpass, $H(0)=1$ and $h_{\max}=2f_\mathrm g$, so $t_m=\frac{1}{2f_\mathrm g}$ and $f_\mathrm g\cdot t_m=\frac12$. In general, lowpass filters satisfy $f_\mathrm g\cdot t_m=\text{const.}$: double the bandwidth means half the response duration. This is the similarity theorem from [Chapter 3](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html).
 
 **Overshoot.** For the si function, the ratio of the side maximum with the largest magnitude, $a_1$, to the main maximum $a_0$ is
 

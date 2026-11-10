@@ -3,7 +3,8 @@ Used for the editor's "Photo -> SVG" export (vector graphics for the website) an
 Labels go through richtext (sub/superscripts as <tspan>, several lines as several <text> rows).
 Geometry stays in the scene's pixel space (1920x1080); to_svg(view, size) crops it with the viewBox
 and sets the displayed size (engine/export.py decides both for article figures)."""
-from .richtext import parse as _parse_rich, is_plain as _is_plain, layout as _layout
+from .richtext import (parse as _parse_rich, is_plain as _is_plain, layout as _layout, text_lines as _text_lines,
+                       mono_line as _mono_line, MONO_CELL)
 
 # A FIXED, metric-compatible font family: Arial, Helvetica, Liberation Sans and Nimbus Sans share the same
 # advance widths, so on Windows, macOS/iOS and most Linux systems the text is exactly as wide as
@@ -12,6 +13,14 @@ from .richtext import parse as _parse_rich, is_plain as _is_plain, layout as _la
 # An SVG shown through <img> cannot load web fonts, so Chinese labels use the reader's system CJK font.
 SVG_FONT = ("Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', "
             "'PingFang SC', sans-serif")
+# Typewriter font (Text.font = "mono"): system monospace fonts only (an SVG in <img> cannot load web fonts). Consolas
+# first: it is part of every Windows, so the editor (Chrome), the article and the PDF (headless Chromium) all draw the
+# same font here (Cascadia Mono is visible to Chrome only through Windows Terminal and would make them differ); then
+# macOS, Linux, Android. Chinese characters in a mono line come from the CJK fonts at the end. Every character is
+# PLACED at the centre of its cell (richtext.mono_line), so the font only decides the look, never the width or the
+# columns. canvas_painter uses the same list.
+MONO_FONT = ("Consolas, Menlo, 'DejaVu Sans Mono', 'Liberation Mono', 'Courier New', "
+             "'Noto Sans Mono CJK SC', 'Microsoft YaHei', 'PingFang SC', monospace")
 
 
 def _hex(color):
@@ -75,9 +84,12 @@ class SvgPainter:
             a.append('stroke-linejoin="round" stroke-linecap="butt"')
         self.parts.append('<path d="%s" %s%s/>' % (d, " ".join(a), rule))
 
-    def draw_text(self, text, px, py, font_size, color, opacity, align="center"):
+    def draw_text(self, text, px, py, font_size, color, opacity, align="center", font=None, raw=False):
         anchor = {"left": "start", "right": "end"}.get(align, "middle")
         op = '' if opacity >= 1 else ' fill-opacity="%s"' % _num(opacity)
+        if font == "mono" or raw:
+            self._draw_lines(text, px, py, font_size, color, op, align, anchor, font == "mono", raw)
+            return
         if _is_plain(text):
             self.parts.append('<text x="%s" y="%s" font-size="%s" font-family="%s" fill="%s" text-anchor="%s" '
                               'dominant-baseline="central"%s>%s</text>'
@@ -101,6 +113,36 @@ class SvgPainter:
             self.parts.append('<text x="%s" y="%s" font-size="%s" font-family="%s" fill="%s" text-anchor="%s" '
                               'dominant-baseline="central"%s>%s</text>'
                               % (_num(px), _num(y), _num(font_size), self.font, _hex(color), anchor, op, "".join(spans)))
+
+    def _draw_lines(self, text, px, py, font_size, color, op, align, anchor, mono, raw):
+        """Raw and/or typewriter text: one <text> per line, no rich syntax. Mono: every character (spaces too, so copied
+        text keeps them) at the centre of its cell (x list, text-anchor middle, xml:space preserve), so columns and runs
+        of spaces hold in any monospace font. Raw in the
+        normal font: the line as written, spaces kept (xml:space) when it has runs of them or spaces at its ends."""
+        lines = _text_lines(text, raw)
+        n = len(lines)
+        fs = float(font_size)
+        lh = _LINE_H * fs
+        for i, line in enumerate(lines):
+            y = py + (i - (n - 1) / 2.0) * lh
+            if mono:
+                cells, chars = _mono_line(line)
+                if not chars:
+                    continue
+                cw = MONO_CELL * fs
+                w = cells * cw
+                left = px - w / 2.0 if align not in ("left", "right") else (px if align == "left" else px - w)
+                xs = " ".join(_num(left + c * cw) for _, c in chars)       # one x per character, spaces included
+                self.parts.append('<text x="%s" y="%s" font-size="%s" font-family="%s" fill="%s" text-anchor="middle" '
+                                  'dominant-baseline="central" xml:space="preserve"%s>%s</text>'
+                                  % (xs, _num(y), _num(fs), MONO_FONT, _hex(color), op, _esc("".join(ch for ch, _ in chars))))
+            else:
+                if not line.strip():
+                    continue
+                keep = ' xml:space="preserve"' if ("  " in line or line != line.strip()) else ""
+                self.parts.append('<text x="%s" y="%s" font-size="%s" font-family="%s" fill="%s" text-anchor="%s" '
+                                  'dominant-baseline="central"%s%s>%s</text>'
+                                  % (_num(px), _num(y), _num(fs), self.font, _hex(color), anchor, op, keep, _esc(line)))
 
     def to_svg(self, view=None, size=None):
         """The SVG document. view = (x0, y0, x1, y1) in scene pixels shown through the viewBox (default: the

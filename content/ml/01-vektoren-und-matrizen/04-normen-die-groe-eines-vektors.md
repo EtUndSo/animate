@@ -1,7 +1,8 @@
 ---
 title: Normen: die Größe eines Vektors
 pfad: Informatik / Machine Learning / Mathematische Grundlagen / Vektoren und Matrizen
-knoten: Grundlagen 1: Vektoren und Matrizen
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Kapitel 1: Vektoren und Matrizen
 nachschlagen: ja
 order: 15210400
 summary: Wie groß ist ein Vektor?
@@ -219,41 +220,41 @@ Nach der Betragssummennorm sind beide gleich gut: Beide liegen zusammen um $40$ 
 In der euklidischen Norm geht jede Abweichung als Quadrat ein. Eine Abweichung von $0{,}1$ trägt $0{,}01$ bei, eine Abweichung von $10$ aber $100$. Das Quadrat macht kleine Zahlen kleiner und große Zahlen größer. Ein einzelner großer Fehler von $40$ trägt deshalb $1600$ bei, viermal so viel wie vier Fehler von je $10$ zusammen. Die Betragssummennorm dagegen wächst überall gleich schnell: Jede Einheit Abweichung kostet gleich viel, ob sie zu einem kleinen oder einem großen Fehler gehört. Deshalb unterscheidet sie auch deutlich zwischen „genau null“ und „ein wenig daneben“, während die Quadratsumme zwischen den beiden kaum einen Unterschied macht. Welche Eigenschaft man will, hängt von der Aufgabe ab, und genau deshalb gibt es mehrere Normen.
 :::
 
-### Der Effektivwert
+### Der quadratische Mittelwert
 
 <span class="anker" id="stufe-3-6"></span>
 
 Die euklidische Norm wächst mit der Zahl der Komponenten. Bewertet man einen Gutachter an vier Wohnungen und einen anderen an vierhundert, so hat der zweite einen viel längeren Fehlervektor, auch wenn er pro Wohnung genauso gut schätzt. Will man Fehler pro Beispiel vergleichen, muss man die Zahl der Komponenten herausrechnen.
 
-:::definition Definition 3.6 (Effektivwert)
+:::definition Definition 3.6 (Quadratischer Mittelwert)
 <span class="anker" id="satz-3-6"></span>
 
-Der __Effektivwert__ eines Vektors $\mathbf{x}\in\mathbb{R}^n$ ist
+Der __quadratische Mittelwert__ eines Vektors $\mathbf{x}\in\mathbb{R}^n$ ist
 
 <span class="anker" id="gl-3-6"></span>
 $$\operatorname{rms}(\mathbf{x})=\frac{\lVert\mathbf{x}\rVert}{\sqrt n}=\sqrt{\frac1n\sum_{i=1}^nx_i^2} . \tag{3.6}$$
 :::
 
-Die Abkürzung rms steht für *root mean square*: die Wurzel aus dem Mittelwert der Quadrate. Der Effektivwert ist ein typischer Betrag einer Komponente. Haben alle Komponenten denselben Betrag $a$, ist der Effektivwert genau $a$.
+Die Abkürzung rms steht für *root mean square*: die Wurzel aus dem Mittelwert der Quadrate. Der quadratische Mittelwert ist ein typischer Betrag einer Komponente. Haben alle Komponenten denselben Betrag $a$, ist der quadratische Mittelwert genau $a$.
 
-Aus der Elektrotechnik kennt man den Namen: Der Effektivwert einer Wechselspannung ist die Wurzel aus dem zeitlichen Mittel ihres Quadrats. Für ein abgetastetes Signal ist [(3.6)](#gl-3-6) dieselbe Rechnung mit Abtastwerten statt eines Integrals. Tastet man einen Sinus über genau eine Periode an $n\ge3$ gleichmäßig verteilten Stellen ab, kommt sogar exakt der Effektivwert $1/\sqrt2$ des Sinus heraus.
+Warum erst quadrieren und am Ende die Wurzel ziehen? Mittelt man die Komponenten selbst, heben sich positive und negative gegenseitig auf: Ein Gutachter, der einmal $20$ zu hoch und einmal $20$ zu niedrig schätzt, läge im Mittel bei $0$. Die Quadrate sind nie negativ, und die Wurzel bringt das Ergebnis zurück in die Einheit der Komponenten. Die Rechnung [(3.6)](#gl-3-6) lässt sich auch auf Kurven anwenden: Wertet man einen Sinus über genau eine Periode an $n\ge3$ gleichmäßig verteilten Stellen aus, kommt exakt $1/\sqrt2$ heraus, derselbe Wert, den man erhält, wenn man über alle Punkte der Periode mittelt.
 
 ::::beispiel [Rechenbeispiel]
-Die Fehlervektoren der Gutachter aus dem vorigen Unterabschnitt haben die Effektivwerte $\operatorname{rms}(\hat{\mathbf{y}}_{\mathrm A}-\mathbf{y})=20/\sqrt4=10$ und $\operatorname{rms}(\hat{\mathbf{y}}_{\mathrm B}-\mathbf{y})=40/\sqrt4=20$ Tausend Euro: A liegt typischerweise um $10$ Tausend Euro daneben. Ein Sinus der Amplitude $1$, an vier gleichmäßig verteilten Stellen einer Periode abgetastet, hat die Abtastwerte $\mathbf{x}=(0,\,1,\,0,\,-1)^{\top}$ und den Effektivwert $1/\sqrt2\approx0{,}707$ (Abb. [17](#abb-17)).
+Die Fehlervektoren der Gutachter aus dem vorigen Unterabschnitt haben die quadratischen Mittelwerte $\operatorname{rms}(\hat{\mathbf{y}}_{\mathrm A}-\mathbf{y})=20/\sqrt4=10$ und $\operatorname{rms}(\hat{\mathbf{y}}_{\mathrm B}-\mathbf{y})=40/\sqrt4=20$ Tausend Euro: A liegt typischerweise um $10$ Tausend Euro daneben. Ein Sinus mit dem Höchstwert $1$, an vier gleichmäßig verteilten Stellen einer Periode ausgewertet, hat die Werte $\mathbf{x}=(0,\,1,\,0,\,-1)^{\top}$ und den quadratischen Mittelwert $1/\sqrt2\approx0{,}707$ (Abb. [17](#abb-17)).
 
 :::abbildung ml/k1rrms 17
-Der Effektivwert eines abgetasteten Sinus: Quadrate addieren, durch die Zahl der Komponenten teilen, Wurzel ziehen.
+Der quadratische Mittelwert eines Sinus an vier Stellen: Quadrate addieren, durch die Zahl der Komponenten teilen, Wurzel ziehen.
 :::
 ::::
 
-⁠**Kurz gesagt:** Der Effektivwert $\lVert\mathbf{x}\rVert/\sqrt n$ ist der typische Betrag einer Komponente und macht Vektoren verschiedener Länge vergleichbar.
+⁠**Kurz gesagt:** Der quadratische Mittelwert $\lVert\mathbf{x}\rVert/\sqrt n$ ist der typische Betrag einer Komponente und macht Vektoren verschiedener Länge vergleichbar.
 
 :::hintergrund Wie viele Komponenten können groß sein?
-Der Effektivwert begrenzt, wie viele Komponenten einen großen Betrag haben können. Haben $k$ der $n$ Komponenten einen Betrag von mindestens $a>0$, so tragen allein diese $k$ Komponenten mindestens $k\,a^2$ zur Quadratsumme bei. Die ganze Quadratsumme ist $n\operatorname{rms}(\mathbf{x})^2$, also ist $k\,a^2\le n\operatorname{rms}(\mathbf{x})^2$ oder
+Der quadratische Mittelwert begrenzt, wie viele Komponenten einen großen Betrag haben können. Haben $k$ der $n$ Komponenten einen Betrag von mindestens $a>0$, so tragen allein diese $k$ Komponenten mindestens $k\,a^2$ zur Quadratsumme bei. Die ganze Quadratsumme ist $n\operatorname{rms}(\mathbf{x})^2$, also ist $k\,a^2\le n\operatorname{rms}(\mathbf{x})^2$ oder
 
 $$\frac kn\le\Bigl(\frac{\operatorname{rms}(\mathbf{x})}{a}\Bigr)^2 .$$
 
-Höchstens der Anteil $(\operatorname{rms}/a)^2$ der Komponenten kann also mindestens $a$ groß sein. Höchstens ein Viertel der Komponenten kann das Doppelte des Effektivwerts erreichen, höchstens ein Prozent das Zehnfache. Beim Gutachter B mit $\operatorname{rms}=20$ können höchstens $(20/30)^2=4/9\approx44$ % der Fehler $30$ oder mehr betragen; tatsächlich ist es einer von vier, also $25$ %. Diese Abschätzung heißt Tschebyscheff-Ungleichung.
+Höchstens der Anteil $(\operatorname{rms}/a)^2$ der Komponenten kann also mindestens $a$ groß sein. Höchstens ein Viertel der Komponenten kann das Doppelte des quadratischen Mittelwerts erreichen, höchstens ein Prozent das Zehnfache. Beim Gutachter B mit $\operatorname{rms}=20$ können höchstens $(20/30)^2=4/9\approx44$ % der Fehler $30$ oder mehr betragen; tatsächlich ist es einer von vier, also $25$ %. Diese Abschätzung heißt Tschebyscheff-Ungleichung.
 :::
 
 :::aufgabe Aufgabe 7 ★ Normen rechnen
@@ -293,7 +294,7 @@ Die Maklerin aus Unterabschnitt [2.2](das-skalarprodukt.html#stufe-2-2) hatte d
 
 <li>
 
-Berechne den Fehlervektor, seine drei Normen und seinen Effektivwert. Bei welcher Wohnung liegt sie am weitesten daneben?
+Berechne den Fehlervektor, seine drei Normen und seinen quadratischen Mittelwert. Bei welcher Wohnung liegt sie am weitesten daneben?
 
 </li>
 
@@ -306,8 +307,8 @@ Was fällt an den Vorzeichen auf? Die Maklerin addiert ab sofort zu jeder Vorher
 </ol>
 
 :::loesung
-(a) Der Fehlervektor ist $\hat{\mathbf{y}}-\mathbf{y}=(188-200,\ 126-130,\ 286-290,\ 232-240)^{\top}=(-12,\,-4,\,-4,\,-8)^{\top}$. Seine Normen: $\lVert\cdot\rVert_1=28$, $\lVert\cdot\rVert_2=\sqrt{144+16+16+64}=\sqrt{240}\approx15{,}49$, $\lVert\cdot\rVert_\infty=12$, Effektivwert $\sqrt{240}/2\approx7{,}75$ Tausend Euro. Am weitesten daneben liegt sie bei Wohnung 1, um $12$ Tausend Euro.
+(a) Der Fehlervektor ist $\hat{\mathbf{y}}-\mathbf{y}=(188-200,\ 126-130,\ 286-290,\ 232-240)^{\top}=(-12,\,-4,\,-4,\,-8)^{\top}$. Seine Normen: $\lVert\cdot\rVert_1=28$, $\lVert\cdot\rVert_2=\sqrt{144+16+16+64}=\sqrt{240}\approx15{,}49$, $\lVert\cdot\rVert_\infty=12$, quadratischer Mittelwert $\sqrt{240}/2\approx7{,}75$ Tausend Euro. Am weitesten daneben liegt sie bei Wohnung 1, um $12$ Tausend Euro.
 
-(b) Alle Fehler sind negativ: Die Maklerin schätzt durchweg zu niedrig, ihr Fehler hat einen Gleichanteil. Mit $7$ Tausend Euro Zuschlag wird der Fehlervektor zu $(-5,\,3,\,3,\,-1)^{\top}$ mit $\lVert\cdot\rVert_1=12$, $\lVert\cdot\rVert_2=\sqrt{25+9+9+1}=\sqrt{44}\approx6{,}63$, $\lVert\cdot\rVert_\infty=5$ und dem Effektivwert $\sqrt{44}/2\approx3{,}32$. Sie ist nach allen drei Normen besser geworden. Der Zuschlag $7$ ist genau der Mittelwert der Fehlerbeträge, $(12+4+4+8)/4=7$: Er zieht den Gleichanteil des Fehlers ab und lässt nur den Wechselanteil übrig.
+(b) Alle Fehler sind negativ: Die Maklerin schätzt durchweg zu niedrig, ihr Fehler hat einen gemeinsamen Anteil, der in allen Komponenten steckt. Mit $7$ Tausend Euro Zuschlag wird der Fehlervektor zu $(-5,\,3,\,3,\,-1)^{\top}$ mit $\lVert\cdot\rVert_1=12$, $\lVert\cdot\rVert_2=\sqrt{25+9+9+1}=\sqrt{44}\approx6{,}63$, $\lVert\cdot\rVert_\infty=5$ und dem quadratischen Mittelwert $\sqrt{44}/2\approx3{,}32$. Sie ist nach allen drei Normen besser geworden. Der Zuschlag $7$ ist genau der Mittelwert der Fehlerbeträge, $(12+4+4+8)/4=7$: Er zieht diesen gemeinsamen Anteil ab, also den Mittelwert des Fehlers, und lässt nur die Abweichungen davon übrig.
 :::
 :::

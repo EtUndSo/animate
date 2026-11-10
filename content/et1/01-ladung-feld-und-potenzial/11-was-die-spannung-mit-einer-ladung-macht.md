@@ -1,6 +1,8 @@
 ---
 title: Stufe 9: Was die Spannung mit einer Ladung macht
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Ladung, Feld und Potenzial
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Ladung, Feld und Potenzial
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial
+knoten: Kapitel 1: Ladung, Feld und Potenzial
 order: 1111100
 summary: Diese Stufe führt Feld, Potenzial und Spannung an einem einzelnen Elektron zusammen: Welche Kraft wirkt, welche Energie gewinnt es, wie schnell wird es?
 tags: Elektronenvolt

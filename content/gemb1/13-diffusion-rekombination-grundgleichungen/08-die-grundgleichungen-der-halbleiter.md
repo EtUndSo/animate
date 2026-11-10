@@ -1,6 +1,8 @@
 ---
 title: Stufe 6: Die Grundgleichungen der Halbleiter
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Diffusion, Rekombination und Grundgleichungen
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Diffusion, Rekombination und Grundgleichungen
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/diffusion-rekombination-und-grundgleichungen
+knoten: Kapitel 13: Diffusion, Rekombination und Grundgleichungen
 order: 4230800
 summary: Drift, Diffusion, Generation und Rekombination stehen einzeln.
 tags: Poisson-Gleichung für den Bandverlauf, selbstkonsistent, Nichtgleichgewichts-Green-Funktionen
@@ -39,7 +41,7 @@ $$\frac{\partial n}{\partial t}=\frac1e\,\nabla\cdot\boldsymbol j_\mathrm n+G_\m
 $$\Delta\varphi(\boldsymbol r)=-\frac{\rho(\boldsymbol r)}{\varepsilon_0\varepsilon_\mathrm r}=-\frac e{\varepsilon_0\varepsilon_\mathrm r}\bigl(p(\boldsymbol r)-n(\boldsymbol r)+N_\mathrm D^+(\boldsymbol r)-N_\mathrm A^-(\boldsymbol r)\bigr),\qquad\boldsymbol{\mathcal E}=-\nabla\varphi. \tag{6.4}$$
 :::
 
-⁠**So liest man das:** Die Vorzeichen in [(6.3)](#gl-6-3) folgen aus Stufe [2](die-kontinuitatsgleichung.html#stufe-2) mit $\boldsymbol{\mathcal J}_\mathrm n=-\boldsymbol j_\mathrm n/e$ und $\boldsymbol{\mathcal J}_\mathrm p=+\boldsymbol j_\mathrm p/e$, $G$ und $R$ sind Quelle und Senke. $\rho$ ist hier die Ladungsdichte in C/cm$^3$, nicht der spezifische Widerstand aus [Teil 12](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/strom-im-halbleiter/strom-im-halbleiter.html). $\rho=0$ ist die Neutralität aus [Teil 11](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/eigenhalbleiter-und-dotierung/eigenhalbleiter-und-dotierung.html). Die Gleichung folgt aus $\operatorname{div}(\varepsilon_0\varepsilon_\mathrm r\boldsymbol{\mathcal E})=\rho$: Positive Ladung erzeugt einen Berg im Potential. Wegen $E_\mathrm C=\text{konst}-e\varphi$ gilt für die Bänder die __Poisson-Gleichung für den Bandverlauf__
+⁠**So liest man das:** Die Vorzeichen in [(6.3)](#gl-6-3) folgen aus Stufe [2](die-kontinuitatsgleichung.html#stufe-2) mit $\boldsymbol{\mathcal J}_\mathrm n=-\boldsymbol j_\mathrm n/e$ und $\boldsymbol{\mathcal J}_\mathrm p=+\boldsymbol j_\mathrm p/e$, $G$ und $R$ sind Quelle und Senke. $\rho$ ist hier die Ladungsdichte in C/cm$^3$, nicht der spezifische Widerstand aus [Kapitel 12](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/strom-im-halbleiter/strom-im-halbleiter.html). $\rho=0$ ist die Neutralität aus [Kapitel 11](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/eigenhalbleiter-und-dotierung/eigenhalbleiter-und-dotierung.html). Die Gleichung folgt aus $\operatorname{div}(\varepsilon_0\varepsilon_\mathrm r\boldsymbol{\mathcal E})=\rho$: Positive Ladung erzeugt einen Berg im Potential. Wegen $E_\mathrm C=\text{konst}-e\varphi$ gilt für die Bänder die __Poisson-Gleichung für den Bandverlauf__
 
 <span class="anker" id="gl-6-5"></span>
 $$\frac{\partial^2E_\mathrm C}{\partial x^2}=\frac{e\,\rho}{\varepsilon_0\varepsilon_\mathrm r}. \tag{6.5}$$

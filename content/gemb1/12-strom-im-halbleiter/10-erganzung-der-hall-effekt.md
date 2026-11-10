@@ -1,6 +1,8 @@
 ---
 title: Stufe 8: Ergänzung: Der Hall-Effekt
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Strom im Halbleiter
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Strom im Halbleiter
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/strom-im-halbleiter
+knoten: Kapitel 12: Strom im Halbleiter
 order: 4221000
 summary: Aus sigma allein lassen sich n und mu nicht trennen, und das Vorzeichen der Träger bleibt unbekannt.
 tags: Hall-Spannung, Lorentz-Kraft, Hall-Koeffizient, Hall-Winkel

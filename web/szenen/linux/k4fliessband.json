@@ -1,0 +1,808 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 29,
+  "nextAnimId": 38,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0,
+      1.9,
+      0
+     ],
+     "width": 3.4,
+     "height": 0.4,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#f6f6f4",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o2",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{\\$ sort obst.txt | uniq | wc -l}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.16,
+     "position": [
+      0,
+      1.9,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o3",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.45,
+      1.2,
+      0
+     ],
+     "width": 1.6,
+     "height": 0.5,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#e3eefb",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o4",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{sort obst.txt}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.15,
+     "position": [
+      -2.45,
+      1.2,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o5",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.0,
+      1.2,
+      0
+     ],
+     "width": 0.9,
+     "height": 0.5,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#e3eefb",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o6",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{uniq}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.16,
+     "position": [
+      0.0,
+      1.2,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o7",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.45,
+      1.2,
+      0
+     ],
+     "width": 1.1,
+     "height": 0.5,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#e3eefb",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o8",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{wc -l}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.16,
+     "position": [
+      2.45,
+      1.2,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o9",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -1.65,
+      1.2,
+      0
+     ],
+     "end": [
+      -0.45,
+      1.2,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.11,
+     "font_size": 26,
+     "color": "#333333",
+     "stroke_width": 3,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o10",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      0.45,
+      1.2,
+      0
+     ],
+     "end": [
+      1.9,
+      1.2,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.11,
+     "font_size": 26,
+     "color": "#333333",
+     "stroke_width": 3,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o11",
+    "type": "Line",
+    "props": {
+     "start": [
+      -1.05,
+      1.15,
+      0
+     ],
+     "end": [
+      -1.05,
+      0.82,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2,
+     "dash": "2,5"
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Line",
+    "props": {
+     "start": [
+      1.17,
+      1.15,
+      0
+     ],
+     "end": [
+      1.17,
+      0.82,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2,
+     "dash": "2,5"
+    }
+   },
+   {
+    "id": "o13",
+    "type": "Text",
+    "props": {
+     "text": "Apfel",
+     "position": [
+      -1.05,
+      0.66,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o14",
+    "type": "Text",
+    "props": {
+     "text": "Apfel",
+     "position": [
+      -1.05,
+      0.42,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o15",
+    "type": "Text",
+    "props": {
+     "text": "Apfel",
+     "position": [
+      -1.05,
+      0.18,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o16",
+    "type": "Text",
+    "props": {
+     "text": "Banane",
+     "position": [
+      -1.05,
+      -0.06,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o17",
+    "type": "Text",
+    "props": {
+     "text": "Birne",
+     "position": [
+      -1.05,
+      -0.3,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o18",
+    "type": "Text",
+    "props": {
+     "text": "Birne",
+     "position": [
+      -1.05,
+      -0.54,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o19",
+    "type": "Text",
+    "props": {
+     "text": "Kiwi",
+     "position": [
+      -1.05,
+      -0.78,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o20",
+    "type": "Text",
+    "props": {
+     "text": "Apfel",
+     "position": [
+      1.17,
+      0.66,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o21",
+    "type": "Text",
+    "props": {
+     "text": "Banane",
+     "position": [
+      1.17,
+      0.42,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o22",
+    "type": "Text",
+    "props": {
+     "text": "Birne",
+     "position": [
+      1.17,
+      0.18,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o23",
+    "type": "Text",
+    "props": {
+     "text": "Kiwi",
+     "position": [
+      1.17,
+      -0.06,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o24",
+    "type": "Text",
+    "props": {
+     "text": "@geordnet",
+     "position": [
+      -1.05,
+      -1.05,
+      0
+     ],
+     "font_size": 16,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o25",
+    "type": "Text",
+    "props": {
+     "text": "@sorten",
+     "position": [
+      1.17,
+      -0.33,
+      0
+     ],
+     "font_size": 16,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o26",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      2.45,
+      0.95,
+      0
+     ],
+     "end": [
+      2.45,
+      0.42,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.13,
+     "font_size": 26,
+     "color": "#00823c",
+     "stroke_width": 4.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o27",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.45,
+      0.18,
+      0
+     ],
+     "width": 0.8,
+     "height": 0.45,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#333333",
+     "fill_color": "#f6f6f4",
+     "fill_opacity": 1.0,
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o28",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{4}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.2,
+     "position": [
+      2.45,
+      0.18,
+      0
+     ],
+     "color": "#111111"
+    }
+   }
+  ],
+  "animations": [
+   {
+    "id": "a1",
+    "type": "GrowFromCenter",
+    "target": "o1",
+    "run_time": 0.4,
+    "step": 0
+   },
+   {
+    "id": "a2",
+    "type": "FadeIn",
+    "target": "o2",
+    "run_time": 0.4,
+    "step": 0
+   },
+   {
+    "id": "a3",
+    "type": "GrowFromCenter",
+    "target": "o3",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a4",
+    "type": "GrowFromCenter",
+    "target": "o5",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a5",
+    "type": "GrowFromCenter",
+    "target": "o7",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a6",
+    "type": "FadeIn",
+    "target": "o4",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a7",
+    "type": "FadeIn",
+    "target": "o6",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a8",
+    "type": "FadeIn",
+    "target": "o8",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a9",
+    "type": "Create",
+    "target": "o9",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a10",
+    "type": "Create",
+    "target": "o10",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a11",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a12",
+    "type": "Indicate",
+    "target": "o3",
+    "run_time": 0.6,
+    "step": 3
+   },
+   {
+    "id": "a13",
+    "type": "Indicate",
+    "target": "o4",
+    "run_time": 0.6,
+    "step": 3
+   },
+   {
+    "id": "a14",
+    "type": "Create",
+    "target": "o11",
+    "run_time": 0.3,
+    "step": 4
+   },
+   {
+    "id": "a15",
+    "type": "FadeIn",
+    "target": "o13",
+    "run_time": 0.7,
+    "step": 4
+   },
+   {
+    "id": "a16",
+    "type": "FadeIn",
+    "target": "o14",
+    "run_time": 0.7,
+    "step": 4
+   },
+   {
+    "id": "a17",
+    "type": "FadeIn",
+    "target": "o15",
+    "run_time": 0.7,
+    "step": 4
+   },
+   {
+    "id": "a18",
+    "type": "FadeIn",
+    "target": "o16",
+    "run_time": 0.7,
+    "step": 4
+   },
+   {
+    "id": "a19",
+    "type": "FadeIn",
+    "target": "o17",
+    "run_time": 0.7,
+    "step": 4
+   },
+   {
+    "id": "a20",
+    "type": "FadeIn",
+    "target": "o18",
+    "run_time": 0.7,
+    "step": 4
+   },
+   {
+    "id": "a21",
+    "type": "FadeIn",
+    "target": "o19",
+    "run_time": 0.7,
+    "step": 4
+   },
+   {
+    "id": "a22",
+    "type": "FadeIn",
+    "target": "o24",
+    "run_time": 0.4,
+    "step": 5
+   },
+   {
+    "id": "a23",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 6
+   },
+   {
+    "id": "a24",
+    "type": "Indicate",
+    "target": "o5",
+    "run_time": 0.6,
+    "step": 7
+   },
+   {
+    "id": "a25",
+    "type": "Indicate",
+    "target": "o6",
+    "run_time": 0.6,
+    "step": 7
+   },
+   {
+    "id": "a26",
+    "type": "Create",
+    "target": "o12",
+    "run_time": 0.3,
+    "step": 8
+   },
+   {
+    "id": "a27",
+    "type": "FadeIn",
+    "target": "o20",
+    "run_time": 0.7,
+    "step": 8
+   },
+   {
+    "id": "a28",
+    "type": "FadeIn",
+    "target": "o21",
+    "run_time": 0.7,
+    "step": 8
+   },
+   {
+    "id": "a29",
+    "type": "FadeIn",
+    "target": "o22",
+    "run_time": 0.7,
+    "step": 8
+   },
+   {
+    "id": "a30",
+    "type": "FadeIn",
+    "target": "o23",
+    "run_time": 0.7,
+    "step": 8
+   },
+   {
+    "id": "a31",
+    "type": "FadeIn",
+    "target": "o25",
+    "run_time": 0.4,
+    "step": 9
+   },
+   {
+    "id": "a32",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 10
+   },
+   {
+    "id": "a33",
+    "type": "Indicate",
+    "target": "o7",
+    "run_time": 0.6,
+    "step": 11
+   },
+   {
+    "id": "a34",
+    "type": "Indicate",
+    "target": "o8",
+    "run_time": 0.6,
+    "step": 11
+   },
+   {
+    "id": "a35",
+    "type": "Create",
+    "target": "o26",
+    "run_time": 0.5,
+    "step": 12
+   },
+   {
+    "id": "a36",
+    "type": "GrowFromCenter",
+    "target": "o27",
+    "run_time": 0.5,
+    "step": 12
+   },
+   {
+    "id": "a37",
+    "type": "FadeIn",
+    "target": "o28",
+    "run_time": 0.5,
+    "step": 13
+   }
+  ],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "geordnet": {
+    "de": "7 Zeilen, geordnet",
+    "en": "7 lines, sorted",
+    "es": "7 líneas, ordenadas",
+    "zh": "7 行，已排序",
+    "fr": "7 lignes, triées",
+    "tr": "7 satır, sıralı"
+   },
+   "sorten": {
+    "de": "4 Sorten",
+    "en": "4 kinds",
+    "es": "4 tipos",
+    "zh": "4 种",
+    "fr": "4 sortes",
+    "tr": "4 çeşit"
+   }
+  }
+ }
+}

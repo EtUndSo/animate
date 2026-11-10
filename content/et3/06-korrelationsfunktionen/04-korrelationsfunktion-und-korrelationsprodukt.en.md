@@ -1,6 +1,8 @@
 ---
 title: Stage 3: Correlation function and correlation product
-pfad: Electrical Engineering / 3rd Semester / Signals and Systems / Correlation Functions
+pfad: Electrical Engineering / 3rd Semester / ET3 – Fundamentals of Electrical Engineering 3: Signals and Systems / Correlation Functions
+adresse: elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen
+knoten: Chapter 6: Correlation Functions
 order: 3260400
 summary: An echo is similar to the transmitted pulse, but shifted.
 tags: autocorrelation function, cross-correlation function, correlation product

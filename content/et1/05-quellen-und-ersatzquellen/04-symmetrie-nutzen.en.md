@@ -1,6 +1,8 @@
 ---
 title: Stage 2: Using symmetry
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / Sources and Equivalent Sources
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / Sources and Equivalent Sources
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen
+knoten: Chapter 5: Sources and Equivalent Sources
 order: 1150400
 summary: Some networks contain no groups.
 tags: half circuit
@@ -73,10 +75,10 @@ In the drawing yes, in the currents no. Current could flow through the new wire 
 :::aufgabe Exercise 2 ★ Predicting no current
 <span class="anker" id="aufg-2"></span>
 
-From A, 10 $\Omega$ leads to node C and 30 $\Omega$ to node D; from C, 20 $\Omega$ and from D, 60 $\Omega$ lead to B. Between C and D lies a cross resistor $R_\mathrm{Q}$ (the bridge from [Part 4](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-und-spannung-messen/strom-und-spannung-messen.html)). (a) Show that C and D have the same potential, even without symmetry. (b) Calculate $R_\mathrm{AB}$ for $R_\mathrm{Q}\to\infty$ and for $R_\mathrm{Q}\to0$. (c) What follows for $R_\mathrm{Q}=47\,\Omega$?
+From A, 10 $\Omega$ leads to node C and 30 $\Omega$ to node D; from C, 20 $\Omega$ and from D, 60 $\Omega$ lead to B. Between C and D lies a cross resistor $R_\mathrm{Q}$ (the bridge from [Chapter 4](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-und-spannung-messen/strom-und-spannung-messen.html)). (a) Show that C and D have the same potential, even without symmetry. (b) Calculate $R_\mathrm{AB}$ for $R_\mathrm{Q}\to\infty$ and for $R_\mathrm{Q}\to0$. (c) What follows for $R_\mathrm{Q}=47\,\Omega$?
 
 :::loesung
-(a) Without current through $R_\mathrm{Q}$, both branches are voltage dividers with the same ratio: $\frac{20}{10+20}=\frac{60}{30+60}=\frac23$. C and D are then at the same potential, and no current really flows through $R_\mathrm{Q}$. That is the one solution of the network (the balance from [Part 4](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-und-spannung-messen/strom-und-spannung-messen.html)).
+(a) Without current through $R_\mathrm{Q}$, both branches are voltage dividers with the same ratio: $\frac{20}{10+20}=\frac{60}{30+60}=\frac23$. C and D are then at the same potential, and no current really flows through $R_\mathrm{Q}$. That is the one solution of the network (the balance from [Chapter 4](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-und-spannung-messen/strom-und-spannung-messen.html)).
 
 (b) $R_\mathrm{Q}\to\infty$: $(10\,\Omega+20\,\Omega)\parallel(30\,\Omega+60\,\Omega)=22.5\,\Omega$. $R_\mathrm{Q}\to0$: $10\,\Omega\parallel30\,\Omega+20\,\Omega\parallel60\,\Omega=7.5\,\Omega+15\,\Omega=22.5\,\Omega$.
 

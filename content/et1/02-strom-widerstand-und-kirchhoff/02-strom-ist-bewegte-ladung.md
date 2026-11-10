@@ -1,8 +1,10 @@
 ---
 title: Stufe 1: Strom ist bewegte Ladung
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Strom, Widerstand und Kirchhoff
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Strom, Widerstand und Kirchhoff
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff
+knoten: Kapitel 2: Strom, Widerstand und Kirchhoff
 order: 1120200
-summary: Teil 1 hat Ladungen betrachtet, die ruhen oder einzeln fliegen.
+summary: Kapitel 1 hat Ladungen betrachtet, die ruhen oder einzeln fliegen.
 tags: Ladungsdichte, Stromstärke, Stromkreis, stationär
 lang: de
 ---
@@ -10,7 +12,7 @@ lang: de
 <span class="anker" id="stufe-1"></span>
 
 :::zweck
-[Teil 1](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html) hat Ladungen betrachtet, die ruhen oder einzeln fliegen. In einem Draht bewegen sich unzählige Ladungen gemeinsam. Diese Stufe gibt dieser Bewegung zwei Maße.
+[Kapitel 1](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html) hat Ladungen betrachtet, die ruhen oder einzeln fliegen. In einem Draht bewegen sich unzählige Ladungen gemeinsam. Diese Stufe gibt dieser Bewegung zwei Maße.
 :::
 
 **Die Idee.** Man stellt sich an eine Stelle des Leiters und misst, wie viel Ladung je Sekunde vorbeikommt. Das hängt von drei Dingen ab: wie dicht die Ladung sitzt, wie schnell sie läuft und wie groß der Querschnitt ist. In der Zeit $\Delta t$ kommt genau die Ladung durch die Fläche, die vorher höchstens den Weg $v\,\Delta t$ entfernt war (Abb. [1](#abb-1)).

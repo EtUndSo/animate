@@ -1,6 +1,8 @@
 ---
 title: Stufe 1: Der Kern als Kasten ohne Wände
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Atome und Orbitale
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Atome und Orbitale
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/atome-und-orbitale
+knoten: Kapitel 4: Atome und Orbitale
 order: 4140300
 summary: In der Box saß das Elektron zwischen vorgegebenen Wänden.
 tags: Wasserstoffatom, Zentralpotential, Radialanteil, Winkelanteil, reduzierte Masse
@@ -13,7 +15,7 @@ lang: de
 In der Box saß das Elektron zwischen vorgegebenen Wänden. Im Atom gibt es keine Wände, nur die Anziehung des Kerns. Diese Stufe stellt die Schrödinger-Gleichung für diese Anziehung auf und zeigt, warum auch hier nur bestimmte Energien erlaubt sind.
 :::
 
-**Die Idee.** Das kleinste Atom ist das __Wasserstoffatom__: ein Proton, ein Elektron, also keine Abstoßung zwischen Elektronen. Das Proton zieht das Elektron an, und die potentielle Energie sinkt zum Kern hin immer tiefer. Im Schnitt sieht das wie ein Trichter aus (Abb. [1](#abb-1)). Hat das Elektron eine Energie $E<0$, endet das erlaubte Gebiet am Rand des Trichters: Weiter außen ist $V>E$, das Gebiet ist klassisch verboten, und die Welle klingt dort ab ([Teil 3](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/stufe-barriere-und-tunneleffekt/stufe-barriere-und-tunneleffekt.html)). Die Welle ist also eingesperrt und interferiert mit sich selbst. Wie in der Box bleiben nur Muster übrig, die zu sich selbst passen. Diese gebundenen Zustände haben diskrete Energien. Für $E>0$ gibt es keinen Rand mehr, das Elektron ist frei, und jede Energie ist möglich.
+**Die Idee.** Das kleinste Atom ist das __Wasserstoffatom__: ein Proton, ein Elektron, also keine Abstoßung zwischen Elektronen. Das Proton zieht das Elektron an, und die potentielle Energie sinkt zum Kern hin immer tiefer. Im Schnitt sieht das wie ein Trichter aus (Abb. [1](#abb-1)). Hat das Elektron eine Energie $E<0$, endet das erlaubte Gebiet am Rand des Trichters: Weiter außen ist $V>E$, das Gebiet ist klassisch verboten, und die Welle klingt dort ab ([Kapitel 3](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/stufe-barriere-und-tunneleffekt/stufe-barriere-und-tunneleffekt.html)). Die Welle ist also eingesperrt und interferiert mit sich selbst. Wie in der Box bleiben nur Muster übrig, die zu sich selbst passen. Diese gebundenen Zustände haben diskrete Energien. Für $E>0$ gibt es keinen Rand mehr, das Elektron ist frei, und jede Energie ist möglich.
 
 :::abbildung gemb1/k4coulomb 1
 Potentielle Energie $V$ eines Elektrons im Schnitt durch das Proton. Die roten Linien sind die drei tiefsten erlaubten Energien. Sie enden dort, wo $V=E$ gilt. Jenseits dieser Punkte ist das Gebiet für die jeweilige Energie klassisch verboten. Oberhalb von $E=0$ liegen die freien Zustände.
@@ -30,7 +32,7 @@ $$V(r)=-\frac{e^2}{4\pi\varepsilon_0\,r}. \tag{1.1}$$
 Ein Potential, das nur von $r$ abhängt, heißt __Zentralpotential__.
 :::
 
-⁠**So liest man das:** $V$ ist wie in [Teil 1](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/welle-teilchen-und-schrodinger-gleichung/welle-teilchen-und-schroedinger-gleichung.html) bis 3 eine Energie in J oder eV, nicht das elektrische Potential in Volt. Sie ist das Produkt aus dem Potential des Protons und der Elektronenladung $-e$. $r$ ist der Abstand in m, typisch 0,1 nm. Der Nullpunkt liegt bei $r\to\infty$. Das Minuszeichen sagt: Beim Annähern sinkt die Energie, das ist Anziehung. Bei $r=0{,}1$ nm ist $V=-1{,}44\,\mathrm{eV\,nm}/0{,}1\,\mathrm{nm}=-14{,}4$ eV.
+⁠**So liest man das:** $V$ ist wie in [Kapitel 1](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/welle-teilchen-und-schrodinger-gleichung/welle-teilchen-und-schroedinger-gleichung.html) bis 3 eine Energie in J oder eV, nicht das elektrische Potential in Volt. Sie ist das Produkt aus dem Potential des Protons und der Elektronenladung $-e$. $r$ ist der Abstand in m, typisch 0,1 nm. Der Nullpunkt liegt bei $r\to\infty$. Das Minuszeichen sagt: Beim Annähern sinkt die Energie, das ist Anziehung. Bei $r=0{,}1$ nm ist $V=-1{,}44\,\mathrm{eV\,nm}/0{,}1\,\mathrm{nm}=-14{,}4$ eV.
 
 :::satz Satz 1.2 (Schrödinger-Gleichung im Zentralpotential)
 <span class="anker" id="satz-1-2"></span>
@@ -58,7 +60,7 @@ Links steht nur $r$, rechts stehen nur die Winkel. Beide Seiten sind also gleich
 Das erlaubte Gebiet endet bei $V(r)=E$, also beim Umkehrradius $r_\mathrm U=e^2/(4\pi\varepsilon_0|E|)$. Für $E=-3{,}4$ eV ist $r_\mathrm U=1{,}44\,\mathrm{eV\,nm}/3{,}4\,\mathrm{eV}=0{,}42$ nm. Im Abstand 0,0529 nm beträgt das Feld des Protons $\mathcal E=e/(4\pi\varepsilon_0r^2)=5{,}1\cdot10^{11}$ V/m, das 170 000-fache der Durchschlagsfeldstärke von Luft. Felder aus Schaltungen stören ein Atom deshalb kaum.
 ::::
 
-⁠**Grenzfälle:** Für $r\to\infty$ geht $V\to0$, und es bleibt das freie Teilchen aus [Teil 1](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/welle-teilchen-und-schrodinger-gleichung/welle-teilchen-und-schroedinger-gleichung.html). Mit der Kernladung $Ze$ statt $e$ wird $V=-Ze^2/(4\pi\varepsilon_0r)$: Der Trichter wird tiefer, seine Form bleibt.
+⁠**Grenzfälle:** Für $r\to\infty$ geht $V\to0$, und es bleibt das freie Teilchen aus [Kapitel 1](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/welle-teilchen-und-schrodinger-gleichung/welle-teilchen-und-schroedinger-gleichung.html). Mit der Kernladung $Ze$ statt $e$ wird $V=-Ze^2/(4\pi\varepsilon_0r)$: Der Trichter wird tiefer, seine Form bleibt.
 
 :::frage Rollt das Elektron wie eine Kugel im Trichter?
 Nein. Das Bild zeigt Energie über dem Ort, keine Höhe im Raum, und nur einen Schnitt: $V$ hängt in allen Richtungen gleich von $r$ ab. Das Elektron hat keine Bahn. Es ist eine stehende Welle, die zugleich im ganzen erlaubten Gebiet existiert. Eine rote Linie ist eine Energie, kein Weg.

@@ -1,6 +1,8 @@
 ---
 title: 第 5 阶段：卷积的计算
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / LTI 系统与卷积
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / LTI 系统与卷积
+adresse: elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung
+knoten: 第 1 章：LTI 系统与卷积
 order: 3210600
 summary: 对于具体的信号，需要把积分 (4.2) 算出来。关键在于把两个因子都画成积分变量 tau 的函数。
 tags: 

@@ -1,6 +1,8 @@
 ---
 title: Stage 1: Noise
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / The Operational Amplifier
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / The Operational Amplifier
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker
+knoten: Chapter 11: The Operational Amplifier
 order: 1210300
 summary: A sensor delivers millivolts, and every conductor produces a random interference voltage.
 tags: noise voltage density, signal-to-noise ratio, decibels, Boltzmann constant, Thermal noise, Shot noise, 1/f noise, white noise

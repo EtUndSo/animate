@@ -1,6 +1,8 @@
 ---
 title: 第 2 阶段：度量相似程度——相关系数
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / 相关函数
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / 相关函数
+adresse: elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen
+knoten: 第 6 章：相关函数
 order: 3260300
 summary: 怎样用一个数来度量两个信号有多相似？办法是度量它们的差有多大。
 tags: 相关系数, 正交
@@ -22,7 +24,7 @@ $$E_\Delta=\int|s-g|^2\mathrm{d} t=E_s+E_g-\int s^*g\,\mathrm{d} t-\int g^*s\,\m
 <span class="anker" id="gl-2-1"></span>
 $$p_{sg}=\frac{\int_{-\infty}^{\infty}s^*(t)\,g(t)\,\mathrm{d} t}{\sqrt{E_sE_g}}. \tag{2.1}$$
 
-⁠**如何理解：**$|p_{sg}|\le1$（柯西–施瓦茨不等式）。$p=1$ 表示 $s=a\,g$ 且 $a>0$：形状相同。$p=-1$ 表示 $s=-a\,g$：形状相同，符号相反。$p=0$ 表示 $\int s^*g\,\mathrm{d} t=0$；这两个信号是__正交__的，就像[第 3 部分](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)中傅里叶级数的各次谐波一样。例：对于 $\operatorname{rect}(t)$ 和 $\Lambda(t)$，有 $\int\operatorname{rect}\cdot\Lambda\,\mathrm{d} t=0.75$，$E_{\operatorname{rect}}=1$，$E_\Lambda=\frac23$，因此 $p=0.919$。
+⁠**如何理解：**$|p_{sg}|\le1$（柯西–施瓦茨不等式）。$p=1$ 表示 $s=a\,g$ 且 $a>0$：形状相同。$p=-1$ 表示 $s=-a\,g$：形状相同，符号相反。$p=0$ 表示 $\int s^*g\,\mathrm{d} t=0$；这两个信号是__正交__的，就像[第 3 章](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)中傅里叶级数的各次谐波一样。例：对于 $\operatorname{rect}(t)$ 和 $\Lambda(t)$，有 $\int\operatorname{rect}\cdot\Lambda\,\mathrm{d} t=0.75$，$E_{\operatorname{rect}}=1$，$E_\Lambda=\frac23$，因此 $p=0.919$。
 
 :::aufgabe 练习 2 ★★ 相关系数
 <span class="anker" id="aufg-2"></span>

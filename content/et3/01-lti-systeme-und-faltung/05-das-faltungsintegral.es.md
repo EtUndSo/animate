@@ -1,6 +1,8 @@
 ---
 title: Etapa 4: La integral de convolución
-pfad: Ingeniería eléctrica / 3.er semestre / Señales y sistemas / Sistemas LTI y convolución
+pfad: Ingeniería eléctrica / 3.er semestre / ET3 – Fundamentos de ingeniería eléctrica 3: señales y sistemas / Sistemas LTI y convolución
+adresse: elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung
+knoten: Capítulo 1: Sistemas LTI y convolución
 order: 3210500
 summary: Con la linealidad y la invariancia en el tiempo, la respuesta a cualquier señal puede calcularse a partir de la respuesta a un único pulso corto.
 tags: impulso de Dirac, respuesta al impulso

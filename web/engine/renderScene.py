@@ -41,11 +41,12 @@ class CairoPainter:
         else:
             ctx.new_path()                                 # clear the kept path
 
-    def draw_text(self, text, px, py, font_size, color, opacity, align="center"):
+    def draw_text(self, text, px, py, font_size, color, opacity, align="center", font=None, raw=False):
         from .richtext import plain
-        text = plain(text)                                 # Cairo path: sub/superscripts flattened to plain text
+        if not raw:
+            text = plain(text)                             # Cairo path: sub/superscripts flattened to plain text
         ctx = self.ctx
-        ctx.select_font_face("sans-serif")
+        ctx.select_font_face("monospace" if font == "mono" else "sans-serif")
         ctx.set_font_size(font_size)
         ctx.set_source_rgba(*color, opacity)
         xb, yb, w, h, xa, ya = ctx.text_extents(text)

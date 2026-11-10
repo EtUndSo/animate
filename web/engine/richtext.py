@@ -206,3 +206,51 @@ def is_plain(text):
     """True when the label needs no rich layout (single line, no sub/sup, no macros)."""
     s = str(text if text is not None else "")
     return not any(c in s for c in "_^\\\n${}")
+
+
+# ---------------------------------------------------------------------------- raw text and typewriter font
+# A Text with raw=True is taken LITERALLY: _ ^ \ $ { } are ordinary characters, only a real newline breaks the
+# line (file names such as einkauf_alt.txt or C:\ need no masking). A Text with font="mono" is set in a
+# typewriter font on a fixed grid of CELLS: every character sits in the middle of its own cell of MONO_CELL em,
+# an East-Asian wide character (CJK, full-width forms) in the middle of two cells, as in a terminal. The painters
+# place each character at its cell, so columns line up and several spaces stay, whatever monospace font the
+# reader's system picks (the cell, not the font, sets the width). Mono text is never rich: without raw it is the
+# plain() form of the label (macros resolved, sub/superscripts inline).
+MONO_CELL = 0.6                     # cell width in em (Courier New, Liberation Mono, Lucida Console, Menlo: 0.60-0.602)
+TAB_CELLS = 8                       # a tab advances to the next multiple of 8 cells (terminal)
+
+
+def is_wide(ch):
+    """True for an East-Asian wide character (two cells in a terminal)."""
+    o = ord(ch)
+    return 0x1100 <= o <= 0x115F or 0x2E80 <= o <= 0x9FFF or 0xAC00 <= o <= 0xD7AF or 0xF900 <= o <= 0xFAFF \
+        or 0xFE30 <= o <= 0xFE4F or 0xFF00 <= o <= 0xFF60 or 0xFFE0 <= o <= 0xFFE6
+
+
+def text_lines(text, raw=False):
+    """The lines of a raw or mono label as plain strings (no sub/superscript levels): raw = literally, split only at
+    real newlines; otherwise the plain() form (macros resolved, \\\\ breaks the line)."""
+    s = str(text if text is not None else "").replace("\r\n", "\n")
+    if not raw:
+        s = plain(s)
+    return s.split("\n")
+
+
+def mono_line(line):
+    """(cells, [(char, centre)]) of one line: the number of cells and, for every character, the centre of its cell(s)
+    counted in cells from the line start. A space stays a character (so copied text keeps its spaces), a tab becomes
+    spaces up to the next tab stop; trailing spaces are dropped (they draw nothing)."""
+    pos, out = 0, []
+    for ch in line.rstrip():
+        if ch == "\t":
+            stop = (pos // TAB_CELLS + 1) * TAB_CELLS
+            while pos < stop:
+                out.append((" ", pos + 0.5))
+                pos += 1
+            continue
+        if ch.isspace():
+            ch = " "
+        w = 2 if is_wide(ch) else 1
+        out.append((ch, pos + w / 2.0))
+        pos += w
+    return pos, out

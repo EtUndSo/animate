@@ -1,6 +1,8 @@
 ---
 title: Das Wichtigste
-pfad: Elektrotechnik / 3. Semester / Höhere Mathematik 3 / Integralsätze im Raum
+pfad: Elektrotechnik / 3. Semester / HöMa3 – Höhere Mathematik 3 / Integralsätze im Raum
+adresse: elektrotechnik/3-semester/hohere-mathematik-3/integralsatze-im-raum
+knoten: Kapitel 5: Integralsätze im Raum
 order: 3151200
 summary: Was im Inneren geschieht, lässt sich am Rand ablesen
 tags: 
@@ -109,8 +111,8 @@ Helmholtz: $\boldsymbol{F}=\nabla u+\nabla\times\boldsymbol{A}$.
 | Ergebnis | Gebiet und Rand | Woher es kommt |
 |---|---|---|
 | Hauptsatz | Intervall, zwei Punkte | Ableitung von $f$ |
-| Kurvenintegral | Kurve, zwei Punkte | $\nabla\varphi$ integriert sich zu $\varphi(\text{Ende})-\varphi(\text{Anfang})$ (Teil 3) |
-| Green in der Ebene | ebener Bereich, Randkurve | $\partial_xQ-\partial_yP$ (Teil 3) |
+| Kurvenintegral | Kurve, zwei Punkte | $\nabla\varphi$ integriert sich zu $\varphi(\text{Ende})-\varphi(\text{Anfang})$ (Kapitel 3) |
+| Green in der Ebene | ebener Bereich, Randkurve | $\partial_xQ-\partial_yP$ (Kapitel 3) |
 | Stokes im Raum | Fläche, Randkurve | Green im Parameterbereich (Stufe [6](der-satz-von-stokes.html#stufe-6)) |
 | Gauß | Körper, Oberfläche | Hauptsatz in jeder Achsenrichtung (Stufe [8](der-satz-von-gau.html#stufe-8)) |
 | Poisson-Lösung | $\mathbb{R}^3$ ohne kleine Kugel | Gauß mit Rand um den Aufpunkt (Stufe [9](poisson-gleichung.html#stufe-9)) |

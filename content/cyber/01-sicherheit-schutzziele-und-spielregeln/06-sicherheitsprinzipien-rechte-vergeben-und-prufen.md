@@ -1,6 +1,8 @@
 ---
 title: Sicherheitsprinzipien: Rechte vergeben und prüfen
 pfad: Informatik / Cybersecurity / Sicherheit, Schutzziele und Spielregeln
+adresse: informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln
+knoten: Kapitel 1: Sicherheit, Schutzziele und Spielregeln
 order: 6110600
 summary: Wie baut man Mechanismen, die eine Richtlinie zuverlässig durchsetzen?
 tags: Sicherheitsprinzip, minimalen Rechte, Aufgabentrennung, Zwei-Faktor-Anmeldung, sicheren Voreinstellung, lückenlosen Prüfung, TOCTTOU-Schwachstelle, atomar

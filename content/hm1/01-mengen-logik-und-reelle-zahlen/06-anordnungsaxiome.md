@@ -1,6 +1,8 @@
 ---
 title: Stufe 4: Anordnungsaxiome
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Mengen, Logik und reelle Zahlen
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Mengen, Logik und reelle Zahlen
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen
+knoten: Kapitel 1: Mengen, Logik und reelle Zahlen
 order: 1210600
 summary: Die Körperaxiome sagen nichts über „größer“.
 tags: total angeordnet, Trichotomie
@@ -65,7 +67,7 @@ In einem total angeordneten Körper gilt für alle $x,y,z,u,v$:
 | (e) Quadrieren | für $x\ge0$, $y\ge0$: $x^2\ge y^2\Leftrightarrow x\ge y$ |
 :::
 
-⁠**So liest man das:** Eine Ungleichung verträgt jede Addition, aber nur die Multiplikation mit positiven Zahlen. Für $z<0$ dreht sie sich: $x<y\wedge z<0\Rightarrow xz>yz$. Für $z=0$ wird (O4) zu $0<0$, falsch. Gäbe es in einem angeordneten Körper ein $i$ mit $i\cdot i=-1$, wäre nach (d) $-1>0$ und $1>0$, also nach (T2) $0>0$. Deshalb lassen sich die komplexen Zahlen aus [Teil 2](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen/komplexe-zahlen.html) nicht anordnen. Statt (T1) bis (T3) könnte man gleichwertig (O1) bis (O4) als Axiome nehmen.
+⁠**So liest man das:** Eine Ungleichung verträgt jede Addition, aber nur die Multiplikation mit positiven Zahlen. Für $z<0$ dreht sie sich: $x<y\wedge z<0\Rightarrow xz>yz$. Für $z=0$ wird (O4) zu $0<0$, falsch. Gäbe es in einem angeordneten Körper ein $i$ mit $i\cdot i=-1$, wäre nach (d) $-1>0$ und $1>0$, also nach (T2) $0>0$. Deshalb lassen sich die komplexen Zahlen aus [Kapitel 2](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen/komplexe-zahlen.html) nicht anordnen. Statt (T1) bis (T3) könnte man gleichwertig (O1) bis (O4) als Axiome nehmen.
 
 :::frage Darf ich eine Ungleichung quadrieren?
 Nur, wenn beide Seiten nicht negativ sind, das ist (e). Ohne diese Voraussetzung: $-3<2$, aber $9>4$. Quadrieren spiegelt den negativen Teil der Geraden in den positiven, wie Mal $-1$ in Abb. [4](#abb-4).

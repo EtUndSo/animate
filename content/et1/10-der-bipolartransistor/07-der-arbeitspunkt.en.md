@@ -1,6 +1,8 @@
 ---
 title: Stage 5: The operating point
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / The Bipolar Transistor
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / The Bipolar Transistor
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor
+knoten: Chapter 10: The Bipolar Transistor
 order: 1200700
 summary: Which region applies is not known in advance.
 tags: load line, supply voltage
@@ -13,7 +15,7 @@ lang: en
 Which region applies is not known in advance. This stage determines the operating point by assuming and checking, and draws it as an intersection.
 :::
 
-**The idea.** The transistor supplies its characteristic curves, the circuit supplies mesh equations. Both must hold at once. The result is the operating point (OP), as in [Part 5](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html) the intersection of a characteristic curve with a straight line. Because each region has a different equivalent circuit, one assumes a region, calculates linearly and checks. A contradiction with the conditions [(4.1)](drei-bereiche-drei-ersatzschaltbilder.html#gl-4-1) to [(4.3)](drei-bereiche-drei-ersatzschaltbilder.html#gl-4-3) reveals the wrong assumption.
+**The idea.** The transistor supplies its characteristic curves, the circuit supplies mesh equations. Both must hold at once. The result is the operating point (OP), as in [Chapter 5](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html) the intersection of a characteristic curve with a straight line. Because each region has a different equivalent circuit, one assumes a region, calculates linearly and checks. A contradiction with the conditions [(4.1)](drei-bereiche-drei-ersatzschaltbilder.html#gl-4-1) to [(4.3)](drei-bereiche-drei-ersatzschaltbilder.html#gl-4-3) reveals the wrong assumption.
 
 :::abbildung et1/k10arbeit 6
 Left, the circuit of the reference model. Right, the linearized output characteristics with the load line from $(0;\,4\,\mathrm{mA})$ to $(12\,\mathrm{V};\,0)$. It meets the line $I_\mathrm{B}=10$ µ A at the operating point A. S is the point in saturation, Z the point in the cut-off region.

@@ -1,6 +1,8 @@
 ---
 title: Stufe 2: Bänder und Lücken
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Vom Atom zum Band
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Vom Atom zum Band
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/vom-atom-zum-band
+knoten: Kapitel 8: Vom Atom zum Band
 order: 4180400
 summary: Die Periodizität sagt noch nicht, welche Energien vorkommen.
 tags: Bragg-Reflexion, Energieband, Bandlücke
@@ -34,7 +36,7 @@ $E(k)$ des Kammpotentials mit $w=1$ nm und $V_\mathrm B=1$ eV, gerechnet aus
 
 ⁠**So liest man das:** Ein einzelner Topf hat die Niveaus 191 meV und 703 meV. Das erste Band liegt um das erste Niveau, das zweite um das zweite: Die Bänder stammen von den Zuständen der einzelnen Töpfe. Der Mechanismus der Breite ist das Tunneln. Je dünner oder niedriger die Barriere, desto stärker reicht die Welle zum Nachbarn, desto breiter das Band und desto kleiner die Lücke. Mit dem Band wächst $\partial E/\partial k$, das Elektron läuft schneller. Bei $E\approx0{,}19$ eV ist $\kappa=4{,}61\,\mathrm{nm^{-1}}$, also schwächen 0,2 nm mehr Barriere um $\mathrm{e}^{\kappa\cdot0{,}2\,\mathrm{nm}}=2{,}51$. Die Bandbreite sinkt um $149/59=2{,}52$.
 
-**Warum die Lücke am Zonenrand sitzt.** In der Parabelschar aus [Teil 7](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/kristallwachstum-und-reziprokes-gitter/kristallwachstum-und-reziprokes-gitter.html) schneiden sich dort zwei Äste: $k=\pi/a$ und $k-2\pi/a=-\pi/a$ haben dieselbe Energie. Ihre Überlagerung sind die stehenden Wellen der Idee. Das Potential trennt sie, und die Lücke öffnet sich.
+**Warum die Lücke am Zonenrand sitzt.** In der Parabelschar aus [Kapitel 7](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/kristallwachstum-und-reziprokes-gitter/kristallwachstum-und-reziprokes-gitter.html) schneiden sich dort zwei Äste: $k=\pi/a$ und $k-2\pi/a=-\pi/a$ haben dieselbe Energie. Ihre Überlagerung sind die stehenden Wellen der Idee. Das Potential trennt sie, und die Lücke öffnet sich.
 
 ::::beispiel
 Für $b=0{,}2$ nm ist $a=1{,}2$ nm. Das freie Elektron hätte am Zonenrand $\hbar^2(\pi/a)^2/(2m_0)=261$ meV, das mittlere Potential $V_\mathrm Bb/a$ gibt 167 meV dazu, zusammen 428 meV. Das liegt in der Lücke von 268 bis 535 meV. In der Lückenmitte hat $k$ einen imaginären Anteil, die Amplitude fällt je Periode auf 45 %, nach fünf Perioden auf 1,8 %. Für diese Energie wirkt der Kristall wie eine Wand, ein Elektron läuft zurück.

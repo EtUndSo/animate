@@ -1,6 +1,8 @@
 ---
 title: Etapa 9: Thévenin y Norton
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Fuentes y fuentes equivalentes
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Fuentes y fuentes equivalentes
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen
+knoten: Capítulo 5: Fuentes y fuentes equivalentes
 order: 1151100
 summary: N debe alimentar muchas cargas distintas.
 tags: fuente de tensión equivalente, fuente de corriente equivalente, característica de carga

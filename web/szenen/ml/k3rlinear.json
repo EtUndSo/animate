@@ -12,7 +12,7 @@
     "type": "MathTex",
     "props": {
      "tex": "\\begin{aligned}&\\nabla f(\\mathbf x)=\\begin{pmatrix}4\\\\5\\end{pmatrix},\\qquad \\mathbf h=\\begin{pmatrix}0.01\\\\0.02\\end{pmatrix}\\\\\\nabla f(\\mathbf x)^\\top\\mathbf h&=\\sum_{j=1}^2\\partial_jf(\\mathbf x)\\,h_j=\\partial_1f(\\mathbf x)\\,h_1+\\partial_2f(\\mathbf x)\\,h_2\\\\&=4\\cdot0.01+5\\cdot0.02\\\\&=0.04+0.10\\\\&=0.14\\end{aligned}",
-     "height": 2.351,
+     "height": 2.309,
      "position": [
       0,
       0,

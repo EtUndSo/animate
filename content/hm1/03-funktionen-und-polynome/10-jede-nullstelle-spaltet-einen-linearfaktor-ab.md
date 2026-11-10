@@ -1,6 +1,8 @@
 ---
 title: Stufe 8: Jede Nullstelle spaltet einen Linearfaktor ab
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Funktionen und Polynome
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Funktionen und Polynome
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/funktionen-und-polynome
+knoten: Kapitel 3: Funktionen und Polynome
 order: 1231000
 summary: Jetzt lässt sich die Frage vom Anfang beantworten: Warum gehört zu jeder Lösung von P(x)=0 ein Faktor, und wie viele Lösungen kann es geben?
 tags: m-fache Nullstelle, Vielfachheit
@@ -63,7 +65,7 @@ $$\begin{aligned} a_3&=-(x_1+x_2+x_3+x_4), & a_2&=x_1x_2+x_1x_3+x_1x_4+x_2x_3+x_
 Nicht jedes reelle Polynom hat die Form [(8.3)](#gl-8-3), wie $x^2+1$ zeigt. Dass die Form [(8.4)](#gl-8-4) immer existiert, ist schwieriger und wird hier nicht bewiesen.
 
 :::zusatz Warum quadratische Faktoren genügen
-In den komplexen Zahlen ([Teil 2](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen/komplexe-zahlen.html)) hat jedes Polynom vom Grad $n\ge1$ eine Nullstelle (Fundamentalsatz der Algebra). Bei reellen Koeffizienten ist mit $z$ auch $\overline{z}$ eine Nullstelle, und $(x-z)(x-\overline{z})=x^2-2\operatorname{Re}(z)\,x+|z|^2$ ist reell. Für $x^2+x+1$ ist $z=-\frac12+\frac{\sqrt3}{2}\,\mathrm{i}$.
+In den komplexen Zahlen ([Kapitel 2](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen/komplexe-zahlen.html)) hat jedes Polynom vom Grad $n\ge1$ eine Nullstelle (Fundamentalsatz der Algebra). Bei reellen Koeffizienten ist mit $z$ auch $\overline{z}$ eine Nullstelle, und $(x-z)(x-\overline{z})=x^2-2\operatorname{Re}(z)\,x+|z|^2$ ist reell. Für $x^2+x+1$ ist $z=-\frac12+\frac{\sqrt3}{2}\,\mathrm{i}$.
 :::
 
 ::::beispiel

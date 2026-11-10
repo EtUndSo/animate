@@ -1,6 +1,8 @@
 ---
 title: Stufe 2: Nullfolge nötig, aber nicht genug
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Unendliche Reihen
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Unendliche Reihen
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/unendliche-reihen
+knoten: Kapitel 6: Unendliche Reihen
 order: 1260400
 summary: Eine Formel für S N gibt es selten.
 tags: 
@@ -27,7 +29,7 @@ $$\forall\,\varepsilon>0\quad\exists\,N_0=N_0(\varepsilon)\in\mathbb{N}:\quad\Bi
 ⁠**So liest man das:** Die Summe im Betrag ist das Treppenstück von Stufe $m+1$ bis Stufe $n$, also $S_n-S_m$. Hinter $N_0$ ist jedes Stück niedriger als $\varepsilon$, auch ein sehr langes. Bei der Halbierungsreihe ist jedes Stück hinter $m$ kleiner als $(\frac12)^m$, für $\varepsilon=0{,}1$ genügt also $N_0=3$. Der Grenzwert kommt nicht vor, deshalb lässt sich das Kriterium prüfen, ohne $S$ zu kennen.
 
 :::beweis Cauchy-Folge der Teilsummen
-Für $n>m$ ist $S_n-S_m=\sum_{\ell=m+1}^na_\ell$. Bedingung [(2.1)](#gl-2-1) sagt also, dass $\{S_N\}$ eine Cauchy-Folge ist (für $n=m$ ist der Abstand 0, Vertauschen ändert den Betrag nicht). In $\mathbb{R}$ ist das nach [Teil 4](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/folgen-und-grenzwerte/folgen-und-grenzwerte.html) gleichbedeutend mit Konvergenz.
+Für $n>m$ ist $S_n-S_m=\sum_{\ell=m+1}^na_\ell$. Bedingung [(2.1)](#gl-2-1) sagt also, dass $\{S_N\}$ eine Cauchy-Folge ist (für $n=m$ ist der Abstand 0, Vertauschen ändert den Betrag nicht). In $\mathbb{R}$ ist das nach [Kapitel 4](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/folgen-und-grenzwerte/folgen-und-grenzwerte.html) gleichbedeutend mit Konvergenz.
 :::
 
 :::satz Satz 2.2 (Notwendige Bedingung)
@@ -62,7 +64,7 @@ Fasse die Glieder zu Gruppen mit $1,2,4,8,\dots$ Gliedern zusammen:
 
 $$H_{2^m}=1+\frac12+\Bigl(\frac13+\frac14\Bigr)+\Bigl(\frac15+\dots+\frac18\Bigr)+\dots+\Bigl(\frac1{2^{m-1}+1}+\dots+\frac1{2^m}\Bigr).$$
 
-Gruppe $j$ endet bei $\frac1{2^j}$ und hat $2^{j-1}$ Glieder. Jedes davon ist mindestens so groß wie das letzte, also ist die Gruppe mindestens $2^{j-1}\cdot\frac1{2^j}=\frac12$. Mit $m$ Gruppen folgt [(2.2)](#gl-2-2). Damit ist $\{H_N\}$ unbeschränkt, und eine unbeschränkte Folge konvergiert nicht ([Teil 4](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/folgen-und-grenzwerte/folgen-und-grenzwerte.html)).
+Gruppe $j$ endet bei $\frac1{2^j}$ und hat $2^{j-1}$ Glieder. Jedes davon ist mindestens so groß wie das letzte, also ist die Gruppe mindestens $2^{j-1}\cdot\frac1{2^j}=\frac12$. Mit $m$ Gruppen folgt [(2.2)](#gl-2-2). Damit ist $\{H_N\}$ unbeschränkt, und eine unbeschränkte Folge konvergiert nicht ([Kapitel 4](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/folgen-und-grenzwerte/folgen-und-grenzwerte.html)).
 :::
 
 ⁠**Der Mechanismus:** Von Gruppe zu Gruppe halbiert sich die Höhe der Glieder, ihre Anzahl verdoppelt sich, das Produkt bleibt (Abb. [2](#abb-2)). Die Glieder schrumpfen gerade zu langsam gegen ihre wachsende Zahl. Das verletzt das Cauchy-Kriterium: Das Stück von $m+1$ bis $2m$ hat $m$ Glieder, jedes mindestens $\frac1{2m}$, also ist es mindestens $\frac12$, egal wie groß $m$ ist.
@@ -74,7 +76,7 @@ Die Glieder $\frac1n$ als Balken. Die Gruppen mit 1, 2, 4 und 8 Gliedern liegen 
 **Zahlen.** $H_{1024}=7{,}509$ (Schranke 6), $H_{10^6}=14{,}39$. Die 5 überschreitet $H_N$ erst bei $N=83$, die 10 erst bei $N=12367$. Numerisch sieht das nach einer Decke aus, nur der Beweis zeigt, dass es keine gibt. **Grenzfall:** Für $m=1$ gilt in [(2.2)](#gl-2-2) Gleichheit, $H_2=1{,}5$. Für große $m$ ist die Schranke grob, die Gruppen sind größer als $\frac12$ und nähern sich $\log2=0{,}693$.
 
 :::frage Die Treppe wird immer flacher. Muss sie dann nicht irgendwo ankommen?
-Richtig ist: Die Zuwächse verschwinden. Falsch ist der Schluss auf eine Decke. Auch $\sqrt n$ hat immer kleinere Nachbarabstände und wächst ohne Grenze ([Teil 4](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/folgen-und-grenzwerte/folgen-und-grenzwerte.html)). Eine Decke gibt es nur, wenn die Summe aller künftigen Zuwächse klein ist, nicht jeder einzelne.
+Richtig ist: Die Zuwächse verschwinden. Falsch ist der Schluss auf eine Decke. Auch $\sqrt n$ hat immer kleinere Nachbarabstände und wächst ohne Grenze ([Kapitel 4](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/folgen-und-grenzwerte/folgen-und-grenzwerte.html)). Eine Decke gibt es nur, wenn die Summe aller künftigen Zuwächse klein ist, nicht jeder einzelne.
 :::
 
 :::aufgabe Aufgabe 2 ★★ Langsam, aber ohne Decke

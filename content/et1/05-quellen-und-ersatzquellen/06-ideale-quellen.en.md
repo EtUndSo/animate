@@ -1,6 +1,8 @@
 ---
 title: Stage 4: Ideal sources
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / Sources and Equivalent Sources
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / Sources and Equivalent Sources
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen
+knoten: Chapter 5: Sources and Equivalent Sources
 order: 1150600
 summary: What has been missing so far is whatever drives the current.
 tags: ideal voltage source, ideal current source, source voltage, source current
@@ -13,7 +15,7 @@ lang: en
 What has been missing so far is whatever drives the current. This stage introduces the two basic building blocks that bring energy into a network.
 :::
 
-**The idea.** A source holds a single quantity fixed. The connected network determines the other. An __ideal voltage source__ holds the potential difference between its terminals. The load decides what current flows. An __ideal current source__ holds the current in its branch. The load likewise decides what voltage arises. Both are models. They cannot be built, but a regulated power supply or a transistor circuit ([Part 10](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor/der-bipolartransistor.html)) comes close to them within a limited range.
+**The idea.** A source holds a single quantity fixed. The connected network determines the other. An __ideal voltage source__ holds the potential difference between its terminals. The load decides what current flows. An __ideal current source__ holds the current in its branch. The load likewise decides what voltage arises. Both are models. They cannot be built, but a regulated power supply or a transistor circuit ([Chapter 10](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor/der-bipolartransistor.html)) comes close to them within a limited range.
 
 :::abbildung et1/k5ideal 5
 Left, the ideal voltage source: in the diagram a horizontal line, the voltage does not depend on the current. Right, the ideal current source: a vertical line, the current does not depend on the voltage. The stroke in the circuit symbol shows the behavior at the value zero: drawn along the line, the line is closed; drawn across it, the line is interrupted.

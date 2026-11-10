@@ -1,6 +1,8 @@
 ---
 title: Stufe 5: Zweipole und Zählpfeile
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Strom, Widerstand und Kirchhoff
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Strom, Widerstand und Kirchhoff
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff
+knoten: Kapitel 2: Strom, Widerstand und Kirchhoff
 order: 1120600
 summary: Ab jetzt zählt nicht mehr, was im Bauteil geschieht, sondern was an seinen Anschlüssen messbar ist.
 tags: Zweipol, Kennlinie, Blackbox, Netzwerk, linearer Zweipol, nichtlinearen Zweipol, Verbraucherzählpfeilsystem, Erzeuger- oder Generatorzählpfeilsystem
@@ -24,12 +26,12 @@ Ein __Zweipol__ ist ein Bauelement, das sich durch Strom und Spannung zwischen s
 $$G=\frac IU=\text{const}\quad\text{bzw.}\quad R=\frac UI=\text{const}. \tag{5.1}$$
 :::
 
-⁠**So liest man das:** Ein solcher __linearer Zweipol__ ist der ohmsche Widerstand (Abb. [4](das-ohmsche-gesetz-aus-feld-und-stoen.html#abb-4) rechts, jede Gerade ein Wert). Auch Batterie und Spannungsquelle gehören zu den Bausteinen linearer Netze, ihre Kennlinie läuft aber nicht durch den Ursprung ([Teil 5](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)). Bei einem __nichtlinearen Zweipol__ wie der Glühlampe (Abb. [5](reale-widerstande-werte-und-temperatur.html#abb-5) rechts) hängt $U/I$ vom Arbeitspunkt ab, dort gilt [(5.1)](#gl-5-1) nicht.
+⁠**So liest man das:** Ein solcher __linearer Zweipol__ ist der ohmsche Widerstand (Abb. [4](das-ohmsche-gesetz-aus-feld-und-stoen.html#abb-4) rechts, jede Gerade ein Wert). Auch Batterie und Spannungsquelle gehören zu den Bausteinen linearer Netze, ihre Kennlinie läuft aber nicht durch den Ursprung ([Kapitel 5](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)). Bei einem __nichtlinearen Zweipol__ wie der Glühlampe (Abb. [5](reale-widerstande-werte-und-temperatur.html#abb-5) rechts) hängt $U/I$ vom Arbeitspunkt ab, dort gilt [(5.1)](#gl-5-1) nicht.
 
 :::definition Definition 5.2 (Zählpfeilsysteme)
 <span class="anker" id="satz-5-2"></span>
 
-Der Spannungspfeil zeigt von 1 nach 2 und meint $U_{12}=\varphi_1-\varphi_2$ ([Teil 1](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)). Der Strompfeil zählt positive Ladung in Pfeilrichtung. Beim __Verbraucherzählpfeilsystem__ (VZS) zeigen Spannungs- und Strompfeil an einem Zweipol in dieselbe Richtung, beim __Erzeuger- oder Generatorzählpfeilsystem__ (GZS) in entgegengesetzte. Für einen Widerstand gilt
+Der Spannungspfeil zeigt von 1 nach 2 und meint $U_{12}=\varphi_1-\varphi_2$ ([Kapitel 1](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)). Der Strompfeil zählt positive Ladung in Pfeilrichtung. Beim __Verbraucherzählpfeilsystem__ (VZS) zeigen Spannungs- und Strompfeil an einem Zweipol in dieselbe Richtung, beim __Erzeuger- oder Generatorzählpfeilsystem__ (GZS) in entgegengesetzte. Für einen Widerstand gilt
 
 <span class="anker" id="gl-5-2"></span>
 $$U=R\,I\quad\text{(VZS)},\qquad U=-R\,I\quad\text{(GZS)}. \tag{5.2}$$

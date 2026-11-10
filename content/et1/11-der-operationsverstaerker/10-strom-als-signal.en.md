@@ -1,6 +1,8 @@
 ---
 title: Stage 8: Current as the signal
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / The Operational Amplifier
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / The Operational Amplifier
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker
+knoten: Chapter 11: The Operational Amplifier
 order: 1211000
 summary: So far the voltage was the signal.
 tags: transimpedance amplifier, differential resistance, negative impedance converter
@@ -20,7 +22,7 @@ $$U_\mathrm{A}=-R\,I_\mathrm{E},\qquad r_\mathrm{in}=\frac{\Delta U_-}{\Delta I_
 
 With $R=1$ M$\Omega$, 2 µ A becomes $-2$ V. The node moves by only $2\,\mathrm{V}/A=20$ µ V. This is the small input resistance of 10 $\Omega$, a value for changes (__differential resistance__). The source sees almost a short circuit, and its internal resistance plays no role.
 
-**A negative resistance.** At positive voltage a resistor draws current in the direction of the reference arrow (passive sign convention, [Part 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)). The __negative impedance converter__ (NIC) instead pushes current out (Fig. [10](#abb-10) right). Terminal 1 is at the plus input, and from there an $R$ leads to the output. From the output an equal $R$ leads to the minus input, and from there $R_2$ to ground. From $\varphi_+=\varphi_-$ it follows that $U_1=U_2$.
+**A negative resistance.** At positive voltage a resistor draws current in the direction of the reference arrow (passive sign convention, [Chapter 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)). The __negative impedance converter__ (NIC) instead pushes current out (Fig. [10](#abb-10) right). Terminal 1 is at the plus input, and from there an $R$ leads to the output. From the output an equal $R$ leads to the minus input, and from there $R_2$ to ground. From $\varphi_+=\varphi_-$ it follows that $U_1=U_2$.
 
 :::satz Theorem 8.1 (NIC)
 <span class="anker" id="satz-8-1"></span>

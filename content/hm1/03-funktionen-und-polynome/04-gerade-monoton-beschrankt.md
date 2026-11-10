@@ -1,6 +1,8 @@
 ---
 title: Stufe 2: Gerade, monoton, beschränkt
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Funktionen und Polynome
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Funktionen und Polynome
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/funktionen-und-polynome
+knoten: Kapitel 3: Funktionen und Polynome
 order: 1230400
 summary: Die Definition sagt, was eine Funktion ist, aber nicht, wie sie aussieht.
 tags: gerade, ungerade, monoton wachsend, streng monoton wachsend, monoton fallend, streng monoton fallend, beschränkt

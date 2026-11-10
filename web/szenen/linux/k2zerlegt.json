@@ -1,0 +1,537 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 19,
+  "nextAnimId": 23,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{head -n 2 /etc/os-release}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.3,
+     "position": [
+      0.0,
+      0.95,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Line",
+    "props": {
+     "start": [
+      -1.93875,
+      0.75,
+      0
+     ],
+     "end": [
+      -1.93875,
+      0.68,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o3",
+    "type": "Line",
+    "props": {
+     "start": [
+      -1.93875,
+      0.68,
+      0
+     ],
+     "end": [
+      -1.3687500000000001,
+      0.68,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Line",
+    "props": {
+     "start": [
+      -1.3687500000000001,
+      0.68,
+      0
+     ],
+     "end": [
+      -1.3687500000000001,
+      0.75,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o5",
+    "type": "Text",
+    "props": {
+     "text": "@befehl",
+     "position": [
+      -1.65375,
+      0.48,
+      0
+     ],
+     "font_size": 20,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Line",
+    "props": {
+     "start": [
+      -1.1512499999999999,
+      0.75,
+      0
+     ],
+     "end": [
+      -1.1512499999999999,
+      0.68,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o7",
+    "type": "Line",
+    "props": {
+     "start": [
+      -1.1512499999999999,
+      0.68,
+      0
+     ],
+     "end": [
+      -0.58125,
+      0.68,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Line",
+    "props": {
+     "start": [
+      -0.58125,
+      0.68,
+      0
+     ],
+     "end": [
+      -0.58125,
+      0.75,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o9",
+    "type": "Text",
+    "props": {
+     "text": "@optwert",
+     "position": [
+      -0.86625,
+      0.38,
+      0
+     ],
+     "font_size": 20,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o10",
+    "type": "Line",
+    "props": {
+     "start": [
+      -0.36375,
+      0.75,
+      0
+     ],
+     "end": [
+      -0.36375,
+      0.68,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o11",
+    "type": "Line",
+    "props": {
+     "start": [
+      -0.36375,
+      0.68,
+      0
+     ],
+     "end": [
+      1.93875,
+      0.68,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Line",
+    "props": {
+     "start": [
+      1.93875,
+      0.68,
+      0
+     ],
+     "end": [
+      1.93875,
+      0.75,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o13",
+    "type": "Text",
+    "props": {
+     "text": "@argdatei",
+     "position": [
+      0.7875000000000001,
+      0.38,
+      0
+     ],
+     "font_size": 20,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o14",
+    "type": "ParametricCurve",
+    "props": {
+     "fx": "-0.8269-0.1969*cos(3.141593*t)",
+     "fy": "1.1700+0.2000*sin(3.141593*t)",
+     "t_min": 0,
+     "t_max": 1,
+     "samples": 41,
+     "show_arrow": false,
+     "arrow_at": "",
+     "color": "#eb6834",
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o15",
+    "type": "Text",
+    "props": {
+     "text": "@zusammen",
+     "position": [
+      -0.86625,
+      1.5499999999999998,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#eb6834"
+    }
+   },
+   {
+    "id": "o16",
+    "type": "Text",
+    "props": {
+     "text": "@zweizeilen",
+     "position": [
+      -1.96875,
+      -0.15,
+      0
+     ],
+     "font_size": 20,
+     "align": "left",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o17",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{PRETTY_NAME=\"Ubuntu 26.04.1 LTS\"}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.17,
+     "position": [
+      -0.5407,
+      -0.42,
+      0
+     ],
+     "color": "#333333"
+    }
+   },
+   {
+    "id": "o18",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{NAME=\"Ubuntu\"}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.17,
+     "position": [
+      -1.3886,
+      -0.67,
+      0
+     ],
+     "color": "#333333"
+    }
+   }
+  ],
+  "animations": [
+   {
+    "id": "a1",
+    "type": "FadeIn",
+    "target": "o1",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a2",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a3",
+    "type": "Create",
+    "target": "o2",
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a4",
+    "type": "Create",
+    "target": "o3",
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a5",
+    "type": "Create",
+    "target": "o4",
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a6",
+    "type": "FadeIn",
+    "target": "o5",
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a7",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.4,
+    "step": 3
+   },
+   {
+    "id": "a8",
+    "type": "Create",
+    "target": "o6",
+    "run_time": 0.6,
+    "step": 4
+   },
+   {
+    "id": "a9",
+    "type": "Create",
+    "target": "o7",
+    "run_time": 0.6,
+    "step": 4
+   },
+   {
+    "id": "a10",
+    "type": "Create",
+    "target": "o8",
+    "run_time": 0.6,
+    "step": 4
+   },
+   {
+    "id": "a11",
+    "type": "FadeIn",
+    "target": "o9",
+    "run_time": 0.6,
+    "step": 4
+   },
+   {
+    "id": "a12",
+    "type": "Create",
+    "target": "o14",
+    "run_time": 0.7,
+    "step": 5
+   },
+   {
+    "id": "a13",
+    "type": "FadeIn",
+    "target": "o15",
+    "run_time": 0.7,
+    "step": 5
+   },
+   {
+    "id": "a14",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.4,
+    "step": 6
+   },
+   {
+    "id": "a15",
+    "type": "Create",
+    "target": "o10",
+    "run_time": 0.6,
+    "step": 7
+   },
+   {
+    "id": "a16",
+    "type": "Create",
+    "target": "o11",
+    "run_time": 0.6,
+    "step": 7
+   },
+   {
+    "id": "a17",
+    "type": "Create",
+    "target": "o12",
+    "run_time": 0.6,
+    "step": 7
+   },
+   {
+    "id": "a18",
+    "type": "FadeIn",
+    "target": "o13",
+    "run_time": 0.6,
+    "step": 7
+   },
+   {
+    "id": "a19",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 8
+   },
+   {
+    "id": "a20",
+    "type": "FadeIn",
+    "target": "o16",
+    "run_time": 0.7,
+    "step": 9
+   },
+   {
+    "id": "a21",
+    "type": "FadeIn",
+    "target": "o17",
+    "run_time": 0.7,
+    "step": 9
+   },
+   {
+    "id": "a22",
+    "type": "FadeIn",
+    "target": "o18",
+    "run_time": 0.7,
+    "step": 9
+   }
+  ],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "befehl": {
+    "de": "Befehl",
+    "en": "command",
+    "es": "comando",
+    "zh": "命令",
+    "fr": "commande",
+    "tr": "komut"
+   },
+   "optwert": {
+    "de": "Option\nmit Wert",
+    "en": "option\nwith value",
+    "es": "opción\ncon valor",
+    "zh": "带值的\n选项",
+    "fr": "option\navec valeur",
+    "tr": "değerli\nseçenek"
+   },
+   "argdatei": {
+    "de": "Argument:\ndie Datei",
+    "en": "argument:\nthe file",
+    "es": "argumento:\nel archivo",
+    "zh": "参数：\n文件",
+    "fr": "argument :\nle fichier",
+    "tr": "argüman:\ndosya"
+   },
+   "zusammen": {
+    "de": "gehört zusammen",
+    "en": "belong together",
+    "es": "van juntos",
+    "zh": "属于一体",
+    "fr": "vont ensemble",
+    "tr": "birbirine ait"
+   },
+   "zweizeilen": {
+    "de": "Ausgabe: die ersten 2 Zeilen",
+    "en": "output: the first 2 lines",
+    "es": "salida: las 2 primeras líneas",
+    "zh": "输出：前 2 行",
+    "fr": "sortie : les 2 premières lignes",
+    "tr": "çıktı: ilk 2 satır"
+   }
+  }
+ }
+}

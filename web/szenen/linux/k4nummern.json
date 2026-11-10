@@ -1,0 +1,973 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 36,
+  "nextAnimId": 40,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Line",
+    "props": {
+     "start": [
+      -2.3,
+      -1.8,
+      0
+     ],
+     "end": [
+      -2.3,
+      1.95,
+      0
+     ],
+     "color": "#333333",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Text",
+    "props": {
+     "text": "@titel",
+     "position": [
+      -2.3,
+      2.15,
+      0
+     ],
+     "font_size": 20,
+     "align": "center",
+     "color": "#333333"
+    }
+   },
+   {
+    "id": "o3",
+    "type": "Line",
+    "props": {
+     "start": [
+      -2.38,
+      -1.6,
+      0
+     ],
+     "end": [
+      -2.2199999999999998,
+      -1.6,
+      0
+     ],
+     "color": "#333333",
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Text",
+    "props": {
+     "text": "0",
+     "position": [
+      -2.45,
+      -1.6,
+      0
+     ],
+     "font_size": 18,
+     "align": "right",
+     "color": "#333333"
+    }
+   },
+   {
+    "id": "o5",
+    "type": "Circle",
+    "props": {
+     "radius": 0.075,
+     "center": [
+      -2.3,
+      -1.6,
+      0
+     ],
+     "color": "#00823c",
+     "fill_color": "#00823c",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Text",
+    "props": {
+     "text": "@erfolg",
+     "position": [
+      -1.95,
+      -1.6,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#00823c"
+    }
+   },
+   {
+    "id": "o7",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.175,
+      -0.875,
+      0
+     ],
+     "width": 0.15000000000000036,
+     "height": 0.8500000000000001,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 0.8,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Line",
+    "props": {
+     "start": [
+      -2.38,
+      -1.3,
+      0
+     ],
+     "end": [
+      -2.2199999999999998,
+      -1.3,
+      0
+     ],
+     "color": "#333333",
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o9",
+    "type": "Text",
+    "props": {
+     "text": "1",
+     "position": [
+      -2.45,
+      -1.3,
+      0
+     ],
+     "font_size": 18,
+     "align": "right",
+     "color": "#333333"
+    }
+   },
+   {
+    "id": "o10",
+    "type": "Line",
+    "props": {
+     "start": [
+      -2.38,
+      -0.45,
+      0
+     ],
+     "end": [
+      -2.2199999999999998,
+      -0.45,
+      0
+     ],
+     "color": "#333333",
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o11",
+    "type": "Text",
+    "props": {
+     "text": "125",
+     "position": [
+      -2.45,
+      -0.45,
+      0
+     ],
+     "font_size": 18,
+     "align": "right",
+     "color": "#333333"
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Text",
+    "props": {
+     "text": "@prog",
+     "position": [
+      -1.95,
+      -0.875,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#eb6834"
+    }
+   },
+   {
+    "id": "o13",
+    "type": "Line",
+    "props": {
+     "start": [
+      -2.38,
+      -0.12,
+      0
+     ],
+     "end": [
+      -2.2199999999999998,
+      -0.12,
+      0
+     ],
+     "color": "#333333",
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o14",
+    "type": "Text",
+    "props": {
+     "text": "126",
+     "position": [
+      -2.45,
+      -0.12,
+      0
+     ],
+     "font_size": 18,
+     "align": "right",
+     "color": "#333333"
+    }
+   },
+   {
+    "id": "o15",
+    "type": "Circle",
+    "props": {
+     "radius": 0.075,
+     "center": [
+      -2.3,
+      -0.12,
+      0
+     ],
+     "color": "#c82828",
+     "fill_color": "#c82828",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o16",
+    "type": "Text",
+    "props": {
+     "text": "@nausf",
+     "position": [
+      -1.95,
+      -0.12,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o17",
+    "type": "Line",
+    "props": {
+     "start": [
+      -2.38,
+      0.2,
+      0
+     ],
+     "end": [
+      -2.2199999999999998,
+      0.2,
+      0
+     ],
+     "color": "#333333",
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o18",
+    "type": "Text",
+    "props": {
+     "text": "127",
+     "position": [
+      -2.45,
+      0.2,
+      0
+     ],
+     "font_size": 18,
+     "align": "right",
+     "color": "#333333"
+    }
+   },
+   {
+    "id": "o19",
+    "type": "Circle",
+    "props": {
+     "radius": 0.075,
+     "center": [
+      -2.3,
+      0.2,
+      0
+     ],
+     "color": "#c82828",
+     "fill_color": "#c82828",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o20",
+    "type": "Text",
+    "props": {
+     "text": "@ngef",
+     "position": [
+      -1.95,
+      0.2,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o21",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.175,
+      1.15,
+      0
+     ],
+     "width": 0.15000000000000036,
+     "height": 1.2,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 0.8,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o22",
+    "type": "Line",
+    "props": {
+     "start": [
+      -2.38,
+      0.55,
+      0
+     ],
+     "end": [
+      -2.2199999999999998,
+      0.55,
+      0
+     ],
+     "color": "#333333",
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o23",
+    "type": "Text",
+    "props": {
+     "text": "129",
+     "position": [
+      -2.45,
+      0.55,
+      0
+     ],
+     "font_size": 18,
+     "align": "right",
+     "color": "#333333"
+    }
+   },
+   {
+    "id": "o24",
+    "type": "Line",
+    "props": {
+     "start": [
+      -2.38,
+      1.75,
+      0
+     ],
+     "end": [
+      -2.2199999999999998,
+      1.75,
+      0
+     ],
+     "color": "#333333",
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o25",
+    "type": "Text",
+    "props": {
+     "text": "255",
+     "position": [
+      -2.45,
+      1.75,
+      0
+     ],
+     "font_size": 18,
+     "align": "right",
+     "color": "#333333"
+    }
+   },
+   {
+    "id": "o26",
+    "type": "Text",
+    "props": {
+     "text": "@abbruch",
+     "position": [
+      -1.95,
+      1.47,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o27",
+    "type": "Line",
+    "props": {
+     "start": [
+      -2.38,
+      0.8,
+      0
+     ],
+     "end": [
+      -2.2199999999999998,
+      0.8,
+      0
+     ],
+     "color": "#333333",
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o28",
+    "type": "Text",
+    "props": {
+     "text": "130",
+     "position": [
+      -2.45,
+      0.8,
+      0
+     ],
+     "font_size": 18,
+     "align": "right",
+     "color": "#333333"
+    }
+   },
+   {
+    "id": "o29",
+    "type": "Circle",
+    "props": {
+     "radius": 0.075,
+     "center": [
+      -2.3,
+      0.8,
+      0
+     ],
+     "color": "#333333",
+     "fill_color": "#333333",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o30",
+    "type": "Text",
+    "props": {
+     "text": "@n130",
+     "position": [
+      -1.95,
+      0.8,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#333333"
+    }
+   },
+   {
+    "id": "o31",
+    "type": "Line",
+    "props": {
+     "start": [
+      -2.38,
+      1.12,
+      0
+     ],
+     "end": [
+      -2.2199999999999998,
+      1.12,
+      0
+     ],
+     "color": "#333333",
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o32",
+    "type": "Text",
+    "props": {
+     "text": "141",
+     "position": [
+      -2.45,
+      1.12,
+      0
+     ],
+     "font_size": 18,
+     "align": "right",
+     "color": "#333333"
+    }
+   },
+   {
+    "id": "o33",
+    "type": "Circle",
+    "props": {
+     "radius": 0.075,
+     "center": [
+      -2.3,
+      1.12,
+      0
+     ],
+     "color": "#333333",
+     "fill_color": "#333333",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o34",
+    "type": "Text",
+    "props": {
+     "text": "@n141",
+     "position": [
+      -1.95,
+      1.12,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#333333"
+    }
+   },
+   {
+    "id": "o35",
+    "type": "Text",
+    "props": {
+     "text": "@massstab",
+     "position": [
+      3.4,
+      -1.75,
+      0
+     ],
+     "font_size": 16,
+     "align": "right",
+     "color": "#7f7f7f"
+    }
+   }
+  ],
+  "animations": [
+   {
+    "id": "a1",
+    "type": "Create",
+    "target": "o1",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a2",
+    "type": "FadeIn",
+    "target": "o2",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a3",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.4,
+    "step": 1
+   },
+   {
+    "id": "a4",
+    "type": "FadeIn",
+    "target": "o3",
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a5",
+    "type": "FadeIn",
+    "target": "o4",
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a6",
+    "type": "FadeIn",
+    "target": "o5",
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a7",
+    "type": "FadeIn",
+    "target": "o6",
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a8",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.4,
+    "step": 3
+   },
+   {
+    "id": "a9",
+    "type": "FadeIn",
+    "target": "o7",
+    "run_time": 0.6,
+    "step": 4
+   },
+   {
+    "id": "a10",
+    "type": "FadeIn",
+    "target": "o8",
+    "run_time": 0.6,
+    "step": 4
+   },
+   {
+    "id": "a11",
+    "type": "FadeIn",
+    "target": "o9",
+    "run_time": 0.6,
+    "step": 4
+   },
+   {
+    "id": "a12",
+    "type": "FadeIn",
+    "target": "o10",
+    "run_time": 0.6,
+    "step": 4
+   },
+   {
+    "id": "a13",
+    "type": "FadeIn",
+    "target": "o11",
+    "run_time": 0.6,
+    "step": 4
+   },
+   {
+    "id": "a14",
+    "type": "FadeIn",
+    "target": "o12",
+    "run_time": 0.5,
+    "step": 5
+   },
+   {
+    "id": "a15",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.5,
+    "step": 6
+   },
+   {
+    "id": "a16",
+    "type": "FadeIn",
+    "target": "o13",
+    "run_time": 0.5,
+    "step": 7
+   },
+   {
+    "id": "a17",
+    "type": "FadeIn",
+    "target": "o14",
+    "run_time": 0.5,
+    "step": 7
+   },
+   {
+    "id": "a18",
+    "type": "FadeIn",
+    "target": "o15",
+    "run_time": 0.5,
+    "step": 7
+   },
+   {
+    "id": "a19",
+    "type": "FadeIn",
+    "target": "o16",
+    "run_time": 0.5,
+    "step": 7
+   },
+   {
+    "id": "a20",
+    "type": "FadeIn",
+    "target": "o17",
+    "run_time": 0.5,
+    "step": 8
+   },
+   {
+    "id": "a21",
+    "type": "FadeIn",
+    "target": "o18",
+    "run_time": 0.5,
+    "step": 8
+   },
+   {
+    "id": "a22",
+    "type": "FadeIn",
+    "target": "o19",
+    "run_time": 0.5,
+    "step": 8
+   },
+   {
+    "id": "a23",
+    "type": "FadeIn",
+    "target": "o20",
+    "run_time": 0.5,
+    "step": 8
+   },
+   {
+    "id": "a24",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 9
+   },
+   {
+    "id": "a25",
+    "type": "FadeIn",
+    "target": "o21",
+    "run_time": 0.6,
+    "step": 10
+   },
+   {
+    "id": "a26",
+    "type": "FadeIn",
+    "target": "o22",
+    "run_time": 0.6,
+    "step": 10
+   },
+   {
+    "id": "a27",
+    "type": "FadeIn",
+    "target": "o23",
+    "run_time": 0.6,
+    "step": 10
+   },
+   {
+    "id": "a28",
+    "type": "FadeIn",
+    "target": "o24",
+    "run_time": 0.6,
+    "step": 10
+   },
+   {
+    "id": "a29",
+    "type": "FadeIn",
+    "target": "o25",
+    "run_time": 0.6,
+    "step": 10
+   },
+   {
+    "id": "a30",
+    "type": "FadeIn",
+    "target": "o26",
+    "run_time": 0.6,
+    "step": 10
+   },
+   {
+    "id": "a31",
+    "type": "FadeIn",
+    "target": "o27",
+    "run_time": 0.5,
+    "step": 11
+   },
+   {
+    "id": "a32",
+    "type": "FadeIn",
+    "target": "o28",
+    "run_time": 0.5,
+    "step": 11
+   },
+   {
+    "id": "a33",
+    "type": "FadeIn",
+    "target": "o29",
+    "run_time": 0.5,
+    "step": 11
+   },
+   {
+    "id": "a34",
+    "type": "FadeIn",
+    "target": "o30",
+    "run_time": 0.5,
+    "step": 11
+   },
+   {
+    "id": "a35",
+    "type": "FadeIn",
+    "target": "o31",
+    "run_time": 0.5,
+    "step": 12
+   },
+   {
+    "id": "a36",
+    "type": "FadeIn",
+    "target": "o32",
+    "run_time": 0.5,
+    "step": 12
+   },
+   {
+    "id": "a37",
+    "type": "FadeIn",
+    "target": "o33",
+    "run_time": 0.5,
+    "step": 12
+   },
+   {
+    "id": "a38",
+    "type": "FadeIn",
+    "target": "o34",
+    "run_time": 0.5,
+    "step": 12
+   },
+   {
+    "id": "a39",
+    "type": "FadeIn",
+    "target": "o35",
+    "run_time": 0.4,
+    "step": 13
+   }
+  ],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "titel": {
+    "de": "Exit-Status",
+    "en": "exit status",
+    "es": "estado de salida",
+    "zh": "退出状态",
+    "fr": "code de retour",
+    "tr": "çıkış durumu"
+   },
+   "erfolg": {
+    "de": "Erfolg",
+    "en": "success",
+    "es": "éxito",
+    "zh": "成功",
+    "fr": "succès",
+    "tr": "başarı"
+   },
+   "prog": {
+    "de": "vom Programm gemeldete Fehler\n(etwa 1 und 2)",
+    "en": "errors reported by the program\n(e.g. 1 and 2)",
+    "es": "errores que informa el programa\n(p. ej., 1 y 2)",
+    "zh": "程序自己报告的错误\n（例如 1 和 2）",
+    "fr": "erreurs signalées par le programme\n(par ex. 1 et 2)",
+    "tr": "programın bildirdiği hatalar\n(örneğin 1 ve 2)"
+   },
+   "nausf": {
+    "de": "nicht ausführbar",
+    "en": "not executable",
+    "es": "no ejecutable",
+    "zh": "无法执行",
+    "fr": "non exécutable",
+    "tr": "çalıştırılamaz"
+   },
+   "ngef": {
+    "de": "nicht gefunden",
+    "en": "not found",
+    "es": "no encontrado",
+    "zh": "未找到",
+    "fr": "introuvable",
+    "tr": "bulunamadı"
+   },
+   "abbruch": {
+    "de": "Abbruch durch Unterbrechungsnachricht n:  128 + n",
+    "en": "aborted by interrupt message n:  128 + n",
+    "es": "interrumpido por el mensaje de interrupción n:  128 + n",
+    "zh": "被中断消息 n 终止：128 + n",
+    "fr": "interrompu par le message d'interruption n :  128 + n",
+    "tr": "kesme mesajı n ile sonlandırma:  128 + n"
+   },
+   "n130": {
+    "de": "= 128 + 2  (Strg+C)",
+    "en": "= 128 + 2  (Ctrl+C)",
+    "es": "= 128 + 2  (Ctrl+C)",
+    "zh": "= 128 + 2（Ctrl+C）",
+    "fr": "= 128 + 2  (Ctrl+C)",
+    "tr": "= 128 + 2  (Ctrl+C)"
+   },
+   "n141": {
+    "de": "= 128 + 13  (Schreiben ohne Leser)",
+    "en": "= 128 + 13  (writing with no reader)",
+    "es": "= 128 + 13  (escribir sin lector)",
+    "zh": "= 128 + 13（写入时无读取方）",
+    "fr": "= 128 + 13  (écriture sans lecteur)",
+    "tr": "= 128 + 13  (okuyan yokken yazma)"
+   },
+   "massstab": {
+    "de": "nicht maßstäblich",
+    "en": "not to scale",
+    "es": "no a escala",
+    "zh": "未按比例",
+    "fr": "pas à l'échelle",
+    "tr": "ölçekli değil"
+   }
+  }
+ }
+}

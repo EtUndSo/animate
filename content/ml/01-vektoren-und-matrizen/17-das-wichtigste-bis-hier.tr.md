@@ -1,7 +1,8 @@
 ---
 title: Buraya kadarki temel noktalar
 pfad: Bilgisayar Bilimleri / Makine Öğrenmesi / Matematiksel Temeller / Vektörler ve Matrisler
-knoten: Temeller 1: Vektörler ve Matrisler
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Bölüm 1: Vektörler ve Matrisler
 nachschlagen: ja
 order: 15211700
 summary: Sayı listeleri olarak veriler, doğrusal dönüşümler olarak modeller
@@ -26,7 +27,7 @@ $\mathbf{u}^{\top}\mathbf{v}=\sum_ju_jv_j$ iç çarpımı hem bir ağırlıklı 
 
 <li>
 
-Normlar büyüklüğü ölçer: $\lVert\mathbf{x}\rVert_2=\sqrt{\mathbf{x}^{\top}\mathbf{x}}$, $\lVert\mathbf{x}\rVert_1=\sum_j|x_j|$, $\lVert\mathbf{x}\rVert_\infty=\max_j|x_j|$; etkin değer $\lVert\mathbf{x}\rVert/\sqrt n$ olur. $\lVert\mathbf{u}-\mathbf{v}\rVert$ uzaklıkları birimlere bağlıdır, standartlaştırma onları birimlerden bağımsız kılar.
+Normlar büyüklüğü ölçer: $\lVert\mathbf{x}\rVert_2=\sqrt{\mathbf{x}^{\top}\mathbf{x}}$, $\lVert\mathbf{x}\rVert_1=\sum_j|x_j|$, $\lVert\mathbf{x}\rVert_\infty=\max_j|x_j|$; karesel ortalama değer $\lVert\mathbf{x}\rVert/\sqrt n$ olur. $\lVert\mathbf{u}-\mathbf{v}\rVert$ uzaklıkları birimlere bağlıdır, standartlaştırma onları birimlerden bağımsız kılar.
 
 </li>
 

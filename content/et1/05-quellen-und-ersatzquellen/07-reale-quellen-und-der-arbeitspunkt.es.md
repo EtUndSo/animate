@@ -1,6 +1,8 @@
 ---
 title: Etapa 5: Fuentes reales y el punto de trabajo
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Fuentes y fuentes equivalentes
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Fuentes y fuentes equivalentes
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen
+knoten: Capítulo 5: Fuentes y fuentes equivalentes
 order: 1150700
 summary: Una batería no mantiene su tensión bajo carga.
 tags: circuito equivalente, fuente de tensión real, fuente de corriente real, recta de carga, punto de trabajo
@@ -41,7 +43,7 @@ El mecanismo detrás: si la fuente entregara más corriente de la que toma la ca
 Con 16 $\Omega$ son $I_\mathrm{A}=9\,\mathrm{V}/18\,\Omega=0{,}5$ A y $U_\mathrm{AB}=8$ V, y en el interior cae 1 V. Con 2 $\Omega$ son 2,25 A y 4,5 V. Ambos puntos están en la recta: $9\,\mathrm{V}-2\,\Omega\cdot2{,}25\,\mathrm{A}=4{,}5$ V. Su separación muestra la resistencia interna como pendiente: $\Delta U_\mathrm{AB}/\Delta I_\mathrm{A}=3{,}5\,\mathrm{V}/(-1{,}75\,\mathrm{A})=-2\,\Omega$.
 ::::
 
-⁠**Casos límite:** Para $R_\mathrm{L}\to\infty$, [(5.2)](#gl-5-2) da el circuito abierto $U_\mathrm{AB}=U_\mathrm{q}$; para $R_\mathrm{L}\to0$, la corriente de cortocircuito $I_\mathrm{CC}=U_\mathrm{q}/R_\mathrm{q}=4{,}5$ A. Para $R_\mathrm{q}\to0$ queda la fuente de tensión ideal. También una carga no lineal se puede tratar así: su curva característica es entonces una curva, y la intersección sigue siendo la solución ([Parte 9](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)).
+⁠**Casos límite:** Para $R_\mathrm{L}\to\infty$, [(5.2)](#gl-5-2) da el circuito abierto $U_\mathrm{AB}=U_\mathrm{q}$; para $R_\mathrm{L}\to0$, la corriente de cortocircuito $I_\mathrm{CC}=U_\mathrm{q}/R_\mathrm{q}=4{,}5$ A. Para $R_\mathrm{q}\to0$ queda la fuente de tensión ideal. También una carga no lineal se puede tratar así: su curva característica es entonces una curva, y la intersección sigue siendo la solución ([capítulo 9](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)).
 
 :::ltspice La curva característica de la batería
 ⁠**Esquema:** `voltage` con 9 de `q` a masa, `res` con 2 de `q` a `a`. Como carga, una fuente de corriente `current` llamada `I1` de `a` a masa.
@@ -52,7 +54,7 @@ Con 16 $\Omega$ son $I_\mathrm{A}=9\,\mathrm{V}/18\,\Omega=0{,}5$ A y $U_\ma
 :::
 
 :::frage ¿Por qué el instrumento marca 9 V en una batería aunque tenga 2 $\Omega$ en su interior?
-Porque casi no consume corriente ([Parte 4](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-und-spannung-messen/strom-und-spannung-messen.html)). Con 10 M$\Omega$ de resistencia de entrada circulan 0,9 µ A, y en el interior caen 1,8 µ V. Se mide prácticamente el circuito abierto. La resistencia interna solo se aprecia bajo carga.
+Porque casi no consume corriente ([capítulo 4](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-und-spannung-messen/strom-und-spannung-messen.html)). Con 10 M$\Omega$ de resistencia de entrada circulan 0,9 µ A, y en el interior caen 1,8 µ V. Se mide prácticamente el circuito abierto. La resistencia interna solo se aprecia bajo carga.
 :::
 
 :::aufgabe Ejercicio 6 ★ Las luces durante el arranque

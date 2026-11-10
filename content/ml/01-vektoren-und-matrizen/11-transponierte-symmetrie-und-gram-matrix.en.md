@@ -1,7 +1,8 @@
 ---
 title: Transpose, symmetry and the Gram matrix
 pfad: Computer Science / Machine Learning / Mathematical Foundations / Vectors and Matrices
-knoten: Foundations 1: Vectors and Matrices
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Chapter 1: Vectors and Matrices
 nachschlagen: ja
 order: 15211100
 summary: If you swap the rows and columns of a matrix, you get its transpose.

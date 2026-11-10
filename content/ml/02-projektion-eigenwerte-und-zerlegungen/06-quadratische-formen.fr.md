@@ -1,7 +1,8 @@
 ---
 title: Formes quadratiques
 pfad: Informatique / Apprentissage automatique / Fondements mathématiques / Projection, valeurs propres et décompositions
-knoten: Fondements 2 : Projection, valeurs propres et décompositions
+adresse: informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen
+knoten: Chapitre 2 : Projection, valeurs propres et décompositions
 nachschlagen: ja
 order: 15220600
 summary: Après les fonctions linéaires, les fonctions quadratiques sont les fonctions de plusieurs variables les plus simples.
@@ -12,16 +13,16 @@ lang: fr
 <span class="anker" id="stufe-5"></span>
 
 :::zweck
-Après les fonctions linéaires, les fonctions quadratiques sont les fonctions de plusieurs variables les plus simples. Elles décrivent des énergies, des carrés d’erreurs et des surfaces courbes. Cette section les écrit à l’aide d’une matrice, présente les trois formes de base, cuvette, gouttière et selle, et montre comment reconnaître sur la matrice de quelle forme il s’agit, tant qu’il n’y a pas de termes croisés.
+Après les fonctions linéaires, les fonctions quadratiques sont les fonctions de plusieurs variables les plus simples. Elles décrivent des distances au carré, des carrés d’erreurs et des surfaces courbes. Cette section les écrit à l’aide d’une matrice, présente les trois formes de base, cuvette, gouttière et selle, et montre comment reconnaître sur la matrice de quelle forme il s’agit, tant qu’il n’y a pas de termes croisés.
 :::
 
 ### Formes quadratiques
 
 <span class="anker" id="stufe-5-1"></span>
 
-Dans [Fondements 1, section 8.4](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-4), toute fonction linéaire à une sortie était une somme pondérée $\mathbf{w}^{\top}\mathbf{x}$ des composantes. Le type de fonction suivant par ordre de simplicité additionne des produits de deux composantes : des carrés comme $x_1^2$ et des termes croisés comme $x_1x_2$. Un exemple tiré de l’électrotechnique est l’énergie magnétique de deux bobines couplées d’inductances $L_1$, $L_2$ et d’inductance mutuelle $M$, parcourues par les courants $i_1$ et $i_2$ :
+Dans le [chapitre 1, section 8.4](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-abbildungen.html#stufe-8-4), toute fonction linéaire à une sortie était une somme pondérée $\mathbf{w}^{\top}\mathbf{x}$ des composantes. Le type de fonction suivant par ordre de simplicité additionne des produits de deux composantes : des carrés comme $x_1^2$ et des termes croisés comme $x_1x_2$. Un exemple tiré de la vie courante est une promenade sur deux routes droites qui ne sont pas perpendiculaires l’une à l’autre. Quelqu’un marche $x_1$ km dans la direction du vecteur unitaire $\mathbf{u}$ de la première route, puis $x_2$ km dans la direction du vecteur unitaire $\mathbf{v}$ de la seconde ; des trajets négatifs signifient le sens opposé. Il se trouve alors en $x_1\mathbf{u}+x_2\mathbf{v}$, et, d’après les règles de calcul du produit scalaire, le carré de sa distance au point de départ vaut
 
-$$W=\tfrac12L_1i_1^2+M\,i_1i_2+\tfrac12L_2i_2^2 .$$
+$$d^2=\lVert x_1\mathbf{u}+x_2\mathbf{v}\rVert^2=x_1^2+2\,(\mathbf{u}^{\top}\mathbf{v})\,x_1x_2+x_2^2 .$$
 
 De telles sommes peuvent s’écrire avec une matrice au milieu.
 
@@ -43,7 +44,7 @@ $$\mathbf{x}^{\top}\begin{pmatrix}a_{11}&a_{12}\\a_{21}&a_{22}\end{pmatrix}\math
 Si l’on double $\mathbf{x}$, $f$ est multiplié par quatre : $f(c\,\mathbf{x})=c^2f(\mathbf{x})$. D’où le nom.
 
 ::::beispiel [Exemple de calcul]
-Pour $\mathbf{A}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$, on a $f(\mathbf{x})=5x_1^2+4x_1x_2+2x_2^2$. Au point $\mathbf{x}=(1,\,-1)^{\top}$, on a $f=5-4+2=3$ ; pour contrôle, $\mathbf{A}\mathbf{x}=(3,\,0)^{\top}$ et $\mathbf{x}^{\top}\mathbf{A}\mathbf{x}=3$. La Fig. [14](#abb-14) calcule la double somme [(5.1)](#gl-5-1) en ce point, terme par terme. Au point $(1,\,1)^{\top}$, on a $f=11$ ; à l’origine, $f=0$. L’énergie des deux bobines vaut $W=\tfrac12\,\mathbf i^{\top}\bigl(\begin{smallmatrix}L_1&M\\M&L_2\end{smallmatrix}\bigr)\,\mathbf i$ avec le vecteur des courants $\mathbf i=(i_1,\,i_2)^{\top}$ ; la matrice est appelée matrice d’inductance.
+Pour $\mathbf{A}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$, on a $f(\mathbf{x})=5x_1^2+4x_1x_2+2x_2^2$. Au point $\mathbf{x}=(1,\,-1)^{\top}$, on a $f=5-4+2=3$ ; pour contrôle, $\mathbf{A}\mathbf{x}=(3,\,0)^{\top}$ et $\mathbf{x}^{\top}\mathbf{A}\mathbf{x}=3$. La Fig. [14](#abb-14) calcule la double somme [(5.1)](#gl-5-1) en ce point, terme par terme. Au point $(1,\,1)^{\top}$, on a $f=11$ ; à l’origine, $f=0$. Le carré de la distance de la promenade vaut $d^2=\mathbf{x}^{\top}\bigl(\begin{smallmatrix}1&\mathbf{u}^{\top}\mathbf{v}\\\mathbf{u}^{\top}\mathbf{v}&1\end{smallmatrix}\bigr)\,\mathbf{x}$ avec $\mathbf{x}=(x_1,\,x_2)^{\top}$ ; la matrice est la matrice de Gram des deux directions $\mathbf{u}$ et $\mathbf{v}$ du [chapitre 1, section 10](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/transponierte-symmetrie-und-gram-matrix.html#stufe-10). Si les routes forment un angle de $60^\circ$, alors $\mathbf{u}^{\top}\mathbf{v}=\cos60^\circ=\tfrac12$ et $d^2=x_1^2+x_1x_2+x_2^2$ : après $1$ km sur chacune des deux routes, on se trouve à $\sqrt3\approx1{,}73$ km du départ.
 
 :::abbildung ml/k2rqf 14
 La forme quadratique de $\mathbf{A}=\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ au point $\mathbf{x}=(1,-1)^{\top}$ comme double somme : quatre termes, un pour chaque coefficient de $\mathbf{A}$.
@@ -153,7 +154,7 @@ On a $x_1^2+6x_1x_2+x_2^2=(x_1+3x_2)^2-8x_2^2$. Les coefficients sont de signes 
 ⁠**En bref :** Compléter le carré écrit une forme quadratique comme une somme de carrés ; les signes des coefficients des carrés montrent s’il s’agit d’une cuvette, d’une gouttière ou d’une selle.
 
 :::hintergrund Compléter le carré, c’est la méthode du pivot de Gauss
-Les nombres de [(5.3)](#gl-5-3) sont les mêmes que dans la méthode du pivot de Gauss de [Fondements 1, section 12.3](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-gleichungssysteme.html#stufe-12-3), appliquée à la matrice symétrique $\bigl(\begin{smallmatrix}a&b\\b&c\end{smallmatrix}\bigr)$. Pour créer un zéro sous la diagonale, on retranche de la deuxième ligne $\frac ba$ fois la première et l’on obtient $\bigl(\begin{smallmatrix}a&b\\0&c-b^2/a\end{smallmatrix}\bigr)$. Les coefficients diagonaux de cette forme échelonnée, ce qu’on appelle les pivots, sont exactement les coefficients des carrés, et le facteur d’élimination $\frac ba$ figure dans la première parenthèse. Pour la matrice $\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ : facteur $0{,}4$, pivots $5$ et $1{,}2$. Avec $n$ variables, on poursuit de la même façon : chaque étape d’élimination complète une variable en un carré. La forme est une cuvette si et seulement si tous les pivots sont positifs. D’après les règles de calcul de [Fondements 1, section 14.5](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5), le produit des pivots est le déterminant, ici $5\cdot1{,}2=6=5\cdot2-2\cdot2$.
+Les nombres de [(5.3)](#gl-5-3) sont les mêmes que dans la méthode du pivot de Gauss du [chapitre 1, section 12.3](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/lineare-gleichungssysteme.html#stufe-12-3), appliquée à la matrice symétrique $\bigl(\begin{smallmatrix}a&b\\b&c\end{smallmatrix}\bigr)$. Pour créer un zéro sous la diagonale, on retranche de la deuxième ligne $\frac ba$ fois la première et l’on obtient $\bigl(\begin{smallmatrix}a&b\\0&c-b^2/a\end{smallmatrix}\bigr)$. Les coefficients diagonaux de cette forme échelonnée, ce qu’on appelle les pivots, sont exactement les coefficients des carrés, et le facteur d’élimination $\frac ba$ figure dans la première parenthèse. Pour la matrice $\bigl(\begin{smallmatrix}5&2\\2&2\end{smallmatrix}\bigr)$ : facteur $0{,}4$, pivots $5$ et $1{,}2$. Avec $n$ variables, on poursuit de la même façon : chaque étape d’élimination complète une variable en un carré. La forme est une cuvette si et seulement si tous les pivots sont positifs. D’après les règles de calcul du [chapitre 1, section 14.5](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-5), le produit des pivots est le déterminant, ici $5\cdot1{,}2=6=5\cdot2-2\cdot2$.
 :::
 
 :::aufgabe Exercice 14 ★ Formes et matrices
@@ -226,32 +227,32 @@ $f_3=(x_1+2x_2)^2-3x_2^2$ : des signes différents, une selle. Si l’on choisit
 :::
 :::
 
-:::aufgabe Exercice 16 ★★ Bobines couplées
+:::aufgabe Exercice 16 ★★ Deux routes
 <span class="anker" id="aufg-16"></span>
 
-Deux bobines couplées ont $L_1=4\,\mathrm{mH}$ et $L_2=1\,\mathrm{mH}$.
+Pour la promenade sur deux routes droites de directions $\mathbf{u}$ et $\mathbf{v}$ de la sous-section [5.1](#stufe-5-1), on a $d^2=x_1^2+2\,(\mathbf{u}^{\top}\mathbf{v})\,x_1x_2+x_2^2$.
 
 <ol class="al">
 
 <li>
 
-Complétez le carré dans l’énergie $W=\tfrac12L_1i_1^2+M\,i_1i_2+\tfrac12L_2i_2^2$.
+Complétez le carré dans $d^2$.
 
 </li>
 
 <li>
 
-Pour quelles valeurs de $M$ a-t-on $W>0$ pour tous les courants $(i_1,\,i_2)\ne(0,\,0)$ ? Qu’en déduit-on pour le coefficient de couplage $k=M/\sqrt{L_1L_2}$ ?
+Pour quelles valeurs de $\mathbf{u}^{\top}\mathbf{v}$ a-t-on $d^2>0$ pour tous les trajets $(x_1,\,x_2)\ne(0,\,0)$ ? Pourquoi $|\mathbf{u}^{\top}\mathbf{v}|$ ne peut-il jamais être supérieur à $1$ d’après l’inégalité de Cauchy-Schwarz du [chapitre 1, section 5.1](/wissen/fr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/winkel-und-ahnlichkeit.html#stufe-5-1), et que signifie $|\mathbf{u}^{\top}\mathbf{v}|=1$ pour les deux routes ?
 
 </li>
 
 </ol>
 
 :::loesung
-(a) Dans [(5.3)](#gl-5-3), on a $a=\tfrac12L_1$, $2b=M$ et $c=\tfrac12L_2$, donc $b/a=M/L_1$ et $b^2/a=M^2/(2L_1)$ :
+(a) Dans [(5.3)](#gl-5-3), on a $a=1$, $b=\mathbf{u}^{\top}\mathbf{v}$ et $c=1$, donc $b/a=\mathbf{u}^{\top}\mathbf{v}$ et $b^2/a=(\mathbf{u}^{\top}\mathbf{v})^2$ :
 
-$$W=\tfrac12L_1\Bigl(i_1+\frac M{L_1}\,i_2\Bigr)^2+\tfrac12\Bigl(L_2-\frac{M^2}{L_1}\Bigr)i_2^2=2\,\mathrm{mH}\,\Bigl(i_1+\frac M{4\,\mathrm{mH}}\,i_2\Bigr)^2+\Bigl(\frac12\,\mathrm{mH}-\frac{M^2}{8\,\mathrm{mH}}\Bigr)i_2^2 .$$
+$$d^2=\bigl(x_1+(\mathbf{u}^{\top}\mathbf{v})\,x_2\bigr)^2+\bigl(1-(\mathbf{u}^{\top}\mathbf{v})^2\bigr)\,x_2^2 .$$
 
-(b) Le premier coefficient est positif. On a $W>0$ pour tous les courants $\ne(0,\,0)$ si et seulement si le second l’est aussi : $L_2-M^2/L_1>0$, donc $M^2<L_1L_2=4\,(\mathrm{mH})^2$ et $|M|<2\,\mathrm{mH}$. Pour le coefficient de couplage, cela signifie $|k|=|M|/\sqrt{L_1L_2}<1$. Pour $|k|=1$, le couplage parfait, la forme ne serait qu’une gouttière : pour le rapport de courants adéquat $i_1=-\tfrac M{L_1}\,i_2$, l’énergie stockée serait nulle. Le fait que l’énergie d’un champ magnétique ne soit jamais négative impose donc $|k|\le1$.
+(b) Le premier coefficient est $a=1>0$. On a $d^2>0$ pour tous les trajets $\ne(0,\,0)$ si et seulement si le second est positif aussi : $1-(\mathbf{u}^{\top}\mathbf{v})^2>0$, donc $|\mathbf{u}^{\top}\mathbf{v}|<1$. D’après l’inégalité de Cauchy-Schwarz, $|\mathbf{u}^{\top}\mathbf{v}|\le\lVert\mathbf{u}\rVert\,\lVert\mathbf{v}\rVert=1$, avec égalité si et seulement si $\mathbf{v}=\pm\mathbf{u}$ : lorsque les deux routes sont parallèles. La forme ne serait alors qu’une gouttière : pour $x_1=-(\mathbf{u}^{\top}\mathbf{v})\,x_2$, par exemple $1$ km à l’aller et $1$ km au retour, on se retrouve au point de départ. Pour deux routes qui se croisent vraiment, $|\mathbf{u}^{\top}\mathbf{v}|<1$, et toute promenade avec $(x_1,\,x_2)\ne(0,\,0)$ se termine à une distance positive du départ.
 :::
 :::

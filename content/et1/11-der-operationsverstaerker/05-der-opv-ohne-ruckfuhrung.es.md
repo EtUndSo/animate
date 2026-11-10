@@ -1,6 +1,8 @@
 ---
 title: Etapa 3: El AO sin realimentación
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / El amplificador operacional
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / El amplificador operacional
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker
+knoten: Capítulo 11: El amplificador operacional
 order: 1210500
 summary: Las etapas amplificadoras se convierten en un componente con pocos terminales.
 tags: saturación, AO ideal, convertidor flash

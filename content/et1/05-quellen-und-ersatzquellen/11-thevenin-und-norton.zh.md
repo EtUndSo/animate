@@ -1,6 +1,8 @@
 ---
 title: 第 9 阶段：戴维南与诺顿
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 电源与等效电源
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 电源与等效电源
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen
+knoten: 第 5 章：电源与等效电源
 order: 1151100
 summary: N 要给许多不同的负载供电。到目前为止，每换一个负载就得把整个网络重算一遍。本阶段用一条直线一劳永逸地代替这个网络。
 tags: 等效电压源, 等效电流源, 负载特性曲线

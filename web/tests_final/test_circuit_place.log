@@ -1,0 +1,6 @@
+pins from centre/rotation/length OK, legacy start/end OK
+all 25 kinds build in both styles; IEC/ANSI differ exactly where the norms do
+IEC resistor box 3 : 1 for every pin distance
+device pins rotate/flip correctly; opamp IEC box vs ANSI triangle
+pins_world OK
+CIRCUIT PLACEMENT TESTS PASSED

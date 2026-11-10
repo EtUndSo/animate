@@ -1,6 +1,8 @@
 ---
 title: Stufe 8: Varianz, Kovarianz und Tschebyschew
-pfad: Elektrotechnik / 3. Semester / Höhere Mathematik 3 / Wahrscheinlichkeitsrechnung
+pfad: Elektrotechnik / 3. Semester / HöMa3 – Höhere Mathematik 3 / Wahrscheinlichkeitsrechnung
+adresse: elektrotechnik/3-semester/hohere-mathematik-3/wahrscheinlichkeitsrechnung
+knoten: Kapitel 8: Wahrscheinlichkeitsrechnung
 order: 3180900
 summary: Der Erwartungswert sagt nicht, wie weit X von ihm entfernt liegt.
 tags: Varianz, Standardabweichung, Kovarianz, Korrelationskoeffizient

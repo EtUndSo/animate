@@ -1,7 +1,9 @@
 ---
 title: Überblick: Halbleiter und Dioden
 kurz: Überblick
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Halbleiter und Dioden
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Halbleiter und Dioden
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden
+knoten: Kapitel 9: Halbleiter und Dioden
 order: 1190100
 summary: Wie aus Silizium ein Ventil für Strom wird und wie man mit ihm rechnet
 tags: Diode, Halbleiter, Dotierung, Ladungsträger, pn-Übergang, Raumladungszone, Kennlinie, Arbeitspunkt

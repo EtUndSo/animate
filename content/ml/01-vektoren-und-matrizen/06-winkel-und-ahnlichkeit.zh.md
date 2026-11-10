@@ -1,7 +1,8 @@
 ---
 title: 角度与相似度
 pfad: 计算机科学 / 机器学习 / 数学基础 / 向量与矩阵
-knoten: 基础篇 1：向量与矩阵
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: 第 1 章：向量与矩阵
 nachschlagen: ja
 order: 15210600
 summary: 两个向量即使长度不同，也可以指向相近的方向。本节度量它们之间的夹角。其基础是一个不等式，它还确切地说明了模式比对在什么情况下反应最强。
@@ -59,11 +60,11 @@ $$\lVert\mathbf{u}+\mathbf{v}\rVert^2=\lVert\mathbf{u}\rVert^2+2\,\mathbf{u}^{\t
 ⁠**简而言之：**点积的绝对值至多等于两个长度之积，并且恰好在两个向量位于过原点的同一条直线上时等于这个积。
 
 :::hintergrund 点积为什么能识别模式：精确的表述
-在第 [2.4](das-skalarprodukt.html#stufe-2-4) 小节中，模式比对只是一个直观的图景：如果信号跟随模式，点积 $\mathbf{w}^{\top}\mathbf{x}$ 就大。柯西-施瓦茨不等式把它变成了一个精确的表述。如果只比较长度 $\lVert\mathbf{x}\rVert$ 相同的信号，那么 $\mathbf{w}^{\top}\mathbf{x}$ 总是介于 $-\lVert\mathbf{w}\rVert\,\lVert\mathbf{x}\rVert$ 和 $+\lVert\mathbf{w}\rVert\,\lVert\mathbf{x}\rVert$ 之间。恰好是模式的正倍数的那个信号取得最大值，负倍数取得最小值。所以在能量相同的所有信号中，比对对模式本身的反应最强。
+在第 [2.4](das-skalarprodukt.html#stufe-2-4) 小节中，模式比对只是一个直观的图景：如果时间序列跟随模式，点积 $\mathbf{w}^{\top}\mathbf{x}$ 就大。柯西-施瓦茨不等式把它变成了一个精确的表述。如果只比较长度 $\lVert\mathbf{x}\rVert$ 相同的时间序列，那么 $\mathbf{w}^{\top}\mathbf{x}$ 总是介于 $-\lVert\mathbf{w}\rVert\,\lVert\mathbf{x}\rVert$ 和 $+\lVert\mathbf{w}\rVert\,\lVert\mathbf{x}\rVert$ 之间。恰好是模式的正倍数的那个时间序列取得最大值，负倍数取得最小值。所以在所有长度相同的时间序列中，比对对模式本身的反应最强。
 
-⁠**算例：**交替模式 $\mathbf{w}=(1,-1,1,-1)^{\top}$ 的长度为 $2$。在所有长度为 $2$ 的信号中，$\mathbf{x}=\mathbf{w}$ 给出最大值 $4=2\cdot2$，信号 $(2,0,0,0)^{\top}$ 只给出 $2$，$\mathbf{x}=-\mathbf{w}$ 给出最小值 $-4$。
+⁠**算例：**交替模式 $\mathbf{w}=(1,-1,1,-1)^{\top}$ 的长度为 $2$。在所有长度为 $2$ 的时间序列中，$\mathbf{x}=\mathbf{w}$ 给出最大值 $4=2\cdot2$，时间序列 $(2,0,0,0)^{\top}$ 只给出 $2$，$\mathbf{x}=-\mathbf{w}$ 给出最小值 $-4$。
 
-在通信工程中，这是相关接收机和匹配滤波器（matched filter）的基础。这种滤波器以时间反转的发送信号作为冲激响应；因此在采样时刻，它恰好计算接收信号与发送信号的点积。这种滤波器使信噪比达到最大，这一点正是用这个不等式证明的。
+凡是把文本或图像描述为向量的搜索，利用的都是同一个结论：在所有长度相同的向量中，与查询的点积最大的，是作为查询的正倍数的那个向量。为了不让长度歪曲结果，事先要把所有向量变为同样的长度。
 :::
 
 ### 两个向量之间的夹角
@@ -134,23 +135,23 @@ $(1,\,2,\,2)^{\top}$ 与 $(2,\,0,\,-1)^{\top}$ 正交，因为 $2+0-2=0$。它�
 ::::
 
 ::::beispiel [算例 2] 互不干扰的两个模式
-第 [2.4](das-skalarprodukt.html#stufe-2-4) 小节中的恒定模式 $\mathbf 1=(1,\,1,\,1,\,1)^{\top}$ 与交替模式 $\mathbf{w}=(1,\,-1,\,1,\,-1)^{\top}$ 正交，$\mathbf 1^{\top}\mathbf{w}=0$。由 $2$ 倍恒定模式和 $1$ 倍交替模式组成的信号为 $\mathbf{x}=2\cdot\mathbf 1+\mathbf{w}=(3,\,1,\,3,\,1)^{\top}$。与恒定模式比对得 $\mathbf 1^{\top}\mathbf{x}=8=2\cdot4$，与交替模式比对得 $\mathbf{w}^{\top}\mathbf{x}=4=1\cdot4$（图 [23](#abb-23)）。每次比对都恰好找到自己的那一份，再乘以 $\lVert\mathbf 1\rVert^2=\lVert\mathbf{w}\rVert^2=4$；另一份对它毫无干扰。
+第 [2.4](das-skalarprodukt.html#stufe-2-4) 小节中的恒定模式 $\mathbf 1=(1,\,1,\,1,\,1)^{\top}$ 与交替模式 $\mathbf{w}=(1,\,-1,\,1,\,-1)^{\top}$ 正交，$\mathbf 1^{\top}\mathbf{w}=0$。由 $2$ 倍恒定模式和 $1$ 倍交替模式组成的时间序列为 $\mathbf{x}=2\cdot\mathbf 1+\mathbf{w}=(3,\,1,\,3,\,1)^{\top}$。与恒定模式比对得 $\mathbf 1^{\top}\mathbf{x}=8=2\cdot4$，与交替模式比对得 $\mathbf{w}^{\top}\mathbf{x}=4=1\cdot4$（图 [23](#abb-23)）。每次比对都恰好找到自己的那一份，再乘以 $\lVert\mathbf 1\rVert^2=\lVert\mathbf{w}\rVert^2=4$；另一份对它毫无干扰。
 
 :::abbildung ml/k1rortho 23
-两个模式正交（上）。把信号 $\mathbf{x}=2\cdot\mathbf 1+\mathbf{w}$ 分别与每个模式比对，得到该模式所占份额的 $4$ 倍。
+两个模式正交（上）。把时间序列 $\mathbf{x}=2\cdot\mathbf 1+\mathbf{w}$ 分别与每个模式比对，得到该模式所占份额的 $4$ 倍。
 :::
 ::::
 
 ⁠**简而言之：**正交意味着点积为零；正交的箭头互相垂直，对它们勾股定理成立。
 
 :::hintergrund 正交模式为什么互不干扰，以及这与傅里叶系数有什么关系
-如果一个信号是两个正交模式的线性组合 $\mathbf{x}=\alpha\,\mathbf 1+\beta\,\mathbf{w}$，运算规则给出
+如果一个时间序列是两个正交模式的线性组合 $\mathbf{x}=\alpha\,\mathbf 1+\beta\,\mathbf{w}$，运算规则给出
 
 $$\mathbf 1^{\top}\mathbf{x}=\alpha\,\mathbf 1^{\top}\mathbf 1+\beta\,\mathbf 1^{\top}\mathbf{w}=\alpha\,\lVert\mathbf 1\rVert^2+0 ,\qquad\text{所以}\qquad \alpha=\frac{\mathbf 1^{\top}\mathbf{x}}{\lVert\mathbf 1\rVert^2} .$$
 
 所以与一个模式比对，只测出该模式自己的份额，因为另一个模式的贡献随因子 $\mathbf 1^{\top}\mathbf{w}=0$ 一起消失了。如果两个模式不正交，每次比对都会把另一份的一部分也算进来。
 
-傅里叶级数的系数正是这样构成的。对周期为 $T$、$\omega_0=2\pi/T$ 的信号 $s(t)$，有
+傅里叶级数把一条周期曲线（例如一个持续音的声音）分解为余弦振荡和正弦振荡，它的系数正是这样构成的。对周期为 $T$、$\omega_0=2\pi/T$ 的函数 $s(t)$，有
 
 $$a_k=\frac{2}{T}\int_0^Ts(t)\cos(k\omega_0t)\,\mathrm{d} t=\frac{\int_0^Ts(t)\cos(k\omega_0t)\,\mathrm{d} t}{\int_0^T\cos^2(k\omega_0t)\,\mathrm{d} t}\qquad(k\ge1),$$
 

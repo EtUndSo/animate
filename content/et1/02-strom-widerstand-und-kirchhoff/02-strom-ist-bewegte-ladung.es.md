@@ -1,8 +1,10 @@
 ---
 title: Etapa 1: La corriente es carga en movimiento
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Corriente, resistencia y leyes de Kirchhoff
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Corriente, resistencia y leyes de Kirchhoff
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff
+knoten: Capítulo 2: Corriente, resistencia y leyes de Kirchhoff
 order: 1120200
-summary: La Parte 1 trató cargas en reposo o que vuelan por separado.
+summary: El capítulo 1 trató cargas en reposo o que vuelan por separado.
 tags: densidad de carga, intensidad de corriente, circuito, estacionaria
 lang: es
 ---
@@ -10,7 +12,7 @@ lang: es
 <span class="anker" id="stufe-1"></span>
 
 :::zweck
-La [Parte 1](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html) trató cargas en reposo o que vuelan por separado. En un hilo se mueven juntas innumerables cargas. Esta etapa da a ese movimiento dos medidas.
+El [capítulo 1](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html) trató cargas en reposo o que vuelan por separado. En un hilo se mueven juntas innumerables cargas. Esta etapa da a ese movimiento dos medidas.
 :::
 
 **La idea.** Uno se coloca en un punto del conductor y mide cuánta carga pasa por segundo. Eso depende de tres cosas: la densidad con que está la carga, la rapidez con que avanza y el tamaño de la sección. En el tiempo $\Delta t$ atraviesa el área exactamente la carga que antes estaba, como máximo, a la distancia $v\,\Delta t$ (fig. [1](#abb-1)).

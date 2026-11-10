@@ -1,6 +1,8 @@
 ---
 title: 第 12 阶段：离散时间带通与高通
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / 低通与带通系统
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / 低通与带通系统
+adresse: elektrotechnik/3-semester/signale-und-systeme/tiefpass-und-bandpasssysteme
+knoten: 第 5 章：低通与带通系统
 order: 3251300
 summary: 数字带通和数字高通可以通过调制由低通得到。
 tags: 高通
@@ -30,7 +32,7 @@ $$h_{\mathrm{HP}}(n)=(-1)^n\,h_{\mathrm{TP}}(n). \tag{12.2}$$
 :::aufgabe 练习 11 ★ 由滑动平均得到高通
 <span class="anker" id="aufg-11"></span>
 
-滑动平均 $h_{\mathrm{TP}}=\frac13(1,1,1)$（[第 4 部分](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme/abtastung-und-zeitdiskrete-systeme.html)）是一个简单的低通。
+滑动平均 $h_{\mathrm{TP}}=\frac13(1,1,1)$（[第 4 章](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme/abtastung-und-zeitdiskrete-systeme.html)）是一个简单的低通。
 
 <ol class="al">
 

@@ -1,6 +1,8 @@
 ---
 title: 第 5 阶段：离散时间信号与离散卷积
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / 采样与离散时间系统
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / 采样与离散时间系统
+adresse: elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme
+knoten: 第 4 章：采样与离散时间系统
 order: 3240600
 summary: 从现在起，所有计算都只使用数值序列 s(n) 。本阶段把卷积、基本信号和 LTI 系统推广到序列。
 tags: 离散卷积, 单位脉冲, 移不变, LSI 系统, 单位脉冲响应, 差分, 累加, FIR 滤波器
@@ -13,7 +15,7 @@ lang: zh
 从现在起，所有计算都只使用数值序列 $s(n)$。本阶段把卷积、基本信号和 LTI 系统推广到序列。
 :::
 
-**样本值的卷积。** 若系统的输入 $s$ 和冲激响应 $h$ 都是低通信号，并以奈奎斯特率采样，则二者都可以写成 si 级数 [(3.3)](abtasttheorem-und-ruckgewinnung.html#gl-3-3)。由于 $\operatorname{si}(\pi t/T)*\operatorname{si}(\pi t/T)=T\operatorname{si}(\pi t/T)$（[第 3 部分](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)），输出的样本值仅由样本值即可求得：
+**样本值的卷积。** 若系统的输入 $s$ 和冲激响应 $h$ 都是低通信号，并以奈奎斯特率采样，则二者都可以写成 si 级数 [(3.3)](abtasttheorem-und-ruckgewinnung.html#gl-3-3)。由于 $\operatorname{si}(\pi t/T)*\operatorname{si}(\pi t/T)=T\operatorname{si}(\pi t/T)$（[第 3 章](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)），输出的样本值仅由样本值即可求得：
 
 $$g(nT)=T\sum_{m=-\infty}^{\infty}s(mT)\,h\bigl((n-m)T\bigr).$$
 
@@ -28,7 +30,7 @@ $$\delta(n)=\begin{cases}1&n=0\\0&n\neq0\end{cases},\qquad \varepsilon(n)=\sum_{
 
 __单位脉冲__ $\delta(n)$ 是普通的序列，而不是广义函数：它在 $n=0$ 处取值 1。它是离散卷积的单位元，$s(n)*\delta(n)=s(n)$。以 $n=0$ 为中心、由 $2M+1$ 个 1 组成的矩形序列为 $\varepsilon(n+M)-\varepsilon(n-M-1)$。
 
-**线性与移不变。** 若叠加原理成立，则称离散时间系统是线性的；若对每个整数 $m$ 都有 $\operatorname{Tr}\{s(n-m)\}=g(n-m)$，则称它是__移不变__的。同时具有这两个性质的系统称为__LSI 系统__。利用__单位脉冲响应__ $h(n)=\operatorname{Tr}\{\delta(n)\}$，与[第 1 部分](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html)一样可得
+**线性与移不变。** 若叠加原理成立，则称离散时间系统是线性的；若对每个整数 $m$ 都有 $\operatorname{Tr}\{s(n-m)\}=g(n-m)$，则称它是__移不变__的。同时具有这两个性质的系统称为__LSI 系统__。利用__单位脉冲响应__ $h(n)=\operatorname{Tr}\{\delta(n)\}$，与[第 1 章](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html)一样可得
 
 $$g(n)=\operatorname{Tr}\Bigl\{\sum_ms(m)\delta(n-m)\Bigr\}=\sum_ms(m)\operatorname{Tr}\{\delta(n-m)\}=\sum_ms(m)\,h(n-m).$$
 

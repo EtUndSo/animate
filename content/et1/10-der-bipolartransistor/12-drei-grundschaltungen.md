@@ -1,6 +1,8 @@
 ---
 title: Stufe 10: Drei Grundschaltungen
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Der Bipolartransistor
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Der Bipolartransistor
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor
+knoten: Kapitel 10: Der Bipolartransistor
 order: 1201200
 summary: Eingang und Ausgang brauchen je zwei Klemmen, der Transistor hat insgesamt drei.
 tags: Emitterschaltung, Kollektorschaltung, Emitterfolger, Basisschaltung, Spannungshub, Puffer

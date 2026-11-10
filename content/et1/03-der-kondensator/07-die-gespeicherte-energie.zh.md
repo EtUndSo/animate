@@ -1,6 +1,8 @@
 ---
 title: 第 6 阶段：储存的能量
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 电容器
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 电容器
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator
+knoten: 第 3 章：电容器
 order: 1130700
 summary: 充电要消耗能量，因为每份新增电荷都必须克服已有的电压。本阶段计算能量有多少，以及能量之后在哪里。
 tags: 能量密度
@@ -13,7 +15,7 @@ lang: zh
 充电要消耗能量，因为每份新增电荷都必须克服已有的电压。本阶段计算能量有多少，以及能量之后在哪里。
 :::
 
-**基本思路。** 电压是单位电荷的能量（[第 1 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)）。把小电荷 $\Delta q$ 从负极板移到正极板需要 $\Delta W=u\,\Delta q$。最初的电荷几乎不费能量，因为还没有电场。最后的电荷每库仑要付出全部的 $U$。平均下来，每份电荷付出 $U/2$。这就是直线 $u=q/C$ 下的面积（图 [6](#abb-6) 左）。
+**基本思路。** 电压是单位电荷的能量（[第 1 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)）。把小电荷 $\Delta q$ 从负极板移到正极板需要 $\Delta W=u\,\Delta q$。最初的电荷几乎不费能量，因为还没有电场。最后的电荷每库仑要付出全部的 $U$。平均下来，每份电荷付出 $U/2$。这就是直线 $u=q/C$ 下的面积（图 [6](#abb-6) 左）。
 
 :::satz 定理 6.1 (电容器中的能量)
 <span class="anker" id="satz-6-1"></span>
@@ -34,9 +36,9 @@ $$W=\frac12\,\varepsilon\,E^2\cdot A\,d,\qquad w=\frac WV=\frac12\,\varepsilon\,
 ⁠**如何理解：**$W$ 的单位为 J，$C$ 的单位为 F，$U$ 的单位为 V，$w$ 的单位为 J/m$^3$。电压以平方形式出现：电压加倍意味着电荷加倍，而这些电荷要克服加倍的电压。$q$ 是充电过程中的电荷，$Q$ 是它的最终值。**适用条件：**$C$ 恒定，没有漏电流。
 
 :::herleitung 由力和路程求能量
-电场中 $\Delta q$ 所受的力为 $F=\Delta q\,E$（[第 1 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)）。走过极板之间的距离 $\Delta s$，需要 $\Delta W=F\,\Delta s=\Delta q\,E\,\Delta s$。由 $E\,\Delta s=u$ 得 $\Delta W=\Delta q\,u$，再由 $u=q/C$ 得 $\Delta W=\frac qC\,\Delta q$。对于很小的 $\Delta q$，所有份额之和变为积分式 [(6.1)](#gl-6-1)。
+电场中 $\Delta q$ 所受的力为 $F=\Delta q\,E$（[第 1 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)）。走过极板之间的距离 $\Delta s$，需要 $\Delta W=F\,\Delta s=\Delta q\,E\,\Delta s$。由 $E\,\Delta s=u$ 得 $\Delta W=\Delta q\,u$，再由 $u=q/C$ 得 $\Delta W=\frac qC\,\Delta q$。对于很小的 $\Delta q$，所有份额之和变为积分式 [(6.1)](#gl-6-1)。
 
-从电路方面也得到同样的结果。功率（单位时间的能量）为 $p=u\,i$（[第 2 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)）。由 $i=C\,\mathrm{d} u/\mathrm{d} t$ 得 $W=\int u\,i\,\mathrm{d} t=C\int_0^Uu\,\mathrm{d} u=\frac12CU^2$。
+从电路方面也得到同样的结果。功率（单位时间的能量）为 $p=u\,i$（[第 2 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)）。由 $i=C\,\mathrm{d} u/\mathrm{d} t$ 得 $W=\int u\,i\,\mathrm{d} t=C\int_0^Uu\,\mathrm{d} u=\frac12CU^2$。
 
 ⁠**从元件到电场：**把 $C=\varepsilon A/d$ 和 $U=E\,d$ 代入式 [(6.1)](#gl-6-1)，就得到式 [(6.2)](#gl-6-2)。
 :::

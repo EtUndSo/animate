@@ -45,6 +45,16 @@ added there and pass** before it is considered done.
   the timeline using the same primitives**. It gets no special timing. Static (edit) view: it draws the
   finished result with no timeline entry. This keeps operations under the exact same contract.
 
+## Labels and draw order (10.11.2026)
+- A `Text` has no path to morph. `Transform`/`TransformMatchingTex` between two labels changes the label's **state**
+  as a pure function of α (anchor, size, colour lerp; old text fading out for α < ½, the template's text, align, font,
+  raw fading in for α ≥ ½); `begin()` only snapshots. The probe `snap()` therefore records a label's text and size.
+- `Text.font` ("sans" | "mono") and `Text.raw` are build-time state. Painters receive them as keyword arguments only
+  when set (`text.text_style`): `draw_text(..., align, font="mono", raw=True)`. A new painter must accept both.
+- `draw_order: "creation"` sorts `objectList` once at the end of `construct()` by the order of the object list. It
+  changes only what lies on top, never the timeline, so seek(t) stays pure. Without it (older scenes) an appearing
+  object is appended by `play()` and lies on top of everything drawn before.
+
 ## Adding a new primitive — checklist
 - [ ] Geometry lives in `points` (cubic Bézier, `N = 3k+1`); multi-contour glyphs keep contours in one
       leaf via `_contours` (even-odd fill).

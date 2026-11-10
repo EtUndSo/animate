@@ -1,7 +1,9 @@
 ---
 title: 概览: 随机信号
 kurz: 概览
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / 随机信号
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / 随机信号
+adresse: elektrotechnik/3-semester/signale-und-systeme/zufallssignale
+knoten: 第 7 章：随机信号
 order: 3270100
 summary: 均值、分布、功率谱密度， 系统中的噪声与最佳接收机
 tags: 
@@ -45,7 +47,7 @@ lang: zh
 
 <li>
 
-⁠**递归系统** $g(n)=s(n)+0.6\,g(n-1)$，取自[第 4 部分](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme/abtastung-und-zeitdiskrete-systeme.html)。
+⁠**递归系统** $g(n)=s(n)+0.6\,g(n-1)$，取自[第 4 章](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme/abtastung-und-zeitdiskrete-systeme.html)。
 
 </li>
 

@@ -1,6 +1,8 @@
 ---
 title: Stufe 9: Elementare Ungleichungen
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Mengen, Logik und reelle Zahlen
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Mengen, Logik und reelle Zahlen
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen
+knoten: Kapitel 1: Mengen, Logik und reelle Zahlen
 order: 1211100
 summary: Oft lässt sich ein Ausdruck nicht ausrechnen, nur abschätzen.
 tags: Bernoulli, Young, Mittelwerte, geometrische Mittel, arithmetische Mittel, Cauchy-Schwarz, Minkowski, Vektor
@@ -61,7 +63,7 @@ $$\sqrt{\sum_{i=1}^n(x_i+y_i)^2}\le\sqrt{\sum_{i=1}^nx_i^2}+\sqrt{\sum_{i=1}^ny_
 </ol>
 :::
 
-⁠**So liest man das:** $\vec x=(x_1,\dots,x_n)$ ist ein __Vektor__, eine Liste von $n$ Zahlen, und $\|\vec x\|$ seine __Norm__. Für $n=2$ ist das nach Pythagoras die Länge des Pfeils vom Ursprung zum Punkt $(x_1,x_2)$. Dann ist [(9.2)](#gl-9-2) die Dreiecksungleichung für Pfeile, und in [Teil 8](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/vektoren-und-skalarprodukt/vektoren-und-skalarprodukt.html) wird aus [(9.1)](#gl-9-1) das Skalarprodukt. Bei Young ist $\varepsilon$ ein Tauschkurs: Ein kleiner $x$-Term kostet einen großen $y$-Term. **Warum die Voraussetzungen:** Bernoulli: $x=-4$, $n=3$ gibt $-27>-11$, falsch, also braucht man $x>-1$. Für $x=0$ oder $n=1$ steht Gleichheit. Mittelwerte: $x=y=-1$ gibt $1\le-1$, falsch. Young: $\varepsilon=-1$ macht die rechte Seite negativ.
+⁠**So liest man das:** $\vec x=(x_1,\dots,x_n)$ ist ein __Vektor__, eine Liste von $n$ Zahlen, und $\|\vec x\|$ seine __Norm__. Für $n=2$ ist das nach Pythagoras die Länge des Pfeils vom Ursprung zum Punkt $(x_1,x_2)$. Dann ist [(9.2)](#gl-9-2) die Dreiecksungleichung für Pfeile, und in [Kapitel 8](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/vektoren-und-skalarprodukt/vektoren-und-skalarprodukt.html) wird aus [(9.1)](#gl-9-1) das Skalarprodukt. Bei Young ist $\varepsilon$ ein Tauschkurs: Ein kleiner $x$-Term kostet einen großen $y$-Term. **Warum die Voraussetzungen:** Bernoulli: $x=-4$, $n=3$ gibt $-27>-11$, falsch, also braucht man $x>-1$. Für $x=0$ oder $n=1$ steht Gleichheit. Mittelwerte: $x=y=-1$ gibt $1\le-1$, falsch. Young: $\varepsilon=-1$ macht die rechte Seite negativ.
 
 :::abbildung hm1/k1mittel 9
 Links die Mittelwerte als Halbkreis: Der Radius ist das arithmetische Mittel, die Höhe über dem Teilpunkt das geometrische. Die Höhe ist nie größer als der Radius. Rechts Bernoulli für $n=3$: Die Gerade berührt die Kurve bei $x=0$ und liegt für $x>-1$ darunter.

@@ -1,6 +1,8 @@
 ---
 title: Stufe 4: Dividieren, und was verloren geht
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Komplexe Zahlen
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Komplexe Zahlen
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen
+knoten: Kapitel 2: Komplexe Zahlen
 order: 1220500
 summary: Stufe 3 liefert ein reelles Produkt.
 tags: 
@@ -49,10 +51,10 @@ Probe: $(1-\mathrm{i})(1+2\mathrm{i})=1+2\mathrm{i}-\mathrm{i}-2\mathrm{i}^2=3+\
 :::satz Satz 4.2 ($\mathbb{C}$ ist ein Körper)
 <span class="anker" id="satz-4-2"></span>
 
-$\mathbb{C}$ erfüllt mit $+$ und $\cdot$ alle Körperaxiome aus [Teil 1](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html): Kommutativ-, Assoziativ- und Distributivgesetz, neutrale Elemente $0\ne1$, zu jedem $z$ das Negative $-z$ und zu jedem $z\ne0$ den Kehrwert $1/z$.
+$\mathbb{C}$ erfüllt mit $+$ und $\cdot$ alle Körperaxiome aus [Kapitel 1](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html): Kommutativ-, Assoziativ- und Distributivgesetz, neutrale Elemente $0\ne1$, zu jedem $z$ das Negative $-z$ und zu jedem $z\ne0$ den Kehrwert $1/z$.
 :::
 
-⁠**So liest man das:** Was in [Teil 1](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html) nur aus den Körperaxiomen folgt, gilt auch in $\mathbb{C}$: Bruchrechnung, binomische Formeln und der Schluss von $zw=0$ auf $z=0$ oder $w=0$.
+⁠**So liest man das:** Was in [Kapitel 1](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html) nur aus den Körperaxiomen folgt, gilt auch in $\mathbb{C}$: Bruchrechnung, binomische Formeln und der Schluss von $zw=0$ auf $z=0$ oder $w=0$.
 
 :::beweis Idee
 Die Addition läuft getrennt und erbt alle Gesetze von $\mathbb{R}$, mit $-z=-x-\mathrm{i}y$. [(1.2)](paare-statt-einzelner-zahlen.html#gl-1-2) ändert sich nicht beim Tausch der Indizes 1 und 2: Die Multiplikation ist kommutativ. Assoziativ- und Distributivgesetz zeigt man, indem man beide Seiten nach [(1.2)](paare-statt-einzelner-zahlen.html#gl-1-2) ausrechnet. $(1,0)\odot(x,y)=(x,y)$ zeigt das Einselement, [(4.1)](#gl-4-1) das Axiom (M4), den Kehrwert.
@@ -61,7 +63,7 @@ Die Addition läuft getrennt und erbt alle Gesetze von $\mathbb{R}$, mit $-z=-x-
 :::satz Satz 4.3 ($\mathbb{C}$ ist nicht angeordnet)
 <span class="anker" id="satz-4-3"></span>
 
-Es gibt keine Relation „$>0$“ auf $\mathbb{C}$ mit den Anordnungsaxiomen aus [Teil 1](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html): (T1) Für jedes $x$ gilt genau eines von $x>0$, $x=0$, $-x>0$. (T2) Aus $x>0$ und $y>0$ folgt $x+y>0$. (T3) Aus $x>0$ und $y>0$ folgt $x\cdot y>0$.
+Es gibt keine Relation „$>0$“ auf $\mathbb{C}$ mit den Anordnungsaxiomen aus [Kapitel 1](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html): (T1) Für jedes $x$ gilt genau eines von $x>0$, $x=0$, $-x>0$. (T2) Aus $x>0$ und $y>0$ folgt $x+y>0$. (T3) Aus $x>0$ und $y>0$ folgt $x\cdot y>0$.
 :::
 
 ⁠**So liest man das:** Für nicht reelle Zahlen haben $z<w$ und $z>0$ keine Bedeutung. Vergleichen darf man nur reelle Größen wie $\operatorname{Re}(z)$ oder $|z|$.

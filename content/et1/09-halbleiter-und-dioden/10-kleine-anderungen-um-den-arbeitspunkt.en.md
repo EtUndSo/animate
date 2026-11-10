@@ -1,6 +1,8 @@
 ---
 title: Stage 8: Small changes around the operating point
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / Semiconductors and Diodes
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / Semiconductors and Diodes
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden
+knoten: Chapter 9: Semiconductors and Diodes
 order: 1191000
 summary: Often a small signal rides on a DC voltage, and only the change counts.
 tags: differential resistance, small signal

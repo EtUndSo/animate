@@ -1,7 +1,8 @@
 ---
 title: Das Wichtigste bis hier
 pfad: Informatik / Machine Learning / Mathematische Grundlagen / Vektoren und Matrizen
-knoten: Grundlagen 1: Vektoren und Matrizen
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Kapitel 1: Vektoren und Matrizen
 nachschlagen: ja
 order: 15211700
 summary: Daten als Zahlenlisten, Modelle als lineare Abbildungen
@@ -26,7 +27,7 @@ Das Skalarprodukt $\mathbf{u}^{\top}\mathbf{v}=\sum_ju_jv_j$ ist eine gewichtete
 
 <li>
 
-Normen messen Größe: $\lVert\mathbf{x}\rVert_2=\sqrt{\mathbf{x}^{\top}\mathbf{x}}$, $\lVert\mathbf{x}\rVert_1=\sum_j|x_j|$, $\lVert\mathbf{x}\rVert_\infty=\max_j|x_j|$; der Effektivwert ist $\lVert\mathbf{x}\rVert/\sqrt n$. Abstände $\lVert\mathbf{u}-\mathbf{v}\rVert$ hängen von den Einheiten ab, Standardisieren macht sie davon unabhängig.
+Normen messen Größe: $\lVert\mathbf{x}\rVert_2=\sqrt{\mathbf{x}^{\top}\mathbf{x}}$, $\lVert\mathbf{x}\rVert_1=\sum_j|x_j|$, $\lVert\mathbf{x}\rVert_\infty=\max_j|x_j|$; der quadratische Mittelwert ist $\lVert\mathbf{x}\rVert/\sqrt n$. Abstände $\lVert\mathbf{u}-\mathbf{v}\rVert$ hängen von den Einheiten ab, Standardisieren macht sie davon unabhängig.
 
 </li>
 

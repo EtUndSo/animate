@@ -1,7 +1,8 @@
 ---
 title: Koşul sayısı
 pfad: Bilgisayar Bilimleri / Makine Öğrenmesi / Matematiksel Temeller / İzdüşüm, Özdeğerler ve Ayrışımlar
-knoten: Temeller 2: İzdüşüm, Özdeğerler ve Ayrışımlar
+adresse: informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen
+knoten: Bölüm 2: İzdüşüm, Özdeğerler ve Ayrışımlar
 nachschlagen: ja
 order: 15221300
 summary: Ölçüm verileri hiçbir zaman kesin değildir ve bir bilgisayar her adımda yuvarlar.
@@ -89,7 +90,7 @@ yani $\lambda_1\approx2{,}005012$ ve $\lambda_2\approx0{,}004988$; ikisi de pozi
 
 <span class="anker" id="stufe-12-3"></span>
 
-[Temeller 1, Kesim 14.6](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-6)'daki arka plan kutusunda bir uyarı vardı: Küçük bir determinant, bir matrisin neredeyse tekil olduğu anlamına gelmez. Koşul sayısı orada kastedileni ölçer.
+[Bölüm 1, Kesim 14.6](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-6)'daki arka plan kutusunda bir uyarı vardı: Küçük bir determinant, bir matrisin neredeyse tekil olduğu anlamına gelmez. Koşul sayısı orada kastedileni ölçer.
 
 :::satz Teorem 12.3 (En yakın tekil matrise uzaklık)
 <span class="anker" id="satz-12-3"></span>
@@ -107,7 +108,7 @@ Tekil bir matrisin rankı en fazla $n-1$ olur. $k=n-1$ ile Eckart-Young teoremin
 Demek ki büyük bir koşul sayısı şu anlama gelir: Görece küçük bir değişiklik matrisi tekil yapar. Determinant başka bir şey ölçer. Alıştırma [29](die-singularwertzerlegung.html#aufg-29)'a göre $|\det\mathbf{A}|=d_1\cdots d_n$, yani bütün uzatmaların çarpımıdır; matrisin büyüklüğüne bağlıdır. Koşul sayısı bir orandır ve $\mathbf{A}$ bir sayıyla çarpıldığında değişmez: $c\ne0$ için $\kappa(c\mathbf{A})=\kappa(\mathbf{A})$. Yalnızca $\mathbf{A}$ matrisinin birim çemberi dönüştürdüğü elipsin ne kadar basık olduğunu ölçer.
 
 ::::beispiel [Sayısal örnek]
-[Temeller 1, Kesim 14.6](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-6)'daki iki matris: $0{,}1\cdot\mathbf{I}_{10}$ matrisinin determinantı $10^{-10}$, ama bütün tekil değerleri $0{,}1$ ve $\kappa=1$ olur; olabildiğince iyi koşulludur. $\operatorname{diag}(1000;\ 0{,}001)$ matrisinin determinantı $1$, ama $\kappa=1000/0{,}001=10^6$ olur. $\mathbf{A}=\bigl(\begin{smallmatrix}1&1\\1&1{,}01\end{smallmatrix}\bigr)$ için en yakın tekil matrise uzaklık $d_2\approx0{,}005$ olur: Elemanları birkaç binde bir kadar değiştirmek matrisi tekil yapar. Tekil $\bigl(\begin{smallmatrix}1&1\\1&1\end{smallmatrix}\bigr)$ matrisinin uzaklığı $\lVert\bigl(\begin{smallmatrix}0&0\\0&0{,}01\end{smallmatrix}\bigr)\rVert_2=0{,}01$, yani en küçük değerden biraz fazladır.
+[Bölüm 1, Kesim 14.6](/wissen/tr/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/die-determinante.html#stufe-14-6)'daki iki matris: $0{,}1\cdot\mathbf{I}_{10}$ matrisinin determinantı $10^{-10}$, ama bütün tekil değerleri $0{,}1$ ve $\kappa=1$ olur; olabildiğince iyi koşulludur. $\operatorname{diag}(1000;\ 0{,}001)$ matrisinin determinantı $1$, ama $\kappa=1000/0{,}001=10^6$ olur. $\mathbf{A}=\bigl(\begin{smallmatrix}1&1\\1&1{,}01\end{smallmatrix}\bigr)$ için en yakın tekil matrise uzaklık $d_2\approx0{,}005$ olur: Elemanları birkaç binde bir kadar değiştirmek matrisi tekil yapar. Tekil $\bigl(\begin{smallmatrix}1&1\\1&1\end{smallmatrix}\bigr)$ matrisinin uzaklığı $\lVert\bigl(\begin{smallmatrix}0&0\\0&0{,}01\end{smallmatrix}\bigr)\rVert_2=0{,}01$, yani en küçük değerden biraz fazladır.
 ::::
 
 ⁠**Kısacası:** $1/\kappa(\mathbf{A})$, en yakın tekil matrise olan göreli uzaklıktır; determinant bu konuda hiçbir şey söylemez, çünkü matrisin büyüklüğüne bağlıdır.

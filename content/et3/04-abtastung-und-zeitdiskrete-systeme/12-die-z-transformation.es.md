@@ -1,8 +1,10 @@
 ---
 title: Etapa 11: La transformada z
-pfad: Ingeniería eléctrica / 3.er semestre / Señales y sistemas / Muestreo y sistemas en tiempo discreto
+pfad: Ingeniería eléctrica / 3.er semestre / ET3 – Fundamentos de ingeniería eléctrica 3: señales y sistemas / Muestreo y sistemas en tiempo discreto
+adresse: elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme
+knoten: Capítulo 4: Muestreo y sistemas en tiempo discreto
 order: 3241200
-summary: Igual que la transformada de Laplace amplía la transformada de Fourier (parte 2), la transformada z amplía la transformada de Fourier de tiempo discreto: primero se pondera exponencialmente y después se transforma.
+summary: Igual que la transformada de Laplace amplía la transformada de Fourier (capítulo 2), la transformada z amplía la transformada de Fourier de tiempo discreto: primero se pondera exponencialmente y después se transforma.
 tags: circunferencia unidad
 lang: es
 ---
@@ -10,7 +12,7 @@ lang: es
 <span class="anker" id="stufe-11"></span>
 
 :::zweck
-Igual que la transformada de Laplace amplía la transformada de Fourier ([parte 2](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html)), la transformada z amplía la transformada de Fourier de tiempo discreto: primero se pondera exponencialmente y después se transforma.
+Igual que la transformada de Laplace amplía la transformada de Fourier ([capítulo 2](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html)), la transformada z amplía la transformada de Fourier de tiempo discreto: primero se pondera exponencialmente y después se transforma.
 :::
 
 **La idea.** Se multiplica la secuencia por $\rho^{-n}$ ($\rho>0$) y se transforma: $\sum_ns(n)\rho^{-n}\mathrm{e}^{-\mathrm{j}2\pi fn}$. Con $z=\rho\,\mathrm{e}^{\mathrm{j}2\pi f}$, esto se convierte en una serie de potencias en $z^{-1}$. De forma equivalente: $z^n$ es una función propia de todo sistema LSI, porque $z^{n-k}=z^{-k}z^n$, y el valor propio es $H(z)$:

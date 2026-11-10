@@ -1,6 +1,8 @@
 ---
 title: Stufe 2: Das Spektrum des abgetasteten Signals
-pfad: Elektrotechnik / 3. Semester / Signale und Systeme / Abtastung und zeitdiskrete Systeme
+pfad: Elektrotechnik / 3. Semester / ET3 – Grundgebiete der Elektrotechnik 3: Signale und Systeme / Abtastung und zeitdiskrete Systeme
+adresse: elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme
+knoten: Kapitel 4: Abtastung und zeitdiskrete Systeme
 order: 3240300
 summary: Was macht das Abtasten mit dem Spektrum?
 tags: Spiegelspektren
@@ -29,7 +31,7 @@ $$S_\mathrm a(f)=\frac1T\sum_{k=-\infty}^{\infty}S\Bigl(f-\frac kT\Bigr)\qquad(T
 ⁠**So liest man das:** Das Spektrum des Originals erscheint unverändert in der Form, aber mit dem Faktor $1/T$ und an jedem Vielfachen der Abtastrate wiederholt. Die Kopien heißen __Spiegelspektren__.
 
 :::herleitung Spektrum des abgetasteten Signals
-Multiplikation wird Faltung ([Teil 3](/wissen/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)), und das Spektrum des Dirac-Kamms ist wieder ein Kamm:
+Multiplikation wird Faltung ([Kapitel 3](/wissen/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)), und das Spektrum des Dirac-Kamms ist wieder ein Kamm:
 
 $$s(t)\cdot\sum_n\delta(t-nT)\;\circ\!\!-\!\!\bullet\;S(f)*\frac1T\sum_k\delta\Bigl(f-\frac kT\Bigr)=\frac1T\sum_kS\Bigl(f-\frac kT\Bigr).$$
 

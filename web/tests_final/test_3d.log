@@ -1,0 +1,7 @@
+camera z-up OK: +z projects straight up on screen for every orbit angle
+depth OK
+func2 OK: x*y+x^2 @ (2,3) = 10
+3D scene renders OK: 181 paths
+face styling OK (surface + vector)
+
+3D TESTS PASSED

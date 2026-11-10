@@ -1,7 +1,9 @@
 ---
 title: Visión general: Funciones de correlación
 kurz: Visión general
-pfad: Ingeniería eléctrica / 3.er semestre / Señales y sistemas / Funciones de correlación
+pfad: Ingeniería eléctrica / 3.er semestre / ET3 – Fundamentos de ingeniería eléctrica 3: señales y sistemas / Funciones de correlación
+adresse: elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen
+knoten: Capítulo 6: Funciones de correlación
 order: 3260100
 summary: ¿Cuánto se parecen dos señales y cómo se reparte la energía en frecuencia?
 tags: 

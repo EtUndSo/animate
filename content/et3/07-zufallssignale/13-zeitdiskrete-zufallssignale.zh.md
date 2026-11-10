@@ -1,6 +1,8 @@
 ---
 title: 第 12 阶段：离散时间随机信号
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / 随机信号
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / 随机信号
+adresse: elektrotechnik/3-semester/signale-und-systeme/zufallssignale
+knoten: 第 7 章：随机信号
 order: 3271300
 summary: 上述一切同样适用于随机数序列，只是用求和代替积分。
 tags: 离散时间白噪声
@@ -29,7 +31,7 @@ $$\varphi_{gg}(m)=\tfrac{\sigma_s^2}{4}\delta(m+1)+\tfrac{\sigma_s^2}{2}\delta(m
 ::::
 
 ::::beispiel [例 2] 递归滤波器（AR(1) 过程，即一阶自回归过程）
-方差为 $\sigma_s^2$ 的白噪声通过 $h(n)=b^n\varepsilon(n)$（[第 4 部分](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme/abtastung-und-zeitdiskrete-systeme.html)）。利用 $\varphi^E_{hh}(m)=\sum_kb^kb^{k+|m|}=\frac{b^{|m|}}{1-b^2}$：
+方差为 $\sigma_s^2$ 的白噪声通过 $h(n)=b^n\varepsilon(n)$（[第 4 章](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme/abtastung-und-zeitdiskrete-systeme.html)）。利用 $\varphi^E_{hh}(m)=\sum_kb^kb^{k+|m|}=\frac{b^{|m|}}{1-b^2}$：
 
 <span class="anker" id="gl-12-2"></span>
 $$\varphi_{gg}(m)=\frac{\sigma_s^2}{1-b^2}\,b^{|m|},\qquad\Phi_{gg,\mathrm a}(f)=\frac{\sigma_s^2}{1-2b\cos(2\pi f)+b^2}. \tag{12.2}$$

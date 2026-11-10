@@ -1,0 +1,1124 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 34,
+  "nextAnimId": 49,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.0,
+      1.2,
+      0
+     ],
+     "width": 6.8,
+     "height": 1.5,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#e6f3ea",
+     "fill_color": "#e6f3ea",
+     "fill_opacity": 1.0,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o2",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.0,
+      -0.22500000000000003,
+      0
+     ],
+     "width": 6.8,
+     "height": 1.15,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#e3eefb",
+     "fill_color": "#e3eefb",
+     "fill_opacity": 1.0,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o3",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.0,
+      -1.375,
+      0
+     ],
+     "width": 6.8,
+     "height": 0.9500000000000001,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#efefef",
+     "fill_color": "#efefef",
+     "fill_opacity": 1.0,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Text",
+    "props": {
+     "text": "@prog",
+     "position": [
+      -3.3,
+      1.78,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#00823c"
+    }
+   },
+   {
+    "id": "o5",
+    "type": "Text",
+    "props": {
+     "text": "@kern",
+     "position": [
+      -3.3,
+      0.2,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Text",
+    "props": {
+     "text": "@hw",
+     "position": [
+      -3.3,
+      -1.02,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o7",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.75,
+      1.05,
+      0
+     ],
+     "width": 2.5,
+     "height": 1.0,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Text",
+    "props": {
+     "text": "@emu",
+     "position": [
+      -1.75,
+      1.38,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o9",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.05,
+      1.05,
+      0
+     ],
+     "width": 1.9,
+     "height": 1.0,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o10",
+    "type": "Text",
+    "props": {
+     "text": "@shell",
+     "position": [
+      2.05,
+      1.05,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o11",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.3,
+      -0.2,
+      0
+     ],
+     "width": 1.7,
+     "height": 0.5,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#fdece3",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Text",
+    "props": {
+     "text": "@pty",
+     "position": [
+      0.3,
+      -0.2,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o13",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.3,
+      -0.2,
+      0
+     ],
+     "width": 1.7,
+     "height": 0.5,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o14",
+    "type": "Text",
+    "props": {
+     "text": "@dienste",
+     "position": [
+      2.3,
+      -0.2,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o15",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.45,
+      -1.4,
+      0
+     ],
+     "width": 1.15,
+     "height": 0.42,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o16",
+    "type": "Text",
+    "props": {
+     "text": "@tast",
+     "position": [
+      -2.45,
+      -1.4,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o17",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.05,
+      -1.4,
+      0
+     ],
+     "width": 1.3,
+     "height": 0.42,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o18",
+    "type": "Text",
+    "props": {
+     "text": "@bild",
+     "position": [
+      -1.05,
+      -1.4,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o19",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.3,
+      -1.4,
+      0
+     ],
+     "width": 1.9,
+     "height": 0.42,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#111111",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o20",
+    "type": "Text",
+    "props": {
+     "text": "@cpu",
+     "position": [
+      2.3,
+      -1.4,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o21",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -2.45,
+      -1.19,
+      0
+     ],
+     "end": [
+      -2.45,
+      0.55,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.11,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o22",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -1.05,
+      0.55,
+      0
+     ],
+     "end": [
+      -1.05,
+      -1.19,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.11,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o23",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -0.5,
+      0.8,
+      0
+     ],
+     "end": [
+      0.0,
+      0.05,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": true,
+     "elbow": "hv",
+     "thick": 0,
+     "head_size": 0.11,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o24",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      0.6,
+      0.05,
+      0
+     ],
+     "end": [
+      1.1,
+      0.8,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": true,
+     "elbow": "vh",
+     "thick": 0,
+     "head_size": 0.11,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o25",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      2.3,
+      0.55,
+      0
+     ],
+     "end": [
+      2.3,
+      0.05,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.11,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o26",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      2.3,
+      -0.45,
+      0
+     ],
+     "end": [
+      2.3,
+      -1.19,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.11,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o27",
+    "type": "Text",
+    "props": {
+     "text": "@sysauf",
+     "position": [
+      2.2,
+      0.38,
+      0
+     ],
+     "font_size": 18,
+     "align": "right",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o28",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{\\$}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.14,
+     "position": [
+      -2.8933,
+      1.08,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o29",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{u}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.14,
+     "position": [
+      -2.7463,
+      1.08,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o30",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{name -r}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.14,
+     "position": [
+      -2.4523,
+      1.08,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o31",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{6.6.87.2-microsoft-standard-WSL2}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.14,
+     "position": [
+      -1.754,
+      0.8,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o32",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{u}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.2,
+     "position": [
+      -2.45,
+      -0.95,
+      0
+     ],
+     "color": "#eb6834"
+    }
+   },
+   {
+    "id": "o33",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{6.6.87.2-...}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.14,
+     "position": [
+      0.3,
+      0.2,
+      0
+     ],
+     "color": "#eb6834"
+    }
+   }
+  ],
+  "animations": [
+   {
+    "id": "a1",
+    "type": "FadeIn",
+    "target": "o1",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a2",
+    "type": "FadeIn",
+    "target": "o2",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a3",
+    "type": "FadeIn",
+    "target": "o3",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a4",
+    "type": "FadeIn",
+    "target": "o4",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a5",
+    "type": "FadeIn",
+    "target": "o5",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a6",
+    "type": "FadeIn",
+    "target": "o6",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a7",
+    "type": "GrowFromCenter",
+    "target": "o7",
+    "run_time": 0.7,
+    "step": 1
+   },
+   {
+    "id": "a8",
+    "type": "GrowFromCenter",
+    "target": "o9",
+    "run_time": 0.7,
+    "step": 1
+   },
+   {
+    "id": "a9",
+    "type": "GrowFromCenter",
+    "target": "o11",
+    "run_time": 0.7,
+    "step": 1
+   },
+   {
+    "id": "a10",
+    "type": "GrowFromCenter",
+    "target": "o13",
+    "run_time": 0.7,
+    "step": 1
+   },
+   {
+    "id": "a11",
+    "type": "GrowFromCenter",
+    "target": "o15",
+    "run_time": 0.7,
+    "step": 1
+   },
+   {
+    "id": "a12",
+    "type": "GrowFromCenter",
+    "target": "o17",
+    "run_time": 0.7,
+    "step": 1
+   },
+   {
+    "id": "a13",
+    "type": "GrowFromCenter",
+    "target": "o19",
+    "run_time": 0.7,
+    "step": 1
+   },
+   {
+    "id": "a14",
+    "type": "FadeIn",
+    "target": "o8",
+    "run_time": 0.7,
+    "step": 1
+   },
+   {
+    "id": "a15",
+    "type": "FadeIn",
+    "target": "o10",
+    "run_time": 0.7,
+    "step": 1
+   },
+   {
+    "id": "a16",
+    "type": "FadeIn",
+    "target": "o12",
+    "run_time": 0.7,
+    "step": 1
+   },
+   {
+    "id": "a17",
+    "type": "FadeIn",
+    "target": "o14",
+    "run_time": 0.7,
+    "step": 1
+   },
+   {
+    "id": "a18",
+    "type": "FadeIn",
+    "target": "o16",
+    "run_time": 0.7,
+    "step": 1
+   },
+   {
+    "id": "a19",
+    "type": "FadeIn",
+    "target": "o18",
+    "run_time": 0.7,
+    "step": 1
+   },
+   {
+    "id": "a20",
+    "type": "FadeIn",
+    "target": "o20",
+    "run_time": 0.7,
+    "step": 1
+   },
+   {
+    "id": "a21",
+    "type": "Create",
+    "target": "o21",
+    "run_time": 0.9,
+    "step": 2
+   },
+   {
+    "id": "a22",
+    "type": "Create",
+    "target": "o22",
+    "run_time": 0.9,
+    "step": 2
+   },
+   {
+    "id": "a23",
+    "type": "Create",
+    "target": "o23",
+    "run_time": 0.9,
+    "step": 2
+   },
+   {
+    "id": "a24",
+    "type": "Create",
+    "target": "o24",
+    "run_time": 0.9,
+    "step": 2
+   },
+   {
+    "id": "a25",
+    "type": "Create",
+    "target": "o25",
+    "run_time": 0.9,
+    "step": 2
+   },
+   {
+    "id": "a26",
+    "type": "Create",
+    "target": "o26",
+    "run_time": 0.9,
+    "step": 2
+   },
+   {
+    "id": "a27",
+    "type": "FadeIn",
+    "target": "o28",
+    "run_time": 0.9,
+    "step": 2
+   },
+   {
+    "id": "a28",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 3
+   },
+   {
+    "id": "a29",
+    "type": "FadeIn",
+    "target": "o32",
+    "run_time": 0.3,
+    "step": 4
+   },
+   {
+    "id": "a30",
+    "type": "MoveTo",
+    "target": "o32",
+    "run_time": 0.5,
+    "step": 5,
+    "point": [
+     -2.45,
+     0.42,
+     0
+    ]
+   },
+   {
+    "id": "a31",
+    "type": "MoveTo",
+    "target": "o32",
+    "run_time": 0.6,
+    "step": 6,
+    "point": [
+     0.0,
+     0.2,
+     0
+    ]
+   },
+   {
+    "id": "a32",
+    "type": "MoveTo",
+    "target": "o32",
+    "run_time": 0.5,
+    "step": 7,
+    "point": [
+     0.95,
+     0.62,
+     0
+    ]
+   },
+   {
+    "id": "a33",
+    "type": "MoveTo",
+    "target": "o32",
+    "run_time": 0.45,
+    "step": 8,
+    "point": [
+     0.0,
+     0.2,
+     0
+    ]
+   },
+   {
+    "id": "a34",
+    "type": "MoveTo",
+    "target": "o32",
+    "run_time": 0.6,
+    "step": 9,
+    "point": [
+     -2.7463,
+     1.08,
+     0
+    ]
+   },
+   {
+    "id": "a35",
+    "type": "FadeOut",
+    "target": "o32",
+    "run_time": 0.3,
+    "step": 10
+   },
+   {
+    "id": "a36",
+    "type": "FadeIn",
+    "target": "o29",
+    "run_time": 0.3,
+    "step": 10
+   },
+   {
+    "id": "a37",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 11
+   },
+   {
+    "id": "a38",
+    "type": "FadeIn",
+    "target": "o30",
+    "run_time": 0.6,
+    "step": 12
+   },
+   {
+    "id": "a39",
+    "type": "Indicate",
+    "target": "o23",
+    "run_time": 0.7,
+    "step": 13
+   },
+   {
+    "id": "a40",
+    "type": "Indicate",
+    "target": "o24",
+    "run_time": 0.7,
+    "step": 13
+   },
+   {
+    "id": "a41",
+    "type": "Indicate",
+    "target": "o25",
+    "run_time": 0.6,
+    "step": 14
+   },
+   {
+    "id": "a42",
+    "type": "FadeIn",
+    "target": "o27",
+    "run_time": 0.6,
+    "step": 14
+   },
+   {
+    "id": "a43",
+    "type": "Indicate",
+    "target": "o26",
+    "run_time": 0.6,
+    "step": 15
+   },
+   {
+    "id": "a44",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 16
+   },
+   {
+    "id": "a45",
+    "type": "FadeIn",
+    "target": "o33",
+    "run_time": 0.3,
+    "step": 17
+   },
+   {
+    "id": "a46",
+    "type": "MoveTo",
+    "target": "o33",
+    "run_time": 0.7,
+    "step": 18,
+    "point": [
+     -1.754,
+     0.8,
+     0
+    ]
+   },
+   {
+    "id": "a47",
+    "type": "FadeOut",
+    "target": "o33",
+    "run_time": 0.3,
+    "step": 19
+   },
+   {
+    "id": "a48",
+    "type": "FadeIn",
+    "target": "o31",
+    "run_time": 0.3,
+    "step": 19
+   }
+  ],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "prog": {
+    "de": "Programme",
+    "en": "programs",
+    "es": "programas",
+    "zh": "程序",
+    "fr": "programmes",
+    "tr": "programlar"
+   },
+   "kern": {
+    "de": "Kernel",
+    "en": "kernel",
+    "es": "núcleo",
+    "zh": "内核",
+    "fr": "noyau",
+    "tr": "çekirdek"
+   },
+   "hw": {
+    "de": "Hardware",
+    "en": "hardware",
+    "es": "hardware",
+    "zh": "硬件",
+    "fr": "matériel",
+    "tr": "donanım"
+   },
+   "emu": {
+    "de": "Terminalemulator (Fenster)",
+    "en": "terminal emulator (window)",
+    "es": "emulador de terminal (ventana)",
+    "zh": "终端模拟器（窗口）",
+    "fr": "émulateur de terminal (fenêtre)",
+    "tr": "uçbirim öykünücüsü (pencere)"
+   },
+   "shell": {
+    "de": "Shell\n(bash)",
+    "en": "shell\n(bash)",
+    "es": "shell\n(bash)",
+    "zh": "Shell\n（bash）",
+    "fr": "shell\n(bash)",
+    "tr": "kabuk\n(bash)"
+   },
+   "pty": {
+    "de": "Pseudoterminal",
+    "en": "pseudoterminal",
+    "es": "pseudoterminal",
+    "zh": "伪终端",
+    "fr": "pseudo-terminal",
+    "tr": "sözde uçbirim"
+   },
+   "dienste": {
+    "de": "Dienste des Kernels",
+    "en": "kernel services",
+    "es": "servicios del núcleo",
+    "zh": "内核服务",
+    "fr": "services du noyau",
+    "tr": "çekirdek hizmetleri"
+   },
+   "tast": {
+    "de": "Tastatur",
+    "en": "keyboard",
+    "es": "teclado",
+    "zh": "键盘",
+    "fr": "clavier",
+    "tr": "klavye"
+   },
+   "bild": {
+    "de": "Bildschirm",
+    "en": "screen",
+    "es": "pantalla",
+    "zh": "屏幕",
+    "fr": "écran",
+    "tr": "ekran"
+   },
+   "cpu": {
+    "de": "Prozessor, SSD, …",
+    "en": "processor, SSD, …",
+    "es": "procesador, SSD, …",
+    "zh": "处理器、SSD……",
+    "fr": "processeur, SSD, …",
+    "tr": "işlemci, SSD, …"
+   },
+   "sysauf": {
+    "de": "Systemaufruf",
+    "en": "system call",
+    "es": "llamada al sistema",
+    "zh": "系统调用",
+    "fr": "appel système",
+    "tr": "sistem çağrısı"
+   }
+  }
+ }
+}

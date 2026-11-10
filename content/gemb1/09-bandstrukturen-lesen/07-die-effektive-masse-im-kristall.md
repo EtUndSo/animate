@@ -1,8 +1,10 @@
 ---
 title: Stufe 5: Die effektive Masse im Kristall
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Bandstrukturen lesen
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Bandstrukturen lesen
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/bandstrukturen-lesen
+knoten: Kapitel 9: Bandstrukturen lesen
 order: 4190700
-summary: Teil 2 hat die Masse als Krümmung von E(k) eingeführt.
+summary: Kapitel 2 hat die Masse als Krümmung von E(k) eingeführt.
 tags: Kristallimpuls
 lang: de
 ---
@@ -10,7 +12,7 @@ lang: de
 <span class="anker" id="stufe-5"></span>
 
 :::zweck
-[Teil 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html) hat die Masse als Krümmung von $E(k)$ eingeführt. Diese Stufe zeigt, warum diese Größe tatsächlich in Newtons Gesetz gehört und was aus ihr längs eines ganzen Bands wird.
+[Kapitel 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html) hat die Masse als Krümmung von $E(k)$ eingeführt. Diese Stufe zeigt, warum diese Größe tatsächlich in Newtons Gesetz gehört und was aus ihr längs eines ganzen Bands wird.
 :::
 
 **Die Idee.** Auf ein Elektron im Kristall wirken zwei Kräfte. Die Rumpfionen ziehen es mit starken, rasch wechselnden Kräften, ein äußeres Feld schiebt es viel schwächer und gleichmäßig. Die erste Kraft ist schon in $E(k)$ eingerechnet, die zweite verschiebt nur $k$. Man kann also so tun, als gäbe es das Gitter nicht, wenn man dem Elektron eine andere Masse gibt. Der Einfluss des Festkörperpotentials steckt dann pauschal in $m^*$.
@@ -43,7 +45,7 @@ $$v(k)=\frac{2V_\mathrm{ss}a}\hbar\sin(ka),\qquad m^*(k)=\frac{\hbar^2}{2V_\math
 Kosinus-Band mit $V_\mathrm{ss}=0{,}5$ eV und $a=0{,}25$ nm. Oben: Energie, grün gestrichelt die Parabeln an den Bandkanten. Mitte: Geschwindigkeit, die Steigung der oberen Kurve. Unten: effektive Masse, sie läuft bei $|ka|=\pi/2$ ins Unendliche und ist in den rot getönten Bereichen negativ.
 :::
 
-Von der Unterkante aus steigt $v$, erreicht bei $ka=\pi/2$ das Maximum und fällt bis zur Oberkante auf null. Dort liegen stehende Wellen vor ([Teil 8](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/vom-atom-zum-band/vom-atom-zum-band.html)), die Tangente an $E(k)$ ist waagerecht. Die Masse wächst und geht am Wendepunkt ($\partial^2E/\partial k^2=0$) gegen $+\infty$. Oben ist sie negativ, sie kommt von $-\infty$ und erreicht an der Oberkante $-\hbar^2/(2V_\mathrm{ss}a^2)$. Eine feste Masse gibt es nur nahe den Kanten, wo das Band eine Parabel ist:
+Von der Unterkante aus steigt $v$, erreicht bei $ka=\pi/2$ das Maximum und fällt bis zur Oberkante auf null. Dort liegen stehende Wellen vor ([Kapitel 8](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/vom-atom-zum-band/vom-atom-zum-band.html)), die Tangente an $E(k)$ ist waagerecht. Die Masse wächst und geht am Wendepunkt ($\partial^2E/\partial k^2=0$) gegen $+\infty$. Oben ist sie negativ, sie kommt von $-\infty$ und erreicht an der Oberkante $-\hbar^2/(2V_\mathrm{ss}a^2)$. Eine feste Masse gibt es nur nahe den Kanten, wo das Band eine Parabel ist:
 
 <span class="anker" id="gl-5-3"></span>
 $$E\approx E_\mathrm C+\frac{\hbar^2(k-k_\mathrm C)^2}{2m_\mathrm C^*},\qquad E\approx E_\mathrm V-\frac{\hbar^2(k-k_\mathrm V)^2}{2m_\mathrm V^*}. \tag{5.3}$$
@@ -54,7 +56,7 @@ $m_\mathrm C^*$ und $m_\mathrm V^*$ sind positive Beträge. Dazwischen sind weni
 Im Rechenmodell ist $v_\text{max}=3{,}8\cdot10^5$ m/s und $\hbar^2/(2V_\mathrm{ss}a^2)=1{,}22\,m_0$. Bei $ka=\pi/4$ sind $v=2{,}69\cdot10^5$ m/s und $m^*=1{,}72\,m_0$, bei $3\pi/4$ gleiches $v$ und $m^*=-1{,}72\,m_0$. Dieselbe Kraft beschleunigt ein Elektron in GaAs 14,9-mal stärker als ein freies.
 ::::
 
-⁠**Grenzfall:** Mit der Kopplung $t_0=\hbar^2/(2ma^2)$ des Rechengitters aus [Teil 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html) statt $V_\mathrm{ss}$ ergibt [(5.2)](#gl-5-2) bei $k=0$ genau $m^*=m$.
+⁠**Grenzfall:** Mit der Kopplung $t_0=\hbar^2/(2ma^2)$ des Rechengitters aus [Kapitel 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html) statt $V_\mathrm{ss}$ ergibt [(5.2)](#gl-5-2) bei $k=0$ genau $m^*=m$.
 
 :::frage Läuft ein Elektron im Feld wirklich bis zum oberen Bandrand und wieder zurück?
 Ohne Stöße ja, bei $10^6$ V/m wäre die Zone nach 16,5 ps durchlaufen. Das heißt Bloch-Schwingung. Stöße mit Gitterschwingungen bremsen das Elektron aber schon nach etwa 0,1 ps, nach gut 1 % des Wegs zum Zonenrand. Deshalb reicht meist die Parabel [(5.3)](#gl-5-3).

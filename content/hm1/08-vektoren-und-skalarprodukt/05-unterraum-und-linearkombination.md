@@ -1,6 +1,8 @@
 ---
 title: Stufe 3: Unterraum und Linearkombination
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Vektoren und Skalarprodukt
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Vektoren und Skalarprodukt
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/vektoren-und-skalarprodukt
+knoten: Kapitel 8: Vektoren und Skalarprodukt
 order: 1280500
 summary: Eine Gerade durch den Ursprung verhält sich wie ein kleiner Vektorraum, eine Gerade daneben nicht.
 tags: Teilraum, linearer Unterraum, Linearkombination, lineare Hülle, Aufspann, Erzeugendensystem, Koeffizienten

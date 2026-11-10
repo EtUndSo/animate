@@ -1,6 +1,8 @@
 ---
 title: Etapa 5: Forma de admitancia y ensayo de cortocircuito
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Cuadripolos
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Cuadripolos
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore
+knoten: Capítulo 6: Cuadripolos
 order: 1160700
 summary: La segunda elección: las tensiones son las causas.
 tags: parámetros Y, admitancia, conductancia de entrada en cortocircuito, conductancia de salida en cortocircuito, conductancia de transferencia en cortocircuito, transconductancia, característica de entrada, característica de transferencia
@@ -58,7 +60,7 @@ Comprobación con el funcionamiento de la etapa [4](das-zweitor-im-betrieb.html
 **Curvas características.** Las ecuaciones Y también se pueden dibujar. La __característica de entrada__ es $I_1=f_1(U_1)$ con $U_2$ fija; la __característica de transferencia__, $I_2=f_2(U_1)$ con $U_2$ fija; la __característica de salida__, $I_2=f_3(U_2)$ con $U_1$ fija. En un cuadripolo lineal son rectas (fig. [7](#abb-7)): su pendiente es un parámetro Y, y el valor fijo las desplaza en paralelo. Cada valor del parámetro fijo da una recta; juntas forman una familia de curvas.
 
 :::abbildung et1/k6kennlinien 7
-Curvas características del cuadripolo T. Izquierda, característica de entrada: pendiente $Y_{11}=40$ mS, cada voltio de $U_2$ la desplaza $Y_{12}\cdot1\,\mathrm{V}=-20$ mA. Centro, característica de transferencia: pendiente $Y_{21}=-20$ mS. Derecha, característica de salida: pendiente $Y_{22}=35$ mS. En el transistor, estas curvas son curvadas ([Parte 10](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor/der-bipolartransistor.html)).
+Curvas características del cuadripolo T. Izquierda, característica de entrada: pendiente $Y_{11}=40$ mS, cada voltio de $U_2$ la desplaza $Y_{12}\cdot1\,\mathrm{V}=-20$ mA. Centro, característica de transferencia: pendiente $Y_{21}=-20$ mS. Derecha, característica de salida: pendiente $Y_{22}=35$ mS. En el transistor, estas curvas son curvadas ([capítulo 10](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor/der-bipolartransistor.html)).
 :::
 
 :::frage ¿Por qué $Y_{11}$ no es $1/Z_{11}$? Al fin y al cabo, ambos describen la entrada.

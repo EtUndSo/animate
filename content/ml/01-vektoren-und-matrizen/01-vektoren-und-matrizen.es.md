@@ -1,8 +1,9 @@
 ---
-title: Visión general: Fundamentos 1 – Vectores y matrices
+title: Visión general: Vectores y matrices
 kurz: Visión general
 pfad: Informática / Aprendizaje automático / Fundamentos matemáticos / Vectores y matrices
-knoten: Fundamentos 1: Vectores y matrices
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Capítulo 1: Vectores y matrices
 nachschlagen: ja
 order: 15210100
 summary: Los datos como listas de números, los modelos como aplicaciones lineales

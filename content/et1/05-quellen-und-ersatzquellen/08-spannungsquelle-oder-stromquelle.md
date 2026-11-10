@@ -1,6 +1,8 @@
 ---
 title: Stufe 6: Spannungsquelle oder Stromquelle
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Quellen und Ersatzquellen
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Quellen und Ersatzquellen
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen
+knoten: Kapitel 5: Quellen und Ersatzquellen
 order: 1150800
 summary: Für dieselbe reale Quelle gibt es zwei Schaltbilder.
 tags: äquivalent
@@ -47,7 +49,7 @@ Die Batterie mit 9 V und 2 $\Omega$ wird zu $I_\mathrm{q}=4{,}5$ A und $G_
 **Welche Form wählt man?** Rechnerisch sind beide gleich gut. Man nimmt die Form, die das Verhalten besser zeigt: Spannungsquellen sind niederohmig (ideal null), Stromquellen sind hochohmig (ideal unendlich). Ist $R_\mathrm{q}$ klein gegen die Last, ändert sich die Spannung kaum, und man wählt die Spannungsquellenform. Ist $R_\mathrm{q}$ groß gegen die Last, ändert sich der Strom kaum, und man wählt die Stromquellenform.
 
 :::frage Wenn beide gleich sind, verheizt die Batterie dann im Leerlauf 40,5 W?
-Nein. Rechts in Abb. [7](#abb-7) fließen im Leerlauf 4,5 A durch 2 $\Omega$, das wären mit $P=UI$ ([Teil 7](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad/leistung-und-anpassung.html)) 40,5 W. Die echte Batterie bleibt kalt, das Spannungsquellenbild mit 0 W trifft hier zu. Ersatzschaltbilder stimmen an den Klemmen, nicht im Inneren. Was innen geschieht, hängt vom Aufbau ab, nicht von der Kennlinie. Am Arbeitspunkt ist es ebenso: 0,5 W gegen 32 W innen, außen beide Male 4 W.
+Nein. Rechts in Abb. [7](#abb-7) fließen im Leerlauf 4,5 A durch 2 $\Omega$, das wären mit $P=UI$ ([Kapitel 7](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad/leistung-und-anpassung.html)) 40,5 W. Die echte Batterie bleibt kalt, das Spannungsquellenbild mit 0 W trifft hier zu. Ersatzschaltbilder stimmen an den Klemmen, nicht im Inneren. Was innen geschieht, hängt vom Aufbau ab, nicht von der Kennlinie. Am Arbeitspunkt ist es ebenso: 0,5 W gegen 32 W innen, außen beide Male 4 W.
 :::
 
 :::aufgabe Aufgabe 7 ★ Umwandeln

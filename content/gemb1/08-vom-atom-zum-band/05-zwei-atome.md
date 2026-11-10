@@ -1,6 +1,8 @@
 ---
 title: Stufe 3: Zwei Atome
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Vom Atom zum Band
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Vom Atom zum Band
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/vom-atom-zum-band
+knoten: Kapitel 8: Vom Atom zum Band
 order: 4180500
 summary: Stufe 2 zeigte Bänder aus einer numerischen Lösung, aber kein Verfahren für Atome.
 tags: LCAO
@@ -10,12 +12,12 @@ lang: de
 <span class="anker" id="stufe-3"></span>
 
 :::zweck
-Stufe 2 zeigte Bänder aus einer numerischen Lösung, aber kein Verfahren für Atome. Diese Stufe rechnet den kleinsten Fall aus [Teil 5](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/chemische-bindung/chemische-bindung.html) so, dass er sich auf viele Atome übertragen lässt.
+Stufe 2 zeigte Bänder aus einer numerischen Lösung, aber kein Verfahren für Atome. Diese Stufe rechnet den kleinsten Fall aus [Kapitel 5](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/chemische-bindung/chemische-bindung.html) so, dass er sich auf viele Atome übertragen lässt.
 :::
 
 **Die Idee.** Das kleinste Molekül ist H$_2^+$: zwei Protonen, ein Elektron. Weit getrennt hat das Elektron bei Atom 1 und bei Atom 2 dieselbe Energie. Rücken die Atome zusammen, wird die Wand zwischen den Trichtern dünn, die Orbitale überlappen, das Elektron tunnelt hin und her. Ein Zustand fester Energie gehört dann beiden Atomen gleich. Dafür gibt es zwei Möglichkeiten: Summe und Differenz der Orbitale. Die Differenz hat in der Mitte einen Knoten, ist stärker gekrümmt und liegt höher. Die Summe ist weniger gekrümmt und hält das Elektron dort, wo beide Kerne ziehen. Aus einem Niveau werden zwei.
 
-**Der Ansatz.** $\phi_\ell$ ist die Lösung des „Atoms“ am Platz $\ell$, also des einzelnen Coulomb-Potentials $V_\ell$, hier ein s-Orbital mit der Energie $E_\mathrm s$ (in [Teil 5](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/chemische-bindung/chemische-bindung.html) $E_\mathrm{AO}$):
+**Der Ansatz.** $\phi_\ell$ ist die Lösung des „Atoms“ am Platz $\ell$, also des einzelnen Coulomb-Potentials $V_\ell$, hier ein s-Orbital mit der Energie $E_\mathrm s$ (in [Kapitel 5](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/chemische-bindung/chemische-bindung.html) $E_\mathrm{AO}$):
 
 <span class="anker" id="gl-3-1"></span>
 $$\Bigl[-\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2}+V_\ell\Bigr]\phi_\ell=E_\mathrm s\,\phi_\ell,\qquad\ell=1,2. \tag{3.1}$$
@@ -49,7 +51,7 @@ Eine Lösung mit $c_1,c_2\neq0$ verlangt $(E_\mathrm s-E)^2-V_\mathrm{ss}^2=0$, 
 Zwei Töpfe des Kammpotentials mit $b=0{,}4$ nm, gerechnet ohne Näherung (grau: klassisch verbotenes Gebiet). Der bindende Zustand hat in der Barriere Dichte, der antibindende dort einen Knoten. Rechts: Das Niveau bei 190,8 meV spaltet in zwei.
 :::
 
-⁠**So liest man das:** $V_\mathrm{ss}$ ist die Kopplungsenergie aus [Teil 5](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/chemische-bindung/chemische-bindung.html), eine Energie von wenigen meV bis zu einigen eV. Der Index ss sagt: s-Orbital koppelt an s-Orbital. Oft heißt auch $\langle1|\hat H|2\rangle$ selbst Überlappintegral, in dieser Reihe heißt so nur $\langle1|2\rangle$. Warum das Element negativ ist, zeigt [(3.1)](#gl-3-1): Aus $\hat H\phi_2=(E_\mathrm s+V_1)\phi_2$ folgt
+⁠**So liest man das:** $V_\mathrm{ss}$ ist die Kopplungsenergie aus [Kapitel 5](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/chemische-bindung/chemische-bindung.html), eine Energie von wenigen meV bis zu einigen eV. Der Index ss sagt: s-Orbital koppelt an s-Orbital. Oft heißt auch $\langle1|\hat H|2\rangle$ selbst Überlappintegral, in dieser Reihe heißt so nur $\langle1|2\rangle$. Warum das Element negativ ist, zeigt [(3.1)](#gl-3-1): Aus $\hat H\phi_2=(E_\mathrm s+V_1)\phi_2$ folgt
 
 <span class="anker" id="gl-3-3"></span>
 $$\langle1|\hat H|2\rangle=E_\mathrm s\langle1|2\rangle+\int\phi_1^*V_1\phi_2\,\mathrm{d} x. \tag{3.3}$$

@@ -1,6 +1,8 @@
 ---
 title: 第 2 阶段：差分放大器
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 运算放大器
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 运算放大器
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker
+knoten: 第 11 章：运算放大器
 order: 1210400
 summary: 两条线路上相同的干扰应当消失，而它们之间的差值应被放大。为此需要一种输出只取决于两个电压之差的电路。
 tags: 共模电压, 同相输入端, 反相输入端
@@ -13,7 +15,7 @@ lang: zh
 两条线路上相同的干扰应当消失，而它们之间的差值应被放大。为此需要一种输出只取决于两个电压之差的电路。
 :::
 
-**基本思路。** 两个相同的晶体管 T1 和 T2 的发射极接在公共节点 E 上（图 [2](#abb-2)）。下面是 T3。它的基极接固定电压 $U_\mathrm{bias}$，因此起电流源的作用（[第 10 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor/der-bipolartransistor.html)），从节点抽走固定电流 $I_0$。基极电流很小，所以 $I_\mathrm{C1}+I_\mathrm{C2}=I_0$。总和固定，只有分配能变化。
+**基本思路。** 两个相同的晶体管 T1 和 T2 的发射极接在公共节点 E 上（图 [2](#abb-2)）。下面是 T3。它的基极接固定电压 $U_\mathrm{bias}$，因此起电流源的作用（[第 10 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor/der-bipolartransistor.html)），从节点抽走固定电流 $I_0$。基极电流很小，所以 $I_\mathrm{C1}+I_\mathrm{C2}=I_0$。总和固定，只有分配能变化。
 
 若两个基极升高相同的量，E 随之升高，因为 T3 使电流固定，从而 $U_\mathrm{BE}$ 也固定。什么都不变。这个公共部分称为__共模电压__，$U_\mathrm{cm}=(\varphi_++\varphi_-)/2$。若只有 T2 的基极升高，T2 就多取电流。T1 恰好少得这么多。右侧集电极电阻上的压降增大，左侧的减小，两个集电极之间的电压随之偏转。
 
@@ -49,7 +51,7 @@ $$U_\mathrm{A}=A_\mathrm{D}\,U_\mathrm{D},\qquad A_\mathrm{D}=S\,R_\mathrm{C}=\f
 
 **输入。** 输入信号 $U_\mathrm{D}$ 加在两个串联的 BE 结上，输入电阻为 $2\,r_\mathrm{BE}=2B/S=10.4$ k$\Omega$。总电流为 20 µ A 而不是 2 mA 时，输入电阻为 1.04 M$\Omega$，每个基极只取 50 nA。参考模型中的 $r_\mathrm{e}$ 和 $I_\mathrm{B}$ 就来源于此。
 
-**从差分放大器到运放。** $A_\mathrm{D}=U_{R_\mathrm{C}}/U_T$ 停留在几百，因为 $U_{R_\mathrm{C}}$ 不可能超过电源电压。用电流镜（[第 10 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor/der-bipolartransistor.html)）代替电阻，可把两个电流变化引到同一侧，在那里它的作用相当于两个 $r_\mathrm{CE}$ 并联。这样得到 $S\,r_\mathrm{CE}/2=U_\mathrm{Early}/(2U_T)\approx1400$。后面再接一个电压放大级和一个射极跟随器，以获得低输出电阻。总共达到 $10^5$ 到 $10^6$。这个值取决于 $B$、$U_\mathrm{Early}$ 和温度：很大，但不精确。
+**从差分放大器到运放。** $A_\mathrm{D}=U_{R_\mathrm{C}}/U_T$ 停留在几百，因为 $U_{R_\mathrm{C}}$ 不可能超过电源电压。用电流镜（[第 10 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor/der-bipolartransistor.html)）代替电阻，可把两个电流变化引到同一侧，在那里它的作用相当于两个 $r_\mathrm{CE}$ 并联。这样得到 $S\,r_\mathrm{CE}/2=U_\mathrm{Early}/(2U_T)\approx1400$。后面再接一个电压放大级和一个射极跟随器，以获得低输出电阻。总共达到 $10^5$ 到 $10^6$。这个值取决于 $B$、$U_\mathrm{Early}$ 和温度：很大，但不精确。
 
 :::frage 只抬高一个基极时，为什么每个晶体管上只有一半的差值？
 因为节点 E 随之升高了一半。T2 想要更多电流，但总和固定，于是 E 升高，直到 T1 恰好让出这么多。固定的总和要求两个 $U_\mathrm{BE}$ 的变化大小相等、方向相反。谁把全部差值都放在一个结上，得到的就是真实 $A_\mathrm{D}$ 的两倍。

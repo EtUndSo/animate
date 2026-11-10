@@ -1,6 +1,8 @@
 ---
 title: Stufe 5: Koordinationszahl und Packungsdichte
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Kristallgitter
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Kristallgitter
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/kristallgitter
+knoten: Kapitel 6: Kristallgitter
 order: 4160700
 summary: Die drei Würfel sehen ähnlich aus, füllen den Raum aber verschieden gut.
 tags: 

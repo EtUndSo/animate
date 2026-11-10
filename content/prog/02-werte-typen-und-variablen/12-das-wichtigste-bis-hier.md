@@ -1,7 +1,8 @@
 ---
 title: Das Wichtigste bis hier
 pfad: Informatik / Programmieren / Python / Werte, Typen und Variablen
-knoten: Python 2: Werte, Typen und Variablen
+adresse: informatik/programmieren/python/werte-typen-und-variablen
+knoten: Kapitel 2: Werte, Typen und Variablen
 order: 6031200
 summary: Ganze Zahlen, Gleitkommazahlen und komplexe Zahlen, Namen für Objekte, Text, Ein- und Ausgabe
 tags: 
@@ -111,5 +112,5 @@ Daraus folgen die Arbeitsregeln: Gleitkommazahlen mit Toleranz vergleichen, Rund
 | `0.1 + 0.2 != 0.3` | jede Rechnung wird gerundet, hier ein Gleichstand zur geraden Mantisse (Abschnitte [5](rechnen-mit-gleitkommazahlen.html#stufe-5) und [7](wahrheitswerte-und-vergleiche.html#stufe-7)) |
 | Vergleich mit Toleranz | Rundungsfehler sind relativ zum Betrag (Abschnitte [7](wahrheitswerte-und-vergleiche.html#stufe-7) und [8](module-math-und-sys.html#stufe-8)) |
 | `y = x` kopiert nicht | Namen sind Etiketten an Objekten (Abschnitt [6](variablen-namen-fur-objekte.html#stufe-6)) |
-| `abs` und `cmath.phase` für Impedanzen | `complex` ist ein Paar von `float` (Abschnitt [9](komplexe-zahlen.html#stufe-9)) |
+| `abs` und `cmath.phase` für Punkte der Ebene | `complex` ist ein Paar von `float` (Abschnitt [9](komplexe-zahlen.html#stufe-9)) |
 | `round(2.5)` ergibt 2 | Runden zur geraden Zahl, dieselbe Regel wie beim Speichern (Abschnitt [10](zeichenketten-eingabe-und-ausgabe.html#stufe-10)) |

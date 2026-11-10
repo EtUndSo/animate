@@ -1,6 +1,8 @@
 ---
 title: Stufe 1: Eine Reihe ist eine Folge
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Unendliche Reihen
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Unendliche Reihen
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/unendliche-reihen
+knoten: Kapitel 6: Unendliche Reihen
 order: 1260300
 summary: Unendlich viele Zahlen kann niemand der Reihe nach addieren.
 tags: unendliche Reihe, Partialsumme, Glieder, konvergiert, divergent, Teleskopsumme
@@ -13,7 +15,7 @@ lang: de
 Unendlich viele Zahlen kann niemand der Reihe nach addieren. Diese Stufe legt fest, was eine Summe ohne Ende bedeutet, und rechnet den wichtigsten Fall aus.
 :::
 
-**Die Idee.** Man addiert nicht alle Zahlen, sondern die ersten $N$, und beobachtet, was mit wachsendem $N$ geschieht. So entsteht eine Treppe: Jeder Summand ist eine Stufe, die Höhe nach $N$ Stufen ist die Teilsumme. Strebt die Höhe gegen einen festen Wert, heißt dieser Wert die Summe (Abb. [1](#abb-1)). Neues braucht man dazu nicht: Die Höhen sind eine Folge, und für Folgen ist „Grenzwert“ seit [Teil 4](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/folgen-und-grenzwerte/folgen-und-grenzwerte.html) erklärt.
+**Die Idee.** Man addiert nicht alle Zahlen, sondern die ersten $N$, und beobachtet, was mit wachsendem $N$ geschieht. So entsteht eine Treppe: Jeder Summand ist eine Stufe, die Höhe nach $N$ Stufen ist die Teilsumme. Strebt die Höhe gegen einen festen Wert, heißt dieser Wert die Summe (Abb. [1](#abb-1)). Neues braucht man dazu nicht: Die Höhen sind eine Folge, und für Folgen ist „Grenzwert“ seit [Kapitel 4](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/folgen-und-grenzwerte/folgen-und-grenzwerte.html) erklärt.
 
 :::definition Definition 1.1 (Reihe, Teilsumme, Konvergenz)
 <span class="anker" id="satz-1-1"></span>
@@ -49,7 +51,7 @@ $$\sum_{n=0}^\infty q^n=\lim_{N\to\infty}\sum_{n=0}^Nq^n=\frac1{1-q}. \tag{1.3}$
 ⁠**So liest man das:** $q$ ist das Verhältnis benachbarter Glieder, das Glied mit $n=0$ ist 1. Für $q=\frac13$ steht dort $1+\frac13+\frac19+\dots=\frac32$. Bedingung ist $|q|<1$, für $|q|\ge1$ divergiert die Reihe (Stufe [2](nullfolge-notig-aber-nicht-genug.html#stufe-2)).
 
 :::beweis Grenzübergang in der geometrischen Summe
-Nach [Teil 4](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/folgen-und-grenzwerte/folgen-und-grenzwerte.html) ist $S_N=\sum_{n=0}^Nq^n=\frac{1-q^{N+1}}{1-q}$. Für $|q|<1$ ist $q^{N+1}$ eine Nullfolge, die Rechenregeln ergeben $S_N\to\frac1{1-q}$.
+Nach [Kapitel 4](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/folgen-und-grenzwerte/folgen-und-grenzwerte.html) ist $S_N=\sum_{n=0}^Nq^n=\frac{1-q^{N+1}}{1-q}$. Für $|q|<1$ ist $q^{N+1}$ eine Nullfolge, die Rechenregeln ergeben $S_N\to\frac1{1-q}$.
 :::
 
 ::::beispiel
@@ -81,7 +83,7 @@ Berechne $\sum_{n=3}^\infty(\frac23)^n$. Klammere dazu zuerst $(\frac23)^3$ aus.
 
 <li>
 
-Zeige mit $\frac1{n(n+1)}=\frac1n-\frac1{n+1}$, dass $\sum_{n=1}^N\frac1{n(n+1)}=1-\frac1{N+1}$ ist (eine __Teleskopsumme__, [Teil 4](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/folgen-und-grenzwerte/folgen-und-grenzwerte.html)), und gib den Wert der Reihe an.
+Zeige mit $\frac1{n(n+1)}=\frac1n-\frac1{n+1}$, dass $\sum_{n=1}^N\frac1{n(n+1)}=1-\frac1{N+1}$ ist (eine __Teleskopsumme__, [Kapitel 4](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/folgen-und-grenzwerte/folgen-und-grenzwerte.html)), und gib den Wert der Reihe an.
 
 </li>
 

@@ -1,6 +1,8 @@
 ---
 title: Stufe 7: Das Potenzial
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Ladung, Feld und Potenzial
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Ladung, Feld und Potenzial
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial
+knoten: Kapitel 1: Ladung, Feld und Potenzial
 order: 1110900
 summary: Hängt die Arbeit nur von Start und Ziel ab, genügt eine einzige Zahl je Ort, um sie zu berechnen.
 tags: Äquipotenzialflächen

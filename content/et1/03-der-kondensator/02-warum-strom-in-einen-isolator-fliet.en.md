@@ -1,6 +1,8 @@
 ---
 title: Stage 1: Why current flows into an insulator
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / The Capacitor
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / The Capacitor
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator
+knoten: Chapter 3: The Capacitor
 order: 1130200
 summary: The plates do not touch.
 tags: 
@@ -27,10 +29,10 @@ Left: the pair of plates during charging. Electrons run from plate A to the plus
 A capacitor consists of two electrodes separated by a dielectric. Its charge $Q$ is the charge of the positive electrode; the other carries $-Q$. Current through the capacitor means: a current flows in at one terminal, and at the same moment the same current flows out at the other.
 :::
 
-⁠**How to read it:** Charged means: charge is separated, not added. The total charge stays zero. Every field line that begins on A ends on B ([Part 1](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)). Typical charges range from nanocoulombs to millicoulombs. **Validity:** The dielectric counts as an ideal insulator; Stage [5](bauformen-und-selbstentladung.html#stufe-5) names the deviation.
+⁠**How to read it:** Charged means: charge is separated, not added. The total charge stays zero. Every field line that begins on A ends on B ([Chapter 1](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)). Typical charges range from nanocoulombs to millicoulombs. **Validity:** The dielectric counts as an ideal insulator; Stage [5](bauformen-und-selbstentladung.html#stufe-5) names the deviation.
 
 :::herleitung Why the same current flows at both terminals
-Suppose more flows in than out. Then a net charge $Q_\mathrm{n}$ collects in the component, and the whole component rises in potential relative to its surroundings. How much is shown by a sphere the size of a housing, $r=1$ cm: according to [Part 1](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html) it has the potential $\varphi=k\,Q_\mathrm{n}/r$, and just 1 µC would give 900 kV. The field of this charge brakes the inflow long before a measurable difference arises. So $Q_\mathrm{n}$ stays practically zero, and Kirchhoff's current law from [Part 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html) holds for the component as a whole.
+Suppose more flows in than out. Then a net charge $Q_\mathrm{n}$ collects in the component, and the whole component rises in potential relative to its surroundings. How much is shown by a sphere the size of a housing, $r=1$ cm: according to [Chapter 1](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html) it has the potential $\varphi=k\,Q_\mathrm{n}/r$, and just 1 µC would give 900 kV. The field of this charge brakes the inflow long before a measurable difference arises. So $Q_\mathrm{n}$ stays practically zero, and Kirchhoff's current law from [Chapter 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html) holds for the component as a whole.
 :::
 
 :::analogie

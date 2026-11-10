@@ -1,7 +1,9 @@
 ---
 title: 概览: 电容器
 kurz: 概览
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 电容器
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 电容器
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator
+knoten: 第 3 章：电容器
 order: 1130100
 summary: 电流如何流入绝缘体 能量之后又在哪里
 tags: 电容器, 电极, 电介质, 电容, 平行板电容器, RC 电路
@@ -37,7 +39,7 @@ lang: zh
 
 <li>
 
-⁠**[第 1 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)的平行极板：**边长 10 cm 的正方形极板（面积 $A=100$ cm$^2$），间距 $d=3$ mm，中间是空气，电压 9 V。电场为 $E=3$ kV/m。
+⁠**[第 1 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)的平行极板：**边长 10 cm 的正方形极板（面积 $A=100$ cm$^2$），间距 $d=3$ mm，中间是空气，电压 9 V。电场为 $E=3$ kV/m。
 
 </li>
 

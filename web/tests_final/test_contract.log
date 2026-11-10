@@ -1,0 +1,37 @@
+=== ENGINE CONTRACT PROBE ===
+  OK   Shift
+  OK   Create+FadeIn sequence
+  OK   parallel step (2 objs)
+  OK   Convolution (op)
+  OK   Arithmetic (op)
+  OK   Summation vec (op)
+  OK   Transform
+  OK   ReplacementTransform
+  OK   TransformMatchingTex
+  OK   Shift then FadeOut (same obj)
+  OK   GrowFromCenter
+  OK   Recolor
+  OK   Pulse
+  OK   Rotate
+  OK   Scale
+  OK   MoveTo
+  OK   Indicate
+  OK   Write
+  OK   FadeOut (model)
+  OK   Transform to template (model)
+  OK   ReplacementTransform to template (model)
+  OK   Indicate cell + row (model)
+  OK   Rotate about a point (model)
+  OK   Transform text -> text, twice (model)
+  OK   FadeIn lines (formula row by row)
+  OK   Summation choreo (op)
+  OK   Summation choreo wrapped (op)
+  OK   DotProduct choreo (op)
+  OK   DotProduct choreo wrapped (op)
+  OK   DotProduct komponenten (op)
+  OK   DotProduct matrix (op)
+  OK   article figures (panels, log, circuit, figures)
+  OK   split graph + legend (P3)
+
+ENGINE CONTRACT: WATERTIGHT
+CONTRACT TESTS PASSED

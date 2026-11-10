@@ -19,11 +19,14 @@ Ziel: content/<modul>/<NN-kapitel>/<NN-stufe>[.en|.es|.zh|.fr|.tr].md (die Datei
 Fassung). Feste Wendungen, an denen der Umwandler Kästen erkennt, je Sprache: KERN_TITEL, SO_ARBEITEST, ANTWORT_RE,
 PRINZIP_RE, WEBTEXT, TEIL_RE (siehe notizen/heft_uebersetzung.md).
 
-Bereiche (MODULE[..]["bereiche"], etwa ml: „Grundlagen 1–6“ und der Pfad ab „Teil 1“ = Kap8): eigener Ast im Baum,
-Heftname vor dem Titel (knoten:), Nachschlage-Artikel (nachschlagen:). Zusatzreihen ("abschnitt_links") verlinken
-„Grundlagen 2, Abschnitt 5.3“, „Teil 1, Abschnitt 2“, „Programmieren, Python 3, Abschnitt 4.1“ und „Linux 2, Abschnitt 3“
-in allen Sprachen auf Artikel und Anker (siehe „Bereiche und Verweise“ unten). ml schreibt außerdem content/ml/_reihe*.md,
-den Hinweis der Übersicht.
+Benennung (User, 09.11.2026, notizen/kapitel_umstellung.md): Jedes Heft heißt im Baum „Kapitel N: Titel“ (knoten:), N zählt
+in seinem Bereich ab 1 (MODULE[..]["bereiche"], etwa ml: Mathematische Grundlagen = Kap1–6, der Pfad ab Kap8 = Kapitel 1;
+prog: Python, C ab Kap101, C++ ab Kap201). Module zeigen zuerst ihre Abkürzung („ET3 – Grundgebiete …“, pfad:), die Adresse
+bleibt (basis, adresse:). Verweise „Kapitel 2, Abschnitt 5.3“ (eigener Bereich) und „<Kurzname>, Kapitel 2, Abschnitt 5.3“
+(Python, C, C++, Linux, Cybersecurity, Machine Learning, Grundlagen, ET1, ET3, GEMB1, HöMa1, HöMa3) werden in allen Sprachen
+zu Links auf Artikel und Anker; übergangsweise auch die alten Formen „Teil 3“, „Grundlagen 2“, „Programmieren, Python 3“,
+„Linux 2“, „Höhere Mathematik 1, Teil 2“ (siehe „Bereiche und Verweise“ unten). Nachschlage-Artikel: nachschlagen:.
+ml schreibt außerdem content/ml/_reihe*.md, den Hinweis der Übersicht.
 """
 import argparse
 import re
@@ -44,13 +47,16 @@ MODULE = {
         "quelle": Path(r"C:\Bücher\ET3\Arbeitshefte"),
         "ziel": "et3",
         "szenen": "et3",
-        "pfad": {"de": "Elektrotechnik / 3. Semester / Signale und Systeme",
-                 "en": "Electrical Engineering / 3rd Semester / Signals and Systems",
-                 "es": "Ingeniería eléctrica / 3.er semestre / Señales y sistemas",
-                 "zh": "电气工程 / 第 3 学期 / 信号与系统",
-                 "fr": "Génie électrique / 3e semestre / Signaux et systèmes",
-                 "tr": "Elektrik Mühendisliği / 3. Yarıyıl / Sinyaller ve Sistemler"},
-        "basis": "elektrotechnik/3-semester/signale-und-systeme",
+        "pfad": {"de": "Elektrotechnik / 3. Semester / ET3 – Grundgebiete der Elektrotechnik 3: Signale und Systeme",
+                 "en": "Electrical Engineering / 3rd Semester / ET3 – Fundamentals of Electrical Engineering 3: Signals and Systems",
+                 "es": "Ingeniería eléctrica / 3.er semestre / ET3 – Fundamentos de ingeniería eléctrica 3: señales y sistemas",
+                 "zh": "电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统",
+                 "fr": "Génie électrique / 3e semestre / ET3 – Fondements du génie électrique 3 : signaux et systèmes",
+                 "tr": "Elektrik Mühendisliği / 3. Yarıyıl / ET3 – Elektrik Mühendisliğinin Temelleri 3: Sinyaller ve Sistemler"},
+        "basis": "elektrotechnik/3-semester/signale-und-systeme",          # Adresse fest (alter Name), auch bei neuem pfad
+        "kurz": {l: "ET3" for l in ("de", "en", "es", "zh", "fr", "tr")},
+        "alt_modul": {"de": "Signale und Systeme", "en": "Signals and Systems", "es": "Señales y sistemas", "zh": "信号与系统",
+                      "fr": "Signaux et systèmes", "tr": "Sinyaller ve Sistemler"},
         "order": 3200000,
         "hefte": {
             1: ("Kap1_Faltung", "lti-systeme-und-faltung",
@@ -92,13 +98,17 @@ MODULE["et1"] = {
     "quelle": Path(r"C:\Bücher\ET1\Arbeitshefte"),
     "ziel": "et1",
     "szenen": "et1",
-    "pfad": {"de": "Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik",
-             "en": "Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering",
-             "es": "Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica",
-             "zh": "电气工程 / 第 1 学期 / 电气工程基础",
-             "fr": "Génie électrique / 1er semestre / Fondements du génie électrique",
-             "tr": "Elektrik Mühendisliği / 1. Yarıyıl / Elektrik Mühendisliğinin Temelleri"},
+    "pfad": {"de": "Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse",
+             "en": "Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis",
+             "es": "Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos",
+             "zh": "电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论",
+             "fr": "Génie électrique / 1er semestre / ET1 – Fondements du génie électrique 1 : introduction à l’analyse des circuits",
+             "tr": "Elektrik Mühendisliği / 1. Yarıyıl / ET1 – Elektrik Mühendisliğinin Temelleri 1: Devre Analizine Giriş"},
     "basis": "elektrotechnik/1-semester/grundlagen-der-elektrotechnik",
+    "kurz": {l: "ET1" for l in ("de", "en", "es", "zh", "fr", "tr")},
+    "alt_modul": {"de": "Grundlagen der Elektrotechnik", "en": "Fundamentals of Electrical Engineering",
+                  "es": "Fundamentos de ingeniería eléctrica", "zh": "电气工程基础", "fr": "Fondements du génie électrique",
+                  "tr": "Elektrik Mühendisliğinin Temelleri"},
     "order": 1100000,
     "hefte": {
         1: ("Kap1_Feld", "ladung-feld-und-potenzial",
@@ -149,13 +159,16 @@ MODULE["hm1"] = {
     "quelle": Path(r"C:\Bücher\HöMa1\Arbeitshefte"),
     "ziel": "hm1",
     "szenen": "hm1",
-    "pfad": {"de": "Elektrotechnik / 1. Semester / Höhere Mathematik 1",
-             "en": "Electrical Engineering / 1st Semester / Higher Mathematics 1",
-             "es": "Ingeniería eléctrica / 1.er semestre / Matemáticas superiores 1",
-             "zh": "电气工程 / 第 1 学期 / 高等数学 1",
-             "fr": "Génie électrique / 1er semestre / Mathématiques supérieures 1",
-             "tr": "Elektrik Mühendisliği / 1. Yarıyıl / Yüksek Matematik 1"},
+    "pfad": {"de": "Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1",
+             "en": "Electrical Engineering / 1st Semester / HöMa1 – Higher Mathematics 1",
+             "es": "Ingeniería eléctrica / 1.er semestre / HöMa1 – Matemáticas superiores 1",
+             "zh": "电气工程 / 第 1 学期 / HöMa1 – 高等数学 1",
+             "fr": "Génie électrique / 1er semestre / HöMa1 – Mathématiques supérieures 1",
+             "tr": "Elektrik Mühendisliği / 1. Yarıyıl / HöMa1 – Yüksek Matematik 1"},
     "basis": "elektrotechnik/1-semester/hohere-mathematik-1",
+    "kurz": {l: "HöMa1" for l in ("de", "en", "es", "zh", "fr", "tr")},
+    "alt_modul": {"de": "Höhere Mathematik 1", "en": "Higher Mathematics 1", "es": "Matemáticas superiores 1", "zh": "高等数学 1",
+                  "fr": "Mathématiques supérieures 1", "tr": "Yüksek Matematik 1"},
     "order": 1200000,
     "hefte": {
         1: ("Kap1_Zahlen", "mengen-logik-und-reelle-zahlen",
@@ -202,13 +215,17 @@ MODULE["gemb1"] = {
     "quelle": Path(r"C:\Bücher\GEMB\Arbeitshefte"),
     "ziel": "gemb1",
     "szenen": "gemb1",
-    "pfad": {"de": "Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1",
-             "en": "Electrical Engineering / 4th Semester / Electronic Materials and Devices 1",
-             "es": "Ingeniería eléctrica / 4.º semestre / Materiales y dispositivos electrónicos 1",
-             "zh": "电气工程 / 第 4 学期 / 电子材料与器件 1",
-             "fr": "Génie électrique / 4e semestre / Matériaux et composants électroniques 1",
-             "tr": "Elektrik Mühendisliği / 4. Yarıyıl / Elektronik Malzemeler ve Elemanlar 1"},
+    "pfad": {"de": "Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1",
+             "en": "Electrical Engineering / 4th Semester / GEMB1 – Fundamentals of Electronic Materials and Devices 1",
+             "es": "Ingeniería eléctrica / 4.º semestre / GEMB1 – Fundamentos de materiales y dispositivos electrónicos 1",
+             "zh": "电气工程 / 第 4 学期 / GEMB1 – 电子材料与器件基础 1",
+             "fr": "Génie électrique / 4e semestre / GEMB1 – Fondements des matériaux et composants électroniques 1",
+             "tr": "Elektrik Mühendisliği / 4. Yarıyıl / GEMB1 – Elektronik Malzemeler ve Elemanların Temelleri 1"},
     "basis": "elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1",
+    "kurz": {l: "GEMB1" for l in ("de", "en", "es", "zh", "fr", "tr")},
+    "alt_modul": {"de": "Elektronische Materialien und Bauelemente 1", "en": "Electronic Materials and Devices 1",
+                  "es": "Materiales y dispositivos electrónicos 1", "zh": "电子材料与器件 1",
+                  "fr": "Matériaux et composants électroniques 1", "tr": "Elektronik Malzemeler ve Elemanlar 1"},
     "order": 4100000,
     "hefte": {
         1: ("Kap1_Schroedinger", "welle-teilchen-und-schroedinger-gleichung",
@@ -284,45 +301,45 @@ MODULE["gemb1"] = {
              "es": "Escalado y efectos de canal corto", "zh": "按比例缩小与短沟道效应",
              "fr": "Miniaturisation et effets de canal court", "tr": "Ölçekleme ve Kısa Kanal Etkileri"}),
         19: ("Kap19_Licht", "ergaenzung-licht-und-laser",
-            {"de": "Ergänzung: Licht und Laser", "en": "Supplement: Light and Lasers",
-             "es": "Complemento: luz y láser", "zh": "补充：光与激光",
-             "fr": "Complément\u00a0: lumière et laser", "tr": "Ek: Işık ve Lazer"}),
+            {"de": "Licht und Laser (Ergänzung)", "en": "Light and Lasers (Supplement)",
+             "es": "Luz y láser (complemento)", "zh": "光与激光（补充）",
+             "fr": "Lumière et laser (complément)", "tr": "Işık ve Lazer (Ek)"}),
         20: ("Kap20_Realkristall", "ergaenzung-reale-kristalle",
-            {"de": "Ergänzung: Reale Kristalle und amorphe Stoffe", "en": "Supplement: Real Crystals and Amorphous Solids",
-             "es": "Complemento: cristales reales y sólidos amorfos", "zh": "补充：实际晶体与非晶固体",
-             "fr": "Complément\u00a0: cristaux réels et solides amorphes", "tr": "Ek: Gerçek Kristaller ve Amorf Katılar"}),
+            {"de": "Reale Kristalle und amorphe Stoffe (Ergänzung)", "en": "Real Crystals and Amorphous Solids (Supplement)",
+             "es": "Cristales reales y sólidos amorfos (complemento)", "zh": "实际晶体与非晶固体（补充）",
+             "fr": "Cristaux réels et solides amorphes (complément)", "tr": "Gerçek Kristaller ve Amorf Katılar (Ek)"}),
         21: ("Kap21_Zustandsdiagramme", "ergaenzung-zustandsdiagramme",
-            {"de": "Ergänzung: Zustandsdiagramme", "en": "Supplement: Phase Diagrams",
-             "es": "Complemento: diagramas de fases", "zh": "补充：相图",
-             "fr": "Complément\u00a0: diagrammes de phases", "tr": "Ek: Faz Diyagramları"}),
+            {"de": "Zustandsdiagramme (Ergänzung)", "en": "Phase Diagrams (Supplement)",
+             "es": "Diagramas de fases (complemento)", "zh": "相图（补充）",
+             "fr": "Diagrammes de phases (complément)", "tr": "Faz Diyagramları (Ek)"}),
         22: ("Kap22_Vielteilchen", "ergaenzung-vielteilchensysteme",
-            {"de": "Ergänzung: Vielteilchensysteme", "en": "Supplement: Many-Particle Systems",
-             "es": "Complemento: sistemas de muchas partículas", "zh": "补充：多粒子系统",
-             "fr": "Complément\u00a0: systèmes à plusieurs particules", "tr": "Ek: Çok Parçacıklı Sistemler"}),
+            {"de": "Vielteilchensysteme (Ergänzung)", "en": "Many-Particle Systems (Supplement)",
+             "es": "Sistemas de muchas partículas (complemento)", "zh": "多粒子系统（补充）",
+             "fr": "Systèmes à plusieurs particules (complément)", "tr": "Çok Parçacıklı Sistemler (Ek)"}),
         23: ("Kap23_Entropie", "ergaenzung-entropie-und-gleichgewicht",
-            {"de": "Ergänzung: Entropie und Gleichgewicht", "en": "Supplement: Entropy and Equilibrium",
-             "es": "Complemento: entropía y equilibrio", "zh": "补充：熵与平衡",
-             "fr": "Complément\u00a0: entropie et équilibre", "tr": "Ek: Entropi ve Denge"}),
+            {"de": "Entropie und Gleichgewicht (Ergänzung)", "en": "Entropy and Equilibrium (Supplement)",
+             "es": "Entropía y equilibrio (complemento)", "zh": "熵与平衡（补充）",
+             "fr": "Entropie et équilibre (complément)", "tr": "Entropi ve Denge (Ek)"}),
         24: ("Kap24_Gitterschwingungen", "ergaenzung-gitterschwingungen",
-            {"de": "Ergänzung: Gitterschwingungen", "en": "Supplement: Lattice Vibrations",
-             "es": "Complemento: vibraciones de la red", "zh": "补充：晶格振动",
-             "fr": "Complément\u00a0: vibrations du réseau", "tr": "Ek: Örgü Titreşimleri"}),
+            {"de": "Gitterschwingungen (Ergänzung)", "en": "Lattice Vibrations (Supplement)",
+             "es": "Vibraciones de la red (complemento)", "zh": "晶格振动（补充）",
+             "fr": "Vibrations du réseau (complément)", "tr": "Örgü Titreşimleri (Ek)"}),
         25: ("Kap25_Metalle", "ergaenzung-metalle",
-            {"de": "Ergänzung: Metalle", "en": "Supplement: Metals",
-             "es": "Complemento: metales", "zh": "补充：金属",
-             "fr": "Complément\u00a0: métaux", "tr": "Ek: Metaller"}),
+            {"de": "Metalle (Ergänzung)", "en": "Metals (Supplement)",
+             "es": "Metales (complemento)", "zh": "金属（补充）",
+             "fr": "Métaux (complément)", "tr": "Metaller (Ek)"}),
         26: ("Kap26_Schottky", "ergaenzung-metall-halbleiter-uebergang",
-            {"de": "Ergänzung: Metall-Halbleiter-Übergang", "en": "Supplement: Metal-Semiconductor Junction",
-             "es": "Complemento: unión metal-semiconductor", "zh": "补充：金属-半导体结",
-             "fr": "Complément\u00a0: jonction métal-semi-conducteur", "tr": "Ek: Metal-Yarı İletken Eklemi"}),
+            {"de": "Metall-Halbleiter-Übergang (Ergänzung)", "en": "Metal-Semiconductor Junction (Supplement)",
+             "es": "Unión metal-semiconductor (complemento)", "zh": "金属-半导体结（补充）",
+             "fr": "Jonction métal-semi-conducteur (complément)", "tr": "Metal-Yarı İletken Eklemi (Ek)"}),
         27: ("Kap27_Feldeffekt", "ergaenzung-weitere-feldeffekt-bauelemente",
-            {"de": "Ergänzung: Weitere Feldeffekt-Bauelemente", "en": "Supplement: Other Field-Effect Devices",
-             "es": "Complemento: otros dispositivos de efecto de campo", "zh": "补充：其他场效应器件",
-             "fr": "Complément\u00a0: autres composants à effet de champ", "tr": "Ek: Diğer Alan Etkili Elemanlar"}),
+            {"de": "Weitere Feldeffekt-Bauelemente (Ergänzung)", "en": "Other Field-Effect Devices (Supplement)",
+             "es": "Otros dispositivos de efecto de campo (complemento)", "zh": "其他场效应器件（补充）",
+             "fr": "Autres composants à effet de champ (complément)", "tr": "Diğer Alan Etkili Elemanlar (Ek)"}),
         28: ("Kap28_Prozess", "ergaenzung-halbleitertechnologie",
-            {"de": "Ergänzung: Halbleitertechnologie", "en": "Supplement: Semiconductor Technology",
-             "es": "Complemento: tecnología de semiconductores", "zh": "补充：半导体工艺",
-             "fr": "Complément\u00a0: technologie des semi-conducteurs", "tr": "Ek: Yarı İletken Teknolojisi"}),
+            {"de": "Halbleitertechnologie (Ergänzung)", "en": "Semiconductor Technology (Supplement)",
+             "es": "Tecnología de semiconductores (complemento)", "zh": "半导体工艺（补充）",
+             "fr": "Technologie des semi-conducteurs (complément)", "tr": "Yarı İletken Teknolojisi (Ek)"}),
     },
 }
 
@@ -330,13 +347,16 @@ MODULE["hm3"] = {
     "quelle": Path(r"C:\Bücher\HöMa3\Arbeitshefte"),
     "ziel": "hm3",
     "szenen": "hm3",
-    "pfad": {"de": "Elektrotechnik / 3. Semester / Höhere Mathematik 3",
-             "en": "Electrical Engineering / 3rd Semester / Higher Mathematics 3",
-             "es": "Ingeniería eléctrica / 3.er semestre / Matemáticas superiores 3",
-             "zh": "电气工程 / 第 3 学期 / 高等数学 3",
-             "fr": "Génie électrique / 3e semestre / Mathématiques supérieures 3",
-             "tr": "Elektrik Mühendisliği / 3. Yarıyıl / Yüksek Matematik 3"},
+    "pfad": {"de": "Elektrotechnik / 3. Semester / HöMa3 – Höhere Mathematik 3",
+             "en": "Electrical Engineering / 3rd Semester / HöMa3 – Higher Mathematics 3",
+             "es": "Ingeniería eléctrica / 3.er semestre / HöMa3 – Matemáticas superiores 3",
+             "zh": "电气工程 / 第 3 学期 / HöMa3 – 高等数学 3",
+             "fr": "Génie électrique / 3e semestre / HöMa3 – Mathématiques supérieures 3",
+             "tr": "Elektrik Mühendisliği / 3. Yarıyıl / HöMa3 – Yüksek Matematik 3"},
     "basis": "elektrotechnik/3-semester/hohere-mathematik-3",
+    "kurz": {l: "HöMa3" for l in ("de", "en", "es", "zh", "fr", "tr")},
+    "alt_modul": {"de": "Höhere Mathematik 3", "en": "Higher Mathematics 3", "es": "Matemáticas superiores 3", "zh": "高等数学 3",
+                  "fr": "Mathématiques supérieures 3", "tr": "Yüksek Matematik 3"},
     "order": 3100000,
     "hefte": {
         1: ("Kap1_Vektorfelder", "differentialrechnung-fuer-vektorfelder",
@@ -433,8 +453,9 @@ MODULE["cyber"] = {
     "basis": "informatik/cybersecurity",
     "order": 6100000,
     "praeambel_makros": True,
-    "abschnitt_links": True,
     "hinweis": HINWEIS_CYBER,
+    "kurz": {"de": "Cybersecurity", "en": "Cybersecurity", "es": "Ciberseguridad", "zh": "网络安全", "fr": "Cybersécurité",
+             "tr": "Siber Güvenlik"},
     "hefte": {                                           # Stamm T01-T14 (Recherche\LERNPFAD.md); Äste folgen ab 101
         1: ("Kap1_Sicherheit", "sicherheit-schutzziele-und-spielregeln",
             {"de": "Sicherheit, Schutzziele und Spielregeln", "en": "Security, Protection Goals and Ground Rules",
@@ -505,20 +526,25 @@ MODULE["ml"] = {
     "basis": "informatik/machine-learning",
     "order": 6200000,
     "praeambel_makros": True,
-    "abschnitt_links": True,
     "hinweis": HINWEIS_ML,
-    # Bereiche (Entscheidung des Users, 05./06.11.2026): T01-T06 = „Grundlagen 1-6“ zum Nachschlagen in einem eigenen
-    # Ast, der ML-Pfad zählt ab T08 als „Teil 1“ (Teil N = T(N+7)); T07 Python/NumPy entfällt (Bereich „Programmieren“).
+    # Bereiche (Entscheidung des Users, 05./06.11.2026): T01-T06 = Mathematische Grundlagen zum Nachschlagen in einem eigenen
+    # Ast, der ML-Pfad zählt ab T08 als Kapitel 1 (Kapitel N = T(N+7)); T07 Python/NumPy entfällt (Bereich „Programmieren“).
     # Dateien, Ordner unter content/ und Szenen behalten die Lernpfad-Nummer (Kap1_Vektoren, ml/k1…).
     "bereiche": (
         {"kaps": (1, 6), "nr": 0, "nachschlagen": True, "order": 9000000,      # im Baum nach dem Pfad
          "pfad": {"de": "Mathematische Grundlagen", "en": "Mathematical Foundations", "es": "Fundamentos matemáticos",
                   "zh": "数学基础", "fr": "Fondements mathématiques", "tr": "Matematiksel Temeller"},
-         "name": {"de": "Grundlagen {n}", "en": "Foundations {n}", "es": "Fundamentos {n}", "zh": "基础篇 {n}",
-                  "fr": "Fondements {n}", "tr": "Temeller {n}"}},
+         "slug": "mathematische-grundlagen",
+         "kurz": {"de": "Grundlagen", "en": "Foundations", "es": "Fundamentos", "zh": "数学基础", "fr": "Fondements",
+                  "tr": "Temeller"},
+         "titel": {"de": "Machine Learning, Mathematische Grundlagen", "en": "Machine Learning, Mathematical Foundations",
+                   "es": "Aprendizaje automático, Fundamentos matemáticos", "zh": "机器学习 · 数学基础",
+                   "fr": "Apprentissage automatique, Fondements mathématiques", "tr": "Makine Öğrenmesi, Matematiksel Temeller"},
+         "alt": {"de": "Grundlagen {n}", "en": "Foundations {n}", "es": "Fundamentos {n}", "zh": "基础篇 {n}",
+                 "fr": "Fondements {n}", "tr": "Temeller {n}"}},
         {"kaps": (8, 99), "nr": 7, "teil": True,
-         "name": {"de": "Teil {n}", "en": "Part {n}", "es": "Parte {n}", "zh": "第 {n} 部分", "fr": "Partie {n}",
-                  "tr": "Kısım {n}"}},
+         "kurz": {"de": "Machine Learning", "en": "Machine Learning", "es": "Aprendizaje automático", "zh": "机器学习",
+                  "fr": "Apprentissage automatique", "tr": "Makine Öğrenmesi"}},
     ),
     "reihe_hinweis": {                                   # auf der Übersicht unter „Machine Learning“ (fr: fr_typo beim Schreiben)
         "de": "Die mathematischen Grundlagen sind zum Nachschlagen gedacht; man muss sie nicht vorab durcharbeiten. Jedes "
@@ -617,8 +643,8 @@ MODULE["ml"] = {
 }
 
 # Gemeinsame Bereiche (Entscheidung des Users, 06.11.2026: „Inhalte nicht mehrfach auf der Webseite vollständig erklären“).
-# ML und Cybersecurity setzen sie voraus und verweisen mit „Programmieren, Python N, Abschnitt M“ bzw. „Linux N, Abschnitt M“
-# (Wendungen je Sprache: "praefix", Bereichsnamen, ABSCHNITT_RE). Hefte trägt der Schreib-Agent hier ein, sobald der
+# ML und Cybersecurity setzen sie voraus und verweisen mit „Python, Kapitel N, Abschnitt M“ bzw. „Linux, Kapitel N, Abschnitt M“
+# (seit 09.11.2026; Wendungen je Sprache: "kurz", KAPITEL_RE, ABSCHNITT_RE). Hefte trägt der Schreib-Agent hier ein, sobald der
 # Lernpfad steht; fehlende Hefte überspringt der Umwandler, Verweise auf sie bleiben Text ohne Link.
 MODULE["prog"] = {
     "quelle": Path(r"C:\Bücher\EtUndSo\Programmieren\Arbeitshefte"),
@@ -630,20 +656,26 @@ MODULE["prog"] = {
     "basis": "informatik/programmieren",
     "order": 6010000,
     "praeambel_makros": True,
-    "abschnitt_links": True,
     "hinweis": HINWEIS_ML,
-    # Verweise von überall nur mit Bereichsnamen davor: „Python 3“ allein ist meist die Sprachversion
+    # alte Verweisform (bis 09.11.2026, Übergang): „Programmieren, Python 3“; „Python 3“ allein ist meist die Sprachversion
     "praefix": {"de": "Programmieren, ", "en": "Programming, ", "es": "Programación, ", "zh": "编程，",
                 "fr": "Programmation, ", "tr": "Programlama, "},
-    "bereiche": (                                        # Python 1, 2, … = Kap1, Kap2, …; C ab Kap101, C++ ab Kap201
-        {"kaps": (1, 99), "nr": 0, "pfad": {l: "Python" for l in LANGS},
-         "name": {l: "Python {n}" for l in LANGS}},
-        {"kaps": (101, 199), "nr": 100,
-         "pfad": {"de": "C und C++", "en": "C and C++", "es": "C y C++", "zh": "C 与 C++", "fr": "C et C++", "tr": "C ve C++"},
-         "name": {l: "C {n}" for l in LANGS}},
-        {"kaps": (201, 299), "nr": 200,
-         "pfad": {"de": "C und C++", "en": "C and C++", "es": "C y C++", "zh": "C 与 C++", "fr": "C et C++", "tr": "C ve C++"},
-         "name": {l: "C++ {n}" for l in LANGS}},
+    "bereiche": (                                        # Kapitel 1, 2, … = Kap1, Kap2, …; C ab Kap101, C++ ab Kap201
+        {"kaps": (1, 99), "nr": 0, "pfad": {l: "Python" for l in LANGS}, "slug": "python",
+         "kurz": {l: "Python" for l in LANGS},
+         "titel": {"de": "Programmieren, Python", "en": "Programming, Python", "es": "Programación, Python",
+                   "zh": "编程 · Python", "fr": "Programmation, Python", "tr": "Programlama, Python"},
+         "alt": {l: "Python {n}" for l in LANGS}},
+        {"kaps": (101, 199), "nr": 100, "pfad": {l: "C" for l in LANGS}, "slug": "c",     # noch kein Heft: Adresse frei gewählt
+         "kurz": {l: "C" for l in LANGS},
+         "titel": {"de": "Programmieren, C", "en": "Programming, C", "es": "Programación, C", "zh": "编程 · C",
+                   "fr": "Programmation, C", "tr": "Programlama, C"},
+         "alt": {l: "C {n}" for l in LANGS}},
+        {"kaps": (201, 299), "nr": 200, "pfad": {l: "C++" for l in LANGS}, "slug": "cpp",
+         "kurz": {l: "C++" for l in LANGS},
+         "titel": {"de": "Programmieren, C++", "en": "Programming, C++", "es": "Programación, C++", "zh": "编程 · C++",
+                   "fr": "Programmation, C++", "tr": "Programlama, C++"},
+         "alt": {l: "C++ {n}" for l in LANGS}},
     ),
     "hefte": {                                           # Nummer: ("Kap<N>_<Name>", "slug", {Titel je Sprache}) wie bei ml
         1: ("Kap1_Programme", "programme-und-der-python-interpreter",
@@ -704,13 +736,12 @@ MODULE["linux"] = {
     "basis": "informatik/linux-und-kommandozeile",
     "order": 6050000,
     "praeambel_makros": True,
-    "abschnitt_links": True,
     "hinweis": HINWEIS_CYBER,
-    "extern": True,                                      # „Linux N, Abschnitt M“ ist von jedem Modul mit abschnitt_links aus ein Link
+    "extern": True,                                      # alte Form „Linux N, Abschnitt M“ (Übergang) ist von jedem Modul aus ein Link
     "bereiche": (
-        {"kaps": (1, 99), "nr": 0, "name": {l: "Linux {n}" for l in LANGS}},
+        {"kaps": (1, 99), "nr": 0, "kurz": {l: "Linux" for l in LANGS}, "alt": {l: "Linux {n}" for l in LANGS}},
     ),
-    "hefte": {                                           # Linux 1, 2, … = Kap1, Kap2, … (Lernpfad EtUndSo\Linux\Recherche\LERNPFAD.md)
+    "hefte": {                                           # Kapitel 1, 2, … = Kap1, Kap2, … (Lernpfad EtUndSo\Linux\Recherche\LERNPFAD.md)
         1: ("Kap1_Uebungslinux", "ein-linux-zum-ueben",
             {"de": "Ein Linux zum Üben: WSL, virtuelle Maschine, Live-USB-Stick",
              "en": "A Linux to Practise On: WSL, Virtual Machine, Live USB Stick",
@@ -726,12 +757,12 @@ MODULE["linux"] = {
              "es": "Archivos, directorios y rutas", "zh": "文件、目录与路径", "fr": "Fichiers, répertoires et chemins",
              "tr": "Dosyalar, Dizinler ve Yollar"}),
         4: ("Kap4_Stroeme", "stroeme-umleitung-pipes-und-exit-status",
-            {"de": "Programme verbinden: Ströme, Umleitung, Pipes, Exit-Status",
-             "en": "Connecting Programs: Streams, Redirection, Pipes, Exit Status",
-             "es": "Conectar programas: flujos, redirección, tuberías, estado de salida",
-             "zh": "连接程序：流、重定向、管道与退出状态",
-             "fr": "Relier des programmes : flux, redirection, tubes, code de sortie",
-             "tr": "Programları Bağlamak: Akışlar, Yönlendirme, Borular, Çıkış Durumu"}),
+            {"de": "Ströme, Umleitung, Pipes und Exit-Status",
+             "en": "Streams, Redirection, Pipes and Exit Status",
+             "es": "Flujos, redirección, tuberías y estado de salida",
+             "zh": "流、重定向、管道与退出状态",
+             "fr": "Flux, redirection, tubes et code de sortie",
+             "tr": "Akışlar, Yönlendirme, Borular ve Çıkış Durumu"}),
         5: ("Kap5_Expansion", "expansion-quoting-variablen-und-umgebung",
             {"de": "Wie die Shell eine Befehlszeile liest: Expansion, Quoting, Variablen, Umgebung",
              "en": "How the Shell Reads a Command Line: Expansion, Quoting, Variables, Environment",
@@ -767,6 +798,15 @@ MODULE["linux"] = {
               "tr": "Uzak Makinelerde Çalışmak: SSH, Dosya Aktarımı, tmux"}),
     },
 }
+
+# Jedes Modul hat Bereiche (siehe „Bereiche und Verweise“); ohne eigene Liste ist das ganze Modul ein Bereich. Fehlt "kurz"
+# oder "titel" eines Bereichs, gelten Kurzname bzw. Name des Moduls (letzter Teil von pfad, „ET3 – Grundgebiete …“).
+for _cfg in MODULE.values():
+    if "bereiche" not in _cfg:
+        _cfg["bereiche"] = ({"kaps": (1, 999), "nr": 0, "teil": True},)
+    for _b in _cfg["bereiche"]:
+        _b.setdefault("kurz", _cfg.get("kurz"))
+        _b.setdefault("titel", {l: _cfg["pfad"][l].split(" / ")[-1] for l in LANGS})
 
 # Code-Umgebungen der Präambeln (Zusatzreihen) -> Sprache des Code-Blocks auf der Website (```<sprache> <titel>)
 CODE_ENVS = {"python": "python", "konsole": "console", "bash": "bash", "ccode": "c", "cppcode": "cpp", "asm": "nasm",
@@ -882,7 +922,9 @@ WEBTEXT = {
 UEBERBLICK = {"de": "Überblick", "en": "Overview", "es": "Visión general", "zh": "概览", "fr": "Vue d’ensemble", "tr": "Genel Bakış"}
 ZU_GROSS = 12000                                         # Zeichen: längere Stufen werden an ihren Unterabschnitten geteilt
 ZU_GROSS_NEU = 10 ** 9                                   # überarbeitete Hefte (Gliederung wie das Skript): immer ein Artikel je Abschnitt
-TEIL_RE = {"de": r"\bTeil(?:e|en)?[ \u00a0](\d+)\b", "en": r"\bPart[ \u00a0](\d+)\b", "es": r"\b[Pp]arte[ \u00a0](\d+)\b",
+# alte Form \u201eTeil N\u201c (\u00dcbergang bis zur Umstellung der Hefte); \u201eTeile 2 durch diese Zahl\u201c ist eine Rechenanweisung
+TEIL_RE = {"de": r"\b(?:Teil|Teilen|Teile(?![ \u00a0]\d+[ \u00a0]+durch\b))[ \u00a0](\d+)\b", "en": r"\bPart[ \u00a0](\d+)\b",
+           "es": r"\b[Pp]arte[ \u00a0](\d+)\b",
            "zh": r"第[ \u00a0]?(\d+)[ \u00a0]?部分"}
 TEIL_RE.update({"fr": r"\b[Pp]artie[ \u00a0](\d+)\b", "tr": r"\b[Kk]ısım[ \u00a0](\d+)\b"})   # „Partie 3“, „Kısım 3“
 # Französisch: geschütztes Leerzeichen vor : (\u00a0), vor ; ! ? (\u202f) und in « » (\u00a0), wie babel-french im PDF.
@@ -897,20 +939,32 @@ def fr_typo(t):
 
 
 # ------------------------------------------------------------------------ Bereiche und Verweise ----
-# Ein Modul kann in Bereiche zerfallen (MODULE[..]["bereiche"]), jeder mit
-#   kaps = (von, bis)   Kapitelnummern (= Lernpfad-Nummern der Dateien Kap<N>_…),
-#   nr                  Anzeige-Nummer = kap − nr („Teil 1“ = Kap8 bei ml),
-#   name                Heftname je Sprache mit {n} („Grundlagen {n}“); er steht im Baum vor dem Titel und ist die Wendung,
-#                       an der der Umwandler Verweise erkennt,
-#   pfad                (optional) eigener Ast unter dem Modul („Mathematische Grundlagen“), sonst hängen die Hefte direkt am Modul,
+# Jedes Modul zerfällt in Bereiche (MODULE[..]["bereiche"]; ohne Liste ist das ganze Modul einer), jeder mit
+#   kaps = (von, bis)   Kapitelnummern der Dateien Kap<N>_… (= Lernpfad-Nummern),
+#   nr                  Anzeige-Nummer = kap − nr („Kapitel 1“ = Kap8 im ML-Pfad, Kap101 bei C),
+#   kurz                Kurzname je Sprache für Verweise aus anderen Bereichen und Modulen („Python“, „Grundlagen“, „ET3“),
+#   titel               Bereich in der Titelzeile des PDFs („Programmieren, Python“; TITELZEILE),
+#   pfad, slug          (optional) eigener Ast unter dem Modul („Mathematische Grundlagen“) mit fester Adresse (slug),
+#                       sonst hängen die Hefte direkt am Modul,
 #   order               (optional) Platz im Baum, wird zu order der Artikel addiert,
 #   nachschlagen        (optional) Nachschlagebereich: Die Website zeigt unter jedem Artikel „Verwendet in“,
-#   teil                (optional) der Bereich heißt „Teil N“ und wird über TEIL_RE erkannt (auch „Teile“, „Teilen“).
-# Verweise (nur Module mit "abschnitt_links"): „<Heftname>, Abschnitt M“ (auch „Abschnitte M und K“) wird zum Link auf den
-# Artikel mit Abschnitt bzw. Unterabschnitt M und dessen Anker, „<Heftname>“ allein zum Überblick des Hefts. Module mit
-# "praefix" (prog: „Programmieren, Python 2“) oder "extern" (linux: „Linux 2“) erreicht man so von jedem dieser Module aus.
-# „Teil N“ zählt im Bereich des eigenen Hefts (in den ML-Grundlagen also wie „Grundlagen N“), außerhalb aller Bereiche im
-# Bereich mit teil=True. Wendungen je Sprache: notizen/heft_uebersetzung.md.
+#   alt, teil           (Übergang) alte Heftnamen: „Grundlagen {n}“, „Python {n}“, „Linux {n}“ bzw. „Teil N“ (TEIL_RE).
+# Im Baum heißt jedes Heft „Kapitel N: Titel“ (KAPITEL, knoten:). Verweise: „Kapitel N“ zählt im Bereich des eigenen Hefts,
+# „<Kurzname>, Kapitel N“ (zh „<Kurzname>第 N 章“) im genannten Bereich, auch in jedem anderen Modul. Mit „, Abschnitt M“
+# (auch „Abschnitte M und K“) wird daraus ein Link auf den Artikel mit Abschnitt bzw. Unterabschnitt M und dessen Anker,
+# sonst auf den Überblick des Hefts. Übergangsweise erkennt der Umwandler auch die alten Formen: „Teil N“ (eigener Bereich),
+# „Grundlagen N“ (in ml), „Programmieren, Python N“ ("praefix"), „Linux N“ ("extern") und „<alter Modulname>, Teil N“
+# ("alt_modul", etwa „Höhere Mathematik 1, Teil 2“). Wendungen je Sprache: notizen/kapitel_umstellung.md.
+KAPITEL = {"de": "Kapitel {n}", "en": "Chapter {n}", "es": "Capítulo {n}", "zh": "第 {n} 章", "fr": "Chapitre {n}",
+           "tr": "Bölüm {n}"}
+_KN = r"(?P<n>\d+)(?!\d|[.,]\d)"
+KAPITEL_RE = {"de": r"\bKapiteln?[ \xa0]" + _KN, "en": r"\b[Cc]hapters?[ \xa0]" + _KN, "es": r"\b[Cc]apítulos?[ \xa0]" + _KN,
+              "fr": r"\b[Cc]hapitres?[ \xa0]" + _KN, "tr": r"\bBölüm(?:ler)?[ \xa0]" + _KN,
+              "zh": r"第[ \xa0]?" + _KN + r"[ \xa0]?章"}
+# Titelzeile des PDFs ({\small …} unter dem Untertitel), b = Bereich (titel), n = Kapitel; danach „. Stand: …“ usw.
+TITELZEILE = {"de": "Arbeitsheft {b}, Kapitel~{n}", "en": "Workbook {b}, Chapter~{n}",
+              "es": "Cuaderno de trabajo {b}, capítulo~{n}", "zh": "{b} 练习册，第~{n}~章",
+              "fr": "Cahier d’exercices {b}, chapitre~{n}", "tr": "Çalışma Kitabı {b}, Bölüm~{n}"}
 NUM = r"\d+(?:\.\d+)?(?!\d)"
 ABSCHNITT_RE = {"de": r",[ \xa0]Abschnitte?[ \xa0](?P<s>%s)" % NUM,
                 "en": r",[ \xa0][Ss]ections?[ \xa0](?P<s>%s)" % NUM,
@@ -934,25 +988,38 @@ def bereich(cfg, kap):
     return None
 
 
-def heft_name(cfg, kap, lang):
-    """„Grundlagen 1“, „Teil 1“, „基础篇 1“ …; None für Module ohne Bereiche."""
+def kapitel_nr(cfg, kap):
+    """Angezeigte Kapitelnummer im Bereich: Kap8 im ML-Pfad -> 1, Kap101 -> 1 (C)."""
     b = bereich(cfg, kap)
-    return b["name"][lang].format(n=kap - b["nr"]) if b and "name" in b else None
+    return kap - (b["nr"] if b else 0)
+
+
+def heft_name(cfg, kap, lang):
+    """„Kapitel 1“, „Chapter 1“, „第 1 章“ … (Nummer im Bereich)."""
+    return KAPITEL[lang].format(n=kapitel_nr(cfg, kap))
+
+
+def titelzeile(cfg, kap, lang):
+    """Titelzeile des PDFs ohne Stand: „Arbeitsheft Programmieren, Python, Kapitel~3“."""
+    return TITELZEILE[lang].format(b=bereich(cfg, kap)["titel"][lang], n=kapitel_nr(cfg, kap))
 
 
 def knoten_name(cfg, kap, lang):
-    """Aufschrift des Hefts im Baum: „Grundlagen 1: Vektoren und Matrizen“ (None ohne Bereiche)."""
+    """Aufschrift des Hefts im Baum: „Kapitel 1: Vektoren und Matrizen“."""
     name = heft_name(cfg, kap, lang)
-    if not name:
-        return None
     t = cfg["hefte"][kap][2][lang]
     return name + "：" + t if lang == "zh" else fr_typo(name + ": " + t) if lang == "fr" else name + ": " + t
 
 
 def heft_basis(cfg, kap):
-    """Adresse des Asts, in dem das Heft liegt (ohne /wissen/ und Sprache)."""
+    """Adresse des Asts, in dem das Heft liegt (ohne /wissen/ und Sprache); fest, auch wenn sich Namen ändern."""
     b = bereich(cfg, kap)
-    return cfg["basis"] + ("/" + slugify(b["pfad"]["de"]) if b and b.get("pfad") else "")
+    return cfg["basis"] + ("/" + (b.get("slug") or slugify(b["pfad"]["de"])) if b and b.get("pfad") else "")
+
+
+def heft_adresse(cfg, kap):
+    """adresse: der Artikel (Knoten bis zum Heft, deutsche Slugs): Daraus baut build_wissen die Adresse, pfad: gibt die Namen."""
+    return heft_basis(cfg, kap) + "/" + slugify(cfg["hefte"][kap][2]["de"])
 
 
 def heft_pfad(cfg, kap, lang):
@@ -1020,20 +1087,34 @@ def _name_re(fmt):
     return (r"\b" + r) if vor[:1].isascii() and vor[:1].isalpha() else r
 
 
+def _kurz_re(kurz, lang):
+    """„Python, “ vor „Kapitel 2“ (zh: „Python 第 2 章“, „数学基础第 2 章“, auch mit ，)."""
+    vor = r"(?<![A-Za-z0-9_+\-])" if kurz[:1].isascii() and kurz[:1].isalnum() else ""
+    return vor + _wort_re(kurz) + (r"[ \xa0]?[，,·]?[ \xa0]?" if lang == "zh" else r",[ \xa0]")
+
+
 def verweis_arten(cfg, kap, lang):
     """[(Muster mit Gruppe n, Ziel-Modul, Bereich)] in der Reihenfolge, in der sie zu prüfen sind (längste Wendung zuerst)."""
     arten = []
-    for z in MODULE.values():                            # 1. Bereiche anderer Module: „Programmieren, Python 2“, „Linux 2“
-        if z.get("praefix") or z.get("extern"):
+    quer = [(z, b) for z in MODULE.values() for b in z["bereiche"]]
+    for z, b in sorted(quer, key=lambda zb: -len(zb[1]["kurz"][lang])):   # 1. „Python, Kapitel 2“, „HöMa1, Kapitel 5“
+        arten.append((_kurz_re(b["kurz"][lang], lang) + KAPITEL_RE[lang], z, b))
+    for z in MODULE.values():                            # 2. alte Formen (Übergang): „Programmieren, Python 2“, „Linux 2“,
+        if z.get("praefix") or z.get("extern"):         #    „Höhere Mathematik 1, Teil 2“
             vor = _wort_re(z["praefix"][lang]) if z.get("praefix") else ""
-            for b in sorted(z.get("bereiche", ()), key=lambda b: -len(b["name"][lang])):
-                arten.append((vor + _name_re(b["name"][lang]), z, b))
-    if not (cfg.get("praefix") or cfg.get("extern")):     # 2. eigene Bereiche mit eigenem Namen: „Grundlagen 2“
-        for b in cfg.get("bereiche", ()):
-            if not b.get("teil"):
-                arten.append((_name_re(b["name"][lang]), cfg, b))
-    tb = bereich(cfg, kap) or next((b for b in cfg.get("bereiche", ()) if b.get("teil")), None)
-    arten.append((TEIL_RE[lang].replace(r"(\d+)", r"(?P<n>\d+)", 1), cfg, tb))   # 3. „Teil 2“
+            for b in sorted(z["bereiche"], key=lambda b: -len(b["alt"][lang])):
+                arten.append((vor + _name_re(b["alt"][lang]), z, b))
+        if z.get("alt_modul"):
+            arten.append((r"(?<!\w)" + _wort_re(z["alt_modul"][lang]) + (r"[ \xa0]?[，,·]?[ \xa0]?" if lang == "zh" else r",[ \xa0]")
+                          + TEIL_RE[lang].replace(r"(\d+)", r"(?P<n>\d+)", 1), z, z["bereiche"][0]))
+    if not (cfg.get("praefix") or cfg.get("extern")):     # 3. eigene Bereiche mit altem Namen (Übergang): „Grundlagen 2“
+        for b in cfg["bereiche"]:
+            if b.get("alt"):
+                arten.append((_name_re(b["alt"][lang]), cfg, b))
+    eigen = bereich(cfg, kap)
+    arten.append((KAPITEL_RE[lang], cfg, eigen))         # 4. „Kapitel 2“ im eigenen Bereich
+    tb = eigen if eigen else next((b for b in cfg["bereiche"] if b.get("teil")), None)
+    arten.append((TEIL_RE[lang].replace(r"(\d+)", r"(?P<n>\d+)", 1), cfg, tb))   # 5. „Teil 2“ (Übergang)
     return arten
 
 
@@ -1073,10 +1154,11 @@ def verweis_link(m, arten, lang, fehlt):
 
 # ----------------------------------------------------------------------------- LaTeX lesen -------
 # Mathe-Umgebungen stehen auch in $...$ im Fließtext (pmatrix, cases): Sie sind keine Blöcke.
-TOK = re.compile(r"\\begin\{(?!pmatrix|bmatrix|vmatrix|matrix|smallmatrix|cases|aligned|array|gathered|split)([A-Za-z]+\*?)\}|\\(section|subsection)(\*?)\{|\\paragraph\{|\\\[|\\loesung\{|\\captionof\{|\\caption\{|\\par\b")
+TOK = re.compile(r"\\begin\{(?!pmatrix|bmatrix|vmatrix|matrix|smallmatrix|cases|aligned|array|gathered|split)([A-Za-z]+\*?)\}|\\(section|subsection)(\*?)\{|\\paragraph\{|\\\[|\\loesung\{|\\captionof\{|\\caption\{|\\szenenabb\{|\\par\b")
 TEXT_IGNORE = {"bigskip", "medskip", "smallskip", "noindent", "clearpage", "newpage", "centering", "small", "footnotesize",
                "large", "Large", "LARGE", "normalsize", "bfseries", "itshape", "raggedright", "thispagestyle", "tableofcontents",
-               "ignorespaces", "protect", "sloppy", "linebreak", "pagebreak", "nopagebreak", "allowbreak", "scriptsize", "newline"}
+               "ignorespaces", "protect", "sloppy", "linebreak", "pagebreak", "nopagebreak", "allowbreak", "scriptsize", "newline",
+               "nobreak"}
 TEXT_IGNORE_ARG = {"vspace", "hspace", "addcontentsline3", "pagestyle", "setcounter2", "thispagestyle"}
 SIMPLE_TEXT = {"ldots": "…", "dots": "…", "textmu": "µ", "S": "§", "textendash": "–", "textemdash": "—", "quad": " ", "qquad": "  ",
                "degree": "°", "textdegree": "°", "stern": "★"}
@@ -1415,6 +1497,14 @@ class Heft:
                 end = e.start() if e else len(s)
                 self.sol[name] = self.block(s[j:end])
                 i = end
+            elif tok == "\\szenenabb{":                  # \szenenabb{szene}{Bildunterschrift}{label} (Präambel): Editor-Szene
+                szene, j = group(s, m.end() - 1)
+                j = len(s) - len(s[j:].lstrip())
+                cap, j = group(s, j)
+                j = len(s) - len(s[j:].lstrip())
+                lab, j = group(s, j)
+                out.append(self.szenenabb(szene.strip(), cap, lab.strip()))
+                i = j
             elif tok.startswith("\\caption"):            # nur außerhalb von abb: \captionof in center
                 j = m.end() - 1
                 if tok == "\\captionof{":
@@ -1452,6 +1542,15 @@ class Heft:
         if lm:
             self.setlabel(lm.group(1))
         return self._abb(name, cap)
+
+    def szenenabb(self, szene, cap, label):
+        """\\szenenabb{szene}{cap}{label}: nummeriert wie eine abb-Umgebung, die Szene steht im ersten Argument (das PDF
+        zeigt ihr Endbild, die Website die Szene selbst, mit Animation, wenn es eine animierte Fassung gibt)."""
+        self.fig += 1
+        self.last = (str(self.fig), "abb-%d" % self.fig)
+        if label:
+            self.setlabel(label)
+        return ":::abbildung %s/%s %d\n%s\n:::" % (self.szenen, szene, self.fig, self.text(cap))
 
     def _abb(self, label, cap):
         n = re.sub(r"^fig:", "", label)
@@ -1630,7 +1729,9 @@ class Heft:
         t = self.text(c)
         def bar(m):
             return re.sub(r"\\\|", r"\\Vert ", m.group(0)).replace("|", r"\vert ")
-        return re.sub(r"\$[^$]*\$", bar, t)
+        # ein | außerhalb der Mathematik (etwa in `ls | wc -l`) ist Inhalt, kein Zellentrenner: als \| schreiben (GFM),
+        # build_wissen trennt nur an ungeschützten | und macht daraus wieder |
+        return re.sub(r"\$[^$]*\$", bar, t).replace("|", "\\|")
 
 
 # --------------------------------------------------------------------------------- Ein Heft ----
@@ -1669,9 +1770,9 @@ def convert(cfg, kap, lang):
 
 
 def webtext(md, lang, cfg, teile, kap=None, fehlt=None):
-    """Texte anpassen, die nur im PDF stimmen; „Teil 3“ wird zum Link. Formeln, Code, Überschriften und Blockköpfe bleiben.
-    Module mit "abschnitt_links" (Zusatzreihen): alle Verweisarten aus verweis_arten, mit Abschnitt und Anker; fehlt sammelt
-    Abschnitte ohne Ziel. Die übrigen Module verlinken wie bisher nur „Teil N“ auf den Überblick."""
+    """Texte anpassen, die nur im PDF stimmen; Verweise („Kapitel 3“, „Python, Kapitel 2, Abschnitt 4.1“, übergangsweise
+    „Teil 3“) werden zu Links. Formeln, Code, Überschriften und Blockköpfe bleiben. Mit kap (immer, außer in alten Aufrufen):
+    alle Verweisarten aus verweis_arten, mit Abschnitt und Anker; fehlt sammelt Abschnitte ohne Ziel. Ohne kap nur „Teil N“."""
     def subs(t):
         for a, b in WEBTEXT[lang]:
             t = t.replace(a, b)
@@ -1685,7 +1786,7 @@ def webtext(md, lang, cfg, teile, kap=None, fehlt=None):
         _, slug, thema = cfg["hefte"][k]
         return "[%s](%s/%s/%s.html)" % (m.group(0), teile, slugify(thema["de"]), slug)
     teil_re = TEIL_RE[lang]
-    if cfg.get("abschnitt_links") and kap is not None:
+    if kap is not None:
         arten = verweis_arten(cfg, kap, lang)
         teil_re = verweis_regex(arten, lang)
         fehlt = [] if fehlt is None else fehlt
@@ -1753,10 +1854,17 @@ def datei_stamm(cfg, kap, stuecke):
     """Dateinamen aus den deutschen Titeln: 01-<kapitel>, 02-<stufe>, ... (der erste bleibt der Name des Kapitels)."""
     _, slug, _ = cfg["hefte"][kap]
     namen, frei = ["01-" + slug], {slug}
+    ordner = heft_ordner(cfg, kap)
     for i, a in enumerate(stuecke[1:], 2):
         t = re.sub(r"^Stufe\s+\d+:\s*", "", a["titel"])
         t = re.sub(r"\$[^$]*\$", " ", t)
         s, n = slugify(t), 1
+        if re.search(r"(?<![a-z])kapiteln?-\d", s):     # Adresse bleibt: „Was aus Kapitel 9 …“ hieß bis 09.11.2026 „Teil 9“
+            for w in ("teil", "teile", "teilen", "grundlagen", "python", "linux"):
+                alt = re.sub(r"(?<![a-z])kapiteln?-(\d)", w + r"-\1", s)
+                if ordner.is_dir() and list(ordner.glob("*-%s.md" % alt)):
+                    s = alt
+                    break
         while (s if n == 1 else "%s-%d" % (s, n)) in frei:   # gleiche Adresse wie der Überblick oder ein anderer Abschnitt
             n += 1                                           # („Wahrscheinlichkeit“ in Grundlagen 4): -2, -3 …
         s = s if n == 1 else "%s-%d" % (s, n)
@@ -1815,20 +1923,20 @@ def artikel(cfg, kap, lang):
     namen = datei_stamm(cfg, kap, abschnitte(webtext(de, "de", cfg, "", kap, [])))
     stuecke = abschnitte(md, set(GETEILT))
     if len(namen) != len(stuecke):
-        raise ValueError("Teil %d %s: %d Artikel, deutsch %d" % (kap, lang, len(stuecke), len(namen)))
+        raise ValueError("Kap. %d %s: %d Artikel, deutsch %d" % (kap, lang, len(stuecke), len(namen)))
     fehlt = verweise(stuecke, namen)
-    hname, b = heft_name(cfg, kap, lang), bereich(cfg, kap)   # Module mit Bereichen: „Grundlagen 1“ im Baum und im Überblick
+    b = bereich(cfg, kap)                                # „Kapitel 1: …“ im Baum (knoten:), der Überblick ohne Nummer
     aus = []
     for i, (a, n) in enumerate(zip(stuecke, namen), 1):
         if a["art"] == "ueberblick":
-            titel, kurz, info = "%s: %s" % (UEBERBLICK[lang], ("%s – %s" % (hname, tt)) if hname else tt), UEBERBLICK[lang], sub
+            titel, kurz, info = "%s: %s" % (UEBERBLICK[lang], tt), UEBERBLICK[lang], sub
             if lang == "fr":                             # Titelblock kommt nicht durch webtext
                 titel, info = fr_typo(titel), fr_typo(info)
         else:
             titel, kurz, info = a["titel"], "", kurztext(a["md"], sub)
         info = re.sub(r"\$([^$]+)\$", lambda mm: "$" + makros(mm.group(1), h.extra) + "$", info)   # Präambel-Makros wie \ee
-        kopf = ["---", "title: " + titel] + (["kurz: " + kurz] if kurz else []) + ["pfad: " + heft_pfad(cfg, kap, lang)] + (
-            ["knoten: " + knoten_name(cfg, kap, lang)] if hname else []) + (
+        kopf = ["---", "title: " + titel] + (["kurz: " + kurz] if kurz else []) + ["pfad: " + heft_pfad(cfg, kap, lang),
+            "adresse: " + heft_adresse(cfg, kap), "knoten: " + knoten_name(cfg, kap, lang)] + (
             ["nachschlagen: ja"] if b and b.get("nachschlagen") else []) + [
             "order: %d" % (cfg["order"] + (b.get("order", 0) if b else 0) + kap * 10000 + 100 * i),
             "summary: " + info, "tags: " + begriffe(a["md"]), "lang: " + lang, "---", ""]
@@ -1853,19 +1961,19 @@ def main():
         stem, slug, thema = cfg["hefte"][kap]
         if not (cfg["quelle"] / (stem + ".tex")).is_file():
             if a.kap:
-                print("⚠ Teil %d: %s.tex fehlt" % (kap, stem))
+                print("⚠ Kap. %d: %s.tex fehlt" % (kap, stem))
                 fehler += 1
-            continue                                     # Reihe im Aufbau: Teil noch nicht geschrieben
+            continue                                     # Reihe im Aufbau: Heft noch nicht geschrieben
         langs = a.lang
+        name = heft_name(cfg, kap, "de")
         if not langs:                                    # Standard: Deutsch und jede schon übersetzte Sprache
             langs = [l for l in LANGS if l == "de" or (cfg["quelle"] / ("%s_%s.tex" % (stem, l))).is_file()]
             offen = [l for l in LANGS if l not in langs]
             if offen:
-                name = heft_name(cfg, kap, "de")
-                print("· %s: noch nicht übersetzt: %s" % ("Kap. %d (%s)" % (kap, name) if name else "Teil %d" % kap, ", ".join(offen)))
+                print("· Kap. %d (%s): noch nicht übersetzt: %s" % (kap, name, ", ".join(offen)))
         for lang in langs:
             if lang != "de" and not (cfg["quelle"] / ("%s_%s.tex" % (stem, lang))).is_file():
-                print("⚠ Teil %d %s: %s_%s.tex fehlt (noch nicht übersetzt)" % (kap, lang, stem, lang))
+                print("⚠ Kap. %d %s: %s_%s.tex fehlt (noch nicht übersetzt)" % (kap, lang, stem, lang))
                 fehler += 1
                 continue
             arts, h, rest, fehlt = artikel(cfg, kap, lang)
@@ -1898,8 +2006,7 @@ def main():
                 for n, t in arts:
                     (ordner / (n + endung + ".md")).write_text(t, encoding="utf-8", newline="\n")
                 _ANKER.pop((cfg["ziel"], kap), None)             # spätere Hefte verweisen auf die neuen Abschnitte
-            name = heft_name(cfg, kap, "de")
-            print(("⚠ " if msg else "✓ ") + ("Kap. %d (%s)" % (kap, name) if name else "Teil %d" % kap)
+            print(("⚠ " if msg else "✓ ") + ("Kap. %d (%s)" % (kap, name))
                   + " %s: %d Artikel, %d Zeichen, %d Abb., %d Aufg." % (lang, len(arts), len(txt), h.fig, h.aufg))
             for x in msg:
                 print("    " + x)

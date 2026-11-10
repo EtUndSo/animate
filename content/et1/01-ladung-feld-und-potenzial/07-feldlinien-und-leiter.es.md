@@ -1,6 +1,8 @@
 ---
 title: Etapa 5: Líneas de campo y conductores
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Carga, campo y potencial
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Carga, campo y potencial
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial
+knoten: Capítulo 1: Carga, campo y potencial
 order: 1110700
 summary: Las líneas de campo muestran todo un campo de un vistazo.
 tags: inducción electrostática, línea de campo, fuentes, sumideros, apantallamiento, uniforme, campo de borde

@@ -1,8 +1,10 @@
 ---
 title: Stufe 4: Was das Gleichgewicht verlangt
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Strom im Halbleiter
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Strom im Halbleiter
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/strom-im-halbleiter
+knoten: Kapitel 12: Strom im Halbleiter
 order: 4220600
-summary: Die Fermi-Verteilung aus Teil 10 galt für einen einheitlichen Kristall.
+summary: Die Fermi-Verteilung aus Kapitel 10 galt für einen einheitlichen Kristall.
 tags: Quasi-Fermi-Niveau, Driftanteil, Diffusionsanteil, elektrochemisches Potential
 lang: de
 ---
@@ -10,7 +12,7 @@ lang: de
 <span class="anker" id="stufe-4"></span>
 
 :::zweck
-Die Fermi-Verteilung aus [Teil 10](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/zustandsdichte-und-fermi-verteilung/zustandsdichte-und-fermi-verteilung.html) galt für einen einheitlichen Kristall. Diese Stufe macht sie ortsabhängig, setzt sie in die Gleichung ein und findet so heraus, was einen Strom antreibt.
+Die Fermi-Verteilung aus [Kapitel 10](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/zustandsdichte-und-fermi-verteilung/zustandsdichte-und-fermi-verteilung.html) galt für einen einheitlichen Kristall. Diese Stufe macht sie ortsabhängig, setzt sie in die Gleichung ein und findet so heraus, was einen Strom antreibt.
 :::
 
 **Die Idee.** Liegt ein Feld an oder ändert sich die Dotierung, wird die Leitungsbandkante zu $E_\mathrm C(x)$. An jedem Ort darf sich trotzdem eine Fermi-Verteilung einstellen, mit örtlichen Werten. Prüft man, ob das eine Lösung ohne Strom ist, fällt der Einfluss der Bandkante heraus. Fermi-Energie und Temperatur müssen überall gleich sein. Ihre Unterschiede sind die treibenden Kräfte.
@@ -54,7 +56,7 @@ Die Terme mit $F$ heben sich auf. Der Rest muss für jedes $k$ null sein. Nur de
 <span class="anker" id="gl-4-3"></span>
 $$E_\mathrm F(x)=E_\mathrm C(x)+\zeta(x),\qquad\frac{\mathrm{d} E_\mathrm F}{\mathrm{d} x}=e\mathcal E+\frac{k_\mathrm BT}n\frac{\mathrm{d} n}{\mathrm{d} x}. \tag{4.3}$$
 
-Der erste Summand ist der __Driftanteil__, der zweite der __Diffusionsanteil__. $\zeta$ misst, wie voll das Band ist, und $E_\mathrm C=\text{konst}-e\varphi$ enthält das elektrostatische Potential $\varphi$. Ein zusätzliches Elektron bringt also Füllenergie plus Energie im Potential, $E_\mathrm{ges}=TS-pV+\zeta N-e\varphi N$. Deshalb heißt $E_\mathrm F$ auch __elektrochemisches Potential__. In [Teil 10](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/zustandsdichte-und-fermi-verteilung/zustandsdichte-und-fermi-verteilung.html) war $E_\mathrm C$ überall gleich, und beide Begriffe fielen zusammen. Im Gleichgewicht halten sich Feld und Dichteunterschied genau die Waage.
+Der erste Summand ist der __Driftanteil__, der zweite der __Diffusionsanteil__. $\zeta$ misst, wie voll das Band ist, und $E_\mathrm C=\text{konst}-e\varphi$ enthält das elektrostatische Potential $\varphi$. Ein zusätzliches Elektron bringt also Füllenergie plus Energie im Potential, $E_\mathrm{ges}=TS-pV+\zeta N-e\varphi N$. Deshalb heißt $E_\mathrm F$ auch __elektrochemisches Potential__. In [Kapitel 10](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/zustandsdichte-und-fermi-verteilung/zustandsdichte-und-fermi-verteilung.html) war $E_\mathrm C$ überall gleich, und beide Begriffe fielen zusammen. Im Gleichgewicht halten sich Feld und Dichteunterschied genau die Waage.
 
 :::analogie
 Zwei Wasserbecken werden verbunden. Wasser fließt, bis die Pegel gleich sind. Der Pegel ist $E_\mathrm F$. Stehen die Becken verschieden hoch, sind Tiefe (Füllung) und Boden (Bandkante) verschieden, und bei gleichem Pegel fließt nichts. Das Bild endet bei den Kräften: Wasser drückt mit seinem Gewicht, Elektronen gleichen Dichten durch Wärmebewegung aus.

@@ -1,6 +1,8 @@
 ---
 title: 第 5 阶段：二端元件与参考箭头
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 电流、电阻与基尔霍夫定律
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 电流、电阻与基尔霍夫定律
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff
+knoten: 第 2 章：电流、电阻与基尔霍夫定律
 order: 1120600
 summary: 从现在起，重要的不再是元件内部发生什么，而是在其端子上能测到什么。为此需要一个描述元件的概念，以及一个关于符号的约定。
 tags: 二端元件, 特性曲线, 黑箱, 网络, 线性二端元件, 非线性二端元件, 负载惯例, 发电机惯例
@@ -24,12 +26,12 @@ __二端元件__是可以用其两个接线端之间的电流和电压完全描�
 $$G=\frac IU=\text{const}\quad\text{或}\quad R=\frac UI=\text{const}. \tag{5.1}$$
 :::
 
-⁠**如何理解：**这样的__线性二端元件__就是欧姆电阻（图 [4](das-ohmsche-gesetz-aus-feld-und-stoen.html#abb-4) 右，每条直线对应一个阻值）。电池和电压源也属于线性网络的基本单元，但它们的特性曲线不过原点（[第 5 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)）。对于__非线性二端元件__，如白炽灯（图 [5](reale-widerstande-werte-und-temperatur.html#abb-5) 右），$U/I$ 取决于工作点，式 [(5.1)](#gl-5-1) 在那里不成立。
+⁠**如何理解：**这样的__线性二端元件__就是欧姆电阻（图 [4](das-ohmsche-gesetz-aus-feld-und-stoen.html#abb-4) 右，每条直线对应一个阻值）。电池和电压源也属于线性网络的基本单元，但它们的特性曲线不过原点（[第 5 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)）。对于__非线性二端元件__，如白炽灯（图 [5](reale-widerstande-werte-und-temperatur.html#abb-5) 右），$U/I$ 取决于工作点，式 [(5.1)](#gl-5-1) 在那里不成立。
 
 :::definition 定义 5.2 (参考箭头惯例)
 <span class="anker" id="satz-5-2"></span>
 
-电压箭头从 1 指向 2，表示 $U_{12}=\varphi_1-\varphi_2$（[第 1 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)）。电流箭头表示沿箭头方向计数的正电荷。在__负载惯例__中，二端元件上的电压箭头和电流箭头方向相同；在__发电机惯例__中，两者方向相反。对电阻，有
+电压箭头从 1 指向 2，表示 $U_{12}=\varphi_1-\varphi_2$（[第 1 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)）。电流箭头表示沿箭头方向计数的正电荷。在__负载惯例__中，二端元件上的电压箭头和电流箭头方向相同；在__发电机惯例__中，两者方向相反。对电阻，有
 
 <span class="anker" id="gl-5-2"></span>
 $$U=R\,I\quad\text{（负载惯例）},\qquad U=-R\,I\quad\text{（发电机惯例）}. \tag{5.2}$$

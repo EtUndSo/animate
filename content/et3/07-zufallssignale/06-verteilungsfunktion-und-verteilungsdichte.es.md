@@ -1,6 +1,8 @@
 ---
 title: Etapa 5: Función de distribución y densidad de probabilidad
-pfad: Ingeniería eléctrica / 3.er semestre / Señales y sistemas / Señales aleatorias
+pfad: Ingeniería eléctrica / 3.er semestre / ET3 – Fundamentos de ingeniería eléctrica 3: señales y sistemas / Señales aleatorias
+adresse: elektrotechnik/3-semester/signale-und-systeme/zufallssignale
+knoten: Capítulo 7: Señales aleatorias
 order: 3270600
 summary: Los valores medios no lo dicen todo.
 tags: función de distribución, densidad de probabilidad, cuantizador

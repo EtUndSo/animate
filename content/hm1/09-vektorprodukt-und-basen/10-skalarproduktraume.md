@@ -1,6 +1,8 @@
 ---
 title: Stufe 8: Skalarprodukträume
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Vektorprodukt und Basen
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Vektorprodukt und Basen
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/vektorprodukt-und-basen
+knoten: Kapitel 9: Vektorprodukt und Basen
 order: 1291000
 summary: Länge, Winkel und Projektion hängen bisher am mathbb R n .
 tags: Skalarproduktraum, Prä-Hilbert-Raum, Skalarprodukt, hermitesch, semilinear, Hilbertraum
@@ -43,15 +45,15 @@ Sei $V$ ein Vektorraum über $\mathbb K=\mathbb{R}$ oder $\mathbb{C}$. $V$ heiß
 </ul>
 :::
 
-⁠**So liest man das:** Aus (S1) folgt $\langle\vec0,\vec0\rangle=0$, mit (S3) also $\langle\vec u,\vec u\rangle=0\iff\vec u=\vec0$. Für $\mathbb K=\mathbb{C}$ gibt (S2) mit $\vec v=\vec u$, dass $\langle\vec u,\vec u\rangle$ reell ist, sonst hätte (S3) keinen Sinn. Im zweiten Eingang folgt aus (S1) und (S2) nur noch $\langle\vec u,\alpha\vec v+\beta\vec w\rangle=\overline\alpha\langle\vec u,\vec v\rangle+\overline\beta\langle\vec u,\vec w\rangle$, man sagt __semilinear__. Für $\mathbb K=\mathbb{R}$ ändert sich nichts gegenüber [Teil 8](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/vektoren-und-skalarprodukt/vektoren-und-skalarprodukt.html). Ist $V$ zusätzlich vollständig (jede Cauchy-Folge konvergiert), heißt $V$ __Hilbertraum__.
+⁠**So liest man das:** Aus (S1) folgt $\langle\vec0,\vec0\rangle=0$, mit (S3) also $\langle\vec u,\vec u\rangle=0\iff\vec u=\vec0$. Für $\mathbb K=\mathbb{C}$ gibt (S2) mit $\vec v=\vec u$, dass $\langle\vec u,\vec u\rangle$ reell ist, sonst hätte (S3) keinen Sinn. Im zweiten Eingang folgt aus (S1) und (S2) nur noch $\langle\vec u,\alpha\vec v+\beta\vec w\rangle=\overline\alpha\langle\vec u,\vec v\rangle+\overline\beta\langle\vec u,\vec w\rangle$, man sagt __semilinear__. Für $\mathbb K=\mathbb{R}$ ändert sich nichts gegenüber [Kapitel 8](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/vektoren-und-skalarprodukt/vektoren-und-skalarprodukt.html). Ist $V$ zusätzlich vollständig (jede Cauchy-Folge konvergiert), heißt $V$ __Hilbertraum__.
 
 :::satz Satz 8.2 (Norm im Skalarproduktraum)
 <span class="anker" id="satz-8-2"></span>
 
-In jedem Skalarproduktraum ist $\|\vec v\|:=\sqrt{\langle\vec v,\vec v\rangle}$ eine Norm. Die Eigenschaften (N) aus [Teil 8](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/vektoren-und-skalarprodukt/vektoren-und-skalarprodukt.html), die Cauchy-Schwarz-Ungleichung und die Dreiecksungleichung für den Abstand $\|\vec x-\vec y\|$ gelten wie dort.
+In jedem Skalarproduktraum ist $\|\vec v\|:=\sqrt{\langle\vec v,\vec v\rangle}$ eine Norm. Die Eigenschaften (N) aus [Kapitel 8](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/vektoren-und-skalarprodukt/vektoren-und-skalarprodukt.html), die Cauchy-Schwarz-Ungleichung und die Dreiecksungleichung für den Abstand $\|\vec x-\vec y\|$ gelten wie dort.
 :::
 
-⁠**Beweisidee:** [Teil 8](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/vektoren-und-skalarprodukt/vektoren-und-skalarprodukt.html) benutzt nur Linearität, Symmetrie und $\|\text{Rest}\|^2\ge0$. Für $\mathbb K=\mathbb{C}$ steht in Cauchy-Schwarz der Betrag $|\langle\vec x,\vec y\rangle|$. Damit übertragen sich die Stufen [4](orthonormalsysteme-und-projektion.html#stufe-4) und [7](orthonormalbasis-und-gram-schmidt.html#stufe-7) auf jeden Skalarproduktraum, im Komplexen mit $|t_i-\langle\vec p,\vec v_i\rangle|^2$ in [(4.3)](orthonormalsysteme-und-projektion.html#gl-4-3).
+⁠**Beweisidee:** [Kapitel 8](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/vektoren-und-skalarprodukt/vektoren-und-skalarprodukt.html) benutzt nur Linearität, Symmetrie und $\|\text{Rest}\|^2\ge0$. Für $\mathbb K=\mathbb{C}$ steht in Cauchy-Schwarz der Betrag $|\langle\vec x,\vec y\rangle|$. Damit übertragen sich die Stufen [4](orthonormalsysteme-und-projektion.html#stufe-4) und [7](orthonormalbasis-und-gram-schmidt.html#stufe-7) auf jeden Skalarproduktraum, im Komplexen mit $|t_i-\langle\vec p,\vec v_i\rangle|^2$ in [(4.3)](orthonormalsysteme-und-projektion.html#gl-4-3).
 
 **Polynome.** Auf dem Vektorraum $\mathcal P=\{p:\mathbb{R}\to\mathbb{R}\mid p\text{ ist Polynom}\}$ über $\mathbb{R}$ setzt man für $p(x)=\sum_{i=0}^n\alpha_ix^i$, $q(x)=\sum_{j=0}^m\beta_jx^j$
 
@@ -60,7 +62,7 @@ $$\langle p,q\rangle:=\int_{-1}^1p(x)q(x)\,\mathrm{d} x=\sum_{i=0}^n\sum_{j=0}^m
 
 Das ist ein Skalarprodukt: (S1) ist die Linearität des Integrals, (S2) gilt wegen $pq=qp$. (S3): $p^2\ge0$ ist stetig und für $p\ne0$ höchstens an endlich vielen Stellen null, also ist das Integral positiv.
 
-::::beispiel [Beispiel (Teil 8)]
+::::beispiel [Beispiel (Kapitel 8)]
 Für $p(x)=x^2-1$, $q(x)=x+1$ ist $\langle p,q\rangle=\int_{-1}^1(x^3+x^2-x-1)\mathrm{d} x=-\frac43$ und $\|q\|^2=\frac83$.
 ::::
 

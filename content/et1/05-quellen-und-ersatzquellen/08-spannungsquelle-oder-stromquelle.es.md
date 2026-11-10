@@ -1,6 +1,8 @@
 ---
 title: Etapa 6: Fuente de tensión o fuente de corriente
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Fuentes y fuentes equivalentes
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Fuentes y fuentes equivalentes
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen
+knoten: Capítulo 5: Fuentes y fuentes equivalentes
 order: 1150800
 summary: Para la misma fuente real hay dos esquemas.
 tags: equivalentes
@@ -47,7 +49,7 @@ La batería de 9 V y 2 $\Omega$ se convierte en $I_\mathrm{q}=4{,}5$ A y $
 **¿Qué forma se elige?** Para calcular, las dos son igual de buenas. Se toma la forma que muestra mejor el comportamiento: las fuentes de tensión tienen baja resistencia (idealmente cero), las fuentes de corriente tienen alta resistencia (idealmente infinita). Si $R_\mathrm{q}$ es pequeña frente a la carga, la tensión apenas cambia y se elige la forma de fuente de tensión. Si $R_\mathrm{q}$ es grande frente a la carga, la corriente apenas cambia y se elige la forma de fuente de corriente.
 
 :::frage Si las dos son iguales, ¿la batería disipa 40,5 W en circuito abierto?
-No. A la derecha en la fig. [7](#abb-7), en circuito abierto circulan 4,5 A por 2 $\Omega$, lo que con $P=UI$ ([Parte 7](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad/leistung-und-anpassung.html)) serían 40,5 W. La batería real se mantiene fría; aquí acierta la imagen de la fuente de tensión con 0 W. Los circuitos equivalentes son correctos en los terminales, no en el interior. Lo que ocurre dentro depende de la construcción, no de la curva característica. En el punto de trabajo pasa lo mismo: 0,5 W frente a 32 W en el interior, y fuera 4 W en ambos casos.
+No. A la derecha en la fig. [7](#abb-7), en circuito abierto circulan 4,5 A por 2 $\Omega$, lo que con $P=UI$ ([capítulo 7](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad/leistung-und-anpassung.html)) serían 40,5 W. La batería real se mantiene fría; aquí acierta la imagen de la fuente de tensión con 0 W. Los circuitos equivalentes son correctos en los terminales, no en el interior. Lo que ocurre dentro depende de la construcción, no de la curva característica. En el punto de trabajo pasa lo mismo: 0,5 W frente a 32 W en el interior, y fuera 4 W en ambos casos.
 :::
 
 :::aufgabe Ejercicio 7 ★ Convertir

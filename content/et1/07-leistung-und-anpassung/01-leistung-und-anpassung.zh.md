@@ -1,7 +1,9 @@
 ---
 title: 概览: 功率、匹配与效率
 kurz: 概览
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 功率、匹配与效率
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 功率、匹配与效率
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad
+knoten: 第 7 章：功率、匹配与效率
 order: 1170100
 summary: 为什么在功率最大时有一半能量留在电源中
 tags: 内阻, 负载, 功率
@@ -32,7 +34,7 @@ lang: zh
 
 <li>
 
-⁠**电池：**[第 5 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)中的 9 V 方形电池，源电压（化学反应提供的电压）$U_\mathrm{q}=9$ V，内阻 $R_\mathrm{i}=2\,\Omega$。[第 5 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)中单个电源的内阻记作 $R_\mathrm{q}$。短路电流为 $I_\mathrm{SC}=4.5$ A。
+⁠**电池：**[第 5 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)中的 9 V 方形电池，源电压（化学反应提供的电压）$U_\mathrm{q}=9$ V，内阻 $R_\mathrm{i}=2\,\Omega$。[第 5 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)中单个电源的内阻记作 $R_\mathrm{q}$。短路电流为 $I_\mathrm{SC}=4.5$ A。
 
 </li>
 

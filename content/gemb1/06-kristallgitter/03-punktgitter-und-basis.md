@@ -1,6 +1,8 @@
 ---
 title: Stufe 1: Punktgitter und Basis
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Kristallgitter
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Kristallgitter
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/kristallgitter
+knoten: Kapitel 6: Kristallgitter
 order: 4160300
 summary: Ein Kristall enthält zu viele Atome, um sie einzeln zu nennen.
 tags: Translation, Kristallstruktur, primitive Gittervektoren, Gittervektor, primitive Einheitszelle
@@ -36,7 +38,7 @@ $$\boldsymbol R=\ell_1\boldsymbol a_1+\ell_2\boldsymbol a_2+\ell_3\boldsymbol a_
 erreicht und jedes solche $\boldsymbol R$ auf einem Gitterpunkt endet. In der Ebene entfällt $\boldsymbol a_3$. $\boldsymbol R$ heißt __Gittervektor__.
 :::
 
-⁠**So liest man das:** Die $\ell_i$ sind ganze Zahlen, positiv, negativ oder null, wie der Gitterindex $\ell$ in [Teil 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html). $\boldsymbol R$ ist ein Ortsvektor in nm, typische Längen beginnen bei 0,2 bis 0,6 nm. Die $\boldsymbol a_i$ müssen linear unabhängig sein, sie dürfen also nicht alle in einer Ebene liegen. Senkrecht zueinander oder gleich lang müssen sie nicht sein. Das Atom $j$ der Basis sitzt bei $\boldsymbol R+\boldsymbol d_j$, wobei $\boldsymbol d_j$ sein fester Abstandsvektor vom Gitterpunkt ist. **Gültigkeit:** [(1.1)](#gl-1-1) meint einen unendlich großen, fehlerfreien Kristall. Der Rand spielt kaum eine Rolle: Ein Würfel von 1 cm hat bei 0,5 nm Zellgröße $2\cdot10^{7}$ Zellen je Kante, und nur der Anteil $3\cdot10^{-7}$ davon liegt an den sechs Außenflächen.
+⁠**So liest man das:** Die $\ell_i$ sind ganze Zahlen, positiv, negativ oder null, wie der Gitterindex $\ell$ in [Kapitel 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html). $\boldsymbol R$ ist ein Ortsvektor in nm, typische Längen beginnen bei 0,2 bis 0,6 nm. Die $\boldsymbol a_i$ müssen linear unabhängig sein, sie dürfen also nicht alle in einer Ebene liegen. Senkrecht zueinander oder gleich lang müssen sie nicht sein. Das Atom $j$ der Basis sitzt bei $\boldsymbol R+\boldsymbol d_j$, wobei $\boldsymbol d_j$ sein fester Abstandsvektor vom Gitterpunkt ist. **Gültigkeit:** [(1.1)](#gl-1-1) meint einen unendlich großen, fehlerfreien Kristall. Der Rand spielt kaum eine Rolle: Ein Würfel von 1 cm hat bei 0,5 nm Zellgröße $2\cdot10^{7}$ Zellen je Kante, und nur der Anteil $3\cdot10^{-7}$ davon liegt an den sechs Außenflächen.
 
 :::definition Definition 1.3 (Einheitszelle)
 <span class="anker" id="satz-1-3"></span>

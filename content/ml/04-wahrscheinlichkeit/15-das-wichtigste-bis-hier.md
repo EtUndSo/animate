@@ -1,7 +1,8 @@
 ---
 title: Das Wichtigste bis hier
 pfad: Informatik / Machine Learning / Mathematische Grundlagen / Wahrscheinlichkeit
-knoten: Grundlagen 4: Wahrscheinlichkeit
+adresse: informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit
+knoten: Kapitel 4: Wahrscheinlichkeit
 nachschlagen: ja
 order: 15241500
 summary: Unsicherheit rechnen: Ereignisse, Verteilungen, Kovarianz und die Normalverteilung
@@ -111,7 +112,7 @@ Weil sich die Varianzen unabhängiger Größen addieren, wird ein Mittelwert aus
 </ol>
 :::
 
-**Ein Prinzip hinter allen Ergebnissen.** Fast alles in diesem Kapitel folgt aus einem Prinzip: Wahrscheinlichkeit verhält sich wie eine Masse vom Gesamtgewicht $1$, die über die möglichen Ausgänge verteilt ist. Ereignisse sind Teile dieser Masse, Bedingen schneidet einen Teil heraus und wiegt ihn neu auf $1$, Unabhängigkeit heißt, dass sich die Masse als Produkt verteilt, der Erwartungswert ist ihr Schwerpunkt und die Varianz ihr Trägheitsmoment um den Schwerpunkt. Mit der Kovarianz wird das Wiegen von Abweichungen zu einem Skalarprodukt, und die Geometrie aus [Grundlagen 1](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html) und [Grundlagen 2](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/projektion-eigenwerte-und-zerlegungen.html) gilt für Zufallsgrößen.
+**Ein Prinzip hinter allen Ergebnissen.** Fast alles in diesem Kapitel folgt aus einem Prinzip: Wahrscheinlichkeit verhält sich wie eine Masse vom Gesamtgewicht $1$, die über die möglichen Ausgänge verteilt ist. Ereignisse sind Teile dieser Masse, Bedingen schneidet einen Teil heraus und wiegt ihn neu auf $1$, Unabhängigkeit heißt, dass sich die Masse als Produkt verteilt, der Erwartungswert ist ihr Schwerpunkt und die Varianz ihr Trägheitsmoment um den Schwerpunkt. Mit der Kovarianz wird das Wiegen von Abweichungen zu einem Skalarprodukt, und die Geometrie aus [Kapitel 1](/wissen/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/vektoren-und-matrizen.html) und [Kapitel 2](/wissen/informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen/projektion-eigenwerte-und-zerlegungen.html) gilt für Zufallsgrößen.
 
 | Ergebnis | Woher es kommt |
 |---|---|

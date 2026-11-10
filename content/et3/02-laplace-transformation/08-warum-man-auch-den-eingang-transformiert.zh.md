@@ -1,6 +1,8 @@
 ---
 title: 第 5 阶段：为什么输入也要变换
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / 拉普拉斯变换
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / 拉普拉斯变换
+adresse: elektrotechnik/3-semester/signale-und-systeme/laplace-transformation
+knoten: 第 2 章：拉普拉斯变换
 order: 3220800
 summary: 每个信号都是 $\mathrm{e}^{pt}$ 的叠加， 以及为什么 LTI 系统的作用因此变成乘法
 tags: 
@@ -63,7 +65,7 @@ $G(p)$ 是输出的“配方”。
 
 <li>
 
-⁠**没有系统的卷积。**卷积把一个信号经过平移和加权的副本叠加起来。系统只是这种运算的一种解释，而不是唯一的解释。一个完全不涉及系统的例子是两个骰子的点数之和，见关于卷积的练习册（[第 1 部分](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html)）。
+⁠**没有系统的卷积。**卷积把一个信号经过平移和加权的副本叠加起来。系统只是这种运算的一种解释，而不是唯一的解释。一个完全不涉及系统的例子是两个骰子的点数之和，见关于卷积的练习册（[第 1 章](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html)）。
 
 </li>
 

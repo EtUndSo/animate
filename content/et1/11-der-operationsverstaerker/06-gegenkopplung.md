@@ -1,6 +1,8 @@
 ---
 title: Stufe 4: Gegenkopplung
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Der Operationsverstärker
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Der Operationsverstärker
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker
+knoten: Kapitel 11: Der Operationsverstärker
 order: 1210600
 summary: Ohne Rückführung ist der OPV ein Schalter.
 tags: Rückkopplung, Mitkopplung, nicht-invertierenden Verstärker, Impedanzwandler
@@ -40,7 +42,7 @@ Mit dem Teiler ist $\beta=R_1/(R_1+R_2)$, also $G\approx1+R_2/R_1$.
 :::herleitung Die Schleife im Gleichgewicht und in Bewegung
 Gleichgewicht: $U_\mathrm{A}=A\,U_\mathrm{D}$ und $U_\mathrm{D}=U_\mathrm{E}-\beta\,U_\mathrm{A}$. Einsetzen ergibt $U_\mathrm{D}=U_\mathrm{E}-A\beta\,U_\mathrm{D}$, daraus [(4.1)](#gl-4-1). Ableiten von $G$ nach $A$ ergibt $\mathrm{d} G/\mathrm{d} A=1/(1+A\beta)^2$, geteilt durch $G$ folgt [(4.2)](#gl-4-2).
 
-Bewegung: Im OPV lädt ein Strom proportional zu $U_\mathrm{D}$ eine Kapazität. Der Ausgang kann deshalb nicht springen, sondern läuft seinem Zielwert nach: $\tau\,\mathrm{d} U_\mathrm{A}/\mathrm{d} t=A\,U_\mathrm{D}-U_\mathrm{A}$, hier mit $\tau=A/(2\pi f_\mathrm{T})=15{,}9$ ms. Das ist die Gleichung des RC-Glieds aus [Teil 3](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html). Mit $U_\mathrm{D}=U_\mathrm{E}-\beta\,U_\mathrm{A}$ wird daraus
+Bewegung: Im OPV lädt ein Strom proportional zu $U_\mathrm{D}$ eine Kapazität. Der Ausgang kann deshalb nicht springen, sondern läuft seinem Zielwert nach: $\tau\,\mathrm{d} U_\mathrm{A}/\mathrm{d} t=A\,U_\mathrm{D}-U_\mathrm{A}$, hier mit $\tau=A/(2\pi f_\mathrm{T})=15{,}9$ ms. Das ist die Gleichung des RC-Glieds aus [Kapitel 3](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html). Mit $U_\mathrm{D}=U_\mathrm{E}-\beta\,U_\mathrm{A}$ wird daraus
 
 $$\tau\,\frac{\mathrm{d} U_\mathrm{A}}{\mathrm{d} t}=A\,U_\mathrm{E}-(1+A\beta)\,U_\mathrm{A}.$$
 
@@ -67,7 +69,7 @@ Eine Änderung von $A$ um 300 % verschiebt $G$ um 0,0075 %. Man tauscht Vers
 
 **Eingang und Ausgang.** Am Plus-Eingang liegt nur $U_\mathrm{D}=50$ µ V über $r_\mathrm{e}$, es fließen 50 pA, ein Zweimillionstel des Teilerstroms von 100 µ A. Der Eingangswiderstand steigt so auf $r_\mathrm{e}(1+A\beta)=20$ G$\Omega$. Am Ausgang wirkt die Schleife gegen jede Belastung: Zieht eine Last $U_\mathrm{A}$ etwas herunter, wächst $U_\mathrm{D}$, und die innere Spannung steigt, bis der Verlust fast ausgeglichen ist. Der Ausgangswiderstand sinkt auf $r_\mathrm{a}/(1+A\beta)=3{,}75$ m$\Omega$.
 
-**Der Impedanzwandler.** Mit $R_2=0$ und $R_1\to\infty$ ist der Ausgang direkt mit dem Minus-Eingang verbunden, $\beta=1$, $G=A/(1+A)=0{,}99999$. Dieser __Impedanzwandler__ verstärkt nicht, sondern trennt: Eingangswiderstand 100 G$\Omega$, Ausgangswiderstand 0,75 m$\Omega$. Ein Spannungsmesser mit 1 M$\Omega$ an einer Quelle mit 1 V und 100 k$\Omega$ Innenwiderstand zeigt 0,909 V ([Teil 4](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-und-spannung-messen/strom-und-spannung-messen.html)). Mit vorgeschaltetem Impedanzwandler zeigt er 0,99999 V.
+**Der Impedanzwandler.** Mit $R_2=0$ und $R_1\to\infty$ ist der Ausgang direkt mit dem Minus-Eingang verbunden, $\beta=1$, $G=A/(1+A)=0{,}99999$. Dieser __Impedanzwandler__ verstärkt nicht, sondern trennt: Eingangswiderstand 100 G$\Omega$, Ausgangswiderstand 0,75 m$\Omega$. Ein Spannungsmesser mit 1 M$\Omega$ an einer Quelle mit 1 V und 100 k$\Omega$ Innenwiderstand zeigt 0,909 V ([Kapitel 4](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-und-spannung-messen/strom-und-spannung-messen.html)). Mit vorgeschaltetem Impedanzwandler zeigt er 0,99999 V.
 
 :::abbildung et1/k11nichtinv 6
 Links der nicht-invertierende Verstärker mit Potenzialen im Rechenmodell. Der Minus-Eingang liegt nur 50 µ V unter dem Plus-Eingang. Rechts der Impedanzwandler als Grenzfall $\beta=1$.

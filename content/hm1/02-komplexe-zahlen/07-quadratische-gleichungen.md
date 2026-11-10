@@ -1,6 +1,8 @@
 ---
 title: Stufe 6: Quadratische Gleichungen
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Komplexe Zahlen
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Komplexe Zahlen
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen
+knoten: Kapitel 2: Komplexe Zahlen
 order: 1220700
 summary: Das Ziel war eine Lösung von x 2=-1 .
 tags: doppelte Lösung, Diskriminante, Polardarstellung
@@ -68,7 +70,7 @@ Also ist $s=0{,}75$, $t=-1$ und $|D|=\sqrt{0{,}5625+1}=1{,}25$. Aus [(6.1)](#gl-
 ⁠**Grenzfall:** Für $q=0$ gibt [(6.2)](#gl-6-2) $z=-p/2\pm p/2$, also $z=0$ und $z=-p$, passend zu $z(z+p)=0$.
 
 :::frage Warum darf man nicht $\sqrt{-1}\cdot\sqrt{-1}=\sqrt{(-1)(-1)}=1$ rechnen?
-Die Regel $\sqrt{ab}=\sqrt a\sqrt b$ aus [Teil 1](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html) gilt nur für $a,b\ge0$. Für negative Zahlen ist die Wurzel nicht definiert: $w^2=-1$ hat zwei gleichberechtigte Lösungen, keine davon ist „die“ Wurzel. Deshalb schreibt dieses Kapitel $w^2=D$ und nicht $w=\sqrt D$.
+Die Regel $\sqrt{ab}=\sqrt a\sqrt b$ aus [Kapitel 1](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html) gilt nur für $a,b\ge0$. Für negative Zahlen ist die Wurzel nicht definiert: $w^2=-1$ hat zwei gleichberechtigte Lösungen, keine davon ist „die“ Wurzel. Deshalb schreibt dieses Kapitel $w^2=D$ und nicht $w=\sqrt D$.
 :::
 
 :::aufgabe Aufgabe 8 ★★ Quadratische Gleichungen lösen
@@ -85,4 +87,4 @@ Die Regel $\sqrt{ab}=\sqrt a\sqrt b$ aus [Teil 1](/wissen/elektrotechnik/1-seme
 :::
 :::
 
-**Ausblick.** Ein Punkt der Ebene lässt sich auch durch Betrag und Winkel angeben. Dann werden beim Multiplizieren die Beträge multipliziert und die Winkel addiert, die Drehung aus Stufe [2](die-komplexe-ebene.html#stufe-2) ist der Sonderfall $|\mathrm{i}|=1$ und Winkel $90^\circ$. Diese __Polardarstellung__, die Exponentialform und die $n$-ten Wurzeln brauchen Sinus, Cosinus und die Exponentialfunktion und folgen deshalb in [Teil 7](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/potenzreihen-und-eulersche-formel/potenzreihen-und-eulersche-formel.html).
+**Ausblick.** Ein Punkt der Ebene lässt sich auch durch Betrag und Winkel angeben. Dann werden beim Multiplizieren die Beträge multipliziert und die Winkel addiert, die Drehung aus Stufe [2](die-komplexe-ebene.html#stufe-2) ist der Sonderfall $|\mathrm{i}|=1$ und Winkel $90^\circ$. Diese __Polardarstellung__, die Exponentialform und die $n$-ten Wurzeln brauchen Sinus, Cosinus und die Exponentialfunktion und folgen deshalb in [Kapitel 7](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/potenzreihen-und-eulersche-formel/potenzreihen-und-eulersche-formel.html).

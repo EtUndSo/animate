@@ -1,6 +1,8 @@
 ---
 title: Stufe 9: Rationale Funktionen und Pole
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Funktionen und Polynome
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Funktionen und Polynome
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/funktionen-und-polynome
+knoten: Kapitel 3: Funktionen und Polynome
 order: 1231100
 summary: Der Rest T/Q aus Stufe 6 hat Stellen, an denen sein Nenner null wird.
 tags: Pol, Ordnung, Lücke, Asymptote
@@ -37,7 +39,7 @@ __Lücke__, wenn sie nach dem Kürzen keine Nullstelle des Nenners mehr ist.
 </ul>
 :::
 
-⁠**So liest man das:** Nahe einem Pol ist $R(x)=A(x)/(x-x_0)^{m_0}$ mit $A(x_0)\neq0$: Der Zähler bleibt nahe $A(x_0)$, der Nenner wird beliebig klein, $|R|$ wächst über jede Grenze. ([Teil 4](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/folgen-und-grenzwerte/folgen-und-grenzwerte.html) fasst das mit Grenzwerten genau.) Ungerade Ordnung heißt Vorzeichenwechsel, gerade Ordnung keiner, aus demselben Grund wie in Stufe [8](jede-nullstelle-spaltet-einen-linearfaktor-ab.html#stufe-8): $1/(x-2)^2$ ist bei $2{,}01$ und bei $1{,}99$ gleich $10\,000$. Bei einer Lücke bleibt $R$ endlich, aber auch dort gilt $x_0\notin\mathcal D(R)$. **Beispiel Lücke:** $L(x)=(x^2-4)/(x-2)$ stimmt für $x\neq2$ mit $x+2$ überein, $L(2{,}01)=4{,}01$, bei $x=2$ ist nur ein Punkt des Graphen entfernt.
+⁠**So liest man das:** Nahe einem Pol ist $R(x)=A(x)/(x-x_0)^{m_0}$ mit $A(x_0)\neq0$: Der Zähler bleibt nahe $A(x_0)$, der Nenner wird beliebig klein, $|R|$ wächst über jede Grenze. ([Kapitel 4](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/folgen-und-grenzwerte/folgen-und-grenzwerte.html) fasst das mit Grenzwerten genau.) Ungerade Ordnung heißt Vorzeichenwechsel, gerade Ordnung keiner, aus demselben Grund wie in Stufe [8](jede-nullstelle-spaltet-einen-linearfaktor-ab.html#stufe-8): $1/(x-2)^2$ ist bei $2{,}01$ und bei $1{,}99$ gleich $10\,000$. Bei einer Lücke bleibt $R$ endlich, aber auch dort gilt $x_0\notin\mathcal D(R)$. **Beispiel Lücke:** $L(x)=(x^2-4)/(x-2)$ stimmt für $x\neq2$ mit $x+2$ überein, $L(2{,}01)=4{,}01$, bei $x=2$ ist nur ein Punkt des Graphen entfernt.
 
 :::abbildung hm1/k3pole 10
 Links $R=P/Q$: Pole bei $x=-1$ und $x=2$ (senkrecht gestrichelt), Nullstellen bei $-2$, $\frac12$ und $3$. Für große $|x|$ nähert sich $R$ der Geraden $2x-1$, dem Polynomteil. Rechts $L=(x^2-4)/(x-2)$: Der Graph ist die Gerade $x+2$ ohne den Punkt bei $x=2$.

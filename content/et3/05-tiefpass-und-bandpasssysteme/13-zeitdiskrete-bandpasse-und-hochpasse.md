@@ -1,6 +1,8 @@
 ---
 title: Stufe 12: Zeitdiskrete Bandpässe und Hochpässe
-pfad: Elektrotechnik / 3. Semester / Signale und Systeme / Tiefpass- und Bandpasssysteme
+pfad: Elektrotechnik / 3. Semester / ET3 – Grundgebiete der Elektrotechnik 3: Signale und Systeme / Tiefpass- und Bandpasssysteme
+adresse: elektrotechnik/3-semester/signale-und-systeme/tiefpass-und-bandpasssysteme
+knoten: Kapitel 5: Tiefpass- und Bandpasssysteme
 order: 3251300
 summary: Digitale Bandpässe und Hochpässe gewinnt man aus einem Tiefpass durch Modulation.
 tags: Hochpass
@@ -30,7 +32,7 @@ $$h_{\mathrm{HP}}(n)=(-1)^n\,h_{\mathrm{TP}}(n). \tag{12.2}$$
 :::aufgabe Aufgabe 11 ★ Hochpass aus dem gleitenden Mittelwert
 <span class="anker" id="aufg-11"></span>
 
-Der gleitende Mittelwert $h_{\mathrm{TP}}=\frac13(1,1,1)$ ([Teil 4](/wissen/elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme/abtastung-und-zeitdiskrete-systeme.html)) ist ein einfacher Tiefpass.
+Der gleitende Mittelwert $h_{\mathrm{TP}}=\frac13(1,1,1)$ ([Kapitel 4](/wissen/elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme/abtastung-und-zeitdiskrete-systeme.html)) ist ein einfacher Tiefpass.
 
 <ol class="al">
 

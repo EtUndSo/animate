@@ -1,6 +1,8 @@
 ---
 title: Etapa 8: La ley de las mallas es conservación de la energía
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Corriente, resistencia y leyes de Kirchhoff
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Corriente, resistencia y leyes de Kirchhoff
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff
+knoten: Capítulo 2: Corriente, resistencia y leyes de Kirchhoff
 order: 1120900
 summary: El segundo tipo de ecuación: ¿Qué exige la conservación de la energía a lo largo de un camino cerrado?
 tags: 
@@ -13,10 +15,10 @@ lang: es
 El segundo tipo de ecuación: ¿Qué exige la conservación de la energía a lo largo de un camino cerrado? Con ella se puede resolver la red por completo.
 :::
 
-**La idea.** Cada punto de una red tiene un potencial ([Parte 1](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)). Quien da una vuelta completa llega al mismo punto, es decir, al mismo potencial (fig. [9](#abb-9)). Para una carga, eso significa: la energía que gana en la fuente la cede de nuevo en las resistencias. En la batería, las fuerzas químicas elevan la carga contra el campo hasta el potencial más alto.
+**La idea.** Cada punto de una red tiene un potencial ([capítulo 1](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)). Quien da una vuelta completa llega al mismo punto, es decir, al mismo potencial (fig. [9](#abb-9)). Para una carga, eso significa: la energía que gana en la fuente la cede de nuevo en las resistencias. En la batería, las fuerzas químicas elevan la carga contra el campo hasta el potencial más alto.
 
 :::analogie
-Una excursión circular termina en el punto de partida. Todas las subidas juntas son exactamente tan altas como todas las bajadas, sea cual sea el camino elegido. La analogía termina cuando cambia un campo magnético: entonces un lugar ya no tiene una «altura» fija ([Parte 1](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)).
+Una excursión circular termina en el punto de partida. Todas las subidas juntas son exactamente tan altas como todas las bajadas, sea cual sea el camino elegido. La analogía termina cuando cambia un campo magnético: entonces un lugar ya no tiene una «altura» fija ([capítulo 1](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)).
 :::
 
 :::satz Teorema 8.1 (Ley de las mallas, segunda ley de Kirchhoff)
@@ -30,10 +32,10 @@ $$\sum_{\nu=1}^{N}U_\nu=0,\qquad U_\nu\text{ positiva a favor del recorrido, neg
 Para una red, $z-k+1$ de estas ecuaciones son independientes; todas las demás se cumplen entonces.
 :::
 
-⁠**Cómo leerlo:** $U_\nu$ es la tensión de una rama, con su flecha. El sentido de recorrido es libre; solo cambia el signo global. **Validez:** El flujo magnético a través de la malla no debe cambiar, o el campo deja de ser irrotacional ([Parte 1](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)). En los circuitos, este flujo está casi por completo en las bobinas. La ley también vale para caminos por terminales abiertos, porque un camino no tiene que seguir un hilo.
+⁠**Cómo leerlo:** $U_\nu$ es la tensión de una rama, con su flecha. El sentido de recorrido es libre; solo cambia el signo global. **Validez:** El flujo magnético a través de la malla no debe cambiar, o el campo deja de ser irrotacional ([capítulo 1](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html)). En los circuitos, este flujo está casi por completo en las bobinas. La ley también vale para caminos por terminales abiertos, porque un camino no tiene que seguir un hilo.
 
 :::herleitung La ley de las mallas a partir del potencial
-Según la [Parte 1](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html), $U_{12}=\varphi_1-\varphi_2=\int_{P_1}^{P_2}\vec E\cdot\mathrm{d}\vec s$ no depende del camino, así que $\oint\vec E\cdot\mathrm{d}\vec s=0$. Para puntos $P_1,\dots,P_N$ a lo largo de una malla resulta
+Según el [capítulo 1](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html), $U_{12}=\varphi_1-\varphi_2=\int_{P_1}^{P_2}\vec E\cdot\mathrm{d}\vec s$ no depende del camino, así que $\oint\vec E\cdot\mathrm{d}\vec s=0$. Para puntos $P_1,\dots,P_N$ a lo largo de una malla resulta
 
 $$(\varphi_1-\varphi_2)+(\varphi_2-\varphi_3)+\dots+(\varphi_N-\varphi_1)=0.$$
 

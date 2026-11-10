@@ -1,6 +1,8 @@
 ---
 title: 第 5 阶段：分布函数与概率密度
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / 随机信号
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / 随机信号
+adresse: elektrotechnik/3-semester/signale-und-systeme/zufallssignale
+knoten: 第 7 章：随机信号
 order: 3270600
 summary: 平均值并不能说明一切。信号取各个值的频繁程度如何？这由分布来描述。
 tags: 分布函数, 概率密度函数, 量化器

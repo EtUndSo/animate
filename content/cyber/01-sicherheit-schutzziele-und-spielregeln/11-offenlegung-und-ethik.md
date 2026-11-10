@@ -1,6 +1,8 @@
 ---
 title: Offenlegung und Ethik
 pfad: Informatik / Cybersecurity / Sicherheit, Schutzziele und Spielregeln
+adresse: informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln
+knoten: Kapitel 1: Sicherheit, Schutzziele und Spielregeln
 order: 6111100
 summary: Was tut man, wenn man eine Schwachstelle gefunden hat?
 tags: Domain, Pfad, koordinierten Offenlegung, Koordinator, Full Disclosure, Proof of Concept, Meldeprogramm, Bug-Bounty-Programm

@@ -1,7 +1,9 @@
 ---
 title: Visión general: El transistor bipolar
 kurz: Visión general
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / El transistor bipolar
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / El transistor bipolar
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor
+knoten: Capítulo 10: El transistor bipolar
 order: 1200100
 summary: Cómo una pequeña tensión controla una gran corriente a través de un diodo bloqueado
 tags: transistor bipolar
@@ -21,7 +23,7 @@ Un micrófono entrega milivoltios, un altavoz necesita voltios. Una salida de or
 
 <li>
 
-⁠**Transistor T:** un transistor npn de pequeña señal de silicio con $B=200$, $I_\mathrm{S}=1{,}9\cdot10^{-13}$ A (corriente inversa de saturación, [Parte 9](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)) y $U_T=26$ mV (tensión térmica a 300 K, redondeada desde 25,85 mV). Para calcular a mano se aproxima $U_\mathrm{BE}=0{,}6$ V cuando el transistor conduce y $U_\mathrm{CE,sat}=0{,}2$ V cuando está completamente activado. Valores límite: $U_\mathrm{CE,max}=40$ V, $I_\mathrm{C,max}=100$ mA, $P_\mathrm{max}=400$ mW.
+⁠**Transistor T:** un transistor npn de pequeña señal de silicio con $B=200$, $I_\mathrm{S}=1{,}9\cdot10^{-13}$ A (corriente inversa de saturación, [capítulo 9](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)) y $U_T=26$ mV (tensión térmica a 300 K, redondeada desde 25,85 mV). Para calcular a mano se aproxima $U_\mathrm{BE}=0{,}6$ V cuando el transistor conduce y $U_\mathrm{CE,sat}=0{,}2$ V cuando está completamente activado. Valores límite: $U_\mathrm{CE,max}=40$ V, $I_\mathrm{C,max}=100$ mA, $P_\mathrm{max}=400$ mW.
 
 </li>
 

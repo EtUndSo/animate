@@ -1,6 +1,8 @@
 ---
 title: Stage 1: Quantities, force and work
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / Charge, Field and Potential
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / Charge, Field and Potential
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial
+knoten: Chapter 1: Charge, Field and Potential
 order: 1110300
 summary: Voltage will turn out to be work per charge.
 tags: qualitative, quantitative, Ohm's law, physical quantity, SI system of units, base quantities, current, SI prefixes
@@ -13,7 +15,7 @@ lang: en
 Voltage will turn out to be work per charge. That requires quantities with units, force, work and kinetic energy.
 :::
 
-**The idea.** Someone coming in from the snow calls a room warm; someone coming out of the sauna calls it cool. Such judgments are __qualitative__. A thermometer shows both of them 21 °C; that is __quantitative__: a number on a scale, independent of who is measuring. Physics states its laws in terms of such quantities, for example __Ohm's law__ $U=R\cdot I$ ([Part 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)). The most important mechanical quantity in this chapter is work: a force acting along a path transfers energy, and only its component along the path counts. Lifting a backpack means working against gravity; carrying it horizontally does not (Fig. [2](#abb-2)).
+**The idea.** Someone coming in from the snow calls a room warm; someone coming out of the sauna calls it cool. Such judgments are __qualitative__. A thermometer shows both of them 21 °C; that is __quantitative__: a number on a scale, independent of who is measuring. Physics states its laws in terms of such quantities, for example __Ohm's law__ $U=R\cdot I$ ([Chapter 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)). The most important mechanical quantity in this chapter is work: a force acting along a path transfers energy, and only its component along the path counts. Lifting a backpack means working against gravity; carrying it horizontally does not (Fig. [2](#abb-2)).
 
 :::definition Definition 1.1 (Physical quantity)
 <span class="anker" id="satz-1-1"></span>

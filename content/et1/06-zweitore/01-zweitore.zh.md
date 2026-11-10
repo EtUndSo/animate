@@ -1,7 +1,9 @@
 ---
 title: 概览: 二端口网络
 kurz: 概览
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 二端口网络
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 二端口网络
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore
+knoten: 第 6 章：二端口网络
 order: 1160100
 summary: 为什么四个数就能代替整个网络， 以及每种参数形式都只是另一种选择
 tags: 二端口网络, 端口
@@ -10,7 +12,7 @@ lang: zh
 
 ## 本章内容
 
-在电源和负载之间常常还有另一个网络：一根电缆、一个滤波器、一个衰减器或一个放大器。它有输入侧和输出侧，从外部看，重要的只是它对电压和电流做了什么。具有两对这样的接线端的网络称为__二端口网络__，每对接线端称为一个__端口__。[第 5 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)用两个数（等效电压和内阻）代替了一对接线端上的网络。本章的问题是：**两对接线端需要多少个数，又如何从外部测量它们？**
+在电源和负载之间常常还有另一个网络：一根电缆、一个滤波器、一个衰减器或一个放大器。它有输入侧和输出侧，从外部看，重要的只是它对电压和电流做了什么。具有两对这样的接线端的网络称为__二端口网络__，每对接线端称为一个__端口__。[第 5 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)用两个数（等效电压和内阻）代替了一对接线端上的网络。本章的问题是：**两对接线端需要多少个数，又如何从外部测量它们？**
 
 
 **所有结论背后的同一个原理。** 在四个端口量中选两个作为原因，另外两个就是结果。这种选择不改变二端口网络本身，只改变计算，而每个结论都由它得出。
@@ -35,7 +37,7 @@ lang: zh
 
 <li>
 
-⁠**T 形网络：**一个 T 形网络（[第 5 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)），输入端是串联电阻 $R_\mathrm{a}=15\,\Omega$，通向贯通的下方导线的是并联电阻 $R_\mathrm{b}=20\,\Omega$，输出端是串联电阻 $R_\mathrm{c}=20\,\Omega$。
+⁠**T 形网络：**一个 T 形网络（[第 5 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)），输入端是串联电阻 $R_\mathrm{a}=15\,\Omega$，通向贯通的下方导线的是并联电阻 $R_\mathrm{b}=20\,\Omega$，输出端是串联电阻 $R_\mathrm{c}=20\,\Omega$。
 
 </li>
 

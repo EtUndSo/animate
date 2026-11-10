@@ -1,6 +1,8 @@
 ---
 title: 第 10 阶段：没有系统的卷积
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / LTI 系统与卷积
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / LTI 系统与卷积
+adresse: elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung
+knoten: 第 1 章：LTI 系统与卷积
 order: 3211100
 summary: 为什么对单个冲激的响应 能够描述整个系统
 tags: 

@@ -1,6 +1,8 @@
 ---
 title: Stufe 8: Konvergenz im quadratischen Mittel
-pfad: Elektrotechnik / 3. Semester / Höhere Mathematik 3 / Konvergenz von Funktionenfolgen
+pfad: Elektrotechnik / 3. Semester / HöMa3 – Höhere Mathematik 3 / Konvergenz von Funktionenfolgen
+adresse: elektrotechnik/3-semester/hohere-mathematik-3/konvergenz-von-funktionenfolgen
+knoten: Kapitel 6: Konvergenz von Funktionenfolgen
 order: 3161000
 summary: Diese Stufe misst den Abstand zweier Funktionen durch eine Fläche, in der ein schmaler Bereich kaum zählt, und zeigt, dass dieser Abstand aus einem Skalarprodukt stammt.
 tags: R-integrierbar, Konvergenz im quadratischen Mittel, Skalarprodukt, L^2-Konvergenz, orthogonal, Legendre-Polynome, Lebesgue-Integral, fast überall

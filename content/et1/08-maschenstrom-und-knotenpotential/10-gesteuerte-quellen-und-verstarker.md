@@ -1,8 +1,10 @@
 ---
 title: Stufe 8: Gesteuerte Quellen und Verstärker
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Maschenstrom- und Knotenpotentialverfahren
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Maschenstrom- und Knotenpotentialverfahren
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/maschenstrom-und-knotenpotentialverfahren
+knoten: Kapitel 8: Maschenstrom- und Knotenpotentialverfahren
 order: 1181000
-summary: Verstärker enthalten gesteuerte Quellen (Teil 6).
+summary: Verstärker enthalten gesteuerte Quellen (Kapitel 6).
 tags: spannungsgesteuerte Stromquelle, Steilheit, Spannungsverstärkung, Gegenkopplung, Transimpedanz
 lang: de
 ---
@@ -10,10 +12,10 @@ lang: de
 <span class="anker" id="stufe-8"></span>
 
 :::zweck
-Verstärker enthalten gesteuerte Quellen ([Teil 6](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html)). Diese Stufe gibt ihnen einen Stempel und zeigt, was das für die Matrix bedeutet.
+Verstärker enthalten gesteuerte Quellen ([Kapitel 6](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html)). Diese Stufe gibt ihnen einen Stempel und zeigt, was das für die Matrix bedeutet.
 :::
 
-**Die Idee.** Eine __spannungsgesteuerte Stromquelle__ ([Teil 6](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html)) ist ein verallgemeinerter Leitwert. Bei einem Leitwert steuert die eigene Spannung $U_{ik}$ den Strom von $i$ nach $k$. Bei der Quelle steuert eine fremde Spannung $U_{pq}$. Die Zeilen bleiben, weil der Strom an denselben Knoten ab- und zufließt. Die Spalten wandern von $i$, $k$ nach $p$, $q$, weil sie die steuernden Potenziale zählen. Die Symmetrie geht dabei verloren. Das ist Physik: Der Eingang wirkt auf den Ausgang, aber nicht umgekehrt.
+**Die Idee.** Eine __spannungsgesteuerte Stromquelle__ ([Kapitel 6](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html)) ist ein verallgemeinerter Leitwert. Bei einem Leitwert steuert die eigene Spannung $U_{ik}$ den Strom von $i$ nach $k$. Bei der Quelle steuert eine fremde Spannung $U_{pq}$. Die Zeilen bleiben, weil der Strom an denselben Knoten ab- und zufließt. Die Spalten wandern von $i$, $k$ nach $p$, $q$, weil sie die steuernden Potenziale zählen. Die Symmetrie geht dabei verloren. Das ist Physik: Der Eingang wirkt auf den Ausgang, aber nicht umgekehrt.
 
 :::satz Satz 8.1 (Stempel der spannungsgesteuerten Stromquelle)
 <span class="anker" id="satz-8-1"></span>
@@ -21,7 +23,7 @@ Verstärker enthalten gesteuerte Quellen ([Teil 6](/wissen/elektrotechnik/1-sem
 Eine Quelle mit $I=g\,(U_p-U_q)$ von $i$ nach $k$ addiert $+g$ auf $(i,p)$ und $(k,q)$ und $-g$ auf $(i,q)$ und $(k,p)$.
 :::
 
-⁠**So liest man das:** $g$ ist die __Steilheit__, Strom je Steuerspannung in Siemens, im Modell 50 mS. **Gültigkeit:** Die Quelle soll linear sein. Transistoren sind es nur für kleine Änderungen um einen Arbeitspunkt ([Teil 10](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor/der-bipolartransistor.html)).
+⁠**So liest man das:** $g$ ist die __Steilheit__, Strom je Steuerspannung in Siemens, im Modell 50 mS. **Gültigkeit:** Die Quelle soll linear sein. Transistoren sind es nur für kleine Änderungen um einen Arbeitspunkt ([Kapitel 10](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor/der-bipolartransistor.html)).
 
 ::::beispiel ohne Gegenkopplung
 Eine Stromquelle $I_\mathrm q=20$ µ A mit $G_\mathrm q=0{,}5$ mS speist Knoten 1. Dort liegt $G_\mathrm i=0{,}5$ mS nach Masse. Die Quelle $g\,U_1$ zieht Strom aus Knoten 2 in die Masse, dort hängen auch $G_\mathrm o=0{,}05$ mS und $G_\mathrm L=0{,}2$ mS. Die Stempel ergeben
@@ -34,7 +36,7 @@ $Y_{12}=0$, aber $Y_{21}=g$. Mit $D=(G_\mathrm q+G_\mathrm i)(G_\mathrm o+G_\mat
 <span class="anker" id="gl-8-2"></span>
 $$U_1=\frac{I_\mathrm q}{G_\mathrm q+G_\mathrm i},\qquad U_2=-\frac{g\,I_\mathrm q}{(G_\mathrm q+G_\mathrm i)(G_\mathrm o+G_\mathrm L)},\qquad A_u=\frac{U_2}{U_1}=-\frac{g}{G_\mathrm o+G_\mathrm L}. \tag{8.2}$$
 
-Im Modell sind $D=0{,}25$, $U_1=20$ mV, $U_2=-4$ V und die __Spannungsverstärkung__ $A_u=-200$, wie in [Teil 6](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html). Das Minus entsteht, weil der gesteuerte Strom aus Knoten 2 herausfließt.
+Im Modell sind $D=0{,}25$, $U_1=20$ mV, $U_2=-4$ V und die __Spannungsverstärkung__ $A_u=-200$, wie in [Kapitel 6](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html). Das Minus entsteht, weil der gesteuerte Strom aus Knoten 2 herausfließt.
 ::::
 
 **Mit Gegenkopplung.** Der gemeinsame untere Punkt von Eingang und Ausgang heißt Fußpunkt. Trennt man ihn von der Masse und fügt dort $R_\mathrm S=1\,\mathrm{k\Omega}$ ein, entsteht Knoten 3 (Abb. [8](#abb-8)). Der Ausgangsstrom läuft nun durch $R_\mathrm S$ und hebt $U_3$ an. Dadurch sinkt die Steuerspannung $U_1-U_3$, und der Ausgangsstrom wird kleiner. Diese Rückwirkung des Ausgangs auf den eigenen Eingang heißt __Gegenkopplung__.
@@ -72,7 +74,7 @@ Im Modell mit $G_\mathrm S=1$ mS sind $D=5{,}3225$ und $D_2/I_\mathrm q=-49{,}
 :::
 
 :::frage Warum verringert man die Verstärkung freiwillig?
-Weil sie dann kaum noch von der Steilheit abhängt, und $g$ schwankt bei Transistoren stark. Verdoppelt man im Modell $g$, geht $A_u$ von $-4{,}81$ nur auf $-4{,}90$. Ohne $R_\mathrm S$ würde aus $-200$ dagegen $-400$. Das Ergebnis liegt nahe bei $-R_\mathrm L/R_\mathrm S=-5$, also bei zwei genauen Widerständen. [Teil 11](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker/der-operationsverstaerker.html) nutzt das beim Operationsverstärker.
+Weil sie dann kaum noch von der Steilheit abhängt, und $g$ schwankt bei Transistoren stark. Verdoppelt man im Modell $g$, geht $A_u$ von $-4{,}81$ nur auf $-4{,}90$. Ohne $R_\mathrm S$ würde aus $-200$ dagegen $-400$. Das Ergebnis liegt nahe bei $-R_\mathrm L/R_\mathrm S=-5$, also bei zwei genauen Widerständen. [Kapitel 11](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker/der-operationsverstaerker.html) nutzt das beim Operationsverstärker.
 :::
 
 :::aufgabe Aufgabe 10 ★★★ Der Eingangswiderstand steigt

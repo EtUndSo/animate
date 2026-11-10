@@ -1,6 +1,8 @@
 ---
 title: Stufe 1: Drei Schichten, zwei Spannungen
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Der Bipolartransistor
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Der Bipolartransistor
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor
+knoten: Kapitel 10: Der Bipolartransistor
 order: 1200300
 summary: Eine Diode hat zwei Anschlüsse und eine Kennlinie.
 tags: npn-Transistor, BE-Diode, CB-Diode, pnp-Transistor, Schaltzeichen, Kollektorstrom, Basisstrom, Emitterstrom
@@ -31,11 +33,11 @@ $$I_\mathrm{E}=I_\mathrm{B}+I_\mathrm{C},\qquad U_\mathrm{CE}=U_\mathrm{CB}+U_\m
 ⁠**So liest man das:** $I_\mathrm{C}$ ist der __Kollektorstrom__, je nach Typ von Mikroampere bis Ampere. $I_\mathrm{B}$ ist der viel kleinere __Basisstrom__, $I_\mathrm{E}$ der __Emitterstrom__. $U_\mathrm{BE}$ liegt an der BE-Diode, um 0,6 V. $U_\mathrm{CE}$ reicht von rund 0,2 V bis zu einigen 10 V. $U_\mathrm{CB}$ ist die Sperrspannung der CB-Diode. **Gültigkeit:** Knoten- und Maschenregel gelten in jedem Betriebszustand.
 
 :::herleitung Wie viele Größen frei sind
-Ein Bauteil mit $n$ Anschlüssen hat $n$ Ströme. Es speichert keine Ladung, also nimmt die Knotenregel ([Teil 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)) einen Strom weg. Es hat $n$ Potenziale, aber nur Differenzen zählen, also bleiben $n-1$ Spannungen. Die Diode ($n=2$) hat eine Spannung, einen Strom und eine Kurve. Der Transistor ($n=3$) hat zwei Spannungen und zwei Ströme. Sein Inneres verknüpft sie durch zwei Gleichungen,
+Ein Bauteil mit $n$ Anschlüssen hat $n$ Ströme. Es speichert keine Ladung, also nimmt die Knotenregel ([Kapitel 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)) einen Strom weg. Es hat $n$ Potenziale, aber nur Differenzen zählen, also bleiben $n-1$ Spannungen. Die Diode ($n=2$) hat eine Spannung, einen Strom und eine Kurve. Der Transistor ($n=3$) hat zwei Spannungen und zwei Ströme. Sein Inneres verknüpft sie durch zwei Gleichungen,
 
 $$I_\mathrm{B}=f(U_\mathrm{BE},U_\mathrm{CE}),\qquad I_\mathrm{C}=g(U_\mathrm{BE},U_\mathrm{CE}).$$
 
-Er ist also ein Zweitor ([Teil 6](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html)), dessen beide Tore sich den Emitter teilen.
+Er ist also ein Zweitor ([Kapitel 6](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html)), dessen beide Tore sich den Emitter teilen.
 :::
 
 ::::beispiel

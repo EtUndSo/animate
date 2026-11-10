@@ -1,6 +1,8 @@
 ---
 title: Stufe 7: Stempel und Netzliste
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Maschenstrom- und Knotenpotentialverfahren
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Maschenstrom- und Knotenpotentialverfahren
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/maschenstrom-und-knotenpotentialverfahren
+knoten: Kapitel 8: Maschenstrom- und Knotenpotentialverfahren
 order: 1180900
 summary: Ein Programm sieht keine Maschen und formt nichts um.
 tags: Stempel, Netzliste, dünn besetzt
@@ -41,7 +43,7 @@ Eine feste Stromquelle, die $I_\mathrm q$ durch sich von $k$ nach $i$ schiebt, a
 </ul>
 :::
 
-⁠**So liest man das:** Zuerst bekommt jeder der $k$ Knoten eine Zeile und eine Spalte, auch der Bezugsknoten. Diese volle Matrix hat die Determinante null, weil alle Zeilen die Summe null haben: Hebt man alle Potenziale gemeinsam an, fließt nirgends ein zusätzlicher Strom. Physikalisch bestimmt ein Netz nur Differenzen. Erst das Festlegen von $U_0=0$ macht die Lösung eindeutig: Man streicht die Spalte 0, weil ihre Unbekannte null ist, und die Zeile 0, weil sie aus den übrigen Knotenregeln folgt ([Teil 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)). Übrig bleibt $\mathbf Y$ aus Stufe [5](das-knotenpotentialverfahren.html#stufe-5). **Gültigkeit:** Die Stempel gelten für lineare Bauteile. Spannungsquellen folgen in Stufe [9](die-modifizierte-knotenanalyse.html#stufe-9).
+⁠**So liest man das:** Zuerst bekommt jeder der $k$ Knoten eine Zeile und eine Spalte, auch der Bezugsknoten. Diese volle Matrix hat die Determinante null, weil alle Zeilen die Summe null haben: Hebt man alle Potenziale gemeinsam an, fließt nirgends ein zusätzlicher Strom. Physikalisch bestimmt ein Netz nur Differenzen. Erst das Festlegen von $U_0=0$ macht die Lösung eindeutig: Man streicht die Spalte 0, weil ihre Unbekannte null ist, und die Zeile 0, weil sie aus den übrigen Knotenregeln folgt ([Kapitel 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)). Übrig bleibt $\mathbf Y$ aus Stufe [5](das-knotenpotentialverfahren.html#stufe-5). **Gültigkeit:** Die Stempel gelten für lineare Bauteile. Spannungsquellen folgen in Stufe [9](die-modifizierte-knotenanalyse.html#stufe-9).
 
 **Netzliste.** Ein Schaltplan wird als __Netzliste__ gespeichert: je Bauteil eine Zeile aus Name, Knoten und Wert. Bei SPICE heißt `R3 1 2 2k`: Widerstand zwischen den Knoten 1 und 2. `I2 0 2 4m` heißt: 4 mA durch die Quelle von Knoten 0 nach Knoten 2. Das Programm geht die Liste Zeile für Zeile durch und stempelt. Taucht ein neuer Knotenname auf, wächst die Matrix um eine Zeile und eine Spalte. Ihre Größe muss vorher niemand kennen. Das starre Format stammt aus den 1970er-Jahren, als SPICE in FORTRAN geschrieben war und jede Zeile eine Lochkarte belegte.
 
@@ -70,11 +72,11 @@ Jede Zeile summiert sich zu null. Streicht man Zeile und Spalte 0, bleibt das Sy
 **Große Netze.** Ein Knoten hängt meist nur an zwei bis fünf Nachbarn, deshalb sind fast alle Plätze einer großen Matrix null. Sie heißt __dünn besetzt__. Der Simulator speichert nur die Einträge ungleich null und löst das System durch schrittweises Eliminieren. Die cramersche Regel wäre dafür unbrauchbar: Eine Determinante mit 20 Zeilen hat nach dem Muster von [(0.1)](von-grund-auf-drei-gleichungen-drei-unbekannte.html#gl-0-1) rund $2{,}4\cdot10^{18}$ Produkte.
 
 :::zusatz Wechselstrom, Kondensator, Diode
-Bei sinusförmigen Größen rechnet man mit komplexen Leitwerten, den Admittanzen. Daher kommen die Buchstaben $Y$ und $Z$. Ein Kondensator hat denselben Stempel wie ein Leitwert. Eine Impedanz $Z$ lässt sich nur als $Y=1/Z$ eintragen, solange sie nicht null ist, eine Spule bei Frequenz null sprengt das. Stufe [9](die-modifizierte-knotenanalyse.html#stufe-9) löst dieses Problem. Nichtlineare Bauteile wie Dioden ([Teil 9](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)) ersetzt der Simulator durch die Tangente ihrer Kennlinie, stempelt diese und wiederholt das, bis sich nichts mehr ändert.
+Bei sinusförmigen Größen rechnet man mit komplexen Leitwerten, den Admittanzen. Daher kommen die Buchstaben $Y$ und $Z$. Ein Kondensator hat denselben Stempel wie ein Leitwert. Eine Impedanz $Z$ lässt sich nur als $Y=1/Z$ eintragen, solange sie nicht null ist, eine Spule bei Frequenz null sprengt das. Stufe [9](die-modifizierte-knotenanalyse.html#stufe-9) löst dieses Problem. Nichtlineare Bauteile wie Dioden ([Kapitel 9](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden/halbleiter-und-dioden.html)) ersetzt der Simulator durch die Tangente ihrer Kennlinie, stempelt diese und wiederholt das, bis sich nichts mehr ändert.
 :::
 
 :::frage Warum darf man ausgerechnet die Zeile des Bezugsknotens streichen?
-Jede der $k$ Knotengleichungen folgt aus den anderen ([Teil 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)). Man könnte jede streichen. Die Zeile des Bezugsknotens streicht man, weil zusammen mit seiner Spalte wieder eine symmetrische Matrix entsteht und weil der Strom in die Masse selten interessiert.
+Jede der $k$ Knotengleichungen folgt aus den anderen ([Kapitel 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)). Man könnte jede streichen. Die Zeile des Bezugsknotens streicht man, weil zusammen mit seiner Spalte wieder eine symmetrische Matrix entsteht und weil der Strom in die Masse selten interessiert.
 :::
 
 :::aufgabe Aufgabe 9 ★★ Von der Netzliste zur Lösung

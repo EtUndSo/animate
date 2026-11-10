@@ -3,13 +3,14 @@
 Szenenname prog/k2<name> = \\label{fig:k2<name>} im Heft. Stil wie tools/szenen/prog_teil1.py (Kästen, Pfeile, Code mit s.formel).
 Bauen:  python tools/szenen/prog_teil2.py
 Export: python tools/export_szenen.py prog/k2objekt prog/k2rest prog/k2rbinaer prog/k2rbyte prog/k2rnull prog/k2zahlenstrahl
-            prog/k2bitfelder prog/k2rfloat prog/k2etikett prog/k2zeiger prog/k2rc
+            prog/k2bitfelder prog/k2rfloat prog/k2etikett prog/k2zeiger prog/k2drehen
 Rechenbilder (Summe Schritt für Schritt): k2rbyte mit s.summe; k2rbinaer und k2rfloat mit s.formel, weil die Summanden dort
 Ziffern eines Bitmusters bzw. Felder eines float sind und keine Formel im Laufindex; k2rnull mit s.formel, weil s.summe den
 Summanden 3/131072 nur als Dezimalzahl zeigt und das Heft den Laufindex k benutzt.
 Code mit Dezimalpunkt in s.formel als 4{.}0 schreiben, sonst macht die deutsche Fassung daraus 4,0.
 Die Zahlen prüft C:\\Bücher\\EtUndSo\\Programmieren\\Arbeitshefte\\rechnung_kap2.py.
 """
+import math
 import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
@@ -216,7 +217,7 @@ def k2etikett():
 
 # ------------------------------------------------------------------ Abschnitt 9
 def k2zeiger():
-    """z = 3 + 4j als Zeiger, dazu z* gestrichelt; rechts die Python-Ausdrücke."""
+    """z = 3 + 4j als Pfeil, dazu z* gestrichelt; rechts die Python-Ausdrücke."""
     s = Szene("prog/k2zeiger")
     k, x0 = 0.48, -3.2
 
@@ -248,35 +249,35 @@ def k2zeiger():
     s.speichern()
 
 
-def k2rc():
-    """Zeigerdiagramm der Impedanz des RC-Glieds: R, 1/(jωC), Z mit Betrag und Phase."""
-    s = Szene("prog/k2rc")
-    k, x0, y0 = 1 / 500, -2.2, 1.4                        # 1 Szeneneinheit = 500 Ohm
+def k2drehen():
+    """Minutenzeiger als Pfeil: um 12:00 bei 10j, um 12:20 um -120 Grad gedreht bei 8,66 - 5j; die Länge bleibt 10."""
+    s = Szene("prog/k2drehen")
+    k, x0 = 0.18, -1.2                                    # 1 cm des Zeigers = 0,18 Szeneneinheiten
 
     def p(re, im):
-        return (x0 + re * k, y0 + im * k)
-    s.pfeil(p(-200, 0), p(1700, 0), farbe=GRAU, dicke=2.5, spitze=0.12)
-    s.pfeil(p(0, -2150), p(0, 350), farbe=GRAU, dicke=2.5, spitze=0.12)
-    s.text(None, "Re Z", (p(1700, 0)[0] + 0.08, y0), KLEIN, "left", GRAU)
-    s.text(None, "Im Z", (p(0, 350)[0] + 0.12, p(0, 350)[1]), KLEIN, "left", GRAU)
-    for v in (-500, -1000, -1500):
-        s.linie(None, (x0 - 0.05, p(0, v)[1]), (x0 + 0.05, p(0, v)[1]), farbe=GRAU, dicke=2)
-        s.text(None, "%d Ω" % v, (x0 - 0.12, p(0, v)[1]), KLEIN, "right", GRAU)
-    zr = (1000, -1591.5494309189537)
-    s.pfeil(p(0, 0), p(1000, 0), farbe=BLAU, dicke=5, spitze=0.15)
-    s.pfeil(p(1000, 0), p(*zr), farbe=ORANGE, dicke=5, spitze=0.15)
-    s.pfeil(p(0, 0), p(*zr), farbe=ROT, dicke=5, spitze=0.15)
-    s.formel(r"R=1000\,\Omega", mitte=(p(500, 0)[0], y0 + 0.25), hoehe=0.2, farbe=BLAU)
-    s.formel(r"\frac{1}{\mathrm j\omega C}=-\mathrm j\,1591.5\,\Omega", mitte=(p(1000, -800)[0] + 1.45, p(0, -800)[1]), hoehe=0.42,
-             farbe=ORANGE)
-    s.formel(r"Z", mitte=(p(450, -900)[0] - 0.2, p(0, -900)[1]), hoehe=0.18, farbe=ROT)
-    s.formel(r"|Z|=1879.6\,\Omega", mitte=(p(*zr)[0], p(*zr)[1] - 0.3), hoehe=0.2, farbe=ROT)
-    s.weg(None, "%g + 0.55*cos(t)" % x0, "%g + 0.55*sin(t)" % y0, 0, -1.0098, farbe=SCHWARZ, dicke=3)
-    s.formel(r"\varphi=-57.86^\circ", mitte=(x0 + 1.35, y0 - 0.32), hoehe=0.2)
+        return (x0 + re * k, im * k)
+
+    def pw(w, r):                                         # Punkt bei Winkel w (Grad) und Abstand r
+        return p(r * math.cos(math.radians(w)), r * math.sin(math.radians(w)))
+    s.pfeil(p(-12.5, 0), p(13.5, 0), farbe=GRAU, dicke=2.5, spitze=0.12)
+    s.pfeil(p(0, -12.5), p(0, 13.5), farbe=GRAU, dicke=2.5, spitze=0.12)
+    s.text(None, "Re", (p(13.5, 0)[0] + 0.08, -0.22), KLEIN, "left", GRAU)
+    s.text(None, "Im", (p(0, 13.5)[0] + 0.12, p(0, 13.5)[1]), KLEIN, "left", GRAU)
+    s.kreis(None, x0, 0, 10 * k, farbe=HELLGRAU, dicke=2)
+    for w in range(0, 360, 30):                            # Striche für die zwölf Stunden
+        s.linie(None, pw(w, 9.2), pw(w, 10), farbe=GRAU, dicke=3)
+    s.pfeil(p(0, 0), pw(90, 10), farbe=BLAU, dicke=5, spitze=0.15)
+    s.pfeil(p(0, 0), pw(-30, 10), farbe=ROT, dicke=5, spitze=0.15)
+    s.weg(None, "%g + %g*cos(t)" % (x0, 4 * k), "%g*sin(t)" % (4 * k), math.pi / 2, -math.pi / 6, farbe=ORANGE, dicke=3,
+          pfeile="0.9")
+    s.formel(r"\alpha=-120^\circ", mitte=(-0.37, 0.86), hoehe=0.16, farbe=ORANGE)
+    s.formel(r"|z|=10", mitte=(x0 - 0.45, 1.08), hoehe=0.2, farbe=BLAU)
+    s.formel(r"12{:}00\colon\ z=10\mathrm j", mitte=(-0.2, 2.02), hoehe=0.2, farbe=BLAU)
+    s.formel(r"12{:}20\colon\ 8.66-5\mathrm j", mitte=(1.45, -1.08), hoehe=0.2, farbe=ROT)
     s.speichern()
 
 
-SZENEN = (k2objekt, k2rest, k2rbinaer, k2rbyte, k2rnull, k2zahlenstrahl, k2bitfelder, k2rfloat, k2etikett, k2zeiger, k2rc)
+SZENEN = (k2objekt, k2rest, k2rbinaer, k2rbyte, k2rnull, k2zahlenstrahl, k2bitfelder, k2rfloat, k2etikett, k2zeiger, k2drehen)
 
 for f in SZENEN:
     f()

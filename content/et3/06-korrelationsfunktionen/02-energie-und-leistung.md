@@ -1,6 +1,8 @@
 ---
 title: Stufe 1: Energie und Leistung
-pfad: Elektrotechnik / 3. Semester / Signale und Systeme / Korrelationsfunktionen
+pfad: Elektrotechnik / 3. Semester / ET3 – Grundgebiete der Elektrotechnik 3: Signale und Systeme / Korrelationsfunktionen
+adresse: elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen
+knoten: Kapitel 6: Korrelationsfunktionen
 order: 3260200
 summary: Bevor man Signale vergleicht, braucht man ein Maß für ihre „Größe“.
 tags: Signalenergie, Energiesignal, Leistung, Leistungssignal

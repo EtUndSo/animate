@@ -1,6 +1,8 @@
 ---
 title: 第 9 阶段：通过电阻充电
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 电容器
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 电容器
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator
+knoten: 第 3 章：电容器
 order: 1131000
 summary: 接在电压源上时，充电电流取决于电容器电压，而电容器电压又取决于充电电流。本阶段建立描述这一反馈的方程，并从头求解。
 tags: 短路, 开路, 微分方程
@@ -21,7 +23,7 @@ lang: zh
 左：带参考箭头的 RC 电路，基尔霍夫电压定律 $U_0=u_R+u_C$。位置 1 充电，位置 2 放电。右：两个等效电路：$t=0$ 时空的电容器相当于导线，很长时间后充满的电容器相当于断开的接线端。
 :::
 
-**方程。** 基尔霍夫电压定律（[第 2 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)）为 $U_0=u_R+u_C$。由欧姆定律 $u_R=R\,i$ 和式 [(3.1)](strom-und-spannung-am-kondensator.html#gl-3-1) 中的 $i=C\,\mathrm{d} u_C/\mathrm{d} t$ 得
+**方程。** 基尔霍夫电压定律（[第 2 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)）为 $U_0=u_R+u_C$。由欧姆定律 $u_R=R\,i$ 和式 [(3.1)](strom-und-spannung-am-kondensator.html#gl-3-1) 中的 $i=C\,\mathrm{d} u_C/\mathrm{d} t$ 得
 
 <span class="anker" id="gl-9-1"></span>
 $$U_0=R\,C\,\frac{\mathrm{d} u_C}{\mathrm{d} t}+u_C. \tag{9.1}$$

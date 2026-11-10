@@ -1,6 +1,8 @@
 ---
 title: Etapa 1: Tres capas, dos tensiones
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / El transistor bipolar
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / El transistor bipolar
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-bipolartransistor
+knoten: Capítulo 10: El transistor bipolar
 order: 1200300
 summary: Un diodo tiene dos terminales y una curva característica.
 tags: transistor npn, diodo BE, diodo CB, transistor pnp, símbolo eléctrico, corriente de colector, corriente de base, corriente de emisor
@@ -31,11 +33,11 @@ $$I_\mathrm{E}=I_\mathrm{B}+I_\mathrm{C},\qquad U_\mathrm{CE}=U_\mathrm{CB}+U_\m
 ⁠**Cómo leerlo:** $I_\mathrm{C}$ es la __corriente de colector__, de microamperios a amperios según el tipo. $I_\mathrm{B}$ es la __corriente de base__, mucho menor, e $I_\mathrm{E}$ la __corriente de emisor__. $U_\mathrm{BE}$ cae en el diodo BE, alrededor de 0,6 V. $U_\mathrm{CE}$ va de unos 0,2 V hasta varias decenas de voltios. $U_\mathrm{CB}$ es la tensión inversa del diodo CB. **Validez:** las leyes de los nudos y de las mallas se cumplen en todo estado de funcionamiento.
 
 :::herleitung Cuántas magnitudes son libres
-Un componente con $n$ terminales tiene $n$ corrientes. No almacena carga, así que la ley de los nudos ([Parte 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)) elimina una corriente. Tiene $n$ potenciales, pero solo cuentan las diferencias, así que quedan $n-1$ tensiones. El diodo ($n=2$) tiene una tensión, una corriente y una curva. El transistor ($n=3$) tiene dos tensiones y dos corrientes. Su interior las relaciona mediante dos ecuaciones,
+Un componente con $n$ terminales tiene $n$ corrientes. No almacena carga, así que la ley de los nudos ([capítulo 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)) elimina una corriente. Tiene $n$ potenciales, pero solo cuentan las diferencias, así que quedan $n-1$ tensiones. El diodo ($n=2$) tiene una tensión, una corriente y una curva. El transistor ($n=3$) tiene dos tensiones y dos corrientes. Su interior las relaciona mediante dos ecuaciones,
 
 $$I_\mathrm{B}=f(U_\mathrm{BE},U_\mathrm{CE}),\qquad I_\mathrm{C}=g(U_\mathrm{BE},U_\mathrm{CE}).$$
 
-Es, por tanto, un cuadripolo ([Parte 6](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html)) cuyas dos puertas comparten el emisor.
+Es, por tanto, un cuadripolo ([capítulo 6](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore/zweitore.html)) cuyas dos puertas comparten el emisor.
 :::
 
 ::::beispiel

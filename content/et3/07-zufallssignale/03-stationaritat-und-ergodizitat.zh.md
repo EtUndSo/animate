@@ -1,6 +1,8 @@
 ---
 title: 第 2 阶段：平稳性与各态历经性
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / 随机信号
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / 随机信号
+adresse: elektrotechnik/3-semester/signale-und-systeme/zufallssignale
+knoten: 第 7 章：随机信号
 order: 3270300
 summary: 无限的集合是永远得不到的，通常只有单个信号。什么时候这就足够了？
 tags: 平稳, 各态历经

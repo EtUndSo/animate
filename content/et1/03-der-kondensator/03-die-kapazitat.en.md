@@ -1,6 +1,8 @@
 ---
 title: Stage 2: Capacitance
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / The Capacitor
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / The Capacitor
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator
+knoten: Chapter 3: The Capacitor
 order: 1130300
 summary: How much charge does a given voltage hold on the plates?
 tags: 
@@ -13,7 +15,7 @@ lang: en
 How much charge does a given voltage hold on the plates? The answer is a single number for each component.
 :::
 
-**The idea.** If you double the charge on both plates, each charge contributes its field twice. By the superposition from [Part 1](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html), the field doubles at every location, and its shape stays the same (Fig. [2](#abb-2) left). The voltage is the integral of the field from plate to plate, so it doubles too. $Q$ and $U$ are therefore proportional. Their ratio does not depend on how much charge happens to be there, but only on shape, separation and material.
+**The idea.** If you double the charge on both plates, each charge contributes its field twice. By the superposition from [Chapter 1](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html), the field doubles at every location, and its shape stays the same (Fig. [2](#abb-2) left). The voltage is the integral of the field from plate to plate, so it doubles too. $Q$ and $U$ are therefore proportional. Their ratio does not depend on how much charge happens to be there, but only on shape, separation and material.
 
 :::definition Definition 2.1 (Capacitance)
 <span class="anker" id="satz-2-1"></span>

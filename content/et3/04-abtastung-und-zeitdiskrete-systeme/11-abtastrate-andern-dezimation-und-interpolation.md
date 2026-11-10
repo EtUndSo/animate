@@ -1,6 +1,8 @@
 ---
 title: Stufe 10: Abtastrate ändern, Dezimation und Interpolation
-pfad: Elektrotechnik / 3. Semester / Signale und Systeme / Abtastung und zeitdiskrete Systeme
+pfad: Elektrotechnik / 3. Semester / ET3 – Grundgebiete der Elektrotechnik 3: Signale und Systeme / Abtastung und zeitdiskrete Systeme
+adresse: elektrotechnik/3-semester/signale-und-systeme/abtastung-und-zeitdiskrete-systeme
+knoten: Kapitel 4: Abtastung und zeitdiskrete Systeme
 order: 3241100
 summary: Eine Folge lässt sich nachträglich mit niedrigerer oder höherer Rate darstellen.
 tags: 

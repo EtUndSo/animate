@@ -1,7 +1,8 @@
 ---
 title: Die Likelihood
 pfad: Informatik / Machine Learning / Mathematische Grundlagen / Statistik und Information
-knoten: Grundlagen 5: Statistik und Information
+adresse: informatik/machine-learning/mathematische-grundlagen/statistik-und-information
+knoten: Kapitel 5: Statistik und Information
 nachschlagen: ja
 order: 15250500
 summary: Bisher wurden Schätzer vorgegeben und dann geprüft.
@@ -21,7 +22,7 @@ Bisher wurden Schätzer vorgegeben und dann geprüft. Dieser Abschnitt dreht die
 
 Wahrscheinlichkeiten von Datensätzen sind Produkte vieler Faktoren. Der Logarithmus macht aus Produkten Summen. Dieser Unterabschnitt stellt zusammen, was das Kapitel über ihn benutzt.
 
-**Der natürliche Logarithmus.** Für $x>0$ ist $\ln x$ die Zahl, für die $\mathrm{e}^{\ln x}=x$ ist. Er macht die e-Funktion rückgängig, und nach [Grundlagen 3, Abschnitt 1.4](/wissen/informatik/machine-learning/mathematische-grundlagen/ableitung-gradient-und-kettenregel/die-ableitung.html#stufe-1-4), hat er die Ableitung $1/x$. Weil diese Ableitung für alle $x>0$ positiv ist, ist $\ln$ __streng monoton wachsend__: Aus $a<b$ folgt $\ln a<\ln b$. Es ist $\ln1=0$; für Zahlen zwischen $0$ und $1$ ist der Logarithmus negativ, und für $x\to0$ fällt er unter jede Schranke.
+**Der natürliche Logarithmus.** Für $x>0$ ist $\ln x$ die Zahl, für die $\mathrm{e}^{\ln x}=x$ ist. Er macht die e-Funktion rückgängig, und nach [Kapitel 3, Abschnitt 1.4](/wissen/informatik/machine-learning/mathematische-grundlagen/ableitung-gradient-und-kettenregel/die-ableitung.html#stufe-1-4), hat er die Ableitung $1/x$. Weil diese Ableitung für alle $x>0$ positiv ist, ist $\ln$ __streng monoton wachsend__: Aus $a<b$ folgt $\ln a<\ln b$. Es ist $\ln1=0$; für Zahlen zwischen $0$ und $1$ ist der Logarithmus negativ, und für $x\to0$ fällt er unter jede Schranke.
 
 **Rechenregeln.** Aus $\mathrm{e}^{a+b}=\mathrm{e}^a\,\mathrm{e}^b$ folgen für $a,b>0$ und jede reelle Zahl $k$
 
@@ -64,7 +65,7 @@ $$\mathcal L(\theta)=P(\mathcal D\mid\theta) \tag{4.3}$$
 die __Likelihood__ von $\theta$. Bei stetigen Daten steht an der Stelle von $P(\mathcal D\mid\theta)$ die gemeinsame Dichte der Daten.
 :::
 
-Das englische Wort *likelihood* bedeutet etwa Plausibilität; es wird im Deutschen meist unübersetzt benutzt. Dieselbe Formel $P(\mathcal D\mid\theta)$ hat also zwei Lesarten. Hält man $\theta$ fest und lässt die Daten variieren, ist sie eine Wahrscheinlichkeitsverteilung über die Daten, wie in [Grundlagen 4](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/wahrscheinlichkeit.html). Hält man die Daten fest und lässt $\theta$ variieren, ist sie die Likelihood. Abb. [7](#abb-7) (a) zeigt die Likelihood der zehn Würfe.
+Das englische Wort *likelihood* bedeutet etwa Plausibilität; es wird im Deutschen meist unübersetzt benutzt. Dieselbe Formel $P(\mathcal D\mid\theta)$ hat also zwei Lesarten. Hält man $\theta$ fest und lässt die Daten variieren, ist sie eine Wahrscheinlichkeitsverteilung über die Daten, wie in [Kapitel 4](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/wahrscheinlichkeit.html). Hält man die Daten fest und lässt $\theta$ variieren, ist sie die Likelihood. Abb. [7](#abb-7) (a) zeigt die Likelihood der zehn Würfe.
 
 :::abbildung ml/k5likelihood 7
 (a) Die Likelihood der zehn Würfe mit sieben Köpfen als Funktion von $\theta$. Sie ist bei $\theta=0{,}7$ am größten (rot), mit dem Wert $0{,}00222$; bei $\theta=0{,}5$ (grau) ist sie $0{,}000977$. Für $\theta=0$ und $\theta=1$ ist sie null, denn dann wären Zahl beziehungsweise Kopf unmöglich. (b) Ihr Logarithmus. Er hat sein Maximum an derselben Stelle, mit dem Wert $-6{,}109$.
@@ -120,7 +121,7 @@ Die Likelihood von $\theta=0{,}7$ für die Würfe $\mathcal D=(1,0,1,1,0,1,1,0,1
 :::
 ::::
 
-Bei stetigen Daten sind die Faktoren Dichtewerte, keine Wahrscheinlichkeiten. Das ändert am Vergleich zweier Parameterwerte nichts. Nach [Grundlagen 4, Abschnitt 6.4](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/zufallsvariablen-und-verteilungen.html#stufe-6-4), ist die Wahrscheinlichkeit, dass ein Wert in ein kurzes Intervall der Länge $\Delta$ um $x_i$ fällt, etwa $p(x_i\mid\theta)\,\Delta$. Die Wahrscheinlichkeit, dass alle $N$ Werte in ihre Intervalle fallen, ist dann etwa $\mathcal L(\theta)\,\Delta^N$. Der Faktor $\Delta^N$ hängt nicht von $\theta$ ab und ändert nicht, welcher Parameterwert die Daten wahrscheinlicher macht.
+Bei stetigen Daten sind die Faktoren Dichtewerte, keine Wahrscheinlichkeiten. Das ändert am Vergleich zweier Parameterwerte nichts. Nach [Kapitel 4, Abschnitt 6.4](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/zufallsvariablen-und-verteilungen.html#stufe-6-4), ist die Wahrscheinlichkeit, dass ein Wert in ein kurzes Intervall der Länge $\Delta$ um $x_i$ fällt, etwa $p(x_i\mid\theta)\,\Delta$. Die Wahrscheinlichkeit, dass alle $N$ Werte in ihre Intervalle fallen, ist dann etwa $\mathcal L(\theta)\,\Delta^N$. Der Faktor $\Delta^N$ hängt nicht von $\theta$ ab und ändert nicht, welcher Parameterwert die Daten wahrscheinlicher macht.
 
 ⁠**Kurz gesagt:** Für eine i.i.d. Stichprobe ist die Likelihood das Produkt der Wahrscheinlichkeiten oder Dichten der einzelnen Werte; im Bernoulli-Modell ist sie $\theta^{N_1}(1-\theta)^{N_0}$.
 
@@ -163,7 +164,7 @@ Die Log-Likelihood von $\theta=0{,}7$ für dieselben zehn Würfe als Summe: ein 
 ⁠**Kurz gesagt:** Die Log-Likelihood ist der Logarithmus der Likelihood und für eine Stichprobe eine Summe mit einem Summanden je Datenpunkt.
 
 :::hintergrund Warum man logarithmiert
-Drei Gründe machen die Log-Likelihood zum üblichen Werkzeug. Erstens wird aus dem Produkt eine Summe. Jeder Datenpunkt trägt einen eigenen Summanden bei, und die Ableitung einer Summe ist die Summe der Ableitungen; beim Produkt bräuchte man die Produktregel aus [Grundlagen 3, Abschnitt 1.4](/wissen/informatik/machine-learning/mathematische-grundlagen/ableitung-gradient-und-kettenregel/die-ableitung.html#stufe-1-4), für jeden Faktor. Zweitens bleibt die Stelle des Maximums dieselbe. Weil $\ln$ streng monoton wächst, ist $\mathcal L(\theta_1)<\mathcal L(\theta_2)$ genau dann, wenn $\ell(\theta_1)<\ell(\theta_2)$; die Reihenfolge aller Parameterwerte bleibt erhalten, nur die Werte selbst ändern sich. Drittens bleiben die Zahlen darstellbar. Eine Gleitkommazahl aus [Grundlagen 3, Abschnitt 11.3](/wissen/informatik/machine-learning/mathematische-grundlagen/ableitung-gradient-und-kettenregel/numerische-ableitung-und-gradientenprufung.html#stufe-11-3), ist eine Ziffernfolge mal einer Zweierpotenz, und auch die Hochzahl dieser Zweierpotenz hat nur einen begrenzten Bereich. Die kleinste darstellbare positive Zahl doppelter Genauigkeit ist $2^{-1074}\approx4{,}9\cdot10^{-324}$. Schon $0{,}5^{1075}$ wird deshalb zu null gerundet. Bei $1000$ Datenpunkten mit Wahrscheinlichkeiten um $0{,}3$ hätte die Likelihood die Größenordnung $10^{-523}$, würde also für jeden Parameterwert null, und man könnte keine zwei Werte mehr unterscheiden. Die Log-Likelihood ist dann etwa $-1204$, eine ganz gewöhnliche Zahl.
+Drei Gründe machen die Log-Likelihood zum üblichen Werkzeug. Erstens wird aus dem Produkt eine Summe. Jeder Datenpunkt trägt einen eigenen Summanden bei, und die Ableitung einer Summe ist die Summe der Ableitungen; beim Produkt bräuchte man die Produktregel aus [Kapitel 3, Abschnitt 1.4](/wissen/informatik/machine-learning/mathematische-grundlagen/ableitung-gradient-und-kettenregel/die-ableitung.html#stufe-1-4), für jeden Faktor. Zweitens bleibt die Stelle des Maximums dieselbe. Weil $\ln$ streng monoton wächst, ist $\mathcal L(\theta_1)<\mathcal L(\theta_2)$ genau dann, wenn $\ell(\theta_1)<\ell(\theta_2)$; die Reihenfolge aller Parameterwerte bleibt erhalten, nur die Werte selbst ändern sich. Drittens bleiben die Zahlen darstellbar. Eine Gleitkommazahl aus [Kapitel 3, Abschnitt 11.3](/wissen/informatik/machine-learning/mathematische-grundlagen/ableitung-gradient-und-kettenregel/numerische-ableitung-und-gradientenprufung.html#stufe-11-3), ist eine Ziffernfolge mal einer Zweierpotenz, und auch die Hochzahl dieser Zweierpotenz hat nur einen begrenzten Bereich. Die kleinste darstellbare positive Zahl doppelter Genauigkeit ist $2^{-1074}\approx4{,}9\cdot10^{-324}$. Schon $0{,}5^{1075}$ wird deshalb zu null gerundet. Bei $1000$ Datenpunkten mit Wahrscheinlichkeiten um $0{,}3$ hätte die Likelihood die Größenordnung $10^{-523}$, würde also für jeden Parameterwert null, und man könnte keine zwei Werte mehr unterscheiden. Die Log-Likelihood ist dann etwa $-1204$, eine ganz gewöhnliche Zahl.
 :::
 
 :::aufgabe Aufgabe 11 ★ Rechnen mit Logarithmen
@@ -259,7 +260,7 @@ Halte den Datensatz $\mathcal D=(1,1)$ fest und berechne $\int_0^1\mathcal L(\th
 :::aufgabe Aufgabe 14 ★★ Folge oder Anzahl
 <span class="anker" id="aufg-14"></span>
 
-Statt der ganzen Folge der zehn Würfe sei nur die Anzahl $N_1=7$ der Köpfe überliefert. Ihre Wahrscheinlichkeit ist nach [Grundlagen 4, Abschnitt 8.3](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/wichtige-verteilungen.html#stufe-8-3), $\binom{10}7\theta^7(1-\theta)^3$.
+Statt der ganzen Folge der zehn Würfe sei nur die Anzahl $N_1=7$ der Köpfe überliefert. Ihre Wahrscheinlichkeit ist nach [Kapitel 4, Abschnitt 8.3](/wissen/informatik/machine-learning/mathematische-grundlagen/wahrscheinlichkeit/wichtige-verteilungen.html#stufe-8-3), $\binom{10}7\theta^7(1-\theta)^3$.
 
 <ol class="al">
 

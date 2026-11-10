@@ -1,6 +1,8 @@
 ---
 title: Stufe 7: Die Gauß-Verteilung
-pfad: Elektrotechnik / 3. Semester / Signale und Systeme / Zufallssignale
+pfad: Elektrotechnik / 3. Semester / ET3 – Grundgebiete der Elektrotechnik 3: Signale und Systeme / Zufallssignale
+adresse: elektrotechnik/3-semester/signale-und-systeme/zufallssignale
+knoten: Kapitel 7: Zufallssignale
 order: 3270800
 summary: Warum ist Rauschen so oft gaußverteilt, und wie rechnet man mit der Gauß-Verteilung?
 tags: zentraler Grenzwertsatz, Fehlerfunktion
@@ -13,7 +15,7 @@ lang: de
 Warum ist Rauschen so oft gaußverteilt, und wie rechnet man mit der Gauß-Verteilung?
 :::
 
-Faltet man viele Dichten miteinander, nähert sich das Ergebnis einer Gaußkurve (__zentraler Grenzwertsatz__, [Teil 3](/wissen/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)). Rauschen ist meist die Summe sehr vieler kleiner, unabhängiger Beiträge, etwa der Bewegungen vieler Elektronen. Deshalb ist es gaußverteilt.
+Faltet man viele Dichten miteinander, nähert sich das Ergebnis einer Gaußkurve (__zentraler Grenzwertsatz__, [Kapitel 3](/wissen/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)). Rauschen ist meist die Summe sehr vieler kleiner, unabhängiger Beiträge, etwa der Bewegungen vieler Elektronen. Deshalb ist es gaußverteilt.
 
 :::satz Satz 7.1 (Gauß-Verteilung)
 <span class="anker" id="satz-7-1"></span>

@@ -1,6 +1,8 @@
 ---
 title: Stufe 4: Die Formen der Orbitale
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Atome und Orbitale
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Atome und Orbitale
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/atome-und-orbitale
+knoten: Kapitel 4: Atome und Orbitale
 order: 4140600
 summary: Quantenzahlen sind Etiketten.
 tags: 
@@ -13,7 +15,7 @@ lang: de
 Quantenzahlen sind Etiketten. Diese Stufe zeigt, wie die zugehörigen Wellen im Raum aussehen und warum sie den Zuständen der Box ähneln.
 :::
 
-**Die Idee.** Ein Orbital ist ein Produkt: $R$ sagt, wie weit draußen die Welle liegt, $Y$, in welchen Richtungen. Ein s-Orbital hat keine Knotenfläche und ist kugelrund. Ein p-Orbital hat eine Knotenebene durch den Kern und damit zwei Keulen mit entgegengesetztem Vorzeichen. Ein d-Orbital hat zwei Knotenflächen und meist vier Keulen. Jedes Muster entsteht wie in der Box durch Interferenz der Welle mit sich selbst. Deshalb ähneln sich die Bilder: Der Boxzustand $\psi_{1,1,1}$ aus [Teil 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html) ist ein Bauch wie 1s. $\psi_{2,1,1}$ hat eine Knotenebene wie $2\mathrm p_x$, und $\psi_{2,1,2}$ hat zwei wie $\mathrm d_{xz}$. Die Wellenphysik ist dieselbe, nur das Potential ist ein anderes.
+**Die Idee.** Ein Orbital ist ein Produkt: $R$ sagt, wie weit draußen die Welle liegt, $Y$, in welchen Richtungen. Ein s-Orbital hat keine Knotenfläche und ist kugelrund. Ein p-Orbital hat eine Knotenebene durch den Kern und damit zwei Keulen mit entgegengesetztem Vorzeichen. Ein d-Orbital hat zwei Knotenflächen und meist vier Keulen. Jedes Muster entsteht wie in der Box durch Interferenz der Welle mit sich selbst. Deshalb ähneln sich die Bilder: Der Boxzustand $\psi_{1,1,1}$ aus [Kapitel 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html) ist ein Bauch wie 1s. $\psi_{2,1,1}$ hat eine Knotenebene wie $2\mathrm p_x$, und $\psi_{2,1,2}$ hat zwei wie $\mathrm d_{xz}$. Die Wellenphysik ist dieselbe, nur das Potential ist ein anderes.
 
 :::definition Definition 4.1 (Atomorbital)
 <span class="anker" id="satz-4-1"></span>
@@ -34,7 +36,7 @@ Ein Atomorbital ist ein gebundener Zustand im Zentralpotential des Atoms, also e
 Winkelanteil der s-, p- und d-Orbitale im Schnitt durch den Kern. Der Abstand der Linie vom Ursprung ist der Betrag von $Y$ in dieser Richtung. Blau: positives Vorzeichen, rot: negatives. Zwischen den Keulen liegen die Knotenflächen.
 :::
 
-**Warum $x$ und $y$ statt $m_\ell=\pm1$.** Zu $m_\ell=\pm1$ gehören die komplexen Faktoren $\mathrm{e}^{\pm\mathrm{j}\varphi}$. Beide Zustände haben dieselbe Energie, also ist auch jede Summe davon eine Lösung (Entartung, [Teil 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html)). Summe und Differenz liefern $\cos\varphi$ und $\sin\varphi$, also reelle Keulen entlang $x$ und $y$. Diese haben dafür kein festes $L_z$ mehr. Dasselbe gilt für alle d- und f-Orbitale mit $m_\ell\ne0$.
+**Warum $x$ und $y$ statt $m_\ell=\pm1$.** Zu $m_\ell=\pm1$ gehören die komplexen Faktoren $\mathrm{e}^{\pm\mathrm{j}\varphi}$. Beide Zustände haben dieselbe Energie, also ist auch jede Summe davon eine Lösung (Entartung, [Kapitel 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html)). Summe und Differenz liefern $\cos\varphi$ und $\sin\varphi$, also reelle Keulen entlang $x$ und $y$. Diese haben dafür kein festes $L_z$ mehr. Dasselbe gilt für alle d- und f-Orbitale mit $m_\ell\ne0$.
 
 **Was $Y$ bedeutet.** Dem Winkelanteil allein kommt keine physikalische Bedeutung zu. Erst das Produkt $\psi=RY$ beschreibt das Elektron, und erst $|\psi|^2$ ist die Aufenthaltsdichte. Die wesentliche Aussage steckt aber schon in $Y$: In bestimmten Richtungen ist die Aufenthaltswahrscheinlichkeit groß, auf den Knotenflächen geht sie gegen null.
 
@@ -47,7 +49,7 @@ $$\psi_{2\mathrm s}\propto\Bigl(1-\frac{r}{2r_1}\Bigr)\mathrm{e}^{-r/(2r_1)},\qq
 2s hat eine Knotenkugel bei $r=2r_1=0{,}106$ nm. $2\mathrm p_z$ hat die Knotenebene $z=0$ und seine größte Amplitude auf der $z$-Achse bei $|z|=2r_1$. Beide klingen außen doppelt so langsam ab wie 1s.
 ::::
 
-⁠**Grenzfälle:** Am Kern ist nur ein s-Orbital ungleich null, denn für $\ell\ge1$ geht $R$ wie $r^\ell$ gegen null. Weit außen klingt jedes Orbital wie im verbotenen Gebiet aus [Teil 3](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/stufe-barriere-und-tunneleffekt/stufe-barriere-und-tunneleffekt.html) mit $\mathrm{e}^{-\kappa r}$ ab, mit $\kappa=\sqrt{2m_0|E_n|}/\hbar=1/(n\,r_1)$.
+⁠**Grenzfälle:** Am Kern ist nur ein s-Orbital ungleich null, denn für $\ell\ge1$ geht $R$ wie $r^\ell$ gegen null. Weit außen klingt jedes Orbital wie im verbotenen Gebiet aus [Kapitel 3](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/stufe-barriere-und-tunneleffekt/stufe-barriere-und-tunneleffekt.html) mit $\mathrm{e}^{-\kappa r}$ ab, mit $\kappa=\sqrt{2m_0|E_n|}/\hbar=1/(n\,r_1)$.
 
 :::frage Ein p-Orbital hat eine Knotenebene. Wie kommt das Elektron von einer Keule in die andere, wenn es diese Ebene nie betritt?
 Die Frage setzt eine Bahn voraus, und die gibt es nicht. Der Zustand ist eine stehende Welle, die zugleich in beiden Keulen existiert. Nichts wandert durch die Knotenebene, das Elektron wechselt nicht hinüber.
@@ -98,7 +100,7 @@ Setze $\psi$ in die Gleichung aus der Herleitung von Stufe [2](das-wasserstoffa
 
 <li>
 
-Prüfe die Abklingkonstante $\kappa=\sqrt{2m_0|E_2|}/\hbar$ aus [Teil 3](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/stufe-barriere-und-tunneleffekt/stufe-barriere-und-tunneleffekt.html) gegen den Exponenten von $\psi$.
+Prüfe die Abklingkonstante $\kappa=\sqrt{2m_0|E_2|}/\hbar$ aus [Kapitel 3](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/stufe-barriere-und-tunneleffekt/stufe-barriere-und-tunneleffekt.html) gegen den Exponenten von $\psi$.
 
 </li>
 

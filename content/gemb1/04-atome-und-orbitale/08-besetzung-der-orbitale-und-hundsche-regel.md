@@ -1,6 +1,8 @@
 ---
 title: Stufe 6: Besetzung der Orbitale und Hundsche Regel
-pfad: Elektrotechnik / 4. Semester / Elektronische Materialien und Bauelemente 1 / Atome und Orbitale
+pfad: Elektrotechnik / 4. Semester / GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1 / Atome und Orbitale
+adresse: elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/atome-und-orbitale
+knoten: Kapitel 4: Atome und Orbitale
 order: 4140800
 summary: Jedes Orbital fasst zwei Elektronen.
 tags: Abschirmung, effektive Kernladungszahl, Aufbauprinzip

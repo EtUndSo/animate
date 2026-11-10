@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="519" height="435" viewBox="568.3138 131.0455 943.6364 790.9091">
-<rect x="568.3138" y="131.0455" width="943.6364" height="790.9091" fill="#ffffff"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="528" height="435" viewBox="552.201 131.0455 960 790.9091">
+<rect x="552.201" y="131.0455" width="960" height="790.9091" fill="#ffffff"/>
 <path d="M703.5 303.75C820.5 303.75 937.5 303.75 1054.5 303.75" fill="none" stroke="#7f7f7f" stroke-width="2" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M753.64 303.75C753.64 295.66 753.64 287.58 753.64 279.49" fill="none" stroke="#2a78d6" stroke-width="4" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M763.09 279.49C763.09 274.27 758.86 270.04 753.64 270.04C748.42 270.04 744.19 274.27 744.19 279.49C744.19 284.71 748.42 288.94 753.64 288.94C758.86 288.94 763.09 284.71 763.09 279.49" fill="#2a78d6"/>
@@ -59,6 +59,6 @@
 <text x="879" y="168.75" font-size="24" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#111111" text-anchor="middle" dominant-baseline="central">x alternates</text>
 <text x="1311" y="168.75" font-size="24" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#111111" text-anchor="middle" dominant-baseline="central">x' rises steadily</text>
 <text x="683.25" y="303.75" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#111111" text-anchor="end" dominant-baseline="central">pattern w</text>
-<text x="683.25" y="492.75" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#111111" text-anchor="end" dominant-baseline="central">signal</text>
+<text x="683.25" y="492.75" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#111111" text-anchor="end" dominant-baseline="central">time series</text>
 <text x="683.25" y="681.75" font-size="22" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#111111" text-anchor="end" dominant-baseline="central">products</text>
 </svg>

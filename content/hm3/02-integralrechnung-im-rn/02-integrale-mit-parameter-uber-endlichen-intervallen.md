@@ -1,6 +1,8 @@
 ---
 title: Integrale mit Parameter über endlichen Intervallen
-pfad: Elektrotechnik / 3. Semester / Höhere Mathematik 3 / Integralrechnung im Rⁿ
+pfad: Elektrotechnik / 3. Semester / HöMa3 – Höhere Mathematik 3 / Integralrechnung im Rⁿ
+adresse: elektrotechnik/3-semester/hohere-mathematik-3/integralrechnung-im-rn
+knoten: Kapitel 2: Integralrechnung im Rⁿ
 order: 3120200
 summary: Hängt der Integrand außer von der Integrationsvariablen noch von einer weiteren Größe ab, dann hängt auch der Wert des Integrals von ihr ab.
 tags: Riemann-Summe, bestimmte Integral, Integrand, Integrationsvariable, Zwischenstelle, Randpunkt, Rand, abgeschlossen
@@ -43,7 +45,7 @@ $u(t)=t^2$ auf $[0,1]$ mit $N=4$ Stücken der Länge $\Delta t=\frac14$. Mit den
 
 <span class="anker" id="stufe-1-2"></span>
 
-Ableiten und Integrieren heben sich gegenseitig auf. Das sagt der Hauptsatz der Differential- und Integralrechnung, der schon in [Teil 1](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/differentialrechnung-fur-vektorfelder/differentialrechnung-fuer-vektorfelder.html) kurz vorkam. In diesem Kapitel wird er in beiden Richtungen gebraucht.
+Ableiten und Integrieren heben sich gegenseitig auf. Das sagt der Hauptsatz der Differential- und Integralrechnung, der schon in [Kapitel 1](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/differentialrechnung-fur-vektorfelder/differentialrechnung-fuer-vektorfelder.html) kurz vorkam. In diesem Kapitel wird er in beiden Richtungen gebraucht.
 
 :::satz Satz 1.1 (Hauptsatz der Differential- und Integralrechnung)
 <span class="anker" id="satz-1-1"></span>
@@ -67,7 +69,7 @@ Ist $u$ stetig differenzierbar auf $[a,b]$, dann gilt $\int_a^bu'(t)\,\mathrm{d}
 </ol>
 :::
 
-⁠**So liest man das:** (i) Schiebt man die obere Grenze um ein kleines $h$ weiter, kommt ein Streifen der Breite $h$ und der Höhe ungefähr $u(s)$ hinzu. Die Fläche wächst also mit der Rate $u(s)$. Steht die Variable in der *unteren* Grenze, dreht sich das Vorzeichen um: $\frac{\mathrm{d}}{\mathrm{d} s}\int_s^bu(t)\,\mathrm{d} t=-u(s)$, denn $\int_s^b=-\int_b^s$. (ii) Eine Funktion mit der Ableitung $u$ heißt Stammfunktion von $u$ ([Teil 1](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/differentialrechnung-fur-vektorfelder/differentialrechnung-fuer-vektorfelder.html)). Man integriert also, indem man eine Stammfunktion an den Grenzen auswertet.
+⁠**So liest man das:** (i) Schiebt man die obere Grenze um ein kleines $h$ weiter, kommt ein Streifen der Breite $h$ und der Höhe ungefähr $u(s)$ hinzu. Die Fläche wächst also mit der Rate $u(s)$. Steht die Variable in der *unteren* Grenze, dreht sich das Vorzeichen um: $\frac{\mathrm{d}}{\mathrm{d} s}\int_s^bu(t)\,\mathrm{d} t=-u(s)$, denn $\int_s^b=-\int_b^s$. (ii) Eine Funktion mit der Ableitung $u$ heißt Stammfunktion von $u$ ([Kapitel 1](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/differentialrechnung-fur-vektorfelder/differentialrechnung-fuer-vektorfelder.html)). Man integriert also, indem man eine Stammfunktion an den Grenzen auswertet.
 
 ::::beispiel
 $\int_0^st^2\,\mathrm{d} t=\frac{s^3}3$, und die Ableitung nach $s$ ist $s^2$, der Integrand an der oberen Grenze. Mit (ii): $\int_1^2 2t\,\mathrm{d} t=2^2-1^2=3$.
@@ -103,7 +105,7 @@ $u(t)=t^2$, $s=0$, $h=1$. Die mittlere Steigung ist $(1-0)/1=1$. Wegen $u'(\tau)
 
 <span class="anker" id="stufe-1-4"></span>
 
-[Teil 1](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/differentialrechnung-fur-vektorfelder/differentialrechnung-fuer-vektorfelder.html) hat offene Mengen eingeführt: Um jeden ihrer Punkte passt eine kleine Kugel, die ganz in der Menge liegt. Für Integrale braucht man das Gegenstück, Mengen, die ihren Rand enthalten und nicht ins Unendliche reichen.
+[Kapitel 1](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/differentialrechnung-fur-vektorfelder/differentialrechnung-fuer-vektorfelder.html) hat offene Mengen eingeführt: Um jeden ihrer Punkte passt eine kleine Kugel, die ganz in der Menge liegt. Für Integrale braucht man das Gegenstück, Mengen, die ihren Rand enthalten und nicht ins Unendliche reichen.
 
 **Rand.** Sei $M\subset\mathbb{R}^n$ eine Menge. Ein Punkt $\boldsymbol{x}_0\in\mathbb{R}^n$ heißt __Randpunkt__ von $M$, wenn jede Kugel um $\boldsymbol{x}_0$, wie klein sie auch ist, sowohl Punkte von $M$ als auch Punkte außerhalb von $M$ enthält. Ein Randpunkt muss nicht selbst zu $M$ gehören. Die Menge aller Randpunkte heißt der __Rand__ von $M$.
 
@@ -123,7 +125,7 @@ Das Intervall $[a,b]$ ist kompakt: Sein Rand besteht aus den Punkten $a$ und $b$
 
 <span class="anker" id="stufe-1-5"></span>
 
-[Teil 1](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/differentialrechnung-fur-vektorfelder/differentialrechnung-fuer-vektorfelder.html) hat Stetigkeit mit Folgen beschrieben: $f$ ist stetig in $\boldsymbol{x}_0$, wenn $f(\boldsymbol{x}_\nu)\to f(\boldsymbol{x}_0)$ für jede Folge $\boldsymbol{x}_\nu\to\boldsymbol{x}_0$ gilt. Für die Beweise dieses Kapitels ist eine gleichwertige Form bequemer, die mit Abständen arbeitet.
+[Kapitel 1](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/differentialrechnung-fur-vektorfelder/differentialrechnung-fuer-vektorfelder.html) hat Stetigkeit mit Folgen beschrieben: $f$ ist stetig in $\boldsymbol{x}_0$, wenn $f(\boldsymbol{x}_\nu)\to f(\boldsymbol{x}_0)$ für jede Folge $\boldsymbol{x}_\nu\to\boldsymbol{x}_0$ gilt. Für die Beweise dieses Kapitels ist eine gleichwertige Form bequemer, die mit Abständen arbeitet.
 
 Man stellt sich ein Fenster um den Punkt $\boldsymbol{x}_0$ vor. Wer verlangt, dass sich der Funktionswert um weniger als einen vorgegebenen kleinen Betrag $\varepsilon$ ändert, dem kann man ein Fenster der Breite $\delta$ nennen, in dem das gilt.
 
@@ -142,7 +144,7 @@ $f(x)=x^2$ im Punkt $x_0=1$. Für $|x-1|<1$ ist $|x+1|<3$, also $|x^2-1|=|x-1|\,
 ::::
 
 :::hintergrund Warum die beiden Beschreibungen der Stetigkeit dasselbe sagen
-Gilt die Bedingung mit $\varepsilon$ und $\delta$, und geht eine Folge $\boldsymbol{x}_\nu$ gegen $\boldsymbol{x}_0$, dann ist von einem Index an $|\boldsymbol{x}_\nu-\boldsymbol{x}_0|<\delta$ und damit $|f(\boldsymbol{x}_\nu)-f(\boldsymbol{x}_0)|<\varepsilon$. Weil $\varepsilon$ beliebig war, folgt $f(\boldsymbol{x}_\nu)\to f(\boldsymbol{x}_0)$. Umgekehrt: Gäbe es ein $\varepsilon>0$, zu dem kein $\delta$ passt, dann fände man zu jedem $\delta=1/\nu$ einen Punkt $\boldsymbol{x}_\nu$ mit $|\boldsymbol{x}_\nu-\boldsymbol{x}_0|<1/\nu$, aber $|f(\boldsymbol{x}_\nu)-f(\boldsymbol{x}_0)|\ge\varepsilon$. Diese Folge geht gegen $\boldsymbol{x}_0$, ihre Funktionswerte aber nicht gegen $f(\boldsymbol{x}_0)$. Das widerspricht der Stetigkeit im Sinn von [Teil 1](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/differentialrechnung-fur-vektorfelder/differentialrechnung-fuer-vektorfelder.html).
+Gilt die Bedingung mit $\varepsilon$ und $\delta$, und geht eine Folge $\boldsymbol{x}_\nu$ gegen $\boldsymbol{x}_0$, dann ist von einem Index an $|\boldsymbol{x}_\nu-\boldsymbol{x}_0|<\delta$ und damit $|f(\boldsymbol{x}_\nu)-f(\boldsymbol{x}_0)|<\varepsilon$. Weil $\varepsilon$ beliebig war, folgt $f(\boldsymbol{x}_\nu)\to f(\boldsymbol{x}_0)$. Umgekehrt: Gäbe es ein $\varepsilon>0$, zu dem kein $\delta$ passt, dann fände man zu jedem $\delta=1/\nu$ einen Punkt $\boldsymbol{x}_\nu$ mit $|\boldsymbol{x}_\nu-\boldsymbol{x}_0|<1/\nu$, aber $|f(\boldsymbol{x}_\nu)-f(\boldsymbol{x}_0)|\ge\varepsilon$. Diese Folge geht gegen $\boldsymbol{x}_0$, ihre Funktionswerte aber nicht gegen $f(\boldsymbol{x}_0)$. Das widerspricht der Stetigkeit im Sinn von [Kapitel 1](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/differentialrechnung-fur-vektorfelder/differentialrechnung-fuer-vektorfelder.html).
 :::
 
 ⁠**Kurz gesagt:** Stetig heißt: Zu jeder erlaubten Abweichung $\varepsilon$ des Werts gibt es einen erlaubten Abstand $\delta$ vom Punkt.
@@ -300,7 +302,7 @@ stetig, dann ist $F(\boldsymbol{x})=\int_a^bf(\boldsymbol{x},t)\,\mathrm{d} t$ s
 $$\frac{\partial F}{\partial x_k}(\boldsymbol{x})=\int_a^b\frac{\partial f}{\partial x_k}(\boldsymbol{x},t)\,\mathrm{d} t . \tag{1.3}$$
 :::
 
-⁠**So liest man das:** Links wird zuerst integriert und dann nach $x_k$ abgeleitet, rechts zuerst abgeleitet und dann integriert. Die partielle Ableitung $\partial f/\partial x_k$ ist die aus [Teil 1](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/differentialrechnung-fur-vektorfelder/differentialrechnung-fuer-vektorfelder.html): Alle anderen Variablen, auch $t$, werden festgehalten. Beide Operationen sind Grenzwerte, die Formel vertauscht also zwei Grenzwerte. Voraussetzung ist, dass $f$ und alle $\partial f/\partial x_k$ als Funktionen von $(\boldsymbol{x},t)$ *zusammen* stetig sind.
+⁠**So liest man das:** Links wird zuerst integriert und dann nach $x_k$ abgeleitet, rechts zuerst abgeleitet und dann integriert. Die partielle Ableitung $\partial f/\partial x_k$ ist die aus [Kapitel 1](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/differentialrechnung-fur-vektorfelder/differentialrechnung-fuer-vektorfelder.html): Alle anderen Variablen, auch $t$, werden festgehalten. Beide Operationen sind Grenzwerte, die Formel vertauscht also zwei Grenzwerte. Voraussetzung ist, dass $f$ und alle $\partial f/\partial x_k$ als Funktionen von $(\boldsymbol{x},t)$ *zusammen* stetig sind.
 
 :::beweis Ableitung und Integral vertauschen
 Die Stetigkeit von $F$ ist Satz [1.7](#satz-1-7). Es bleibt die Ableitung.
@@ -323,7 +325,7 @@ $$\Bigl|\frac{\partial f}{\partial x_k}(\boldsymbol{x}+s\,\hat{\boldsymbol{e}}_k
 
 $$\Bigl|\frac{F(\boldsymbol{x}+h\,\hat{\boldsymbol{e}}_k)-F(\boldsymbol{x})}h-\int_a^b\frac{\partial f}{\partial x_k}(\boldsymbol{x},t)\,\mathrm{d} t\Bigr|\le\int_a^b\varepsilon\,\mathrm{d} t=\varepsilon\,(b-a).$$
 
-Weil $\varepsilon$ beliebig war, geht der Differenzenquotient für $h\to0$ gegen das Integral in [(1.3)](#gl-1-3). Also existiert $\partial F/\partial x_k$. Nach Satz [1.7](#satz-1-7), angewendet auf die stetige Funktion $\partial f/\partial x_k$, ist diese partielle Ableitung stetig. Stetige partielle Ableitungen machen $F$ nach [Teil 1](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/differentialrechnung-fur-vektorfelder/differentialrechnung-fuer-vektorfelder.html) stetig differenzierbar.
+Weil $\varepsilon$ beliebig war, geht der Differenzenquotient für $h\to0$ gegen das Integral in [(1.3)](#gl-1-3). Also existiert $\partial F/\partial x_k$. Nach Satz [1.7](#satz-1-7), angewendet auf die stetige Funktion $\partial f/\partial x_k$, ist diese partielle Ableitung stetig. Stetige partielle Ableitungen machen $F$ nach [Kapitel 1](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/differentialrechnung-fur-vektorfelder/differentialrechnung-fuer-vektorfelder.html) stetig differenzierbar.
 :::
 
 ::::beispiel
@@ -402,7 +404,7 @@ Sind nur $f$, $\alpha$ und $\beta$ stetig, dann ist $F$ immerhin stetig. Für di
 ⁠**So liest man das:** Der erste Term ist die Änderung der Kurve bei festen Grenzen, also Satz [1.9](#satz-1-9). Der zweite ist die Höhe am rechten Rand mal die Geschwindigkeit, mit der dieser Rand wandert. Der dritte ist dasselbe am linken Rand, mit Minus, weil ein nach rechts wandernder linker Rand Fläche abschneidet.
 
 :::herleitung Kettenregel und Hauptsatz
-Setze $J(p,q,y):=\int_p^qf(x,y)\,\mathrm{d} x$ für $p,q$ nahe bei $\alpha(y)$ und $\beta(y)$. Dann ist $F(y)=J\bigl(\alpha(y),\beta(y),y\bigr)$, eine Verkettung im Sinn von [Teil 1](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/differentialrechnung-fur-vektorfelder/differentialrechnung-fuer-vektorfelder.html). Die partiellen Ableitungen von $J$ sind:
+Setze $J(p,q,y):=\int_p^qf(x,y)\,\mathrm{d} x$ für $p,q$ nahe bei $\alpha(y)$ und $\beta(y)$. Dann ist $F(y)=J\bigl(\alpha(y),\beta(y),y\bigr)$, eine Verkettung im Sinn von [Kapitel 1](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/differentialrechnung-fur-vektorfelder/differentialrechnung-fuer-vektorfelder.html). Die partiellen Ableitungen von $J$ sind:
 
 <ul>
 
@@ -426,7 +428,7 @@ $\partial J/\partial y=\int_p^q\frac{\partial f}{\partial y}(x,y)\,\mathrm{d} x$
 
 </ul>
 
-Alle drei sind stetige Funktionen von $(p,q,y)$. Nach [Teil 1](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/differentialrechnung-fur-vektorfelder/differentialrechnung-fuer-vektorfelder.html) ist $J$ dann differenzierbar, und die Kettenregel aus [Teil 1](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/differentialrechnung-fur-vektorfelder/differentialrechnung-fuer-vektorfelder.html) gibt
+Alle drei sind stetige Funktionen von $(p,q,y)$. Nach [Kapitel 1](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/differentialrechnung-fur-vektorfelder/differentialrechnung-fuer-vektorfelder.html) ist $J$ dann differenzierbar, und die Kettenregel aus [Kapitel 1](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/differentialrechnung-fur-vektorfelder/differentialrechnung-fuer-vektorfelder.html) gibt
 
 $$F'(y)=\frac{\partial J}{\partial p}\,\alpha'(y)+\frac{\partial J}{\partial q}\,\beta'(y)+\frac{\partial J}{\partial y}.$$
 
@@ -564,7 +566,7 @@ Dann ist $v'(t)=1-\mathrm{e}^{-t}$ und $v'+v=t=u(t)$, und $v(0)=0$.
 :::aufgabe Aufgabe 5 ★★★ Ein Skalarpotential durch Integrieren
 <span class="anker" id="aufg-5"></span>
 
-Sei $\boldsymbol{F}=(F_1,F_2)$ ein stetig differenzierbares Vektorfeld auf $\mathbb{R}^2$ mit $\frac{\partial F_1}{\partial y}=\frac{\partial F_2}{\partial x}$, also $\operatorname{rot}\boldsymbol{F}=0$ im Sinn von [Teil 1](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/differentialrechnung-fur-vektorfelder/differentialrechnung-fuer-vektorfelder.html). Setze
+Sei $\boldsymbol{F}=(F_1,F_2)$ ein stetig differenzierbares Vektorfeld auf $\mathbb{R}^2$ mit $\frac{\partial F_1}{\partial y}=\frac{\partial F_2}{\partial x}$, also $\operatorname{rot}\boldsymbol{F}=0$ im Sinn von [Kapitel 1](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/differentialrechnung-fur-vektorfelder/differentialrechnung-fuer-vektorfelder.html). Setze
 
 $$\varphi(x,y)=\int_0^xF_1(s,0)\,\mathrm{d} s+\int_0^yF_2(x,s)\,\mathrm{d} s .$$
 
@@ -597,7 +599,7 @@ Berechne $\varphi$ für $\boldsymbol{F}=(2xy+1,\;x^2+3y^2)$ und prüfe $\nabla\v
 
 $$\frac\partial{\partial x}\int_0^yF_2(x,s)\,\mathrm{d} s=\int_0^y\frac{\partial F_2}{\partial x}(x,s)\,\mathrm{d} s=\int_0^y\frac{\partial F_1}{\partial s}(x,s)\,\mathrm{d} s=F_1(x,y)-F_1(x,0).$$
 
-Für $y<0$ gilt dasselbe, denn $\int_0^y=-\int_y^0$. Zusammen ist $\frac{\partial\varphi}{\partial x}=F_1(x,0)+F_1(x,y)-F_1(x,0)=F_1(x,y)$. Damit ist $\nabla\varphi=\boldsymbol{F}$: Auf der ganzen Ebene genügt $\operatorname{rot}\boldsymbol{F}=0$ für ein Skalarpotential. Die Formel integriert erst längs der $x$-Achse und dann senkrecht nach oben; dazu muss dieser Weg ganz im Gebiet liegen. Beim Feld aus [Teil 1](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/differentialrechnung-fur-vektorfelder/differentialrechnung-fuer-vektorfelder.html) auf $\mathbb{R}^2\setminus\{0\}$ ist das nicht für alle Punkte der Fall.
+Für $y<0$ gilt dasselbe, denn $\int_0^y=-\int_y^0$. Zusammen ist $\frac{\partial\varphi}{\partial x}=F_1(x,0)+F_1(x,y)-F_1(x,0)=F_1(x,y)$. Damit ist $\nabla\varphi=\boldsymbol{F}$: Auf der ganzen Ebene genügt $\operatorname{rot}\boldsymbol{F}=0$ für ein Skalarpotential. Die Formel integriert erst längs der $x$-Achse und dann senkrecht nach oben; dazu muss dieser Weg ganz im Gebiet liegen. Beim Feld aus [Kapitel 1](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/differentialrechnung-fur-vektorfelder/differentialrechnung-fuer-vektorfelder.html) auf $\mathbb{R}^2\setminus\{0\}$ ist das nicht für alle Punkte der Fall.
 
 (c) Die Voraussetzung gilt: $\partial F_1/\partial y=2x=\partial F_2/\partial x$. Es ist $F_1(s,0)=1$ und $F_2(x,s)=x^2+3s^2$, also
 

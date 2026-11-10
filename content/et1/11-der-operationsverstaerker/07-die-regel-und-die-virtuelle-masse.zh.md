@@ -1,6 +1,8 @@
 ---
 title: 第 5 阶段：规则与虚地
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 运算放大器
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 运算放大器
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-operationsverstarker
+knoten: 第 11 章：运算放大器
 order: 1210700
 summary: 第 4 阶段用 A 进行计算。但偏差极小。本阶段由此得出一条适用于所有负反馈电路的规则，并把它用于最重要的情况：输入接在负端。
 tags: 反相放大器

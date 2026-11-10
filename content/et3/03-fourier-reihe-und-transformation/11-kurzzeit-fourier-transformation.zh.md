@@ -1,6 +1,8 @@
 ---
 title: 第 10 阶段：短时傅里叶变换
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / 傅里叶级数与变换
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / 傅里叶级数与变换
+adresse: elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation
+knoten: 第 3 章：傅里叶级数与变换
 order: 3231100
 summary: 频谱 S(f) 描述的是信号在全部时间上的情况。然而，语音或音乐的频率在不断变化。短时傅里叶变换（STFT）要回答的问题是：信号 在时刻 t 附近 包含哪些频率？
 tags: 汉宁窗, 语谱图（时频图）

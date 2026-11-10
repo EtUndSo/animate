@@ -1,6 +1,8 @@
 ---
 title: Stage 5: Distribution function and probability density
-pfad: Electrical Engineering / 3rd Semester / Signals and Systems / Random Signals
+pfad: Electrical Engineering / 3rd Semester / ET3 – Fundamentals of Electrical Engineering 3: Signals and Systems / Random Signals
+adresse: elektrotechnik/3-semester/signale-und-systeme/zufallssignale
+knoten: Chapter 7: Random Signals
 order: 3270600
 summary: Averages do not tell everything.
 tags: cumulative distribution function, probability density function, quantizer

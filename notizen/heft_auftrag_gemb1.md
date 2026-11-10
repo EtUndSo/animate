@@ -15,7 +15,7 @@ Zwei Quellen, zwei Aufgaben:
 - Im Heft steht nirgends ein Bezug zu Skript, Folien, Vorlesung, Übung, Uni, Klausur, Dozent oder Personen der Quelle, auch keine Seiten-, Bild- oder Gleichungsnummer. Fehler der Quelle korrigierst du still und nennst sie im Bericht.
 
 ## Dateien in C:\Bücher\GEMB\Arbeitshefte (Präambeln liegen dort)
-- Kap<N>_<Name>.tex (Hauptdatei, Aufbau wie C:\Bücher\HöMa3\Arbeitshefte\Kap5_Integralsaetze.tex; Titelblock mit \LARGE und \large, Untertitel als Frage oder Kernaussage; „Arbeitsheft Elektronische Materialien und Bauelemente 1, Teil N“)
+- Kap<N>_<Name>.tex (Hauptdatei, Aufbau wie C:\Bücher\HöMa3\Arbeitshefte\Kap5_Integralsaetze.tex; Titelblock mit \LARGE und \large, Untertitel als Frage oder Kernaussage; „Arbeitsheft GEMB1 – Grundlagen elektronischer Materialien und Bauelemente 1, Kapitel~N“ (seit 09.11.2026; Verweise „Kapitel~N, Abschnitt~M“, siehe notizen/kapitel_umstellung.md); Ergänzungshefte (ab Kapitel 19) tragen den \LARGE-Titel „<Titel> (Ergänzung)“, im Baum „Kapitel N: <Titel> (Ergänzung)“, nicht „Ergänzung: <Titel>“ (Entscheidung 09.11.2026))
 - kap<N>_stufen.tex, kap<N>_loesungen.tex
 - rechnung_kap<N>.py: rechnet jede Zahl des Hefts nach. Keine Zahl ohne Rechnung. Erste Zeilen: `import sys; sys.stdout.reconfigure(encoding="utf-8")`.
 Der Name Kap<N>_<Name> steht im Einzelauftrag und muss exakt stimmen.

@@ -1,7 +1,8 @@
 ---
 title: Approximation by matrices of low rank
 pfad: Computer Science / Machine Learning / Mathematical Foundations / Projection, Eigenvalues and Decompositions
-knoten: Foundations 2: Projection, Eigenvalues and Decompositions
+adresse: informatik/machine-learning/mathematische-grundlagen/projektion-eigenwerte-und-zerlegungen
+knoten: Chapter 2: Projection, Eigenvalues and Decompositions
 nachschlagen: ja
 order: 15221100
 summary: The singular value decomposition orders the building blocks of a matrix by their size.
@@ -19,7 +20,7 @@ The singular value decomposition orders the building blocks of a matrix by their
 
 <span class="anker" id="stufe-10-1"></span>
 
-To say how close two matrices are to each other, you need a measure of size for their difference. The spectral norm is one such measure; it measures the largest lengthening. A second one is even more obvious: you read the matrix out row by row into one long vector, like an image in [Foundations 1, Section 6.1](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/matrizen-und-die-datenmatrix.html#stufe-6-1), and take the Euclidean norm of that vector.
+To say how close two matrices are to each other, you need a measure of size for their difference. The spectral norm is one such measure; it measures the largest lengthening. A second one is even more obvious: you read the matrix out row by row into one long vector, like an image in [Chapter 1, Section 6.1](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/matrizen-und-die-datenmatrix.html#stufe-6-1), and take the Euclidean norm of that vector.
 
 :::definition Definition 10.1 (Frobenius norm)
 <span class="anker" id="satz-10-1"></span>
@@ -114,7 +115,7 @@ So among all matrices of rank at most $k$, the matrix $\mathbf{A}_k$ is closest 
 :::
 
 :::beweis Spectral norm
-By the rank–nullity theorem, the null space of $\mathbf{B}$ has dimension $n-\operatorname{rank}\mathbf{B}\ge n-k$. Choose $n-k$ linearly independent vectors $\mathbf{b}_1,\dots,\mathbf{b}_{n-k}$ in the null space and add $\mathbf{v}_1,\dots,\mathbf{v}_{k+1}$. These are $n+1$ vectors in $\mathbb{R}^n$, and by [Foundations 1, Section 13.4](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-4), they are linearly dependent, because a matrix with $n$ rows has rank at most $n$. So there are numbers, not all zero, with $\sum_l\alpha_l\mathbf{b}_l=\sum_j\beta_j\mathbf{v}_j$. This vector $\mathbf{z}$ is not zero, because otherwise, by the independence of both lists, all numbers would be zero. It lies in the null space of $\mathbf{B}$ and in the span of $\mathbf{v}_1,\dots,\mathbf{v}_{k+1}$. Normalize it to length $1$. Then $(\mathbf{A}-\mathbf{B})\mathbf{z}=\mathbf{A}\mathbf{z}$, and with $\mathbf{z}=\sum_{j\le k+1}c_j\mathbf{v}_j$, $\sum_jc_j^2=1$:
+By the rank–nullity theorem, the null space of $\mathbf{B}$ has dimension $n-\operatorname{rank}\mathbf{B}\ge n-k$. Choose $n-k$ linearly independent vectors $\mathbf{b}_1,\dots,\mathbf{b}_{n-k}$ in the null space and add $\mathbf{v}_1,\dots,\mathbf{v}_{k+1}$. These are $n+1$ vectors in $\mathbb{R}^n$, and by [Chapter 1, Section 13.4](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/unabhangigkeit-basis-und-rang.html#stufe-13-4), they are linearly dependent, because a matrix with $n$ rows has rank at most $n$. So there are numbers, not all zero, with $\sum_l\alpha_l\mathbf{b}_l=\sum_j\beta_j\mathbf{v}_j$. This vector $\mathbf{z}$ is not zero, because otherwise, by the independence of both lists, all numbers would be zero. It lies in the null space of $\mathbf{B}$ and in the span of $\mathbf{v}_1,\dots,\mathbf{v}_{k+1}$. Normalize it to length $1$. Then $(\mathbf{A}-\mathbf{B})\mathbf{z}=\mathbf{A}\mathbf{z}$, and with $\mathbf{z}=\sum_{j\le k+1}c_j\mathbf{v}_j$, $\sum_jc_j^2=1$:
 
 $$\lVert(\mathbf{A}-\mathbf{B})\mathbf{z}\rVert^2=\lVert\mathbf{A}\mathbf{z}\rVert^2=\sum_{j=1}^{k+1}d_j^2c_j^2\ge d_{k+1}^2\sum_{j=1}^{k+1}c_j^2=d_{k+1}^2 .$$
 
@@ -152,7 +153,7 @@ $$\frac{d_1^2+\dots+d_k^2}{d_1^2+\dots+d_r^2}$$
 indicates which part of the sum of all squared brightness values is preserved.
 
 ::::beispiel [Worked example]
-The cross from [Foundations 1, Section 6.1](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/matrizen-und-die-datenmatrix.html#stufe-6-1), is
+The cross from [Chapter 1, Section 6.1](/wissen/en/informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen/matrizen-und-die-datenmatrix.html#stufe-6-1), is
 
 $$\mathbf{C}=\begin{pmatrix}0&1&0\\1&1&1\\0&1&0\end{pmatrix}.$$
 

@@ -1,6 +1,8 @@
 ---
 title: Stufe 6: Das Vollständigkeitsaxiom
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Mengen, Logik und reelle Zahlen
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Mengen, Logik und reelle Zahlen
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen
+knoten: Kapitel 1: Mengen, Logik und reelle Zahlen
 order: 1210800
 summary: mathbb Q erfüllt alle bisherigen Axiome.
 tags: nach oben beschränkt, obere Schranke, nach unten beschränkt, untere Schranke, beschränkt, Supremum, Infimum, Maximum
@@ -85,7 +87,7 @@ Ein total angeordneter Körper $\mathbb K$ heißt __vollständig__, wenn jede na
 Es gibt im Wesentlichen genau einen total angeordneten, vollständigen Körper, der $\mathbb{Q}$ enthält. Das ist der __Körper der reellen Zahlen__ $\mathbb{R}$, seine Ordnung stimmt auf $\mathbb{Q}$ mit der gewohnten überein.
 :::
 
-⁠**So liest man das:** Der Beweis führt zu weit, hier reicht die Bedeutung: Die drei Axiomgruppen legen $\mathbb{R}$ bis auf Umbenennen eindeutig fest, deshalb darf man von *den* reellen Zahlen sprechen. Das ersetzt die vorläufige Definition. Der Körper $\{0,1\}$ erfüllt nur die Körperaxiome, $\mathbb{Q}$ auch die Anordnung, erst $\mathbb{R}$ alle drei Gruppen. Gleichwertig zu (V) ist die Forderung, dass jede Cauchy-Folge konvergiert ([Teil 4](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/folgen-und-grenzwerte/folgen-und-grenzwerte.html)).
+⁠**So liest man das:** Der Beweis führt zu weit, hier reicht die Bedeutung: Die drei Axiomgruppen legen $\mathbb{R}$ bis auf Umbenennen eindeutig fest, deshalb darf man von *den* reellen Zahlen sprechen. Das ersetzt die vorläufige Definition. Der Körper $\{0,1\}$ erfüllt nur die Körperaxiome, $\mathbb{Q}$ auch die Anordnung, erst $\mathbb{R}$ alle drei Gruppen. Gleichwertig zu (V) ist die Forderung, dass jede Cauchy-Folge konvergiert ([Kapitel 4](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/folgen-und-grenzwerte/folgen-und-grenzwerte.html)).
 
 :::satz Satz 6.5 (Folgerungen aus der Vollständigkeit)
 <span class="anker" id="satz-6-5"></span>

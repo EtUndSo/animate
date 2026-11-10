@@ -9,7 +9,7 @@ Ziel: Ein Arbeitsheft als LaTeX-Quelle, aus dem automatisch ein Website-Artikel 
 - Im Heft steht nirgends ein Bezug zu Skript, Vorlesung, Übung, Uni, Praktikum, Klausur oder einer Seiten-, Bild- oder Gleichungsnummer der Quelle. Fehler der Quelle korrigierst du still und nennst sie im Bericht.
 
 ## Dateien in C:\Bücher\ET1\Arbeitshefte (Präambeln liegen dort)
-- Kap<N>_<Name>.tex (Hauptdatei, Aufbau wie Kap1_Faltung.tex; Titelblock mit \LARGE und \large, Untertitel als Frage oder Kernaussage; „Arbeitsheft Grundlagen der Elektrotechnik, Teil N“)
+- Kap<N>_<Name>.tex (Hauptdatei, Aufbau wie Kap1_Faltung.tex; Titelblock mit \LARGE und \large, Untertitel als Frage oder Kernaussage; „Arbeitsheft ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse, Kapitel~N“ (seit 09.11.2026; Verweise „Kapitel~N, Abschnitt~M“, siehe notizen/kapitel_umstellung.md))
 - kap<N>_stufen.tex, kap<N>_loesungen.tex
 - rechnung_kap<N>.py: rechnet jede Zahl des Hefts nach. Keine Zahl ohne Rechnung.
 Der Name Kap<N>_<Name> steht im Einzelauftrag und muss exakt stimmen.

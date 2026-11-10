@@ -1,6 +1,8 @@
 ---
 title: 第 3 阶段：什么是 LTI 系统
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / LTI 系统与卷积
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / LTI 系统与卷积
+adresse: elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung
+knoten: 第 1 章：LTI 系统与卷积
 order: 3210400
 summary: RC 电路具有两个性质，其余一切都建立在这两个性质之上：它是线性的，并且是时不变的。本阶段给出这两个性质的定义，并说明它们使什么成为可能。
 tags: 系统, 变换, 线性, 时不变, LTI 系统

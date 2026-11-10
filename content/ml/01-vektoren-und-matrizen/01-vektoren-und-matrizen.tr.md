@@ -1,8 +1,9 @@
 ---
-title: Genel Bakış: Temeller 1 – Vektörler ve Matrisler
+title: Genel Bakış: Vektörler ve Matrisler
 kurz: Genel Bakış
 pfad: Bilgisayar Bilimleri / Makine Öğrenmesi / Matematiksel Temeller / Vektörler ve Matrisler
-knoten: Temeller 1: Vektörler ve Matrisler
+adresse: informatik/machine-learning/mathematische-grundlagen/vektoren-und-matrizen
+knoten: Bölüm 1: Vektörler ve Matrisler
 nachschlagen: ja
 order: 15210100
 summary: Sayı listeleri olarak veriler, doğrusal dönüşümler olarak modeller

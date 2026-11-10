@@ -1,6 +1,8 @@
 ---
 title: 第 7 阶段：为什么是 50 %，以及该以什么为目标
-pfad: 电气工程 / 第 1 学期 / 电气工程基础 / 功率、匹配与效率
+pfad: 电气工程 / 第 1 学期 / ET1 – 电气工程基础 1：电路分析导论 / 功率、匹配与效率
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/leistung-anpassung-und-wirkungsgrad
+knoten: 第 7 章：功率、匹配与效率
 order: 1170800
 summary: 功率最大时浪费了一半。本阶段说明为什么这是不可避免的，以及什么时候仍然需要这样做。
 tags: 
@@ -48,7 +50,7 @@ $$\eta=1-x,\qquad\frac{P_\mathrm{L}}{P_\mathrm{SC}}=x\,\eta=x(1-x). \tag{7.1}$$
 
 ⁠**通信工程。**功率在 µ W 量级。接收机只能取用天线提供的功率。重要的是功率的绝对值，而不是比例，电源中的热量也无妨。一根 10 mV、50 $\Omega$ 的天线向 50 $\Omega$ 恰好输出 0.5 µ W，向 5 $\Omega$ 或 500 $\Omega$ 只输出 0.165 µ W。
 
-**等效电源：最大值不变，50 % 不再成立。** 电源往往是一个网络。图 [9](#abb-9) 所示是一个内阻为 $R_\mathrm{q}$ 的电源，并联了 $R$。对接线端 A、B 而言，它是一个等效电源（[第 5 部分](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)），$R_\mathrm{i}=R_\mathrm{q}\parallel R$，$U_\mathrm{OC}=U_\mathrm{q}R/(R_\mathrm{q}+R)$。对负载来说，只有接线端上的直线起作用，所以最大值位于 $R_\mathrm{L}=R_\mathrm{i}$，此时
+**等效电源：最大值不变，50 % 不再成立。** 电源往往是一个网络。图 [9](#abb-9) 所示是一个内阻为 $R_\mathrm{q}$ 的电源，并联了 $R$。对接线端 A、B 而言，它是一个等效电源（[第 5 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)），$R_\mathrm{i}=R_\mathrm{q}\parallel R$，$U_\mathrm{OC}=U_\mathrm{q}R/(R_\mathrm{q}+R)$。对负载来说，只有接线端上的直线起作用，所以最大值位于 $R_\mathrm{L}=R_\mathrm{i}$，此时
 
 <span class="anker" id="gl-7-2"></span>
 $$U_\mathrm{L}=U_\mathrm{q}\,\frac{R}{2(R_\mathrm{q}+R)},\qquad P_\mathrm{L}=\frac{U_\mathrm{L}^2}{R_\mathrm{L}}=\frac{U_\mathrm{q}^2\,R}{4\,R_\mathrm{q}(R_\mathrm{q}+R)}. \tag{7.2}$$

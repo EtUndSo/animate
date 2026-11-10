@@ -1,6 +1,8 @@
 ---
 title: Stufe 4: Zufallsvariablen und Verteilungsfunktion
-pfad: Elektrotechnik / 3. Semester / Höhere Mathematik 3 / Wahrscheinlichkeitsrechnung
+pfad: Elektrotechnik / 3. Semester / HöMa3 – Höhere Mathematik 3 / Wahrscheinlichkeitsrechnung
+adresse: elektrotechnik/3-semester/hohere-mathematik-3/wahrscheinlichkeitsrechnung
+knoten: Kapitel 8: Wahrscheinlichkeitsrechnung
 order: 3180500
 summary: Meist interessiert nicht der Ausgang selbst, sondern eine Zahl, die aus ihm folgt: eine Summe, eine Anzahl, eine Ausfallzeit.
 tags: Zufallsvariable, Messbarkeit, Verteilungsfunktion

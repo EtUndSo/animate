@@ -1,7 +1,9 @@
 ---
 title: 概览: 相关函数
 kurz: 概览
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / 相关函数
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / 相关函数
+adresse: elektrotechnik/3-semester/signale-und-systeme/korrelationsfunktionen
+knoten: 第 6 章：相关函数
 order: 3260100
 summary: 两个信号有多相似？ 能量又如何分布在各个频率上？
 tags: 

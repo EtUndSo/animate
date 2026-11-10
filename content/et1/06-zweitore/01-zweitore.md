@@ -1,7 +1,9 @@
 ---
 title: Überblick: Zweitore
 kurz: Überblick
-pfad: Elektrotechnik / 1. Semester / Grundlagen der Elektrotechnik / Zweitore
+pfad: Elektrotechnik / 1. Semester / ET1 – Grundgebiete der Elektrotechnik 1: Einführung in die Schaltungsanalyse / Zweitore
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/zweitore
+knoten: Kapitel 6: Zweitore
 order: 1160100
 summary: Warum vier Zahlen ein ganzes Netzwerk ersetzen und jede Parameterform nur eine andere Wahl ist
 tags: Zweitor, Tor
@@ -10,7 +12,7 @@ lang: de
 
 ## Worum es geht
 
-Zwischen Quelle und Last sitzt oft ein weiteres Netzwerk: ein Kabel, ein Filter, ein Dämpfungsglied oder ein Verstärker. Es hat eine Eingangsseite und eine Ausgangsseite, und von außen zählt nur, was es mit Spannung und Strom macht. Ein Netzwerk mit zwei solchen Anschlusspaaren heißt __Zweitor__, jedes Anschlusspaar ist ein __Tor__. [Teil 5](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html) hat ein Netzwerk an einem Klemmenpaar durch zwei Zahlen ersetzt, Ersatzspannung und Innenwiderstand. Die Frage dieses Kapitels lautet: *Wie viele Zahlen braucht man bei zwei Klemmenpaaren, und wie misst man sie von außen?*
+Zwischen Quelle und Last sitzt oft ein weiteres Netzwerk: ein Kabel, ein Filter, ein Dämpfungsglied oder ein Verstärker. Es hat eine Eingangsseite und eine Ausgangsseite, und von außen zählt nur, was es mit Spannung und Strom macht. Ein Netzwerk mit zwei solchen Anschlusspaaren heißt __Zweitor__, jedes Anschlusspaar ist ein __Tor__. [Kapitel 5](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html) hat ein Netzwerk an einem Klemmenpaar durch zwei Zahlen ersetzt, Ersatzspannung und Innenwiderstand. Die Frage dieses Kapitels lautet: *Wie viele Zahlen braucht man bei zwei Klemmenpaaren, und wie misst man sie von außen?*
 
 
 
@@ -21,7 +23,7 @@ Zwischen Quelle und Last sitzt oft ein weiteres Netzwerk: ein Kabel, ein Filter,
 
 <li>
 
-⁠**T-Zweitor:** eine T-Schaltung ([Teil 5](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)) mit dem Längswiderstand $R_\mathrm{a}=15\,\Omega$ am Eingang, dem Querwiderstand $R_\mathrm{b}=20\,\Omega$ zur durchgehenden unteren Leitung und dem Längswiderstand $R_\mathrm{c}=20\,\Omega$ am Ausgang.
+⁠**T-Zweitor:** eine T-Schaltung ([Kapitel 5](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html)) mit dem Längswiderstand $R_\mathrm{a}=15\,\Omega$ am Eingang, dem Querwiderstand $R_\mathrm{b}=20\,\Omega$ zur durchgehenden unteren Leitung und dem Längswiderstand $R_\mathrm{c}=20\,\Omega$ am Ausgang.
 
 </li>
 

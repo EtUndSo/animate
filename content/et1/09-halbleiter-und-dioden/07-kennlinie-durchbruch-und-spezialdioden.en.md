@@ -1,6 +1,8 @@
 ---
 title: Stage 5: Characteristic curve, breakdown and special diodes
-pfad: Electrical Engineering / 1st Semester / Fundamentals of Electrical Engineering / Semiconductors and Diodes
+pfad: Electrical Engineering / 1st Semester / ET1 – Fundamentals of Electrical Engineering 1: Introduction to Circuit Analysis / Semiconductors and Diodes
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/halbleiter-und-dioden
+knoten: Chapter 9: Semiconductors and Diodes
 order: 1190700
 summary: The equation is in place.
 tags: anode, cathode, avalanche effect, Zener effect, breakdown, junction capacitance, photons, internal photoelectric effect
@@ -23,7 +25,7 @@ Structure, circuit symbol with reference arrows, and characteristic curve of the
 
 **Zener diode.** It is built for operation in breakdown and has a precisely defined voltage $U_\mathrm Z$ (Fig. [7](#abb-7) left). In the forward direction it behaves like a pn diode. Beyond $U_\mathrm Z$ the characteristic curve is almost vertical, and its small resistance is $r_\mathrm Z=\Delta U/\Delta I$. A series resistor absorbs fluctuations of the source: the voltage across the component barely changes, the current changes. With $r_\mathrm Z=10\,\Omega$, a current change of 18 mA causes only 0.18 V.
 
-**Varactor diode.** The carrier-free region is an insulating layer between two conducting regions, so it is a capacitor ([Part 3](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html)) with the area $A$ and the spacing $w$. The __junction capacitance__ falls with the reverse voltage $U_\mathrm R=-U$ because the region grows:
+**Varactor diode.** The carrier-free region is an insulating layer between two conducting regions, so it is a capacitor ([Chapter 3](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/der-kondensator/der-kondensator.html)) with the area $A$ and the spacing $w$. The __junction capacitance__ falls with the reverse voltage $U_\mathrm R=-U$ because the region grows:
 
 <span class="anker" id="gl-5-1"></span>
 $$C_\mathrm{j}=\frac{\varepsilon A}{w}=\frac{C_0}{\sqrt{1+U_\mathrm R/U_\mathrm{D0}}}. \tag{5.1}$$

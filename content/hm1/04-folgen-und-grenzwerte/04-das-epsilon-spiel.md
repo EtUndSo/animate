@@ -1,6 +1,8 @@
 ---
 title: Stufe 2: Das Epsilon-Spiel
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Folgen und Grenzwerte
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Folgen und Grenzwerte
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/folgen-und-grenzwerte
+knoten: Kapitel 4: Folgen und Grenzwerte
 order: 1240400
 summary: „Die Glieder kommen der Null immer näher“ taugt nicht als Definition, denn die Glieder von 1/n kommen auch der Zahl -1 immer näher.
 tags: Nullfolge, Epsilon-Schlauch, Limes
@@ -72,7 +74,7 @@ $$\frac2{\sqrt n}<\varepsilon\iff\frac4n<\varepsilon^2\iff n>\frac4{\varepsilon^
 
 Quadrieren ist hier umkehrbar, weil beide Seiten positiv sind. Mit $N_0:=\lfloor4/\varepsilon^2\rfloor+1$ ist $2/\sqrt n$ also eine Nullfolge, für $\varepsilon=0{,}5$ etwa ist $n>16$ verlangt. Sie dient in Stufe [3](nullfolgen-vergleichen.html#stufe-3) als Vergleich.
 
-**Was keine Nullfolge ist.** Verneint man [(2.1)](#gl-2-1) nach den Regeln aus [Teil 1](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html) ($\forall$ wird $\exists$, $\exists$ wird $\forall$, die letzte Aussage kehrt sich um), ergibt sich
+**Was keine Nullfolge ist.** Verneint man [(2.1)](#gl-2-1) nach den Regeln aus [Kapitel 1](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html) ($\forall$ wird $\exists$, $\exists$ wird $\forall$, die letzte Aussage kehrt sich um), ergibt sich
 
 <span class="anker" id="gl-2-3"></span>
 $$\{a_n\}\text{ ist keine Nullfolge}\quad\iff\quad\exists\,\varepsilon_0>0\ \ \forall\,N\in\mathbb{N}\ \ \exists\,n_0>N:\ \ |a_{n_0}|\ge\varepsilon_0. \tag{2.3}$$

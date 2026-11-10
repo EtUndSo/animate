@@ -32,9 +32,9 @@
 <path d="M643.36 329.27C661.36 329.27 679.36 329.27 697.36 329.27" fill="none" stroke="#2a78d6" stroke-width="4" stroke-linejoin="round" stroke-linecap="butt"/>
 <text x="713.56" y="329.27" font-size="24" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#111111" text-anchor="start" dominant-baseline="central">f(x) = x³</text>
 <path d="M643.36 375.17C661.36 375.17 679.36 375.17 697.36 375.17" fill="none" stroke="#c82828" stroke-width="4" stroke-linejoin="round" stroke-linecap="butt"/>
-<text x="713.56" y="375.17" font-size="24" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#111111" text-anchor="start" dominant-baseline="central">secant h = 1: slope 19</text>
+<text x="713.56" y="375.17" font-size="24" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#111111" text-anchor="start" dominant-baseline="central">sécante h = 1 : pente 19</text>
 <path d="M643.36 421.07C661.36 421.07 679.36 421.07 697.36 421.07" fill="none" stroke="#eb6834" stroke-width="4" stroke-linejoin="round" stroke-linecap="butt"/>
-<text x="713.56" y="421.07" font-size="24" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#111111" text-anchor="start" dominant-baseline="central">secant h = 0,5: slope 15,25</text>
+<text x="713.56" y="421.07" font-size="24" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#111111" text-anchor="start" dominant-baseline="central">sécante h = 0,5 : pente 15,25</text>
 <path d="M643.36 466.97C661.36 466.97 679.36 466.97 697.36 466.97" fill="none" stroke="#111111" stroke-width="4" stroke-dasharray="10 7" stroke-linejoin="round" stroke-linecap="butt"/>
-<text x="713.56" y="466.97" font-size="24" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#111111" text-anchor="start" dominant-baseline="central">tangent: slope 12</text>
+<text x="713.56" y="466.97" font-size="24" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#111111" text-anchor="start" dominant-baseline="central">tangente : pente 12</text>
 </svg>

@@ -1,7 +1,8 @@
 ---
 title: Numerische Ableitung und Gradientenprüfung
 pfad: Informatik / Machine Learning / Mathematische Grundlagen / Ableitung, Gradient und Kettenregel
-knoten: Grundlagen 3: Ableitung, Gradient und Kettenregel
+adresse: informatik/machine-learning/mathematische-grundlagen/ableitung-gradient-und-kettenregel
+knoten: Kapitel 3: Ableitung, Gradient und Kettenregel
 nachschlagen: ja
 order: 15231200
 summary: Ableitungen kann man auch ohne Formel schätzen: Man wertet die Funktion an zwei nahen Stellen aus und bildet den Differenzenquotienten.
@@ -138,7 +139,7 @@ für die Vorwärts- bzw. die zentrale Differenz. Am kleinsten wird $E_+$ bei $h_
 Im Zähler stehen zwei Funktionswerte, jeder mit einem Rundungsfehler bis $\tfrac12\varepsilon_{\mathrm M}|f|$, zusammen bis $\varepsilon_{\mathrm M}|f|$. Bei der Vorwärtsdifferenz wird das durch $h$ geteilt, bei der zentralen durch $2h$. Dazu kommen die Abschneidefehler [(11.2)](#gl-11-2) und [(11.4)](#gl-11-4). Eine Funktion der Form $a\,h+b/h$ mit $a,b>0$ hat die Ableitung $a-b/h^2$, die bei $h=\sqrt{b/a}$ null wird; dort ist der Wert $2\sqrt{ab}$. Mit $a=\tfrac12|f''|$ und $b=\varepsilon_{\mathrm M}|f|$ ergibt das $h_+$. Für $a\,h^2+b/h$ ist die Ableitung $2ah-b/h^2$, die bei $h^3=b/(2a)$ null wird; mit $a=\tfrac16|f'''|$ und $b=\tfrac12\varepsilon_{\mathrm M}|f|$ ergibt das $h_0$.
 :::
 
-Trägt man den Fehler gegen $h$ doppelt logarithmisch auf, so entsteht ein V (Abb. [20](#abb-20)). Rechts fällt die Kurve mit der Steigung $1$ (vorwärts) bzw. $2$ (zentral), weil dort der Abschneidefehler herrscht. Links steigt sie mit der Steigung $-1$, weil dort der Rundungsfehler herrscht. Die gemessenen Punkte links streuen, denn Rundungsfehler fallen je nach Zahl größer oder kleiner aus; [(11.5)](#gl-11-5) gibt nur ihre Größenordnung an. Als Faustregel wählt man vorwärts $h\approx\sqrt{\varepsilon_{\mathrm M}}\approx10^{-8}$ und zentral $h\approx\varepsilon_{\mathrm M}^{1/3}\approx6\cdot10^{-6}$, jeweils mal der Größenordnung von $x$, wenn $|x|$ größer als $1$ ist.
+Trägt man den Fehler gegen $h$ doppelt logarithmisch auf, so entsteht ein V (Abb. [20](#abb-20)). Rechts steigt die Kurve mit der Steigung $1$ (vorwärts) bzw. $2$ (zentral), weil dort der Abschneidefehler herrscht. Links fällt sie mit der Steigung $-1$, weil dort der Rundungsfehler herrscht. Die gemessenen Punkte links streuen, denn Rundungsfehler fallen je nach Zahl größer oder kleiner aus; [(11.5)](#gl-11-5) gibt nur ihre Größenordnung an. Als Faustregel wählt man vorwärts $h\approx\sqrt{\varepsilon_{\mathrm M}}\approx10^{-8}$ und zentral $h\approx\varepsilon_{\mathrm M}^{1/3}\approx6\cdot10^{-6}$, jeweils mal der Größenordnung von $x$, wenn $|x|$ größer als $1$ ist.
 
 :::abbildung ml/k3vkurve 20
 Der Fehler der beiden Differenzenquotienten für $f(x)=x^3$ an der Stelle $2$, in doppelter Genauigkeit gerechnet, gegen die Schrittweite $h$ von $10^{-15}$ bis $10^{-1}$, beide Achsen logarithmisch. Rechts herrscht der Abschneidefehler (Steigung $1$ bzw. $2$), links der Rundungsfehler (Steigung $-1$). Die gestrichelten Kurven sind die Abschätzungen [(11.5)](#gl-11-5); die tiefsten Punkte liegen bei $h\approx10^{-8}$ (vorwärts) und $h\approx3\cdot10^{-6}$ (zentral).
@@ -162,7 +163,7 @@ Wer einen Gradienten von Hand herleitet oder als Rückwärtsschritte programmier
 Bei der __Gradientenprüfung__ vergleicht man einen berechneten Gradienten $\mathbf{g}_{\mathrm a}$ an einer Stelle $\mathbf{x}$ mit dem numerischen Gradienten $\mathbf{g}_{\mathrm n}$, dessen Komponenten zentrale Differenzen sind,
 
 <span class="anker" id="gl-11-6"></span>
-$$g_{\mathrm n,j}=\frac{f(\mathbf{x}+h\,\mathbf{e}_j)-f(\mathbf{x}-h\,\mathbf{e}_j)}{2h}, \tag{11.6}$$
+$$g_{\mathrm n,j}=\frac{f(\mathbf{x}+h\,\mathbf{e}_j)-f(\mathbf{x}-h\,\mathbf{e}_j)}{2h}. \tag{11.6}$$
 
 Für jede Komponente berechnet man dabei den __relativen Fehler__
 
@@ -236,9 +237,9 @@ Vergleiche die Fehler mit den Näherungen $\tfrac12f''(0)\,h$ und $\tfrac16f'''(
 </ol>
 
 :::loesung
-(a) Mit $\mathrm{e}^{0{,}1}\approx1{,}105171$, $\mathrm{e}^{-0{,}1}\approx0{,}904837$, $\mathrm{e}^{0{,}01}\approx1{,}010050$ und $\mathrm{e}^{-0{,}01}\approx0{,}990050$:
+(a) Mit $\mathrm{e}^{0{,}1}\approx1{,}105170918$, $\mathrm{e}^{-0{,}1}\approx0{,}904837418$, $\mathrm{e}^{0{,}01}\approx1{,}010050167$ und $\mathrm{e}^{-0{,}01}\approx0{,}990049834$:
 
-$$\begin{aligned} h=0{,}1:&\quad D_+=\frac{1{,}105171-1}{0{,}1}\approx1{,}05171,\qquad D_0=\frac{1{,}105171-0{,}904837}{0{,}2}\approx1{,}001668;\\ h=0{,}01:&\quad D_+=\frac{1{,}0100502-1}{0{,}01}\approx1{,}005017,\qquad D_0=\frac{1{,}0100502-0{,}9900498}{0{,}02}\approx1{,}0000167 . \end{aligned}$$
+$$\begin{aligned} h=0{,}1:&\quad D_+=\frac{1{,}105170918-1}{0{,}1}\approx1{,}05171,\\ &\quad D_0=\frac{1{,}105170918-0{,}904837418}{0{,}2}\approx1{,}001668;\\ h=0{,}01:&\quad D_+=\frac{1{,}010050167-1}{0{,}01}\approx1{,}005017,\\ &\quad D_0=\frac{1{,}010050167-0{,}990049834}{0{,}02}\approx1{,}0000167 . \end{aligned}$$
 
 (b) Die Fehler der Vorwärtsdifferenz sind $0{,}0517$ und $0{,}0050$, die Näherung $\tfrac12h$ sagt $0{,}05$ und $0{,}005$ voraus. Die Fehler der zentralen Differenz sind $0{,}00167$ und $0{,}0000167$, die Näherung $\tfrac16h^2$ sagt $0{,}00167$ und $0{,}0000167$ voraus. Zehnmal kleineres $h$ macht den einen Fehler zehnmal, den anderen hundertmal kleiner.
 :::

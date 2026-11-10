@@ -1,0 +1,649 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 23,
+  "nextAnimId": 30,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "ParametricCurve",
+    "props": {
+     "fx": "0.0+0.95*cos(1.570796-1.256637*t)",
+     "fy": "-0.25+0.95*sin(1.570796-1.256637*t)",
+     "t_min": 0,
+     "t_max": 1,
+     "samples": 41,
+     "show_arrow": true,
+     "arrow_at": "0.55",
+     "color": "#7f7f7f",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o2",
+    "type": "ParametricCurve",
+    "props": {
+     "fx": "0.0+0.95*cos(0.314159-1.256637*t)",
+     "fy": "-0.25+0.95*sin(0.314159-1.256637*t)",
+     "t_min": 0,
+     "t_max": 1,
+     "samples": 41,
+     "show_arrow": true,
+     "arrow_at": "0.55",
+     "color": "#7f7f7f",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o3",
+    "type": "ParametricCurve",
+    "props": {
+     "fx": "0.0+0.95*cos(-0.942478-1.256637*t)",
+     "fy": "-0.25+0.95*sin(-0.942478-1.256637*t)",
+     "t_min": 0,
+     "t_max": 1,
+     "samples": 41,
+     "show_arrow": true,
+     "arrow_at": "0.55",
+     "color": "#7f7f7f",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o4",
+    "type": "ParametricCurve",
+    "props": {
+     "fx": "0.0+0.95*cos(-2.199115-1.256637*t)",
+     "fy": "-0.25+0.95*sin(-2.199115-1.256637*t)",
+     "t_min": 0,
+     "t_max": 1,
+     "samples": 41,
+     "show_arrow": true,
+     "arrow_at": "0.55",
+     "color": "#7f7f7f",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o5",
+    "type": "ParametricCurve",
+    "props": {
+     "fx": "0.0+0.95*cos(-3.455752-1.256637*t)",
+     "fy": "-0.25+0.95*sin(-3.455752-1.256637*t)",
+     "t_min": 0,
+     "t_max": 1,
+     "samples": 41,
+     "show_arrow": true,
+     "arrow_at": "0.55",
+     "color": "#7f7f7f",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Text",
+    "props": {
+     "text": "@shell",
+     "position": [
+      0.0,
+      -0.25,
+      0
+     ],
+     "font_size": 22,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o7",
+    "type": "Dot",
+    "props": {
+     "center": [
+      5.817072295949927e-17,
+      0.7,
+      0
+     ],
+     "radius": 0.06,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Dot",
+    "props": {
+     "center": [
+      0.9035036904803958,
+      0.04356614465620001,
+      0
+     ],
+     "radius": 0.06,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o9",
+    "type": "Dot",
+    "props": {
+     "center": [
+      0.5583959896778494,
+      -1.0185661446562,
+      0
+     ],
+     "radius": 0.06,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o10",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -0.5583959896778493,
+      -1.0185661446562,
+      0
+     ],
+     "radius": 0.06,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o11",
+    "type": "Dot",
+    "props": {
+     "center": [
+      -0.9035036904803959,
+      0.0435661446561999,
+      0
+     ],
+     "radius": 0.06,
+     "color": "#111111",
+     "fill_color": "#111111",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Text",
+    "props": {
+     "text": "@st1",
+     "position": [
+      0.0,
+      1.38,
+      0
+     ],
+     "font_size": 20,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o13",
+    "type": "Text",
+    "props": {
+     "text": "@st2",
+     "position": [
+      1.08,
+      0.13,
+      0
+     ],
+     "font_size": 20,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o14",
+    "type": "Text",
+    "props": {
+     "text": "@st3",
+     "position": [
+      0.72,
+      -1.0,
+      0
+     ],
+     "font_size": 20,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o15",
+    "type": "Text",
+    "props": {
+     "text": "@st4",
+     "position": [
+      -0.72,
+      -1.0,
+      0
+     ],
+     "font_size": 20,
+     "align": "right",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o16",
+    "type": "Text",
+    "props": {
+     "text": "@st5",
+     "position": [
+      -1.08,
+      0.13,
+      0
+     ],
+     "font_size": 20,
+     "align": "right",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o17",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{student@labor:}\\lower{0.25em}{\\texttt{~}}\\texttt{\\$}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.15,
+     "position": [
+      0.0,
+      1.08,
+      0
+     ],
+     "color": "#333333"
+    }
+   },
+   {
+    "id": "o18",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{uname -r}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.15,
+     "position": [
+      1.395,
+      -0.12,
+      0
+     ],
+     "color": "#333333"
+    }
+   },
+   {
+    "id": "o19",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\rule[-0.25em]{0.001em}{1em}\\texttt{/usr/bin/uname}\\rule[-0.25em]{0.001em}{1em}",
+     "height": 0.15,
+     "position": [
+      1.2712,
+      -1.26,
+      0
+     ],
+     "color": "#333333"
+    }
+   },
+   {
+    "id": "o20",
+    "type": "Text",
+    "props": {
+     "text": "@bsp4",
+     "position": [
+      -0.72,
+      -1.27,
+      0
+     ],
+     "font_size": 18,
+     "align": "right",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o21",
+    "type": "Text",
+    "props": {
+     "text": "@bsp5",
+     "position": [
+      -1.08,
+      -0.13,
+      0
+     ],
+     "font_size": 18,
+     "align": "right",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o22",
+    "type": "Dot",
+    "props": {
+     "center": [
+      0.0,
+      0.7,
+      0
+     ],
+     "radius": 0.09,
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   }
+  ],
+  "animations": [
+   {
+    "id": "a1",
+    "type": "Create",
+    "target": "o1",
+    "run_time": 1.2,
+    "step": 0
+   },
+   {
+    "id": "a2",
+    "type": "Create",
+    "target": "o2",
+    "run_time": 1.2,
+    "step": 0
+   },
+   {
+    "id": "a3",
+    "type": "Create",
+    "target": "o3",
+    "run_time": 1.2,
+    "step": 0
+   },
+   {
+    "id": "a4",
+    "type": "Create",
+    "target": "o4",
+    "run_time": 1.2,
+    "step": 0
+   },
+   {
+    "id": "a5",
+    "type": "Create",
+    "target": "o5",
+    "run_time": 1.2,
+    "step": 0
+   },
+   {
+    "id": "a6",
+    "type": "FadeIn",
+    "target": "o6",
+    "run_time": 1.2,
+    "step": 0
+   },
+   {
+    "id": "a7",
+    "type": "FadeIn",
+    "target": "o7",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a8",
+    "type": "FadeIn",
+    "target": "o8",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a9",
+    "type": "FadeIn",
+    "target": "o9",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a10",
+    "type": "FadeIn",
+    "target": "o10",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a11",
+    "type": "FadeIn",
+    "target": "o11",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a12",
+    "type": "FadeIn",
+    "target": "o12",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a13",
+    "type": "FadeIn",
+    "target": "o13",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a14",
+    "type": "FadeIn",
+    "target": "o14",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a15",
+    "type": "FadeIn",
+    "target": "o15",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a16",
+    "type": "FadeIn",
+    "target": "o16",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a17",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a18",
+    "type": "FadeIn",
+    "target": "o22",
+    "run_time": 0.5,
+    "step": 3
+   },
+   {
+    "id": "a19",
+    "type": "FadeIn",
+    "target": "o17",
+    "run_time": 0.5,
+    "step": 3
+   },
+   {
+    "id": "a20",
+    "type": "MoveAlongPath",
+    "target": "o22",
+    "run_time": 0.8,
+    "step": 4,
+    "path": "o1"
+   },
+   {
+    "id": "a21",
+    "type": "FadeIn",
+    "target": "o18",
+    "run_time": 0.5,
+    "step": 5
+   },
+   {
+    "id": "a22",
+    "type": "MoveAlongPath",
+    "target": "o22",
+    "run_time": 0.8,
+    "step": 6,
+    "path": "o2"
+   },
+   {
+    "id": "a23",
+    "type": "FadeIn",
+    "target": "o19",
+    "run_time": 0.5,
+    "step": 7
+   },
+   {
+    "id": "a24",
+    "type": "MoveAlongPath",
+    "target": "o22",
+    "run_time": 0.8,
+    "step": 8,
+    "path": "o3"
+   },
+   {
+    "id": "a25",
+    "type": "FadeIn",
+    "target": "o20",
+    "run_time": 0.5,
+    "step": 9
+   },
+   {
+    "id": "a26",
+    "type": "MoveAlongPath",
+    "target": "o22",
+    "run_time": 0.8,
+    "step": 10,
+    "path": "o4"
+   },
+   {
+    "id": "a27",
+    "type": "FadeIn",
+    "target": "o21",
+    "run_time": 0.5,
+    "step": 11
+   },
+   {
+    "id": "a28",
+    "type": "MoveAlongPath",
+    "target": "o22",
+    "run_time": 0.8,
+    "step": 12,
+    "path": "o5"
+   },
+   {
+    "id": "a29",
+    "type": "FadeOut",
+    "target": "o22",
+    "run_time": 0.4,
+    "step": 13
+   }
+  ],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "shell": {
+    "de": "Shell",
+    "en": "shell",
+    "es": "shell",
+    "zh": "Shell",
+    "fr": "shell",
+    "tr": "kabuk"
+   },
+   "st1": {
+    "de": "1  Eingabeaufforderung zeigen",
+    "en": "1  show the prompt",
+    "es": "1  mostrar el indicador",
+    "zh": "1  显示提示符",
+    "fr": "1  afficher l’invite",
+    "tr": "1  istemi göster"
+   },
+   "st2": {
+    "de": "2  Zeile lesen",
+    "en": "2  read a line",
+    "es": "2  leer una línea",
+    "zh": "2  读取一行",
+    "fr": "2  lire une ligne",
+    "tr": "2  satırı oku"
+   },
+   "st3": {
+    "de": "3  Befehl suchen",
+    "en": "3  find the command",
+    "es": "3  buscar el comando",
+    "zh": "3  查找命令",
+    "fr": "3  chercher la commande",
+    "tr": "3  komutu ara"
+   },
+   "st4": {
+    "de": "4  ausführen (lassen)",
+    "en": "4  run it (or have it run)",
+    "es": "4  ejecutarlo (o hacerlo ejecutar)",
+    "zh": "4  执行（或让其执行）",
+    "fr": "4  l’exécuter (ou le faire exécuter)",
+    "tr": "4  çalıştır (ya da çalıştırt)"
+   },
+   "st5": {
+    "de": "5  auf das Ende warten",
+    "en": "5  wait for the end",
+    "es": "5  esperar a que termine",
+    "zh": "5  等待结束",
+    "fr": "5  attendre la fin",
+    "tr": "5  bitmesini bekle"
+   },
+   "bsp4": {
+    "de": "uname läuft",
+    "en": "uname runs",
+    "es": "uname se ejecuta",
+    "zh": "uname 运行",
+    "fr": "uname s’exécute",
+    "tr": "uname çalışır"
+   },
+   "bsp5": {
+    "de": "bis uname endet",
+    "en": "until uname ends",
+    "es": "hasta que uname termina",
+    "zh": "直到 uname 结束",
+    "fr": "jusqu’à la fin de uname",
+    "tr": "uname bitene kadar"
+   }
+  }
+ }
+}

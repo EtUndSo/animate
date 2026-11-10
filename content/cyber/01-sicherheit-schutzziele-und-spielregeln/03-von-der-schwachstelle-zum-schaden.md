@@ -1,6 +1,8 @@
 ---
 title: Von der Schwachstelle zum Schaden
 pfad: Informatik / Cybersecurity / Sicherheit, Schutzziele und Spielregeln
+adresse: informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln
+knoten: Kapitel 1: Sicherheit, Schutzziele und Spielregeln
 order: 6110300
 summary: Ein Schutzziel wird selten einfach so verletzt.
 tags: Schwachstelle, Bedrohung, Angreifer, Angriff, Exploit, Schaden

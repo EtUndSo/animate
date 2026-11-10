@@ -1,6 +1,8 @@
 ---
 title: Stufe 1: Schwingungen als Bausteine
-pfad: Elektrotechnik / 3. Semester / Höhere Mathematik 3 / Fourier-Reihen
+pfad: Elektrotechnik / 3. Semester / HöMa3 – Höhere Mathematik 3 / Fourier-Reihen
+adresse: elektrotechnik/3-semester/hohere-mathematik-3/fourier-reihen
+knoten: Kapitel 7: Fourier-Reihen
 order: 3170200
 summary: Diese Stufe legt die Schwingungen fest, aus denen alles gebaut wird, und misst, wie viel von einer Schwingung in einer Funktion steckt.
 tags: periodisch, komplex trigonometrischen Basisfunktionen, Orthonormal, Kronecker-Symbol
@@ -30,7 +32,7 @@ Die __komplex trigonometrischen Basisfunktionen__ sind $\hat{\boldsymbol{e}}_k(x
 $$\langle f,g\rangle:=\frac1{2\pi}\int_0^{2\pi}f(x)\,\overline{g(x)}\,\mathrm{d} x,\qquad\|f\|_2^2:=\langle f,f\rangle=\frac1{2\pi}\int_0^{2\pi}|f(x)|^2\,\mathrm{d} x. \tag{1.1}$$
 :::
 
-⁠**So liest man das:** $\hat{\boldsymbol{e}}_k$ ist ein Zeiger, der je Periode $k$-mal um den Einheitskreis läuft, für $k<0$ rückwärts, für $k=0$ steht er still. Sein Realteil ist $\cos kx$, sein Imaginärteil $\sin kx$. Das ist das Skalarprodukt aus [Teil 6](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/konvergenz-von-funktionenfolgen/konvergenz-von-funktionenfolgen.html) auf $[0,2\pi]$. Der Querstrich ist die Konjugation, er macht $\langle f,f\rangle$ reell und nichtnegativ. $\|f\|_2^2$ ist der Mittelwert von $|f|^2$, also die mittlere Leistung, und $\|f\|_2$ der Effektivwert.
+⁠**So liest man das:** $\hat{\boldsymbol{e}}_k$ ist ein Zeiger, der je Periode $k$-mal um den Einheitskreis läuft, für $k<0$ rückwärts, für $k=0$ steht er still. Sein Realteil ist $\cos kx$, sein Imaginärteil $\sin kx$. Das ist das Skalarprodukt aus [Kapitel 6](/wissen/elektrotechnik/3-semester/hohere-mathematik-3/konvergenz-von-funktionenfolgen/konvergenz-von-funktionenfolgen.html) auf $[0,2\pi]$. Der Querstrich ist die Konjugation, er macht $\langle f,f\rangle$ reell und nichtnegativ. $\|f\|_2^2$ ist der Mittelwert von $|f|^2$, also die mittlere Leistung, und $\|f\|_2$ der Effektivwert.
 
 :::satz Satz 1.2 (Orthonormalsystem)
 <span class="anker" id="satz-1-2"></span>

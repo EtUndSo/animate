@@ -1,7 +1,9 @@
 ---
 title: Visión general: Fuentes y fuentes equivalentes
 kurz: Visión general
-pfad: Ingeniería eléctrica / 1.er semestre / Fundamentos de ingeniería eléctrica / Fuentes y fuentes equivalentes
+pfad: Ingeniería eléctrica / 1.er semestre / ET1 – Fundamentos de ingeniería eléctrica 1: introducción al análisis de circuitos / Fuentes y fuentes equivalentes
+adresse: elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen
+knoten: Capítulo 5: Fuentes y fuentes equivalentes
 order: 1150100
 summary: Por qué dos números sustituyen a toda una red
 tags: 
@@ -23,7 +25,7 @@ El camino tiene tres partes. Las etapas [1](widerstande-zusammenfassen.html#stu
 
 <li>
 
-⁠**Batería:** la batería de 9 V de la [Parte 1](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html). Su tensión de fuente (la tensión que aporta la química) es $U_\mathrm{q}=9$ V; su resistencia interna, $R_\mathrm{q}=2\,\Omega$.
+⁠**Batería:** la batería de 9 V del [capítulo 1](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/ladung-feld-und-potenzial/ladung-feld-und-potenzial.html). Su tensión de fuente (la tensión que aporta la química) es $U_\mathrm{q}=9$ V; su resistencia interna, $R_\mathrm{q}=2\,\Omega$.
 
 </li>
 

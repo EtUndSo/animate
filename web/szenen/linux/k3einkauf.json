@@ -1,0 +1,158 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 5,
+  "nextAnimId": 6,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\begin{aligned}\\mathtt{Milch} &:\\; 5 + 1 = 6\\\\\\mathtt{Brot} &:\\; 4 + 1 = 5\\\\\\mathtt{\\ddot{A}pfel} &:\\; 2 + 4 + 1 = 7\\\\\\mathtt{Kaffee} &:\\; 6 + 1 = 7\\\\[4pt]\\texttt{einkauf.txt} &:\\; 6 + 5 + 7 + 7 = 25\\end{aligned}",
+     "height": 1.55,
+     "position": [
+      -1.1,
+      0.1,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Text",
+    "props": {
+     "text": "@plus1",
+     "position": [
+      1.25,
+      0.72,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#eb6834"
+    }
+   },
+   {
+    "id": "o3",
+    "type": "Text",
+    "props": {
+     "text": "@ae",
+     "position": [
+      1.25,
+      0.12,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#eb6834"
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Text",
+    "props": {
+     "text": "@wiewc",
+     "position": [
+      1.25,
+      -0.55,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#7f7f7f"
+    }
+   }
+  ],
+  "animations": [
+   {
+    "id": "a1",
+    "type": "FadeIn",
+    "target": "o1",
+    "run_time": 5.0,
+    "step": 0,
+    "lines": true
+   },
+   {
+    "id": "a2",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a3",
+    "type": "FadeIn",
+    "target": "o2",
+    "run_time": 0.5,
+    "step": 2
+   },
+   {
+    "id": "a4",
+    "type": "FadeIn",
+    "target": "o3",
+    "run_time": 0.5,
+    "step": 3
+   },
+   {
+    "id": "a5",
+    "type": "FadeIn",
+    "target": "o4",
+    "run_time": 0.5,
+    "step": 4
+   }
+  ],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "plus1": {
+    "de": "+ 1: das Zeilenende",
+    "en": "+ 1: the line end",
+    "es": "+ 1: el fin de línea",
+    "zh": "+ 1：换行符",
+    "fr": "+ 1 : la fin de ligne",
+    "tr": "+ 1: satır sonu"
+   },
+   "ae": {
+    "de": "Ä belegt 2 Bytes",
+    "en": "Ä takes 2 bytes",
+    "es": "Ä ocupa 2 bytes",
+    "zh": "Ä 占 2 个字节",
+    "fr": "Ä occupe 2 octets",
+    "tr": "Ä 2 bayt tutar"
+   },
+   "wiewc": {
+    "de": "wie wc meldet",
+    "en": "as wc reports",
+    "es": "como indica wc",
+    "zh": "与 wc 的结果相同",
+    "fr": "comme l'indique wc",
+    "tr": "wc'nin bildirdiği gibi"
+   }
+  }
+ }
+}

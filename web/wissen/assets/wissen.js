@@ -201,3 +201,151 @@ var NICHTS={de:"Nichts gefunden für „{q}\".",en:"Nothing found for „{q}\"."
   }
   if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",apply); else apply();
 })();
+/* Animierte Abbildungen: figure.abb[data-anim] = Adresse der Datei <szene>.anim.svg (tools/szenen_animation.py). Sie ist
+   das Endbild plus Datenblock <metadata class="szenen-animation">; der Spieler setzt sie an die Stelle des Bilds und
+   bewegt die Elemente mit data-a. Start, wenn die Abbildung ins Bild kommt (in zugeklappten Kästen also erst beim
+   Aufklappen), Halt, wenn sie es verlässt; bei „Bewegung reduzieren“ kein Selbststart (Endbild). Ohne Skript, ohne
+   Datei oder bei einem Fehler bleibt das statische Bild. */
+(function(){
+  var figs=[].slice.call(document.querySelectorAll("figure.abb[data-anim]"));
+  if(!figs.length || !window.fetch || !window.DOMParser || !window.IntersectionObserver) return;
+  var L=(document.documentElement.lang||"de").slice(0,2);
+  var TX={de:{play:"Abspielen",pause:"Anhalten",neu:"Von vorn",zur:"Schritt zurück",vor:"Schritt vor",zeit:"Zeitleiste der Animation",von:"von",anim:"Animation"},
+    en:{play:"Play",pause:"Pause",neu:"Restart",zur:"Previous step",vor:"Next step",zeit:"Animation timeline",von:"of",anim:"Animation"},
+    es:{play:"Reproducir",pause:"Pausa",neu:"Reiniciar",zur:"Paso anterior",vor:"Paso siguiente",zeit:"Línea de tiempo de la animación",von:"de",anim:"Animación"},
+    zh:{play:"播放",pause:"暂停",neu:"重新开始",zur:"上一步",vor:"下一步",zeit:"动画时间轴",von:"/",anim:"动画"},
+    fr:{play:"Lire",pause:"Pause",neu:"Recommencer",zur:"Étape précédente",vor:"Étape suivante",zeit:"Chronologie de l’animation",von:"sur",anim:"Animation"},
+    tr:{play:"Oynat",pause:"Duraklat",neu:"Baştan başlat",zur:"Önceki adım",vor:"Sonraki adım",zeit:"Animasyon zaman çizelgesi",von:"/",anim:"Animasyon"}};
+  var tx=TX[L]||TX.en;
+  var reduce=window.matchMedia?window.matchMedia("(prefers-reduced-motion: reduce)"):{matches:false};
+  var ICON={play:'<path d="M5 3.5v13l11-6.5z"/>',pause:'<path d="M4.5 3.5h4v13h-4zM11.5 3.5h4v13h-4z"/>',
+    neu:'<path d="M10 3.2a6.8 6.8 0 1 1-6.6 8.4h2.1A4.8 4.8 0 1 0 10 5.2v2.6L5.8 4.2 10 .6z"/>',
+    zur:'<path d="M3.5 3.5h2.2v13H3.5zM16.5 3.5v13L7 10z"/>',vor:'<path d="M14.3 3.5h2.2v13h-2.2zM3.5 3.5v13L13 10z"/>'};
+  function knopf(cls,ic,lab){ var b=document.createElement("button"); b.type="button"; b.className=cls; b.setAttribute("aria-label",lab); b.title=lab;
+    b.innerHTML='<svg viewBox="0 0 20 20" aria-hidden="true">'+ICON[ic]+'</svg>'; return b; }
+  function zahl(t){ var s=(Math.round(t*10)/10).toFixed(1); return (L==="en"||L==="zh")?s:s.replace(".",","); }
+  // Wert einer Spur [k0,v0,k1,v1,…] im (gebrochenen) Bild f: Stufe = letzter Wert davor, sonst linear
+  function such(tr,f){ var n=tr.length>>1, lo=0, hi=n-1;
+    if(f<=tr[0]) return [0,0,0]; if(f>=tr[2*hi]) return [hi,hi,0];
+    while(hi-lo>1){ var m=(lo+hi)>>1; if(tr[2*m]<=f) lo=m; else hi=m; }
+    return [lo,hi,(f-tr[2*lo])/(tr[2*hi]-tr[2*lo])]; }
+  function stufe(tr,f){ return tr[2*such(tr,f)[0]+1]; }
+  function linear(tr,f){ var s=such(tr,f), a=tr[2*s[0]+1], b=tr[2*s[1]+1], w=s[2];
+    if(typeof a==="number") return a+(b-a)*w;
+    var o=[]; for(var i=0;i<a.length;i++) o.push(a[i]+(b[i]-a[i])*w); return o; }
+  function r(v,n){ var p=Math.pow(10,n); return Math.round(v*p)/p; }
+  function mische(a,b,w){ var o=new Array(a.length); for(var i=0;i<a.length;i++) o[i]=a[i]+(b[i]-a[i])*w; return o; }
+  function pfad(v,qc){ var o="", i=0;                    // Bézier-Kette(n) wie engine/svg_painter: M p0 C p1 p2 p3 …
+    for(var c=0;c<qc.length;c++){ var n=qc[c];
+      if(n){ o+="M"+r(v[2*i],1)+" "+r(v[2*i+1],1);
+        for(var k=1;k<n-2;k+=3){ var j=2*(i+k); o+="C"+r(v[j],1)+" "+r(v[j+1],1)+" "+r(v[j+2],1)+" "+r(v[j+3],1)+" "+r(v[j+4],1)+" "+r(v[j+5],1); } }
+      i+=n; }
+    return o; }
+  function rgb(c){ return "rgb("+Math.round(c[0])+","+Math.round(c[1])+","+Math.round(c[2])+")"; }
+  function setze(el,cache,name,v){ if(cache[name]===v) return; cache[name]=v; if(v===null) el.removeAttribute(name); else el.setAttribute(name,v); }
+  function texte(el){ return el.tagName.toLowerCase()==="g"?[].slice.call(el.querySelectorAll("text")):[el]; }
+
+  function Spieler(fig){
+    this.fig=fig; this.img=fig.querySelector("img"); this.t=0; this.lauf=false; this.gestartet=false; this.nutzer=false; this.auto=false;
+  }
+  Spieler.prototype.laden=function(){
+    var sp=this; if(sp.ladung) return sp.ladung;
+    sp.ladung=fetch(sp.fig.getAttribute("data-anim")).then(function(r){ if(!r.ok) throw new Error(r.status); return r.text(); }).then(function(txt){
+      var doc=new DOMParser().parseFromString(txt,"image/svg+xml"), svg=doc.documentElement;
+      var meta=svg&&svg.getElementsByTagName("metadata")[0];
+      if(!svg || svg.nodeName!=="svg" || !meta) throw new Error("kein animiertes SVG");
+      var D=JSON.parse(meta.textContent); meta.parentNode.removeChild(meta);
+      svg=document.importNode(svg,true);
+      var w=svg.getAttribute("width"), h=svg.getAttribute("height");
+      svg.setAttribute("class","abb-anim"); svg.setAttribute("role","img");
+      svg.setAttribute("aria-label",(sp.img&&sp.img.getAttribute("alt"))||tx.anim);
+      svg.style.aspectRatio=w+" / "+h;
+      sp.D=D; sp.dauer=D.dauer; sp.N=D.bilder; sp.svg=svg; sp.el=[]; sp.cache=[];
+      var nodes=svg.querySelectorAll("[data-a]");
+      for(var i=0;i<nodes.length;i++){ var e=nodes[i], k=+e.getAttribute("data-a"); sp.el[k]=e; sp.cache[k]={};
+        e._d0=e.getAttribute("d"); e._h0=e.innerHTML; }
+      if(sp.img) sp.img.parentNode.replaceChild(svg,sp.img); else sp.fig.insertBefore(svg,sp.fig.firstChild);
+      sp.leiste();
+      sp.zeige(reduce.matches?sp.dauer:0);
+      return sp;
+    });
+    sp.ladung.catch(function(){});                       // Fehler: das statische Bild bleibt stehen
+    return sp.ladung;
+  };
+  Spieler.prototype.leiste=function(){
+    var sp=this, bar=document.createElement("div"); bar.className="abb-spieler"; bar.setAttribute("role","group"); bar.setAttribute("aria-label",tx.anim);
+    sp.bPlay=knopf("as-play","play",tx.play); sp.bNeu=knopf("as-neu","neu",tx.neu);
+    bar.appendChild(sp.bPlay); bar.appendChild(sp.bNeu);
+    var marken=(sp.D.marken||[]).filter(function(m){ return m>0 && m<sp.dauer; });
+    sp.marken=marken;
+    if(marken.length){ sp.bZur=knopf("as-zur","zur",tx.zur); sp.bVor=knopf("as-vor","vor",tx.vor); bar.appendChild(sp.bZur); bar.appendChild(sp.bVor); }
+    var box=document.createElement("div"); box.className="as-leiste";
+    var rg=document.createElement("input"); rg.type="range"; rg.min="0"; rg.max=String(sp.N); rg.step="1"; rg.value="0"; rg.setAttribute("aria-label",tx.zeit);
+    box.appendChild(rg);
+    marken.forEach(function(m){ var s=document.createElement("span"); s.className="as-marke"; s.style.left="calc(7px + (100% - 14px) * "+(m/sp.dauer).toFixed(4)+")"; box.appendChild(s); });
+    bar.appendChild(box);
+    sp.zeit=document.createElement("span"); sp.zeit.className="as-zeit"; sp.zeit.setAttribute("aria-hidden","true"); bar.appendChild(sp.zeit);
+    sp.rg=rg; sp.svg.parentNode.insertBefore(bar,sp.svg.nextSibling);
+    sp.bPlay.addEventListener("click",function(){ if(sp.lauf){ sp.nutzer=true; sp.halt(); } else { sp.nutzer=false; sp.spiel(sp.t>=sp.dauer-1e-3?0:sp.t); } });
+    sp.bNeu.addEventListener("click",function(){ sp.nutzer=false; sp.spiel(0); });
+    if(sp.bZur){
+      sp.bZur.addEventListener("click",function(){ var z=0; for(var i=0;i<marken.length;i++) if(marken[i]<sp.t-0.15) z=marken[i]; sp.nutzer=true; sp.halt(); sp.zeige(z); });
+      sp.bVor.addEventListener("click",function(){ var z=sp.dauer; for(var i=marken.length-1;i>=0;i--) if(marken[i]>sp.t+0.05) z=marken[i]; sp.nutzer=true; sp.halt(); sp.zeige(z); });
+    }
+    rg.addEventListener("input",function(){ sp.nutzer=true; sp.halt(); sp.zeige(sp.dauer*(+rg.value)/sp.N); });
+  };
+  Spieler.prototype.zeige=function(t){
+    var sp=this; t=Math.max(0,Math.min(sp.dauer,t)); sp.t=t;
+    var f=sp.N*t/sp.dauer, data=sp.D.el;
+    for(var k=0;k<data.length;k++){
+      var e=sp.el[k], tr=data[k], c=sp.cache[k]; if(!e) continue;
+      if(tr.v) setze(e,c,"display",stufe(tr.v,f)?null:"none");
+      if(tr.h){ var hh=stufe(tr.h,f); if(c.h!==hh){ c.h=hh; e.innerHTML=hh===null?e._h0:hh; c.fo=c.fc=undefined; c.kinder=null; } }
+      if(tr.d){ var d=stufe(tr.d,f); setze(e,c,"d",d===null?e._d0:d); }
+      if(tr.q){ var s=such(tr.q,f), qa=tr.q[2*s[0]+1], qb=tr.q[2*s[1]+1];   // Punkte wandern (Umformen): linear
+        setze(e,c,"d",qa===null?e._d0:pfad((qb===null||s[2]===0)?qa:mische(qa,qb,s[2]),tr.qc)); }
+      if(tr.m){ var m=linear(tr.m,f);
+        setze(e,c,"transform",(Math.abs(m[0]-1)+Math.abs(m[1])+Math.abs(m[2])+Math.abs(m[3]-1)+Math.abs(m[4])+Math.abs(m[5])<1e-4)?null:
+          "matrix("+r(m[0],4)+" "+r(m[1],4)+" "+r(m[2],4)+" "+r(m[3],4)+" "+r(m[4],2)+" "+r(m[5],2)+")"); }
+      if(tr.p){ var p=linear(tr.p,f);
+        setze(e,c,"stroke-dasharray",(p[0]<0.05&&p[1]>999.95)?null:(p[0]<0.05?r(p[1],2)+" 2000":"0 "+r(p[0],2)+" "+r(p[1],2)+" 2000")); }
+      if(tr.so) setze(e,c,"stroke-opacity",String(r(linear(tr.so,f),3)));
+      if(tr.sw) setze(e,c,"stroke-width",String(r(linear(tr.sw,f),2)));
+      if(tr.sc) setze(e,c,"stroke",rgb(linear(tr.sc,f)));
+      if(tr.fo||tr.fc){
+        var ziele=(e.tagName.toLowerCase()==="g")?(c.kinder||(c.kinder=texte(e))):[e];
+        var fo=tr.fo?String(r(linear(tr.fo,f),3)):null, fc=tr.fc?rgb(linear(tr.fc,f)):null;
+        for(var j=0;j<ziele.length;j++){ var cc=ziele[j]===e?c:(ziele[j]._c||(ziele[j]._c={}));
+          if(fo!==null) setze(ziele[j],cc,"fill-opacity",fo); if(fc!==null) setze(ziele[j],cc,"fill",fc); }
+      }
+    }
+    if(sp.rg){ sp.rg.value=String(Math.round(f)); sp.rg.style.setProperty("--as-p",(100*t/sp.dauer).toFixed(2)+"%");
+      var txt=zahl(t)+" "+tx.von+" "+zahl(sp.dauer)+" s"; sp.rg.setAttribute("aria-valuetext",txt); sp.zeit.textContent=zahl(t)+" / "+zahl(sp.dauer)+" s"; }
+  };
+  Spieler.prototype.spiel=function(ab){
+    var sp=this; if(!sp.D) return;
+    if(ab!=null) sp.zeige(ab);
+    sp.lauf=true; sp.gestartet=true; sp.auto=false; sp.knopf();
+    var t0=performance.now(), s0=sp.t;
+    function tick(now){ if(!sp.lauf) return;
+      var t=s0+(now-t0)/1000; if(t>=sp.dauer){ sp.zeige(sp.dauer); sp.lauf=false; sp.knopf(); return; }
+      sp.zeige(t); sp.raf=requestAnimationFrame(tick); }
+    sp.raf=requestAnimationFrame(tick);
+  };
+  Spieler.prototype.halt=function(){ this.lauf=false; if(this.raf) cancelAnimationFrame(this.raf); this.knopf(); };
+  Spieler.prototype.knopf=function(){ var b=this.bPlay; if(!b) return; var l=this.lauf?tx.pause:tx.play;
+    b.setAttribute("aria-label",l); b.title=l; b.innerHTML='<svg viewBox="0 0 20 20" aria-hidden="true">'+ICON[this.lauf?"pause":"play"]+'</svg>'; };
+  Spieler.prototype.sichtbar=function(ja){
+    var sp=this; if(!sp.D) return; sp.imBild=ja;
+    if(ja){ if(reduce.matches || sp.nutzer || document.hidden) return;
+      if(!sp.gestartet) sp.spiel(0); else if(sp.auto){ sp.spiel(); } }
+    else if(sp.lauf){ sp.halt(); sp.auto=true; }
+  };
+  var spieler=figs.map(function(f){ return new Spieler(f); });
+  var nah=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ var sp=e.target._sp; nah.unobserve(e.target);
+      sp.laden().then(function(){ seh.observe(sp.fig); }); } }); },{rootMargin:"400px 0px"});
+  var seh=new IntersectionObserver(function(es){ es.forEach(function(e){ e.target._sp.sichtbar(e.isIntersecting && e.intersectionRatio>=0.35); }); },{threshold:[0,0.35,0.6]});
+  spieler.forEach(function(sp){ sp.fig._sp=sp; nah.observe(sp.fig); });
+  document.addEventListener("visibilitychange",function(){ spieler.forEach(function(sp){        // Tab im Hintergrund: anhalten
+    if(document.hidden){ if(sp.lauf){ sp.halt(); sp.auto=true; } } else if(sp.imBild) sp.sichtbar(true); }); });
+})();

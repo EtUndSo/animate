@@ -1,6 +1,8 @@
 ---
 title: Etapa 1: Conjuntos y proposiciones
-pfad: Ingeniería eléctrica / 1.er semestre / Matemáticas superiores 1 / Conjuntos, lógica y números reales
+pfad: Ingeniería eléctrica / 1.er semestre / HöMa1 – Matemáticas superiores 1 / Conjuntos, lógica y números reales
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen
+knoten: Capítulo 1: Conjuntos, lógica y números reales
 order: 1210300
 summary: Los axiomas hablan de «todos los números con una propiedad» y de «si, entonces».
 tags: diagrama de Venn, elementos, subconjunto, superconjunto, unión, intersección, diferencia, complemento

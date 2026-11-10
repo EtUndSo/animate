@@ -1,6 +1,8 @@
 ---
 title: 第 6 阶段：离散时间低通——窗函数设计法
-pfad: 电气工程 / 第 3 学期 / 信号与系统 / 低通与带通系统
+pfad: 电气工程 / 第 3 学期 / ET3 – 电气工程基础 3：信号与系统 / 低通与带通系统
+adresse: elektrotechnik/3-semester/signale-und-systeme/tiefpass-und-bandpasssysteme
+knoten: 第 5 章：低通与带通系统
 order: 3250700
 summary: 如何设计数字低通？与因果模拟低通完全一样：取理想低通，加以延迟，再用窗截断。
 tags: 
@@ -35,7 +37,7 @@ $$h(n)=2f_\mathrm g\operatorname{si}(2\pi f_\mathrm gn),$$
 
 </ul>
 
-原因与[第 3 部分](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)中短时傅里叶变换的情形相同：窗的频谱与理想频率响应作卷积，而矩形的硬边沿会产生缓慢衰减的旁瓣。
+原因与[第 3 章](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)中短时傅里叶变换的情形相同：窗的频谱与理想频率响应作卷积，而矩形的硬边沿会产生缓慢衰减的旁瓣。
 
 :::abbildung et3/k5fenster 4
 两个 $f_\mathrm g=0.2$、有 21 个系数的 FIR 低通的幅频响应。矩形窗：边沿陡峭，从 $f=0.3$ 起只衰减到 $-26.6$ dB。汉宁窗：边沿较平缓，从 $f=0.3$ 起最高为 $-45.9$ dB。

@@ -1,6 +1,8 @@
 ---
 title: Stufe 4: Lineare Unabhängigkeit
-pfad: Elektrotechnik / 1. Semester / Höhere Mathematik 1 / Vektoren und Skalarprodukt
+pfad: Elektrotechnik / 1. Semester / HöMa1 – Höhere Mathematik 1 / Vektoren und Skalarprodukt
+adresse: elektrotechnik/1-semester/hohere-mathematik-1/vektoren-und-skalarprodukt
+knoten: Kapitel 8: Vektoren und Skalarprodukt
 order: 1280600
 summary: In einem Erzeugendensystem kann ein Vektor überflüssig sein: vec f liegt schon in span\ vec c,vec d\ .
 tags: linear abhängig, linear unabhängig, nichttriviale Linearkombination, triviale, Ebene
@@ -91,7 +93,7 @@ Die Vektoren $\vec c$, $\vec d$ und $\vec f=2\vec c-\vec d$ liegen in einer Eben
 :::
 
 ::::beispiel
-$\vec c$ und $\vec d$ sind linear unabhängig: $s\vec c+t\vec d=(2s,s+t,2t)=\vec0$ erzwingt mit der ersten Komponente $s=0$, mit der dritten $t=0$. Dagegen ist $2\vec c-\vec d-\vec f=\vec0$ eine nichttriviale Kombination. Für die Polynome gilt $p+q-r=0$, also ist $\operatorname{span}\{p,q,r\}=\operatorname{span}\{p,q\}$. Die Polynome $1,x,x^2$ sind linear unabhängig: Ist $\alpha_0+\alpha_1x+\alpha_2x^2=0$ für alle $x$, folgt aus dem Identitätssatz ([Teil 3](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/funktionen-und-polynome/funktionen-und-polynome.html)) $\alpha_0=\alpha_1=\alpha_2=0$.
+$\vec c$ und $\vec d$ sind linear unabhängig: $s\vec c+t\vec d=(2s,s+t,2t)=\vec0$ erzwingt mit der ersten Komponente $s=0$, mit der dritten $t=0$. Dagegen ist $2\vec c-\vec d-\vec f=\vec0$ eine nichttriviale Kombination. Für die Polynome gilt $p+q-r=0$, also ist $\operatorname{span}\{p,q,r\}=\operatorname{span}\{p,q\}$. Die Polynome $1,x,x^2$ sind linear unabhängig: Ist $\alpha_0+\alpha_1x+\alpha_2x^2=0$ für alle $x$, folgt aus dem Identitätssatz ([Kapitel 3](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/funktionen-und-polynome/funktionen-und-polynome.html)) $\alpha_0=\alpha_1=\alpha_2=0$.
 ::::
 
 **Ebenen.** Zwei linear unabhängige Richtungen spannen eine Ebene auf.
