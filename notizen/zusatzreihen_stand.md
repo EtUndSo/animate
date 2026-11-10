@@ -220,9 +220,20 @@ Reihenfolge: Pilot cyber 1, ml 1 → Abnahme durch den User → danach abwechsel
         - Leser-Sicherheit: `adduser --disabled-password --comment "Anna Berg" anna` (kein Schritt brauchte ihr Passwort); Warnung „Testkonten nie in sudo“; 9.9 räumt `anna`, `ben`, `kochclub` auf.
         - 28 Abbildungen (4/4/2/2/3/4/3/2/4), keine gestrichen, 5 Beschreibungen geändert → **2b mit einem Agenten**. Für 2b: neue `\verb` in „Kurz gesagt“ 7.4, Lösung 17, 9.9; `\texttt{\$y\$}` in 1.8; Ligaturen in `\texttt` im PDF; Verweise „Kapitel~2, Abschnitt~7.2“, „Kapitel~3, Abschnitt~10“, „Kapitel~4, Abschnitt~4.4“, „Kapitel~5, Abschnitt~5.4/6.3“ im Konverter. Titel passt.
         - Code 92 Blöcke (91 geprüft), Rechnung 1145/1146, je 0 Abweichungen; 10 SHA-256 gleich; Testkonten entfernt (von mir in WSL nachgeprüft). Wortzahl 23 630. Lese-Nachweis: Heft ganz. `zusammenfassung_kap7.md` aktuell.
-      - **Linux 8 Phase 1 läuft seit 10.11.** (Prozesse, Signale, Dienste; Gerüst `tools/szenen/linux_teil8.py`; Signale nur an eigene Versuchsprozesse, Systemdienste nur lesend, eigene Einheiten `k8…` vorübergehend; Vergleich vorher/nachher von Prüfsummen, Einheitenlisten, crontab).
+      - **Linux 8 Phase 1 fertig 10.11.** (Prozesse, Signale, Dienste; Gerüst `tools/szenen/linux_teil8.py`):
+        - Umfang: 8 Abschnitte, 54 Unterabschnitte, 26 Aufgaben (18 am Rechner), 30 Szenen, darunter die Rechenbilder `k8exitrechnung`, `k8lastrechnung` und `k8niceanteil`; etwa 25 100 Wörter.
+        - Prüfung: Code-Abgleich 105 Blöcke, Rechnung 59 Prüfungen, je 0 Abweichungen. Prüfwerkzeug mit zwei echten Terminals (Strg+Z, SIGHUP).
+        - Lese-Nachweis: Shotts Kap. 10, OSTEP 4/5 und die Recherche ganz.
+        - Testumgebung: von mir in WSL nachgeprüft. Prüfsummen gleich `linuxk7/sha_final.txt`, keine Versuchsprozesse, keine `k8*`-Einheit, `~/linuxk8` entfernt.
+        - Präambel: ● und ○ ins `literate` aller sechs Präambeln, für die echte erste Zeile von `systemctl status`.
+      - **Linux 8 Phase 2a läuft seit 10.11.** (ausnahmsweise vor den 2b-Agenten, weil E3 auf den User wartet; 2a arbeitet außerhalb des Repos). Entschieden:
+        - `&` im Zombie-Versuch ok;
+        - konstruierte `ps aux`-Zeile ok;
+        - `PPid` nachvollziehbar machen;
+        - 30 Szenen ok → 2b in zwei Hälften;
+        - lange Zeilen prüft 2b.
       - **User 10.11.:** weiterhin nur ein Schreib-Agent gleichzeitig, auch über Bereichsgrenzen.
-      - **Reihenfolge danach (Stand 10.11. abends):** E2 fertig. E3 startet nach Commit oder „weiter“ des Users, parallel zu Linux 8 Phase 1. Wenn Linux 8 Phase 1 und E3 fertig sind: die 2b-Agenten nacheinander (Linux 5 2b, 6 2b-1, 6 2b-2, 7 2b), dazwischen kein Werkzeug-Agent; danach Linux 8 2a. E4 nur parallel zu Phase 1/2a. Linux 5 2b (27 Szenen, dazu `Kap2_Shell.pdf`/`Kap4_Stroeme.pdf` neu setzen) erst, wenn kein Werkzeug-Agent und kein anderer Schreib-Agent läuft; dann Linux 6 2b-1/2b-2.
+      - **Reihenfolge danach (Stand 10.11. spätabends):** E2 fertig. E3 startet nach Commit oder „weiter“ des Users, parallel zu Linux 8 Phase 2a. Wenn Linux 8 2a und E3 fertig sind: die 2b-Agenten nacheinander (Linux 5 2b, 6 2b-1, 6 2b-2, 7 2b, 8 2b-1, 8 2b-2), dazwischen kein Werkzeug-Agent. E4 nur parallel zu Phase 1/2a. Linux 5 2b (27 Szenen, dazu `Kap2_Shell.pdf`/`Kap4_Stroeme.pdf` neu setzen) erst, wenn kein Werkzeug-Agent und kein anderer Schreib-Agent läuft; dann Linux 6 2b-1/2b-2.
       - **Editor-Ausbau gestartet 10.11.** (User: „Weiter“, ohne Commit; letzter Commit weiter fca61c05). Plan, Werkzeug-Agenten nacheinander, jeder mit Regressionstest aller 809 Szenen:
         - E1 Text und Werkzeugpflege, **fertig 10.11., von mir geprüft:** `s.text(schrift="tt")`/`roh=True`, `s.ersetzen`/`s.umformen` Text → Text, `\mathtt`-Punkt und gerade `'` in `\texttt`, `Szene(reihenfolge="anlegen")` + Warnung „Text unter deckender Fläche“, `szenen_ansehen.py --animiert`/`--ohne-export`, `s.weg(spitze=…)`, `s.summe(..., exakt=True)`, Favicon, `tools/szenen/linux_hilfen.py` (neu: `schreibmaschine("text")` am Dateianfang für Kapitel 5+), build_wissen 27 → 20 s (byte-gleich).
           - Regression: 809 Szenen de/zh, nur `k2alias`, `k2fehlermeldung`, `k2rsuche`, `k4rohre` geändert (gerade Anführungszeichen, Kontaktblatt von mir angesehen); alle Szenen-Skripte bauen byte-gleiche JSON.
