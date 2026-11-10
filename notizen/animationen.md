@@ -10,7 +10,8 @@ eine Quelle für drei Ausgaben.
 | Website ohne Skript, Bild im Editor-Link | `web/abbildungen/<sprache>/<szene>.svg` (Endbild) | `tools/export_szenen.py` |
 | Heft-PDF | `<heftordner>/abb/<sprache>/<szene>.pdf` (Vektor-PDF des Endbilds) | `tools/szenen_pdf.py <modul> <heftordner>` |
 
-Beispiele zum Abschauen: `tools/szenen/beispiel_animation.py` (Szenen `beispiel/anim_*`).
+Beispiele zum Abschauen: `tools/szenen/beispiel_animation.py` (Szenen `beispiel/anim_*`), für Parameter über die
+Zeit (§8) `tools/szenen/beispiel_parameter.py` (Szenen `beispiel/anim_l3_*`).
 
 ## 1. Zeitachse anlegen (`tools/szenen_lib.py`)
 
@@ -163,16 +164,7 @@ In allen 54 Präambeln (9 Heftordner × 6 Sprachen) steht:
 
 ## 6. Grenzen und offene Punkte
 
-- **L3 (Parameter über die Zeit)** gibt es noch nicht. Parameter sind beim Bau Konstanten der Ausdrücke
-  (`scene_model._PARAMS`). Geschätzter Aufwand: 2–3 Agenten-Arbeitstage, aufgeteilt so:
-  - Engine und Modell, 1–1,5 Tage: Animation „Parameter von a nach b“ über einen ValueTracker. Objekte, deren Ausdruck
-    den Parameter nennt, bekommen einen Updater, der sie bei jedem Bild neu baut. Dazu Fälle in
-    `tests/test_contract.py`.
-  - Editor-Menü, 0,5 Tage.
-  - Export, 0,5 Tage: Parameter-Kurven mit fester Punktzahl abtasten. Dann greift die Zahlenspur `q`, und die Datei
-    bleibt klein. Ein adaptiver Plot ergäbe je Bild einen neuen Pfad.
-  - Tests, 0,5 Tage.
-  - Risiko: Tempo im Editor, weil Pyodide jedes Bild neu baut.
+- **L3 (Parameter über die Zeit)** ist seit 10.11.2026 gebaut: §8. Seine Grenzen stehen dort in §8.5.
 - **L4 (Kamerafahrt in 3D)** gibt es nicht. Die Kamera ist fest, 3D-Szenen animieren nur ihre Objekte. Eine
   Kamerafahrt änderte jeden Pfad in jedem Bild. Bei 30 Bildern/s kostete sie ein Vielfaches der heutigen Dateigröße:
   Schon das 6-KB-Bild `hm1/k8norm` käme bei 6 s auf etwa 150–300 KB, Flächen mit vielen Facetten auf mehrere MB. Dafür
@@ -281,3 +273,107 @@ Größe, Lage und Schrift: Der alte Text blendet in der ersten Hälfte aus, der 
 - `'` und `` ` `` in `\texttt{…}` sind gerade (ein Strich und der Gravis in der Zelle von 0,525 em) statt ’ und ‘.
 - Code in `\texttt{…}`/`\mathtt{…}` mit `\$ \{ \}` oder Klammern darin behält seine Dezimalpunkte (vorher bekam er
   in de/es/fr/tr ein Komma, nur ohne Klammern war er geschützt).
+
+## 8. Parameter über die Zeit (L3, 10.11.2026)
+
+Ein **Parameter** ist eine Zahl der Szene mit Namen. Jeder Ausdruck der Szene darf ihn nennen. `s.verstellen` ändert
+ihn über die Zeit, und jedes Objekt, das ihn nennt, wird in jedem Bild neu berechnet: laufende Welle, Punkt auf der
+Kurve mit Tangente, Zeitmarker, Zeiger, Grenzprozess, wachsende Fläche. Statisches Bild und PDF zeigen wie immer das
+Endbild, also alles beim letzten Zielwert.
+
+### 8.1 Aufrufe (`tools/szenen_lib.py`)
+
+```python
+s = Szene("et3/k3welle", reihenfolge="anlegen")
+a = s.achsen((0, 12, 2), (-1.5, 1.5, 1), breite=6.4, hoehe=2.4, xl="x", yl="y")
+s.parameter("t", 0)                                   # Name, Startwert
+k = s.kurve(a, "sin(pi/2*(x - t))", punkte=49)          # nennt t: läuft mit
+d = s.punkt(a, "1 + t", 1, farbe=ROT)                 # Koordinaten dürfen Ausdrücke sein
+z = s.zahl(a, "t", (8.6, 1.3), stellen=2, vor="t = ", nach=" s")    # Zahlenanzeige, 1,25 in de
+s.einblenden(a); s.zeichnen(k); s.einblenden(d, z)
+s.verstellen("t", 6, dauer=6, rate="linear")          # t: 0 -> 6 in 6 s, gleichmäßig
+s.speichern()
+```
+
+| Aufruf | Was | Hinweis |
+|---|---|---|
+| `parameter(name, wert, von=None, bis=None, schritt=None, ganzzahlig=False)` | Parameter anlegen (Editor: Objekt „Parameter“ mit Regler) | Ergebnis: id. Name: Buchstaben, Ziffern, `_`; nicht x, y, e, pi, i, j, theta |
+| `verstellen(name_oder_id, ziel, dauer=2.0, rate="glatt")` | Animation `ChangeValue` | `ziel` Zahl oder Ausdruck (`"2*pi"`); `rate` `"glatt"` (an- und auslaufend) oder `"linear"`; mehrere in `with s.gleichzeitig():` |
+| `zahl(on, ausdruck, pos, stellen=2, vor="", nach="", groesse=TEXT, ausrichtung="left", farbe=SCHWARZ)` | Zahlenanzeige (`DecimalNumber`) | Wert eines Ausdrucks (`"t"`, `"A*exp(-t/tau)"`); Dezimalzeichen und Minus nach Sprache; `vor`/`nach` mit Rich-Text und `@schluessel` |
+| `marke(on, x, f="", f2="", y=None, label="", hilfslinien=True, …)` | Punkt mit gestrichelten Projektionen auf beide Achsen (`Marker`) | `x` Zahl oder Ausdruck; mit `f` auf der Kurve, mit `f` und `f2` im Schnittpunkt |
+| `tangente(on, f, x0, laenge=1.0, punkt=True, …)` | Tangente an y = f(x) in x0 (`TangentLine`) | `x0="t"` läuft mit |
+| `kurve(…, punkte=None)`, `flaeche(…, punkte=120)` | Stützstellen unter einem Parameter | Kurve: Standard 121, etwa 16 je Schwingung genügen; Fläche: etwa 32 |
+
+Was einen Parameter nennen darf:
+- **Ausdrücke**: `func`, `func2` (Kurve, Fläche, Marker, Tangente, Stiele), `x_expr`, `y_expr`, `fx`, `fy` (Wege).
+- **Zahlen und Koordinaten**: jede Zahl eines Objekts darf ein Ausdruck sein, der einen Parameter nennt: `x_range=(0, "t")`
+  (die Kurve wächst), `s.flaeche(a, f, 0, "b")`, `s.linie(a, ("t", -1), ("t", 1))` (Zeitmarker),
+  `s.pfeil((0, 0), ("r*cos(phi)", "r*sin(phi)"), on=a)` (Zeiger), `s.kreis(a, 0, 0, "r")`, `s.weg(…, 0, "phi")` (Spur).
+  In Koordinatenlisten geht jeder Ausdruck (auch `"2*pi"`), bei einzelnen Zahlen nur einer, der einen Parameter nennt.
+- **Ganzzahlig** (`ganzzahlig=True`): n springt 1, 2, 3, …, jede Zahl gleich lang (Folgenglieder, Teilsummen in
+  geschlossener Form, `(1 + x/n)^n`).
+- **Name t**: Ein Parameter `t` ersetzt in allen Ausdrücken der Szene die Variable t. Graphen dann in x schreiben
+  (`sin(x - c*t)`); Wege (`s.weg`) und Polarkurven behalten ihr eigenes t.
+- **Mehrere Parameter** laufen gleichzeitig, wenn ihre `verstellen` im selben Schritt stehen (Zeiger: `r` und `phi`).
+
+### 8.2 Zusammenspiel mit anderen Animationen
+
+- Einblenden, Zeichnen, Wachsen, Ausblenden wirken wie gewohnt, auch während der Parameter läuft (Sichtbarkeit und
+  Fortschritt kommen von der Animation, die Form vom Parameter).
+- Verschieben, Drehen, Skalieren, Betonen und Umformen wirken auf ein Objekt unter einem Parameter nur, solange der
+  Parameter auf seinem Startwert steht. Danach bestimmt allein der Parameter die Form. Bewegung also über den
+  Parameter ausdrücken, nicht zusätzlich verschieben.
+- Ein Objekt, das schon von Anfang an wächst (`weg` von (1, 1,25) bis (1 + t, 1,25)), braucht kein Zeichnen: Es hat
+  bei t = 0 die Länge 0. Zeichnen und gleichzeitiges Verstellen ergäbe α·t statt t.
+
+### 8.3 Im Editor
+
+- Parameter anlegen: Katalog „Allgemein · Parameter“ ▸ Parameter (Name, Wert, Reglerbereich, `integer`).
+- Animation: den Parameter wählen, unter „Animations“ ▸ Parameter ▸ „+ Verstellen (ChangeValue)“; Felder „to value“
+  (Zahl oder Ausdruck) und „rate“ (smooth, linear). Andere Objekte bekommen dieses Menü nicht, ein Parameter keine
+  anderen Animationen.
+- Hat die Szene einen Parameter, nehmen die Zahlenfelder aller Objekte Ausdrücke an (`t`, `r*cos(phi)`); ein
+  Ausdruck ohne Parameter (`2*pi`) wird sofort zur Zahl. Zahlenanzeige: Katalog „Zahlenanzeige“ (`value` = Ausdruck).
+- Der Regler setzt den Startwert; ▶ Play rechnet die Animation vorab (Zahnrad) und spielt sie dann flüssig ab.
+
+### 8.4 Größen und Tempo der Vorführszenen
+
+`tools/szenen/beispiel_parameter.py`, exportiert in allen sechs Sprachen (de; Datei gesamt, davon Datenblock):
+
+| Szene | Inhalt | Dauer | .anim.svg | Daten |
+|---|---|---:|---:|---:|
+| beispiel/anim_l3_welle | laufende Welle, Punkt schwingt am Ort, Wellenberg wandert, t-Anzeige | 8,3 s | 124 KB | 116 KB |
+| beispiel/anim_l3_tangente | Punkt auf der Kurve, Tangente, Projektionen, a und f′(a) | 7,6 s | 44 KB | 33 KB |
+| beispiel/anim_l3_zeitmarker | Zeitmarker liest u und i ab, drei Anzeigen | 8,3 s | 65 KB | 48 KB |
+| beispiel/anim_l3_zeiger | Zeiger dreht sich um 315° und wird kürzer (r, φ zugleich), Spur, Realteil | 6,9 s | 48 KB | 36 KB |
+| beispiel/anim_l3_grenzwert | (1 + x/n)^n → e^x, n = 1 … 12 ganzzahlig | 10,4 s | 61 KB | 50 KB |
+| beispiel/anim_l3_flaeche | Fläche bis b wächst, A(b) | 7,1 s | 90 KB | 80 KB |
+
+Alle sechs Sprachen sind gleich groß (die Zahlen sind sprachfrei, nur das Dezimalzeichen wechselt). Ohne die
+Verdichtung (Pfad-Stufen, volle Textbilder) waren es 265 KB (Welle) und 479 KB (Fläche).
+
+Tempo im Editor (Pyodide in Chromium, gemessen mit Playwright gegen den lokalen Server): ein Bild mit laufendem
+Parameter kostet 5,6 ms (Welle), 7,3 ms (Fläche) und 9,3 ms (Zeiger, zwei Parameter, fünf mitlaufende Objekte),
+jeweils mit Zeichnen auf die Leinwand; vor dem Parameterlauf 1–2 ms. Das Vorab-Rendern beim Abspielen dauert
+1,4–1,8 s für 7–8 s Animation. Eine geringere Vorschau-Bildrate ist nicht nötig.
+
+### 8.5 Export und Grenzen
+
+- **Abtastung**: Unter einem Parameter wird ein Graph an festen Stellen berechnet (121 oder `punkte`) und glatt
+  verbunden, eine Fläche ebenso. Jedes Bild hat dieselbe Punktzahl, also wird die Form eine Zahlenspur `q`
+  (Toleranz 0,4 Szenenpixel = 0,2 px im Artikel). Zeichnen (Create) davor wird ein Teilstück `p` derselben Form.
+  Zahlenanzeigen tragen je Bild nur Lage und Inhalt (die gemeinsamen Attribute stehen an der Gruppe). Der Spieler
+  (`build_wissen.py`) ist unverändert.
+- **Größe**: Am teuersten ist eine Form, die sich überall ändert (Welle, Fläche): je Schlüsselbild alle Punkte,
+  etwa 1,4 KB bei 49 Stützstellen. Daher `punkte` klein halten (16 je Schwingung) und die Welle nicht schneller als
+  nötig laufen lassen. Eine Zahlenanzeige kostet etwa 50 Byte je angezeigtem Wert (2 Nachkommastellen über 6 s:
+  rund 10 KB). Ziel: unter 150 KB.
+- Ändert sich die Zahl der Kurvenstücke (Pol wandert durchs Bild, Wurzel beginnt), wird ein Stück, das dazukommt,
+  ein eigenes Element mit Pfad-Stufen (größer, 10 Bilder/s).
+- Nicht unter einem Parameter: Achsen (Bereiche, Ticks), MathTex-Formeln, Operationen (Σ, Faltung). Ein Parameter dort
+  bleibt beim Startwert.
+- Ein Text (`s.text`) kann keinen Parameter enthalten, dafür `s.zahl`.
+- Ein Ausdruck, der für einen Wert scheitert, blendet das Objekt in diesem Bild aus; eine Zahlenanzeige zeigt bei
+  „keine Zahl“ (z. B. `sqrt(t - 1)` vor t = 1) einen Strich.
+- Strichlinien (dash) unter einem Parameter mit Zeichnen davor: Pfad-Stufen statt Teilstück (Strichmuster und
+  Teilstück teilen sich `stroke-dasharray`).

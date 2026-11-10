@@ -107,6 +107,61 @@ def plot_graph(value_at, x0, x1, to_world, world_width,
     return segments
 
 
+def plot_graph_fixed(value_at, x0, x1, to_world, n):
+    """y = value_at(x) at exactly n evenly spaced x (no adaptivity, no jitter, no thinning): a graph that is redrawn
+    every frame under a scene parameter (L3). The same parameter-free shape always has the same number of points, so
+    the animated export stores the frames as moving numbers (track "q") instead of a new path per frame. The samples
+    are joined by a Catmull-Rom spline (smooth cubic Bézier through them): 8-12 samples per wiggle look round.
+    Non-finite values and points far off screen (poles) split the curve, as in plot_graph."""
+    n = max(2, int(n))
+    xs = np.linspace(float(x0), float(x1), n)
+    with np.errstate(all="ignore"):                        # sqrt(x - a) left of a, 1/(x - a) at a: just gaps
+        try:                                               # vectorised when the expression allows it
+            ys = np.asarray(value_at(xs), dtype=float)
+            if ys.shape != xs.shape:
+                raise ValueError
+        except Exception:
+            ys = np.empty(n)
+            for k, x in enumerate(xs):
+                try:
+                    ys[k] = float(value_at(float(x)))
+                except Exception:
+                    ys[k] = float("nan")
+    segments, run = [], []
+    for x, y in zip(xs, ys):
+        w = None
+        if math.isfinite(y):
+            w = np.asarray(to_world(float(x), float(y)), dtype=float)
+            if abs(w[1]) > _V_CUTOFF:
+                w = None
+        if w is None:
+            if len(run) >= 2:
+                segments.append(smooth_points(run))
+            run = []
+        else:
+            run.append(w)
+    if len(run) >= 2:
+        segments.append(smooth_points(run))
+    return segments
+
+
+def smooth_points(anchors):
+    """Cubic Bézier chain through the anchors with Catmull-Rom handles (tangent at P_i parallel to P_{i+1} - P_{i-1},
+    one sided at the ends). Exact for straight runs, C1-smooth elsewhere."""
+    P = np.asarray(anchors, dtype=float)
+    if len(P) < 3:
+        return line_points(P)
+    T = np.empty_like(P)
+    T[1:-1] = (P[2:] - P[:-2]) / 2.0
+    T[0] = P[1] - P[0]
+    T[-1] = P[-1] - P[-2]
+    out = np.empty((3 * (len(P) - 1) + 1, P.shape[1]))
+    out[0::3] = P
+    out[1::3] = P[:-1] + T[:-1] / 3.0
+    out[2::3] = P[1:] - T[1:] / 3.0
+    return out
+
+
 THIN_PX = 0.2                        # a sample closer than this (screen px) to the line through its neighbours goes
 THIN_MIN = 17                        # ...but every curve keeps at least this many evenly spread samples (Create from the
 #                                      centre needs an anchor near x = 0; MoveAlongPath and tests read the anchors)

@@ -128,6 +128,9 @@ class Create(Animation):
                 self._left_rev = pts[:ai + 1][::-1].copy()  # anchor -> left end (reversed curve)
 
     def interpolate(self, a):
+        if getattr(self.target, "_param_link", None) is not None:
+            self.target._create_alpha = a                  # an object under a scene parameter (L3) redraws itself
+            #                                                each frame and applies this progress again
         if self._is_surface:
             # HARD wavefront: a face is either FULLY shown (its own static opacity) or not yet — no
             # opacity ramp. A soft ramp left edge faces semi-transparent, so the white background showed
@@ -154,12 +157,22 @@ class ChangeValue(Animation):
     """Animate a ValueTracker from its current value to `value`. Everything whose updater reads the
     tracker then recomputes each frame - the one animation drives the whole dependent scene."""
 
-    def __init__(self, tracker, value, **kwargs):
+    def __init__(self, tracker, value, integer=False, **kwargs):
         super().__init__(tracker, **kwargs)
         self.end_value = float(value)
+        self.integer = bool(integer)       # whole numbers only (n = 1, 2, 3 ...): jumps instead of gliding
 
     def interpolate(self, a):
-        self.target.set_value(self.start.value + (self.end_value - self.start.value) * a)
+        v0, v1 = self.start.value, self.end_value
+        if not self.integer:
+            self.target.set_value(v0 + (v1 - v0) * a)
+            return
+        # Every whole number from n0 to n1 is shown for the same share of the (eased) run time: n0 at a = 0,
+        # n1 from a = |d|/(|d|+1) on. A plain round() would give the first and the last value half a share.
+        n0, n1 = int(round(v0)), int(round(v1))
+        d = n1 - n0
+        k = min(abs(d), int(np.floor((abs(d) + 1) * min(max(a, 0.0), 1.0))))
+        self.target.set_value(n0 + (k if d >= 0 else -k))
 
 
 class Pulse(Animation):

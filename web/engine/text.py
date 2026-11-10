@@ -69,15 +69,20 @@ class DecimalNumber(Text):
     tracks the animation frame by frame. This is how computed results appear on screen (3B1B-style)."""
 
     def __init__(self, value=0.0, position=ORIGIN, font_size=40, color=(0.0, 0.0, 0.0),
-                 decimals=2, prefix="", suffix=""):
+                 decimals=2, prefix="", suffix="", align="center"):
         self.value = float(value)
-        self.decimals = decimals
+        self.decimals = max(0, int(decimals))
         self.prefix = prefix
         self.suffix = suffix
-        super().__init__(self._fmt(value), position, font_size=font_size, color=color)
+        super().__init__(self._fmt(value), position, font_size=font_size, color=color, align=align)
 
     def _fmt(self, v):
-        return f"{self.prefix}{fmt_number(f'{v:.{self.decimals}f}')}{self.suffix}"
+        if not np.isfinite(v):                              # sqrt(t - 1) before t = 1: a dash, not "nan"
+            return f"{self.prefix}–{self.suffix}"
+        s = f'{v:.{self.decimals}f}'
+        if s.startswith("-") and not s.strip("-0."):        # -0.001 shown with 2 decimals is 0.00, not −0.00
+            s = s[1:]
+        return f"{self.prefix}{fmt_number(s)}{self.suffix}"
 
     def set_value(self, v):
         self.value = float(v)

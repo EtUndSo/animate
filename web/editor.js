@@ -180,7 +180,14 @@ const CATALOG = {
   "Allgemein · Parameter": {
     // A scene parameter: its `name` can be used in EVERY expression (functions, areas, families, …) like a
     // constant; the slider in the properties changes the value and rebuilds the scene (e.g. U, T, k).
-    Parameter: { name:"p", value:1.0, min:0.0, max:5.0, step:0.1 },
+    // L3: the animation "ChangeValue" (Animations ▸ Parameter) moves it over time; every object whose props name it
+    // is redrawn in each frame. integer = whole numbers only (n = 1, 2, 3 …: jumps instead of gliding).
+    // With a parameter in the scene, number fields of other objects also take expressions (t, 2*pi, r*cos(phi)).
+    Parameter: { name:"p", value:1.0, min:0.0, max:5.0, step:0.1, integer:false },
+    // Number display: the value of an expression (a parameter or something derived), decimal sign of the language.
+    // (prefix/suffix/align default to what a result child of an operation already has: these defaults are backfilled
+    // into such children, too.)
+    "Zahlenanzeige": { _type:"DecimalNumber", value:"p", decimals:2, prefix:"", suffix:"", position:[0,0,0], font_size:28, align:"center", color:"#111111" },
   },
   "Elektrotechnik · Schaltplan": {
     // Two-terminal component placed like in KiCad/LTspice: fixed-size symbol at `center`, `rotation` 0/90/180/270
@@ -519,7 +526,9 @@ const ANIM_GROUPS = {
   "Bewegen":      ["Shift", "MoveTo", "Rotate", "Scale"],
   "Umformen":     ["Transform", "ReplacementTransform", "TransformMatchingTex"],
   "Betonen":      ["Indicate"],
+  "Parameter":    ["ChangeValue"],          // L3: only on a Parameter object (it has nothing else to animate)
 };
+const PARAM_ANIM_GROUP = "Parameter";
 const MORPH_TYPES = new Set(["Transform", "ReplacementTransform", "TransformMatchingTex"]);   // need a second object `to`
 // Steps: same step = together, ascending = one after another. An animation may carry its own `step` (scenes written
 // with tools/szenen_lib.py); without it each animation follows the previous one (sequential) or all share step 0
@@ -534,7 +543,9 @@ function animArgs(a){
        : a.type==="Rotate" ? { angle:(a.angle||0)*Math.PI/180 }   // store degrees, send radians
        : a.type==="Scale"  ? { factor:a.factor }
        : MORPH_TYPES.has(a.type) ? { to:a.to||"" }
+       : a.type==="ChangeValue" ? { value:a.value }               // L3: a parameter to `value` (number or expression)
        : {};
+  if(a.type==="ChangeValue" && a.rate) args.rate=a.rate;           // "linear"; without: smooth (as every animation)
   if((a.type==="Rotate" || a.type==="Scale") && Array.isArray(a.around)) args.around=a.around;
   if(a.type==="Indicate") for(const k of ["cell","row","col"]) if(a[k]!=null) args[k]=a[k];
   if(a.type==="FadeIn" && a.lines) args.lines=true;                // a formula row by row (szenen_lib formel(zeilenweise=True))
@@ -1120,6 +1131,8 @@ function addAnimation(type){
   else if(type==="Rotate") a.angle=90;          // degrees
   else if(type==="Scale") a.factor=1.5;
   else if(MORPH_TYPES.has(type)) a.to="";        // pick the shape to morph into in the properties
+  else if(type==="ChangeValue"){                  // L3: the parameter runs to the end of its slider range
+    const p=selected().props||{}; a.value = (p.value===p.max) ? p.min : p.max; a.run_time=2.0; }
   model.animations.push(a);
   renderProps(); renderSceneAnims(); renderPreview();
 }
@@ -1606,6 +1619,24 @@ function commitOnEnter(i){ i.addEventListener("keydown",(e)=>{ if(e.key==="Enter
 // Values commit on CHANGE (Enter -> blur, or clicking outside the field), NOT on every keystroke — so
 // typing a number no longer re-renders (and stutters) on each digit. onchange fires exactly once, on commit.
 function numberInput(value, on){ const i=document.createElement("input"); i.type="number"; i.step="0.1"; i.value=value; i.onchange=()=>on(parseFloat(i.value)); commitOnEnter(i); return i; }
+// L3: a number field that also takes an expression with scene parameters (t, 2*pi, r*cos(phi)). A plain number or a
+// parameter-free expression is stored as a NUMBER (evaluated by evalExprJS, no eval), anything else as the text,
+// which the engine evaluates per frame (scene_model._number_args).
+const _NUM_RE=/^\s*[-+]?(\d+\.?\d*|\.\d+)([eE][-+]?\d+)?\s*$/;
+function exprNumberInput(value, on){
+  const i=document.createElement("input"); i.type="text"; i.value=value; i.style.minWidth="0";
+  i.title="Zahl oder Ausdruck mit Parametern (z. B. t, 2*pi, r*cos(phi))";
+  i.onchange=()=>{ const s=i.value.trim();
+    if(_NUM_RE.test(s)){ on(parseFloat(s)); return; }
+    const n = /[A-Za-z_]/.test(s.replace(/\b(pi|e|sin|cos|tan|exp|log|ln|sqrt|abs)\b/g,"")) ? NaN : evalExprJS(s)(0);
+    on(Number.isFinite(n) ? n : s); };
+  commitOnEnter(i); return i;
+}
+function sceneHasParams(){ return model.objects.some(o=>o.type==="Parameter"); }
+// number prop input: with a parameter in the scene (or an expression already stored) it takes expressions
+function propNumberInput(obj, value, on){
+  return (obj.type!=="Parameter" && (typeof value==="string" || sceneHasParams())) ? exprNumberInput(value, on) : numberInput(value, on);
+}
 function propRow(key, inputEl){ const w=document.createElement("div"); w.className="prop"; const l=document.createElement("label"); l.textContent=key; w.appendChild(l); w.appendChild(inputEl); return w; }
 // Enumerated string props -> a dropdown (so the user sees the allowed values). Key = "<Type>.<prop>".
 const ENUMS = {
@@ -1678,11 +1709,12 @@ function propInput(obj,key,val){
   }
   if(Array.isArray(val)){
     const vec=document.createElement("div"); vec.className="vec";
-    val.forEach((comp,i)=> vec.appendChild(numberInput(comp, (x)=>{ obj.props[key][i]=x; renderPreview(); })));
+    val.forEach((comp,i)=> vec.appendChild(propNumberInput(obj, comp, (x)=>{ obj.props[key][i]=x; renderPreview(); })));
     return propRow(key, vec);
   }
   if(typeof val==="boolean"){ const i=document.createElement("input"); i.type="checkbox"; i.checked=val; i.onchange=()=>{ obj.props[key]=i.checked; renderPreview(); }; return propRow(key,i); }
-  if(typeof val==="number") return propRow(key, numberInput(val, (x)=>{ obj.props[key]=x; renderPreview(); }));
+  const numProp = typeof val==="number" || (typeof val==="string" && typeof ((OBJ_DEFAULTS[obj.type]||{})[key])==="number");
+  if(numProp) return propRow(key, propNumberInput(obj, val, (x)=>{ obj.props[key]=x; renderPreview(); }));   // L3: or an expression
   if(typeof val==="string" && val.startsWith("#")){ const i=document.createElement("input"); i.type="color"; i.value=val; i.oninput=()=>{ obj.props[key]=i.value; renderPreview(); }; return propRow(key,i); }
   const i=document.createElement("input"); i.type="text"; i.value=val; i.onchange=()=>{ obj.props[key]=i.value; renderPreview(); }; commitOnEnter(i); return propRow(key,i);
 }
@@ -2208,7 +2240,20 @@ function renderAnimations(container, o){
     row.appendChild(numberInput(a.run_time, (x)=>{ a.run_time=x; renderPreview(); }));       // seconds
     const del=document.createElement("button"); del.textContent="✕"; del.style="border:none;background:none;color:#ef4444;cursor:pointer"; del.onclick=()=>deleteAnimation(a.id);
     row.appendChild(del); wrap.appendChild(row);
-    if(a.type==="Shift" || a.type==="MoveTo"){
+    if(a.type==="ChangeValue"){                     // L3: target value (number or expression like 2*pi) + rate
+      const vr=document.createElement("div"); vr.className="prop";
+      const vl=document.createElement("label"); vl.textContent="to value"; vr.appendChild(vl);
+      vr.appendChild(exprNumberInput(a.value!=null?a.value:0, (x)=>{ a.value=x; renderPreview(); }));
+      wrap.appendChild(vr);
+      const rr=document.createElement("div"); rr.className="prop";
+      const rl=document.createElement("label"); rl.textContent="rate"; rr.appendChild(rl);
+      const sel=document.createElement("select");
+      for(const [v,t] of [["smooth","smooth (ease in/out)"],["linear","linear (even speed)"]]){
+        const op=document.createElement("option"); op.value=v; op.textContent=t; sel.appendChild(op); }
+      sel.value=a.rate||"smooth";
+      sel.onchange=()=>{ if(sel.value==="smooth") delete a.rate; else a.rate=sel.value; renderPreview(); };
+      rr.appendChild(sel); wrap.appendChild(rr);
+    } else if(a.type==="Shift" || a.type==="MoveTo"){
       const key = a.type==="Shift" ? "vector" : "point";
       if(!Array.isArray(a[key])) a[key]=[a.type==="Shift"?2:0,0,0];
       const vr=document.createElement("div"); vr.className="prop";
@@ -2247,8 +2292,10 @@ function renderAnimations(container, o){
   }
   const adder=document.createElement("div"); adder.style="margin-top:6px";
   for(const [grp,types] of Object.entries(ANIM_GROUPS)){                // grouped by kind of motion
+    if((grp===PARAM_ANIM_GROUP) !== (o.type==="Parameter")) continue;  // a Parameter is only moved, nothing else is
     const h=document.createElement("div"); h.className="hint"; h.style="margin:4px 0 2px"; h.textContent=grp; adder.appendChild(h);
-    for(const t of types){ const b=document.createElement("span"); b.className="palette-item"; b.textContent="+ "+t; b.onclick=()=>addAnimation(t); adder.appendChild(b); }
+    for(const t of types){ const b=document.createElement("span"); b.className="palette-item";
+      b.textContent = t==="ChangeValue" ? "+ Verstellen (ChangeValue)" : "+ "+t; b.onclick=()=>addAnimation(t); adder.appendChild(b); }
   }
   wrap.appendChild(adder); container.appendChild(wrap);
 }

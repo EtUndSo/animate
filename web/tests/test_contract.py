@@ -236,9 +236,112 @@ cases.append(("split graph + legend (P3)", model_scene({"objects": [_AXN,
                    {"type": "Shift", "target": "lg", "run_time": 1, "step": 2, "args": {"vector": [1, 0, 0]}}],
     "background": [1, 1, 1]})))
 
+# L3 (10.11.2026): parameters over time. A Parameter is a ValueTracker, ChangeValue moves it, and every object whose
+# props name it is redrawn per frame (updater): curve (also growing x_range), point on the curve with guides,
+# tangent, area up to the parameter, number display, line from coordinate expressions; Create before and FadeOut
+# after the parameter moves; two parameters at once; a whole-number parameter; a curve that splits and joins again.
+_AXL = {"id": "ax", "type": "Axes", "args": {"x_range": [0, 7], "y_range": [-1.5, 1.5], "x_length": 8, "y_length": 4}}
+_P = lambda i, n, v, **kw: {"id": i, "type": "Parameter", "args": dict({"name": n, "value": v}, **kw)}
+_CV = lambda tgt, v, step, rt=2, **kw: {"type": "ChangeValue", "target": tgt, "run_time": rt, "step": step,
+                                        "args": dict({"value": v}, **kw)}
+_L3_WAVE = {"objects": [_AXL, _P("p", "t", 0),
+    {"id": "g", "type": "FunctionGraph", "args": {"func": "sin(x - t)", "color": [0, 0, 1]}},
+    {"id": "h", "type": "FunctionGraph", "args": {"func": "cos(x)", "x_range": [0, "t"], "samples": 40}},
+    {"id": "mk", "type": "Marker", "args": {"point": [0, 0, 0], "x_expr": "t", "func": "sin(x)", "show_guides": True, "label": "P"}},
+    {"id": "tg", "type": "TangentLine", "args": {"func": "sin(x)", "x0": "t", "half_len": 1}},
+    {"id": "ar", "type": "Area", "args": {"func": "sin(x)", "x_min": 0, "x_max": "t", "samples": 30, "fill_opacity": 0.3}},
+    {"id": "dn", "type": "DecimalNumber", "args": {"value": "t", "prefix": "t = ", "suffix": " s", "position": [1, 1.2, 0],
+                                                    "decimals": 2, "align": "left", "font_size": 26}},
+    {"id": "ln", "type": "Line", "args": {"start": ["t", -1, 0], "end": ["t", 1, 0]}}],
+    "animations": [{"type": "Create", "target": "g", "run_time": 1, "step": 0}, _CV("p", "2*pi", 1, 4, rate="linear"),
+                   {"type": "FadeOut", "target": "ln", "run_time": 1, "step": 2}],
+    "background": [1, 1, 1], "lang": "de"}
+cases.append(("L3 parameter: curve, point, tangent, area, number, line (model)", model_scene(_L3_WAVE)))
+cases.append(("L3 two parameters at once: pointer turns and shrinks (model)", model_scene({"objects": [
+    {"id": "ax", "type": "Axes", "args": {"x_range": [-2, 2], "y_range": [-2, 2], "x_length": 4, "y_length": 4}},
+    _P("pr", "r", 1.5), _P("pp", "phi", 0),
+    {"id": "z", "type": "LabeledArrow", "args": {"start": [0, 0, 0], "end": ["r*cos(phi)", "r*sin(phi)", 0], "label": "z"}},
+    {"id": "c", "type": "Circle", "args": {"center": [0, 0, 0], "radius": "r", "fill_opacity": 0}},
+    {"id": "d", "type": "Dot", "args": {"center": ["r*cos(phi)", "r*sin(phi)", 0]}}],
+    "animations": [{"type": "FadeIn", "target": "z", "run_time": 1, "step": 0},
+                   _CV("pr", 0.5, 1, 3), _CV("pp", "3*pi/2", 1, 3, rate="linear")],
+    "background": [1, 1, 1]})))
+_L3_INT = {"objects": [_AXL, _P("pn", "n", 1, integer=True),
+    {"id": "g", "type": "FunctionGraph", "args": {"func": "(1 + x/n)^n", "x_range": [0, 1.5]}},
+    {"id": "dn", "type": "DecimalNumber", "args": {"value": "n", "decimals": 0, "prefix": "n = ", "position": [5, 1, 0]}}],
+    "animations": [_CV("pn", 8, 0, 4, rate="linear"), {"type": "Indicate", "target": "dn", "run_time": 1, "step": 1}],
+    "background": [1, 1, 1]}
+cases.append(("L3 whole-number parameter n = 1 ... 8 (model)", model_scene(_L3_INT)))
+cases.append(("L3 curve splits at a moving pole and joins again (model)", model_scene({"objects": [_AXL, _P("pa", "a", -2),
+    {"id": "g", "type": "FunctionGraph", "args": {"func": "0.3/(x - a)"}},
+    {"id": "k", "type": "FunctionGraph", "args": {"func": "sqrt(x - a)/3", "x_range": [0, 7]}}],
+    "animations": [{"type": "FadeIn", "target": "g", "run_time": 1, "step": 0}, _CV("pa", 9, 1, 4, rate="linear"),
+                   _CV("pa", 3.5, 2, 1)],
+    "background": [1, 1, 1]})))
+
+
+def l3_checks():
+    """Values behind the probes: the whole-number parameter gives each n the same share of the time; the number
+    display follows the language; the final frame shows the end values; the editor scene file (szenen_lib) and its
+    engine model (export_szenen.python_model, the same mapping as editor.js animArgs) agree."""
+    s = model_scene(_L3_INT)
+    seen = []
+    for k in range(400):
+        s.seek(4.0 * k / 400)
+        seen.append(s.objects_by_id["pn"].value)
+    assert all(v == int(v) for v in seen) and sorted(set(seen)) == list(range(1, 9)), set(seen)
+    shares = [seen.count(n) for n in range(1, 9)]
+    assert max(shares) - min(shares) <= 1, shares
+    s.seek(0.0)
+    assert s.objects_by_id["dn"].text == "n = 1", s.objects_by_id["dn"].text
+    s.seek(4.0)
+    assert s.objects_by_id["dn"].text == "n = 8", s.objects_by_id["dn"].text
+    w = model_scene(_L3_WAVE)
+    w.seek(w.duration)
+    assert w.objects_by_id["dn"].text == "t = 6,28 s", w.objects_by_id["dn"].text
+    w.seek(0.0)
+    assert w.objects_by_id["dn"].text == "t = 0,00 s"
+    assert len(w.objects_by_id["g"].points) == 1                          # Create at its start: nothing drawn yet
+    en = model_scene(dict(_L3_WAVE, lang="en"))
+    en.seek(3.0)
+    assert en.objects_by_id["dn"].text == "t = 3.14 s", en.objects_by_id["dn"].text
+    # editor scene file <-> engine model
+    import json as _json
+    sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "tools")))
+    from szenen_lib import Szene
+    from export_szenen import python_model
+    sz = Szene("test/l3")
+    a = sz.achsen((0, 7), (-1.5, 1.5))
+    sz.parameter("t", 0)
+    n = sz.parameter("n", 1, ganzzahlig=True)
+    sz.kurve(a, "sin(x - t)")
+    sz.zahl(a, "t", (1, 1.2), vor="t = ", nach=" s")
+    with sz.gleichzeitig():
+        sz.verstellen("t", "2*pi", dauer=3, rate="linear")
+        sz.verstellen(n, 5, dauer=3)
+    data = _json.loads(_json.dumps(sz.model()))
+    anims = data["model"]["animations"]
+    assert anims[0] == {"id": "a1", "type": "ChangeValue", "target": "o2", "run_time": 3.0, "step": 0,
+                        "value": "2*pi", "rate": "linear"}, anims[0]
+    assert anims[1] == {"id": "a2", "type": "ChangeValue", "target": "o3", "run_time": 3.0, "step": 0, "value": 5.0}
+    assert data["model"]["objects"][2]["props"]["max"] == 5.0 and data["model"]["objects"][2]["props"]["integer"] is True
+    pm = python_model(data, None, None, "de", [])
+    assert pm["animations"][0] == {"type": "ChangeValue", "target": "o2", "step": 0, "run_time": 3.0,
+                                   "args": {"value": "2*pi", "rate": "linear"}}, pm["animations"][0]
+    assert pm["animations"][1]["args"] == {"value": 5.0}
+    ms = ModelScene(pm); ms.animating = True; ms.build_timeline()
+    assert abs(ms.duration - 3.0) < 1e-9
+    ms.seek(3.0)
+    assert ms.objects_by_id["o5"].text == "t = 6,28 s" and ms.objects_by_id["o3"].value == 5
+    ok = probe("L3 scene file -> python_model -> engine", ms)
+    print("  OK   L3 values (whole-number shares, number format, scene file round trip)")
+    return ok
+
+
 if __name__ == "__main__":
     print("=== ENGINE CONTRACT PROBE ===")
     ok = all(probe(n, s) for n, s in cases)
+    ok = l3_checks() and ok
     print("\nENGINE CONTRACT: WATERTIGHT" if ok else "\nENGINE CONTRACT: VIOLATIONS FOUND")
     assert ok, "engine contract violated"
     print("CONTRACT TESTS PASSED")

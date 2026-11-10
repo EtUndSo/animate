@@ -1,0 +1,239 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 8,
+  "nextAnimId": 8,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      0,
+      12,
+      2
+     ],
+     "y_range": [
+      -1.5,
+      1.5,
+      1
+     ],
+     "x_length": 6.4,
+     "y_length": 2.4,
+     "origin": [
+      0,
+      -0.2,
+      0
+     ],
+     "title": "",
+     "x_label": "x",
+     "y_label": "y",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Parameter",
+    "props": {
+     "name": "t",
+     "value": 0.0,
+     "min": 0.0,
+     "max": 6.0,
+     "step": 0.01
+    }
+   },
+   {
+    "id": "o3",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "sin(pi/2*(x - t))",
+     "color": "#2a78d6",
+     "stroke_width": 5,
+     "dash": "",
+     "x_range": [
+      0,
+      12
+     ],
+     "samples": 49
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o4",
+    "type": "Dot",
+    "props": {
+     "center": [
+      "1 + t",
+      1,
+      0
+     ],
+     "radius": 0.09,
+     "color": "#c82828",
+     "fill_color": "#c82828",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o5",
+    "type": "Line",
+    "props": {
+     "start": [
+      1,
+      1.25,
+      0
+     ],
+     "end": [
+      "1 + t",
+      1.25,
+      0
+     ],
+     "color": "#c82828",
+     "stroke_width": 3,
+     "dash": ""
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o6",
+    "type": "Marker",
+    "props": {
+     "point": [
+      0,
+      0,
+      0
+     ],
+     "x_expr": "2",
+     "func": "sin(pi/2*(x - t))",
+     "func2": "",
+     "y_expr": "",
+     "label": "",
+     "label_pos": "ne",
+     "show_guides": false,
+     "guide_dash": "5,5",
+     "radius": 0.09,
+     "font_size": 26,
+     "color": "#00823c"
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o7",
+    "type": "DecimalNumber",
+    "props": {
+     "value": "t",
+     "decimals": 2,
+     "prefix": "t = ",
+     "suffix": " s",
+     "position": [
+      8.6,
+      1.3,
+      0
+     ],
+     "font_size": 26,
+     "align": "left",
+     "color": "#111111"
+    },
+    "on": "o1"
+   }
+  ],
+  "animations": [
+   {
+    "id": "a1",
+    "type": "FadeIn",
+    "target": "o1",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a2",
+    "type": "Create",
+    "target": "o3",
+    "run_time": 1.2,
+    "step": 1
+   },
+   {
+    "id": "a3",
+    "type": "FadeIn",
+    "target": "o4",
+    "run_time": 0.5,
+    "step": 2
+   },
+   {
+    "id": "a4",
+    "type": "FadeIn",
+    "target": "o5",
+    "run_time": 0.5,
+    "step": 2
+   },
+   {
+    "id": "a5",
+    "type": "FadeIn",
+    "target": "o6",
+    "run_time": 0.5,
+    "step": 2
+   },
+   {
+    "id": "a6",
+    "type": "FadeIn",
+    "target": "o7",
+    "run_time": 0.5,
+    "step": 2
+   },
+   {
+    "id": "a7",
+    "type": "ChangeValue",
+    "target": "o2",
+    "run_time": 6.0,
+    "step": 3,
+    "value": 6.0,
+    "rate": "linear"
+   }
+  ],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {},
+  "drawOrder": "creation"
+ }
+}

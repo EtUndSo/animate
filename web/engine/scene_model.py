@@ -30,6 +30,10 @@ from . import processes as _proc
 from . import arithmetic as _arith
 from . import animation as _anim
 from . import constants as _const
+from . import rate_functions as _rf
+from . import text as _text
+from .bezier import partial_bezier as _partial_bezier, line_points as _line_points
+from .plotting import smooth_points as _smooth_points
 
 _ARITH = {"Addition", "Subtraction", "Multiplication", "Division"}
 
@@ -272,13 +276,21 @@ _SHADOWS = True
 # scene (functions, areas, families, ...) may use the parameter's name like a constant; moving the
 # slider rebuilds the scene with the new value. Filled by ModelScene.construct() before any build.
 _PARAMS = {}
+# L3 (10.11.2026): a parameter may also CHANGE OVER TIME (animation ChangeValue on the Parameter object). Objects
+# whose props name such a parameter are rebuilt in every frame (ModelScene, _ParamLink). While they are built, a 2D
+# FunctionGraph is sampled at this fixed number of points (Axes.plot(samples=...)), so every frame has the same
+# point count and the animated export stores moving numbers instead of a new path per frame. None = adaptive.
+_FIXED_SAMPLES = None
+PARAM_SAMPLES = 121                                    # default fixed sample count (prop `samples` of a FunctionGraph)
 # Extra expression helpers for piecewise / clipped signals (rectifier, saturation, ramps).
 _SAFE_NAMES.update({
     "max": np.maximum, "min": np.minimum, "clip": np.clip, "floor": np.floor, "ceil": np.ceil,
     "mod": np.mod, "where": np.where, "log10": np.log10, "log2": np.log2, "ln": np.log,
     "heaviside": lambda t: np.where(np.asarray(t, dtype=float) >= 0.0, 1.0, 0.0),
 })
-_RESERVED_PARAM_NAMES = {"x", "y", "t", "i", "e", "pi", "j", "theta"}
+# A parameter named t is allowed since L3 (time as a parameter: sin(x - c*t)); it then REPLACES the variable t in
+# every expression of the scene (graphs are written in x). Parametric and polar curves keep their own running t.
+_RESERVED_PARAM_NAMES = {"x", "y", "i", "e", "pi", "j", "theta"}
 
 
 def _safe_names():
@@ -684,7 +696,13 @@ def _build_area(args, style, axes):
     top = [(float(x), ev(f, x), 0.0) for x in xs]
     bot = ([(float(x), ev(g, x), 0.0) for x in xs[::-1]] if g is not None
            else [(b, base_y, 0.0), (a, base_y, 0.0)])
-    poly = Polygon([np.asarray(p, dtype=float) for p in top + bot], closed=True)
+    if _FIXED_SAMPLES and g is None and not (axes is not None and getattr(axes, "x_log", False)):
+        # L3 (redrawn every frame): smooth top edge through the samples, so a few dozen samples match the curve
+        poly = Polygon()
+        rest = _line_points(np.array([top[-1]] + bot + [top[0]], dtype=float))
+        poly.points = np.vstack([_smooth_points(np.array(top, dtype=float)), rest[1:]])
+    else:
+        poly = Polygon([np.asarray(p, dtype=float) for p in top + bot], closed=True)
     col = style.get("color", (0.35, 0.60, 0.92))
     poly.color = col
     poly.fill_color = style.get("fill_color", col)
@@ -718,7 +736,7 @@ def _build_polar_curve(args, style, axes):
 
     def rval(a):
         try:
-            return float(eval(code, {"__builtins__": {}}, {"theta": a, "t": a, **names}))
+            return float(eval(code, {"__builtins__": {}}, {**names, "theta": a, "t": a}))   # own t beats a parameter t
         except Exception:
             return float("nan")
 
@@ -812,7 +830,7 @@ def _build_parametric_curve(args, style, axes):
 
     def ev(code, t):
         try:
-            return float(eval(code, {"__builtins__": {}}, {"t": t, **names}))
+            return float(eval(code, {"__builtins__": {}}, {**names, "t": t}))   # own t beats a parameter t
         except Exception:
             return float("nan")
 
@@ -1304,11 +1322,55 @@ def _build_tangent(args, style, axes):
 # they must receive the expression TEXT, not the one-variable function _resolve_arg would make of it.
 _RAW_FUNC_TYPES = {"PolarCurve", "CurveFamily", "ScalarField"}
 
+# ---------------------------------------------------------------------------------------------------------------
+# L3: numbers from expressions with scene parameters. Props a builder compiles itself (functions of x, t, theta)
+# stay text; a NUMBER prop may be an expression instead: a coordinate in a list (center ["r*cos(phi)", 0, 0]) or a
+# scalar that names a parameter (x_max "T", x0 "t"). Older scenes have neither (no string in any coordinate list),
+# so they build exactly as before.
+_EXPR_KEYS = {"func", "func2", "fx", "fy", "fz", "x_expr", "y_expr", "term", "param"}
+_NAME_RE = re.compile(r"[A-Za-z_]\w*")
+
+
+def _expr_names(s):
+    return set(_NAME_RE.findall(str(s)))
+
+
+def _try_number(v):
+    """A number from an expression string (parameters, pi, sin, ...), or v itself when it is none."""
+    try:
+        x = _eval_const(v)
+        return x if np.isfinite(x) else v
+    except Exception:
+        return v
+
+
+def _number_args(args):
+    """Evaluate the number props given as expressions (see above), in place."""
+    params = set(_PARAMS)
+    for k, v in list(args.items()):
+        if k in _TEXT_KEYS or k in _EXPR_KEYS:
+            continue
+        if isinstance(v, str):
+            if params and (_expr_names(v) & params):
+                args[k] = _try_number(v)
+        elif isinstance(v, (list, tuple)) and any(isinstance(x, str) for x in v):
+            args[k] = [_try_number(x) if isinstance(x, str) else x for x in v]
+    return args
+
 
 def _build_object(spec, objects, axes=None):
     t = spec["type"]
     args = {k: (v if (k == "func" and t in _RAW_FUNC_TYPES) else _resolve_arg(k, v))
             for k, v in spec.get("args", {}).items()}
+    _number_args(args)
+    if t == "DecimalNumber" and isinstance(args.get("value"), str):   # a number display: value = an expression
+        try:
+            args["value"] = _eval_const(args["value"])
+        except Exception:
+            if not spec.get("result"):                  # a result child gets its value afterwards (results.py)
+                raise ValueError(f"Zahlenanzeige {spec.get('id', '')}: Ausdruck „{args['value']}“ ergibt keine Zahl "
+                                 "(Parametername richtig geschrieben?)")
+            args["value"] = 0.0
     if t == "Text" and isinstance(spec.get("args", {}).get("text"), str) and (args.get("raw") or args.get("font") == "mono"):
         args["text"] = _label_text(spec["args"]["text"], digits=False)   # code / file names: 1.5M stays 1.5M
     # Styling is set as attributes AFTER construction (shapes don't take color in __init__).
@@ -1351,15 +1413,16 @@ def _build_object(spec, objects, axes=None):
             f = args["func"]
             xr = args.get("x_range")                        # x = plotted domain (per function)
             yr = (axes.y_min, axes.y_max)                   # y value range (Wertebereich) ALWAYS from the Axes
+            n_fix = int(args.get("samples") or _FIXED_SAMPLES) if _FIXED_SAMPLES else None   # L3: fixed sampling
             if _DOMAIN == "complex":                        # draw real AND imaginary parts
                 obj = AnimObject()
-                re_g = axes.plot(lambda x: np.real(f(x)), x_range=xr, y_range=yr)
-                im_g = axes.plot(lambda x: np.imag(f(x)), x_range=xr, y_range=yr)
+                re_g = axes.plot(lambda x: np.real(f(x)), x_range=xr, y_range=yr, samples=n_fix)
+                im_g = axes.plot(lambda x: np.imag(f(x)), x_range=xr, y_range=yr, samples=n_fix)
                 im_g.color = (0.95, 0.55, 0.15)             # Im in orange (Re keeps the chosen colour)
                 obj.add(re_g, im_g)
                 obj._cx_parts = (re_g, im_g)
             else:
-                obj = axes.plot(f, x_range=xr, y_range=yr)
+                obj = axes.plot(f, x_range=xr, y_range=yr, samples=n_fix)
                 # (no _center_create: a 1D graph is drawn LEFT -> RIGHT, the natural reading/sampling
                 #  order — partial_bezier traces from the first sampled point at x_min onward.)
     elif t == "Riemann" and axes is not None:               # midpoint Riemann rectangles on the axes
@@ -1395,8 +1458,11 @@ def _build_object(spec, objects, axes=None):
         obj = _build_polar_curve(args, style, axes)
     elif t == "NumberLine":                                 # standalone 1D axis with ticks + labels
         obj = _build_number_line(args, style, axes)
-    elif t == "Parameter":                                  # a scene parameter: no geometry (value lives in _PARAMS)
-        obj = AnimObject()
+    elif t == "Parameter":                                  # a scene parameter: no geometry (value lives in _PARAMS);
+        name = str(args.get("name", "")).strip()            # a ValueTracker, so ChangeValue can move it (L3)
+        obj = ValueTracker(_PARAMS.get(name, 0.0))
+        obj._param_name = name
+        obj._integer = bool(args.get("integer", False))
     elif t in _fig.BUILDERS:                                # data curves, bands, stems, clouds, boxes, braces, marks, shapes, tables
         obj = _fig.BUILDERS[t](args, style, axes)
     elif t in _circ.BUILDERS:                               # circuit symbols: components, devices, wires, nodes
@@ -1491,7 +1557,21 @@ def _build_animation(spec, objects):
         args["path"] = objects.get(args["path"])
         if args["path"] is None:
             return None
+    if typ == "ChangeValue":                            # L3: a scene parameter (or a ValueTracker) to a new value
+        if not isinstance(target, ValueTracker):
+            return None
+        value = args.get("value", target.value)
+        value = _eval_const(value) if isinstance(value, str) else float(value)    # "2*pi" is fine
+        rate = str(args.get("rate") or "smooth")
+        if rate not in RATES:
+            raise ValueError(f"ChangeValue: Ratenfunktion „{rate}“ unbekannt (erlaubt: {', '.join(RATES)})")
+        return _anim.ChangeValue(target, value, integer=getattr(target, "_integer", False), rate_func=RATES[rate])
     return ANIMATION_TYPES[typ](target, **args)
+
+
+# Rate functions of ChangeValue by name (model arg "rate"): smooth = eases in and out (default, as every
+# animation), linear = constant speed (a travelling wave, a clock hand).
+RATES = {"smooth": _rf.smooth, "linear": _rf.linear}
 
 
 # --- Computations: operations OVER objects (not objects themselves). Each references existing
@@ -1711,6 +1791,204 @@ def _run_computation(scene, cspec, objects, types, axes, results=None, comps_by_
     scene.add(obj)
 
 
+# ---------------------------------------------------------------------------------------------------------------
+# L3: objects under a moving scene parameter. Contract (ENGINE_CONTRACT.md "Parameters over time"):
+#  - The parameter is a ValueTracker; ChangeValue moves it (pure in alpha, as every animation).
+#  - An object whose props name a moving parameter gets ONE updater (_ParamLink.update). While all its parameters
+#    stand at their build values it does nothing: the object is then animation-driven like any other. Otherwise it
+#    draws the object for the current values: shape, tree and text from a fresh build, visibility (FadeIn/FadeOut
+#    factor) and drawing progress (Create) from the animations of this frame.
+#  - Movement animations (Shift, Rotate, Scale, MoveTo, Indicate, Transform) act on such an object only while its
+#    parameters stand at their build values; afterwards the parameter alone sets the shape.
+_NO_PARAM_LINK = {"Axes", "ThreeDAxes", "Parameter", "ValueTracker", "MathTex", "SVGMobject"}
+# props that never hold an expression with a parameter (labels, names, kinds)
+_NO_REF_KEYS = _LABEL_KEYS | {"name", "kind", "material", "shape", "styles", "symbol_style", "align", "font",
+                              "label_pos", "label_at", "label_side", "elbow", "route", "dots", "colors", "dash",
+                              "guide_dash", "marker"}
+
+
+def _param_refs(spec, names):
+    """The moving parameters (from `names`) that the props of spec or of its children name."""
+    found = set()
+
+    def walk(v):
+        if isinstance(v, str):
+            found.update(_expr_names(v) & names)
+        elif isinstance(v, (list, tuple)):
+            for x in v:
+                walk(x)
+        elif isinstance(v, dict):
+            for k, x in v.items():
+                if k not in _NO_REF_KEYS:
+                    walk(x)
+    walk(spec.get("args") or {})
+    for c in spec.get("children") or []:
+        found |= _param_refs(c, names)
+    return found
+
+
+_CTX_KEYS = ("_ANGLE_UNIT", "_DOMAIN", "_CAM_ZOOM", "_CAM_MODE", "_GL", "_SHADOWS", "_LANG", "_STRINGS",
+             "_FIXED_SAMPLES")
+
+
+def _capture_ctx():
+    """The build settings of the scene being constructed (module globals), so a later rebuild in seek() sees the same
+    ones even if another scene was built in between (the editor builds the static view and the player)."""
+    g = globals()
+    ctx = {k: g[k] for k in _CTX_KEYS}
+    ctx["_FIXED_SAMPLES"] = PARAM_SAMPLES
+    ctx["params"] = dict(_PARAMS)
+    ctx["num_lang"] = _text._NUM_LANG[0]
+    return ctx
+
+
+class _scene_ctx:
+    """with _scene_ctx(ctx, {"t": 1.5}): build with the scene's settings and these parameter values; afterwards
+    every global is as before."""
+
+    def __init__(self, ctx, values):
+        self.ctx, self.values = ctx, values
+
+    def __enter__(self):
+        g = globals()
+        self.saved = ({k: g[k] for k in _CTX_KEYS}, dict(_PARAMS), _text._NUM_LANG[0])
+        for k in _CTX_KEYS:
+            g[k] = self.ctx[k]
+        _PARAMS.clear()
+        _PARAMS.update(self.ctx["params"])
+        _PARAMS.update(self.values)
+        _text._NUM_LANG[0] = self.ctx["num_lang"]
+        return self
+
+    def __exit__(self, *exc):
+        g = globals()
+        saved, params, lang = self.saved
+        g.update(saved)
+        _PARAMS.clear()
+        _PARAMS.update(params)
+        _text._NUM_LANG[0] = lang
+        return False
+
+
+def _mirror(t, r):
+    """Make the object tree t look exactly like r (state AND structure) while keeping t's node objects: the
+    animated export keys every drawn element by its object, so the same piece must stay the same object from frame
+    to frame. Missing nodes are added (copies of r's), surplus nodes are emptied (drawn nothing)."""
+    if type(t) is not type(r):
+        t.__class__ = type(r)
+    d = t.__dict__
+    for k in [k for k in d if k not in r.__dict__ and k not in _KEEP_ATTRS]:
+        del d[k]                                         # e.g. `text` of a node that was a label and is a path now
+    for k, v in r.__dict__.items():
+        if k in ("subObjects", "updaters"):
+            continue
+        d[k] = v.copy() if isinstance(v, np.ndarray) else v
+    subs, rs = t.subObjects, r.subObjects
+    for i, rc in enumerate(rs):
+        if i < len(subs):
+            _mirror(subs[i], rc)
+        else:
+            subs.append(rc.copy())
+    for extra in subs[len(rs):]:
+        _blank(extra)
+
+
+_KEEP_ATTRS = ("subObjects", "updaters", "_param_link", "_create_alpha")
+
+
+def _blank(o):
+    """A node that the current shape does not need: no geometry, no label (nothing is drawn)."""
+    if type(o) is not AnimObject:
+        o.__class__ = AnimObject
+    o.__dict__.pop("text", None)
+    o.points = np.zeros((0, 3))
+    for s in o.subObjects:
+        _blank(s)
+
+
+def _first_opacity(t, b):
+    """Visibility factor of t against its build state b: FadeIn/FadeOut scale every opacity of the tree alike, so the
+    first node that is visible in b tells the factor."""
+    for x, y in ((t.stroke_opacity, b.stroke_opacity), (t.fill_opacity, b.fill_opacity)):
+        if y > 1e-9:
+            return x / y
+    for tc, bc in zip(t.subObjects, b.subObjects):
+        f = _first_opacity(tc, bc)
+        if f is not None:
+            return f
+    return None
+
+
+def _scale_opacity(o, f):
+    o.stroke_opacity *= f
+    o.fill_opacity *= f
+    for s in o.subObjects:
+        _scale_opacity(s, f)
+
+
+def _tag_l3(o):
+    """Mark every node of an object under a moving parameter (`_l3`): the animated export (tools/szenen_animation)
+    then stores its changing shape as moving numbers with a coarser tolerance and its changing text compactly."""
+    o._l3 = True
+    for s in o.subObjects:
+        _tag_l3(s)
+    return o
+
+
+def _partial_tree(o, a):
+    if getattr(o, "text", None) is None and len(o.points) >= 2:
+        o.points = _partial_bezier(o.points, a)
+    for s in o.subObjects:
+        _partial_tree(s, a)
+
+
+class _ParamLink:
+    """One object of the model that names a moving parameter (see above). Never deep-copied: animation snapshots
+    of the object share it."""
+
+    def __init__(self, scene, spec, axes, names, obj):
+        self.spec, self.axes, self.names, self.obj = spec, axes, tuple(sorted(names)), obj
+        self.ctx = scene._ctx
+        self.v0 = tuple(float(_PARAMS[n]) for n in self.names)
+        _tag_l3(obj)
+        self.base = obj.copy()                           # the build state (before any animation touched it)
+        self._cache = (None, None)
+        self.trackers, self.objects = (), {}
+        obj._param_link = self
+        obj.add_updater(lambda m, link=self: link.update(m))   # a plain function: copy() keeps it as it is
+
+    def __deepcopy__(self, memo):
+        return self
+
+    def bind(self, trackers, objects):
+        self.trackers = tuple(trackers[n] for n in self.names)
+        self.objects = objects
+
+    def build(self, vals):
+        if self._cache[0] != vals:
+            with _scene_ctx(self.ctx, dict(zip(self.names, vals))):
+                r = _tag_l3(_build_object(self.spec, dict(self.objects), axes=self.axes))
+            self._cache = (vals, r)
+        return self._cache[1]
+
+    def update(self, m):
+        vals = tuple(float(tr.value) for tr in self.trackers)
+        if vals == self.v0 or len(vals) != len(self.names):
+            return                                       # parameters at their build values: animations rule
+        f = _first_opacity(m, self.base)
+        a = getattr(m, "_create_alpha", 1.0)
+        try:
+            r = self.build(vals)
+        except Exception:                                # e.g. a number display whose expression fails for these
+            _scale_opacity(m, 0.0)                       # values: hidden in this frame (still a pure function of t)
+            return
+        _mirror(m, r)
+        if f is not None and abs(f - 1.0) > 1e-12:
+            _scale_opacity(m, f)
+        if a < 1.0:
+            _partial_tree(m, a)
+
+
 def _group_by_step(anim_specs):
     """Group animation specs by their 'step' (default: list position = each its own step),
     and return the groups ordered by step. Same step -> simultaneous; ascending steps -> sequence."""
@@ -1773,8 +2051,22 @@ class ModelScene(Scene):
                                          f"oder Funktion), bitte umbenennen, z. B. „{name}1“")
                     try:
                         _PARAMS[name] = float(a.get("value", 0.0))
+                        if a.get("integer"):                 # a whole-number parameter (n) starts whole
+                            _PARAMS[name] = float(round(_PARAMS[name]))
                     except (TypeError, ValueError):
                         pass
+        # L3: parameters that an animation moves (ChangeValue on the Parameter object). Objects that name one of them
+        # are rebuilt in every frame (_ParamLink); without such an animation nothing changes for the scene.
+        pspecs = {s.get("id"): s for s in specs if s["type"] == "Parameter" and s.get("id") is not None}
+        animated = set()
+        for a in self.model.get("animations", []):
+            ps = pspecs.get(a.get("target")) if a.get("type") == "ChangeValue" else None
+            if ps is not None:
+                nm = str((ps.get("args") or {}).get("name", "")).strip()
+                if nm in _PARAMS:
+                    animated.add(nm)
+        self._param_links = []
+        self._ctx = _capture_ctx()
         # Build ALL Axes first so FunctionGraphs can be plotted onto them (and thus follow their value
         # range + scaling), regardless of the order objects were added. Several Axes = sub-figures: an
         # object names its panel with `on` (an Axes id); without it, the first Axes is used.
@@ -1796,7 +2088,13 @@ class ModelScene(Scene):
                 obj = objects[oid]
             else:
                 on = axes_by_id.get(spec.get("on"), axes)
-                obj = _build_object(spec, objects, axes=on)
+                refs = _param_refs(spec, animated) if (animated and spec["type"] not in _NO_PARAM_LINK) else set()
+                if refs:                                    # L3: built like every later frame (fixed sampling)
+                    with _scene_ctx(self._ctx, {}):
+                        obj = _build_object(spec, objects, axes=on)
+                    self._param_links.append(_ParamLink(self, spec, on, refs, obj))
+                else:
+                    obj = _build_object(spec, objects, axes=on)
                 if oid is not None:
                     objects[oid] = obj
             # Hidden objects are still BUILT (so operations can use them as operands - a Convolution/
@@ -1804,6 +2102,10 @@ class ModelScene(Scene):
             # are just not DRAWN statically.
             if spec.get("visible", True):
                 built.append((oid, obj))
+        if self._param_links:                               # L3: each rebuilt object reads its parameters' trackers
+            trackers = {getattr(o, "_param_name", None): o for o in objects.values() if isinstance(o, ValueTracker)}
+            for link in self._param_links:
+                link.bind(trackers, objects)
         # While PLAYING, objects consumed by an animated operator are drawn by that operator, not
         # statically (e.g. the convolution's two graphs). In the edit view all objects are shown.
         types = {s.get("id"): s["type"] for s in specs if s.get("id")}
@@ -1856,6 +2158,14 @@ class ModelScene(Scene):
         if self.model.get("draw_order") == "creation":
             self._order_by_creation(specs, objects)
         self.run_updaters()          # settle updater-driven objects for the static (first) frame
+
+    def seek(self, t):
+        """Scene.seek, but every object under a moving parameter (L3) first returns to its build state (shape and
+        tree as built). The animations then act on what their begin() snapshot has, and the updater draws the shape
+        for the parameter values at t: the frame stays a pure function of t, also when a curve splits."""
+        for link in getattr(self, "_param_links", ()):
+            _mirror(link.obj, link.base)
+        return super().seek(t)
 
     def _order_by_creation(self, specs, objects):
         """Draw order = order of the object list (draw_order "creation"): an object that appears by an animation keeps

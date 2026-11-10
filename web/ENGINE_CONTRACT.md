@@ -55,6 +55,30 @@ added there and pass** before it is considered done.
   changes only what lies on top, never the timeline, so seek(t) stays pure. Without it (older scenes) an appearing
   object is appended by `play()` and lies on top of everything drawn before.
 
+## Parameters over time (L3, 10.11.2026)
+- A model object `Parameter` (`name`, `value`, optional `integer`) is a `ValueTracker`; its value is also the build-time
+  constant of every expression that names it (`_PARAMS`). The animation `ChangeValue` (target = the Parameter, args
+  `value` = number or expression, `rate` = "smooth" | "linear") moves it as a pure function of α. With `integer` it
+  jumps through the whole numbers, each for an equal share of the run time.
+- An object whose props name a **moving** parameter (target of a ChangeValue) gets exactly one updater
+  (`scene_model._ParamLink`). It is rebuilt from its spec in every frame with the current values, under the scene's
+  saved build settings (`_scene_ctx`: language, angle unit, parameter values, …), so another scene built in between
+  cannot leak in.
+- Purity: `ModelScene.seek(t)` first returns every such object to its build state (`_mirror(obj, base)`: shape AND
+  tree), then runs the two passes, then the updaters. While all its parameters stand at their build values the updater
+  does nothing (the object is animation-driven). Otherwise it mirrors the fresh build onto the object, keeping the node
+  objects (the animated export keys elements by object; missing nodes are added, surplus nodes emptied) and applying
+  this frame's visibility factor (FadeIn/FadeOut) and drawing progress (`Create` stores `_create_alpha`).
+- Split of roles (the "never both" rule above): the parameter drives the shape, text and tree; FadeIn/FadeOut/Create
+  drive visibility and progress. Shift/Rotate/Scale/MoveTo/Indicate/Transform act on such an object only while its
+  parameters are at their build values. Axes, MathTex and computations are never rebuilt (a parameter in an Axes range
+  or as an operand of a convolution stays at its start value).
+- While built under a parameter, a 2D FunctionGraph samples `samples` (default `PARAM_SAMPLES` = 121) evenly spaced
+  points (`Axes.plot(samples=…)`, Catmull-Rom), an Area gets a smooth top edge: same point count in every frame.
+- `local/engine` is frozen (local/FROZEN.md) and has no ValueTracker; it is not part of this.
+- Contract cases: four "L3 …" models in `tests/test_contract.py` plus `l3_checks()` (whole-number shares, number
+  format, scene file → `python_model` → engine).
+
 ## Adding a new primitive — checklist
 - [ ] Geometry lives in `points` (cubic Bézier, `N = 3k+1`); multi-contour glyphs keep contours in one
       leaf via `_contours` (even-odd fill).

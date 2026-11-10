@@ -333,7 +333,8 @@ def python_model(data, defaults, kinds, lang, notes, tex=None):
         args = ({"vector": a.get("vector")} if t == "Shift" else {"point": a.get("point")} if t == "MoveTo"
                 else {"angle": (a.get("angle") or 0) * math.pi / 180} if t == "Rotate"
                 else {"factor": a.get("factor")} if t == "Scale"
-                else {"to": a.get("to") or ""} if t in MORPH_TYPES else {})
+                else {"to": a.get("to") or ""} if t in MORPH_TYPES
+                else {"value": a.get("value"), "rate": a.get("rate")} if t == "ChangeValue" else {})   # L3: Parameter
         if t in ("Rotate", "Scale") and isinstance(a.get("around"), list):
             args["around"] = a["around"]
         if t == "Indicate":

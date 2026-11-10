@@ -27,6 +27,7 @@ Der Spieler steht in build_wissen.py (WISSEN_JS, Block „Animierte Abbildungen�
 """
 import json
 import math
+import re
 import sys
 
 import numpy as np
@@ -339,6 +340,61 @@ class _Element:
         return None
 
 
+TOL_L3 = 0.4              # Parameter-Spuren (L3): erlaubte Abweichung in Szenenpixeln (= 0,22 px im Artikel)
+
+
+def _l3_geometry(el, frames, B, bcont, bdash):
+    """Geometrie eines Elements unter einem Parameter (L3), das sich nicht als Matrix oder Teilstück des Endbilds
+    schreiben lässt: Der Parameter berechnet die Form in jedem Bild neu, mit immer derselben Punktzahl (feste
+    Abtastung). Das wird eine Zahlenspur "q" (linear interpoliert, Toleranz TOL_L3); ein Bild, das nur ein Teilstück
+    einer solchen Form zeigt (Zeichnen, Create), bekommt die volle Form in "q" und das Teilstück in "p" (Strichmuster
+    auf pathLength 1000, gilt für die jeweils gesetzte Form). Ergebnis (Spuren, Attribute) oder None (dann wie bisher)."""
+    n = len(el.vals)
+    Q, P = [None] * n, [None] * n
+    partial, nxt, ncache = False, None, None
+    for i in range(n - 1, -1, -1):
+        v = el.vals[i]
+        if v is None:
+            continue
+        pts, cont = v[1], v[7]
+        if pts.shape == B.shape and cont == bcont:
+            Q[i], P[i], nxt = pts, None, pts
+            continue
+        if nxt is None or bdash is not None or bcont is not None or cont is not None or v[3] > 0 or len(pts) < 4:
+            return None
+        if ncache is None or ncache[0] is not nxt:
+            ncache = (nxt,) + _cubic_samples(nxt)
+        part = _partial_of(ncache[1], ncache[2], pts, TOL_PX)
+        if part is None:
+            return None
+        L = ncache[2][-1]
+        Q[i], P[i], partial = nxt, [part[0] / L * 1000.0, part[1] / L * 1000.0], True
+    shown = [v is not None for v in el.vals]
+    tr, extra = {}, {}
+    fehlt = object()                                        # unsichtbares Bild: Wert des Nachbarn (kostet nichts)
+    qv = [(None if np.abs(q - B).max() <= 0.01 else [round(float(c), 1) for c in q.reshape(-1)]) if s else fehlt
+          for q, s in zip(Q, shown)]
+    for order in (range(n), range(n - 1, -1, -1)):
+        last = fehlt
+        for i in order:
+            if qv[i] is fehlt:
+                qv[i] = last
+            else:
+                last = qv[i]
+    qv = [None if x is fehlt else x for x in qv]
+    if any(x is not None for x in qv):
+        tr["qc"] = list(bcont) if bcont else [len(B)]
+        tr["q"] = _round(_reduce_runs(frames, qv, lambda a, b: max(abs(x - y) for x, y in zip(a, b)) / TOL_L3), 1)
+    if partial:
+        pv = _fill([(x if x is not None else [0.0, 1000.0]) if s else None for x, s in zip(P, shown)])
+        poly, cum = _cubic_samples(B)
+        LB = cum[-1] if cum[-1] > 0 else 1.0
+        errp = lambda a, b: max(abs(a[0] - b[0]), abs(a[1] - b[1])) * LB / 1000.0 / TOL_PX
+        tr["p"] = _round(_reduce(frames, [[round(x[0], 1), round(x[1], 1)] for x in pv], errp), 1)
+        extra["pathLength"] = "1000"
+    return tr, extra
+
+
 def _path_tracks(el, frames, base):
     """Spuren eines Pfad-Elements relativ zum Endbild `base`."""
     _, B, bfc, bfo, bsc, bsw, bso, bcont, bdash = base
@@ -385,9 +441,18 @@ def _path_tracks(el, frames, base):
         FC[i], SC[i] = fc, sc
         scale = _det_scale(M[i]) if M[i] is not None else 1.0
         SW[i] = sw / scale if scale > 0 else sw                  # SVG skaliert den Strich mit, die Engine nicht
+    geo = None
+    if getattr(el, "l3", False) and any(x is not None for x in D):   # unter einem Parameter (L3): Zahlenspur statt Pfade
+        geo = _l3_geometry(el, frames, B, bcont, bdash)
+        if geo is not None:
+            M, P, D = [None] * n, [None] * n, [None] * n
+            SW = [None if v is None else v[5] for v in el.vals]
     # sichtbar
     if any(x == 0 for x in vis):
         tr["v"] = _reduce(frames, vis, None, step=True)
+    if geo is not None:
+        tr.update(geo[0])
+        extra.update(geo[1])
     # Geometrie: in einem sichtbaren Bild gilt genau eine Form (Matrix, Teilstück oder Pfad), die anderen sind neutral;
     # unsichtbare Bilder übernehmen den Nachbarwert (kosten keine Schlüsselbilder)
     shown = [v is not None for v in el.vals]
@@ -453,6 +518,35 @@ def _path_tracks(el, frames, base):
         num_track("sw", SW, bsw, 0.05, 2)
         col_track("sc", SC, bsc, need=bsw <= 0 or bso <= 0)
     return tr, extra
+
+
+_HOIST = ("font-size", "font-family", "fill", "text-anchor", "dominant-baseline")
+_TEXT_TAG = re.compile(r"<text( [^>]*)>")
+
+
+def _h_kompakt(h):
+    """Inhaltsspur "h" einer Zahlenanzeige unter einem Parameter (L3): Sie wechselt in fast jedem Bild. Attribute, die
+    in jedem Bild an jedem <text> gleich sind (Schrift, Größe, Farbe, Ausrichtung), stehen einmal an der umgebenden
+    Gruppe und erben sich; jedes Bild trägt nur noch Lage und Inhalt. Ergebnis (Spur, Attribute der Gruppe)."""
+    tags = [m.group(1) for x in h[1::2] if x for m in _TEXT_TAG.finditer(x)]
+    gemein = {}
+    for a in _HOIST:
+        werte = {(re.search(r' %s="([^"]*)"' % a, t) or [None, None])[1] for t in tags}
+        if len(werte) == 1 and None not in werte:
+            gemein[a] = werte.pop()
+    if not gemein:
+        return h, {}
+
+    def kurz(m):
+        t = m.group(1)
+        for a in gemein:
+            t = re.sub(r' %s="[^"]*"' % a, "", t, count=1)
+        return "<text%s>" % t
+    out = list(h)
+    for i in range(1, len(out), 2):
+        if out[i]:
+            out[i] = _TEXT_TAG.sub(kurz, out[i])
+    return out, gemein
 
 
 def _text_markup(text, px, py, fs, color, op, align, style=()):
@@ -528,6 +622,9 @@ def build(model, view, size, background, axes_on_top, fps=FPS):
     end = frames_items[-1]
     order = _merge_order([[k for k, _ in end]] + [[k for k, _ in fr] for fr in frames_items[:-1]])
     els = {k: _Element(k, None) for k in order}
+    l3 = {id(o) for o in rec.keep if getattr(o, "_l3", False)}     # Teile von Objekten unter einem Parameter (L3)
+    for k, el in els.items():
+        el.l3 = k[0] in l3
     for fr in frames_items:
         d = dict(fr)
         for k in order:
@@ -560,7 +657,7 @@ def build(model, view, size, background, axes_on_top, fps=FPS):
             if attempt and b[0] == "p":                   # zu groß: Pfad-Spuren mit geringerer Rate
                 step = 2 ** attempt
                 el_vals = [el.vals[min(len(el.vals) - 1, (i // step) * step)] for i in range(len(el.vals))]
-                el2 = _Element(k, None); el2.vals = el_vals
+                el2 = _Element(k, None); el2.vals = el_vals; el2.l3 = el.l3
             else:
                 el2 = el
             if b[0] == "p":
@@ -570,6 +667,8 @@ def build(model, view, size, background, axes_on_top, fps=FPS):
                 svg_parts = sp.parts[n0:]
             else:
                 tr, extra = _text_tracks(el2, frames, b), {}
+                if el2.l3 and "h" in tr:                    # Zahlenanzeige unter einem Parameter: kurze Bilder
+                    tr["h"], extra = _h_kompakt(tr["h"])
                 n0 = len(sp.parts)
                 sp.draw_text(b[1], b[2], b[3], b[4], b[5], b[6], b[7], **dict(b[8]))
                 svg_parts = sp.parts[n0:]

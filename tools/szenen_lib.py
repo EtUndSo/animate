@@ -153,14 +153,19 @@ class Szene:
         return self.achsen((-7, 7), (-4, 4), breite=14, hoehe=8, mitte=(0, 0), unsichtbar=True)
 
     # ---------------------------------------------------------------------------- Kurven
-    def kurve(self, on, f, x=None, farbe=BLAU, dicke=5, dash=""):
-        """Graph y = f(x); Ausdruckssprache des Editors (sin, exp, rect, tri, epsilon, si, where, floor, ...)."""
+    def kurve(self, on, f, x=None, farbe=BLAU, dicke=5, dash="", punkte=None):
+        """Graph y = f(x); Ausdruckssprache des Editors (sin, exp, rect, tri, epsilon, si, where, floor, ...).
+        Unter einem Parameter, der sich über die Zeit ändert (s.verstellen), wird die Kurve in jedem Bild an punkte
+        gleichmäßig verteilten Stellen berechnet (Standard 121; etwa 10 je Schwingung genügen). x darf den Parameter
+        nennen: x=(0, "t") lässt die Kurve mit t wachsen."""
         p = {"func": f, "color": farbe, "stroke_width": dicke, "dash": dash}
         if not x:                                      # ohne Angabe die ganze Achse (der Katalogwert wäre -10..10)
             ach = next((o for o in self.objects if o["id"] == on and o["type"] == "Axes"), None)
             x = ach["props"]["x_range"][:2] if ach else None
         if x:
             p["x_range"] = list(x)
+        if punkte is not None:
+            p["samples"] = int(punkte)
         return self._add("FunctionGraph", p, on)
 
     def daten(self, on, pts, farbe=BLAU, dicke=4, dash="", treppe="", marker=False, marker_r=0.06):
@@ -169,8 +174,11 @@ class Szene:
         return self._add("DataCurve", {"data": txt, "clip": True, "step": treppe, "markers": marker, "marker_radius": marker_r,
                                        "color": farbe, "stroke_width": dicke, "dash": dash}, on)
 
-    def flaeche(self, on, f, x0, x1, f2="", farbe=BLAU, deckung=0.3):
-        return self._add("Area", {"func": f, "func2": f2, "x_min": x0, "x_max": x1, "samples": 120, "color": farbe,
+    def flaeche(self, on, f, x0, x1, f2="", farbe=BLAU, deckung=0.3, punkte=120):
+        """Fläche unter f (oder zwischen f und f2) von x0 bis x1; Grenzen dürfen einen Parameter nennen (x1="t": die
+        Fläche wächst mit). punkte = Stützstellen; unter einem Parameter genügen etwa 32 (die Oberkante ist dann glatt
+        durch die Stützstellen gelegt), das hält die animierte Datei klein."""
+        return self._add("Area", {"func": f, "func2": f2, "x_min": x0, "x_max": x1, "samples": punkte, "color": farbe,
                                   "fill_color": farbe, "fill_opacity": deckung, "stroke_width": 0}, on)
 
     def stems(self, on, xs, ys=None, func="", farbe=BLAU, dicke=4, marker="circle", r=0.07, pfeile=False, breite=0, basis=0):
@@ -389,8 +397,9 @@ class Szene:
     # Anleitung: notizen/animationen.md.
     def animation(self, art, ziel, dauer=1.0, **werte):
         """Eine Animation des Editors (art = Create, Write, FadeIn, GrowFromCenter, FadeOut, Shift, MoveTo, Rotate,
-        Scale, Indicate, Transform, ReplacementTransform, TransformMatchingTex, MoveAlongPath) mit ihren Werten
-        (vector, point, angle in Grad, factor, around, to, row, col, cell). Ergebnis: die id der Animation."""
+        Scale, Indicate, Transform, ReplacementTransform, TransformMatchingTex, MoveAlongPath, ChangeValue) mit ihren
+        Werten (vector, point, angle in Grad, factor, around, to, row, col, cell; ChangeValue: value, rate).
+        Ergebnis: die id der Animation."""
         anims = self.__dict__.setdefault("_anims", [])
         if not anims:
             basis = self.model                                 # wie _operation: model() trägt die Zeitachse ein
@@ -515,6 +524,90 @@ class Szene:
             p["font_size"] = groesse
         vorlage = self._add("Text", p, o.get("on"))
         return self.umformen(ziel, vorlage, dauer)
+
+    # ---------------------------------------------------------------------------- Parameter über die Zeit (L3)
+    # Ein Parameter ist eine Zahl der Szene mit Namen. Jeder Ausdruck darf ihn nennen: Funktionen
+    # (s.kurve(a, "sin(x - c*t)")), Grenzen und Koordinaten (s.flaeche(a, f, 0, "t"), s.punkt(a, "t", "sin(t)"),
+    # s.linie(a, ("t", -1), ("t", 1))), Zahlenanzeigen (s.zahl). s.verstellen ändert ihn über die Zeit, und alles, was
+    # ihn nennt, läuft in jedem Bild mit. Anleitung: notizen/animationen.md §8.
+    def parameter(self, name, wert, von=None, bis=None, schritt=None, ganzzahlig=False):
+        """Parameter name mit Startwert wert (im Editor: Objekt „Parameter“ mit Regler von..bis).
+        name: Buchstaben, Ziffern, _ (nicht x, y, e, pi, i, j, theta). "t" ist erlaubt und ersetzt dann in allen
+          Ausdrücken der Szene die Variable t: Kurven in x schreiben (sin(x - c*t)); Wege (s.weg) behalten ihr eigenes t.
+        ganzzahlig=True: nur ganze Werte (n = 1, 2, 3 …); s.verstellen springt dann von Zahl zu Zahl, jede gleich lang.
+        von, bis: Bereich des Reglers (Standard: so, dass Startwert und alle Ziele aus s.verstellen hineinpassen).
+        Ergebnis: die id (s.verstellen nimmt id oder Namen)."""
+        if not (isinstance(name, str) and name.isidentifier() and name.isascii() and name[0].isalpha()):
+            raise ValueError("parameter: name aus Buchstaben, Ziffern und _, beginnend mit einem Buchstaben")
+        if name in ("x", "y", "e", "pi", "i", "j", "theta"):
+            raise ValueError('parameter: "%s" ist schon vergeben (Variable oder Konstante)' % name)
+        ids = self.__dict__.setdefault("_params", {})
+        if name in ids:
+            raise ValueError("parameter: %s gibt es schon" % name)
+        w = float(round(wert)) if ganzzahlig else float(wert)
+        p = {"name": name, "value": w, "min": float(von) if von is not None else min(0.0, w),
+             "max": float(bis) if bis is not None else max(1.0, w),
+             "step": float(schritt) if schritt is not None else (1.0 if ganzzahlig else 0.01)}
+        if ganzzahlig:
+            p["integer"] = True
+        oid = self._add("Parameter", p)
+        ids[name] = (oid, von is None, bis is None)
+        return oid
+
+    def verstellen(self, parameter, ziel, dauer=2.0, rate="glatt"):
+        """Parameter (Name oder id) in dauer Sekunden vom jetzigen Wert auf ziel (Zahl oder Ausdruck wie "2*pi")
+        bringen (Animation ChangeValue). rate: "glatt" (langsam an und aus, Standard) oder "linear" (gleichmäßig:
+        laufende Welle, Uhrzeiger, Zeitmarker). Mehrere Parameter zugleich: in "with s.gleichzeitig():". Das Endbild
+        (statisches Bild, PDF) zeigt alles beim letzten Zielwert. Ergebnis: die id der Animation."""
+        ids = self.__dict__.get("_params") or {}
+        if parameter in ids:
+            oid, frei_von, frei_bis = ids[parameter]
+        else:
+            hit = [v for v in ids.values() if v[0] == parameter]
+            if not hit:
+                raise ValueError("verstellen: %s ist kein Parameter dieser Szene (s.parameter)" % parameter)
+            oid, frei_von, frei_bis = hit[0]
+        if rate not in ("glatt", "linear"):
+            raise ValueError('verstellen: rate ist "glatt" oder "linear"')
+        o = next(x for x in self.objects if x["id"] == oid)
+        if isinstance(ziel, (int, float)):             # den Regler im Editor so weit machen, dass das Ziel hineinpasst
+            z = float(round(ziel)) if o["props"].get("integer") else float(ziel)
+            if frei_von and z < o["props"]["min"]:
+                o["props"]["min"] = z
+            if frei_bis and z > o["props"]["max"]:
+                o["props"]["max"] = z
+            ziel = z
+        else:
+            ziel = str(ziel)
+        werte = {"value": ziel}
+        if rate == "linear":
+            werte["rate"] = "linear"
+        return self.animation("ChangeValue", oid, dauer, **werte)
+
+    def zahl(self, on, ausdruck, pos, stellen=2, vor="", nach="", groesse=TEXT, ausrichtung="left", farbe=SCHWARZ):
+        """Zahlenanzeige (DecimalNumber): der Wert von ausdruck (ein Parameter oder etwas daraus: "t", "A*exp(-t/tau)")
+        mit stellen Nachkommastellen; vor/nach stehen davor/dahinter ("t = ", " s"; Rich-Text und @schluessel wie bei
+        s.text). Dezimalzeichen und Minus folgen der Sprache (1,25 in de/es/fr/tr, 1.25 in en/zh). ausrichtung="left"
+        hält den Anfang fest, während die Zahl breiter oder schmaler wird."""
+        return self._add("DecimalNumber", {"value": str(ausdruck), "decimals": int(stellen), "prefix": vor, "suffix": nach,
+                                           "position": [pos[0], pos[1], 0], "font_size": groesse, "align": ausrichtung,
+                                           "color": farbe}, on)
+
+    def marke(self, on, x, f="", f2="", y=None, label="", hilfslinien=True, farbe=SCHWARZ, r=0.08, groesse=TEXT,
+              label_pos="ne"):
+        """Punkt mit gestrichelten Hilfslinien zu beiden Achsen (Marker). x: Zahl oder Ausdruck ("t"). Mit f sitzt der
+        Punkt auf der Kurve y = f(x), mit f und f2 im Schnittpunkt nahe x (Arbeitspunkt); ohne f gilt y (Zahl oder
+        Ausdruck). label_pos: ne, nw, se, sw, n, s, e, w."""
+        return self._add("Marker", {"point": [0, 0, 0], "x_expr": str(x), "func": f, "func2": f2,
+                                    "y_expr": "" if y is None else str(y), "label": label, "label_pos": label_pos,
+                                    "show_guides": bool(hilfslinien), "guide_dash": "5,5", "radius": r, "font_size": groesse,
+                                    "color": farbe}, on)
+
+    def tangente(self, on, f, x0, laenge=1.0, punkt=True, farbe=SCHWARZ, dicke=3, dash=""):
+        """Tangente an y = f(x) im Punkt x0 (Zahl oder Ausdruck: "t" läuft mit); laenge = halbe Länge in x-Einheiten."""
+        return self._add("TangentLine", {"func": f, "x0": x0, "secant": False, "half_len": laenge, "show_point": bool(punkt),
+                                         "show_slope": False, "triangle_dx": 0, "color": farbe, "stroke_width": dicke,
+                                         "dash": dash}, on)
 
     # ---------------------------------------------------------------------------- Ablegen
     def model(self):

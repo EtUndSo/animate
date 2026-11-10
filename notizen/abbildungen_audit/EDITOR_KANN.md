@@ -46,7 +46,8 @@ Quellen: `web/editor.js` (CATALOG, COMPUTATIONS, ANIM_GROUPS), `web/engine/scene
 - **L2 Umformen/Morph:** Transform, ReplacementTransform, TransformMatchingTex (Engine) fehlen im Modell → keine
   Kurve-wird-Kurve, keine Formelumformung Schritt für Schritt.
 - **L3 Parameter/Zeit animieren:** kein Parameter-Sweep (Frequenz, Grenzwert n → ∞, laufende Welle f(x − ct), Punkt auf Kurve
-  mit mitlaufender Tangente/Projektion, Schieberegler als Animation).
+  mit mitlaufender Tangente/Projektion, Schieberegler als Animation). **Seit 10.11.2026 gebaut:** `s.parameter`,
+  `s.verstellen`, `s.zahl` (notizen/animationen.md §8, Beispiele `beispiel/anim_l3_*`).
 - **L4 Kamera-Animation:** 3D-Szene drehen/zoomen über die Zeit.
 - **L5 Gitter-Morph:** lineare Abbildung/Matrix auf die Ebene anwenden, Koordinatentransformation.
 - **L6 Teilchen:** viele bewegte Punkte (Ladungsträger-Drift, Diffusion, Zufallsbewegung, Stichproben ziehen).

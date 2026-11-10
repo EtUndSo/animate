@@ -1,0 +1,361 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 12,
+  "nextAnimId": 11,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -7,
+      7
+     ],
+     "y_range": [
+      -4,
+      4
+     ],
+     "x_length": 14,
+     "y_length": 8,
+     "origin": [
+      0,
+      0,
+      0
+     ],
+     "title": "",
+     "x_label": "",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "show_axes": false,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      0,
+      2,
+      0.5
+     ],
+     "y_range": [
+      -1.2,
+      1.2,
+      0.5
+     ],
+     "x_length": 5.0,
+     "y_length": 2.6,
+     "origin": [
+      -0.9,
+      0,
+      0
+     ],
+     "title": "",
+     "x_label": "t in ms",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center",
+     "grid_x": true,
+     "grid_y": true,
+     "grid_color": "#d9d9d9",
+     "grid_width": 1
+    }
+   },
+   {
+    "id": "o3",
+    "type": "Parameter",
+    "props": {
+     "name": "T",
+     "value": 0.1,
+     "min": 0.0,
+     "max": 1.9,
+     "step": 0.01
+    }
+   },
+   {
+    "id": "o4",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "sin(2*pi*x)",
+     "color": "#2a78d6",
+     "stroke_width": 5,
+     "dash": "",
+     "x_range": [
+      0,
+      2
+     ]
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o5",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "0.6*sin(2*pi*x - pi/3)",
+     "color": "#c82828",
+     "stroke_width": 5,
+     "dash": "",
+     "x_range": [
+      0,
+      2
+     ]
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o6",
+    "type": "Line",
+    "props": {
+     "start": [
+      "T",
+      -1.2,
+      0
+     ],
+     "end": [
+      "T",
+      1.2,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 3,
+     "dash": "10,7"
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o7",
+    "type": "Marker",
+    "props": {
+     "point": [
+      0,
+      0,
+      0
+     ],
+     "x_expr": "T",
+     "func": "sin(2*pi*x)",
+     "func2": "",
+     "y_expr": "",
+     "label": "",
+     "label_pos": "ne",
+     "show_guides": false,
+     "guide_dash": "5,5",
+     "radius": 0.08,
+     "font_size": 26,
+     "color": "#2a78d6"
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o8",
+    "type": "Marker",
+    "props": {
+     "point": [
+      0,
+      0,
+      0
+     ],
+     "x_expr": "T",
+     "func": "0.6*sin(2*pi*x - pi/3)",
+     "func2": "",
+     "y_expr": "",
+     "label": "",
+     "label_pos": "ne",
+     "show_guides": false,
+     "guide_dash": "5,5",
+     "radius": 0.08,
+     "font_size": 26,
+     "color": "#c82828"
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o9",
+    "type": "DecimalNumber",
+    "props": {
+     "value": "T",
+     "decimals": 2,
+     "prefix": "t = ",
+     "suffix": " ms",
+     "position": [
+      2.0,
+      0.9,
+      0
+     ],
+     "font_size": 26,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o10",
+    "type": "DecimalNumber",
+    "props": {
+     "value": "sin(2*pi*T)",
+     "decimals": 2,
+     "prefix": "u = ",
+     "suffix": " V",
+     "position": [
+      2.0,
+      0.3,
+      0
+     ],
+     "font_size": 26,
+     "align": "left",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o11",
+    "type": "DecimalNumber",
+    "props": {
+     "value": "0.6*sin(2*pi*T - pi/3)",
+     "decimals": 2,
+     "prefix": "i = ",
+     "suffix": " A",
+     "position": [
+      2.0,
+      -0.3,
+      0
+     ],
+     "font_size": 26,
+     "align": "left",
+     "color": "#c82828"
+    }
+   }
+  ],
+  "animations": [
+   {
+    "id": "a1",
+    "type": "FadeIn",
+    "target": "o2",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a2",
+    "type": "Create",
+    "target": "o4",
+    "run_time": 1.2,
+    "step": 1
+   },
+   {
+    "id": "a3",
+    "type": "Create",
+    "target": "o5",
+    "run_time": 1.2,
+    "step": 1
+   },
+   {
+    "id": "a4",
+    "type": "FadeIn",
+    "target": "o6",
+    "run_time": 0.5,
+    "step": 2
+   },
+   {
+    "id": "a5",
+    "type": "FadeIn",
+    "target": "o7",
+    "run_time": 0.5,
+    "step": 2
+   },
+   {
+    "id": "a6",
+    "type": "FadeIn",
+    "target": "o8",
+    "run_time": 0.5,
+    "step": 2
+   },
+   {
+    "id": "a7",
+    "type": "FadeIn",
+    "target": "o9",
+    "run_time": 0.5,
+    "step": 2
+   },
+   {
+    "id": "a8",
+    "type": "FadeIn",
+    "target": "o10",
+    "run_time": 0.5,
+    "step": 2
+   },
+   {
+    "id": "a9",
+    "type": "FadeIn",
+    "target": "o11",
+    "run_time": 0.5,
+    "step": 2
+   },
+   {
+    "id": "a10",
+    "type": "ChangeValue",
+    "target": "o3",
+    "run_time": 6.0,
+    "step": 3,
+    "value": 1.9,
+    "rate": "linear"
+   }
+  ],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {},
+  "drawOrder": "creation"
+ }
+}

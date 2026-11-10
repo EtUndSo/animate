@@ -75,6 +75,21 @@ Anleitung mit Beispielen: `notizen/animationen.md` §7. Tests: `web/tests/test_t
 | F6 | Σ/∏ erweitert | `index` (anderer Laufindex), `exact` (exakte Brüche, beliebiger Nenner). `s.summe(..., index="k", exakt=True)` | fertig |
 | F7 | Code in Formeln | `\mathtt{a.b}` ohne Abstand, gerade `'`/`` ` `` in `\texttt`, Code mit Klammern behält den Dezimalpunkt (`localizeTex`) | fertig |
 
+## G. Parameter über die Zeit (L3, 10.11.2026)
+
+Anleitung mit Beispielen: `notizen/animationen.md` §8. Vertrag: `web/ENGINE_CONTRACT.md` „Parameters over time“.
+Tests: sechs L3-Fälle in `web/tests/test_contract.py`. Vorführszenen: `tools/szenen/beispiel_parameter.py`.
+
+| Nr. | Werkzeug | Was es kann | Status |
+|---|---|---|---|
+| G1 | Parameter verstellen | Animation `ChangeValue` auf ein Objekt `Parameter` (Ziel `value`: Zahl oder Ausdruck wie `2*pi`; `rate`: smooth oder linear). Mehrere Parameter im selben Schritt laufen gleichzeitig. Im Editor: Parameter wählen, Animationen ▸ Parameter ▸ „+ Verstellen (ChangeValue)“, Felder „to value“ und „rate“. `szenen_lib`: `s.parameter("t", 0)`, `s.verstellen("t", "2*pi", dauer=4, rate="linear")` | fertig |
+| G2 | Mitlaufende Objekte | Jedes Objekt, dessen Eigenschaften einen bewegten Parameter nennen, wird in jedem Bild neu gebaut: Funktionsgraph (auch Grenzen `x_range [0, "t"]`), Fläche (Grenzen), Marker (Punkt auf Kurve, gestrichelte Projektionen), Tangente (`x0`), Strecke, Pfeil/Zeiger, Kreis, Punkt, Wege (`t_max`) | fertig |
+| G3 | Ausdrücke in Zahlenfeldern | Koordinaten und Zahlen dürfen Ausdrücke mit Parametern sein (`["r*cos(phi)", "r*sin(phi)", 0]`, `x_max: "b"`). Im Editor werden die Zahlenfelder zu Textfeldern, sobald die Szene einen Parameter hat; ein Ausdruck ohne Parameter (`2*pi`) wird dort sofort zur Zahl | fertig |
+| G4 | Zahlenanzeige | Objekt „Zahlenanzeige“ (`DecimalNumber`): `value` = Ausdruck, `decimals`, `prefix`, `suffix`, `align`; Dezimalzeichen und Minus nach Sprache. `s.zahl(on, "t", pos, stellen=2, vor="t = ", nach=" s")` | fertig |
+| G5 | Ganzzahliger Parameter | `Parameter.integer`: springt von Zahl zu Zahl, jede gleich lang (Grenzprozesse). `s.parameter("n", 1, ganzzahlig=True)` | fertig |
+| G6 | Parameter t | Ein Parameter darf `t` heißen (Zeit): Er ersetzt dann in allen Ausdrücken der Szene die Variable t; Graphen in x schreiben (`sin(x - c*t)`). Parameter- und Polarkurven behalten ihr eigenes t | fertig |
+| G7 | Export | Unter einem Parameter feste Abtastung (Graph 121 Punkte oder `samples`, Fläche `samples` mit glatter Oberkante): Zahlenspur „q“ (Toleranz 0,4 Szenenpixel), Zeichnen dazu als Teilstück „p“; Zahlenanzeigen mit kurzen Inhaltsbildern. Spieler unverändert | fertig |
+
 ## Nebenbei behobene Fehler
 
 - Wissenschaftliche Schreibweise in Ausdrücken: `1e-15` wurde als `1·e − 15` gelesen. Jetzt eine Zahl.
@@ -96,8 +111,7 @@ Anleitung mit Beispielen: `notizen/animationen.md` §7. Tests: `web/tests/test_t
 Nicht in dieser Runde gebaut, weil selten gebraucht oder mit eigenem Unterbau:
 
 - Achsenbruch und abschnittsweiser Maßstab (§17, 9 Nennungen): braucht eine stückweise Achsenabbildung.
-- Animation eines Parameters als Film (§8, §15): der Regler wirkt nur auf das Standbild.
-- Hystereseschleife mit laufendem Punkt (§20), rotierender Zeiger (§8), bewegte Teilchen (§14).
+- Hystereseschleife mit laufendem Punkt (§20) als fertige Vorlage (mit G1/G2 baubar), bewegte Teilchen (§14).
 - Ausschnittvergrößerung mit Verbindungslinien (§22), Rauschsignale mit festem Startwert (§21).
 - Gekoppelte Hervorhebung zwischen Querschnitt und Ersatzschaltbild (§38), Matrixaufbau als Animation (§31).
 - Echter LaTeX-Satz (Brüche, Wurzeln) in allen Beschriftungen (F28): dafür weiter `MathTex`.

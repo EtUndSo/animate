@@ -1,0 +1,328 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 11,
+  "nextAnimId": 11,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -7,
+      7
+     ],
+     "y_range": [
+      -4,
+      4
+     ],
+     "x_length": 14,
+     "y_length": 8,
+     "origin": [
+      0,
+      0,
+      0
+     ],
+     "title": "",
+     "x_label": "",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "show_axes": false,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      0,
+      2,
+      0.5
+     ],
+     "y_range": [
+      0,
+      8,
+      2
+     ],
+     "x_length": 3.8,
+     "y_length": 3.0,
+     "origin": [
+      -1.7,
+      0,
+      0
+     ],
+     "title": "",
+     "x_label": "x",
+     "y_label": "y",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o3",
+    "type": "Parameter",
+    "props": {
+     "name": "n",
+     "value": 1.0,
+     "min": 0.0,
+     "max": 12.0,
+     "step": 1.0,
+     "integer": true
+    }
+   },
+   {
+    "id": "o4",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "exp(x)",
+     "color": "#7f7f7f",
+     "stroke_width": 4,
+     "dash": "10,7",
+     "x_range": [
+      0,
+      2
+     ]
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o5",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "(1 + x/n)^n",
+     "color": "#2a78d6",
+     "stroke_width": 5,
+     "dash": "",
+     "x_range": [
+      0,
+      2
+     ],
+     "samples": 41
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o6",
+    "type": "Marker",
+    "props": {
+     "point": [
+      0,
+      0,
+      0
+     ],
+     "x_expr": "1",
+     "func": "(1 + x/n)^n",
+     "func2": "",
+     "y_expr": "",
+     "label": "",
+     "label_pos": "ne",
+     "show_guides": true,
+     "guide_dash": "5,5",
+     "radius": 0.08,
+     "font_size": 26,
+     "color": "#c82828"
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o7",
+    "type": "Text",
+    "props": {
+     "text": "e^x",
+     "position": [
+      -0.5,
+      1.45,
+      0
+     ],
+     "font_size": 26,
+     "align": "left",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o8",
+    "type": "DecimalNumber",
+    "props": {
+     "value": "n",
+     "decimals": 0,
+     "prefix": "n = ",
+     "suffix": "",
+     "position": [
+      1.0,
+      0.9,
+      0
+     ],
+     "font_size": 26,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o9",
+    "type": "DecimalNumber",
+    "props": {
+     "value": "(1 + 1/n)^n",
+     "decimals": 4,
+     "prefix": "(1 + 1/n)^n = ",
+     "suffix": "",
+     "position": [
+      1.0,
+      0.3,
+      0
+     ],
+     "font_size": 26,
+     "align": "left",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o10",
+    "type": "Text",
+    "props": {
+     "text": "e = 2.7183",
+     "position": [
+      1.0,
+      -0.3,
+      0
+     ],
+     "font_size": 26,
+     "align": "left",
+     "color": "#7f7f7f"
+    }
+   }
+  ],
+  "animations": [
+   {
+    "id": "a1",
+    "type": "FadeIn",
+    "target": "o2",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a2",
+    "type": "Create",
+    "target": "o4",
+    "run_time": 1.0,
+    "step": 1
+   },
+   {
+    "id": "a3",
+    "type": "FadeIn",
+    "target": "o7",
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a4",
+    "type": "FadeIn",
+    "target": "o10",
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a5",
+    "type": "Create",
+    "target": "o5",
+    "run_time": 0.8,
+    "step": 3
+   },
+   {
+    "id": "a6",
+    "type": "FadeIn",
+    "target": "o6",
+    "run_time": 0.5,
+    "step": 4
+   },
+   {
+    "id": "a7",
+    "type": "FadeIn",
+    "target": "o8",
+    "run_time": 0.5,
+    "step": 4
+   },
+   {
+    "id": "a8",
+    "type": "FadeIn",
+    "target": "o9",
+    "run_time": 0.5,
+    "step": 4
+   },
+   {
+    "id": "a9",
+    "type": "ChangeValue",
+    "target": "o3",
+    "run_time": 6.0,
+    "step": 5,
+    "value": 12.0,
+    "rate": "linear"
+   },
+   {
+    "id": "a10",
+    "type": "Indicate",
+    "target": "o9",
+    "run_time": 0.9,
+    "step": 6
+   }
+  ],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {},
+  "drawOrder": "creation"
+ }
+}

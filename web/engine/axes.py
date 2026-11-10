@@ -3,7 +3,7 @@ from .AnimObject import AnimObject
 from .simpleShape import Line, Polygon, ArrowHead
 from .text import Text, fmt_number, localize_digits
 from .bezier import line_points
-from .plotting import plot_graph, build_graph
+from .plotting import plot_graph, plot_graph_fixed, build_graph
 from .constants import RIGHT, UP, DOWN, LEFT, TOWARDS, FRAME_HEIGHT, PIXEL_WIDTH, PIXEL_HEIGHT
 
 
@@ -351,19 +351,41 @@ class Axes(AnimObject):
             self.place(sub)
         return obj
 
-    def plot(self, func, color=(0.35, 0.60, 0.92), x_range=None, y_range=None, **_):
+    def plot(self, func, color=(0.35, 0.60, 0.92), x_range=None, y_range=None, samples=None, **_):
         """Graph of y = func(x) on this coordinate system, sampled with GeoGebra-style combined
         sampling (plotting.plot_graph): adaptive, anti-aliased-looking, split at discontinuities.
         `x_range` limits the plotted DOMAIN (clamped to the axes); `y_range` clips VERTICALLY - values
         outside it are dropped (the curve splits there), which tames poles/steep parts. On a
         logarithmic x-axis the samples are spread log-uniformly; on a logarithmic y-axis values <= 0
-        become gaps."""
+        become gaps.
+        samples = n: exactly n evenly spaced samples, joined smoothly (plot_graph_fixed). For a graph that a scene
+        parameter redraws every frame (L3): same point count in every frame, and a domain that shrinks to a point
+        (x_range [0, t] at t = 0) stays a point instead of jumping to the whole axis."""
         xlo, xhi = self.x_min, self.x_max
         if x_range:
             xlo = max(self.x_min, float(x_range[0]))
             xhi = min(self.x_max, float(x_range[1]))
             if xhi <= xlo:
-                xlo, xhi = self.x_min, self.x_max           # nonsensical range -> fall back to the full axis
+                if samples:
+                    xhi = xlo
+                else:
+                    xlo, xhi = self.x_min, self.x_max       # nonsensical range -> fall back to the full axis
+        if samples:
+            ylo, yhi = (float(y_range[0]), float(y_range[1])) if y_range else (-np.inf, np.inf)
+            if self.y_log:
+                ylo = max(ylo, 1e-300)
+            span = (yhi - ylo) * 1e-9 if np.isfinite(yhi - ylo) else 0.0     # a value ON the border stays
+
+            def fv(x, _g=func, _lo=ylo - span, _hi=yhi + span):
+                v = np.asarray(_g(x), dtype=float)
+                return np.where((v >= _lo) & (v <= _hi), v, np.nan)
+            if self.x_log:
+                ulo, uhi = np.log10(max(xlo, 1e-300)), np.log10(max(xhi, 1e-300))
+                segments = plot_graph_fixed(lambda u: fv(10.0 ** u), ulo, uhi,
+                                            lambda u, y: self.coords_to_point(10.0 ** u, y), samples)
+            else:
+                segments = plot_graph_fixed(fv, xlo, xhi, self.coords_to_point, samples)
+            return build_graph(segments, color)
         f = func
         if y_range or self.y_log:
             ylo, yhi = (float(y_range[0]), float(y_range[1])) if y_range else (-float("inf"), float("inf"))
