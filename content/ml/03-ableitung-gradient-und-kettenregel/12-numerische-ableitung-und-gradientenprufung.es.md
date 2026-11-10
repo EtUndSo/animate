@@ -98,7 +98,7 @@ El error es $0{,}000001=\tfrac16\cdot6\cdot h^2$, seis mil veces menor que con l
 
 ⁠**En resumen:** La diferencia central tiene un error de truncamiento de aproximadamente $\tfrac16f'''(x)\,h^2$, porque el término de curvatura se cancela.
 
-### Lo que necesitas: números en coma flotante
+:::::vorwissen Lo que necesitas: números en coma flotante
 
 <span class="anker" id="stufe-11-3"></span>
 
@@ -117,6 +117,8 @@ Para $f(x)=x^3$ en el punto $2$ y $h=10^{-8}$ se tiene $f(2+h)=8{,}00000012\ldot
 ::::
 
 ⁠**En resumen:** Los ordenadores redondean cada resultado a unas $16$ cifras, $\varepsilon_{\mathrm M}=2^{-52}$; al restar números casi iguales, de ellas solo quedan unas pocas cifras correctas.
+
+:::::
 
 ### La curva de error
 

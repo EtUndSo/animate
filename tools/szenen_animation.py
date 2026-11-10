@@ -68,13 +68,15 @@ class _Recorder:
     Aufrufen (Pfad + Mittelpunktmarke) gibt zwei Elemente. Alle gesehenen Objekte bleiben referenziert, damit keine
     id() doppelt vergeben wird."""
 
-    def __init__(self):
+    def __init__(self, with3d=False):
         self.keep = []
         self._seen = set()
+        self.with3d = with3d      # L4 (Kamerafahrt in 3D): zu jedem Aufruf auch die Weltpunkte des Objekts merken
+        self.bbkeys = set()       # Elemente, die zur Kamera zeigen (letzter Weltpunkt = Drehmitte)
         self.reset()
 
     def reset(self):
-        self.items, self._n = [], {}
+        self.items, self._n, self.p3 = [], {}, {}
 
     def background(self, color):
         pass
@@ -90,6 +92,14 @@ class _Recorder:
         if k not in self._seen:
             self._seen.add(k)
             self.keep.append(obj)
+        if self.with3d and f.f_code.co_name == "_paint_3d":   # der Spieler projiziert selbst: Weltpunkte (Text: Anker)
+            pts = np.asarray(obj.points, dtype=float).reshape(-1, 3)
+            bb = (f.f_locals.get("bb") or {}).get(k)
+            if bb is not None:                                # Scheibe zur Kamera (Ball): Punkte in der x-y-Ebene + Mitte
+                self.p3[(k, n)] = np.vstack([pts, np.asarray(bb[1], dtype=float).reshape(1, 3)])
+                self.bbkeys.add((k, n))
+            else:
+                self.p3[(k, n)] = pts[:1].copy() if getattr(obj, "text", None) is not None else pts.copy()
         return (k, n)
 
     def draw_path(self, pts, fill_color, fill_opacity, stroke_color, stroke_width, stroke_opacity, contours=None, dash=None):
@@ -119,6 +129,11 @@ def _frame(sc, rec, t, axes_on_top):
     rec.reset()
     paint_scene(rec, sc.objectList, sc.camera, background=None, axes_on_top=axes_on_top)
     return list(rec.items)
+
+
+def _cam_now(sc):
+    c = sc.camera
+    return [float(c.theta), float(c.phi), float(c.zoom)] + [float(x) for x in c.center]
 
 
 def _invisible(v):
@@ -395,8 +410,9 @@ def _l3_geometry(el, frames, B, bcont, bdash):
     return tr, extra
 
 
-def _path_tracks(el, frames, base):
-    """Spuren eines Pfad-Elements relativ zum Endbild `base`."""
+def _path_tracks(el, frames, base, geo3d=None):
+    """Spuren eines Pfad-Elements relativ zum Endbild `base`. geo3d (L4, Kamerafahrt in 3D): die Geometrie-Spuren
+    in Weltkoordinaten (_geo3d); dann rechnet der Spieler den Pfad jedes Bilds selbst, hier bleiben nur Stil-Spuren."""
     _, B, bfc, bfo, bsc, bsw, bso, bcont, bdash = base
     tr, extra = {}, {}
     n = len(el.vals)
@@ -413,6 +429,9 @@ def _path_tracks(el, frames, base):
         if v is None:
             continue
         _, pts, fc, fo, sc, sw, so, cont, dash = v
+        if geo3d is not None:                                # Geometrie macht der Spieler (Weltpunkte, Kamera-Spur)
+            FO[i], SO[i], FC[i], SC[i], SW[i] = fo, so, fc, sc, sw
+            continue
         if (prev is not None and prev[0].shape == pts.shape and prev[1] == (cont, dash, fo <= 0)
                 and np.array_equal(prev[0], pts)):            # Geometrie wie im Bild davor
             M[i], P[i], D[i] = prev[2]
@@ -453,6 +472,8 @@ def _path_tracks(el, frames, base):
     if geo is not None:
         tr.update(geo[0])
         extra.update(geo[1])
+    if geo3d is not None:
+        tr.update(geo3d)
     # Geometrie: in einem sichtbaren Bild gilt genau eine Form (Matrix, Teilstück oder Pfad), die anderen sind neutral;
     # unsichtbare Bilder übernehmen den Nachbarwert (kosten keine Schlüsselbilder)
     shown = [v is not None for v in el.vals]
@@ -555,7 +576,8 @@ def _text_markup(text, px, py, fs, color, op, align, style=()):
     return sp.parts
 
 
-def _text_tracks(el, frames, base):
+def _text_tracks(el, frames, base, geo3d=None):
+    """Spuren eines Texts. geo3d (L4): Lage aus dem projizierten Weltanker (Spieler), hier nur die Größe als "s"."""
     _, btext, bx, by, bfs, bcol, bop, balign, bstyle = base
     tr = {}
     n = len(el.vals)
@@ -568,12 +590,17 @@ def _text_tracks(el, frames, base):
             continue
         _, text, px, py, fs, col, op, align, style = v
         s = fs / bfs if bfs > 0 else 1.0
-        M[i] = [s, 0.0, 0.0, s, px - s * bx, py - s * by]
+        M[i] = [s, 0.0, 0.0, s, 0.0, 0.0] if geo3d is not None else [s, 0.0, 0.0, s, px - s * bx, py - s * by]
         if text != btext or align != balign or style != bstyle:
             H[i] = "".join(_text_markup(text, bx, by, bfs, bcol, bop, align, style))
         FO[i], FC[i] = op, col
     mv = _fill(M)
-    if any(max(abs(a - b) for a, b in zip(x, _IDENT)) > 1e-3 for x in mv):
+    if geo3d is not None:
+        tr.update(geo3d)
+        sv = [x[0] for x in mv]
+        if any(abs(x - 1.0) > 1e-3 for x in sv):
+            tr["s"] = _round(_reduce(frames, [round(x, 4) for x in sv], lambda a, b: abs(a - b) * bfs / TOL_PX), 4)
+    elif any(max(abs(a - b) for a, b in zip(x, _IDENT)) > 1e-3 for x in mv):
         def errm(a, b):
             return max(abs(a[0] - b[0]) * bfs, abs(a[4] - b[4]), abs(a[5] - b[5])) / TOL_PX
         tr["m"] = _round(_reduce(frames, [[round(x[0], 4), 0, 0, round(x[3], 4), round(x[4], 2), round(x[5], 2)] for x in mv], errm), 4)
@@ -587,6 +614,108 @@ def _text_tracks(el, frames, base):
     if not (_constant(fc, e) and e(fc[-1], _rgb255(bcol)) <= 1.0):
         tr["fc"] = _reduce(frames, fc, e)
     return tr
+
+
+# ---------------------------------------------------------------------------- L4: Kamerafahrt in 3D (Weg b)
+# Dreht oder zoomt die Kamera einer 3D-Szene (MoveCamera), ändert sich jeder Pfad in jedem Bild. Statt projizierter
+# Pfade trägt die Datei dann je Element seine Weltpunkte ("w", Endbild; Text: der Anker) und eine Kamera-Spur ("cam":
+# theta, phi, zoom, Blickpunkt); der Spieler projiziert jedes Bild selbst (wie engine/camera.py) und sortiert die
+# Elemente nach ihrer Tiefe (Maler-Algorithmus wie engine/renderer._paint_3d: Mittelwert der Tiefe aller Punkte,
+# Achsen bei axes_on_top zuletzt, bei Gleichstand die Reihenfolge des Szenenbaums "r"). Ändern sich die Weltpunkte
+# selbst (Parameter, Verschieben), kommt "Q" (gleiche Punktzahl, linear) oder "D" (Stufe, 10 Bilder/s) dazu.
+def _geo3d(p3, B3, frames, nd, tolw):
+    """Geometrie-Spuren eines Elements in Weltkoordinaten: {} (fest), {"Q": …} oder {"D": …}."""
+    n = len(p3)
+    if all(x is None or (x.shape == B3.shape and np.abs(x - B3).max() <= 1e-9) for x in p3):
+        return {}
+    flat = lambda x: [round(float(c), nd) for c in x.reshape(-1)]
+    if len({x.shape for x in p3 if x is not None}) == 1:
+        qv = [None if x is None else (None if np.abs(x - B3).max() <= 1e-9 else flat(x)) for x in p3]
+        shown = [x is not None for x in p3]
+        fehlt = object()
+        qv = [q if s else fehlt for q, s in zip(qv, shown)]
+        for order in (range(n), range(n - 1, -1, -1)):
+            last = fehlt
+            for i in order:
+                if qv[i] is fehlt:
+                    qv[i] = last
+                else:
+                    last = qv[i]
+        qv = [None if x is fehlt else x for x in qv]
+        return {"Q": _round(_reduce_runs(frames, qv, lambda a, b: max(abs(x - y) for x, y in zip(a, b)) / tolw), nd)}
+    dv, last = [], None
+    for x in p3:
+        last = x if x is not None else last
+        dv.append(None if last is None or (last.shape == B3.shape and np.abs(last - B3).max() <= 1e-9) else flat(last))
+    dv = [x if (x is None or i % D_STEP == 0 or dv[i - i % D_STEP] is None) else dv[i - i % D_STEP]
+          for i, x in enumerate(dv)]
+    return {"D": _reduce(frames, dv, None, step=True)}
+
+
+def _gerade(P):
+    """True, wenn die Bézier-Kette P nur gerade Stücke hat (Griffe bei 1/3 und 2/3, wie engine/bezier.line_points)."""
+    k = (len(P) - 1) // 3
+    if k < 1 or len(P) != 3 * k + 1:
+        return False
+    a, b = P[0:-1:3], P[3::3]
+    span = float(np.abs(P).max()) + 1.0
+    return (np.abs(P[1::3] - (a + (b - a) / 3)).max() <= 1e-9 * span
+            and np.abs(P[2::3] - (a + (b - a) * 2 / 3)).max() <= 1e-9 * span)
+
+
+def _welt(w3, b, nd, rang, achse, bb=False, ly=0):
+    """Die festen 3D-Angaben eines Elements: w (Weltpunkte des Endbilds; bei nur geraden Stücken nur die Ecken, wl=1),
+    wc (Konturlängen), r (Rang bei gleicher Tiefe), ax (Achse, zuletzt), b (Text: Lage im Endbild), bb (Scheibe zur
+    Kamera: die Punkte liegen in der x-y-Ebene, der letzte ist die Drehmitte; der Spieler dreht sie in die Bildebene),
+    ly (Ebene, prop layer: nach allen niedrigeren gezeichnet)."""
+    out = {}
+    if bb:
+        out["bb"] = 1
+    if ly:
+        out["ly"] = int(ly)
+    if b[0] == "p" and not bb and _gerade(w3) and not b[7]:
+        out["w"] = [round(float(c), nd) for c in w3[0::3].reshape(-1)]
+        out["wl"] = 1
+    else:
+        out["w"] = [round(float(c), nd) for c in w3.reshape(-1)]
+        if b[0] == "p" and b[7]:
+            out["wc"] = list(b[7])
+    out["r"] = rang
+    if achse:
+        out["ax"] = 1
+    if b[0] == "t":
+        out["b"] = [round(b[2], 2), round(b[3], 2)]
+    return out
+
+
+def _baum_rang(objectList, axes_on_top):
+    """Je Blatt (id) seine Stelle in der Liste, die engine/renderer._paint_3d vor dem Sortieren baut (erst alle Pfade,
+    dann alle Texte, je in Baumreihenfolge), und ob es bei axes_on_top als Achse zuletzt gezeichnet wird."""
+    rang, achse, pfade, texte = {}, {}, [], []
+
+    def walk(o, is_axis):
+        here = (is_axis or bool(getattr(o, "_is_axis", False))) and not bool(getattr(o, "_is_grid", False))
+        (texte if getattr(o, "text", None) is not None else pfade).append(o)
+        achse[id(o)] = here
+        for s in o.subObjects:
+            walk(s, here)
+    for o in objectList:
+        walk(o, False)
+    for i, o in enumerate(pfade + texte):
+        rang[id(o)] = i
+    return rang, (achse if axes_on_top else {})
+
+
+def _cam_spur(cams, frames, R, upp):
+    """Kamera-Spur [k, [theta, phi, zoom, cx, cy, cz], …]: linear zwischen Schlüsselbildern; Fehler in Szenenpixeln
+    für einen Punkt im Abstand R (Welt) vom Blickpunkt (upp = Welteinheiten je Szenenpixel bei Zoom 1)."""
+    def err(a, b):
+        z = max(a[2], b[2])
+        px = z / upp
+        return ((abs(a[0] - b[0]) + abs(a[1] - b[1])) * R * px + abs(a[2] - b[2]) / max(z, 1e-9) * R * px
+                + max(abs(a[3] - b[3]), abs(a[4] - b[4]), abs(a[5] - b[5])) * px) / TOL_PX
+    vals = [[round(c[0], 6), round(c[1], 6), round(c[2], 5), round(c[3], 5), round(c[4], 5), round(c[5], 5)] for c in cams]
+    return _round(_reduce(frames, vals, err), 6)
 
 
 def _marks(timeline, dur):
@@ -617,8 +746,14 @@ def build(model, view, size, background, axes_on_top, fps=FPS):
     dur = float(sc.duration)
     N = max(1, int(math.ceil(dur * fps - 1e-9)))
     times = [dur * k / N for k in range(N + 1)]
-    rec = _Recorder()
-    frames_items = [_frame(sc, rec, t, axes_on_top) for t in times]
+    cam3d = getattr(sc, "_cam_state", None) is not None and getattr(sc.camera, "mode", "2d") == "3d"   # L4, Weg b
+    rec = _Recorder(with3d=cam3d)
+    frames_items, frames_p3, cams = [], [], []
+    for t in times:
+        frames_items.append(_frame(sc, rec, t, axes_on_top))
+        if cam3d:
+            frames_p3.append(rec.p3)
+            cams.append(_cam_now(sc))
     end = frames_items[-1]
     order = _merge_order([[k for k, _ in end]] + [[k for k, _ in fr] for fr in frames_items[:-1]])
     els = {k: _Element(k, None) for k in order}
@@ -629,6 +764,8 @@ def build(model, view, size, background, axes_on_top, fps=FPS):
         d = dict(fr)
         for k in order:
             els[k].vals.append(d.get(k))
+    for k, el in els.items():
+        el.p3 = [fp.get(k) for fp in frames_p3] if cam3d else None
     # Ein Bild, in dem ein Element ganz durchsichtig ist (ausgeblendet, noch nicht eingeblendet), zählt als „nicht
     # gezeichnet“: Im Endbild fehlt es dann wie im statischen Export, der solche Hilfsobjekte gar nicht erst baut.
     # Elemente, die in jedem Bild unsichtbar sind, bleiben unverändert (der statische Export zeichnet sie auch).
@@ -636,15 +773,31 @@ def build(model, view, size, background, axes_on_top, fps=FPS):
         unsichtbar = [v is None or _invisible(v) for v in el.vals]
         if not all(unsichtbar):
             el.vals = [None if u else v for v, u in zip(el.vals, unsichtbar)]
+            if el.p3 is not None:
+                el.p3 = [None if u else v for v, u in zip(el.p3, unsichtbar)]
     warn = []
-    # 3D: Reihenfolge ändert sich mit der Tiefe?
+    # 3D: Reihenfolge ändert sich mit der Tiefe? (Bei einer Kamerafahrt sortiert der Spieler selbst.)
     endpos = {k: i for i, (k, _) in enumerate(end)}
-    for fr in frames_items[:-1]:
+    for fr in ([] if cam3d else frames_items[:-1]):
         seq = [endpos[k] for k, _ in fr if k in endpos]
         if any(b < a for a, b in zip(seq, seq[1:])):
             warn.append("Zeichenreihenfolge ändert sich während der Animation (3D-Tiefe), die Datei behält die des Endbilds")
             break
     frames = list(range(N + 1))
+    meta3 = {}
+    if cam3d:
+        objs = {id(o): o for o in rec.keep}
+        rang, achse = _baum_rang(sc.objectList, axes_on_top)
+        upp = float(sc.camera.units_per_pixel)
+        zmax = max(c[2] for c in cams)
+        nd = 3 if zmax <= 1.5 else (4 if zmax <= 15 else 5)            # Weltpunkte auf ≤ 0,14 Szenenpixel genau
+        tolw = TOL_L3 * upp / zmax
+        basis = [el.p3[i] for el in els.values() if el.p3 is not None
+                 for i in [max((j for j, v in enumerate(el.vals) if v is not None), default=-1)] if i >= 0 and el.p3[i] is not None]
+        allp = np.vstack(basis) if basis else np.zeros((1, 3))
+        R = max(float(np.sqrt(((allp - np.array(c[3:])) ** 2).sum(axis=1)).max()) for c in cams[::max(1, len(cams) // 12)])
+        meta3 = {"cam": _cam_spur(cams, frames, R, upp), "pj": [sc.camera.pixel_width, sc.camera.pixel_height, upp],
+                 "top": 1 if axes_on_top else 0}
     budget_fps = fps
     for attempt in range(3):
         parts, data, n_anim, plain = [], [], 0, []
@@ -656,17 +809,28 @@ def build(model, view, size, background, axes_on_top, fps=FPS):
                 continue
             if attempt and b[0] == "p":                   # zu groß: Pfad-Spuren mit geringerer Rate
                 step = 2 ** attempt
-                el_vals = [el.vals[min(len(el.vals) - 1, (i // step) * step)] for i in range(len(el.vals))]
-                el2 = _Element(k, None); el2.vals = el_vals; el2.l3 = el.l3
+                sub = [min(len(el.vals) - 1, (i // step) * step) for i in range(len(el.vals))]
+                el2 = _Element(k, None); el2.vals = [el.vals[i] for i in sub]; el2.l3 = el.l3
+                el2.p3 = [el.p3[i] for i in sub] if el.p3 is not None else None
             else:
                 el2 = el
+            g3, w3 = None, None
+            if el.p3 is not None:                         # L4: der Spieler projiziert die Weltpunkte selbst
+                bi = max(j for j, v in enumerate(el.vals) if v is not None)
+                if el.p3[bi] is not None:
+                    w3 = el.p3[bi]
+                    g3 = _geo3d(el2.p3, w3, frames, nd, tolw)
             if b[0] == "p":
-                tr, extra = _path_tracks(el2, frames, b)
+                tr, extra = _path_tracks(el2, frames, b, geo3d=g3)
                 n0 = len(sp.parts)
                 sp.draw_path(b[1].tolist(), b[2], b[3], b[4], b[5], b[6], list(b[7]) if b[7] else None, list(b[8]) if b[8] else None)
                 svg_parts = sp.parts[n0:]
             else:
-                tr, extra = _text_tracks(el2, frames, b), {}
+                tr, extra = _text_tracks(el2, frames, b, geo3d=g3), {}
+            if w3 is not None:
+                tr.update(_welt(w3, b, nd, rang.get(k[0], 0), achse.get(k[0], False), k in rec.bbkeys,
+                                getattr(objs.get(k[0]), "_layer", 0)))
+            if b[0] != "p":
                 if el2.l3 and "h" in tr:                    # Zahlenanzeige unter einem Parameter: kurze Bilder
                     tr["h"], extra = _h_kompakt(tr["h"])
                 n0 = len(sp.parts)
@@ -688,6 +852,7 @@ def build(model, view, size, background, axes_on_top, fps=FPS):
                 continue
             parts.extend(svg_parts)
         meta = {"v": VERSION, "dauer": round(dur, 3), "bilder": N, "marken": _marks(sc.timeline, dur), "el": data}
+        meta.update(meta3)
         blob = json.dumps(meta, ensure_ascii=False, separators=(",", ":"))
         if len(blob) <= BUDGET or attempt == 2:
             break

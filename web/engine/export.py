@@ -207,8 +207,9 @@ def _px_to_view(camera, px, py):
     return (px - camera.pixel_width / 2.0) * upp, (camera.pixel_height / 2.0 - py) * upp
 
 
-def export_rect(objectList, camera, st, axes_on_top=True):
-    """(rect, out_size): the cropped view in scene pixels and the displayed size in whole pixels."""
+def export_rect(objectList, camera, st, axes_on_top=True, box=None):
+    """(rect, out_size): the cropped view in scene pixels and the displayed size in whole pixels. box (content mode):
+    use this pixel box instead of the drawn content (a camera ride: the union over all its frames)."""
     W, H = float(camera.pixel_width), float(camera.pixel_height)
     rect = None
     if st["mode"] == "frame" and st["frame"]:
@@ -217,7 +218,7 @@ def export_rect(objectList, camera, st, axes_on_top=True):
         bx, by = _view_to_px(camera, max(fx0, fx1), min(fy0, fy1))
         rect = [ax, ay, bx, by]
     elif st["mode"] == "content":
-        b = content_box(objectList, camera, axes_on_top)
+        b = box if box is not None else content_box(objectList, camera, axes_on_top)
         if b is not None:
             m = st["margin"]
             rect = [max(0.0, b[0] - m), max(0.0, b[1] - m), min(W, b[2] + m), min(H, b[3] + m)]
@@ -260,10 +261,10 @@ def info(rect, size, st, camera):
             "frame": [round(vx0, 4), round(vy0, 4), round(vx1, 4), round(vy1, 4)]}
 
 
-def render(objectList, camera, background=(1.0, 1.0, 1.0), axes_on_top=True, raw_settings=None):
-    """The article SVG of a built scene and its info dict: (svg_text, info)."""
+def render(objectList, camera, background=(1.0, 1.0, 1.0), axes_on_top=True, raw_settings=None, box=None):
+    """The article SVG of a built scene and its info dict: (svg_text, info). box: see export_rect."""
     st = settings(raw_settings)
-    rect, size = export_rect(objectList, camera, st, axes_on_top)
+    rect, size = export_rect(objectList, camera, st, axes_on_top, box)
     sp = SvgPainter(camera.pixel_width, camera.pixel_height, font_family=SVG_FONT)
     paint_scene(sp, objectList, camera, background=article_background(background), axes_on_top=axes_on_top)
     return sp.to_svg(view=rect, size=size), info(rect, size, st, camera)

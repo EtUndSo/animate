@@ -245,49 +245,49 @@
     "type": "FadeIn",
     "target": "o7",
     "run_time": 0.6,
-    "step": 2
+    "step": 1
    },
    {
     "id": "a4",
     "type": "FadeIn",
     "target": "o10",
     "run_time": 0.6,
-    "step": 2
+    "step": 1
    },
    {
     "id": "a5",
     "type": "Create",
     "target": "o5",
     "run_time": 0.8,
-    "step": 3
+    "step": 2
    },
    {
     "id": "a6",
     "type": "FadeIn",
     "target": "o6",
     "run_time": 0.5,
-    "step": 4
+    "step": 3
    },
    {
     "id": "a7",
     "type": "FadeIn",
     "target": "o8",
     "run_time": 0.5,
-    "step": 4
+    "step": 3
    },
    {
     "id": "a8",
     "type": "FadeIn",
     "target": "o9",
     "run_time": 0.5,
-    "step": 4
+    "step": 3
    },
    {
     "id": "a9",
     "type": "ChangeValue",
     "target": "o3",
     "run_time": 6.0,
-    "step": 5,
+    "step": 4,
     "value": 12.0,
     "rate": "linear"
    },
@@ -296,7 +296,7 @@
     "type": "Indicate",
     "target": "o9",
     "run_time": 0.9,
-    "step": 6
+    "step": 5
    }
   ],
   "computations": [],

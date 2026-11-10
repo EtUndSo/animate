@@ -15,7 +15,7 @@ lang: de
 Das Schrittverfahren tastet sich mit festen Schritten an die Lösung heran und ist deshalb langsam. Dieser Abschnitt zeigt ein Verfahren, das den Bereich, in dem die Lösung liegen muss, in jedem Schritt halbiert, und bestimmt, wie viele Schritte es braucht.
 :::
 
-### Was du dafür brauchst: der Zwischenwertsatz
+:::::vorwissen Was du dafür brauchst: der Zwischenwertsatz
 
 <span class="anker" id="stufe-7-1"></span>
 
@@ -36,6 +36,8 @@ $f(x)=x^2-2$ ist stetig, und es ist $f(0)=-2<0$ und $f(2)=2>0$. Also hat $f$ zwi
 ::::
 
 ⁠**Kurz gesagt:** Wechselt eine stetige Funktion zwischen zwei Stellen das Vorzeichen, liegt dazwischen eine Nullstelle.
+
+:::::
 
 ### Das Bisektionsverfahren
 

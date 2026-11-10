@@ -15,7 +15,7 @@ lang: de
 Die Bisektion fragt in jedem Schritt nur nach dem Vorzeichen von $f$ und gewinnt damit ein Bit. Dieser Abschnitt zeigt ein Verfahren, das zusätzlich die Steigung von $f$ benutzt und dadurch die Zahl der gültigen Stellen in jedem Schritt etwa verdoppelt. Es ist das Heron-Verfahren aus [Kapitel 1](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/programme-und-der-python-interpreter.html), jetzt mit Begründung, warum es so schnell ist und wann es versagt.
 :::
 
-### Was du dafür brauchst: Ableitung und Tangente
+:::::vorwissen Was du dafür brauchst: Ableitung und Tangente
 
 <span class="anker" id="stufe-8-1"></span>
 
@@ -30,6 +30,8 @@ Für $f(x)=x^2-2$ an der Stelle $g=2$ ist $f(2)=2$ und $f'(2)=4$, die Tangente a
 ::::
 
 ⁠**Kurz gesagt:** Die Tangente ist die Gerade, die sich an einer Stelle an den Graphen anschmiegt; ihre Steigung ist die Ableitung.
+
+:::::
 
 ### Das Newton-Verfahren
 

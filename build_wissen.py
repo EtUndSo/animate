@@ -443,6 +443,13 @@ def md_to_html(md):
             wort, titel = (mw.group(1).strip() or T("beispiel")), mw.group(2).strip()
         out.append(f'<details class="beispiel"><summary><span class="bsp-k">{inline(wort)}</span>' + inline(titel) + '</summary>'
                    '<div class="bsp-body">' + md_to_html("\n".join(inner))[0] + '</div></details>')
+    def vorwissen(arg, inner):                            # „Was du dafür brauchst: Titel“: zugeklappte Box (User, 10.11.2026)
+        kopf, titel = arg, ""                             # Kopf bis zum ersten Doppelpunkt (auch „：“ und „ :“), dann der Titel
+        mk = re.match(r"(.+?)\s*[:：]\s*(.*)$", arg)
+        if mk:
+            kopf, titel = mk.group(1).strip(), mk.group(2).strip()
+        out.append(f'<details class="vorwissen"><summary><span class="vo-k">{inline(kopf)}</span>' + inline(titel) + '</summary>'
+                   '<div class="vo-body">' + md_to_html("\n".join(inner))[0] + '</div></details>')
     def flush():
         if para:
             txt = " ".join(para).strip()
@@ -473,6 +480,14 @@ def md_to_html(md):
                 code.append(lines[i]); i += 1
             i += 1
             out.append(code_html(info, "\n".join(code)))
+            continue
+        mv = re.match(r":::::vorwissen(?:\s+(.+?))?\s*$", s)   # :::::vorwissen Titel … ::::: (fünf Doppelpunkte, darf ::::beispiel enthalten)
+        if mv:
+            flush(); i += 1; inner = []
+            while i < n and lines[i].strip() != ":::::":
+                inner.append(lines[i]); i += 1
+            i += 1
+            vorwissen((mv.group(1) or "").strip(), inner)
             continue
         mb = re.match(r"::::beispiel(?:\s+(.+?))?\s*$", s)   # ::::beispiel [Wort] Titel … :::: (vier Doppelpunkte, darf :::-Blöcke enthalten)
         if mb:
@@ -658,6 +673,7 @@ def to_plain(md):
     txt = re.sub(r"```.*?```", " ", md, flags=re.S)
     txt = re.sub(r"\$\$?.+?\$\$?", " ", txt, flags=re.S)        # drop math
     txt = re.sub(r"</?[a-z][^>]*>", " ", txt)                  # Listen und Anker aus den Heften
+    txt = re.sub(r"^:::::vorwissen\s*", "", txt, flags=re.M)   # Titel des Vorwissen-Kastens bleibt suchbar (wie früher die Überschrift)
     txt = re.sub(r"^:::.*$", " ", txt, flags=re.M)
     txt = re.sub(r"[#>*`_:\-\[\]()!]", " ", txt)
     txt = re.sub(r"https?://\S+", " ", txt)
@@ -872,8 +888,9 @@ def lang_switch(art=None, where="top"):
             f'<ul class="l-menu" id="{mid}" hidden>{rows}</ul></nav>')
 
 def lesezeit(body):
-    """Lesezeit des Hauptpfads in Minuten (170 Wörter/min; ohne Herleitungen, Beispiele, Quiz, Formeln, Abbildungen)."""
-    t = re.sub(r"^::::\s*beispiel.*?^::::\s*$", " ", body, flags=re.S | re.M)
+    """Lesezeit des Hauptpfads in Minuten (170 Wörter/min; ohne Vorwissen, Herleitungen, Beispiele, Quiz, Formeln, Abbildungen)."""
+    t = re.sub(r"^:::::\s*vorwissen.*?^:::::\s*$", " ", body, flags=re.S | re.M)
+    t = re.sub(r"^::::\s*beispiel.*?^::::\s*$", " ", t, flags=re.S | re.M)
     t = re.sub(r"^:::\s*(?:herleitung|beweis|quiz|frage|ltspice)\b.*?^:::\s*$", " ", t, flags=re.S | re.M)   # eingeklappte Kästen
     t = re.sub(r"^:::\s*(?:grafik|abbildung)\b.*?^:::\s*$", " ", t, flags=re.S | re.M)   # Abbildungen zählen nicht (wie früher die Bildunterschriften)
     t = re.sub(r"\$\$.+?\$\$", " ", t, flags=re.S)
@@ -1010,7 +1027,7 @@ def verwendet_html(art):
     if not eintr:
         return ""
     titel = {m.group(2): m.group(1) for m in
-             re.finditer(r'(?m)^###\s+(.+?)\s*\n\s*\n<span class="anker" id="(stufe-\d+-\d+)"></span>', art["body"])}
+             re.finditer(r'(?m)^(?:###|:::::vorwissen)\s+(.+?)\s*\n\s*\n<span class="anker" id="(stufe-\d+-\d+)"></span>', art["body"])}
     rows = []
     for a, anker in sorted(eintr.values(), key=lambda x: (x[0]["order"], x[0]["title"])):
         heft = a["crumbs"][-1][0] if a["crumbs"] else ""      # „Kapitel 2: …“, davor Bereich bzw. Modulkürzel („Python“, „ET3“)
@@ -1541,6 +1558,16 @@ details.beispiel[open]>summary::before{transform:rotate(90deg);}
 details.beispiel .bsp-k{font-family:var(--fdisp);font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--accent3);margin-right:9px;}
 .bsp-body{padding:0 16px 10px;border-top:1px solid var(--border);}
 .bsp-body>p:first-child{margin-top:12px;}
+/* ---------- Vorwissen-Kasten (:::::vorwissen, „Was du dafür brauchst: …“): zugeklappt; weiß mit grüner Kopfleiste,
+   so vom Beispiel (orange Kopfleiste) und vom Hintergrund (grau, grüne Linie links) zu unterscheiden ---------- */
+details.vorwissen{margin:1.1em 0;border:1px solid var(--border);border-top:3px solid var(--accent);border-radius:10px;background:var(--panel);}
+details.vorwissen>summary{cursor:pointer;padding:10px 14px;list-style:none;font-weight:600;line-height:1.45;}
+details.vorwissen>summary::-webkit-details-marker{display:none;}
+details.vorwissen>summary::before{content:"▸";display:inline-block;margin-right:9px;color:var(--accent);transition:transform .15s;}
+details.vorwissen[open]>summary::before{transform:rotate(90deg);}
+details.vorwissen .vo-k{font-family:var(--fdisp);font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--accent);margin-right:9px;}
+.vo-body{padding:0 16px 10px;border-top:1px solid var(--border);}
+.vo-body>p:first-child,.vo-body>.anker:first-child+p{margin-top:12px;}
 .article figure.abb,.article details [id]{scroll-margin-top:72px;}   /* Sprung auf eine Abbildung (auch im Kasten): nicht unter der Kopfleiste */
 /* ---------- Grüne Leiste, modern (Variante B, 04.11.2026) ---------- */
 .article h1{font-weight:800;letter-spacing:-.03em;line-height:1.08;}
@@ -1556,9 +1583,9 @@ details.beispiel .bsp-k{font-family:var(--fdisp);font-size:12px;text-transform:u
 :root[data-theme="dark"] :is(.article .sect,.callout,details.hintergrund,details.herleitung,details.frage,details.ltspice,details.quiz-item,
   .aufg,.article figure.abb,.arttoc,.zweck,.neighbors .nb,.pn,.theme-card,.fassung,.verwendet){
   border-top:1px solid var(--rahmen);border-right:1px solid var(--rahmen);border-bottom:1px solid var(--rahmen);}
-:root[data-theme="dark"] details.beispiel{border-right:1px solid var(--rahmen);border-bottom:1px solid var(--rahmen);}
+:root[data-theme="dark"] :is(details.beispiel,details.vorwissen){border-right:1px solid var(--rahmen);border-bottom:1px solid var(--rahmen);}
 :root[data-theme="dark"] :is(.article .sect,.callout:not([class*="cx-"]),.callout.cx-zusatz,details.frage,details.quiz-item,
-  .aufg,.article figure.abb,.arttoc,.zweck,.neighbors .nb,.pn,.theme-card,details.beispiel,.fassung,.verwendet){border-left:1px solid var(--rahmen);}
+  .aufg,.article figure.abb,.arttoc,.zweck,.neighbors .nb,.pn,.theme-card,details.beispiel,details.vorwissen,.fassung,.verwendet){border-left:1px solid var(--rahmen);}
 @media(max-width:620px){ .arttoc ul{grid-template-columns:1fr;} }
 @media(max-width:920px){ .article{grid-template-columns:1fr;} .toc{display:none;} #toggleRight{display:none;} }   /* keine Gliederung -> ihr Toggle weg */
 @media(max-width:720px){ .layout{grid-template-columns:1fr;} .side{display:none;border-right:none;}
@@ -1831,6 +1858,29 @@ var NICHTS={de:"Nichts gefunden für „{q}\".",en:"Nothing found for „{q}\"."
   function rgb(c){ return "rgb("+Math.round(c[0])+","+Math.round(c[1])+","+Math.round(c[2])+")"; }
   function setze(el,cache,name,v){ if(cache[name]===v) return; cache[name]=v; if(v===null) el.removeAttribute(name); else el.setAttribute(name,v); }
   function texte(el){ return el.tagName.toLowerCase()==="g"?[].slice.call(el.querySelectorAll("text")):[el]; }
+  // Kamerafahrt in 3D (L4): Die Datei trägt je Element Weltpunkte (w; wl = nur Ecken gerader Stücke) und eine
+  // Kamera-Spur cam [theta, phi, zoom, Blickpunkt]; projiziert wird wie engine/camera.py (z oben, orthografisch),
+  // gezeichnet von hinten nach vorn wie engine/renderer (Tiefe = Mittel aller Punkte, Achsen bei top zuletzt).
+  function kamera(c){ var ct=Math.cos(c[0]), st=Math.sin(c[0]), ce=Math.cos(c[1]), se=Math.sin(c[1]);
+    var cam=[ce*ct,ce*st,se], fw=[-cam[0],-cam[1],-cam[2]], rt=[fw[1],-fw[0],0], n=Math.sqrt(rt[0]*rt[0]+rt[1]*rt[1]);
+    rt=n>1e-9?[rt[0]/n,rt[1]/n,0]:[1,0,0];
+    var up=[rt[1]*fw[2]-rt[2]*fw[1],rt[2]*fw[0]-rt[0]*fw[2],rt[0]*fw[1]-rt[1]*fw[0]], m=Math.sqrt(up[0]*up[0]+up[1]*up[1]+up[2]*up[2]);
+    return {r:rt,u:[up[0]/m,up[1]/m,up[2]/m],c:cam,z:c[2],o:[c[3],c[4],c[5]]}; }
+  function gerade(w){ var o=[w[0],w[1],w[2]];
+    for(var i=3;i<w.length;i+=3){ for(var k=1;k<=3;k++){ var q=k/3; o.push(w[i-3]+(w[i]-w[i-3])*q,w[i-2]+(w[i+1]-w[i-2])*q,w[i-1]+(w[i+2]-w[i-1])*q); } }
+    return o; }
+  function punkte3(e,tr,f){ if(!e._w) e._w=tr.wl?gerade(tr.w):tr.w;
+    if(tr.Q){ var s=such(tr.Q,f), a=tr.Q[2*s[0]+1], b=tr.Q[2*s[1]+1]; if(a===null) return e._w; if(b===null||s[2]===0) return a; return mische(a,b,s[2]); }
+    if(tr.D){ var d=stufe(tr.D,f); return d===null?e._w:d; }
+    return e._w; }
+  function drehe(P,K){ var n=P.length/3-1, cx=P[3*n], cy=P[3*n+1], cz=P[3*n+2], o=new Array(3*n);   // bb: Scheibe zur Kamera
+    for(var i=0;i<n;i++){ var dx=P[3*i]-cx, dy=P[3*i+1]-cy;
+      o[3*i]=cx+dx*K.r[0]+dy*K.u[0]; o[3*i+1]=cy+dx*K.r[1]+dy*K.u[1]; o[3*i+2]=cz+dx*K.r[2]+dy*K.u[2]; }
+    return o; }
+  function projiziere(P,K,pj){ var n=P.length/3, o=new Array(2*n), s=K.z/pj[2], W2=pj[0]/2, H2=pj[1]/2, t=0;
+    for(var i=0;i<n;i++){ var x=P[3*i]-K.o[0], y=P[3*i+1]-K.o[1], z=P[3*i+2]-K.o[2];
+      o[2*i]=W2+(K.r[0]*x+K.r[1]*y+K.r[2]*z)*s; o[2*i+1]=H2-(K.u[0]*x+K.u[1]*y+K.u[2]*z)*s; t+=K.c[0]*x+K.c[1]*y+K.c[2]*z; }
+    o.tiefe=n?t/n:0; return o; }
 
   function Spieler(fig){
     this.fig=fig; this.img=fig.querySelector("img"); this.t=0; this.lauf=false; this.gestartet=false; this.nutzer=false; this.auto=false;
@@ -1883,11 +1933,16 @@ var NICHTS={de:"Nichts gefunden für „{q}\".",en:"Nothing found for „{q}\"."
   };
   Spieler.prototype.zeige=function(t){
     var sp=this; t=Math.max(0,Math.min(sp.dauer,t)); sp.t=t;
-    var f=sp.N*t/sp.dauer, data=sp.D.el;
+    var f=sp.N*t/sp.dauer, data=sp.D.el, K=sp.D.pj?kamera(linear(sp.D.cam,f)):null;
     for(var k=0;k<data.length;k++){
       var e=sp.el[k], tr=data[k], c=sp.cache[k]; if(!e) continue;
       if(tr.v) setze(e,c,"display",stufe(tr.v,f)?null:"none");
       if(tr.h){ var hh=stufe(tr.h,f); if(c.h!==hh){ c.h=hh; e.innerHTML=hh===null?e._h0:hh; c.fo=c.fc=undefined; c.kinder=null; } }
+      if(K && tr.w){ var P3=punkte3(e,tr,f), o3=projiziere(tr.bb?drehe(P3,K):P3,K,sp.D.pj); e._tiefe=o3.tiefe;
+        if(tr.b){ var s3=tr.s?linear(tr.s,f):1, x3=o3[0]-s3*tr.b[0], y3=o3[1]-s3*tr.b[1];
+          setze(e,c,"transform",(Math.abs(s3-1)<1e-4&&Math.abs(x3)<0.005&&Math.abs(y3)<0.005)?null:
+            "matrix("+r(s3,4)+" 0 0 "+r(s3,4)+" "+r(x3,2)+" "+r(y3,2)+")"); }
+        else setze(e,c,"d",pfad(o3,(tr.wc&&!tr.D)?tr.wc:[o3.length>>1])); }
       if(tr.d){ var d=stufe(tr.d,f); setze(e,c,"d",d===null?e._d0:d); }
       if(tr.q){ var s=such(tr.q,f), qa=tr.q[2*s[0]+1], qb=tr.q[2*s[1]+1];   // Punkte wandern (Umformen): linear
         setze(e,c,"d",qa===null?e._d0:pfad((qb===null||s[2]===0)?qa:mische(qa,qb,s[2]),tr.qc)); }
@@ -1906,6 +1961,14 @@ var NICHTS={de:"Nichts gefunden für „{q}\".",en:"Nothing found for „{q}\"."
           if(fo!==null) setze(ziele[j],cc,"fill-opacity",fo); if(fc!==null) setze(ziele[j],cc,"fill",fc); }
       }
     }
+    if(K){ var top=sp.D.top, li=[];                     // Maler-Algorithmus: hinten zuerst, bei Gleichstand der Rang r
+      for(var k2=0;k2<data.length;k2++) if(sp.el[k2]&&data[k2].w) li.push(k2);
+      li.sort(function(a,b){ var A=data[a], B=data[b], ga=(top&&A.ax)?1:0, gb=(top&&B.ax)?1:0;
+        if(ga!==gb) return ga-gb; if((A.ly||0)!==(B.ly||0)) return (A.ly||0)-(B.ly||0);
+        var dd=sp.el[a]._tiefe-sp.el[b]._tiefe; return dd?dd:A.r-B.r; });
+      var reihe=li.join(",");
+      if(li.length && reihe!==sp.reihe){ sp.reihe=reihe; var par=sp.el[li[0]].parentNode;
+        for(var i2=0;i2<li.length;i2++) par.appendChild(sp.el[li[i2]]); } }
     if(sp.rg){ sp.rg.value=String(Math.round(f)); sp.rg.style.setProperty("--as-p",(100*t/sp.dauer).toFixed(2)+"%");
       var txt=zahl(t)+" "+tx.von+" "+zahl(sp.dauer)+" s"; sp.rg.setAttribute("aria-valuetext",txt); sp.zeit.textContent=zahl(t)+" / "+zahl(sp.dauer)+" s"; }
   };

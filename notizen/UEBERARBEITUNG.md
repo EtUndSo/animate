@@ -30,7 +30,7 @@ Jeder Begriff, den das Heft neu einführt, bekommt seinen eigenen Unterabschnitt
 
 Erst danach kommt der nächste Begriff. Dazu fünf feste Regeln:
 - **Ein Satz führt höchstens einen neuen Begriff ein.** Nie zwei neue Begriffe im selben Satz, nie einen neuen Begriff in einer Klammer oder einem Nebensatz.
-- **Was der Leser braucht, wird erklärt, nicht vorausgesetzt.** Das gilt auch, wenn es aus einem früheren Modul stammt (HöMa3 setzt z. B. die partielle Ableitung voraus). Es kommt als eigener kurzer Unterabschnitt „Was du dafür brauchst: …“ zu Beginn des Abschnitts, mit Erklärung und Beispiel.
+- **Was der Leser braucht, wird erklärt, nicht vorausgesetzt.** Das gilt auch, wenn es aus einem früheren Modul stammt (HöMa3 setzt z. B. die partielle Ableitung voraus). Es kommt als eigener kurzer Unterabschnitt „Was du dafür brauchst: …“ zu Beginn des Abschnitts, mit Erklärung und Beispiel. Auf der Website wird er ein zugeklappter Kasten (User, 10.11.2026). Der Konverter erkennt ihn nur am wörtlichen Titelanfang „Was du dafür brauchst:“; in Übersetzungen gelten die festen Wendungen aus `uebersetzung_brief_zusatzreihen.md`. Im PDF bleibt er ein gewöhnlicher Unterabschnitt.
 - **Kein Bündel.** Ein Kasten oder Absatz, der fünf Begriffe auf einmal klärt (Vektorfeld, Skalarfunktion, Nabla, partielle Ableitung, Jacobi-Matrix), wird in fünf Unterabschnitte zerlegt. Jeder ist ausführlich, jeder hat ein eigenes Beispiel.
 - **Ausführlich statt knapp.** Lieber zwei Absätze und ein Beispiel mehr. Es gibt keine Zeichen- oder Seitengrenze. Die Website teilt lange Abschnitte selbst an den `\subsection`.
 - **Formeln erst nach der Anschauung.** Jede Größe in einer Formel ist erklärt, bevor oder direkt nachdem die Formel dasteht, mit Einheit, wo es eine gibt.

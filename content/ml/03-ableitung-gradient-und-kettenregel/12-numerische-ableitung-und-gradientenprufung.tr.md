@@ -98,7 +98,7 @@ Hata $0{,}000001=\tfrac16\cdot6\cdot h^2$ olur, ileri farktakinden altı bin kat
 
 ⁠**Kısacası:** Merkezi farkın kesme hatası yaklaşık $\tfrac16f'''(x)\,h^2$ olur, çünkü eğrilik terimi sadeleşir.
 
-### Bunun için gerekenler: kayan noktalı sayılar
+:::::vorwissen Bunun için gerekenler: kayan noktalı sayılar
 
 <span class="anker" id="stufe-11-3"></span>
 
@@ -117,6 +117,8 @@ $2$ noktasında ve $h=10^{-8}$ için $f(x)=x^3$ fonksiyonunda $f(2+h)=8{,}000000
 ::::
 
 ⁠**Kısacası:** Bilgisayarlar her sonucu yaklaşık $16$ basamağa yuvarlar, $\varepsilon_{\mathrm M}=2^{-52}$; birbirine çok yakın sayılar çıkarılırken bunlardan yalnızca birkaç doğru basamak kalır.
+
+:::::
 
 ### Hata eğrisi
 

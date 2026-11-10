@@ -15,7 +15,7 @@ lang: de
 Bisektion und Newton sind nicht für Wurzeln gemacht, sondern für Gleichungen, die man nicht nach der Unbekannten auflösen kann. Dieser Abschnitt löst eine solche Gleichung aus dem Alltag: Welcher Zinssatz steckt in einem Kredit, den man in gleichen Monatsraten zurückzahlt?
 :::
 
-### Was du dafür brauchst: Zinsen, Raten und Restschuld
+:::::vorwissen Was du dafür brauchst: Zinsen, Raten und Restschuld
 
 <span class="anker" id="stufe-9-1"></span>
 
@@ -52,6 +52,8 @@ Für das Auto ist $K=20\,000$ Euro und $n=60$. Bei einem Monatszins von 0,5 % 
 ::::
 
 ⁠**Kurz gesagt:** Die Restschuld wächst jeden Monat um die Zinsen und sinkt um die Rate; beim richtigen Zins ist sie nach der letzten Rate genau null.
+
+:::::
 
 ### Der Zinssatz als Nullstelle
 

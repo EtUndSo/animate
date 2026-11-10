@@ -18,7 +18,7 @@ from .text import Text, DecimalNumber, set_number_lang, fmt_number, localize_dig
 from . import figures as _fig
 from . import circuit as _circ
 from .value_tracker import ValueTracker
-from .threed import ThreeDAxes, Box, Cube, Sphere, Pyramid, Vector
+from .threed import ThreeDAxes, Box, Cube, Sphere, Pyramid, Vector, Ball
 from .svg import MathTex, SVGMobject
 from .legend import Legend
 from .AnimObject import AnimObject
@@ -169,7 +169,7 @@ OBJECT_TYPES = {
     "ValueTracker": ValueTracker, "DecimalNumber": DecimalNumber,
     # 3D
     "ThreeDAxes": ThreeDAxes, "Box": Box, "Cube": Cube,
-    "Sphere": Sphere, "Pyramid": Pyramid, "Vector": Vector,
+    "Sphere": Sphere, "Pyramid": Pyramid, "Vector": Vector, "Ball": Ball,
     # LaTeX as vector glyphs (glyph data comes from the browser's MathJax -> see editor.js)
     "MathTex": MathTex, "SVGMobject": SVGMobject,
 }
@@ -1355,6 +1355,9 @@ def _number_args(args):
                 args[k] = _try_number(v)
         elif isinstance(v, (list, tuple)) and any(isinstance(x, str) for x in v):
             args[k] = [_try_number(x) if isinstance(x, str) else x for x in v]
+        elif (isinstance(v, (list, tuple)) and v and all(isinstance(x, (list, tuple)) for x in v)
+              and any(isinstance(y, str) for x in v for y in x)):     # a point list (vertices) with expressions
+            args[k] = [[_try_number(y) if isinstance(y, str) else y for y in x] for x in v]
     return args
 
 
@@ -1375,6 +1378,7 @@ def _build_object(spec, objects, axes=None):
         args["text"] = _label_text(spec["args"]["text"], digits=False)   # code / file names: 1.5M stays 1.5M
     # Styling is set as attributes AFTER construction (shapes don't take color in __init__).
     style = {k: args.pop(k) for k in list(args) if k in _STYLE_ATTRS}
+    layer = args.pop("layer", None)                         # 3D: drawn after all objects of a lower layer (renderer)
     if t == "plot":                                         # a graph on an explicit axes
         obj = objects[spec["on"]].plot(**args)
     elif t == "FunctionGraph" and axes is not None:         # follow the scene's axes (range + scale)
@@ -1425,6 +1429,14 @@ def _build_object(spec, objects, axes=None):
                 obj = axes.plot(f, x_range=xr, y_range=yr, samples=n_fix)
                 # (no _center_create: a 1D graph is drawn LEFT -> RIGHT, the natural reading/sampling
                 #  order — partial_bezier traces from the first sampled point at x_min onward.)
+    elif t == "Grid":                                       # coordinate grid that plane maps deform (L5)
+        obj = _build_grid(args, style, axes)
+    elif t == "Ball":                                       # L4: disc facing the camera; like a Dot only its centre
+        c = args.get("center", [0.0, 0.0, 0.0])             # is mapped onto the axes (data, also z), the radius stays
+        wc = (axes.coords_to_point(*_xyz(c)) if axes is not None else np.array(_xyz(c), dtype=float))
+        obj = Ball(center=np.asarray(wc, dtype=float), radius=float(args.get("radius", 0.2)),
+                   color=style.pop("color", (0.35, 0.60, 0.92)), fill_opacity=float(style.pop("fill_opacity", 1.0)),
+                   stroke_width=float(style.pop("stroke_width", 1.5)), highlight=bool(args.get("highlight", True)))
     elif t == "Riemann" and axes is not None:               # midpoint Riemann rectangles on the axes
         kw = {k: style[k] for k in ("color", "fill_opacity") if k in style}
         obj = axes.riemann_rectangles(args["func"], int(args.get("count", 8)), **kw)
@@ -1520,6 +1532,8 @@ def _build_object(spec, objects, axes=None):
         _sync_pieces(re_g); _sync_pieces(im_g)
     if t == "FunctionGraph":                                # remember the expression so computations
         obj._func_expr = str(spec.get("args", {}).get("func", "0"))   # (e.g. Convolution) can read it
+    if layer:                                               # L4: a 3D layer for every node (only when set)
+        _set_layer(obj, int(_try_number(layer) if isinstance(layer, str) else layer))
     # Child / result objects: build them as sub-objects so the editor can expand the parent and
     # configure each result (shown?, where, size, colour - the same settings as any shape).
     for child_spec in spec.get("children", []):
@@ -1538,6 +1552,14 @@ def _build_object(spec, objects, axes=None):
             if value is not None:
                 child.set_value(value)                      # prefix (symbol/formula) stays from props
     return obj
+
+
+def _set_layer(o, n):
+    """3D layer of an object (prop `layer`, L4): in 3D its parts are drawn after all parts of a lower layer, whatever
+    their depth (a tangent plane above a surface, a marker that must stay visible). 2D ignores it."""
+    o._layer = n
+    for s in o.subObjects:
+        _set_layer(s, n)
 
 
 def _build_animation(spec, objects):
@@ -1942,17 +1964,277 @@ def _partial_tree(o, a):
         _partial_tree(s, a)
 
 
-class _ParamLink:
-    """One object of the model that names a moving parameter (see above). Never deep-copied: animation snapshots
-    of the object share it."""
+# ---------------------------------------------------------------------------------------------------------------
+# L5 (10.11.2026): plane maps over time (Manim: ApplyMatrix, ApplyPointwiseFunction, LinearTransformationScene).
+# The animation ApplyMatrix (args matrix [[a, b], [c, d]], path "straight" | "rotate", rate) or ApplyFunction (args
+# func [fx, fy]: expressions in x and y) moves its target and the objects listed in args["objects"]: every point p of
+# them (in the DATA coordinates of their axes) runs to A p. In between it stands at M(α) p with
+#   straight: M(α) = (1 − α) I + α A                 (Manim's default: every point on a straight line)
+#   rotate:   M(α) = R(α θ) · ((1 − α) I + α P)      (A = R(θ) P, polar decomposition; det A > 0, else straight)
+#   function: (1 − α) p + α f(p)
+# Several maps of one object compose in timeline order (the second starts from the image of the first). Each map
+# has a hidden progress tracker (0 -> 1, driven by a ChangeValue with the map's rate); the objects it moves are
+# rebuilt per frame like objects under an L3 parameter (_ParamLink, same purity rules, same export). How an object
+# moves:
+#   - _L5_SPEC types: their coordinates in the spec are mapped and the object is built anew, so a dot stays round,
+#     an arrow keeps its head and its label stays upright beside it;
+#   - Grid: its lines are mapped in data space and only then clipped to its window (the plane seen through it);
+#   - every other drawable type: all points of the built object are mapped (exact for Bézier shapes under a
+#     matrix: a circle becomes the ellipse); labels inside move with their anchor, dots of a PointCloud stay round.
+_L5_TYPES = {"ApplyMatrix", "ApplyFunction"}
+_L5_SPEC = {"Dot": ("center",), "LabeledArrow": ("start", "end"), "Line": ("start", "end"), "Text": ("position",),
+            "DecimalNumber": ("position",), "TextBox": ("center",), "Mark": ("center",)}
+_L5_GEOMETRY = {"Polygon", "Triangle", "Rectangle", "Square", "Circle", "Ellipse", "Shape", "FunctionGraph",
+                "ParametricCurve", "PolarCurve", "Area", "Band", "DataCurve", "PointCloud", "Grid", "Brace"}
+_GRID_MAP = None                                         # point map of the grid being built (L5 frames), else None
 
-    def __init__(self, scene, spec, axes, names, obj):
+
+def _l5_number(v):
+    return _eval_const(v) if isinstance(v, str) else float(v)
+
+
+def _l5_pointmap(spec):
+    """alpha -> (point map (N, 2) data -> (N, 2)) of an ApplyMatrix / ApplyFunction spec (engine model)."""
+    args = spec.get("args") or {}
+    if spec.get("type") == "ApplyFunction":
+        f = args.get("func") or []
+        if not (isinstance(f, (list, tuple)) and len(f) == 2 and all(str(x).strip() for x in f)):
+            raise ValueError("ApplyFunction: func braucht zwei Ausdrücke [fx, fy] in x und y")
+        fx, fy = func2_from_expr(str(f[0])), func2_from_expr(str(f[1]))
+
+        def fmap(P):
+            x, y = P[:, 0], P[:, 1]
+            return np.column_stack([np.broadcast_to(np.asarray(fx(x, y), dtype=float), x.shape),
+                                    np.broadcast_to(np.asarray(fy(x, y), dtype=float), x.shape)])
+        return lambda a: (lambda P: P if a == 0 else (1.0 - a) * P + a * fmap(P))
+    m = args.get("matrix")
+    try:
+        A = np.array([[_l5_number(m[0][0]), _l5_number(m[0][1])], [_l5_number(m[1][0]), _l5_number(m[1][1])]])
+    except (TypeError, IndexError, KeyError, ValueError):
+        raise ValueError("ApplyMatrix: matrix braucht die Form [[a, b], [c, d]] (Zahlen oder Ausdrücke)")
+    I = np.eye(2)
+    if str(args.get("path") or "straight") == "rotate" and np.linalg.det(A) > 1e-12:
+        U, S, Vt = np.linalg.svd(A)                      # A = R P with R = U Vt (a rotation, det > 0), P = V S Vt
+        R = U @ Vt
+        P = Vt.T @ np.diag(S) @ Vt
+        th = float(np.arctan2(R[1, 0], R[0, 0]))
+
+        def M(a):
+            c, s = np.cos(a * th), np.sin(a * th)
+            return np.array([[c, -s], [s, c]]) @ ((1.0 - a) * I + a * P)
+    else:
+        def M(a):
+            return (1.0 - a) * I + a * A
+    return lambda a: (lambda Pts: Pts if a == 0 else Pts @ M(a).T)
+
+
+def _l5_compose(maps):
+    """One point map from [(alpha -> map, alpha)] applied in order."""
+    fs = [pm(a) for pm, a in maps if a != 0]
+
+    def F(P):
+        for f in fs:
+            P = f(P)
+        return P
+    return F
+
+
+def _l5_to_data(axes, W):
+    """World points (N, 3) -> data (N, 2) of the axes (inverse of Axes.data_to_world, linear or log)."""
+    if axes is None:
+        return W[:, :2].copy()
+    out = np.empty((len(W), 2))
+    for i, (lo, hi, L, o, lg) in enumerate(((axes.x_min, axes.x_max, axes.x_length, axes.origin[0], axes.x_log),
+                                            (axes.y_min, axes.y_max, axes.y_length, axes.origin[1], axes.y_log))):
+        f = (W[:, i] - o + L / 2.0) / L
+        if lg:
+            a, b = np.log10(lo), np.log10(hi)
+            out[:, i] = 10.0 ** (a + f * (b - a))
+        else:
+            out[:, i] = lo + f * (hi - lo)
+    return out
+
+
+def _l5_to_world(axes, D, z):
+    """Data (N, 2) -> world (N, 3) with the given world z (kept as it was)."""
+    if axes is None:
+        return np.column_stack([D[:, 0], D[:, 1], z])
+    out = axes.data_to_world(np.column_stack([D[:, 0], D[:, 1], np.zeros(len(D))]))
+    out[:, 2] = z
+    return out
+
+
+def _l5_map_points(axes, F, W):
+    if not len(W):
+        return W
+    return _l5_to_world(axes, F(_l5_to_data(axes, W)), W[:, 2])
+
+
+def _l5_map_tree(o, axes, F, cloud=False):
+    """Map every point of a built object tree (world coordinates) by the data-space map F, in place. A label moves
+    with its anchor; the dots of a PointCloud (cloud=True) only move their centre (they stay round)."""
+    if cloud and len(o.points) and not o.subObjects:
+        c = (o.points.min(axis=0) + o.points.max(axis=0)) / 2.0
+        o.points = o.points + (_l5_map_points(axes, F, c.reshape(1, 3))[0] - c)
+    elif len(o.points):
+        o.points = _l5_map_points(axes, F, np.asarray(o.points, dtype=float).reshape(-1, 3))
+    for s in o.subObjects:
+        _l5_map_tree(s, axes, F, cloud)
+
+
+def _l5_map_spec(spec, F):
+    """A copy of spec whose coordinates (_L5_SPEC) are mapped by F (data coordinates of its axes)."""
+    s2 = dict(spec)
+    args = dict(spec.get("args") or {})
+    for k in _L5_SPEC[spec["type"]]:
+        p = args.get(k)
+        if not isinstance(p, (list, tuple)) or len(p) < 2:
+            continue
+        p = [_try_number(x) if isinstance(x, str) else x for x in p]
+        q = F(np.array([[float(p[0]), float(p[1])]]))[0]
+        args[k] = [float(q[0]), float(q[1])] + list(p[2:])
+    s2["args"] = args
+    return s2
+
+
+def _l5_check(spec):
+    t = spec.get("type")
+    if t not in _L5_SPEC and t not in _L5_GEOMETRY:
+        raise ValueError(f"ApplyMatrix: {spec.get('id', '')} ({t}) kann nicht mitgenommen werden "
+                         f"(möglich: {', '.join(sorted(_L5_SPEC) + sorted(_L5_GEOMETRY))})")
+
+
+def _l5_build(spec, objects, axes, maps, plain=None):
+    """The object of spec under the plane maps [(alpha -> map, alpha)] (see above)."""
+    global _GRID_MAP
+    F = _l5_compose(maps)
+    t = spec["type"]
+    if t in _L5_SPEC:
+        return _build_object(_l5_map_spec(spec, F), objects, axes=axes)
+    if t == "Grid":
+        _GRID_MAP = F
+        try:
+            return _build_object(spec, objects, axes=axes)
+        finally:
+            _GRID_MAP = None
+    r = (plain if plain is not None else _build_object(spec, objects, axes=axes)).copy()
+    _l5_map_tree(r, axes, F, cloud=(t == "PointCloud"))
+    return r
+
+
+def _clip_param(P, x0, x1, y0, y1):
+    """Parameter interval [s0, s1] (in point indices) of a polyline P (N, 2) from its first entry into the window to
+    its last exit (Liang-Barsky on the first and the last segment that meet it), or None."""
+    def seg(a, b):
+        u0, u1 = 0.0, 1.0
+        d = b - a
+        for p, q in ((-d[0], a[0] - x0), (d[0], x1 - a[0]), (-d[1], a[1] - y0), (d[1], y1 - a[1])):
+            if abs(p) < 1e-15:
+                if q < 0:
+                    return None
+                continue
+            r = q / p
+            if p < 0:
+                u0 = max(u0, r)
+            else:
+                u1 = min(u1, r)
+            if u0 > u1:
+                return None
+        return u0, u1
+    n = len(P)
+    if n == 1:
+        return (0.0, 0.0) if (x0 <= P[0, 0] <= x1 and y0 <= P[0, 1] <= y1) else None
+    s0 = s1 = None
+    for i in range(n - 1):
+        u = seg(P[i], P[i + 1])
+        if u is not None:
+            s0 = i + u[0]
+            break
+    if s0 is None:
+        return None
+    for i in range(n - 2, -1, -1):
+        u = seg(P[i], P[i + 1])
+        if u is not None:
+            s1 = i + u[1]
+            break
+    return s0, s1
+
+
+def _resample(P, s0, s1, n):
+    """n points of the polyline P at the parameters linspace(s0, s1, n) (index units, linear in between)."""
+    s = np.linspace(s0, s1, n)
+    i = np.clip(np.floor(s).astype(int), 0, len(P) - 2)
+    f = (s - i)[:, None]
+    return P[i] * (1.0 - f) + P[i + 1] * f
+
+
+def _build_grid(args, style, axes):
+    """Coordinate grid (L5): lines x = k*x_step and y = k*y_step through its window (the axes' data range, or
+    x_range/y_range), each a line of `samples` points. The lines exist `extend` window widths beyond the window on
+    every side, so that a map (ApplyMatrix) can bring them in; each frame they are mapped first and then clipped to
+    the window (clip=False: not clipped). axis_width > 0 draws the lines x = 0 and y = 0 that wide. The number of
+    lines and their point count never change, so the animated export stores moving numbers."""
+    def rng(key, lo, hi):
+        r = args.get(key)
+        if isinstance(r, (list, tuple)) and len(r) >= 2:
+            return float(r[0]), float(r[1])
+        return lo, hi
+    if axes is not None:
+        x0, x1 = rng("x_range", axes.x_min, axes.x_max)
+        y0, y1 = rng("y_range", axes.y_min, axes.y_max)
+    else:
+        x0, x1 = rng("x_range", -5.0, 5.0)
+        y0, y1 = rng("y_range", -3.0, 3.0)
+    sx = abs(float(args.get("x_step", 1.0))) or 1.0
+    sy = abs(float(args.get("y_step", 1.0))) or 1.0
+    ext = max(0.0, float(args.get("extend", 1.0)))
+    n = max(2, min(400, int(args.get("samples", 2) or 2)))
+    clip = bool(args.get("clip", True))
+    aw = float(args.get("axis_width", 0.0) or 0.0)
+    ex, ey = ext * (x1 - x0), ext * (y1 - y0)
+    col = style.get("color", (0.55, 0.60, 0.70))
+    sw = float(style.get("stroke_width", 2.0))
+    so = float(style.get("stroke_opacity", 1.0))
+    F = _GRID_MAP
+    lines = []
+    t = np.linspace(0.0, 1.0, n)
+    for k in range(int(np.ceil((x0 - ex) / sx - 1e-9)), int(np.floor((x1 + ex) / sx + 1e-9)) + 1):
+        lines.append((k == 0, np.column_stack([np.full(n, k * sx), (y0 - ey) + t * (y1 - y0 + 2 * ey)])))
+    for k in range(int(np.ceil((y0 - ey) / sy - 1e-9)), int(np.floor((y1 + ey) / sy + 1e-9)) + 1):
+        lines.append((k == 0, np.column_stack([(x0 - ex) + t * (x1 - x0 + 2 * ex), np.full(n, k * sy)])))
+    obj = AnimObject()
+    for is_axis, P in lines:
+        if F is not None:
+            P = F(P)
+        if clip:
+            iv = _clip_param(P, min(x0, x1), max(x0, x1), min(y0, y1), max(y0, y1))
+            P = None if iv is None or iv[1] - iv[0] < 1e-12 else _resample(P, iv[0], iv[1], n)
+        leaf = AnimObject()
+        if P is not None:
+            W = _l5_to_world(axes, P, np.zeros(len(P)))
+            leaf.points = _line_points(W)
+        leaf.color = col
+        leaf.fill_opacity = 0.0
+        leaf.stroke_width = aw if (is_axis and aw > 0) else sw
+        leaf.stroke_opacity = so
+        obj.add(leaf)
+    obj.color = col
+    return obj
+
+
+class _ParamLink:
+    """One object of the model that names a moving parameter (see above), or that a plane map moves (L5, `l5` =
+    [(tracker key, alpha -> map)] in timeline order). Never deep-copied: animation snapshots of the object share it."""
+
+    def __init__(self, scene, spec, axes, names, obj, l5=()):
         self.spec, self.axes, self.names, self.obj = spec, axes, tuple(sorted(names)), obj
+        self.l5 = tuple(l5)
         self.ctx = scene._ctx
-        self.v0 = tuple(float(_PARAMS[n]) for n in self.names)
+        self.v0 = tuple(float(_PARAMS[n]) for n in self.names) + (0.0,) * len(self.l5)
         _tag_l3(obj)
         self.base = obj.copy()                           # the build state (before any animation touched it)
         self._cache = (None, None)
+        self._plain = (None, None)                       # L5: the unmapped build for these parameter values
         self.trackers, self.objects = (), {}
         obj._param_link = self
         obj.add_updater(lambda m, link=self: link.update(m))   # a plain function: copy() keeps it as it is
@@ -1961,19 +2243,31 @@ class _ParamLink:
         return self
 
     def bind(self, trackers, objects):
-        self.trackers = tuple(trackers[n] for n in self.names)
+        self.trackers = tuple(trackers[n] for n in self.names) + tuple(trackers[k] for k, _ in self.l5)
         self.objects = objects
 
     def build(self, vals):
         if self._cache[0] != vals:
-            with _scene_ctx(self.ctx, dict(zip(self.names, vals))):
-                r = _tag_l3(_build_object(self.spec, dict(self.objects), axes=self.axes))
+            n = len(self.names)
+            pv, alphas = vals[:n], vals[n:]
+            with _scene_ctx(self.ctx, dict(zip(self.names, pv))):
+                if any(alphas):
+                    plain = None
+                    if self.spec["type"] not in _L5_SPEC and self.spec["type"] != "Grid":
+                        if self._plain[0] != pv:
+                            self._plain = (pv, _build_object(self.spec, dict(self.objects), axes=self.axes))
+                        plain = self._plain[1]
+                    r = _l5_build(self.spec, dict(self.objects), self.axes,
+                                  [(pm, a) for (_, pm), a in zip(self.l5, alphas)], plain)
+                else:
+                    r = _build_object(self.spec, dict(self.objects), axes=self.axes)
+                r = _tag_l3(r)
             self._cache = (vals, r)
         return self._cache[1]
 
     def update(self, m):
         vals = tuple(float(tr.value) for tr in self.trackers)
-        if vals == self.v0 or len(vals) != len(self.names):
+        if vals == self.v0 or len(vals) != len(self.v0):
             return                                       # parameters at their build values: animations rule
         f = _first_opacity(m, self.base)
         a = getattr(m, "_create_alpha", 1.0)
@@ -2025,9 +2319,11 @@ class ModelScene(Scene):
         _CAM_MODE = "3d" if cam.get("mode") == "3d" else "2d"
         _GL = bool(self.model.get("gl", False))             # WebGL layer available (set by the editor)?
         if cam.get("mode") == "3d":                         # orbit camera (theta, phi in radians)
-            self.camera = Camera(mode="3d", theta=cam.get("theta", 0.0), phi=cam.get("phi", 0.0), zoom=zoom)
+            self.camera = Camera(mode="3d", theta=cam.get("theta", 0.0), phi=cam.get("phi", 0.0), zoom=zoom,
+                                 center=cam.get("center"))
         else:
-            self.camera = Camera(zoom=zoom)
+            self.camera = Camera(zoom=zoom, center=cam.get("center"))
+        self._cam_state = None                              # L4: the camera on the timeline (MoveCamera), else None
         objects = {}
         self.objects_by_id = objects                    # id -> object, for picking by click
         specs = self.model.get("objects", [])
@@ -2067,6 +2363,33 @@ class ModelScene(Scene):
                     animated.add(nm)
         self._param_links = []
         self._ctx = _capture_ctx()
+        # L5: plane maps (ApplyMatrix / ApplyFunction). Each gets a hidden progress tracker 0 -> 1 (a ChangeValue with
+        # the map's rate takes its place on the timeline); every object it moves gets a link (like L3) that knows all
+        # maps of that object in timeline order.
+        self._l5_anims, l5_of, l5_trackers = {}, {}, {}
+        by_id ={s.get("id"): s for s in specs if s.get("id") is not None}
+        k = 0
+        for step in _group_by_step(self.model.get("animations", [])):
+            for a in step:
+                if a.get("type") not in _L5_TYPES:
+                    continue
+                args = a.get("args") or {}
+                ids = [x for x in dict.fromkeys([a.get("target")] + list(args.get("objects") or [])) if x in by_id]
+                if not ids:
+                    continue
+                for oid in ids:
+                    _l5_check(by_id[oid])
+                key, k = "#l5_%d" % k, k + 1
+                pm = _l5_pointmap(a)
+                for oid in ids:
+                    l5_of.setdefault(oid, []).append((key, pm))
+                tr = ValueTracker(0.0)
+                tr._param_name = key
+                l5_trackers[key] = tr
+                rate = str(args.get("rate") or "smooth")
+                if rate not in RATES:
+                    raise ValueError(f"{a.get('type')}: Ratenfunktion „{rate}“ unbekannt (erlaubt: {', '.join(RATES)})")
+                self._l5_anims[id(a)] = _anim.ChangeValue(tr, 1.0, rate_func=RATES[rate])
         # Build ALL Axes first so FunctionGraphs can be plotted onto them (and thus follow their value
         # range + scaling), regardless of the order objects were added. Several Axes = sub-figures: an
         # object names its panel with `on` (an Axes id); without it, the first Axes is used.
@@ -2089,10 +2412,11 @@ class ModelScene(Scene):
             else:
                 on = axes_by_id.get(spec.get("on"), axes)
                 refs = _param_refs(spec, animated) if (animated and spec["type"] not in _NO_PARAM_LINK) else set()
-                if refs:                                    # L3: built like every later frame (fixed sampling)
+                l5 = l5_of.get(oid, ())
+                if refs or l5:                              # L3/L5: built like every later frame (fixed sampling)
                     with _scene_ctx(self._ctx, {}):
                         obj = _build_object(spec, objects, axes=on)
-                    self._param_links.append(_ParamLink(self, spec, on, refs, obj))
+                    self._param_links.append(_ParamLink(self, spec, on, refs, obj, l5))
                 else:
                     obj = _build_object(spec, objects, axes=on)
                 if oid is not None:
@@ -2104,6 +2428,7 @@ class ModelScene(Scene):
                 built.append((oid, obj))
         if self._param_links:                               # L3: each rebuilt object reads its parameters' trackers
             trackers = {getattr(o, "_param_name", None): o for o in objects.values() if isinstance(o, ValueTracker)}
+            trackers.update(l5_trackers)                    # L5: the progress of every plane map
             for link in self._param_links:
                 link.bind(trackers, objects)
         # While PLAYING, objects consumed by an animated operator are drawn by that operator, not
@@ -2139,9 +2464,16 @@ class ModelScene(Scene):
                 continue
             anims = []
             for spec in step:
-                if spec.get("target") not in objects:       # dangling reference (deleted object) -> skip
+                if spec.get("type") == "MoveCamera":        # L4: the camera is no object of the model
+                    a = self._camera_animation(spec)
+                elif spec.get("type") in _L5_TYPES:         # L5: drives the progress of a plane map
+                    a = self._l5_anims.get(id(spec))
+                    if a is None:
+                        continue
+                elif spec.get("target") not in objects:     # dangling reference (deleted object) -> skip
                     continue
-                a = _build_animation(spec, objects)
+                else:
+                    a = _build_animation(spec, objects)
                 if a is None:                               # e.g. a morph without its template object
                     continue
                 a.run_time = spec.get("run_time", 1.0)
@@ -2158,14 +2490,40 @@ class ModelScene(Scene):
         if self.model.get("draw_order") == "creation":
             self._order_by_creation(specs, objects)
         self.run_updaters()          # settle updater-driven objects for the static (first) frame
+        if self._cam_state is not None:                     # L4: after construct() the camera stands at its end
+            self._cam_state.apply_to(self.camera)
+
+    def _camera_animation(self, spec):
+        """L4: MoveCamera (args theta, phi, turn in radians, zoom, center [x, y, z], rate) on the scene's camera state.
+        The state is created from the camera of the model when the first camera animation is built."""
+        if self._cam_state is None:
+            c = self.camera
+            self._cam_state = _anim.CameraState(c.theta, c.phi, c.zoom, c.center)
+        args = spec.get("args") or {}
+        kw = {}
+        for k in ("theta", "phi", "zoom", "turn"):
+            v = args.get(k)
+            if v is not None and v != "":
+                kw[k] = _eval_const(v) if isinstance(v, str) else float(v)
+        c = args.get("center")
+        if isinstance(c, (list, tuple)) and len(c) >= 2:
+            kw["center"] = [_eval_const(x) if isinstance(x, str) else float(x) for x in c]
+        rate = str(args.get("rate") or "smooth")
+        if rate not in RATES:
+            raise ValueError(f"MoveCamera: Ratenfunktion „{rate}“ unbekannt (erlaubt: {', '.join(RATES)})")
+        return _anim.MoveCamera(self._cam_state, rate_func=RATES[rate], **kw)
 
     def seek(self, t):
         """Scene.seek, but every object under a moving parameter (L3) first returns to its build state (shape and
         tree as built). The animations then act on what their begin() snapshot has, and the updater draws the shape
-        for the parameter values at t: the frame stays a pure function of t, also when a curve splits."""
+        for the parameter values at t: the frame stays a pure function of t, also when a curve splits.
+        L4: afterwards the camera takes the state of the camera animations at t."""
         for link in getattr(self, "_param_links", ()):
             _mirror(link.obj, link.base)
-        return super().seek(t)
+        super().seek(t)
+        if getattr(self, "_cam_state", None) is not None:
+            self._cam_state.apply_to(self.camera)
+        return self
 
     def _order_by_creation(self, specs, objects):
         """Draw order = order of the object list (draw_order "creation"): an object that appears by an animation keeps

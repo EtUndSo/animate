@@ -15,7 +15,7 @@ lang: de
 Was tut man, wenn man eine Schwachstelle gefunden hat? Dieser Abschnitt beschreibt den verantwortungsvollen Weg von der Entdeckung bis zur Veröffentlichung, die Datei, über die eine Organisation ihren Sicherheitskontakt nennt, die Ethik der Sicherheitsforschung und schließlich die Regeln, unter denen in dieser Reihe geübt wird.
 :::
 
-### Was du dafür brauchst: der Aufbau einer Webadresse
+:::::vorwissen Was du dafür brauchst: der Aufbau einer Webadresse
 
 <span class="anker" id="stufe-10-1"></span>
 
@@ -30,6 +30,8 @@ In `https://www.example.org/hilfe/kontakt.html` ist das Verfahren `https`, die D
 ::::
 
 ⁠**Kurz gesagt:** Eine Webadresse besteht aus dem Verfahren, der Domain, die den Rechner nennt, und dem Pfad, der die Seite auf diesem Rechner nennt.
+
+:::::
 
 ### Koordinierte Offenlegung
 

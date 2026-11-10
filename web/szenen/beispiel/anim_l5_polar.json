@@ -1,0 +1,145 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 3,
+  "nextAnimId": 6,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -2.3,
+      2.3
+     ],
+     "y_range": [
+      -2.3,
+      4.3
+     ],
+     "x_length": 3.45,
+     "y_length": 4.95,
+     "origin": [
+      0,
+      0,
+      0
+     ],
+     "title": "",
+     "x_label": "",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "",
+     "x_tick_marks": false,
+     "y_tick_marks": false,
+     "x_numbers": false,
+     "y_numbers": false,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "arrows": true,
+     "x_label_at": "end",
+     "arrow_size": 0.16
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Grid",
+    "props": {
+     "x_step": 0.5,
+     "y_step": 0.5,
+     "extend": 0,
+     "samples": 25,
+     "clip": false,
+     "axis_width": 0,
+     "color": "#8fa6c8",
+     "stroke_width": 2,
+     "stroke_opacity": 1.0,
+     "dash": "",
+     "x_range": [
+      0,
+      2
+     ],
+     "y_range": [
+      0,
+      4
+     ]
+    },
+    "on": "o1"
+   }
+  ],
+  "animations": [
+   {
+    "id": "a1",
+    "type": "FadeIn",
+    "target": "o1",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a2",
+    "type": "FadeIn",
+    "target": "o2",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a3",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.4,
+    "step": 1
+   },
+   {
+    "id": "a4",
+    "type": "ApplyFunction",
+    "target": "o2",
+    "run_time": 3.0,
+    "step": 2,
+    "func": [
+     "x*cos(pi*y/2)",
+     "x*sin(pi*y/2)"
+    ],
+    "objects": []
+   },
+   {
+    "id": "a5",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 3
+   }
+  ],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {},
+  "drawOrder": "creation"
+ }
+}

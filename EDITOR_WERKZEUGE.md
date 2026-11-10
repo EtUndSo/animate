@@ -90,6 +90,23 @@ Tests: sechs L3-Fälle in `web/tests/test_contract.py`. Vorführszenen: `tools/s
 | G6 | Parameter t | Ein Parameter darf `t` heißen (Zeit): Er ersetzt dann in allen Ausdrücken der Szene die Variable t; Graphen in x schreiben (`sin(x - c*t)`). Parameter- und Polarkurven behalten ihr eigenes t | fertig |
 | G7 | Export | Unter einem Parameter feste Abtastung (Graph 121 Punkte oder `samples`, Fläche `samples` mit glatter Oberkante): Zahlenspur „q“ (Toleranz 0,4 Szenenpixel), Zeichnen dazu als Teilstück „p“; Zahlenanzeigen mit kurzen Inhaltsbildern. Spieler unverändert | fertig |
 
+## H. Ebene abbilden (L5) und Kamerafahrt in 3D (L4), 10.11.2026
+
+Anleitung mit Beispielen: `notizen/animationen.md` §9 und §10. Vertrag: `web/ENGINE_CONTRACT.md` „Plane maps“, „Camera
+rides“. Tests: fünf Fälle und `l5_l4_checks` in `web/tests/test_contract.py`. Vorführszenen:
+`tools/szenen/beispiel_gitter.py`, `tools/szenen/beispiel_kamera.py`.
+
+| Nr. | Werkzeug | Was es kann | Status |
+|---|---|---|---|
+| H1 | Koordinatengitter | `Grid` im Fenster der Achsen: Linien x = k·x_step, y = k·y_step, über das Fenster hinaus (`extend`), je Bild abgebildet und dann am Fenster abgeschnitten (`clip`); `axis_width` für x = 0, y = 0; ein zweites Gitter bleibt als Geistergitter stehen. `s.gitter(a, 1)` | fertig |
+| H2 | Matrix anwenden | Animation `ApplyMatrix`: Ziel und `objects` (Gitter, Punkte, Pfeile, Strecken, Texte, Vielecke, Kreise → Ellipsen, Graphen, Wege, Flächen, Punktwolken) laufen von p nach A p; Einträge Zahl oder Ausdruck; Weg gerade oder Drehweg (Polarzerlegung, det > 0); mehrere hintereinander (vom Bild aus). Editor: Objekt wählen ▸ Animations ▸ Abbilden ▸ „+ ApplyMatrix“, Felder matrix, path, rate, mitnehmen. `s.abbilden(A, [g, e1, q], parameter="s")`, `det_ausdruck(A, "s")` | fertig |
+| H3 | Punktweise abbilden | Animation `ApplyFunction` (fx, fy in x und y), z. B. Polarkoordinaten. `s.abbilden_funktion("x*cos(y)", "x*sin(y)", [g])` | fertig |
+| H4 | Kamera bewegen | Animation `MoveCamera` (theta, phi, drehen in Grad, zoom, Blickpunkt, rate), auch gleichzeitig mit anderen Animationen und in 2D (Lupe). Editor: Szene ▸ Animations ▸ „+ Kamera bewegen“, Zeile anklicken für die Felder, „aktuelle Ansicht übernehmen“. `s.kamera_start(25, 18)`, `s.kamera(drehen=90, zoom=1.5)`, `s.kamera_kreisen(360, 6)` | fertig |
+| H5 | Kugel zur Kamera | `Ball`: Scheibe mit Lichtfleck, die in 3D immer zur Kamera zeigt (Atom, Punkt im Raum), Mitte in Datenkoordinaten wie ein Punkt. Katalog 3D-Körper ▸ Ball. `s.kugel(a, (x, y, z), r=0.2)` | fertig |
+| H6 | Stufe in 3D | Prop `layer`: in 3D nach allen niedrigeren Stufen gezeichnet (Tangentialebene über einer Fläche). `s.zuoberst(*ids)` | fertig (nur szenen_lib/JSON) |
+| H7 | Export | Kamerafahrt in 3D: Weltpunkte + Kamera-Spur, der Spieler (build_wissen.py) projiziert und sortiert je Bild selbst; Zuschnitt über alle Bilder der Fahrt. Gitter unter einer Matrix: Matrix- bzw. Zahlenspuren | fertig |
+| H8 | 3D-Helfer | `s.achsen3d`, `s.flaeche3d`, `s.linie`/`s.text`/`s.vieleck` mit (x, y, z), Koordinatenlisten (`vertices`) mit Ausdrücken | fertig |
+
 ## Nebenbei behobene Fehler
 
 - Wissenschaftliche Schreibweise in Ausdrücken: `1e-15` wurde als `1·e − 15` gelesen. Jetzt eine Zahl.

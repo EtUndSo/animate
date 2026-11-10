@@ -15,7 +15,7 @@ lang: de
 Eine Funktion einer Variablen hat eine Ableitung, die angibt, wie schnell sich ihr Wert ändert. Dieser Abschnitt überträgt das auf Abbildungen, in die mehrere Zahlen hineingehen und aus denen mehrere herauskommen. Er klärt, wann eine solche Abbildung differenzierbar ist und wie man zwei hintereinander ausgeführte Abbildungen ableitet.
 :::
 
-### Was du dafür brauchst: Vektoren im $\mathbb{R}^n$
+:::::vorwissen Was du dafür brauchst: Vektoren im $\mathbb{R}^n$
 
 <span class="anker" id="stufe-1-1"></span>
 
@@ -43,7 +43,9 @@ Für $\boldsymbol{x}=(3,4)$ ist $|\boldsymbol{x}|=\sqrt{9+16}=5$. Die Punkte $(1
 
 ⁠**Kurz gesagt:** Ein Vektor im $\mathbb{R}^n$ ist eine Liste von $n$ Zahlen, die man als Pfeil zeichnet. Seine Länge ist die Wurzel aus der Summe der Quadrate seiner Komponenten.
 
-### Was du dafür brauchst: das Skalarprodukt
+:::::
+
+:::::vorwissen Was du dafür brauchst: das Skalarprodukt
 
 <span class="anker" id="stufe-1-2"></span>
 
@@ -65,7 +67,9 @@ $(1,2,2)\cdot(2,0,-1)=2+0-2=0$, die beiden Vektoren stehen senkrecht aufeinander
 
 ⁠**Kurz gesagt:** Das Skalarprodukt multipliziert Komponente mit Komponente und addiert. Es ist genau dann null, wenn zwei Vektoren, die nicht null sind, senkrecht aufeinander stehen.
 
-### Was du dafür brauchst: Matrizen und Matrixprodukt
+:::::
+
+:::::vorwissen Was du dafür brauchst: Matrizen und Matrixprodukt
 
 <span class="anker" id="stufe-1-3"></span>
 
@@ -93,7 +97,9 @@ Die Matrix $\bigl(\begin{smallmatrix}1&2\\3&4\end{smallmatrix}\bigr)$ macht aus 
 
 ⁠**Kurz gesagt:** Matrix mal Vektor ergibt einen Vektor. Das Matrixprodukt ist die Matrix, die dasselbe bewirkt wie zwei Matrizen nacheinander.
 
-### Was du dafür brauchst: Transponieren und symmetrische Matrizen
+:::::
+
+:::::vorwissen Was du dafür brauchst: Transponieren und symmetrische Matrizen
 
 <span class="anker" id="stufe-1-4"></span>
 
@@ -113,7 +119,9 @@ Die Matrix $\bigl(\begin{smallmatrix}1&2\\2&5\end{smallmatrix}\bigr)$ ist symmet
 
 ⁠**Kurz gesagt:** Transponieren vertauscht Zeilen und Spalten. Eine symmetrische Matrix bleibt dabei gleich.
 
-### Was du dafür brauchst: Funktionen mehrerer Variablen
+:::::
+
+:::::vorwissen Was du dafür brauchst: Funktionen mehrerer Variablen
 
 <span class="anker" id="stufe-1-5"></span>
 
@@ -135,7 +143,9 @@ Die Funktion $\varphi(x,y)=x^2+2y^2$ heißt in diesem Kapitel die *Schale*, weil
 
 ⁠**Kurz gesagt:** Eine skalare Funktion ordnet jedem Punkt eine Zahl zu. Man zeichnet sie als Landkarte mit Höhenlinien.
 
-### Was du dafür brauchst: Grenzwert und Stetigkeit in mehreren Variablen
+:::::
+
+:::::vorwissen Was du dafür brauchst: Grenzwert und Stetigkeit in mehreren Variablen
 
 <span class="anker" id="stufe-1-6"></span>
 
@@ -157,7 +167,9 @@ Die Schale $\varphi(x,y)=x^2+2y^2$ ist ein Polynom und damit stetig. Anders die 
 
 ⁠**Kurz gesagt:** Ein Grenzwert in mehreren Variablen existiert nur, wenn jede Annäherung an den Punkt denselben Wert liefert. Stetig heißt: Der Grenzwert ist der Funktionswert.
 
-### Was du dafür brauchst: Partielle Ableitungen
+:::::
+
+:::::vorwissen Was du dafür brauchst: Partielle Ableitungen
 
 <span class="anker" id="stufe-1-7"></span>
 
@@ -192,7 +204,9 @@ Zur Kontrolle der Differenzenquotient mit $t=\frac1{10}$: $\bigl(\varphi(1{,}1;\
 
 ⁠**Kurz gesagt:** Die partielle Ableitung nach $x_k$ ist die Steigung in Richtung der $x_k$-Achse. Man berechnet sie, indem man alle anderen Variablen festhält.
 
-### Was du dafür brauchst: Höhere partielle Ableitungen
+:::::
+
+:::::vorwissen Was du dafür brauchst: Höhere partielle Ableitungen
 
 <span class="anker" id="stufe-1-8"></span>
 
@@ -214,7 +228,9 @@ Die beiden gemischten Ableitungen stimmen hier überein, obwohl sie auf verschie
 
 ⁠**Kurz gesagt:** Höhere partielle Ableitungen entstehen durch wiederholtes Ableiten. Die Ordnung zählt, wie oft abgeleitet wurde.
 
-### Was du dafür brauchst: Offene Mengen
+:::::
+
+:::::vorwissen Was du dafür brauchst: Offene Mengen
 
 <span class="anker" id="stufe-1-9"></span>
 
@@ -241,6 +257,8 @@ Die Kreisscheibe $\{|\boldsymbol{x}|<1\}$ in der Ebene ist offen: Um einen Punkt
 ::::
 
 ⁠**Kurz gesagt:** Von jedem Punkt einer offenen Menge aus kann man ein Stück in jede Richtung gehen, ohne die Menge zu verlassen.
+
+:::::
 
 ### Abbildungen mit mehreren Ausgängen
 

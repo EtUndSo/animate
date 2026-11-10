@@ -1,0 +1,442 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 13,
+  "nextAnimId": 15,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -7,
+      7
+     ],
+     "y_range": [
+      -4,
+      4
+     ],
+     "x_length": 14,
+     "y_length": 8,
+     "origin": [
+      0,
+      0,
+      0
+     ],
+     "title": "",
+     "x_label": "",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "",
+     "x_tick_marks": true,
+     "y_tick_marks": true,
+     "x_numbers": true,
+     "y_numbers": true,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "show_axes": false,
+     "x_axis_at": "bottom",
+     "y_axis_at": "left",
+     "x_label_at": "center"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -3,
+      3
+     ],
+     "y_range": [
+      -3,
+      3
+     ],
+     "x_length": 4.4,
+     "y_length": 4.4,
+     "origin": [
+      -1.5,
+      0,
+      0
+     ],
+     "title": "",
+     "x_label": "",
+     "y_label": "",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_ticks": "",
+     "y_ticks": "",
+     "x_tick_marks": false,
+     "y_tick_marks": false,
+     "x_numbers": false,
+     "y_numbers": false,
+     "x_log": false,
+     "y_log": false,
+     "frame": false,
+     "title_at": "left",
+     "minor_ticks": true,
+     "arrows": true,
+     "x_label_at": "end",
+     "arrow_size": 0.16
+    }
+   },
+   {
+    "id": "o3",
+    "type": "Grid",
+    "props": {
+     "x_step": 1.0,
+     "y_step": 1.0,
+     "extend": 2.0,
+     "samples": 2,
+     "clip": true,
+     "axis_width": 3,
+     "color": "#8fa6c8",
+     "stroke_width": 2,
+     "stroke_opacity": 1.0,
+     "dash": ""
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o4",
+    "type": "Line",
+    "props": {
+     "start": [
+      -3,
+      -3,
+      0
+     ],
+     "end": [
+      3,
+      3,
+      0
+     ],
+     "color": "#2a78d6",
+     "stroke_width": 2,
+     "dash": "10,7"
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o5",
+    "type": "Line",
+    "props": {
+     "start": [
+      -1.5,
+      3,
+      0
+     ],
+     "end": [
+      1.5,
+      -3,
+      0
+     ],
+     "color": "#eb6834",
+     "stroke_width": 2,
+     "dash": "10,7"
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o6",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      0,
+      0,
+      0
+     ],
+     "end": [
+      0.5,
+      0.5,
+      0
+     ],
+     "label": "v_1",
+     "label_at": "end",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.22,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "stroke_width": 4,
+     "dash": "",
+     "label_side": "left"
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o7",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      0,
+      0,
+      0
+     ],
+     "end": [
+      -0.3,
+      0.6,
+      0
+     ],
+     "label": "v_2",
+     "label_at": "end",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.22,
+     "font_size": 26,
+     "color": "#eb6834",
+     "stroke_width": 4,
+     "dash": "",
+     "label_side": "left"
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o8",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      0,
+      0,
+      0
+     ],
+     "end": [
+      0.6,
+      0,
+      0
+     ],
+     "label": "w",
+     "label_at": "end",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.22,
+     "font_size": 26,
+     "color": "#c82828",
+     "stroke_width": 4,
+     "dash": "",
+     "label_side": "right"
+    },
+    "on": "o2"
+   },
+   {
+    "id": "o9",
+    "type": "MathTex",
+    "props": {
+     "tex": "A = \\begin{pmatrix} 4 & 1 \\\\ 2 & 3 \\end{pmatrix}",
+     "height": 0.62,
+     "position": [
+      2.2,
+      1.3,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o10",
+    "type": "MathTex",
+    "props": {
+     "tex": "A\\mathbf v_1 = 5\\,\\mathbf v_1",
+     "height": 0.21,
+     "position": [
+      2.2,
+      0.35,
+      0
+     ],
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o11",
+    "type": "MathTex",
+    "props": {
+     "tex": "A\\mathbf v_2 = 2\\,\\mathbf v_2",
+     "height": 0.21,
+     "position": [
+      2.2,
+      -0.25,
+      0
+     ],
+     "color": "#eb6834"
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Text",
+    "props": {
+     "text": "@kippt",
+     "position": [
+      2.2,
+      -0.85,
+      0
+     ],
+     "font_size": 26,
+     "align": "center",
+     "color": "#c82828"
+    }
+   }
+  ],
+  "animations": [
+   {
+    "id": "a1",
+    "type": "FadeIn",
+    "target": "o2",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a2",
+    "type": "FadeIn",
+    "target": "o3",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a3",
+    "type": "FadeIn",
+    "target": "o4",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a4",
+    "type": "FadeIn",
+    "target": "o5",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a5",
+    "type": "FadeIn",
+    "target": "o9",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a6",
+    "type": "FadeIn",
+    "target": "o6",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a7",
+    "type": "FadeIn",
+    "target": "o7",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a8",
+    "type": "FadeIn",
+    "target": "o8",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a9",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.4,
+    "step": 2
+   },
+   {
+    "id": "a10",
+    "type": "ApplyMatrix",
+    "target": "o3",
+    "run_time": 3.0,
+    "step": 3,
+    "matrix": [
+     [
+      4,
+      1
+     ],
+     [
+      2,
+      3
+     ]
+    ],
+    "objects": [
+     "o6",
+     "o7",
+     "o8"
+    ]
+   },
+   {
+    "id": "a11",
+    "type": "FadeIn",
+    "target": "o10",
+    "run_time": 0.5,
+    "step": 4
+   },
+   {
+    "id": "a12",
+    "type": "FadeIn",
+    "target": "o11",
+    "run_time": 0.5,
+    "step": 5
+   },
+   {
+    "id": "a13",
+    "type": "FadeIn",
+    "target": "o12",
+    "run_time": 0.5,
+    "step": 6
+   },
+   {
+    "id": "a14",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.5,
+    "step": 7
+   }
+  ],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "kippt": {
+    "de": "A w kippt",
+    "en": "A w tilts",
+    "es": "A w se inclina",
+    "zh": "A w 转向",
+    "fr": "A w bascule",
+    "tr": "A w döner"
+   }
+  },
+  "drawOrder": "creation"
+ }
+}

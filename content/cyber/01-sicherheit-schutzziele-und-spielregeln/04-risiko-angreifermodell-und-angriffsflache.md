@@ -15,7 +15,7 @@ lang: de
 Kein System ist gegen alles geschützt, und vollständiger Schutz wäre unbezahlbar. Dieser Abschnitt misst, wie groß eine Gefahr ist und wie groß alle zusammen sind, entscheidet, wann sich eine Schutzmaßnahme lohnt, legt fest, gegen wen man sich schützt, und zählt die Stellen, an denen ein Angreifer ansetzen kann.
 :::
 
-### Was du dafür brauchst: Häufigkeit und Erwartungswert
+:::::vorwissen Was du dafür brauchst: Häufigkeit und Erwartungswert
 
 <span class="anker" id="stufe-3-1"></span>
 
@@ -54,7 +54,9 @@ Der Erwartungswert sagt nichts darüber, was in einem bestimmten Jahr passiert. 
 
 ⁠**Kurz gesagt:** Tritt ein Ereignis im Mittel $H$-mal pro Jahr ein und kostet jedes Mal $S$, so kostet es im Mittel $H\cdot S$ pro Jahr.
 
-### Was du dafür brauchst: unabhängige Ereignisse
+:::::
+
+:::::vorwissen Was du dafür brauchst: unabhängige Ereignisse
 
 <span class="anker" id="stufe-3-2"></span>
 
@@ -89,6 +91,8 @@ Die Näherung $n\cdot p$ ist nicht nur für kleine $n\cdot p$ brauchbar, sie ist
 
 Für diese Schranke braucht man die Unabhängigkeit nicht einmal. Sie gilt für beliebige Ereignisse und heißt in der Wahrscheinlichkeitsrechnung Boolesche Ungleichung: Die Wahrscheinlichkeit, dass mindestens eines eintritt, ist höchstens die Summe der einzelnen Wahrscheinlichkeiten. Die genaue Formel $1-(1-p)^n$ dagegen setzt Unabhängigkeit voraus.
 :::
+
+:::::
 
 ### Risiko
 

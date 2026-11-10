@@ -79,6 +79,43 @@ added there and pass** before it is considered done.
 - Contract cases: four "L3 …" models in `tests/test_contract.py` plus `l3_checks()` (whole-number shares, number
   format, scene file → `python_model` → engine).
 
+## Plane maps (L5, 10.11.2026)
+- `ApplyMatrix` (args `matrix` [[a, b], [c, d]] = numbers or expressions evaluated once at build, `objects` = further ids,
+  `path` "straight" | "rotate", `rate`) and `ApplyFunction` (args `func` [fx, fy] in x and y) move their target and
+  `objects` in the DATA coordinates of each object's axes: M(α) = (1 − α) I + α A, or with "rotate" (det A > 0)
+  R(αθ)·((1 − α) I + α P) from the polar decomposition A = R(θ) P; a function: (1 − α) p + α f(p).
+- Each map has a hidden progress tracker (`ValueTracker`, key `#l5_k`); on the timeline a `ChangeValue(tracker, 1, rate)`
+  takes the map's place. Every moved object gets the `_ParamLink` of L3 (rules above: rebuilt per frame, node objects
+  kept, visibility/drawing progress from the animations); its link lists all maps of that object in timeline order, so
+  a second map starts from the image of the first (composition), still a pure function of the tracker values.
+- How an object is mapped: types in `_L5_SPEC` (Dot, LabeledArrow, Line, Text, DecimalNumber, TextBox, Mark) map the
+  coordinates in their spec and are built anew (round dot, upright label, arrowhead keeps its shape); `Grid` maps its
+  lines in data space and clips them to its window afterwards (fixed number of lines and points per line); every other
+  type in `_L5_GEOMETRY` maps all points of its built tree (a PointCloud only the centres of its dots, labels only their
+  anchors). Anything else raises a ValueError at build. Old scenes have no such animation: nothing changes for them.
+
+## Camera rides (L4, 10.11.2026)
+- `MoveCamera` (target null; args `theta`, `phi`, `turn` in radians, `zoom`, `center` [x, y, z], `rate`) animates a
+  `CameraState` (an AnimObject without points: theta, phi, zoom, center). The first camera animation creates it from the
+  model's camera. Values left out stay; theta_end = (theta or start) + turn; angles interpolate as numbers, the zoom
+  geometrically, the center linearly.
+- `ModelScene.seek(t)`: after the two passes and the updaters the state is copied onto `scene.camera`
+  (`CameraState.apply_to`); after `construct()` the camera stands at its end. So the camera is a pure function of t like
+  every object; `tests/test_contract.py` `snap()` records it.
+- `Camera.center` (look-at point, also as `camera.center` in the model): subtracted before the projection, zoom
+  magnifies around it. None/origin = no subtraction at all, so older scenes give the same numbers.
+- `Ball` (threed.py): children built in the world x-y plane around the centre; in 3D `renderer._billboards` turns their
+  points into the screen plane about the centre of the first child before projecting (a disc facing the camera). Only
+  flagged objects are touched.
+- Prop `layer` (any object, int): `_set_layer` marks every node; in 3D a group is sorted by (layer, depth) when any
+  layer is set, else by depth as before. 2D ignores it.
+- The animated export of a 3D scene with a camera ride stores world points and a camera track instead of projected
+  paths (tools/szenen_animation.py, notizen/animationen.md §10.3); the player in build_wissen.py projects and depth-sorts
+  exactly like `camera.py` and `renderer._paint_3d`.
+- Contract cases: "L5 …" (three) and "L4 …" (two) in `tests/test_contract.py` plus `l5_l4_checks()` (states at
+  intermediate times, composition, rotation path keeps |p|, round dot, ghost grid stays, camera between keyframes, scene
+  file → `python_model` → engine for both).
+
 ## Adding a new primitive — checklist
 - [ ] Geometry lives in `points` (cubic Bézier, `N = 3k+1`); multi-contour glyphs keep contours in one
       leaf via `_contours` (even-odd fill).

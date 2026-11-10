@@ -151,6 +151,43 @@ def anim_steps(shown, play_mode):
     return out
 
 
+def _deg(v):
+    """editor.js camArgs: degrees -> radians; an expression stays text and becomes (expr)*pi/180."""
+    if isinstance(v, str):
+        return "(%s)*pi/180" % v
+    return v * math.pi / 180
+
+
+def camera_args(a):
+    """editor.js animArgs for MoveCamera (L4): theta, phi, turn in degrees -> radians; zoom, center, rate as they are.
+    Only what the animation sets (a value left out stays as it was)."""
+    args = {}
+    for k in ("theta", "phi", "turn"):
+        if a.get(k) is not None and a.get(k) != "":
+            args[k] = _deg(a[k])
+    if a.get("zoom") is not None and a.get("zoom") != "":
+        args["zoom"] = a["zoom"]
+    if isinstance(a.get("center"), list):
+        args["center"] = a["center"]
+    if a.get("rate"):
+        args["rate"] = a["rate"]
+    return args
+
+
+def l5_args(a):
+    """editor.js animArgs for ApplyMatrix / ApplyFunction (L5)."""
+    args = {"objects": list(a.get("objects") or [])}
+    if a.get("type") == "ApplyMatrix":
+        args["matrix"] = a.get("matrix")
+        if a.get("path") and a.get("path") != "straight":
+            args["path"] = a["path"]
+    else:
+        args["func"] = a.get("func")
+    if a.get("rate"):
+        args["rate"] = a["rate"]
+    return args
+
+
 def _hex_to_rgb(h):
     """editor.js hexToRgb: parseInt(h.slice(1), 16) -> [r, g, b] in 0..1."""
     m = re.match(r"[0-9a-fA-F]+", h[1:])
@@ -343,6 +380,10 @@ def python_model(data, defaults, kinds, lang, notes, tex=None):
             args["lines"] = True
         if t == "MoveAlongPath" and a.get("path"):
             args["path"] = a["path"]
+        if t == "MoveCamera":                     # L4: angles stored in degrees (like Rotate), sent in radians
+            args = camera_args(a)
+        if t in ("ApplyMatrix", "ApplyFunction"):  # L5: a plane map (editor.js animArgs)
+            args = l5_args(a)
         spec = {"type": t, "target": a.get("target"), "step": step,
                 "args": {k: v for k, v in args.items() if v is not None}}
         if a.get("run_time") is not None:
@@ -449,6 +490,29 @@ def _sichtbar(svg):
     return _UNSICHTBAR.sub("", svg)
 
 
+def kamerafahrt_box(sc, axes_on_top, fps=10):
+    """L4: pixel box of everything drawn over a scene with a camera ride (MoveCamera), sampled fps times a second: the
+    static image and the animated file get this crop, so nothing is cut off while the camera turns. A zoom or a new
+    look-at point counts as at the start (zoom never larger than at t = 0): zooming in magnifies inside the same
+    window instead of blowing the figure up to the whole frame."""
+    n = max(1, int(math.ceil(sc.duration * fps)))
+    sc.seek(0.0)
+    cam = sc.camera
+    z0, c0 = cam.zoom, cam.center.copy()
+    box = None
+    for k in range(n + 1):
+        sc.seek(sc.duration * k / n)
+        z, c = cam.zoom, cam.center.copy()
+        cam.zoom = min(z, z0)
+        cam.set_center(c0)
+        b = _export.content_box(sc.objectList, cam, axes_on_top)
+        cam.zoom = z
+        cam.set_center(c)
+        if b is not None:
+            box = list(b) if box is None else [min(box[0], b[0]), min(box[1], b[1]), max(box[2], b[2]), max(box[3], b[3])]
+    return box
+
+
 def export_scene(name, out_dir, lang, defaults, kinds, write=True, tex=None, animiert=False):
     """Build one scene and write <out_dir>/<lang>/<name>.svg (with animiert also <name>.anim.svg, see
     tools/szenen_animation.py). Returns (info, notes)."""
@@ -458,12 +522,15 @@ def export_scene(name, out_dir, lang, defaults, kinds, write=True, tex=None, ani
     anim_model = json.loads(json.dumps(model)) if animiert else None
     sc = ModelScene(model)
     sc.construct()
+    box = None
+    if getattr(sc, "_cam_state", None) is not None and sc.timeline:
+        box = kamerafahrt_box(sc, model["axes_on_top"])   # L4: the crop holds every frame of the camera ride
     if sc.timeline:                    # a scene with a timeline: the article figure (and the PDF) shows its END state
         sc.seek(sc.duration)
     else:
         sc.show_static()
     svg, info = _export.render(sc.objectList, sc.camera, background=model["background"],
-                               axes_on_top=model["axes_on_top"], raw_settings=model["export"])
+                               axes_on_top=model["axes_on_top"], raw_settings=model["export"], box=box)
     verdeckt = verdeckter_text(sc, model["axes_on_top"])
     if verdeckt:
         notes.append("Text liegt unter einer deckenden Fläche: " + ", ".join(f"{t} unter {p}" for t, p in verdeckt[:6])

@@ -15,7 +15,7 @@ lang: de
 Für eine virtuelle Maschine und für den Live-USB-Stick lädt man ein ganzes Betriebssystem als eine einzige Datei herunter. Dieser Abschnitt erklärt, was in einer solchen Datei steckt, und wie man mit einer Prüfsumme feststellt, dass sie unterwegs nicht verändert wurde. Dafür braucht man zuerst drei Grundbegriffe über Datenträger.
 :::
 
-### Was du dafür brauchst: der Datenträger
+:::::vorwissen Was du dafür brauchst: der Datenträger
 
 <span class="anker" id="stufe-5-1"></span>
 
@@ -37,7 +37,9 @@ Windows schreibt dafür „7,45 GB“, obwohl es GiB meint. Eine SSD mit der Au
 
 ⁠**Kurz gesagt:** Ein Datenträger ist eine lange Reihe nummerierter Blöcke, die ihren Inhalt auch ohne Strom behalten.
 
-### Was du dafür brauchst: die Partition
+:::::
+
+:::::vorwissen Was du dafür brauchst: die Partition
 
 <span class="anker" id="stufe-5-2"></span>
 
@@ -55,7 +57,9 @@ Auf der SSD eines typischen Windows-Rechners liegen vier Partitionen: vorn eine 
 
 ⁠**Kurz gesagt:** Eine Partition ist ein Abschnitt eines Datenträgers; die Partitionstabelle am Anfang sagt, wo welcher liegt.
 
-### Was du dafür brauchst: das Dateisystem
+:::::
+
+:::::vorwissen Was du dafür brauchst: das Dateisystem
 
 <span class="anker" id="stufe-5-3"></span>
 
@@ -72,6 +76,8 @@ Windows benutzt für Laufwerk C: das Dateisystem NTFS. USB-Sticks und Speicherka
 ::::
 
 ⁠**Kurz gesagt:** Das Dateisystem macht aus den Sektoren einer Partition Dateien und Ordner.
+
+:::::
 
 ### Das Abbild
 

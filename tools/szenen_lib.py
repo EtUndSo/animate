@@ -91,6 +91,15 @@ def _zahl(v):
     return ("%.6g" % v)
 
 
+def det_ausdruck(matrix, p="s"):
+    """Ausdruck für die Determinante der Zwischenmatrix (1 - p) I + p A von s.abbilden(..., weg="gerade") beim
+    Fortschritt p (Parametername): die Fläche des Bilds des Einheitsquadrats (mit Vorzeichen). Für s.zahl, z. B.
+    s.zahl(a, "abs(" + det_ausdruck(A, "s") + ")", (2, 2), vor="Fläche = ")."""
+    (a, b), (c, d) = matrix
+    f = lambda v: "(%s)" % v if isinstance(v, str) else _zahl(float(v))
+    return "(1 - {p} + {p}*{a})*(1 - {p} + {p}*{d}) - {p}^2*{b}*{c}".format(p=p, a=f(a), b=f(b), c=f(c), d=f(d))
+
+
 class Szene:
     def __init__(self, name, margin=24, reihenfolge=None):
         """reihenfolge = was oben liegt: "anlegen" = Reihenfolge des Anlegens (was später angelegt wird, liegt oben,
@@ -192,7 +201,9 @@ class Szene:
         return self._add("Dot", {"center": [x, y, 0], "radius": r, "color": farbe, "fill_color": farbe, "fill_opacity": 1, "stroke_width": 0}, on)
 
     def linie(self, on, a, b, farbe=SCHWARZ, dicke=3, dash=""):
-        return self._add("Line", {"start": [a[0], a[1], 0], "end": [b[0], b[1], 0], "color": farbe, "stroke_width": dicke, "dash": dash}, on)
+        """Strecke von a nach b; in 3D-Szenen dürfen a und b drei Koordinaten haben (x, y, z)."""
+        return self._add("Line", {"start": [a[0], a[1], a[2] if len(a) > 2 else 0], "end": [b[0], b[1], b[2] if len(b) > 2 else 0],
+                                  "color": farbe, "stroke_width": dicke, "dash": dash}, on)
 
     def weg(self, on, fx, fy, t0, t1, farbe=BLAU, dicke=4, pfeile="", n=161, dash="", spitze=None):
         """Parametrischer Weg; pfeile = "0.25;0.75": Richtungsmarken an diesen Stellen, "" = keine.
@@ -232,7 +243,8 @@ class Szene:
           selbst (keine Formel-Glyphen). Ohne roh=False ist tt immer roh.
         roh=True: der Text wörtlich (_ ^ \\ $ { } sind gewöhnliche Zeichen, Dateinamen wie einkauf_alt.txt oder C:\\
           ohne Maskierung; ein echter Zeilenumbruch "\\n" bricht die Zeile). @schluessel aus s.tr gilt weiter."""
-        p = {"text": s, "position": [pos[0], pos[1], 0], "font_size": groesse, "align": ausrichtung, "color": farbe}
+        p = {"text": s, "position": [pos[0], pos[1], pos[2] if len(pos) > 2 else 0], "font_size": groesse, "align": ausrichtung,
+             "color": farbe}
         if schrift not in (None, "sans", "tt", "mono"):
             raise ValueError('schrift ist None, "tt" oder "sans"')
         mono = schrift in ("tt", "mono")
@@ -397,8 +409,10 @@ class Szene:
     # Anleitung: notizen/animationen.md.
     def animation(self, art, ziel, dauer=1.0, **werte):
         """Eine Animation des Editors (art = Create, Write, FadeIn, GrowFromCenter, FadeOut, Shift, MoveTo, Rotate,
-        Scale, Indicate, Transform, ReplacementTransform, TransformMatchingTex, MoveAlongPath, ChangeValue) mit ihren
-        Werten (vector, point, angle in Grad, factor, around, to, row, col, cell; ChangeValue: value, rate).
+        Scale, Indicate, Transform, ReplacementTransform, TransformMatchingTex, MoveAlongPath, ChangeValue, ApplyMatrix,
+        ApplyFunction, MoveCamera) mit ihren Werten (vector, point, angle in Grad, factor, around, to, row, col, cell;
+        ChangeValue: value, rate; ApplyMatrix: matrix, objects, path, rate; ApplyFunction: func, objects, rate;
+        MoveCamera (ziel None): theta, phi, turn in Grad, zoom, center, rate).
         Ergebnis: die id der Animation."""
         anims = self.__dict__.setdefault("_anims", [])
         if not anims:
@@ -427,15 +441,22 @@ class Szene:
         return (max(a["step"] for a in anims) + 1) if anims else 0
 
     class _Gleichzeitig:
+        """Ein gemeinsamer Schritt. Verschachtelt (einblenden/ausblenden mit mehreren Zielen in gleichzeitig()) bleibt
+        es beim äußeren Schritt; bis 10.11.2026 begann das innere einen neuen Schritt und beendete den äußeren."""
         def __init__(self, s):
             self.s = s
+            self.innen = False
 
         def __enter__(self):
-            self.s._gruppe = [None]
+            if self.s.__dict__.get("_gruppe") is not None:
+                self.innen = True
+            else:
+                self.s._gruppe = [None]
             return self.s
 
         def __exit__(self, *exc):
-            self.s._gruppe = None
+            if not self.innen:
+                self.s._gruppe = None
             return False
 
     def gleichzeitig(self):
@@ -609,13 +630,179 @@ class Szene:
                                          "show_slope": False, "triangle_dx": 0, "color": farbe, "stroke_width": dicke,
                                          "dash": dash}, on)
 
+    # ---------------------------------------------------------------------------- Ebene abbilden (L5)
+    # Eine 2x2-Matrix verformt die Ebene über die Zeit: das Koordinatengitter (s.gitter) und alles, was mitgenommen
+    # wird (Punkte, Pfeile, Vielecke, Kreise, Kurven, Texte). Jeder Punkt p läuft nach A p, im Endbild steht das Bild.
+    # Mehrere Abbildungen hintereinander starten jeweils vom verformten Zustand. Anleitung: notizen/animationen.md §9.
+    def gitter(self, on, schritt=1.0, schritt_y=None, farbe="#8fa6c8", dicke=2, deckung=1.0, rand=1.0, punkte=2,
+               achsen_dicke=0, zuschneiden=True, x=None, y=None, dash=""):
+        """Koordinatengitter (Grid) im Fenster der Achsen on (oder x=(von, bis), y=(von, bis)): Linien x = k*schritt
+        und y = k*schritt_y. rand: wie viele Fensterbreiten die Linien über das Fenster hinausreichen (damit eine
+        Scherung Linien von außen hereinholt); zuschneiden=False zeigt die verformten Linien ganz. punkte > 2 für
+        gekrümmte Bilder (s.abbilden_funktion, etwa 40). achsen_dicke > 0: die Linien x = 0 und y = 0 so dick.
+        Ein zweites Gitter, das nicht in s.abbilden steht, bleibt als „Geistergitter“ stehen (blass: deckung=0.35)."""
+        p = {"x_step": schritt, "y_step": schritt if schritt_y is None else schritt_y, "extend": rand, "samples": int(punkte),
+             "clip": bool(zuschneiden), "axis_width": achsen_dicke, "color": farbe, "stroke_width": dicke,
+             "stroke_opacity": deckung, "dash": dash}
+        if x is not None:
+            p["x_range"] = list(x)
+        if y is not None:
+            p["y_range"] = list(y)
+        return self._add("Grid", p, on)
+
+    def vektor(self, on, ende, start=(0, 0), label="", farbe=SCHWARZ, dicke=4, spitze=0.22, groesse=TEXT,
+               label_seite="left", label_am_ende=True):
+        """Pfeil von start nach ende in Datenkoordinaten (Basisvektor e_1, Bildvektor A e_1, ...); die Beschriftung
+        steht an der Spitze (label_am_ende=False: an der Mitte). In s.abbilden behält er seine Spitze und die
+        Beschriftung bleibt aufrecht."""
+        return self.pfeil(start, ende, label=label, farbe=farbe, dicke=dicke, spitze=spitze, groesse=groesse, on=on,
+                          label_seite=label_seite, at="end" if label_am_ende else "mid")
+
+    def vieleck(self, on, punkte, farbe=BLAU, deckung=0.25, dicke=3, randfarbe=None, dash=""):
+        """Gefülltes Vieleck durch die Ecken punkte [(x, y), ...] in Datenkoordinaten, z. B. das Einheitsquadrat. In
+        3D-Szenen (x, y, z); Koordinaten dürfen Ausdrücke mit Parametern sein ("a + 0.3")."""
+        z = lambda v: v if isinstance(v, str) else float(v)
+        return self._add("Polygon", {"vertices": [[z(p[0]), z(p[1]), z(p[2]) if len(p) > 2 else 0.0] for p in punkte],
+                                     "color": randfarbe or farbe, "fill_color": farbe, "fill_opacity": deckung,
+                                     "stroke_width": dicke, "dash": dash}, on)
+
+    def _abbildung(self, art, werte, objekte, dauer, rate, parameter):
+        ids = [o for o in objekte]
+        if not ids:
+            raise ValueError("abbilden: objekte nennt kein Objekt")
+        bekannt = {o["id"] for o in self.objects}
+        fremd = [o for o in ids if o not in bekannt]
+        if fremd:
+            raise ValueError("abbilden: unbekannte Objekte %s" % ", ".join(fremd))
+        if rate not in ("glatt", "linear"):
+            raise ValueError('abbilden: rate ist "glatt" oder "linear"')
+        werte = dict(werte, objects=ids[1:])
+        if rate == "linear":
+            werte["rate"] = "linear"
+        if parameter is None:
+            return self.animation(art, ids[0], dauer, **werte)
+        if parameter not in (self.__dict__.get("_params") or {}):
+            self.parameter(parameter, 0, von=0, bis=1)
+        if self.__dict__.get("_gruppe") is not None:            # schon in gleichzeitig(): derselbe Schritt
+            aid = self.animation(art, ids[0], dauer, **werte)
+            self.verstellen(parameter, 1, dauer=dauer, rate=rate)
+            return aid
+        with self.gleichzeitig():
+            aid = self.animation(art, ids[0], dauer, **werte)
+            self.verstellen(parameter, 1, dauer=dauer, rate=rate)
+        return aid
+
+    def abbilden(self, matrix, objekte, dauer=2.0, weg="gerade", rate="glatt", parameter=None):
+        """Die Matrix [[a, b], [c, d]] (Zahlen oder Ausdrücke wie "cos(pi/6)") auf die Ebene anwenden (ApplyMatrix):
+        objekte = ids (Gitter, Vektoren, Vielecke, Punkte, Kreise, Kurven, Texte) in den Datenkoordinaten ihrer Achsen.
+        weg="gerade": jeder Punkt läuft geradlinig nach A p (wie Manim); weg="drehung": Drehanteil als Drehung, der
+          Rest geradlinig (A = R·P, nur für det A > 0; eine Drehmatrix dreht dann, statt zwischendurch zu schrumpfen).
+        parameter="s": dazu ein Parameter s, der im selben Schritt gleich schnell von 0 auf 1 läuft; s.zahl kann dann
+          einen Wert der Zwischenmatrix zeigen, z. B. s.zahl(a, det_ausdruck(A, "s"), ...). Je Abbildung ein eigener Name.
+        Ergebnis: die id der Animation."""
+        try:
+            a, b = matrix[0][0], matrix[0][1]
+            c, d = matrix[1][0], matrix[1][1]
+        except (TypeError, IndexError):
+            raise ValueError("abbilden: matrix hat die Form [[a, b], [c, d]]")
+        if weg not in ("gerade", "drehung"):
+            raise ValueError('abbilden: weg ist "gerade" oder "drehung"')
+        if weg == "drehung":
+            try:
+                det = float(a) * float(d) - float(b) * float(c)
+            except (TypeError, ValueError):
+                det = None
+            if det is not None and det <= 0:
+                raise ValueError("abbilden: weg=\"drehung\" braucht det A > 0 (Spiegelung oder plattdrücken: weg=\"gerade\")")
+        m = [[a, b], [c, d]]
+        werte = {"matrix": m}
+        if weg == "drehung":
+            werte["path"] = "rotate"
+        return self._abbildung("ApplyMatrix", werte, objekte, dauer, rate, parameter)
+
+    def abbilden_funktion(self, fx, fy, objekte, dauer=2.0, rate="glatt", parameter=None):
+        """Nichtlineare Abbildung (ApplyFunction): jeder Punkt (x, y) läuft geradlinig nach (fx(x, y), fy(x, y)),
+        z. B. Polarkoordinaten fx="x*cos(y)", fy="x*sin(y)" (Gitter wird zu Kreisen und Strahlen). Das Gitter dafür
+        mit punkte=40 anlegen, damit seine Linien sich biegen können. Sonst wie abbilden."""
+        return self._abbildung("ApplyFunction", {"func": [str(fx), str(fy)]}, objekte, dauer, rate, parameter)
+
+    # ---------------------------------------------------------------------------- Kamera (L4)
+    # Die Kamera einer 3D-Szene steht in theta (Drehung um die senkrechte z-Achse), phi (Höhe über der Grundebene),
+    # beide in Grad, zoom (> 1 größer) und blickpunkt (der Weltpunkt in der Bildmitte). s.kamera fährt sie über die
+    # Zeit, gleichzeitig mit anderen Animationen in "with s.gleichzeitig():". Anleitung: notizen/animationen.md §10.
+    def achsen3d(self, x=(-2, 2), y=(-2, 2), z=(0, 2), xl="x", yl="y", zl="z", zahlen=False, pfeile=True, mitte=(0, 0, 0)):
+        """Räumliche Achsen (x, y waagrecht, z nach oben), Länge = Spanne: Datenkoordinaten = Weltkoordinaten (bei
+        mitte = Ursprung; z zählt ab 0). Für Flächen (s.flaeche3d), Kugeln (s.kugel), Strecken und Texte mit z."""
+        return self._add("Axes", {"x_range": list(x), "y_range": list(y), "z_range": list(z), "x_length": x[1] - x[0],
+                                  "y_length": y[1] - y[0], "z_length": z[1] - z[0], "origin": list(mitte), "x_label": xl,
+                                  "y_label": yl, "z_label": zl, "number_size": ZAHL, "label_size": ACHSTITEL, "axis_width": 3,
+                                  "x_numbers": bool(zahlen), "y_numbers": bool(zahlen), "show_ticks": bool(zahlen),
+                                  "show_numbers": bool(zahlen), "arrows": bool(pfeile), "arrow_size": 0.16,
+                                  "minor_ticks": False, "title": ""})
+
+    def zuoberst(self, *ziele, stufe=1):
+        """3D: diese Objekte nach allen Objekten einer niedrigeren Stufe zeichnen, unabhängig von der Tiefe (prop layer).
+        Für etwas, das vor einer Fläche liegt, deren Facetten es sonst stückweise verdecken (Tangentialebene über einer
+        gewölbten Fläche, Punkt und Beschriftung darauf). Nur, wenn es aus jeder gezeigten Richtung davor liegt."""
+        for z in ziele:
+            o = next((x for x in self.objects if x["id"] == z), None)
+            if o is None:
+                raise ValueError("zuoberst: %s gibt es nicht" % z)
+            o["props"]["layer"] = int(stufe)
+
+    def flaeche3d(self, on, f, farbe=BLAU, deckung=0.85, aufloesung=20, gitter=1):
+        """Fläche z = f(x, y) über dem Bereich der Achsen on (ein Ausdruck in x und y); aufloesung = Zellen je Achse
+        (klein halten: jede Zelle ist ein Element der animierten Datei)."""
+        return self._add("FunctionGraph", {"func": f, "color": farbe, "fill_opacity": deckung, "res_max": int(aufloesung),
+                                           "stroke_width": gitter}, on)
+
+    def kugel(self, on, punkt, r=0.2, farbe=BLAU, glanz=True, rand=1.5):
+        """Kugel als Scheibe, die immer zur Kamera zeigt, mit Lichtfleck (Ball): Atom, Punkt im Raum. punkt (x, y, z)
+        in Datenkoordinaten (Ausdrücke mit Parametern erlaubt), r in Szeneneinheiten. Ein Pfad statt eines Netzes."""
+        return self._add("Ball", {"center": [punkt[0], punkt[1], punkt[2] if len(punkt) > 2 else 0], "radius": r,
+                                  "color": farbe, "fill_opacity": 1.0, "stroke_width": rand, "highlight": bool(glanz)}, on)
+
+    def kamera_start(self, theta=35.0, phi=20.0, zoom=1.0, blickpunkt=None, raum=True):
+        """Ansicht am Anfang (Grad). raum=True: 3D-Szene (z zeigt nach oben); raum=False: 2D mit zoom/blickpunkt."""
+        import math
+        k = {"mode": "3d" if raum else "2d", "theta": round(math.radians(theta), 6), "phi": round(math.radians(phi), 6),
+             "zoom": float(zoom)}
+        if blickpunkt is not None:
+            k["center"] = [float(v) for v in (list(blickpunkt) + [0, 0, 0])[:3]]
+        self._kamera = k
+        return k
+
+    def kamera(self, theta=None, phi=None, zoom=None, blickpunkt=None, drehen=None, dauer=2.0, rate="glatt"):
+        """Kamerafahrt (MoveCamera) in dauer Sekunden: auf theta/phi (Grad), zoom und blickpunkt (x, y, z), was
+        fehlt, bleibt. drehen = Grad, die zu theta hinzukommen (360 = einmal um die Szene). rate "glatt" oder
+        "linear". Statisches Bild und PDF zeigen die Endstellung. Ergebnis: die id der Animation."""
+        if rate not in ("glatt", "linear"):
+            raise ValueError('kamera: rate ist "glatt" oder "linear"')
+        werte = {}
+        for k, v in (("theta", theta), ("phi", phi), ("turn", drehen)):
+            if v is not None:
+                werte[k] = v if isinstance(v, str) else float(v)
+        if zoom is not None:
+            werte["zoom"] = float(zoom)
+        if blickpunkt is not None:
+            werte["center"] = [float(v) for v in (list(blickpunkt) + [0, 0, 0])[:3]]
+        if not werte:
+            raise ValueError("kamera: nichts zu bewegen (theta, phi, zoom, blickpunkt oder drehen angeben)")
+        if rate == "linear":
+            werte["rate"] = "linear"
+        return self.animation("MoveCamera", None, dauer, **werte)
+
+    def kamera_kreisen(self, grad=360.0, dauer=6.0):
+        """Gleichmäßige Drehung um die senkrechte Achse (wie Manims ambient rotation) über dauer Sekunden."""
+        return self.kamera(drehen=grad, dauer=dauer, rate="linear")
+
     # ---------------------------------------------------------------------------- Ablegen
     def model(self):
         m = {"v": 1, "counters": {"nextId": self.n + 1, "nextAnimId": 1, "nextCompId": 1},
              "model": {"objects": self.objects, "animations": [], "computations": [],
                        "background": {"color": "#ffffff", "transparent": False, "shadows": True, "axes_on_top": False},
                        "playMode": "sequential", "angleUnit": "rad", "domain": "real",
-                       "camera": {"mode": "2d", "theta": 0.6, "phi": 1.0, "zoom": 1.0},
+                       "camera": dict(self.__dict__.get("_kamera") or {"mode": "2d", "theta": 0.6, "phi": 1.0, "zoom": 1.0}),
                        "export": {"mode": "content", "margin": self.margin, "scale": 0.55, "frame": None},
                        "lang": "de", "strings": self.strings}}
         if getattr(self, "reihenfolge", None):                 # nur wenn gewählt: ältere Szenendateien bleiben gleich

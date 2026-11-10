@@ -16,7 +16,7 @@ lang: de
 Bevor man mit Unsicherheit rechnen kann, muss man aufschreiben, was alles geschehen kann. Dieser Abschnitt stellt dafür die Sprache der Mengen bereit und führt drei Grundbegriffe ein: den Vorgang mit ungewissem Ausgang, die Menge aller möglichen Ausgänge und die Aussagen über den Ausgang, deren Wahrscheinlichkeit man später wissen will.
 :::
 
-### Was du dafür brauchst: Mengen
+:::::vorwissen Was du dafür brauchst: Mengen
 
 <span class="anker" id="stufe-1-1"></span>
 
@@ -58,6 +58,8 @@ In der Grundmenge $\Omega=\{1,\dots,6\}$ sei $A=\{2,4,6\}$ und $B=\{5,6\}$. Dann
 ::::
 
 ⁠**Kurz gesagt:** Vereinigung heißt „oder“, Schnitt heißt „und“, Komplement heißt „nicht“; disjunkte Mengen haben nichts gemeinsam.
+
+:::::
 
 ### Zufallsexperiment und Ergebnisraum
 

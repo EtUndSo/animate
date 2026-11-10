@@ -1,0 +1,152 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 4,
+  "nextAnimId": 7,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Axes",
+    "props": {
+     "x_range": [
+      -2,
+      2
+     ],
+     "y_range": [
+      -2,
+      2
+     ],
+     "z_range": [
+      0,
+      2
+     ],
+     "x_length": 4,
+     "y_length": 4,
+     "z_length": 2,
+     "origin": [
+      0,
+      0,
+      0
+     ],
+     "x_label": "x",
+     "y_label": "y",
+     "z_label": "z",
+     "number_size": 24,
+     "label_size": 26,
+     "axis_width": 3,
+     "x_numbers": false,
+     "y_numbers": false,
+     "show_ticks": false,
+     "show_numbers": false,
+     "arrows": true,
+     "arrow_size": 0.16,
+     "minor_ticks": false,
+     "title": ""
+    }
+   },
+   {
+    "id": "o2",
+    "type": "FunctionGraph",
+    "props": {
+     "func": "1 + sin(x)*cos(y)/1.3",
+     "color": "#2a78d6",
+     "fill_opacity": 0.85,
+     "res_max": 20,
+     "stroke_width": 1
+    },
+    "on": "o1"
+   },
+   {
+    "id": "o3",
+    "type": "Text",
+    "props": {
+     "text": "z = f(x, y)",
+     "position": [
+      1.7,
+      -1.7,
+      2.3
+     ],
+     "font_size": 26,
+     "align": "center",
+     "color": "#111111",
+     "layer": 1
+    },
+    "on": "o1"
+   }
+  ],
+  "animations": [
+   {
+    "id": "a1",
+    "type": "FadeIn",
+    "target": "o1",
+    "run_time": 0.5,
+    "step": 0
+   },
+   {
+    "id": "a2",
+    "type": "Create",
+    "target": "o2",
+    "run_time": 1.2,
+    "step": 1
+   },
+   {
+    "id": "a3",
+    "type": "FadeIn",
+    "target": "o3",
+    "run_time": 0.4,
+    "step": 2
+   },
+   {
+    "id": "a4",
+    "type": "MoveCamera",
+    "target": null,
+    "run_time": 4.0,
+    "step": 3,
+    "turn": 150.0
+   },
+   {
+    "id": "a5",
+    "type": "MoveCamera",
+    "target": null,
+    "run_time": 2.0,
+    "step": 4,
+    "phi": 50.0
+   },
+   {
+    "id": "a6",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.4,
+    "step": 5
+   }
+  ],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "3d",
+   "theta": -1.22173,
+   "phi": 0.383972,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {},
+  "drawOrder": "creation"
+ }
+}

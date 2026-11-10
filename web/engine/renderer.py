@@ -73,6 +73,27 @@ def _collect(obj, is_axis, out):
         _collect(sub, axis_here, out)
 
 
+def _billboards(obj, camera, out):
+    """Objects flagged `_billboard_group` (threed.Ball) face the camera: every point of their leaves, built in the
+    world x-y plane, is turned into the screen plane about the centre of the first leaf. out: id(leaf) -> (points,
+    centre). Nothing else is touched (scenes without such objects paint exactly as before)."""
+    if getattr(obj, "_billboard_group", False) and obj.subObjects and len(obj.subObjects[0].points):
+        p0 = obj.subObjects[0].points
+        c = (p0.min(axis=0) + p0.max(axis=0)) / 2.0
+        right, up = camera._R[0], camera._R[1]
+
+        def turn(o):
+            if len(o.points):
+                d = o.points - c
+                out[id(o)] = (c + d[:, 0:1] * right + d[:, 1:2] * up, c)
+            for s in o.subObjects:
+                turn(s)
+        turn(obj)
+        return
+    for s in obj.subObjects:
+        _billboards(s, camera, out)
+
+
 def _paint_3d(painter, objectList, camera, axes_on_top=True):
     """3D paint: project ALL path vertices in a SINGLE batched matmul (fast in Pyodide), depth-sort,
     draw far-to-near (painter's algorithm). With axes_on_top the axes are drawn LAST (always visible
@@ -83,11 +104,15 @@ def _paint_3d(painter, objectList, camera, axes_on_top=True):
 
     paths = [(o, a) for (o, a) in leaves if getattr(o, "text", None) is None and len(o.points) >= 4]
     texts = [(o, a) for (o, a) in leaves if getattr(o, "text", None) is not None and len(o.points)]
+    bb = {}                                                       # L4: discs that face the camera (threed.Ball)
+    for obj in objectList:
+        _billboards(obj, camera, bb)
 
     record = []                                                   # (depth, is_axis, obj, pixels|None)
     if paths:
         counts = [len(o.points) for o, _ in paths]
-        allpts = np.concatenate([o.points for o, _ in paths], axis=0)
+        allpts = (np.concatenate([bb[id(o)][0] if id(o) in bb else o.points for o, _ in paths], axis=0) if bb
+                  else np.concatenate([o.points for o, _ in paths], axis=0))
         cam = camera.view_array(allpts)                           # ONE matmul for the whole scene
         upp = camera._upp
         px = camera.pixel_width / 2 + cam[:, 0] / upp
@@ -106,7 +131,10 @@ def _paint_3d(painter, objectList, camera, axes_on_top=True):
     else:
         groups = (record,)                                        # one depth-sorted pass (realistic)
     for group in groups:
-        group.sort(key=lambda r: r[0])                            # far (small depth) first
+        if any(getattr(r[2], "_layer", 0) for r in group):        # 3D layers (prop `layer`): a higher layer is
+            group.sort(key=lambda r: (getattr(r[2], "_layer", 0), r[0]))   # drawn after every lower one
+        else:
+            group.sort(key=lambda r: r[0])                        # far (small depth) first
         for _d, _a, o, pix in group:
             if getattr(o, "text", None) is not None:
                 px0, py0 = camera.project(o.points[0])

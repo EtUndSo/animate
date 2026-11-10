@@ -15,7 +15,7 @@ lang: de
 Ein Vektorfeld hat an jedem Punkt eine Jacobi-Matrix mit $n^2$ Einträgen. Dieser Abschnitt baut aus diesen Einträgen Größen mit anschaulicher Bedeutung: wie stark das Feld an einer Stelle auseinanderströmt und wie stark es dort kreist. Das Nabla-Symbol dient dabei als Baustein für weitere Differentialoperatoren.
 :::
 
-### Was du dafür brauchst: das Kreuzprodukt
+:::::vorwissen Was du dafür brauchst: das Kreuzprodukt
 
 <span class="anker" id="stufe-3-1"></span>
 
@@ -33,7 +33,9 @@ $(1,2,3)\times(4,5,6)=(2\cdot6-3\cdot5,\;3\cdot4-1\cdot6,\;1\cdot5-2\cdot4)=(-3,
 
 ⁠**Kurz gesagt:** Das Kreuzprodukt zweier Vektoren im Raum steht senkrecht auf beiden, und seine Länge ist die Fläche des aufgespannten Parallelogramms.
 
-### Was du dafür brauchst: Determinanten
+:::::
+
+:::::vorwissen Was du dafür brauchst: Determinanten
 
 <span class="anker" id="stufe-3-2"></span>
 
@@ -51,7 +53,9 @@ $$\det\begin{pmatrix}1&0&2\\2&1&0\\0&3&1\end{pmatrix}=1\cdot(1\cdot1-0\cdot3)-2\
 
 ⁠**Kurz gesagt:** Die Determinante einer $3\times3$-Matrix entwickelt man nach der ersten Spalte, mit abwechselnden Vorzeichen.
 
-### Was du dafür brauchst: die Spur einer Matrix
+:::::
+
+:::::vorwissen Was du dafür brauchst: die Spur einer Matrix
 
 <span class="anker" id="stufe-3-3"></span>
 
@@ -67,7 +71,9 @@ $\operatorname{Spur}\bigl(\begin{smallmatrix}1&2\\3&4\end{smallmatrix}\bigr)=1+4
 
 ⁠**Kurz gesagt:** Die Spur ist die Summe der Diagonaleinträge.
 
-### Was du dafür brauchst: schiefsymmetrische Matrizen
+:::::
+
+:::::vorwissen Was du dafür brauchst: schiefsymmetrische Matrizen
 
 <span class="anker" id="stufe-3-4"></span>
 
@@ -84,6 +90,8 @@ $\bigl(\begin{smallmatrix}1&2\\0&3\end{smallmatrix}\bigr)=\bigl(\begin{smallmatr
 ::::
 
 ⁠**Kurz gesagt:** Schiefsymmetrisch heißt: Transponieren wechselt das Vorzeichen. Jede quadratische Matrix ist symmetrischer plus schiefsymmetrischer Anteil.
+
+:::::
 
 ### Die Divergenz
 

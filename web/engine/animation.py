@@ -175,6 +175,52 @@ class ChangeValue(Animation):
         self.target.set_value(n0 + (k if d >= 0 else -k))
 
 
+class CameraState(AnimObject):
+    """The camera as an object of the timeline (L4, 10.11.2026): orbit angles theta/phi (radians), zoom and the
+    point looked at (center). MoveCamera animates it like any target; the scene copies it onto its Camera after the
+    animations of a frame ran (ModelScene.seek). It has no points, so nothing is drawn for it."""
+
+    def __init__(self, theta=0.0, phi=0.0, zoom=1.0, center=(0.0, 0.0, 0.0)):
+        super().__init__()
+        self.theta, self.phi, self.zoom = float(theta), float(phi), float(zoom) or 1.0
+        self.center = np.asarray(center, dtype=float).reshape(3).copy()
+
+    def become(self, other):
+        super().become(other)
+        self.theta, self.phi, self.zoom, self.center = other.theta, other.phi, other.zoom, other.center.copy()
+        return self
+
+    def apply_to(self, camera):
+        camera.zoom = self.zoom
+        camera.set_center(self.center)
+        camera.orient(self.theta, self.phi)
+        return camera
+
+
+class MoveCamera(Animation):
+    """Move the camera (a CameraState) to new orbit angles, zoom and/or look-at point over the run time (Manim:
+    move_camera). Values left out stay. `turn` adds an angle to theta (a full turn = 2*pi: ambient rotation; use
+    rate_func=linear for an even spin). Angles interpolate as numbers (no wrapping: the end value is reached
+    exactly as given), the zoom geometrically (an even feel when magnifying), the center linearly."""
+
+    def __init__(self, state, theta=None, phi=None, zoom=None, center=None, turn=0.0, **kwargs):
+        super().__init__(state, **kwargs)
+        self.theta = None if theta is None else float(theta)
+        self.phi = None if phi is None else float(phi)
+        self.zoom = None if zoom is None else max(1e-6, float(zoom))
+        self.center = None if center is None else np.asarray(list(center) + [0.0] * (3 - len(center)), dtype=float)[:3]
+        self.turn = float(turn or 0.0)
+
+    def interpolate(self, a):
+        s, t = self.start, self.target
+        th1 = (s.theta if self.theta is None else self.theta) + self.turn
+        ph1 = s.phi if self.phi is None else self.phi
+        t.theta = s.theta + (th1 - s.theta) * a
+        t.phi = s.phi + (ph1 - s.phi) * a
+        t.zoom = s.zoom if self.zoom is None else s.zoom * (self.zoom / s.zoom) ** a
+        t.center = s.center.copy() if self.center is None else s.center + (self.center - s.center) * a
+
+
 class Pulse(Animation):
     """Briefly scale the target up and back (1 -> factor -> 1 over the run time). Used e.g. to hint that
     a '+' springs out of the Σ sign. Pure function of alpha (sin bump), so it scrubs cleanly."""

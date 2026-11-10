@@ -109,6 +109,42 @@ class Sphere(AnimObject):
                                 P(thetas[i + 1], phis[j + 1]), P(thetas[i], phis[j + 1])], color, fill_opacity))
 
 
+class Ball(AnimObject):
+    """A sphere drawn as a disc that always FACES THE CAMERA, with a light spot up left (L4, 10.11.2026): an atom, a
+    point in space. One path instead of a mesh of faces, round from every orbit angle. The children are built in the
+    world x-y plane around `center` (that is how 2D draws them); in 3D the renderer turns them into the screen plane
+    about the centre of the first child (renderer._billboards), so Shift/Scale/FadeIn act as usual."""
+
+    def __init__(self, center=ORIGIN, radius=0.2, color=(0.35, 0.60, 0.92), fill_opacity=1.0, stroke_width=1.5,
+                 highlight=True):
+        super().__init__()
+        from .bezier import circle_points
+        c = np.asarray(center, dtype=float)
+        r = float(radius)
+        col = np.asarray(color, dtype=float)
+        disc = AnimObject()
+        disc.points = circle_points(c, r, RIGHT, UP)
+        disc.color = (0.0, 0.0, 0.0)
+        disc.fill_color = tuple(col)
+        disc.fill_opacity = fill_opacity
+        disc.stroke_width = stroke_width
+        disc.stroke_opacity = 1.0 if stroke_width > 0 else 0.0
+        disc._no_dash = True
+        self.add(disc)
+        if highlight:
+            spot = AnimObject()
+            spot.points = circle_points(c + 0.32 * r * (UP - RIGHT), 0.42 * r, RIGHT, UP)
+            light = tuple(col + (1.0 - col) * 0.55)
+            spot.color = light
+            spot.fill_color = light
+            spot.fill_opacity = fill_opacity
+            spot.stroke_width = 0.0
+            spot._no_dash = True
+            self.add(spot)
+        self.color = tuple(col)
+        self._billboard_group = True
+
+
 class Pyramid(AnimObject):
     """A square-based pyramid: base in the x-y ground plane (RIGHT/UP), apex pointing up the z-axis."""
 

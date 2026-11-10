@@ -19,7 +19,7 @@ Was in einem eigenen Übungsaufbau eine Lernaufgabe ist, ist gegen ein fremdes S
 Dieser und der nächste Abschnitt geben eine Orientierung über das deutsche Strafrecht, Stand 4. November 2026. Sie sind keine Rechtsberatung und ersetzen sie nicht. Gesetze und ihre Auslegung ändern sich, und jeder Einzelfall hat Besonderheiten. Wer vor einer konkreten Entscheidung steht, fragt eine Anwältin oder einen Anwalt. Im Zweifel unterlässt man die Handlung.
 :::
 
-### Was du dafür brauchst: wie ein Straftatbestand gebaut ist
+:::::vorwissen Was du dafür brauchst: wie ein Straftatbestand gebaut ist
 
 <span class="anker" id="stufe-8-1"></span>
 
@@ -40,6 +40,8 @@ Gesetzestexte wirken auf den ersten Blick wie lange, verschachtelte Sätze. Sie 
 ::::
 
 ⁠**Kurz gesagt:** Ein Straftatbestand ist eine Liste von Merkmalen, die alle erfüllt sein müssen; strafbar ist nur Vorsatz, und der Versuch eines Vergehens nur, wenn das Gesetz es sagt.
+
+:::::
 
 ### Ausspähen von Daten (§ 202a StGB)
 

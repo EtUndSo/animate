@@ -16,7 +16,7 @@ lang: de
 Ein Rechner kann nur mit Zahlen umgehen. Dieser Abschnitt klärt, wie man ein Ding aus der wirklichen Welt durch eine Liste von Zahlen beschreibt und welche Rechnungen mit solchen Listen erlaubt sind.
 :::
 
-### Was du dafür brauchst: Summenzeichen und Indizes
+:::::vorwissen Was du dafür brauchst: Summenzeichen und Indizes
 
 <span class="anker" id="stufe-1-1"></span>
 
@@ -59,6 +59,8 @@ Die Doppelsumme über die Tabelle mit den Zeilen $(1,\,2)$ und $(3,\,4)$, oben z
 ::::
 
 ⁠**Kurz gesagt:** $\sum_{i=1}^n a_i$ ist die Summe von $a_1$ bis $a_n$; der Laufindex $i$ ist nur ein Platzhalter.
+
+:::::
 
 ### Beispiele und Merkmale
 

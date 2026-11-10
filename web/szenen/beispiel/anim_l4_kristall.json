@@ -1,0 +1,618 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 23,
+  "nextAnimId": 27,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Line",
+    "props": {
+     "start": [
+      -1.1,
+      -1.1,
+      -1.1
+     ],
+     "end": [
+      -1.1,
+      -1.1,
+      1.1
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Line",
+    "props": {
+     "start": [
+      -1.1,
+      -1.1,
+      -1.1
+     ],
+     "end": [
+      -1.1,
+      1.1,
+      -1.1
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o3",
+    "type": "Line",
+    "props": {
+     "start": [
+      -1.1,
+      -1.1,
+      -1.1
+     ],
+     "end": [
+      1.1,
+      -1.1,
+      -1.1
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Line",
+    "props": {
+     "start": [
+      -1.1,
+      -1.1,
+      1.1
+     ],
+     "end": [
+      -1.1,
+      1.1,
+      1.1
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o5",
+    "type": "Line",
+    "props": {
+     "start": [
+      -1.1,
+      -1.1,
+      1.1
+     ],
+     "end": [
+      1.1,
+      -1.1,
+      1.1
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Line",
+    "props": {
+     "start": [
+      -1.1,
+      1.1,
+      -1.1
+     ],
+     "end": [
+      -1.1,
+      1.1,
+      1.1
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o7",
+    "type": "Line",
+    "props": {
+     "start": [
+      -1.1,
+      1.1,
+      -1.1
+     ],
+     "end": [
+      1.1,
+      1.1,
+      -1.1
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Line",
+    "props": {
+     "start": [
+      -1.1,
+      1.1,
+      1.1
+     ],
+     "end": [
+      1.1,
+      1.1,
+      1.1
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o9",
+    "type": "Line",
+    "props": {
+     "start": [
+      1.1,
+      -1.1,
+      -1.1
+     ],
+     "end": [
+      1.1,
+      -1.1,
+      1.1
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o10",
+    "type": "Line",
+    "props": {
+     "start": [
+      1.1,
+      -1.1,
+      -1.1
+     ],
+     "end": [
+      1.1,
+      1.1,
+      -1.1
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o11",
+    "type": "Line",
+    "props": {
+     "start": [
+      1.1,
+      -1.1,
+      1.1
+     ],
+     "end": [
+      1.1,
+      1.1,
+      1.1
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Line",
+    "props": {
+     "start": [
+      1.1,
+      1.1,
+      -1.1
+     ],
+     "end": [
+      1.1,
+      1.1,
+      1.1
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o13",
+    "type": "Ball",
+    "props": {
+     "center": [
+      -1.1,
+      -1.1,
+      -1.1
+     ],
+     "radius": 0.26,
+     "color": "#2a78d6",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "highlight": true
+    }
+   },
+   {
+    "id": "o14",
+    "type": "Ball",
+    "props": {
+     "center": [
+      -1.1,
+      -1.1,
+      1.1
+     ],
+     "radius": 0.26,
+     "color": "#2a78d6",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "highlight": true
+    }
+   },
+   {
+    "id": "o15",
+    "type": "Ball",
+    "props": {
+     "center": [
+      -1.1,
+      1.1,
+      -1.1
+     ],
+     "radius": 0.26,
+     "color": "#2a78d6",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "highlight": true
+    }
+   },
+   {
+    "id": "o16",
+    "type": "Ball",
+    "props": {
+     "center": [
+      -1.1,
+      1.1,
+      1.1
+     ],
+     "radius": 0.26,
+     "color": "#2a78d6",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "highlight": true
+    }
+   },
+   {
+    "id": "o17",
+    "type": "Ball",
+    "props": {
+     "center": [
+      1.1,
+      -1.1,
+      -1.1
+     ],
+     "radius": 0.26,
+     "color": "#2a78d6",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "highlight": true
+    }
+   },
+   {
+    "id": "o18",
+    "type": "Ball",
+    "props": {
+     "center": [
+      1.1,
+      -1.1,
+      1.1
+     ],
+     "radius": 0.26,
+     "color": "#2a78d6",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "highlight": true
+    }
+   },
+   {
+    "id": "o19",
+    "type": "Ball",
+    "props": {
+     "center": [
+      1.1,
+      1.1,
+      -1.1
+     ],
+     "radius": 0.26,
+     "color": "#2a78d6",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "highlight": true
+    }
+   },
+   {
+    "id": "o20",
+    "type": "Ball",
+    "props": {
+     "center": [
+      1.1,
+      1.1,
+      1.1
+     ],
+     "radius": 0.26,
+     "color": "#2a78d6",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "highlight": true
+    }
+   },
+   {
+    "id": "o21",
+    "type": "Ball",
+    "props": {
+     "center": [
+      0,
+      0,
+      0
+     ],
+     "radius": 0.3,
+     "color": "#eb6834",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "highlight": true
+    }
+   },
+   {
+    "id": "o22",
+    "type": "Line",
+    "props": {
+     "start": [
+      -1.1,
+      -1.1,
+      -1.1
+     ],
+     "end": [
+      1.1,
+      1.1,
+      1.1
+     ],
+     "color": "#c82828",
+     "stroke_width": 3,
+     "dash": "10,7"
+    }
+   }
+  ],
+  "animations": [
+   {
+    "id": "a1",
+    "type": "FadeIn",
+    "target": "o1",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a2",
+    "type": "FadeIn",
+    "target": "o2",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a3",
+    "type": "FadeIn",
+    "target": "o3",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a4",
+    "type": "FadeIn",
+    "target": "o4",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a5",
+    "type": "FadeIn",
+    "target": "o5",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a6",
+    "type": "FadeIn",
+    "target": "o6",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a7",
+    "type": "FadeIn",
+    "target": "o7",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a8",
+    "type": "FadeIn",
+    "target": "o8",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a9",
+    "type": "FadeIn",
+    "target": "o9",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a10",
+    "type": "FadeIn",
+    "target": "o10",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a11",
+    "type": "FadeIn",
+    "target": "o11",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a12",
+    "type": "FadeIn",
+    "target": "o12",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a13",
+    "type": "FadeIn",
+    "target": "o13",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a14",
+    "type": "FadeIn",
+    "target": "o14",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a15",
+    "type": "FadeIn",
+    "target": "o15",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a16",
+    "type": "FadeIn",
+    "target": "o16",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a17",
+    "type": "FadeIn",
+    "target": "o17",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a18",
+    "type": "FadeIn",
+    "target": "o18",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a19",
+    "type": "FadeIn",
+    "target": "o19",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a20",
+    "type": "FadeIn",
+    "target": "o20",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a21",
+    "type": "FadeIn",
+    "target": "o21",
+    "run_time": 0.5,
+    "step": 2
+   },
+   {
+    "id": "a22",
+    "type": "MoveCamera",
+    "target": null,
+    "run_time": 4.0,
+    "step": 3,
+    "turn": 180.0,
+    "rate": "linear"
+   },
+   {
+    "id": "a23",
+    "type": "MoveCamera",
+    "target": null,
+    "run_time": 1.2,
+    "step": 4,
+    "zoom": 1.8
+   },
+   {
+    "id": "a24",
+    "type": "MoveCamera",
+    "target": null,
+    "run_time": 2.0,
+    "step": 5,
+    "theta": 315.0,
+    "phi": 12.0,
+    "zoom": 1.0
+   },
+   {
+    "id": "a25",
+    "type": "Create",
+    "target": "o22",
+    "run_time": 2.0,
+    "step": 5
+   },
+   {
+    "id": "a26",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.5,
+    "step": 6
+   }
+  ],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "3d",
+   "theta": 0.436332,
+   "phi": 0.314159,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {},
+  "drawOrder": "creation"
+ }
+}

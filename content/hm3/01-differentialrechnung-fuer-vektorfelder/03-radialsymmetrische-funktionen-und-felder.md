@@ -15,7 +15,7 @@ lang: de
 Viele Funktionen und Felder hängen nur vom Abstand zu einem Punkt ab, zum Beispiel das Potential und das Feld einer Punktladung. Dieser Abschnitt zeigt, wie sich ihre Gradienten mit einer einzigen Variablen ausrechnen lassen und welche Felder dieser Art Gradientenfelder sind.
 :::
 
-### Was du dafür brauchst: Stammfunktionen
+:::::vorwissen Was du dafür brauchst: Stammfunktionen
 
 <span class="anker" id="stufe-2-1"></span>
 
@@ -33,7 +33,9 @@ Auf dem Intervall $(0,\infty)$ ist $p(r)=-1/r$ eine Stammfunktion von $f(r)=1/r^
 
 ⁠**Kurz gesagt:** Eine Stammfunktion ist eine Funktion mit vorgegebener Ableitung. Stetige Funktionen haben immer eine, bis auf eine Konstante eindeutig.
 
-### Was du dafür brauchst: Kugelflächen
+:::::
+
+:::::vorwissen Was du dafür brauchst: Kugelflächen
 
 <span class="anker" id="stufe-2-2"></span>
 
@@ -50,6 +52,8 @@ Der Punkt $(3,4)$ liegt auf dem Kreis mit dem Radius $5$, ebenso $(5,0)$ und $(0
 ::::
 
 ⁠**Kurz gesagt:** Die Kugelfläche mit Radius $R$ besteht aus allen Punkten mit dem Abstand $R$ vom Nullpunkt.
+
+:::::
 
 ### Radialsymmetrische Funktionen
 

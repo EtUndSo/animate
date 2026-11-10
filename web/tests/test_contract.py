@@ -30,6 +30,8 @@ def snap(scene):
             w(s)
     for o in scene.objectList:
         w(o)
+    c = scene.camera                                     # L4: the camera is part of the frame too
+    rows.append(("cam", round(c.theta, 6), round(c.phi, 6), round(c.zoom, 6), tuple(np.round(c.center, 6))))
     return tuple(rows)
 
 
@@ -338,10 +340,140 @@ def l3_checks():
     return ok
 
 
+# L5 (10.11.2026): plane maps. ApplyMatrix moves its target and args.objects (grid, dot, polygon, circle, graph, arrow,
+# label, point cloud) from p to A p; a second map starts from the image of the first; ApplyFunction maps pointwise.
+_AX5 = {"id": "ax", "type": "Axes", "args": {"x_range": [-3, 3], "y_range": [-2, 2], "x_length": 6, "y_length": 4}}
+_L5_OBJS = [_AX5,
+    {"id": "g", "type": "Grid", "args": {"x_step": 1, "y_step": 1, "extend": 1.0, "color": [0.5, 0.6, 0.8]}},
+    {"id": "g0", "type": "Grid", "args": {"x_step": 1, "extend": 0, "stroke_opacity": 0.4}},          # ghost: stays
+    {"id": "d", "type": "Dot", "args": {"center": [1, 1, 0]}},
+    {"id": "q", "type": "Polygon", "args": {"vertices": [[0, 0, 0], [1, 0, 0], [1, 1, 0], [0, 1, 0]], "fill_opacity": 0.3}},
+    {"id": "c", "type": "Circle", "args": {"center": [0, 0, 0], "radius": 1, "fill_opacity": 0}},
+    {"id": "f", "type": "FunctionGraph", "args": {"func": "0.5*sin(2*x)", "x_range": [-2, 2], "samples": 30}},
+    {"id": "e", "type": "LabeledArrow", "args": {"start": [0, 0, 0], "end": [1, 0, 0], "label": "e_1", "label_at": "end"}},
+    {"id": "t", "type": "Text", "args": {"text": "P", "position": [1.2, 1.2, 0]}},
+    {"id": "pc", "type": "PointCloud", "args": {"n": 6, "seed": 3, "x_min": -1, "x_max": 1, "y_min": -1, "y_max": 1}}]
+_MOVED = ["d", "q", "c", "f", "e", "t", "pc"]
+_L5_TWO = {"objects": _L5_OBJS, "background": [1, 1, 1], "animations": [
+    {"type": "FadeIn", "target": "q", "run_time": 1, "step": 0},
+    {"type": "ApplyMatrix", "target": "g", "run_time": 2, "step": 1, "args": {"matrix": [[1, 1], [0, 1]], "objects": _MOVED}},
+    {"type": "ApplyMatrix", "target": "g", "run_time": 2, "step": 2,
+     "args": {"matrix": [["cos(pi/2)", "-sin(pi/2)"], ["sin(pi/2)", "cos(pi/2)"]], "objects": _MOVED, "path": "rotate"}}]}
+cases.append(("L5 matrix on grid, dot, polygon, circle, graph, arrow, label, cloud (model)", model_scene({
+    "objects": _L5_OBJS, "background": [1, 1, 1], "animations": [
+        {"type": "ApplyMatrix", "target": "g", "run_time": 2, "step": 0, "args": {"matrix": [[2, 1], [1, 1.5]], "objects": _MOVED}},
+        {"type": "Indicate", "target": "t", "run_time": 1, "step": 1}]})))
+cases.append(("L5 two maps in a row: shear, then rotation path (model)", model_scene(_L5_TWO)))
+cases.append(("L5 nonlinear map: polar coordinates (model)", model_scene({"objects": [
+    {"id": "ax", "type": "Axes", "args": {"x_range": [-2.5, 2.5], "y_range": [-2.5, 4.5], "x_length": 5, "y_length": 7}},
+    {"id": "g", "type": "Grid", "args": {"x_step": 0.5, "y_step": 0.5, "extend": 0, "clip": False, "samples": 17,
+                                         "x_range": [0, 2], "y_range": [0, 4]}}],
+    "animations": [{"type": "ApplyFunction", "target": "g", "run_time": 3, "step": 0,
+                    "args": {"func": ["x*cos(pi*y/2)", "x*sin(pi*y/2)"], "rate": "linear"}}], "background": [1, 1, 1]})))
+# L4 (10.11.2026): camera rides. MoveCamera turns (theta, turn), tilts (phi), zooms and moves the look-at point; two in a
+# row; one together with a FadeIn and a parameter that moves a ball and a label in 3D; layers and discs facing the camera.
+_L4_OBJS = [{"id": "b", "type": "Cube", "args": {"side": 1.2, "fill_opacity": 0.4}},
+            {"id": "l", "type": "Line", "args": {"start": [-1, -1, -1], "end": [1, 1, 1]}},
+            {"id": "s", "type": "Sphere", "args": {"radius": 0.4, "center": [1.5, 0, 0], "resolution": 5}},
+            {"id": "k", "type": "Ball", "args": {"center": ["a", 0, 1], "radius": 0.2, "layer": 1}},
+            {"id": "p", "type": "Parameter", "args": {"name": "a", "value": -1}},
+            {"id": "tx", "type": "Text", "args": {"text": "A", "position": ["a", 0, 1.4]}}]
+_L4_RIDE = {"objects": _L4_OBJS, "camera": {"mode": "3d", "theta": 0.6, "phi": 0.4}, "background": [1, 1, 1], "animations": [
+    {"type": "MoveCamera", "target": None, "run_time": 2, "step": 0, "args": {"turn": 6.283185307, "rate": "linear"}},
+    {"type": "MoveCamera", "target": None, "run_time": 1.5, "step": 1, "args": {"phi": 1.0, "zoom": 2, "center": [0.5, 0, 0.5]}},
+    {"type": "FadeIn", "target": "s", "run_time": 1, "step": 1}, _CV("p", 1, 1, 1.5),
+    {"type": "MoveCamera", "target": None, "run_time": 1, "step": 2, "args": {"theta": 0.2, "zoom": 1, "center": [0, 0, 0]}}]}
+cases.append(("L4 camera ride: turn, tilt + zoom + look-at with FadeIn and a parameter, back (model)", model_scene(_L4_RIDE)))
+cases.append(("L4 2D zoom (model)", model_scene({"objects": [_AXL, {"id": "g", "type": "FunctionGraph", "args": {"func": "sin(x)"}}],
+    "animations": [{"type": "MoveCamera", "target": None, "run_time": 2, "step": 0, "args": {"zoom": 4, "center": [1, 0.5, 0]}}],
+    "background": [1, 1, 1]})))
+
+
+def l5_l4_checks():
+    """Values behind the L5/L4 probes: states at intermediate times, the composition of two maps, a dot staying round,
+    the camera between keyframes, and the scene file (szenen_lib) -> python_model -> engine for both."""
+    s = model_scene(_L5_TWO)
+    ax = s.objects_by_id["ax"]
+    w2d = lambda p: np.asarray(ax.coords_to_point(*p), dtype=float)
+    def corners():
+        P = s.objects_by_id["q"].points
+        return [P[i] for i in (0, 3, 6, 9)]
+    s.seek(2.0)                                           # halfway through the shear (smooth: alpha = 1/2)
+    assert np.allclose(corners()[2], w2d((1.5, 1)), atol=1e-6), corners()[2]
+    s.seek(3.0)                                           # sheared: (1, 1) -> (2, 1)
+    assert np.allclose(corners()[2], w2d((2, 1)), atol=1e-6)
+    s.seek(4.0)                                           # rotation path halfway: |p| is kept (no shrinking)
+    r = np.linalg.norm(corners()[2] - w2d((0, 0)))
+    assert abs(r - np.linalg.norm(w2d((2, 1)) - w2d((0, 0)))) < 1e-6, r
+    s.seek(5.0)                                           # rotated by 90 degrees: (2, 1) -> (-1, 2)
+    assert np.allclose(corners()[2], w2d((-1, 2)), atol=1e-6), corners()[2]
+    d = s.objects_by_id["d"].points
+    assert abs((d[:, 0].max() - d[:, 0].min()) - (d[:, 1].max() - d[:, 1].min())) < 1e-9   # the dot stays round
+    assert np.allclose((d.min(axis=0) + d.max(axis=0)) / 2, w2d((-1, 2)), atol=1e-6)
+    g0 = s.objects_by_id["g0"]
+    s.seek(0.0); a0 = [c.points.copy() for c in g0.subObjects]
+    s.seek(5.0); assert all(np.array_equal(x, c.points) for x, c in zip(a0, g0.subObjects))   # the ghost grid stays
+    c = model_scene(_L4_RIDE)
+    c.seek(1.0)
+    assert abs(c.camera.theta - (0.6 + np.pi)) < 1e-6 and abs(c.camera.zoom - 1) < 1e-12
+    c.seek(2.75)                                          # second ride halfway: phi, zoom geometric, look-at point
+    assert abs(c.camera.phi - 0.7) < 1e-6 and abs(c.camera.zoom - 2 ** 0.5) < 1e-6
+    assert np.allclose(c.camera.center, [0.25, 0, 0.25]), c.camera.center
+    c.seek(c.duration)
+    assert abs(c.camera.theta - 0.2) < 1e-9 and c.camera.zoom == 1 and not c.camera._has_center
+    c.seek(0.0)
+    assert abs(c.camera.theta - 0.6) < 1e-12 and abs(c.camera.phi - 0.4) < 1e-12
+    # editor scene file <-> engine model
+    import json as _json
+    sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "tools")))
+    from szenen_lib import Szene, det_ausdruck
+    from export_szenen import python_model
+    sz = Szene("test/l5")
+    a = sz.achsen((-3, 3), (-2, 2), breite=6, hoehe=4)
+    g = sz.gitter(a, 1)
+    q = sz.vieleck(a, [(0, 0), (1, 0), (1, 1), (0, 1)])
+    e = sz.vektor(a, (1, 0), label="e_1")
+    sz.zahl(None, "abs(" + det_ausdruck([[3, 1], [1, 2]], "s") + ")", (2, 1))
+    sz.abbilden([[3, 1], [1, 2]], [g, q, e], dauer=2, parameter="s")
+    sz.abbilden([[0, -1], [1, 0]], [g, q, e], dauer=1, weg="drehung")
+    data = _json.loads(_json.dumps(sz.model()))
+    an = data["model"]["animations"]
+    assert an[0] == {"id": "a1", "type": "ApplyMatrix", "target": g, "run_time": 2.0, "step": 0,
+                     "matrix": [[3, 1], [1, 2]], "objects": [q, e]}, an[0]
+    assert an[1]["type"] == "ChangeValue" and an[1]["step"] == 0 and an[2]["path"] == "rotate"
+    pm = python_model(data, None, None, "de", [])
+    assert pm["animations"][0]["args"] == {"objects": [q, e], "matrix": [[3, 1], [1, 2]]}, pm["animations"][0]
+    assert pm["animations"][2]["args"]["path"] == "rotate"
+    ms = ModelScene(pm); ms.animating = True; ms.build_timeline()
+    ms.seek(2.0)
+    assert ms.objects_by_id["o5"].text == "5,00", ms.objects_by_id["o5"].text      # area of the image = det A
+    ok = probe("L5 scene file -> python_model -> engine", ms)
+    sk = Szene("test/l4")
+    sk.kamera_start(theta=30, phi=20)
+    b = sk.kugel(None, (0, 0, 0), r=0.3)
+    sk.einblenden(b)
+    sk.kamera(drehen=90, phi=40, zoom=1.5, dauer=2)
+    sk.kamera_kreisen(360, dauer=3)
+    data = _json.loads(_json.dumps(sk.model()))
+    assert data["model"]["camera"]["mode"] == "3d" and abs(data["model"]["camera"]["theta"] - np.radians(30)) < 1e-6
+    an = data["model"]["animations"]
+    assert an[1] == {"id": "a2", "type": "MoveCamera", "target": None, "run_time": 2.0, "step": 1, "phi": 40.0,
+                     "turn": 90.0, "zoom": 1.5}, an[1]
+    pm = python_model(data, None, None, "de", [])
+    assert abs(pm["animations"][1]["args"]["turn"] - np.pi / 2) < 1e-12 and pm["animations"][2]["args"]["rate"] == "linear"
+    ms = ModelScene(pm); ms.animating = True; ms.build_timeline()
+    ms.seek(ms.duration)
+    assert abs(ms.camera.theta - np.radians(30 + 90 + 360)) < 1e-6 and abs(ms.camera.phi - np.radians(40)) < 1e-9
+    ok = probe("L4 scene file -> python_model -> engine", ms) and ok
+    print("  OK   L5/L4 values (maps in a row, rotation path, round dot, ghost grid, camera between keyframes, round trips)")
+    return ok
+
+
 if __name__ == "__main__":
     print("=== ENGINE CONTRACT PROBE ===")
     ok = all(probe(n, s) for n, s in cases)
     ok = l3_checks() and ok
+    ok = l5_l4_checks() and ok
     print("\nENGINE CONTRACT: WATERTIGHT" if ok else "\nENGINE CONTRACT: VIOLATIONS FOUND")
     assert ok, "engine contract violated"
     print("CONTRACT TESTS PASSED")

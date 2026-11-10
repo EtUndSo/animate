@@ -16,7 +16,7 @@ lang: tr
 Bir matris çoğu vektörü aynı anda hem döndürür hem uzatır. Ama bazı doğrultuları döndürmez: Böyle bir doğrultudaki bir ok yalnızca uzar, kısalır ya da ters döner. Bu kesim bu doğrultuları ve onlara ait uzama çarpanlarını buluyor. Bunlar bir matrisin doğal eksenleridir.
 :::
 
-### Bunun için gerekenler: karmaşık sayılar
+:::::vorwissen Bunun için gerekenler: karmaşık sayılar
 
 <span class="anker" id="stufe-6-1"></span>
 
@@ -41,6 +41,8 @@ $\mathbf{v}=(1,-\mathrm j)^{\top}$ için $(\mathbf{v}^*)^{\top}\mathbf{v}$ iç �
 ::::
 
 ⁠**Kısacası:** $\mathrm j^2=-1$ olmak üzere $x+\mathrm jy$ karmaşık sayıları her polinom denklemini çözer; eşlenik alma sanal kısmın işaretini değiştirir ve $zz^*=|z|^2$ gerçeldir.
+
+:::::
 
 ### Özvektörler ve özdeğerler
 

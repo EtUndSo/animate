@@ -226,14 +226,39 @@ Reihenfolge: Pilot cyber 1, ml 1 → Abnahme durch den User → danach abwechsel
         - Lese-Nachweis: Shotts Kap. 10, OSTEP 4/5 und die Recherche ganz.
         - Testumgebung: von mir in WSL nachgeprüft. Prüfsummen gleich `linuxk7/sha_final.txt`, keine Versuchsprozesse, keine `k8*`-Einheit, `~/linuxk8` entfernt.
         - Präambel: ● und ○ ins `literate` aller sechs Präambeln, für die echte erste Zeile von `systemctl status`.
-      - **Linux 8 Phase 2a läuft seit 10.11.** (ausnahmsweise vor den 2b-Agenten, weil E3 auf den User wartet; 2a arbeitet außerhalb des Repos). Entschieden:
+      - **Linux 8 Phase 2a fertig 10.11.** (von mir geprüft: Heft ganz gelesen, WSL sauber, Prüfsummen gleich):
+        - Fachliche Korrekturen: `pid_max`, Namenskürzung auf 15 Zeichen durch den Kernel, `Relay(570)(569)`, pgrep-Muster als ERE, Lösung 19(c) 14 %, Aufgabe 13(b) Eltern/Kind.
+        - Ergänzt: Zustand `t`, SIGKILL bei D, Signalnummern 1–15 überall gleich, CAP_KILL/SIGCONT, `huponexit`, EEVDF seit 6.6, linger, WSL ohne systemd, `RestartSec=`, Journal dauerhaft vs. `/run`.
+        - `heft_pruefen.py` verschärft (feste Zahlen wörtlich, Zuordnung beidseitig eindeutig, Selbsttest `linuxk8p/selbsttest.py`).
+        - Ergebnisse: 105 Blöcke/826 Zeilen, Rechnung 68 Prüfungen, je 0 Abweichungen.
+        - 30 Szenen (4/4/4/4/4/3/4/3) → **2b-1 Abschnitte 1–4 (16), 2b-2 Abschnitte 5–8 (14)**. Für 2b: lange Code-Zeilen, `\verb` in 7.2, ●/○/× in 7.4.
+        - Wortzahl 26 054 (+980 durch verlangte Ergänzungen). Titel passt.
+      - **Vorwissen-Kästen (User 10.11.):** „Was du dafür brauchst: …“ wird auf der Website ein zugeklappter Kasten.
+        - Konverter fertig (`VORWISSEN_RE`, `vorwissen_kasten`, kein eigener Artikel beim Teilen). Trockenlauf: 79 Kästen, Unterschiede nur durch die Kästen. Schon vorher abweichend und nicht angefasst: HöMa3 Kap. 3 (Inhalt älter als das Heft), Linux 1 und Python 1 je 2 Artikel, ET3 Kap. 2 en/es/zh.
+        - **Nach E3, vor Linux 5 2b:**
+          1. `build_wissen.py`: `:::::vorwissen` in `md_to_html` (Kopf am ersten Doppelpunkt geteilt; CSS weiß mit grüner Kopfleiste, Klasse `vo-k`/`vo-body`), `lesezeit` ohne Vorwissen, `verwendet_html` erkennt die Titel auch im Kasten.
+          2. `python …\scratchpad\vorwissen_inhalt.py --schreiben` (48 Dateien, 75 Kästen, nur die Kästen; Textweg = Konverter geprüft).
+          3. build_wissen, 1707 Seiten, Browser-Prüfung: Link auf einen Anker im Kasten klappt ihn auf.
+      - **Linux 8 Phase 2a (Entscheidungen vom Start):**
         - `&` im Zombie-Versuch ok;
         - konstruierte `ps aux`-Zeile ok;
         - `PPid` nachvollziehbar machen;
         - 30 Szenen ok → 2b in zwei Hälften;
         - lange Zeilen prüft 2b.
       - **User 10.11.:** weiterhin nur ein Schreib-Agent gleichzeitig, auch über Bereichsgrenzen.
-      - **Reihenfolge danach (Stand 10.11. spätabends):** E2 fertig. E3 startet nach Commit oder „weiter“ des Users, parallel zu Linux 8 Phase 2a. Wenn Linux 8 2a und E3 fertig sind: die 2b-Agenten nacheinander (Linux 5 2b, 6 2b-1, 6 2b-2, 7 2b, 8 2b-1, 8 2b-2), dazwischen kein Werkzeug-Agent. E4 nur parallel zu Phase 1/2a. Linux 5 2b (27 Szenen, dazu `Kap2_Shell.pdf`/`Kap4_Stroeme.pdf` neu setzen) erst, wenn kein Werkzeug-Agent und kein anderer Schreib-Agent läuft; dann Linux 6 2b-1/2b-2.
+      - **Reihenfolge danach (Stand 10.11. spätabends):** E2 fertig, User hat committet (5643a95f). **E3 fertig 10.11., von mir geprüft:**
+        - L5: `s.gitter`, `s.vektor`, `s.abbilden(matrix, objekte, weg="drehung", parameter="s")`, `s.abbilden_funktion` (nichtlinear), `s.vieleck`.
+        - L4: `s.kamera_start`, `s.kamera(theta, phi, zoom, blickpunkt, drehen)`, `s.kamera_kreisen`, `s.kugel`, `s.zuoberst`, `s.achsen3d`, `s.flaeche3d`; 3D-Koordinaten mit Parametern.
+        - Export Weg (b): Der Spieler (`wissen.js`) projiziert selbst. Beispiel `k6kubisch` 150 KB statt 473 KB.
+        - 9 Vorführszenen `beispiel/anim_l5_*`/`anim_l4_*`; Kontaktblatt von mir angesehen.
+        - Fehlerbehebung: verschachteltes `gleichzeitig()`; 3 Beispielszenen laufen dadurch kürzer.
+        - Prüfung: Tests `FAIL=0` (von mir). Spieler mit alten und neuen Animationen ohne Konsolenfehler (von mir). Regression 812 JSON gleich, 1892 Exportdateien gleich.
+        - Grenze: Vorhandene 3D-Szenen (gemb1/hm1) sind für eine feste Kamera gebaut; für Fahrten mit `kugel` und 3D-Strecken neu aufbauen (Nachrüsten). Doku `animationen.md` §9/§10.
+      - **Vorwissen-Kästen fertig 10.11.** (nach E3):
+        - build_wissen: `:::::vorwissen`, CSS mit Nachtmodus, Lesezeit, „Verwendet in“, Suchindex unverändert.
+        - 48 Artikeldateien mit 75 Kästen.
+        - Build 732 Artikel / 1707 Seiten, geändert nur 48 Seiten plus `wissen.css`/`wissen.js`.
+        - Browser (de/fr/zh, HöMa3 mit 9 Kästen): zu beim Laden, Klick öffnet, Sprung auf den Anker öffnet, Nachtmodus ok, keine Konsolenfehler. Wenn Linux 8 2a und E3 fertig sind: die 2b-Agenten nacheinander (Linux 5 2b, 6 2b-1, 6 2b-2, 7 2b, 8 2b-1, 8 2b-2), dazwischen kein Werkzeug-Agent. E4 nur parallel zu Phase 1/2a. Linux 5 2b (27 Szenen, dazu `Kap2_Shell.pdf`/`Kap4_Stroeme.pdf` neu setzen) erst, wenn kein Werkzeug-Agent und kein anderer Schreib-Agent läuft; dann Linux 6 2b-1/2b-2.
       - **Editor-Ausbau gestartet 10.11.** (User: „Weiter“, ohne Commit; letzter Commit weiter fca61c05). Plan, Werkzeug-Agenten nacheinander, jeder mit Regressionstest aller 809 Szenen:
         - E1 Text und Werkzeugpflege, **fertig 10.11., von mir geprüft:** `s.text(schrift="tt")`/`roh=True`, `s.ersetzen`/`s.umformen` Text → Text, `\mathtt`-Punkt und gerade `'` in `\texttt`, `Szene(reihenfolge="anlegen")` + Warnung „Text unter deckender Fläche“, `szenen_ansehen.py --animiert`/`--ohne-export`, `s.weg(spitze=…)`, `s.summe(..., exakt=True)`, Favicon, `tools/szenen/linux_hilfen.py` (neu: `schreibmaschine("text")` am Dateianfang für Kapitel 5+), build_wissen 27 → 20 s (byte-gleich).
           - Regression: 809 Szenen de/zh, nur `k2alias`, `k2fehlermeldung`, `k2rsuche`, `k4rohre` geändert (gerade Anführungszeichen, Kontaktblatt von mir angesehen); alle Szenen-Skripte bauen byte-gleiche JSON.
@@ -248,7 +273,7 @@ Reihenfolge: Pilot cyber 1, ml 1 → Abnahme durch den User → danach abwechsel
           - Für E3: L5 kann auf L3 aufsetzen (Builder in `_build_object`, konstante Punktzahl); L4-Kamera wäre ein Tracker in `ModelScene.seek`, Dateigröße bleibt das Problem.
         - E3 L5 Gitter-Morph und L4 Kamera.
         - E4 L6 Teilchen, L7 Operationen, L8 Code-Objekt, diskrete Faltung, komplexe Rechenbilder, Pfeil umhängen.
-        - Danach die Ansicht Szene ↔ Code, dann die Nachrüstwellen.
+        - Danach die Ansicht Szene ↔ Code, dann die Nachrüstwellen. **User 10.11.:** Plan bleibt, also kein vorgezogenes Nachrüsten mit dem heutigen Editor. Nicht wieder vorschlagen.
         - **Verzahnung:** Phase 1 und 2a der Linux-Hefte laufen parallel zu den Werkzeug-Agenten, weil sie keine Repo-Werkzeuge benutzen. Phase 2b eines Hefts startet nie, während ein Werkzeug-Agent läuft, und umgekehrt.
         - Ein Commit ist unsicher, solange ein Werkzeug-Agent läuft.
       - (Linux 3, erledigt:) Phase 2b geteilt: 2b-1 baute die Szenen der Abschnitte 1–5, 2b-2 die Szenen der Abschnitte 6–10 sowie PDF, Artikel und Build.

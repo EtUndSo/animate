@@ -15,7 +15,7 @@ lang: de
 Ein LTI-System verändert die Form fast jedes Signals. Dieser Abschnitt sucht Signale, deren Form es *nicht* verändert, und bestimmt die Zahl, mit der das System sie multipliziert.
 :::
 
-### Was du dafür brauchst: die komplexe Exponentialfunktion
+:::::vorwissen Was du dafür brauchst: die komplexe Exponentialfunktion
 
 <span class="anker" id="stufe-1-1"></span>
 
@@ -44,6 +44,8 @@ Für $\sigma=-0{,}5/\mathrm s$, $\omega=\pi/\mathrm s$ und $t=1\,\mathrm{s}$ ist
 ::::
 
 ⁠**Kurz gesagt:** $\mathrm{e}^{(\sigma+\mathrm{j}\omega)t}$ ist eine komplexe Schwingung mit der Kreisfrequenz $\omega$, deren Amplitude $\mathrm{e}^{\sigma t}$ abklingt oder wächst.
+
+:::::
 
 ### Rückblick: die Antwort eines LTI-Systems
 

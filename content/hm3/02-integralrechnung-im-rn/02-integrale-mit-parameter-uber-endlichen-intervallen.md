@@ -15,7 +15,7 @@ lang: de
 Hängt der Integrand außer von der Integrationsvariablen noch von einer weiteren Größe ab, dann hängt auch der Wert des Integrals von ihr ab. Dieser Abschnitt klärt, wann diese neue Funktion stetig ist, wann man sie ableiten darf, indem man unter dem Integralzeichen ableitet, und was beim Ableiten hinzukommt, wenn auch die Grenzen des Integrals von der Größe abhängen.
 :::
 
-### Was du dafür brauchst: das bestimmte Integral
+:::::vorwissen Was du dafür brauchst: das bestimmte Integral
 
 <span class="anker" id="stufe-1-1"></span>
 
@@ -41,7 +41,9 @@ $u(t)=t^2$ auf $[0,1]$ mit $N=4$ Stücken der Länge $\Delta t=\frac14$. Mit den
 
 ⁠**Kurz gesagt:** Das Integral ist der Grenzwert der Rechtecksummen $\sum u(t_k)\,\Delta t$. Es ist linear, monoton und additiv in den Grenzen.
 
-### Was du dafür brauchst: der Hauptsatz
+:::::
+
+:::::vorwissen Was du dafür brauchst: der Hauptsatz
 
 <span class="anker" id="stufe-1-2"></span>
 
@@ -77,7 +79,9 @@ $\int_0^st^2\,\mathrm{d} t=\frac{s^3}3$, und die Ableitung nach $s$ ist $s^2$, d
 
 ⁠**Kurz gesagt:** Ein Integral nach seiner oberen Grenze abzuleiten ergibt den Integranden an dieser Grenze. Integrieren heißt, eine Stammfunktion an den Grenzen auszuwerten.
 
-### Was du dafür brauchst: der Mittelwertsatz
+:::::
+
+:::::vorwissen Was du dafür brauchst: der Mittelwertsatz
 
 <span class="anker" id="stufe-1-3"></span>
 
@@ -101,7 +105,9 @@ $u(t)=t^2$, $s=0$, $h=1$. Die mittlere Steigung ist $(1-0)/1=1$. Wegen $u'(\tau)
 
 ⁠**Kurz gesagt:** Die mittlere Steigung zwischen zwei Stellen wird an einer Zwischenstelle als echte Steigung angenommen.
 
-### Was du dafür brauchst: abgeschlossene, beschränkte und kompakte Mengen
+:::::
+
+:::::vorwissen Was du dafür brauchst: abgeschlossene, beschränkte und kompakte Mengen
 
 <span class="anker" id="stufe-1-4"></span>
 
@@ -121,7 +127,9 @@ Das Intervall $[a,b]$ ist kompakt: Sein Rand besteht aus den Punkten $a$ und $b$
 
 ⁠**Kurz gesagt:** Kompakt heißt: Die Menge enthält ihren Rand und reicht nicht ins Unendliche.
 
-### Was du dafür brauchst: Stetigkeit mit $\varepsilon$ und $\delta$
+:::::
+
+:::::vorwissen Was du dafür brauchst: Stetigkeit mit $\varepsilon$ und $\delta$
 
 <span class="anker" id="stufe-1-5"></span>
 
@@ -149,7 +157,9 @@ Gilt die Bedingung mit $\varepsilon$ und $\delta$, und geht eine Folge $\boldsym
 
 ⁠**Kurz gesagt:** Stetig heißt: Zu jeder erlaubten Abweichung $\varepsilon$ des Werts gibt es einen erlaubten Abstand $\delta$ vom Punkt.
 
-### Was du dafür brauchst: gleichmäßige Stetigkeit
+:::::
+
+:::::vorwissen Was du dafür brauchst: gleichmäßige Stetigkeit
 
 <span class="anker" id="stufe-1-6"></span>
 
@@ -194,6 +204,8 @@ Mit der gleichmäßigen Stetigkeit erklärt sich, warum es im Unterabschnitt [1
 :::
 
 ⁠**Kurz gesagt:** Gleichmäßig stetig heißt: Ein $\delta$ passt für alle Punkte zugleich. Stetige Funktionen auf kompakten Mengen sind gleichmäßig stetig.
+
+:::::
 
 ### Das Parameterintegral
 

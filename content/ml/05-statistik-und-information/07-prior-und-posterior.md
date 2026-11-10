@@ -73,7 +73,7 @@ Der Prior $p(\theta)=1$ für $0\le\theta\le1$ ist die Gleichverteilung aus [Kapi
 Gibt der Prior einem Wert die Wahrscheinlichkeit oder Dichte null, so bleibt sie nach dem Satz von Bayes für jede Datenmenge null, denn der Zähler ist das Produkt aus Likelihood und Prior. Wer einen Wert vorher für unmöglich erklärt, kann durch keine Beobachtung umgestimmt werden. Den Wert $0$ oder $1$ gibt man deshalb nur Aussagen, die logisch sicher falsch oder wahr sind. Der Statistiker Dennis Lindley hat diese Regel nach Oliver Cromwell benannt, der 1650 an eine Kirchenversammlung schrieb, sie möge es für möglich halten, sich zu irren.
 :::
 
-### Was du dafür brauchst: Ein Integral über Potenzen
+:::::vorwissen Was du dafür brauchst: Ein Integral über Potenzen
 
 <span class="anker" id="stufe-6-3"></span>
 
@@ -107,6 +107,8 @@ Für $m=7$ und $n=3$ ist das Integral $\frac{7!\,3!}{11!}=\frac{6}{8\cdot9\cdot1
 :::hintergrund Ein Beweis ohne Rechnung
 Die Formel hat eine Deutung durch Zufallszahlen, die auf Thomas Bayes zurückgeht. Man wählt $m+n+1$ Zahlen unabhängig und gleichverteilt aus $[0,\,1]$ und fragt: Wie wahrscheinlich liegen die ersten $m$ links von der letzten und die folgenden $n$ rechts von ihr? Hat die letzte den Wert $\theta$, so ist das $\theta^m(1-\theta)^n$; mittelt man über alle $\theta$, erhält man das Integral. Andererseits sind alle $(m+n+1)!$ Anordnungen der Zahlen gleich wahrscheinlich. Günstig sind die, in denen die letzte Zahl an Platz $m+1$ steht, die ersten $m$ Zahlen in beliebiger Reihenfolge davor und die übrigen $n$ in beliebiger Reihenfolge danach. Das sind $m!\,n!$ Anordnungen, also ist die Wahrscheinlichkeit $\frac{m!\,n!}{(m+n+1)!}$.
 :::
+
+:::::
 
 ### Die Beta-Verteilung
 

@@ -121,6 +121,10 @@ Der Dateiname `Kap<N>_<Name>` steht in `tools/heft_zu_artikel.py` unter `MODULE[
 - **Jedes ML-Pfad-Heft setzt die Grundlagen nicht voraus.** Wo es Mathematik braucht, steht zu Beginn des Abschnitts „Was du dafür brauchst“:
   - jedes benötigte Grundlagen-Thema in einer kurzen, selbsttragenden Zusammenfassung (Definition, eine Formel, ein Mini-Beispiel);
   - dazu der Verweis „ausführlich: Grundlagen, Kapitel~N, Abschnitt~M“, auf der Website ein Link.
+- **„Was du dafür brauchst: …“ wird auf der Website ein zugeklappter Kasten** (User, 10.11.2026), in allen Reihen.
+  - Der Titel des Unterabschnitts beginnt wörtlich mit „Was du dafür brauchst:“, sonst erkennt ihn der Konverter nicht.
+  - Im PDF bleibt er ein gewöhnlicher, nummerierter Unterabschnitt.
+  - Folgen mehrere solcher Unterabschnitte aufeinander, wird jeder ein eigener Kasten.
 
   Wer die Grundlagen kennt, überspringt das; wer nicht, kann trotzdem weiterlesen oder gezielt nachschlagen. Nimm nur auf, was das Heft wirklich braucht, und genau dort, wo es gebraucht wird.
 - **Optimierung (T06 = Grundlagen, Kapitel 6)** entsteht erst kurz bevor ein Pfad-Heft sie braucht, vor dem Gradientenabstieg.

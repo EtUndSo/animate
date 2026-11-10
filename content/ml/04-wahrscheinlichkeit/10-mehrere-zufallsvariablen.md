@@ -16,7 +16,7 @@ lang: de
 Ein Datenpunkt besteht aus mehreren Zahlen, die vom selben Zufall abhängen: Fläche und Miete derselben Wohnung, die Temperaturen zweier aufeinanderfolgender Stunden. Dieser Abschnitt beschreibt mehrere Zufallsvariablen zugleich durch ihre gemeinsame Verteilung, gewinnt daraus die Verteilungen der einzelnen und die bedingten Verteilungen und überträgt die Unabhängigkeit von Ereignissen auf Zufallsvariablen. Am Ende steht die Vorstellung, mit der das maschinelle Lernen einen Datensatz beschreibt: als viele unabhängige Ziehungen aus derselben Verteilung.
 :::
 
-### Was du dafür brauchst: Doppelintegrale
+:::::vorwissen Was du dafür brauchst: Doppelintegrale
 
 <span class="anker" id="stufe-9-1"></span>
 
@@ -31,6 +31,8 @@ Für $f(x,y)=x+y$ auf $[0,\,1]\times[0,\,1]$ ist das innere Integral $\int_0^1(x
 ::::
 
 ⁠**Kurz gesagt:** Ein Doppelintegral ist ein Volumen; man rechnet es als zwei gewöhnliche Integrale nacheinander aus.
+
+:::::
 
 ### Die gemeinsame Verteilung
 

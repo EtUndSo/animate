@@ -16,7 +16,7 @@ lang: tr
 Bir bilgisayar yalnızca sayılarla çalışabilir. Bu kesim, gerçek dünyadaki bir nesnenin bir sayı listesiyle nasıl betimlendiğini ve bu tür listelerle hangi hesapların yapılabileceğini açıklıyor.
 :::
 
-### Bunun için gerekenler: Toplam sembolü ve indisler
+:::::vorwissen Bunun için gerekenler: Toplam sembolü ve indisler
 
 <span class="anker" id="stufe-1-1"></span>
 
@@ -59,6 +59,8 @@ Satırları $(1,\,2)$ ve $(3,\,4)$ olan tablo üzerinden çift toplam; üstte ö
 ::::
 
 ⁠**Kısacası:** $\sum_{i=1}^n a_i$, $a_1$ ile başlayıp $a_n$ ile biten toplamdır; $i$ toplam indisi yalnızca bir yer tutucudur.
+
+:::::
 
 ### Örnekler ve öznitelikler
 

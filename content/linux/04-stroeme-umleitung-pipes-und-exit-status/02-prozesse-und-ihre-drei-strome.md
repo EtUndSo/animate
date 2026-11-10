@@ -15,7 +15,7 @@ lang: de
 Bevor man die Ausgabe eines Programms in eine Datei lenken oder zwei Programme verbinden kann, braucht man ein Bild davon, was ein laufendes Programm ist und auf welchen Wegen Daten hinein- und herauskommen. Dieser Abschnitt führt den Prozess ein, den Strom, die drei Standardströme jedes Prozesses und die Nummern, unter denen ein Prozess seine Ströme kennt.
 :::
 
-### Was du dafür brauchst: Kernel, Shell und Dateien
+:::::vorwissen Was du dafür brauchst: Kernel, Shell und Dateien
 
 <span class="anker" id="stufe-1-1"></span>
 
@@ -67,6 +67,8 @@ Das sind die Buchstaben `l`, `a`, `b`, `o`, `r` und das Zeilenende, zusammen sec
 ::::
 
 ⁠**Kurz gesagt:** Du brauchst den Kernel und seine Systemaufrufe, den Aufbau einer Befehlszeile, Strg+C und Strg+D, Dateien als Folgen von Bytes und die Verzeichnisse `/dev` und `/proc`.
+
+:::::
 
 ### Der Prozess
 

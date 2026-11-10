@@ -1805,6 +1805,24 @@ def webtext(md, lang, cfg, teile, kap=None, fehlt=None):
     return "\n".join(out)
 
 
+# Unterabschnitte „Was du dafür brauchst: …“ (Vorwissen) werden auf der Website zugeklappte Kästen (User, 10.11.2026).
+# Erkannt am Titelanfang, in jeder Sprache der Hefte; neue Übersetzungen nehmen genau diese Wendungen (Glossar des Briefs).
+VORWISSEN_RE = (r"(?:Was du (?:dafür|hierfür) brauchst|What you need for this|Lo que necesitas|所需知识|Ce dont vous avez besoin"
+                r"|Bunun için gerekenler)\s*[:：]")
+VORWISSEN_KOPF = re.compile(r"### (%s.*)$" % VORWISSEN_RE)
+
+
+def vorwissen_kasten(stueck):
+    """###-Unterabschnitt „Was du dafür brauchst: …“ -> :::::vorwissen Titel … ::::: (fünf Doppelpunkte: darf
+    ::::beispiel und :::-Blöcke enthalten). Der Anker des Unterabschnitts bleibt im Kasten; build_wissen klappt ihn auf,
+    wenn ein Link dorthin führt. Andere Stücke bleiben unverändert."""
+    kopf, _, rumpf = stueck.partition("\n")
+    m = VORWISSEN_KOPF.match(kopf)
+    if not m:
+        return stueck
+    return ":::::vorwissen %s\n\n%s\n\n:::::\n\n" % (m.group(1).strip(), rumpf.strip("\n"))
+
+
 def abschnitte(md, teilen=None):
     """Heft-Text -> Artikel [{titel, art, md}]: Überblick, je Abschnitt einer, zum Schluss das letzte :::kern mit allem danach.
     teilen = Nummern der Abschnitte, die an ### geteilt werden. Das entscheidet die deutsche Fassung (None), damit jede
@@ -1815,18 +1833,29 @@ def abschnitte(md, teilen=None):
     for nr, t in enumerate(teile[1:]):
         kopf, _, rumpf = t.partition("\n")
         titel = kopf[3:].strip()
-        stuecke = re.split(r"(?m)^(?=### )", rumpf)
+        stuecke = [vorwissen_kasten(st) for st in re.split(r"(?m)^(?=### )", rumpf)]
         # Beispiele zählen mit (sie gehören zum Artikel), nur ihre Rahmenzeilen nicht: So teilt der Kasten keinen Abschnitt neu.
         laenge = len(re.sub(r"(?m)^::::(?:beispiel\b.*)?\n?", "", t))
         gross = laenge > grenze and len(stuecke) > 1 if teilen is None else nr in teilen
         if gross:                                        # große Stufe: an den Unterabschnitten teilen
             GETEILT.add(nr)
             out.append({"titel": titel, "art": "stufe", "md": stuecke[0] + stuecke[1]})
-            for st in stuecke[2:]:
+            rest = stuecke[2:]
+            while rest:
+                st = rest.pop(0)
+                if st.startswith(":::::vorwissen"):      # Vorwissen wird kein eigener Artikel, sondern steht vor dem
+                    while rest and rest[0].startswith(":::::vorwissen"):   # Unterabschnitt, der es braucht
+                        st += rest.pop(0)
+                    if not rest:                         # nur Vorwissen am Ende: zum vorigen Artikel
+                        out[-1]["md"] += st
+                        break
+                    k, _, r = rest.pop(0).partition("\n")
+                    out.append({"titel": k[4:].strip(), "art": "stufe", "md": st + r})
+                    continue
                 k, _, r = st.partition("\n")
                 out.append({"titel": k[4:].strip(), "art": "stufe", "md": r})
         else:
-            out.append({"titel": titel, "art": "stufe", "md": rumpf})
+            out.append({"titel": titel, "art": "stufe", "md": "".join(stuecke)})
     letzter = out[-1]["md"]
     m = list(re.finditer(r"(?m)^:::kern\b(.*)$", letzter))
     if m:

@@ -16,7 +16,7 @@ lang: de
 Der Parameterwert, unter dem die beobachteten Daten am wahrscheinlichsten sind, ist ein naheliegender Schätzer. Dieser Abschnitt bestimmt ihn mit der Ableitung, für die Bernoulli- und für die Normalverteilung, und zeigt, dass er sich mit Umrechnungen des Parameters verträgt.
 :::
 
-### Was du dafür brauchst: Der höchste Punkt einer Kurve
+:::::vorwissen Was du dafür brauchst: Der höchste Punkt einer Kurve
 
 <span class="anker" id="stufe-5-1"></span>
 
@@ -52,6 +52,8 @@ mit Gleichheit nur bei $x=1$. Diese Ungleichung wird in Abschnitt [9](kreuzentr
 ::::
 
 ⁠**Kurz gesagt:** Am höchsten Punkt im Inneren eines Intervalls ist die Ableitung null; wechselt sie dort von positiv zu negativ, ist es tatsächlich der höchste Punkt.
+
+:::::
 
 ### Der Maximum-Likelihood-Schätzer
 

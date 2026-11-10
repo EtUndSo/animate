@@ -98,7 +98,7 @@ The error is $0.000001=\tfrac16\cdot6\cdot h^2$, six thousand times smaller than
 
 ⁠**In short:** The central difference has a truncation error of about $\tfrac16f'''(x)\,h^2$, because the curvature term cancels.
 
-### What you need for this: floating-point numbers
+:::::vorwissen What you need for this: floating-point numbers
 
 <span class="anker" id="stufe-11-3"></span>
 
@@ -117,6 +117,8 @@ For $f(x)=x^3$ at the point $2$ and $h=10^{-8}$, $f(2+h)=8.00000012\ldots$ Both 
 ::::
 
 ⁠**In short:** Computers round every result to about $16$ digits, $\varepsilon_{\mathrm M}=2^{-52}$; when you subtract almost equal numbers, only a few correct digits remain.
+
+:::::
 
 ### The error curve
 

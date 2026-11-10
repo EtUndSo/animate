@@ -61,7 +61,7 @@ Für die Anzahl $X$ der Köpfe bei drei Münzwürfen ist die Wahrscheinlichkeits
 
 ⁠**Kurz gesagt:** Die Verteilung einer diskreten Zufallsvariablen ist die Liste ihrer Werte mit deren Wahrscheinlichkeiten, die sich zu $1$ addieren.
 
-### Was du dafür brauchst: Integrale
+:::::vorwissen Was du dafür brauchst: Integrale
 
 <span class="anker" id="stufe-6-3"></span>
 
@@ -78,6 +78,8 @@ Für $f(x)=2x$ auf $[0,\,1]$ ist $F(x)=x^2$ eine Stammfunktion, also $\int_0^12x
 ::::
 
 ⁠**Kurz gesagt:** Ein Integral ist der Grenzwert von Summen aus Funktionswert mal Breite, also ein Flächeninhalt; ausgerechnet wird es mit einer Stammfunktion.
+
+:::::
 
 ### Dichten
 

@@ -16,7 +16,7 @@ lang: en
 A matrix rotates and stretches most vectors at the same time. Some directions, however, it does not rotate: an arrow in such a direction only becomes longer, shorter or flipped over. This section finds these directions and the stretch factors that belong to them. They are the natural axes of a matrix.
 :::
 
-### What you need for this: complex numbers
+:::::vorwissen What you need for this: complex numbers
 
 <span class="anker" id="stufe-6-1"></span>
 
@@ -41,6 +41,8 @@ The dot product $(\mathbf{v}^*)^{\top}\mathbf{v}$ for $\mathbf{v}=(1,-\mathrm j)
 ::::
 
 ⁠**In short:** Complex numbers $x+\mathrm jy$ with $\mathrm j^2=-1$ solve every polynomial equation; conjugation flips the sign of the imaginary part, and $zz^*=|z|^2$ is real.
+
+:::::
 
 ### Eigenvectors and eigenvalues
 

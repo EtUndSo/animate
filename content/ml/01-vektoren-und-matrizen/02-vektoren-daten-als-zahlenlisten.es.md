@@ -16,7 +16,7 @@ lang: es
 Un ordenador solo sabe manejar números. Esta sección aclara cómo se describe una cosa del mundo real mediante una lista de números y qué cálculos están permitidos con tales listas.
 :::
 
-### Lo que necesitas: el signo de sumatorio y los índices
+:::::vorwissen Lo que necesitas: el signo de sumatorio y los índices
 
 <span class="anker" id="stufe-1-1"></span>
 
@@ -59,6 +59,8 @@ La suma doble sobre la tabla con las filas $(1,\,2)$ y $(3,\,4)$: arriba, primer
 ::::
 
 ⁠**En resumen:** $\sum_{i=1}^n a_i$ es la suma de $a_1$ a $a_n$; el índice de sumación $i$ es solo un marcador de posición.
+
+:::::
 
 ### Ejemplos y características
 

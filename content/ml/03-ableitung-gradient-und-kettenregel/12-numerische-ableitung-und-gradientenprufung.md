@@ -98,7 +98,7 @@ Der Fehler ist $0{,}000001=\tfrac16\cdot6\cdot h^2$, sechstausendmal kleiner als
 
 ⁠**Kurz gesagt:** Die zentrale Differenz hat einen Abschneidefehler von etwa $\tfrac16f'''(x)\,h^2$, weil sich das Krümmungsglied heraushebt.
 
-### Was du dafür brauchst: Gleitkommazahlen
+:::::vorwissen Was du dafür brauchst: Gleitkommazahlen
 
 <span class="anker" id="stufe-11-3"></span>
 
@@ -117,6 +117,8 @@ Für $f(x)=x^3$ an der Stelle $2$ und $h=10^{-8}$ ist $f(2+h)=8{,}00000012\ldots
 ::::
 
 ⁠**Kurz gesagt:** Rechner runden jedes Ergebnis auf etwa $16$ Stellen, $\varepsilon_{\mathrm M}=2^{-52}$; beim Abziehen fast gleicher Zahlen bleiben davon nur wenige richtige Stellen übrig.
+
+:::::
 
 ### Die Fehlerkurve
 

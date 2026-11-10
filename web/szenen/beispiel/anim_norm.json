@@ -799,63 +799,63 @@
     "type": "FadeIn",
     "target": "o16",
     "run_time": 1.2,
-    "step": 5
+    "step": 4
    },
    {
     "id": "a22",
     "type": "FadeIn",
     "target": "o17",
     "run_time": 1.2,
-    "step": 5
+    "step": 4
    },
    {
     "id": "a23",
     "type": "FadeIn",
     "target": "o18",
     "run_time": 1.2,
-    "step": 5
+    "step": 4
    },
    {
     "id": "a24",
     "type": "FadeIn",
     "target": "o19",
     "run_time": 1.2,
-    "step": 5
+    "step": 4
    },
    {
     "id": "a25",
     "type": "FadeIn",
     "target": "o25",
     "run_time": 0.6,
-    "step": 6
+    "step": 5
    },
    {
     "id": "a26",
     "type": "FadeIn",
     "target": "o26",
     "run_time": 0.6,
-    "step": 6
+    "step": 5
    },
    {
     "id": "a27",
     "type": "FadeIn",
     "target": "o27",
     "run_time": 0.6,
-    "step": 6
+    "step": 5
    },
    {
     "id": "a28",
     "type": "FadeIn",
     "target": "o28",
     "run_time": 0.6,
-    "step": 6
+    "step": 5
    },
    {
     "id": "a29",
     "type": "FadeIn",
     "target": "o29",
     "run_time": 0.6,
-    "step": 6
+    "step": 5
    }
   ],
   "computations": [],

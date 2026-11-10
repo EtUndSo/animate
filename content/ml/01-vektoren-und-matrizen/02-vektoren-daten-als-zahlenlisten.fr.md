@@ -16,7 +16,7 @@ lang: fr
 Un ordinateur ne sait manipuler que des nombres. Cette section explique comment décrire une chose du monde réel par une liste de nombres et quels calculs sont permis avec de telles listes.
 :::
 
-### Ce dont vous avez besoin : le symbole somme et les indices
+:::::vorwissen Ce dont vous avez besoin : le symbole somme et les indices
 
 <span class="anker" id="stufe-1-1"></span>
 
@@ -59,6 +59,8 @@ La somme double sur le tableau de lignes $(1,\,2)$ et $(3,\,4)$, en haut d’abo
 ::::
 
 ⁠**En bref :** $\sum_{i=1}^n a_i$ est la somme de $a_1$ à $a_n$ ; l’indice de sommation $i$ n’est qu’un indice muet.
+
+:::::
 
 ### Exemples et caractéristiques
 

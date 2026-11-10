@@ -15,7 +15,7 @@ lang: de
 Bevor man Befehle für Dateien lernt, braucht man ein Bild davon, was eine Datei ist und wie Linux viele Dateien ordnet. Dieser Abschnitt legt drei Grundbegriffe fest: die Datei, das Verzeichnis und den einen Baum, in dem alle Verzeichnisse hängen.
 :::
 
-### Was du dafür brauchst: Shell, Befehl und aktueller Ordner
+:::::vorwissen Was du dafür brauchst: Shell, Befehl und aktueller Ordner
 
 <span class="anker" id="stufe-1-1"></span>
 
@@ -67,6 +67,8 @@ labor
 ::::
 
 ⁠**Kurz gesagt:** Du brauchst die Shell, den Aufbau einer Befehlszeile, den aktuellen Ordner mit `cd`, den Seitenanzeiger und das Byte als Zahl von 0 bis 255.
+
+:::::
 
 ### Die Datei
 

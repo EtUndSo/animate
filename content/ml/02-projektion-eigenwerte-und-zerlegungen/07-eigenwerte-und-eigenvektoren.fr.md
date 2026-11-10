@@ -16,7 +16,7 @@ lang: fr
 Une matrice fait à la fois tourner et étire la plupart des vecteurs. Mais il existe des directions qu’elle ne fait pas tourner : une flèche dans une telle direction est seulement allongée, raccourcie ou retournée. Cette section trouve ces directions et les facteurs d’étirement qui leur correspondent. Ce sont les axes naturels d’une matrice.
 :::
 
-### Ce dont vous avez besoin : nombres complexes
+:::::vorwissen Ce dont vous avez besoin : nombres complexes
 
 <span class="anker" id="stufe-6-1"></span>
 
@@ -41,6 +41,8 @@ Le produit scalaire $(\mathbf{v}^*)^{\top}\mathbf{v}$ pour $\mathbf{v}=(1,-\math
 ::::
 
 ⁠**En bref :** Les nombres complexes $x+\mathrm jy$ avec $\mathrm j^2=-1$ résolvent toute équation polynomiale ; la conjugaison change le signe de la partie imaginaire, et $zz^*=|z|^2$ est réel.
+
+:::::
 
 ### Vecteurs propres et valeurs propres
 

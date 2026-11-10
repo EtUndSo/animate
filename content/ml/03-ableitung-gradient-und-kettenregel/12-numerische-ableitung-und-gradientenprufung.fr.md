@@ -98,7 +98,7 @@ L’erreur vaut $0{,}000001=\tfrac16\cdot6\cdot h^2$, six mille fois moins que p
 
 ⁠**En bref :** La différence centrée a une erreur de troncature d’environ $\tfrac16f'''(x)\,h^2$, parce que le terme de courbure s’élimine.
 
-### Ce dont vous avez besoin : nombres à virgule flottante
+:::::vorwissen Ce dont vous avez besoin : nombres à virgule flottante
 
 <span class="anker" id="stufe-11-3"></span>
 
@@ -117,6 +117,8 @@ Pour $f(x)=x^3$ en $2$ et $h=10^{-8}$, on a $f(2+h)=8{,}00000012\ldots$ Les deux
 ::::
 
 ⁠**En bref :** Les ordinateurs arrondissent chaque résultat à environ $16$ chiffres, $\varepsilon_{\mathrm M}=2^{-52}$ ; lors de la soustraction de nombres presque égaux, il n’en reste que peu de chiffres exacts.
+
+:::::
 
 ### La courbe d’erreur
 

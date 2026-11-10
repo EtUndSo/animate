@@ -16,7 +16,7 @@ lang: en
 A computer can only handle numbers. This section clarifies how to describe a thing from the real world by a list of numbers and which calculations with such lists are allowed.
 :::
 
-### What you need for this: the summation sign and indices
+:::::vorwissen What you need for this: the summation sign and indices
 
 <span class="anker" id="stufe-1-1"></span>
 
@@ -59,6 +59,8 @@ The double sum over the table with the rows $(1,\,2)$ and $(3,\,4)$: at the top 
 ::::
 
 ⁠**In short:** $\sum_{i=1}^n a_i$ is the sum of $a_1$ through $a_n$; the summation index $i$ is only a placeholder.
+
+:::::
 
 ### Examples and features
 

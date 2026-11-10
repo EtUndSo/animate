@@ -48,8 +48,14 @@ Quellen: `web/editor.js` (CATALOG, COMPUTATIONS, ANIM_GROUPS), `web/engine/scene
 - **L3 Parameter/Zeit animieren:** kein Parameter-Sweep (Frequenz, Grenzwert n → ∞, laufende Welle f(x − ct), Punkt auf Kurve
   mit mitlaufender Tangente/Projektion, Schieberegler als Animation). **Seit 10.11.2026 gebaut:** `s.parameter`,
   `s.verstellen`, `s.zahl` (notizen/animationen.md §8, Beispiele `beispiel/anim_l3_*`).
-- **L4 Kamera-Animation:** 3D-Szene drehen/zoomen über die Zeit.
-- **L5 Gitter-Morph:** lineare Abbildung/Matrix auf die Ebene anwenden, Koordinatentransformation.
+- **L4 Kamera-Animation:** 3D-Szene drehen/zoomen über die Zeit. **Seit 10.11.2026 gebaut:** `s.kamera_start`,
+  `s.kamera`, `s.kamera_kreisen`, dazu `s.kugel` (Atom/Punkt als Scheibe zur Kamera), `s.achsen3d`, `s.flaeche3d`,
+  `s.zuoberst`; im Editor „+ Kamera bewegen“ (notizen/animationen.md §10, Beispiele `beispiel/anim_l4_*`).
+  Vorhandene gemb1-/hm1-3D-Szenen sind für eine feste Kamera gebaut und müssen für eine Fahrt neu aufgebaut werden.
+- **L5 Gitter-Morph:** lineare Abbildung/Matrix auf die Ebene anwenden, Koordinatentransformation. **Seit 10.11.2026
+  gebaut:** `s.gitter`, `s.abbilden(A, objekte, weg="gerade"|"drehung", parameter=…)`, `s.abbilden_funktion` (z. B.
+  Polarkoordinaten), `det_ausdruck`; im Editor Objekt „Grid“ und Animationen ▸ Abbilden (notizen/animationen.md §9,
+  Beispiele `beispiel/anim_l5_*`).
 - **L6 Teilchen:** viele bewegte Punkte (Ladungsträger-Drift, Diffusion, Zufallsbewegung, Stichproben ziehen).
 - **L7 Weitere Operationen:** Ableitung/Integral als Prozess, Fourier-Teilsummen, Abtasten, Matrix·Vektor, Histogramm
   wächst, Korrelation.

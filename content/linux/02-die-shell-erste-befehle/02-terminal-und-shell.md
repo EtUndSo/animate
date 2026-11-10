@@ -15,7 +15,7 @@ lang: de
 In [Kapitel 1](/wissen/informatik/linux-und-kommandozeile/ein-linux-zum-uben-wsl-virtuelle-maschine-live-usb-stick/ein-linux-zum-ueben.html) hieß das Fenster, in das man Befehle tippt, einfach Terminal. Genauer arbeiten darin zwei Programme mit getrennten Aufgaben zusammen. Dieser Abschnitt trennt die beiden, erklärt, was die Eingabeaufforderung verrät, und zeigt, wann eine Arbeitssitzung beginnt und endet.
 :::
 
-### Was du dafür brauchst: das Terminal aus Kapitel 1
+:::::vorwissen Was du dafür brauchst: das Terminal aus Kapitel 1
 
 <span class="anker" id="stufe-1-1"></span>
 
@@ -35,6 +35,8 @@ $ uname -r
 ::::
 
 ⁠**Kurz gesagt:** Im Terminal tippt man Befehle als Text; die Eingabeaufforderung zeigt, dass es bereit ist.
+
+:::::
 
 ### Der Terminalemulator
 

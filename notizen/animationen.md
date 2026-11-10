@@ -11,7 +11,9 @@ eine Quelle für drei Ausgaben.
 | Heft-PDF | `<heftordner>/abb/<sprache>/<szene>.pdf` (Vektor-PDF des Endbilds) | `tools/szenen_pdf.py <modul> <heftordner>` |
 
 Beispiele zum Abschauen: `tools/szenen/beispiel_animation.py` (Szenen `beispiel/anim_*`), für Parameter über die
-Zeit (§8) `tools/szenen/beispiel_parameter.py` (Szenen `beispiel/anim_l3_*`).
+Zeit (§8) `tools/szenen/beispiel_parameter.py` (Szenen `beispiel/anim_l3_*`), für Ebene abbilden (§9)
+`tools/szenen/beispiel_gitter.py` (`beispiel/anim_l5_*`), für Kamerafahrten in 3D (§10)
+`tools/szenen/beispiel_kamera.py` (`beispiel/anim_l4_*`).
 
 ## 1. Zeitachse anlegen (`tools/szenen_lib.py`)
 
@@ -96,8 +98,8 @@ Größen der Beispiele (de; Datei gesamt, davon Datenblock):
 |---|---|---:|---:|---:|---:|
 | beispiel/anim_bootkette | Kästen und Pfeile | 6,8 s | 33 KB | 21 KB | 11 KB |
 | beispiel/anim_sprung | Funktionsgraph | 6,0 s | 29 KB | 7 KB | 22 KB |
-| beispiel/anim_esb | Schaltung (ET1) | 8,4 s | 42 KB | 24 KB | 17 KB |
-| beispiel/anim_norm | 3D, feste Kamera | 6,1 s | 23 KB | 17 KB | 6 KB |
+| beispiel/anim_esb | Schaltung (ET1) | 5,8 s | 42 KB | 24 KB | 17 KB |
+| beispiel/anim_norm | 3D, feste Kamera | 4,9 s | 23 KB | 17 KB | 6 KB |
 | beispiel/anim_umformen | L1, L2, L9 (mit Schreiben einer Formel) | 8,0 s | 89 KB | 63 KB | 15 KB |
 | beispiel/anim_formel | Rechenbild s.formel zeilenweise | 4,8 s | 112 KB | 7 KB | 105 KB |
 | prog/k3rquadrate | Rechenbild s.summe | 5,3 s | 70 KB | 13 KB | 58 KB |
@@ -165,10 +167,9 @@ In allen 54 Präambeln (9 Heftordner × 6 Sprachen) steht:
 ## 6. Grenzen und offene Punkte
 
 - **L3 (Parameter über die Zeit)** ist seit 10.11.2026 gebaut: §8. Seine Grenzen stehen dort in §8.5.
-- **L4 (Kamerafahrt in 3D)** gibt es nicht. Die Kamera ist fest, 3D-Szenen animieren nur ihre Objekte. Eine
-  Kamerafahrt änderte jeden Pfad in jedem Bild. Bei 30 Bildern/s kostete sie ein Vielfaches der heutigen Dateigröße:
-  Schon das 6-KB-Bild `hm1/k8norm` käme bei 6 s auf etwa 150–300 KB, Flächen mit vielen Facetten auf mehrere MB. Dafür
-  bräuchte es einen Spieler, der selbst projiziert (3D-Daten statt Pfaden). Das ist nicht gebaut.
+- **L5 (Ebene abbilden)** und **L4 (Kamerafahrt in 3D)** sind seit 10.11.2026 gebaut: §9 und §10, Grenzen in §9.4 und
+  §10.5. Für eine Kamerafahrt projiziert der Spieler selbst (die Datei trägt Weltpunkte und eine Kamera-Spur statt
+  Pfaden je Bild) und sortiert die Elemente in jedem Bild nach ihrer Tiefe; die Messung steht in §10.3.
 - Ein Text, dessen Inhalt sich ändert (Zähler, `s.ersetzen`), wird als Ganzes ausgetauscht (Spur `h`).
 - Ausgeblendete Objekte (`s.ausblenden`) stehen weiter mit Deckkraft 0 im statischen `.svg` und im PDF
   (`pdf_pruefen.py` überspringt sie). Für Texte, die nur den Inhalt wechseln, deshalb `s.ersetzen` nehmen (§7.3).
@@ -187,7 +188,7 @@ In allen 54 Präambeln (9 Heftordner × 6 Sprachen) steht:
     Browser gleich.
 - Genauigkeit des Spielers gegen das Bild der Engine zur selben Zeit: höchstens 0,9 % abweichende Pixel, meist unter
   0,1 %. Die Abweichungen stammen von Kantenglättung und von Zwischenständen zwischen zwei abgetasteten Bildern. In 3D
-  kommt die feste Zeichenreihenfolge dazu.
+  ohne Kamerafahrt kommt die feste Zeichenreihenfolge dazu (mit Kamerafahrt sortiert der Spieler selbst, §10.3).
 
 ## 7. Werkzeuge vom 10.11.2026 (Text, Ebenen, Rechenbilder)
 
@@ -274,6 +275,15 @@ Größe, Lage und Schrift: Der alte Text blendet in der ersten Hälfte aus, der 
 - Code in `\texttt{…}`/`\mathtt{…}` mit `\$ \{ \}` oder Klammern darin behält seine Dezimalpunkte (vorher bekam er
   in de/es/fr/tr ein Komma, nur ohne Klammern war er geschützt).
 
+### 7.7 Fehlerbehebung `s.gleichzeitig()` (10.11.2026, E3)
+
+`s.einblenden(a, b)` mit mehreren Zielen und `s.ausblenden(...)` öffnen selbst ein `gleichzeitig()`. Innerhalb eines
+äußeren `with s.gleichzeitig():` begann das innere bisher einen neuen Schritt und beendete den äußeren: Was danach im
+Block stand, lief nacheinander statt zusammen. Jetzt bleibt ein verschachteltes `gleichzeitig()` beim äußeren Schritt.
+Betroffen waren nur die Vorführszenen `beispiel/anim_esb` (8,4 → 5,8 s), `beispiel/anim_norm` (6,1 → 4,9 s) und
+`beispiel/anim_l3_grenzwert` (10,4 → 9,8 s); ihr Endbild (`.svg`, PDF) ist unverändert, die `.anim.svg` ist in allen
+sechs Sprachen neu exportiert. Alle anderen Szenen-Skripte bauen dieselben Dateien wie vorher.
+
 ## 8. Parameter über die Zeit (L3, 10.11.2026)
 
 Ein **Parameter** ist eine Zahl der Szene mit Namen. Jeder Ausdruck der Szene darf ihn nennen. `s.verstellen` ändert
@@ -346,7 +356,7 @@ Was einen Parameter nennen darf:
 | beispiel/anim_l3_tangente | Punkt auf der Kurve, Tangente, Projektionen, a und f′(a) | 7,6 s | 44 KB | 33 KB |
 | beispiel/anim_l3_zeitmarker | Zeitmarker liest u und i ab, drei Anzeigen | 8,3 s | 65 KB | 48 KB |
 | beispiel/anim_l3_zeiger | Zeiger dreht sich um 315° und wird kürzer (r, φ zugleich), Spur, Realteil | 6,9 s | 48 KB | 36 KB |
-| beispiel/anim_l3_grenzwert | (1 + x/n)^n → e^x, n = 1 … 12 ganzzahlig | 10,4 s | 61 KB | 50 KB |
+| beispiel/anim_l3_grenzwert | (1 + x/n)^n → e^x, n = 1 … 12 ganzzahlig | 9,8 s | 61 KB | 50 KB |
 | beispiel/anim_l3_flaeche | Fläche bis b wächst, A(b) | 7,1 s | 90 KB | 80 KB |
 
 Alle sechs Sprachen sind gleich groß (die Zahlen sind sprachfrei, nur das Dezimalzeichen wechselt). Ohne die
@@ -377,3 +387,209 @@ jeweils mit Zeichnen auf die Leinwand; vor dem Parameterlauf 1–2 ms. Das Vorab
   „keine Zahl“ (z. B. `sqrt(t - 1)` vor t = 1) einen Strich.
 - Strichlinien (dash) unter einem Parameter mit Zeichnen davor: Pfad-Stufen statt Teilstück (Strichmuster und
   Teilstück teilen sich `stroke-dasharray`).
+
+## 9. Ebene abbilden (L5, 10.11.2026)
+
+Eine 2×2-Matrix verformt die Ebene über die Zeit: das Koordinatengitter und alles, was mitgenommen wird. Jeder Punkt p
+läuft nach A p (wie Manims `ApplyMatrix`), im Endbild steht das Bild. Zwei Abbildungen hintereinander: Die zweite
+beginnt beim Bild der ersten. Statisches Bild und PDF zeigen das Endbild.
+
+### 9.1 Aufrufe (`tools/szenen_lib.py`)
+
+```python
+s = Szene("ml/k1scherung", reihenfolge="anlegen")
+s.welt()
+a = s.achsen((-3, 3), (-2, 2), breite=4.8, hoehe=3.2, mitte=(-1.2, 0), kreuz=True, xzahlen=False, yzahlen=False)
+g0 = s.gitter(a, 1, farbe="#d5dbe5", rand=0)              # Geistergitter: steht in keinem abbilden, bleibt stehen
+g = s.gitter(a, 1, achsen_dicke=3)                        # das Gitter, das sich verformt
+e1 = s.vektor(a, (1, 0), label="e_1", farbe=ROT, label_seite="right")
+e2 = s.vektor(a, (0, 1), label="e_2", farbe=GRUEN)
+q = s.vieleck(a, [(0, 0), (1, 0), (1, 1), (0, 1)], farbe=ORANGE, deckung=0.35)
+z = s.zahl(None, "abs(" + det_ausdruck([[1, 1], [0, 1]], "s") + ")", (2, 1), vor="Fläche = ")
+s.einblenden(a, g0, g, e1, e2, q, z)
+s.abbilden([[1, 1], [0, 1]], [g, e1, e2, q], dauer=2.5, parameter="s")   # s läuft gleich schnell 0 -> 1
+s.abbilden([[0, -1], [1, 0]], [g, e1, e2, q], dauer=2, weg="drehung")   # danach: Drehung um 90°
+s.speichern()
+```
+
+| Aufruf | Was | Hinweis |
+|---|---|---|
+| `gitter(on, schritt=1, schritt_y=None, farbe, dicke=2, deckung=1, rand=1, punkte=2, achsen_dicke=0, zuschneiden=True, x=None, y=None)` | Koordinatengitter `Grid` im Fenster der Achsen (oder `x`, `y`) | `rand`: so viele Fensterbreiten reichen die Linien über das Fenster hinaus (eine Scherung holt sie herein); jedes Bild wird erst abgebildet, dann am Fenster abgeschnitten. `punkte` > 2 nur für `abbilden_funktion` |
+| `vektor(on, ende, start=(0, 0), label="", farbe, …, label_am_ende=True)` | Pfeil (`LabeledArrow`) in Datenkoordinaten | behält beim Abbilden seine Spitze, die Beschriftung bleibt aufrecht |
+| `vieleck(on, punkte, farbe=BLAU, deckung=0.25, dicke=3)` | gefülltes Vieleck (`Polygon`) | Einheitsquadrat, Dreieck; in 3D mit (x, y, z), Ausdrücke erlaubt |
+| `abbilden(matrix, objekte, dauer=2, weg="gerade", rate="glatt", parameter=None)` | Animation `ApplyMatrix` | `objekte[0]` ist das Ziel, die übrigen werden mitgenommen; Einträge Zahl oder Ausdruck (`"cos(pi/6)"`) |
+| `abbilden_funktion(fx, fy, objekte, dauer=2, rate="glatt", parameter=None)` | Animation `ApplyFunction` | jeder Punkt läuft geradlinig nach (fx(x, y), fy(x, y)); Gitter mit `punkte=25`–40 |
+| `det_ausdruck(matrix, "s")` | Ausdruck für det((1 − s) I + s A) | für `s.zahl`: Fläche des Bilds des Einheitsquadrats beim Fortschritt s |
+
+- **Mitnehmen** kann man: `Grid`, Punkte (`Dot`, bleiben rund), Pfeile (`LabeledArrow`), Strecken, Texte und
+  Zahlenanzeigen (ihr Anker läuft mit), `TextBox`, `Mark`, Vielecke und Rechtecke, Kreise und Ellipsen (ein Kreis wird
+  genau zur Ellipse), Funktionsgraphen, Wege, Polarkurven, Flächen, Bänder, Datenkurven, Punktwolken (`PointCloud`,
+  jeder Punkt bleibt rund: Matrix auf eine Stichprobe), Klammern. Achsen, Formeln (`MathTex`) und Operationen nicht.
+- **Weg**: `"gerade"` (Standard, wie Manim): M(α) = (1 − α) I + α A. Eine Drehmatrix schrumpft dabei zwischendurch, eine
+  Spiegelung oder ein Plattdrücken geht durch det = 0. `"drehung"`: A = R(θ)·P (Polarzerlegung), M(α) = R(αθ)·((1 − α) I
+  + α P); eine Drehung dreht dann wirklich, und der symmetrische Anteil streckt geradlinig. Nur für det A > 0
+  (`szenen_lib` meldet sonst einen Fehler, die Engine nimmt den geraden Weg). θ liegt in (−180°, 180°]: 270° wird −90°.
+- **Zahl dazu**: `parameter="s"` legt einen Parameter s an (falls neu, Startwert 0) und verstellt ihn im selben Schritt mit
+  derselben Dauer und Rate von 0 auf 1. Jeder Ausdruck mit s läuft also genau mit der Verformung (`det_ausdruck`, eine
+  Koordinate des Bildpunkts `"(1-s)*1 + s*3"`). Je Abbildung ein eigener Name; nach zwei Abbildungen ist die Fläche
+  det(A₂(s₂))·det A₁.
+- **Nichtlinear** (`abbilden_funktion`): Polarkoordinaten fx = `"x*cos(pi*y/2)"`, fy = `"x*sin(pi*y/2)"` machen aus dem
+  Rechteck r ∈ [0, 2], u ∈ [0, 4] die Kreisscheibe (Linien r = konst. werden Kreise, u = konst. Strahlen).
+
+### 9.2 Im Editor
+
+- Katalog „Mathematik · Funktionen & Achsen“ ▸ **Grid** (x_step, y_step, extend, samples, clip, axis_width).
+- Objekt wählen (Gitter, Pfeil, Vieleck …), unter „Animations“ ▸ **Abbilden** ▸ „+ ApplyMatrix“ oder „+ ApplyFunction“.
+  Felder: Matrix (zwei Zeilen „matrix (a b)“, „matrix (c d)“, je Feld Zahl oder Ausdruck), „path“ (gerade / Drehweg),
+  „rate“, „mitnehmen“ (Häkchen bei den anderen Objekten); bei ApplyFunction „fx(x, y)“, „fy(x, y)“.
+- Vorschau: ▶ wie immer (Vorab-Rendern, dann flüssig).
+
+### 9.3 Größen der Vorführszenen
+
+`tools/szenen/beispiel_gitter.py`, in allen sechs Sprachen exportiert (de; Datei gesamt, davon Datenblock):
+
+| Szene | Inhalt | Dauer | .anim.svg | Daten |
+|---|---|---:|---:|---:|
+| beispiel/anim_l5_scherung | Gitter, Geistergitter, e₁, e₂ unter (1 1; 0 1) | 5,2 s | 32 KB | 14 KB |
+| beispiel/anim_l5_determinante | Einheitsquadrat → Parallelogramm aus (3, 1), (1, 2), Fläche läuft 1,00 → 5,00 | 5,8 s | 68 KB | 29 KB |
+| beispiel/anim_l5_eigen | v₁, v₂ bleiben auf ihren Eigengeraden (×5, ×2), w kippt | 6,6 s | 68 KB | 25 KB |
+| beispiel/anim_l5_svd | Einheitskreis → Ellipse in drei Schritten Vᵀ (Drehweg), Σ, U (Drehweg); v₁, v₂ → 4u₁, u₂ | 10,1 s | 95 KB | 85 KB |
+| beispiel/anim_l5_nacheinander | erst Drehung D (Drehweg), dann Scherung S: Bild S·D | 7,0 s | 74 KB | 51 KB |
+| beispiel/anim_l5_polar | nichtlinear: Rechteck → Kreisscheibe (Polarkoordinaten) | 4,6 s | 151 KB | 135 KB |
+
+Ein gerades, nicht abgeschnittenes Teil unter einer Matrix ist in jedem Bild ein affines Bild seines Endbilds: Die
+Datei speichert dann nur die Matrix je Schlüsselbild (Spur `m`). Am Fenster abgeschnittene Gitterlinien und gekrümmte
+Bilder werden Zahlenspuren `q` (wie L3). Am teuersten ist `abbilden_funktion` (alle Punkte jeder Linie).
+
+### 9.4 Grenzen
+
+- Ein mitgenommenes Objekt läuft wie ein Objekt unter einem Parameter (§8.2): Verschieben, Drehen, Skalieren, Betonen
+  und Umformen wirken nur vor der ersten Abbildung; danach bestimmt die Abbildung die Form. Einblenden, Zeichnen und
+  Ausblenden wirken immer.
+- Die Matrix wird einmal beim Bauen ausgewertet; ein Parameter in einem Eintrag gilt mit seinem Startwert (kein
+  „mitlaufender“ Eintrag).
+- Logarithmische Achsen: Die Abbildung wirkt in Datenkoordinaten, gerade Linien bleiben dort aber nicht gerade
+  (Punkte werden einzeln abgebildet).
+- Ein Text, der mitgenommen wird, ändert nur seine Lage, nicht seinen Inhalt; Beschriftungen wie „A e₁“ am Ende als
+  eigenes Objekt einblenden. Ein Pfeil mit Beschriftung an der Mitte kann bei einer Drehung die Seite wechseln.
+- Achsen (Teilstriche, Zahlen) werden nie abgebildet. Wer die Achsen mitdrehen will, nimmt `achsen_dicke` am Gitter
+  und blendet die Achsen aus.
+- `Wachsen` (GrowFromCenter) auf einen beschrifteten Pfeil zeigt die Beschriftung schon vorher; `einblenden` nehmen.
+
+## 10. Kamerafahrt in 3D (L4, 10.11.2026)
+
+Die Kamera einer 3D-Szene fährt über die Zeit: drehen um die senkrechte Achse (theta), neigen (phi), zoomen, einen
+anderen Blickpunkt anpeilen. Mehrere Fahrten hintereinander, auch gleichzeitig mit anderen Animationen. Statisches
+Bild und PDF zeigen die Endstellung der Kamera.
+
+### 10.1 Aufrufe (`tools/szenen_lib.py`)
+
+```python
+s = Szene("gemb1/k6bcc", reihenfolge="anlegen")
+s.kamera_start(theta=25, phi=18)                  # 3D-Szene, Winkel in Grad, z zeigt nach oben
+h = 1.1
+ecken = [(x, y, z) for x in (-h, h) for y in (-h, h) for z in (-h, h)]
+atome = [s.kugel(None, p, r=0.26, farbe=BLAU) for p in ecken]          # Scheiben, die zur Kamera zeigen
+mitte = s.kugel(None, (0, 0, 0), r=0.3, farbe=ORANGE)
+diagonale = s.linie(None, (-h, -h, -h), (h, h, h), farbe=ROT, dash=DASH)   # Strecke im Raum (x, y, z)
+s.einblenden(*atome, mitte)
+s.kamera_kreisen(180, dauer=4)                    # gleichmäßig halb herum
+s.kamera(zoom=1.8, dauer=1.2)                     # heran
+with s.gleichzeitig():
+    s.kamera(theta=315, phi=12, zoom=1.0, dauer=2)  # zurück in eine andere Ansicht ...
+    s.zeichnen(diagonale, dauer=2)                  # ... während die Raumdiagonale entsteht
+s.speichern()
+```
+
+| Aufruf | Was | Hinweis |
+|---|---|---|
+| `kamera_start(theta=35, phi=20, zoom=1, blickpunkt=None, raum=True)` | Ansicht am Anfang | Grad; `raum=False`: 2D-Szene mit Zoom/Blickpunkt |
+| `kamera(theta=None, phi=None, zoom=None, blickpunkt=None, drehen=None, dauer=2, rate="glatt")` | Animation `MoveCamera` | Ziele; was fehlt, bleibt; `drehen` = Grad dazu (360 = einmal herum) |
+| `kamera_kreisen(grad=360, dauer=6)` | gleichmäßige Drehung | wie Manims ambient rotation (`rate="linear"`) |
+| `achsen3d(x=(-2, 2), y=(-2, 2), z=(0, 2), xl, yl, zl, zahlen=False, pfeile=True)` | räumliche Achsen | Länge = Spanne: Daten- = Weltkoordinaten |
+| `flaeche3d(on, f, farbe=BLAU, deckung=0.85, aufloesung=20)` | Fläche z = f(x, y) | `aufloesung` klein halten: jede Zelle ist ein Element |
+| `kugel(on, punkt, r=0.2, farbe=BLAU, glanz=True)` | `Ball`: Scheibe zur Kamera mit Lichtfleck | Atom, Punkt im Raum; ein Pfad statt eines Netzes; `punkt` darf Parameter nennen |
+| `zuoberst(*ids, stufe=1)` | Prop `layer` | in 3D nach allen niedrigeren Stufen gezeichnet (s. §10.4) |
+| `linie`, `text`, `vieleck` | mit (x, y, z) | Koordinaten dürfen Ausdrücke mit Parametern sein |
+
+- Winkel werden als Zahlen gefahren (kein Umweg über 0°): von 25° nach 315° dreht die Kamera um 290°. Der Zoom läuft
+  geometrisch (gleichmäßiges Heranfahren), der Blickpunkt geradlinig.
+- **Gleichzeitig**: in `with s.gleichzeitig():` mit jeder anderen Animation, auch mit `s.verstellen` (L3 in 3D: ein
+  Punkt, eine Tangentialebene, deren Ecken einen Parameter nennen, wandern mit).
+- **2D**: `kamera(zoom=…, blickpunkt=…)` geht auch in einer 2D-Szene (Lupe). Linien und Schrift behalten ihre Stärke
+  bzw. Größe, Punkte (`Dot`) wachsen mit. Die Achsen verfeinern ihre Teilstriche dabei nicht.
+- **Zuschnitt**: Eine Szene mit Kamerafahrt bekommt den Rahmen aller Bilder der Fahrt (gerechnet mit dem Zoom und dem
+  Blickpunkt vom Anfang): Beim Drehen wird nichts abgeschnitten, beim Heranzoomen bleibt das Fenster, und der Inhalt
+  wird darin größer (was hinausragt, ist abgeschnitten, auch im Endbild). Für ein Endbild ohne Anschnitt zum Schluss
+  wieder herauszoomen.
+
+### 10.2 Im Editor
+
+- Szene ▸ „Animations“ ▸ **„+ Kamera bewegen“** legt eine Fahrt an (eine Viertelumdrehung). Ein Klick auf die Zeile
+  „MoveCamera · Kamera“ öffnet die Felder: run_time, theta°, phi°, zoom (Ziele, leer = bleibt), drehen°, Blickpunkt
+  (Häkchen, dann x, y, z), rate (smooth/linear).
+- **„aktuelle Ansicht übernehmen“**: die Ansicht im Editor auf das Ziel ziehen/zoomen, dann klicken. theta, phi und zoom
+  werden das Ziel der Fahrt (drehen wird 0), und die Startansicht der Szene kommt zurück.
+- Gleichzeitig mit anderen Animationen: über die Schritte (wie bei allen Animationen).
+- Katalog „Mathematik · 3D-Körper“ ▸ **Ball** (center, radius, color, highlight).
+- Hat die Szene eine Kamerafahrt, malt der Editor Flächen ohne WebGL (die GPU-Ebene folgt nur der festen Kamera).
+  Tempo (Pyodide in Chromium, ms je Bild mit Zeichnen): Würfel mit Kugeln 3–4 ms, Fläche mit 20 × 20 Zellen 22–31 ms,
+  Fläche mit Tangentialebene und Parameter 28–55 ms; 2D-Gitter (L5) 5–9 ms, Polarkoordinaten-Gitter 18 ms. Bilder über
+  20 ms rechnet das Vorab-Rendern mit 20 statt 30 Bildern/s; es dauert für 8–12 s Kamerafahrt 4–8 s (einmal 25 s
+  gemessen, das Vorab-Rendern hat je Bild einen festen Aufschlag von 15–25 ms).
+
+### 10.3 Export: Messung und Entscheidung (Weg b)
+
+Gemessen an vorhandenen 3D-Szenen mit einer 6-s-Fahrt (theta +120°, phi +14°, glatt; in Klammern volle Drehung 360°,
+linear), Größe der `.anim.svg` (de):
+
+| Szene | statisch | (a) projizierte Pfade, 30 Bilder/s, 0,2 px | (a) grob: 15 Bilder/s, 1 px | (b) Spieler projiziert |
+|---|---:|---:|---:|---:|
+| hm1/k8norm (klein) | 6 KB | 43 KB (85 KB) | 23 KB (43 KB) | 9 KB (8 KB) |
+| hm1/k9kreuz | 10 KB | 109 KB (226 KB) | 56 KB | 16 KB (14 KB) |
+| gemb1/k6miller | 19 KB | 283 KB (465 KB) | 140 KB | 31 KB (26 KB) |
+| gemb1/k6kubisch (157 Elemente) | 100 KB | 473 KB (810 KB) | 271 KB (419 KB) | 150 KB (146 KB) |
+| et1/k10flaeche (2071 Facetten) | 617 KB | 9,5 MB | – | 873 KB (871 KB) |
+
+- (a) (heutiger Exporter: je Element eine Matrix- oder Punktspur in Bildkoordinaten) schafft das Ziel nur für kleine
+  Szenen und kurze Schwenks und kann die Zeichenreihenfolge nicht ändern (Rückseiten lägen vorn).
+- **(b) ist gebaut**: Die Datei trägt je Element seine Weltpunkte (`w`; bei nur geraden Stücken nur die Ecken, `wl`),
+  eine Kamera-Spur (`cam`: theta, phi, zoom, Blickpunkt, linear zwischen Schlüsselbildern, Fehler ≤ 0,2 Szenenpixel)
+  und die Projektionskonstanten (`pj`). Der Spieler (`build_wissen.py`, WISSEN_JS) projiziert jedes Bild wie
+  `engine/camera.py` und baut daraus den Pfad. Die Größe hängt nicht von der Länge der Fahrt ab; sie ist etwa das
+  statische Bild plus ein Drittel. Ändern sich die Weltpunkte selbst (Parameter, Zeichnen), kommen Spuren `Q` (gleiche
+  Punktzahl, linear) oder `D` (Stufe, 10 Bilder/s) dazu; Stil-Spuren (Deckkraft, Farbe, Sichtbarkeit) wie bisher.
+- **Zeichenreihenfolge**: Der Spieler sortiert in jedem Bild wie `engine/renderer._paint_3d`: Tiefe = Mittel der Tiefe
+  aller Punkte eines Elements, hinten zuerst; bei `axes_on_top` die Achsen zuletzt; Stufen (`layer`, `ly`) vor der
+  Tiefe; bei gleicher Tiefe die Reihenfolge des Szenenbaums (`r`). Ändert sich die Reihenfolge, hängt er die Elemente
+  um. Treue gegen das Bild der Engine zur selben Zeit (Kontrollbilder zu 0, 25, 50, 75, 100 %): höchstens 0,8 %
+  abweichende Pixel (Kantenglättung), auch für die Szenen oben, deren Reihenfolge sich beim Drehen ändert.
+- Szenen ohne Kamerafahrt (auch 3D mit fester Kamera) exportieren unverändert wie bisher.
+
+### 10.4 Größen der Vorführszenen
+
+`tools/szenen/beispiel_kamera.py`, in allen sechs Sprachen exportiert (de):
+
+| Szene | Inhalt | Dauer | .anim.svg | Daten |
+|---|---|---:|---:|---:|
+| beispiel/anim_l4_flaeche | Fläche z = 1 + sin x cos y / 1,3 mit Achsen: 150° herum, dann von oben | 8,5 s | 178 KB | 48 KB |
+| beispiel/anim_l4_kristall | bcc-Zelle mit `kugel`: halb herum, Zoom auf das Zentrum, zurück quer zur Raumdiagonale (gleichzeitig gezeichnet) | 9,4 s | 21 KB | 14 KB |
+| beispiel/anim_l4_ebene | Kuppel mit Tangentialebene: Drehung während Ebene und P erscheinen, P wandert (Parameter a) bei weiterer Drehung, Zoom auf P, zurück | 10,4 s | 251 KB | 142 KB |
+
+### 10.5 Grenzen
+
+- **Maler-Algorithmus**: Jedes Element (Facette, Linie, Text) hat eine Tiefe; sich durchdringende oder sehr
+  unterschiedlich große Teile können falsch liegen (eine große Ebene über kleinen Facetten wird stückweise verdeckt).
+  Abhilfe: `s.zuoberst(...)` (Prop `layer`), wenn das Teil aus allen gezeigten Richtungen davor liegt (Tangentialebene
+  über einer Kuppel), sonst das große Teil in kleine Stücke teilen.
+- `Sphere` ist ein Netz aus Facetten (je Kugel 50–300 Elemente, flach eingefärbt); für Atome und Punkte `Ball`
+  (`s.kugel`) nehmen: 1–2 Elemente, rund aus jeder Richtung. Ein `Dot` liegt in 3D flach in der x-y-Ebene.
+- Vorhandene 3D-Szenen (gemb1, hm1) sind für eine feste Kamera gebaut: Atome als Scheiben zur Kamera, Pfeilspitzen in
+  der Bildebene, Teilbilder nebeneinander in der Bildebene. Eine Kamerafahrt darin sieht falsch aus; solche Szenen
+  mit `kugel`, `linie` (3D) und einer gemeinsamen Mitte neu aufbauen.
+- Pfeile (`Vector` 3D) haben eine Kegelspitze aus Facetten (gut); `LabeledArrow` hat eine flache Spitze in der
+  x-y-Ebene (in 3D nur von oben richtig).
+- Text bleibt immer aufrecht und gleich groß (auch beim Zoom).
+- Flächen mit vielen Zellen machen die Datei groß (jede Zelle ist ein Element mit Weltpunkten): et1/k10flaeche
+  (2071 Facetten) hat statisch schon 617 KB, mit Fahrt 873 KB. `aufloesung` 15–24 genügt meist.
+- Mittelpunktsmarken (`show_center`) bewegen sich bei einer Fahrt nicht mit.

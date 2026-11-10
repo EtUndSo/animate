@@ -15,7 +15,7 @@ lang: de
 Mit komplexen Zahlen haben auch negative Zahlen eine Wurzel, und jeder Punkt der Ebene wird zu einer einzigen Zahl, mit der man rechnen kann. Dieser Abschnitt zeigt, wie Python komplexe Zahlen speichert, wie man Betrag und Phase von Hand und fertig bestimmt, und dreht zum Schluss einen Punkt in der Ebene mit einer einzigen Multiplikation.
 :::
 
-### Was du dafür brauchst: komplexe Zahlen
+:::::vorwissen Was du dafür brauchst: komplexe Zahlen
 
 <span class="anker" id="stufe-9-1"></span>
 
@@ -34,6 +34,8 @@ $z=3+4\mathrm j$ hat $|z|=\sqrt{9+16}=5$ und $\varphi=\arctan\frac43\approx0{,}9
 ::::
 
 ⁠**Kurz gesagt:** $z=x+\mathrm jy=|z|\,\mathrm{e}^{\mathrm j\varphi}$ mit $|z|=\sqrt{x^2+y^2}$ und der Phase $\varphi$ als Winkel des Pfeils.
+
+:::::
 
 ### Der Typ `complex`
 

@@ -15,7 +15,7 @@ lang: de
 Um Python-Programme auszuführen, braucht dein Rechner CPython. Dieser Abschnitt zeigt, wie du es unter Windows und unter Linux einrichtest und prüfst, welche Version du hast.
 :::
 
-### Was du dafür brauchst: ein Terminal öffnen
+:::::vorwissen Was du dafür brauchst: ein Terminal öffnen
 
 <span class="anker" id="stufe-3-1"></span>
 
@@ -62,6 +62,8 @@ Hallo
 ```
 
 Mehr zum Terminal, zu Ordnern und zu Befehlen steht ausführlich in Linux, Kapitel 2.
+
+:::::
 
 ### Python unter Windows: der Python install manager
 

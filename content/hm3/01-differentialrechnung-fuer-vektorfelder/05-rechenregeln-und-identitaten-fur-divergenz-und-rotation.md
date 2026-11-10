@@ -15,7 +15,7 @@ lang: de
 Divergenz und Rotation schreibt man mit dem Nabla-Symbol wie ein Skalarprodukt und ein Kreuzprodukt. Dieser Abschnitt zeigt, welche Rechenregeln für Vektoren sich übertragen lassen, wo Vorsicht nötig ist und was geschieht, wenn man zwei dieser Operatoren nacheinander anwendet. Zum Schluss geht es um Felder, die selbst eine Rotation sind.
 :::
 
-### Was du dafür brauchst: das Kronecker-Symbol
+:::::vorwissen Was du dafür brauchst: das Kronecker-Symbol
 
 <span class="anker" id="stufe-4-1"></span>
 
@@ -33,7 +33,9 @@ $\delta_{22}=1$, $\delta_{23}=0$. Für $\boldsymbol a=(4,5,6)$ ist $\sum_{l=1}^3
 
 ⁠**Kurz gesagt:** $\delta_{il}$ ist $1$ bei gleichen Indizes und sonst $0$; in einer Summe pickt es einen Summanden heraus.
 
-### Was du dafür brauchst: das Spatprodukt
+:::::
+
+:::::vorwissen Was du dafür brauchst: das Spatprodukt
 
 <span class="anker" id="stufe-4-2"></span>
 
@@ -56,7 +58,9 @@ Für $\boldsymbol a=(1,0,0)$, $\boldsymbol b=(0,1,0)$, $\boldsymbol c=(1,1,1)$ i
 
 ⁠**Kurz gesagt:** Das Spatprodukt $\boldsymbol a\cdot(\boldsymbol b\times\boldsymbol c)$ ist die Determinante der drei Vektoren und bleibt bei zyklischem Vertauschen gleich.
 
-### Was du dafür brauchst: die Graßmann-Identität
+:::::
+
+:::::vorwissen Was du dafür brauchst: die Graßmann-Identität
 
 <span class="anker" id="stufe-4-3"></span>
 
@@ -81,6 +85,8 @@ In der Summe $\sum_k\varepsilon_{ijk}\varepsilon_{klm}$ ist ein Summand nur dann
 :::
 
 ⁠**Kurz gesagt:** $\boldsymbol a\times(\boldsymbol b\times\boldsymbol c)=(\boldsymbol a\cdot\boldsymbol c)\boldsymbol b-(\boldsymbol a\cdot\boldsymbol b)\boldsymbol c$; in Indizes $\sum_k\varepsilon_{ijk}\varepsilon_{klm}=\delta_{il}\delta_{jm}-\delta_{im}\delta_{jl}$.
+
+:::::
 
 ### Rechnen mit dem Nabla-Symbol
 

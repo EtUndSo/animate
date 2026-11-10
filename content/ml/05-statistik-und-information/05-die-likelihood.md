@@ -16,7 +16,7 @@ lang: de
 Bisher wurden Schätzer vorgegeben und dann geprüft. Dieser Abschnitt dreht die Frage um und bewertet jeden möglichen Wert des Parameters danach, wie wahrscheinlich er die tatsächlich beobachteten Daten macht. Diese Bewertung heißt Likelihood; ihr Logarithmus lässt sich leichter berechnen und ableiten.
 :::
 
-### Was du dafür brauchst: Logarithmen
+:::::vorwissen Was du dafür brauchst: Logarithmen
 
 <span class="anker" id="stufe-4-1"></span>
 
@@ -47,6 +47,8 @@ Zur Probe: $0{,}7^7\cdot0{,}3^3\approx0{,}0022236$, und der Taschenrechner liefe
 ::::
 
 ⁠**Kurz gesagt:** Der Logarithmus macht Produkte zu Summen und Potenzen zu Vielfachen, er wächst streng monoton, und $\log_2x=\ln x/\ln2$.
+
+:::::
 
 ### Die Likelihood
 

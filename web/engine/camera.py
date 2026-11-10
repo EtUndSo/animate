@@ -24,13 +24,22 @@ class Camera:
     """
 
     def __init__(self, pixel_width=PIXEL_WIDTH, pixel_height=PIXEL_HEIGHT, frame_height=FRAME_HEIGHT,
-                 mode="2d", theta=0.6, phi=1.0, zoom=1.0):
+                 mode="2d", theta=0.6, phi=1.0, zoom=1.0, center=None):
         self.pixel_width = pixel_width
         self.pixel_height = pixel_height
         self.units_per_pixel = frame_height / pixel_height
         self.mode = mode
         self.zoom = float(zoom) or 1.0        # orthographic zoom: >1 = closer (world looks bigger)
+        self.set_center(center)
         self.orient(theta, phi)
+
+    def set_center(self, center):
+        """The world point the camera looks at (L4, 10.11.2026): it appears in the middle of the picture, and
+        zooming magnifies around it. None or the origin = as before (no shift at all, the same numbers)."""
+        c = np.zeros(3) if center is None else np.asarray(list(center) + [0.0] * (3 - len(center)), dtype=float)[:3]
+        self.center = c
+        self._has_center = bool(np.any(c != 0.0))
+        return self
 
     @property
     def _upp(self):
@@ -56,11 +65,15 @@ class Camera:
 
     def _view(self, point):
         p = np.asarray(point, dtype=float)
+        if self._has_center:
+            p = p - self.center
         return self._R @ p if self.mode == "3d" else p      # world -> camera frame
 
     def view_array(self, points):
         """Batched _view: (N,3) world points -> (N,3) camera-frame coords in one matmul."""
         pts = np.asarray(points, dtype=float).reshape(-1, 3)
+        if self._has_center:
+            pts = pts - self.center
         return pts @ self._R.T if self.mode == "3d" else pts
 
     def project(self, point):
@@ -89,5 +102,7 @@ class Camera:
         h = (px - self.pixel_width / 2) * self._upp
         v = (self.pixel_height / 2 - py) * self._upp
         if self.mode == "3d":
-            return self._R.T @ np.array([h, v, 0.0])         # un-rotate the in-plane point
-        return h * RIGHT + v * UP
+            w = self._R.T @ np.array([h, v, 0.0])            # un-rotate the in-plane point
+        else:
+            w = h * RIGHT + v * UP
+        return w + self.center if self._has_center else w

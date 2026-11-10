@@ -15,7 +15,7 @@ lang: de
 Ein Linux, das vom USB-Stick startet, benutzt die eingebaute SSD nicht, und trotzdem kann man darin Dateien anlegen und Programme ausprobieren. Dieser Abschnitt erklärt, wie das geht: Das System liegt in einem schreibgeschützten Abbild, und alles, was sich ändert, landet in einer Schicht im Arbeitsspeicher. Daraus folgt auch, warum nach dem Ausschalten alles weg ist.
 :::
 
-### Was du dafür brauchst: das Einhängen
+:::::vorwissen Was du dafür brauchst: das Einhängen
 
 <span class="anker" id="stufe-8-1"></span>
 
@@ -44,6 +44,8 @@ Linux nennt Datenträger `sda`, `sdb` und so weiter. Alle vier sind virtuelle Fe
 ::::
 
 ⁠**Kurz gesagt:** Ein Dateisystem wird an einem Ordner eingehängt; was nirgends eingehängt ist, benutzt kein Programm.
+
+:::::
 
 ### Das Live-System
 

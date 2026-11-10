@@ -16,7 +16,7 @@ lang: de
 Eine Matrix dreht und streckt die meisten Vektoren zugleich. Manche Richtungen aber dreht sie nicht: Ein Pfeil in dieser Richtung wird nur länger, kürzer oder umgeklappt. Dieser Abschnitt findet diese Richtungen und die Streckfaktoren, die zu ihnen gehören. Sie sind die natürlichen Achsen einer Matrix.
 :::
 
-### Was du dafür brauchst: komplexe Zahlen
+:::::vorwissen Was du dafür brauchst: komplexe Zahlen
 
 <span class="anker" id="stufe-6-1"></span>
 
@@ -41,6 +41,8 @@ Das Skalarprodukt $(\mathbf{v}^*)^{\top}\mathbf{v}$ für $\mathbf{v}=(1,-\mathrm
 ::::
 
 ⁠**Kurz gesagt:** Komplexe Zahlen $x+\mathrm jy$ mit $\mathrm j^2=-1$ lösen jede Polynomgleichung; Konjugieren wechselt das Vorzeichen des Imaginärteils, und $zz^*=|z|^2$ ist reell.
+
+:::::
 
 ### Eigenvektoren und Eigenwerte
 

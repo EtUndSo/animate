@@ -15,7 +15,7 @@ lang: de
 Viele Dateien eines Linux-Systems sind Text, den man direkt lesen kann: Einstellungen, Protokolle, Anleitungen. Dieser Abschnitt erklärt, was eine Textdatei ausmacht, und zeigt die Werkzeuge, mit denen man Dateien ganz, seitenweise, am Anfang oder am Ende ansieht, sie vermisst und ihre Art bestimmt.
 :::
 
-### Was du dafür brauchst: die Textdatei
+:::::vorwissen Was du dafür brauchst: die Textdatei
 
 <span class="anker" id="stufe-4-1"></span>
 
@@ -47,6 +47,8 @@ Die Datei hat eine einzige Zeile mit 13 Zeichen und dem Zeilenende, zusammen 14 
 ::::
 
 ⁠**Kurz gesagt:** Eine Textdatei besteht nur aus Zeichen; jede Zeile endet mit dem Byte 10.
+
+:::::
 
 ### Den ganzen Inhalt zeigen: cat
 

@@ -366,6 +366,16 @@ details.beispiel[open]>summary::before{transform:rotate(90deg);}
 details.beispiel .bsp-k{font-family:var(--fdisp);font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--accent3);margin-right:9px;}
 .bsp-body{padding:0 16px 10px;border-top:1px solid var(--border);}
 .bsp-body>p:first-child{margin-top:12px;}
+/* ---------- Vorwissen-Kasten (:::::vorwissen, „Was du dafür brauchst: …“): zugeklappt; weiß mit grüner Kopfleiste,
+   so vom Beispiel (orange Kopfleiste) und vom Hintergrund (grau, grüne Linie links) zu unterscheiden ---------- */
+details.vorwissen{margin:1.1em 0;border:1px solid var(--border);border-top:3px solid var(--accent);border-radius:10px;background:var(--panel);}
+details.vorwissen>summary{cursor:pointer;padding:10px 14px;list-style:none;font-weight:600;line-height:1.45;}
+details.vorwissen>summary::-webkit-details-marker{display:none;}
+details.vorwissen>summary::before{content:"▸";display:inline-block;margin-right:9px;color:var(--accent);transition:transform .15s;}
+details.vorwissen[open]>summary::before{transform:rotate(90deg);}
+details.vorwissen .vo-k{font-family:var(--fdisp);font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--accent);margin-right:9px;}
+.vo-body{padding:0 16px 10px;border-top:1px solid var(--border);}
+.vo-body>p:first-child,.vo-body>.anker:first-child+p{margin-top:12px;}
 .article figure.abb,.article details [id]{scroll-margin-top:72px;}   /* Sprung auf eine Abbildung (auch im Kasten): nicht unter der Kopfleiste */
 /* ---------- Grüne Leiste, modern (Variante B, 04.11.2026) ---------- */
 .article h1{font-weight:800;letter-spacing:-.03em;line-height:1.08;}
@@ -381,9 +391,9 @@ details.beispiel .bsp-k{font-family:var(--fdisp);font-size:12px;text-transform:u
 :root[data-theme="dark"] :is(.article .sect,.callout,details.hintergrund,details.herleitung,details.frage,details.ltspice,details.quiz-item,
   .aufg,.article figure.abb,.arttoc,.zweck,.neighbors .nb,.pn,.theme-card,.fassung,.verwendet){
   border-top:1px solid var(--rahmen);border-right:1px solid var(--rahmen);border-bottom:1px solid var(--rahmen);}
-:root[data-theme="dark"] details.beispiel{border-right:1px solid var(--rahmen);border-bottom:1px solid var(--rahmen);}
+:root[data-theme="dark"] :is(details.beispiel,details.vorwissen){border-right:1px solid var(--rahmen);border-bottom:1px solid var(--rahmen);}
 :root[data-theme="dark"] :is(.article .sect,.callout:not([class*="cx-"]),.callout.cx-zusatz,details.frage,details.quiz-item,
-  .aufg,.article figure.abb,.arttoc,.zweck,.neighbors .nb,.pn,.theme-card,details.beispiel,.fassung,.verwendet){border-left:1px solid var(--rahmen);}
+  .aufg,.article figure.abb,.arttoc,.zweck,.neighbors .nb,.pn,.theme-card,details.beispiel,details.vorwissen,.fassung,.verwendet){border-left:1px solid var(--rahmen);}
 @media(max-width:620px){ .arttoc ul{grid-template-columns:1fr;} }
 @media(max-width:920px){ .article{grid-template-columns:1fr;} .toc{display:none;} #toggleRight{display:none;} }   /* keine Gliederung -> ihr Toggle weg */
 @media(max-width:720px){ .layout{grid-template-columns:1fr;} .side{display:none;border-right:none;}

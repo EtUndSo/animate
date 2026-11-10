@@ -1301,245 +1301,245 @@
     "type": "FadeIn",
     "target": "o26",
     "run_time": 0.6,
-    "step": 3
+    "step": 2
    },
    {
     "id": "a29",
     "type": "FadeIn",
     "target": "o27",
     "run_time": 0.6,
-    "step": 3
+    "step": 2
    },
    {
     "id": "a30",
     "type": "GrowFromCenter",
     "target": "o28",
     "run_time": 0.8,
-    "step": 4
+    "step": 3
    },
    {
     "id": "a31",
     "type": "FadeIn",
     "target": "o30",
     "run_time": 0.6,
-    "step": 4
+    "step": 3
    },
    {
     "id": "a32",
     "type": "Create",
     "target": "o29",
     "run_time": 0.8,
-    "step": 5
+    "step": 4
    },
    {
     "id": "a33",
     "type": "Create",
     "target": "o31",
     "run_time": 0.8,
-    "step": 5
+    "step": 4
    },
    {
     "id": "a34",
     "type": "FadeIn",
     "target": "o32",
     "run_time": 0.8,
-    "step": 5
+    "step": 4
    },
    {
     "id": "a35",
     "type": "Create",
     "target": "o33",
     "run_time": 0.8,
-    "step": 5
+    "step": 4
    },
    {
     "id": "a36",
     "type": "FadeIn",
     "target": "o34",
     "run_time": 0.8,
-    "step": 5
+    "step": 4
    },
    {
     "id": "a37",
     "type": "FadeIn",
     "target": "o62",
     "run_time": 0.6,
-    "step": 6
+    "step": 5
    },
    {
     "id": "a38",
     "type": "FadeIn",
     "target": "o35",
     "run_time": 0.6,
-    "step": 6
+    "step": 5
    },
    {
     "id": "a39",
     "type": "FadeIn",
     "target": "o36",
     "run_time": 0.6,
-    "step": 6
+    "step": 5
    },
    {
     "id": "a40",
     "type": "FadeIn",
     "target": "o37",
     "run_time": 0.6,
-    "step": 6
+    "step": 5
    },
    {
     "id": "a41",
     "type": "FadeIn",
     "target": "o38",
     "run_time": 0.6,
-    "step": 6
+    "step": 5
    },
    {
     "id": "a42",
     "type": "FadeIn",
     "target": "o39",
     "run_time": 0.6,
-    "step": 6
+    "step": 5
    },
    {
     "id": "a43",
     "type": "FadeIn",
     "target": "o40",
     "run_time": 0.6,
-    "step": 6
+    "step": 5
    },
    {
     "id": "a44",
     "type": "FadeIn",
     "target": "o41",
     "run_time": 0.6,
-    "step": 6
+    "step": 5
    },
    {
     "id": "a45",
     "type": "FadeIn",
     "target": "o42",
     "run_time": 0.6,
-    "step": 6
+    "step": 5
    },
    {
     "id": "a46",
     "type": "FadeIn",
     "target": "o43",
     "run_time": 0.6,
-    "step": 6
+    "step": 5
    },
    {
     "id": "a47",
     "type": "FadeIn",
     "target": "o44",
     "run_time": 0.6,
-    "step": 6
+    "step": 5
    },
    {
     "id": "a48",
     "type": "FadeIn",
     "target": "o45",
     "run_time": 0.6,
-    "step": 6
+    "step": 5
    },
    {
     "id": "a49",
     "type": "FadeIn",
     "target": "o46",
     "run_time": 0.6,
-    "step": 6
+    "step": 5
    },
    {
     "id": "a50",
     "type": "FadeIn",
     "target": "o47",
     "run_time": 0.6,
-    "step": 6
+    "step": 5
    },
    {
     "id": "a51",
     "type": "FadeIn",
     "target": "o48",
     "run_time": 0.6,
-    "step": 6
+    "step": 5
    },
    {
     "id": "a52",
     "type": "FadeIn",
     "target": "o49",
     "run_time": 0.6,
-    "step": 6
+    "step": 5
    },
    {
     "id": "a53",
     "type": "GrowFromCenter",
     "target": "o50",
     "run_time": 0.8,
-    "step": 7
+    "step": 6
    },
    {
     "id": "a54",
     "type": "FadeIn",
     "target": "o51",
     "run_time": 0.6,
-    "step": 8
+    "step": 6
    },
    {
     "id": "a55",
     "type": "FadeIn",
     "target": "o52",
     "run_time": 0.6,
-    "step": 8
+    "step": 6
    },
    {
     "id": "a56",
     "type": "GrowFromCenter",
     "target": "o53",
     "run_time": 0.8,
-    "step": 9
+    "step": 6
    },
    {
     "id": "a57",
     "type": "FadeIn",
     "target": "o54",
     "run_time": 0.6,
-    "step": 10
+    "step": 6
    },
    {
     "id": "a58",
     "type": "FadeIn",
     "target": "o55",
     "run_time": 0.6,
-    "step": 10
+    "step": 6
    },
    {
     "id": "a59",
     "type": "Create",
     "target": "o56",
     "run_time": 0.8,
-    "step": 11
+    "step": 7
    },
    {
     "id": "a60",
     "type": "FadeIn",
     "target": "o57",
     "run_time": 0.8,
-    "step": 11
+    "step": 7
    },
    {
     "id": "a61",
     "type": "Create",
     "target": "o58",
     "run_time": 0.8,
-    "step": 11
+    "step": 7
    },
    {
     "id": "a62",
     "type": "FadeIn",
     "target": "o59",
     "run_time": 0.8,
-    "step": 11
+    "step": 7
    }
   ],
   "computations": [],

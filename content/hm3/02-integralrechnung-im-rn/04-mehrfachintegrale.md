@@ -15,7 +15,7 @@ lang: de
 Eine Funktion von zwei oder mehr Variablen soll über ein Rechteck oder einen Quader integriert werden. Dieser Abschnitt führt das auf Integrale über eine Variable zurück, klärt, ob die Reihenfolge der Variablen eine Rolle spielt, und legt damit fest, was das Integral über einen Quader ist.
 :::
 
-### Was du dafür brauchst: Quader
+:::::vorwissen Was du dafür brauchst: Quader
 
 <span class="anker" id="stufe-3-1"></span>
 
@@ -37,7 +37,9 @@ $Q=[0,1]\times[0,2]\times[0,3]$ besteht aus allen Punkten $(x,y,z)$ mit $0\le x\
 
 ⁠**Kurz gesagt:** Ein Quader ist ein Produkt von Intervallen; sein Volumen ist das Produkt der Intervalllängen.
 
-### Was du dafür brauchst: der Abschluss einer Menge
+:::::
+
+:::::vorwissen Was du dafür brauchst: der Abschluss einer Menge
 
 <span class="anker" id="stufe-3-2"></span>
 
@@ -50,6 +52,8 @@ Der Abschluss von $(0,1]$ ist $[0,1]$. Der Abschluss der offenen Kreisscheibe $\
 ::::
 
 ⁠**Kurz gesagt:** Der Abschluss einer Menge ist die Menge mit ihrem Rand.
+
+:::::
 
 ### Das iterierte Integral
 

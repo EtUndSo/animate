@@ -82,7 +82,7 @@ Die KL-Divergenz als Summe der Beiträge $p_k\log_2(p_k/q_k)$. Wo $\mathbf{q}$ e
 Die Deutung als Codelänge ist mehr als ein Bild. Für einen Code, der für $\mathbf{q}$ gebaut ist, mit den aufgerundeten Längen $\lceil\log_2(1/q_k)\rceil$, liegt die mittlere Länge bei den wahren Häufigkeiten $\mathbf{p}$ zwischen $H(\mathbf{p})+D_{\mathrm{KL}}(\mathbf{p}\,\|\,\mathbf{q})$ und dieser Zahl plus eins. Wer glaubt, die Quelle sei nach $\mathbf{q}$ verteilt, während sie nach $\mathbf{p}$ verteilt ist, zahlt also im Mittel $D_{\mathrm{KL}}(\mathbf{p}\,\|\,\mathbf{q})$ Binärziffern je Zeichen mehr als nötig. Im Beispiel sind das $0{,}875$ bit je Zeichen, $50\,\%$ mehr als die Entropie. Dieselbe Rechnung gilt für Überraschungen statt Codelängen: $H(\mathbf{p},\mathbf{q})$ ist die mittlere Überraschung dessen, der $\mathbf{q}$ erwartet, $H(\mathbf{p})$ die unvermeidliche Überraschung dessen, der die Wahrheit kennt, und $D_{\mathrm{KL}}$ die zusätzliche Überraschung durch die falsche Erwartung.
 :::
 
-### Was du dafür brauchst: Die Ungleichung $\ln x\le x-1$
+:::::vorwissen Was du dafür brauchst: Die Ungleichung $\ln x\le x-1$
 
 <span class="anker" id="stufe-9-3"></span>
 
@@ -99,6 +99,8 @@ Bei $x=2$ ist $\ln2\approx0{,}693\le1$, bei $x=0{,}5$ ist $\ln0{,}5\approx-0{,}6
 ::::
 
 ⁠**Kurz gesagt:** Der Logarithmus liegt unter seiner Tangente an der Stelle $1$: $\ln x\le x-1$, mit Gleichheit nur für $x=1$.
+
+:::::
 
 ### Die Gibbs-Ungleichung
 

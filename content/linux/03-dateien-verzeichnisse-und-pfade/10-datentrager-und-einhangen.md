@@ -15,7 +15,7 @@ lang: de
 Der eine Verzeichnisbaum aus Abschnitt [1](dateien-verzeichnisse-und-der-verzeichnisbaum.html#stufe-1) setzt sich aus mehreren Dateisystemen zusammen, die an Verzeichnissen eingehängt sind. Dieser Abschnitt zeigt, wie man sieht, welche Datenträger es gibt, welches Dateisystem wo hängt und wie voll es ist, und was das für WSL 2 und das Windows-Laufwerk bedeutet. Alle Befehle hier lesen nur.
 :::
 
-### Was du dafür brauchst: Datenträger, Dateisystem und Einhängen
+:::::vorwissen Was du dafür brauchst: Datenträger, Dateisystem und Einhängen
 
 <span class="anker" id="stufe-9-1"></span>
 
@@ -30,6 +30,8 @@ Einhängen eines USB-Sticks. Links der Baum vorher, mit dem leeren Verzeichnis `
 ::::
 
 ⁠**Kurz gesagt:** Datenträger tragen Dateisysteme, und eingehängte Dateisysteme bilden zusammen den einen Baum.
+
+:::::
 
 ### Die Datenträger anzeigen: lsblk
 

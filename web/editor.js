@@ -116,6 +116,11 @@ const CATALOG = {
     // ';'-separated; `colors` is an optional ';'-separated list of hex WITHOUT '#' (empty -> auto palette).
     // position = data anchor (left end of the first swatch); row_gap/swatch_len/gap in scene units (not data).
     Legend:        { labels:"f(x);g(x)", colors:"", styles:"", position:[-5,4,0], font_size:26, row_gap:0.35, swatch_len:0.4, gap:0.15, color:"#111111", stroke_width:6 },
+    // L5: coordinate grid in the axes' window (lines x = k·x_step, y = k·y_step) that a matrix deforms (animation
+    // ApplyMatrix on it). extend = window widths the lines reach beyond the window (a shear brings them in); clip = cut
+    // at the window; samples > 2 lets lines bend (ApplyFunction); axis_width > 0 = lines x = 0, y = 0 that wide. A second
+    // grid that no ApplyMatrix names stays where it is (ghost grid, e.g. stroke_opacity 0.35).
+    Grid:          { x_step:1, y_step:1, extend:1, samples:2, clip:true, axis_width:0, color:"#8fa6c8", stroke_width:2, stroke_opacity:1.0, dash:"" },
   },
   "Mathematik · Felder": {
     // 2D vector field (arrow grid). preset: radial/source/sink/vortex/uniform (sets fx,fy) or "custom"
@@ -131,6 +136,9 @@ const CATALOG = {
     Box:        { width:1.5, height:1.0, depth:1.0, center:[0,0,0], color:"#59a0eb", fill_opacity:0.5 },
     Cube:       { side:1.2, center:[0,0,0], color:"#59a0eb", fill_opacity:0.5 },
     Pyramid:    { base:1.5, height:2.0, center:[0,0,0], color:"#59a0eb", fill_opacity:0.5 },
+    // L4: a sphere as a disc that always faces the camera (atom, point in space): one path, round from every angle,
+    // light spot up left. center in data coordinates (like a Dot), radius in scene units.
+    Ball:       { center:[0,0,0], radius:0.25, color:"#59a0eb", stroke_width:1.5, highlight:true },
   },
   "Elektrotechnik · Signale": {   // presets: same FunctionGraph type, different standard signal (t = variable)
     "ε(t) step":      { _type:"FunctionGraph", func:"epsilon(t)", x_range:[-4,4], color:"#59a0eb", stroke_width:4 },
@@ -526,9 +534,22 @@ const ANIM_GROUPS = {
   "Bewegen":      ["Shift", "MoveTo", "Rotate", "Scale"],
   "Umformen":     ["Transform", "ReplacementTransform", "TransformMatchingTex"],
   "Betonen":      ["Indicate"],
+  "Abbilden":     ["ApplyMatrix", "ApplyFunction"],   // L5: the plane is mapped; this object and the chosen ones move
   "Parameter":    ["ChangeValue"],          // L3: only on a Parameter object (it has nothing else to animate)
 };
 const PARAM_ANIM_GROUP = "Parameter";
+const L5_TYPES = new Set(["ApplyMatrix", "ApplyFunction"]);
+// L4: the camera is no object; its animation MoveCamera (target null) is added in the scene's animation list.
+// Angles in degrees in the scene file (like Rotate), radians for the engine.
+function camArgs(a){
+  const rad=(v)=> typeof v==="string" ? "("+v+")*pi/180" : v*Math.PI/180;
+  const args={};
+  for(const k of ["theta","phi","turn"]) if(a[k]!=null && a[k]!=="") args[k]=rad(a[k]);
+  if(a.zoom!=null && a.zoom!=="") args.zoom=a.zoom;
+  if(Array.isArray(a.center)) args.center=a.center;
+  if(a.rate) args.rate=a.rate;
+  return args;
+}
 const MORPH_TYPES = new Set(["Transform", "ReplacementTransform", "TransformMatchingTex"]);   // need a second object `to`
 // Steps: same step = together, ascending = one after another. An animation may carry its own `step` (scenes written
 // with tools/szenen_lib.py); without it each animation follows the previous one (sequential) or all share step 0
@@ -550,6 +571,14 @@ function animArgs(a){
   if(a.type==="Indicate") for(const k of ["cell","row","col"]) if(a[k]!=null) args[k]=a[k];
   if(a.type==="FadeIn" && a.lines) args.lines=true;                // a formula row by row (szenen_lib formel(zeilenweise=True))
   if(a.type==="MoveAlongPath" && a.path) args.path=a.path;          // id of the curve to run along
+  if(a.type==="MoveCamera") return camArgs(a);                      // L4 (tools/export_szenen.py camera_args)
+  if(L5_TYPES.has(a.type)){                                        // L5 (tools/export_szenen.py l5_args)
+    const l5={ objects: Array.isArray(a.objects)?a.objects.slice():[] };
+    if(a.type==="ApplyMatrix"){ l5.matrix=a.matrix; if(a.path && a.path!=="straight") l5.path=a.path; }
+    else l5.func=a.func;
+    if(a.rate) l5.rate=a.rate;
+    return l5;
+  }
   return args;
 }
 const ANIM_TYPES = Object.values(ANIM_GROUPS).flat();     // flat list (used where grouping isn't needed)
@@ -619,7 +648,14 @@ function toPythonModel(){
            angle_unit: model.angleUnit, domain: model.domain, camera: model.camera,
            export: model.export,                     // article-figure export: crop mode, margin, scale, frame
            lang: model.lang, strings: model.strings, // labels via @key, number format of the language
-           gl: (gl3d.ok && !_glFailed) };          // WebGL available -> engine builds only the GPU surface mesh
+           // WebGL available -> engine builds only the GPU surface mesh. Not with a camera ride or a look-at point
+           // (L4): the GPU layer follows only the static camera, so the CPU paints the surfaces then.
+           gl: (gl3d.ok && !_glFailed && !hasCameraMove()) };
+}
+function hasCameraMove(){
+  const c=model.camera||{};
+  return (Array.isArray(c.center) && c.center.some(v=>Number(v)!==0)) ||
+         model.animations.some(a=>a.type==="MoveCamera" && a.visible!==false);
 }
 
 // ---------- 3D level-of-detail (LOD) ----------
@@ -1133,9 +1169,59 @@ function addAnimation(type){
   else if(MORPH_TYPES.has(type)) a.to="";        // pick the shape to morph into in the properties
   else if(type==="ChangeValue"){                  // L3: the parameter runs to the end of its slider range
     const p=selected().props||{}; a.value = (p.value===p.max) ? p.min : p.max; a.run_time=2.0; }
+  else if(type==="ApplyMatrix"){ a.matrix=[[1,1],[0,1]]; a.objects=[]; a.run_time=2.0; }        // L5: a shear to start with
+  else if(type==="ApplyFunction"){ a.func=["x*cos(y)","x*sin(y)"]; a.objects=[]; a.run_time=2.0; }   // polar coordinates
   model.animations.push(a);
   renderProps(); renderSceneAnims(); renderPreview();
 }
+// L4: a camera ride (MoveCamera, target null): from where the camera stands at that moment a quarter turn; the fields
+// (theta/phi in degrees, zoom, look-at point, turn) are edited in the scene's animation list.
+let openCamAnim = null;                            // id of the camera animation whose fields are shown
+function addCameraAnimation(){
+  const a = { id:"a"+(nextAnimId++), type:"MoveCamera", target:null, run_time:2.0, turn:90 };
+  model.animations.push(a); openCamAnim=a.id; camSnap=structuredClone(model.camera||{});
+  renderSceneAnims(); renderPreview();
+}
+const _deg=(r)=> Math.round(Number(r||0)*180/Math.PI*100)/100;
+function renderCameraFields(el, a){                // inline editor below the row of a MoveCamera
+  const box=document.createElement("div"); box.style="padding:4px 0 8px 18px";
+  const fld=(key,label,hint)=>{ const r=document.createElement("div"); r.className="prop";
+    const l=document.createElement("label"); l.textContent=label; if(hint) l.title=hint; r.appendChild(l);
+    const i=document.createElement("input"); i.type="text"; i.placeholder="—"; i.value=(a[key]!=null)?a[key]:""; i.style.minWidth="0";
+    i.onchange=()=>{ const s=i.value.trim(); if(s===""){ delete a[key]; } else { const n=parseFloat(s); a[key]=(_NUM_RE.test(s)?n:s); }
+      renderSceneAnims(); renderPreview(); };
+    commitOnEnter(i); r.appendChild(i); box.appendChild(r); };
+  const num=(key,label)=>{ const r=document.createElement("div"); r.className="prop"; const l=document.createElement("label"); l.textContent=label; r.appendChild(l);
+    r.appendChild(numberInput(a[key]!=null?a[key]:1, (x)=>{ a[key]=x; renderSceneAnims(); renderPreview(); })); box.appendChild(r); };
+  num("run_time","run_time s");
+  fld("theta","theta° (Ziel)","Drehung um die senkrechte Achse am Ende, in Grad; leer = bleibt");
+  fld("phi","phi° (Ziel)","Höhe über der Grundebene am Ende, in Grad; leer = bleibt");
+  fld("zoom","zoom (Ziel)","> 1 = näher; leer = bleibt");
+  fld("turn","drehen°","kommt zu theta hinzu (360 = einmal herum); leer = 0");
+  const cr=document.createElement("div"); cr.className="prop"; const cl=document.createElement("label"); cl.textContent="Blickpunkt"; cl.title="Weltpunkt in der Bildmitte am Ende; leer = bleibt"; cr.appendChild(cl);
+  const chk=document.createElement("input"); chk.type="checkbox"; chk.checked=Array.isArray(a.center);
+  chk.onchange=()=>{ if(chk.checked) a.center=[0,0,0]; else delete a.center; renderSceneAnims(); renderPreview(); };
+  cr.appendChild(chk);
+  if(Array.isArray(a.center)){ const vec=document.createElement("div"); vec.className="vec";
+    a.center.forEach((c,i)=> vec.appendChild(numberInput(c,(x)=>{ a.center[i]=x; renderPreview(); }))); cr.appendChild(vec); }
+  box.appendChild(cr);
+  const rr=document.createElement("div"); rr.className="prop"; const rl=document.createElement("label"); rl.textContent="rate"; rr.appendChild(rl);
+  const sel=document.createElement("select");
+  for(const [v,t] of [["smooth","smooth (ease in/out)"],["linear","linear (even spin)"]]){ const op=document.createElement("option"); op.value=v; op.textContent=t; sel.appendChild(op); }
+  sel.value=a.rate||"smooth"; sel.onchange=()=>{ if(sel.value==="smooth") delete a.rate; else a.rate=sel.value; renderPreview(); };
+  rr.appendChild(sel); box.appendChild(rr);
+  const take=document.createElement("span"); take.className="palette-item"; take.textContent="aktuelle Ansicht übernehmen";
+  take.title="Ansicht im Editor auf das Ziel drehen/zoomen, dann klicken: theta, phi und zoom werden das Ziel dieser Fahrt "+
+             "(drehen wird 0), und die Startansicht der Szene kommt zurück";
+  take.onclick=()=>{ const c=model.camera||{}; a.theta=_deg(c.theta); a.phi=_deg(c.phi); a.zoom=Math.round((c.zoom||1)*1000)/1000; delete a.turn;
+    if(camSnap){ model.camera.theta=camSnap.theta; model.camera.phi=camSnap.phi; model.camera.zoom=camSnap.zoom; }   // start view back
+    stopPlay(); renderSceneAnims(); renderPreview(); };
+  box.appendChild(take);
+  const h=document.createElement("div"); h.className="hint"; h.textContent="Ansicht ziehen/zoomen, dann übernehmen; die Startansicht bleibt.";
+  box.appendChild(h);
+  el.appendChild(box);
+}
+let camSnap = null;                                // the scene's start view when a camera ride was opened for editing
 function deleteAnimation(id){ model.animations = model.animations.filter(a=>a.id!==id); renderProps(); renderSceneAnims(); renderPreview(); }
 
 // Transport: Play PRE-RENDERS every animation frame to an offscreen cache first (a compute gear shows
@@ -1180,8 +1266,12 @@ async function prerender(){
   const nAt=(f)=> Math.floor(playDuration*f)+1;
   const fits=(f,w,h)=> nAt(f)*w*h*4 <= PRERENDER_BUDGET;
   let pick=null;
+  // A heavy frame (camera ride around a CPU-painted surface, L4: about 20-30 ms) is pre-rendered at 20 frames/s
+  // instead of 30, so the wait before playing stays short; light scenes keep 30.
+  let fmax=30;
+  try{ const q0=performance.now(); playFrame(Math.min(playDuration, 0.5*playDuration)); if(performance.now()-q0>20) fmax=20; }catch(e){}
   for(const s of [1,0.8,0.65,0.5]){ const w=Math.round(baseW*s), h=Math.round(baseH*s);
-    for(const f of [30,24,20,15]){ if(fits(f,w,h)){ pick={f,w,h}; break; } } if(pick) break; }
+    for(const f of [30,24,20,15]){ if(f<=fmax && fits(f,w,h)){ pick={f,w,h}; break; } } if(pick) break; }
   if(!pick) return false;                           // too large even downscaled -> live fallback
   const {f:fps,w:W,h:H}=pick, N=nAt(fps), cache=[];
   showPrerender(0);
@@ -1580,7 +1670,12 @@ function renderSceneAnims(){
   const el=$("scene-anims"); if(!el) return; el.innerHTML="";
   const anims=model.animations||[];
   setSecCount("anims", anims.length);
-  if(anims.length===0){ el.innerHTML='<div class="hint">Noch keine Animationen — Objekt wählen und in dessen Properties eine hinzufügen.</div>'; return; }
+  const cam=document.createElement("span"); cam.className="palette-item"; cam.id="add-camera-anim"; cam.textContent="+ Kamera bewegen";
+  cam.title="Kamerafahrt (MoveCamera): drehen, neigen, zoomen, Blickpunkt — gleichzeitig mit anderen Animationen über „Animations: parallel“ oder die Schritte";
+  cam.onclick=()=>addCameraAnimation();
+  const camRow=document.createElement("div"); camRow.style="margin-bottom:4px"; camRow.appendChild(cam); el.appendChild(camRow);
+  if(anims.length===0){ const h=document.createElement("div"); h.className="hint";
+    h.textContent="Noch keine Animationen — Objekt wählen und in dessen Properties eine hinzufügen."; el.appendChild(h); return; }
   if(model.playMode!=="parallel"){ const h=document.createElement("div"); h.className="hint"; h.style.marginBottom="4px";
     h.textContent="Reihenfolge = Abspielreihenfolge · ziehen zum Umsortieren"; el.appendChild(h); }
   anims.forEach((a,idx)=>{
@@ -1594,11 +1689,14 @@ function renderSceneAnims(){
     row.ondrop=(e)=>{ e.preventDefault(); row.classList.remove("drop-target"); const from=parseInt(e.dataTransfer.getData("text/plain"),10); if(!isNaN(from)&&from!==idx) reorderAnimation(from, idx); };
     const left=document.createElement("span"); left.className="label";
     const grip=document.createElement("span"); grip.textContent="⠿"; grip.style.cssText="cursor:grab;color:var(--muted);margin-right:6px"; left.appendChild(grip);
-    const nm=document.createElement("span"); nm.className="nm"; nm.textContent = a.type==="Wait" ? "Pause" : a.type + " · " + (o?displayName(o):"(deleted)");
+    const nm=document.createElement("span"); nm.className="nm";
+    nm.textContent = a.type==="Wait" ? "Pause" : a.type==="MoveCamera" ? "MoveCamera · Kamera" : a.type + " · " + (o?displayName(o):"(deleted)");
     if(a.visible===false) nm.style.opacity="0.45";
     left.appendChild(nm);
     if(a.run_time!=null){ const t=document.createElement("span"); t.className="hint"; t.style.marginLeft="6px"; t.textContent=a.run_time+"s"; left.appendChild(t); }
-    row.onclick=()=>{ if(o) selectObject(a.target); };
+    row.onclick=()=>{ if(a.type==="MoveCamera"){ openCamAnim = openCamAnim===a.id ? null : a.id;
+        if(openCamAnim) camSnap=structuredClone(model.camera||{}); renderSceneAnims(); return; }
+      if(o) selectObject(a.target); };
     const ops=document.createElement("div"); ops.className="ops";
     const eye=document.createElement("button"); eye.className="eye"; eye.innerHTML=eyeIcon(a.visible!==false);
     eye.title = a.visible!==false ? "Sichtbar (klicken zum Ausblenden)" : "Ausgeblendet (klicken zum Einblenden)";
@@ -1607,6 +1705,7 @@ function renderSceneAnims(){
     del.onclick=(e)=>{ e.stopPropagation(); deleteAnimation(a.id); };
     ops.appendChild(eye); ops.appendChild(del);
     row.appendChild(left); row.appendChild(ops); el.appendChild(row);
+    if(a.type==="MoveCamera" && openCamAnim===a.id) renderCameraFields(el, a);
   });
 }
 function reorderAnimation(from, to){
@@ -2227,6 +2326,46 @@ function removeResult(o, key){
   renderSceneObjs(); renderProps(); renderPreview();
 }
 
+// L5: the fields of ApplyMatrix / ApplyFunction. Matrix entries take numbers or expressions (cos(pi/6)); `objects` = the
+// other objects that the map moves along with this one (in the same data coordinates): grid, vectors, polygons, dots,
+// circles, curves, labels.
+const L5_MOVABLE = new Set(["Grid","Dot","LabeledArrow","Line","Text","DecimalNumber","TextBox","Mark","Polygon","Triangle",
+  "Rectangle","Square","Circle","Ellipse","Shape","FunctionGraph","ParametricCurve","PolarCurve","Area","Band","DataCurve",
+  "PointCloud","Brace"]);
+function renderL5Fields(wrap, a, o){
+  const row=(label, el)=>{ const r=document.createElement("div"); r.className="prop"; const l=document.createElement("label"); l.textContent=label; r.appendChild(l); r.appendChild(el); wrap.appendChild(r); };
+  if(a.type==="ApplyMatrix"){
+    if(!Array.isArray(a.matrix)) a.matrix=[[1,0],[0,1]];
+    for(let i=0;i<2;i++){ const vec=document.createElement("div"); vec.className="vec";
+      for(let j=0;j<2;j++) vec.appendChild(exprNumberInput(a.matrix[i][j], (x)=>{ a.matrix[i][j]=x; renderPreview(); }));
+      row(i===0?"matrix (a b)":"matrix (c d)", vec); }
+    const ps=document.createElement("select");
+    for(const [v,t] of [["straight","gerade (p → Ap)"],["rotate","Drehweg (det > 0)"]]){ const op=document.createElement("option"); op.value=v; op.textContent=t; ps.appendChild(op); }
+    ps.value=a.path||"straight"; ps.onchange=()=>{ if(ps.value==="straight") delete a.path; else a.path=ps.value; renderPreview(); };
+    row("path", ps);
+  } else {
+    if(!Array.isArray(a.func)) a.func=["x","y"];
+    for(let i=0;i<2;i++){ const inp=document.createElement("input"); inp.type="text"; inp.value=a.func[i]; inp.style.minWidth="0";
+      inp.title="Ausdruck in x und y"; inp.onchange=()=>{ a.func[i]=inp.value.trim()||(i?"y":"x"); renderPreview(); }; commitOnEnter(inp);
+      row(i?"fy(x, y)":"fx(x, y)", inp); }
+  }
+  const rs=document.createElement("select");
+  for(const [v,t] of [["smooth","smooth (ease in/out)"],["linear","linear (even speed)"]]){ const op=document.createElement("option"); op.value=v; op.textContent=t; rs.appendChild(op); }
+  rs.value=a.rate||"smooth"; rs.onchange=()=>{ if(rs.value==="smooth") delete a.rate; else a.rate=rs.value; renderPreview(); };
+  row("rate", rs);
+  if(!Array.isArray(a.objects)) a.objects=[];
+  const box=document.createElement("div"); box.style="display:flex;flex-direction:column;gap:2px";
+  for(const x of model.objects){
+    if(x.id===o.id || !L5_MOVABLE.has(x.type)) continue;
+    const lab=document.createElement("label"); lab.style="display:flex;gap:6px;align-items:center;cursor:pointer;font-size:12px";
+    const chk=document.createElement("input"); chk.type="checkbox"; chk.checked=a.objects.includes(x.id);
+    chk.onchange=()=>{ a.objects = chk.checked ? a.objects.concat([x.id]) : a.objects.filter(id=>id!==x.id); renderPreview(); };
+    lab.appendChild(chk); lab.appendChild(document.createTextNode(displayName(x)+" ("+x.id+")")); box.appendChild(lab);
+  }
+  if(!box.children.length){ const h=document.createElement("div"); h.className="hint"; h.textContent="keine weiteren Objekte"; box.appendChild(h); }
+  row("mitnehmen", box);
+}
+
 // The animations that target the selected object: list them (with timing + Shift vector),
 // let the user delete them, and offer a button per animation type to add one.
 function renderAnimations(container, o){
@@ -2288,11 +2427,14 @@ function renderAnimations(container, o){
         inp.value=(a[key]!=null)?a[key]:""; inp.onchange=()=>{ a[key]=inp.value===""?null:parseInt(inp.value,10); renderPreview(); };
         vr.appendChild(inp); wrap.appendChild(vr);
       }
+    } else if(L5_TYPES.has(a.type)){                 // L5: matrix (or point map), path, rate, the objects moved along
+      renderL5Fields(wrap, a, o);
     }
   }
   const adder=document.createElement("div"); adder.style="margin-top:6px";
   for(const [grp,types] of Object.entries(ANIM_GROUPS)){                // grouped by kind of motion
     if((grp===PARAM_ANIM_GROUP) !== (o.type==="Parameter")) continue;  // a Parameter is only moved, nothing else is
+    if(grp==="Abbilden" && !L5_MOVABLE.has(o.type)) continue;          // L5: only what a plane map can move
     const h=document.createElement("div"); h.className="hint"; h.style="margin:4px 0 2px"; h.textContent=grp; adder.appendChild(h);
     for(const t of types){ const b=document.createElement("span"); b.className="palette-item";
       b.textContent = t==="ChangeValue" ? "+ Verstellen (ChangeValue)" : "+ "+t; b.onclick=()=>addAnimation(t); adder.appendChild(b); }

@@ -16,7 +16,7 @@ lang: es
 Una matriz gira y estira a la vez la mayoría de los vectores. Pero hay direcciones que no gira: una flecha en esa dirección solo se alarga, se acorta o se invierte. Esta sección encuentra esas direcciones y los factores de estiramiento que les corresponden. Son los ejes naturales de una matriz.
 :::
 
-### Lo que necesitas: números complejos
+:::::vorwissen Lo que necesitas: números complejos
 
 <span class="anker" id="stufe-6-1"></span>
 
@@ -41,6 +41,8 @@ El producto escalar $(\mathbf{v}^*)^{\top}\mathbf{v}$ para $\mathbf{v}=(1,-\math
 ::::
 
 ⁠**En resumen:** Los números complejos $x+\mathrm jy$ con $\mathrm j^2=-1$ resuelven toda ecuación polinómica; conjugar cambia el signo de la parte imaginaria, y $zz^*=|z|^2$ es real.
+
+:::::
 
 ### Vectores propios y valores propios
 

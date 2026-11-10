@@ -15,7 +15,7 @@ lang: de
 Läuft ein Parameterintegral bis ins Unendliche oder wird der Integrand an einem Rand unbeschränkt, dann gelten die Ergebnisse des letzten Abschnitts nicht mehr ohne Weiteres. Dieser Abschnitt zeigt, wie es schiefgeht, welche Bedingung das verhindert, und wendet sie auf drei wichtige Integrale an: die Fourier-Transformation, die Gamma-Funktion und die Laplace-Transformation.
 :::
 
-### Was du dafür brauchst: Supremum und Maximum
+:::::vorwissen Was du dafür brauchst: Supremum und Maximum
 
 <span class="anker" id="stufe-2-1"></span>
 
@@ -29,7 +29,9 @@ Für $\mathrm{e}^{-t}$ auf $(0,\infty)$ ist $\sup=1$. Das ist kein Wert der Funk
 
 ⁠**Kurz gesagt:** Das Supremum ist die kleinste obere Schranke der Werte; wird es angenommen, ist es das Maximum.
 
-### Was du dafür brauchst: uneigentliche Integrale
+:::::
+
+:::::vorwissen Was du dafür brauchst: uneigentliche Integrale
 
 <span class="anker" id="stufe-2-2"></span>
 
@@ -53,7 +55,9 @@ Für eine Zahl $\kappa>0$ ist $\int_0^T\mathrm{e}^{-\kappa t}\,\mathrm{d} t=\fra
 
 ⁠**Kurz gesagt:** Ein uneigentliches Integral ist der Grenzwert der Integrale über endliche Stücke, die gegen das ganze Intervall wachsen.
 
-### Was du dafür brauchst: absolute Konvergenz und Vergleich
+:::::
+
+:::::vorwissen Was du dafür brauchst: absolute Konvergenz und Vergleich
 
 <span class="anker" id="stufe-2-3"></span>
 
@@ -77,7 +81,9 @@ Man zerlegt die Fläche in Bögen zwischen $k\pi$ und $(k+1)\pi$. Auf diesem St�
 
 ⁠**Kurz gesagt:** Liegt der Betrag des Integranden unter einer Vergleichsfunktion mit endlichem Integral, konvergiert das Integral absolut. Die $\mathrm{e}$-Funktion gewinnt gegen jede Potenz.
 
-### Was du dafür brauchst: die Substitutionsregel
+:::::
+
+:::::vorwissen Was du dafür brauchst: die Substitutionsregel
 
 <span class="anker" id="stufe-2-4"></span>
 
@@ -103,7 +109,9 @@ Die Abbildung $t\mapsto\sigma(t)$ bildet ein kurzes Stück der Länge $\Delta t$
 
 ⁠**Kurz gesagt:** Bei der Substitution $s=\sigma(t)$ wird $\mathrm{d} s=\sigma'(t)\,\mathrm{d} t$; der Faktor $\sigma'$ misst, wie stark $\sigma$ die Achse streckt.
 
-### Was du dafür brauchst: Integrale komplexer Funktionen
+:::::
+
+:::::vorwissen Was du dafür brauchst: Integrale komplexer Funktionen
 
 <span class="anker" id="stufe-2-5"></span>
 
@@ -122,6 +130,8 @@ $\int_0^\pi\mathrm{e}^{\mathrm it}\,\mathrm{d} t=\int_0^\pi\cos t\,\mathrm{d} t+
 ::::
 
 ⁠**Kurz gesagt:** Komplexe Integranden integriert man nach Real- und Imaginärteil getrennt.
+
+:::::
 
 ### Das uneigentliche Parameterintegral
 
