@@ -3764,25 +3764,33 @@
     "de": "ungleichnamige Ladungen",
     "en": "opposite charges",
     "es": "cargas opuestas",
-    "zh": "异号电荷"
+    "zh": "异号电荷",
+    "fr": "charges de signes opposés",
+    "tr": "zıt işaretli yükler"
    },
    "t3": {
     "de": "gleichnamige Ladungen",
     "en": "like charges",
     "es": "cargas iguales",
-    "zh": "同号电荷"
+    "zh": "同号电荷",
+    "fr": "charges de même signe",
+    "tr": "aynı işaretli yükler"
    },
    "t4": {
     "de": "Plattenpaar",
     "en": "pair of plates",
     "es": "par de placas",
-    "zh": "平行极板"
+    "zh": "平行极板",
+    "fr": "paire de plaques",
+    "tr": "levha çifti"
    },
    "t5": {
     "de": "Metallrohr zwischen Platten",
     "en": "metal tube between plates",
     "es": "tubo metálico entre placas",
-    "zh": "极板间的金属管"
+    "zh": "极板间的金属管",
+    "fr": "tube métallique entre les plaques",
+    "tr": "levhalar arasında metal boru"
    }
   }
  }

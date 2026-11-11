@@ -1743,6 +1743,7 @@ def collect():
         art = {"title": title, "kurz": meta.get("kurz", "").replace("`", ""), "slug": a_slug, "order": order, "path": path,
                "summary": meta.get("summary", ""), "tags": meta.get("tags", ""), "body": body, "bloecke": bloecke,
                "reihe": md_file.relative_to(SRC).parts[0],   # Ordner unter content/ (Informatik-Reihen: „Übersicht“)
+               "src": md_file.relative_to(ROOT).as_posix(),  # W3b: Quelldatei, ihr Datum ist lastmod/dateModified
                "crumbs": [(nd["name"], nd["slug"]) for nd in chain], "lang": lang, "key": key,
                "fassung": (meta.get("fassung") or "").strip().lower(),
                # Nachschlagebereich (ML-Grundlagen): unter dem Artikel steht „Verwendet in“ mit den Artikeln, die ihn verlinken
@@ -1882,6 +1883,7 @@ def assets_bauen():
     ui_b = {l: {k: UI[l][k] for k in BEREICHE_JS if k in UI[l]} for l in LANGS}   # W4b: Wörter für bereiche.js
     inhalt = {"wissen.css": WISSEN_CSS, "suche.js": SUCHE_JS, "formel-export.js": FORMEL_EXPORT_JS,
               "bereiche.js": BEREICHE_JS_CODE.replace("/*UI_BEREICHE*/{}", json.dumps(ui_b, ensure_ascii=False, separators=(",", ":")))}
+    assert f'"{MATHJAX}/tex-svg.js"' in FORMEL_EXPORT_JS, "MathJax-Pfad in FORMEL_EXPORT_JS"   # W3b: eine Fassung
     for n, s in inhalt.items():
         ASSET_V[n] = kurz(s)
     ui_js = {l: {k: UI[l][k] for k in LERNEN_JS if k in UI[l]} for l in LANGS}   # Oberflächenwörter für wissen.js
@@ -1895,24 +1897,189 @@ def assets_bauen():
     return inhalt
 
 
-def page_shell(title, desc, body, depth, alternates=None, js=()):
+# ------------------------------------------------------------- Auffindbarkeit (W3b) ----
+# KaTeX und MathJax liegen mit Version im Pfad unter /wissen/assets/ (kein fremder Server; _headers: lange im Cache).
+# Neue Fassung = neuer Ordner, dann hier und in web/editor.html umstellen.
+KATEX = "/wissen/assets/katex-0.16.11"
+MATHJAX = "/wissen/assets/mathjax-3.2.2"
+OG_LOCALE = {"de": "de_DE", "en": "en_US", "es": "es_ES", "zh": "zh_CN", "fr": "fr_FR", "tr": "tr_TR"}
+# Vorschaubilder für soziale Medien (og:image, 1200×630): tools/vorschaubilder.py schreibt je Kapitel und Sprache
+# web/vorschau/<l>/<Kapiteladresse ohne Sprachkürzel>.png und je Sprache das Standardbild web/vorschau/<l>.png.
+# Der Build verweist auf das Kapitelbild, wenn es existiert, sonst auf das Standardbild.
+VORSCHAU_DIR = ROOT / "web" / "vorschau"
+VORSCHAU_URL = "/vorschau"
+STUFE = {"de": "Einsteiger", "en": "Beginner", "es": "Principiante", "zh": "入门", "fr": "Débutant", "tr": "Başlangıç"}
+_SEMESTER_RE = re.compile(r"semest|学期|dönem", re.I)
+TEACHES_MAX = 10                                       # höchstens so viele Begriffe in „teaches“
+# lastmod (Sitemap) und dateModified (JSON-LD): Datum der letzten Änderung der Quelldatei einer Seite. Es kommt aus EINEM
+# `git log` über content/ und die handgepflegten Seiten (Datum des letzten Commits, der die Datei berührt hat). So bleibt
+# es von Build zu Build gleich und ändert sich nur, wenn sich der Inhalt ändert (nicht bei jedem Build, nicht durch
+# Änderungen am Generator oder an Abbildungs-Exporten, die viele Dateien auf einmal neu schreiben). Ist eine Datei geändert,
+# aber noch nicht eingecheckt (oder neu), zählt ihr Dateidatum: Nach dem Commit gilt das Commit-Datum, das dann meist
+# derselbe Tag ist. Ohne git (z. B. Export ohne .git) gilt überall das Dateidatum.
+DATUM = {}                                             # Quelldatei (relativ zu ROOT, mit /) -> "JJJJ-MM-TT" (git)
+SITEMAP = {}                                           # URL ohne Domain -> (lastmod, {Sprache: URL}) aller indexierbaren Seiten
+GIT_QUELLEN = ("content", "web/index.html", "web/editor.html", "web/editor.js")
+
+def daten_laden():
+    """DATUM aus einem einzigen `git log` (neueste Commits zuerst: der erste Treffer je Datei zählt); Dateien, die laut
+    `git status` geändert oder neu sind, bleiben draußen (dann gilt ihr Dateidatum)."""
+    import subprocess
+    def git(*args):
+        return subprocess.run(["git", "-c", "core.quotepath=off", *args], cwd=ROOT, capture_output=True, text=True,
+                              encoding="utf-8", check=True).stdout
+    try:
+        log = git("log", "--format=@%cs", "--name-only", "--no-renames", "--", *GIT_QUELLEN)
+        offen = git("status", "--porcelain", "--untracked-files=all", "--", *GIT_QUELLEN)
+    except (OSError, subprocess.CalledProcessError):
+        print("  lastmod: kein git, Dateidatum")
+        return
+    tag = None
+    for z in log.splitlines():
+        if z.startswith("@"):
+            tag = z[1:]
+        elif z and z not in DATUM:
+            DATUM[z] = tag
+    for z in offen.splitlines():
+        p = z[3:].split(" -> ")[-1].strip().strip('"')
+        DATUM.pop(p, None)
+
+def datum(*quellen):
+    """Jüngstes Datum der Quelldateien (relativ zu ROOT): aus git, sonst das Dateidatum; None ohne Datei."""
+    tage = []
+    for q in quellen:
+        if q in DATUM:
+            tage.append(DATUM[q])
+            continue
+        try:
+            tage.append(datetime.date.fromtimestamp((ROOT / q).stat().st_mtime).isoformat())
+        except OSError:
+            pass
+    return max(tage) if tage else None
+
+def datum_arts(arts):
+    """lastmod einer Seite aus mehreren Artikeln (Modulseiten, Übersichten): die jüngste Quelle."""
+    return max((d for d in (datum(a["src"]) for a in arts) if d), default=None)
+
+_VORSCHAU_DA = {}
+def vorschau_rel(lang, kapitel):
+    """Pfad des Vorschaubilds eines Kapitels unter web/vorschau/ (kapitel = Adresse des Kapitelordners in dieser Sprache)."""
+    if lang != "de" and kapitel.startswith(lang + "/"):
+        kapitel = kapitel[len(lang) + 1:]
+    return f"{lang}/{kapitel}.png"
+
+def vorschau_bild(lang, art=None):
+    """URL des og:image: das Bild des Kapitels, wenn tools/vorschaubilder.py es erzeugt hat, sonst das Standardbild."""
+    if art is not None:
+        rel = vorschau_rel(lang, kapitel_ordner(art["path"]))
+        if rel not in _VORSCHAU_DA:
+            _VORSCHAU_DA[rel] = (VORSCHAU_DIR / rel).is_file()
+        if _VORSCHAU_DA[rel]:
+            return f"{VORSCHAU_URL}/{rel}"
+    return f"{VORSCHAU_URL}/{lang}.png"
+
+def og_locale_html(lang, sprachen_da):
+    """og:locale der Seite und og:locale:alternate der übrigen Sprachen, in denen es sie gibt."""
+    return (f'<meta property="og:locale" content="{OG_LOCALE[lang]}"/>'
+            + "".join(f'<meta property="og:locale:alternate" content="{OG_LOCALE[l]}"/>' for l in LANGS
+                      if l != lang and l in sprachen_da))
+
+HERAUSGEBER = {"@type": "Organization", "name": "EtUndSo", "url": SITE + "/"}   # keine Personen, keine Anschrift
+
+def ld_json(d):
+    """JSON-LD als <script>; „</“ maskiert, damit ein Titel den Block nicht beenden kann."""
+    return ('<script type="application/ld+json">' + json.dumps(d, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
+            + "</script>")
+
+def ld_artikel(art, desc, url, bild, lastmod, zdaten):
+    """LearningResource eines Artikels: Sprache, Modul (isPartOf), Stufe, Begriffe des Artikels (teaches), Änderungsdatum."""
+    crumbs = [nm for nm, _ in art["crumbs"]]
+    stufe = next((klartext(c) for c in crumbs[1:-2] if _SEMESTER_RE.search(c)), STUFE[art["lang"]])
+    begriffe = []
+    for b in (zdaten or {}).get("fb", []):
+        w = klartext(b["md"]).strip()
+        if w and w.lower() not in (x.lower() for x in begriffe):
+            begriffe.append(w)
+        if len(begriffe) >= TEACHES_MAX:
+            break
+    d = {"@context": "https://schema.org", "@type": "LearningResource", "name": klartext(art["title"]),
+         "headline": klartext(art["title"]), "description": desc, "url": SITE + url, "inLanguage": art["lang"],
+         "learningResourceType": "Article", "educationalLevel": stufe}
+    if len(crumbs) >= 2:
+        d["isPartOf"] = {"@type": "CreativeWork", "name": klartext(crumbs[-2]), "inLanguage": art["lang"]}
+    if begriffe:
+        d["teaches"] = begriffe
+    if lastmod:
+        d["dateModified"] = lastmod
+    d.update({"image": SITE + bild, "author": HERAUSGEBER, "publisher": HERAUSGEBER})
+    return d
+
+def sitemap_merken(url, lastmod, alternates):
+    alt = dict(alternates or {})
+    alt.setdefault(LANG_NOW[0], url)
+    SITEMAP[url] = (lastmod, alt)
+
+def sitemap_schreiben():
+    """web/sitemap.xml: alle indexierbaren Seiten (Artikel, Modul- und Bereichsseiten, Übersichten, Startseiten, Editor)
+    mit lastmod und den Sprachfassungen (xhtml:link hreflang, x-default = Deutsch). Weiterleitungen fehlen."""
+    zeilen = ['<?xml version="1.0" encoding="UTF-8"?>',
+              '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">']
+    for url in sorted(SITEMAP):
+        lastmod, alt = SITEMAP[url]
+        zeilen.append(f"<url><loc>{html.escape(SITE + url)}</loc>" + (f"<lastmod>{lastmod}</lastmod>" if lastmod else ""))
+        if len(alt) > 1:
+            for l in LANGS:
+                if l in alt:
+                    zeilen.append(f'<xhtml:link rel="alternate" hreflang="{l}" href="{html.escape(SITE + alt[l])}"/>')
+            if "de" in alt:
+                zeilen.append(f'<xhtml:link rel="alternate" hreflang="x-default" href="{html.escape(SITE + alt["de"])}"/>')
+        zeilen.append("</url>")
+    zeilen.append("</urlset>")
+    text = "\n".join(zeilen) + "\n"
+    ziel = ROOT / "web" / "sitemap.xml"
+    if not ziel.exists() or ziel.read_text(encoding="utf-8") != text:
+        ziel.write_text(text, encoding="utf-8")
+    return len(SITEMAP)
+
+def page_shell(title, desc, body, depth, alternates=None, js=(), url=None, lastmod=None, bild=None, ld=None,
+               og_type="website"):
+    """Seitenrahmen. url = Adresse der Seite ohne Abfrage (canonical, og:url; ohne Angabe die eigene Sprache aus
+    alternates); ?ansicht=, ?kapitel=, ?m= … sind dieselbe Seite. Jede Seite mit Adresse kommt in die Sitemap."""
     up = "../" * depth
+    lang = LANG_NOW[0]
+    alternates = dict(alternates or {})
+    url = url or alternates.get(lang)
     mehr_js = "".join(f'\n<script src="{s}"></script>' for s in js)   # W4b: bereiche.js auf den Seiten der Bereiche
-    links = "".join(f'<link rel="alternate" hreflang="{l}" href="{SITE}{u}"/>' for l, u in (alternates or {}).items())
+    links = "".join(f'<link rel="alternate" hreflang="{l}" href="{SITE}{u}"/>' for l, u in alternates.items())
+    if "de" in alternates and len(alternates) > 1:
+        links += f'<link rel="alternate" hreflang="x-default" href="{SITE}{alternates["de"]}"/>'
+    titel, beschr = html.escape(klartext(title)), html.escape(klartext(desc))
+    kopf = ""
+    if url:
+        bild = bild or vorschau_bild(lang)
+        kopf = (f'\n<link rel="canonical" href="{SITE}{html.escape(url)}"/>'
+                f'\n<meta property="og:site_name" content="EtUndSo"/><meta property="og:type" content="{og_type}"/>'
+                f'<meta property="og:title" content="{titel}"/><meta property="og:description" content="{beschr}"/>'
+                f'<meta property="og:url" content="{SITE}{html.escape(url)}"/>' + og_locale_html(lang, alternates)
+                + f'\n<meta property="og:image" content="{SITE}{html.escape(bild)}"/>'
+                '<meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/>'
+                '<meta name="twitter:card" content="summary_large_image"/>'
+                + ("\n" + ld_json(ld) if ld else ""))
+        sitemap_merken(url, lastmod, alternates)
     return f"""<!doctype html>
-<html lang="{LANG_NOW[0]}"><head>
+<html lang="{lang}"><head>
 <meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>{html.escape(klartext(title))} — EtUndSo</title>
+<title>{titel} — EtUndSo</title>
 <link rel="icon" href="/favicon.ico" sizes="32x32"/><link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
-<meta name="description" content="{html.escape(klartext(desc))}"/>{links}
+<meta name="description" content="{beschr}"/>{links}{kopf}
 <script>try{{var t=localStorage.getItem("animate-theme");if(t==="dark"||(!t&&matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.setAttribute("data-theme","dark");}}catch(e){{}}
 try{{var a=new URLSearchParams(location.search).get("ansicht");if(a==="uebersicht")a="formeln";if(!/^(voll|formeln)$/.test(a||""))a=localStorage.getItem("etundso-ansicht");if(a==="formeln")document.documentElement.setAttribute("data-ansicht",a);}}catch(e){{}}</script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css"/>
+<link rel="stylesheet" href="{KATEX}/katex.min.css"/>
 <link rel="stylesheet" href="{asset("wissen.css")}"/>
 </head><body data-root="{home()}">
 {body}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/contrib/auto-render.min.js"></script>
+<script src="{KATEX}/katex.min.js"></script>
+<script src="{KATEX}/contrib/auto-render.min.js"></script>
 <script src="{asset("wissen.js")}"></script>{mehr_js}
 </body></html>"""
 
@@ -2328,7 +2495,10 @@ def render_article(art, tree, prev_a, next_a):
             + '<div class="layout">'
             + sidebar_html(tree, nav_path, art) + main + "</div>")
     depth = 1 + art["path"].count("/")               # web/wissen/<…chain…>/<a>.html
-    return page_shell(art["title"], beschreibung(art), body, depth, sprachen(art))
+    url, desc, lastmod = "/wissen/" + art["path"], beschreibung(art), datum(art["src"])
+    bild = vorschau_bild(art["lang"], art)
+    return page_shell(art["title"], desc, body, depth, sprachen(art), url=url, lastmod=lastmod, bild=bild,
+                      ld=ld_artikel(art, klartext(desc), url, bild, lastmod, zdaten), og_type="article")
 
 def beschreibung(art):
     """meta description: Anfang von „Worum es geht“ (:::zweck) als Klartext, mit echten Formeln statt der im Kopf schon
@@ -2506,7 +2676,7 @@ def _modul_kopf(arts, wort, datei, lang):
     crumb = (f'<nav class="crumbs"><a class="cr-home" href="{home()}">{T("wissen")}</a>'
              + "".join(_cr(k, nm) for k, (nm, _) in enumerate(chain))
              + f'<span class="cr"><span class="cr-sep" aria-hidden="true"> › </span>{html.escape(T(wort))}</span></nav>')
-    pseudo = {"ziele": ziele}
+    pseudo = {"ziele": ziele, "lastmod": datum_arts(arts)}
     voll = f'<span class="lern-modul">{html.escape(name)}</span>' if name != kurz else ""   # „ET3 – Grundgebiete …“
     kopf = (crumb + f'<h1>{html.escape(T(wort))}: {html.escape(kurz)}</h1>'
             + f'<div class="art-meta lern-meta">{voll}{lang_switch(pseudo, "art")}</div>')
@@ -2516,7 +2686,7 @@ def _modul_seite(tree, titel, desc, kopf, inhalt, pseudo, mp, depth_datei, cls="
     main = (f'<main class="article lern-seite{" " + cls if cls else ""}" id="inhalt" tabindex="-1"><article>{kopf}{inhalt}'
             f'{legal_footer()}</article></main>')
     body = topbar(art=pseudo, leiste=True) + '<div class="layout">' + sidebar_html(tree, None) + main + "</div>"
-    return page_shell(titel, desc, body, depth_datei, pseudo["ziele"])
+    return page_shell(titel, desc, body, depth_datei, pseudo["ziele"], lastmod=pseudo.get("lastmod"))
 
 def begriffe_html(tree, mp, arts, begriffe, lang):
     """Seite „Begriffe“ eines Moduls: Buchstabenleiste, Filter (mit Skript), je Begriff Bestimmung und Link zur Stelle."""
@@ -2878,14 +3048,15 @@ def lernen_daten(mp, arts, karten):
             "kap": kap, "karten": kj}
 
 def umleitung_html(mp, arts, lang):
-    """Frühere Lernkarten-Seite eines Moduls (W2): leitet auf den Bereich weiter, #k-<Kapitel> auf ?k=<Nummer>."""
+    """Frühere Lernkarten-Seite eines Moduls (W2): leitet auf den Bereich weiter, #k-<Kapitel> auf ?k=<Nummer>.
+    noindex, nicht in der Sitemap; canonical = Ziel ohne Abfrage (wie die Seite des Bereichs selbst)."""
     ziel = lernen_url(mp, lang=lang)
     karte = {k.rsplit("/", 1)[-1]: nr for k, _, nr, _ in _kapitel_folge(arts)}
     z = html.escape(ziel)
     return (f'<!doctype html>\n<html lang="{lang}"><head><meta charset="utf-8"/>'
             f'<meta name="viewport" content="width=device-width, initial-scale=1"/>\n'
             f'<title>{html.escape(T("lernkarten"))}: {html.escape(klartext(_modul_name(arts)))} — EtUndSo</title>'
-            f'<meta name="robots" content="noindex"/><link rel="canonical" href="{SITE}{z}"/>\n'
+            f'<meta name="robots" content="noindex"/><link rel="canonical" href="{SITE}{html.escape(bereich_url("lernen", lang))}"/>\n'
             f'<script>(function(){{var k={json.dumps(karte, ensure_ascii=False)},m=location.hash.match(/^#k-(.+)$/),'
             f'z={json.dumps(ziel)};if(m&&k[m[1]])z+="&k="+k[m[1]];location.replace(z);}})();</script>\n'
             f'<meta http-equiv="refresh" content="0; url={z}"/></head>\n'
@@ -2918,13 +3089,14 @@ def _bereich_ziele(datei):
     """{Sprache: Adresse} einer Seite der Bereiche, die es in jeder Sprache gibt (/lernen/, /aufgaben/)."""
     return {l: bereich_url(datei, l) for l in TREES}
 
-def bereich_seite(titel, desc, inhalt, bereich, ziele, cls=""):
-    """Seite eines Bereichs (Lernkarten, Aufgaben): Kopfleiste mit dem Bereich, ohne Themenbaum, schmale Spalte."""
+def bereich_seite(titel, desc, inhalt, bereich, ziele, cls="", lastmod=None):
+    """Seite eines Bereichs (Lernkarten, Aufgaben): Kopfleiste mit dem Bereich, ohne Themenbaum, schmale Spalte.
+    lastmod ohne Angabe: jüngster Artikel der Sprache (Einstiegsseiten der Bereiche)."""
     pseudo = {"ziele": ziele}
     body = (topbar(art=pseudo, bereich=bereich)
             + f'<main class="article bereich-seite{" " + cls if cls else ""}" id="inhalt" tabindex="-1"><article>{inhalt}'
             + f'{legal_footer()}</article></main>')
-    return page_shell(titel, desc, body, 0, ziele, js=(asset("bereiche.js"),))
+    return page_shell(titel, desc, body, 0, ziele, js=(asset("bereiche.js"),), lastmod=lastmod or LANG_LASTMOD.get(LANG_NOW[0]))
 
 def _bereich_kopf(wort_bereich, titel_html, ziele, extra=""):
     """Brotkrumen (Bereich), Titel und schmale Sprachwahl der Bereichsseiten."""
@@ -3035,7 +3207,7 @@ def aufgaben_modul_html(mp, arts, lang):
                   f'<button type="button" class="lern-reset ag-reset" hidden>{T("ag_reset")}</button>')
     else:
         inhalt = kopf + f'<p class="lede lern-lede">{T("ag_keine")}</p>'
-    return bereich_seite(titel, f'{titel}. {T("ag_modul_lede")}', inhalt, "aufgaben", ziele, "ag-seite")
+    return bereich_seite(titel, f'{titel}. {T("ag_modul_lede")}', inhalt, "aufgaben", ziele, "ag-seite", datum_arts(arts))
 
 def _kapitel_folge(arts):
     """[(Kapitelordner, Name, Nummer, [Artikel])] eines Moduls in Lesefolge."""
@@ -3288,7 +3460,7 @@ def render_index(tree):
     teile.append(_nur_deutsch(tree))
     teile.append(legal_footer() + "</article></main>")
     body = topbar(leiste=True) + '<div class="layout">' + sidebar_html(tree, None) + "".join(teile) + "</div>"
-    return page_shell(T("wissen"), T("lede"), body, 1, sprachen(None))
+    return page_shell(T("wissen"), T("lede"), body, 1, sprachen(None), lastmod=LANG_LASTMOD.get(LANG_NOW[0]))
 
 # --------------------------------------------------------------------- main ----
 TREES = {}                                             # {Sprache: Baum}, von main gesetzt
@@ -3301,11 +3473,14 @@ def schreibe(path, text):
     path.write_text(text, encoding="utf-8")
     GESCHRIEBEN.add(path.resolve())
 
+LANG_LASTMOD = {}                                      # W3b: Sprache -> jüngster Artikel (Übersicht, Bereichs-Einstiege)
+
 def build_lang(lang, tree):
     LANG_NOW[0] = lang
     RUECK.clear()
     RUECK.update(rueckverweise(tree))
     flat = flatten(tree)
+    LANG_LASTMOD[lang] = datum_arts(flat)
     zaehler = {}                                       # Kapitelnummer im Modul (?kapitel=N der Modulseiten), in Lesefolge
     for art in flat:
         kap = kapitel_ordner(art["path"])
@@ -3435,6 +3610,7 @@ def suchindex_schreiben(lang, arts):
         alt.unlink()
 
 def main():
+    daten_laden()                                      # W3b: lastmod aus git
     TREES.update(collect())
     OUT.mkdir(parents=True, exist_ok=True)
     (OUT / "data").mkdir(exist_ok=True)
@@ -3479,6 +3655,11 @@ def main():
               + ", ".join(f"{m} {v}" for m, v in st["aufg"].items()) + (f"; {alt_bereich} alte Dateien entfernt" if alt_bereich and lang == "de" else ""))
     n_start = startseiten_schreiben()
     print(f"  Startseiten: {n_start} Übersetzungen von web/index.html")
+    sitemap_merken("/editor.html", datum("web/editor.html", "web/editor.js"), {})   # W3b: der Editor (eine Seite)
+    n_map = sitemap_schreiben()
+    n_bild = sum(1 for v in _VORSCHAU_DA.values() if v)
+    print(f"  Sitemap: {n_map} Seiten; Vorschaubilder: {n_bild} von {len(_VORSCHAU_DA)} Kapiteln"
+          + (" (fehlende: python tools/vorschaubilder.py)" if n_bild < len(_VORSCHAU_DA) else ""))
     day = write_version()
     for lang, st in KARTEN_STAT.items():               # Lernkarten je Sprache: gute und aussortierte (Gründe siehe modul_karten)
         gut = sum(s["gut"] for s in st.values())
@@ -3837,8 +4018,28 @@ def startseite_html(vorlage, l):
         d = json.loads(js.group(2))
         d.update(texte.get("js", {}))
         t = t[:js.start(2)] + json.dumps(d, ensure_ascii=False) + t[js.end(2):]
+    t = _startseite_kopf(t, l, texte)
     LANG_NOW[0] = "de"
     return t, fehlt
+
+def _startseite_kopf(t, l, texte):
+    """W3b: Kopfangaben der Vorlage für die Sprache l: canonical und og:url auf /<l>/, og:locale (+ alternate), og:image
+    der Sprache, im JSON-LD (WebSite) url, inLanguage und description."""
+    basis = f"{SITE}/{l}/"
+    for muster, wert in ((r'(<link rel="canonical" href=")[^"]*(")', basis),
+                         (r'(<meta property="og:url" content=")[^"]*(")', basis),
+                         (r'(<meta property="og:image" content=")[^"]*(")', SITE + vorschau_bild(l))):
+        t, n = re.subn(muster, lambda m: m.group(1) + html.escape(wert) + m.group(2), t, count=1)
+        if not n:
+            print(f"  Startseite {l}: {muster} fehlt in web/index.html")
+    t = re.sub(r'<meta property="og:locale" content="[^"]*"/>(?:<meta property="og:locale:alternate" content="[^"]*"/>)*',
+               lambda m: og_locale_html(l, LANGS), t, count=1)
+    ld = re.search(r'(<script type="application/ld\+json" id="ld-website">)(.*?)(</script>)', t, re.S)
+    if ld:
+        d = json.loads(ld.group(2))
+        d.update({"url": basis, "inLanguage": l, "description": texte.get("beschreibung", d.get("description", ""))})
+        t = t[:ld.start(2)] + json.dumps(d, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/") + t[ld.end(2):]
+    return t
 
 def startseiten_schreiben():
     """web/<l>/index.html für alle Sprachen außer Deutsch; schreibt nur bei geänderter Seite (Datum „Letztes Update“)."""
@@ -3851,6 +4052,11 @@ def startseiten_schreiben():
         pfad.write_text(neu, encoding="utf-8")
         vorlage = neu
     n = 0
+    ziele = {x: "/" if x == "de" else f"/{x}/" for x in LANGS if x == "de" or x in STARTSEITE_TEXTE}
+    for x, u in ziele.items():                         # W3b: Startseiten in der Sitemap
+        LANG_NOW[0] = x
+        sitemap_merken(u, datum("web/index.html"), ziele)
+    LANG_NOW[0] = "de"
     for l in LANGS:
         if l == "de" or l not in STARTSEITE_TEXTE:
             continue
@@ -3903,13 +4109,13 @@ kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px s
 .topbar .panelBtn.is-open{color:var(--bar-hl);border-color:var(--bar-hl);}   /* Panel offen = orange, zu = Grundfarbe */
 .topbar .panelCenter{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;align-items:center;gap:8px;}  /* Einklapp-Knopf und Ansicht mittig in der Leiste */
 /* Titel des vorherigen/nächsten Artikels neben den Pfeilen; beide Seiten gleich breit, damit die Knöpfe mittig bleiben. Nur wo
-   neben den Bereichen links und Sprache/Suche rechts Platz ist (ab 1480 px; 1100–1239 px, wenn die Bereiche ein Menü sind). */
+   neben den Bereichen links und Sprache/Suche rechts Platz ist (ab 1100 px; bis 1599 px sind die Bereiche dafür ein Menü). */
 .topbar .navTitel{display:none;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font-size:13.5px;font-weight:500;
   color:#ffffff;height:36px;line-height:36px;}   /* weiß; Zeilenhöhe = Höhe der Pfeil-Kreise -> Text genau auf deren Mitte */
 .topbar .navTitel.vor{text-align:right;} .topbar .navTitel.nach{text-align:left;}
 .topbar a.navTitel:hover{color:var(--bar-hl);text-decoration:none;}
-@media(min-width:1480px){ .topbar .navTitel{display:block;width:min(260px,calc(50vw - 620px));} }
-@media(min-width:1100px) and (max-width:1239px){ .topbar .navTitel{display:block;width:calc(50vw - 440px);} }
+@media(min-width:1600px){ .topbar .navTitel{display:block;width:min(260px,calc(50vw - 620px));} }
+@media(min-width:1100px) and (max-width:1599px){ .topbar .navTitel{display:block;width:min(260px,calc(50vw - 440px));} }
 @media(max-width:520px){ .topbar .navBtn{display:none;} }   /* Handy: Pfeile nur am Artikelende, die Leiste ist sonst zu voll */
 /* Ansicht Ausführlich | Kurz | Formeln (W4a, an der Stelle der früheren Pfeile): breit Segmentschalter, schmal Auswahl */
 .topbar .ansicht{display:inline-flex;align-items:stretch;height:36px;padding:2px;border:1px solid var(--bar-rand);border-radius:999px;background:var(--bar-soft);}
@@ -4731,7 +4937,7 @@ details.mk-kap details.mk-kap{margin-left:1em;}
 .topbar .langs-top{margin-left:auto;}
 .topbar .langs-top~.searchBtn{margin-left:0;}
 @media(max-width:900px){ .topbar .langs-top~.searchBtn{margin-left:auto;} }
-@media(max-width:1239px){ .topbar.mit-mitte .b-liste{display:none;} .topbar.mit-mitte .b-menu{display:block;} }   /* Artikel: Mitte belegt */
+@media(max-width:1599px){ .topbar.mit-mitte .b-liste{display:none;} .topbar.mit-mitte .b-menu{display:block;} }   /* Artikel: Mitte belegt (bis 1599 px, damit die Titel neben den Pfeilen Platz haben) */
 @media(max-width:719px){ .topbar .b-liste{display:none;} .topbar .b-menu{display:block;} }
 @media(max-width:560px){ .topbar .b-cur,.topbar .b-toggle .l-pfeil{display:none;} .topbar .b-icon{display:block;}
   .topbar .b-toggle{width:36px;padding:0;justify-content:center;} }
@@ -5851,7 +6057,7 @@ window.ETSuche=(function(){
 # Keine vorab gespeicherten Dateien: jede Datei entsteht erst im Browser des Lesers.
 FORMEL_EXPORT_JS = r"""/* EtUndSo Formel-Export: ETFormelExport(quelle, format, {kapitel, lang}) -> Promise (lädt die Datei herunter). */
 (function(){
-  var MJ="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js";   // dieselbe Fassung wie der Editor
+  var MJ="/wissen/assets/mathjax-3.2.2/tex-svg.js";   // dieselbe Fassung wie der Editor, vom eigenen Server (W3b)
   var W=794, H_SEITE=1123, RAND=48, INNEN=W-2*RAND;                   // A4 bei 96 dpi (Pixel = CSS-Pixel)
   var SCHRIFT="Arial, Helvetica, sans-serif", EXF=0.45;              // Mathe: 1 ex = 0,45 der Schriftgröße
   var FARBE={text:"#16191a", leise:"#5b6360", gruen:"#15633a", gruen2:"#1b7f4a", orange:"#c2410c", linie:"#d5dad7"};

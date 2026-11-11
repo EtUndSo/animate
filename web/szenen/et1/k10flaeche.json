@@ -2716,19 +2716,25 @@
     "de": "U_{BE} in V",
     "en": "U_{BE} in V",
     "es": "U_{BE} en V",
-    "zh": "U_{BE} / V"
+    "zh": "U_{BE} / V",
+    "fr": "U_{BE} en V",
+    "tr": "U_{BE} / V"
    },
    "uce_v": {
     "de": "U_{CE} in V",
     "en": "U_{CE} in V",
     "es": "U_{CE} en V",
-    "zh": "U_{CE} / V"
+    "zh": "U_{CE} / V",
+    "fr": "U_{CE} en V",
+    "tr": "U_{CE} / V"
    },
    "ic_ma": {
     "de": "I_C in mA",
     "en": "I_C in mA",
     "es": "I_C en mA",
-    "zh": "I_C / mA"
+    "zh": "I_C / mA",
+    "fr": "I_C en mA",
+    "tr": "I_C / mA"
    }
   }
  }

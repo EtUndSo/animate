@@ -1,0 +1,8 @@
+# EtUndSo: alle Seiten dürfen gelesen werden. Die Sitemap baut build_wissen.py (Artikel, Modul- und
+# Bereichsseiten, Startseiten, Editor; mit lastmod und Sprachfassungen).
+User-agent: *
+Allow: /
+Disallow: /tests/
+Disallow: /tests_final/
+
+Sitemap: https://etundso.de/sitemap.xml

@@ -5,17 +5,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>animate — Editor</title>
 <link rel="icon" href="/favicon.ico" sizes="32x32"/><link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
+<!-- W3b: canonical without query (?scene=…&lang=… is the same page), preview when shared (image: tools/vorschaubilder.py) -->
+<meta name="description" content="EtUndSo Editor: build animated figures, graphs, circuits and formulas in the browser, step by step, and export them as SVG, PNG or video."/>
+<link rel="canonical" href="https://etundso.de/editor.html"/>
+<meta property="og:site_name" content="EtUndSo"/><meta property="og:type" content="website"/>
+<meta property="og:title" content="EtUndSo — Editor"/>
+<meta property="og:description" content="Build animated figures, graphs, circuits and formulas in the browser, step by step, and export them as SVG, PNG or video."/>
+<meta property="og:url" content="https://etundso.de/editor.html"/><meta property="og:locale" content="en_US"/>
+<meta property="og:image" content="https://etundso.de/vorschau/en.png"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/>
+<meta name="twitter:card" content="summary_large_image"/>
 <!-- Start-up order (2026-11-09): Python (Pyodide + NumPy, ~10 MB) is the long pole, so the loader at the end of
      <body> starts it at once; nothing in <head> blocks the first paint (the loading overlay shows immediately).
-     KaTeX (only the Σ fallback overlay) and MathJax load async; editor.js waits for MathJax before the first render. -->
+     KaTeX (only the Σ fallback overlay) and MathJax load async; editor.js waits for MathJax before the first render.
+     KaTeX and MathJax come from our own server (W3b, versioned folders under /wissen/assets/, the same files as the
+     Wissen pages); only Pyodide still loads from jsDelivr. tools/export_szenen.py reads the MathJax tags below. -->
 <link rel="preconnect" href="https://cdn.jsdelivr.net"/>
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css" media="print" onload="this.media='all'"/>
-<script async src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
+<link rel="stylesheet" href="/wissen/assets/katex-0.16.11/katex.min.css" media="print" onload="this.media='all'"/>
+<script async src="/wissen/assets/katex-0.16.11/katex.min.js"></script>
 <!-- MathJax SVG output (fontCache:'none' inlines glyph <path>s) -> we vectorise them into VMobjects -->
 <script>window.MathJax={loader:{load:['[tex]/color']},svg:{fontCache:'none'},tex:{packages:{'[+]':['color']}},startup:{typeset:false}};</script>
 <script>window.mathjaxLoaded=new Promise(function(r){window._mjSettle=r;});</script>
-<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js" onload="_mjSettle(true)" onerror="_mjSettle(false)"></script>
+<script async src="/wissen/assets/mathjax-3.2.2/tex-svg.js" onload="_mjSettle(true)" onerror="_mjSettle(false)"></script>
 <!-- apply the saved theme before first paint (DAY is the default) -> no flash -->
 <script>try{if(localStorage.getItem("animate-theme")!=="dark")document.documentElement.setAttribute("data-theme","light");}catch(e){}</script>
 <style>

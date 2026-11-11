@@ -23,8 +23,9 @@ Das Bild entsteht genau wie der SVG-Export im Editor (engine/export.py: Zuschnit
 Formeln (Σ, ∏ und Skalarprodukt im Zahlenmodus, MathTex): Die Einzelteile in LaTeX baut derselbe Code wie im
 Editor (Block „series-spec“ in web/editor.js, über node). LaTeX setzt MathJax wie im Editor: in einem
 Headless-Chromium (Playwright) mit dem Block „tex-glyphs“ aus web/editor.js und der MathJax-Version aus
-web/editor.html. Die Glyphen landen in tools/tex_glyphen_cache.json; danach braucht dieselbe Formel weder Browser
-noch Netz. Ohne Playwright oder ohne Netz fehlt die Formel im Bild, das Skript meldet sie.
+web/editor.html. Die Glyphen landen in tools/tex_glyphen_cache.json; danach braucht dieselbe Formel keinen Browser
+mehr. Seit W3b liegt MathJax unter web/wissen/assets/mathjax-<Version>/: Der Browser lädt es von dort (ohne Netz).
+Ohne Playwright fehlt die Formel im Bild, das Skript meldet sie.
 Ohne node werden fehlende Props nicht ergänzt (Meldung).
 """
 import argparse
@@ -53,6 +54,11 @@ TEX_CACHE = ROOT / "tools" / "tex_glyphen_cache.json"
 # Cache versions before the colour fix of 09.11.2026 (MathJax colour package loaded, glyph colour `col`, no merror
 # bar): their entries stay valid for every formula without \color / \textcolor, those are set again.
 _TEX_VORGAENGER = {"1a9f8b0277946c9b"}
+# W3b: MathJax kommt vom eigenen Server (/wissen/assets/mathjax-3.2.2/…, dieselben Dateien wie cdnjs …/mathjax/3.2.2/es5/).
+# Im Headless-Browser beantwortet route() Anfragen an diesen Ursprung aus web/; für die Cache-Version zählt die gleiche
+# Fassung auf dem CDN, damit der Umzug den Glyphen-Cache nicht verwirft (gleiche Version = gleiche Glyphen).
+_EXPORT_ORIGIN = "http://etundso.export"
+_MJ_LOKAL = re.compile(r"/wissen/assets/mathjax-(\d+\.\d+\.\d+)/(.+)")
 
 _NODE_JS = r"""
 const fs = require("fs");
@@ -261,9 +267,13 @@ class TexGlyphen:
         src = re.search(r'<script[^>]*\bsrc="([^"]*tex-svg[^"]*\.js)"', html)
         if not cfg or not src:
             raise RuntimeError("MathJax-Einbindung in web/editor.html nicht gefunden")
-        self.page_html = (f'<!doctype html><meta charset="utf-8"><body><script>{cfg.group(1)}</script>'
-                          f'<script src="{src.group(1)}"></script></body>')
-        self.version = hashlib.sha1((self.page_html + "\n" + self.code).encode("utf-8")).hexdigest()[:16]
+        self.src = src.group(1)
+        seite = lambda u: (f'<!doctype html><meta charset="utf-8"><body><script>{cfg.group(1)}</script>'
+                           f'<script src="{u}"></script></body>')
+        self.page_html = seite(self.src)
+        lokal = _MJ_LOKAL.fullmatch(self.src)
+        cdn = f"https://cdnjs.cloudflare.com/ajax/libs/mathjax/{lokal.group(1)}/es5/{lokal.group(2)}" if lokal else self.src
+        self.version = hashlib.sha1((seite(cdn) + "\n" + self.code).encode("utf-8")).hexdigest()[:16]
         self.cache, self.new = self._load(), {}
         self._pw = self._browser = self._page = None
         self.used = 0
@@ -284,7 +294,20 @@ class TexGlyphen:
         self._pw = sync_playwright().start()
         self._browser = self._pw.chromium.launch()
         self._page = self._browser.new_page()
-        self._page.set_content(self.page_html, wait_until="load", timeout=60000)
+        if self.src.startswith("/"):                      # MathJax aus web/ (eigener Server), ohne Netz
+            web = WEB.resolve()
+            def datei(route):
+                from urllib.parse import unquote, urlparse
+                p = (web / unquote(urlparse(route.request.url).path).lstrip("/")).resolve()
+                if web in p.parents and p.is_file():
+                    route.fulfill(path=str(p))
+                else:
+                    route.fulfill(status=404, body="")
+            self._page.route(_EXPORT_ORIGIN + "/**", datei)
+            self._page.route(_EXPORT_ORIGIN + "/", lambda r: r.fulfill(body=self.page_html, content_type="text/html; charset=utf-8"))
+            self._page.goto(_EXPORT_ORIGIN + "/", wait_until="load", timeout=60000)
+        else:
+            self._page.set_content(self.page_html, wait_until="load", timeout=60000)
         self._page.wait_for_function("window.MathJax && MathJax.startup && MathJax.startup.promise"
                                      " && typeof MathJax.tex2svg === 'function'", timeout=60000)
         self._page.add_script_tag(content=self.code)       # _glyphChar, _tex2glyphs, texToGlyphs as page globals

@@ -1,5 +1,18 @@
 # Cloudflare Pages headers. Always revalidate our own files so a fresh deploy loads immediately
 # (no stale editor cached in the browser). Files are small and return 304 when unchanged, so this is
-# cheap. Pyodide/KaTeX/MathJax come from CDNs and are unaffected (they stay cached).
+# cheap. Only Pyodide (editor) still comes from a CDN (jsDelivr) and is unaffected.
+# KaTeX and MathJax are served from this site since W3b (11.11.2026), in folders with the version in the
+# path: /wissen/assets/katex-0.16.11/ and /wissen/assets/mathjax-3.2.2/. Their files never change, so the
+# browser keeps them for a year without asking again (immutable). A new version gets a new folder and new
+# links (build_wissen.py: KATEX/MATHJAX and FORMEL_EXPORT_JS; web/editor.html), then add its rule here.
+# "! Cache-Control" removes the no-cache of the /* rule first (otherwise Cloudflare joins both values).
 /*
   Cache-Control: no-cache
+
+/wissen/assets/katex-0.16.11/*
+  ! Cache-Control
+  Cache-Control: public, max-age=31536000, immutable
+
+/wissen/assets/mathjax-3.2.2/*
+  ! Cache-Control
+  Cache-Control: public, max-age=31536000, immutable

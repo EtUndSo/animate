@@ -17,6 +17,20 @@
   <link rel="alternate" hreflang="fr" href="https://etundso.de/fr/"/>
   <link rel="alternate" hreflang="tr" href="https://etundso.de/tr/"/>
   <link rel="alternate" hreflang="x-default" href="https://etundso.de/"/>
+  <!-- Auffindbarkeit (W3b): canonical, Vorschau beim Teilen (Open Graph, Twitter) und strukturierte Daten (JSON-LD).
+       startseite_html setzt für jede Sprache canonical, og:url, og:locale (+ alternate), og:image und im JSON-LD url,
+       inLanguage und description; og:title und og:description übersetzt data-i18n-attr. Herausgeber nur „EtUndSo“. -->
+  <link rel="canonical" href="https://etundso.de/fr/"/>
+  <meta property="og:site_name" content="EtUndSo"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" data-i18n-attr="content:titel" content="EtUndSo — Explications et outils pour l’électrotechnique"/>
+  <meta property="og:description" data-i18n-attr="content:beschreibung" content="EtUndSo : des explications claires et animées et des outils pour les modules d’électrotechnique et de mathématiques — et plus encore. Avec l’éditeur dans le navigateur pour les reconstruire soi-même."/>
+  <meta property="og:url" content="https://etundso.de/fr/"/>
+  <meta property="og:locale" content="fr_FR"/><meta property="og:locale:alternate" content="de_DE"/><meta property="og:locale:alternate" content="en_US"/><meta property="og:locale:alternate" content="es_ES"/><meta property="og:locale:alternate" content="zh_CN"/><meta property="og:locale:alternate" content="tr_TR"/>
+  <meta property="og:image" content="https://etundso.de/vorschau/fr.png"/>
+  <meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <script type="application/ld+json" id="ld-website">{"@context":"https://schema.org","@type":"WebSite","name":"EtUndSo","url":"https://etundso.de/fr/","inLanguage":"fr","description":"EtUndSo : des explications claires et animées et des outils pour les modules d’électrotechnique et de mathématiques — et plus encore. Avec l’éditeur dans le navigateur pour les reconstruire soi-même.","publisher":{"@type":"Organization","name":"EtUndSo","url":"https://etundso.de/"}}</script>
   <style>
     /* Vorlage „Kopfleiste“ wie im Wissensbereich: dunkelgrüne Leiste, Primär = Grün, Marke und Überschriften = Lila, Akzent = Orange.
        Tag = hell (Default), Nacht über data-theme="dark". Fonts als Tokens: aktuell System-Stack; selbst-gehostete Schriften
@@ -242,13 +256,13 @@
         <!-- Drei Abbildungen aus den Artikeln (SVG-Export des Editors, web/abbildungen/<sprache>); jede öffnet ihre Szene. -->
         <div class="photos">
           <a class="photo p1" href="/editor.html?scene=szenen/et1/k1feldlinien.json" title="Lignes de champ – ouvrir dans l’éditeur" data-i18n-attr="title:foto1_t">
-            <img src="/abbildungen/de/et1/k1feldlinien.svg" width="488" height="423" decoding="async" data-i18n-attr="alt:foto1_alt"
+            <img src="/abbildungen/fr/et1/k1feldlinien.svg" width="488" height="423" decoding="async" data-i18n-attr="alt:foto1_alt"
                  alt="Lignes de champ : charges de signes opposés et de même signe, paire de plaques, tube métallique entre des plaques"/></a>
           <a class="photo p2" href="/editor.html?scene=szenen/beispiel/skalarprodukt.json" title="Produit scalaire – ouvrir dans l’éditeur" data-i18n-attr="title:foto2_t">
             <img src="/abbildungen/fr/beispiel/skalarprodukt.svg" width="381" height="192" decoding="async" data-i18n-attr="alt:foto2_alt"
                  alt="Produit scalaire de deux vecteurs, calculé pas à pas : 360 + 30 + (−100) = 290"/></a>
           <a class="photo p3" href="/editor.html?scene=szenen/et1/k10flaeche.json" title="Surface 3D – ouvrir dans l’éditeur" data-i18n-attr="title:foto3_t">
-            <img src="/abbildungen/de/et1/k10flaeche.svg" width="432" height="295" decoding="async" data-i18n-attr="alt:foto3_alt"
+            <img src="/abbildungen/fr/et1/k10flaeche.svg" width="432" height="295" decoding="async" data-i18n-attr="alt:foto3_alt"
                  alt="Surface 3D : courant de collecteur I_C d’un transistor en fonction de U_BE et U_CE"/></a>
         </div>
         <p class="hero-cap" data-i18n="hero_cap">Trois figures tirées des articles, construites dans l’éditeur. Un clic les y ouvre.</p>

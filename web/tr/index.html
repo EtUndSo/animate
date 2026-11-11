@@ -17,6 +17,20 @@
   <link rel="alternate" hreflang="fr" href="https://etundso.de/fr/"/>
   <link rel="alternate" hreflang="tr" href="https://etundso.de/tr/"/>
   <link rel="alternate" hreflang="x-default" href="https://etundso.de/"/>
+  <!-- Auffindbarkeit (W3b): canonical, Vorschau beim Teilen (Open Graph, Twitter) und strukturierte Daten (JSON-LD).
+       startseite_html setzt für jede Sprache canonical, og:url, og:locale (+ alternate), og:image und im JSON-LD url,
+       inLanguage und description; og:title und og:description übersetzt data-i18n-attr. Herausgeber nur „EtUndSo“. -->
+  <link rel="canonical" href="https://etundso.de/tr/"/>
+  <meta property="og:site_name" content="EtUndSo"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" data-i18n-attr="content:titel" content="EtUndSo — Elektrik mühendisliği için açıklamalar ve araçlar"/>
+  <meta property="og:description" data-i18n-attr="content:beschreibung" content="EtUndSo: elektrik mühendisliği ve matematik modülleri için anlaşılır, animasyonlu açıklamalar ve araçlar — ve daha fazlası. Tarayıcıdaki editörle kendiniz yeniden oluşturabilirsiniz."/>
+  <meta property="og:url" content="https://etundso.de/tr/"/>
+  <meta property="og:locale" content="tr_TR"/><meta property="og:locale:alternate" content="de_DE"/><meta property="og:locale:alternate" content="en_US"/><meta property="og:locale:alternate" content="es_ES"/><meta property="og:locale:alternate" content="zh_CN"/><meta property="og:locale:alternate" content="fr_FR"/>
+  <meta property="og:image" content="https://etundso.de/vorschau/tr.png"/>
+  <meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <script type="application/ld+json" id="ld-website">{"@context":"https://schema.org","@type":"WebSite","name":"EtUndSo","url":"https://etundso.de/tr/","inLanguage":"tr","description":"EtUndSo: elektrik mühendisliği ve matematik modülleri için anlaşılır, animasyonlu açıklamalar ve araçlar — ve daha fazlası. Tarayıcıdaki editörle kendiniz yeniden oluşturabilirsiniz.","publisher":{"@type":"Organization","name":"EtUndSo","url":"https://etundso.de/"}}</script>
   <style>
     /* Vorlage „Kopfleiste“ wie im Wissensbereich: dunkelgrüne Leiste, Primär = Grün, Marke und Überschriften = Lila, Akzent = Orange.
        Tag = hell (Default), Nacht über data-theme="dark". Fonts als Tokens: aktuell System-Stack; selbst-gehostete Schriften
@@ -242,13 +256,13 @@
         <!-- Drei Abbildungen aus den Artikeln (SVG-Export des Editors, web/abbildungen/<sprache>); jede öffnet ihre Szene. -->
         <div class="photos">
           <a class="photo p1" href="/editor.html?scene=szenen/et1/k1feldlinien.json" title="Alan çizgileri – editörde aç" data-i18n-attr="title:foto1_t">
-            <img src="/abbildungen/de/et1/k1feldlinien.svg" width="488" height="423" decoding="async" data-i18n-attr="alt:foto1_alt"
+            <img src="/abbildungen/tr/et1/k1feldlinien.svg" width="488" height="423" decoding="async" data-i18n-attr="alt:foto1_alt"
                  alt="Alan çizgisi resimleri: zıt ve aynı işaretli yükler, plaka çifti, plakalar arasında metal boru"/></a>
           <a class="photo p2" href="/editor.html?scene=szenen/beispiel/skalarprodukt.json" title="Skaler çarpım – editörde aç" data-i18n-attr="title:foto2_t">
             <img src="/abbildungen/tr/beispiel/skalarprodukt.svg" width="381" height="192" decoding="async" data-i18n-attr="alt:foto2_alt"
                  alt="İki vektörün skaler çarpımı, adım adım hesaplanmış: 360 + 30 + (−100) = 290"/></a>
           <a class="photo p3" href="/editor.html?scene=szenen/et1/k10flaeche.json" title="3B yüzey – editörde aç" data-i18n-attr="title:foto3_t">
-            <img src="/abbildungen/de/et1/k10flaeche.svg" width="432" height="295" decoding="async" data-i18n-attr="alt:foto3_alt"
+            <img src="/abbildungen/tr/et1/k10flaeche.svg" width="432" height="295" decoding="async" data-i18n-attr="alt:foto3_alt"
                  alt="3B yüzey: bir transistörün kolektör akımı I_C, U_BE ve U_CE’ye göre"/></a>
         </div>
         <p class="hero-cap" data-i18n="hero_cap">Makalelerden üç şekil, editörde oluşturuldu. Tıklayınca orada açılır.</p>

@@ -17,6 +17,20 @@
   <link rel="alternate" hreflang="fr" href="https://etundso.de/fr/"/>
   <link rel="alternate" hreflang="tr" href="https://etundso.de/tr/"/>
   <link rel="alternate" hreflang="x-default" href="https://etundso.de/"/>
+  <!-- Auffindbarkeit (W3b): canonical, Vorschau beim Teilen (Open Graph, Twitter) und strukturierte Daten (JSON-LD).
+       startseite_html setzt für jede Sprache canonical, og:url, og:locale (+ alternate), og:image und im JSON-LD url,
+       inLanguage und description; og:title und og:description übersetzt data-i18n-attr. Herausgeber nur „EtUndSo“. -->
+  <link rel="canonical" href="https://etundso.de/"/>
+  <meta property="og:site_name" content="EtUndSo"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" data-i18n-attr="content:titel" content="EtUndSo — Erklärungen &amp; Tools für Elektrotechnik"/>
+  <meta property="og:description" data-i18n-attr="content:beschreibung" content="EtUndSo: verständliche, animierte Erklärungen und Werkzeuge zu Elektrotechnik- und Mathematik-Modulen — und so. Mit dem Browser-Editor zum selbst Nachbauen."/>
+  <meta property="og:url" content="https://etundso.de/"/>
+  <meta property="og:locale" content="de_DE"/><meta property="og:locale:alternate" content="en_US"/><meta property="og:locale:alternate" content="es_ES"/><meta property="og:locale:alternate" content="zh_CN"/><meta property="og:locale:alternate" content="fr_FR"/><meta property="og:locale:alternate" content="tr_TR"/>
+  <meta property="og:image" content="https://etundso.de/vorschau/de.png"/>
+  <meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <script type="application/ld+json" id="ld-website">{"@context":"https://schema.org","@type":"WebSite","name":"EtUndSo","url":"https://etundso.de/","inLanguage":"de","description":"EtUndSo: verständliche, animierte Erklärungen und Werkzeuge zu Elektrotechnik- und Mathematik-Modulen — und so. Mit dem Browser-Editor zum selbst Nachbauen.","publisher":{"@type":"Organization","name":"EtUndSo","url":"https://etundso.de/"}}</script>
   <style>
     /* Vorlage „Kopfleiste“ wie im Wissensbereich: dunkelgrüne Leiste, Primär = Grün, Marke und Überschriften = Lila, Akzent = Orange.
        Tag = hell (Default), Nacht über data-theme="dark". Fonts als Tokens: aktuell System-Stack; selbst-gehostete Schriften

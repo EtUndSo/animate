@@ -4,6 +4,12 @@ Wunsch des Users (11.11.2026): „Wir sollten für den Editor auch Funktionen ei
 Stand: Vorschlag, noch nicht beauftragt.
 **Entscheidung des Users (11.11.2026):** „Wir warten auf die Fertigstellung der Übersetzungen, dann machen wir die Änderungen am Editor. Wir müssen auch überlegen, wie wir das effizient umsetzen.“ Am 11.11. abends geändert: „F1 bleibt vorne, danach dann die Loops“ — F1 ist einmalige Aufgabe B8 in `notizen/aufgabenliste.md`, vor den Loops. Ursprünglich: erst nach der Englisch-Schleife; vorher den effizienten Weg festlegen (Abschnitt „Effizient umsetzen“ unten).
 
+## Entscheidungen zu F1 (User, 11.11.2026 spät)
+Grundlage: `notizen/f1_funktionsliste.md` (Auswertung der 58 Szenen von Linux 7/8: nur 4 echte Bildschirmbilder, Kern = Zeichenraster mit Spalten-Funktionen).
+1. **Linux 8 erweitern:** Linux 8 bekommt zusätzliche Bildschirm-Szenen wie `top` und `systemctl status`. Deshalb gehören Vollbild-Programme (TUI, Kopf + Tabelle mit wechselnden Werten, Pager-Ansicht) und Rahmenzeichen mit in F1. Inhalte aus echten, schreibgeschützten Läufen in der WSL (Regeln aus Linux 8: nur lesen, keine Dienste ändern).
+2. **Terminalstil: alte und neue dunkel, an echtes Ubuntu angelehnt** (dunkler Hintergrund, Titelleiste mit drei Fensterknöpfen). Die Terminalbilder von Linux 1–6 werden damit nachgerüstet (Nachrüst-Loop C5, mit dem F1-Terminal statt `tt`/`ttz`). Keine Logos oder Originalgrafiken.
+3. **„journalctl folgen“ (k8journalfolgen):** untereinander mit vollem Wortlaut, Bildunterschrift anpassen.
+
 ## Effizient umsetzen (Vorschlag, 11.11.2026)
 1. **Nur bauen, was gebraucht wird:** Vor jeder Welle die Szenentabellen der nächsten Hefte auswerten (Linux 7/8: `uebergabe_kap7.md`/`uebergabe_kap8.md`, 58 Szenen; später Cyber 2, Python 4). Daraus entsteht die genaue Funktionsliste; der Rest des Plans bleibt Vorrat.
 2. **Einmal bauen, überall nutzen:** Die neuen Vorlagen sind zusammengesetzte Objekte in der Python-Engine (`web/engine`), die beim Zeichnen in vorhandene Grundformen zerfallen. Editor (Pyodide), Export, Vektor-PDF und Spieler nutzen dieselbe Stelle. Kein neuer Renderweg, kaum JavaScript: Das Eigenschaftsfeld des Editors zeigt Props ohnehin generisch, neu sind nur die Palette-Einträge.

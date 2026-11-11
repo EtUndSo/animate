@@ -32,16 +32,16 @@ Jede erledigte Aufgabe hier abhaken, mit Datum. Einzelheiten stehen in den verli
    - zuerst mit dem User Kartenarten und Muster festlegen (Begriffe, Formeln, Herleitungen, Zusammenhänge; sinnvolle Fragen und Antworten), dann ein Pilot an einem Heft;
    - dabei die Begriffsbestimmungen für Zusammenfassung und Begriffsverzeichnis gleich mit lösen (Konverter-Wunsch `\fb[Bestimmung]{Begriff}`, Satzbruch um abgesetzte Formeln, `summary:` als Klartext);
    - das Schreiben für alle Hefte läuft danach in Loop C2.
-6. [ ] (läuft seit 11.11. abends: Agent in Arbeitskopie `scratchpad/wt_w3b`, Port 8006, Patch `scratchpad/website_w3b/w3b.patch`; KaTeX 0.16.11 + MathJax 3.2.2 aus npm, Prüfsumme geprüft, in `scratchpad/npm_pakete`; Vorschaubilder je Kapitel und Sprache) **Website-Welle W3b „Auffindbarkeit“:**
+6. [x] (11.11. spät: eingespielt. Sitemap 1 924 Seiten mit lastmod aus git, canonical/x-default/Open Graph/JSON-LD, 161 Vorschaubilder `web/vorschau/` über `tools/vorschaubilder.py` (bei neuen Kapiteln laufen lassen), KaTeX 0.16.11 und MathJax 3.2.2 unter `web/wissen/assets/`, Datenschutz §7/§8, fr/tr-Startseitenbilder; Prüfskript 0 Fehler, Editor-Tests ok. Offen: nach dem Deploy `curl -I …/katex-0.16.11/katex.min.css` → nur `public, max-age=31536000, immutable`; Betreiber von jsDelivr in der Datenschutzerklärung rechtlich prüfen) **Website-Welle W3b „Auffindbarkeit“:**
    - Sitemap, `canonical`, `x-default`, strukturierte Daten;
    - Vorschaubilder je Kapitel;
    - KaTeX **und MathJax** selbst ausliefern (MathJax lädt der Download-Knopf heute beim Klick von cdnjs; cdnjs fehlt auch in der Datenschutzerklärung);
    - Startseiten-Abbildungen fr/tr.
 7. [ ] **Website-Welle W5:**
-   - „Hat das geholfen?“ und „Fehler melden“ (vorher mit dem User klären, wohin Meldungen gehen);
+   - „Hat das geholfen?“ und „Fehler melden“. **Entschieden (User 11.11. spät):** Speicherung bei Cloudflare (wie der Besucherzähler, kein neuer Anbieter, keine Personendaten); der User liest die Meldungen auf einer per Cloudflare Access geschützten Seite, oder ich hole sie auf Zuruf. Datenschutzerklärung ergänzen;
    - Regler-Modus für Abbildungen.
-8. [ ] **Editor F1 „Bildschirme und Fenster“** (`editor_bildschirme_plan.md`): Fenster, Terminal mit Raster und ANSI, Mitschrift-Import, Maus, Tasten, Lupe. Vorher Funktionsliste aus Linux 7/8 abstimmen. **User 11.11. abends: „F1 bleibt vorne, danach dann die Loops.“** (ersetzt „erst nach den Übersetzungen“)
-9. [ ] **Linux 7 Phase 2b, Linux 8 Phase 2b-1 und 2b-2** (Abbildungen, PDF, Artikel), mit dem neuen Terminal aus F1.
+8. [ ] (11.11. spät: Funktionsliste aus Linux 7/8 fertig, `notizen/f1_funktionsliste.md`: nur 4 von 58 Szenen echte Bildschirmbilder, Kern = Zeichenraster mit Spalten-Funktionen; User 11.11. spät: Linux 8 um Bildschirm-Szenen wie `top`/`systemctl status` erweitern, also TUI in F1; Terminals alt und neu dunkel wie echtes Ubuntu; journalctl-Bild untereinander. Start als Worktree-Welle nach dem Push von W3b) **Editor F1 „Bildschirme und Fenster“** (`editor_bildschirme_plan.md`): Fenster, Terminal mit Raster und ANSI, Mitschrift-Import, Maus, Tasten, Lupe. Vorher Funktionsliste aus Linux 7/8 abstimmen. **User 11.11. abends: „F1 bleibt vorne, danach dann die Loops.“** (ersetzt „erst nach den Übersetzungen“)
+9. [ ] (Linux 8: neue Bildschirm-Szenen `top`, `systemctl status` u. a. einplanen, Heftstellen dafür ergänzen; k8journalfolgen untereinander) **Linux 7 Phase 2b, Linux 8 Phase 2b-1 und 2b-2** (Abbildungen, PDF, Artikel), mit dem neuen Terminal aus F1.
 10. [ ] **Editor E4** (L6 Teilchen, L7 Operationen, L8 Code-Objekt = F2 Code-Editor, diskrete Faltung, komplexe Rechenbilder, Pfeil umhängen), danach die **Ansicht Szene ↔ Code**.
     - Werkzeug-Wünsche dazu:
       - Export meldet unsichtbare Objekte;
@@ -63,6 +63,7 @@ Jede erledigte Aufgabe hier abhaken, mit Datum. Einzelheiten stehen in den verli
     - beim Umbruch auf dem Handy beginnt die Kennzahlenzeile mit „·“;
     - ET3 Kap. 3, schon vorher vorhanden: Hann-Fenster-Abbildung ragt über den Rand (de/en/es S. 17), zh 4 Stellen (S. 14, 15, 17); zh-Kursiven (`\emph` kap1_zh Z. 95, qa-Titel kap3a_zh Z. 156);
     - in den Ansichten „Kurz“ und „Formeln“ zeigen „In diesem Artikel“ und „Auf dieser Seite“ noch die Abschnitte der ausführlichen Fassung (bei geschriebenen Blöcken ausblenden), die Kennzahlen zählen Abbildungen und Aufgaben der Langfassung.
+13. [x] (11.11. spät) **Kopfleiste:** Pfeile mit Titeln zurück (Titel ab 1100 px; auf Artikelseiten sind die Bereiche bis 1599 px ein Menü), Themenbaum-Knopf auf allen Seiten mit Themenbaum, Ansicht „Kurz“ entfernt, Editor mit derselben Kopfleiste. **„Videos“ bleibt aus der Kopfleiste der Startseite draußen** (User 11.11.: „Nein, so lassen“), nicht wieder fragen.
 12. [x] (11.11.) **Kopfleiste live als Liste mit Punkten:**
     - Ursache: Cloudflare hält CSS/JS/SVG 4 h im Browser (Browser Cache TTL), das HTML nicht.
     - Behoben: wissen.css/.js, suche.js, formel-export.js und bereiche.js bekommen `?v=<Inhalts-Hash>` (`assets_bauen`, `asset()` in `build_wissen.py`), auch in `web/index.html`.
@@ -74,7 +75,7 @@ Wie bisher: höchstens ein Schreib-Agent und parallel ein Übersetzer (C1 ‖ C2
 - **C2 Formelsammlung bzw. Befehlsübersicht** (und die neuen Lernkarten, falls im selben Durchgang) für alle Hefte; **Kurzfassungen entfallen** (User 11.11. abends: die Zusammenfassung am Artikelende genügt, die Ansicht „Kurz“ ist entfernt): ET3, HöMa1, HöMa3, ML, ET1, GEMB1, dann Linux, Python, Cybersecurity. Siehe `kurzfassung_schleife.md`.
 - **C3 Übersetzungen es/zh/fr/tr:** alle Hefte nach Englisch, dazu die neuen Kurzfassungs-Dateien.
 - **C4 Neue Hefte** in der Reihenfolge des Users: Cybersecurity 2 (vorher Cyber-LERNPFAD auf 12 Hefte umstellen), Linux 9–10, Cybersecurity 3, Cybersecurity 4–5, weitere Cyber-Hefte. Danach Python 4/5/12/13, ML-Pfad, GEMB1 ab Teil 16. Je Heft Phase 1, 2a, 2b.
-- **C5 Nachrüstwellen** (ältere Hefte mit neuen Editor-Funktionen und Animationen), nach E4.
+- **C5 Nachrüstwellen** (ältere Hefte mit neuen Editor-Funktionen und Animationen), nach E4. Dazu (User 11.11. spät): alle Terminalbilder von Linux 1–6 auf das dunkle, Ubuntu-artige F1-Terminal umstellen.
 
 ## Pausiert (nicht von selbst anstoßen)
 - Website vom Raspberry Pi (`hosting/ANLEITUNG.md`); Frage offen, ob auf der NVMe schon Daten liegen.

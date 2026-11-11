@@ -1,6 +1,6 @@
 /* EtUndSo Formel-Export: ETFormelExport(quelle, format, {kapitel, lang}) -> Promise (lädt die Datei herunter). */
 (function(){
-  var MJ="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js";   // dieselbe Fassung wie der Editor
+  var MJ="/wissen/assets/mathjax-3.2.2/tex-svg.js";   // dieselbe Fassung wie der Editor, vom eigenen Server (W3b)
   var W=794, H_SEITE=1123, RAND=48, INNEN=W-2*RAND;                   // A4 bei 96 dpi (Pixel = CSS-Pixel)
   var SCHRIFT="Arial, Helvetica, sans-serif", EXF=0.45;              // Mathe: 1 ex = 0,45 der Schriftgröße
   var FARBE={text:"#16191a", leise:"#5b6360", gruen:"#15633a", gruen2:"#1b7f4a", orange:"#c2410c", linie:"#d5dad7"};

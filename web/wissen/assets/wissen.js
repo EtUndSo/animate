@@ -863,7 +863,7 @@ window.ETAnsicht=(function(){
 (function(){
   var boxen=[].slice.call(document.querySelectorAll(".fb-dl")); if(!boxen.length) return;
   var $=LERNEN, P=null;
-  function laden(){ if(!P) P=new Promise(function(ok,fehler){ var s=document.createElement("script"); s.src="/wissen/assets/formel-export.js?v=0ee537d6a8";
+  function laden(){ if(!P) P=new Promise(function(ok,fehler){ var s=document.createElement("script"); s.src="/wissen/assets/formel-export.js?v=275faa5d39";
       s.onload=function(){ window.ETFormelExport ? ok(window.ETFormelExport) : fehler(new Error("laden")); };
       s.onerror=function(){ P=null; fehler(new Error("laden")); }; document.head.appendChild(s); });
     return P; }

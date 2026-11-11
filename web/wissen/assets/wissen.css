@@ -36,13 +36,13 @@ kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px s
 .topbar .panelBtn.is-open{color:var(--bar-hl);border-color:var(--bar-hl);}   /* Panel offen = orange, zu = Grundfarbe */
 .topbar .panelCenter{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;align-items:center;gap:8px;}  /* Einklapp-Knopf und Ansicht mittig in der Leiste */
 /* Titel des vorherigen/nächsten Artikels neben den Pfeilen; beide Seiten gleich breit, damit die Knöpfe mittig bleiben. Nur wo
-   neben den Bereichen links und Sprache/Suche rechts Platz ist (ab 1480 px; 1100–1239 px, wenn die Bereiche ein Menü sind). */
+   neben den Bereichen links und Sprache/Suche rechts Platz ist (ab 1100 px; bis 1599 px sind die Bereiche dafür ein Menü). */
 .topbar .navTitel{display:none;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font-size:13.5px;font-weight:500;
   color:#ffffff;height:36px;line-height:36px;}   /* weiß; Zeilenhöhe = Höhe der Pfeil-Kreise -> Text genau auf deren Mitte */
 .topbar .navTitel.vor{text-align:right;} .topbar .navTitel.nach{text-align:left;}
 .topbar a.navTitel:hover{color:var(--bar-hl);text-decoration:none;}
-@media(min-width:1480px){ .topbar .navTitel{display:block;width:min(260px,calc(50vw - 620px));} }
-@media(min-width:1100px) and (max-width:1239px){ .topbar .navTitel{display:block;width:calc(50vw - 440px);} }
+@media(min-width:1600px){ .topbar .navTitel{display:block;width:min(260px,calc(50vw - 620px));} }
+@media(min-width:1100px) and (max-width:1599px){ .topbar .navTitel{display:block;width:min(260px,calc(50vw - 440px));} }
 @media(max-width:520px){ .topbar .navBtn{display:none;} }   /* Handy: Pfeile nur am Artikelende, die Leiste ist sonst zu voll */
 /* Ansicht Ausführlich | Kurz | Formeln (W4a, an der Stelle der früheren Pfeile): breit Segmentschalter, schmal Auswahl */
 .topbar .ansicht{display:inline-flex;align-items:stretch;height:36px;padding:2px;border:1px solid var(--bar-rand);border-radius:999px;background:var(--bar-soft);}
@@ -864,7 +864,7 @@ details.mk-kap details.mk-kap{margin-left:1em;}
 .topbar .langs-top{margin-left:auto;}
 .topbar .langs-top~.searchBtn{margin-left:0;}
 @media(max-width:900px){ .topbar .langs-top~.searchBtn{margin-left:auto;} }
-@media(max-width:1239px){ .topbar.mit-mitte .b-liste{display:none;} .topbar.mit-mitte .b-menu{display:block;} }   /* Artikel: Mitte belegt */
+@media(max-width:1599px){ .topbar.mit-mitte .b-liste{display:none;} .topbar.mit-mitte .b-menu{display:block;} }   /* Artikel: Mitte belegt (bis 1599 px, damit die Titel neben den Pfeilen Platz haben) */
 @media(max-width:719px){ .topbar .b-liste{display:none;} .topbar .b-menu{display:block;} }
 @media(max-width:560px){ .topbar .b-cur,.topbar .b-toggle .l-pfeil{display:none;} .topbar .b-icon{display:block;}
   .topbar .b-toggle{width:36px;padding:0;justify-content:center;} }
