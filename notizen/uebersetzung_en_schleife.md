@@ -16,8 +16,8 @@ Status: offen · läuft · fertig (Datum, Artikel en, Seiten en). Ein Kapitel gi
 | 4 | linux | 1 | Kap1_Uebungslinux.tex | fertig 11.11. (11 Artikel, 62 S., 13 Abbildungen en neu) |
 | 5 | linux | 2 | Kap2_Shell.tex | fertig 11.11. (9 Artikel, 60 S.; nach Netzabbruch fortgesetzt) |
 | 6 | linux | 3 | Kap3_Dateien.tex | fertig 11.11. (12 Artikel, 89 S.; k3lsl en „gray“) |
-| 7 | linux | 4 | Kap4_Stroeme.tex | läuft seit 11.11. |
-| 8 | linux | 5 | Kap5_Expansion.tex | offen |
+| 7 | linux | 4 | Kap4_Stroeme.tex | fertig 11.11. (9 Artikel, 62 S.) |
+| 8 | linux | 5 | Kap5_Expansion.tex | läuft seit 11.11. |
 | 9 | linux | 6 | Kap6_Textwerkzeuge.tex | offen |
 | 10 | cyber | 1 | Kap1_Sicherheit.tex | offen |
 | 11 | ml | 4 | Kap4_Wahrscheinlichkeit.tex | offen |
@@ -55,6 +55,7 @@ Heftordner: prog `C:\Bücher\EtUndSo\Programmieren\Arbeitshefte`, linux `C:\Büc
 ## Fehler im deutschen Original (von Übersetzern gemeldet, gesammelt)
 - Python 1: keine.
 - Python 3: keine.
+- Linux 4: keine.
 - Linux 3 (von mir behoben 11.11., PDFs de/en und Artikel neu; Sitzung geprüft): `kap3_loesungen.tex` Z. 85 „gut 3,7 KiB“ → „knapp“ (3771/1024 = 3,68); Z. 97 vor `BSD` stehen bei `ls -lhSr` die Links GPL/LGPL/GFDL; Z. 275 `ls -h` zeigt 477G (rundet ab 10 auf); `kap3_stufen_b.tex` Z. 546 „Öffnet“ → „Liest“ (/proc/uptime); Z. 1411 Dateinamen: außer `/` „und dem Nullbyte“ (auch en).
 - Linux 2 (von mir behoben 11.11., PDF und Artikel de neu): `kap2_loesungen.tex` Z. 281 Speicher und Kerne „die du der Maschine zugeteilt hast“ gilt nur für die VM; im Live-System die des Rechners.
 - Linux 1 (von mir behoben 11.11., PDFs de/en und Artikel neu): `kap1_stufen.tex` Z. 219 „In den Jahren dazwischen erscheinen Zwischenversionen“ → „Dazwischen …“ (Zwischenversionen auch im Oktober von LTS-Jahren). Dazu en-Titel „A Linux to Practise On“ → „Practice“ (amerikanisch) in `MODULE["linux"]` und `Kap1_Uebungslinux_en.tex`.
