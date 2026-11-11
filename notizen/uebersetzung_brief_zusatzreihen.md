@@ -340,6 +340,48 @@ Nachtrag aus der Übersetzung von Grundlagen 3 (Wahl der Übersetzer, so in den 
 - Mischform (Layout) = mixed layout | forma mixta | 混合布局 | forme mixte | karma biçim
 - Auslöschung beim ersten \fb: zh 相消（灾难性抵消）, tr anlamlı basamak kaybı (yıkıcı sadeleşme); Adjungierte tr eşlenik (adjoint) mit Klammerzusatz beim ersten \fb
 
+### Ergänzt bei Python 1 (en, 11.11.2026)
+Nur Englisch (Format Deutsch = en); die Übersetzer der anderen Sprachen ergänzen ihre Wörter hier. Gilt für Python 2 und 3, Linux 1–6 und Cybersecurity 1 genauso. Die Wörter der Szenen (`tools/szenen/prog_teil1.py`, `s.tr`) sind dieselben.
+Programm und Rechner
+- Rechner, Taschenrechner = computer, calculator; Programm, Anweisung, Arbeitsschritt = program, statement, step; Rezept, Verfahren = recipe, method
+- Prozessor, Rechenwerk, Steuerwerk, Prozessorfamilie = processor, arithmetic unit, control unit, processor family; holen/entschlüsseln/ausführen = fetch/decode/execute
+- Speicher, Arbeitsspeicher, Speicherplatz 12 = memory, main memory, memory cell 12; Betriebssystem = operating system
+- Maschinenbefehl, Maschinencode = machine instruction, machine code; Programmiersprache, Alltagssprache, Grammatik = programming language, everyday language, grammar
+- Syntax (Form), Semantik (Bedeutung) = syntax (form), semantics (meaning); Sprachreferenz, Sprachmittel = Python Language Reference, language features
+- Quelltext = source code; zerlegen (Quelltext) = split up (into tokens)
+Übersetzen und Ausführen
+- Compiler, ausführbare Datei = compiler, executable file; übersetzen, Übersetzung (Compiler und CPython) = translate, translation (wie in den Szenen); Übersetzer (der Teil von CPython) = translator; ausführen = run (execute)
+- Interpreter, Interpreterschleife = interpreter, interpreter loop; Dolmetscher (Bild) = human interpreter; Dolmetscher-Interpreter = line-by-line interpreter
+- „übersetzt“ vs. „interpretiert“ als Eigenschaft einer Sprache = ``compiled'' vs. ``interpreted''
+- Bytecode, gedachte Maschine, Phase, Startbefehl (RESUME) = bytecode, virtual machine, phase, start instruction
+Einrichten
+- Terminal, Eingabeaufforderung, Befehl (im Terminal) = terminal, prompt, command; Ordner, persönlicher Ordner = folder, home folder
+- Python install manager (bleibt); Starter (`py`), Installationsprogramm, Standardversion = launcher, installer, default version; System-Python, Paketverwaltung = system Python, package manager; Verwalterrechte = administrator privileges
+- Versionsnummer; Haupt-, Unterversion, Fehlerbehebungsnummer = version number; major version, minor version, bugfix number; Fehlerbehebungen, Sicherheitskorrekturen, Sicherheitslücken = bug fixes, security fixes, security vulnerabilities; „wurde eingestellt“ = reached its end of life; „ab Python 3.12“ = ``Python 3.12 or later''
+- Oberflächen (englische Namen): Strg = Ctrl; Startsymbol = Start button; Ubuntu „Aktivitäten“ = Activities; „Installierte Apps“ = Installed apps; „App-Ausführungsaliase verwalten“ = Manage app execution aliases; Explorer „Anzeigen › Einblenden › Dateinamenerweiterungen“ = View › Show › File name extensions; VS Code „Datei › Ordner öffnen“ = File › Open Folder (das Deutsche nennt beide Menünamen, das Englische nur den englischen); Benutzername, Rechnername = user name, computer name; Testrechner (des Hefts) = test computers
+Werte und Ausdrücke
+- interaktiver Modus = interactive mode; Wert, Ausdruck, auswerten = value, expression, evaluate; Ausgabe = output
+- Rechenzeichen = operator; Punkt-/Strichrechnung = multiplication and division / addition and subtraction; Potenz, Zehnerpotenz = power, power of ten; „hoch“ = ``to the power of''; runde Klammern = parentheses
+- Nachkommastellen, gültige Stellen, Zwischenergebnis = decimal places, significant digits, intermediate result
+- Zeichenkette = string; gerade / typografische Anführungszeichen = straight / typographic (curly) quotes; Textverarbeitung = word processor; Leerzeichen, Unterstrich = space, underscore
+- Funktion, Funktionsaufruf, Teilprogramm = function, function call, subprogram
+Skripte und Fehler
+- Editor, Erweiterung (VS Code), Skript, Kommentar = editor, extension, script, comment; Dateiendung/Dateinamenerweiterung = file name extension
+- Syntaxfehler, Laufzeitfehler, Logikfehler, Fehlermeldung = syntax error, runtime error, logic error, error message; „ist ein Syntaxfehler“ (Programm) = ``has a syntax error''
+- Ausnahme, Traceback = exception, traceback; Kopfzeile, Ortszeile, Markierung = header, location line, marker; Art und Beschreibung (der Ausnahme) = type and description; oberste Ebene = top level
+- Satz von Rice = Rice's theorem; Überschlagsrechnung = rough estimate
+Alltagsbeispiele
+- Heron-Verfahren, Durchgang, Schätzung, Mittelwert, Zahlenstrahl = Heron's method, pass, estimate, mean, number line
+- Durchschnittstempo, Tempo/Fahrzeit/Strecke = average speed, speed/travel time/distance; Lotterielos, Einsatz/Gewinn, Anteil = lottery ticket, stake/prize, share; Fliesen zuschneiden = cut tiles to size
+- Beträge im englischen Fließtext amerikanisch: „4,49 Euro“ = €4.49, „1000 Euro“ = €1000; in Code-Kommentaren ASCII „1.80 euros“
+
+Regeln aus Python 1 (en), für alle Programmier- und Linux-Hefte
+- Code-Blöcke (`python`, `konsole`, `ausgabe`), `\texttt`, `\verb`: Code, Ausgaben, Fehlermeldungen, Pfade (`/home/student/python-kurs/…`), Dateinamen (auch Platzhalter wie `datei.py`), Befehle (`echo Hallo`) und die Titel `[Linux]`, `[hallo.py]` bleiben Zeichen für Zeichen. **Zeichenketten bleiben deutsch** („Zeile 1“, „Mehl in g:“), weil ihre Ausgaben im Heft und in den Szenen stehen; **Kommentare werden übersetzt** (nur ASCII, gleiche Zeilenzahl, keine Kommentarzeile dazu oder weg: Tracebacks nennen Zeilennummern). Beim ersten Vorkommen darf der Fließtext eine kurze Glosse geben: ``Zeile 1'' (German for ``line 1'').
+- Prüfskripte (im Scratchpad der Sitzung vom 11.11.2026, bei Bedarf nach `tools/` übernehmen): `C:\Users\info\AppData\Local\Temp\claude\d2b859977628cb1f\c5e68cc8-baf1-4782-9760-867850fb6615\scratchpad\en_prog1\code_vergleich.py <de.tex> <L.tex>` vergleicht die Code-Blöcke Block für Block (Kommentare ausgenommen) und `\texttt`/`\verb`; `…\en_prog1\formeln_b.py <de.tex> <L.tex>` vergleicht die echten Formeln (`$…$` außerhalb von Code).
+- `uebersetzung_struktur_check.py` meldet bei Linux-Prompts (`$` in `konsole`/`\verb`) eine Formel-Abweichung als Artefakt, weil es den Text zwischen zwei `$` für eine Formel hält (Python 1: stufen 3/3, stufen_b 18/18, loesungen 15/15). Dann die echten Formeln mit `formeln_b.py` prüfen.
+- Sprachgebunden: Python-Meldungen, die das Deutsche für deutsche Leser übersetzt („die Klammer wurde nie geschlossen“), nicht doppeln; „Auf Englisch heißt …“ entfällt im Englischen; Dezimalkomma-Warnungen („Vorsicht, Komma“) bleiben, begründet für Leser, die ein Dezimalkomma gewohnt sind; der Satz „Im Fließtext stehen Zahlen mit Komma“ wird sinngemäß „numbers in running text also use a decimal point“; typografische Anführungszeichen: Code mit „ (U+201E) bleibt, im Text “ ” (en) und „ “ (de) nennen; mehrdeutige Beispielsätze durch englische mit derselben Mehrdeutigkeit ersetzen (``I saw the man with the binoculars.'', ``Photograph the woman with the camera.''), Unsinnssätze durch englische (``The wulp blinks the graffel.'').
+- Verweis auf ein Heft, das es in der Sprache noch nicht gibt (Python 1 en → „Linux, Chapter~2“): Der Umwandler lässt ihn als Text ohne Link. Nach der Übersetzung des Ziels das verweisende Heft neu umwandeln, dann entsteht der Link.
+
 ## Arbeitsweise für einen Übersetzungs-Agenten
 1. Lies `notizen\heft_uebersetzung.md`, diesen Brief, deine Quelldatei GANZ (große Dateien in Teilen bis zum Ende) und die passende Präambel `praeambel_L.tex` (nur die Kastenwörter). en/es/zh: lies zusätzlich ein Stück des ET3-Vorbilds der Sprache (z. B. die ersten 250 Zeilen von `C:\Bücher\ET3\Arbeitshefte\kap2_stufen_L.tex`) für Ton und Wendungen.
 2. Schreibe die Übersetzung mit dem Write-Tool (nie per Bash-Heredoc: Backslash-Falle). Große Dateien in Stücken von höchstens etwa 35 KB in den Ordner `C:\Users\info\AppData\Local\Temp\claude\C--B-cher\c5e68cc8-baf1-4782-9760-867850fb6615\scratchpad\mlk2_uebersetzung\teile\` schreiben (z. B. `stufen_en_1.tex`, `_2`, `_3`, Grenzen an Abschnittsgrenzen) und dann mit Bash zusammenfügen: `cat teil1 teil2 teil3 > Zieldatei` (cat ändert keine Backslashes).

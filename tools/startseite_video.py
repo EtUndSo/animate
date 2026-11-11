@@ -275,6 +275,8 @@ def main():
         except Exception:
             browser, welcher = p.chromium.launch(), "Chromium"
         ctx = browser.new_context(viewport={"width": 1500, "height": 950}, accept_downloads=True, color_scheme="light")
+        # Seit 11.11.2026 hält exportVideo Start- und Endbild (0,5 s / 1 s); die Startseite braucht eine nahtlose Schleife.
+        ctx.add_init_script("window.EXPORT_HALTEN = {vor: 0, nach: 0};")
         ctx.add_init_script(BITRATE % round(a.bitrate / a.zeitlupe))
         page = ctx.new_page()
         fehler = []

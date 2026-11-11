@@ -1,0 +1,993 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 30,
+  "nextAnimId": 51,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.4,
+      0.25,
+      0
+     ],
+     "width": 2.0,
+     "height": 1.2,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Text",
+    "props": {
+     "text": "laeufe.csv",
+     "position": [
+      -2.4,
+      1.05,
+      0
+     ],
+     "font_size": 17.719,
+     "align": "center",
+     "color": "#7f7f7f",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o3",
+    "type": "Text",
+    "props": {
+     "text": "datum,name,km,minuten",
+     "position": [
+      -2.4731,
+      0.65,
+      0
+     ],
+     "font_size": 17.719,
+     "align": "center",
+     "color": "#7f7f7f",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Text",
+    "props": {
+     "text": "2026-11-02,Anna,5.0,28",
+     "position": [
+      -2.4337,
+      0.43,
+      0
+     ],
+     "font_size": 17.719,
+     "align": "center",
+     "color": "#7f7f7f",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o5",
+    "type": "Text",
+    "props": {
+     "text": "2026-11-02,Ben,10.5,62",
+     "position": [
+      -2.4337,
+      0.21,
+      0
+     ],
+     "font_size": 17.719,
+     "align": "center",
+     "color": "#7f7f7f",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Text",
+    "props": {
+     "text": "…",
+     "position": [
+      -3.2606,
+      -0.01,
+      0
+     ],
+     "font_size": 17.719,
+     "align": "center",
+     "color": "#7f7f7f",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o7",
+    "type": "Text",
+    "props": {
+     "text": "@unv",
+     "position": [
+      -2.4,
+      -0.55,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o8",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0,
+      1.2,
+      0
+     ],
+     "width": 2.0,
+     "height": 0.36,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#fff3c4",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o9",
+    "type": "Text",
+    "props": {
+     "text": "@zw",
+     "position": [
+      0,
+      1.6,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#333333"
+    }
+   },
+   {
+    "id": "o10",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.39375000000000004,
+      1.2,
+      0
+     ],
+     "width": 0.09875000000000006,
+     "height": 0.24,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 0.5,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o11",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.03937499999999999,
+      1.2,
+      0
+     ],
+     "width": 0.09874999999999998,
+     "height": 0.24,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 0.5,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o12",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.03937499999999999,
+      1.2,
+      0
+     ],
+     "width": 0.09874999999999998,
+     "height": 0.24,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 0.5,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o13",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.4,
+      0.25,
+      0
+     ],
+     "width": 2.0,
+     "height": 1.2,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#f6f6f4",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o14",
+    "type": "Text",
+    "props": {
+     "text": "@aus",
+     "position": [
+      2.4,
+      1.05,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o15",
+    "type": "Text",
+    "props": {
+     "text": "…",
+     "position": [
+      1.5194,
+      -0.01,
+      0
+     ],
+     "font_size": 17.719,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o16",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0,
+      0.4,
+      0
+     ],
+     "width": 1.05,
+     "height": 0.36,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#e3eefb",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o17",
+    "type": "Text",
+    "props": {
+     "text": "s/,/;/",
+     "position": [
+      0,
+      0.4,
+      0
+     ],
+     "font_size": 20.081,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o18",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      0,
+      0.6,
+      0
+     ],
+     "end": [
+      0,
+      1.0,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.09,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o19",
+    "type": "Text",
+    "props": {
+     "text": "@befehl",
+     "position": [
+      0,
+      0.05,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o20",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -1.36,
+      0.92,
+      0
+     ],
+     "end": [
+      -1.04,
+      1.13,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.08,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o21",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      1.04,
+      1.13,
+      0
+     ],
+     "end": [
+      1.36,
+      0.92,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.08,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o22",
+    "type": "ParametricCurve",
+    "props": {
+     "fx": "1.4-2.8*t",
+     "fy": "-0.3-0.45*4*t*(1-t)",
+     "t_min": 0,
+     "t_max": 1,
+     "samples": 41,
+     "show_arrow": true,
+     "arrow_at": "0.5",
+     "color": "#7f7f7f",
+     "stroke_width": 2.5,
+     "dash": "",
+     "head_size": 0.1
+    }
+   },
+   {
+    "id": "o23",
+    "type": "Text",
+    "props": {
+     "text": "@naechste",
+     "position": [
+      0,
+      -0.95,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o24",
+    "type": "Text",
+    "props": {
+     "text": "datum,name,km,minuten",
+     "position": [
+      0,
+      1.2,
+      0
+     ],
+     "font_size": 17.719,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o25",
+    "type": "Text",
+    "props": {
+     "text": "2026-11-02,Anna,5.0,28",
+     "position": [
+      0,
+      1.2,
+      0
+     ],
+     "font_size": 17.719,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o26",
+    "type": "Text",
+    "props": {
+     "text": "2026-11-02,Ben,10.5,62",
+     "position": [
+      0,
+      1.2,
+      0
+     ],
+     "font_size": 17.719,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o27",
+    "type": "Text",
+    "props": {
+     "text": "datum;name,km,minuten",
+     "position": [
+      0,
+      1.2,
+      0
+     ],
+     "font_size": 17.719,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o28",
+    "type": "Text",
+    "props": {
+     "text": "2026-11-02;Anna,5.0,28",
+     "position": [
+      0,
+      1.2,
+      0
+     ],
+     "font_size": 17.719,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o29",
+    "type": "Text",
+    "props": {
+     "text": "2026-11-02;Ben,10.5,62",
+     "position": [
+      0,
+      1.2,
+      0
+     ],
+     "font_size": 17.719,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   }
+  ],
+  "animations": [
+   {
+    "id": "a1",
+    "type": "FadeIn",
+    "target": "o1",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a2",
+    "type": "FadeIn",
+    "target": "o2",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a3",
+    "type": "FadeIn",
+    "target": "o3",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a4",
+    "type": "FadeIn",
+    "target": "o4",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a5",
+    "type": "FadeIn",
+    "target": "o5",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a6",
+    "type": "FadeIn",
+    "target": "o6",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a7",
+    "type": "FadeIn",
+    "target": "o8",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a8",
+    "type": "FadeIn",
+    "target": "o9",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a9",
+    "type": "FadeIn",
+    "target": "o13",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a10",
+    "type": "FadeIn",
+    "target": "o14",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a11",
+    "type": "FadeIn",
+    "target": "o16",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a12",
+    "type": "FadeIn",
+    "target": "o17",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a13",
+    "type": "FadeIn",
+    "target": "o19",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a14",
+    "type": "Create",
+    "target": "o20",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a15",
+    "type": "Create",
+    "target": "o21",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a16",
+    "type": "Create",
+    "target": "o18",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a17",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a18",
+    "type": "FadeIn",
+    "target": "o24",
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a19",
+    "type": "Indicate",
+    "target": "o3",
+    "run_time": 0.7,
+    "step": 2
+   },
+   {
+    "id": "a20",
+    "type": "Indicate",
+    "target": "o17",
+    "run_time": 0.7,
+    "step": 3
+   },
+   {
+    "id": "a21",
+    "type": "FadeOut",
+    "target": "o24",
+    "run_time": 0.5,
+    "step": 3
+   },
+   {
+    "id": "a22",
+    "type": "FadeIn",
+    "target": "o27",
+    "run_time": 0.6,
+    "step": 3
+   },
+   {
+    "id": "a23",
+    "type": "FadeIn",
+    "target": "o10",
+    "run_time": 0.6,
+    "step": 3
+   },
+   {
+    "id": "a24",
+    "type": "MoveTo",
+    "target": "o27",
+    "run_time": 0.8,
+    "step": 4,
+    "point": [
+     2.3069,
+     0.65,
+     0
+    ]
+   },
+   {
+    "id": "a25",
+    "type": "FadeOut",
+    "target": "o10",
+    "run_time": 0.4,
+    "step": 4
+   },
+   {
+    "id": "a26",
+    "type": "Create",
+    "target": "o22",
+    "run_time": 0.6,
+    "step": 5
+   },
+   {
+    "id": "a27",
+    "type": "FadeIn",
+    "target": "o23",
+    "run_time": 0.6,
+    "step": 5
+   },
+   {
+    "id": "a28",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.3,
+    "step": 6
+   },
+   {
+    "id": "a29",
+    "type": "FadeIn",
+    "target": "o25",
+    "run_time": 0.6,
+    "step": 7
+   },
+   {
+    "id": "a30",
+    "type": "Indicate",
+    "target": "o4",
+    "run_time": 0.7,
+    "step": 7
+   },
+   {
+    "id": "a31",
+    "type": "Indicate",
+    "target": "o22",
+    "run_time": 0.7,
+    "step": 7
+   },
+   {
+    "id": "a32",
+    "type": "Indicate",
+    "target": "o17",
+    "run_time": 0.7,
+    "step": 8
+   },
+   {
+    "id": "a33",
+    "type": "FadeOut",
+    "target": "o25",
+    "run_time": 0.5,
+    "step": 8
+   },
+   {
+    "id": "a34",
+    "type": "FadeIn",
+    "target": "o28",
+    "run_time": 0.6,
+    "step": 8
+   },
+   {
+    "id": "a35",
+    "type": "FadeIn",
+    "target": "o11",
+    "run_time": 0.6,
+    "step": 8
+   },
+   {
+    "id": "a36",
+    "type": "MoveTo",
+    "target": "o28",
+    "run_time": 0.8,
+    "step": 9,
+    "point": [
+     2.3462,
+     0.43,
+     0
+    ]
+   },
+   {
+    "id": "a37",
+    "type": "FadeOut",
+    "target": "o11",
+    "run_time": 0.4,
+    "step": 9
+   },
+   {
+    "id": "a38",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.3,
+    "step": 10
+   },
+   {
+    "id": "a39",
+    "type": "FadeIn",
+    "target": "o26",
+    "run_time": 0.6,
+    "step": 11
+   },
+   {
+    "id": "a40",
+    "type": "Indicate",
+    "target": "o5",
+    "run_time": 0.7,
+    "step": 11
+   },
+   {
+    "id": "a41",
+    "type": "Indicate",
+    "target": "o22",
+    "run_time": 0.7,
+    "step": 11
+   },
+   {
+    "id": "a42",
+    "type": "Indicate",
+    "target": "o17",
+    "run_time": 0.7,
+    "step": 12
+   },
+   {
+    "id": "a43",
+    "type": "FadeOut",
+    "target": "o26",
+    "run_time": 0.5,
+    "step": 12
+   },
+   {
+    "id": "a44",
+    "type": "FadeIn",
+    "target": "o29",
+    "run_time": 0.6,
+    "step": 12
+   },
+   {
+    "id": "a45",
+    "type": "FadeIn",
+    "target": "o12",
+    "run_time": 0.6,
+    "step": 12
+   },
+   {
+    "id": "a46",
+    "type": "MoveTo",
+    "target": "o29",
+    "run_time": 0.8,
+    "step": 13,
+    "point": [
+     2.3462,
+     0.21,
+     0
+    ]
+   },
+   {
+    "id": "a47",
+    "type": "FadeOut",
+    "target": "o12",
+    "run_time": 0.4,
+    "step": 13
+   },
+   {
+    "id": "a48",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.3,
+    "step": 14
+   },
+   {
+    "id": "a49",
+    "type": "FadeIn",
+    "target": "o15",
+    "run_time": 0.6,
+    "step": 15
+   },
+   {
+    "id": "a50",
+    "type": "FadeIn",
+    "target": "o7",
+    "run_time": 0.6,
+    "step": 15
+   }
+  ],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "unv": {
+    "de": "bleibt unverändert",
+    "en": "stays unchanged",
+    "es": "no cambia",
+    "zh": "保持不变",
+    "fr": "reste inchangé",
+    "tr": "değişmeden kalır"
+   },
+   "zw": {
+    "de": "Zwischenspeicher",
+    "en": "buffer",
+    "es": "búfer",
+    "zh": "缓冲区",
+    "fr": "tampon",
+    "tr": "ara bellek"
+   },
+   "aus": {
+    "de": "Ausgabe",
+    "en": "output",
+    "es": "salida",
+    "zh": "输出",
+    "fr": "sortie",
+    "tr": "çıktı"
+   },
+   "befehl": {
+    "de": "Befehl",
+    "en": "command",
+    "es": "comando",
+    "zh": "命令",
+    "fr": "commande",
+    "tr": "komut"
+   },
+   "naechste": {
+    "de": "nächste Zeile",
+    "en": "next line",
+    "es": "siguiente línea",
+    "zh": "下一行",
+    "fr": "ligne suivante",
+    "tr": "sonraki satır"
+   }
+  },
+  "drawOrder": "creation"
+ }
+}

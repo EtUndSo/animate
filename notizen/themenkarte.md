@@ -50,7 +50,7 @@ und verweisen mit Link darauf.
     Ratenkredits numerisch (Restschuld, Annuitätenformel, effektiver Jahreszins nur als Umrechnung (1+i)^12 − 1, Ableitung per
     Schleife, Absicherung von Newton durch Bisektion und Dämpfung als Hintergrund). Numerik-Hefte und ML-Grundlagen
     (Gradientenabstieg, Optimierung) können für Bisektion/Newton darauf verweisen. Eigene Funktionen: Python, Kapitel 4; Listen: Python, Kapitel 5.
-- **Linux und Kommandozeile** (Informatik / Linux und Kommandozeile, Kapitel 1–3 fertig): Shell, Dateien, Rechte, Prozesse.
+- **Linux und Kommandozeile** (Informatik / Linux und Kommandozeile, Kapitel 1–6 fertig): Shell, Dateien, Rechte, Prozesse.
   Cybersecurity, Kapitel 3 bis 5 werden nach der Recherche cyber-spezifisch oder entfallen.
   - Linux, Kapitel 1 erklärt vollständig (spätere Hefte, auch Cyber und ML, verweisen mit „Linux, Kapitel~1, Abschnitt~M“): Betriebssystem,
     Anwendungsprogramm, Kernel-Modus/Benutzermodus, privilegierter Befehl, Kernel, Treiber, Systemaufruf (feste
@@ -95,7 +95,8 @@ und verweisen mit Link darauf.
     (`sort`, `head`, `wc`, `grep`, `uniq`, `tr` je knapp), Pipeline, `tee`, Unix-Philosophie (4.x); Exit-Status und `$?`,
     `true`/`false`, Bedeutungen ungleich null, 126/127/128 + n (5.x); `;`, `&&`, `||`, `a && b || c`, `PIPESTATUS` (nur als
     Rezept), `pipefail` (6.x); Strom gegen Argument, `xargs` mit `-n`, Grenze der Argumentliste, `find -print0`/`xargs -0`,
-    `find -exec … {} \;`/`{} +` (7.x; Kapitel 3 hatte `-exec`/`xargs` hierher abgegeben). Zuständigkeiten: Linux, Kapitel 8
+    `find -exec … {} \;`/`{} +` (7.x; Kapitel 3 hatte `-exec`/`xargs` hierher abgegeben); die Filter dort sind knapp,
+    vollständig erklärt in Linux, Kapitel 6. Zuständigkeiten: Linux, Kapitel 8
     (Prozesse, Signale) verweist auf Linux, Kapitel 4, Abschnitt 1.2 (Prozess) und Abschnitt 5.3 (128 + n, dort
     „Unterbrechungsnachricht“) zurück und vertieft fork/exec nur (Hintergrund in 2.1); Kapitel 5 erklärt die `$`-Ersetzung
     (Felder wie `${PIPESTATUS[@]}` bleiben hier Rezept, Kapitel 5 lässt sie aus); Kapitel 6 vertieft `sort`/`uniq`/`grep`/`tr`;
@@ -118,6 +119,26 @@ und verweisen mit Link darauf.
     Kapitel 10 Skripte, Positionsparameter, `if`, Schleifen (auch `{1..$n}`), Funktionen, `set -x`, Felder; Kapitel 11 SSH;
     Cybersecurity Injection und PATH-Hijacking (in 3.8 nur ein Hinweis). Weggelassen: weitere `${…}`-Formen (nur Verweis auf
     `man bash`), extglob, globstar, `declare`, `BASH_ENV`.
+  - Textwerkzeuge und reguläre Ausdrücke, vollständig erklärt in Linux, Kapitel 6 (seit 11.11.2026): Datensatz, Feld,
+    Trennzeichen, Spalte (1.2), CSV-Datei, Kopfzeile (1.3), Wagenrücklauf und Windows-Zeilenende, `cat -A` (1.4), `tail -n +K`,
+    `head -n -K` (1.5), `tail -f` (1.6); `cut` (2.1), `tr` mit `-d`/`-s` und Klassen (2.2), `paste` (2.3); `sort` mit
+    Zeichenordnung (3.1), `sort -n` (3.2), Sortierschlüssel `-t`/`-k` (3.3), Spracheinstellung, `LANG`/`LC_ALL`, `locale -a`
+    (3.4), `uniq` mit `-c`/`-d`/`-u` (3.5), Häufigkeitstabelle `sort | uniq -c | sort -rn`, `sort -u` (3.6); `nl` (4.1), `seq`
+    (4.2), `diff` (4.3); `grep` ausführlich: Suchtext, Status (5.1), `-i -v -c -n` (5.2), `-o` (5.3), `-r`/`-l` (5.4);
+    Zeichenkette, regulärer Ausdruck, Treffer (6.1), Punkt (6.2), `\` und `grep -F` (6.3), Klammerausdruck (6.4), Zeichenklasse
+    `[[:digit:]]` usw. (6.5), Anker `^`/`$` (6.6); Stern (7.1), Grundform und erweiterte Form (BRE/ERE), `grep -E` (7.2),
+    Quantor `+ ? {n} {n,m} {n,}` (7.3), Gruppe, Alternative (7.4), Grundform-Schreibweisen (7.5), längster Treffer (7.6), Form
+    statt Bedeutung, endlicher Automat im Hintergrund (7.7), „Muster für Dateinamen sind keine regulären Ausdrücke“ (7.8);
+    `sed`, Zwischenspeicher (8.1), `s///` mit `g` und `&` (8.2), Zeilenadresse, `-n`, `p` (8.3), `d`, `q` im Hintergrund (8.4),
+    Rückverweis `\1`–`\9` (8.5), `sed -i`, `-i.bak` (8.6); `awk`, Regel aus Bedingung und Aktion (9.1), Felder `$1`…`$NF`, `$0`,
+    `NF`, `-F` (9.2), `NR`, Vergleiche, `&& || !`, `~` (9.3), Variablen, `BEGIN`/`END`, `printf` (9.4), assoziatives Array,
+    `for (k in s)` (9.5); Werkzeugwahl (10.1), Pipeline schrittweise bauen (10.2), Wörter zählen (10.3).
+    Zuständigkeiten: Kapitel 10 verweist für Windows-Zeilenenden in Skripten (`bad interpreter`) auf „Linux, Kapitel 6,
+    Abschnitt 1.4“ zurück und benutzt `awk` in Schleifen über Dateien (Kapitel 6 erklärt `awk` selbst, Kapitel 10 nur die
+    Schleife); Cybersecurity wertet Anmeldeprotokolle mit `grep`/`awk`/`sort | uniq -c` aus und verweist hierher; ein späteres
+    Python-Heft zum Modul `re` verweist für reguläre Ausdrücke auf Linux, Kapitel 6, Abschnitte 6–7 und erklärt nur die
+    Unterschiede (Hintergrund in 7.6: Python probiert der Reihe nach, kürzeste Treffer `*?`). Weggelassen: `join`, `comm`, `tac`, `rev`, `expand`, `sort -m/-b/-g/-V/-s`, `uniq -f/-s/-i`,
+    `cut --complement`, `sed y/a/i/c/-f`, `grep -w/-x/-h/-L/-P`, `\b \< \>`, `awk -v`, awk-Funktionen, `getline`, `patch`.
   - Paketverwaltung `apt` und `sudo`: in Python, Kapitel 1, Abschnitt 3.3 nur je ein Satz; ausführlich im Linux-Bereich
     (Heftnummer laut Linux-Lernpfad).
 - **ML-Grundlagen gegen Höhere Mathematik:** Was ein HöMa-Heft vollständig erklärt (Beweise, Herleitungen), steht in den
@@ -861,7 +882,7 @@ Je Zeile ein Abschnitt: Verweis-Wendung, Abschnittstitel, dann die Unterabschnit
 - Linux, Kapitel 6, Abschnitt 6 „Reguläre Ausdrücke: Zeichen, Klassen und Anker“: 6.1 Der reguläre Ausdruck · 6.2 Der Punkt: ein beliebiges Zeichen · 6.3 Sonderzeichen wörtlich nehmen: der umgekehrte Schrägstrich und grep -F · 6.4 Eine Auswahl von Zeichen: der Klammerausdruck · 6.5 Zeichenklassen: [[:digit:]] und ihre Verwandten · 6.6 Anfang und Ende der Zeile: die Anker
 - Linux, Kapitel 6, Abschnitt 7 „Reguläre Ausdrücke: Wiederholungen, Gruppen und Alternativen“: 7.1 Beliebig oft: der Stern · 7.2 Die erweiterte Form: grep -E · 7.3 Wiederholungen zählen: +, ? und {n,m} · 7.4 Gruppe und Alternative · 7.5 Grundform und erweiterte Form im Vergleich · 7.6 Der längste Treffer · 7.7 Form statt Bedeutung · 7.8 Muster für Dateinamen und reguläre Ausdrücke
 - Linux, Kapitel 6, Abschnitt 8 „Umformen im Strom: sed“: 8.1 Der Strom-Editor sed · 8.2 Ersetzen: der Befehl s · 8.3 Zeilen auswählen: Zeilenadressen, -n und p · 8.4 Zeilen löschen: der Befehl d · 8.5 Gruppen und Rückverweise · 8.6 Die Datei selbst ändern: sed -i
-- Linux, Kapitel 6, Abschnitt 9 „Rechnen mit Spalten: awk“: 9.1 Das Programm awk: Bedingung und Aktion · 9.2 Felder: $1, $0, NF und -F · 9.3 Zeilennummer und Bedingungen: NR · 9.4 Variablen, Summen und END · 9.5 Werte nach Namen sammeln: assoziative Arrays
+- Linux, Kapitel 6, Abschnitt 9 „Rechnen mit Spalten: awk“: 9.1 Das Programm awk: Bedingung und Aktion · 9.2 Felder: `$1`, `$0`, `NF` und `-F` · 9.3 Zeilennummer und Bedingungen: NR · 9.4 Variablen, Summen und END · 9.5 Werte nach Namen sammeln: assoziative Arrays
 - Linux, Kapitel 6, Abschnitt 10 „Eine Auswertung von Anfang bis Ende“: 10.1 Welches Werkzeug wofür · 10.2 Eine Pipeline Schritt für Schritt bauen · 10.3 Wörter zählen: eine berühmte Pipeline
 
 ### Linux, Kapitel 7: Benutzer, Gruppen und Rechte (`Kap7_Rechte`, Modul linux)

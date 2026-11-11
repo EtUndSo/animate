@@ -39,6 +39,8 @@ class CanvasPainter:
             self.ctx.fillRect(0, 0, self.w, self.h)
 
     def _trace(self, pts):
+        if len(pts) == 0:                               # leere Teilkontur (Umformen zwischen Formen mit ungleich vielen Konturen)
+            return
         ctx = self.ctx
         ctx.moveTo(pts[0][0], pts[0][1])
         for i in range(1, len(pts) - 2, 3):

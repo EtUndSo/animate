@@ -51,6 +51,8 @@ class SvgPainter:
         self.bg = color                                  # drawn by to_svg over exactly the visible view
 
     def _d(self, pts):
+        if len(pts) == 0:                               # leere Teilkontur (Umformen zwischen Formen mit ungleich vielen Konturen)
+            return ""
         out = ["M%s %s" % (_num(pts[0][0]), _num(pts[0][1]))]
         for i in range(1, len(pts) - 2, 3):
             out.append("C%s %s %s %s %s %s" % (_num(pts[i][0]), _num(pts[i][1]), _num(pts[i + 1][0]), _num(pts[i + 1][1]),

@@ -1,0 +1,509 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 17,
+  "nextAnimId": 22,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.2524999999999995,
+      0.55,
+      0
+     ],
+     "width": 0.11499999999999977,
+     "height": 0.3,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 0.3,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o2",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.7249999999999999,
+      0.55,
+      0
+     ],
+     "width": 3.19,
+     "height": 0.3,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#00823c",
+     "fill_color": "#00823c",
+     "fill_opacity": 0.3,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o3",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.575,
+      -0.85,
+      0
+     ],
+     "width": 1.4899999999999998,
+     "height": 0.3,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#00823c",
+     "fill_color": "#00823c",
+     "fill_opacity": 0.3,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o4",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.7774999999999999,
+      -0.85,
+      0
+     ],
+     "width": 0.10500000000000032,
+     "height": 0.3,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 0.45,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o5",
+    "type": "Text",
+    "props": {
+     "text": "A.*km",
+     "position": [
+      -3.1006,
+      0.55,
+      0
+     ],
+     "font_size": 22.444,
+     "align": "center",
+     "color": "#2a78d6",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Text",
+    "props": {
+     "text": "Anna lief 5 km, Ben lief 10 km",
+     "position": [
+      -0.725,
+      0.55,
+      0
+     ],
+     "font_size": 23.625,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o7",
+    "type": "Text",
+    "props": {
+     "text": "A[^,]*km",
+     "position": [
+      -2.951,
+      -0.85,
+      0
+     ],
+     "font_size": 22.444,
+     "align": "center",
+     "color": "#2a78d6",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Text",
+    "props": {
+     "text": "Anna lief 5 km, Ben lief 10 km",
+     "position": [
+      -0.725,
+      -0.85,
+      0
+     ],
+     "font_size": 23.625,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o9",
+    "type": "ParametricCurve",
+    "props": {
+     "fx": "-2.3+1.47*t",
+     "fy": "0.73+0.4*4*t*(1-t)",
+     "t_min": 0,
+     "t_max": 1,
+     "samples": 41,
+     "show_arrow": true,
+     "arrow_at": "0.55",
+     "color": "#7f7f7f",
+     "stroke_width": 2.5,
+     "dash": "10,7",
+     "head_size": 0.1
+    }
+   },
+   {
+    "id": "o10",
+    "type": "ParametricCurve",
+    "props": {
+     "fx": "-2.3+3.15*t",
+     "fy": "0.73+0.75*4*t*(1-t)",
+     "t_min": 0,
+     "t_max": 1,
+     "samples": 41,
+     "show_arrow": true,
+     "arrow_at": "0.55",
+     "color": "#00823c",
+     "stroke_width": 3,
+     "dash": "",
+     "head_size": 0.1
+    }
+   },
+   {
+    "id": "o11",
+    "type": "ParametricCurve",
+    "props": {
+     "fx": "-2.3+1.47*t",
+     "fy": "-0.67+0.4*4*t*(1-t)",
+     "t_min": 0,
+     "t_max": 1,
+     "samples": 41,
+     "show_arrow": true,
+     "arrow_at": "0.55",
+     "color": "#00823c",
+     "stroke_width": 3,
+     "dash": "",
+     "head_size": 0.1
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Text",
+    "props": {
+     "text": "@beg",
+     "position": [
+      -2.3,
+      0.22000000000000003,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o13",
+    "type": "Text",
+    "props": {
+     "text": "@kurz",
+     "position": [
+      -0.75,
+      0.92,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o14",
+    "type": "Text",
+    "props": {
+     "text": "@lang",
+     "position": [
+      0.95,
+      0.92,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#00823c"
+    }
+   },
+   {
+    "id": "o15",
+    "type": "Text",
+    "props": {
+     "text": "@e2",
+     "position": [
+      -0.75,
+      -0.48,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#00823c"
+    }
+   },
+   {
+    "id": "o16",
+    "type": "Text",
+    "props": {
+     "text": "@komma",
+     "position": [
+      -0.7775,
+      -1.18,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#eb6834"
+    }
+   }
+  ],
+  "animations": [
+   {
+    "id": "a1",
+    "type": "FadeIn",
+    "target": "o5",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a2",
+    "type": "FadeIn",
+    "target": "o6",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a3",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a4",
+    "type": "FadeIn",
+    "target": "o1",
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a5",
+    "type": "FadeIn",
+    "target": "o12",
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a6",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 3
+   },
+   {
+    "id": "a7",
+    "type": "Create",
+    "target": "o9",
+    "run_time": 0.8,
+    "step": 4
+   },
+   {
+    "id": "a8",
+    "type": "FadeIn",
+    "target": "o13",
+    "run_time": 0.6,
+    "step": 4
+   },
+   {
+    "id": "a9",
+    "type": "Create",
+    "target": "o10",
+    "run_time": 1.0,
+    "step": 5
+   },
+   {
+    "id": "a10",
+    "type": "FadeIn",
+    "target": "o14",
+    "run_time": 0.6,
+    "step": 5
+   },
+   {
+    "id": "a11",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.4,
+    "step": 6
+   },
+   {
+    "id": "a12",
+    "type": "FadeIn",
+    "target": "o2",
+    "run_time": 0.6,
+    "step": 7
+   },
+   {
+    "id": "a13",
+    "type": "Indicate",
+    "target": "o14",
+    "run_time": 0.8,
+    "step": 7
+   },
+   {
+    "id": "a14",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 8
+   },
+   {
+    "id": "a15",
+    "type": "FadeIn",
+    "target": "o7",
+    "run_time": 0.6,
+    "step": 9
+   },
+   {
+    "id": "a16",
+    "type": "FadeIn",
+    "target": "o8",
+    "run_time": 0.6,
+    "step": 9
+   },
+   {
+    "id": "a17",
+    "type": "FadeIn",
+    "target": "o4",
+    "run_time": 0.6,
+    "step": 10
+   },
+   {
+    "id": "a18",
+    "type": "FadeIn",
+    "target": "o16",
+    "run_time": 0.6,
+    "step": 10
+   },
+   {
+    "id": "a19",
+    "type": "Create",
+    "target": "o11",
+    "run_time": 0.8,
+    "step": 11
+   },
+   {
+    "id": "a20",
+    "type": "FadeIn",
+    "target": "o3",
+    "run_time": 0.6,
+    "step": 11
+   },
+   {
+    "id": "a21",
+    "type": "FadeIn",
+    "target": "o15",
+    "run_time": 0.6,
+    "step": 11
+   }
+  ],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "beg": {
+    "de": "Beginn: das A ganz links",
+    "en": "start: the A on the far left",
+    "es": "inicio: la A más a la izquierda",
+    "zh": "起点：最左边的 A",
+    "fr": "début : le A tout à gauche",
+    "tr": "başlangıç: en soldaki A"
+   },
+   "kurz": {
+    "de": "erstes km",
+    "en": "first km",
+    "es": "primer km",
+    "zh": "第一个 km",
+    "fr": "premier km",
+    "tr": "ilk km"
+   },
+   "lang": {
+    "de": "letztes km: gewinnt",
+    "en": "last km: wins",
+    "es": "último km: gana",
+    "zh": "最后一个 km：胜出",
+    "fr": "dernier km : l'emporte",
+    "tr": "son km: kazanır"
+   },
+   "e2": {
+    "de": "endet beim ersten km",
+    "en": "ends at the first km",
+    "es": "termina en el primer km",
+    "zh": "在第一个 km 处结束",
+    "fr": "finit au premier km",
+    "tr": "ilk km'de biter"
+   },
+   "komma": {
+    "de": "kein Komma erlaubt",
+    "en": "no comma allowed",
+    "es": "no se permite coma",
+    "zh": "不允许逗号",
+    "fr": "virgule interdite",
+    "tr": "virgüle izin yok"
+   }
+  },
+  "drawOrder": "creation"
+ }
+}

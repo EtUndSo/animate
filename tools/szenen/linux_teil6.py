@@ -865,12 +865,871 @@ def k6grepr():
     s.speichern()
 
 
+# ================================================================== Abschnitt 6: reguläre Ausdrücke
+W_AUSDR = ("Ausdruck", "expression", "expresión", "表达式", "expression", "ifade")
+W_AUSDR2 = ("Ausdruck:", "expression:", "expresión:", "表达式：", "expression :", "ifade:")
+
+
+def k6menge():
+    """Der Ausdruck 5.0 beschreibt die Menge aller Zeichenketten aus 5, einem beliebigen Zeichen und 0. Von den Zeilen 5.0,
+    5x0, 520 und 50 enthalten die ersten drei ein Stück der Menge (grün, das Element der Menge umrandet); 50 bleibt grau."""
+    s = Szene("linux/k6menge", reihenfolge="anlegen")
+    em = 0.24
+    xa, ya = -2.55, 1.0
+    l_a = L(s, "ausdr", W_AUSDR, (xa, 1.45), FM, "center", GRAU)
+    mk_p = mark(s, xa - cw(em) / 2, xa + cw(em) / 2, ya, 0.36, BLAU, 0.25)
+    t_a = ttm(s, "5.0", xa, ya, em)
+    l_p = L(s, "punkt", ("Punkt = ein beliebiges Zeichen", "dot = any single character", "punto = un carácter cualquiera",
+                         "点 = 任意一个字符", "point = un caractère quelconque", "nokta = herhangi bir karakter"),
+            (-3.4, 0.55), FM, "left", BLAU)
+    a = pf(s, (-2.05, ya), (-0.6, ya), farbe=GRAU, spitze=0.1)
+    l_b = L(s, "beschr", ("beschreibt", "describes", "describe", "描述", "décrit", "tanımlar"), (-1.32, 1.17), FM, "center", GRAU)
+    xm = 1.45
+    k_m = box(s, (xm, 0.95), 3.8, 1.0, BLAU, BLAU_HELL, 2, "rect")
+    l_m = L(s, "menge", ("Menge: 5, ein beliebiges Zeichen, 0", "set: 5, any character, 0", "conjunto: 5, un carácter cualquiera, 0",
+                         "集合：5、任意一个字符、0", "ensemble : 5, un caractère quelconque, 0", "küme: 5, herhangi bir karakter, 0"),
+            (xm, 1.67), FM, "center", BLAU)
+    elem = ("5.0", "5x0", "520", "5,0", "5a0", "500", "5-0", "…")
+    pos = [((0.0, 0.95, 1.9, 2.85)[i % 4], (1.18, 0.72)[i // 4]) for i in range(8)]
+    rh = [rahmen(s, pos[i], 0.55, 0.34, GRUEN, 2.5) for i in range(3)]
+    te = [ttm(s, e, x, y, 0.19, GRAU if e == "…" else SCHWARZ) for e, (x, y) in zip(elem, pos)]
+    l_z = L(s, "zeilen", ("Zeilen:", "lines:", "líneas:", "行：", "lignes :", "satırlar:"), (-3.4, -0.45), FM, "left", GRAU)
+    lx, yl = (-2.1, -0.95, 0.2, 1.35), -0.45
+    zl = ("5.0", "5x0", "520", "50")
+    mk_l = [mark(s, x - 0.25, x + 0.25, yl, 0.36, GRUEN, 0.3) for x in lx[:3]]
+    tl = [ttm(s, z, x, yl, 0.22, GRAU) for z, x in zip(zl, lx)]
+    hk = [haken(s, x, -0.85) for x in lx[:3]]
+    l_kein = L(s, "kein", ("kein Stück aus der Menge", "no piece from the set", "ningún trozo del conjunto", "没有属于集合的片段",
+                           "aucun morceau de l'ensemble", "kümeden parça yok"), (lx[3], -0.85), FM, "center", GRAU)
+    schritt(s, EIN([l_a, t_a], 0.6))
+    schritt(s, EIN([mk_p, l_p], 0.6))
+    s.pause(0.6)
+    schritt(s, ZEICHNE(a, 0.6), EIN([l_b, k_m, l_m], 0.6))
+    schritt(s, EIN(te[:4], 0.6))
+    schritt(s, EIN(te[4:], 0.6))
+    s.pause(0.6)
+    schritt(s, EIN([l_z] + tl, 0.6))
+    for i in range(3):
+        with s.gleichzeitig():
+            schritt(s, EIN([mk_l[i], rh[i]] + hk[i], 0.6), BETONE(te[i], 0.7))
+            s.ersetzen(tl[i], zl[i], farbe=SCHWARZ, dauer=0.6)
+    s.pause(0.4)
+    schritt(s, EIN(l_kein, 0.6))
+    s.speichern()
+
+
+def k6klammer():
+    """2026-11-0[2-4] Stelle für Stelle: über 2026-11-03 stimmen die festen Zeichen, die 3 liegt im Kästchen {2, 3, 4}
+    (Treffer); über 2026-11-07 liegt die 7 nicht im Kästchen (kein Treffer)."""
+    s = Szene("linux/k6klammer", reihenfolge="anlegen")
+    em, hc = 0.22, 0.34
+    xs = [r4(-3.0 + 0.3 * i) for i in range(9)]
+    xk = 0.1
+    xd = xs + [xk]
+    yE, y1, y2 = 0.95, 0.1, -0.8
+    zE = [box(s, (x, yE), 0.28, hc, GRAU, WEISS, 1.5, "rect") for x in xs]
+    kk = box(s, (xk, yE), 0.86, 0.42, ORANGE, ORANGE_HELL, 2.5, "rect")
+    mk3 = mark(s, xk - 0.11, xk + 0.11, yE, 0.32, GRUEN, 0.45)
+    tE = [ttm(s, c, x, yE, em) for c, x in zip("2026-11-0", xs)]
+    tk = [ttm(s, c, x, yE, em) for c, x in zip("234", (xk - 0.25, xk, xk + 0.25))]
+    t_kl = ttm(s, "[2-4]", xk, yE + 0.38, 0.17, ORANGE)
+    l_fest = L(s, "fest", ("feste Zeichen", "fixed characters", "caracteres fijos", "固定字符", "caractères fixes",
+                           "sabit karakterler"), (r4((xs[0] + xs[8]) / 2), yE + 0.38), FM, "center", GRAU)
+    l_E = L(s, "ausdr", W_AUSDR, (0.65, yE + 0.14), FM, "left", GRAU)
+    t_E = tt(s, "2026-11-0[2-4]", 0.65, yE - 0.14, 0.17)
+
+    def datum(d, y, f_letzt):
+        zellen = [box(s, (x, y), 0.28, hc, GRAU, WEISS, 1.5, "rect") for x in xd]
+        m_fest = mark(s, xs[0] - 0.14, xs[8] + 0.14, y, hc, GRUEN, 0.3)
+        m_letzt = mark(s, xk - 0.14, xk + 0.14, y, hc, f_letzt, 0.3)
+        return zellen, m_fest, m_letzt, [ttm(s, c, x, y, em) for c, x in zip(d, xd)]
+    z1, mf1, ml1, t1 = datum("2026-11-03", y1, GRUEN)
+    z2, mf2, ml2, t2 = datum("2026-11-07", y2, ROT)
+    a3 = pf(s, (xk, y1 + 0.2), (xk, yE - 0.23), farbe=GRUEN, spitze=0.08)
+    kz = s.kreuzchen(None, 0.42, y2, ROT, 0.16, 3)
+    l_ok = L(s, "ok", ("3 im Kästchen: Treffer", "3 is in the box: match", "3 está en la caja: coincide", "3 在方框中：匹配",
+                       "3 dans la case : correspondance", "3 kutuda: eşleşme"), (0.65, y1), FM, "left", GRUEN)
+    l_no = L(s, "no", ("7 nicht im Kästchen: kein Treffer", "7 is not in the box: no match", "7 no está en la caja: no coincide",
+                       "7 不在方框中：不匹配", "7 hors de la case : échec", "7 kutuda değil: eşleşme yok"), (0.65, y2), FM, "left", ROT)
+    schritt(s, EIN(zE + [kk] + tE + tk + [t_kl, l_fest, l_E, t_E], 0.7))
+    s.pause(0.6)
+    schritt(s, EIN(z1 + t1, 0.6))
+    schritt(s, EIN(mf1, 0.6), BETONE(tE, 0.7))
+    s.pause(0.4)
+    schritt(s, EIN([ml1, mk3], 0.6), ZEICHNE(a3, 0.6), BETONE(tk[1], 0.8), EIN(l_ok, 0.6))
+    s.pause(0.6)
+    schritt(s, EIN(z2 + t2, 0.6))
+    schritt(s, EIN(mf2, 0.6))
+    schritt(s, EIN([ml2, kz, l_no], 0.6), BETONE(tk, 0.8))
+    s.speichern()
+
+
+def k6klassen():
+    """Die Zeile 2026-11-03,Clara,7.2,41 Zeichen für Zeichen: nacheinander [[:digit:]] (12 Ziffern, blau), [[:alpha:]]
+    (5 Buchstaben, grün), [[:punct:]] (6 Satzzeichen, orange); jedes Zeichen gehört zu genau einer Klasse."""
+    s = Szene("linux/k6klassen", reihenfolge="anlegen")
+    em = 0.24
+    z = "2026-11-03,Clara,7.2,41"
+    x0, y0 = r4(-len(z) * cw(em) / 2), 1.1
+    klassen = (("digit", "[[:digit:]]", BLAU, str.isdigit,
+                ("12 Ziffern", "12 digits", "12 dígitos", "12 个数字", "12 chiffres", "12 rakam")),
+               ("alpha", "[[:alpha:]]", GRUEN, str.isalpha,
+                ("5 Buchstaben", "5 letters", "5 letras", "5 个字母", "5 lettres", "5 harf")),
+               ("punct", "[[:punct:]]", ORANGE, lambda ch: ch in "-,.",
+                ("6 Satzzeichen", "6 punctuation marks", "6 signos de puntuación", "6 个标点符号", "6 signes de ponctuation",
+                 "6 noktalama işareti")))
+    mk, idx = [], []
+    for _k, _n, f, test, _w in klassen:
+        ii = [i for i, ch in enumerate(z) if test(ch)]
+        idx.append(ii)
+        mk.append([mark(s, sp(x0, i, em) + 0.008, sp(x0, i + 1, em) - 0.008, y0, 0.4, f, 0.3) for i in ii])
+    tz = [tt(s, ch, sp(x0, i, em), y0, em) for i, ch in enumerate(z)]
+    zeilen = [[tt(s, name, -1.6, y, 0.19, f), L(s, key, w, (-0.25, y), FM, "left", f)]
+              for (key, name, f, _t, w), y in zip(klassen, (0.35, -0.2, -0.75))]
+    l_g = L(s, "genau", ("Jedes Zeichen gehört zu genau einer der drei Klassen.",
+                         "Each character belongs to exactly one of the three classes.",
+                         "Cada carácter pertenece a exactamente una de las tres clases.", "每个字符恰好属于三个类中的一个。",
+                         "Chaque caractère appartient à exactement une des trois classes.",
+                         "Her karakter üç sınıftan tam olarak birine aittir."), (0, -1.3), FM, "center", GRAU)
+    schritt(s, EIN(tz, 0.6))
+    for k in range(3):
+        s.pause(0.5)
+        schritt(s, EIN(zeilen[k], 0.5))
+        schritt(s, EIN(mk[k], 0.6), BETONE([tz[i] for i in idx[k]], 0.8))
+    s.pause(0.6)
+    schritt(s, EIN(l_g, 0.6))
+    s.speichern()
+
+
+def k6anker():
+    """2026-11-08,Ben,21.1,128 als Zeichen mit Stellen (Striche) dazwischen; der erste Strich ist die Stelle von ^, der letzte
+    die von $. ,2[0-9] trifft ,21; ,2[0-9]$ müsste am letzten Strich enden und findet nichts."""
+    s = Szene("linux/k6anker", reihenfolge="anlegen")
+    z = LAEUFE[8]
+    n, d, y0, em = len(z), 0.2, 1.0, 0.21
+    xl = r4(-n * d / 2)
+    xs = [r4(xl + d * k) for k in range(n + 1)]
+    xc = [r4(xl + d * (i + 0.5)) for i in range(n)]
+    mk = mark(s, xs[14], xs[17], y0, 0.38, GRUEN, 0.3)
+    st = [linie(s, (x, y0 - 0.2), (x, y0 + 0.2), HELLGRAU, 1.5) for x in xs[1:-1]]
+    sa = [linie(s, (x, y0 - 0.24), (x, y0 + 0.24), BLAU, 3) for x in (xs[0], xs[-1])]
+    tz = [ttm(s, ch, x, y0, em) for ch, x in zip(z, xc)]
+    t_hut = ttm(s, "^", xs[0], y0 + 0.42, 0.19, BLAU)
+    t_dol = ttm(s, "$", xs[-1], y0 + 0.42, 0.19, BLAU)
+    l_st = L(s, "stellen", ("Stellen zwischen den Zeichen", "positions between the characters", "posiciones entre los caracteres",
+                            "字符之间的位置", "positions entre les caractères", "karakterler arasındaki konumlar"),
+             (0, y0 + 0.45), FM, "center", GRAU)
+    a = pf(s, (xs[17], y0 - 0.33), (xs[23], y0 - 0.33), farbe=ORANGE, dash=DASH, spitze=0.09)
+    y1, y2 = 0.2, -0.45
+    t_r1 = tt(s, ",2[0-9]", -3.35, y1, 0.19)
+    hk = haken(s, -2.33, y1)
+    l_r1 = L(s, "r1", ("Treffer: ,21", "match: ,21", "coincidencia: ,21", "匹配：,21", "correspondance : ,21", "eşleşme: ,21"),
+             (-2.1, y1), FM, "left", GRUEN)
+    t_r2 = tt(s, ",2[0-9]$", -3.35, y2, 0.19)
+    kz = s.kreuzchen(None, -2.33, y2, ROT, 0.16, 3)
+    l_r2 = L(s, "r2", ("müsste am letzten Strich enden: kein Treffer", "would have to end at the last stroke: no match",
+                       "tendría que terminar en el último trazo: sin coincidencia", "必须在最后一条竖线处结束：无匹配",
+                       "devrait finir au dernier trait : pas de correspondance", "son çizgide bitmeli: eşleşme yok"),
+             (-2.1, y2), FM, "left", ROT)
+    schritt(s, EIN(tz, 0.6))
+    s.pause(0.6)
+    schritt(s, ZEICHNE(st + sa, 0.7), EIN(l_st, 0.6))
+    schritt(s, EIN([t_hut, t_dol], 0.5), BETONE(sa, 0.8))
+    s.pause(0.6)
+    schritt(s, EIN(t_r1, 0.5))
+    schritt(s, EIN([mk, l_r1] + hk, 0.6), BETONE(tz[14:17], 0.8))
+    s.pause(0.6)
+    schritt(s, EIN(t_r2, 0.5))
+    schritt(s, ZEICHNE(a, 0.7), BETONE(sa[1], 0.8))
+    schritt(s, EIN([kz, l_r2], 0.6))
+    s.speichern()
+
+
+# ================================================================== Abschnitt 7: Wiederholungen, zwei Formen
+def k6grundform():
+    """,[0-9]{3}$ zweimal: oben (Grundform) sind {, 3, } gewöhnliche Zeichen, der Vergleich mit ,128 scheitert an der 2 unter {;
+    unten (-E) heißt {3} „die Ziffer davor dreimal“, ,128 ist ein Treffer."""
+    s = Szene("linux/k6grundform", reihenfolge="anlegen")
+    z, em_z, xz = LAEUFE[8], 0.17, -1.3
+    l_z = L(s, "zeile", ("Zeile:", "line:", "línea:", "行：", "ligne :", "satır:"), (xz - 0.12, 1.65), FM, "right", GRAU)
+    mz = mark(s, sp(xz, 19, em_z) - 0.02, sp(xz, 23, em_z) + 0.02, 1.65, 0.24, GRUEN, 0.3)
+    t_z = tt(s, z, xz, 1.65, em_z)
+
+    def kacheln(teile, y, x=-3.2, gap=0.08):
+        objs, mitten = [], []
+        for t, b in teile:
+            m = r4(x + b / 2)
+            objs += [box(s, (m, y), b, 0.36, GRAU, WEISS, 1.5, "rect"), ttm(s, t, m, y, 0.19)]
+            mitten.append(m)
+            x += b + gap
+        return objs, mitten
+    y1k, y1z = 0.75, 0.3
+    l_p1 = L(s, "p1", ("ohne Option: Grundform", "without option: basic form", "sin opción: forma básica", "无选项：基本形式",
+                       "sans option : forme de base", "seçeneksiz: temel biçim"), (-3.35, 1.17), FM, "left", DUNKEL)
+    k1, m1 = kacheln(((",", 0.36), ("[0-9]", 0.72), ("{", 0.36), ("3", 0.36), ("}", 0.36), ("$", 0.36)), y1k)
+    g1 = [mark(s, m1[i] - 0.16, m1[i] + 0.16, y1z, 0.34, f, 0.3) for i, f in ((0, GRUEN), (1, GRUEN), (2, ROT))]
+    c1 = [ttm(s, ch, m1[i], y1z, 0.22) for i, ch in enumerate(",128")]
+    hk = [haken(s, m1[i], y1z - 0.33, GRUEN, 0.08, 3) for i in (0, 1)]
+    kz = s.kreuzchen(None, m1[2], y1z - 0.33, ROT, 0.14, 3)
+    l_g = L(s, "gew", ("{, 3 und } sind gewöhnliche Zeichen", "{, 3 and } are ordinary characters",
+                       "{, 3 y } son caracteres normales", "{、3 和 } 是普通字符", "{, 3 et } sont des caractères ordinaires",
+                       "{, 3 ve } sıradan karakterlerdir"), (0.1, y1k), FM, "left", GRAU, roh=True)
+    l_n = L(s, "nein", ("2 ist nicht {: kein Treffer", "2 is not {: no match", "2 no es {: sin coincidencia", "2 不是 {：无匹配",
+                        "2 n'est pas { : pas de correspondance", "2, { ile aynı değil: eşleşme yok"), (0.1, y1z), FM, "left", ROT, roh=True)
+    y2k, y2z = -0.7, -1.15
+    l_p2 = L(s, "p2", ("mit -E: erweiterte Form", "with -E: extended form", "con -E: forma extendida", "使用 -E：扩展形式",
+                       "avec -E : forme étendue", "-E ile: genişletilmiş biçim"), (-3.35, -0.28), FM, "left", DUNKEL)
+    k2, m2 = kacheln(((",", 0.36), ("[0-9]{3}", 1.2), ("$", 0.36)), y2k)
+    g2 = [mark(s, m2[0] - 0.16, m2[0] + 0.16, y2z, 0.34, GRUEN, 0.3), mark(s, m2[1] - 0.45, m2[1] + 0.45, y2z, 0.34, GRUEN, 0.3)]
+    c2 = [ttm(s, ",", m2[0], y2z, 0.22)] + [ttm(s, ch, r4(m2[1] + dx), y2z, 0.22) for ch, dx in zip("128", (-0.28, 0, 0.28))]
+    ende = linie(s, (m2[2], y2z - 0.2), (m2[2], y2z + 0.2), BLAU, 3)
+    l_3 = L(s, "drei", ("{3}: die Ziffer davor dreimal", "{3}: the digit before it three times", "{3}: el dígito anterior tres veces",
+                        "{3}：前面的数字出现三次", "{3} : le chiffre précédent trois fois", "{3}: önceki rakam üç kez"),
+            (0.1, y2k), FM, "left", BLAU, roh=True)
+    l_t = L(s, "treffer", ("Treffer: ,128", "match: ,128", "coincidencia: ,128", "匹配：,128", "correspondance : ,128", "eşleşme: ,128"),
+            (0.1, y2z), FM, "left", GRUEN)
+    schritt(s, EIN([l_z, t_z], 0.6))
+    s.pause(0.6)
+    schritt(s, EIN([l_p1] + k1, 0.6))
+    schritt(s, EIN(c1 + [l_g], 0.6))
+    s.pause(0.4)
+    schritt(s, EIN([g1[0]] + hk[0], 0.45))
+    schritt(s, EIN([g1[1]] + hk[1], 0.45))
+    schritt(s, EIN([g1[2], kz, l_n], 0.6), BETONE(k1[5], 0.8))
+    s.pause(0.6)
+    schritt(s, EIN([l_p2] + k2, 0.6))
+    schritt(s, EIN(l_3, 0.5), BETONE(k2[3], 0.8))
+    schritt(s, EIN(c2 + [ende], 0.6))
+    schritt(s, EIN(g2 + [l_t, mz], 0.6), BETONE(c2[1:], 0.8))
+    s.speichern()
+
+
+def k6quantor():
+    """^a*b$, ^a+b$, ^a?b$, ^a{2,3}b$ gegen b, ab, aab, aaab: passende Zeichenketten leuchten auf (4, 3, 2, 2), die übrigen
+    bleiben grau."""
+    s = Szene("linux/k6quantor", reihenfolge="anlegen")
+    ketten = ("b", "ab", "aab", "aaab")
+    xk = (-0.2, 0.75, 1.8, 2.95)
+    reihen = (("^a*b$", "stern", ("beliebig oft, auch null", "zero or more times", "cero o más veces", "任意次，也可以是零次",
+                                  "zéro fois ou plus", "sıfır veya daha çok kez"), (1, 1, 1, 1)),
+              ("^a+b$", "plus", ("mindestens einmal", "at least once", "al menos una vez", "至少一次", "au moins une fois",
+                                 "en az bir kez"), (0, 1, 1, 1)),
+              ("^a?b$", "frage", ("keinmal oder einmal", "zero times or once", "cero o una vez", "零次或一次", "zéro ou une fois",
+                                  "sıfır ya da bir kez"), (1, 1, 0, 0)),
+              ("^a{2,3}b$", "nm", ("zwei- bis dreimal", "two to three times", "de dos a tres veces", "两到三次", "deux à trois fois",
+                                   "iki ila üç kez"), (0, 0, 1, 1)))
+    ys = (0.8, 0.3, -0.2, -0.7)
+    l_a = L(s, "ausdr", W_AUSDR, (-3.35, 1.3), FM, "left", GRAU)
+    l_k = L(s, "ketten", ("Zeichenketten", "strings", "cadenas", "字符串", "chaînes", "dizgiler"), (r4((xk[0] + xk[3]) / 2), 1.3),
+            FM, "center", GRAU)
+    grau, neu, hell, kopf = [], [], [], []
+    for (ausdr, key, w, passt), y in zip(reihen, ys):
+        neu.append([mark(s, x - 0.33, x + 0.33, y, 0.32, GRUEN, 0.3) for x, p in zip(xk, passt) if p])
+        g = [ttm(s, k, x, y, 0.19, GRAU) for k, x in zip(ketten, xk)]
+        grau += g
+        hell.append([(t, k) for t, k, p in zip(g, ketten, passt) if p])
+        kopf.append([tt(s, ausdr, -3.35, y, 0.19, BLAU), L(s, key, w, (-2.3, y), FM, "left", GRAU)])
+    l_anker = L(s, "anker", ("^ und $: die ganze Zeichenkette muss passen", "^ and $: the whole string must match",
+                             "^ y $: toda la cadena debe coincidir", "^ 和 $：整个字符串必须匹配",
+                             "^ et $ : toute la chaîne doit correspondre", "^ ve $: dizginin tamamı eşleşmeli"),
+                (0, -1.15), FM, "center", GRAU, roh=True)
+    schritt(s, EIN([l_a, l_k] + grau, 0.7))
+    for r in range(4):
+        s.pause(0.4)
+        schritt(s, EIN(kopf[r], 0.5))
+        with s.gleichzeitig():
+            schritt(s, EIN(neu[r], 0.6))
+            for t, k in hell[r]:
+                s.ersetzen(t, k, farbe=SCHWARZ, dauer=0.6)
+    s.pause(0.4)
+    schritt(s, EIN(l_anker, 0.5))
+    s.speichern()
+
+
+def k6gierig():
+    """A.*km im Satz Anna lief 5 km, Ben lief 10 km: Beginn beim A ganz links, ein kurzer Bogen bis zum ersten km, ein langer
+    bis zum letzten, der längere gewinnt; darunter A[^,]*km: das Komma ist verboten, der Bogen endet beim ersten km."""
+    s = Szene("linux/k6gierig", reihenfolge="anlegen")
+    satz = "Anna lief 5 km, Ben lief 10 km"
+    em, x0 = 0.2, -2.3
+    y1, y2 = 0.55, -0.85
+    xe = r4(sp(x0, 14, em))
+    xz = r4(sp(x0, len(satz), em))
+    mA = mark(s, x0 - 0.01, sp(x0, 1, em), y1, 0.3, BLAU, 0.3)
+    m1 = mark(s, x0 - 0.02, xz + 0.02, y1, 0.3, GRUEN, 0.3)
+    m2 = mark(s, x0 - 0.02, xe, y2, 0.3, GRUEN, 0.3)
+    mk = mark(s, xe, sp(x0, 15, em), y2, 0.3, ORANGE, 0.45)
+    a1 = tt(s, "A.*km", -3.35, y1, 0.19, BLAU)
+    t1 = tt(s, satz, x0, y1, em)
+    a2 = tt(s, "A[^,]*km", -3.35, y2, 0.19, BLAU)
+    t2 = tt(s, satz, x0, y2, em)
+    b_kurz = bogen(s, x0, xe, y1 + 0.18, 0.4, GRAU, DASH, 2.5)
+    b_lang = bogen(s, x0, xz, y1 + 0.18, 0.75, GRUEN, "", 3)
+    b2 = bogen(s, x0, xe, y2 + 0.18, 0.4, GRUEN, "", 3)
+    l_beg = L(s, "beg", ("Beginn: das A ganz links", "start: the A on the far left", "inicio: la A más a la izquierda",
+                         "起点：最左边的 A", "début : le A tout à gauche", "başlangıç: en soldaki A"), (x0, y1 - 0.33), FM, "left", BLAU)
+    l_kurz = L(s, "kurz", ("erstes km", "first km", "primer km", "第一个 km", "premier km", "ilk km"), (xe + 0.08, y1 + 0.37),
+               FM, "left", GRAU)
+    l_lang = L(s, "lang", ("letztes km: gewinnt", "last km: wins", "último km: gana", "最后一个 km：胜出", "dernier km : l'emporte",
+                           "son km: kazanır"), (xz + 0.1, y1 + 0.37), FM, "left", GRUEN)
+    l_e2 = L(s, "e2", ("endet beim ersten km", "ends at the first km", "termina en el primer km", "在第一个 km 处结束",
+                       "finit au premier km", "ilk km'de biter"), (xe + 0.08, y2 + 0.37), FM, "left", GRUEN)
+    l_k = L(s, "komma", ("kein Komma erlaubt", "no comma allowed", "no se permite coma", "不允许逗号", "virgule interdite",
+                         "virgüle izin yok"), (r4(sp(x0, 14.5, em)), y2 - 0.33), FM, "center", ORANGE)
+    schritt(s, EIN([a1, t1], 0.6))
+    s.pause(0.6)
+    schritt(s, EIN([mA, l_beg], 0.6))
+    s.pause(0.6)
+    schritt(s, ZEICHNE(b_kurz, 0.8), EIN(l_kurz, 0.6))
+    schritt(s, ZEICHNE(b_lang, 1.0), EIN(l_lang, 0.6))
+    s.pause(0.4)
+    schritt(s, EIN(m1, 0.6), BETONE(l_lang, 0.8))
+    s.pause(0.6)
+    schritt(s, EIN([a2, t2], 0.6))
+    schritt(s, EIN([mk, l_k], 0.6))
+    schritt(s, ZEICHNE(b2, 0.8), EIN([m2, l_e2], 0.6))
+    s.speichern()
+
+
+def k6automat():
+    """[0-9]+\\.[0-9]+ als Maschine mit vier Kreisen (Start, in der Zahl, nach dem Punkt, Ziel); 10.5 wandert Zeichen für Zeichen
+    hindurch, der leuchtende Kreis ist der Zustand; bei der 5 ist das Ziel erreicht."""
+    s = Szene("linux/k6automat", reihenfolge="anlegen")
+    cy, r = 0.25, 0.36
+    xs = (-2.55, -0.85, 0.85, 2.55)
+    l_aus = L(s, "ausdr", W_AUSDR2, (-0.52, 1.6), FM, "right", GRAU)
+    t_aus = ttm(s, "[0-9]+\\.[0-9]+", 0.3, 1.6, 0.19)
+    kr = [s.kreis(None, x, cy, r, farbe=DUNKEL, dicke=2.5, fuellung=WEISS, deckung=1.0) for x in xs]
+    innen = s.kreis(None, xs[3], cy, 0.29, farbe=DUNKEL, dicke=2, fuellung=WEISS, deckung=0.0)
+    ziel_g = s.kreis(None, xs[3], cy, r, farbe=GRUEN, dicke=4, fuellung=GRUEN, deckung=0.0)
+    tok = s.kreis(None, xs[0], cy, 0.27, farbe=ORANGE, dicke=0, fuellung=ORANGE, deckung=0.35)
+    namen = (("start", ("Start", "start", "inicio", "开始", "départ", "başlangıç")),
+             ("zahl", ("in der Zahl", "in the number", "en el número", "在数字中", "dans le nombre", "sayının içinde")),
+             ("punkt", ("nach dem Punkt", "after the dot", "tras el punto", "在点之后", "après le point", "noktadan sonra")),
+             ("ziel", ("Ziel", "goal", "meta", "终点", "but", "hedef")))
+    ln = [L(s, k, w, (x, r4(cy - r - 0.2)), FM, "center", DUNKEL) for (k, w), x in zip(namen, xs)]
+    a_in = pf(s, (-3.42, cy), (r4(xs[0] - r - 0.02), cy), farbe=DUNKEL, spitze=0.1)
+    ab = [pf(s, (r4(xs[i] + r + 0.03), cy), (r4(xs[i + 1] - r - 0.03), cy), farbe=DUNKEL, spitze=0.1) for i in range(3)]
+    w_z = ("Ziffer", "digit", "dígito", "数字", "chiffre", "rakam")
+    w_p = ("Punkt", "dot", "punto", "点", "point", "nokta")
+    la = [L(s, "a%d" % i, w, (r4((xs[i] + xs[i + 1]) / 2), cy + 0.17), FM, "center", BLAU) for i, w in enumerate((w_z, w_p, w_z))]
+    cyl = r4(cy + 0.477)
+    sl = [s.weg(None, "%s+0.2*cos(pi/180*(220-260*t))" % x, "%s+0.2*sin(pi/180*(220-260*t))" % cyl, 0, 1, farbe=DUNKEL,
+                dicke=2.5, pfeile="0.5", n=41, spitze=0.1) for x in (xs[1], xs[3])]
+    ls = [L(s, "s%d" % i, w_z, (x, r4(cyl + 0.36)), FM, "center", BLAU) for i, x in enumerate((xs[1], xs[3]))]
+    yz = -0.95
+    l_zk = L(s, "zk", ("Zeichenkette:", "string:", "cadena:", "字符串：", "chaîne :", "dizgi:"), (-1.3, yz), FM, "right", GRAU)
+    xz = (-1.1, -0.85, -0.6, -0.35)
+    mz = [mark(s, x - 0.12, x + 0.12, yz, 0.34, GRUEN, 0.3) for x in xz]
+    tz = [ttm(s, ch, x, yz, 0.24) for ch, x in zip("10.5", xz)]
+    l_ok = L(s, "ok", ("bei der 5: Ziel erreicht", "at the 5: goal reached", "en el 5: meta alcanzada", "读到 5：到达终点",
+                       "après le 5 : but atteint", "5'te: hedefe ulaşıldı"), (0.1, yz), FM, "left", GRUEN)
+    l_m = L(s, "merk", ("Die Maschine merkt sich nur den Kreis, in dem sie steht.",
+                        "The machine remembers only the circle it is in.", "La máquina solo recuerda el círculo en el que está.",
+                        "机器只记住自己所在的圆圈。", "La machine ne retient que le cercle où elle se trouve.",
+                        "Makine yalnızca bulunduğu daireyi hatırlar."), (0, -1.45), FM, "center", GRAU)
+    schritt(s, EIN([l_aus, t_aus], 0.6))
+    s.pause(0.6)
+    schritt(s, WACHS(kr, 0.7), EIN([innen] + ln, 0.7), ZEICHNE(a_in, 0.6))
+    schritt(s, ZEICHNE(ab + sl, 0.8), EIN(la + ls, 0.8))
+    s.pause(0.6)
+    schritt(s, EIN([l_zk] + tz + [tok], 0.6))
+    s.pause(0.4)
+    schritt(s, EIN(mz[0], 0.5), ZU(tok, xs[1], cy, 0.8), BETONE(ab[0], 0.8))
+    s.pause(0.2)
+    schritt(s, EIN(mz[1], 0.5), BETONE(sl[0], 0.8))
+    s.pause(0.2)
+    schritt(s, EIN(mz[2], 0.5), ZU(tok, xs[2], cy, 0.8), BETONE(ab[1], 0.8))
+    s.pause(0.2)
+    schritt(s, EIN(mz[3], 0.5), ZU(tok, xs[3], cy, 0.8), BETONE(ab[2], 0.8))
+    s.pause(0.4)
+    schritt(s, EIN([ziel_g, l_ok], 0.6))
+    schritt(s, EIN(l_m, 0.6))
+    s.speichern()
+
+
+# ================================================================== Abschnitt 8: sed
+def k6sed():
+    """Kreislauf von sed: Zeile aus laeufe.csv in den Zwischenspeicher, s/,/;/ ändert das erste Komma, Ausgabe, nächste Zeile;
+    die Datei bleibt grau und unverändert."""
+    s = Szene("linux/k6sed", reihenfolge="anlegen")
+    zeilen = LAEUFE[:3]
+    neu = [z.replace(",", ";", 1) for z in zeilen]
+    yz = (0.65, 0.43, 0.21, -0.01)
+    fb = box(s, (-2.4, 0.25), 2.0, 1.2, GRAU, WEISS, 2, "rect")
+    f_t = tt(s, "laeufe.csv", -2.4, 1.05, E2, GRAU, "m")
+    fl = [tt(s, z, -3.3, y, E2, GRAU) for z, y in zip(zeilen, yz)] + [tt(s, "…", -3.3, yz[3], E2, GRAU)]
+    l_unv = L(s, "unv", ("bleibt unverändert", "stays unchanged", "no cambia", "保持不变", "reste inchangé", "değişmeden kalır"),
+              (-2.4, -0.55), FM, "center", GRAU)
+    yb = 1.2
+    bb = box(s, (0, yb), 2.0, 0.36, GRAU, GELB, 2, "rect")
+    l_b = L(s, "zw", ("Zwischenspeicher", "buffer", "búfer", "缓冲区", "tampon", "ara bellek"), (0, 1.6), FM, "center", DUNKEL)
+    sm = []
+    for z in zeilen:
+        xl, k = -len(z) * C2 / 2, z.index(",")
+        sm.append(mark(s, sp(xl, k, E2) - 0.01, sp(xl, k + 1, E2) + 0.01, yb, 0.24, ORANGE, 0.5))
+    ob = term_kasten(s, (2.4, 0.25), 2.0, 1.2)
+    l_o = L(s, "aus", ("Ausgabe", "output", "salida", "输出", "sortie", "çıktı"), (2.4, 1.05), FM, "center", GRAU)
+    o_dots = tt(s, "…", 1.48, yz[3], E2)
+    kb = box(s, (0, 0.4), 1.05, 0.36, BLAU, BLAU_HELL, 2, "round")
+    t_cmd = ttm(s, "s/,/;/", 0, 0.4)
+    a_cmd = pf(s, (0, 0.6), (0, 1.0), farbe=BLAU, spitze=0.09)
+    l_cmd = L(s, "befehl", ("Befehl", "command", "comando", "命令", "commande", "komut"), (0, 0.05), FM, "center", BLAU)
+    a1 = pf(s, (-1.36, 0.92), (-1.04, 1.13), farbe=GRAU, spitze=0.08)
+    a2 = pf(s, (1.04, 1.13), (1.36, 0.92), farbe=GRAU, spitze=0.08)
+    lp = s.weg(None, "1.4-2.8*t", "-0.3-0.45*4*t*(1-t)", 0, 1, farbe=GRAU, dicke=2.5, pfeile="0.5", n=41, spitze=0.1)
+    l_lp = L(s, "naechste", ("nächste Zeile", "next line", "siguiente línea", "下一行", "ligne suivante", "sonraki satır"),
+             (0, -0.95), FM, "center", GRAU)
+    inn = [ttm(s, z, 0, yb, E2) for z in zeilen]
+    out = [ttm(s, z, 0, yb, E2) for z in neu]
+    schritt(s, EIN([fb, f_t] + fl + [bb, l_b, ob, l_o, kb, t_cmd, l_cmd], 0.8), ZEICHNE([a1, a2, a_cmd], 0.8))
+    s.pause(0.6)
+    for i in range(3):
+        teile = [EIN(inn[i], 0.6), BETONE(fl[i], 0.7)]
+        if i:
+            teile.append(BETONE(lp, 0.7))
+        schritt(s, *teile)
+        schritt(s, BETONE(t_cmd, 0.7), AUS(inn[i], 0.5), EIN([out[i], sm[i]], 0.6))
+        schritt(s, ZU(out[i], mitte_tt(1.48, neu[i], E2), yz[i], 0.8), AUS(sm[i], 0.4))
+        if i == 0:
+            schritt(s, ZEICHNE(lp, 0.6), EIN(l_lp, 0.6))
+        s.pause(0.3)
+    schritt(s, EIN([o_dots, l_unv], 0.6))
+    s.speichern()
+
+
+def k6zeilenadressen():
+    """Die zehn Zeilen viermal (gekürzt auf den Namen): 2,4 → Zeilen 2 bis 4, $ → letzte, /Clara/ → 4 und 8, 1 → Kopfzeile."""
+    s = Szene("linux/k6zeilenadressen", reihenfolge="anlegen")
+    kurz = ["datum,name,…"] + ["…,%s,…" % z.split(",")[1] for z in LAEUFE[1:]]
+    ys = [r4(1.0 - 0.21 * i) for i in range(10)]
+    spalten = (("2,4", (1, 2, 3), "z24", ("Zeilen 2 bis 4", "lines 2 to 4", "líneas 2 a 4", "第 2 至 4 行", "lignes 2 à 4",
+                                          "2. ile 4. satırlar")),
+               ("$", (9,), "zl", ("letzte Zeile", "last line", "última línea", "最后一行", "dernière ligne", "son satır")),
+               ("/Clara/", (3, 7), "zc", ("Zeilen mit Clara", "lines with Clara", "líneas con Clara", "含 Clara 的行",
+                                          "lignes avec Clara", "Clara içeren satırlar")),
+               ("1", (0,), "zk", ("Kopfzeile", "header line", "línea de cabecera", "表头行", "ligne d'en-tête", "başlık satırı")))
+    l_h = L(s, "kopf", ("Zeilenadressen", "line addresses", "direcciones de línea", "行地址", "adresses de ligne", "satır adresleri"),
+            (0.03, 1.75), FM, "center", GRAU)
+    basis, adr, erg = [], [], []
+    for (a, idx, key, w), x in zip(spalten, (-3.05, -1.4, 0.25, 1.9)):
+        xc = r4(x + 0.6)
+        mk = [mark(s, x - 0.03, x + 1.2, ys[i], 0.19, GRUEN, 0.3) for i in idx]
+        nr = [tt(s, str(i + 1), x + 0.16, y, E2, GRAU, "r") for i, y in enumerate(ys)]
+        tx = [tt(s, k, x + 0.22, y, E2) for k, y in zip(kurz, ys)]
+        basis += nr + tx
+        adr.append(ttm(s, a, xc, 1.4, 0.19, ORANGE))
+        erg.append((mk + [L(s, key, w, (xc, -1.25), FM, "center", GRUEN)], [tx[i] for i in idx]))
+    schritt(s, EIN(basis + [l_h], 0.7))
+    for k in range(4):
+        s.pause(0.5)
+        schritt(s, EIN(adr[k], 0.5))
+        schritt(s, EIN(erg[k][0], 0.6), BETONE(erg[k][1], 0.7))
+    s.speichern()
+
+
+def k6gruppen():
+    """2026-11-02 und ^([0-9]{4})-([0-9]{2})-([0-9]{2}): die Gruppen färben 2026 (1), 11 (2), 02 (3); der Ersatz \\3.\\2.\\1
+    holt die Stücke in neuer Reihenfolge: 02.11.2026."""
+    s = Szene("linux/k6gruppen", reihenfolge="anlegen")
+    farb = (BLAU, GRUEN, ORANGE)
+
+    def marke(x, y, n, f):
+        return [s.kreis(None, r4(x), r4(y), 0.12, farbe=f, dicke=2, fuellung=WEISS, deckung=1.0),
+                text(s, str(n), (r4(x), r4(y)), FM, "center", f)]
+    emA, xA, yA = 0.17, -1.2, 1.5
+    gA = ((1, 10), (12, 21), (23, 32))
+    mA = [mark(s, sp(xA, a, emA) - 0.005, sp(xA, b + 1, emA) + 0.005, yA, 0.26, f, 0.3) for (a, b), f in zip(gA, farb)]
+    l_A = L(s, "ausdr", W_AUSDR2, (xA - 0.12, yA), FM, "right", GRAU)
+    tA = tt(s, "^([0-9]{4})-([0-9]{2})-([0-9]{2})", xA, yA, emA)
+    nA = [marke(msp(xA, a, b, emA), yA + 0.3, g + 1, f) for g, ((a, b), f) in enumerate(zip(gA, farb))]
+    em = 0.26
+    datum, yD = "2026-11-02", 0.75
+    xD = r4(-len(datum) * cw(em) / 2)
+    stD = ((0, 3), (5, 6), (8, 9))
+    erg_st = ((6, 9), (3, 4), (0, 1))                  # Platz der Gruppe 1, 2, 3 im Ergebnis 02.11.2026
+    yE, yR = -0.25, -1.05
+    mR = [mark(s, sp(xD, a, em) - 0.01, sp(xD, b + 1, em) + 0.01, yR, 0.38, f, 0.3) for (a, b), f in zip(erg_st, farb)]
+    mD = [mark(s, sp(xD, a, em) - 0.01, sp(xD, b + 1, em) + 0.01, yD, 0.38, f, 0.3) for (a, b), f in zip(stD, farb)]
+    l_D = L(s, "datum", ("Datum:", "date:", "fecha:", "日期：", "date :", "tarih:"), (xD - 0.15, yD), FM, "right", GRAU)
+    tD = [tt(s, datum[a:b + 1], sp(xD, a, em), yD, em) for a, b in stD] + [tt(s, "-", sp(xD, k, em), yD, em) for k in (4, 7)]
+    kop = [tt(s, datum[a:b + 1], sp(xD, a, em), yD, em) for a, b in stD]
+    nD = [marke(msp(xD, a, b, em), yD - 0.36, g + 1, f) for g, ((a, b), f) in enumerate(zip(stD, farb))]
+    ers = "\\3.\\2.\\1"
+    xE = r4(-len(ers) * cw(em) / 2)
+    stE = ((0, 1, 2), (3, 4, 1), (6, 7, 0))
+    mE = [mark(s, sp(xE, a, em) - 0.01, sp(xE, b + 1, em) + 0.01, yE, 0.38, farb[g], 0.3) for a, b, g in stE]
+    l_E = L(s, "ersatz", ("Ersatz:", "replacement:", "reemplazo:", "替换：", "remplacement :", "değiştirme metni:"), (xE - 0.15, yE),
+            FM, "right", GRAU)
+    tE = [tt(s, ers[a:b + 1], sp(xE, a, em), yE, em) for a, b, _g in stE] + [tt(s, ".", sp(xE, k, em), yE, em) for k in (2, 5)]
+    l_R = L(s, "erg", ("Ergebnis:", "result:", "resultado:", "结果：", "résultat :", "sonuç:"), (xD - 0.15, yR), FM, "right", GRAU)
+    tRp = [tt(s, ".", sp(xD, k, em), yR, em) for k in (2, 5)]
+    schritt(s, EIN([l_A, tA, l_D] + tD + kop, 0.7))
+    s.pause(0.6)
+    for g in range(3):
+        schritt(s, EIN([mA[g], mD[g]] + nA[g] + nD[g], 0.6), BETONE(kop[g], 0.7))
+    s.pause(0.6)
+    schritt(s, EIN([l_E] + mE + tE, 0.6))
+    s.pause(0.4)
+    schritt(s, EIN(l_R, 0.4))
+    for k, g in enumerate((2, 1, 0)):
+        a, b = erg_st[g]
+        schritt(s, ZU(kop[g], msp(xD, a, b, em), yR, 0.9), EIN(mR[g], 0.6), BETONE(tE[k], 0.8))
+        if k < 2:
+            schritt(s, EIN(tRp[k], 0.3))
+    s.speichern()
+
+
+def k6sedi():
+    """sed -i 's/Ben/Benjamin/' kopie.csv: sed liest die alte Datei und schreibt jede Zeile in eine neue Datei daneben; am Ende
+    übernimmt die neue Datei den Namen kopie.csv, die alte verschwindet (gestrichelter Umriss)."""
+    s = Szene("linux/k6sedi", reihenfolge="anlegen")
+    alt = LAEUFE[:3]
+    neu = [z.replace("Ben", "Benjamin") for z in alt]
+    yz = (0.7, 0.48, 0.26, 0.04)
+    xa, xn, xs_, ys_ = -3.27, 0.87, -0.55, 0.3
+    t_cmd = tt(s, "$ sed -i 's/Ben/Benjamin/' kopie.csv", -3.3, 1.65, E2)
+    geist_ = box(s, (-2.35, 0.3), 2.0, 1.15, HELLGRAU, WEISS, 2, "rect", DASH, 0.0)
+    ab = box(s, (-2.35, 0.3), 2.0, 1.15, GRAU, WEISS, 2, "rect")
+    a_name = tt(s, "kopie.csv", -2.35, 1.07, E2, SCHWARZ, "m")
+    al = [tt(s, z, xa, y, E2) for z, y in zip(alt, yz)] + [tt(s, "…", xa, yz[3], E2)]
+    sb = box(s, (xs_, ys_), 0.7, 0.45, BLAU, BLAU_HELL, 2.5, "round")
+    s_t = ttm(s, "sed", xs_, ys_)
+    nb = box(s, (2.0, 0.3), 2.45, 1.15, GRAU, WEISS, 2, "rect")
+    mben = mark(s, sp(xn, 11, E2) - 0.01, sp(xn, 19, E2) + 0.01, yz[2], 0.2, ORANGE, 0.35)
+    n_dots = tt(s, "…", xn, yz[3], E2)
+    l_neu = L(s, "neu", ("neue Datei", "new file", "archivo nuevo", "新文件", "nouveau fichier", "yeni dosya"), (2.0, 1.07), FM,
+              "center", GRAU)
+    pa = [pf(s, (-1.32, ys_), (-0.93, ys_), farbe=GRAU, spitze=0.08), pf(s, (-0.17, ys_), (0.72, ys_), farbe=GRAU, spitze=0.08)]
+    l_alt = L(s, "alt", ("alte Datei: bleibt unverändert", "old file: stays unchanged", "archivo viejo: no cambia", "旧文件：保持不变",
+                         "ancien fichier : inchangé", "eski dosya: değişmez"), (-2.35, -0.5), FM, "center", GRAU)
+    l_alt2 = L(s, "alt2", ("alte Datei: am Ende entfernt", "old file: removed at the end", "archivo viejo: borrado al final",
+                           "旧文件：最后被删除", "ancien fichier : supprimé à la fin", "eski dosya: sonunda silinir"),
+               (-2.35, -0.5), FM, "center", GRAU)
+    l_neu2 = L(s, "neu2", ("neue Datei daneben", "new file next to it", "archivo nuevo al lado", "旁边的新文件",
+                           "nouveau fichier à côté", "yanında yeni dosya"), (2.0, -0.5), FM, "center", GRAU)
+    l_neu3 = L(s, "neu3", ("übernimmt den Namen", "takes over the name", "toma el nombre", "获得这个名字", "reprend le nom",
+                           "adı devralır"), (2.0, -0.5), FM, "center", ORANGE)
+    kop = [tt(s, z, xa, y, E2) for z, y in zip(alt, yz)]
+    ben = ttm(s, neu[2], xs_, ys_, E2)
+    schritt(s, EIN([t_cmd, geist_, ab, a_name] + al + kop + [sb, s_t], 0.7))
+    s.pause(0.6)
+    schritt(s, EIN([nb, l_neu, l_neu2, l_alt], 0.6), ZEICHNE(pa, 0.6))
+    s.pause(0.4)
+    for i in range(2):
+        schritt(s, ZU(kop[i], xs_, ys_, 0.6))
+        schritt(s, ZU(kop[i], mitte_tt(xn, alt[i], E2), yz[i], 0.6))
+    schritt(s, ZU(kop[2], xs_, ys_, 0.6))
+    schritt(s, AUS(kop[2], 0.4), EIN(ben, 0.5), BETONE(s_t, 0.7))
+    schritt(s, ZU(ben, mitte_tt(xn, neu[2], E2), yz[2], 0.7))
+    schritt(s, EIN([mben, n_dots], 0.5))
+    s.pause(0.6)
+    schritt(s, AUS([ab] + al + [l_alt, l_neu, l_neu2], 0.7), ZU(a_name, 2.0, 1.07, 0.9), EIN([l_alt2, l_neu3], 0.7))
+    s.speichern()
+
+
+# ================================================================== Abschnitt 9: awk
+def k6regeln():
+    """awk-Programm aus zwei Regeln; die Zeilen Anna, Ben, Clara kommen nacheinander, beide Regeln werden von oben geprüft:
+    bei Clara leuchten beide und schreiben, sonst nur die zweite (ohne Bedingung)."""
+    s = Szene("linux/k6regeln", reihenfolge="anlegen")
+    r1 = '/Clara/ {print "Clara ist gelaufen"}'
+    r2 = '{print "Zeile gelesen"}'
+    xr, y1, y2 = -3.3, 1.2, 0.45
+    x2 = r4(sp(xr, 8, E2))
+    l_p = L(s, "prog", ("awk-Programm", "awk program", "programa awk", "awk 程序", "programme awk", "awk programı"), (-3.35, 1.65),
+            FM, "left", GRAU)
+    b1 = box(s, (-1.85, y1), 3.1, 0.38, GRAU, WEISS, 2, "rect")
+    g1 = box(s, (-1.85, y1), 3.1, 0.38, GRUEN, GRUEN_HELL, 2.5, "rect")
+    rot = [mark(s, xr - 0.02, sp(xr, 7, E2) + 0.02, y1, 0.26, ROT, 0.25) for _ in range(2)]
+    t1 = tt(s, r1, xr, y1, E2)
+    b2 = box(s, (-1.85, y2), 3.1, 0.38, GRAU, WEISS, 2, "rect")
+    g2 = [box(s, (-1.85, y2), 3.1, 0.38, GRUEN, GRUEN_HELL, 2.5, "rect") for _ in range(3)]
+    t2 = tt(s, r2, x2, y2, E2)
+    w_b = ("Bedingung", "condition", "condición", "条件", "condition", "koşul")
+    w_a = ("Aktion", "action", "acción", "动作", "action", "eylem")
+    lab = [L(s, "b1", w_b, (msp(xr, 0, 6, E2), y1 - 0.32), FM, "center", GRAU),
+           L(s, "a1", w_a, (msp(xr, 8, 35, E2), y1 - 0.32), FM, "center", GRAU),
+           L(s, "b2", ("keine Bedingung", "no condition", "sin condición", "无条件", "pas de condition", "koşul yok"),
+             (xr, y2 - 0.32), FM, "left", GRAU),
+           L(s, "a2", w_a, (msp(x2, 0, 22, E2), y2 - 0.32), FM, "center", GRAU)]
+    zl = LAEUFE[1:4]
+    xi, yi = 0.95, (1.4, 1.18, 0.96)
+    l_e = L(s, "ein", W_EING, (xi, 1.68), FM, "left", GRAU)
+    cur = mark(s, xi - 0.04, xi + 23 * C2 + 0.04, yi[0], 0.2, ORANGE, 0.3)
+    ti = [tt(s, z, xi, y, E2) for z, y in zip(zl, yi)]
+    ptr = pf(s, (0.45, y1), (-0.22, y1), farbe=ORANGE, dicke=3, spitze=0.09)
+    ob = term_kasten(s, (2.15, -0.45), 2.4, 1.1)
+    l_o = L(s, "aus", W_AUSG, (xi, 0.3), FM, "left", GRAU)
+    yo = (-0.07, -0.29, -0.51, -0.73)
+    ausg = ("Zeile gelesen", "Zeile gelesen", "Clara ist gelaufen", "Zeile gelesen")
+    mo = mark(s, 1.02, 1.08 + 18 * C2, yo[2], 0.2, GRUEN, 0.3)
+    to = [tt(s, a, 1.05, y, E2) for a, y in zip(ausg, yo)]
+    schritt(s, EIN([l_p, b1, t1, b2, t2] + lab, 0.7))
+    s.pause(0.6)
+    schritt(s, EIN([l_e] + ti + [ob, l_o], 0.6))
+    s.pause(0.6)
+    k, vorher = 0, []
+    for i, z in enumerate(zl):
+        if i == 0:
+            schritt(s, EIN([cur, ptr], 0.5))
+        else:
+            schritt(s, VER(cur, 0, yi[i] - yi[i - 1], 0.5), VER(ptr, 0, y1 - y2, 0.5), AUS(vorher, 0.4))
+        if "Clara" in z:
+            schritt(s, EIN([g1, to[k]], 0.6))
+            vorher = [g2[i]]
+            k += 1
+        else:
+            schritt(s, EIN(rot[i], 0.5))
+            vorher = [rot[i], g2[i]]
+        schritt(s, VER(ptr, 0, y2 - y1, 0.5), EIN([g2[i], to[k]], 0.6))
+        k += 1
+        s.pause(0.3)
+    schritt(s, AUS(ptr, 0.4), EIN(mo, 0.6))
+    s.speichern()
+
+
+def k6awkfelder():
+    """2026-11-08,Ben,21.1,128 mit -F,: $1 bis $4 über den Feldern, ein Bogen $0 über der ganzen Zeile; rechts NF = 4, $NF zeigt
+    auf das letzte Feld; links NR = 9."""
+    s = Szene("linux/k6awkfelder", reihenfolge="anlegen")
+    z = LAEUFE[8]
+    em, y0 = 0.22, -0.05
+    x0 = r4(-len(z) * cw(em) / 2)
+    fl, kommas = felder(z)
+    mk = [mark(s, sp(x0, k, em) + 0.005, sp(x0, k + 1, em) - 0.005, y0, 0.36, ORANGE, 0.4) for k in kommas]
+    tf = [tt(s, f, sp(x0, a, em), y0, em) for a, b, f in fl]
+    tk = [tt(s, ",", sp(x0, k, em), y0, em) for k in kommas]
+    t_F = tt(s, "-F,", -3.3, 1.55, 0.19)
+    l_F = L(s, "F", ("Trennzeichen: Komma", "separator: comma", "separador: coma", "分隔符：逗号", "séparateur : virgule",
+                     "ayırıcı: virgül"), (-2.9, 1.55), FM, "left", ORANGE)
+    kl = [klammer(s, sp(x0, a, em) + 0.02, sp(x0, b + 1, em) - 0.02, y0 + 0.24, unten=False, farbe=BLAU, t=0.06, dicke=2)
+          for a, b, f in fl]
+    tn = [ttm(s, "$%d" % (j + 1), msp(x0, a, b, em), y0 + 0.45, 0.19, BLAU) for j, (a, b, f) in enumerate(fl)]
+    breite = r4(len(z) * cw(em) + 0.08)
+    arc = s.weg(None, "%s+%s*t" % (r4(x0 - 0.04), breite), "%s+0.32*4*t*(1-t)" % r4(y0 + 0.66), 0, 1, farbe=BLAU, dicke=2.5, n=41)
+    t0 = ttm(s, "$0", 0, r4(y0 + 1.15), 0.19, BLAU)
+    xr = r4(sp(x0, len(z), em) + 0.25)
+    t_nf = tt(s, "NF = 4", xr, y0, 0.19)
+    l_nf = L(s, "nf", ("Zahl der Felder", "number of fields", "número de campos", "字段数", "nombre de champs", "alan sayısı"),
+             (xr, r4(y0 - 0.32)), FM, "left", GRAU)
+    x4 = r4(msp(x0, fl[3][0], fl[3][1], em))
+    a_nf = pf(s, (x4, r4(y0 - 0.68)), (x4, r4(y0 - 0.24)), farbe=BLAU, spitze=0.08)
+    t_dnf = ttm(s, "$NF", x4, r4(y0 - 0.83), 0.19, BLAU)
+    l_dnf = L(s, "dnf", ("das letzte Feld", "the last field", "el último campo", "最后一个字段", "le dernier champ", "son alan"),
+              (r4(x4 + 0.3), r4(y0 - 0.83)), FM, "left", GRAU)
+    xl = r4(x0 - 0.25)
+    t_nr = tt(s, "NR = 9", xl, y0, 0.19, SCHWARZ, "r")
+    l_nr = L(s, "nr", ("Zeilennummer", "line number", "número de línea", "行号", "numéro de ligne", "satır numarası"),
+             (xl, r4(y0 - 0.32)), FM, "right", GRAU)
+    schritt(s, EIN(tf + tk + [t_F, l_F], 0.6))
+    schritt(s, EIN(mk, 0.6), BETONE(tk, 0.7))
+    s.pause(0.6)
+    for j in range(4):
+        schritt(s, ZEICHNE(kl[j], 0.45), EIN(tn[j], 0.45))
+    s.pause(0.6)
+    schritt(s, ZEICHNE(arc, 0.7), EIN(t0, 0.6))
+    s.pause(0.6)
+    schritt(s, EIN([t_nf, l_nf], 0.5))
+    schritt(s, ZEICHNE(a_nf, 0.6), EIN([t_dnf, l_dnf], 0.6), BETONE(tn[3], 0.8))
+    s.pause(0.6)
+    schritt(s, EIN([t_nr, l_nr], 0.5))
+    s.speichern()
+
+
+def k6mittel():
+    """Rechenbild: Annas Strecken 5,0 + 6,4 + 12,0 + 5,0, Zwischensummen 5,0, 11,4, 23,4, 28,4, dann ÷ 4 = 7,1."""
+    s = Szene("linux/k6mittel", reihenfolge="anlegen")
+    werte = (5.0, 6.4, 12.0, 5.0)
+    summen = [round(v, 1) for v in itertools.accumulate(werte)]
+    xs = [r4(-2.5 + 1.0 * i) for i in range(4)]
+    y1, y2 = 0.45, -0.35
+    xr = 2.25
+    rb = box(s, (xr, y2), 0.75, 0.4, BLAU, BLAU_HELL, 2.5)
+    l1 = L(s, "km", ("Annas Strecken in km", "Anna's distances in km", "distancias de Anna en km", "Anna 的距离（公里）",
+                     "distances d'Anna en km", "Anna'nın mesafeleri (km)"), (-3.3, 0.9), FM, "left", GRAU)
+    l2 = L(s, "zw", ("Zwischensummen", "running totals", "sumas parciales", "部分和", "sommes partielles", "ara toplamlar"),
+           (-3.3, -0.78), FM, "left", GRUEN)
+    tw = [text(s, "%.1f" % w, (x, y1), FS) for w, x in zip(werte, xs)]
+    tp = [text(s, "+", (r4(x + 0.5), y1), FS, "center", GRAU) for x in xs[:-1]]
+    vp = [pf(s, (x, y1 - 0.16), (x, y2 + 0.17), farbe=HELLGRAU, dicke=2, spitze=0.08) for x in xs]
+    hp = [pf(s, (r4(xs[i - 1] + 0.3), y2), (r4(xs[i] - 0.3), y2), farbe=HELLGRAU, dicke=2, spitze=0.08) for i in range(1, 4)]
+    ts = [text(s, "%.1f" % v, (x, y2), FS, "center", GRUEN) for v, x in zip(summen, xs)]
+    xa, xb = r4(xs[3] + 0.35), r4(xr - 0.42)
+    pd = pf(s, (xa, y2), (xb, y2), farbe=BLAU, dicke=2.5, spitze=0.09)
+    t_d = text(s, "÷ 4", (r4((xa + xb) / 2), y2 + 0.22), FS, "center", BLAU)
+    l_n = L(s, "laeufe", ("4 Läufe", "4 runs", "4 carreras", "4 次跑步", "4 courses", "4 koşu"), (r4((xa + xb) / 2), y2 - 0.22),
+            FM, "center", GRAU)
+    t_r = text(s, "7.1", (xr, y2), FS, "center", BLAU)
+    l_end = L(s, "end", ("mittlere Strecke: 7.1 km", "mean distance: 7.1 km", "distancia media: 7.1 km", "平均距离：7.1 公里",
+                         "distance moyenne : 7.1 km", "ortalama mesafe: 7.1 km"), (3.3, -1.0), FK, "right", BLAU)
+    schritt(s, EIN(tw + tp + [l1], 0.8))
+    s.pause(0.6)
+    schritt(s, ZEICHNE(vp[0], 0.5), EIN([ts[0], l2], 0.5), BETONE(tw[0], 0.6))
+    for i in range(1, 4):
+        schritt(s, ZEICHNE([vp[i], hp[i - 1]], 0.5), EIN(ts[i], 0.5), BETONE([tw[i], ts[i - 1]], 0.6))
+    s.pause(0.6)
+    schritt(s, ZEICHNE(pd, 0.6), EIN([t_d, l_n], 0.6), BETONE(ts[3], 0.7))
+    schritt(s, EIN([rb, t_r], 0.6))
+    s.pause(0.4)
+    schritt(s, EIN(l_end, 0.6))
+    s.speichern()
+
+
+def k6array():
+    """Die neun Datensätze laufen ein; rechts die Tabelle Schlüssel / s / n: neue Namen legen eine Zeile an, weitere Läufe erhöhen
+    sie; am Ende Anna 28,4 / 4, Ben 36,6 / 3, Clara 15,2 / 2."""
+    s = Szene("linux/k6array", reihenfolge="anlegen")
+    zl = LAEUFE[1:]
+    x0 = -3.35
+    ys = [r4(1.0 - 0.22 * i) for i in range(9)]
+    cur = mark(s, x0 - 0.04, x0 + 23 * C2 + 0.04, ys[0], 0.2, ORANGE, 0.3)
+    tz = [tt(s, z, x0, y, E2) for z, y in zip(zl, ys)]
+    l_akt = L(s, "akt", ("für jede Zeile:", "for each line:", "para cada línea:", "对每一行：", "pour chaque ligne :",
+                         "her satır için:"), (0.75, 1.5), FM, "right", GRAU)
+    t_akt = tt(s, "{s[$2] += $3; n[$2]++}", 0.84, 1.5, 0.17)
+    xk, xsv, xn = 1.0, 2.15, 2.95
+    l_k = L(s, "schl", ("Schlüssel", "key", "clave", "键", "clé", "anahtar"), (xk, 1.0), FM, "center", DUNKEL)
+    t_sh = ttm(s, "s", xsv, 1.0, 0.19)
+    t_nh = ttm(s, "n", xn, 1.0, 0.19)
+    hl = linie(s, (0.35, 0.83), (3.3, 0.83), HELLGRAU, 1.5)
+    a = pf(s, (-1.35, 0.15), (0.25, 0.15), farbe=GRAU, spitze=0.1)
+    ry = {"Anna": 0.6, "Ben": 0.3, "Clara": 0.0}
+    erst = {}
+    for z in zl:
+        n, km = z.split(",")[1], z.split(",")[2]
+        erst.setdefault(n, km)
+    rows = {n: [ttm(s, n, xk, y, 0.19), text(s, erst[n], (xsv, y), FK), text(s, "1", (xn, y), FK)] for n, y in ry.items()}
+    schritt(s, EIN(tz + [l_akt, t_akt], 0.6))
+    schritt(s, EIN([l_k, t_sh, t_nh, hl], 0.6), ZEICHNE(a, 0.6))
+    s.pause(0.6)
+    summe, anz = {}, {}
+    for i, z in enumerate(zl):
+        n, km = z.split(",")[1], float(z.split(",")[2])
+        with s.gleichzeitig():
+            if i == 0:
+                schritt(s, EIN(cur, 0.4))
+            else:
+                schritt(s, VER(cur, 0, ys[i] - ys[i - 1], 0.4))
+            if n not in summe:
+                summe[n], anz[n] = km, 1
+                schritt(s, EIN(rows[n], 0.5))
+            else:
+                summe[n], anz[n] = round(summe[n] + km, 1), anz[n] + 1
+                s.ersetzen(rows[n][1], "%.1f" % summe[n], dauer=0.5)
+                s.ersetzen(rows[n][2], str(anz[n]), dauer=0.5)
+                schritt(s, BETONE(rows[n][0], 0.6))
+        s.pause(0.15)
+    schritt(s, AUS(cur, 0.4))
+    s.speichern()
+
+
+# ================================================================== Abschnitt 10: Werkzeuge zusammen
+def k6werkzeuge():
+    """Das Lauftagebuch als Tabelle (Raster), fünfmal: grep/sed -n ganze Zeilen, cut eine Spalte, sort neue Reihenfolge (Balken
+    der Schlüsselspalte ordnen sich), tr/sed Zeichen in Zellen, uniq -c/awk: viele Zeilen werden wenige Ergebniszeilen."""
+    s = Szene("linux/k6werkzeuge", reihenfolge="anlegen")
+    zb, zh = 0.24, 0.14
+
+    def kopf(xm, top, spalten=4):
+        return box(s, (xm, r4(top - zh / 2)), spalten * zb, zh, GRAU_HELL, GRAU_HELL, 0, "rect")
+
+    def linien(xm, top, spalten=4, zeilen=6):
+        le, re, un = r4(xm - spalten * zb / 2), r4(xm + spalten * zb / 2), r4(top - zeilen * zh)
+        return ([linie(s, (le, r4(top - k * zh)), (re, r4(top - k * zh)), GRAU, 1.2) for k in range(zeilen + 1)] +
+                [linie(s, (r4(le + j * zb), top), (r4(le + j * zb), un), GRAU, 1.2) for j in range(spalten + 1)])
+
+    def zelle(xm, top, z, sp_, farbe, spalten=4):
+        le = xm - spalten * zb / 2
+        return mark(s, r4(le + sp_ * zb), r4(le + (sp_ + 1) * zb), r4(top - (z + 0.5) * zh), zh, farbe, 0.4)
+
+    def zeile_(xm, top, z, farbe, spalten=4):
+        return mark(s, r4(xm - spalten * zb / 2), r4(xm + spalten * zb / 2), r4(top - (z + 0.5) * zh), zh, farbe, 0.4)
+    tA, tB = 1.15, -0.4
+    xA = (-2.3, 0.0, 2.3)
+    l_t = L(s, "titel", ("das Lauftagebuch als Tabelle: Zeile = Datensatz, Spalte = Feld",
+                         "the running log as a table: line = record, column = field",
+                         "el diario de carreras como tabla: línea = registro, columna = campo", "跑步记录作为表格：行 = 记录，列 = 字段",
+                         "le journal de course en tableau : ligne = enregistrement, colonne = champ",
+                         "tablo olarak koşu günlüğü: satır = kayıt, sütun = alan"), (0, 1.75), FM, "center", GRAU)
+    raster = []
+    # grep, sed -n
+    raster.append(kopf(xA[0], tA))
+    e1 = [zeile_(xA[0], tA, z, GRUEN) for z in (2, 4)]
+    raster += linien(xA[0], tA)
+    # cut
+    raster.append(kopf(xA[1], tA))
+    le = xA[1] - 2 * zb
+    e2 = mark(s, r4(le + zb), r4(le + 2 * zb), r4(tA - 3 * zh), 6 * zh, GRUEN, 0.4)
+    raster += linien(xA[1], tA)
+    # sort
+    raster.append(kopf(xA[2], tA))
+    werte = (0.55, 0.2, 0.85, 0.35, 0.7)
+    rang = {v: i for i, v in enumerate(sorted(werte))}
+    le = xA[2] - 2 * zb
+    balken, ziele = [], []
+    for z, v in enumerate(werte, 1):
+        xm = r4(le + 2 * zb + 0.02 + v * 0.1)
+        balken.append(box(s, (xm, r4(tA - (z + 0.5) * zh)), r4(v * 0.2), 0.08, BLAU, BLAU, 0, "rect"))
+        ziele.append((xm, r4(tA - (rang[v] + 1.5) * zh)))
+    raster += linien(xA[2], tA)
+    a_s = pf(s, (r4(xA[2] + 0.62), r4(tA - 0.2)), (r4(xA[2] + 0.62), r4(tA - 0.78)), farbe=BLAU, dicke=2.5, spitze=0.07)
+    # tr, sed
+    raster.append(kopf(xA[0], tB))
+    e4 = [zelle(xA[0], tB, z, sp_, ORANGE) for z, sp_ in ((1, 1), (3, 1), (5, 1), (2, 3))]
+    raster += linien(xA[0], tB)
+    # uniq -c, awk
+    raster.append(kopf(xA[1], tB))
+    gruppen = (GRUEN, BLAU, ORANGE, GRUEN, BLAU)
+    e5 = [zelle(xA[1], tB, z, 1, f) for z, f in enumerate(gruppen, 1)]
+    raster += linien(xA[1], tB)
+    erg = [kopf(xA[2], tB, 2)] + [zeile_(xA[2], tB, z, f, 2) for z, f in enumerate((GRUEN, BLAU, ORANGE), 1)]
+    erg += linien(xA[2], tB, 2, 4)
+    a_u = pf(s, (0.6, r4(tB - 3 * zh)), (r4(xA[2] - 0.38), r4(tB - 3 * zh)), farbe=GRAU, spitze=0.09)
+    namen = [ttm(s, n, x, r4(t + 0.22), E2) for n, x, t in (("grep, sed -n", xA[0], tA), ("cut", xA[1], tA), ("sort", xA[2], tA),
+                                                           ("tr, sed", xA[0], tB), ("uniq -c, awk", xA[1], tB))]
+    w = ((("ganze Zeilen", "whole lines", "líneas enteras", "整行", "lignes entières", "satırların tamamı"), xA[0], tA),
+         (("eine Spalte", "one column", "una columna", "一列", "une colonne", "bir sütun"), xA[1], tA),
+         (("neue Reihenfolge", "new order", "nuevo orden", "新顺序", "nouvel ordre", "yeni sıra"), xA[2], tA),
+         (("Zeichen in Zellen", "characters in cells", "caracteres en celdas", "单元格中的字符", "caractères dans les cellules",
+           "hücrelerdeki karakterler"), xA[0], tB),
+         (("viele Zeilen werden wenige Ergebniszeilen", "many lines become a few result lines",
+           "muchas líneas se convierten en pocas líneas de resultado", "多行变成少量结果行",
+           "beaucoup de lignes deviennent quelques lignes de résultat", "çok satır, birkaç sonuç satırına iner"),
+          r4((xA[1] + xA[2]) / 2), tB))
+    lab = [L(s, "w%d" % k, ww, (x, r4(t - 6 * zh - 0.21)), FM, "center", GRUEN if k < 2 else (BLAU if k == 2 else
+                                                                                           (ORANGE if k == 3 else DUNKEL)))
+           for k, (ww, x, t) in enumerate(w)]
+    schritt(s, EIN([l_t] + raster, 0.8))
+    s.pause(0.4)
+    schritt(s, EIN(namen[0], 0.4))
+    schritt(s, EIN(e1 + [lab[0]], 0.6))
+    s.pause(0.4)
+    schritt(s, EIN(namen[1], 0.4))
+    schritt(s, EIN([e2, lab[1]], 0.6))
+    s.pause(0.4)
+    schritt(s, EIN([namen[2]] + balken, 0.5))
+    schritt(s, *[ZU(b, x, y, 0.9) for b, (x, y) in zip(balken, ziele)], ZEICHNE(a_s, 0.9), EIN(lab[2], 0.6))
+    s.pause(0.4)
+    schritt(s, EIN(namen[3], 0.4))
+    schritt(s, EIN(e4 + [lab[3]], 0.6))
+    s.pause(0.4)
+    schritt(s, EIN(namen[4], 0.4))
+    schritt(s, EIN(e5, 0.5))
+    schritt(s, ZEICHNE(a_u, 0.6), EIN(erg + [lab[4]], 0.7))
+    s.speichern()
+
+
 SZENEN_1 = (k6tabelle, k6zeilenende, k6ausschnitt, k6tailf,            # Abschnitte 1–5 (Phase 2b-1)
             k6cut, k6tr, k6paste, k6minuten,
             k6lexnum, k6schluessel, k6uniq, k6haeufigkeit,
             k6seq, k6diff,
             k6grep, k6grepo, k6grepr)
-SZENEN_2 = ()                                                          # Abschnitte 6–10 (Phase 2b-2): hier anfügen
+SZENEN_2 = (k6menge, k6klammer, k6klassen, k6anker,                    # Abschnitte 6–10 (Phase 2b-2)
+            k6grundform, k6quantor, k6gierig, k6automat,
+            k6sed, k6zeilenadressen, k6gruppen, k6sedi,
+            k6regeln, k6awkfelder, k6mittel, k6array,
+            k6werkzeuge)
 SZENEN = SZENEN_1 + SZENEN_2
 
 if __name__ == "__main__":

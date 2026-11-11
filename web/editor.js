@@ -1468,14 +1468,13 @@ function renderCompProps(container, c){
   const def=COMP_DEFS[c.type];
   const h=document.createElement("div"); h.style="font-weight:600;margin-bottom:6px"; h.textContent=def.name; container.appendChild(h);
   let afterChange=null;                                    // run after every field change (scalar product: re-check lists)
+  // Beschreibung der Parameter nur als Tooltip am Namen, nicht als Text im Feld (Wunsch des Users, 11.11.2026)
   const STEPS_HINT=" all_steps: Standbild und Artikelbild zeigen jeden Schritt als eigene Zeile. max_width > 0: lange Rechnungen bei dieser Breite (Welt-Einheiten) umbrechen.";
   if(def.kind==="dotproduct"){
-    const hint=document.createElement("div"); hint.className="hint";
-    hint.textContent="u, v: Zahlen gleicher Länge, getrennt durch Komma oder Leerzeichen (mit ; getrennt gilt das Komma als Dezimalkomma). "
+    h.title="u, v: Zahlen gleicher Länge, getrennt durch Komma oder Leerzeichen (mit ; getrennt gilt das Komma als Dezimalkomma). "
       +"u_name, v_name: Namen der Vektoren (fett, mit Index: q_1), index: Laufindex, upper: obere Grenze (leer = Länge, z. B. d). "
       +"display: rechnung (wie Σ), komponenten (Zeile für Zeile · und = Produkt, dann die Summe) oder matrix (u dreht sich zum Zeilenvektor, "
       +"v wird darauf gelegt). show_vectors (nur rechnung): beide Vektoren als Spalten zeigen."+STEPS_HINT;
-    container.appendChild(hint);
     const warn=document.createElement("div"); warn.className="hint"; warn.style.color="#d62728";
     const check=()=>{ warn.textContent = seriesSpec(c, model.lang) ? "" : "⚠ u und v brauchen gleich viele Zahlen (mindestens eine)."; };
     check(); container.appendChild(warn);
@@ -1495,11 +1494,9 @@ function renderCompProps(container, c){
       sel.value=c.props.sum_mode||"number"; sel.onchange=()=>{ c.props.sum_mode=sel.value; renderPreview(); };
       container.appendChild(propRow("Mode", sel));
     }
-    const hint=document.createElement("div"); hint.className="hint";
-    hint.textContent = ((def.kind==="product")
+    h.title = ((def.kind==="product")
       ? "Index i; upper limit 'to' may be a number or 'n'. ∏ multiplies the term over i (e.g. term i → factorial)."
       : "Index i; upper limit 'to' may be a number or 'n' (symbolic). Term uses i (function mode: i and x).") + STEPS_HINT;
-    container.appendChild(hint);
   } else {
     for(const inp of def.inputs){
       const candidates=model.objects.filter(o=>inp.accept.includes(o.type));
@@ -3297,21 +3294,29 @@ function exportVideo(f){
   };
   _recording=true; playing=true;                         // block edits / LOD / other playback while capturing
   camDraw(); playFrame(0); updateSumOverlay(0); composite();
-  try{ rec.start(); }catch(e){ _recording=false; playing=false; setStatus("⚠ "+e.message); return; }
-  setStatus("● Nehme Animation auf …");
-  const startWall=performance.now();
-  let frame=0; const total=Math.max(1, Math.ceil(playDuration*fps));
+  // Vorlauf und Nachlauf (11.11.2026): Ein Encoder (besonders Hardware-H.264) verwirft oft die ersten Bilder, solange er
+  // anläuft, und die letzten, die kurz vor stop() kommen; das Video wirkte dann am Anfang und Ende abgeschnitten.
+  // Deshalb erst nach dem "start"-Ereignis aufnehmen, das Startbild 0,5 s und das Endbild 1 s lang halten.
+  // tools/startseite_video.py setzt window.EXPORT_HALTEN = {vor:0, nach:0}: nahtlose Schleife ohne Halten.
+  const HALT=Object.assign({vor:0.5, nach:1.0}, window.EXPORT_HALTEN||{});
+  const PRE=Math.round(HALT.vor*fps), POST=Math.round(HALT.nach*fps);
+  let frame=0, startWall=0, begun=false; const total=Math.max(1, Math.ceil(playDuration*fps)), last=PRE+total+POST;
   const step=()=>{
     if(!_recording) return;
-    const t=Math.min(frame/fps, playDuration);
-    playFrame(t); updateSumOverlay(t/Math.max(1e-6,playDuration)); composite();
+    const t=Math.min(Math.max(0, (frame-PRE)/fps), playDuration);
+    try{ playFrame(t); updateSumOverlay(t/Math.max(1e-6,playDuration)); composite(); }
+    catch(e){ console.error(e); }                              // ein fehlerhaftes Bild darf die Aufnahme nicht anhalten
     if(manual && track.requestFrame) track.requestFrame();   // push THIS rendered frame -> never dropped
     frame++;
-    if(frame>total){ setTimeout(()=>{ if(rec.state!=="inactive") rec.stop(); }, 120); return; }
+    if(frame>last){ setTimeout(()=>{ if(rec.state!=="inactive") rec.stop(); }, 250); return; }
     const targetWall = startWall + (frame/fps)*1000;           // pace to real time (correct speed when rendering keeps up)
     setTimeout(step, Math.max(0, targetWall - performance.now()));
   };
-  requestAnimationFrame(step);
+  const begin=()=>{ if(begun || !_recording) return; begun=true; startWall=performance.now(); requestAnimationFrame(step); };
+  rec.onstart=begin;
+  try{ rec.start(); }catch(e){ _recording=false; playing=false; setStatus("⚠ "+e.message); return; }
+  setTimeout(begin, 1000);                                     // falls ein Browser kein "start" meldet
+  setStatus("● Nehme Animation auf …");
 }
 
 function _buildExportMenu(menuId, formats, supported, onPick){
