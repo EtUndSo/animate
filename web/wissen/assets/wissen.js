@@ -110,6 +110,11 @@ var NICHTS={de:"Nichts gefunden für „{q}\".",en:"Nothing found for „{q}\"."
     if(dark) root.removeAttribute("data-theme"); else root.setAttribute("data-theme","dark");
     try{ localStorage.setItem("animate-theme", dark?"light":"dark"); }catch(e){}   // Schlüssel mit dem Editor geteilt
   });
+  // Ohne eigene Wahl folgt die Seite der Systemeinstellung (der Kopf setzt sie beim Laden), auch wenn sie sich ändert.
+  var sys=window.matchMedia?window.matchMedia("(prefers-color-scheme: dark)"):null;
+  function folge(e){ var s=null; try{ s=localStorage.getItem("animate-theme"); }catch(x){} if(s) return;
+    if(e.matches) root.setAttribute("data-theme","dark"); else root.removeAttribute("data-theme"); }
+  if(sys){ if(sys.addEventListener) sys.addEventListener("change",folge); else if(sys.addListener) sys.addListener(folge); }
   if(!layout) return;
   var side=layout.querySelector(".side"), mq=window.matchMedia("(max-width:720px)");
   var bL=document.getElementById("toggleLeft"), bR=document.getElementById("toggleRight");
@@ -185,6 +190,110 @@ var NICHTS={de:"Nichts gefunden für „{q}\".",en:"Nothing found for „{q}\"."
   window.addEventListener("resize",later);
   window.addEventListener("load",fitMath);
   document.addEventListener("toggle",later,true);                  // Herleitung aufgeklappt -> Formeln darin einpassen
+})();
+// Kopierknopf an Code-Blöcken (Konsole: nur die Eingaben, ohne Prompt), Ankerlink an Überschriften (Klick kopiert die
+// Adresse des Abschnitts), Druck: zugeklappte Kästen aufklappen und danach wieder schließen (Lösungen bleiben zu).
+(function(){
+  var L=(document.documentElement.lang||"de").slice(0,2);
+  var W={de:{k:"Kopieren",ok:"Kopiert",link:"Link kopiert"},en:{k:"Copy",ok:"Copied",link:"Link copied"},
+    es:{k:"Copiar",ok:"Copiado",link:"Enlace copiado"},zh:{k:"复制",ok:"已复制",link:"链接已复制"},
+    fr:{k:"Copier",ok:"Copié",link:"Lien copié"},tr:{k:"Kopyala",ok:"Kopyalandı",link:"Bağlantı kopyalandı"}};
+  var w=W[L]||W.en;
+  function kopiere(text){
+    if(navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(text);
+    return new Promise(function(ok,fehler){ var t=document.createElement("textarea"); t.value=text; t.setAttribute("readonly","");
+      t.style.position="fixed"; t.style.opacity="0"; document.body.appendChild(t); t.select();
+      try{ if(document.execCommand("copy")) ok(); else fehler(); }catch(e){ fehler(e); } document.body.removeChild(t); });
+  }
+  function codeText(block){
+    var c=block.querySelector("pre code"), t=c?c.textContent:"";
+    if(/\bcode-console\b/.test(block.className)){                  // Sitzung: Eingabezeilen ohne $, #, >>>, ..., PS>
+      var ein=[]; t.split("\n").forEach(function(z){ var m=/^(?:\$ |# |>>> |\.\.\. |PS> )(.*)$/.exec(z); if(m) ein.push(m[1]); });
+      if(ein.length) return ein.join("\n");
+    }
+    return t.replace(/\n+$/,"");
+  }
+  [].forEach.call(document.querySelectorAll(".code-block"),function(block){
+    var b=document.createElement("button"); b.type="button"; b.className="code-kopie"; b.textContent=w.k;
+    var kopf=block.querySelector(".code-kopf"); if(kopf) kopf.appendChild(b); else block.insertBefore(b,block.firstChild);
+    b.addEventListener("click",function(){ kopiere(codeText(block)).then(function(){ b.textContent=w.ok; b.classList.add("ok");
+      setTimeout(function(){ b.textContent=w.k; b.classList.remove("ok"); },1600); },function(){}); });
+  });
+  document.addEventListener("click",function(e){
+    var a=e.target.closest && e.target.closest("a.h-anker"); if(!a) return;
+    kopiere(location.href.split("#")[0]+a.getAttribute("href")).then(function(){ a.setAttribute("data-kopiert",w.link); a.classList.add("kopiert");
+      setTimeout(function(){ a.classList.remove("kopiert"); },1800); },function(){});
+  });
+  var zu=[];
+  window.addEventListener("beforeprint",function(){
+    zu=[].filter.call(document.querySelectorAll("details:not([open])"),function(d){ return !d.classList.contains("loesung") && !d.closest(".side"); });
+    zu.forEach(function(d){ d.open=true; });
+  });
+  window.addEventListener("afterprint",function(){ zu.forEach(function(d){ d.open=false; }); zu=[]; });
+})();
+// Abbildung antippen: groß in einem Overlay mit voller Breite. Das Bild bzw. die animierte Fassung samt Spielerleiste wandert
+// hinein und beim Schließen zurück an ihren Platz, so laufen Animation und Knöpfe weiter. Schließen: Klick (außer auf den
+// Spieler), Esc, Knopf oder Zurück im Browser. Mit der Tastatur: Bild fokussieren (Tab), Enter oder Leertaste.
+(function(){
+  if(!document.querySelector("figure.abb")) return;
+  var L=(document.documentElement.lang||"de").slice(0,2);
+  var W={de:["Abbildung vergrößern","Schließen"],en:["Enlarge figure","Close"],es:["Ampliar figura","Cerrar"],zh:["放大图","关闭"],
+    fr:["Agrandir la figure","Fermer"],tr:["Şekli büyüt","Kapat"]};
+  var w=W[L]||W.en, SEL="figure.abb>img,figure.abb>svg.abb-anim";
+  var ov=null, buehne=null, text=null, zuBtn=null, fig=null, platz=null, verlauf=false;
+  window.abbVergroesserbar=function(m){ m.setAttribute("tabindex","0"); if(!m.getAttribute("title")) m.setAttribute("title",w[0]); };
+  [].forEach.call(document.querySelectorAll(SEL),window.abbVergroesserbar);
+  function bauen(){
+    ov=document.createElement("div"); ov.className="abb-gross"; ov.hidden=true; ov.setAttribute("role","dialog"); ov.setAttribute("aria-modal","true");
+    zuBtn=document.createElement("button"); zuBtn.type="button"; zuBtn.className="ag-zu"; zuBtn.setAttribute("aria-label",w[1]); zuBtn.title=w[1];
+    zuBtn.innerHTML='<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>';
+    buehne=document.createElement("div"); buehne.className="ag-buehne";
+    text=document.createElement("div"); text.className="ag-text";
+    ov.appendChild(zuBtn); ov.appendChild(buehne); ov.appendChild(text); document.body.appendChild(ov);
+    ov.addEventListener("click",function(e){ if(e.target.closest(".abb-spieler")) return; zu(); });
+  }
+  function auf(f){
+    if(fig) return; if(!ov) bauen();
+    var teile=[].filter.call(f.children,function(k){ return k.matches(SEL) || k.classList.contains("abb-spieler"); });
+    if(!teile.length) return;
+    fig=f;
+    platz=document.createElement("div"); platz.className="abb-platz";
+    platz.style.height=teile.reduce(function(s,k){ return s+k.getBoundingClientRect().height; },0)+"px";
+    f.insertBefore(platz,teile[0]);
+    teile.forEach(function(k){ buehne.appendChild(k); });
+    var cap=f.querySelector("figcaption"); text.innerHTML=cap?cap.innerHTML:"";
+    ov.setAttribute("aria-label",(cap && cap.textContent.trim()) || w[0]);
+    ov.hidden=false; document.documentElement.classList.add("abb-offen");
+    try{ history.pushState({abbGross:1},""); verlauf=true; }catch(e){ verlauf=false; }
+    zuBtn.focus();
+  }
+  function schliessen(){
+    if(!fig) return;
+    while(buehne.firstChild) fig.insertBefore(buehne.firstChild,platz);
+    platz.parentNode.removeChild(platz);
+    ov.hidden=true; document.documentElement.classList.remove("abb-offen"); text.innerHTML="";
+    var m=fig.querySelector(SEL); fig=null; platz=null;
+    if(m) try{ m.focus({preventScroll:true}); }catch(e){}
+  }
+  function zu(){ if(!fig) return; if(verlauf){ verlauf=false; history.back(); } else schliessen(); }
+  window.addEventListener("popstate",function(){ if(fig){ verlauf=false; schliessen(); } });
+  document.addEventListener("click",function(e){
+    var m=e.target.closest && e.target.closest(SEL); if(!m || (ov && ov.contains(m))) return;
+    auf(m.parentNode);
+  });
+  document.addEventListener("keydown",function(e){
+    if(fig){
+      if(e.key==="Escape"){ e.preventDefault(); zu(); }
+      else if(e.key==="Tab"){                                    // Fokus bleibt im Overlay
+        var f=[].slice.call(ov.querySelectorAll("button,input,a[href]")); if(!f.length) return;
+        var i=f.indexOf(document.activeElement);
+        if(e.shiftKey && i<=0){ e.preventDefault(); f[f.length-1].focus(); }
+        else if(!e.shiftKey && (i<0 || i===f.length-1)){ e.preventDefault(); f[0].focus(); }
+      }
+      return;
+    }
+    var t=e.target; if(t && t.matches && t.matches(SEL) && (e.key==="Enter" || e.key===" ")){ e.preventDefault(); auf(t.parentNode); }
+  });
 })();
 /* Fassung (kompakt | ausführlich): Wahl merken; Themen-Links (Baum, Nachbarn, Übersicht) führen dann zur gewählten
    Fassung desselben Themas, soweit es sie gibt (data-alt). */
@@ -288,8 +397,9 @@ var NICHTS={de:"Nichts gefunden für „{q}\".",en:"Nothing found for „{q}\"."
       for(var i=0;i<nodes.length;i++){ var e=nodes[i], k=+e.getAttribute("data-a"); sp.el[k]=e; sp.cache[k]={};
         e._d0=e.getAttribute("d"); e._h0=e.innerHTML; }
       if(sp.img) sp.img.parentNode.replaceChild(svg,sp.img); else sp.fig.insertBefore(svg,sp.fig.firstChild);
+      if(window.abbVergroesserbar) window.abbVergroesserbar(svg);  // antippen zum Vergrößern wie beim Bild
       sp.leiste();
-      sp.zeige(reduce.matches?sp.dauer:0);
+      sp.zeige(sp.dauer);                                // bis zum Abspielen das Endbild (kein fast leeres Startbild)
       return sp;
     });
     sp.ladung.catch(function(){});                       // Fehler: das statische Bild bleibt stehen
@@ -384,4 +494,5 @@ var NICHTS={de:"Nichts gefunden für „{q}\".",en:"Nothing found for „{q}\"."
   spieler.forEach(function(sp){ sp.fig._sp=sp; nah.observe(sp.fig); });
   document.addEventListener("visibilitychange",function(){ spieler.forEach(function(sp){        // Tab im Hintergrund: anhalten
     if(document.hidden){ if(sp.lauf){ sp.halt(); sp.auto=true; } } else if(sp.imBild) sp.sichtbar(true); }); });
+  window.addEventListener("beforeprint",function(){ spieler.forEach(function(sp){ if(sp.D){ if(sp.lauf){ sp.halt(); sp.auto=true; } sp.zeige(sp.dauer); } }); });   // Druck: Endbild
 })();

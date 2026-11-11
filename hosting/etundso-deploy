@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+# EtUndSo auf dem Raspberry Pi: neuen Stand von GitHub holen und den Cloudflare-Zwischenspeicher leeren.
+# Läuft alle 2 Minuten über etundso-deploy.timer als Benutzer etundso. Tut nichts, wenn es nichts Neues gibt.
+# Installieren: sudo install -m 755 hosting/etundso-deploy /usr/local/bin/etundso-deploy
+set -euo pipefail
+
+REPO=/srv/etundso/repo
+BRANCH=main
+ENVDATEI=/etc/etundso/cloudflare.env      # enthält CF_ZONE_ID=… und CF_API_TOKEN=… (Rechte 640, root:etundso)
+
+cd "$REPO"
+git fetch --quiet origin "$BRANCH"
+alt=$(git rev-parse HEAD)
+neu=$(git rev-parse "origin/$BRANCH")
+if [ "$alt" = "$neu" ]; then
+    exit 0
+fi
+
+git reset --quiet --hard "origin/$BRANCH"
+echo "Neuer Stand ${neu:0:8} (vorher ${alt:0:8})"
+
+if [ -r "$ENVDATEI" ]; then
+    # shellcheck disable=SC1090
+    . "$ENVDATEI"
+    if curl -fsS -X POST "https://api.cloudflare.com/client/v4/zones/${CF_ZONE_ID}/purge_cache" \
+            -H "Authorization: Bearer ${CF_API_TOKEN}" \
+            -H "Content-Type: application/json" \
+            --data '{"purge_everything":true}' > /dev/null; then
+        echo "Cloudflare-Zwischenspeicher geleert"
+    else
+        echo "WARNUNG: Zwischenspeicher nicht geleert (Token oder Zone prüfen)" >&2
+    fi
+else
+    echo "WARNUNG: $ENVDATEI fehlt, Zwischenspeicher nicht geleert" >&2
+fi

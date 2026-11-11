@@ -1,0 +1,33 @@
+# EtUndSo auf dem Raspberry Pi: statische Website hinter dem Cloudflare Tunnel.
+# Caddy hört nur lokal (127.0.0.1:8080); HTTPS, Schutz und Zwischenspeicher macht Cloudflare.
+# Installieren: sudo cp hosting/Caddyfile /etc/caddy/Caddyfile && sudo systemctl reload caddy
+
+{
+	admin off
+	auto_https off
+}
+
+:8080 {
+	bind 127.0.0.1 ::1
+
+	root * /srv/etundso/repo/web
+
+	# Nicht ausliefern: Quelltext der Cloudflare-Funktion, Pages-Steuerdatei.
+	# /api/* beantwortet der Cloudflare Worker (Besucherzähler), bevor eine Anfrage den Pi erreicht.
+	@intern path /functions/* /_headers /api/*
+	respond @intern 404
+
+	# Saubere Adressen wie bei Cloudflare Pages: /seite -> seite.html, /ordner/ -> ordner/index.html
+	try_files {path} {path}.html {path}/index.html
+
+	# Browser fragen jedes Mal nach (wie bisher in web/_headers); Cloudflare antwortet dann meist mit 304
+	# aus seinem Zwischenspeicher, der bei jedem neuen Stand geleert wird (etundso-deploy).
+	header Cache-Control "no-cache"
+
+	encode zstd gzip
+	file_server
+
+	handle_errors {
+		respond "{err.status_code} {err.status_text}"
+	}
+}

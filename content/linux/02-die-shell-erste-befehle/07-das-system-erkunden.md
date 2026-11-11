@@ -224,7 +224,7 @@ Auf dem Testsystem:
 | Platz auf `/` | `df -h /` | Größe `1007G`, frei `952G` |
 | Prozessorkerne | `nproc` | `14` |
 
-Deine Werte unterscheiden sich; in einer virtuellen Maschine oder im Live-System endet die Kernelversion auf `generic`, und Speicher und Kerne sind die, die du der Maschine zugeteilt hast.
+Deine Werte unterscheiden sich; in einer virtuellen Maschine oder im Live-System endet die Kernelversion auf `generic`. Speicher und Kerne sind in einer virtuellen Maschine die, die du ihr zugeteilt hast, im Live-System die des Rechners selbst.
 :::
 :::
 

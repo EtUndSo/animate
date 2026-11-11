@@ -1,0 +1,10 @@
+[Unit]
+Description=EtUndSo: alle 2 Minuten nach einem neuen Stand sehen
+
+[Timer]
+OnBootSec=1min
+OnUnitActiveSec=2min
+Persistent=true
+
+[Install]
+WantedBy=timers.target

@@ -418,3 +418,113 @@ details.vorwissen .vo-k{font-family:var(--fdisp);font-size:12px;text-transform:u
 }
 @media(max-width:379px){ .topbar .editorlink{display:none;} }   /* schmal: Editor-Link weg (Desktop-Werkzeug), Platz für das Wort „Suchen“ */
 @media(max-width:330px){ .brand{font-size:15px;} .topbar .searchBtn{padding:0 6px;} }   /* sehr schmal (320 px): Logo und Suchknopf kleiner */
+/* ---------- Artikel lesen (11.11.2026): Sprunglink, Kennzahlenzeile, Zusammenfassung, Ankerlinks, Kopierknopf, Vergrößern,
+   Handy ohne Karte in Karte, Druckansicht ---------- */
+.skip{position:absolute;left:12px;top:-80px;z-index:100;padding:8px 14px;border:2px solid var(--accent3);border-radius:10px;
+  background:var(--panel);color:var(--accent);font-weight:700;}
+.skip:focus{top:10px;text-decoration:none;}
+main.article:focus{outline:none;}
+.crumbs .cr-sep{color:var(--muted);}
+.art-meta{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;margin:.15em 0 1.3em;font-size:14px;color:var(--muted);}
+.art-meta .am-zahlen{display:inline-flex;flex-wrap:wrap;align-items:baseline;}
+.art-meta .am-zahlen>span+span::before{content:"·";margin:0 .5em;}
+.art-meta .am-zf{color:var(--accent);font-weight:600;}
+.art-meta .apill{margin-left:0;}
+.art-meta .langs-art{margin:0 0 0 auto;}
+/* Zusammenfassung am Artikelende: Begriffe, Formeln, Zusammenhänge; jeder Punkt springt an seine Stelle */
+.zf{margin:2.2em 0 1.4em;padding:14px 20px 10px;border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:12px;
+  background:var(--soft);scroll-margin-top:72px;}
+.article .zf-t{margin:0 0 .3em;font-size:21px;color:var(--accent2);scroll-margin-top:72px;}
+.zf-g{margin:.8em 0 .6em;}
+.zf-gh{font-family:var(--fdisp);font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:2px;}
+.article .zf-l{margin:0;padding-left:1.15em;}
+.article .zf-l li{font-size:16px;line-height:1.6;margin:.32em 0;}
+.zf-l li::marker{color:var(--accent);}
+.zf .zf-b{font-weight:700;}
+.zf .zf-a{color:var(--ink);} .zf .zf-a:hover{color:var(--accent);}
+.zf .zf-fl{font-size:13.5px;font-weight:600;}
+.article .zf-f .katex-display{font-size:1.08em;margin:.1em 0 .35em;}
+.article .zf-f .katex-display>.katex{text-align:left;}
+.article .zf-f .mrow{justify-content:flex-start;column-gap:1.8em;margin:0;}
+.article .zf-f .mrow .katex-display{margin:.1em 0 .3em;}
+details.zf-mehr>summary{display:inline-block;margin:.1em 0 .2em 1.15em;cursor:pointer;list-style:none;font-size:14.5px;font-weight:600;color:var(--accent);}
+details.zf-mehr>summary::-webkit-details-marker{display:none;}
+details.zf-mehr>summary:hover{text-decoration:underline;}
+details.zf-mehr[open]>summary{display:none;}
+:root[data-theme="dark"] .zf{border-color:var(--rahmen);border-left-color:var(--accent);}
+/* Sprungziele der Zusammenfassung: nicht unter der Kopfleiste, kurz orange hinterlegt */
+.article :is([id^="kb-"],[id^="kf-"],[id^="kg-"]){scroll-margin-top:84px;}
+@keyframes zf-ziel{from{background-color:color-mix(in srgb,var(--accent3) 24%,transparent);}to{background-color:transparent;}}
+.article :is([id^="kb-"],[id^="kf-"],[id^="kg-"]):target{animation:zf-ziel 2.6s ease-out;border-radius:5px;}
+/* Ankerlink an Überschriften: „#“ erst bei Hover oder Fokus; am Touchgerät ohne */
+.article h4{scroll-margin-top:66px;}
+.h-anker{margin-left:.35em;padding:0 .15em;color:var(--muted);font-weight:500;opacity:0;transition:opacity .15s;}
+.article :is(h2,h3,h4):hover>.h-anker,.h-anker:focus-visible{opacity:1;}
+.h-anker:hover{color:var(--accent);text-decoration:none;}
+.h-anker.kopiert{opacity:1;}
+.h-anker.kopiert::after{content:attr(data-kopiert);margin-left:.5em;font-family:var(--fbody);font-size:12.5px;font-weight:600;
+  letter-spacing:0;color:var(--accent);}
+@media(hover:none){ .h-anker{display:none;} }
+/* Kopierknopf an Code-Blöcken (wissen.js): in der Kopfzeile, sonst oben rechts im Block */
+.code-block{position:relative;}
+.code-kopie{font:inherit;font-family:var(--fdisp);font-size:12px;font-weight:600;line-height:1.5;color:var(--muted);background:var(--panel);
+  border:1px solid var(--border);border-radius:7px;padding:1px 9px;cursor:pointer;}
+.code-kopie:hover,.code-kopie:focus-visible{color:var(--accent);border-color:var(--accent);}
+.code-kopie.ok{color:var(--accent);border-color:var(--accent);}
+.code-kopf .code-kopie{flex:none;margin-left:2px;}
+.code-kopf .code-l+.code-kopie{margin-left:0;}
+.code-block>.code-kopie{position:absolute;top:7px;right:8px;z-index:1;opacity:.92;}
+@media(hover:hover){ .code-block>.code-kopie{opacity:0;} .code-block:hover>.code-kopie,.code-block>.code-kopie:focus-visible{opacity:1;} }
+/* Abbildung antippen: Overlay mit voller Breite (wissen.js); Bild bzw. Animation samt Spieler wandern hinein */
+.article figure.abb>img,.article figure.abb>svg.abb-anim{cursor:zoom-in;}
+.article figure.abb>img:focus-visible,.article figure.abb>svg.abb-anim:focus-visible{outline:2px solid var(--accent3);outline-offset:3px;}
+html.abb-offen,html.abb-offen body{overflow:hidden;}
+.abb-gross{position:fixed;inset:0;z-index:60;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+  padding:56px 10px 14px;background:rgba(8,14,11,.94);}
+.abb-gross[hidden]{display:none;}
+.abb-gross .ag-buehne{width:min(100%,1500px);max-height:calc(100% - 40px);overflow:auto;padding:8px;border-radius:12px;background:var(--panel);}
+.abb-gross .ag-buehne>img,.abb-gross .ag-buehne>svg{display:block;width:100%;height:auto;max-height:calc(100vh - 170px);object-fit:contain;
+  margin:0 auto;border-radius:8px;background:#fff;cursor:zoom-out;}
+.abb-gross .abb-spieler{margin:8px 2px 0;}
+.abb-gross .ag-text{max-width:min(100%,80ch);color:#e9eeea;font-size:14px;line-height:1.5;text-align:center;}
+.abb-gross .ag-text .abb-n{font-weight:700;margin-right:4px;}
+.abb-gross .ag-zu{position:absolute;top:10px;right:12px;display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;
+  padding:0;border:1px solid rgba(255,255,255,.45);border-radius:999px;background:rgba(0,0,0,.35);color:#fff;cursor:pointer;}
+.abb-gross .ag-zu:hover,.abb-gross .ag-zu:focus-visible{border-color:var(--bar-hl);color:var(--bar-hl);outline:none;}
+.abb-platz{display:block;}
+/* Handy: Abschnittskarte ohne Rand und Innenabstand (Kästen behalten ihren Rahmen), kompakter Kopf, kurze Brotkrumen */
+@media(max-width:620px){
+  .article{padding:14px 12px 56px;}
+  .article .sect,:root[data-theme="dark"] .article>article .sect{border:0;border-radius:0;box-shadow:none;background:transparent;padding:0;}
+  .article .sect>h2:first-child{margin-top:.2em;}
+  .crumbs{margin-bottom:4px;font-size:12.5px;line-height:1.45;}
+  .crumbs .cr-home,.crumbs .cr-alt,.crumbs .cr-erst>.cr-sep,.crumbs .cr-l{display:none;}
+  .article h1{margin-bottom:.25em;}
+  .art-meta{margin-bottom:1em;font-size:13.5px;gap:6px 10px;}
+  .arttoc{padding:11px 14px 10px;margin-bottom:1.5em;}                 /* Verzeichnis als Fließzeile statt langer Spalte */
+  .arttoc-h{margin-bottom:5px;}
+  .arttoc ul{display:flex;flex-wrap:wrap;gap:1px 16px;}
+  .arttoc a{padding:3px 0;font-size:15px;line-height:1.4;}
+  .arttoc a::before{margin-right:6px;}
+  .callout{padding:13px 14px;}
+  .zf{padding:12px 14px 8px;}
+  .aufg-b{padding:12px 13px 11px;}
+}
+/* Druckansicht: ohne Leisten, Menüs und Spieler; Kästen aufgeklappt (Lösungen bleiben weg), helle Farben auch nachts */
+@media print{
+  :root,:root[data-theme="dark"]{--bg:#fff;--panel:#fff;--ink:#111;--muted:#454b48;--border:#cfd4d1;--soft:#f5f6f5;--accent:#15633a;
+    --accent2:#1b7f4a;--accent3:#c2410c;--on-accent:#fff;--aufg:#15633a;--rahmen:#cfd4d1;}
+  body{background:#fff;color:#111;}
+  .skip,.topbar,.side,.toc,.neighbors,.langs,.abb-spieler,.abb-knopf,.searchOverlay,.h-anker,.code-kopie,.abb-gross,.am-zf,.toc-zf,
+  .fassung,details.loesung,details.zf-mehr>summary{display:none!important;}
+  .layout,.article{display:block;max-width:none;margin:0;padding:0;}
+  .article>article{max-width:none;}
+  .article .sect{border:0;box-shadow:none;padding:0;margin:0;}
+  details::details-content{content-visibility:visible;display:block;}
+  .article a{color:inherit;}
+  .article a[href^="http"]::after{content:" (" attr(href) ")";font-size:.85em;color:#454b48;overflow-wrap:anywhere;}
+  .article :is(figure,.callout,.aufg,.code-block,.gl-zeile,.fbox,.zf-l li,table){break-inside:avoid;}
+  .article :is(h2,h3,h4){break-after:avoid;}
+  .article pre{white-space:pre-wrap;overflow-wrap:anywhere;overflow:visible;}
+  :root[data-theme="dark"] .hl [class]{color:#111!important;}
+}

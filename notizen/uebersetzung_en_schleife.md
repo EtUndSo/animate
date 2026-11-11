@@ -14,8 +14,8 @@ Status: offen · läuft · fertig (Datum, Artikel en, Seiten en). Ein Kapitel gi
 | 2 | prog | 2 | Kap2_Werte.tex | fertig 11.11. (12 Artikel, 87 S.) |
 | 3 | prog | 3 | Kap3_Kontrollfluss.tex | fertig 11.11. (11 Artikel, 83 S.) |
 | 4 | linux | 1 | Kap1_Uebungslinux.tex | fertig 11.11. (11 Artikel, 62 S., 13 Abbildungen en neu) |
-| 5 | linux | 2 | Kap2_Shell.tex | läuft seit 11.11. |
-| 6 | linux | 3 | Kap3_Dateien.tex | offen |
+| 5 | linux | 2 | Kap2_Shell.tex | fertig 11.11. (9 Artikel, 60 S.; nach Netzabbruch fortgesetzt) |
+| 6 | linux | 3 | Kap3_Dateien.tex | läuft seit 11.11. |
 | 7 | linux | 4 | Kap4_Stroeme.tex | offen |
 | 8 | linux | 5 | Kap5_Expansion.tex | offen |
 | 9 | linux | 6 | Kap6_Textwerkzeuge.tex | offen |
@@ -55,6 +55,7 @@ Heftordner: prog `C:\Bücher\EtUndSo\Programmieren\Arbeitshefte`, linux `C:\Büc
 ## Fehler im deutschen Original (von Übersetzern gemeldet, gesammelt)
 - Python 1: keine.
 - Python 3: keine.
+- Linux 2 (von mir behoben 11.11., PDF und Artikel de neu): `kap2_loesungen.tex` Z. 281 Speicher und Kerne „die du der Maschine zugeteilt hast“ gilt nur für die VM; im Live-System die des Rechners.
 - Linux 1 (von mir behoben 11.11., PDFs de/en und Artikel neu): `kap1_stufen.tex` Z. 219 „In den Jahren dazwischen erscheinen Zwischenversionen“ → „Dazwischen …“ (Zwischenversionen auch im Oktober von LTS-Jahren). Dazu en-Titel „A Linux to Practise On“ → „Practice“ (amerikanisch) in `MODULE["linux"]` und `Kap1_Uebungslinux_en.tex`.
 - Python 2 (von mir im Deutschen behoben 11.11., PDF und Artikel de neu gebaut): `kap2_stufen_b.tex` Z. 239 alte Verweisform „Python~1“ → „Kapitel~1, Abschnitt~5.3“ (jetzt Link); Z. 1317 IEEE 754 rundet „bei Gleichstand“ zur geraden Mantisse; `kap2_loesungen.tex` Z. 809 falsche Begründung (−1,5 + 0,5 = −1,0, `int` schneidet nichts ab) ersetzt.
 

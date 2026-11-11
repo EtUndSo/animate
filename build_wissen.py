@@ -160,6 +160,36 @@ UI = {
            "verwendet": "Kullanıldığı yerler"},
 }
 
+# Artikelkopf (Kennzahlenzeile), Zusammenfassung am Artikelende, Sprunglink „Zum Inhalt“, Ankerlink an Überschriften (11.11.2026)
+_UI_ARTIKEL = {
+    "de": {"zf": "Zusammenfassung", "zf_begriffe": "Begriffe", "zf_formeln": "Formeln", "zf_zusammenhaenge": "Zusammenhänge",
+           "zf_mehr": "{n} weitere zeigen", "zf_sprung": "Zur Zusammenfassung", "lesezeit": "{n} min Lesezeit",
+           "abb_1": "1 Abbildung", "abb_n": "{n} Abbildungen", "aufg_1": "1 Aufgabe", "aufg_n": "{n} Aufgaben",
+           "zum_inhalt": "Zum Inhalt", "anker": "Link zu diesem Abschnitt"},
+    "en": {"zf": "Summary", "zf_begriffe": "Terms", "zf_formeln": "Formulas", "zf_zusammenhaenge": "Key relationships",
+           "zf_mehr": "Show {n} more", "zf_sprung": "Jump to summary", "lesezeit": "{n} min read",
+           "abb_1": "1 figure", "abb_n": "{n} figures", "aufg_1": "1 exercise", "aufg_n": "{n} exercises",
+           "zum_inhalt": "Skip to content", "anker": "Link to this section"},
+    "es": {"zf": "Resumen", "zf_begriffe": "Términos", "zf_formeln": "Fórmulas", "zf_zusammenhaenge": "Relaciones clave",
+           "zf_mehr": "Mostrar {n} más", "zf_sprung": "Ir al resumen", "lesezeit": "{n} min de lectura",
+           "abb_1": "1 figura", "abb_n": "{n} figuras", "aufg_1": "1 ejercicio", "aufg_n": "{n} ejercicios",
+           "zum_inhalt": "Ir al contenido", "anker": "Enlace a esta sección"},
+    "zh": {"zf": "小结", "zf_begriffe": "术语", "zf_formeln": "公式", "zf_zusammenhaenge": "关键联系",
+           "zf_mehr": "再显示 {n} 项", "zf_sprung": "跳到小结", "lesezeit": "阅读约 {n} 分钟",
+           "abb_1": "1 幅图", "abb_n": "{n} 幅图", "aufg_1": "1 道练习", "aufg_n": "{n} 道练习",
+           "zum_inhalt": "跳到正文", "anker": "本节链接"},
+    "fr": {"zf": "Résumé", "zf_begriffe": "Notions", "zf_formeln": "Formules", "zf_zusammenhaenge": "Relations clés",
+           "zf_mehr": "Afficher {n} de plus", "zf_sprung": "Aller au résumé", "lesezeit": "{n} min de lecture",
+           "abb_1": "1 figure", "abb_n": "{n} figures", "aufg_1": "1 exercice", "aufg_n": "{n} exercices",
+           "zum_inhalt": "Aller au contenu", "anker": "Lien vers cette section"},
+    "tr": {"zf": "Özet", "zf_begriffe": "Kavramlar", "zf_formeln": "Formüller", "zf_zusammenhaenge": "Temel ilişkiler",
+           "zf_mehr": "{n} tane daha göster", "zf_sprung": "Özete git", "lesezeit": "{n} dk okuma",
+           "abb_1": "1 şekil", "abb_n": "{n} şekil", "aufg_1": "1 alıştırma", "aufg_n": "{n} alıştırma",
+           "zum_inhalt": "İçeriğe geç", "anker": "Bu bölümün bağlantısı"},
+}
+for _l, _w in _UI_ARTIKEL.items():
+    UI[_l].update(_w)
+
 def T(key):
     """Wort der Oberfläche in der Sprache der gerade gebauten Seite."""
     return UI[LANG_NOW[0]].get(key) or UI["de"][key]
@@ -250,8 +280,9 @@ def inline(text):
     text = html.escape(text, quote=False)
     text = re.sub(r"!\[([^\]]*)\]\(([^)]+)\)", r'<img src="\2" alt="\1"/>', text)
     text = re.sub(r"\[([^\]]+)\]\(([^)]+)\)", r'<a href="\2">\1</a>', text)
-    # Namen (Größen-/Begriffsnamen) -> blau: __Name__
-    text = re.sub(r"__([^_]+)__", r'<strong class="nm">\1</strong>', text)
+    # Namen (Größen-/Begriffsnamen) -> blau: __Name__; erste Nennung eines Fachbegriffs mit Sprungziel (_zf_begriffe)
+    text = re.sub(r"__(?:\x01([\w-]+)\x01)?([^_]+)__",
+                  lambda m: '<strong class="nm"' + (f' id="{m.group(1)}"' if m.group(1) else "") + ">" + m.group(2) + "</strong>", text)
     # Wichtige Wörter -> orange (Standard); Schritt-Marken „**Schritt 3**" -> rot
     def _bold(m):
         t = m.group(1)
@@ -312,6 +343,244 @@ def split_display(txt):
     parts.append(s[last:])
     parts = [p.strip() for p in parts if p.strip()]
     return parts if len(parts) >= 2 else None
+
+# ---------------------------------------------------------- Klartext (Titel, Beschreibung) ----
+# <title>, meta description und Attribute (title, aria-label) zeigen kein KaTeX: $U_\mathrm{BE}$ -> „U_BE“, $\pi$ -> „π“,
+# $\mathrm{e}^{pt}$ -> „eᵖᵗ“. Die sichtbare Überschrift bleibt TeX und wird von KaTeX gesetzt.
+_TEX_ZEICHEN = {
+    "alpha": "α", "beta": "β", "gamma": "γ", "delta": "δ", "epsilon": "ε", "varepsilon": "ε", "zeta": "ζ", "eta": "η",
+    "theta": "θ", "vartheta": "ϑ", "iota": "ι", "kappa": "κ", "lambda": "λ", "mu": "μ", "nu": "ν", "xi": "ξ", "pi": "π",
+    "rho": "ρ", "varrho": "ϱ", "sigma": "σ", "tau": "τ", "phi": "φ", "varphi": "φ", "chi": "χ", "psi": "ψ", "omega": "ω",
+    "Gamma": "Γ", "Delta": "Δ", "Theta": "Θ", "Lambda": "Λ", "Xi": "Ξ", "Pi": "Π", "Sigma": "Σ", "Phi": "Φ", "Psi": "Ψ",
+    "Omega": "Ω", "cdot": "·", "times": "×", "to": "→", "rightarrow": "→", "infty": "∞", "le": "≤", "leq": "≤", "ge": "≥",
+    "geq": "≥", "neq": "≠", "ne": "≠", "approx": "≈", "pm": "±", "sum": "Σ", "prod": "∏", "int": "∫", "partial": "∂",
+    "nabla": "∇", "in": "∈", "ldots": "…", "dots": "…", "cdots": "⋯", "circ": "∘", "ast": "∗", "R": "ℝ", "C": "ℂ", "N": "ℕ",
+    "Z": "ℤ", "Q": "ℚ", "top": "T", "lVert": "‖", "rVert": "‖", "Vert": "‖", "lvert": "|", "rvert": "|", "mid": "|",
+    "langle": "⟨", "rangle": "⟩", "mapsto": "↦", "Rightarrow": "⇒", "Longrightarrow": "⇒", "Leftrightarrow": "⇔",
+    "subset": "⊂", "subseteq": "⊆", "cup": "∪", "cap": "∩", "emptyset": "∅", "forall": "∀", "exists": "∃", "sim": "∼",
+    "equiv": "≡", "propto": "∝", "ell": "ℓ", "hbar": "ℏ", "deg": "deg", "log": "log", "ln": "ln", "exp": "exp",
+    "sin": "sin", "cos": "cos", "tan": "tan", "max": "max", "min": "min", "lim": "lim", "det": "det"}
+_TEX_BB = {"R": "ℝ", "C": "ℂ", "N": "ℕ", "Z": "ℤ", "Q": "ℚ"}
+_HOCH = dict(zip("0123456789+-=()nipthTabcdekmosxj", "⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻⁼⁽⁾ⁿⁱᵖᵗʰᵀᵃᵇᶜᵈᵉᵏᵐᵒˢˣʲ"))
+_TIEF = dict(zip("0123456789+-=()aeoxhklmnpstijruv", "₀₁₂₃₄₅₆₇₈₉₊₋₌₍₎ₐₑₒₓₕₖₗₘₙₚₛₜᵢⱼᵣᵤᵥ"))
+
+def _tex_klar(t):
+    """Eine TeX-Formel als lesbarer Klartext (nur für Titel und Beschreibungen, keine vollständige Umsetzung)."""
+    t = t.replace("\\{", "\x03").replace("\\}", "\x04")       # Mengenklammern bleiben, Gruppenklammern fallen weg
+    t = re.sub(r"\\([%_#&$])", r"\1", t)
+    t = re.sub(r"\\(?:vec|hat|bar|dot|ddot|tilde|overline|underline|widehat)\s*(?=[{\w])", "", t)
+    t = re.sub(r"\\mathcal\s*\{L\}", "ℒ", t)
+    t = re.sub(r"\\mathbb\s*\{(\w)\}", lambda m: _TEX_BB.get(m.group(1), m.group(1)), t)
+    t = re.sub(r"\\(?:mathrm|text|textrm|operatorname|mathit|mathbf|boldsymbol|textbf|mathsf)\s*(\{[^{}]*\}|\w)",
+               lambda m: "{" + m.group(1).strip("{}") + "}", t)
+    t = re.sub(r"\\frac\s*\{([^{}]*)\}\s*\{([^{}]*)\}", r"\1/\2", t)
+    t = re.sub(r"\\sqrt\s*\{([^{}]*)\}", r"√\1", t)
+    t = re.sub(r"\\(?:left|right|big|Big|displaystyle)\b", "", t)
+    t = re.sub(r"\\[,;:! ]|\\q?quad\b", " ", t)
+    t = re.sub(r"\\([A-Za-z]+)", lambda m: _TEX_ZEICHEN.get(m.group(1), m.group(1)), t)
+    def index(m, tabelle, zeichen):
+        inhalt = m.group(1)[1:-1] if m.group(1).startswith("{") else m.group(1)
+        inhalt = inhalt.replace("{", "").replace("}", "")
+        if inhalt and all(c in tabelle for c in inhalt):
+            return "".join(tabelle[c] for c in inhalt)
+        return zeichen + inhalt
+    t = re.sub(r"\^\s*(\{[^{}]*\}|.)", lambda m: index(m, _HOCH, "^"), t)
+    t = re.sub(r"_\s*(\{[^{}]*\}|.)", lambda m: index(m, _TIEF, "_"), t)
+    t = t.replace("{", "").replace("}", "").replace("\x03", "{").replace("\x04", "}")
+    return re.sub(r"\s+", " ", t).strip()
+
+def klartext(s):
+    """Markdown mit $…$-Formeln als einzeiliger Klartext: für <title>, meta description, title- und aria-Attribute."""
+    s = re.sub(r"\$\$(.+?)\$\$|\$([^$\n]+?)\$", lambda m: _tex_klar(m.group(1) or m.group(2)), s or "", flags=re.S)
+    s = re.sub(r"\\([%_#&])", r"\1", s)                     # Reste aus summary: (Formeln schon ohne $): „\%“, „span\vec“
+    s = re.sub(r"\\([A-Za-z]+)", lambda m: _TEX_ZEICHEN.get(m.group(1), ""), s)
+    s = re.sub(r"!?\[([^\]]*)\]\([^)]*\)", r"\1", s)
+    s = re.sub(r"\*\*|__|`", "", s)
+    s = re.sub(r"(?<![\w*])\*([^*\n]+)\*", r"\1", s)
+    s = re.sub(r"\s+", " ", s).strip()
+    return re.sub(r" +([.,])(?=\s|$)", r"\1", s)            # „in p .“ (Formel am Satzende war im Kopf schon entfernt)
+
+# ---------------------------------------------- Zusammenfassung am Artikelende ----
+# Der Kasten „Zusammenfassung“ entsteht ganz aus dem Markdown, ohne eigenen Heft-Kasten (User 11.11.2026: „die wichtigsten
+# Begriffe, Formeln und Zusammenhänge stichpunktartig“):
+#   Begriffe       = __Fachbegriff__ (\fb im Heft) bei seiner ersten Nennung, mit dem Satz dieser Nennung als Bestimmung;
+#   Formeln        = abgesetzte Formeln in Satz-, Definitions-, Lemma- und Merke-Kästen, dazu nummerierte Formeln (\tag);
+#   Zusammenhänge  = die „Kurz gesagt“-Sätze.
+# Es zählt nur der Haupttext: Beispiele, Aufgaben, Lösungen, Herleitungen, Hintergrund und andere ergänzende Kästen bleiben
+# draußen. md_to_html sammelt nur, solange ZF["an"] gilt (render_article, für den Artikel selbst); jede gesammelte Stelle
+# bekommt eine id (kb-, kf-, kg-), auf die der Stichpunkt springt.
+ZF = {"an": False}
+_KASTEN = []                                              # Kästen um die gerade gesetzte Stelle, innen zuletzt: [(Art, Titel)]
+ZF_NEBEN = {"beispiel", "vorwissen", "quiz", "herleitung", "beweis", "aufgabe", "loesung", "ltspice", "frage", "grafik",
+            "zusatz", "hintergrund", "analogie", "zweck", "zitat", "kern", "konzept"}
+ZF_FORMELKASTEN = ("satz", "definition", "lemma", "merke", "formel")
+ZF_SICHTBAR = 5                                           # je Gruppe sichtbar, der Rest unter „N weitere zeigen“
+ZF_BESTIMMUNG_MAX = 200                                   # längere Sätze: nur der Begriff
+KURZ_RE = re.compile(r"\u2060?\*\*(?:Kurz gesagt|In short|En resumen|En bref|Kısacası|简而言之)\s*[:：]\s*\*\*\s*")
+_MASKE_RE = re.compile(r"\$\$.+?\$\$|\$[^$\n]+?\$|`` .+? ``|`[^`]+?`", re.S)   # Formeln und Code wie in inline()
+_ABKUERZUNG = {"bzw", "ca", "vgl", "usw", "etc", "evtl", "ggf", "inkl", "nr", "abb", "kap", "gl", "sog", "bspw", "bsp", "resp",
+               "vs", "cf", "eq", "eqs", "fig", "approx", "max", "min", "bzgl", "ff", "st", "dr", "prof", "no", "art", "abs", "zb"}
+# Satzanfang mit Rückbezug („Das ist das Pol-Nullstellen-Diagramm.“): Dann gehört der Satz davor zur Bestimmung.
+_RUECKBEZUG = re.compile(r"(?:(?:das|dies|diese|dieser|dieses|diesen|sie|er|es|so|man nennt|this|that|these|those|such|it|they|"
+                         r"esto|eso|esta|este|estos|estas|ello|así|cela|ceci|ce|cette|ces|cet|il|elle|ils|elles|bu|buna|bunu|"
+                         r"bunun|bunlar|bunlara|böyle|şu)\b|[这此它该])", re.I)
+
+def zf_start():
+    ZF.clear()
+    ZF.update(an=True, fb=[], fm=[], kg=[], schon=set(), n=0, h="")
+
+def _zf_haupt():
+    return ZF.get("an") and not any(k in ZF_NEBEN for k, _ in _KASTEN)
+
+def _zf_id(vor):
+    ZF["n"] += 1
+    return f"{vor}-{ZF['n']}"
+
+def _innen(art, titel, zeilen):
+    """Inhalt eines Kastens setzen; der Kasten steht dabei auf _KASTEN (was darin steht, zählt nicht als Haupttext)."""
+    _KASTEN.append((art, titel))
+    try:
+        return md_to_html("\n".join(zeilen))[0]
+    finally:
+        _KASTEN.pop()
+
+def _maskiert(t):
+    return _MASKE_RE.sub(lambda m: "\x02" * len(m.group(0)), t)
+
+def _saetze(t):
+    """[(Anfang, Ende)] der Sätze eines Absatzes (Markdown). Formeln und Code sind maskiert, Abkürzungen („z. B.“,
+    „bzw.“) und Ordnungszahlen („3.“) trennen nicht."""
+    m, grenzen = _maskiert(t), [0]
+    for x in re.finditer(r"[.!?](?=\s)|[。！？]", m):
+        if x.group(0) == ".":
+            vor = re.search(r"(\S+)$", m[:x.start()])
+            wort = vor.group(1).strip("(„“\"'*_") if vor else ""
+            if len(wort) <= 1 or wort.isdigit() or wort.lower().replace(".", "") in _ABKUERZUNG:
+                continue
+        grenzen.append(x.end())
+    grenzen.append(len(t))
+    return [(a, b) for a, b in zip(grenzen, grenzen[1:]) if t[a:b].strip()]
+
+def _zf_bestimmung(txt, pos, begriff):
+    """Satz der ersten Nennung eines Begriffs (Markdown), bei Rückbezug mit dem Satz davor; zu lang oder kaum mehr als
+    der Begriff selbst: leer."""
+    saetze = _saetze(txt)
+    k = next((i for i, (a, b) in enumerate(saetze) if a <= pos < b), None)
+    if k is None:
+        return ""
+    a, b = saetze[k]
+    anfang = re.sub(r"^[\W_]+", "", klartext(txt[a:b]))
+    vorher = txt[saetze[k - 1][0]:saetze[k - 1][1]].strip().lstrip("_*„“\"'(")[:1] if k > 0 else ""
+    if vorher and _RUECKBEZUG.match(anfang) and not (vorher.isalpha() and vorher.islower()):   # Satz davor kein Bruchstück
+        a = saetze[k - 1][0]
+    def fertig(s):
+        """Satzteile um abgesetzte Formeln kenntlich machen: „:“ am Ende -> Punkt; ohne Satzende „ …“; Anfang klein „… “."""
+        s = re.sub(r"\s*：$", "。", re.sub(r"\s*:$", ".", s.strip()))
+        rein = klartext(s)
+        if not re.search(r"[.!?。！？…][)\]»“”\"']*$", rein):
+            s += " …"
+        erstes = s.lstrip("_*„“\"'(")[:1]                          # Formel oder Code am Anfang ($x$, `ls`): kein Bruchstück
+        if erstes.isalpha() and erstes.islower():
+            s = "… " + s
+        return s
+    satz = fertig(txt[a:b])
+    rein = klartext(satz)
+    if len(rein) > ZF_BESTIMMUNG_MAX and a != saetze[k][0]:       # mit dem Satz davor zu lang: nur der eigene Satz
+        satz = fertig(txt[saetze[k][0]:b])
+        rein = klartext(satz)
+    if len(rein) > ZF_BESTIMMUNG_MAX or len(rein) - len(klartext(begriff)) < 15:
+        return ""
+    return satz
+
+def _zf_begriffe(txt, bestimmung=True):
+    """Neue Fachbegriffe (__…__) eines Absatzes, Listenpunkts oder einer Tabellenzelle sammeln. Die erste Nennung bekommt
+    eine id: Rückgabe ist txt mit einer Marke (\\x01id\\x01) hinter dem öffnenden __, inline() macht daraus id="…"."""
+    if "__" not in txt or not _zf_haupt():
+        return txt
+    neu = []
+    for x in re.finditer(r"__([^_\n]+?)__", _maskiert(txt)):
+        roh = txt[x.start(1):x.end(1)]
+        key = fold(klartext(roh)).strip()
+        if not key or key in ZF["schon"]:
+            continue
+        ZF["schon"].add(key)
+        hid = _zf_id("kb")
+        ZF["fb"].append({"id": hid, "md": roh, "satz": _zf_bestimmung(txt, x.start(), roh) if bestimmung else ""})
+        neu.append((x.start() + 2, hid))
+    for pos, hid in reversed(neu):
+        txt = txt[:pos] + f"\x01{hid}\x01" + txt[pos:]
+    return txt
+
+def _zf_formel(tex, nr):
+    """Abgesetzte Formel sammeln: in einem Satz-, Definitions-, Lemma- oder Merke-Kasten immer, sonst nur mit Nummer."""
+    if not _zf_haupt():
+        return ""
+    kasten = next(((k, t) for k, t in reversed(_KASTEN) if k in ZF_FORMELKASTEN), None)
+    if kasten is None and not nr:
+        return ""
+    schluessel = re.sub(r"\s+", "", tex)
+    if schluessel in ZF["schon"]:
+        return ""
+    ZF["schon"].add(schluessel)
+    hid = _zf_id("kf")
+    ZF["fm"].append({"id": hid, "tex": tex, "nr": nr, "titel": kasten[1] if kasten else ZF["h"], "rang": 0 if kasten else 1})
+    return hid
+
+def _zf_kurz(txt):
+    """„Kurz gesagt: …“ sammeln (alle Sprachen); Rückgabe: id für den Absatz oder ""."""
+    m = KURZ_RE.match(txt)
+    if not m or not _zf_haupt():
+        return ""
+    hid = _zf_id("kg")
+    ZF["kg"].append({"id": hid, "md": txt[m.end():].strip()})
+    return hid
+
+def _ohne_links(md):
+    return re.sub(r"(?<!!)\[([^\]]+)\]\([^)]+\)", r"\1", md)
+
+def zusammenfassung_html(z):
+    """Kasten „Zusammenfassung“ (am Artikelende, immer offen) aus dem Sammler ZF; ohne Material: ""."""
+    gruppen = []
+    def gruppe(wort, cls, punkte):
+        if not punkte:
+            return
+        rest = len(punkte) - ZF_SICHTBAR
+        if rest <= 1:                                          # „1 weitere zeigen“ lohnt nicht
+            sichtbar, mehr = punkte, []
+        else:
+            sichtbar, mehr = punkte[:ZF_SICHTBAR], punkte[ZF_SICHTBAR:]
+        h = f'<div class="zf-g zf-{cls}"><div class="zf-gh">{T(wort)}</div><ul class="zf-l">' + "".join(sichtbar) + "</ul>"
+        if mehr:
+            h += (f'<details class="zf-mehr"><summary>{html.escape(T("zf_mehr").format(n=len(mehr)))}</summary>'
+                  f'<ul class="zf-l">' + "".join(mehr) + "</ul></details>")
+        gruppen.append(h + "</div>")
+    # Begriffe: Begriffe mit demselben Satz (zwei Fachbegriffe in einer Definition) stehen in einem Punkt
+    punkte, i = [], 0
+    while i < len(z["fb"]):
+        b, gleich = z["fb"][i], [z["fb"][i]]
+        while b["satz"] and i + len(gleich) < len(z["fb"]) and z["fb"][i + len(gleich)]["satz"] == b["satz"]:
+            gleich.append(z["fb"][i + len(gleich)])
+        namen = ", ".join(f'<a class="zf-b" href="#{x["id"]}">{inline(_ohne_links(x["md"]))}</a>' for x in gleich)
+        punkte.append(f"<li>{namen}" + (f'<span class="zf-d"> – {inline(b["satz"])}</span>' if b["satz"] else "") + "</li>")
+        i += len(gleich)
+    gruppe("zf_begriffe", "begriffe", punkte)
+    formeln = sorted(z["fm"], key=lambda f: f["rang"])             # Kästen zuerst, dann nummerierte Formeln; je in Textfolge
+    punkte = []
+    for f in formeln:
+        titel = inline(_ohne_links(f["titel"])) if f["titel"] else ""
+        nr = "".join(f" ({n})" for n in f["nr"].split("|")) if f["nr"] else ""
+        kopf = (titel + html.escape(nr)).strip() or html.escape(T("zf_formeln"))
+        teile = split_display("$$" + f["tex"] + "$$")              # mehrteilige Formel (\qquad): Teile dürfen umbrechen
+        formel = ('<div class="mrow">' + "".join(f'<div class="mcell">{inline("$$" + t + "$$")}</div>' for t in teile) + "</div>"
+                  if teile else inline("$$" + f["tex"] + "$$"))
+        punkte.append(f'<li><a class="zf-fl" href="#{f["id"]}">{kopf}</a><div class="zf-f">{formel}</div></li>')
+    gruppe("zf_formeln", "formeln", punkte)
+    gruppe("zf_zusammenhaenge", "zusammenhaenge",
+           [f'<li><a class="zf-a" href="#{k["id"]}">{inline(_ohne_links(k["md"]))}</a></li>' for k in z["kg"]])
+    if not gruppen:
+        return ""
+    return (f'<aside class="zf" id="zusammenfassung" aria-labelledby="zf-titel"><h2 class="zf-t" id="zf-titel">{T("zf")}</h2>'
+            + "".join(gruppen) + "</aside>")
 
 ABB_N = [0]                                               # laufende Abbildungsnummer im Artikel (render_article setzt 0)
 _ABB_GEMELDET = set()                                     # jede fehlende Szene/SVG nur einmal melden
@@ -435,7 +704,8 @@ CALLOUTS = {"konzept": "Zur Idee", "kern": "kern", "merke": "merke", "grafik": "
 def md_to_html(md):
     lines = md.replace("\r\n", "\n").split("\n")
     out, toc, i, n = [], [], 0, len(lines)
-    section_open = False                                  # jeder ##-Abschnitt wird als Karte <section class="sect"> eingefasst
+    toc3 = []                                             # ###-Überschriften: Verzeichnis, wenn der Artikel keine ## hat
+    section_open = False                                 # jeder ##-Abschnitt wird als Karte <section class="sect"> eingefasst
     formel_n = 0                                          # fortlaufende Nummer der :::formel-Boxen (zum Referenzieren, wie im Skript)
     para = []
     h_ids = set()
@@ -445,14 +715,14 @@ def md_to_html(md):
         if mw:
             wort, titel = (mw.group(1).strip() or T("beispiel")), mw.group(2).strip()
         out.append(f'<details class="beispiel"><summary><span class="bsp-k">{inline(wort)}</span>' + inline(titel) + '</summary>'
-                   '<div class="bsp-body">' + md_to_html("\n".join(inner))[0] + '</div></details>')
+                   '<div class="bsp-body">' + _innen("beispiel", titel, inner) + '</div></details>')
     def vorwissen(arg, inner):                            # „Was du dafür brauchst: Titel“: zugeklappte Box (User, 10.11.2026)
         kopf, titel = arg, ""                             # Kopf bis zum ersten Doppelpunkt (auch „：“ und „ :“), dann der Titel
         mk = re.match(r"(.+?)\s*[:：]\s*(.*)$", arg)
         if mk:
             kopf, titel = mk.group(1).strip(), mk.group(2).strip()
         out.append(f'<details class="vorwissen"><summary><span class="vo-k">{inline(kopf)}</span>' + inline(titel) + '</summary>'
-                   '<div class="vo-body">' + md_to_html("\n".join(inner))[0] + '</div></details>')
+                   '<div class="vo-body">' + _innen("vorwissen", titel, inner) + '</div></details>')
     def flush():
         if para:
             txt = " ".join(para).strip()
@@ -460,17 +730,26 @@ def md_to_html(md):
                 # Gleichungsnummer \\tag{2.3} (mehrere: 2.3|2.4): eigene Spalte neben der Formel. KaTeX legte sie über
                 # die Formel, sobald der Platz knapp wird; so bleibt sie frei und die Formel verkleinert sich (fitMath).
                 mt = re.fullmatch(r"(\$\$.*?)\s*\\tag\{([^{}]*)\}\$\$", txt, flags=re.S)
-                nummer = ""
+                nummer, nr_roh = "", ""
                 if mt:
                     txt = mt.group(1) + "$$"
+                    nr_roh = mt.group(2)
                     nummer = "".join(f"<span>({n})</span>" for n in mt.group(2).split("|"))
+                # Zusammenfassung: abgesetzte Formel, „Kurz gesagt“, neue Fachbegriffe; id = Sprungziel des Stichpunkts
+                mf = re.fullmatch(r"\$\$(.+)\$\$", txt, flags=re.S)
+                if mf and "$$" not in mf.group(1):
+                    zid = _zf_formel(mf.group(1).strip(), nr_roh)
+                else:
+                    zid = _zf_kurz(txt)
+                    txt = _zf_begriffe(txt)
+                ida = f' id="{zid}"' if zid else ""
                 parts = split_display(txt)
                 if parts:                                # mehrteilige Formelzeile: Teile dürfen umbrechen
-                    inhalt = ('<div class="mrow">' + "".join('<div class="mcell">' + inline("$$" + p + "$$") + "</div>"
+                    inhalt = (f'<div class="mrow"{"" if nummer else ida}>' + "".join('<div class="mcell">' + inline("$$" + p + "$$") + "</div>"
                                                              for p in parts) + "</div>")
                 else:
-                    inhalt = inline(txt) if nummer else "<p>" + inline(txt) + "</p>"
-                out.append(f'<div class="gl-zeile"><div class="gl-f">{inhalt}</div><div class="gl-nr">{nummer}</div></div>' if nummer else inhalt)
+                    inhalt = inline(txt) if nummer else f"<p{ida}>" + inline(txt) + "</p>"
+                out.append(f'<div class="gl-zeile"{ida}><div class="gl-f">{inhalt}</div><div class="gl-nr">{nummer}</div></div>' if nummer else inhalt)
             para.clear()
     while i < n:
         ln = lines[i]
@@ -522,7 +801,7 @@ def md_to_html(md):
             body = []
             for k, it in enumerate(items, 1):
                 q_html = inline(it["q"].strip())
-                a_html = md_to_html(it["a"].strip())[0]
+                a_html = _innen("quiz", "", [it["a"].strip()])
                 body.append(f'<details class="quiz-item"><summary><span class="quiz-n">{k}.</span> {q_html}</summary>'
                             f'<div class="quiz-a">{a_html}</div></details>')
             out.append(f'<aside class="callout cx-quiz"><div class="callout-h">{T("quiz")}</div>'
@@ -554,39 +833,39 @@ def md_to_html(md):
                 lbl = label_arg or "Formel"
                 out.append(f'<div class="fbox"><div class="fbox-h"><span class="fbox-t">{html.escape(lbl)}</span>'
                            f'<span class="fbox-n">({formel_n})</span></div>'
-                           + md_to_html("\n".join(inner))[0] + '</div>')
+                           + _innen("formel", lbl, inner) + '</div>')
                 continue
             if kind in ("herleitung", "beweis"):          # Herleitung oder Beweis als ausklappbare Box an der Formel
                 out.append(f'<details class="herleitung"><summary>{T(kind)}' + (": " + inline(label_arg) if label_arg else "") + '</summary>'
-                           '<div class="hl-body">' + md_to_html("\n".join(inner))[0] + '</div></details>')
+                           '<div class="hl-body">' + _innen(kind, label_arg, inner) + '</div></details>')
                 continue
             if kind == "zweck":                           # Einstieg einer Stufe: wozu sie da ist
-                out.append(f'<div class="zweck"><span class="zw-k">{T("zweck")}</span> ' + md_to_html("\n".join(inner))[0] + '</div>')
+                out.append(f'<div class="zweck"><span class="zw-k">{T("zweck")}</span> ' + _innen("zweck", "", inner) + '</div>')
                 continue
             if kind == "aufgabe":                         # Aufgabe mit Nummer und Sternen, Lösung als Ausklappblock darin
                 out.append('<div class="aufg"><div class="aufg-h">' + inline(label_arg) + '</div>'
-                           '<div class="aufg-b">' + md_to_html("\n".join(inner))[0] + '</div></div>')
+                           '<div class="aufg-b">' + _innen("aufgabe", label_arg, inner) + '</div></div>')
                 continue
             if kind == "loesung":
                 out.append(f'<details class="loesung"><summary>{T("loesung")}</summary>'
-                           '<div class="lo-body">' + md_to_html("\n".join(inner))[0] + '</div></details>')
+                           '<div class="lo-body">' + _innen("loesung", "", inner) + '</div></details>')
                 continue
             if kind == "zusatz":                          # Vertiefung: darf übersprungen werden
                 out.append(f'<aside class="callout cx-zusatz"><div class="callout-h">{T("zusatz")}'
-                           + (": " + inline(label_arg) if label_arg else "") + '</div>' + md_to_html("\n".join(inner))[0] + "</aside>")
+                           + (": " + inline(label_arg) if label_arg else "") + '</div>' + _innen("zusatz", label_arg, inner) + "</aside>")
                 continue
             if kind == "warnung":                         # Achtung (Recht, Datenverlust, Sicherheit): immer offen
                 out.append(f'<aside class="callout cx-warnung"><div class="callout-h">{T("warnung")}'
-                           + (": " + inline(label_arg) if label_arg else "") + '</div>' + md_to_html("\n".join(inner))[0] + "</aside>")
+                           + (": " + inline(label_arg) if label_arg else "") + '</div>' + _innen("warnung", label_arg, inner) + "</aside>")
                 continue
             if kind == "ltspice":                         # LTspice-Hinweis (nachbauen und messen): standardmaessig geschlossen
                 out.append('<details class="ltspice"><summary><span class="lt-k">LTspice</span>'
                            + inline(label_arg) + '</summary>'
-                           '<div class="lt-body">' + md_to_html("\n".join(inner))[0] + '</div></details>')
+                           '<div class="lt-body">' + _innen("ltspice", label_arg, inner) + '</div></details>')
                 continue
             if kind == "hintergrund":                     # Hintergrundwissen: Titel sichtbar, Inhalt zugeklappt (Haupttext bleibt skriptgeordnet)
                 out.append(f'<details class="hintergrund"><summary><span class="hg-k">{T("hintergrund")}</span>' + inline(label_arg) + '</summary>'
-                           '<div class="hg-body">' + md_to_html("\n".join(inner))[0] + '</div></details>')
+                           '<div class="hg-body">' + _innen("hintergrund", label_arg, inner) + '</div></details>')
                 continue
             if kind == "frage":                           # Frage-Kasten (wie im Lernskript): Frage sichtbar, Antwort ausklappbar
                 if label_arg:
@@ -595,7 +874,7 @@ def md_to_html(md):
                     k0 = next((j for j, l in enumerate(inner) if l.strip()), len(inner))
                     frage, rest = (inner[k0].strip() if k0 < len(inner) else ""), inner[k0 + 1:]
                 out.append(f'<details class="frage"><summary><span class="fr-k">{T("frage")}</span>' + inline(frage) + '</summary>'
-                           '<div class="fr-body">' + md_to_html("\n".join(rest))[0] + '</div></details>')
+                           '<div class="fr-body">' + _innen("frage", frage, rest) + '</div></details>')
                 continue
             if kind == "abbildung":                       # Editor-Abbildung: exportiertes SVG, nummerierte Bildunterschrift, Link in den Editor
                 out.append(abbildung_html(label_arg, inner))
@@ -606,13 +885,13 @@ def md_to_html(md):
                 if k0 < len(inner) and inner[k0].strip().startswith("Szene:"):
                     szene, inner = inner[k0].strip()[len("Szene:"):].strip(), inner[k0 + 1:]
                 out.append('<aside class="callout cx-grafik"' + (f' data-szene="{html.escape(szene)}"' if szene else "")
-                           + '><div class="callout-h">Abbildung in Vorbereitung</div>' + md_to_html("\n".join(inner))[0]
+                           + '><div class="callout-h">Abbildung in Vorbereitung</div>' + _innen("grafik", "", inner)
                            + (f'<div class="gr-szene">Editor-Szene: {html.escape(szene)}</div>' if szene else "") + "</aside>")
                 continue
             key = CALLOUTS.get(kind, kind.title())
             label = inline(label_arg) if label_arg else html.escape(UI["de"].get(key) and T(key) or key)
             out.append(f'<aside class="callout cx-{kind}"><div class="callout-h">{label}</div>'
-                       + md_to_html("\n".join(inner))[0] + "</aside>")
+                       + _innen(kind, label_arg or (T(key) if key in UI["de"] else key), inner) + "</aside>")
             continue
         if re.match(r"(---|\*\*\*|___)\s*$", s):      # horizontal rule
             flush(); out.append("<hr/>"); i += 1; continue
@@ -624,18 +903,24 @@ def md_to_html(md):
                 hid = f"{hid}-{len(h_ids)}"
             h_ids.add(hid)
             if lvl == 2:                                   # neuer ##-Abschnitt -> alte Karte schließen, neue öffnen
-                toc.append((hid, txt))
+                toc.append((hid, txt, 2))
                 if section_open:
                     out.append("</section>")
                 out.append('<section class="sect">')
                 section_open = True
-            out.append(f'<h{lvl} id="{hid}">{inline(txt)}</h{lvl}>')
+            elif lvl == 3:
+                toc3.append((hid, txt, 3))
+            if ZF.get("an") and not _KASTEN:
+                ZF["h"] = txt                              # Abschnitt einer nummerierten Formel (Zusammenfassung)
+            # Ankerlink: „#“ erscheint erst bei Hover oder Fokus; Klick setzt die Adresse und kopiert den Link (wissen.js)
+            anker = f'<a class="h-anker" href="#{hid}" aria-label="{html.escape(T("anker"))}">#</a>' if lvl >= 2 else ""
+            out.append(f'<h{lvl} id="{hid}">{inline(txt)}{anker}</h{lvl}>')
             i += 1; continue
         if s.startswith(">"):                         # blockquote
             flush(); quote = []
             while i < n and lines[i].strip().startswith(">"):
                 quote.append(re.sub(r"^\s*>\s?", "", lines[i])); i += 1
-            out.append("<blockquote>" + md_to_html("\n".join(quote))[0] + "</blockquote>")
+            out.append("<blockquote>" + _innen("zitat", "", quote) + "</blockquote>")
             continue
         if s.startswith("|") and i + 1 < n and re.match(r"^\s*\|?[\s:|-]*-[\s:|-]*\|?\s*$", lines[i + 1].strip()):
             flush()                                   # GitHub-Tabelle: Kopfzeile + |---|---|-Trenner + Zeilen
@@ -644,8 +929,8 @@ def md_to_html(md):
             header = cells(s); i += 2; body = []
             while i < n and lines[i].strip().startswith("|"):
                 body.append(cells(lines[i].strip())); i += 1
-            thead = "<tr>" + "".join(f"<th>{inline(c)}</th>" for c in header) + "</tr>"
-            tbody = "".join("<tr>" + "".join(f"<td>{inline(c)}</td>" for c in r) + "</tr>" for r in body)
+            thead = "<tr>" + "".join(f"<th>{inline(_zf_begriffe(c, False))}</th>" for c in header) + "</tr>"
+            tbody = "".join("<tr>" + "".join(f"<td>{inline(_zf_begriffe(c, False))}</td>" for c in r) + "</tr>" for r in body)
             out.append(f'<div class="table-wrap"><table class="md-table"><thead>{thead}</thead><tbody>{tbody}</tbody></table></div>')
             continue
         if re.match(r"[-*]\s+", s) or re.match(r"\d+\.\s+", s):   # list (ul/ol)
@@ -661,7 +946,7 @@ def md_to_html(md):
                 else:
                     break
             tag = "ol" if ordered else "ul"
-            out.append(f"<{tag}>" + "".join(f"<li>{inline(it)}</li>" for it in items) + f"</{tag}>")
+            out.append(f"<{tag}>" + "".join(f"<li>{inline(_zf_begriffe(it))}</li>" for it in items) + f"</{tag}>")
             continue
         if s.startswith("<"):                         # raw HTML / SVG / editor embed -> passthrough
             flush(); out.append(ln); i += 1; continue
@@ -669,7 +954,8 @@ def md_to_html(md):
     flush()
     if section_open:                                   # letzte Abschnitts-Karte schließen
         out.append("</section>")
-    return "\n".join(out), toc
+    # Verzeichnis: die ##-Abschnitte; ohne sie die ###-Unterabschnitte, sobald es mindestens zwei sind
+    return "\n".join(out), (toc or (toc3 if len(toc3) >= 2 else []))
 
 # ---------------------------------------------------------- plain text (search) ----
 def to_plain(md):
@@ -830,10 +1116,10 @@ def page_shell(title, desc, body, depth, alternates=None):
     return f"""<!doctype html>
 <html lang="{LANG_NOW[0]}"><head>
 <meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>{html.escape(title)} — EtUndSo</title>
+<title>{html.escape(klartext(title))} — EtUndSo</title>
 <link rel="icon" href="/favicon.ico" sizes="32x32"/><link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
-<meta name="description" content="{html.escape(desc)}"/>{links}
-<script>try{{if(localStorage.getItem("animate-theme")==="dark")document.documentElement.setAttribute("data-theme","dark");}}catch(e){{}}</script>
+<meta name="description" content="{html.escape(klartext(desc))}"/>{links}
+<script>try{{var t=localStorage.getItem("animate-theme");if(t==="dark"||(!t&&matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.setAttribute("data-theme","dark");}}catch(e){{}}</script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css"/>
 <link rel="stylesheet" href="/wissen/assets/wissen.css"/>
 </head><body data-root="{home()}">
@@ -910,7 +1196,7 @@ def nav_arrow(a, prev):
            + ('<line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/>' if prev else
               '<line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>') + '</svg>')
     if a:
-        t = html.escape(f'{word}: {a["title"]}')
+        t = html.escape(f'{word}: {klartext(a["title"])}')     # Attribute ohne TeX (KaTeX setzt nur den Text der Seite)
         knopf = f'<a id="{bid}" class="navBtn" href="/wissen/{a["path"]}"{alt_attr(a)} title="{t}" aria-label="{t}">{svg}</a>'
         # Titel des Nachbarartikels neben dem Pfeil (User 2026-11-04: „sonst weiß man gar nicht was kommt“);
         # links vom Zurück-Pfeil, rechts vom Weiter-Pfeil; lange Titel enden mit …
@@ -929,7 +1215,8 @@ def topbar(panels=False, prev_a=None, next_a=None, art=None):
              '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">'
              '<rect x="3" y="4" width="18" height="16" rx="2"/><line x1="9" y1="4" x2="9" y2="20"/></svg></button>'
              + nav_arrow(next_a, False) + '</div>') if panels else ''
-    return ('<div class="topbar"><a class="brand" href="/">Et<span>Und</span><span class="so">So</span></a>'
+    return (f'<a class="skip" href="#inhalt">{T("zum_inhalt")}</a>'   # Sprunglink für die Tastatur: erst beim Fokus sichtbar
+            '<div class="topbar"><a class="brand" href="/">Et<span>Und</span><span class="so">So</span></a>'
             + pbtns + lang_switch(art)
             + f'<button id="searchBtn" class="searchBtn" aria-label="{T("suchen")}">'   # ohne Lupen-Symbol (User 2026-10-21)
             f'<span class="lbl">{T("suchen")}</span><kbd>/</kbd></button>'
@@ -949,30 +1236,57 @@ _TOC = {}                                              # Artikeltext -> Abschnit
 
 def render_article(art, tree, prev_a, next_a):
     ABB_N[0] = 0                                       # Abbildungen je Artikel ab 1 nummerieren
+    zf_start()                                         # Sammler der Zusammenfassung: nur für den Artikel selbst
     body_html, toc = md_to_html(art["body"])
+    zdaten = dict(ZF)
+    ZF["an"] = False
     _TOC[art["body"]] = toc
     quiz_html = ""                                     # Quiz ganz unten, unter den Nachbar-Spalten (User 2026-10-21)
     qa = body_html.find('<aside class="callout cx-quiz">')
     if qa >= 0:
         qe = body_html.index("</aside>", qa) + len("</aside>")
         quiz_html, body_html = body_html[qa:qe], body_html[:qa] + body_html[qe:]
-    if not toc:                                        # kurzer Artikel ohne Abschnitte: eine einzige Karte
+    n_abb, n_aufg = body_html.count('<figure class="abb"'), body_html.count('<div class="aufg">')
+    if not any(lvl == 2 for _, _, lvl in toc):         # ohne ##-Abschnitte (kurz oder nur ###): eine einzige Karte
         body_html = f'<section class="sect">{body_html}</section>'
+    # am Artikelende, vor den Nachbar-Artikeln (User 11.11.2026); nicht in „Das Wichtigste (bis hier)“: Der Artikel ist
+    # mit seinem Kasten :::kern schon die Zusammenfassung des Kapitels
+    zf_html = "" if re.search(r"(?m)^:::kern\b", art["body"]) else zusammenfassung_html(zdaten)
     pill = (f'<span class="apill apill-mensch">{T("hand_pill")}</span>' if art["autor"] == "mensch"
             else f'<span class="apill">{T("ki_pill")}</span>')
-    crumb = f'<nav class="crumbs"><a href="{home()}">{T("wissen")}</a>' + \
-            "".join(f' › <span>{html.escape(nm)}</span>' for nm, sl in art["crumbs"]) + " " + pill + "</nav>"
+    # Brotkrumen; am Handy nur die letzten zwei Glieder, der Modulname kurz („ET3“ statt „ET3 – Grundgebiete …“)
+    n_cr = len(art["crumbs"])
+    def _crumb(k, nm):
+        cls = "cr cr-alt" if k < n_cr - 2 else ("cr cr-erst" if k == max(0, n_cr - 2) else "cr")
+        kurz, _, lang = nm.partition(" – ")
+        name = (f'<span class="cr-k">{html.escape(kurz)}</span><span class="cr-l"> – {html.escape(lang)}</span>' if lang
+                else html.escape(nm))
+        return f'<span class="{cls}"><span class="cr-sep" aria-hidden="true"> › </span>{name}</span>'
+    crumb = (f'<nav class="crumbs"><a class="cr-home" href="{home()}">{T("wissen")}</a>'
+             + "".join(_crumb(k, nm) for k, (nm, sl) in enumerate(art["crumbs"])) + "</nav>")
+    # Kennzahlenzeile: Lesezeit, Abbildungen, Aufgaben, Sprung zur Zusammenfassung; dazu das Schildchen und (schmal) die Sprachwahl
+    zahlen = [T("lesezeit").format(n=lesezeit(art["body"]))]
+    if n_abb:
+        zahlen.append(T("abb_1") if n_abb == 1 else T("abb_n").format(n=n_abb))
+    if n_aufg:
+        zahlen.append(T("aufg_1") if n_aufg == 1 else T("aufg_n").format(n=n_aufg))
+    meta = ('<div class="art-meta"><span class="am-zahlen">' + "".join(f"<span>{html.escape(z)}</span>" for z in zahlen) + "</span>"
+            + (f'<a class="am-zf" href="#zusammenfassung">{T("zf_sprung")}</a>' if zf_html else "")
+            + pill + lang_switch(art, "art") + "</div>")
     toc_html = ""
     arttoc = ""
     if toc:
-        toc_html = f'<aside class="toc"><div class="toc-h">{T("auf_seite")}</div><ul>' + \
-            "".join(f'<li><a href="#{hid}">{html.escape(txt)}</a></li>' for hid, txt in toc) + "</ul></aside>"
-        arttoc = f'<nav class="arttoc" aria-label="{T("im_artikel")}"><div class="arttoc-h">{T("im_artikel")}</div><ul>' + \
-            "".join(f'<li><a href="#{hid}">{html.escape(txt)}</a></li>' for hid, txt in toc) + "</ul></nav>"
-    def _topics(a):                                    # Themen-Stichpunkte (##-Überschriften) eines Nachbarartikels
+        eintraege = "".join(f'<li><a href="#{hid}">{inline(_ohne_links(txt))}</a></li>' for hid, txt, _ in toc)
+        if zf_html:
+            eintraege += f'<li class="toc-zf"><a href="#zusammenfassung">{T("zf")}</a></li>'
+        toc_html = f'<aside class="toc"><div class="toc-h">{T("auf_seite")}</div><ul>{eintraege}</ul></aside>'
+        arttoc = f'<nav class="arttoc" aria-label="{T("im_artikel")}"><div class="arttoc-h">{T("im_artikel")}</div><ul>{eintraege}</ul></nav>'
+    def _topics(a):                                    # Themen-Stichpunkte (Abschnitte) eines Nachbarartikels, höchstens 6
         if a["body"] not in _TOC:                      # einmal je Text (Messung 10.11.2026: sonst jeder Artikel dreimal gesetzt)
             _TOC[a["body"]] = md_to_html(a["body"])[1]
-        return "".join(f"<li>{html.escape(t)}</li>" for _, t in _TOC[a["body"]])
+        t = _TOC[a["body"]]
+        return ("".join(f"<li>{inline(_ohne_links(x))}</li>" for _, x, _ in t[:6])
+                + (f'<li class="nb-mehr">…</li>' if len(t) > 6 else ""))
     switch = ""                                        # Umschalter kompakt | ausführlich, mit Lesezeit
     if art.get("alt"):
         kompakt, ausf = (art, art["alt"]) if art["fassung"] == "kompakt" else (art["alt"], art)
@@ -993,15 +1307,29 @@ def render_article(art, tree, prev_a, next_a):
     else:
         nav += '<div class="nb empty"></div>'
     nav += "</div>"
-    main = (f'<main class="article"><article>{crumb}<h1>{html.escape(art["title"])}</h1>'
-            + lang_switch(art, "art") + switch + arttoc
-            + body_html + verwendet_html(art) + nav + quiz_html + legal_footer() + "</article>" + toc_html + "</main>")
+    main = (f'<main class="article" id="inhalt" tabindex="-1"><article>{crumb}<h1>{html.escape(art["title"])}</h1>'
+            + meta + switch + arttoc
+            + body_html + zf_html + verwendet_html(art) + nav + quiz_html + legal_footer() + "</article>" + toc_html + "</main>")
     nav_path = tree_art(art)["path"]
     body = (topbar(panels=True, prev_a=prev_a, next_a=next_a, art=art)
             + '<div class="layout">'
             + sidebar_html(tree, nav_path, art) + main + "</div>")
     depth = 1 + art["path"].count("/")               # web/wissen/<…chain…>/<a>.html
-    return page_shell(art["title"], art["summary"] or art["title"], body, depth, sprachen(art))
+    return page_shell(art["title"], beschreibung(art), body, depth, sprachen(art))
+
+def beschreibung(art):
+    """meta description: Anfang von „Worum es geht“ (:::zweck) als Klartext, mit echten Formeln statt der im Kopf schon
+    zerlegten (summary: „lVerty-AxrVert 2“); ohne :::zweck das summary:. Ist der erste Satz kurz (oft ein Rückbezug wie
+    „In allen Beispielen war …“), kommt der zweite dazu."""
+    m = re.search(r"(?ms)^:::zweck[ \t]*\n(.*?)\n:::[ \t]*$", art["body"])
+    text = " ".join(l.strip() for l in m.group(1).split("\n") if l.strip() and not l.strip().startswith("<")) if m else ""
+    saetze = [text[a:b].strip() for a, b in _saetze(text)] if text else []
+    if not saetze:
+        return klartext(art["summary"] or art["title"])
+    d = klartext(saetze[0])
+    if len(d) < 90 and len(saetze) > 1 and len(d) + len(klartext(saetze[1])) < 260:
+        d += ("" if re.search(r"[。！？]$", d) else " ") + klartext(saetze[1])
+    return d
 
 LINK_RE = re.compile(r"\]\(/wissen/([^)#\s]+)(?:#([^)\s]*))?\)")
 
@@ -1048,7 +1376,7 @@ def legal_footer():
             f'<a href="/datenschutz.html">{T("datenschutz")}</a></footer>')
 
 def render_index(tree):
-    cards = [f'<main class="article"><article><h1>{T("wissen")}</h1>{lang_switch(None, "art")}<p class="lede">{T("lede")}</p>']
+    cards = [f'<main class="article" id="inhalt" tabindex="-1"><article><h1>{T("wissen")}</h1>{lang_switch(None, "art")}<p class="lede">{T("lede")}</p>']
     if not tree:
         cards.append(f'<p class="empty">{T("leer")}</p>')
     # Übersicht: oberste Ebene(n) als Abschnitt, darunter der Baum rekursiv; Themen als verlinkte Karten.
@@ -1614,6 +1942,116 @@ details.vorwissen .vo-k{font-family:var(--fdisp);font-size:12px;text-transform:u
 }
 @media(max-width:379px){ .topbar .editorlink{display:none;} }   /* schmal: Editor-Link weg (Desktop-Werkzeug), Platz für das Wort „Suchen“ */
 @media(max-width:330px){ .brand{font-size:15px;} .topbar .searchBtn{padding:0 6px;} }   /* sehr schmal (320 px): Logo und Suchknopf kleiner */
+/* ---------- Artikel lesen (11.11.2026): Sprunglink, Kennzahlenzeile, Zusammenfassung, Ankerlinks, Kopierknopf, Vergrößern,
+   Handy ohne Karte in Karte, Druckansicht ---------- */
+.skip{position:absolute;left:12px;top:-80px;z-index:100;padding:8px 14px;border:2px solid var(--accent3);border-radius:10px;
+  background:var(--panel);color:var(--accent);font-weight:700;}
+.skip:focus{top:10px;text-decoration:none;}
+main.article:focus{outline:none;}
+.crumbs .cr-sep{color:var(--muted);}
+.art-meta{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;margin:.15em 0 1.3em;font-size:14px;color:var(--muted);}
+.art-meta .am-zahlen{display:inline-flex;flex-wrap:wrap;align-items:baseline;}
+.art-meta .am-zahlen>span+span::before{content:"·";margin:0 .5em;}
+.art-meta .am-zf{color:var(--accent);font-weight:600;}
+.art-meta .apill{margin-left:0;}
+.art-meta .langs-art{margin:0 0 0 auto;}
+/* Zusammenfassung am Artikelende: Begriffe, Formeln, Zusammenhänge; jeder Punkt springt an seine Stelle */
+.zf{margin:2.2em 0 1.4em;padding:14px 20px 10px;border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:12px;
+  background:var(--soft);scroll-margin-top:72px;}
+.article .zf-t{margin:0 0 .3em;font-size:21px;color:var(--accent2);scroll-margin-top:72px;}
+.zf-g{margin:.8em 0 .6em;}
+.zf-gh{font-family:var(--fdisp);font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:2px;}
+.article .zf-l{margin:0;padding-left:1.15em;}
+.article .zf-l li{font-size:16px;line-height:1.6;margin:.32em 0;}
+.zf-l li::marker{color:var(--accent);}
+.zf .zf-b{font-weight:700;}
+.zf .zf-a{color:var(--ink);} .zf .zf-a:hover{color:var(--accent);}
+.zf .zf-fl{font-size:13.5px;font-weight:600;}
+.article .zf-f .katex-display{font-size:1.08em;margin:.1em 0 .35em;}
+.article .zf-f .katex-display>.katex{text-align:left;}
+.article .zf-f .mrow{justify-content:flex-start;column-gap:1.8em;margin:0;}
+.article .zf-f .mrow .katex-display{margin:.1em 0 .3em;}
+details.zf-mehr>summary{display:inline-block;margin:.1em 0 .2em 1.15em;cursor:pointer;list-style:none;font-size:14.5px;font-weight:600;color:var(--accent);}
+details.zf-mehr>summary::-webkit-details-marker{display:none;}
+details.zf-mehr>summary:hover{text-decoration:underline;}
+details.zf-mehr[open]>summary{display:none;}
+:root[data-theme="dark"] .zf{border-color:var(--rahmen);border-left-color:var(--accent);}
+/* Sprungziele der Zusammenfassung: nicht unter der Kopfleiste, kurz orange hinterlegt */
+.article :is([id^="kb-"],[id^="kf-"],[id^="kg-"]){scroll-margin-top:84px;}
+@keyframes zf-ziel{from{background-color:color-mix(in srgb,var(--accent3) 24%,transparent);}to{background-color:transparent;}}
+.article :is([id^="kb-"],[id^="kf-"],[id^="kg-"]):target{animation:zf-ziel 2.6s ease-out;border-radius:5px;}
+/* Ankerlink an Überschriften: „#“ erst bei Hover oder Fokus; am Touchgerät ohne */
+.article h4{scroll-margin-top:66px;}
+.h-anker{margin-left:.35em;padding:0 .15em;color:var(--muted);font-weight:500;opacity:0;transition:opacity .15s;}
+.article :is(h2,h3,h4):hover>.h-anker,.h-anker:focus-visible{opacity:1;}
+.h-anker:hover{color:var(--accent);text-decoration:none;}
+.h-anker.kopiert{opacity:1;}
+.h-anker.kopiert::after{content:attr(data-kopiert);margin-left:.5em;font-family:var(--fbody);font-size:12.5px;font-weight:600;
+  letter-spacing:0;color:var(--accent);}
+@media(hover:none){ .h-anker{display:none;} }
+/* Kopierknopf an Code-Blöcken (wissen.js): in der Kopfzeile, sonst oben rechts im Block */
+.code-block{position:relative;}
+.code-kopie{font:inherit;font-family:var(--fdisp);font-size:12px;font-weight:600;line-height:1.5;color:var(--muted);background:var(--panel);
+  border:1px solid var(--border);border-radius:7px;padding:1px 9px;cursor:pointer;}
+.code-kopie:hover,.code-kopie:focus-visible{color:var(--accent);border-color:var(--accent);}
+.code-kopie.ok{color:var(--accent);border-color:var(--accent);}
+.code-kopf .code-kopie{flex:none;margin-left:2px;}
+.code-kopf .code-l+.code-kopie{margin-left:0;}
+.code-block>.code-kopie{position:absolute;top:7px;right:8px;z-index:1;opacity:.92;}
+@media(hover:hover){ .code-block>.code-kopie{opacity:0;} .code-block:hover>.code-kopie,.code-block>.code-kopie:focus-visible{opacity:1;} }
+/* Abbildung antippen: Overlay mit voller Breite (wissen.js); Bild bzw. Animation samt Spieler wandern hinein */
+.article figure.abb>img,.article figure.abb>svg.abb-anim{cursor:zoom-in;}
+.article figure.abb>img:focus-visible,.article figure.abb>svg.abb-anim:focus-visible{outline:2px solid var(--accent3);outline-offset:3px;}
+html.abb-offen,html.abb-offen body{overflow:hidden;}
+.abb-gross{position:fixed;inset:0;z-index:60;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+  padding:56px 10px 14px;background:rgba(8,14,11,.94);}
+.abb-gross[hidden]{display:none;}
+.abb-gross .ag-buehne{width:min(100%,1500px);max-height:calc(100% - 40px);overflow:auto;padding:8px;border-radius:12px;background:var(--panel);}
+.abb-gross .ag-buehne>img,.abb-gross .ag-buehne>svg{display:block;width:100%;height:auto;max-height:calc(100vh - 170px);object-fit:contain;
+  margin:0 auto;border-radius:8px;background:#fff;cursor:zoom-out;}
+.abb-gross .abb-spieler{margin:8px 2px 0;}
+.abb-gross .ag-text{max-width:min(100%,80ch);color:#e9eeea;font-size:14px;line-height:1.5;text-align:center;}
+.abb-gross .ag-text .abb-n{font-weight:700;margin-right:4px;}
+.abb-gross .ag-zu{position:absolute;top:10px;right:12px;display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;
+  padding:0;border:1px solid rgba(255,255,255,.45);border-radius:999px;background:rgba(0,0,0,.35);color:#fff;cursor:pointer;}
+.abb-gross .ag-zu:hover,.abb-gross .ag-zu:focus-visible{border-color:var(--bar-hl);color:var(--bar-hl);outline:none;}
+.abb-platz{display:block;}
+/* Handy: Abschnittskarte ohne Rand und Innenabstand (Kästen behalten ihren Rahmen), kompakter Kopf, kurze Brotkrumen */
+@media(max-width:620px){
+  .article{padding:14px 12px 56px;}
+  .article .sect,:root[data-theme="dark"] .article>article .sect{border:0;border-radius:0;box-shadow:none;background:transparent;padding:0;}
+  .article .sect>h2:first-child{margin-top:.2em;}
+  .crumbs{margin-bottom:4px;font-size:12.5px;line-height:1.45;}
+  .crumbs .cr-home,.crumbs .cr-alt,.crumbs .cr-erst>.cr-sep,.crumbs .cr-l{display:none;}
+  .article h1{margin-bottom:.25em;}
+  .art-meta{margin-bottom:1em;font-size:13.5px;gap:6px 10px;}
+  .arttoc{padding:11px 14px 10px;margin-bottom:1.5em;}                 /* Verzeichnis als Fließzeile statt langer Spalte */
+  .arttoc-h{margin-bottom:5px;}
+  .arttoc ul{display:flex;flex-wrap:wrap;gap:1px 16px;}
+  .arttoc a{padding:3px 0;font-size:15px;line-height:1.4;}
+  .arttoc a::before{margin-right:6px;}
+  .callout{padding:13px 14px;}
+  .zf{padding:12px 14px 8px;}
+  .aufg-b{padding:12px 13px 11px;}
+}
+/* Druckansicht: ohne Leisten, Menüs und Spieler; Kästen aufgeklappt (Lösungen bleiben weg), helle Farben auch nachts */
+@media print{
+  :root,:root[data-theme="dark"]{--bg:#fff;--panel:#fff;--ink:#111;--muted:#454b48;--border:#cfd4d1;--soft:#f5f6f5;--accent:#15633a;
+    --accent2:#1b7f4a;--accent3:#c2410c;--on-accent:#fff;--aufg:#15633a;--rahmen:#cfd4d1;}
+  body{background:#fff;color:#111;}
+  .skip,.topbar,.side,.toc,.neighbors,.langs,.abb-spieler,.abb-knopf,.searchOverlay,.h-anker,.code-kopie,.abb-gross,.am-zf,.toc-zf,
+  .fassung,details.loesung,details.zf-mehr>summary{display:none!important;}
+  .layout,.article{display:block;max-width:none;margin:0;padding:0;}
+  .article>article{max-width:none;}
+  .article .sect{border:0;box-shadow:none;padding:0;margin:0;}
+  details::details-content{content-visibility:visible;display:block;}
+  .article a{color:inherit;}
+  .article a[href^="http"]::after{content:" (" attr(href) ")";font-size:.85em;color:#454b48;overflow-wrap:anywhere;}
+  .article :is(figure,.callout,.aufg,.code-block,.gl-zeile,.fbox,.zf-l li,table){break-inside:avoid;}
+  .article :is(h2,h3,h4){break-after:avoid;}
+  .article pre{white-space:pre-wrap;overflow-wrap:anywhere;overflow:visible;}
+  :root[data-theme="dark"] .hl [class]{color:#111!important;}
+}
 """
 
 WISSEN_JS = r"""
@@ -1728,6 +2166,11 @@ var NICHTS={de:"Nichts gefunden für „{q}\".",en:"Nothing found for „{q}\"."
     if(dark) root.removeAttribute("data-theme"); else root.setAttribute("data-theme","dark");
     try{ localStorage.setItem("animate-theme", dark?"light":"dark"); }catch(e){}   // Schlüssel mit dem Editor geteilt
   });
+  // Ohne eigene Wahl folgt die Seite der Systemeinstellung (der Kopf setzt sie beim Laden), auch wenn sie sich ändert.
+  var sys=window.matchMedia?window.matchMedia("(prefers-color-scheme: dark)"):null;
+  function folge(e){ var s=null; try{ s=localStorage.getItem("animate-theme"); }catch(x){} if(s) return;
+    if(e.matches) root.setAttribute("data-theme","dark"); else root.removeAttribute("data-theme"); }
+  if(sys){ if(sys.addEventListener) sys.addEventListener("change",folge); else if(sys.addListener) sys.addListener(folge); }
   if(!layout) return;
   var side=layout.querySelector(".side"), mq=window.matchMedia("(max-width:720px)");
   var bL=document.getElementById("toggleLeft"), bR=document.getElementById("toggleRight");
@@ -1803,6 +2246,110 @@ var NICHTS={de:"Nichts gefunden für „{q}\".",en:"Nothing found for „{q}\"."
   window.addEventListener("resize",later);
   window.addEventListener("load",fitMath);
   document.addEventListener("toggle",later,true);                  // Herleitung aufgeklappt -> Formeln darin einpassen
+})();
+// Kopierknopf an Code-Blöcken (Konsole: nur die Eingaben, ohne Prompt), Ankerlink an Überschriften (Klick kopiert die
+// Adresse des Abschnitts), Druck: zugeklappte Kästen aufklappen und danach wieder schließen (Lösungen bleiben zu).
+(function(){
+  var L=(document.documentElement.lang||"de").slice(0,2);
+  var W={de:{k:"Kopieren",ok:"Kopiert",link:"Link kopiert"},en:{k:"Copy",ok:"Copied",link:"Link copied"},
+    es:{k:"Copiar",ok:"Copiado",link:"Enlace copiado"},zh:{k:"复制",ok:"已复制",link:"链接已复制"},
+    fr:{k:"Copier",ok:"Copié",link:"Lien copié"},tr:{k:"Kopyala",ok:"Kopyalandı",link:"Bağlantı kopyalandı"}};
+  var w=W[L]||W.en;
+  function kopiere(text){
+    if(navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(text);
+    return new Promise(function(ok,fehler){ var t=document.createElement("textarea"); t.value=text; t.setAttribute("readonly","");
+      t.style.position="fixed"; t.style.opacity="0"; document.body.appendChild(t); t.select();
+      try{ if(document.execCommand("copy")) ok(); else fehler(); }catch(e){ fehler(e); } document.body.removeChild(t); });
+  }
+  function codeText(block){
+    var c=block.querySelector("pre code"), t=c?c.textContent:"";
+    if(/\bcode-console\b/.test(block.className)){                  // Sitzung: Eingabezeilen ohne $, #, >>>, ..., PS>
+      var ein=[]; t.split("\n").forEach(function(z){ var m=/^(?:\$ |# |>>> |\.\.\. |PS> )(.*)$/.exec(z); if(m) ein.push(m[1]); });
+      if(ein.length) return ein.join("\n");
+    }
+    return t.replace(/\n+$/,"");
+  }
+  [].forEach.call(document.querySelectorAll(".code-block"),function(block){
+    var b=document.createElement("button"); b.type="button"; b.className="code-kopie"; b.textContent=w.k;
+    var kopf=block.querySelector(".code-kopf"); if(kopf) kopf.appendChild(b); else block.insertBefore(b,block.firstChild);
+    b.addEventListener("click",function(){ kopiere(codeText(block)).then(function(){ b.textContent=w.ok; b.classList.add("ok");
+      setTimeout(function(){ b.textContent=w.k; b.classList.remove("ok"); },1600); },function(){}); });
+  });
+  document.addEventListener("click",function(e){
+    var a=e.target.closest && e.target.closest("a.h-anker"); if(!a) return;
+    kopiere(location.href.split("#")[0]+a.getAttribute("href")).then(function(){ a.setAttribute("data-kopiert",w.link); a.classList.add("kopiert");
+      setTimeout(function(){ a.classList.remove("kopiert"); },1800); },function(){});
+  });
+  var zu=[];
+  window.addEventListener("beforeprint",function(){
+    zu=[].filter.call(document.querySelectorAll("details:not([open])"),function(d){ return !d.classList.contains("loesung") && !d.closest(".side"); });
+    zu.forEach(function(d){ d.open=true; });
+  });
+  window.addEventListener("afterprint",function(){ zu.forEach(function(d){ d.open=false; }); zu=[]; });
+})();
+// Abbildung antippen: groß in einem Overlay mit voller Breite. Das Bild bzw. die animierte Fassung samt Spielerleiste wandert
+// hinein und beim Schließen zurück an ihren Platz, so laufen Animation und Knöpfe weiter. Schließen: Klick (außer auf den
+// Spieler), Esc, Knopf oder Zurück im Browser. Mit der Tastatur: Bild fokussieren (Tab), Enter oder Leertaste.
+(function(){
+  if(!document.querySelector("figure.abb")) return;
+  var L=(document.documentElement.lang||"de").slice(0,2);
+  var W={de:["Abbildung vergrößern","Schließen"],en:["Enlarge figure","Close"],es:["Ampliar figura","Cerrar"],zh:["放大图","关闭"],
+    fr:["Agrandir la figure","Fermer"],tr:["Şekli büyüt","Kapat"]};
+  var w=W[L]||W.en, SEL="figure.abb>img,figure.abb>svg.abb-anim";
+  var ov=null, buehne=null, text=null, zuBtn=null, fig=null, platz=null, verlauf=false;
+  window.abbVergroesserbar=function(m){ m.setAttribute("tabindex","0"); if(!m.getAttribute("title")) m.setAttribute("title",w[0]); };
+  [].forEach.call(document.querySelectorAll(SEL),window.abbVergroesserbar);
+  function bauen(){
+    ov=document.createElement("div"); ov.className="abb-gross"; ov.hidden=true; ov.setAttribute("role","dialog"); ov.setAttribute("aria-modal","true");
+    zuBtn=document.createElement("button"); zuBtn.type="button"; zuBtn.className="ag-zu"; zuBtn.setAttribute("aria-label",w[1]); zuBtn.title=w[1];
+    zuBtn.innerHTML='<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>';
+    buehne=document.createElement("div"); buehne.className="ag-buehne";
+    text=document.createElement("div"); text.className="ag-text";
+    ov.appendChild(zuBtn); ov.appendChild(buehne); ov.appendChild(text); document.body.appendChild(ov);
+    ov.addEventListener("click",function(e){ if(e.target.closest(".abb-spieler")) return; zu(); });
+  }
+  function auf(f){
+    if(fig) return; if(!ov) bauen();
+    var teile=[].filter.call(f.children,function(k){ return k.matches(SEL) || k.classList.contains("abb-spieler"); });
+    if(!teile.length) return;
+    fig=f;
+    platz=document.createElement("div"); platz.className="abb-platz";
+    platz.style.height=teile.reduce(function(s,k){ return s+k.getBoundingClientRect().height; },0)+"px";
+    f.insertBefore(platz,teile[0]);
+    teile.forEach(function(k){ buehne.appendChild(k); });
+    var cap=f.querySelector("figcaption"); text.innerHTML=cap?cap.innerHTML:"";
+    ov.setAttribute("aria-label",(cap && cap.textContent.trim()) || w[0]);
+    ov.hidden=false; document.documentElement.classList.add("abb-offen");
+    try{ history.pushState({abbGross:1},""); verlauf=true; }catch(e){ verlauf=false; }
+    zuBtn.focus();
+  }
+  function schliessen(){
+    if(!fig) return;
+    while(buehne.firstChild) fig.insertBefore(buehne.firstChild,platz);
+    platz.parentNode.removeChild(platz);
+    ov.hidden=true; document.documentElement.classList.remove("abb-offen"); text.innerHTML="";
+    var m=fig.querySelector(SEL); fig=null; platz=null;
+    if(m) try{ m.focus({preventScroll:true}); }catch(e){}
+  }
+  function zu(){ if(!fig) return; if(verlauf){ verlauf=false; history.back(); } else schliessen(); }
+  window.addEventListener("popstate",function(){ if(fig){ verlauf=false; schliessen(); } });
+  document.addEventListener("click",function(e){
+    var m=e.target.closest && e.target.closest(SEL); if(!m || (ov && ov.contains(m))) return;
+    auf(m.parentNode);
+  });
+  document.addEventListener("keydown",function(e){
+    if(fig){
+      if(e.key==="Escape"){ e.preventDefault(); zu(); }
+      else if(e.key==="Tab"){                                    // Fokus bleibt im Overlay
+        var f=[].slice.call(ov.querySelectorAll("button,input,a[href]")); if(!f.length) return;
+        var i=f.indexOf(document.activeElement);
+        if(e.shiftKey && i<=0){ e.preventDefault(); f[f.length-1].focus(); }
+        else if(!e.shiftKey && (i<0 || i===f.length-1)){ e.preventDefault(); f[0].focus(); }
+      }
+      return;
+    }
+    var t=e.target; if(t && t.matches && t.matches(SEL) && (e.key==="Enter" || e.key===" ")){ e.preventDefault(); auf(t.parentNode); }
+  });
 })();
 /* Fassung (kompakt | ausführlich): Wahl merken; Themen-Links (Baum, Nachbarn, Übersicht) führen dann zur gewählten
    Fassung desselben Themas, soweit es sie gibt (data-alt). */
@@ -1906,8 +2453,9 @@ var NICHTS={de:"Nichts gefunden für „{q}\".",en:"Nothing found for „{q}\"."
       for(var i=0;i<nodes.length;i++){ var e=nodes[i], k=+e.getAttribute("data-a"); sp.el[k]=e; sp.cache[k]={};
         e._d0=e.getAttribute("d"); e._h0=e.innerHTML; }
       if(sp.img) sp.img.parentNode.replaceChild(svg,sp.img); else sp.fig.insertBefore(svg,sp.fig.firstChild);
+      if(window.abbVergroesserbar) window.abbVergroesserbar(svg);  // antippen zum Vergrößern wie beim Bild
       sp.leiste();
-      sp.zeige(reduce.matches?sp.dauer:0);
+      sp.zeige(sp.dauer);                                // bis zum Abspielen das Endbild (kein fast leeres Startbild)
       return sp;
     });
     sp.ladung.catch(function(){});                       // Fehler: das statische Bild bleibt stehen
@@ -2002,6 +2550,7 @@ var NICHTS={de:"Nichts gefunden für „{q}\".",en:"Nothing found for „{q}\"."
   spieler.forEach(function(sp){ sp.fig._sp=sp; nah.observe(sp.fig); });
   document.addEventListener("visibilitychange",function(){ spieler.forEach(function(sp){        // Tab im Hintergrund: anhalten
     if(document.hidden){ if(sp.lauf){ sp.halt(); sp.auto=true; } } else if(sp.imBild) sp.sichtbar(true); }); });
+  window.addEventListener("beforeprint",function(){ spieler.forEach(function(sp){ if(sp.D){ if(sp.lauf){ sp.halt(); sp.auto=true; } sp.zeige(sp.dauer); } }); });   // Druck: Endbild
 })();
 """
 

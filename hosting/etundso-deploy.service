@@ -1,0 +1,16 @@
+[Unit]
+Description=EtUndSo: neuen Stand von GitHub holen und Cloudflare-Zwischenspeicher leeren
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+User=etundso
+Group=etundso
+ExecStart=/usr/local/bin/etundso-deploy
+# Etwas Schutz: Das Skript darf nur das Repo beschreiben.
+ProtectSystem=strict
+ReadWritePaths=/srv/etundso
+ProtectHome=read-only
+PrivateTmp=true
+NoNewPrivileges=true
