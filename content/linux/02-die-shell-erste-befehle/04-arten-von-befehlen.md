@@ -194,8 +194,8 @@ Wie die Shell einen Namen auflöst, als Weiche: zuerst Alias, dann Schlüsselwor
 | `uname` | `uname is /usr/bin/uname` | `/usr/bin/uname` |
 | `cd` | `cd is a shell builtin` | nichts |
 | `echo` | `echo is a shell builtin` | `/usr/bin/echo`, das beim Tippen nicht zum Zug kommt |
-| `ls` | `ls is aliased to `ls --color=auto'` | `/usr/bin/ls`, ohne den Alias |
-| `ll` | `ll is aliased to `ls -alF'` | nichts |
+| `ls` | `` ls is aliased to `ls --color=auto' `` | `/usr/bin/ls`, ohne den Alias |
+| `ll` | `` ll is aliased to `ls -alF' `` | nichts |
 
 ::::beispiel Die kurze Antwort und alle Antworten
 Mit `-t` antwortet `type` mit einem einzigen Wort je Name, mit `-a` nennt es alle Fundstellen in der Reihenfolge, in der die Shell sie prüft:

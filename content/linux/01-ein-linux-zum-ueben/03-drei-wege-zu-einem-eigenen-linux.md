@@ -99,7 +99,7 @@ Ein __Terminal__ ist ein Programm mit einem Fenster, in das man Befehle als Text
 
 In einem Linux-Terminal sieht die Eingabeaufforderung etwa so aus: `student@labor:~$`. Vor dem `@` steht der Name des Benutzers, dahinter der Name des Rechners; das Zeichen `~` steht für den persönlichen Ordner des Benutzers. Unter Windows heißt das entsprechende Programm PowerShell, seine Eingabeaufforderung lautet etwa `PS C:\Users\student>`. [Python, Kapitel 1, Abschnitt 3.1](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/python-einrichten.html#stufe-3-1) zeigt das Terminal von Windows ausführlicher.
 
-Dieses Kapitel schreibt die Eingabeaufforderung verkürzt: `$` für Linux und `PS>` für Windows. Die wenigen Befehle dieses Kapitels tippst du genau so ab, wie sie dastehen, und drückst danach die Eingabetaste. Was ein Befehl genau ist und wie er aufgebaut ist, erklärt Kapitel 2.
+Dieses Kapitel schreibt die Eingabeaufforderung verkürzt: `$` für Linux und `PS>` für Windows. Die wenigen Befehle dieses Kapitels tippst du genau so ab, wie sie dastehen, und drückst danach die Eingabetaste. Was ein Befehl genau ist und wie er aufgebaut ist, erklärt [Kapitel 2](/wissen/informatik/linux-und-kommandozeile/die-shell-erste-befehle/die-shell-erste-befehle.html).
 
 ::::beispiel Welches System läuft hier?
 Der Befehl `cat /etc/os-release` zeigt den Inhalt einer Datei, in der jede Distribution ihren Namen und ihre Version einträgt. So antwortet Ubuntu 26.04.1:

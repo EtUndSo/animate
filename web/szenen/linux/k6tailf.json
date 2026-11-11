@@ -1,0 +1,636 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 20,
+  "nextAnimId": 31,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.3,
+      0.45,
+      0
+     ],
+     "width": 2.1,
+     "height": 1.5,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Text",
+    "props": {
+     "text": "neu.csv",
+     "position": [
+      -2.3,
+      1.42,
+      0
+     ],
+     "font_size": 17.719,
+     "align": "center",
+     "color": "#7f7f7f",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o3",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.344375,
+      0.0,
+      0
+     ],
+     "width": 1.89125,
+     "height": 0.21,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#00823c",
+     "fill_color": "#00823c",
+     "fill_opacity": 0.3,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Text",
+    "props": {
+     "text": "…",
+     "position": [
+      -3.2106,
+      1.0,
+      0
+     ],
+     "font_size": 17.719,
+     "align": "center",
+     "color": "#7f7f7f",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o5",
+    "type": "Text",
+    "props": {
+     "text": "2026-11-07,Clara,8.0,44",
+     "position": [
+      -2.3444,
+      0.75,
+      0
+     ],
+     "font_size": 17.719,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Text",
+    "props": {
+     "text": "2026-11-08,Ben,21.1,128",
+     "position": [
+      -2.3444,
+      0.5,
+      0
+     ],
+     "font_size": 17.719,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o7",
+    "type": "Text",
+    "props": {
+     "text": "2026-11-09,Anna,5.0,27",
+     "position": [
+      -2.3838,
+      0.25,
+      0
+     ],
+     "font_size": 17.719,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Text",
+    "props": {
+     "text": "2026-11-10,Clara,6.0,33",
+     "position": [
+      -2.3444,
+      0.0,
+      0
+     ],
+     "font_size": 17.719,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o9",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.95,
+      0.3,
+      0
+     ],
+     "width": 2.7,
+     "height": 1.9,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#f6f6f4",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o10",
+    "type": "Text",
+    "props": {
+     "text": "$ tail -n 2 -f neu.csv",
+     "position": [
+      1.5862,
+      1.0,
+      0
+     ],
+     "font_size": 17.719,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o11",
+    "type": "Text",
+    "props": {
+     "text": "2026-11-08,Ben,21.1,128",
+     "position": [
+      -2.3444,
+      0.5,
+      0
+     ],
+     "font_size": 17.719,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Text",
+    "props": {
+     "text": "2026-11-09,Anna,5.0,27",
+     "position": [
+      -2.3838,
+      0.25,
+      0
+     ],
+     "font_size": 17.719,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o13",
+    "type": "Text",
+    "props": {
+     "text": "2026-11-10,Clara,6.0,33",
+     "position": [
+      -2.3444,
+      0.0,
+      0
+     ],
+     "font_size": 17.719,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o14",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.76,
+      0.25,
+      0
+     ],
+     "width": 0.08,
+     "height": 0.16,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#333333",
+     "fill_color": "#333333",
+     "fill_opacity": 1.0,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o15",
+    "type": "Text",
+    "props": {
+     "text": "^C",
+     "position": [
+      0.7987,
+      0.0,
+      0
+     ],
+     "font_size": 17.719,
+     "align": "center",
+     "color": "#eb6834",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o16",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -1.18,
+      0.45,
+      0
+     ],
+     "end": [
+      0.52,
+      0.45,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.1,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o17",
+    "type": "Text",
+    "props": {
+     "text": "@wartet",
+     "position": [
+      1.95,
+      -0.86,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o18",
+    "type": "Text",
+    "props": {
+     "text": "@strgc",
+     "position": [
+      1.95,
+      -0.86,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#eb6834"
+    }
+   },
+   {
+    "id": "o19",
+    "type": "Text",
+    "props": {
+     "text": "@angeh",
+     "position": [
+      -2.3,
+      -0.5,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#00823c"
+    }
+   }
+  ],
+  "animations": [
+   {
+    "id": "a1",
+    "type": "FadeIn",
+    "target": "o1",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a2",
+    "type": "FadeIn",
+    "target": "o2",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a3",
+    "type": "FadeIn",
+    "target": "o4",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a4",
+    "type": "FadeIn",
+    "target": "o5",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a5",
+    "type": "FadeIn",
+    "target": "o6",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a6",
+    "type": "FadeIn",
+    "target": "o7",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a7",
+    "type": "FadeIn",
+    "target": "o11",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a8",
+    "type": "FadeIn",
+    "target": "o12",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a9",
+    "type": "FadeIn",
+    "target": "o9",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a10",
+    "type": "FadeIn",
+    "target": "o10",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a11",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a12",
+    "type": "Create",
+    "target": "o16",
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a13",
+    "type": "MoveTo",
+    "target": "o11",
+    "run_time": 0.9,
+    "step": 2,
+    "point": [
+     1.6256,
+     0.75,
+     0
+    ]
+   },
+   {
+    "id": "a14",
+    "type": "MoveTo",
+    "target": "o12",
+    "run_time": 0.9,
+    "step": 2,
+    "point": [
+     1.5862,
+     0.5,
+     0
+    ]
+   },
+   {
+    "id": "a15",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 3
+   },
+   {
+    "id": "a16",
+    "type": "FadeIn",
+    "target": "o14",
+    "run_time": 0.5,
+    "step": 4
+   },
+   {
+    "id": "a17",
+    "type": "FadeIn",
+    "target": "o17",
+    "run_time": 0.5,
+    "step": 4
+   },
+   {
+    "id": "a18",
+    "type": "Indicate",
+    "target": "o14",
+    "run_time": 0.6,
+    "step": 5
+   },
+   {
+    "id": "a19",
+    "type": "Indicate",
+    "target": "o14",
+    "run_time": 0.6,
+    "step": 6
+   },
+   {
+    "id": "a20",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.4,
+    "step": 7
+   },
+   {
+    "id": "a21",
+    "type": "FadeIn",
+    "target": "o3",
+    "run_time": 0.6,
+    "step": 8
+   },
+   {
+    "id": "a22",
+    "type": "FadeIn",
+    "target": "o8",
+    "run_time": 0.6,
+    "step": 8
+   },
+   {
+    "id": "a23",
+    "type": "FadeIn",
+    "target": "o13",
+    "run_time": 0.6,
+    "step": 8
+   },
+   {
+    "id": "a24",
+    "type": "FadeIn",
+    "target": "o19",
+    "run_time": 0.6,
+    "step": 8
+   },
+   {
+    "id": "a25",
+    "type": "MoveTo",
+    "target": "o13",
+    "run_time": 0.8,
+    "step": 9,
+    "point": [
+     1.6256,
+     0.25,
+     0
+    ]
+   },
+   {
+    "id": "a26",
+    "type": "FadeOut",
+    "target": "o14",
+    "run_time": 0.4,
+    "step": 9
+   },
+   {
+    "id": "a27",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 10
+   },
+   {
+    "id": "a28",
+    "type": "FadeIn",
+    "target": "o15",
+    "run_time": 0.6,
+    "step": 11
+   },
+   {
+    "id": "a29",
+    "type": "FadeIn",
+    "target": "o18",
+    "run_time": 0.6,
+    "step": 11
+   },
+   {
+    "id": "a30",
+    "type": "FadeOut",
+    "target": "o17",
+    "run_time": 0.4,
+    "step": 11
+   }
+  ],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "wartet": {
+    "de": "tail wartet auf neue Zeilen",
+    "en": "tail waits for new lines",
+    "es": "tail espera líneas nuevas",
+    "zh": "tail 等待新行",
+    "fr": "tail attend de nouvelles lignes",
+    "tr": "tail yeni satırları bekler"
+   },
+   "strgc": {
+    "de": "Strg+C beendet tail",
+    "en": "Ctrl+C ends tail",
+    "es": "Ctrl+C termina tail",
+    "zh": "Ctrl+C 结束 tail",
+    "fr": "Ctrl+C arrête tail",
+    "tr": "Ctrl+C tail'i sonlandırır"
+   },
+   "angeh": {
+    "de": "angehängt (zweites Terminal)",
+    "en": "appended (second terminal)",
+    "es": "añadida (segundo terminal)",
+    "zh": "追加（第二个终端）",
+    "fr": "ajoutée (second terminal)",
+    "tr": "eklendi (ikinci terminal)"
+   }
+  },
+  "drawOrder": "creation"
+ }
+}

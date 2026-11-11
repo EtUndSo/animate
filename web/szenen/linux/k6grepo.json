@@ -1,0 +1,628 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 20,
+  "nextAnimId": 27,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.44889999999999997,
+      1.35,
+      0
+     ],
+     "width": 0.43900000000000006,
+     "height": 0.26,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#00823c",
+     "fill_color": "#00823c",
+     "fill_opacity": 0.3,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o2",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.4488500000000001,
+      1.35,
+      0
+     ],
+     "width": 0.43900000000000006,
+     "height": 0.26,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#00823c",
+     "fill_color": "#00823c",
+     "fill_opacity": 0.3,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o3",
+    "type": "Text",
+    "props": {
+     "text": "@zeile",
+     "position": [
+      -0.7984,
+      1.35,
+      0
+     ],
+     "font_size": 18,
+     "align": "right",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Text",
+    "props": {
+     "text": "Anna und Anna",
+     "position": [
+      -0.0,
+      1.35,
+      0
+     ],
+     "font_size": 22.444,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o5",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -0.7,
+      1.12,
+      0
+     ],
+     "end": [
+      -1.7,
+      0.62,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.1,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Text",
+    "props": {
+     "text": "grep -c Anna",
+     "position": [
+      -1.9,
+      0.45,
+      0
+     ],
+     "font_size": 20.081,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o7",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.9,
+      -0.05,
+      0
+     ],
+     "width": 0.42,
+     "height": 0.38,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#00823c",
+     "fill_color": "#e6f3ea",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Text",
+    "props": {
+     "text": "1",
+     "position": [
+      -1.9,
+      -0.05,
+      0
+     ],
+     "font_size": 22.444,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o9",
+    "type": "Text",
+    "props": {
+     "text": "@zz",
+     "position": [
+      -1.9,
+      -0.46,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o10",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      0.7,
+      1.12,
+      0
+     ],
+     "end": [
+      1.6,
+      0.62,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.1,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o11",
+    "type": "Text",
+    "props": {
+     "text": "grep -o Anna",
+     "position": [
+      1.75,
+      0.45,
+      0
+     ],
+     "font_size": 20.081,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o12",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.75,
+      -0.02,
+      0
+     ],
+     "width": 0.8,
+     "height": 0.56,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#f6f6f4",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o13",
+    "type": "Text",
+    "props": {
+     "text": "Anna",
+     "position": [
+      -0.4489,
+      1.35,
+      0
+     ],
+     "font_size": 22.444,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o14",
+    "type": "Text",
+    "props": {
+     "text": "Anna",
+     "position": [
+      0.4489,
+      1.35,
+      0
+     ],
+     "font_size": 22.444,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o15",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      1.75,
+      -0.33,
+      0
+     ],
+     "end": [
+      1.75,
+      -0.55,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.08,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o16",
+    "type": "Text",
+    "props": {
+     "text": "wc -l",
+     "position": [
+      1.75,
+      -0.7,
+      0
+     ],
+     "font_size": 20.081,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o17",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.75,
+      -1.12,
+      0
+     ],
+     "width": 0.42,
+     "height": 0.38,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#00823c",
+     "fill_color": "#e6f3ea",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o18",
+    "type": "Text",
+    "props": {
+     "text": "2",
+     "position": [
+      1.75,
+      -1.12,
+      0
+     ],
+     "font_size": 22.444,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o19",
+    "type": "Text",
+    "props": {
+     "text": "@zt",
+     "position": [
+      1.75,
+      -1.53,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   }
+  ],
+  "animations": [
+   {
+    "id": "a1",
+    "type": "FadeIn",
+    "target": "o3",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a2",
+    "type": "FadeIn",
+    "target": "o4",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a3",
+    "type": "FadeIn",
+    "target": "o13",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a4",
+    "type": "FadeIn",
+    "target": "o14",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a5",
+    "type": "FadeIn",
+    "target": "o1",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a6",
+    "type": "FadeIn",
+    "target": "o2",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a7",
+    "type": "Indicate",
+    "target": "o13",
+    "run_time": 0.8,
+    "step": 1
+   },
+   {
+    "id": "a8",
+    "type": "Indicate",
+    "target": "o14",
+    "run_time": 0.8,
+    "step": 1
+   },
+   {
+    "id": "a9",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a10",
+    "type": "Create",
+    "target": "o5",
+    "run_time": 0.6,
+    "step": 3
+   },
+   {
+    "id": "a11",
+    "type": "FadeIn",
+    "target": "o6",
+    "run_time": 0.6,
+    "step": 3
+   },
+   {
+    "id": "a12",
+    "type": "FadeIn",
+    "target": "o7",
+    "run_time": 0.6,
+    "step": 4
+   },
+   {
+    "id": "a13",
+    "type": "FadeIn",
+    "target": "o8",
+    "run_time": 0.6,
+    "step": 4
+   },
+   {
+    "id": "a14",
+    "type": "FadeIn",
+    "target": "o9",
+    "run_time": 0.6,
+    "step": 4
+   },
+   {
+    "id": "a15",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 5
+   },
+   {
+    "id": "a16",
+    "type": "Create",
+    "target": "o10",
+    "run_time": 0.6,
+    "step": 6
+   },
+   {
+    "id": "a17",
+    "type": "FadeIn",
+    "target": "o11",
+    "run_time": 0.6,
+    "step": 6
+   },
+   {
+    "id": "a18",
+    "type": "FadeIn",
+    "target": "o12",
+    "run_time": 0.6,
+    "step": 6
+   },
+   {
+    "id": "a19",
+    "type": "MoveTo",
+    "target": "o13",
+    "run_time": 0.9,
+    "step": 7,
+    "point": [
+     1.75,
+     0.12,
+     0
+    ]
+   },
+   {
+    "id": "a20",
+    "type": "MoveTo",
+    "target": "o14",
+    "run_time": 0.9,
+    "step": 7,
+    "point": [
+     1.75,
+     -0.16,
+     0
+    ]
+   },
+   {
+    "id": "a21",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 8
+   },
+   {
+    "id": "a22",
+    "type": "Create",
+    "target": "o15",
+    "run_time": 0.5,
+    "step": 9
+   },
+   {
+    "id": "a23",
+    "type": "FadeIn",
+    "target": "o16",
+    "run_time": 0.5,
+    "step": 9
+   },
+   {
+    "id": "a24",
+    "type": "FadeIn",
+    "target": "o17",
+    "run_time": 0.6,
+    "step": 10
+   },
+   {
+    "id": "a25",
+    "type": "FadeIn",
+    "target": "o18",
+    "run_time": 0.6,
+    "step": 10
+   },
+   {
+    "id": "a26",
+    "type": "FadeIn",
+    "target": "o19",
+    "run_time": 0.6,
+    "step": 10
+   }
+  ],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "zeile": {
+    "de": "Zeile:",
+    "en": "line:",
+    "es": "línea:",
+    "zh": "行：",
+    "fr": "ligne :",
+    "tr": "satır:"
+   },
+   "zz": {
+    "de": "zählt Zeilen",
+    "en": "counts lines",
+    "es": "cuenta líneas",
+    "zh": "统计行数",
+    "fr": "compte les lignes",
+    "tr": "satırları sayar"
+   },
+   "zt": {
+    "de": "zählt Treffer",
+    "en": "counts matches",
+    "es": "cuenta coincidencias",
+    "zh": "统计匹配数",
+    "fr": "compte les correspondances",
+    "tr": "eşleşmeleri sayar"
+   }
+  },
+  "drawOrder": "creation"
+ }
+}

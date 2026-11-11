@@ -245,7 +245,8 @@ def colorize_math(s):
 def inline(text):
     """Inline markdown -> HTML. Math ($…$, $$…$$) and `code` are protected from other rules."""
     _PROTECT.clear()
-    text = re.sub(r"\$\$.+?\$\$|\$[^$\n]+?\$|`[^`]+?`", _protect, text, flags=re.S)
+    # `` a ` b ``: Code mit Gravis darin (CommonMark-Form, heft_zu_artikel.code_span, seit 10.11.2026)
+    text = re.sub(r"\$\$.+?\$\$|\$[^$\n]+?\$|`` .+? ``|`[^`]+?`", _protect, text, flags=re.S)
     text = html.escape(text, quote=False)
     text = re.sub(r"!\[([^\]]*)\]\(([^)]+)\)", r'<img src="\2" alt="\1"/>', text)
     text = re.sub(r"\[([^\]]+)\]\(([^)]+)\)", r'<a href="\2">\1</a>', text)
@@ -261,6 +262,8 @@ def inline(text):
     text = re.sub(r"(?<!\*)\*([^*\n]+)\*(?!\*)", r"<em>\1</em>", text)
     def restore(m):
         lead, raw, tail = m.group(1), _PROTECT[int(m.group(2))], m.group(3)
+        if raw.startswith("`` "):
+            return lead + "<code>" + html.escape(raw[3:-3], quote=False) + "</code>" + tail
         if raw.startswith("`"):
             return lead + "<code>" + html.escape(raw[1:-1], quote=False) + "</code>" + tail
         # Mathe HTML-maskieren: „a<X" würde der Browser sonst als Tag-Anfang lesen und die Formel verschlucken;

@@ -1,0 +1,1069 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 38,
+  "nextAnimId": 45,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.0,
+      0.69,
+      0
+     ],
+     "end": [
+      -1.55,
+      0.31,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.0,
+      0.69,
+      0
+     ],
+     "end": [
+      1.55,
+      0.31,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o3",
+    "type": "Line",
+    "props": {
+     "start": [
+      -1.55,
+      -0.010000000000000009,
+      0
+     ],
+     "end": [
+      -2.3,
+      -0.39,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Line",
+    "props": {
+     "start": [
+      -1.55,
+      -0.010000000000000009,
+      0
+     ],
+     "end": [
+      -0.8,
+      -0.39,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o5",
+    "type": "Line",
+    "props": {
+     "start": [
+      1.55,
+      -0.010000000000000009,
+      0
+     ],
+     "end": [
+      0.8,
+      -0.39,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Line",
+    "props": {
+     "start": [
+      1.55,
+      -0.010000000000000009,
+      0
+     ],
+     "end": [
+      2.3,
+      -0.39,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o7",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.0,
+      0.85,
+      0
+     ],
+     "width": 0.71,
+     "height": 0.32,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#e3eefb",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Text",
+    "props": {
+     "text": "urlaub",
+     "position": [
+      0.0,
+      0.85,
+      0
+     ],
+     "font_size": 20,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o9",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.55,
+      0.15,
+      0
+     ],
+     "width": 0.54,
+     "height": 0.32,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#e3eefb",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o10",
+    "type": "Text",
+    "props": {
+     "text": "2025",
+     "position": [
+      -1.55,
+      0.15,
+      0
+     ],
+     "font_size": 20,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o11",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.55,
+      0.15,
+      0
+     ],
+     "width": 0.54,
+     "height": 0.32,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#e3eefb",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Text",
+    "props": {
+     "text": "2026",
+     "position": [
+      1.55,
+      0.15,
+      0
+     ],
+     "font_size": 20,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o13",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.3,
+      -0.55,
+      0
+     ],
+     "width": 0.71,
+     "height": 0.32,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#e3eefb",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o14",
+    "type": "Text",
+    "props": {
+     "text": "sommer",
+     "position": [
+      -2.3,
+      -0.55,
+      0
+     ],
+     "font_size": 20,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o15",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.8,
+      -0.55,
+      0
+     ],
+     "width": 0.71,
+     "height": 0.32,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#e3eefb",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o16",
+    "type": "Text",
+    "props": {
+     "text": "winter",
+     "position": [
+      -0.8,
+      -0.55,
+      0
+     ],
+     "font_size": 20,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o17",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.8,
+      -0.55,
+      0
+     ],
+     "width": 0.71,
+     "height": 0.32,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#e3eefb",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o18",
+    "type": "Text",
+    "props": {
+     "text": "sommer",
+     "position": [
+      0.8,
+      -0.55,
+      0
+     ],
+     "font_size": 20,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o19",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.3,
+      -0.55,
+      0
+     ],
+     "width": 0.71,
+     "height": 0.32,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#e3eefb",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o20",
+    "type": "Text",
+    "props": {
+     "text": "winter",
+     "position": [
+      2.3,
+      -0.55,
+      0
+     ],
+     "font_size": 20,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o21",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.0,
+      0.85,
+      0
+     ],
+     "width": 0.83,
+     "height": 0.44,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#eb6834",
+     "fill_color": "#ffffff",
+     "fill_opacity": 0.0,
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o22",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.55,
+      0.15,
+      0
+     ],
+     "width": 0.66,
+     "height": 0.44,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#ffffff",
+     "fill_opacity": 0.0,
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o23",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.55,
+      0.15,
+      0
+     ],
+     "width": 0.66,
+     "height": 0.44,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#ffffff",
+     "fill_opacity": 0.0,
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o24",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.3,
+      -0.55,
+      0
+     ],
+     "width": 0.83,
+     "height": 0.44,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#00823c",
+     "fill_color": "#ffffff",
+     "fill_opacity": 0.0,
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o25",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.8,
+      -0.55,
+      0
+     ],
+     "width": 0.83,
+     "height": 0.44,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#00823c",
+     "fill_color": "#ffffff",
+     "fill_opacity": 0.0,
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o26",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.8,
+      -0.55,
+      0
+     ],
+     "width": 0.83,
+     "height": 0.44,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#00823c",
+     "fill_color": "#ffffff",
+     "fill_opacity": 0.0,
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o27",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.3,
+      -0.55,
+      0
+     ],
+     "width": 0.83,
+     "height": 0.44,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#00823c",
+     "fill_color": "#ffffff",
+     "fill_opacity": 0.0,
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o28",
+    "type": "Text",
+    "props": {
+     "text": "urlaub",
+     "position": [
+      -2.9535,
+      1.55,
+      0
+     ],
+     "font_size": 25.988,
+     "align": "center",
+     "color": "#eb6834",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o29",
+    "type": "Text",
+    "props": {
+     "text": "/",
+     "position": [
+      -2.5492,
+      1.55,
+      0
+     ],
+     "font_size": 25.988,
+     "align": "center",
+     "color": "#333333",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o30",
+    "type": "Text",
+    "props": {
+     "text": "*",
+     "position": [
+      -2.4337,
+      1.55,
+      0
+     ],
+     "font_size": 25.988,
+     "align": "center",
+     "color": "#2a78d6",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o31",
+    "type": "Text",
+    "props": {
+     "text": "/",
+     "position": [
+      -2.3182,
+      1.55,
+      0
+     ],
+     "font_size": 25.988,
+     "align": "center",
+     "color": "#333333",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o32",
+    "type": "Text",
+    "props": {
+     "text": "*",
+     "position": [
+      -2.2027,
+      1.55,
+      0
+     ],
+     "font_size": 25.988,
+     "align": "center",
+     "color": "#00823c",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o33",
+    "type": "Text",
+    "props": {
+     "text": "@leg1",
+     "position": [
+      0.75,
+      1.62,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#eb6834"
+    }
+   },
+   {
+    "id": "o34",
+    "type": "Text",
+    "props": {
+     "text": "@leg2",
+     "position": [
+      0.75,
+      1.38,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o35",
+    "type": "Text",
+    "props": {
+     "text": "@leg3",
+     "position": [
+      0.75,
+      1.14,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#00823c"
+    }
+   },
+   {
+    "id": "o36",
+    "type": "Text",
+    "props": {
+     "text": "@erg",
+     "position": [
+      -3.3,
+      -1.05,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o37",
+    "type": "Text",
+    "props": {
+     "text": "urlaub/2025/sommer urlaub/2025/winter urlaub/2026/sommer urlaub/2026/winter",
+     "position": [
+      -0.3469,
+      -1.35,
+      0
+     ],
+     "font_size": 17.719,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   }
+  ],
+  "animations": [
+   {
+    "id": "a1",
+    "type": "Create",
+    "target": "o1",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a2",
+    "type": "Create",
+    "target": "o2",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a3",
+    "type": "Create",
+    "target": "o3",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a4",
+    "type": "Create",
+    "target": "o4",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a5",
+    "type": "Create",
+    "target": "o5",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a6",
+    "type": "Create",
+    "target": "o6",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a7",
+    "type": "GrowFromCenter",
+    "target": "o7",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a8",
+    "type": "GrowFromCenter",
+    "target": "o9",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a9",
+    "type": "GrowFromCenter",
+    "target": "o11",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a10",
+    "type": "GrowFromCenter",
+    "target": "o13",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a11",
+    "type": "GrowFromCenter",
+    "target": "o15",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a12",
+    "type": "GrowFromCenter",
+    "target": "o17",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a13",
+    "type": "GrowFromCenter",
+    "target": "o19",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a14",
+    "type": "FadeIn",
+    "target": "o8",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a15",
+    "type": "FadeIn",
+    "target": "o10",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a16",
+    "type": "FadeIn",
+    "target": "o12",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a17",
+    "type": "FadeIn",
+    "target": "o14",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a18",
+    "type": "FadeIn",
+    "target": "o16",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a19",
+    "type": "FadeIn",
+    "target": "o18",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a20",
+    "type": "FadeIn",
+    "target": "o20",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a21",
+    "type": "FadeIn",
+    "target": "o28",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a22",
+    "type": "FadeIn",
+    "target": "o29",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a23",
+    "type": "FadeIn",
+    "target": "o30",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a24",
+    "type": "FadeIn",
+    "target": "o31",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a25",
+    "type": "FadeIn",
+    "target": "o32",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a26",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a27",
+    "type": "Indicate",
+    "target": "o28",
+    "run_time": 0.7,
+    "step": 2
+   },
+   {
+    "id": "a28",
+    "type": "FadeIn",
+    "target": "o21",
+    "run_time": 0.7,
+    "step": 2
+   },
+   {
+    "id": "a29",
+    "type": "FadeIn",
+    "target": "o33",
+    "run_time": 0.7,
+    "step": 2
+   },
+   {
+    "id": "a30",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.5,
+    "step": 3
+   },
+   {
+    "id": "a31",
+    "type": "Indicate",
+    "target": "o30",
+    "run_time": 0.7,
+    "step": 4
+   },
+   {
+    "id": "a32",
+    "type": "FadeIn",
+    "target": "o22",
+    "run_time": 0.7,
+    "step": 4
+   },
+   {
+    "id": "a33",
+    "type": "FadeIn",
+    "target": "o23",
+    "run_time": 0.7,
+    "step": 4
+   },
+   {
+    "id": "a34",
+    "type": "FadeIn",
+    "target": "o34",
+    "run_time": 0.7,
+    "step": 4
+   },
+   {
+    "id": "a35",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.5,
+    "step": 5
+   },
+   {
+    "id": "a36",
+    "type": "Indicate",
+    "target": "o32",
+    "run_time": 0.7,
+    "step": 6
+   },
+   {
+    "id": "a37",
+    "type": "FadeIn",
+    "target": "o24",
+    "run_time": 0.7,
+    "step": 6
+   },
+   {
+    "id": "a38",
+    "type": "FadeIn",
+    "target": "o25",
+    "run_time": 0.7,
+    "step": 6
+   },
+   {
+    "id": "a39",
+    "type": "FadeIn",
+    "target": "o26",
+    "run_time": 0.7,
+    "step": 6
+   },
+   {
+    "id": "a40",
+    "type": "FadeIn",
+    "target": "o27",
+    "run_time": 0.7,
+    "step": 6
+   },
+   {
+    "id": "a41",
+    "type": "FadeIn",
+    "target": "o35",
+    "run_time": 0.7,
+    "step": 6
+   },
+   {
+    "id": "a42",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 7
+   },
+   {
+    "id": "a43",
+    "type": "FadeIn",
+    "target": "o36",
+    "run_time": 0.7,
+    "step": 8
+   },
+   {
+    "id": "a44",
+    "type": "FadeIn",
+    "target": "o37",
+    "run_time": 0.7,
+    "step": 8
+   }
+  ],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "leg1": {
+    "de": "urlaub: kein Musterzeichen",
+    "en": "urlaub: no pattern character",
+    "es": "urlaub: sin carácter de patrón",
+    "zh": "urlaub：没有模式字符",
+    "fr": "urlaub : aucun caractère de motif",
+    "tr": "urlaub: desen karakteri yok"
+   },
+   "leg2": {
+    "de": "1. *: Namen in urlaub",
+    "en": "1st *: names in urlaub",
+    "es": "1.er *: nombres en urlaub",
+    "zh": "第 1 个 *：urlaub 中的名称",
+    "fr": "1er * : noms dans urlaub",
+    "tr": "1. *: urlaub içindeki adlar"
+   },
+   "leg3": {
+    "de": "2. *: Namen in 2025 und 2026",
+    "en": "2nd *: names in 2025 and 2026",
+    "es": "2.º *: nombres en 2025 y 2026",
+    "zh": "第 2 个 *：2025 和 2026 中的名称",
+    "fr": "2e * : noms dans 2025 et 2026",
+    "tr": "2. *: 2025 ve 2026 içindeki adlar"
+   },
+   "erg": {
+    "de": "Ergebnis, sortiert:",
+    "en": "result, sorted:",
+    "es": "resultado, ordenado:",
+    "zh": "结果（已排序）：",
+    "fr": "résultat, trié :",
+    "tr": "sonuç, sıralı:"
+   }
+  },
+  "drawOrder": "creation"
+ }
+}

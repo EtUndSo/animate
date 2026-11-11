@@ -97,9 +97,27 @@ und verweisen mit Link darauf.
     Rezept), `pipefail` (6.x); Strom gegen Argument, `xargs` mit `-n`, Grenze der Argumentliste, `find -print0`/`xargs -0`,
     `find -exec … {} \;`/`{} +` (7.x; Kapitel 3 hatte `-exec`/`xargs` hierher abgegeben). Zuständigkeiten: Linux, Kapitel 8
     (Prozesse, Signale) verweist auf Linux, Kapitel 4, Abschnitt 1.2 (Prozess) und Abschnitt 5.3 (128 + n, dort
-    „Unterbrechungsnachricht“) zurück und vertieft fork/exec nur (Hintergrund in 2.1); Kapitel 5 erklärt `$`-Ersetzung und Felder
-    (`${PIPESTATUS[@]}` hier nur Rezept); Kapitel 6 vertieft `sort`/`uniq`/`grep`/`tr`; Kapitel 10 `pipefail` in Skripten.
-    Cybersecurity und ML setzen Umleitung, Pipe und Exit-Status voraus und verweisen hierher.
+    „Unterbrechungsnachricht“) zurück und vertieft fork/exec nur (Hintergrund in 2.1); Kapitel 5 erklärt die `$`-Ersetzung
+    (Felder wie `${PIPESTATUS[@]}` bleiben hier Rezept, Kapitel 5 lässt sie aus); Kapitel 6 vertieft `sort`/`uniq`/`grep`/`tr`;
+    Kapitel 10 `pipefail` in Skripten. Cybersecurity und ML setzen Umleitung, Pipe und Exit-Status voraus und verweisen hierher.
+  - Expansion, Quoting, Variablen und Umgebung, vollständig erklärt in Linux, Kapitel 5 (seit 10.11.2026): Expansion und
+    „Erweiterung“ als ihre Arten (1.2), Pfadnamen-Erweiterung mit Sortierung nach Spracheinstellung (1.3), versteckte Dateien in
+    Mustern, `globskipdots`, `dotglob` (1.4), Muster ohne Treffer, `nullglob`/`failglob` (1.5), Klammererweiterung `{a,b}`,
+    `{x..y}`, `{x..y..s}` (1.6), Tilde-Erweiterung `~`, `~root` (1.7); Shell-Variable, Wert, Zuweisung (2.1),
+    Parametererweiterung `$NAME`/`${NAME}`, Parameter, `unset`, `${NAME:-vorgabe}`, `${#NAME}` (2.2), Befehlsersetzung `$(…)`
+    und Gravis-Form (2.3), Arithmetik `$((…))` (2.4); `printf` (3.1), Worttrennung, `IFS` (3.2), Quoting, `$'…'` (3.3),
+    einfache und doppelte Anführungszeichen (3.4, 3.5), umgekehrter Schrägstrich und Fortsetzungszeile (3.6), Entfernen der
+    Anführungszeichen (3.7), Regel „Erweiterungen in doppelte Anführungszeichen“ (3.8), Reihenfolge der Expansion (3.9);
+    Kindprozess, Elternprozess (4.2), Umgebung, `printenv` (4.3), Umgebungsvariable, `export`, `export -n` (4.4), Vererbung als
+    Kopie (4.5), Zuweisung vor einem Befehl, `TZ` (4.6), `env`, Tabelle der üblichen Umgebungsvariablen (4.7); `PATH`,
+    `type -a`, `command -v` (5.2), Befehlssuche, `hash` (5.3), `./programm` (5.4), `PATH` ändern (5.5); Startdatei
+    `~/.bashrc` (6.1), `source`/`.` (6.2), Anmelde-Shell, `~/.profile`, `shopt login_shell`, `bash -l` (6.3), Einstellung
+    dauerhaft machen, `EDITOR`, `~/.local/bin` (6.4), Alias anlegen und dauerhaft, `unalias`, `~/.bash_aliases` (6.5; Alias als
+    Begriff bleibt in Kapitel 2, Abschnitt 3.4). Zuständigkeiten: Kapitel 6 reguläre Ausdrücke und „Muster sind keine regulären
+    Ausdrücke“, `grep` vertieft, `seq`; Kapitel 7 Ausführungsrecht, `chmod`; Kapitel 8 Prozesse vertieft, `/proc/<PID>/environ`;
+    Kapitel 10 Skripte, Positionsparameter, `if`, Schleifen (auch `{1..$n}`), Funktionen, `set -x`, Felder; Kapitel 11 SSH;
+    Cybersecurity Injection und PATH-Hijacking (in 3.8 nur ein Hinweis). Weggelassen: weitere `${…}`-Formen (nur Verweis auf
+    `man bash`), extglob, globstar, `declare`, `BASH_ENV`.
   - Paketverwaltung `apt` und `sudo`: in Python, Kapitel 1, Abschnitt 3.3 nur je ein Satz; ausführlich im Linux-Bereich
     (Heftnummer laut Linux-Lernpfad).
 - **ML-Grundlagen gegen Höhere Mathematik:** Was ein HöMa-Heft vollständig erklärt (Beweise, Herleitungen), steht in den
@@ -823,6 +841,51 @@ Je Zeile ein Abschnitt: Verweis-Wendung, Abschnittstitel, dann die Unterabschnit
 - Linux, Kapitel 4, Abschnitt 5 „Der Exit-Status“: 5.1 Der Exit-Status · 5.2 Was die Zahlen ungleich null bedeuten · 5.3 Die Zahlen der Shell: 126, 127 und 128 + n
 - Linux, Kapitel 4, Abschnitt 6 „Befehle verketten“: 6.1 Hintereinander: das Semikolon · 6.2 Nur bei Erfolg: && · 6.3 Nur bei Misserfolg: || · 6.4 && und || in einer Zeile · 6.5 Der Exit-Status einer Pipeline
 - Linux, Kapitel 4, Abschnitt 7 „Aus einer Ausgabe Argumente machen“: 7.1 Strom oder Argument · 7.2 Der Befehl xargs · 7.3 Portionen: xargs -n und die Grenze der Argumentliste · 7.4 Namen mit Leerzeichen: das Nullbyte als Trenner · 7.5 Der Weg ohne Pipe: find -exec
+
+### Linux, Kapitel 5: Wie die Shell eine Befehlszeile liest: Expansion, Quoting, Variablen, Umgebung (`Kap5_Expansion`, Modul linux)
+
+- Linux, Kapitel 5, Abschnitt 1 „Expansion: Muster, Klammern und Tilde“: 1.1 Was du dafür brauchst: Wörter, Muster und Prozesse · 1.2 Die Expansion · 1.3 Die Pfadnamen-Erweiterung · 1.4 Versteckte Dateien und Muster · 1.5 Ein Muster ohne Treffer · 1.6 Die Klammererweiterung · 1.7 Die Tilde-Erweiterung
+- Linux, Kapitel 5, Abschnitt 2 „Variablen, Befehlsersetzung und Arithmetik“: 2.1 Die Shell-Variable · 2.2 Die Parametererweiterung: `$NAME` und `${NAME}` · 2.3 Die Befehlsersetzung · 2.4 Die Arithmetik
+- Linux, Kapitel 5, Abschnitt 3 „Worttrennung und Quoting“: 3.1 Argumente einzeln anzeigen: printf · 3.2 Die Worttrennung · 3.3 Das Quoting · 3.4 Einfache Anführungszeichen · 3.5 Doppelte Anführungszeichen · 3.6 Der umgekehrte Schrägstrich · 3.7 Das Entfernen der Anführungszeichen · 3.8 Die Regel: Erweiterungen in doppelte Anführungszeichen · 3.9 Die Reihenfolge aller Schritte
+- Linux, Kapitel 5, Abschnitt 4 „Umgebung und Vererbung“: 4.1 Was du dafür brauchst: Prozesse und bash -c · 4.2 Der Kindprozess · 4.3 Die Umgebung · 4.4 Die Umgebungsvariable: export · 4.5 Die Vererbung als Kopie · 4.6 Eine Variable nur für einen Befehl · 4.7 env und printenv
+- Linux, Kapitel 5, Abschnitt 5 „Wie die Shell Programme findet: PATH“: 5.1 Was du dafür brauchst: Suchpfad und Befehlsarten · 5.2 Die Variable PATH · 5.3 Die Befehlssuche · 5.4 Ein Programm im Arbeitsverzeichnis: ./ · 5.5 PATH ändern
+- Linux, Kapitel 5, Abschnitt 6 „Startdateien und Aliase“: 6.1 Die Startdatei · 6.2 source · 6.3 Die Anmelde-Shell · 6.4 Eine Einstellung dauerhaft machen · 6.5 Der Alias
+
+### Linux, Kapitel 6: Textwerkzeuge und reguläre Ausdrücke (`Kap6_Textwerkzeuge`, Modul linux)
+
+- Linux, Kapitel 6, Abschnitt 1 „Textdaten: Datensätze, Felder und Zeilenenden“: 1.1 Was du dafür brauchst: Textdatei, Filter, Pipeline und Quoting · 1.2 Datensatz und Feld · 1.3 Die CSV-Datei und ihre Kopfzeile · 1.4 Das Zeilenende unter Windows · 1.5 Zeilen ab einer Stelle: tail -n +K und head -n -K · 1.6 Einer wachsenden Datei folgen: tail -f
+- Linux, Kapitel 6, Abschnitt 2 „Spalten ausschneiden und Zeichen ersetzen: cut, tr und paste“: 2.1 Spalten ausschneiden: cut · 2.2 Zeichen ersetzen und löschen: tr · 2.3 Spalten zusammenfügen: paste
+- Linux, Kapitel 6, Abschnitt 3 „Sortieren und Zählen: sort und uniq“: 3.1 Wie sort vergleicht: die Zeichenordnung · 3.2 Numerisch sortieren: sort -n · 3.3 Nach einer Spalte sortieren: -t und -k · 3.4 Die Spracheinstellung · 3.5 Gleiche Nachbarzeilen: uniq · 3.6 Häufigkeiten zählen: sort, uniq -c, sort -rn
+- Linux, Kapitel 6, Abschnitt 4 „Nummerieren, Zahlenfolgen und Unterschiede: nl, seq und diff“: 4.1 Zeilen nummerieren: nl · 4.2 Zahlenfolgen erzeugen: seq · 4.3 Unterschiede finden: diff
+- Linux, Kapitel 6, Abschnitt 5 „Suchen mit grep“: 5.1 Zeilen mit einem Suchtext: grep · 5.2 Umkehren, zählen, nummerieren: -i, -v, -c und -n · 5.3 Nur den Treffer ausgeben: -o · 5.4 In vielen Dateien suchen: -r und -l
+- Linux, Kapitel 6, Abschnitt 6 „Reguläre Ausdrücke: Zeichen, Klassen und Anker“: 6.1 Der reguläre Ausdruck · 6.2 Der Punkt: ein beliebiges Zeichen · 6.3 Sonderzeichen wörtlich nehmen: der umgekehrte Schrägstrich und grep -F · 6.4 Eine Auswahl von Zeichen: der Klammerausdruck · 6.5 Zeichenklassen: [[:digit:]] und ihre Verwandten · 6.6 Anfang und Ende der Zeile: die Anker
+- Linux, Kapitel 6, Abschnitt 7 „Reguläre Ausdrücke: Wiederholungen, Gruppen und Alternativen“: 7.1 Beliebig oft: der Stern · 7.2 Die erweiterte Form: grep -E · 7.3 Wiederholungen zählen: +, ? und {n,m} · 7.4 Gruppe und Alternative · 7.5 Grundform und erweiterte Form im Vergleich · 7.6 Der längste Treffer · 7.7 Form statt Bedeutung · 7.8 Muster für Dateinamen und reguläre Ausdrücke
+- Linux, Kapitel 6, Abschnitt 8 „Umformen im Strom: sed“: 8.1 Der Strom-Editor sed · 8.2 Ersetzen: der Befehl s · 8.3 Zeilen auswählen: Zeilenadressen, -n und p · 8.4 Zeilen löschen: der Befehl d · 8.5 Gruppen und Rückverweise · 8.6 Die Datei selbst ändern: sed -i
+- Linux, Kapitel 6, Abschnitt 9 „Rechnen mit Spalten: awk“: 9.1 Das Programm awk: Bedingung und Aktion · 9.2 Felder: $1, $0, NF und -F · 9.3 Zeilennummer und Bedingungen: NR · 9.4 Variablen, Summen und END · 9.5 Werte nach Namen sammeln: assoziative Arrays
+- Linux, Kapitel 6, Abschnitt 10 „Eine Auswertung von Anfang bis Ende“: 10.1 Welches Werkzeug wofür · 10.2 Eine Pipeline Schritt für Schritt bauen · 10.3 Wörter zählen: eine berühmte Pipeline
+
+### Linux, Kapitel 7: Benutzer, Gruppen und Rechte (`Kap7_Rechte`, Modul linux)
+
+- Linux, Kapitel 7, Abschnitt 1 „Benutzer und Gruppen“: 1.1 Was du dafür brauchst: Prozess, Systemaufruf und Datei · 1.2 Der Benutzer und seine Nummer · 1.3 Die Gruppe und ihre Nummer · 1.4 Die Benutzerliste: /etc/passwd · 1.5 Hauptgruppe und Zusatzgruppen · 1.6 Der Benutzer eines Prozesses · 1.7 Der Verwalter: root · 1.8 Der Passwort-Prüfwert: /etc/shadow
+- Linux, Kapitel 7, Abschnitt 2 „Die Rechte einer Datei“: 2.1 Besitzer und Gruppe einer Datei · 2.2 Drei Klassen: Besitzer, Gruppe, alle anderen · 2.3 Lesen, Schreiben, Ausführen · 2.4 Die Rechte-Spalte lesen: ls -l und stat
+- Linux, Kapitel 7, Abschnitt 3 „Rechte ändern: chmod“: 3.1 Was du dafür brauchst: Bits und Binärzahlen · 3.2 chmod mit Buchstaben · 3.3 Die Oktalschreibweise · 3.4 chmod mit Zahlen
+- Linux, Kapitel 7, Abschnitt 4 „Rechte bei Verzeichnissen“: 4.1 Lesen: die Namen sehen · 4.2 Ausführen: hindurchgehen · 4.3 Schreiben: Einträge ändern · 4.4 Löschen ändert das Verzeichnis
+- Linux, Kapitel 7, Abschnitt 5 „Wie der Kernel Rechte prüft“: 5.1 Der Weg durch den Pfad · 5.2 Die erste passende Klasse · 5.3 Geprüft wird beim Öffnen
+- Linux, Kapitel 7, Abschnitt 6 „Kurzzeitig root: sudo und su“: 6.1 Der Befehl sudo · 6.2 Die Erlaubnis: sudoers und sudo -l · 6.3 Als anderer Benutzer: sudo -u · 6.4 root und die Rechte · 6.5 Das Protokoll · 6.6 Die Umleitungsfalle: sudo und > · 6.7 su und die Shell des Verwalters
+- Linux, Kapitel 7, Abschnitt 7 „Benutzer und Gruppen anlegen“: 7.1 Einen Benutzer anlegen: adduser · 7.2 Einen Benutzer in eine Gruppe aufnehmen · 7.3 Eine Gruppe anlegen: addgroup · 7.4 Neue Gruppen gelten ab der nächsten Anmeldung · 7.5 Die Klassen mit zwei Benutzern
+- Linux, Kapitel 7, Abschnitt 8 „Besitz und Voreinstellungen: chown, chgrp und umask“: 8.1 Den Besitzer ändern: chown · 8.2 Für den Kernel zählt die Nummer · 8.3 Die Gruppe ändern: chgrp · 8.4 Die Voreinstellung für neue Dateien: umask · 8.5 Bits wegnehmen, nicht abziehen · 8.6 Die umask einstellen
+- Linux, Kapitel 7, Abschnitt 9 „Programme ausführen und besondere Rechte“: 9.1 Das Ausführungsrecht für Programme · 9.2 Reale und effektive Benutzernummer · 9.3 Das SUID-Bit · 9.4 Wozu SUID: passwd und sudo · 9.5 Kein SUID für Skripte · 9.6 Das SGID-Bit · 9.7 Das Sticky-Bit · 9.8 Die besonderen Rechte als vierte Ziffer · 9.9 Aufräumen: Benutzer und Gruppe entfernen
+
+### Linux, Kapitel 8: Prozesse, Signale und Dienste (`Kap8_Prozesse`, Modul linux)
+
+- Linux, Kapitel 8, Abschnitt 1 „Prozesse und ihre Verwandtschaft“: 1.1 Was du dafür brauchst: Prozess, Exit-Status und Benutzer · 1.2 Programm und Prozess, genauer · 1.3 Viele Prozesse, wenige Kerne: die Zeitteilung · 1.4 Die Prozessnummer: PID · 1.5 Der Elternprozess: PPID · 1.6 Wie ein Prozess entsteht: fork, exec und wait · 1.7 Der Prozessbaum und PID 1 · 1.8 Der Besitzer eines Prozesses
+- Linux, Kapitel 8, Abschnitt 2 „Prozesse beobachten“: 2.1 Die eigenen Prozesse: ps · 2.2 Alle Prozesse: ps -ef und ps aux · 2.3 Eigene Spalten und Auswahl: ps -o · 2.4 Prozesse nach Namen finden: pgrep · 2.5 Der Zustand eines Prozesses · 2.6 Der Zombie · 2.7 Laufend beobachten: top · 2.8 Ein Blick in den Eintrag: /proc/<PID>
+- Linux, Kapitel 8, Abschnitt 3 „Vordergrund, Hintergrund und Jobs“: 3.1 Der Vordergrund · 3.2 Der Hintergrund: & · 3.3 Der Job · 3.4 Anhalten mit Strg+Z · 3.5 Weiterlaufen lassen: fg und bg · 3.6 Warten: wait
+- Linux, Kapitel 8, Abschnitt 4 „Signale“: 4.1 Das Signal · 4.2 Die Standardreaktion · 4.3 Signale senden: kill · 4.4 Bitten und unterbrechen: SIGTERM und SIGINT · 4.5 Das Ende ohne Rückfrage: SIGKILL · 4.6 Anhalten und fortsetzen: SIGSTOP, SIGTSTP und SIGCONT · 4.7 Was der Exit-Status verrät: 128 + n · 4.8 Wer wem Signale schicken darf
+- Linux, Kapitel 8, Abschnitt 5 „Mit Signalen arbeiten“: 5.1 Signale nach Namen: pkill · 5.2 Ein Signal abfangen: trap · 5.3 Eine Zeitgrenze: timeout · 5.4 Das Signal beim Schließen: SIGHUP · 5.5 Weiterlaufen nach dem Schließen: nohup und disown
+- Linux, Kapitel 8, Abschnitt 6 „Last und Priorität“: 6.1 Die Last, genauer · 6.2 Die Priorität: der Nice-Wert · 6.3 Wie viel ein Nice-Wert ausmacht · 6.4 Die Priorität ändern: renice
+- Linux, Kapitel 8, Abschnitt 7 „Dienste und systemd“: 7.1 Der Dienst · 7.2 systemd: der Prozess mit der Nummer 1 · 7.3 Die Unit · 7.4 Den Zustand ansehen: systemctl status · 7.5 Die Unit-Datei · 7.6 Ein eigener Dienst: starten und stoppen · 7.7 systemd wacht: Neustart nach einem Absturz · 7.8 Beim Start mitstarten: enable · 7.9 Dienste unter eigenen Benutzern
+- Linux, Kapitel 8, Abschnitt 8 „Protokolle: das Journal“: 8.1 Das Journal · 8.2 Die Meldungen einer Unit: journalctl -u · 8.3 Mitlesen: journalctl -f · 8.4 Seit dem Start: journalctl -b und `--since` · 8.5 Wer welche Meldungen lesen darf · 8.6 Aufräumen
 
 ## Informatik / Cybersecurity
 

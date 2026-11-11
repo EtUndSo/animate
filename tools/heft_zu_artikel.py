@@ -822,6 +822,12 @@ TT_NAMED = {"textbackslash": "\\", "textasciitilde": "~", "textasciicircum": "^"
 TT_RE = re.compile(r"\\([A-Za-z]+)(?:\{\}|\s*)|\\([^A-Za-z])|([{}~])")
 
 
+def code_span(a):
+    """Inline-Code in Markdown. Enthält der Wortlaut einen Gravis (`), steht er wie in CommonMark zwischen zwei Gravis
+    mit je einem Leerzeichen (`` ` ``); build_wissen.inline liest das (seit 10.11.2026). Ohne Gravis wie bisher `a`."""
+    return "`" + a + "`" if "`" not in a else "`` " + a + " ``"
+
+
 def tt_text(a):
     """Inhalt von \\texttt{..} als Wortlaut: \\_ -> _, \\textbackslash{} -> \\, ~ -> Leerzeichen, Formatbefehle fallen weg."""
     def r(m):
@@ -1161,7 +1167,7 @@ TEXT_IGNORE = {"bigskip", "medskip", "smallskip", "noindent", "clearpage", "newp
                "nobreak"}
 TEXT_IGNORE_ARG = {"vspace", "hspace", "addcontentsline3", "pagestyle", "setcounter2", "thispagestyle"}
 SIMPLE_TEXT = {"ldots": "…", "dots": "…", "textmu": "µ", "S": "§", "textendash": "–", "textemdash": "—", "quad": " ", "qquad": "  ",
-               "degree": "°", "textdegree": "°", "stern": "★"}
+               "degree": "°", "textdegree": "°", "stern": "★", "textasciitilde": "~"}
 
 
 # Makros der Präambel und ihre KaTeX-Form
@@ -1385,7 +1391,7 @@ class Heft:
             return "__" + t + "__", j
         if name == "texttt":
             a, j = arg()
-            return "`" + tt_text(a) + "`", j
+            return code_span(tt_text(a)), j
         if name in ("verb", "lstinline"):                # \verb|..|, \lstinline|..| oder \lstinline{..}: Wortlaut
             if s[i:i + 1] == "*":
                 i += 1
@@ -1395,7 +1401,7 @@ class Heft:
                 d = s[i]
                 j = s.index(d, i + 1)
                 a, j = s[i + 1:j], j + 1
-            return "`" + a + "`", j
+            return code_span(a), j
         if name == "uline":
             a, j = arg()
             return self.text(a), j
@@ -1794,7 +1800,7 @@ def webtext(md, lang, cfg, teile, kap=None, fehlt=None):
     out = []
     for line in md.split("\n"):
         plain = line.startswith(("#", ":::", "<", "|", "$$"))
-        pieces = re.split(r"(\$\$.*?\$\$|\$[^$]*\$|`[^`]*`|\]\([^)]*\))", line)
+        pieces = re.split(r"(\$\$.*?\$\$|\$[^$]*\$|`` .+? ``|`[^`]*`|\]\([^)]*\))", line)
         for i in range(0, len(pieces), 2):
             pieces[i] = subs(pieces[i])
             if lang == "fr" and not line.startswith("<"):
@@ -2067,7 +2073,7 @@ def katex_pruefen(texte):
     items = []
     for s in texte:
         s = re.sub(r"(?ms)^```.*?^```[ \t]*$", "", s)     # Code-Blöcke ($ ist dort Prompt oder Variable, keine Formel)
-        s = re.sub(r"`[^`]*`", "", s)
+        s = re.sub(r"`` .+? ``|`[^`]*`", "", s)
         items += [(x, True) for x in re.findall(r"\$\$(.+?)\$\$", s, re.S)]
         items += [(x, False) for x in re.findall(r"\$([^$\n]+)\$", re.sub(r"\$\$.+?\$\$", " ", s, flags=re.S))]
     js = ("(items) => { const bad = []; for (const [t, d] of items) { try { katex.renderToString(t.replace(/\\\\tag\\{[^{}]*\\}/, ''), "

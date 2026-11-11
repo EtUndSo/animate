@@ -69,7 +69,7 @@ Mit einem Editor kann man den Quelltext eines Programms in eine Datei schreiben 
 Ein __Skript__ ist eine Textdatei mit Python-Quelltext, deren Name auf `.py` endet. Python führt ein Skript aus, indem es die Datei übersetzt und ihre Zeilen dann von oben nach unten je einmal ausführt.
 :::
 
-**Ordner vorbereiten.** Zwei Befehle genügen, und sie heißen unter Windows und Linux gleich: `mkdir python-kurs` legt den Ordner `python-kurs` an, `cd python-kurs` wechselt im Terminal hinein. Ein neu geöffnetes Terminal steht im persönlichen Ordner; dort wird der Ordner angelegt. Hast du ihn schon im Editor angelegt, entfällt `mkdir`. Ausführlich: Linux, Kapitel 2.
+**Ordner vorbereiten.** Zwei Befehle genügen, und sie heißen unter Windows und Linux gleich: `mkdir python-kurs` legt den Ordner `python-kurs` an, `cd python-kurs` wechselt im Terminal hinein. Ein neu geöffnetes Terminal steht im persönlichen Ordner; dort wird der Ordner angelegt. Hast du ihn schon im Editor angelegt, entfällt `mkdir`. Ausführlich: [Linux, Kapitel 2](/wissen/informatik/linux-und-kommandozeile/die-shell-erste-befehle/die-shell-erste-befehle.html).
 
 ::::beispiel
 Schreibe im Editor diese drei Zeilen und speichere sie als `hallo.py` im Ordner `python-kurs`:

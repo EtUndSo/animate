@@ -61,7 +61,7 @@ $ echo Hallo
 Hallo
 ```
 
-Mehr zum Terminal, zu Ordnern und zu Befehlen steht ausführlich in Linux, Kapitel 2.
+Mehr zum Terminal, zu Ordnern und zu Befehlen steht ausführlich in [Linux, Kapitel 2](/wissen/informatik/linux-und-kommandozeile/die-shell-erste-befehle/die-shell-erste-befehle.html).
 
 :::::
 

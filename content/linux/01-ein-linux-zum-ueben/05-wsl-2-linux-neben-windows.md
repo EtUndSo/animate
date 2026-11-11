@@ -96,7 +96,7 @@ Die Distribution kommt als eine einzige Datei, die alle Dateien eines Ubuntu-Sys
 ⁠**Kurz gesagt:** `wsl --install -d Ubuntu-26.04` in einer Administrator-PowerShell, Neustart, Benutzer anlegen.
 
 :::hintergrund Wem das Linux-Konto gehört
-Der Benutzer, den du beim ersten Start anlegst, gehört nur zu dieser einen Distribution und hat mit deinem Windows-Konto nichts zu tun. Er ist in Ubuntu ein Administrator des Systems: Mit seinem Passwort darf er Aufgaben erledigen, für die man besondere Rechte braucht, etwa Software installieren. Wie das funktioniert, erklärt Kapitel 7. Hast du das Passwort vergessen, lässt es sich von Windows aus zurücksetzen, weil Windows als Wirt die VM vollständig kontrolliert.
+Der Benutzer, den du beim ersten Start anlegst, gehört nur zu dieser einen Distribution und hat mit deinem Windows-Konto nichts zu tun. Er ist in Ubuntu ein Administrator des Systems: Mit seinem Passwort darf er Aufgaben erledigen, für die man besondere Rechte braucht, etwa Software installieren. Wie das funktioniert, erklärt [Kapitel 7](/wissen/informatik/linux-und-kommandozeile/benutzer-gruppen-und-rechte/benutzer-gruppen-und-rechte.html). Hast du das Passwort vergessen, lässt es sich von Windows aus zurücksetzen, weil Windows als Wirt die VM vollständig kontrolliert.
 :::
 
 ### Die Distributionen anzeigen
@@ -170,7 +170,7 @@ Die drei Punkte stehen für die übrigen Zeilen der Datei. Der Kernel trägt `mi
 
 Oft liegt eine Datei, die man in Linux bearbeiten will, schon unter Windows, etwa im Ordner „Downloads“. Linux in WSL kommt an das ganze Laufwerk C: heran, aber unter einem ungewohnten Namen.
 
-**Ein Baum ohne Laufwerksbuchstaben.** Unter Linux gibt es keine Laufwerksbuchstaben wie C: oder D:. Alle Dateien und Ordner hängen in einem einzigen Baum, dessen Wurzel `/` heißt; ein Ordner darin wird mit Schrägstrichen beschrieben, etwa `/etc` oder `/home/student`. Wie man sich in diesem Baum bewegt, erklärt Kapitel 3. WSL zeigt das Laufwerk C: von Windows im Ordner `/mnt/c`, D: unter `/mnt/d` und so weiter.
+**Ein Baum ohne Laufwerksbuchstaben.** Unter Linux gibt es keine Laufwerksbuchstaben wie C: oder D:. Alle Dateien und Ordner hängen in einem einzigen Baum, dessen Wurzel `/` heißt; ein Ordner darin wird mit Schrägstrichen beschrieben, etwa `/etc` oder `/home/student`. Wie man sich in diesem Baum bewegt, erklärt [Kapitel 3](/wissen/informatik/linux-und-kommandozeile/dateien-verzeichnisse-und-pfade/dateien-verzeichnisse-und-pfade.html). WSL zeigt das Laufwerk C: von Windows im Ordner `/mnt/c`, D: unter `/mnt/d` und so weiter.
 
 ::::beispiel Ein Windows-Ordner, von Linux aus gesehen
 Der Befehl `ls` zeigt, was in einem Ordner liegt. Der Ordner `/mnt` enthält die Laufwerke, und in einem Ordner tief im Windows-Verzeichnis liegen Dateien, die Windows für das Netz braucht:

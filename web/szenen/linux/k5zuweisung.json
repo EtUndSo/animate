@@ -1,0 +1,686 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 22,
+  "nextAnimId": 30,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Text",
+    "props": {
+     "text": "@ohne",
+     "position": [
+      -3.3,
+      1.4,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Text",
+    "props": {
+     "text": "@mit",
+     "position": [
+      -3.3,
+      0.25,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o3",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.6306,
+      1.0,
+      0
+     ],
+     "width": 1.4988,
+     "height": 0.2975,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#e3eefb",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o4",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.6306249999999998,
+      1.0,
+      0
+     ],
+     "width": 0.08924999999999983,
+     "height": 0.26,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 0.45,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o5",
+    "type": "Text",
+    "props": {
+     "text": "wohnort=Hamburg",
+     "position": [
+      -2.6306,
+      1.0,
+      0
+     ],
+     "font_size": 20.081,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Text",
+    "props": {
+     "text": "@zuw",
+     "position": [
+      -1.6,
+      1.0,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#00823c"
+    }
+   },
+   {
+    "id": "o7",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.9,
+      -0.15,
+      0
+     ],
+     "width": 0.7848,
+     "height": 0.2975,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#e3eefb",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o8",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.2,
+      -0.15,
+      0
+     ],
+     "width": 0.2493,
+     "height": 0.2975,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#e3eefb",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o9",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.5,
+      -0.15,
+      0
+     ],
+     "width": 0.7848,
+     "height": 0.2975,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#e3eefb",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o10",
+    "type": "Text",
+    "props": {
+     "text": "wohnort",
+     "position": [
+      -2.9876,
+      -0.15,
+      0
+     ],
+     "font_size": 20.081,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o11",
+    "type": "Text",
+    "props": {
+     "text": "=",
+     "position": [
+      -2.5414,
+      -0.15,
+      0
+     ],
+     "font_size": 20.081,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Text",
+    "props": {
+     "text": "Hamburg",
+     "position": [
+      -2.0951,
+      -0.15,
+      0
+     ],
+     "font_size": 20.081,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o13",
+    "type": "Line",
+    "props": {
+     "start": [
+      -2.6306249999999998,
+      0.05000000000000002,
+      0
+     ],
+     "end": [
+      -2.6306249999999998,
+      -0.35,
+      0
+     ],
+     "color": "#c82828",
+     "stroke_width": 2.5,
+     "dash": "10,7"
+    }
+   },
+   {
+    "id": "o14",
+    "type": "Line",
+    "props": {
+     "start": [
+      -2.4521249999999997,
+      0.05000000000000002,
+      0
+     ],
+     "end": [
+      -2.4521249999999997,
+      -0.35,
+      0
+     ],
+     "color": "#c82828",
+     "stroke_width": 2.5,
+     "dash": "10,7"
+    }
+   },
+   {
+    "id": "o15",
+    "type": "Text",
+    "props": {
+     "text": "@bef",
+     "position": [
+      -2.9,
+      -0.57,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o16",
+    "type": "Line",
+    "props": {
+     "start": [
+      -2.35,
+      -0.46,
+      0
+     ],
+     "end": [
+      -2.35,
+      -0.4,
+      0
+     ],
+     "color": "#2a78d6",
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o17",
+    "type": "Line",
+    "props": {
+     "start": [
+      -2.35,
+      -0.4,
+      0
+     ],
+     "end": [
+      -1.06,
+      -0.4,
+      0
+     ],
+     "color": "#2a78d6",
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o18",
+    "type": "Line",
+    "props": {
+     "start": [
+      -1.06,
+      -0.4,
+      0
+     ],
+     "end": [
+      -1.06,
+      -0.46,
+      0
+     ],
+     "color": "#2a78d6",
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o19",
+    "type": "Text",
+    "props": {
+     "text": "@arg",
+     "position": [
+      -1.7,
+      -0.6,
+      0
+     ],
+     "font_size": 16,
+     "align": "center",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o20",
+    "type": "Text",
+    "props": {
+     "text": "wohnort: command not found",
+     "position": [
+      0.4103,
+      -0.15,
+      0
+     ],
+     "font_size": 20.081,
+     "align": "center",
+     "color": "#c82828",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o21",
+    "type": "Text",
+    "props": {
+     "text": "@exit",
+     "position": [
+      -0.75,
+      -0.55,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#7f7f7f"
+    }
+   }
+  ],
+  "animations": [
+   {
+    "id": "a1",
+    "type": "FadeIn",
+    "target": "o1",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a2",
+    "type": "FadeIn",
+    "target": "o5",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a3",
+    "type": "FadeIn",
+    "target": "o2",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a4",
+    "type": "FadeIn",
+    "target": "o10",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a5",
+    "type": "FadeIn",
+    "target": "o11",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a6",
+    "type": "FadeIn",
+    "target": "o12",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a7",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a8",
+    "type": "GrowFromCenter",
+    "target": "o3",
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a9",
+    "type": "FadeIn",
+    "target": "o4",
+    "run_time": 0.5,
+    "step": 3
+   },
+   {
+    "id": "a10",
+    "type": "FadeIn",
+    "target": "o6",
+    "run_time": 0.6,
+    "step": 3
+   },
+   {
+    "id": "a11",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 4
+   },
+   {
+    "id": "a12",
+    "type": "Create",
+    "target": "o13",
+    "run_time": 0.5,
+    "step": 5
+   },
+   {
+    "id": "a13",
+    "type": "Create",
+    "target": "o14",
+    "run_time": 0.5,
+    "step": 5
+   },
+   {
+    "id": "a14",
+    "type": "FadeOut",
+    "target": "o13",
+    "run_time": 0.3,
+    "step": 6
+   },
+   {
+    "id": "a15",
+    "type": "FadeOut",
+    "target": "o14",
+    "run_time": 0.3,
+    "step": 6
+   },
+   {
+    "id": "a16",
+    "type": "MoveTo",
+    "target": "o10",
+    "run_time": 0.8,
+    "step": 6,
+    "point": [
+     -2.9,
+     -0.15,
+     0
+    ]
+   },
+   {
+    "id": "a17",
+    "type": "MoveTo",
+    "target": "o11",
+    "run_time": 0.8,
+    "step": 6,
+    "point": [
+     -2.2,
+     -0.15,
+     0
+    ]
+   },
+   {
+    "id": "a18",
+    "type": "MoveTo",
+    "target": "o12",
+    "run_time": 0.8,
+    "step": 6,
+    "point": [
+     -1.5,
+     -0.15,
+     0
+    ]
+   },
+   {
+    "id": "a19",
+    "type": "GrowFromCenter",
+    "target": "o7",
+    "run_time": 0.5,
+    "step": 7
+   },
+   {
+    "id": "a20",
+    "type": "GrowFromCenter",
+    "target": "o8",
+    "run_time": 0.5,
+    "step": 7
+   },
+   {
+    "id": "a21",
+    "type": "GrowFromCenter",
+    "target": "o9",
+    "run_time": 0.5,
+    "step": 7
+   },
+   {
+    "id": "a22",
+    "type": "FadeIn",
+    "target": "o15",
+    "run_time": 0.6,
+    "step": 7
+   },
+   {
+    "id": "a23",
+    "type": "FadeIn",
+    "target": "o19",
+    "run_time": 0.6,
+    "step": 7
+   },
+   {
+    "id": "a24",
+    "type": "FadeIn",
+    "target": "o16",
+    "run_time": 0.6,
+    "step": 7
+   },
+   {
+    "id": "a25",
+    "type": "FadeIn",
+    "target": "o17",
+    "run_time": 0.6,
+    "step": 7
+   },
+   {
+    "id": "a26",
+    "type": "FadeIn",
+    "target": "o18",
+    "run_time": 0.6,
+    "step": 7
+   },
+   {
+    "id": "a27",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 8
+   },
+   {
+    "id": "a28",
+    "type": "FadeIn",
+    "target": "o20",
+    "run_time": 0.7,
+    "step": 9
+   },
+   {
+    "id": "a29",
+    "type": "FadeIn",
+    "target": "o21",
+    "run_time": 0.7,
+    "step": 9
+   }
+  ],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "ohne": {
+    "de": "ohne Leerzeichen",
+    "en": "without spaces",
+    "es": "sin espacios",
+    "zh": "没有空格",
+    "fr": "sans espaces",
+    "tr": "boşluksuz"
+   },
+   "mit": {
+    "de": "mit Leerzeichen",
+    "en": "with spaces",
+    "es": "con espacios",
+    "zh": "有空格",
+    "fr": "avec espaces",
+    "tr": "boşluklu"
+   },
+   "zuw": {
+    "de": "ein Wort mit =:\neine Zuweisung",
+    "en": "one word with =:\nan assignment",
+    "es": "una palabra con =:\nuna asignación",
+    "zh": "一个含 = 的词：\n赋值",
+    "fr": "un mot avec = :\nune affectation",
+    "tr": "= içeren tek sözcük:\nbir atama"
+   },
+   "bef": {
+    "de": "Befehl",
+    "en": "command",
+    "es": "comando",
+    "zh": "命令",
+    "fr": "commande",
+    "tr": "komut"
+   },
+   "arg": {
+    "de": "Argumente",
+    "en": "arguments",
+    "es": "argumentos",
+    "zh": "参数",
+    "fr": "arguments",
+    "tr": "argümanlar"
+   },
+   "exit": {
+    "de": "Exit-Status 127",
+    "en": "exit status 127",
+    "es": "estado de salida 127",
+    "zh": "退出状态 127",
+    "fr": "code de retour 127",
+    "tr": "çıkış durumu 127"
+   }
+  },
+  "drawOrder": "creation"
+ }
+}
