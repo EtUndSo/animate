@@ -496,3 +496,283 @@ var NICHTS={de:"Nichts gefunden für „{q}\".",en:"Nothing found for „{q}\"."
     if(document.hidden){ if(sp.lauf){ sp.halt(); sp.auto=true; } } else if(sp.imBild) sp.sichtbar(true); }); });
   window.addEventListener("beforeprint",function(){ spieler.forEach(function(sp){ if(sp.D){ if(sp.lauf){ sp.halt(); sp.auto=true; } sp.zeige(sp.dauer); } }); });   // Druck: Endbild
 })();
+/* ---------- Lernen (W2, 11.11.2026): Lesefortschritt, Link-Vorschau, Selbsttest, Begriffe-Filter, Lernkarten ----------
+   Alles bleibt in diesem Browser (localStorage), nichts wird übertragen. Ohne Speicher (privates Fenster, gesperrt) gilt
+   es nur, solange die Seite offen ist; Fehler beim Lesen und Schreiben werden abgefangen. Wörter: _UI_LERNEN im Build. */
+var LERNEN_UI={"de":{"bg_leer":"Kein Begriff passt.","bg_anzahl":"{n} Begriffe","lk_faellig":"Heute fällig: {n}","lk_davon_neu":"davon neu: {n}","lk_fertig":"Für heute ist in dieser Auswahl nichts mehr fällig.","lk_mehr_neu":"{n} weitere neue Karten","lk_begriff":"Begriff","lk_formel":"Formel","lk_luecke":"Lückentext","reset_sicher":"Wirklich zurücksetzen?","lk_heute":"gleich noch einmal","lk_morgen":"morgen","lk_tage":"in {n} Tagen","lk_ohne_speicher":"Dieser Browser speichert gerade nichts. Der Lernstand gilt nur, solange die Seite offen ist.","aufdecken":"Aufdecken","gelesen":"Gelesen","lf_kapitel":"{n} von {m} gelesen","lf_artikel":"Gelesen. In diesem Kapitel: {n} von {m}.","weiterlesen":"Weiterlesen","fs_reset":"Fortschritt zurücksetzen","fs_lokal":"Der Lesefortschritt bleibt nur in diesem Browser.","vs_oeffnen":"Öffnen","vs_schliessen":"Schließen"},"en":{"bg_leer":"No term matches.","bg_anzahl":"{n} terms","lk_faellig":"Due today: {n}","lk_davon_neu":"new: {n}","lk_fertig":"Nothing more is due today in this selection.","lk_mehr_neu":"{n} more new cards","lk_begriff":"Term","lk_formel":"Formula","lk_luecke":"Fill in the blank","reset_sicher":"Really reset?","lk_heute":"again shortly","lk_morgen":"tomorrow","lk_tage":"in {n} days","lk_ohne_speicher":"This browser is not saving anything right now. Progress lasts only while the page is open.","aufdecken":"Reveal","gelesen":"Read","lf_kapitel":"{n} of {m} read","lf_artikel":"Read. In this chapter: {n} of {m}.","weiterlesen":"Continue reading","fs_reset":"Reset reading progress","fs_lokal":"Reading progress stays in this browser only.","vs_oeffnen":"Open","vs_schliessen":"Close"},"es":{"bg_leer":"Ningún término coincide.","bg_anzahl":"{n} términos","lk_faellig":"Pendientes hoy: {n}","lk_davon_neu":"nuevas: {n}","lk_fertig":"Hoy no queda nada pendiente en esta selección.","lk_mehr_neu":"{n} tarjetas nuevas más","lk_begriff":"Término","lk_formel":"Fórmula","lk_luecke":"Completar","reset_sicher":"¿Reiniciar de verdad?","lk_heute":"otra vez enseguida","lk_morgen":"mañana","lk_tage":"en {n} días","lk_ohne_speicher":"Este navegador no guarda nada ahora mismo. El progreso solo dura mientras la página esté abierta.","aufdecken":"Descubrir","gelesen":"Leído","lf_kapitel":"{n} de {m} leídos","lf_artikel":"Leído. En este capítulo: {n} de {m}.","weiterlesen":"Seguir leyendo","fs_reset":"Reiniciar el progreso de lectura","fs_lokal":"El progreso de lectura se queda solo en este navegador.","vs_oeffnen":"Abrir","vs_schliessen":"Cerrar"},"zh":{"bg_leer":"没有匹配的术语。","bg_anzahl":"共 {n} 个术语","lk_faellig":"今天到期：{n}","lk_davon_neu":"其中新卡：{n}","lk_fertig":"此范围内今天已没有到期的卡片。","lk_mehr_neu":"再学 {n} 张新卡","lk_begriff":"术语","lk_formel":"公式","lk_luecke":"填空","reset_sicher":"确定要重置吗？","lk_heute":"稍后再来一次","lk_morgen":"明天","lk_tage":"{n} 天后","lk_ohne_speicher":"此浏览器目前无法保存数据，学习进度只在页面打开期间有效。","aufdecken":"揭开","gelesen":"已读","lf_kapitel":"已读 {n} / {m}","lf_artikel":"已读。本章已读 {n} / {m}。","weiterlesen":"继续阅读","fs_reset":"重置阅读进度","fs_lokal":"阅读进度只保存在本浏览器中。","vs_oeffnen":"打开","vs_schliessen":"关闭"},"fr":{"bg_leer":"Aucun terme ne correspond.","bg_anzahl":"{n} termes","lk_faellig":"À revoir aujourd’hui : {n}","lk_davon_neu":"dont nouvelles : {n}","lk_fertig":"Plus rien à revoir aujourd’hui dans cette sélection.","lk_mehr_neu":"{n} nouvelles fiches de plus","lk_begriff":"Terme","lk_formel":"Formule","lk_luecke":"Texte à trous","reset_sicher":"Vraiment réinitialiser ?","lk_heute":"encore une fois tout de suite","lk_morgen":"demain","lk_tage":"dans {n} jours","lk_ohne_speicher":"Ce navigateur n’enregistre rien pour le moment. La progression ne dure que tant que la page est ouverte.","aufdecken":"Révéler","gelesen":"Lu","lf_kapitel":"{n} sur {m} lus","lf_artikel":"Lu. Dans ce chapitre : {n} sur {m}.","weiterlesen":"Reprendre la lecture","fs_reset":"Réinitialiser la progression de lecture","fs_lokal":"La progression de lecture reste uniquement dans ce navigateur.","vs_oeffnen":"Ouvrir","vs_schliessen":"Fermer"},"tr":{"bg_leer":"Eşleşen terim yok.","bg_anzahl":"{n} terim","lk_faellig":"Bugün sırası gelen: {n}","lk_davon_neu":"yeni: {n}","lk_fertig":"Bu seçimde bugün için başka kart yok.","lk_mehr_neu":"{n} yeni kart daha","lk_begriff":"Terim","lk_formel":"Formül","lk_luecke":"Boşluk doldurma","reset_sicher":"Gerçekten sıfırlansın mı?","lk_heute":"birazdan tekrar","lk_morgen":"yarın","lk_tage":"{n} gün sonra","lk_ohne_speicher":"Bu tarayıcı şu anda hiçbir şey kaydetmiyor. İlerleme yalnızca sayfa açıkken geçerli.","aufdecken":"Aç","gelesen":"Okundu","lf_kapitel":"{m} makaleden {n} tanesi okundu","lf_artikel":"Okundu. Bu bölümde: {m} makaleden {n} tanesi.","weiterlesen":"Okumaya devam et","fs_reset":"Okuma ilerlemesini sıfırla","fs_lokal":"Okuma ilerlemesi yalnızca bu tarayıcıda kalır.","vs_oeffnen":"Aç","vs_schliessen":"Kapat"}};
+var LERNEN=(function(){
+  var L=(document.documentElement.lang||"de").slice(0,2), W=LERNEN_UI[L]||{}, D=LERNEN_UI.de||{}, ok=false, mem={};
+  try{ localStorage.setItem("etundso-probe","1"); localStorage.removeItem("etundso-probe"); ok=true; }catch(e){}
+  function get(k,d){ var v=null;
+    if(ok){ try{ v=localStorage.getItem(k); }catch(e){ v=null; } }
+    if(v==null && Object.prototype.hasOwnProperty.call(mem,k)) v=mem[k];
+    if(v==null) return d;
+    try{ var x=JSON.parse(v); return (x==null || typeof x!==typeof d || Array.isArray(x)!==Array.isArray(d)) ? d : x; }catch(e){ return d; } }
+  function set(k,v){ var s=JSON.stringify(v); mem[k]=s; if(ok){ try{ localStorage.setItem(k,s); }catch(e){} } }
+  function del(k){ delete mem[k]; if(ok){ try{ localStorage.removeItem(k); }catch(e){} } }
+  function w(k,o){ var s=W[k]||D[k]||""; if(o) for(var x in o) s=s.split("{"+x+"}").join(o[x]); return s; }
+  function pfad(h){ try{ return new URL(h,location.href).pathname; }catch(e){ return h||""; } }
+  function el(tag,cls,text){ var e=document.createElement(tag); if(cls) e.className=cls; if(text!=null) e.textContent=text; return e; }
+  // Zurücksetzen in zwei Schritten: Der erste Klick fragt („Wirklich zurücksetzen?“), ein zweiter binnen 5 s führt aus.
+  function sicher(btn,tun){ var t=null, text=btn.textContent;
+    function zurueck(){ clearTimeout(t); btn.classList.remove("frage"); btn.textContent=text; }
+    btn.addEventListener("click",function(){
+      if(btn.classList.contains("frage")){ zurueck(); tun(); return; }
+      btn.classList.add("frage"); btn.textContent=w("reset_sicher"); t=setTimeout(zurueck,5000); }); }
+  return {lang:L, ok:ok, get:get, set:set, del:del, w:w, pfad:pfad, el:el, sicher:sicher};
+})();
+// Lesefortschritt: Ein Artikel gilt als gelesen, wenn seine Zusammenfassung (sonst sein Ende) 1 s lang sichtbar war.
+// Häkchen in der Seitenleiste und in der Übersicht, „N/M“ an Kapiteln, Balken je Kapitel in der Übersicht, Zeile am
+// Artikelende, „Weiterlesen“ (zuletzt geöffnet, nicht gelesen) auf der Übersicht, Knopf „Fortschritt zurücksetzen“.
+(function(){
+  var $=LERNEN, G="etundso-gelesen", V="etundso-verlauf";
+  // Adresse jedes Themen-Links festhalten, bevor „Fassung“ ihn auf die ausführliche Fassung umlenkt (data-alt)
+  [].forEach.call(document.querySelectorAll(".side li a, .theme-card a"),function(a){ a.setAttribute("data-lf",$.pfad(a.getAttribute("href"))); });
+  function gelesen(){ return $.get(G,{}); }
+  function zahl(as,g){ var n=0; as.forEach(function(a){ if(g[a.getAttribute("data-lf")]) n++; }); return n; }
+  function balken(n,m){ var d=$.el("div","lf-balken"), s=$.el("span");
+    d.setAttribute("role","progressbar"); d.setAttribute("aria-valuemin","0"); d.setAttribute("aria-valuemax",String(m));
+    d.setAttribute("aria-valuenow",String(n)); d.setAttribute("aria-label",$.w("lf_kapitel",{n:n,m:m}));
+    s.style.width=(m?Math.round(100*n/m):0)+"%"; d.appendChild(s); return d; }
+  var art=document.querySelector("main.article > article"), aktiv=document.querySelector(".side li a.active");
+  var key=aktiv?aktiv.getAttribute("data-lf"):null;
+  function malen(){
+    var g=gelesen();
+    [].forEach.call(document.querySelectorAll("a[data-lf]"),function(a){
+      var on=!!g[a.getAttribute("data-lf")], sr=a.querySelector(".lf-sr");
+      a.classList.toggle("gelesen",on);
+      if(on && !sr) a.appendChild($.el("span","lf-sr"," ("+$.w("gelesen")+")"));
+      if(!on && sr) a.removeChild(sr); });
+    [].forEach.call(document.querySelectorAll(".side details"),function(d){       // Kapitel in der Seitenleiste: „5/12“
+      var ul=null; for(var c=d.firstElementChild;c;c=c.nextElementSibling) if(c.tagName==="UL"){ ul=c; break; }
+      var s=d.firstElementChild; if(!ul || !s || s.tagName!=="SUMMARY") return;
+      var as=[].slice.call(ul.querySelectorAll("a[data-lf]")), n=zahl(as,g), z=s.querySelector(".lf-z");
+      if(!n){ if(z) s.removeChild(z); return; }
+      if(!z){ z=$.el("span","lf-z"); s.appendChild(z); }
+      z.textContent=n+"/"+as.length; z.title=$.w("lf_kapitel",{n:n,m:as.length}); });
+    [].forEach.call(document.querySelectorAll(".theme-card"),function(c){         // Übersicht: Balken je Kapitel
+      var as=[].slice.call(c.querySelectorAll("a[data-lf]")), n=zahl(as,g), alt=c.querySelector(".lf-kap");
+      if(alt) c.removeChild(alt);
+      if(!n) return;
+      var box=$.el("div","lf-kap"); box.appendChild(balken(n,as.length)); box.appendChild($.el("span","lf-text",$.w("lf_kapitel",{n:n,m:as.length})));
+      c.insertBefore(box,c.firstChild); });
+    if(art && key){                                                              // Artikel: Zeile vor den Nachbarartikeln
+      var z=art.querySelector(".lf-art");
+      if(g[key]){
+        var as=[].slice.call(aktiv.closest("ul").querySelectorAll("a[data-lf]")), n=zahl(as,g);
+        if(!z){ z=$.el("div","lf-art"); art.insertBefore(z,art.querySelector(".neighbors")); }
+        z.innerHTML=""; z.appendChild(balken(n,as.length)); z.appendChild($.el("span","lf-text",$.w("lf_artikel",{n:n,m:as.length})));
+      } else if(z) z.parentNode.removeChild(z);
+    }
+    weiter();
+  }
+  if(art && key){
+    var kap=aktiv.closest("details"), sum=kap&&kap.firstElementChild, titel=document.title.replace(/\s+—\s+EtUndSo$/,"");
+    var v=$.get(V,[]).filter(function(e){ return e && e.p!==key; });
+    v.unshift({p:key, t:titel, k:sum&&sum.firstChild?String(sum.firstChild.textContent).trim():"", l:$.lang, z:Date.now()});
+    $.set(V,v.slice(0,12));
+    var ende=document.getElementById("zusammenfassung")||art.querySelector(".neighbors");
+    if(ende && !gelesen()[key] && window.IntersectionObserver){
+      var t=null, io=new IntersectionObserver(function(es){ es.forEach(function(e){
+        clearTimeout(t);
+        if(e.isIntersecting) t=setTimeout(function(){ var g=gelesen(); g[key]=Date.now(); $.set(G,g); io.disconnect(); malen(); },1000); }); });
+      io.observe(ende);
+    }
+  }
+  // Übersicht: „Weiterlesen“ und „Fortschritt zurücksetzen“ unter dem Einleitungssatz
+  var box=null;
+  function weiter(){
+    if(!document.querySelector(".field-block")) return;
+    var g=gelesen(), v=$.get(V,[]), e=null;
+    for(var i=0;i<v.length;i++){ if(v[i] && v[i].l===$.lang && v[i].p && !g[v[i].p]){ e=v[i]; break; } }
+    if(!box){
+      var lede=document.querySelector("main.article .lede"); if(!lede) return;
+      box=$.el("div","lf-weiter"); box.hidden=true; lede.parentNode.insertBefore(box,lede.nextSibling);
+    }
+    box.innerHTML="";
+    if(e){ var a=$.el("a","lf-weiter-a"); a.href=e.p; a.appendChild($.el("span","lf-wh",$.w("weiterlesen")));
+      a.appendChild($.el("span","lf-wt",(e.k?e.k+" › ":"")+e.t)); box.appendChild(a); }
+    var r=$.el("button","lern-reset lf-reset",$.w("fs_reset")); r.type="button"; r.title=$.w("fs_lokal");
+    $.sicher(r,function(){ $.del(G); $.del(V); malen(); });
+    box.appendChild(r);
+    box.hidden=!(e || Object.keys(g).length);
+  }
+  malen();
+})();
+// Link-Vorschau: Links auf Artikel (data-vs, vom Build gesetzt) zeigen ein Kärtchen mit Titel, Kapitel und „Worum es geht“
+// aus der vorschau.json des Zielmoduls. Maus: nach kurzem Verweilen; Tastatur: beim Fokus; Handy: langes Tippen (dann mit
+// „Öffnen“ und „Schließen“). Schließt beim Verlassen, mit Esc, beim Tippen daneben und bei Größenänderung.
+(function(){
+  var $=LERNEN; if(!document.querySelector("a[data-vs]") || !window.fetch) return;
+  var cache={}, karte=null, ziel=null, tAuf=null, tZu=null, tLang=null, unterdr=null, sx=0, sy=0;
+  function modul(p){ var s=p.replace(/^\/wissen\//,"").split("/"); return s.slice(0,-2).join("/"); }
+  function daten(p){ var m=modul(p);
+    if(!cache[m]) cache[m]=fetch("/wissen/"+m+"/vorschau.json").then(function(r){ return r.ok?r.json():{}; }).catch(function(){ return {}; });
+    return cache[m]; }
+  function bau(){ if(karte) return karte;
+    karte=$.el("div","vs-karte"); karte.id="vs-karte"; karte.setAttribute("role","tooltip"); karte.hidden=true;
+    karte.addEventListener("pointerenter",function(){ clearTimeout(tZu); });
+    karte.addEventListener("pointerleave",function(e){ if(e.pointerType==="mouse") spaeter(); });
+    document.body.appendChild(karte); return karte; }
+  function zu(){ clearTimeout(tAuf); clearTimeout(tZu); if(karte) karte.hidden=true; if(ziel) ziel.removeAttribute("aria-describedby"); ziel=null; }
+  function spaeter(){ clearTimeout(tZu); tZu=setTimeout(zu,220); }
+  function lage(a,k){
+    var r=a.getClientRects()[0]||a.getBoundingClientRect(), vw=document.documentElement.clientWidth, b=Math.min(340,vw-16);
+    k.style.width=b+"px";
+    var x=Math.max(8,Math.min(r.left,vw-b-8)), h=k.offsetHeight, y=r.bottom+8;
+    if(y+h>window.innerHeight-8 && r.top-h-8>64) y=r.top-h-8;
+    k.style.left=(x+window.scrollX)+"px"; k.style.top=(y+window.scrollY)+"px"; }
+  function auf(a,touch){
+    var u; try{ u=new URL(a.href); }catch(e){ return; }
+    if(u.pathname===location.pathname) return;
+    ziel=a;
+    daten(u.pathname).then(function(d){
+      var e=d[u.pathname.replace(/^\/wissen\//,"")]; if(ziel!==a || !e) return;
+      var k=bau(); k.innerHTML="";
+      if(e[1]) k.appendChild($.el("div","vs-k",e[1]));
+      k.appendChild($.el("div","vs-t",e[0]));
+      if(e[2]) k.appendChild($.el("p","vs-p",e[2]));
+      if(touch){ var f=$.el("div","vs-f"), o=$.el("a","vs-o",$.w("vs_oeffnen")), s=$.el("button","vs-s",$.w("vs_schliessen"));
+        o.href=a.href; s.type="button"; s.addEventListener("click",zu); f.appendChild(o); f.appendChild(s); k.appendChild(f); }
+      k.hidden=false; lage(a,k); a.setAttribute("aria-describedby","vs-karte");
+    }); }
+  function link(e){ return e.target && e.target.closest ? e.target.closest("a[data-vs]") : null; }
+  document.addEventListener("pointerover",function(e){ if(e.pointerType!=="mouse") return; var a=link(e); if(!a) return;
+    if(a===ziel){ clearTimeout(tZu); return; } clearTimeout(tAuf); tAuf=setTimeout(function(){ auf(a,false); },350); });
+  document.addEventListener("pointerout",function(e){ if(e.pointerType!=="mouse") return; var a=link(e); if(!a) return;
+    if(e.relatedTarget && a.contains(e.relatedTarget)) return; clearTimeout(tAuf); if(a===ziel) spaeter(); });
+  var beruehrt=0;                                                   // Fokus nach Antippen: kein zweites Kärtchen (ohne „Öffnen“)
+  document.addEventListener("focusin",function(e){ var a=link(e); if(!a || (a===ziel && karte && !karte.hidden) || Date.now()-beruehrt<1500) return;
+    clearTimeout(tAuf); tAuf=setTimeout(function(){ auf(a,false); },250); });
+  document.addEventListener("focusout",function(e){ var a=link(e); if(!a) return;
+    if(karte && e.relatedTarget && karte.contains(e.relatedTarget)) return; clearTimeout(tAuf); if(a===ziel) zu(); });
+  document.addEventListener("keydown",function(e){ if(e.key==="Escape" && karte && !karte.hidden) zu(); });
+  document.addEventListener("touchstart",function(e){ var a=link(e); unterdr=null; beruehrt=Date.now();
+    if(karte && !karte.hidden && !karte.contains(e.target)) zu();
+    if(!a || e.touches.length>1) return;
+    sx=e.touches[0].clientX; sy=e.touches[0].clientY; clearTimeout(tLang);
+    tLang=setTimeout(function(){ tLang=null; unterdr=a; auf(a,true); },500); },{passive:true});
+  document.addEventListener("touchmove",function(e){ if(!tLang) return; var t=e.touches[0];
+    if(Math.abs(t.clientX-sx)>10 || Math.abs(t.clientY-sy)>10){ clearTimeout(tLang); tLang=null; } },{passive:true});
+  function ab(){ clearTimeout(tLang); tLang=null; }
+  document.addEventListener("touchend",ab,{passive:true}); document.addEventListener("touchcancel",ab,{passive:true});
+  document.addEventListener("click",function(e){ var a=link(e); if(a && a===unterdr){ e.preventDefault(); } unterdr=null; },true);
+  document.addEventListener("contextmenu",function(e){ var a=link(e); if(a && a===unterdr) e.preventDefault(); });
+  window.addEventListener("resize",zu);
+})();
+// Selbsttest in der Zusammenfassung: Der Knopf deckt Bestimmungen, Formeln und Zusammenhänge zu (die Begriffe, Formelnamen
+// und der Abschnitt bleiben als Stichwort stehen); Antippen, Enter oder Leertaste deckt einen Punkt auf.
+(function(){
+  var $=LERNEN, zf=document.querySelector(".zf"), knopf=zf&&zf.querySelector(".zf-test"); if(!knopf) return;
+  var teile=[].slice.call(zf.querySelectorAll(".zf-d,.zf-f,.zf-a")); if(!teile.length) return;
+  knopf.hidden=false;
+  function decke(el,zu){
+    el.classList.toggle("zu",zu);
+    if(zu){ el.setAttribute("tabindex","0"); el.setAttribute("role","button"); el.setAttribute("aria-label",$.w("aufdecken")); el.setAttribute("data-auf",$.w("aufdecken")); }
+    else { el.removeAttribute("role"); el.removeAttribute("aria-label"); el.removeAttribute("tabindex"); } }
+  function an(on){
+    zf.classList.toggle("zf-abgedeckt",on); knopf.setAttribute("aria-pressed",on?"true":"false");
+    teile.forEach(function(el){ decke(el,on); });
+    [].forEach.call(zf.querySelectorAll(".zf-cue"),function(c){ c.hidden=!on; });
+    if(on) [].forEach.call(zf.querySelectorAll("details.zf-mehr"),function(d){ d.open=true; }); }
+  knopf.addEventListener("click",function(){ an(knopf.getAttribute("aria-pressed")!=="true"); });
+  zf.addEventListener("click",function(e){ var t=e.target.closest&&e.target.closest(".zu"); if(!t || !zf.contains(t)) return;
+    e.preventDefault(); e.stopPropagation(); decke(t,false); },true);
+  zf.addEventListener("keydown",function(e){ var t=e.target; if((e.key!=="Enter" && e.key!==" ") || !t.classList || !t.classList.contains("zu")) return;
+    e.preventDefault(); decke(t,false); });
+})();
+// Begriffe: Filter über die Begriffe der Seite (Teilwörter, ohne Umlaute und Akzente wie die Suche)
+(function(){
+  var $=LERNEN, such=document.querySelector(".bg-such"); if(!such) return;
+  var inp=such.querySelector(".bg-filter"), n=such.querySelector(".bg-n"), nichts=document.querySelector(".bg-nichts");
+  var es=[].slice.call(document.querySelectorAll(".bg-e")), gs=[].slice.call(document.querySelectorAll(".bg-g")), dt=null;
+  function fold(s){ return (s||"").toLowerCase().replace(/ß/g,"ss").replace(/ı/g,"i").replace(/œ/g,"oe").replace(/æ/g,"ae")
+    .normalize("NFKD").replace(/[̀-ͯ]/g,""); }
+  function text(e){ var d=e.querySelector("dt"); return fold(d?d.textContent:""); }
+  such.hidden=false;
+  inp.addEventListener("input",function(){
+    if(!dt) dt=es.map(text);
+    var q=fold(inp.value.trim()), k=0;
+    es.forEach(function(e,i){ var on=!q || dt[i].indexOf(q)>=0; e.hidden=!on; if(on) k++; });
+    gs.forEach(function(g){ g.hidden=!g.querySelector(".bg-e:not([hidden])"); });
+    n.textContent=$.w("bg_anzahl",{n:k}); if(nichts) nichts.hidden=k>0; });
+})();
+// Lernkarten: Stapel mit Leitner-Fächern. Fach 1–5 = nächste Wiederholung nach 1, 3, 7, 14, 30 Tagen. „Wusste ich“: ein
+// Fach höher (neue Karte: Fach 2; nach „Wusste ich nicht“ in derselben Sitzung nur Fach 1); „Unsicher“: Fach bleibt (neue
+// Karte: Fach 1); „Wusste ich nicht“: Fach 1 und heute noch einmal am Ende des Stapels. Neue Karten: 20 je Tag und Modul,
+// weitere per Knopf. Leitner statt SM-2: drei Knöpfe passen direkt auf die Fächer, ohne Leichtigkeitsfaktor je Karte.
+// Stand je Karte [Fach, fällig am Tag] unter „etundso-karten“; ohne Skript zeigt die Seite die Karten als Liste.
+(function(){
+  var $=LERNEN, app=document.querySelector(".lk-app"); if(!app) return;
+  var K="etundso-karten", N="etundso-karten-neu", AB=[0,1,3,7,14,30], NEU=20, mp=app.getAttribute("data-modul");
+  var liste=document.querySelector(".lk-alle");
+  var karten=[].slice.call(document.querySelectorAll(".lk-alle li.lk")).map(function(li){ var s=li.closest(".lk-kap");
+    return {id:li.getAttribute("data-id"), typ:li.getAttribute("data-typ"), k:s?s.getAttribute("data-k"):"", kn:s?s.querySelector("h2").textContent:"", li:li}; });
+  if(!karten.length) return;
+  function q(c){ return app.querySelector(c); }
+  var sel=q(".lk-sel"), zahlEl=q(".lk-zahl"), karte=q(".lk-karte"), kopf=q(".lk-kopf"), vorne=q(".lk-vorne"), hinten=q(".lk-hinten"),
+      steuer=q(".lk-steuer"), um=q(".lk-um"), bew=q(".lk-bew"), ende=q(".lk-ende"), neuB=q(".lk-neu"), fuss=q(".lk-fuss"), stelle=q(".lk-stelle");
+  var TYP={b:$.w("lk_begriff"), f:$.w("lk_formel"), l:$.w("lk_luecke")};
+  var schlange=[], jetzt=null, gerade={}, extra=0;
+  function heute(){ var d=new Date(); return Math.floor((d.getTime()-d.getTimezoneOffset()*60000)/864e5); }
+  function stand(){ return $.get(K,{}); }
+  function neuHeute(){ var e=$.get(N,{})[mp]; return (e && e[0]===heute()) ? e[1] : 0; }
+  function neuZaehlen(){ var n=$.get(N,{}); n[mp]=[heute(),neuHeute()+1]; $.set(N,n); }
+  function auswahl(){ var k=sel.value; return karten.filter(function(c){ return !k || c.k===k; }); }
+  function baue(){
+    var s=stand(), t=heute(), faellig=[], neu=[];
+    auswahl().forEach(function(c){ var x=s[c.id]; if(x){ if(x[1]<=t) faellig.push(c); } else neu.push(c); });
+    faellig.sort(function(a,b){ return s[a.id][1]-s[b.id][1] || s[a.id][0]-s[b.id][0]; });
+    schlange=faellig.concat(neu.slice(0,Math.max(0,NEU-neuHeute())+extra));
+    zeige(); }
+  function fach(b,r,id){ return r===0 ? 1 : r===1 ? Math.max(1,b) : gerade[id] ? 1 : Math.min(5,Math.max(1,b)+1); }
+  function tage(d){ return d===0 ? $.w("lk_heute") : d===1 ? $.w("lk_morgen") : $.w("lk_tage",{n:d}); }
+  function zeige(){
+    var s=stand(), neu=0; schlange.forEach(function(c){ if(!s[c.id]) neu++; });
+    zahlEl.textContent=$.w("lk_faellig",{n:schlange.length})+(neu?" · "+$.w("lk_davon_neu",{n:neu}):"");
+    jetzt=schlange[0]||null;
+    karte.hidden=steuer.hidden=fuss.hidden=!jetzt; ende.hidden=!!jetzt;
+    if(!jetzt){ var rest=auswahl().filter(function(c){ return !s[c.id]; }).length;
+      neuB.hidden=!rest; neuB.textContent=$.w("lk_mehr_neu",{n:Math.min(NEU,rest)}); return; }
+    kopf.textContent=TYP[jetzt.typ]+" · "+jetzt.kn;
+    vorne.innerHTML=jetzt.li.querySelector(".lk-v").innerHTML;
+    var t=vorne.querySelector(".lk-typ"); if(t) t.parentNode.removeChild(t);
+    hinten.innerHTML=jetzt.li.querySelector(".lk-r").innerHTML; hinten.hidden=true;
+    var qu=jetzt.li.querySelector(".lk-q"); stelle.href=qu.getAttribute("href"); stelle.title=qu.textContent;
+    um.hidden=false; bew.hidden=true;
+    var x=s[jetzt.id], b=x?x[0]:0;
+    [0,1,2].forEach(function(r){ var sm=bew.querySelector(".lk-b"+r+" small"); if(sm) sm.textContent=tage(r===0?0:AB[fach(b,r,jetzt.id)]); }); }
+  function umdrehen(){ if(!jetzt || !hinten.hidden) return; hinten.hidden=false; um.hidden=true; bew.hidden=false; karte.focus({preventScroll:true});
+    var r=bew.getBoundingClientRect(); if(r.bottom>window.innerHeight) bew.scrollIntoView({block:"end",behavior:"smooth"}); }   // Handy: Bewertung ins Bild
+  function bewerten(r){
+    if(!jetzt || hinten.hidden) return;
+    var s=stand(), x=s[jetzt.id], c=jetzt, f=fach(x?x[0]:0,r,c.id);
+    if(!x) neuZaehlen();
+    s[c.id]=[f, heute()+(r===0?0:AB[f])]; $.set(K,s);
+    schlange.shift();
+    if(r===0){ gerade[c.id]=1; schlange.push(c); }
+    zeige(); if(!karte.hidden) karte.focus({preventScroll:true}); else if(!neuB.hidden) neuB.focus(); }
+  um.addEventListener("click",umdrehen);
+  karte.addEventListener("click",function(e){ if(!(e.target.closest && e.target.closest("a"))) umdrehen(); });
+  [].forEach.call(bew.querySelectorAll(".lk-b"),function(b){ b.addEventListener("click",function(){ bewerten(+b.getAttribute("data-b")); }); });
+  neuB.addEventListener("click",function(){ extra+=NEU; baue(); });
+  sel.addEventListener("change",function(){ extra=0; gerade={}; baue(); });
+  document.addEventListener("keydown",function(e){
+    if(app.hidden || e.ctrlKey || e.metaKey || e.altKey) return;
+    var t=e.target, tag=t && t.tagName; if(tag==="INPUT" || tag==="SELECT" || tag==="TEXTAREA" || (t && t.isContentEditable)) return;
+    var ov=document.getElementById("searchOverlay"); if(ov && !ov.hidden) return;
+    if((e.key===" " || e.key==="Enter") && jetzt && hinten.hidden){ if(tag==="BUTTON" || tag==="A") return; e.preventDefault(); umdrehen(); }
+    else if(jetzt && !hinten.hidden && (e.key==="1" || e.key==="2" || e.key==="3")){ e.preventDefault(); bewerten(+e.key-1); } });
+  $.sicher(q(".lk-reset"),function(){ var s=stand(), n=$.get(N,{});
+    karten.forEach(function(c){ delete s[c.id]; }); delete n[mp]; $.set(K,s); $.set(N,n); extra=0; gerade={}; baue(); });
+  // #k-<Kapitel> (Link aus der Zusammenfassung eines Artikels): dieses Kapitel wählen, die Liste bleibt zu
+  function kapitel(){ var m=location.hash.match(/^#k-(.+)$/); if(!m) return false;
+    for(var i=0;i<sel.options.length;i++) if(sel.options[i].value===m[1]){ sel.value=m[1]; break; }
+    try{ history.replaceState(null,"",location.pathname+location.search); }catch(e){}
+    extra=0; gerade={}; if(liste) liste.open=false; return true; }
+  window.addEventListener("hashchange",function(){ if(kapitel()){ baue(); app.scrollIntoView({block:"start"}); } });
+  kapitel();
+  app.hidden=false; if(liste) liste.open=false;
+  if(!$.ok) q(".lk-hinweis").hidden=false;
+  baue();
+})();

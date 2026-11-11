@@ -190,6 +190,132 @@ _UI_ARTIKEL = {
 for _l, _w in _UI_ARTIKEL.items():
     UI[_l].update(_w)
 
+# Lernen (W2, 11.11.2026): Lesefortschritt, Begriffsverzeichnis, Link-Vorschau, Selbsttest, Lernkarten. Die Wörter unter
+# LERNEN_JS braucht auch wissen.js; main schreibt sie beim Erzeugen der Datei hinein (/*UI_LERNEN*/{}).
+_UI_LERNEN = {
+    "de": {"begriffe": "Begriffe", "lernkarten": "Lernkarten",
+           "bg_lede": "Die Fachbegriffe dieses Moduls mit ihrer Bestimmung. Ein Klick auf einen Begriff führt an die Stelle, an der er eingeführt wird.",
+           "bg_filter": "Begriffe filtern", "bg_leer": "Kein Begriff passt.", "bg_anzahl": "{n} Begriffe", "bg_abc": "Anfangsbuchstaben",
+           "bg_keine": "Für dieses Modul gibt es noch keine Begriffe.",
+           "lk_lede": "Karten aus den Artikeln dieses Moduls: Begriffe, benannte Formeln und Lückentexte. Was du weißt, kommt nach "
+                      "wachsenden Abständen wieder (1, 3, 7, 14 und 30 Tage). Der Lernstand bleibt nur in diesem Browser.",
+           "lk_kapitel": "Kapitel", "lk_alle_kap": "Alle Kapitel", "lk_faellig": "Heute fällig: {n}", "lk_davon_neu": "davon neu: {n}",
+           "lk_umdrehen": "Umdrehen", "lk_gut": "Wusste ich", "lk_mittel": "Unsicher", "lk_schlecht": "Wusste ich nicht",
+           "lk_stelle": "Zur Stelle im Artikel", "lk_fertig": "Für heute ist in dieser Auswahl nichts mehr fällig.",
+           "lk_mehr_neu": "{n} weitere neue Karten", "lk_liste": "Alle Karten als Liste ({n})", "lk_begriff": "Begriff",
+           "lk_formel": "Formel", "lk_luecke": "Lückentext", "lk_reset": "Lernstand zurücksetzen", "reset_sicher": "Wirklich zurücksetzen?",
+           "lk_ohne_speicher": "Dieser Browser speichert gerade nichts. Der Lernstand gilt nur, solange die Seite offen ist.",
+           "lk_heute": "gleich noch einmal", "lk_morgen": "morgen", "lk_tage": "in {n} Tagen",
+           "lk_keine": "Für dieses Modul gibt es noch keine Lernkarten.", "lk_zum_kapitel": "Lernkarten zu diesem Kapitel",
+           "lk_tasten": "Tasten: Leertaste dreht um, 1 / 2 / 3 bewerten.",
+           "zf_test": "Selbsttest", "zf_test_t": "Punkte zudecken, erst selbst erinnern, dann einzeln aufdecken", "aufdecken": "Aufdecken",
+           "zf_zu": "Zu „{h}“:", "gelesen": "Gelesen", "lf_kapitel": "{n} von {m} gelesen", "lf_artikel": "Gelesen. In diesem Kapitel: {n} von {m}.",
+           "weiterlesen": "Weiterlesen", "fs_reset": "Fortschritt zurücksetzen", "fs_lokal": "Der Lesefortschritt bleibt nur in diesem Browser.",
+           "vs_oeffnen": "Öffnen", "vs_schliessen": "Schließen"},
+    "en": {"begriffe": "Glossary", "lernkarten": "Flashcards",
+           "bg_lede": "The technical terms of this module with their definitions. Selecting a term takes you to the place where it is introduced.",
+           "bg_filter": "Filter terms", "bg_leer": "No term matches.", "bg_anzahl": "{n} terms", "bg_abc": "Initial letters",
+           "bg_keine": "There are no terms for this module yet.",
+           "lk_lede": "Cards from the articles of this module: terms, named formulas and fill-in-the-blank sentences. What you know comes "
+                      "back after growing intervals (1, 3, 7, 14 and 30 days). Your progress stays in this browser only.",
+           "lk_kapitel": "Chapter", "lk_alle_kap": "All chapters", "lk_faellig": "Due today: {n}", "lk_davon_neu": "new: {n}",
+           "lk_umdrehen": "Flip", "lk_gut": "I knew it", "lk_mittel": "Unsure", "lk_schlecht": "I didn't know",
+           "lk_stelle": "Go to the place in the article", "lk_fertig": "Nothing more is due today in this selection.",
+           "lk_mehr_neu": "{n} more new cards", "lk_liste": "All cards as a list ({n})", "lk_begriff": "Term",
+           "lk_formel": "Formula", "lk_luecke": "Fill in the blank", "lk_reset": "Reset learning progress", "reset_sicher": "Really reset?",
+           "lk_ohne_speicher": "This browser is not saving anything right now. Progress lasts only while the page is open.",
+           "lk_heute": "again shortly", "lk_morgen": "tomorrow", "lk_tage": "in {n} days",
+           "lk_keine": "There are no flashcards for this module yet.", "lk_zum_kapitel": "Flashcards for this chapter",
+           "lk_tasten": "Keys: Space flips, 1 / 2 / 3 rate.",
+           "zf_test": "Self-test", "zf_test_t": "Cover the points, recall each one yourself, then reveal them one by one", "aufdecken": "Reveal",
+           "zf_zu": "On “{h}”:", "gelesen": "Read", "lf_kapitel": "{n} of {m} read", "lf_artikel": "Read. In this chapter: {n} of {m}.",
+           "weiterlesen": "Continue reading", "fs_reset": "Reset reading progress", "fs_lokal": "Reading progress stays in this browser only.",
+           "vs_oeffnen": "Open", "vs_schliessen": "Close"},
+    "es": {"begriffe": "Glosario", "lernkarten": "Tarjetas de estudio",
+           "bg_lede": "Los términos técnicos de este módulo con su definición. Al pulsar un término llegas al lugar donde se introduce.",
+           "bg_filter": "Filtrar términos", "bg_leer": "Ningún término coincide.", "bg_anzahl": "{n} términos", "bg_abc": "Letras iniciales",
+           "bg_keine": "Todavía no hay términos para este módulo.",
+           "lk_lede": "Tarjetas sacadas de los artículos de este módulo: términos, fórmulas con nombre y frases para completar. Lo que "
+                      "sabes vuelve tras intervalos crecientes (1, 3, 7, 14 y 30 días). Tu progreso se queda solo en este navegador.",
+           "lk_kapitel": "Capítulo", "lk_alle_kap": "Todos los capítulos", "lk_faellig": "Pendientes hoy: {n}", "lk_davon_neu": "nuevas: {n}",
+           "lk_umdrehen": "Dar la vuelta", "lk_gut": "Lo sabía", "lk_mittel": "Dudoso", "lk_schlecht": "No lo sabía",
+           "lk_stelle": "Ir al lugar en el artículo", "lk_fertig": "Hoy no queda nada pendiente en esta selección.",
+           "lk_mehr_neu": "{n} tarjetas nuevas más", "lk_liste": "Todas las tarjetas en lista ({n})", "lk_begriff": "Término",
+           "lk_formel": "Fórmula", "lk_luecke": "Completar", "lk_reset": "Reiniciar el progreso de estudio", "reset_sicher": "¿Reiniciar de verdad?",
+           "lk_ohne_speicher": "Este navegador no guarda nada ahora mismo. El progreso solo dura mientras la página esté abierta.",
+           "lk_heute": "otra vez enseguida", "lk_morgen": "mañana", "lk_tage": "en {n} días",
+           "lk_keine": "Todavía no hay tarjetas para este módulo.", "lk_zum_kapitel": "Tarjetas de este capítulo",
+           "lk_tasten": "Teclas: Espacio da la vuelta, 1 / 2 / 3 valoran.",
+           "zf_test": "Autoevaluación", "zf_test_t": "Tapa los puntos, recuerda cada uno y luego descúbrelos uno a uno", "aufdecken": "Descubrir",
+           "zf_zu": "Sobre «{h}»:", "gelesen": "Leído", "lf_kapitel": "{n} de {m} leídos", "lf_artikel": "Leído. En este capítulo: {n} de {m}.",
+           "weiterlesen": "Seguir leyendo", "fs_reset": "Reiniciar el progreso de lectura",
+           "fs_lokal": "El progreso de lectura se queda solo en este navegador.", "vs_oeffnen": "Abrir", "vs_schliessen": "Cerrar"},
+    "zh": {"begriffe": "术语表", "lernkarten": "学习卡片",
+           "bg_lede": "本模块的专业术语及其释义，按章节排列。点击术语即可跳到它被引入的位置。",
+           "bg_filter": "筛选术语", "bg_leer": "没有匹配的术语。", "bg_anzahl": "共 {n} 个术语", "bg_abc": "章节",
+           "bg_keine": "本模块暂时还没有术语。",
+           "lk_lede": "卡片取自本模块的文章：术语、有名称的公式和填空句。答对的卡片会按逐渐拉长的间隔再次出现（1、3、7、14 和 30 天）。"
+                      "学习进度只保存在本浏览器中。",
+           "lk_kapitel": "章节", "lk_alle_kap": "全部章节", "lk_faellig": "今天到期：{n}", "lk_davon_neu": "其中新卡：{n}",
+           "lk_umdrehen": "翻面", "lk_gut": "记得", "lk_mittel": "不确定", "lk_schlecht": "不记得",
+           "lk_stelle": "跳到文章中的位置", "lk_fertig": "此范围内今天已没有到期的卡片。",
+           "lk_mehr_neu": "再学 {n} 张新卡", "lk_liste": "以列表显示全部卡片（{n}）", "lk_begriff": "术语",
+           "lk_formel": "公式", "lk_luecke": "填空", "lk_reset": "重置学习进度", "reset_sicher": "确定要重置吗？",
+           "lk_ohne_speicher": "此浏览器目前无法保存数据，学习进度只在页面打开期间有效。",
+           "lk_heute": "稍后再来一次", "lk_morgen": "明天", "lk_tage": "{n} 天后",
+           "lk_keine": "本模块暂时还没有学习卡片。", "lk_zum_kapitel": "本章学习卡片",
+           "lk_tasten": "按键：空格翻面，1 / 2 / 3 评分。",
+           "zf_test": "自测", "zf_test_t": "先遮住各条，自己回想，再逐条揭开", "aufdecken": "揭开",
+           "zf_zu": "关于“{h}”：", "gelesen": "已读", "lf_kapitel": "已读 {n} / {m}", "lf_artikel": "已读。本章已读 {n} / {m}。",
+           "weiterlesen": "继续阅读", "fs_reset": "重置阅读进度", "fs_lokal": "阅读进度只保存在本浏览器中。",
+           "vs_oeffnen": "打开", "vs_schliessen": "关闭"},
+    "fr": {"begriffe": "Glossaire", "lernkarten": "Fiches de révision",
+           "bg_lede": "Les termes techniques de ce module avec leur définition. Un clic sur un terme mène à l’endroit où il est introduit.",
+           "bg_filter": "Filtrer les termes", "bg_leer": "Aucun terme ne correspond.", "bg_anzahl": "{n} termes", "bg_abc": "Lettres initiales",
+           "bg_keine": "Il n’y a pas encore de termes pour ce module.",
+           "lk_lede": "Des fiches tirées des articles de ce module : termes, formules nommées et phrases à compléter. Ce que vous savez "
+                      "revient après des intervalles croissants (1, 3, 7, 14 et 30 jours). Votre progression reste uniquement dans ce navigateur.",
+           "lk_kapitel": "Chapitre", "lk_alle_kap": "Tous les chapitres", "lk_faellig": "À revoir aujourd’hui : {n}",
+           "lk_davon_neu": "dont nouvelles : {n}", "lk_umdrehen": "Retourner", "lk_gut": "Je savais", "lk_mittel": "Incertain",
+           "lk_schlecht": "Je ne savais pas", "lk_stelle": "Aller à l’endroit dans l’article",
+           "lk_fertig": "Plus rien à revoir aujourd’hui dans cette sélection.", "lk_mehr_neu": "{n} nouvelles fiches de plus",
+           "lk_liste": "Toutes les fiches en liste ({n})", "lk_begriff": "Terme", "lk_formel": "Formule", "lk_luecke": "Texte à trous",
+           "lk_reset": "Réinitialiser la progression", "reset_sicher": "Vraiment réinitialiser ?",
+           "lk_ohne_speicher": "Ce navigateur n’enregistre rien pour le moment. La progression ne dure que tant que la page est ouverte.",
+           "lk_heute": "encore une fois tout de suite", "lk_morgen": "demain", "lk_tage": "dans {n} jours",
+           "lk_keine": "Il n’y a pas encore de fiches pour ce module.", "lk_zum_kapitel": "Fiches de ce chapitre",
+           "lk_tasten": "Touches : Espace retourne, 1 / 2 / 3 évaluent.",
+           "zf_test": "Auto-test", "zf_test_t": "Masquer les points, se les rappeler soi-même, puis les révéler un à un", "aufdecken": "Révéler",
+           "zf_zu": "À propos de « {h} » :", "gelesen": "Lu", "lf_kapitel": "{n} sur {m} lus", "lf_artikel": "Lu. Dans ce chapitre : {n} sur {m}.",
+           "weiterlesen": "Reprendre la lecture", "fs_reset": "Réinitialiser la progression de lecture",
+           "fs_lokal": "La progression de lecture reste uniquement dans ce navigateur.", "vs_oeffnen": "Ouvrir", "vs_schliessen": "Fermer"},
+    "tr": {"begriffe": "Sözlük", "lernkarten": "Çalışma kartları",
+           "bg_lede": "Bu modüldeki terimler ve tanımları. Bir terime tıklayınca onun ilk tanıtıldığı yere gidersiniz.",
+           "bg_filter": "Terimleri süz", "bg_leer": "Eşleşen terim yok.", "bg_anzahl": "{n} terim", "bg_abc": "Baş harfler",
+           "bg_keine": "Bu modül için henüz terim yok.",
+           "lk_lede": "Bu modülün makalelerinden kartlar: terimler, adı olan formüller ve boşluk doldurma cümleleri. Bildiğiniz kartlar "
+                      "giderek uzayan aralıklarla geri gelir (1, 3, 7, 14 ve 30 gün). İlerlemeniz yalnızca bu tarayıcıda kalır.",
+           "lk_kapitel": "Bölüm", "lk_alle_kap": "Tüm bölümler", "lk_faellig": "Bugün sırası gelen: {n}", "lk_davon_neu": "yeni: {n}",
+           "lk_umdrehen": "Çevir", "lk_gut": "Biliyordum", "lk_mittel": "Emin değilim", "lk_schlecht": "Bilmiyordum",
+           "lk_stelle": "Makaledeki yerine git", "lk_fertig": "Bu seçimde bugün için başka kart yok.",
+           "lk_mehr_neu": "{n} yeni kart daha", "lk_liste": "Tüm kartlar liste olarak ({n})", "lk_begriff": "Terim",
+           "lk_formel": "Formül", "lk_luecke": "Boşluk doldurma", "lk_reset": "Öğrenme ilerlemesini sıfırla", "reset_sicher": "Gerçekten sıfırlansın mı?",
+           "lk_ohne_speicher": "Bu tarayıcı şu anda hiçbir şey kaydetmiyor. İlerleme yalnızca sayfa açıkken geçerli.",
+           "lk_heute": "birazdan tekrar", "lk_morgen": "yarın", "lk_tage": "{n} gün sonra",
+           "lk_keine": "Bu modül için henüz çalışma kartı yok.", "lk_zum_kapitel": "Bu bölümün çalışma kartları",
+           "lk_tasten": "Tuşlar: Boşluk çevirir, 1 / 2 / 3 değerlendirir.",
+           "zf_test": "Kendini sına", "zf_test_t": "Maddeleri kapatın, önce kendiniz hatırlayın, sonra tek tek açın", "aufdecken": "Aç",
+           "zf_zu": "“{h}” hakkında:", "gelesen": "Okundu", "lf_kapitel": "{m} makaleden {n} tanesi okundu",
+           "lf_artikel": "Okundu. Bu bölümde: {m} makaleden {n} tanesi.", "weiterlesen": "Okumaya devam et",
+           "fs_reset": "Okuma ilerlemesini sıfırla", "fs_lokal": "Okuma ilerlemesi yalnızca bu tarayıcıda kalır.",
+           "vs_oeffnen": "Aç", "vs_schliessen": "Kapat"},
+}
+for _l, _w in _UI_LERNEN.items():
+    UI[_l].update(_w)
+LERNEN_JS = ("bg_leer", "bg_anzahl", "lk_faellig", "lk_davon_neu", "lk_fertig", "lk_mehr_neu", "lk_begriff", "lk_formel", "lk_luecke",
+             "reset_sicher", "lk_heute", "lk_morgen", "lk_tage", "lk_ohne_speicher", "aufdecken", "gelesen", "lf_kapitel", "lf_artikel",
+             "weiterlesen", "fs_reset", "fs_lokal", "vs_oeffnen", "vs_schliessen")
+
 def T(key):
     """Wort der Oberfläche in der Sprache der gerade gebauten Seite."""
     return UI[LANG_NOW[0]].get(key) or UI["de"][key]
@@ -532,14 +658,15 @@ def _zf_kurz(txt):
     if not m or not _zf_haupt():
         return ""
     hid = _zf_id("kg")
-    ZF["kg"].append({"id": hid, "md": txt[m.end():].strip()})
+    ZF["kg"].append({"id": hid, "md": txt[m.end():].strip(), "h": ZF["h"]})   # h: Abschnitt, Stichwort im Selbsttest
     return hid
 
 def _ohne_links(md):
     return re.sub(r"(?<!!)\[([^\]]+)\]\([^)]+\)", r"\1", md)
 
-def zusammenfassung_html(z):
-    """Kasten „Zusammenfassung“ (am Artikelende, immer offen) aus dem Sammler ZF; ohne Material: ""."""
+def zusammenfassung_html(z, fuss=""):
+    """Kasten „Zusammenfassung“ (am Artikelende, immer offen) aus dem Sammler ZF; ohne Material: "".
+    Dazu (W2) der Knopf „Selbsttest“ (ohne Skript verborgen, wissen.js deckt die Punkte zu) und fuss (Link auf die Lernkarten)."""
     gruppen = []
     def gruppe(wort, cls, punkte):
         if not punkte:
@@ -575,12 +702,18 @@ def zusammenfassung_html(z):
                   if teile else inline("$$" + f["tex"] + "$$"))
         punkte.append(f'<li><a class="zf-fl" href="#{f["id"]}">{kopf}</a><div class="zf-f">{formel}</div></li>')
     gruppe("zf_formeln", "formeln", punkte)
+    def _stichwort(k):                                             # Selbsttest: Abschnitt als Stichwort über dem zugedeckten Satz
+        h = re.sub(r"^\s*(?:\d+(?:\.\d+)*\.?|Stufe\s+\d+\s*:)\s*", "", _ohne_links(k.get("h") or "")).strip()
+        return (f'<span class="zf-cue" hidden>{T("zf_zu").format(h=inline(h))} </span>' if h else "")
     gruppe("zf_zusammenhaenge", "zusammenhaenge",
-           [f'<li><a class="zf-a" href="#{k["id"]}">{inline(_ohne_links(k["md"]))}</a></li>' for k in z["kg"]])
+           [f'<li>{_stichwort(k)}<a class="zf-a" href="#{k["id"]}">{inline(_ohne_links(k["md"]))}</a></li>' for k in z["kg"]])
     if not gruppen:
         return ""
-    return (f'<aside class="zf" id="zusammenfassung" aria-labelledby="zf-titel"><h2 class="zf-t" id="zf-titel">{T("zf")}</h2>'
-            + "".join(gruppen) + "</aside>")
+    test = (f'<button type="button" class="zf-test" aria-pressed="false" title="{html.escape(T("zf_test_t"))}" hidden>'
+            f'{T("zf_test")}</button>')
+    return (f'<aside class="zf" id="zusammenfassung" aria-labelledby="zf-titel"><div class="zf-kopf">'
+            f'<h2 class="zf-t" id="zf-titel">{T("zf")}</h2>{test}</div>'
+            + "".join(gruppen) + fuss + "</aside>")
 
 ABB_N = [0]                                               # laufende Abbildungsnummer im Artikel (render_article setzt 0)
 _ABB_GEMELDET = set()                                     # jede fehlende Szene/SVG nur einmal melden
@@ -1097,6 +1230,9 @@ def sidebar_html(tree, active_path=None, art=None):
         for nd in nodes:
             is_open = depth == 0
             rows.append(f'<details class="lvl lvl{depth}"{" open" if is_open else ""}><summary>{_node_label(nd, depth)}</summary>')
+            mp = _modul_von(nd)                        # Modul: Begriffe und Lernkarten als leise Zeile über den Kapiteln
+            if mp:
+                rows.append(lernen_links(mp, "side-lernen"))
             if nd["articles"]:
                 rows.append("<ul>")
                 for a in nd["articles"]:
@@ -1145,6 +1281,8 @@ def sprachen(art):
     """{Sprache: Adresse} derselben Seite; art = None: die Übersichten."""
     if art is None:
         return {l: ("/wissen/" if l == "de" else f"/wissen/{l}/") for l in TREES}
+    if "ziele" in art:                                 # Seiten eines Moduls (Begriffe, Lernkarten): von lernen_seiten gesetzt
+        return art["ziele"]
     base = art.get("human_of") or art
     return {l: "/wissen/" + a["path"] for l, a in ART_LANG.get(base["key"], {}).items()}
 
@@ -1240,6 +1378,8 @@ def render_article(art, tree, prev_a, next_a):
     body_html, toc = md_to_html(art["body"])
     zdaten = dict(ZF)
     ZF["an"] = False
+    SAMMEL[art["path"]] = zdaten                       # Begriffsverzeichnis und Lernkarten des Moduls (lernen_seiten)
+    body_html = _vorschau_markieren(body_html)         # Links auf Artikel: Link-Vorschau (data-vs)
     _TOC[art["body"]] = toc
     quiz_html = ""                                     # Quiz ganz unten, unter den Nachbar-Spalten (User 2026-10-21)
     qa = body_html.find('<aside class="callout cx-quiz">')
@@ -1251,7 +1391,10 @@ def render_article(art, tree, prev_a, next_a):
         body_html = f'<section class="sect">{body_html}</section>'
     # am Artikelende, vor den Nachbar-Artikeln (User 11.11.2026); nicht in „Das Wichtigste (bis hier)“: Der Artikel ist
     # mit seinem Kasten :::kern schon die Zusammenfassung des Kapitels
-    zf_html = "" if re.search(r"(?m)^:::kern\b", art["body"]) else zusammenfassung_html(zdaten)
+    lk = art["path"].rsplit("/", 1)[0]                 # Kapitelordner; die Lernkarten des Moduls liegen eine Ebene höher
+    fuss = (f'<p class="zf-fuss"><a href="/wissen/{modul_pfad(art["path"])}/lernkarten.html#k-{lk.rsplit("/", 1)[-1]}">'
+            f'{T("lk_zum_kapitel")}</a></p>')
+    zf_html = "" if re.search(r"(?m)^:::kern\b", art["body"]) else zusammenfassung_html(zdaten, fuss)
     pill = (f'<span class="apill apill-mensch">{T("hand_pill")}</span>' if art["autor"] == "mensch"
             else f'<span class="apill">{T("ki_pill")}</span>')
     # Brotkrumen; am Handy nur die letzten zwei Glieder, der Modulname kurz („ET3“ statt „ET3 – Grundgebiete …“)
@@ -1375,6 +1518,359 @@ def legal_footer():
     return (f'<footer class="wfoot">EtUndSo.de · <a href="/impressum.html">{T("impressum")}</a> · '
             f'<a href="/datenschutz.html">{T("datenschutz")}</a></footer>')
 
+# ------------------------------------------ Lernen: Begriffe, Link-Vorschau, Lernkarten (W2, 11.11.2026) ----
+# Was ein Leser liest und lernt, bleibt in seinem Browser (localStorage, wissen.js). Der Build legt nur die Inhalte an, je
+# Modul und Sprache drei Dateien im Modulordner (…/<modul>/<kapitel>/<artikel>.html -> …/<modul>/):
+#   begriffe.html    Begriffsverzeichnis: Begriff, Bestimmung, Link auf die Stelle (alphabetisch; Chinesisch nach Kapiteln)
+#   lernkarten.html  Lernkarten; ohne Skript eine Liste mit Vorder- und Rückseite, mit Skript ein Stapel mit Leitner-Fächern
+#   vorschau.json    Titel, Kapitel und „Worum es geht“ jedes Artikels: das Kärtchen der Link-Vorschau
+# Quelle ist der Sammler der Zusammenfassung (ZF), den render_article je Artikel in SAMMEL ablegt; nichts wird neu gesucht.
+SAMMEL = {}                                            # Artikeladresse -> Sammler-Daten (fb, fm, kg) des Artikels
+VORSCHAU = set()                                       # Adressen aller Artikel aller Sprachen (main): Ziele der Link-Vorschau
+MODUL_SPRACHEN = {}                                    # Moduladresse (deutsch) -> Sprachen, in denen es das Modul gibt
+KARTEN_STAT = {}                                       # Sprache -> {Modul: Zähler} für die Ausgabe des Builds
+VORSCHAU_MAX = 230                                     # Zeichen „Worum es geht“ im Kärtchen (Chinesisch: die Hälfte)
+_LUECKE, _AN, _AUS = "\x06", "\x07", "\x0e"            # Marken im Markdown der Lückentexte (inline() lässt sie stehen)
+_ETIKETT_RE = re.compile(r"^⁠?\*\*[^*\n]{1,48}?[.:：]\*\*\s*")   # „**Quantisierung.** “, „**So liest man das:** “ vor dem Satz
+_LINK_A_RE = re.compile(r'<a href="/wissen/([^"#?]+\.html)(?:#[^"]*)?"')
+# Karten müssen ohne den Artikel verständlich sein: Bestimmungen, die mit einem Rückbezug beginnen („Ihre Wurzel, die
+# Standardabweichung …“, „Hängt er nur …“, „其中 …“), fallen weg; ebenso Formeln, deren Name nur ein Beispiel ankündigt.
+_LK_RUECKBEZUG = re.compile(
+    r"(?:(?:ihr|ihre|ihren|ihrem|ihrer|ihres|sein|seine|seinen|seinem|seiner|seines|dessen|deren|dies|diese|dieser|dieses|diesen|"
+    r"dabei|damit|dafür|dazu|daraus|davon|darin|darauf|daher|deshalb|dort|hier|sie|er|es|so|also|außerdem|ebenso|genauso|dann|nun|"
+    r"its|their|this|these|those|it|they|here|there|thus|hence|then|"
+    r"su|sus|este|esta|esto|estos|estas|ese|esa|eso|ello|así|aquí|entonces|"
+    r"son|sa|ses|leur|leurs|ce|cet|cette|ces|cela|ceci|il|elle|ils|elles|ainsi|alors|donc|"
+    r"bu|bunun|buna|bunu|bunlar|şu|onun|ona|onu|böylece|yani|ayrıca)\b|\w+\s+(?:er|sie|it|they)\b|[其这此它该那])", re.I)
+_LK_VERWEIS = re.compile(r"(?:\b(?:Unterabschnitt|Abschnitt|Kapitel|Abbildung|Gleichung|Subsection|Section|Chapter|Figure|Equation|"
+                         r"Subsección|Sección|Capítulo|Figura|Ecuación|Chapitre|Équation|Bölüm|Şekil|Denklem)\s*\d|"
+                         r"第\s*[\d.]+\s*[章节]|图\s*\d)", re.I)
+_LK_BEISPIEL = re.compile(r"(?:Beispiel|Example|Ejemplo|Exemple|Örnek|例)", re.I)
+
+def modul_pfad(path):
+    """Moduladresse zu einer Artikeladresse: …/<modul>/<kapitel>/<artikel>.html -> …/<modul> (gilt für alle Artikel)."""
+    return path.rsplit("/", 2)[0]
+
+def _modul_von(nd):
+    """Moduladresse, wenn nd ein Modul ist (seine Unterknoten tragen die Artikel), sonst None."""
+    for c in nd["children"]:
+        if c["articles"]:
+            return modul_pfad(c["articles"][0]["path"])
+    return None
+
+def lernen_links(mp, cls):
+    """Leise Zeile „Begriffe · Lernkarten“ unter einem Modul (Seitenleiste, Übersicht)."""
+    return (f'<div class="{cls}"><a href="/wissen/{mp}/begriffe.html">{T("begriffe")}</a><span aria-hidden="true"> · </span>'
+            f'<a href="/wissen/{mp}/lernkarten.html">{T("lernkarten")}</a></div>')
+
+def _vorschau_markieren(h):
+    """Links auf Artikel bekommen data-vs: wissen.js zeigt dann beim Überfahren, beim Tastaturfokus oder langem Tippen ein
+    Kärtchen aus der vorschau.json des Zielmoduls. Nur bekannte Ziele, so bleibt jeder Abruf erfolgreich."""
+    return _LINK_A_RE.sub(lambda m: m.group(0) + (" data-vs" if m.group(1) in VORSCHAU else ""), h)
+
+def _kurztext(t, lang, n):
+    if len(t) <= n:
+        return t
+    if lang == "zh":
+        return t[:n].rstrip("，、；：") + "…"
+    return t[:n].rsplit(" ", 1)[0].rstrip(",;:–") + " …"
+
+def _kapitel_kurz(name):
+    """„Kapitel 2: Laplace-Transformation“ -> „Kapitel 2“ (Chinesisch „第 2 章：…“ -> „第 2 章“)."""
+    return re.split(r"\s*[:：]\s*", name, maxsplit=1)[0]
+
+def _bestimmung_md(satz):
+    return _ohne_links(_ETIKETT_RE.sub("", satz)).strip()
+
+def _sortier(text, lang):
+    """Sortierschlüssel eines Begriffs: ohne Umlaute und Akzente; Türkisch mit eigenem Alphabet (ç nach c, ı vor i …)."""
+    t = re.sub(r"^[\W_]+", "", klartext(text)).strip()
+    if lang == "tr":
+        abc = "abcçdefgğhıijklmnoöprsştuüvyz"
+        return tuple(abc.index(c) + 1 if c in abc else 100 + ord(c) for c in t.replace("I", "ı").replace("İ", "i").lower()), t
+    return fold(t), t
+
+def _buchstabe(text, lang):
+    """Gruppe im Verzeichnis: Anfangsbuchstabe (Türkisch mit Ç, Ğ, İ, Ö, Ş, Ü), „0–9“ für Ziffern und Zeichen, „α–ω“ für
+    andere Schriften (griechische Formelzeichen)."""
+    t = re.sub(r"^[\W_]+", "", klartext(text)).strip()
+    if not t or not t[0].isalpha():
+        return "0–9"
+    c = t[0]
+    if lang == "tr":
+        c = {"i": "İ", "ı": "I"}.get(c, c.upper())
+        return c if c in "ABCÇDEFGĞHIİJKLMNOÖPRSŞTUÜVYZQWX" else "α–ω"
+    c = fold(c)[:1].upper()
+    return c if "A" <= c <= "Z" else "α–ω"
+
+def _modul_begriffe(arts):
+    """{Schlüssel: Begriff} eines Moduls: je Begriff die erste Nennung mit Bestimmung, sonst die erste überhaupt."""
+    begriffe = {}
+    for a in arts:
+        for b in (SAMMEL.get(a["path"]) or {}).get("fb", []):
+            key = fold(klartext(b["md"])).strip()
+            if not key:
+                continue
+            alt = begriffe.get(key)
+            if alt is None or (not alt["satz"] and b["satz"]):
+                begriffe[key] = {"md": b["md"], "satz": b["satz"], "id": b["id"], "art": a,
+                                 "pos": alt["pos"] if alt else len(begriffe)}
+    return begriffe
+
+def _modul_kopf(arts, wort, datei, lang):
+    """Brotkrumen, Titel und Sprachwahl der Modulseiten (Begriffe, Lernkarten); Rückgabe (Seitenkopf, Pseudo-Artikel, Name)."""
+    chain = arts[0]["crumbs"][:-1]                     # bis zum Modul
+    name = chain[-1][0]
+    kurz = name.split(" – ")[0]
+    de_mp = modul_pfad(arts[0]["path"])
+    de_mp = de_mp.split("/", 1)[1] if lang != "de" else de_mp
+    ziele = {l: f"/wissen/{'' if l == 'de' else l + '/'}{de_mp}/{datei}" for l in LANGS if l in MODUL_SPRACHEN.get(de_mp, ())}
+    n = len(chain)
+    def _cr(k, nm):                                    # am Handy nur die letzten zwei Glieder: Modul › Begriffe
+        cls = "cr cr-alt" if k < n - 1 else "cr cr-erst"
+        k_, _, lang_ = nm.partition(" – ")
+        inhalt = (f'<span class="cr-k">{html.escape(k_)}</span><span class="cr-l"> – {html.escape(lang_)}</span>' if lang_
+                  else html.escape(nm))
+        return f'<span class="{cls}"><span class="cr-sep" aria-hidden="true"> › </span>{inhalt}</span>'
+    crumb = (f'<nav class="crumbs"><a class="cr-home" href="{home()}">{T("wissen")}</a>'
+             + "".join(_cr(k, nm) for k, (nm, _) in enumerate(chain))
+             + f'<span class="cr"><span class="cr-sep" aria-hidden="true"> › </span>{html.escape(T(wort))}</span></nav>')
+    pseudo = {"ziele": ziele}
+    voll = f'<span class="lern-modul">{html.escape(name)}</span>' if name != kurz else ""   # „ET3 – Grundgebiete …“
+    kopf = (crumb + f'<h1>{html.escape(T(wort))}: {html.escape(kurz)}</h1>'
+            + f'<div class="art-meta lern-meta">{voll}{lang_switch(pseudo, "art")}</div>')
+    return kopf, pseudo, name
+
+def _modul_seite(tree, titel, desc, kopf, inhalt, pseudo, mp, depth_datei):
+    main = (f'<main class="article lern-seite" id="inhalt" tabindex="-1"><article>{kopf}{inhalt}{legal_footer()}</article></main>')
+    body = topbar(art=pseudo) + '<div class="layout">' + sidebar_html(tree, None) + main + "</div>"
+    return page_shell(titel, desc, body, depth_datei, pseudo["ziele"])
+
+def begriffe_html(tree, mp, arts, begriffe, lang):
+    """Seite „Begriffe“ eines Moduls: Buchstabenleiste, Filter (mit Skript), je Begriff Bestimmung und Link zur Stelle."""
+    kopf, pseudo, name = _modul_kopf(arts, "begriffe", "begriffe.html", lang)
+    kap_nr = {a["path"]: _kapitel_kurz(a["crumbs"][-1][0]) for a in arts}
+    nach_kapitel = lang == "zh"                        # ohne Pinyin keine alphabetische Ordnung: nach Kapiteln in Lesefolge
+    gruppen = {}
+    for key, b in begriffe.items():
+        if nach_kapitel:
+            g = b["art"]["crumbs"][-1][0]
+        else:
+            g = _buchstabe(b["md"], lang)
+        gruppen.setdefault(g, []).append(b)
+    if nach_kapitel:
+        kap_folge = {}
+        for a in arts:
+            kap_folge.setdefault(a["crumbs"][-1][0], len(kap_folge))
+        reihe = sorted(gruppen, key=lambda g: kap_folge.get(g, 10**6))
+        for g in reihe:
+            gruppen[g].sort(key=lambda x: x["pos"])
+        marke = {g: (re.search(r"\d+", g).group(0) if re.search(r"\d+", g) else str(i + 1)) for i, g in enumerate(reihe)}
+    else:
+        reihe = sorted(gruppen, key=lambda g: (0 if g == "0–9" else 2 if g == "α–ω" else 1,
+                                               _sortier(g, lang) if g not in ("0–9", "α–ω") else ((), "")))
+        for g in reihe:
+            gruppen[g].sort(key=lambda x: _sortier(x["md"], lang))
+        marke = {g: g for g in reihe}
+    abc = "".join(f'<a href="#b-{i}" title="{html.escape(g)}">{html.escape(marke[g])}</a>' for i, g in enumerate(reihe))
+    teile = []
+    for i, g in enumerate(reihe):
+        zeilen = []
+        for b in gruppen[g]:
+            a = b["art"]
+            satz = b["satz"] and _bestimmung_md(b["satz"])
+            wo = f'<span class="bg-wo">{html.escape(kap_nr[a["path"]])} · {html.escape(a["kurz"] or a["title"])}</span>'
+            zeilen.append(f'<div class="bg-e"><dt><a href="/wissen/{a["path"]}#{b["id"]}">{inline(_ohne_links(b["md"]))}</a></dt>'
+                          f'<dd>{inline(satz) + " " if satz else ""}{wo}</dd></div>')
+        teile.append(f'<section class="bg-g" id="b-{i}"><h2>{html.escape(g)}</h2><dl class="bg-l">{"".join(zeilen)}</dl></section>')
+    anzahl = html.escape(T("bg_anzahl").format(n=len(begriffe)))
+    if begriffe:
+        inhalt = (f'<p class="lede lern-lede">{T("bg_lede")}</p>'
+                  f'<p class="lern-nav"><a href="/wissen/{mp}/lernkarten.html">{T("lernkarten")}</a></p>'
+                  f'<nav class="bg-abc" aria-label="{html.escape(T("bg_abc"))}">{abc}</nav>'
+                  f'<div class="bg-such" hidden><input type="search" class="bg-filter" placeholder="{html.escape(T("bg_filter"))}" '
+                  f'aria-label="{html.escape(T("bg_filter"))}" autocomplete="off"/><span class="bg-n" aria-live="polite">{anzahl}</span></div>'
+                  + "".join(teile) + f'<p class="bg-nichts" hidden>{T("bg_leer")}</p>')
+    else:
+        inhalt = f'<p class="lede lern-lede">{T("bg_keine")}</p>'
+    titel = f'{T("begriffe")}: {name}'
+    return _modul_seite(tree, titel, f'{T("begriffe")} – {name}. {anzahl}.', kopf, inhalt, pseudo, mp, 2 + mp.count("/"))
+
+def _lueckentext(md, woerter, lang):
+    """„Kurz gesagt“-Satz als Lückentext: Das erste Wort aus dem Begriffsverzeichnis des Moduls (außerhalb von Formeln und
+    Code; Deutsch u. a. mit Endung, z. B. „rückwirkungsfrei|en“) wird zur Lücke. Rückgabe (Vorderseite, Rückseite) als
+    Markdown mit Marken oder None, wenn kein Begriff vorkommt oder vom Satz kaum etwas bliebe."""
+    maske = _maskiert(md)
+    best = None
+    for w, rx in woerter:
+        m = rx.search(maske)
+        if m and (best is None or m.start() < best[0] or (m.start() == best[0] and m.end() > best[1])):
+            best = (m.start(), m.end())
+    if best is None:
+        return None
+    a, b = best
+    rest = klartext(md[:a] + md[b:])
+    if len(rest) < (12 if lang == "zh" else 30):
+        return None
+    return md[:a] + _LUECKE + md[b:], md[:a] + _AN + md[a:b] + _AUS + md[b:]
+
+def _md_html(md):
+    return (inline(md).replace(_LUECKE, '<span class="lk-luecke" aria-label="…">______</span>')
+            .replace(_AN, '<strong class="lk-wort">').replace(_AUS, "</strong>"))
+
+def modul_karten(mp, arts, begriffe, lang):
+    """Lernkarten eines Moduls in Lesefolge: [(Kapitel-Slug, Kapitelname, Karte)] und Zähler (gut, aussortiert je Grund).
+    Begriff -> Bestimmung; benannte Formel -> Formel; „Kurz gesagt“ -> Lückentext. Ausgesondert: Begriffe ohne Bestimmung,
+    mit Bruchstück („…“) oder Rückbezug am Anfang, Sätze mit Verweis („Abschnitt 1.1“), Formeln ohne Namen oder zu einem
+    Beispiel, Sätze ohne Begriff aus dem Verzeichnis, Doppel."""
+    import hashlib
+    stat = {"gut": 0, "ohne Bestimmung": 0, "Bruchstück": 0, "Rückbezug": 0, "Verweis": 0, "Formel ohne Namen": 0,
+            "Formel eines Beispiels": 0, "Lückentext ohne Begriff": 0, "doppelt": 0}
+    woerter = []                                       # Begriffe des Verzeichnisses als Suchmuster, längste zuerst
+    for b in begriffe.values():
+        w = re.sub(r"\s+", " ", klartext(b["md"])).strip()
+        if len(w) < (2 if lang == "zh" else 4) or not re.search(r"\w", w) or re.fullmatch(r"[\d\W]+", w):
+            continue
+        rx = (re.compile(re.escape(w)) if lang == "zh" else
+              re.compile(r"(?<![\w-])" + re.escape(w) + r"\w{0,3}(?![\w])", re.I))
+        woerter.append((w, rx))
+    woerter.sort(key=lambda x: -len(x[0]))
+    karten, ids = [], set()
+    def neu(a, typ, key, vorne, hinten, anker):
+        kid = hashlib.sha1(f"{mp}|{typ}|{key}".encode("utf-8")).hexdigest()[:10]
+        if kid in ids:
+            stat["doppelt"] += 1
+            return
+        ids.add(kid)
+        stat["gut"] += 1
+        teile = a["path"].rsplit("/", 2)
+        karten.append((teile[1], a["crumbs"][-1][0], {"id": kid, "typ": typ, "vorne": vorne, "hinten": hinten,
+                                                     "href": f"/wissen/{a['path']}#{anker}", "art": a["kurz"] or a["title"]}))
+    gewaehlt = {b["id"] + "|" + b["art"]["path"]: b for b in begriffe.values()}
+    for a in arts:
+        z = SAMMEL.get(a["path"]) or {}
+        fb = [b for b in z.get("fb", []) if b["id"] + "|" + a["path"] in gewaehlt]
+        i = 0                                          # Begriffe mit demselben Satz: eine Karte (wie in der Zusammenfassung)
+        while i < len(fb):
+            gleich = [fb[i]]
+            while fb[i]["satz"] and i + len(gleich) < len(fb) and fb[i + len(gleich)]["satz"] == fb[i]["satz"]:
+                gleich.append(fb[i + len(gleich)])
+            i += len(gleich)
+            satz = gleich[0]["satz"]
+            if not satz:
+                stat["ohne Bestimmung"] += len(gleich)
+                continue
+            if "…" in satz:
+                stat["Bruchstück"] += len(gleich)
+                continue
+            bestimmung = _bestimmung_md(satz)
+            if _LK_RUECKBEZUG.match(re.sub(r"^[\W_]+", "", klartext(bestimmung))):
+                stat["Rückbezug"] += len(gleich)
+                continue
+            if _LK_VERWEIS.search(klartext(bestimmung)):        # „… aus Unterabschnitt 1.1 …“: ohne den Artikel unverständlich
+                stat["Verweis"] += len(gleich)
+                continue
+            vorne = ", ".join(inline(_ohne_links(b["md"])) for b in gleich)
+            neu(a, "b", "|".join(fold(klartext(b["md"])) for b in gleich), vorne, inline(bestimmung), gleich[0]["id"])
+        formeln = {}                                   # benannte Formeln: je Name (Kastentitel, Abschnitt) eine Karte
+        for f in z.get("fm", []):
+            titel = (f["titel"] or "").strip()
+            if not klartext(titel):
+                stat["Formel ohne Namen"] += 1
+                continue
+            if _LK_BEISPIEL.match(klartext(titel)):
+                stat["Formel eines Beispiels"] += 1
+                continue
+            formeln.setdefault(titel, []).append(f)
+        for titel, fs in formeln.items():
+            hinten = "".join(f'<div class="lk-formel">{inline("$$" + f["tex"] + "$$")}</div>' for f in fs)
+            neu(a, "f", fold(klartext(titel)) + "|" + re.sub(r"\s+", "", fs[0]["tex"]), inline(_ohne_links(titel)), hinten, fs[0]["id"])
+        for k in z.get("kg", []):
+            if _LK_VERWEIS.search(klartext(k["md"])):
+                stat["Verweis"] += 1
+                continue
+            lt = _lueckentext(_ohne_links(k["md"]), woerter, lang)
+            if lt is None:
+                stat["Lückentext ohne Begriff"] += 1
+                continue
+            neu(a, "l", fold(klartext(k["md"])), _md_html(lt[0]), _md_html(lt[1]), k["id"])
+    return karten, stat
+
+def lernkarten_html(tree, mp, arts, karten, lang):
+    """Seite „Lernkarten“ eines Moduls. Ohne Skript: alle Karten als Liste je Kapitel (Vorder-, Rückseite, Link zur Stelle).
+    Mit Skript (wissen.js): Kartenstapel mit Kapitelwahl, Zähler „heute fällig“, Umdrehen und drei Bewertungen."""
+    kopf, pseudo, name = _modul_kopf(arts, "lernkarten", "lernkarten.html", lang)
+    typ_wort = {"b": T("lk_begriff"), "f": T("lk_formel"), "l": T("lk_luecke")}
+    kapitel = []
+    for slug, kname, k in karten:
+        if not kapitel or kapitel[-1][0] != slug:
+            kapitel.append((slug, kname, []))
+        kapitel[-1][2].append(k)
+    liste = []
+    for slug, kname, ks in kapitel:
+        zeilen = "".join(
+            f'<li class="lk" data-id="{k["id"]}" data-typ="{k["typ"]}"><div class="lk-v"><span class="lk-typ">{typ_wort[k["typ"]]}</span>'
+            f'{k["vorne"]}</div><div class="lk-r">{k["hinten"]}</div>'
+            f'<a class="lk-q" href="{k["href"]}">{html.escape(k["art"])}</a></li>' for k in ks)
+        liste.append(f'<section class="lk-kap" id="k-{slug}" data-k="{slug}"><h2>{html.escape(kname)}</h2><ol class="lk-l">{zeilen}</ol></section>')
+    optionen = "".join(f'<option value="{slug}">{html.escape(kname)}</option>' for slug, kname, _ in kapitel)
+    if karten:
+        app = (f'<div class="lk-app" data-modul="{mp}" hidden>'
+               f'<div class="lk-leiste"><label class="lk-wahl"><span>{T("lk_kapitel")}</span> <select class="lk-sel">'
+               f'<option value="">{T("lk_alle_kap")}</option>{optionen}</select></label>'
+               f'<span class="lk-zahl" aria-live="polite"></span></div>'
+               f'<div class="lk-karte" tabindex="-1"><div class="lk-kopf"></div><div class="lk-vorne"></div>'
+               f'<div class="lk-hinten" hidden></div></div>'
+               f'<div class="lk-steuer"><button type="button" class="lk-um">{T("lk_umdrehen")}</button>'
+               f'<div class="lk-bew" hidden><button type="button" class="lk-b lk-b0" data-b="0">{T("lk_schlecht")}<small></small></button>'
+               f'<button type="button" class="lk-b lk-b1" data-b="1">{T("lk_mittel")}<small></small></button>'
+               f'<button type="button" class="lk-b lk-b2" data-b="2">{T("lk_gut")}<small></small></button></div></div>'
+               f'<div class="lk-ende" hidden><p>{T("lk_fertig")}</p><button type="button" class="lk-neu"></button></div>'
+               f'<div class="lk-fuss"><a class="lk-stelle" href="#">{T("lk_stelle")}</a>'
+               f'<span class="lk-tasten">{T("lk_tasten")}</span></div>'
+               f'<p class="lk-hinweis" hidden>{T("lk_ohne_speicher")}</p>'
+               f'<button type="button" class="lern-reset lk-reset">{T("lk_reset")}</button></div>')
+        inhalt = (f'<p class="lede lern-lede">{T("lk_lede")}</p>'
+                  f'<p class="lern-nav"><a href="/wissen/{mp}/begriffe.html">{T("begriffe")}</a></p>' + app
+                  + f'<details class="lk-alle" open><summary>{html.escape(T("lk_liste").format(n=len(karten)))}</summary>'
+                  + "".join(liste) + "</details>")
+    else:
+        inhalt = f'<p class="lede lern-lede">{T("lk_keine")}</p>'
+    titel = f'{T("lernkarten")}: {name}'
+    return _modul_seite(tree, titel, f'{T("lernkarten")} – {name}.', kopf, inhalt, pseudo, mp, 2 + mp.count("/"))
+
+def vorschau_daten(arts, lang):
+    """Inhalt der vorschau.json eines Moduls: {Artikeladresse: [Titel, „Modul · Kapitel“, „Worum es geht“ (gekürzt)]}."""
+    d = {}
+    for a in arts:
+        kap = a["crumbs"][-1][0] if a["crumbs"] else ""
+        mod = a["crumbs"][-2][0].split(" – ")[0] if len(a["crumbs"]) > 1 else ""
+        lim = VORSCHAU_MAX // 2 if lang == "zh" else VORSCHAU_MAX
+        d[a["path"]] = [klartext(a["title"]), " · ".join(x for x in (klartext(mod), klartext(kap)) if x),
+                        _kurztext(beschreibung(a), lang, lim)]
+    return d
+
+def lernen_seiten(lang, tree, flat, weitere):
+    """Je Modul dieser Sprache: begriffe.html, lernkarten.html, vorschau.json (siehe oben). weitere = ausführliche und von
+    Hand geschriebene Fassungen (Ziele von Links, aber ohne eigene Begriffe und Karten)."""
+    module = {}
+    for a in flat:
+        module.setdefault(modul_pfad(a["path"]), []).append(a)
+    alle = {}
+    for a in flat + weitere:
+        alle.setdefault(modul_pfad(a["path"]), []).append(a)
+    KARTEN_STAT[lang] = {}
+    for mp, arts in module.items():
+        ordner = OUT / Path(mp)
+        ordner.mkdir(parents=True, exist_ok=True)
+        begriffe = _modul_begriffe(arts)
+        schreibe(ordner / "begriffe.html", begriffe_html(tree, mp, arts, begriffe, lang))
+        karten, stat = modul_karten(mp, arts, begriffe, lang)
+        schreibe(ordner / "lernkarten.html", lernkarten_html(tree, mp, arts, karten, lang))
+        (ordner / "vorschau.json").write_text(json.dumps(vorschau_daten(alle[mp], lang), ensure_ascii=False, separators=(",", ":")),
+                                             encoding="utf-8")
+        KARTEN_STAT[lang][mp] = stat
+
 def render_index(tree):
     cards = [f'<main class="article" id="inhalt" tabindex="-1"><article><h1>{T("wissen")}</h1>{lang_switch(None, "art")}<p class="lede">{T("lede")}</p>']
     if not tree:
@@ -1395,6 +1891,9 @@ def render_index(tree):
             else:
                 hd = (f'<h3 class="idx-lvl{depth}">{html.escape(nd["name"])}</h3>' if depth >= 2
                       else f'<h4 class="lvl-h idx-lvl{depth}">{_node_label(nd, depth)}</h4>')
+                mp = _modul_von(nd)                    # Modul: Begriffe und Lernkarten unter der Überschrift
+                if mp:
+                    hd += lernen_links(mp, "idx-lernen")
                 inner = block(nd["children"], depth + 1)
                 rows.append(f'<div class="idx-node">{hd}{hw}{leaf_cards}{inner}</div>' if (inner or leaf_cards) else "")
         return "".join(rows)
@@ -1463,6 +1962,7 @@ def build_lang(lang, tree):
                        "ft_title": fold(title), "ft_tags": fold(a["tags"]),
                        "ft_text": fold(a["summary"] + " " + plain), "text": plain})
     (OUT / "data" / f"search{suffix}.json").write_text(json.dumps(search, ensure_ascii=False), encoding="utf-8")
+    lernen_seiten(lang, tree, flat, alts + humans)     # je Modul: Begriffe, Lernkarten, Daten der Link-Vorschau
     return len(flat), len(alts), len(humans)
 
 def main():
@@ -1473,12 +1973,23 @@ def main():
     for lang, tree in TREES.items():
         for a in flatten(tree):
             ART_LANG.setdefault(a["key"], {})[lang] = a
+            for x in (a, a.get("alt"), a.get("human"), (a.get("human") or {}).get("alt")):
+                if x:
+                    VORSCHAU.add(x["path"])            # Ziele der Link-Vorschau (alle Fassungen, alle Sprachen)
+            p = a["path"] if lang == "de" else a["path"].split("/", 1)[1]
+            MODUL_SPRACHEN.setdefault(modul_pfad(p), set()).add(lang)
     counts = {lang: build_lang(lang, tree) for lang, tree in TREES.items()}
     alt = alte_seiten_entfernen()
     LANG_NOW[0] = "de"
     (OUT / "assets" / "wissen.css").write_text(WISSEN_CSS, encoding="utf-8")
-    (OUT / "assets" / "wissen.js").write_text(WISSEN_JS, encoding="utf-8")
+    ui_js = {l: {k: UI[l][k] for k in LERNEN_JS if k in UI[l]} for l in LANGS}   # Oberflächenwörter für wissen.js
+    (OUT / "assets" / "wissen.js").write_text(
+        WISSEN_JS.replace("/*UI_LERNEN*/{}", json.dumps(ui_js, ensure_ascii=False, separators=(",", ":"))), encoding="utf-8")
     day = write_version()
+    for lang, st in KARTEN_STAT.items():               # Lernkarten je Sprache: gute und aussortierte (Gründe siehe modul_karten)
+        gut = sum(s["gut"] for s in st.values())
+        weg = sum(v for s in st.values() for k, v in s.items() if k != "gut")
+        print(f"  Lernkarten {lang}: {gut} in {len(st)} Modulen, {weg} aussortiert")
     n_mod, n_alt, n_hand = counts["de"]
     andere = ", ".join(f"{l}: {c[0]}" for l, c in counts.items() if l != "de")
     print(f"✓ {n_mod} Artikel (+{n_alt} ausführliche Fassungen, +{n_hand} von Hand)"
@@ -2052,6 +2563,144 @@ html.abb-offen,html.abb-offen body{overflow:hidden;}
   .article pre{white-space:pre-wrap;overflow-wrap:anywhere;overflow:visible;}
   :root[data-theme="dark"] .hl [class]{color:#111!important;}
 }
+/* ---------- Lernen (W2, 11.11.2026): Lesefortschritt, Modul-Links, Link-Vorschau, Selbsttest, Begriffe, Lernkarten.
+   Nur Grün, Orange und Neutraltöne; keine Symbole als Marker, keine Punkte oder Abzeichen. ---------- */
+.lern-seite [hidden],.zf [hidden],.lf-weiter[hidden],.vs-karte[hidden]{display:none!important;}
+.lf-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}
+/* gelesene Artikel: dezentes Häkchen statt des Punkts (Seitenleiste) bzw. hinter dem Titel (Übersicht); Kapitel „5/12“ */
+.side li a.gelesen::before{width:4px;height:8px;left:9px;top:calc(3px + .84em - 6px);border-radius:0;background:none;
+  border:solid var(--accent);border-width:0 1.8px 1.8px 0;transform:rotate(45deg);opacity:.9;}
+.side li a.active.gelesen::before{border-color:currentColor;}
+.theme-card a.gelesen::after{content:"";display:inline-block;width:4px;height:8px;margin-left:9px;border:solid var(--accent);
+  border-width:0 1.8px 1.8px 0;transform:translateY(-2px) rotate(45deg);opacity:.9;}
+.side summary .lf-z{float:right;margin-left:6px;font-size:11.5px;font-weight:500;color:var(--muted);line-height:2;}
+/* schmaler Fortschrittsbalken: grün auf neutral */
+.lf-balken{height:4px;border-radius:2px;background:var(--border);overflow:hidden;}
+.lf-balken>span{display:block;height:100%;border-radius:2px;background:var(--accent);}
+:root[data-theme="dark"] .lf-balken{background:rgba(255,255,255,.16);}
+.lf-kap{display:flex;align-items:center;gap:10px;margin:-3px 0 9px;}
+.lf-kap .lf-balken{flex:1;}
+.lf-kap .lf-text,.lf-art .lf-text{font-size:12.5px;color:var(--muted);white-space:nowrap;}
+.lf-art{display:flex;align-items:center;gap:12px;margin:22px 0 4px;}
+.lf-art .lf-balken{flex:0 0 96px;}
+.lf-art .lf-text{white-space:normal;font-size:13.5px;}
+/* Übersicht: „Weiterlesen“ und „Fortschritt zurücksetzen“ */
+.lf-weiter{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 16px;margin:-.5em 0 1.5em;padding:10px 14px 10px 16px;
+  border:1px solid var(--border);border-left:4px solid var(--accent3);border-radius:12px;background:var(--soft);}
+:root[data-theme="dark"] .lf-weiter{border-color:var(--rahmen);border-left-color:var(--accent3);}
+.lf-weiter-a{display:flex;flex-direction:column;min-width:0;}
+.lf-weiter-a:hover{text-decoration:none;} .lf-weiter-a:hover .lf-wt{text-decoration:underline;}
+.lf-wh{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent3);}
+.lf-wt{font-weight:600;color:var(--accent);overflow-wrap:anywhere;}
+.lern-reset{font:inherit;font-size:13px;line-height:1.5;color:var(--muted);background:none;border:1px solid var(--border);border-radius:8px;
+  padding:3px 10px;cursor:pointer;}
+.lern-reset:hover,.lern-reset:focus-visible{color:var(--ink);border-color:var(--muted);}
+.lern-reset.frage{color:var(--accent3);border-color:var(--accent3);}
+/* Begriffe und Lernkarten eines Moduls: leise Zeile unter dem Modul (Seitenleiste, Übersicht) */
+.side-lernen{margin:1px 0 3px 22px;font-size:13px;color:var(--muted);}
+.side-lernen a{color:var(--muted);} .side-lernen a:hover{color:var(--accent);}
+.idx-lernen{margin:-.15em 0 .45em;font-size:13.5px;color:var(--muted);}
+/* Link-Vorschau */
+.vs-karte{position:absolute;z-index:40;padding:11px 14px 12px;background:var(--panel);color:var(--ink);border:1px solid var(--border);
+  border-radius:12px;box-shadow:0 8px 28px rgba(16,24,20,.16);font-family:var(--fbody);font-size:14px;line-height:1.5;}
+:root[data-theme="dark"] .vs-karte{border-color:var(--rahmen);box-shadow:0 8px 28px rgba(0,0,0,.5);}
+.vs-k{font-size:12px;color:var(--muted);margin-bottom:2px;}
+.vs-t{font-family:var(--fdisp);font-size:15.5px;font-weight:700;line-height:1.3;color:var(--accent2);}
+.vs-p{margin:.45em 0 0;}
+.vs-f{display:flex;gap:10px;margin-top:10px;}
+.vs-o,.vs-s{font:inherit;font-size:14px;font-weight:600;padding:5px 14px;border:1px solid var(--border);border-radius:8px;background:var(--soft);
+  color:var(--ink);cursor:pointer;}
+.vs-o{background:var(--accent);border-color:var(--accent);color:var(--on-accent);} .vs-o:hover{text-decoration:none;}
+@media(hover:none){ a[data-vs]{-webkit-touch-callout:none;} }
+/* Selbsttest in der Zusammenfassung: zugedeckte Punkte als graue Fläche mit „Aufdecken“ */
+.zf-kopf{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:4px 12px;}
+.zf-test{font:inherit;font-size:13px;font-weight:600;line-height:1.6;color:var(--accent);background:var(--panel);border:1px solid var(--border);
+  border-radius:999px;padding:1px 12px;cursor:pointer;}
+.zf-test:hover,.zf-test:focus-visible{border-color:var(--accent);}
+.zf-test[aria-pressed="true"]{color:var(--on-accent);background:var(--accent);border-color:var(--accent);}
+.zf .zu{cursor:pointer;border-radius:5px;background:color-mix(in srgb,var(--muted) 17%,var(--panel));
+  -webkit-box-decoration-break:clone;box-decoration-break:clone;}
+.zf .zu,.zf .zu *{color:transparent!important;text-decoration:none!important;border-color:transparent!important;}
+.zf .zu .katex,.zf .zu img,.zf .zu svg{visibility:hidden;}
+.zf .zu::before{content:attr(data-auf);padding:0 .55em;font-size:12.5px;font-weight:600;color:var(--muted)!important;}
+.zf div.zu{display:block;min-height:2.2em;margin:.15em 0 .3em;}
+.zf .zu:hover{background:color-mix(in srgb,var(--accent) 15%,var(--panel));}
+.zf .zu:focus-visible{outline:2px solid var(--accent3);outline-offset:2px;}
+.zf-cue{color:var(--muted);}
+.article p.zf-fuss{margin:.7em 0 .25em;font-size:14px;}
+/* Seiten „Begriffe“ und „Lernkarten“ */
+.lern-meta .lern-modul{color:var(--muted);}
+.article p.lern-lede{font-size:17px;margin-bottom:.7em;}
+.article p.lern-nav{font-size:15px;margin:0 0 1.2em;}
+.bg-abc{display:flex;flex-wrap:wrap;gap:5px;margin:0 0 12px;}
+.bg-abc a{min-width:32px;padding:3px 8px;text-align:center;font-size:14px;font-weight:600;border:1px solid var(--border);border-radius:7px;background:var(--panel);}
+.bg-abc a:hover{border-color:var(--accent);text-decoration:none;}
+.bg-such{position:sticky;top:53px;z-index:5;display:flex;align-items:center;gap:12px;margin:0 0 6px;padding:8px 0;background:var(--bg);}
+.bg-filter{flex:1;min-width:0;font:inherit;font-size:16px;padding:8px 12px;border:1px solid var(--border);border-radius:10px;background:var(--panel);color:var(--ink);}
+.bg-filter:focus{outline:2px solid var(--accent);outline-offset:1px;}
+.bg-n{font-size:13.5px;color:var(--muted);white-space:nowrap;}
+.bg-g{scroll-margin-top:118px;}
+.article .bg-g>h2{margin:1.1em 0 .2em;padding-bottom:3px;font-size:20px;color:var(--accent2);border-bottom:1px solid var(--border);}
+.bg-l{margin:0;}
+.bg-e{padding:8px 0 9px;border-bottom:1px solid var(--border);}
+.bg-e dt{font-size:16.5px;font-weight:700;}
+.bg-e dd{margin:2px 0 0;font-size:15.5px;line-height:1.55;}
+.bg-wo{display:block;margin-top:2px;font-size:13px;color:var(--muted);}
+.article p.bg-nichts{color:var(--muted);font-size:15.5px;}
+.lk-leiste{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 14px;margin:0 0 12px;}
+.lk-wahl{display:flex;align-items:center;gap:8px;min-width:0;max-width:100%;font-size:14px;color:var(--muted);}
+.lk-sel{min-width:0;max-width:min(100%,430px);font:inherit;font-size:14.5px;padding:5px 8px;border:1px solid var(--border);border-radius:8px;
+  background:var(--panel);color:var(--ink);}
+.lk-zahl{font-size:14.5px;font-weight:600;color:var(--accent);}
+.lk-karte{min-height:210px;padding:16px 22px 20px;background:var(--panel);border:1px solid var(--border);border-top:4px solid var(--accent);
+  border-radius:14px;box-shadow:0 2px 10px rgba(16,24,20,.05);cursor:pointer;outline:none;overflow-wrap:anywhere;}
+.lk-karte:focus-visible{box-shadow:0 0 0 2px var(--accent3);}
+:root[data-theme="dark"] .lk-karte{border-color:var(--rahmen);border-top-color:var(--accent);}
+.lk-kopf{margin-bottom:8px;font-size:12.5px;font-weight:600;letter-spacing:.02em;color:var(--muted);}
+.lk-vorne{font-size:20px;font-weight:600;line-height:1.45;}
+.lk-hinten{margin-top:14px;padding-top:14px;border-top:1px dashed var(--border);font-size:17px;line-height:1.6;}
+:root[data-theme="dark"] .lk-hinten{border-top-color:var(--rahmen);}
+.lk-steuer{margin:14px 0 8px;}
+.lk-um,.lk-neu{font:inherit;font-size:15.5px;font-weight:600;padding:9px 22px;border:1px solid var(--accent);border-radius:10px;
+  background:var(--accent);color:var(--on-accent);cursor:pointer;}
+.lk-um{width:100%;}
+.lk-um:hover,.lk-neu:hover{filter:brightness(1.08);}
+.lk-bew{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;}
+.lk-b{display:flex;flex-direction:column;align-items:center;gap:1px;font:inherit;font-size:15px;font-weight:600;line-height:1.3;padding:9px 6px 8px;
+  border:1.5px solid var(--border);border-radius:10px;background:var(--panel);color:var(--ink);cursor:pointer;}
+.lk-b small{font-size:12px;font-weight:500;color:var(--muted);}
+.lk-b1{border-color:color-mix(in srgb,var(--accent3) 60%,var(--border));}
+.lk-b2{border-color:var(--accent);color:var(--accent);}
+.lk-b:hover{background:var(--soft);}
+.lk-b:focus-visible,.lk-um:focus-visible,.lk-neu:focus-visible{outline:2px solid var(--accent3);outline-offset:2px;}
+.lk-fuss{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 14px;margin:4px 0 12px;font-size:14px;}
+.lk-tasten{font-size:13px;color:var(--muted);}
+@media(hover:none){ .lk-tasten{display:none;} }
+.lk-ende{padding:16px 20px;border:1px solid var(--border);border-radius:14px;background:var(--soft);}
+.article .lk-ende p{margin:0 0 .7em;font-size:16px;}
+.article p.lk-hinweis{font-size:14px;color:var(--muted);}
+.lk-reset{margin:4px 0 6px;}
+details.lk-alle{margin:24px 0 0;}
+details.lk-alle>summary{cursor:pointer;font-size:15px;font-weight:600;color:var(--accent);margin-bottom:4px;}
+.lk-kap{scroll-margin-top:70px;}
+.article .lk-kap>h2{margin:1.1em 0 .3em;font-size:19px;color:var(--accent2);}
+.article ol.lk-l{list-style:none;margin:0;padding:0;}
+.article .lk-l li.lk{margin:0;padding:10px 0;font-size:16px;border-bottom:1px solid var(--border);}
+.lk-v{font-weight:600;}
+.lk-typ{display:inline-block;margin-right:8px;font-size:11.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);}
+.lk-r{margin-top:3px;}
+.lk-q{display:inline-block;margin-top:3px;font-size:13px;}
+.lk-luecke{font-weight:700;letter-spacing:.04em;color:var(--accent3);}
+.lk-wort{color:var(--accent);}
+@media(max-width:620px){
+  .lk-karte{min-height:180px;padding:14px 15px 16px;}
+  .lk-vorne{font-size:18px;} .lk-hinten{font-size:16px;}
+  .lk-b{font-size:14px;padding:8px 4px 7px;}
+  .bg-such{top:49px;}
+}
+@media print{
+  .lf-weiter,.lf-art,.lf-z,.side-lernen,.idx-lernen,.vs-karte,.zf-test,.zf-fuss,.zf-cue,.bg-abc,.bg-such,.lk-app,.lern-reset{display:none!important;}
+}
 """
 
 WISSEN_JS = r"""
@@ -2551,6 +3200,286 @@ var NICHTS={de:"Nichts gefunden für „{q}\".",en:"Nothing found for „{q}\"."
   document.addEventListener("visibilitychange",function(){ spieler.forEach(function(sp){        // Tab im Hintergrund: anhalten
     if(document.hidden){ if(sp.lauf){ sp.halt(); sp.auto=true; } } else if(sp.imBild) sp.sichtbar(true); }); });
   window.addEventListener("beforeprint",function(){ spieler.forEach(function(sp){ if(sp.D){ if(sp.lauf){ sp.halt(); sp.auto=true; } sp.zeige(sp.dauer); } }); });   // Druck: Endbild
+})();
+/* ---------- Lernen (W2, 11.11.2026): Lesefortschritt, Link-Vorschau, Selbsttest, Begriffe-Filter, Lernkarten ----------
+   Alles bleibt in diesem Browser (localStorage), nichts wird übertragen. Ohne Speicher (privates Fenster, gesperrt) gilt
+   es nur, solange die Seite offen ist; Fehler beim Lesen und Schreiben werden abgefangen. Wörter: _UI_LERNEN im Build. */
+var LERNEN_UI=/*UI_LERNEN*/{};
+var LERNEN=(function(){
+  var L=(document.documentElement.lang||"de").slice(0,2), W=LERNEN_UI[L]||{}, D=LERNEN_UI.de||{}, ok=false, mem={};
+  try{ localStorage.setItem("etundso-probe","1"); localStorage.removeItem("etundso-probe"); ok=true; }catch(e){}
+  function get(k,d){ var v=null;
+    if(ok){ try{ v=localStorage.getItem(k); }catch(e){ v=null; } }
+    if(v==null && Object.prototype.hasOwnProperty.call(mem,k)) v=mem[k];
+    if(v==null) return d;
+    try{ var x=JSON.parse(v); return (x==null || typeof x!==typeof d || Array.isArray(x)!==Array.isArray(d)) ? d : x; }catch(e){ return d; } }
+  function set(k,v){ var s=JSON.stringify(v); mem[k]=s; if(ok){ try{ localStorage.setItem(k,s); }catch(e){} } }
+  function del(k){ delete mem[k]; if(ok){ try{ localStorage.removeItem(k); }catch(e){} } }
+  function w(k,o){ var s=W[k]||D[k]||""; if(o) for(var x in o) s=s.split("{"+x+"}").join(o[x]); return s; }
+  function pfad(h){ try{ return new URL(h,location.href).pathname; }catch(e){ return h||""; } }
+  function el(tag,cls,text){ var e=document.createElement(tag); if(cls) e.className=cls; if(text!=null) e.textContent=text; return e; }
+  // Zurücksetzen in zwei Schritten: Der erste Klick fragt („Wirklich zurücksetzen?“), ein zweiter binnen 5 s führt aus.
+  function sicher(btn,tun){ var t=null, text=btn.textContent;
+    function zurueck(){ clearTimeout(t); btn.classList.remove("frage"); btn.textContent=text; }
+    btn.addEventListener("click",function(){
+      if(btn.classList.contains("frage")){ zurueck(); tun(); return; }
+      btn.classList.add("frage"); btn.textContent=w("reset_sicher"); t=setTimeout(zurueck,5000); }); }
+  return {lang:L, ok:ok, get:get, set:set, del:del, w:w, pfad:pfad, el:el, sicher:sicher};
+})();
+// Lesefortschritt: Ein Artikel gilt als gelesen, wenn seine Zusammenfassung (sonst sein Ende) 1 s lang sichtbar war.
+// Häkchen in der Seitenleiste und in der Übersicht, „N/M“ an Kapiteln, Balken je Kapitel in der Übersicht, Zeile am
+// Artikelende, „Weiterlesen“ (zuletzt geöffnet, nicht gelesen) auf der Übersicht, Knopf „Fortschritt zurücksetzen“.
+(function(){
+  var $=LERNEN, G="etundso-gelesen", V="etundso-verlauf";
+  // Adresse jedes Themen-Links festhalten, bevor „Fassung“ ihn auf die ausführliche Fassung umlenkt (data-alt)
+  [].forEach.call(document.querySelectorAll(".side li a, .theme-card a"),function(a){ a.setAttribute("data-lf",$.pfad(a.getAttribute("href"))); });
+  function gelesen(){ return $.get(G,{}); }
+  function zahl(as,g){ var n=0; as.forEach(function(a){ if(g[a.getAttribute("data-lf")]) n++; }); return n; }
+  function balken(n,m){ var d=$.el("div","lf-balken"), s=$.el("span");
+    d.setAttribute("role","progressbar"); d.setAttribute("aria-valuemin","0"); d.setAttribute("aria-valuemax",String(m));
+    d.setAttribute("aria-valuenow",String(n)); d.setAttribute("aria-label",$.w("lf_kapitel",{n:n,m:m}));
+    s.style.width=(m?Math.round(100*n/m):0)+"%"; d.appendChild(s); return d; }
+  var art=document.querySelector("main.article > article"), aktiv=document.querySelector(".side li a.active");
+  var key=aktiv?aktiv.getAttribute("data-lf"):null;
+  function malen(){
+    var g=gelesen();
+    [].forEach.call(document.querySelectorAll("a[data-lf]"),function(a){
+      var on=!!g[a.getAttribute("data-lf")], sr=a.querySelector(".lf-sr");
+      a.classList.toggle("gelesen",on);
+      if(on && !sr) a.appendChild($.el("span","lf-sr"," ("+$.w("gelesen")+")"));
+      if(!on && sr) a.removeChild(sr); });
+    [].forEach.call(document.querySelectorAll(".side details"),function(d){       // Kapitel in der Seitenleiste: „5/12“
+      var ul=null; for(var c=d.firstElementChild;c;c=c.nextElementSibling) if(c.tagName==="UL"){ ul=c; break; }
+      var s=d.firstElementChild; if(!ul || !s || s.tagName!=="SUMMARY") return;
+      var as=[].slice.call(ul.querySelectorAll("a[data-lf]")), n=zahl(as,g), z=s.querySelector(".lf-z");
+      if(!n){ if(z) s.removeChild(z); return; }
+      if(!z){ z=$.el("span","lf-z"); s.appendChild(z); }
+      z.textContent=n+"/"+as.length; z.title=$.w("lf_kapitel",{n:n,m:as.length}); });
+    [].forEach.call(document.querySelectorAll(".theme-card"),function(c){         // Übersicht: Balken je Kapitel
+      var as=[].slice.call(c.querySelectorAll("a[data-lf]")), n=zahl(as,g), alt=c.querySelector(".lf-kap");
+      if(alt) c.removeChild(alt);
+      if(!n) return;
+      var box=$.el("div","lf-kap"); box.appendChild(balken(n,as.length)); box.appendChild($.el("span","lf-text",$.w("lf_kapitel",{n:n,m:as.length})));
+      c.insertBefore(box,c.firstChild); });
+    if(art && key){                                                              // Artikel: Zeile vor den Nachbarartikeln
+      var z=art.querySelector(".lf-art");
+      if(g[key]){
+        var as=[].slice.call(aktiv.closest("ul").querySelectorAll("a[data-lf]")), n=zahl(as,g);
+        if(!z){ z=$.el("div","lf-art"); art.insertBefore(z,art.querySelector(".neighbors")); }
+        z.innerHTML=""; z.appendChild(balken(n,as.length)); z.appendChild($.el("span","lf-text",$.w("lf_artikel",{n:n,m:as.length})));
+      } else if(z) z.parentNode.removeChild(z);
+    }
+    weiter();
+  }
+  if(art && key){
+    var kap=aktiv.closest("details"), sum=kap&&kap.firstElementChild, titel=document.title.replace(/\s+—\s+EtUndSo$/,"");
+    var v=$.get(V,[]).filter(function(e){ return e && e.p!==key; });
+    v.unshift({p:key, t:titel, k:sum&&sum.firstChild?String(sum.firstChild.textContent).trim():"", l:$.lang, z:Date.now()});
+    $.set(V,v.slice(0,12));
+    var ende=document.getElementById("zusammenfassung")||art.querySelector(".neighbors");
+    if(ende && !gelesen()[key] && window.IntersectionObserver){
+      var t=null, io=new IntersectionObserver(function(es){ es.forEach(function(e){
+        clearTimeout(t);
+        if(e.isIntersecting) t=setTimeout(function(){ var g=gelesen(); g[key]=Date.now(); $.set(G,g); io.disconnect(); malen(); },1000); }); });
+      io.observe(ende);
+    }
+  }
+  // Übersicht: „Weiterlesen“ und „Fortschritt zurücksetzen“ unter dem Einleitungssatz
+  var box=null;
+  function weiter(){
+    if(!document.querySelector(".field-block")) return;
+    var g=gelesen(), v=$.get(V,[]), e=null;
+    for(var i=0;i<v.length;i++){ if(v[i] && v[i].l===$.lang && v[i].p && !g[v[i].p]){ e=v[i]; break; } }
+    if(!box){
+      var lede=document.querySelector("main.article .lede"); if(!lede) return;
+      box=$.el("div","lf-weiter"); box.hidden=true; lede.parentNode.insertBefore(box,lede.nextSibling);
+    }
+    box.innerHTML="";
+    if(e){ var a=$.el("a","lf-weiter-a"); a.href=e.p; a.appendChild($.el("span","lf-wh",$.w("weiterlesen")));
+      a.appendChild($.el("span","lf-wt",(e.k?e.k+" › ":"")+e.t)); box.appendChild(a); }
+    var r=$.el("button","lern-reset lf-reset",$.w("fs_reset")); r.type="button"; r.title=$.w("fs_lokal");
+    $.sicher(r,function(){ $.del(G); $.del(V); malen(); });
+    box.appendChild(r);
+    box.hidden=!(e || Object.keys(g).length);
+  }
+  malen();
+})();
+// Link-Vorschau: Links auf Artikel (data-vs, vom Build gesetzt) zeigen ein Kärtchen mit Titel, Kapitel und „Worum es geht“
+// aus der vorschau.json des Zielmoduls. Maus: nach kurzem Verweilen; Tastatur: beim Fokus; Handy: langes Tippen (dann mit
+// „Öffnen“ und „Schließen“). Schließt beim Verlassen, mit Esc, beim Tippen daneben und bei Größenänderung.
+(function(){
+  var $=LERNEN; if(!document.querySelector("a[data-vs]") || !window.fetch) return;
+  var cache={}, karte=null, ziel=null, tAuf=null, tZu=null, tLang=null, unterdr=null, sx=0, sy=0;
+  function modul(p){ var s=p.replace(/^\/wissen\//,"").split("/"); return s.slice(0,-2).join("/"); }
+  function daten(p){ var m=modul(p);
+    if(!cache[m]) cache[m]=fetch("/wissen/"+m+"/vorschau.json").then(function(r){ return r.ok?r.json():{}; }).catch(function(){ return {}; });
+    return cache[m]; }
+  function bau(){ if(karte) return karte;
+    karte=$.el("div","vs-karte"); karte.id="vs-karte"; karte.setAttribute("role","tooltip"); karte.hidden=true;
+    karte.addEventListener("pointerenter",function(){ clearTimeout(tZu); });
+    karte.addEventListener("pointerleave",function(e){ if(e.pointerType==="mouse") spaeter(); });
+    document.body.appendChild(karte); return karte; }
+  function zu(){ clearTimeout(tAuf); clearTimeout(tZu); if(karte) karte.hidden=true; if(ziel) ziel.removeAttribute("aria-describedby"); ziel=null; }
+  function spaeter(){ clearTimeout(tZu); tZu=setTimeout(zu,220); }
+  function lage(a,k){
+    var r=a.getClientRects()[0]||a.getBoundingClientRect(), vw=document.documentElement.clientWidth, b=Math.min(340,vw-16);
+    k.style.width=b+"px";
+    var x=Math.max(8,Math.min(r.left,vw-b-8)), h=k.offsetHeight, y=r.bottom+8;
+    if(y+h>window.innerHeight-8 && r.top-h-8>64) y=r.top-h-8;
+    k.style.left=(x+window.scrollX)+"px"; k.style.top=(y+window.scrollY)+"px"; }
+  function auf(a,touch){
+    var u; try{ u=new URL(a.href); }catch(e){ return; }
+    if(u.pathname===location.pathname) return;
+    ziel=a;
+    daten(u.pathname).then(function(d){
+      var e=d[u.pathname.replace(/^\/wissen\//,"")]; if(ziel!==a || !e) return;
+      var k=bau(); k.innerHTML="";
+      if(e[1]) k.appendChild($.el("div","vs-k",e[1]));
+      k.appendChild($.el("div","vs-t",e[0]));
+      if(e[2]) k.appendChild($.el("p","vs-p",e[2]));
+      if(touch){ var f=$.el("div","vs-f"), o=$.el("a","vs-o",$.w("vs_oeffnen")), s=$.el("button","vs-s",$.w("vs_schliessen"));
+        o.href=a.href; s.type="button"; s.addEventListener("click",zu); f.appendChild(o); f.appendChild(s); k.appendChild(f); }
+      k.hidden=false; lage(a,k); a.setAttribute("aria-describedby","vs-karte");
+    }); }
+  function link(e){ return e.target && e.target.closest ? e.target.closest("a[data-vs]") : null; }
+  document.addEventListener("pointerover",function(e){ if(e.pointerType!=="mouse") return; var a=link(e); if(!a) return;
+    if(a===ziel){ clearTimeout(tZu); return; } clearTimeout(tAuf); tAuf=setTimeout(function(){ auf(a,false); },350); });
+  document.addEventListener("pointerout",function(e){ if(e.pointerType!=="mouse") return; var a=link(e); if(!a) return;
+    if(e.relatedTarget && a.contains(e.relatedTarget)) return; clearTimeout(tAuf); if(a===ziel) spaeter(); });
+  var beruehrt=0;                                                   // Fokus nach Antippen: kein zweites Kärtchen (ohne „Öffnen“)
+  document.addEventListener("focusin",function(e){ var a=link(e); if(!a || (a===ziel && karte && !karte.hidden) || Date.now()-beruehrt<1500) return;
+    clearTimeout(tAuf); tAuf=setTimeout(function(){ auf(a,false); },250); });
+  document.addEventListener("focusout",function(e){ var a=link(e); if(!a) return;
+    if(karte && e.relatedTarget && karte.contains(e.relatedTarget)) return; clearTimeout(tAuf); if(a===ziel) zu(); });
+  document.addEventListener("keydown",function(e){ if(e.key==="Escape" && karte && !karte.hidden) zu(); });
+  document.addEventListener("touchstart",function(e){ var a=link(e); unterdr=null; beruehrt=Date.now();
+    if(karte && !karte.hidden && !karte.contains(e.target)) zu();
+    if(!a || e.touches.length>1) return;
+    sx=e.touches[0].clientX; sy=e.touches[0].clientY; clearTimeout(tLang);
+    tLang=setTimeout(function(){ tLang=null; unterdr=a; auf(a,true); },500); },{passive:true});
+  document.addEventListener("touchmove",function(e){ if(!tLang) return; var t=e.touches[0];
+    if(Math.abs(t.clientX-sx)>10 || Math.abs(t.clientY-sy)>10){ clearTimeout(tLang); tLang=null; } },{passive:true});
+  function ab(){ clearTimeout(tLang); tLang=null; }
+  document.addEventListener("touchend",ab,{passive:true}); document.addEventListener("touchcancel",ab,{passive:true});
+  document.addEventListener("click",function(e){ var a=link(e); if(a && a===unterdr){ e.preventDefault(); } unterdr=null; },true);
+  document.addEventListener("contextmenu",function(e){ var a=link(e); if(a && a===unterdr) e.preventDefault(); });
+  window.addEventListener("resize",zu);
+})();
+// Selbsttest in der Zusammenfassung: Der Knopf deckt Bestimmungen, Formeln und Zusammenhänge zu (die Begriffe, Formelnamen
+// und der Abschnitt bleiben als Stichwort stehen); Antippen, Enter oder Leertaste deckt einen Punkt auf.
+(function(){
+  var $=LERNEN, zf=document.querySelector(".zf"), knopf=zf&&zf.querySelector(".zf-test"); if(!knopf) return;
+  var teile=[].slice.call(zf.querySelectorAll(".zf-d,.zf-f,.zf-a")); if(!teile.length) return;
+  knopf.hidden=false;
+  function decke(el,zu){
+    el.classList.toggle("zu",zu);
+    if(zu){ el.setAttribute("tabindex","0"); el.setAttribute("role","button"); el.setAttribute("aria-label",$.w("aufdecken")); el.setAttribute("data-auf",$.w("aufdecken")); }
+    else { el.removeAttribute("role"); el.removeAttribute("aria-label"); el.removeAttribute("tabindex"); } }
+  function an(on){
+    zf.classList.toggle("zf-abgedeckt",on); knopf.setAttribute("aria-pressed",on?"true":"false");
+    teile.forEach(function(el){ decke(el,on); });
+    [].forEach.call(zf.querySelectorAll(".zf-cue"),function(c){ c.hidden=!on; });
+    if(on) [].forEach.call(zf.querySelectorAll("details.zf-mehr"),function(d){ d.open=true; }); }
+  knopf.addEventListener("click",function(){ an(knopf.getAttribute("aria-pressed")!=="true"); });
+  zf.addEventListener("click",function(e){ var t=e.target.closest&&e.target.closest(".zu"); if(!t || !zf.contains(t)) return;
+    e.preventDefault(); e.stopPropagation(); decke(t,false); },true);
+  zf.addEventListener("keydown",function(e){ var t=e.target; if((e.key!=="Enter" && e.key!==" ") || !t.classList || !t.classList.contains("zu")) return;
+    e.preventDefault(); decke(t,false); });
+})();
+// Begriffe: Filter über die Begriffe der Seite (Teilwörter, ohne Umlaute und Akzente wie die Suche)
+(function(){
+  var $=LERNEN, such=document.querySelector(".bg-such"); if(!such) return;
+  var inp=such.querySelector(".bg-filter"), n=such.querySelector(".bg-n"), nichts=document.querySelector(".bg-nichts");
+  var es=[].slice.call(document.querySelectorAll(".bg-e")), gs=[].slice.call(document.querySelectorAll(".bg-g")), dt=null;
+  function fold(s){ return (s||"").toLowerCase().replace(/ß/g,"ss").replace(/ı/g,"i").replace(/œ/g,"oe").replace(/æ/g,"ae")
+    .normalize("NFKD").replace(/[̀-ͯ]/g,""); }
+  function text(e){ var d=e.querySelector("dt"); return fold(d?d.textContent:""); }
+  such.hidden=false;
+  inp.addEventListener("input",function(){
+    if(!dt) dt=es.map(text);
+    var q=fold(inp.value.trim()), k=0;
+    es.forEach(function(e,i){ var on=!q || dt[i].indexOf(q)>=0; e.hidden=!on; if(on) k++; });
+    gs.forEach(function(g){ g.hidden=!g.querySelector(".bg-e:not([hidden])"); });
+    n.textContent=$.w("bg_anzahl",{n:k}); if(nichts) nichts.hidden=k>0; });
+})();
+// Lernkarten: Stapel mit Leitner-Fächern. Fach 1–5 = nächste Wiederholung nach 1, 3, 7, 14, 30 Tagen. „Wusste ich“: ein
+// Fach höher (neue Karte: Fach 2; nach „Wusste ich nicht“ in derselben Sitzung nur Fach 1); „Unsicher“: Fach bleibt (neue
+// Karte: Fach 1); „Wusste ich nicht“: Fach 1 und heute noch einmal am Ende des Stapels. Neue Karten: 20 je Tag und Modul,
+// weitere per Knopf. Leitner statt SM-2: drei Knöpfe passen direkt auf die Fächer, ohne Leichtigkeitsfaktor je Karte.
+// Stand je Karte [Fach, fällig am Tag] unter „etundso-karten“; ohne Skript zeigt die Seite die Karten als Liste.
+(function(){
+  var $=LERNEN, app=document.querySelector(".lk-app"); if(!app) return;
+  var K="etundso-karten", N="etundso-karten-neu", AB=[0,1,3,7,14,30], NEU=20, mp=app.getAttribute("data-modul");
+  var liste=document.querySelector(".lk-alle");
+  var karten=[].slice.call(document.querySelectorAll(".lk-alle li.lk")).map(function(li){ var s=li.closest(".lk-kap");
+    return {id:li.getAttribute("data-id"), typ:li.getAttribute("data-typ"), k:s?s.getAttribute("data-k"):"", kn:s?s.querySelector("h2").textContent:"", li:li}; });
+  if(!karten.length) return;
+  function q(c){ return app.querySelector(c); }
+  var sel=q(".lk-sel"), zahlEl=q(".lk-zahl"), karte=q(".lk-karte"), kopf=q(".lk-kopf"), vorne=q(".lk-vorne"), hinten=q(".lk-hinten"),
+      steuer=q(".lk-steuer"), um=q(".lk-um"), bew=q(".lk-bew"), ende=q(".lk-ende"), neuB=q(".lk-neu"), fuss=q(".lk-fuss"), stelle=q(".lk-stelle");
+  var TYP={b:$.w("lk_begriff"), f:$.w("lk_formel"), l:$.w("lk_luecke")};
+  var schlange=[], jetzt=null, gerade={}, extra=0;
+  function heute(){ var d=new Date(); return Math.floor((d.getTime()-d.getTimezoneOffset()*60000)/864e5); }
+  function stand(){ return $.get(K,{}); }
+  function neuHeute(){ var e=$.get(N,{})[mp]; return (e && e[0]===heute()) ? e[1] : 0; }
+  function neuZaehlen(){ var n=$.get(N,{}); n[mp]=[heute(),neuHeute()+1]; $.set(N,n); }
+  function auswahl(){ var k=sel.value; return karten.filter(function(c){ return !k || c.k===k; }); }
+  function baue(){
+    var s=stand(), t=heute(), faellig=[], neu=[];
+    auswahl().forEach(function(c){ var x=s[c.id]; if(x){ if(x[1]<=t) faellig.push(c); } else neu.push(c); });
+    faellig.sort(function(a,b){ return s[a.id][1]-s[b.id][1] || s[a.id][0]-s[b.id][0]; });
+    schlange=faellig.concat(neu.slice(0,Math.max(0,NEU-neuHeute())+extra));
+    zeige(); }
+  function fach(b,r,id){ return r===0 ? 1 : r===1 ? Math.max(1,b) : gerade[id] ? 1 : Math.min(5,Math.max(1,b)+1); }
+  function tage(d){ return d===0 ? $.w("lk_heute") : d===1 ? $.w("lk_morgen") : $.w("lk_tage",{n:d}); }
+  function zeige(){
+    var s=stand(), neu=0; schlange.forEach(function(c){ if(!s[c.id]) neu++; });
+    zahlEl.textContent=$.w("lk_faellig",{n:schlange.length})+(neu?" · "+$.w("lk_davon_neu",{n:neu}):"");
+    jetzt=schlange[0]||null;
+    karte.hidden=steuer.hidden=fuss.hidden=!jetzt; ende.hidden=!!jetzt;
+    if(!jetzt){ var rest=auswahl().filter(function(c){ return !s[c.id]; }).length;
+      neuB.hidden=!rest; neuB.textContent=$.w("lk_mehr_neu",{n:Math.min(NEU,rest)}); return; }
+    kopf.textContent=TYP[jetzt.typ]+" · "+jetzt.kn;
+    vorne.innerHTML=jetzt.li.querySelector(".lk-v").innerHTML;
+    var t=vorne.querySelector(".lk-typ"); if(t) t.parentNode.removeChild(t);
+    hinten.innerHTML=jetzt.li.querySelector(".lk-r").innerHTML; hinten.hidden=true;
+    var qu=jetzt.li.querySelector(".lk-q"); stelle.href=qu.getAttribute("href"); stelle.title=qu.textContent;
+    um.hidden=false; bew.hidden=true;
+    var x=s[jetzt.id], b=x?x[0]:0;
+    [0,1,2].forEach(function(r){ var sm=bew.querySelector(".lk-b"+r+" small"); if(sm) sm.textContent=tage(r===0?0:AB[fach(b,r,jetzt.id)]); }); }
+  function umdrehen(){ if(!jetzt || !hinten.hidden) return; hinten.hidden=false; um.hidden=true; bew.hidden=false; karte.focus({preventScroll:true});
+    var r=bew.getBoundingClientRect(); if(r.bottom>window.innerHeight) bew.scrollIntoView({block:"end",behavior:"smooth"}); }   // Handy: Bewertung ins Bild
+  function bewerten(r){
+    if(!jetzt || hinten.hidden) return;
+    var s=stand(), x=s[jetzt.id], c=jetzt, f=fach(x?x[0]:0,r,c.id);
+    if(!x) neuZaehlen();
+    s[c.id]=[f, heute()+(r===0?0:AB[f])]; $.set(K,s);
+    schlange.shift();
+    if(r===0){ gerade[c.id]=1; schlange.push(c); }
+    zeige(); if(!karte.hidden) karte.focus({preventScroll:true}); else if(!neuB.hidden) neuB.focus(); }
+  um.addEventListener("click",umdrehen);
+  karte.addEventListener("click",function(e){ if(!(e.target.closest && e.target.closest("a"))) umdrehen(); });
+  [].forEach.call(bew.querySelectorAll(".lk-b"),function(b){ b.addEventListener("click",function(){ bewerten(+b.getAttribute("data-b")); }); });
+  neuB.addEventListener("click",function(){ extra+=NEU; baue(); });
+  sel.addEventListener("change",function(){ extra=0; gerade={}; baue(); });
+  document.addEventListener("keydown",function(e){
+    if(app.hidden || e.ctrlKey || e.metaKey || e.altKey) return;
+    var t=e.target, tag=t && t.tagName; if(tag==="INPUT" || tag==="SELECT" || tag==="TEXTAREA" || (t && t.isContentEditable)) return;
+    var ov=document.getElementById("searchOverlay"); if(ov && !ov.hidden) return;
+    if((e.key===" " || e.key==="Enter") && jetzt && hinten.hidden){ if(tag==="BUTTON" || tag==="A") return; e.preventDefault(); umdrehen(); }
+    else if(jetzt && !hinten.hidden && (e.key==="1" || e.key==="2" || e.key==="3")){ e.preventDefault(); bewerten(+e.key-1); } });
+  $.sicher(q(".lk-reset"),function(){ var s=stand(), n=$.get(N,{});
+    karten.forEach(function(c){ delete s[c.id]; }); delete n[mp]; $.set(K,s); $.set(N,n); extra=0; gerade={}; baue(); });
+  // #k-<Kapitel> (Link aus der Zusammenfassung eines Artikels): dieses Kapitel wählen, die Liste bleibt zu
+  function kapitel(){ var m=location.hash.match(/^#k-(.+)$/); if(!m) return false;
+    for(var i=0;i<sel.options.length;i++) if(sel.options[i].value===m[1]){ sel.value=m[1]; break; }
+    try{ history.replaceState(null,"",location.pathname+location.search); }catch(e){}
+    extra=0; gerade={}; if(liste) liste.open=false; return true; }
+  window.addEventListener("hashchange",function(){ if(kapitel()){ baue(); app.scrollIntoView({block:"start"}); } });
+  kapitel();
+  app.hidden=false; if(liste) liste.open=false;
+  if(!$.ok) q(".lk-hinweis").hidden=false;
+  baue();
 })();
 """
 

@@ -26,7 +26,7 @@ Ein Pfad beschreibt einen Weg durch den Baum: absolut ab `/`, relativ ab dem Arb
 
 <li>
 
-`ls` zeigt Einträge, mit `-a` auch versteckte, mit `-F` ihre Art, mit `-l` Art, Rechte, Linkzähler, Besitzer, Größe und Zeit, mit `-h` lesbare Größen. Dateinamen dürfen alles außer `/` enthalten und unterscheiden Groß und Klein.
+`ls` zeigt Einträge, mit `-a` auch versteckte, mit `-F` ihre Art, mit `-l` Art, Rechte, Linkzähler, Besitzer, Größe und Zeit, mit `-h` lesbare Größen. Dateinamen dürfen alles außer `/` und dem Nullbyte enthalten und unterscheiden Groß und Klein.
 
 </li>
 

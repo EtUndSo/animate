@@ -91,5 +91,5 @@
 <text x="1325.48" y="468.45" font-size="18" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#111111" text-anchor="middle" dominant-baseline="central">name</text>
 <path d="M589.63 527.85C629.7 527.85 669.77 527.85 709.85 527.85C709.85 517.95 709.85 508.05 709.85 498.15C669.77 498.15 629.7 498.15 589.63 498.15C589.63 508.05 589.63 517.95 589.63 527.85" fill="#ffffff" fill-opacity="0.6"/>
 <path d="M746.9 527.85C752.96 527.85 759.01 527.85 765.06 527.85C765.06 517.95 765.06 508.05 765.06 498.15C759.01 498.15 752.96 498.15 746.9 498.15C746.9 508.05 746.9 517.95 746.9 527.85" fill="#ffffff" fill-opacity="0.6"/>
-<text x="960" y="637.2" font-size="18" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#7f7f7f" text-anchor="middle" dominant-baseline="central">grey: not explained in this section</text>
+<text x="960" y="637.2" font-size="18" font-family="Arial, Helvetica, 'Liberation Sans', 'Nimbus Sans', 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', sans-serif" fill="#7f7f7f" text-anchor="middle" dominant-baseline="central">gray: not explained in this section</text>
 </svg>

@@ -329,7 +329,7 @@ Der Schrägstrich trennt in einem Pfad die Namen voneinander. Dürfte ein Name s
 Lies die Zeile `-rw-r--r-- 1 root root 3771 Feb 13 2026 .bashrc` aus dem Beispiel in Unterabschnitt [3.4](#stufe-3-4): Welche Art von Eintrag ist es, wem gehört er, wie groß ist er, wann wurde sein Inhalt zuletzt geändert, und warum erscheint er bei `ls /etc/skel` nicht?
 
 :::loesung
-Das erste Zeichen `-` kennzeichnet eine gewöhnliche Datei. Sie gehört dem Benutzer `root` und der Gruppe `root`. Sie ist 3771 Bytes groß, gut 3,7 KiB. Ihr Inhalt wurde am 13. Februar 2026 zuletzt geändert; weil das mehr als ein halbes Jahr zurückliegt, zeigt `ls` das Jahr statt der Uhrzeit. Bei `ls /etc/skel` erscheint sie nicht, weil ihr Name mit einem Punkt beginnt: Sie ist eine versteckte Datei, und nur `ls -a` oder `ls -A` zeigen sie.
+Das erste Zeichen `-` kennzeichnet eine gewöhnliche Datei. Sie gehört dem Benutzer `root` und der Gruppe `root`. Sie ist 3771 Bytes groß, knapp 3,7 KiB. Ihr Inhalt wurde am 13. Februar 2026 zuletzt geändert; weil das mehr als ein halbes Jahr zurückliegt, zeigt `ls` das Jahr statt der Uhrzeit. Bei `ls /etc/skel` erscheint sie nicht, weil ihr Name mit einem Punkt beginnt: Sie ist eine versteckte Datei, und nur `ls -a` oder `ls -A` zeigen sie.
 :::
 :::
 
@@ -356,7 +356,7 @@ $ ls -ld /var/log
 drwxrwxr-x 9 root syslog 4096 Nov 10 03:06 /var/log
 ```
 
-(d) `ls -lhSr /usr/share/common-licenses`: `-S` sortiert nach Größe mit der größten zuerst, `-r` kehrt das um; die Datei `BSD` mit 1,5 KiB steht dann oben, `GPL-3` unten. Versteckte Einträge gibt es in diesem Verzeichnis nicht; sonst käme `-A` dazu.
+(d) `ls -lhSr /usr/share/common-licenses`: `-S` sortiert nach Größe mit der größten zuerst, `-r` kehrt das um; die Datei `BSD` mit 1,5 KiB steht dann als erste gewöhnliche Datei oben (davor nur die drei symbolischen Links `GPL`, `LGPL` und `GFDL`), `GPL-3` unten. Versteckte Einträge gibt es in diesem Verzeichnis nicht; sonst käme `-A` dazu.
 :::
 :::
 

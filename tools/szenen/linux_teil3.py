@@ -403,7 +403,7 @@ def k3lsl():
         lab.append(text(s, namen[k], ((a + b) / 2, y - 0.33 if unten else y + 0.33), FM, "center", GRAU if grau else SCHWARZ))
         if grau:
             schl.append(schleier(s, ((a + b) / 2, y), b - a + 0.04, 0.22, 0.6))
-    note = text(s, T(s, "nichterkl", "grau: in diesem Abschnitt nicht erklärt", "grey: not explained in this section",
+    note = text(s, T(s, "nichterkl", "grau: in diesem Abschnitt nicht erklärt", "gray: not explained in this section",
                      "gris: no se explica en esta sección", "灰色：本节不作解释", "gris : non expliqué dans cette section",
                      "gri: bu bölümde açıklanmıyor"), (0, -0.72), FM, "center", GRAU)
     schritt(s, EIN(ids, 0.6))

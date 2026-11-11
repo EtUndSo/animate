@@ -15,8 +15,8 @@ Status: offen · läuft · fertig (Datum, Artikel en, Seiten en). Ein Kapitel gi
 | 3 | prog | 3 | Kap3_Kontrollfluss.tex | fertig 11.11. (11 Artikel, 83 S.) |
 | 4 | linux | 1 | Kap1_Uebungslinux.tex | fertig 11.11. (11 Artikel, 62 S., 13 Abbildungen en neu) |
 | 5 | linux | 2 | Kap2_Shell.tex | fertig 11.11. (9 Artikel, 60 S.; nach Netzabbruch fortgesetzt) |
-| 6 | linux | 3 | Kap3_Dateien.tex | läuft seit 11.11. |
-| 7 | linux | 4 | Kap4_Stroeme.tex | offen |
+| 6 | linux | 3 | Kap3_Dateien.tex | fertig 11.11. (12 Artikel, 89 S.; k3lsl en „gray“) |
+| 7 | linux | 4 | Kap4_Stroeme.tex | läuft seit 11.11. |
 | 8 | linux | 5 | Kap5_Expansion.tex | offen |
 | 9 | linux | 6 | Kap6_Textwerkzeuge.tex | offen |
 | 10 | cyber | 1 | Kap1_Sicherheit.tex | offen |
@@ -55,6 +55,7 @@ Heftordner: prog `C:\Bücher\EtUndSo\Programmieren\Arbeitshefte`, linux `C:\Büc
 ## Fehler im deutschen Original (von Übersetzern gemeldet, gesammelt)
 - Python 1: keine.
 - Python 3: keine.
+- Linux 3 (von mir behoben 11.11., PDFs de/en und Artikel neu; Sitzung geprüft): `kap3_loesungen.tex` Z. 85 „gut 3,7 KiB“ → „knapp“ (3771/1024 = 3,68); Z. 97 vor `BSD` stehen bei `ls -lhSr` die Links GPL/LGPL/GFDL; Z. 275 `ls -h` zeigt 477G (rundet ab 10 auf); `kap3_stufen_b.tex` Z. 546 „Öffnet“ → „Liest“ (/proc/uptime); Z. 1411 Dateinamen: außer `/` „und dem Nullbyte“ (auch en).
 - Linux 2 (von mir behoben 11.11., PDF und Artikel de neu): `kap2_loesungen.tex` Z. 281 Speicher und Kerne „die du der Maschine zugeteilt hast“ gilt nur für die VM; im Live-System die des Rechners.
 - Linux 1 (von mir behoben 11.11., PDFs de/en und Artikel neu): `kap1_stufen.tex` Z. 219 „In den Jahren dazwischen erscheinen Zwischenversionen“ → „Dazwischen …“ (Zwischenversionen auch im Oktober von LTS-Jahren). Dazu en-Titel „A Linux to Practise On“ → „Practice“ (amerikanisch) in `MODULE["linux"]` und `Kap1_Uebungslinux_en.tex`.
 - Python 2 (von mir im Deutschen behoben 11.11., PDF und Artikel de neu gebaut): `kap2_stufen_b.tex` Z. 239 alte Verweisform „Python~1“ → „Kapitel~1, Abschnitt~5.3“ (jetzt Link); Z. 1317 IEEE 754 rundet „bei Gleichstand“ zur geraden Mantisse; `kap2_loesungen.tex` Z. 809 falsche Begründung (−1,5 + 0,5 = −1,0, `int` schneidet nichts ab) ersetzt.
@@ -64,7 +65,7 @@ Heftordner: prog `C:\Bücher\EtUndSo\Programmieren\Arbeitshefte`, linux `C:\Büc
 - Python 3: Flussdiagramme zeigen Programmausgaben wie im Code deutsch (“fertig”, “zu kalt”), mit Glosse im Text; dafür `en=` in `prog_teil3.py` angepasst (es/zh/fr/tr entscheiden ihre Übersetzer). „effektiver Jahreszins“ = effective annual interest rate (nicht APR).
 
 ## Brief für den Übersetzer (Vorlage)
-Vollständiger Brief des neuesten Durchgangs (seit Python 2, mit den Hilfsmitteln aus Python 1): `notizen/uebersetzung_en_brief.md`. Für jedes Kapitel anpassen: Modul, Kapitel, Dateinamen, Heftordner, Szenen-Datei, Scratchpad `en_<modul><kap>`, Regeln und Glossarort wie folgt, Stilvorbild (für ET-Module die en-Fassungen von HöMa1 1–3).
+Vollständiger Brief des neuesten Durchgangs (Linux 4; Linux-Vorlage mit den Hilfsmitteln der Vorgänger): `notizen/uebersetzung_en_brief.md`. Für jedes Kapitel anpassen: Modul, Kapitel, Dateinamen, Heftordner, Szenen-Datei, Scratchpad `en_<modul><kap>`, Regeln und Glossarort wie folgt, Stilvorbild (für ET-Module die en-Fassungen von HöMa1 1–3).
 Platzhalter: {MODUL} {KAP} {HAUPTDATEI} {ORDNER} {REGELN}. {REGELN}:
 - prog, linux, cyber, ml: `notizen/heft_uebersetzung.md` und `notizen/uebersetzung_brief_zusatzreihen.md` (Glossar, feste Wendungen); Glossar-Zusätze dort als Block „Ergänzt bei <Modul> <Kap> (en)“.
 - hm1: `notizen/heft_uebersetzung.md` und `notizen/heft_uebersetzung_hm1.md`; Vorbild `Kap1_Zahlen_en.tex` usw. im Heftordner; Glossar-Zusätze in `notizen/glossar_en_module.md`, Abschnitt hm1.

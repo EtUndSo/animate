@@ -305,7 +305,7 @@ $2\,147\,483\,648 \cdot 512 = 1\,099\,511\,627\,776$ Byte. Mit Zweierpotenzen ge
 ⁠**Kurz gesagt:** `/proc` und `/sys` sind Fenster in den Kernel: Ihre Dateien entstehen beim Lesen und verraten Laufzeit, Prozessor, Geräte und laufende Programme.
 
 :::hintergrund Warum eine Datei der Größe 0 Inhalt haben kann
-Die Größe, die `ls -l` zeigt, ist eine Angabe aus der Verwaltung des Dateisystems. Bei gewöhnlichen Dateien stimmt sie mit der Zahl der gespeicherten Bytes überein. Bei `/proc` gibt es nichts Gespeichertes: Öffnet ein Programm `/proc/uptime`, ruft der Kernel eine kleine Funktion auf, die die Laufzeit in Text verwandelt, und gibt diesen Text als Inhalt zurück. Wie lang er wird, weiß der Kernel erst beim Erzeugen; deshalb meldet er als Größe 0. Programme, die Dateien bis zum Ende lesen, wie `cat`, kommen damit zurecht; ein Programm, das sich auf die Größe verlässt, würde nichts lesen. Die Idee, laufende Programme als Dateien darzustellen, stammt aus der Unix-Forschung von 1984; Linux hat sie zu einem Fenster auf fast alles erweitert, was der Kernel weiß.
+Die Größe, die `ls -l` zeigt, ist eine Angabe aus der Verwaltung des Dateisystems. Bei gewöhnlichen Dateien stimmt sie mit der Zahl der gespeicherten Bytes überein. Bei `/proc` gibt es nichts Gespeichertes: Liest ein Programm `/proc/uptime`, ruft der Kernel eine kleine Funktion auf, die die Laufzeit in Text verwandelt, und gibt diesen Text als Inhalt zurück. Wie lang er wird, weiß der Kernel erst beim Erzeugen; deshalb meldet er als Größe 0. Programme, die Dateien bis zum Ende lesen, wie `cat`, kommen damit zurecht; ein Programm, das sich auf die Größe verlässt, würde nichts lesen. Die Idee, laufende Programme als Dateien darzustellen, stammt aus der Unix-Forschung von 1984; Linux hat sie zu einem Fenster auf fast alles erweitert, was der Kernel weiß.
 :::
 
 ### Aufgaben zu Abschnitt [7](#stufe-7)
@@ -366,6 +366,6 @@ $ uptime
 Auf einem anderen Rechner liefert `/sys/block/sda/size` den Wert `1000215216`. Wie viele Byte hat der Datenträger, wie viele GB und wie viele GiB? Welche der beiden Zahlen würde ein Händler auf die Verpackung schreiben?
 
 :::loesung
-$1\,000\,215\,216 \cdot 512 = 512\,110\,190\,592$ Byte. Durch $10^9$ geteilt sind das 512,11 GB, durch $1024^3$ geteilt 476,94 GiB. Auf der Verpackung stünde „512 GB“, denn Hersteller zählen in Zehnerpotenzen ([Kapitel 1, Abschnitt 5.1](/wissen/informatik/linux-und-kommandozeile/ein-linux-zum-uben-wsl-virtuelle-maschine-live-usb-stick/datentrager-abbild-und-prufsumme.html#stufe-5-1)). `lsblk` und `ls -h` würden 476.9G anzeigen; beide meinen dieselbe Zahl von Bytes.
+$1\,000\,215\,216 \cdot 512 = 512\,110\,190\,592$ Byte. Durch $10^9$ geteilt sind das 512,11 GB, durch $1024^3$ geteilt 476,94 GiB. Auf der Verpackung stünde „512 GB“, denn Hersteller zählen in Zehnerpotenzen ([Kapitel 1, Abschnitt 5.1](/wissen/informatik/linux-und-kommandozeile/ein-linux-zum-uben-wsl-virtuelle-maschine-live-usb-stick/datentrager-abbild-und-prufsumme.html#stufe-5-1)). `lsblk` würde 476.9G anzeigen, `ls -h` 477G, weil es ab 10 auf ganze Einheiten aufrundet; beide meinen dieselbe Zahl von Bytes.
 :::
 :::
