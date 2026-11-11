@@ -211,7 +211,7 @@ Eine Distribution erscheint immer wieder in neuen Versionen. Wer ein Übungssyst
 :::definition Definition 1.7 (Ubuntu-Version, LTS)
 <span class="anker" id="satz-1-7"></span>
 
-Eine Ubuntu-Version heißt nach Jahr und Monat ihres Erscheinens: `26.04` erschien im April 2026. Dazu hat jede Version einen Codenamen, `26.04` heißt „Resolute Raccoon“. Alle zwei Jahre im April erscheint eine __LTS-Version__ (Long Term Support, Langzeitpflege), für die Canonical fünf Jahre lang Sicherheits- und Fehlerkorrekturen liefert. In den Jahren dazwischen erscheinen Zwischenversionen, die nur neun Monate gepflegt werden. Eine Nummer wie `26.04.1` bezeichnet eine __Punktversion__: dasselbe System mit den bis dahin gesammelten Korrekturen und neuen Installationsmedien.
+Eine Ubuntu-Version heißt nach Jahr und Monat ihres Erscheinens: `26.04` erschien im April 2026. Dazu hat jede Version einen Codenamen, `26.04` heißt „Resolute Raccoon“. Alle zwei Jahre im April erscheint eine __LTS-Version__ (Long Term Support, Langzeitpflege), für die Canonical fünf Jahre lang Sicherheits- und Fehlerkorrekturen liefert. Dazwischen erscheinen Zwischenversionen, die nur neun Monate gepflegt werden. Eine Nummer wie `26.04.1` bezeichnet eine __Punktversion__: dasselbe System mit den bis dahin gesammelten Korrekturen und neuen Installationsmedien.
 :::
 
 ::::beispiel Drei Versionen einordnen

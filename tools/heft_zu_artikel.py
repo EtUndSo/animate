@@ -744,7 +744,7 @@ MODULE["linux"] = {
     "hefte": {                                           # Kapitel 1, 2, … = Kap1, Kap2, … (Lernpfad EtUndSo\Linux\Recherche\LERNPFAD.md)
         1: ("Kap1_Uebungslinux", "ein-linux-zum-ueben",
             {"de": "Ein Linux zum Üben: WSL, virtuelle Maschine, Live-USB-Stick",
-             "en": "A Linux to Practise On: WSL, Virtual Machine, Live USB Stick",
+             "en": "A Linux to Practice On: WSL, Virtual Machine, Live USB Stick",
              "es": "Un Linux para practicar: WSL, máquina virtual, memoria USB autoarrancable",
              "zh": "用来练习的 Linux：WSL、虚拟机、Live U 盘",
              "fr": "Un Linux pour s’exercer : WSL, machine virtuelle, clé USB live",
