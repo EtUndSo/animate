@@ -1220,7 +1220,9 @@ def zusammenfassung_html(z, fuss="", art_path=None):
         b, gleich = z["fb"][i], [z["fb"][i]]
         while b["satz"] and i + len(gleich) < len(z["fb"]) and z["fb"][i + len(gleich)]["satz"] == b["satz"]:
             gleich.append(z["fb"][i + len(gleich)])
-        namen = ", ".join(f'<a class="zf-b" href="{basis}#{x["id"]}">{inline(_ohne_links(x["md"]))}</a>' for x in gleich)
+        namen = ", ".join((f'<a class="zf-b" href="{basis}#{x["id"]}">' if x["id"] else    # Begriff nur aus einer Karte:
+                           f'<a class="zf-b" href="{basis}">' if basis else '<span class="zf-b">')   # ohne Sprungmarke
+                          + inline(_ohne_links(x["md"])) + ("</a>" if x["id"] or basis else "</span>") for x in gleich)
         punkte.append(f"<li>{namen}" + (f'<span class="zf-d"> – {inline(b["satz"])}</span>' if b["satz"] else "") + "</li>")
         i += len(gleich)
     gruppe("zf_begriffe", "begriffe", punkte)
@@ -1863,6 +1865,36 @@ def sidebar_html(tree, active_path=None, art=None):
     return (f'<nav class="side" aria-label="Wissensbaum"{attr}>'
             + f'<a class="side-home" href="{home()}">{T("alle_module")}</a>' + "".join(rows) + "</nav>")
 
+ASSET_V = {}   # Cache-Busting: Dateiname -> Kurz-Hash des Inhalts. Cloudflare hält CSS/JS bis zu 4 h im Browser fest
+               # (Browser Cache TTL), das HTML nicht; ohne Version träfe neues HTML auf altes CSS.
+
+
+def asset(name):
+    """URL einer Datei unter /wissen/assets/ mit ?v=<Inhalts-Hash> (von assets_bauen() gesetzt)."""
+    v = ASSET_V.get(name)
+    return f"/wissen/assets/{name}" + (f"?v={v}" if v else "")
+
+
+def assets_bauen():
+    """Inhalte von wissen.css/.js, suche.js, formel-export.js, bereiche.js und ihre Versionen (vor dem Seitenbau)."""
+    import hashlib
+    kurz = lambda s: hashlib.sha1(s.encode("utf-8")).hexdigest()[:10]
+    ui_b = {l: {k: UI[l][k] for k in BEREICHE_JS if k in UI[l]} for l in LANGS}   # W4b: Wörter für bereiche.js
+    inhalt = {"wissen.css": WISSEN_CSS, "suche.js": SUCHE_JS, "formel-export.js": FORMEL_EXPORT_JS,
+              "bereiche.js": BEREICHE_JS_CODE.replace("/*UI_BEREICHE*/{}", json.dumps(ui_b, ensure_ascii=False, separators=(",", ":")))}
+    for n, s in inhalt.items():
+        ASSET_V[n] = kurz(s)
+    ui_js = {l: {k: UI[l][k] for k in LERNEN_JS if k in UI[l]} for l in LANGS}   # Oberflächenwörter für wissen.js
+    js = WISSEN_JS.replace("/*UI_LERNEN*/{}", json.dumps(ui_js, ensure_ascii=False, separators=(",", ":")))
+    for n in ("suche.js", "formel-export.js"):                                      # nachgeladene Dateien ebenfalls versioniert
+        alt = f'"/wissen/assets/{n}"'
+        assert alt in js, n
+        js = js.replace(alt, json.dumps(asset(n)))
+    inhalt["wissen.js"] = js
+    ASSET_V["wissen.js"] = kurz(js)
+    return inhalt
+
+
 def page_shell(title, desc, body, depth, alternates=None, js=()):
     up = "../" * depth
     mehr_js = "".join(f'\n<script src="{s}"></script>' for s in js)   # W4b: bereiche.js auf den Seiten der Bereiche
@@ -1876,12 +1908,12 @@ def page_shell(title, desc, body, depth, alternates=None, js=()):
 <script>try{{var t=localStorage.getItem("animate-theme");if(t==="dark"||(!t&&matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.setAttribute("data-theme","dark");}}catch(e){{}}
 try{{var a=new URLSearchParams(location.search).get("ansicht");if(a==="uebersicht")a="formeln";if(!/^(voll|kurz|formeln)$/.test(a||""))a=localStorage.getItem("etundso-ansicht");if(a==="kurz"||a==="formeln")document.documentElement.setAttribute("data-ansicht",a);}}catch(e){{}}</script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css"/>
-<link rel="stylesheet" href="/wissen/assets/wissen.css"/>
+<link rel="stylesheet" href="{asset("wissen.css")}"/>
 </head><body data-root="{home()}">
 {body}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/contrib/auto-render.min.js"></script>
-<script src="/wissen/assets/wissen.js"></script>{mehr_js}
+<script src="{asset("wissen.js")}"></script>{mehr_js}
 </body></html>"""
 
 def alt_attr(a):
@@ -2117,12 +2149,67 @@ def formelblatt_html(art, z, block_html=""):
             + inhalt + '<div class="fb-ende"></div></section>')
 
 
+KARTEN_BEST = {"treffer": 0, "ohne": []}   # Statistik: Begriffskarten mit/ohne passenden Fachbegriff im Artikel
+
+
+def karten_bestimmungen(art, z):
+    """Artikel mit Block ::::lernkarten (notizen/lernkarten_muster.md): Die Antwort einer Begriffskarte ist die Bestimmung des
+    Begriffs. Sie ersetzt die aus dem Fließtext gezogene in Zusammenfassung und Begriffsverzeichnis, wenn der Kartenname
+    der Fachbegriff (__…__) des Artikels ist. Karten ohne passenden Fachbegriff zählt KARTEN_BEST (Meldung beim Bauen)."""
+    eigene = (art.get("bloecke") or {}).get("lernkarten")
+    if not eigene:
+        return
+    karten = []                                        # [(Name, Teil-Schlüssel, Antwort)]; „Leiter und Isolator“: zwei Teile
+    for typ, frage, antwort, falsch, name in geschriebene_karten(eigene):
+        if typ == "b" and name:
+            for teil in re.split(r"\s+(?:und|and|y|et|ve|和)\s+|\s*,\s*", name):
+                if teil.strip():
+                    karten.append((teil.strip(), fold(klartext(teil)).strip(), antwort[0]))
+    fb = list(z.get("fb", []))
+    keys = [fold(klartext(b["md"])).strip() for b in fb]
+    frei = [True] * len(fb)
+    for genau in (True, False):                        # erst gleiche Schreibung, dann Beugung (Proton ↔ Protonen)
+        for i, (name, key, antwort) in enumerate(karten):
+            if antwort is None:
+                continue
+            j = next((j for j, k in enumerate(keys) if frei[j] and (k == key if genau else _gleicher_stamm(k, key))), None)
+            if j is not None:
+                fb[j], frei[j] = dict(fb[j], satz=antwort, karte=1), False
+                karten[i] = (name, key, None)
+                KARTEN_BEST["treffer"] += 1
+    for name, key, antwort in karten:                  # ohne Fachbegriff im Text (oder nur im Zusatzkasten): eigener Eintrag
+        if antwort is not None:
+            fb.append({"id": "", "md": name, "satz": antwort, "karte": 1})
+            KARTEN_BEST["ohne"].append(f'{art["path"].rsplit("/", 1)[-1][:-5]}: {name}')
+    z["fb"] = fb
+
+
+def _gleicher_stamm(a, b):
+    """Zwei gefaltete Begriffe gleich bis auf Endungen (Proton/Protonen, magnetischer/magnetische Fluss); ein Adjektiv darf
+    ein Nomen dahinter haben (homogen ↔ homogenes Feld). Wortweise: gemeinsamer Anfang ≥ 3 Zeichen, fehlt dem kürzeren
+    Wort höchstens 1 Zeichen, dem längeren höchstens 3."""
+    wa, wb = a.split(), b.split()
+    if len(wa) != len(wb):
+        kurz_, lang_ = sorted((wa, wb), key=len)
+        if len(kurz_) != 1 or len(lang_) != 2:
+            return False
+        wa, wb = kurz_, lang_[:1]
+    for x, y in zip(wa, wb):
+        n = 0
+        while n < min(len(x), len(y)) and x[n] == y[n]:
+            n += 1
+        if n < 3 or n < min(len(x), len(y)) - 1 or max(len(x), len(y)) - n > 3:
+            return False
+    return True
+
+
 def render_article(art, tree, prev_a, next_a):
     ABB_N[0] = 0                                       # Abbildungen je Artikel ab 1 nummerieren
     zf_start(ist_ref(art))                             # Sammler der Zusammenfassung: nur für den Artikel selbst
     body_html, toc = md_to_html(art["body"])
     zdaten = dict(ZF)
     ZF["an"] = False
+    karten_bestimmungen(art, zdaten)                   # geschriebene Begriffskarten: ihre Bestimmung gilt
     SAMMEL[art["path"]] = zdaten                       # Begriffsverzeichnis und Lernkarten des Moduls (lernen_seiten)
     body_html = _vorschau_markieren(body_html)         # Links auf Artikel: Link-Vorschau (data-vs)
     _TOC[art["body"]] = toc
@@ -2372,9 +2459,9 @@ def _modul_begriffe(arts):
             if not key:
                 continue
             alt = begriffe.get(key)
-            if alt is None or (not alt["satz"] and b["satz"]):
-                begriffe[key] = {"md": b["md"], "satz": b["satz"], "id": b["id"], "art": a,
-                                 "pos": alt["pos"] if alt else len(begriffe)}
+            if alt is None or (not alt["satz"] and b["satz"]) or (b.get("karte") and not alt.get("karte")):
+                begriffe[key] = {"md": b["md"], "satz": b["satz"], "id": b["id"], "art": a, "karte": b.get("karte"),
+                                 "pos": alt["pos"] if alt else len(begriffe)}   # Bestimmung aus Begriffskarte geht vor
     return begriffe
 
 def _modul_kopf(arts, wort, datei, lang):
@@ -2441,7 +2528,8 @@ def begriffe_html(tree, mp, arts, begriffe, lang):
             a = b["art"]
             satz = b["satz"] and _bestimmung_md(b["satz"])
             wo = f'<span class="bg-wo">{html.escape(kap_nr[a["path"]])} · {html.escape(a["kurz"] or a["title"])}</span>'
-            zeilen.append(f'<div class="bg-e"><dt><a href="/wissen/{a["path"]}#{b["id"]}">{inline(_ohne_links(b["md"]))}</a></dt>'
+            ziel = f'/wissen/{a["path"]}' + (f'#{b["id"]}' if b["id"] else "")   # Begriff nur aus einer Karte: Artikelanfang
+            zeilen.append(f'<div class="bg-e"><dt><a href="{ziel}">{inline(_ohne_links(b["md"]))}</a></dt>'
                           f'<dd>{inline(satz) + " " if satz else ""}{wo}</dd></div>')
         teile.append(f'<section class="bg-g" id="b-{i}"><h2>{html.escape(g)}</h2><dl class="bg-l">{"".join(zeilen)}</dl></section>')
     anzahl = html.escape(T("bg_anzahl").format(n=len(begriffe)))
@@ -2495,8 +2583,9 @@ PFAD_ART = {}                                          # Artikeladresse -> Artik
 BEREICH_PLATZ = "<!--bereich-links:{}-->"            # setzt render_article; build_lang ersetzt ihn, sobald die Zahlen stehen
 _BEREICH_PLATZ_RE = re.compile(r"<!--bereich-links:([^>]*?)-->")
 TYP_ART = {"begriff": "b", "formel": "f", "herleitung": "h", "zusammenhang": "l"}   # ::::lernkarten: Kartenart -> Kürzel
-_KARTE_RE = re.compile(r"(?ms)^:::karte[ \t]+(\S+)[ \t]*\n(.*?)^:::[ \t]*$")
+_KARTE_RE = re.compile(r"(?ms)^:::karte[ \t]+(\S+)[ \t]*([^\n]*)\n(.*?)^:::[ \t]*$")   # Art, optional Name (seit 11.11.)
 _TRENNER_RE = re.compile(r"(?m)^---[ \t]*$")
+_TRENNER_FALSCH_RE = re.compile(r"(?m)^---[ \t]*(falsch)?[ \t]*$")   # „--- falsch“: geschriebene falsche Antwort (Quiz)
 GESCHRIEBEN_BEREICH = set()                            # Dateien unter web/lernen und web/aufgaben aus diesem Build
 BEREICH_STAT = {}                                      # Sprache -> Zähler (Karten je Art, Herleitungen, Aufgaben je Modul)
 
@@ -2610,14 +2699,20 @@ def geschriebene_karten(md):
     karten = []
     for m in _KARTE_RE.finditer(md):
         typ = TYP_ART.get(m.group(1).lower())
-        teile = [t.strip() for t in _TRENNER_RE.split(m.group(2))]
-        if not typ or len(teile) < 2 or not teile[0] or not any(teile[1:]):
-            print("  ::::lernkarten: Karte übersprungen (Art oder ---):", m.group(1), (teile[0] if teile else "")[:50])
+        # Seit 11.11.2026 (notizen/lernkarten_muster.md): Name nach der Art und „--- falsch“ vor jeder falschen Antwort
+        stuecke = _TRENNER_FALSCH_RE.split(m.group(3))        # [Frage, flag, Text, flag, Text, …]
+        frage = stuecke[0].strip()
+        antwort, falsch = [], []
+        for flag, t in zip(stuecke[1::2], stuecke[2::2]):
+            t = t.strip()
+            if t:
+                (falsch if flag else antwort).append(t)
+        if not typ or not frage or not antwort:
+            print("  ::::lernkarten: Karte übersprungen (Art oder ---):", m.group(1), frage[:50])
             continue
-        antwort = [t for t in teile[1:] if t]
         if typ != "h":
             antwort = ["\n\n".join(antwort)]
-        karten.append((typ, teile[0], antwort))
+        karten.append((typ, frage, antwort, falsch, m.group(2).strip()))
     return karten
 
 def modul_karten(mp, arts, begriffe, lang):
@@ -2658,12 +2753,13 @@ def modul_karten(mp, arts, begriffe, lang):
         z = SAMMEL.get(a["path"]) or {}
         eigene = (a.get("bloecke") or {}).get("lernkarten")
         if eigene:                                     # geschriebene Karten: nur diese, keine automatischen
-            for typ, frage, antwort in geschriebene_karten(eigene):
+            for typ, frage, antwort, falsch, name in geschriebene_karten(eigene):
                 key = f"w|{art_stamm(a)}|{fold(klartext(frage))}"
                 if typ == "h":
                     neu(a, "h", key, _karte_md(frage, a["path"]), "", "", s=[_karte_md(x, a["path"]) for x in antwort], w=1)
                 else:
-                    neu(a, typ, key, _karte_md(frage, a["path"]), _karte_md(antwort[0], a["path"]), "", w=1)
+                    neu(a, typ, key, _karte_md(frage, a["path"]), _karte_md(antwort[0], a["path"]), "", w=1,
+                        x=[_karte_md(f, a["path"]) for f in falsch], n=name)
             continue
         fb = [b for b in z.get("fb", []) if b["id"] + "|" + a["path"] in gewaehlt]
         i = 0                                          # Begriffe mit demselben Satz: eine Karte (wie in der Zusammenfassung)
@@ -2750,7 +2846,7 @@ def lernen_daten(mp, arts, karten):
             d["r"] = c["hinten"]
         if c["anker"]:
             d["h"] = c["anker"]
-        for x in ("q", "z", "s0", "s", "w"):
+        for x in ("q", "z", "s0", "s", "w", "x", "n"):     # x: geschriebene falsche Antworten, n: Name (seit 11.11.2026)
             if c.get(x):
                 d[x] = c[x]
         kj.append(d)
@@ -2804,7 +2900,7 @@ def bereich_seite(titel, desc, inhalt, bereich, ziele, cls=""):
     body = (topbar(art=pseudo, bereich=bereich)
             + f'<main class="article bereich-seite{" " + cls if cls else ""}" id="inhalt" tabindex="-1"><article>{inhalt}'
             + f'{legal_footer()}</article></main>')
-    return page_shell(titel, desc, body, 0, ziele, js=("/wissen/assets/bereiche.js",))
+    return page_shell(titel, desc, body, 0, ziele, js=(asset("bereiche.js"),))
 
 def _bereich_kopf(wort_bereich, titel_html, ziele, extra=""):
     """Brotkrumen (Bereich), Titel und schmale Sprachwahl der Bereichsseiten."""
@@ -3339,6 +3435,7 @@ def main():
             p = a["path"] if lang == "de" else a["path"].split("/", 1)[1]
             r = a["reihe"]
             MODUL_ID[modul_pfad(a["path"])] = r if len(reihen[r]) == 1 else f"{r}-{modul_pfad(p).rsplit('/', 1)[-1]}"
+    assets = assets_bauen()                            # Versionen vor dem Seitenbau (Cache-Busting in den Links)
     counts = {lang: build_lang(lang, tree) for lang, tree in TREES.items()}
     alt = alte_seiten_entfernen()
     alt_bereich = bereiche_aufraeumen()                # W4b: alte Dateien unter web/lernen, web/aufgaben
@@ -3346,15 +3443,11 @@ def main():
         if p.resolve() not in GESCHRIEBEN_DATEN:
             p.unlink()
     LANG_NOW[0] = "de"
-    (OUT / "assets" / "wissen.css").write_text(WISSEN_CSS, encoding="utf-8")
-    ui_js = {l: {k: UI[l][k] for k in LERNEN_JS if k in UI[l]} for l in LANGS}   # Oberflächenwörter für wissen.js
-    (OUT / "assets" / "wissen.js").write_text(
-        WISSEN_JS.replace("/*UI_LERNEN*/{}", json.dumps(ui_js, ensure_ascii=False, separators=(",", ":"))), encoding="utf-8")
-    (OUT / "assets" / "suche.js").write_text(SUCHE_JS, encoding="utf-8")
-    (OUT / "assets" / "formel-export.js").write_text(FORMEL_EXPORT_JS, encoding="utf-8")   # W4a: lädt erst beim Klick
-    ui_b = {l: {k: UI[l][k] for k in BEREICHE_JS if k in UI[l]} for l in LANGS}   # W4b: Wörter für bereiche.js
-    (OUT / "assets" / "bereiche.js").write_text(
-        BEREICHE_JS_CODE.replace("/*UI_BEREICHE*/{}", json.dumps(ui_b, ensure_ascii=False, separators=(",", ":"))), encoding="utf-8")
+    for name, inhalt in assets.items():                # wissen.css/.js, suche.js, formel-export.js (W4a), bereiche.js (W4b)
+        (OUT / "assets" / name).write_text(inhalt, encoding="utf-8")
+    if KARTEN_BEST["treffer"] or KARTEN_BEST["ohne"]:
+        print(f"  Begriffskarten: {KARTEN_BEST['treffer']} Bestimmungen übernommen"
+              + (f"; ohne Fachbegriff im Artikel: {'; '.join(KARTEN_BEST['ohne'])}" if KARTEN_BEST["ohne"] else ""))
     for lang, st in BEREICH_STAT.items():               # W4b: Karten je Art, Aufgaben je Modul
         arten = {t: sum(k[t] for k in st["karten"].values()) for t in "bfhl"}
         print(f"  Bereiche {lang}: Karten " + ", ".join(f"{t} {v}" for t, v in arten.items())
@@ -3729,6 +3822,10 @@ def startseiten_schreiben():
     if not pfad.exists():
         return 0
     vorlage = pfad.read_text(encoding="utf-8")
+    neu = re.sub(r'/wissen/assets/suche\.js(?:\?v=[0-9a-f]+)?', asset("suche.js"), vorlage)   # Cache-Busting
+    if neu != vorlage:
+        pfad.write_text(neu, encoding="utf-8")
+        vorlage = neu
     n = 0
     for l in LANGS:
         if l == "de" or l not in STARTSEITE_TEXTE:
@@ -6208,11 +6305,14 @@ var BEREICHE_UI=/*UI_BEREICHE*/{};
        demselben Kapitel, sonst aus dem Modul; Herleitungen kommen nicht vor. */
     function quizfaehig(c){ return c.t!=="h" && !!antwort(c); }
     function optionen(c){ var ant=antwort(c), seen={}, pool=[]; seen[ohneTags(ant)]=1;
+      if(c.x && c.x.length>=3)                                     // geschriebene falsche Antworten (seit 11.11.2026): Option "x:<id>:<i>"
+        return mische([c.id].concat(c.x.slice(0,3).map(function(_,i){ return "x:"+c.id+":"+i; })));
       var kap=D.karten.filter(function(x){ return x.t===c.t && x.k===c.k && x.id!==c.id && quizfaehig(x); }),
           mod=D.karten.filter(function(x){ return x.t===c.t && x.k!==c.k && quizfaehig(x); });
       mische(kap).concat(mische(mod)).forEach(function(x){ var n=ohneTags(antwort(x)); if(pool.length<3 && n && !seen[n]){ seen[n]=1; pool.push(x.id); } });
       return pool.length<3 ? null : mische([c.id].concat(pool)); }
     function karteVon(id){ for(var i=0;i<D.karten.length;i++) if(D.karten[i].id===id) return D.karten[i]; return null; }
+    function optText(o){ var m=/^x:(.+):(\d+)$/.exec(o||""); if(m){ var c=karteVon(m[1]); return c&&c.x?(c.x[+m[2]]||""):""; } var k=karteVon(o); return k?antwort(k):""; }   // Text einer Quiz-Option
     function frageText(c){ return c.w ? w("quiz_p_w") : w("quiz_p_"+c.t); }
     function zahlWahl(){ var l=tx("label","lw-feld"), s=tx("select","lw-sel lw-zahl"); l.appendChild(tx("span",null,w("quiz_zahl"))); l.appendChild(s);
       [10,20,30].forEach(function(n){ s.appendChild(new Option(String(n),String(n))); }); return [l,s]; }
@@ -6222,7 +6322,7 @@ var BEREICHE_UI=/*UI_BEREICHE*/{};
       var c=karteVon(f.id), box=tx("div","qz-frage");
       box.appendChild(tx("p","qz-p",frageText(c))); box.appendChild(hx("div","qz-vorne",c.v));
       var ol=tx("ol","qz-opt"), bs=[];
-      f.o.forEach(function(id,i){ var x=karteVon(id), li=tx("li"), b=knopf("qz-b"); b.innerHTML='<span class="qz-nr">'+(i+1)+'</span><span class="qz-a">'+(x?antwort(x):"")+'</span>';
+      f.o.forEach(function(id,i){ var li=tx("li"), b=knopf("qz-b"); b.innerHTML='<span class="qz-nr">'+(i+1)+'</span><span class="qz-a">'+optText(id)+'</span>';
         if(f.w===i) b.classList.add("gewaehlt");
         b.addEventListener("click",function(){ waehle(i); }); li.appendChild(b); ol.appendChild(li); bs.push(b); });
       box.appendChild(ol); ziel.appendChild(box);
@@ -6237,7 +6337,7 @@ var BEREICHE_UI=/*UI_BEREICHE*/{};
     function fehlerListe(items){ var ol=tx("ol","qz-fehler");
       items.forEach(function(f){ var c=karteVon(f.id), li=tx("li"); if(!c) return;
         li.appendChild(hx("div","qz-vorne",c.v));
-        if(f.w>=0){ var d=karteVon(f.o[f.w]); li.appendChild(hx("div","qz-deine",'<span class="hl-k">'+w("quiz_deine")+'</span> '+(d?antwort(d):""))); }
+        if(f.w>=0){ li.appendChild(hx("div","qz-deine",'<span class="hl-k">'+w("quiz_deine")+'</span> '+optText(f.o[f.w]))); }
         li.appendChild(hx("div","qz-richtig",'<span class="hl-k">'+w("quiz_richtig")+'</span> '+antwort(c)));
         var a=tx("a","lk-stelle",w("lk_stelle")); a.href=stelle(c); li.appendChild(a); ol.appendChild(li); });
       return ol; }

@@ -100,3 +100,107 @@ Welche Startgeschwindigkeit bräuchte es, um B gerade noch zu erreichen?
 (c) Hin und zurück: $t=2v_0/a=3{,}79$ ns. Das Potenzial ist wieder dasselbe, also nach [(9.1)](#gl-9-1) $v=v_0=1{,}0\cdot10^6$ m/s, in Gegenrichtung. (d) Genau die Energie aus dem Beispiel: $v_0=1{,}78\cdot10^6$ m/s.
 :::
 :::
+
+::::lernkarten
+:::karte formel Energiesatz
+Was bleibt erhalten, wenn sich eine Ladung $Q$ der Masse $m$ im elektrostatischen Feld bewegt?
+---
+Die Summe aus Bewegungsenergie und potenzieller Energie: $\tfrac12m\,v^2+Q\,\varphi=\text{konstant}$. Das gilt im Vakuum und für $v\ll c$.
+--- falsch
+Die Summe aus Bewegungsenergie und Potenzial: $\tfrac12m\,v^2+\varphi=\text{konstant}$. Die Ladung kommt nicht vor, weil $\varphi$ schon Energie je Ladung ist.
+--- falsch
+Die Differenz aus Bewegungsenergie und potenzieller Energie: $\tfrac12m\,v^2-Q\,\varphi=\text{konstant}$. Beide wachsen gemeinsam, wenn die Ladung schneller wird.
+--- falsch
+Die Geschwindigkeit: $v=\text{konstant}$, weil das Feld nur die Richtung der Bewegung ändert und der Ladung keine Energie zuführt.
+:::
+:::karte formel Endgeschwindigkeit
+Welche Geschwindigkeit erreicht eine Ladung $Q$ der Masse $m$, die aus der Ruhe die Spannung $U$ durchläuft?
+---
+$v=\sqrt{\frac{2\,|Q\,U|}{m}}$, aus $|Q\,U|=\frac12m\,v^2$. Der Weg kommt nicht vor, allein die Spannung bestimmt die Energie. Gilt im Vakuum und für $v\ll c$.
+--- falsch
+$v=\frac{2\,|Q\,U|}{m}$, aus $|Q\,U|=\frac12m\,v$. Der Weg kommt nicht vor, allein die Spannung bestimmt die Energie. Gilt im Vakuum und für $v\ll c$.
+--- falsch
+$v=\sqrt{\frac{2\,|Q|\,E}{m}}$: Es zählt die Feldstärke, nicht die Spannung. Bei gleicher Spannung ergibt größerer Plattenabstand deshalb eine kleinere Geschwindigkeit.
+--- falsch
+$v=\sqrt{\frac{2\,|Q\,U|}{m}}\cdot d$: Es zählt auch die Länge $d$ des Felds. Bei gleicher Spannung ergibt doppelter Plattenabstand die doppelte Geschwindigkeit.
+:::
+:::karte formel Beschleunigung und Flugzeit
+Wie groß sind Beschleunigung $a$ und Flugzeit $t$ einer Ladung, die aus der Ruhe ein homogenes Feld $E$ der Länge $d$ durchläuft und dabei die Geschwindigkeit $v$ erreicht?
+---
+$a=\frac{|Q|\,E}{m}$, konstant, weil die Kraft überall gleich ist. $t=\frac{2\,d}{v}$, weil bei konstanter Beschleunigung die mittlere Geschwindigkeit $v/2$ ist.
+--- falsch
+$a=\frac{|Q|\,E}{m}$, konstant, weil die Kraft überall gleich ist. $t=\frac{d}{v}$, weil die Ladung den ganzen Weg mit der Geschwindigkeit $v$ zurücklegt.
+--- falsch
+$a=\frac{|Q|\,E}{m}$, wachsend, weil die Ladung unterwegs schneller wird. $t=\frac{2\,d}{v}$, weil bei konstanter Beschleunigung die mittlere Geschwindigkeit $v/2$ ist.
+--- falsch
+$a=\frac{|Q|\,U}{m}$, konstant, weil die Spannung die Kraft bestimmt. $t=\frac{2\,d}{v}$, weil bei konstanter Beschleunigung die mittlere Geschwindigkeit $v/2$ ist.
+:::
+:::karte herleitung Energiesatz und Endgeschwindigkeit
+Leite aus der Arbeit des Felds den Energiesatz, die Endgeschwindigkeit und die Flugzeit einer Ladung her, die im homogenen Feld der Länge $d$ aus der Ruhe startet.
+---
+$\frac12mv_2^2-\frac12mv_1^2=W_{12}$, weil die Arbeit des Felds im Vakuum vollständig zu Bewegungsenergie wird.
+---
+Mit $W_{12}=Q(\varphi_1-\varphi_2)$ lässt sich das als $\frac12mv_1^2+Q\varphi_1=\frac12mv_2^2+Q\varphi_2$ schreiben, also $\tfrac12m\,v^2+Q\,\varphi=\text{konstant}$, weil Start- und Zielpunkt beliebig sind.
+---
+Mit $v_1=0$ folgt $|Q\,U|=\frac12m\,v^2$, weil die Ladung aus der Ruhe startet und die ganze Arbeit des Felds in ihrer Bewegungsenergie steckt.
+---
+Auflösen ergibt $v=\sqrt{\frac{2\,|Q\,U|}{m}}$, weil $v$ positiv ist. Der Weg kommt darin nicht vor.
+---
+Die Kraft ist überall gleich, also auch die Beschleunigung, und die mittlere Geschwindigkeit ist $v/2$. Daraus folgt $t=d/(v/2)=\frac{2\,d}{v}$, weil die Geschwindigkeit gleichmäßig von 0 auf $v$ wächst.
+:::
+:::karte zusammenhang Elektron gegen das Feld
+Im Plattenpaar zeigt $\vec E$ von A nach B. Warum läuft ein Elektron, das an B aus der Ruhe startet, gegen $\vec E$ zum höheren Potenzial bei A?
+---
+Weil $\vec F=Q\vec E$ mit $Q=-e$ entgegen $\vec E$ zeigt. Jede Ladung läuft von selbst dorthin, wo ihre potenzielle Energie $Q\varphi$ kleiner wird; wegen $Q<0$ ist das beim Elektron das höhere Potenzial.
+--- falsch
+Weil jede Ladung von selbst zum höheren Potenzial läuft, wo ihre potenzielle Energie $Q\varphi$ größer wird. Das gilt für ein Elektron genauso wie für jede positive Ladung, das Vorzeichen spielt keine Rolle.
+--- falsch
+Weil sich eine Ladung dorthin bewegt, wo das Feld am stärksten ist. An Platte A beginnen die Feldlinien, deshalb ist das Feld dort stärker als an B und zieht das Elektron an.
+--- falsch
+Weil das Feld negative Ladungen in seine eigene Richtung treibt und die Richtung von $\vec E$ für Elektronen umgekehrt festgelegt ist. Für sie zeigt das Feld in Wahrheit von B nach A.
+:::
+:::karte zusammenhang Doppelter Plattenabstand
+Was passiert mit Feldstärke, Beschleunigung, Endgeschwindigkeit und Flugzeit eines Elektrons, wenn man bei gleicher Spannung den Plattenabstand verdoppelt?
+---
+$E$ und $a$ halbieren sich, weil $E=U/d$. Die Endgeschwindigkeit bleibt, weil allein die Spannung die Energie bestimmt. Das Elektron beschleunigt schwächer, dafür länger: Die Flugzeit verdoppelt sich.
+--- falsch
+$E$ und $a$ halbieren sich, weil $E=U/d$. Die Endgeschwindigkeit halbiert sich ebenfalls, weil das Elektron schwächer beschleunigt wird. Dafür bleibt die Flugzeit gleich wie vorher, beides gleicht sich aus.
+--- falsch
+$E$ und $a$ bleiben gleich, weil die Spannung gleich bleibt. Auf dem doppelten Weg wird das Elektron deshalb doppelt so schnell, und die Flugzeit verdoppelt sich ebenfalls.
+--- falsch
+$E$ und $a$ halbieren sich, weil $E=U/d$. Die Endgeschwindigkeit sinkt auf das $1/\sqrt2$-fache, weil der Weg unter der Wurzel steht. Die Flugzeit verdoppelt sich dabei.
+:::
+:::karte zusammenhang Proton und Elektron
+Ein Proton durchläuft dieselbe Spannung wie ein Elektron. Was passiert mit seiner Energie und seiner Geschwindigkeit im Vergleich?
+---
+Es gewinnt dieselbe Energie, weil es denselben Ladungsbetrag $e$ trägt. Weil es 1836-mal schwerer ist, folgt aus $|Q\,U|=\frac12m\,v^2$ eine $\sqrt{1836}=42{,}9$-mal kleinere Geschwindigkeit.
+--- falsch
+Es gewinnt dieselbe Energie, weil es denselben Ladungsbetrag $e$ trägt. Weil es 1836-mal schwerer ist, wird es auch genau 1836-mal langsamer als das Elektron, denn die Geschwindigkeit ist umgekehrt proportional zur Masse.
+--- falsch
+Es gewinnt 1836-mal mehr Energie, weil es 1836-mal schwerer ist. Seine Geschwindigkeit ist deshalb genau dieselbe wie die des Elektrons.
+--- falsch
+Es gewinnt weniger Energie, weil seine positive Ladung vom Feld gebremst wird. Deshalb ist es deutlich langsamer als das Elektron.
+:::
+:::karte begriff Elektronenvolt
+Was ist ein Elektronenvolt?
+---
+Eine Einheit der Energie: die Energie, die eine Elementarladung beim Durchlaufen von 1 V gewinnt, $1\,\mathrm{eV}=1{,}602\cdot10^{-19}$ J.
+--- falsch
+Eine Einheit der Spannung: die Spannung, die ein einzelnes Elektron zwischen zwei Punkten erzeugt, $1\,\mathrm{eV}=1{,}602\cdot10^{-19}$ V.
+--- falsch
+Eine Einheit der Ladung: die Ladung eines Elektrons, in Volt statt in Coulomb angegeben, $1\,\mathrm{eV}=1{,}602\cdot10^{-19}$ C.
+--- falsch
+Eine Einheit der Energie: die Energie, die ein Coulomb beim Durchlaufen von 1 V gewinnt, $1\,\mathrm{eV}=1$ J.
+:::
+:::karte zusammenhang Nur im Vakuum
+Warum gelten die Gleichungen für eine Ladung im Feld nur im Vakuum?
+---
+Weil ein Elektron in Luft schon nach Bruchteilen eines Mikrometers mit einem Molekül zusammenstößt. Die Arbeit des Felds wird dann nicht vollständig zu Bewegungsenergie.
+--- falsch
+Weil Luft das Feld zwischen den Platten abschirmt. In Luft ist zwischen zwei Platten $\vec E=0$, und die Ladung erfährt dort keine Kraft.
+--- falsch
+Weil das Coulomb-Gesetz in Luft nicht gilt. Dort ziehen sich ungleichnamige Ladungen nicht an, und das Feld übt auf ein Elektron zwischen den Platten keine Kraft aus.
+--- falsch
+Weil ein Elektron in Luft seine Ladung an die Moleküle abgibt, mit denen es zusammenstößt. Danach ist es neutral, und das Feld wirkt nicht mehr auf es.
+:::
+::::

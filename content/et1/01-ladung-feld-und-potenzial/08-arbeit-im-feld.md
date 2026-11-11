@@ -88,3 +88,85 @@ Was ändert sich für $Q=-2$ nC?
 (a) Länge $s=\sqrt{2^2+1{,}5^2}\,\mathrm{mm}=2{,}5$ mm, $\cos\alpha=0{,}8$: $W_{12}=2\,\mathrm{nC}\cdot3000\,\mathrm{V/m}\cdot2{,}5\,\mathrm{mm}\cdot0{,}8=12$ nJ. (b) In $y$-Richtung steht der Weg senkrecht zu $\vec E$: 0. In $x$-Richtung: $2\,\mathrm{nC}\cdot3000\,\mathrm{V/m}\cdot2\,\mathrm{mm}=12$ nJ. (c) $W_{12}=-12$ nJ, von außen müssen 12 nJ aufgewendet werden.
 :::
 :::
+
+::::lernkarten
+:::karte formel Arbeit im elektrischen Feld
+Welche Arbeit $W_{12}$ verrichtet das Feld an einer Ladung $Q$, die von $P_1$ nach $P_2$ geht?
+---
+$W_{12}=Q\int_{P_1}^{P_2}\vec E\cdot\mathrm{d}\vec s$, im homogenen Feld $W_{12}=Q\,E\,s\cos\alpha$. $Q$ zählt mit Vorzeichen, $\alpha$ ist der Winkel zwischen Weg und $\vec E$. $W_{12}>0$ heißt: Das Feld gibt Energie an die Ladung ab.
+--- falsch
+$W_{12}=Q\int_{P_1}^{P_2}\vec E\cdot\mathrm{d}\vec s$, im homogenen Feld $W_{12}=Q\,E\,s\sin\alpha$. $Q$ zählt mit Vorzeichen, $\alpha$ ist der Winkel zwischen Weg und $\vec E$. $W_{12}>0$ heißt: Das Feld gibt Energie an die Ladung ab.
+--- falsch
+$W_{12}=Q\int_{P_1}^{P_2}\vec E\cdot\mathrm{d}\vec s$, im homogenen Feld $W_{12}=Q\,E\,s\cos\alpha$. $Q$ zählt mit Vorzeichen, $\alpha$ ist der Winkel zwischen Weg und $\vec E$. $W_{12}>0$ heißt: Von außen muss Energie aufgewendet werden.
+--- falsch
+$W_{12}=\int_{P_1}^{P_2}\vec E\cdot\mathrm{d}\vec s$, im homogenen Feld $W_{12}=E\,s\cos\alpha$. Die Ladung kommt nicht vor, weil das Feld an jeder Ladung dieselbe Arbeit verrichtet. $W_{12}>0$ heißt: Das Feld gibt Energie ab.
+:::
+:::karte begriff wirbelfrei
+Wann heißt ein elektrisches Feld wirbelfrei?
+---
+Wenn das Integral von $\vec E$ über jeden geschlossenen Weg null ist, $\oint_L\vec E\cdot\mathrm{d}\vec s=0$. Gleichbedeutend hängt die Arbeit an einer Ladung nur von Start und Ziel ab, nicht vom Weg.
+--- falsch
+Wenn das Integral von $\vec E$ über jeden geschlossenen Weg null ist. Das gilt für jedes elektrische Feld, denn auf einem Umlauf kehrt man zum Start zurück.
+--- falsch
+Wenn seine Feldlinien nirgends gekrümmt sind. Gekrümmte Linien, wie zwischen zwei ungleichnamigen Ladungen, bilden Wirbel, und die Arbeit hängt dort vom Weg ab.
+--- falsch
+Wenn $\vec E$ überall null ist. Nur dann hängt die Arbeit an einer Ladung nicht vom Weg ab, weil das Feld auf keinem Weg Arbeit verrichtet.
+:::
+:::karte begriff elektrostatisches Feld
+Was ist ein elektrostatisches Feld?
+---
+Das elektrische Feld ruhender Ladungen ohne ein sich änderndes Magnetfeld. In ihm gilt $\oint_L\vec E\cdot\mathrm{d}\vec s=0$: Die Arbeit an einer Ladung hängt nicht vom Weg ab.
+--- falsch
+Ein elektrisches Feld, dessen Betrag und Richtung überall gleich sind. In ihm gilt $W_{12}=Q\,E\,s\cos\alpha$ für jeden geraden Weg, an jedem Ort.
+--- falsch
+Das elektrische Feld ruhender Ladungen, in dem ruhende Ladungen keine Kraft erfahren. Nur Ladungen, die sich bewegen, spüren dieses Feld.
+--- falsch
+Das elektrische Feld ruhender Ladungen, in dem die Arbeit an einer Ladung vom gewählten Weg abhängt, nicht nur von Start und Ziel; Umwege kosten mehr Arbeit.
+:::
+:::karte herleitung Wegunabhängigkeit der Arbeit
+Zeige, dass die Arbeit im Feld ruhender Ladungen nicht vom Weg abhängt. Beginne mit einer Ladung $Q$ im Feld einer Punktladung $Q_0$.
+---
+Man zerlegt den Weg von $r_1$ nach $r_2$ in Stücke längs des Radius und quer dazu, weil sich jeder Weg so beliebig genau annähern lässt.
+---
+Auf den Stücken quer zum Radius steht das Feld senkrecht zum Weg und verrichtet keine Arbeit, weil $\alpha=90^\circ$ ist. Es zählt nur die Änderung des Abstands.
+---
+Damit ist $W_{12}=Q\int_{r_1}^{r_2}k\,\frac{Q_0}{r^2}\,\mathrm{d} r=k\,Q\,Q_0\Bigl(\frac{1}{r_1}-\frac{1}{r_2}\Bigr)$, weil $\vec E=k\,\frac{Q_0}{r^2}\cdot\frac{\vec r}{r}$ radial zeigt. Das Ergebnis hängt nur von $r_1$ und $r_2$ ab.
+---
+Jedes Feld ruhender Ladungen ist eine Summe von Punktladungsfeldern, weil sich Felder überlagern. Die Arbeit ist die Summe der Einzelarbeiten und damit ebenfalls wegunabhängig.
+---
+Für einen geschlossenen Weg, hin auf $a$ und zurück auf $b$, folgt $\oint\vec E\cdot\mathrm{d}\vec s=\int_a\vec E\cdot\mathrm{d}\vec s-\int_{b,\,P_1\to P_2}\vec E\cdot\mathrm{d}\vec s=0$, weil der Rückweg das Vorzeichen umkehrt und beide Wege denselben Wert liefern.
+:::
+:::karte zusammenhang Negative Ladung im Feld
+Was passiert mit der Arbeit des Felds, wenn statt einer positiven eine negative Ladung denselben Weg läuft?
+---
+Ihr Vorzeichen kehrt sich um, weil $Q$ mit Vorzeichen in $W_{12}=Q\int_{P_1}^{P_2}\vec E\cdot\mathrm{d}\vec s$ eingeht. Ein Elektron gewinnt deshalb Energie, wenn es gegen $\vec E$ läuft.
+--- falsch
+Nichts: Die Arbeit hängt nur vom Feld und vom Weg ab. Das Vorzeichen der Ladung legt nur fest, in welche Richtung die Kraft auf sie zeigt.
+--- falsch
+Nur ihr Betrag: Eine negative Ladung erfährt im selben Feld eine schwächere Kraft, das Feld verrichtet an ihr deshalb weniger Arbeit.
+--- falsch
+Ihr Vorzeichen kehrt sich um, weil $Q$ mit Vorzeichen eingeht. Ein Elektron gewinnt deshalb Energie, wenn es in Richtung von $\vec E$ läuft.
+:::
+:::karte zusammenhang Umlauf ohne Energiegewinn
+Warum sagt $\oint_L\vec E\cdot\mathrm{d}\vec s=0$ mehr als „hin und zurück ergibt null“?
+---
+Weil es auch gilt, wenn der Rückweg anders verläuft als der Hinweg; auf demselben Weg ergibt jedes Kraftfeld null. Sonst könnte eine Ladung bei jedem Umlauf Energie gewinnen.
+--- falsch
+Weil es auch für bewegte Ladungen und sich ändernde Magnetfelder gilt. Es beschreibt damit jedes elektrische Feld ohne Ausnahme, nicht nur das Feld ruhender Ladungen, und ist deshalb allgemeiner.
+--- falsch
+Weil es zusätzlich verlangt, dass die Ladung auf keinem Teilstück des Wegs Energie gewinnt oder verliert. Auf jedem einzelnen Stück ist die Arbeit null.
+--- falsch
+Weil es auch für Wege gilt, die nicht zum Start zurückführen. Die Arbeit des Felds ist dann ebenfalls null, gleich an welchem Punkt der Weg endet.
+:::
+:::karte formel Arbeit von außen
+Welche Arbeit muss man von außen aufwenden, wenn das Feld an einer Ladung die Arbeit $W_{12}<0$ verrichtet?
+---
+$W_\text{außen}=-W_{12}$, sofern die Ladung dabei weder schneller noch langsamer wird. Die aufgewendete Energie wandert ins Feld.
+--- falsch
+$W_\text{außen}=W_{12}$, also ebenfalls einen negativen Betrag. Die Energie wandert dabei aus dem Feld zur Ladung.
+--- falsch
+$W_\text{außen}=-W_{12}$, gleich ob die Ladung dabei schneller oder langsamer wird. Die aufgewendete Energie wandert ins Feld.
+--- falsch
+Keine: Bei $W_{12}<0$ gibt das Feld Energie an die Ladung ab; diese Energie wird frei und treibt die Ladung an.
+:::
+::::

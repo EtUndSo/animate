@@ -97,3 +97,105 @@ Wo zwischen den Ladungen ist $\varphi=0$? Wie groß ist $E$ dort?
 (a) Potenziale sind Zahlen, sie addieren sich mit Vorzeichen: $\varphi=k\,(4\,\mathrm{nC}-1\,\mathrm{nC})/3\,\mathrm{cm}=899$ V. (b) $4/x-1/(6-x)=0$ mit $x$ in cm ergibt $x=4{,}8$ cm. Dort zeigen beide Felder nach rechts: $E=k\cdot4\,\mathrm{nC}/(4{,}8\,\mathrm{cm})^2+k\cdot1\,\mathrm{nC}/(1{,}2\,\mathrm{cm})^2=15{,}6\,\mathrm{kV/m}+62{,}4\,\mathrm{kV/m}=78{,}0$ kV/m. $\varphi=0$ bedeutet also nicht $E=0$.
 :::
 :::
+
+::::lernkarten
+:::karte begriff Potenzial
+Was gibt das Potenzial $\varphi$ eines Punkts $P$ an?
+---
+Die Arbeit je Ladung, die das Feld auf dem Weg von $P$ bis zum Bezugspunkt $P_0$ abgibt: $\varphi(P)=\int_{P}^{P_0}\vec E\cdot\mathrm{d}\vec s$, Einheit $\mathrm{J/C}=\mathrm V$. Es ist eine Zahl je Ort, kein Vektor, und setzt ein elektrostatisches Feld voraus.
+--- falsch
+Die Arbeit je Ladung, die das Feld auf dem Weg vom Bezugspunkt $P_0$ bis $P$ abgibt: $\varphi(P)=\int_{P_0}^{P}\vec E\cdot\mathrm{d}\vec s$, Einheit $\mathrm{J/C}=\mathrm V$. Es ist eine Zahl je Ort, kein Vektor, und setzt ein elektrostatisches Feld voraus.
+--- falsch
+Die Kraft je Ladung an diesem Ort: $\varphi(P)=\vec F/Q$, Einheit V/m. Es ist ein Vektor in Richtung der Kraft auf eine positive Ladung und lässt sich in jedem Feld angeben, auch wenn die Arbeit vom Weg abhängt.
+--- falsch
+Die gesamte Energie, die eine Ladung $Q$ an diesem Ort hat: $\varphi(P)=Q\int_{P}^{P_0}\vec E\cdot\mathrm{d}\vec s$, Einheit J. Es hängt von der Ladung ab, die man an den Ort bringt, und setzt ein elektrostatisches Feld voraus.
+:::
+:::karte begriff Bezugspunkt
+Was ist der Bezugspunkt des Potenzials?
+---
+Der frei gewählte Punkt $P_0$ mit dem Potenzial null, bis zu dem die Arbeit je Ladung gezählt wird. Verschiebt man ihn, ändern sich alle Potenziale um denselben Betrag.
+--- falsch
+Ein von der Natur vorgegebener Punkt, stets im Unendlichen. Nur von dort aus gemessen haben Potenziale ihren richtigen Wert, andere Bezugspunkte verfälschen sie.
+--- falsch
+Der Punkt, an dem das Feld null ist. Verschiebt man ihn, ändern sich die Feldstärken an allen Orten um denselben Betrag, die Potenziale bleiben gleich.
+--- falsch
+Der frei gewählte Punkt $P_0$, an dem das Potenzial null ist. Verschiebt man ihn, ändern sich alle Potenziale, aber jedes um einen anderen Betrag.
+:::
+:::karte formel Arbeit als Potenzialdifferenz
+Wie hängt die Arbeit des Felds an einer Ladung $Q$ auf dem Weg von $P_1$ nach $P_2$ mit den Potenzialen zusammen?
+---
+$W_{12}=Q\,\bigl(\varphi(P_1)-\varphi(P_2)\bigr)$: Ladung mal Potenzial am Start minus Potenzial am Ziel. Das gilt im elektrostatischen Feld für jeden Weg.
+--- falsch
+$W_{12}=Q\,\bigl(\varphi(P_2)-\varphi(P_1)\bigr)$: Ladung mal Potenzial am Ziel minus Potenzial am Start. Das gilt im elektrostatischen Feld für jeden Weg.
+--- falsch
+$W_{12}=\varphi(P_1)-\varphi(P_2)$: Die Ladung fällt heraus, weil das Potenzial schon Energie je Ladung ist. Das gilt im elektrostatischen Feld für jeden Weg.
+--- falsch
+$W_{12}=Q\,\bigl(\varphi(P_1)-\varphi(P_2)\bigr)$, aber nur auf dem geraden Weg von $P_1$ nach $P_2$. Auf jedem Umweg kommt ein Zusatzglied hinzu.
+:::
+:::karte herleitung Arbeit als Potenzialdifferenz
+Leite aus der Definition des Potenzials und der Wegunabhängigkeit her, dass $W_{12}=Q\,\bigl(\varphi(P_1)-\varphi(P_2)\bigr)$ ist.
+---
+Man geht von $P_1$ über den Bezugspunkt $P_0$ nach $P_2$: $\int_{P_1}^{P_2}\vec E\cdot\mathrm{d}\vec s=\int_{P_1}^{P_0}\vec E\cdot\mathrm{d}\vec s+\int_{P_0}^{P_2}\vec E\cdot\mathrm{d}\vec s$, weil die Arbeit nicht vom Weg abhängt.
+---
+Das erste Integral ist $\varphi(P_1)$, weil das Potenzial als Integral vom Punkt bis zum Bezugspunkt definiert ist.
+---
+Das zweite Integral ist $-\varphi(P_2)$, weil es in umgekehrter Richtung vom Bezugspunkt zum Punkt läuft: $\varphi(P)=-\int_{P_0}^{P}\vec E\cdot\mathrm{d}\vec s$.
+---
+Mit $W_{12}=Q\int_{P_1}^{P_2}\vec E\cdot\mathrm{d}\vec s$ folgt $W_{12}=Q\,\bigl(\varphi(P_1)-\varphi(P_2)\bigr)$, weil die Arbeit Ladung mal Integral ist. Ohne Wegunabhängigkeit wäre $\varphi$ gar nicht eindeutig.
+:::
+:::karte formel Potenzialverläufe
+Wie verläuft das Potenzial im homogenen Feld in $x$-Richtung, und wie im Feld einer Punktladung $Q_0$ mit Bezugspunkt im Unendlichen?
+---
+Homogen: $\varphi(x)=\varphi(0)-E\,x$, es fällt linear in Feldrichtung. Punktladung: $\varphi(r)=k\,\frac{Q_0}{r}$, proportional zu $1/r$, für $r\to\infty$ geht $\varphi\to0$.
+--- falsch
+Homogen: $\varphi(x)=\varphi(0)+E\,x$, es steigt linear in Feldrichtung. Punktladung: $\varphi(r)=k\,\frac{Q_0}{r}$, proportional zu $1/r$, für $r\to\infty$ geht $\varphi\to0$.
+--- falsch
+Homogen: $\varphi(x)=\varphi(0)-E\,x$, es fällt linear in Feldrichtung. Punktladung: $\varphi(r)=k\,\frac{Q_0}{r^2}$, proportional zu $1/r^2$ wie das Feld selbst.
+--- falsch
+Homogen: $\varphi$ ist überall gleich, weil auch $E$ überall gleich ist. Punktladung: $\varphi(r)=k\,\frac{Q_0}{r}$, proportional zu $1/r$, für $r\to\infty$ geht $\varphi\to0$.
+:::
+:::karte formel Feldstärke als Gefälle
+Wie hängt die Feldstärke mit dem Potenzial zusammen?
+---
+Die Feldstärke ist das Gefälle des Potenzials, $E_x=-\mathrm{d}\varphi/\mathrm{d} x$: In Richtung von $\vec E$ fällt $\varphi$. Es zählt die Änderung, nicht der Wert; auch wo $\varphi=0$ ist, kann ein Feld herrschen.
+--- falsch
+Die Feldstärke ist die Steigung des Potenzials, $E_x=+\mathrm{d}\varphi/\mathrm{d} x$: In Richtung von $\vec E$ steigt $\varphi$. Es zählt die Änderung, nicht der Wert; auch wo $\varphi=0$ ist, kann ein Feld herrschen.
+--- falsch
+Die Feldstärke ist proportional zum Potenzial, $E=\varphi/x$: Je höher das Potenzial an einem Ort, desto stärker das Feld dort. Wo $\varphi=0$ ist, herrscht kein Feld.
+--- falsch
+Die Feldstärke ist das Gefälle des Potenzials, $E_x=-\mathrm{d}\varphi/\mathrm{d} x$: In Richtung von $\vec E$ fällt $\varphi$. Wo $E=0$ ist, muss deshalb auch $\varphi=0$ sein, etwa im Inneren eines Metalls.
+:::
+:::karte formel Potenzielle Energie
+Welche potenzielle Energie hat eine Ladung $Q$ an einem Ort mit dem Potenzial $\varphi(P)$?
+---
+$W_\mathrm{pot}=Q\,\varphi(P)$, gemessen vom Bezugspunkt aus. Für $Q<0$ ist sie dort am kleinsten, wo $\varphi$ am größten ist.
+--- falsch
+$W_\mathrm{pot}=\varphi(P)/Q$, gemessen vom Bezugspunkt aus. Je größer die Ladung, desto kleiner ihre potenzielle Energie am selben Ort.
+--- falsch
+$W_\mathrm{pot}=Q\,\varphi(P)$, gemessen vom Bezugspunkt aus. Für $Q<0$ ist sie dort am kleinsten, wo auch $\varphi$ am kleinsten ist.
+--- falsch
+$W_\mathrm{pot}=\varphi(P)$ für jede Ladung, weil das Potenzial schon die Energie am Ort ist. Das Vorzeichen von $Q$ spielt keine Rolle.
+:::
+:::karte begriff Äquipotenzialfläche
+Was ist eine Äquipotenzialfläche?
+---
+Eine Fläche aus Orten gleichen Potenzials. Auf ihr lässt sich eine Ladung ohne Arbeit verschieben, deshalb stehen die Feldlinien senkrecht auf ihr.
+--- falsch
+Eine Fläche, auf der die Feldstärke überall gleich groß ist. Die Feldlinien verlaufen parallel zu ihr, ohne sie irgendwo zu durchstoßen oder zu kreuzen.
+--- falsch
+Eine Fläche aus Orten gleichen Potenzials. Die Feldlinien verlaufen in ihr, denn längs der Fläche bewegen sich Ladungen ohne Arbeit.
+--- falsch
+Eine Fläche aus Orten mit $\varphi=0$, also der Bezugspunkt in ausgedehnter Form. Auf ihr ist das Feld überall null.
+:::
+:::karte zusammenhang Metall hat ein Potenzial
+Warum hat ein ruhender Metallkörper überall dasselbe Potenzial?
+---
+Weil im ruhenden Metall $\vec E=0$ ist: Längs jedes Wegs im Metall verrichtet das Feld keine Arbeit, also ändert sich das Potenzial nicht. Null muss es dabei nicht sein.
+--- falsch
+Weil jeder Metallkörper mit dem Bezugspunkt verbunden ist. Sein Potenzial ist deshalb überall null, gleich welche Ladung er trägt und wo er steht.
+--- falsch
+Weil sich die Ladung im Metall gleichmäßig über das ganze Volumen verteilt, bis tief ins Innere. Gleich viel Ladung an jedem Ort ergibt an jedem Ort dasselbe Potenzial.
+--- falsch
+Weil die Feldlinien im Metall parallel und gleich dicht verlaufen. In einem solchen homogenen Feld hat jeder Ort dasselbe Potenzial.
+:::
+::::

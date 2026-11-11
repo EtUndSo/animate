@@ -143,3 +143,127 @@ Berechne $U_{24}$ und $U_{13}$ in beiden Fällen. Was fällt auf?
 (a) Masse an 4: $\varphi_4=0$, $\varphi_3=3$ V, $\varphi_2=7$ V, $\varphi_1=12$ V. Masse an 3: alle Werte sinken um 3 V, $\varphi_4=-3$ V, $\varphi_3=0$, $\varphi_2=4$ V, $\varphi_1=9$ V. (b) Erster Fall: $U_{24}=7$ V, $U_{13}=12\,\mathrm{V}-3\,\mathrm{V}=9$ V. Zweiter Fall: $U_{24}=4\,\mathrm{V}-(-3\,\mathrm{V})=7$ V, $U_{13}=9\,\mathrm{V}-0=9$ V. Die Spannungen bleiben gleich.
 :::
 :::
+
+::::lernkarten
+:::karte begriff Spannung
+Was gibt die Spannung $U_{12}$ zwischen zwei Punkten $P_1$ und $P_2$ an?
+---
+Die Arbeit je Ladung, die das Feld auf dem Weg von $P_1$ nach $P_2$ abgibt, gleich der Differenz der Potenziale: $U_{12}=\varphi(P_1)-\varphi(P_2)$, Einheit Volt, $1\,\mathrm{V}=1\,\mathrm{J/C}$.
+--- falsch
+Die Ladung je Zeit, die von $P_1$ nach $P_2$ fließt. Sie ist die Differenz der Ladungen der beiden Punkte, $U_{12}=Q_1-Q_2$, Einheit Volt, $1\,\mathrm{V}=1\,\mathrm{C/s}$, also ein Coulomb je Sekunde.
+--- falsch
+Die gesamte Energie, die zwischen $P_1$ und $P_2$ gespeichert ist, gleich wie viel Ladung von $P_1$ nach $P_2$ hindurchgeht. Sie ist $U_{12}=W_{12}$, Einheit Volt, $1\,\mathrm{V}=1\,\mathrm{J}$.
+--- falsch
+Das Potenzial von $P_1$ allein, also die Arbeit je Ladung von $P_1$ bis zum Bezugspunkt: $U_{12}=\varphi(P_1)$, Einheit Volt, $1\,\mathrm{V}=1\,\mathrm{J/C}$. $P_2$ legt nur die Messrichtung fest.
+:::
+:::karte formel Spannung aus Potenzial, Feld und Arbeit
+Wie berechnet man die Spannung $U_{12}$ aus den Potenzialen, aus dem Feld und aus der Arbeit an einer Ladung $Q$?
+---
+$U_{12}=\varphi(P_1)-\varphi(P_2)=\int_{P_1}^{P_2}\vec E\cdot\mathrm{d}\vec s=\frac{W_{12}}{Q}$. Das Integral hängt nur im elektrostatischen Feld nicht vom Weg ab. Die Reihenfolge zählt: $U_{21}=-U_{12}$.
+--- falsch
+$U_{12}=\varphi(P_2)-\varphi(P_1)=-\int_{P_1}^{P_2}\vec E\cdot\mathrm{d}\vec s=-\frac{W_{12}}{Q}$. Das Integral hängt nur im elektrostatischen Feld nicht vom Weg ab. Die Reihenfolge zählt: $U_{21}=-U_{12}$.
+--- falsch
+$U_{12}=\varphi(P_1)-\varphi(P_2)=\int_{P_1}^{P_2}\vec E\cdot\mathrm{d}\vec s=W_{12}\cdot Q$. Das Integral hängt nur im elektrostatischen Feld nicht vom Weg ab. Die Reihenfolge zählt: $U_{21}=-U_{12}$.
+--- falsch
+$U_{12}=\varphi(P_1)-\varphi(P_2)=\int_{P_1}^{P_2}\vec E\cdot\mathrm{d}\vec s=\frac{W_{12}}{Q}$. Das Integral hängt in jedem Feld nicht vom Weg ab. Die Reihenfolge zählt nicht: $U_{21}=U_{12}$.
+:::
+:::karte formel Spannung, Arbeit und Ladung
+Wie hängen Spannung, Arbeit und Ladung zusammen, und was bedeutet danach die Angabe 9 V auf einer Blockbatterie?
+---
+$W=Q\,U$: Die Arbeit an einer Ladung ist Ladung mal durchlaufene Spannung. 9 V heißen also 9 J je Coulomb, das von Anschluss zu Anschluss gelangt. Die gesamte Energie hängt zusätzlich davon ab, wie viel Ladung die Batterie abgibt.
+--- falsch
+$W=U/Q$: Die Arbeit ist Spannung je Ladung. 9 V heißen also $1/9$ J für jedes Coulomb, das von einem Anschluss zum anderen gelangt; je mehr Ladung durchläuft, desto weniger Energie bekommt jedes einzelne Coulomb mit.
+--- falsch
+$W=U$: Spannung und Energie sind dieselbe Größe, nur in anderer Einheit angegeben. 9 V heißen also, dass die Batterie insgesamt 9 J Energie enthält, gleich wie viel Ladung sie abgeben kann.
+--- falsch
+$W=Q\,U$: Die Arbeit an einer Ladung ist Ladung mal durchlaufene Spannung. 9 V heißen also, dass die Batterie insgesamt 9 C Ladung gespeichert hat, die sie von einem Anschluss zum anderen abgeben kann.
+:::
+:::karte begriff Masse
+Was ist die Masse einer Schaltung?
+---
+Der Punkt der Schaltung, dem man $\varphi:=0$ V zuordnet, auch Bezugspotenzial oder GND; mit dem Erdboden verbunden heißt er Erde. Seine Lage ist frei wählbar und ändert keine Spannung.
+--- falsch
+Der Punkt der Schaltung, über den der Strom in den Erdboden abfließt. Ohne diesen Abfluss könnte in der Schaltung kein Strom fließen, deshalb braucht jede Schaltung genau eine Masse.
+--- falsch
+Der Punkt der Schaltung mit dem niedrigsten Potenzial. Er liegt immer am Minuspol der Quelle, deshalb können Potenziale in einer Schaltung nie negativ sein, höchstens null.
+--- falsch
+Der Punkt der Schaltung, an dem die Spannung null ist. Jede Spannung misst man zwischen einem Punkt und der Masse, nie zwischen zwei anderen Punkten der Schaltung.
+:::
+:::karte begriff Zählpfeil
+Was legt der Zählpfeil einer Spannung in einem Schaltplan fest?
+---
+Das Vorzeichen: Ein Pfeil von Punkt 1 nach Punkt 2 steht für $U_{12}=\varphi_1-\varphi_2$. Ist $U_{12}>0$, liegt Punkt 1 höher; kehrt man den Pfeil um, gilt $U_{21}=-U_{12}$.
+--- falsch
+Das Vorzeichen: Ein Pfeil von Punkt 1 nach Punkt 2 steht für $U_{12}=\varphi_2-\varphi_1$. Ist $U_{12}>0$, liegt Punkt 2 höher; kehrt man den Pfeil um, gilt $U_{21}=-U_{12}$.
+--- falsch
+Die Richtung, in die die Elektronen laufen: Ein Pfeil von Punkt 1 nach Punkt 2 heißt, dass Elektronen von 1 nach 2 wandern. Ohne Bewegung zeichnet man keinen Pfeil.
+--- falsch
+Den Betrag: Die Länge des Pfeils zeigt, wie groß die Spannung ist. Seine Richtung ist ohne Bedeutung, denn es gilt immer $U_{21}=U_{12}$.
+:::
+:::karte formel Potenziale von der Masse aus
+Wie bestimmt man das Potenzial $\varphi_1$ eines Punkts, wenn man das Potenzial $\varphi_2$ eines anderen Punkts und die Spannung $U_{12}$ kennt?
+---
+$\varphi_1=\varphi_2+U_{12}$. Von der Masse ($\varphi=0$) aus geht man so Punkt für Punkt weiter und addiert die Spannungen mit Vorzeichen.
+--- falsch
+$\varphi_1=\varphi_2-U_{12}$. Von der Masse ($\varphi=0$) aus geht man so Punkt für Punkt weiter und zieht die Spannungen mit Vorzeichen ab.
+--- falsch
+$\varphi_1=U_{12}$, unabhängig von $\varphi_2$. Das Potenzial eines Punkts ist die Spannung zum Nachbarpunkt, die Masse spielt keine Rolle.
+--- falsch
+$\varphi_1=\varphi_2+|U_{12}|$. Von der Masse ($\varphi=0$) aus geht man so Punkt für Punkt weiter und addiert die Beträge der Spannungen, ohne Vorzeichen.
+:::
+:::karte formel Feld zwischen zwei Platten
+Wie groß ist die Feldstärke zwischen zwei parallelen Platten im Abstand $d$, an denen die Spannung $U$ liegt?
+---
+$E=\frac{U}{d}$, überall zwischen den Platten gleich. Das gilt, solange $d$ klein gegen die Plattenbreite ist; die Feldstärke sagt, wie viel Spannung je Meter Weg abfällt.
+--- falsch
+$E=U\cdot d$, überall zwischen den Platten gleich. Das gilt, solange $d$ klein gegen die Plattenbreite ist; größerer Abstand ergibt bei gleicher Spannung ein stärkeres Feld.
+--- falsch
+$E=\frac{U}{d^2}$, wie beim Feld einer Punktladung, das mit dem Quadrat des Abstands fällt. Das gilt, solange $d$ klein gegen die Plattenbreite ist.
+--- falsch
+$E=\frac{U}{d}$, aber nur in der Mitte zwischen den Platten. Zu den Platten hin wird das Feld stärker, weil dort die Ladungen sitzen.
+:::
+:::karte herleitung Freiheit des Bezugspunkts
+Zeige, dass ein anderer Bezugspunkt $P_0'$ alle Potenziale um dieselbe Konstante $c$ verschiebt und keine Spannung ändert.
+---
+Man geht von $P$ über den alten Bezugspunkt $P_0$ zum neuen: $\varphi'(P)=\int_{P}^{P_0'}\vec E\cdot\mathrm{d}\vec s=\int_{P}^{P_0}\vec E\cdot\mathrm{d}\vec s+\int_{P_0}^{P_0'}\vec E\cdot\mathrm{d}\vec s$, weil das Integral im elektrostatischen Feld nicht vom Weg abhängt.
+---
+Das erste Integral ist $\varphi(P)$, weil es bis zum alten Bezugspunkt läuft.
+---
+Das zweite Integral hängt nicht von $P$ ab, weil es nur zwischen $P_0$ und $P_0'$ läuft; man nennt es $c$. Also ist $\varphi'(P)=\varphi(P)+c$ für jeden Punkt.
+---
+In der Differenz fällt $c$ weg, $\varphi'_1-\varphi'_2=(\varphi_1+c)-(\varphi_2+c)=U_{12}$, weil beide Potenziale um denselben Betrag verschoben sind.
+:::
+:::karte zusammenhang Masse verschieben
+Was passiert mit den Potenzialen und den Spannungen einer Schaltung, wenn man die Masse an einen anderen Punkt legt?
+---
+Alle Potenziale ändern sich um dieselbe Konstante $c$, $\varphi'(P)=\varphi(P)+c$. Die Spannungen bleiben gleich, weil sich $c$ in jeder Differenz heraushebt.
+--- falsch
+Die Potenziale bleiben gleich, aber die Spannungen ändern sich, weil sie nun gegen einen anderen Punkt der Schaltung gemessen werden.
+--- falsch
+Potenziale und Spannungen ändern sich um dieselbe Konstante $c$, weil jede Spannung aus den Potenzialen der Punkte berechnet wird.
+--- falsch
+Alle Potenziale werden mit demselben Faktor $c$ multipliziert. Die Spannungen ändern sich dadurch, ihr Verhältnis zueinander bleibt aber.
+:::
+:::karte zusammenhang Nur Differenzen wirken
+Warum hat jedes Spannungsmessgerät zwei Anschlüsse?
+---
+Weil nur Potenzialdifferenzen wirken: Eine Kraft auf eine Ladung gibt es nur, wo sich das Potenzial mit dem Ort ändert. Ein überall gleich hohes Potenzial bewirkt nichts, egal wie hoch.
+--- falsch
+Weil ein Anschluss die positive und der andere die negative Ladung der Spannung aufnimmt. Erst beide Ladungen zusammen ergeben im Gerät den Messwert der Spannung.
+--- falsch
+Weil das Gerät die Potenziale der beiden Punkte addiert. Die Summe der beiden Potenziale ist die Spannung zwischen ihnen, ein einzelnes Potenzial wäre nur die Hälfte.
+--- falsch
+Weil ein Anschluss mit dem Erdboden verbunden sein muss. Nur gegen die Erde hat ein Potenzial einen festen Wert, den man messen kann; andere Punkte als Bezug eignen sich dafür nicht.
+:::
+:::karte zusammenhang Vogel auf der Leitung
+Warum passiert einem Vogel auf einer Hochspannungsleitung nichts, obwohl sie gegen die Erde mehrere Hundert Kilovolt hat?
+---
+Weil nur die Spannung zwischen den berührten Punkten zählt: Zwischen seinen Füßen liegen bei $E\approx0{,}1$ V/m und 5 cm Abstand nur 5 mV. Das hohe Potenzial der Leitung selbst bewirkt nichts.
+--- falsch
+Weil eine einzelne Leitung gar kein Potenzial hat. Gefährlich wird die Hochspannung erst, wenn zwei Leitungen einander berühren und sich ihre Potenziale dabei zu einer Spannung addieren.
+--- falsch
+Weil zwischen Leitung und Vogel keine Masse liegt. Eine Spannung wirkt nur zwischen einem Punkt und der Masse, nicht zwischen zwei Füßen auf demselben Draht.
+--- falsch
+Weil ein Vogel zu klein ist, um nennenswert Ladung aufzunehmen. Erst ab der Größe eines Menschen kann die Spannung der Leitung gegen die Erde eine spürbare Wirkung entfalten.
+:::
+::::

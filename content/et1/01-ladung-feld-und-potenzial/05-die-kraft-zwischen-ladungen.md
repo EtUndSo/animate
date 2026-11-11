@@ -88,3 +88,94 @@ Die gleich großen Kugeln berühren sich kurz und werden wieder auf 2 cm gebra
 (c) Jede Kugel trägt nun $+3{,}5$ nC, also $F=k\,(3{,}5\,\mathrm{nC})^2/(2\,\mathrm{cm})^2=275$ µ N. Die Kraft hängt vom Produkt der Ladungen ab, nicht von der Summe: $3{,}5\cdot3{,}5=12{,}25$ gegen $2\cdot5=10$.
 :::
 :::
+
+::::lernkarten
+:::karte formel Coulomb-Gesetz
+Wie groß ist die Kraft zwischen zwei Ladungen $Q_\mathrm{A}$ und $Q_\mathrm{B}$ im Abstand $r$?
+---
+$F=k\,\frac{|Q_\mathrm{A}\,Q_\mathrm{B}|}{r^2}$ mit $k=\frac{1}{4\pi\varepsilon_0}=8{,}99\cdot10^{9}\,\frac{\mathrm{N\,m^2}}{\mathrm{C^2}}$. Gilt für ruhende Punktladungen im Vakuum; in Luft ist die Kraft nur um 0,06 % kleiner.
+--- falsch
+$F=k\,\frac{|Q_\mathrm{A}\,Q_\mathrm{B}|}{r}$ mit $k=\frac{1}{4\pi\varepsilon_0}=8{,}99\cdot10^{9}\,\frac{\mathrm{N\,m^2}}{\mathrm{C^2}}$. Gilt für ruhende Punktladungen im Vakuum; in Luft ist die Kraft nur um 0,06 % kleiner.
+--- falsch
+$F=k\,\frac{|Q_\mathrm{A}+Q_\mathrm{B}|}{r^2}$ mit $k=\frac{1}{4\pi\varepsilon_0}=8{,}99\cdot10^{9}\,\frac{\mathrm{N\,m^2}}{\mathrm{C^2}}$. Gilt für ruhende Punktladungen im Vakuum; in Luft ist die Kraft nur um 0,06 % kleiner.
+--- falsch
+$F=k\,\frac{|Q_\mathrm{A}\,Q_\mathrm{B}|}{r^2}$ mit $k=\frac{1}{4\pi\varepsilon_0}=8{,}99\cdot10^{9}\,\frac{\mathrm{N\,m^2}}{\mathrm{C^2}}$. Gilt für ruhende Körper jeder Größe; $r$ ist der kleinste Abstand ihrer Oberflächen.
+:::
+:::karte formel Coulomb-Gesetz als Vektor
+Wie lautet die Coulomb-Kraft auf Ladung A als Vektor, und woran erkennt man darin Anziehung oder Abstoßung?
+---
+$\vec F_\mathrm{A}=k\,\frac{Q_\mathrm{A}\,Q_\mathrm{B}}{r^2}\cdot\frac{\vec r}{r}$, $\vec r$ zeigt von B nach A. Gleichnamig ist $Q_\mathrm{A}Q_\mathrm{B}>0$, die Kraft zeigt von B weg: Abstoßung. Ungleichnamig zeigt sie zu B hin: Anziehung.
+--- falsch
+$\vec F_\mathrm{A}=k\,\frac{Q_\mathrm{A}\,Q_\mathrm{B}}{r^2}\cdot\frac{\vec r}{r}$, $\vec r$ zeigt von A nach B. Gleichnamig ist $Q_\mathrm{A}Q_\mathrm{B}>0$, die Kraft zeigt zu B hin: Anziehung. Ungleichnamig zeigt sie von B weg: Abstoßung.
+--- falsch
+$\vec F_\mathrm{A}=k\,\frac{Q_\mathrm{A}\,Q_\mathrm{B}}{r^2}\cdot\frac{\vec r}{r}$, $\vec r$ zeigt von B nach A. Es entscheidet der Betrag von $\vec r/r$: Ist er größer als 1, stoßen sich die Ladungen ab, ist er kleiner, ziehen sie sich an.
+--- falsch
+$\vec F_\mathrm{A}=k\,\frac{Q_\mathrm{A}\,Q_\mathrm{B}}{r^2}\cdot\frac{\vec r}{r}$, $\vec r$ zeigt von B nach A. Es entscheidet allein das Vorzeichen von $Q_\mathrm{A}$: Ist A positiv, wird A abgestoßen, ist A negativ, angezogen.
+:::
+:::karte begriff Punktladung
+Was ist eine Punktladung?
+---
+Ein geladener Körper, der klein gegen den Abstand $r$ zu den anderen Ladungen ist. Für ruhende Punktladungen gilt das Coulomb-Gesetz.
+--- falsch
+Eine Ladung von genau einer Elementarladung, also ein einzelnes Elektron oder Proton. Nur für sie gilt das Coulomb-Gesetz.
+--- falsch
+Ein geladener Körper, der an einem festen Punkt gehalten wird, sodass ihn die Kraft der anderen Ladungen nicht verschieben kann.
+--- falsch
+Ein geladener Körper beliebiger Größe, dessen Ladung sich in dem Punkt seiner Oberfläche sammelt, der der anderen Ladung am nächsten liegt.
+:::
+:::karte begriff Überlagerung
+Was besagt die Überlagerung bei mehreren Ladungen?
+---
+Mehrere Ladungen wirken unabhängig voneinander: Die Kraft auf eine Ladung ist die Vektorsumme der Kräfte, die jede andere Ladung allein auf sie ausüben würde.
+--- falsch
+Mehrere Ladungen wirken unabhängig voneinander: Die Kraft auf eine Ladung ist die Summe der Beträge der Einzelkräfte, gleich in welche Richtung diese zeigen.
+--- falsch
+Mehrere Ladungen verdecken einander: Auf eine Ladung wirkt nur die Kraft der nächstgelegenen Ladung, die weiter entfernten tragen nichts bei.
+--- falsch
+Mehrere Ladungen verstärken einander: Die Kraft auf eine Ladung wächst mit dem Produkt aller anderen Ladungen, nicht mit der Summe ihrer Einzelkräfte.
+:::
+:::karte zusammenhang Gleiche Kraft auf beide
+Kugel B trägt doppelt so viel Ladung wie Kugel A. Warum spüren beide trotzdem eine gleich große Kraft?
+---
+Weil beide Ladungen gleichberechtigt in $F=k\,|Q_\mathrm{A}Q_\mathrm{B}|/r^2$ eingehen: ein Produkt, ein Abstand, also ein Betrag für beide, in entgegengesetzter Richtung. Die leichtere Kugel wird nur stärker beschleunigt.
+--- falsch
+Weil sich die Ladungen beim Annähern angleichen: B gibt die Hälfte seines Überschusses an A ab, bis beide Kugeln gleich viel Ladung tragen und deshalb gleich große Kräfte spüren, auch ohne sich zu berühren.
+--- falsch
+Weil die Kraft nur vom Abstand abhängt: Beide Kugeln sind gleich weit voneinander entfernt, die Ladungen bestimmen nur, ob sie sich anziehen oder abstoßen, nicht wie stark.
+--- falsch
+Weil die Gravitation den Unterschied ausgleicht: Sie zieht die schwächer geladene Kugel A zusätzlich zu B hin, bis die Kraft auf A genauso groß ist wie die auf B.
+:::
+:::karte zusammenhang Abstand und Ladung
+Was passiert mit der Coulomb-Kraft, wenn man den Abstand verdoppelt, und was, wenn man eine der beiden Ladungen verdoppelt?
+---
+Doppelter Abstand ergibt ein Viertel der Kraft, weil sie mit $1/r^2$ fällt. Doppelte Ladung ergibt die doppelte Kraft, weil sie proportional zu jeder der beiden Ladungen wächst.
+--- falsch
+Doppelter Abstand ergibt die halbe Kraft, weil sie mit $1/r$ fällt. Doppelte Ladung ergibt die doppelte Kraft, weil sie proportional zu jeder der beiden Ladungen wächst.
+--- falsch
+Doppelter Abstand ergibt ein Viertel der Kraft, weil sie mit $1/r^2$ fällt. Doppelte Ladung ergibt die vierfache Kraft, weil die beiden Ladungen als Produkt eingehen.
+--- falsch
+Doppelter Abstand ergibt ein Viertel der Kraft, weil sie mit $1/r^2$ fällt. Doppelte Ladung ändert nichts, solange die andere Ladung gleich bleibt.
+:::
+:::karte zusammenhang Gravitation vernachlässigbar
+Zwei Kugeln von je 1 g tragen $+10$ nC und $-20$ nC und sind 3 cm voneinander entfernt. Warum darf man die Gravitation zwischen ihnen vernachlässigen?
+---
+Weil sie verschwindend klein ist: Die elektrische Kraft beträgt 2,0 mN, die Gravitation nur $7{,}4\cdot10^{-14}$ N, also $2{,}7\cdot10^{10}$-mal weniger. Dabei fehlt bei Kugel A nur eines von $5\cdot10^{12}$ Elektronen.
+--- falsch
+Weil Gravitation nur zwischen ungeladenen Körpern wirkt. Sobald eine der Kugeln geladen ist, verschwindet die Anziehung ihrer Massen, und es bleibt allein die elektrische Kraft.
+--- falsch
+Weil Gravitation und elektrische Kraft hier in entgegengesetzte Richtungen zeigen. Sie heben sich gegenseitig auf, deshalb darf man beide Kräfte zugleich weglassen.
+--- falsch
+Weil die Gravitation mit $1/r^3$ fällt und bei 3 cm Abstand schon fast null ist. Die elektrische Kraft fällt dagegen nur mit $1/r^2$ und bleibt deshalb übrig.
+:::
+:::karte zusammenhang Exponent 2 gemessen
+Warum gilt der Exponent 2 im Coulomb-Gesetz als gesichert?
+---
+Weil Messungen ihn immer genauer bestätigt haben: Setzt man $F\sim1/r^{2\pm\delta}$ an, sank die Grenze für $\delta$ von 0,02 bei Cavendish auf $3\cdot10^{-16}$ im Jahr 1971.
+--- falsch
+Weil er aus $F=m\,a$ folgt, wenn man in der Mechanik die Masse durch die Ladung ersetzt. Messungen sind dafür nicht nötig, der Exponent ergibt sich aus der Rechnung.
+--- falsch
+Weil Ladungen eine besondere Form von Masse sind. Deshalb muss für sie derselbe Exponent gelten wie im Gravitationsgesetz, das ihn schon vorgibt.
+--- falsch
+Weil er um 1750 so festgelegt wurde, damit die Einheit Coulomb einfach wird. Er ist eine Vereinbarung wie die Namen positiv und negativ, kein Messergebnis.
+:::
+::::

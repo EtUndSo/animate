@@ -57,3 +57,127 @@ Eine Spule mit 200 Windungen umfasst einen Fluss, der gleichmäßig in 10 ms u
 (a) $|U_\mathrm{ind}|=200\cdot0{,}5\,\mathrm{mWb}/10\,\mathrm{ms}=10$ V. (b) Null, denn $\mathrm{d}\Phi/\mathrm{d} t=0$.
 :::
 :::
+
+::::lernkarten
+:::karte begriff Induktion
+Was ist Induktion?
+---
+Das Entstehen einer elektrischen Spannung durch einen sich ändernden magnetischen Fluss, etwa an den Enden einer Spule. Ursache ist ein elektrisches Wirbelfeld, erzeugt vom sich ändernden Magnetfeld.
+--- falsch
+Das Entstehen einer elektrischen Spannung durch einen ruhenden Magneten in einer Spule. Je stärker der Magnet, desto größer die Spannung, auch wenn sich dabei nichts bewegt oder ändert.
+--- falsch
+Das Entstehen eines Magnetfelds um einen Draht, durch den ein Strom fließt. Eine Kompassnadel neben dem Draht schlägt dadurch aus und richtet sich nach dem Feld aus, solange der Strom fließt.
+--- falsch
+Die Verschiebung der freien Elektronen in einem Metall durch ein äußeres elektrisches Feld. Sie wandern, bis keine Kraft mehr auf sie wirkt und das Innere feldfrei ist.
+:::
+:::karte begriff Wirbelfeld
+Was ist ein elektrisches Wirbelfeld?
+---
+Ein elektrisches Feld mit geschlossenen Linien, das ein sich änderndes Magnetfeld erzeugt. Auf einem Umlauf gewinnt eine Ladung darin Energie, $\oint_L\vec E\cdot\mathrm{d}\vec s=0$ gilt nicht mehr.
+--- falsch
+Ein elektrisches Feld ruhender Ladungen, dessen Linien auf positiven Ladungen beginnen und auf negativen enden. Auf einem Umlauf gewinnt eine Ladung darin keine Energie.
+--- falsch
+Ein elektrisches Feld, dessen Linien sich schneiden und verwirbeln, weil sich die Felder mehrerer Ladungen an denselben Orten überlagern.
+--- falsch
+Ein elektrisches Feld mit geschlossenen Linien, in dem jeder Ort ein eindeutiges Potenzial hat. Auf einem Umlauf ist die Arbeit an einer Ladung null.
+:::
+:::karte begriff magnetischer Fluss
+Was misst der magnetische Fluss $\Phi$?
+---
+Wie viel Magnetfeld durch eine Fläche tritt, etwa durch die Fläche einer Spule. Seine Einheit ist $\mathrm{V\,s}=\mathrm{Wb}$, Weber.
+--- falsch
+Wie viel Ladung je Sekunde durch eine Spule fließt, gezählt über alle Windungen. Seine Einheit ist $\mathrm{C/s}=\mathrm{A}$, Ampere.
+--- falsch
+Wie schnell sich das Magnetfeld in einer Spule ändert, gemessen an ihren Enden. Seine Einheit ist $\mathrm{V/s}$, Volt je Sekunde.
+--- falsch
+Welche Spannung eine Spule an ihren Enden liefert, wenn sich ein Magnet in ihr bewegt. Seine Einheit ist Volt.
+:::
+:::karte formel Induktionsgesetz
+Welche Spannung entsteht zwischen den Enden einer Spule mit $N$ Windungen, wenn sich der magnetische Fluss $\Phi$ durch sie ändert?
+---
+$u_\mathrm{ind}(t)=-N\,\frac{\mathrm{d}\Phi}{\mathrm{d} t}$. Es zählt nur die Änderung des Flusses; die $N$ Windungen liegen hintereinander, ihre Spannungen addieren sich. Gilt, wenn alle Windungen denselben Fluss umfassen.
+--- falsch
+$u_\mathrm{ind}(t)=-N\,\Phi$. Es zählt der Fluss selbst, nicht seine Änderung; die $N$ Windungen liegen hintereinander, ihre Spannungen addieren sich. Auch ein ruhender Magnet erzeugt so eine Spannung.
+--- falsch
+$u_\mathrm{ind}(t)=-\frac{1}{N}\,\frac{\mathrm{d}\Phi}{\mathrm{d} t}$. Es zählt nur die Änderung des Flusses; die $N$ Windungen teilen sich die Spannung, mehr Windungen ergeben eine kleinere Spannung.
+--- falsch
+$u_\mathrm{ind}(t)=-N\,\frac{\mathrm{d}\Phi}{\mathrm{d} t}$. Es zählt nur die Änderung des Flusses; das Minuszeichen zeigt, dass die induzierte Spannung immer negativ ist, gleich ob der Fluss wächst oder sinkt.
+:::
+:::karte zusammenhang Konstanter Fluss
+Was passiert mit der induzierten Spannung, wenn der Fluss durch die Spule konstant bleibt?
+---
+Sie ist null, weil nur die Änderung des Flusses zählt: $\mathrm{d}\Phi/\mathrm{d} t=0$. Ein ruhender Magnet erzeugt keine Spannung; deshalb schlug Faradays Galvanometer nur beim Ein- und Ausschalten aus.
+--- falsch
+Sie bleibt auf dem zuletzt erreichten Wert stehen, weil der Fluss weiterhin durch alle Windungen der Spule tritt. Erst wenn der Fluss verschwindet, geht auch die Spannung auf null zurück.
+--- falsch
+Sie wird am größten, weil der volle Fluss nun dauerhaft durch alle Windungen tritt. Während der Änderung war der Fluss noch nicht vollständig in der Spule angekommen.
+--- falsch
+Sie sinkt langsam auf null, weil die Windungen die Spannung noch eine Weile speichern und sie nach und nach abgeben. Wie lange das dauert, hängt von der Zahl der Windungen ab.
+:::
+:::karte zusammenhang Minuszeichen im Induktionsgesetz
+Was passiert mit einem Strom, den die induzierte Spannung treibt?
+---
+Er wirkt der Flussänderung entgegen, die ihn hervorruft. Das drückt das Minuszeichen in $u_\mathrm{ind}(t)=-N\,\frac{\mathrm{d}\Phi}{\mathrm{d} t}$ aus.
+--- falsch
+Er verstärkt die Flussänderung, die ihn hervorruft. Das drückt das Minuszeichen in $u_\mathrm{ind}(t)=-N\,\frac{\mathrm{d}\Phi}{\mathrm{d} t}$ aus.
+--- falsch
+Er fließt immer gegen die technische Stromrichtung, also von Minus nach Plus. Das drückt das Minuszeichen im Induktionsgesetz aus.
+--- falsch
+Er hebt die induzierte Spannung sofort auf, sodass an der Spule keine Spannung mehr liegt. Das drückt das Minuszeichen aus.
+:::
+:::karte zusammenhang Kein Potenzial im Wirbelfeld
+Warum kann man in einem Wirbelfeld kein Potenzial angeben?
+---
+Weil das Potenzial eines Orts die Arbeit je Ladung bis zum Bezugspunkt ist, und die hängt im Wirbelfeld vom Weg ab. Zwei Wege liefern zwei Werte, also kein eindeutiges Potenzial.
+--- falsch
+Weil die Feldstärke in einem Wirbelfeld überall null ist. Ohne Gefälle gibt es auch kein Potenzial, das man einem Ort zuordnen könnte; alle Werte wären gleich.
+--- falsch
+Weil ein Wirbelfeld keine Ladungen als Quellen hat. Ein Potenzial lässt sich nur angeben, wenn am Bezugspunkt eine Ladung sitzt, von der die Feldlinien ausgehen und auf die sie zulaufen.
+--- falsch
+Weil im Wirbelfeld die Arbeit auf jedem Weg null ist. Alle Orte hätten dasselbe Potenzial, und die Angabe eines Potenzials wäre deshalb ohne jeden Inhalt.
+:::
+:::karte zusammenhang Potenziale in Schaltungen
+Warum darf man in den meisten Schaltungen trotz Induktion mit Potenzialen und Spannungen rechnen?
+---
+Weil die sich ändernden Flüsse fast vollständig in Spulen sitzen. Zwischen den Bauteilen bleibt das Feld praktisch wirbelfrei, dort hängt die Arbeit je Ladung nicht vom Weg ab.
+--- falsch
+Weil Induktion nur bei sehr hohen Spannungen auftritt. In Schaltungen mit wenigen Volt bleibt das Feld deshalb überall wirbelfrei, auch in den Spulen.
+--- falsch
+Weil sich die induzierten Spannungen wegen des Minuszeichens im Induktionsgesetz in jeder Schaltung zu null aufheben, sobald man alle Bauteile zusammenzählt.
+--- falsch
+Weil Schaltungen keine bewegten Magnete enthalten. Ohne bewegten Magneten ändert sich kein Fluss, also entsteht in einer Schaltung auch kein Wirbelfeld, auch nicht in ihren Spulen.
+:::
+:::karte begriff Gaußsche Gesetze
+Was besagen das Gaußsche Gesetz für elektrische Felder und das für Magnetismus?
+---
+Ladungen sind Quellen und Senken der elektrischen Flussdichte. Die magnetische Flussdichte hat keine Quellen, ihre Linien sind geschlossen.
+--- falsch
+Ladungen sind Quellen und Senken der elektrischen und der magnetischen Flussdichte. Beide Arten von Linien beginnen auf Ladungen.
+--- falsch
+Die elektrische Flussdichte hat keine Quellen, ihre Linien sind geschlossen. Ladungen sind Quellen und Senken der magnetischen Flussdichte.
+--- falsch
+Ladungen sind Quellen und Senken der elektrischen Flussdichte. Die magnetischen Linien beginnen am Nordpol eines Magneten und enden am Südpol.
+:::
+:::karte begriff technische Stromrichtung
+Was ist die technische Stromrichtung?
+---
+Die vereinbarte Richtung des Stroms von Plus nach Minus. Die Elektronen im Draht laufen ihr entgegen.
+--- falsch
+Die Richtung, in der die Elektronen im Draht tatsächlich laufen, von Plus nach Minus.
+--- falsch
+Die vereinbarte Richtung des Stroms von Minus nach Plus. Die Elektronen im Draht laufen in dieselbe Richtung.
+--- falsch
+Die Richtung, in der die Protonen im Draht laufen, von Plus nach Minus. Die Elektronen bleiben stehen.
+:::
+:::karte begriff Rechte-Faust-Regel
+Was gibt die Rechte-Faust-Regel an?
+---
+Die Richtung des Magnetfelds um einen stromführenden Draht: Zeigt der Daumen der rechten Faust in die technische Stromrichtung, zeigen die Finger in Richtung des Felds.
+--- falsch
+Die Richtung des Magnetfelds um einen stromführenden Draht: Zeigt der Daumen der rechten Faust in die Laufrichtung der Elektronen, zeigen die Finger in Richtung des Felds.
+--- falsch
+Die Richtung des Magnetfelds um einen stromführenden Draht: Das Feld verläuft parallel zum Draht, in die Richtung, in die der Daumen der rechten Faust zeigt.
+--- falsch
+Die Richtung der induzierten Spannung in einer Spule: Zeigt der Daumen der rechten Faust in die Bewegungsrichtung des Magneten, zeigen die Finger in Richtung der Spannung.
+:::
+::::

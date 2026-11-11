@@ -137,3 +137,138 @@ Berechne und gib das Ergebnis in einer passenden Einheit an: (a) $3\,\mathrm{kN}
 (a) $3000\,\mathrm{N}+450\,\mathrm{N}=3{,}45\,\mathrm{kN}$. (b) Milli und Kilo heben sich auf, $\mathrm{A\cdot s}=\mathrm C$: 8 C. (c) $\mu\text{}/\mathrm m=\mathrm m$ (Milli) und $\mathrm{C/s}=\mathrm A$: 2 mA. (d) $1000\,\mathrm{W}\cdot3600\,\mathrm{s}=3{,}6\,\mathrm{MJ}$. (e) $1\,\mathrm{mm^2}=(10^{-3}\,\mathrm{m})^2=10^{-6}\,\mathrm{m^2}$, also $1{,}5\cdot10^{-6}\,\mathrm{m^2}$. (f) $\frac{\mathrm V}{\mathrm m}=\frac{\mathrm{kg\,m^2}}{\mathrm{A\,s^3}\cdot\mathrm m}=\frac{\mathrm{kg\,m}}{\mathrm{A\,s^3}}$.
 :::
 :::
+
+::::lernkarten
+:::karte begriff physikalische Größe
+Was ist eine physikalische Größe?
+---
+Eine messbare Eigenschaft, angegeben als Produkt aus Zahlenwert und Einheit: $\text{Größe}=\text{Zahlenwert}\cdot\text{Einheit}$. Der Zahlenwert hängt von der Einheit ab, die Größe nicht.
+--- falsch
+Eine messbare Eigenschaft, angegeben als Summe aus Zahlenwert und Einheit: $\text{Größe}=\text{Zahlenwert}+\text{Einheit}$. Zahlenwert und Einheit hängen nicht voneinander ab.
+--- falsch
+Eine messbare Eigenschaft, angegeben allein durch ihren Zahlenwert. Die Einheit wird nur zur Erläuterung dazugeschrieben und ändert am Zahlenwert nichts.
+--- falsch
+Eine Eigenschaft, die man mit Urteilen wie warm oder kühl beschreibt. Ihr Wert hängt davon ab, wer sie beurteilt und womit er sie vergleicht.
+:::
+:::karte begriff Basisgrößen
+Was sind die Basisgrößen des SI-Einheitensystems?
+---
+Die sieben Größen, die sich nicht durcheinander ausdrücken lassen: Länge, Masse, Zeit, Stromstärke, absolute Temperatur, Lichtstärke und Stoffmenge. Die Einheiten aller anderen Größen sind Produkte von Potenzen ihrer Einheiten.
+--- falsch
+Die sieben Größen, die sich nicht durcheinander ausdrücken lassen: Länge, Masse, Zeit, Ladung, Spannung, absolute Temperatur und Stoffmenge. Die Einheiten aller anderen Größen sind Produkte von Potenzen ihrer Einheiten.
+--- falsch
+Die Größen mit eigenem Einheitennamen wie Newton, Joule, Volt und Watt. Die Einheiten aller übrigen Größen setzt man aus diesen und aus Meter und Sekunde zusammen.
+--- falsch
+Die sieben Größen, die man am häufigsten misst: Länge, Masse, Zeit, Kraft, Energie, Spannung und Leistung. Die übrigen Größen haben eigene Einheiten, die mit diesen nicht zusammenhängen.
+:::
+:::karte begriff SI-Vorsatz
+Was ist ein SI-Vorsatz?
+---
+Ein Zeichen vor einer Einheit, das den Zahlenwert um eine Zehnerpotenz skaliert, etwa k für $10^{3}$. Vorsatz und Einheit bilden ein Symbol; vor einer Einheit steht immer nur ein Vorsatz.
+--- falsch
+Ein Zeichen vor einer Einheit, das den Zahlenwert um eine Zehnerpotenz skaliert, etwa k für $10^{3}$. Mehrere Vorsätze dürfen hintereinander stehen, etwa kk für $10^{6}$; ihre Faktoren multiplizieren sich.
+--- falsch
+Ein Zeichen vor einer Einheit, das den Zahlenwert skaliert. Großbuchstaben stehen für Teile, Kleinbuchstaben für Vielfache, etwa m für $10^{3}$ und M für $10^{-3}$.
+--- falsch
+Ein Faktor vor dem Zahlenwert, der mit der Einheit nichts zu tun hat. Potenzen wirken deshalb nur auf die Einheit, etwa $1\,\mathrm{km^2}=1000\,\mathrm{m^2}$.
+:::
+:::karte zusammenhang Addieren mit Einheiten
+Warum ergibt $2\,\mathrm{kV}+40\,\mathrm{V}$ nicht $42\,\mathrm{kV}$?
+---
+Weil man nur Größen derselben Einheit addieren darf; die Vorsätze gleicht man vorher an: $2\,\mathrm{kV}+40\,\mathrm{V}=2{,}04\,\mathrm{kV}$.
+--- falsch
+Weil man Größen mit Einheiten gar nicht addieren darf, sondern nur multiplizieren. Erlaubt wäre hier allein das Produkt $2\,\mathrm{kV}\cdot40\,\mathrm{V}$.
+--- falsch
+Weil man die Vorsätze vorher angleichen muss, $40\,\mathrm{V}=0{,}4\,\mathrm{kV}$. Die richtige Summe ist also $2\,\mathrm{kV}+40\,\mathrm{V}=2{,}4\,\mathrm{kV}$.
+--- falsch
+Weil eine Summe immer die Einheit des kleineren Summanden bekommt. Die richtige Summe ist also $2\,\mathrm{kV}+40\,\mathrm{V}=42\,\mathrm{V}$.
+:::
+:::karte begriff Kraft
+Was ist eine Kraft?
+---
+Eine vektorielle Größe, die einen festgehaltenen Körper verformt oder einen beweglichen beschleunigt: $F=m\,a$, Einheit Newton, $1\,\mathrm{N}=1\,\mathrm{kg\,m/s^2}$.
+--- falsch
+Eine skalare Größe, die angibt, wie viel Bewegung ein Körper enthält: $F=m\,v$, Einheit Newton, $1\,\mathrm{N}=1\,\mathrm{kg\,m/s}$.
+--- falsch
+Eine vektorielle Größe, die einen Körper mit konstanter Geschwindigkeit in Bewegung hält. Ohne Kraft kommt jeder bewegliche Körper sofort zur Ruhe.
+--- falsch
+Die Fähigkeit eines Körpers, Arbeit zu verrichten. Sie wird in Joule gemessen, $1\,\mathrm{J}=1\,\mathrm{N\,m}$, und hat keine Richtung.
+:::
+:::karte begriff Arbeit
+Was ist die Arbeit einer Kraft längs eines Wegs?
+---
+Die Energie, die die Kraft dabei überträgt. Es zählt nur ihr Anteil in Wegrichtung: $\Delta W=\vec F\cdot\Delta\vec s=F\,\Delta s\cos\alpha$, Einheit Joule.
+--- falsch
+Die Energie, die die Kraft dabei überträgt. Es zählt nur ihr Anteil quer zum Weg: $\Delta W=F\,\Delta s\sin\alpha$, Einheit Joule.
+--- falsch
+Die Energie, die die Kraft dabei überträgt: Betrag der Kraft mal Weglänge, gleich in welche Richtung sie zeigt, $\Delta W=F\,\Delta s$, Einheit Joule.
+--- falsch
+Die Energie, die die Kraft je Sekunde überträgt: Kraft mal Geschwindigkeit in Wegrichtung, $\Delta W=F\,v\cos\alpha$, Einheit Watt.
+:::
+:::karte formel Arbeit längs eines Wegs
+Wie berechnet man die Arbeit einer Kraft $\vec F$ längs eines gekrümmten Wegs von $P_1$ nach $P_2$?
+---
+Mit dem Linienintegral $W=\int_{P_1}^{P_2}\vec F\cdot\mathrm{d}\vec s$: Man zerlegt den Weg in kurze gerade Stücke und summiert ihre Beiträge. Für $\alpha>90^\circ$ entzieht die Kraft dem Körper Energie.
+--- falsch
+Mit $W=F\cdot s$, wobei $s$ die Länge des gekrümmten Wegs ist. Die Richtung der Kraft spielt keine Rolle, weil die Arbeit eine Zahl ist und kein Vektor, der eine Richtung hätte.
+--- falsch
+Mit dem Integral über die Beträge, $W=\int_{P_1}^{P_2}F\,\mathrm{d} s$. Der Winkel zwischen Kraft und Weg zählt nur bei geraden Wegen, auf gekrümmten mittelt er sich heraus.
+--- falsch
+Man multipliziert die Kraft am Startpunkt $P_1$ mit der Weglänge. Änderungen der Kraft längs des Wegs gleichen sich im Mittel aus und dürfen entfallen.
+:::
+:::karte formel Konstante Beschleunigung
+Welche Geschwindigkeit und welchen Ort hat ein Körper mit konstanter Beschleunigung $a$ und den Startwerten $s_0$, $v_0$ bei $t=0$?
+---
+$v(t)=v_0+a\,t$ und $s(t)=s_0+v_0\,t+\tfrac12a\,t^2$. Die Gleichungen gelten nur für konstante Beschleunigung.
+--- falsch
+$v(t)=v_0+a\,t$ und $s(t)=s_0+v_0\,t+a\,t^2$. Die Gleichungen gelten nur für konstante Beschleunigung.
+--- falsch
+$v(t)=v_0+\tfrac12a\,t^2$ und $s(t)=s_0+v_0\,t+a\,t$. Die Gleichungen gelten nur für konstante Beschleunigung.
+--- falsch
+$v(t)=v_0+a\,t$ und $s(t)=s_0+v_0\,t+\tfrac12a\,t^2$. Die Gleichungen gelten für jede Beschleunigung, auch für eine veränderliche.
+:::
+:::karte formel Bewegungsenergie
+Welche Bewegungsenergie trägt ein Körper der Masse $m$ mit der Geschwindigkeit $v$?
+---
+$W_\mathrm{kin}=\frac12m\,v^2$, in Joule. Sie wächst mit dem Quadrat der Geschwindigkeit: Doppelte Geschwindigkeit ergibt vierfache Energie.
+--- falsch
+$W_\mathrm{kin}=m\,v^2$, in Joule. Sie wächst mit dem Quadrat der Geschwindigkeit: Doppelte Geschwindigkeit ergibt vierfache Energie.
+--- falsch
+$W_\mathrm{kin}=\frac12m\,v$, in Joule. Sie wächst proportional zur Geschwindigkeit: Doppelte Geschwindigkeit ergibt doppelte Energie.
+--- falsch
+$W_\mathrm{kin}=\frac12m^2v^2$, in Joule. Sie wächst mit dem Quadrat der Masse: Doppelte Masse ergibt vierfache Energie.
+:::
+:::karte herleitung Bewegungsenergie
+Leite aus den Gleichungen für konstante Beschleunigung her, dass eine konstante Kraft einen Körper aus der Ruhe auf die Bewegungsenergie $\frac12m\,v^2$ bringt.
+---
+Der Körper startet aus der Ruhe am Ursprung, $v_0=0$ und $s_0=0$. Aus $v(t)=v_0+a\,t$ folgt $t=v/a$, weil nur $a\,t$ übrig bleibt.
+---
+Eingesetzt in $s(t)=s_0+v_0\,t+\tfrac12a\,t^2$ ergibt sich $s=\frac12a\,t^2=v^2/(2a)$, weil so die Zeit durch die erreichte Geschwindigkeit ersetzt ist.
+---
+Die konstante Kraft $F=m\,a$ zeigt in Wegrichtung und verrichtet die Arbeit $F\,s$, weil $\alpha=0$ ist.
+---
+Einsetzen ergibt $F\,s=m\,a\,v^2/(2a)=\frac12m\,v^2$, weil sich $a$ herauskürzt. Diese Arbeit steckt danach als Bewegungsenergie im Körper.
+:::
+:::karte zusammenhang Treppe und Rampe
+Warum kostet es gleich viel Arbeit, einen Rucksack über eine Treppe oder über eine Rampe auf dieselbe Höhe zu heben?
+---
+Weil nur der Kraftanteil in Wegrichtung zählt. Die Hand drückt senkrecht nach oben, also zählen nur die senkrechten Wegstücke; auf beiden Wegen ergeben sie den Höhenunterschied.
+--- falsch
+Weil die Rampe zwar länger ist, aber weniger Kraft braucht. Das gleicht sich bei dem gewählten Neigungswinkel zufällig genau aus; bei einer flacheren oder steileren Rampe wäre die Arbeit anders.
+--- falsch
+Weil die Arbeit nur vom Gewicht abhängt, nicht vom Weg. Auch waagerechtes Tragen über dieselbe Strecke kostet deshalb genau dieselbe Arbeit.
+--- falsch
+Weil auf beiden Wegen dieselbe Zeit vergeht. Arbeit ist Kraft mal Zeit, und die Kraft ist auf beiden Wegen gleich groß.
+:::
+:::karte zusammenhang Waagerechtes Tragen
+Warum verrichtet man am Rucksack keine Arbeit, wenn man ihn waagerecht trägt, obwohl der Arm müde wird?
+---
+Weil die Haltekraft senkrecht nach oben zeigt, der Weg aber waagerecht verläuft: $\alpha=90^\circ$, also $\Delta W=0$. Der Muskel verbraucht Energie, die im Körper zu Wärme wird.
+--- falsch
+Weil der Rucksack beim Tragen nicht beschleunigt wird. Ohne Beschleunigung wirkt nach $F=m\,a$ überhaupt keine Kraft auf ihn, auch keine Gewichtskraft.
+--- falsch
+Weil sich die Arbeit der Hand und die der Gewichtskraft beim Tragen aufheben. Einzeln ist jede so groß wie beim Heben um dieselbe Strecke.
+--- falsch
+Weil der Muskel die Energie zunächst speichert. Er gibt sie erst beim Absetzen an den Rucksack ab; dann wird die Arbeit nachträglich am Rucksack verrichtet.
+:::
+::::

@@ -2016,6 +2016,53 @@ def kurz_formeln(cfg, kap, lang, h):
                     k = q
                 md = "\n\n".join(teile)
             bloecke.setdefault(key, {})[umg] = md
+    # Lernkarten (seit 11.11.2026, Muster notizen/lernkarten_muster.md): kap<N>_karten[_<lang>].tex mit
+    # \begin{karten}{<Schlüssel>}{<Titel>}, darin \karte{art}{name}{frage}{antwort}{falsch1}{falsch2}{falsch3}
+    # und \begin{herleitungskarte}{name}{frage} \schritt{…} … \end{herleitungskarte}.
+    f = cfg["quelle"] / ("kap%d_karten%s.tex" % (kap, endung))
+    if f.is_file():
+        s = re.sub(r"(?m)(?<!\\)%.*$", "", f.read_text(encoding="utf-8"))
+
+        def args_lesen(t, q, anzahl):
+            werte = []
+            for _ in range(anzahl):
+                while t[q].isspace():
+                    q += 1
+                a, q = group(t, q)
+                werte.append(a)
+            return werte, q
+
+        def zeile(t):                                    # Name/Art-Zeile: einzeilig, ohne Markdown-Umbruch
+            return re.sub(r"\s+", " ", h.text(t)).strip()
+
+        for m in re.finditer(r"\\begin\{karten\}", s):
+            (key, _titel), j = args_lesen(s, m.end(), 2)
+            body = s[j:s.find("\\end{karten}", j)]
+            karten, k = [], 0
+            while True:
+                mk = re.compile(r"\\karte\b|\\begin\{herleitungskarte\}").search(body, k)
+                if not mk:
+                    break
+                if mk.group(0).startswith("\\karte"):
+                    (art, name, frage, antwort, f1, f2, f3), k = args_lesen(body, mk.end(), 7)
+                    teile = [":::karte %s %s" % (art.strip(), zeile(name)), h.block(frage).strip(), "---", h.block(antwort).strip()]
+                    for falsch in (f1, f2, f3):
+                        teile += ["--- falsch", h.block(falsch).strip()]
+                    karten.append("\n".join(teile) + "\n:::")
+                else:
+                    (name, frage), k = args_lesen(body, mk.end(), 2)
+                    ende = body.find("\\end{herleitungskarte}", k)
+                    teile = [":::karte herleitung %s" % zeile(name), h.block(frage).strip()]
+                    q = k
+                    while True:
+                        ps = body.find("\\schritt", q, ende)
+                        if ps < 0:
+                            break
+                        (schritt,), q = args_lesen(body, ps + len("\\schritt"), 1)
+                        teile += ["---", h.block(schritt).strip()]
+                    karten.append("\n".join(teile) + "\n:::")
+                    k = ende + len("\\end{herleitungskarte}")
+            bloecke.setdefault(key.strip(), {})["lernkarten"] = "\n".join(karten)
     return bloecke
 
 
@@ -2051,16 +2098,18 @@ def artikel(cfg, kap, lang):
         text = re.sub(r"@@CODE:(\d+)@@", lambda mm: h.code[int(mm.group(1))], a["md"].strip())   # Code erst ganz zum Schluss
         anker = re.search(r'id="(stufe-[0-9-]+)"', text)
         key = "ueberblick" if a["art"] == "ueberblick" else (anker.group(1) if anker else None)
-        if key in kf:                                    # geschriebene Kurzfassung/Formelsammlung ans Artikelende
+        if key not in kf and re.sub(r"^\d+-", "", n) in kf:   # Artikel ohne stufe-Anker: Dateiname ohne Nummer
+            key = re.sub(r"^\d+-", "", n)
+        if key in kf:                                    # geschriebene Kurzfassung/Formelsammlung/Lernkarten ans Artikelende
             kf_genutzt.add(key)
-            for umg in ("kurzfassung", "formelsammlung"):
+            for umg in ("kurzfassung", "formelsammlung", "lernkarten"):
                 if umg in kf[key]:
                     blk = webtext(kf[key][umg], lang, cfg, teile, kap, [])
                     blk = re.sub(r"@@CODE:(\d+)@@", lambda mm: h.code[int(mm.group(1))], blk)
                     text += "\n\n::::%s\n%s\n::::" % (umg, blk.strip())
         aus.append((n, "\n".join(kopf) + "\n" + text + "\n"))
     if set(kf) - kf_genutzt:
-        print("⚠ Kap. %d %s: Kurzfassung/Formeln ohne passenden Artikel: %s" % (kap, lang, ", ".join(sorted(set(kf) - kf_genutzt))))
+        print("⚠ Kap. %d %s: Kurzfassung/Formeln/Lernkarten ohne passenden Artikel: %s" % (kap, lang, ", ".join(sorted(set(kf) - kf_genutzt))))
     return aus, h, rest, fehlt
 
 

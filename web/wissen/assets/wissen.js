@@ -14,7 +14,7 @@ function mathe(el){ if(window.renderMathInElement) try{ renderMathInElement(el,K
   function kern(){                                     // suche.js einmal einbinden, Index starten
     if(!P) P=new Promise(function(ok,nein){
       if(window.ETSuche){ ok(); return; }
-      var s=document.createElement("script"); s.src="/wissen/assets/suche.js"; s.onload=ok; s.onerror=nein; document.head.appendChild(s);
+      var s=document.createElement("script"); s.src="/wissen/assets/suche.js?v=c4d05471b2"; s.onload=ok; s.onerror=nein; document.head.appendChild(s);
     }).then(function(){ S=window.ETSuche(LANG); return S.start(); }).catch(function(){ P=null; throw 0; });
     return P;
   }
@@ -863,7 +863,7 @@ window.ETAnsicht=(function(){
 (function(){
   var boxen=[].slice.call(document.querySelectorAll(".fb-dl")); if(!boxen.length) return;
   var $=LERNEN, P=null;
-  function laden(){ if(!P) P=new Promise(function(ok,fehler){ var s=document.createElement("script"); s.src="/wissen/assets/formel-export.js";
+  function laden(){ if(!P) P=new Promise(function(ok,fehler){ var s=document.createElement("script"); s.src="/wissen/assets/formel-export.js?v=0ee537d6a8";
       s.onload=function(){ window.ETFormelExport ? ok(window.ETFormelExport) : fehler(new Error("laden")); };
       s.onerror=function(){ P=null; fehler(new Error("laden")); }; document.head.appendChild(s); });
     return P; }

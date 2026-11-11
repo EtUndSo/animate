@@ -18,3 +18,72 @@ Schema eines Atoms mit drei Protonen und drei Neutronen. Links neutral: Drei pos
 :::
 
 Fünf Fragen führen durch das Kapitel: Was ist Ladung (Stufe [2](ladung.html#stufe-2))? Wie entsteht die Kraft zwischen Ladungen (Stufe [3](die-kraft-zwischen-ladungen.html#stufe-3))? Warum braucht man dafür den Begriff des Felds (Stufe [4](die-feldstarke.html#stufe-4) und [5](feldlinien-und-leiter.html#stufe-5))? Warum ist Spannung eine Potenzialdifferenz (Stufe [6](arbeit-im-feld.html#stufe-6) bis [8](spannung-und-masse.html#stufe-8))? Was heißt das konkret für eine Ladung im Feld (Stufe [9](was-die-spannung-mit-einer-ladung-macht.html#stufe-9))? Stufe [1](groen-kraft-und-arbeit.html#stufe-1) legt das Werkzeug bereit.
+
+::::lernkarten
+:::karte begriff Elektrotechnik
+Was ist die Elektrotechnik?
+---
+Die Ingenieurwissenschaft, die elektrische Ladungen gezielt bewegt, um Energie zu übertragen und Informationen zu verarbeiten.
+--- falsch
+Die Naturwissenschaft, die elektrische Vorgänge mit messbaren Größen beschreibt und die Gesetze zwischen diesen Größen sucht.
+--- falsch
+Die Ingenieurwissenschaft, die mechanische Kräfte gezielt einsetzt, um Maschinen anzutreiben und schwere Lasten zu bewegen.
+--- falsch
+Die Ingenieurwissenschaft, die elektrische Ladungen in Bauelementen festhält, damit sie sich nicht bewegen und keine Energie verlieren.
+:::
+:::karte begriff Atom
+Was ist ein Atom?
+---
+Der Baustein, aus dem alle Stoffe bestehen: ein winziger Kern aus Protonen und Neutronen, um den sich Elektronen bewegen.
+--- falsch
+Der Baustein, aus dem alle Stoffe bestehen: ein winziger Kern aus Protonen und Elektronen, um den sich Neutronen bewegen.
+--- falsch
+Der Baustein, aus dem alle Stoffe bestehen: ein winziger Kern aus Elektronen und Neutronen, um den sich Protonen bewegen.
+--- falsch
+Der Baustein, aus dem alle Stoffe bestehen: ein großer Kern aus Protonen, Neutronen und Elektronen, der fast das ganze Atom ausfüllt.
+:::
+:::karte begriff Proton, Elektron, Neutron
+Welche Ladung tragen Proton, Elektron und Neutron?
+---
+Das Proton trägt eine positive Ladung, das Elektron eine negative von genau derselben Größe, das Neutron keine.
+--- falsch
+Das Proton trägt eine negative Ladung, das Elektron eine positive von genau derselben Größe, das Neutron keine.
+--- falsch
+Das Proton trägt eine positive Ladung, das Elektron eine 1836-mal kleinere negative Ladung, das Neutron keine.
+--- falsch
+Das Proton trägt eine positive Ladung, das Neutron eine negative von genau derselben Größe, das Elektron keine.
+:::
+:::karte begriff neutral
+Wann heißt ein Atom neutral?
+---
+Wenn es gleich viele Protonen wie Elektronen enthält: Ihre gleich großen, entgegengesetzten Ladungen heben sich nach außen auf.
+--- falsch
+Wenn es gleich viele Protonen wie Neutronen enthält: Die Neutronen heben die positive Ladung der Protonen nach außen genau auf.
+--- falsch
+Wenn es keine Elektronen enthält: Ohne Elektronen bleibt im Atom keine Ladung übrig, die nach außen wirken könnte.
+--- falsch
+Wenn seine Elektronen fest im Kern sitzen: Dort sind sie von den Protonen umschlossen und wirken deshalb nicht mehr nach außen.
+:::
+:::karte begriff Ion
+Was ist ein Ion?
+---
+Ein Atom mit überzähliger Ladung, weil die Zahl seiner Elektronen von der seiner Protonen abweicht. Hat es ein Elektron verloren, ist es positiv geladen.
+--- falsch
+Ein Atom mit überzähligen Neutronen, weil die Zahl seiner Neutronen von der seiner Protonen abweicht. Diese zusätzlichen Neutronen machen es geladen.
+--- falsch
+Ein Atom mit überzähliger Ladung, weil die Zahl seiner Elektronen von der seiner Protonen abweicht. Hat es ein Elektron verloren, ist es negativ geladen.
+--- falsch
+Ein neutrales Atom, das sich aus dem Verbund eines Stoffs gelöst hat und sich frei bewegt. Seine Ladung bleibt dabei null.
+:::
+:::karte zusammenhang Warum Elektronen wandern
+Warum bewegen sich in fast allen Vorgängen der Elektrotechnik Elektronen und nicht Protonen?
+---
+Weil Protonen fest im Kern sitzen und 1836-mal schwerer sind als Elektronen. Äußere Elektronen lassen sich dagegen vom Atom ablösen.
+--- falsch
+Weil Elektronen eine größere Ladung tragen als Protonen. Sie spüren deshalb stärkere elektrische Kräfte und kommen leichter in Bewegung.
+--- falsch
+Weil Protonen keine Ladung tragen. Elektrische Kräfte wirken nur auf Elektronen, Protonen bleiben von ihnen unberührt.
+--- falsch
+Weil Elektronen 1836-mal schwerer sind als Protonen. Sie behalten ihre Bewegung, wenn eine Kraft sie einmal angestoßen hat.
+:::
+::::

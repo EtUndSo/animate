@@ -18,8 +18,11 @@
   - Länge und Stil sind ähnlich wie bei der richtigen Antwort, damit die richtige nicht an der Form erkennbar ist.
   - Kein „keine der Antworten“, keine Fangfragen über Wortlaut.
   - Herleitungskarten haben keine falschen Antworten.
+  - Erlaubt und oft am besten: eine richtige Formel mit falscher Aussage (z. B. „gilt für Körper jeder Größe“).
+  - **Längenprüfung in jedem Durchgang:** Die richtige Antwort darf nicht auffällig oft die längste sein (Pilot: erst 49 von 91, nach dem Ausgleich 24 von 91, also etwa Zufall). Das Prüfskript zählt das.
+- **Fachbegriffe abdecken:** Jeder Fachbegriff (`__…__`) des Artikels soll eine Begriffskarte bekommen oder im Kartennamen einer passenden Karte stehen (z. B. „Masse und Erde“). Der Name ist der Begriff in der Form des Artikels; Plural und Beugung erkennt der Build. Kartennamen enthalten keine Formeln, weil sie in der Kopfzeile `:::karte` stehen.
 - **Allgemein:**
-  - Alles muss aus dem Artikel beantwortbar sein, ohne Vorgriffe.
+  - Alles muss aus dem Artikel beantwortbar sein, ohne Vorgriffe. Bestimmungen aus früheren Artikeln desselben Kapitels (auch aus dem Überblick) dürfen verwendet werden.
   - Bezeichnungen, Symbole und Formeln exakt wie im Heft.
   - Seriöser Ton.
   - Kein Bezug auf Skript, Uni, Vorlesung, Übung, Folien oder Praktikum, auch kein Hinweis auf Prüfskripte.
@@ -68,5 +71,15 @@
 - **Build:**
   - Der Bereich Lernkarten nutzt für solche Artikel nur diese Karten.
   - Das Quiz nimmt die geschriebenen falschen Antworten.
-  - Begriffsverzeichnis und Zusammenfassung nehmen die Bestimmung aus den Begriffskarten.
+  - Begriffsverzeichnis und Zusammenfassung nehmen die Bestimmung aus den Begriffskarten (`karten_bestimmungen`).
+    - Abgleich: Kartenname = Fachbegriff, erst genau, dann mit Beugung (`_gleicher_stamm`). „A und B“ gilt für beide.
+    - Eine Karte ohne passenden Fachbegriff im Fließtext (etwa nur im Beispiel- oder Zusatzkasten) wird ein eigener Eintrag, der auf den Artikelanfang verlinkt.
+    - Fachbegriffe ohne Karte behalten den Satz aus dem Text.
+    - Der Build meldet „Begriffskarten: N Bestimmungen übernommen; ohne Fachbegriff im Artikel: …“.
+  - Der Schlüssel `stufe-N` ist nur innerhalb eines Kapitels eindeutig. Der Konverter liest je Kapitel `kap<N>_karten.tex` und ordnet nur die Artikel dieses Kapitels zu.
+- **Prüf-PDF:** `karten_def.tex` mit boxsep=0 und 4 pt Innenabstand, sonst meldet `pdf_pruefen` die Kastenrahmen als „ragt über den Rand“.
+
+## Stand
+- **11.11.2026 Pilot ET1 Kap. 1:** 98 Karten (37 B, 21 F, 33 Z, 7 H), PDF `C:\Bücher\ET1\Arbeitshefte\Kap1_Feld_Karten.pdf` (30 S.), auf der Website eingebaut. Abnahme durch den User offen.
+- **Umfang:** etwa 100 Karten je Kapitel, also rund 1100 allein für ET1.
   - Das Format aus W4b (`:::karte <art>` / `---`) bleibt gültig; `--- falsch` und der Name sind Erweiterungen.

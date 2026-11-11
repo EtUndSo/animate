@@ -98,3 +98,83 @@ Grenzfall: Wohin wandert dieser Punkt für $Q_2\to0$? Passt das zum Feld einer e
 (b) $E=0$ verlangt $Q_1/x^2=Q_2/(a-x)^2$ mit $a=6$ cm. Daraus $2/x=1/(a-x)$, also $x=\frac23a=4$ cm. (c) Allgemein ist $x=a/(1+\sqrt{Q_2/Q_1})$. Für $Q_2\to0$ geht $x\to a$: Der Punkt wandert an den Ort von $Q_2$ und verschwindet: Eine einzelne Ladung hat keinen feldfreien Punkt.
 :::
 :::
+
+::::lernkarten
+:::karte begriff elektrische Feldstärke
+Was gibt die elektrische Feldstärke $\vec E$ an einem Ort an?
+---
+Die Kraft je Ladung auf eine kleine Probeladung $Q$ an diesem Ort: $\vec E:=\lim_{Q\to0}\frac{\vec F}{Q}$, Einheit V/m. Sie zeigt in Richtung der Kraft auf eine positive Probeladung.
+--- falsch
+Die Kraft, die dort auf eine Probeladung $Q$ wirkt, gleich wie groß diese ist: $\vec E=\vec F$, Einheit Newton. Sie zeigt in Richtung der Kraft auf die Probeladung.
+--- falsch
+Die Kraft je Ladung, die dort auf eine kleine Probeladung $Q$ wirkt: $\vec E=\vec F/Q$, Einheit V/m. Sie zeigt in Richtung der Kraft auf eine negative Probeladung.
+--- falsch
+Die Kraft je Ladung, die die felderzeugende Ladung $Q_0$ selbst spürt: $\vec E=\vec F/Q_0$, Einheit V/m. Sie zeigt von $Q_0$ zur nächsten anderen Ladung.
+:::
+:::karte formel Kraft im Feld
+Wie berechnet man die Kraft auf eine Ladung $Q$ an einem Ort mit der Feldstärke $\vec E$?
+---
+$\vec F=Q\cdot\vec E$. Dabei ist $\vec E$ das Feld der anderen Ladungen am Ort von $Q$. Für $Q>0$ zeigt die Kraft in Richtung von $\vec E$, für $Q<0$ entgegen.
+--- falsch
+$\vec F=\vec E/Q$. Dabei ist $\vec E$ das Feld der anderen Ladungen am Ort von $Q$. Je größer die Ladung, desto kleiner die Kraft, die sie spürt.
+--- falsch
+$\vec F=Q\cdot\vec E$. Dabei ist $\vec E$ das Feld der anderen Ladungen am Ort von $Q$. Die Kraft zeigt für jede Ladung in Richtung von $\vec E$.
+--- falsch
+$\vec F=Q\cdot\vec E$. Dabei enthält $\vec E$ auch das eigene Feld der Ladung $Q$ an ihrem Ort, denn sie erzeugt dort selbst ein Feld.
+:::
+:::karte formel Feld einer Punktladung
+Welches Feld erzeugt eine Punktladung $Q_0$ im Abstand $r$, und wohin zeigt es?
+---
+$\vec E=k\,\frac{Q_0}{r^2}\cdot\frac{\vec r}{r}$ mit dem Betrag $E=k\,\frac{|Q_0|}{r^2}$; $\vec r$ zeigt von der Ladung zum Ort. Bei $Q_0>0$ zeigt das Feld von der Ladung weg, bei $Q_0<0$ zu ihr hin.
+--- falsch
+$\vec E=k\,\frac{Q_0}{r}\cdot\frac{\vec r}{r}$ mit dem Betrag $E=k\,\frac{|Q_0|}{r}$; $\vec r$ zeigt von der Ladung zum Ort. Bei $Q_0>0$ zeigt das Feld von der Ladung weg, bei $Q_0<0$ zu ihr hin.
+--- falsch
+$\vec E=k\,\frac{Q_0\,Q}{r^2}\cdot\frac{\vec r}{r}$ mit der Probeladung $Q$: Das Feld hängt davon ab, welche Ladung man hineinbringt. Bei $Q_0>0$ zeigt es von der Ladung weg.
+--- falsch
+$\vec E=k\,\frac{Q_0}{r^2}\cdot\frac{\vec r}{r}$, aber $\vec r$ zeigt vom Ort zur Ladung. Bei $Q_0>0$ zeigt das Feld deshalb zur Ladung hin, bei $Q_0<0$ von ihr weg.
+:::
+:::karte herleitung Feld einer Punktladung
+Leite aus dem Coulomb-Gesetz das Feld $\vec E$ einer Punktladung $Q_0$ her.
+---
+Eine Probeladung $Q$ im Abstand $r$ erfährt die Kraft $\vec F=k\,Q\,Q_0/r^2\cdot\vec r/r$, weil für zwei ruhende Punktladungen das Coulomb-Gesetz gilt.
+---
+Die Feldstärke ist Kraft je Probeladung, $\vec E=\vec F/Q$, weil die hineingebrachte Ladung aus dem Ergebnis herausgeteilt werden soll.
+---
+Division durch $Q$ ergibt $\vec E=k\,\frac{Q_0}{r^2}\cdot\frac{\vec r}{r}$, weil $Q$ nur als Faktor vorkommt. Das Ergebnis hängt nur noch von $Q_0$ und dem Ort ab.
+---
+Bei mehreren Ladungen ist $\vec E=\sum_i\vec E_i$, weil sich ihre Kräfte als Vektoren addieren und jede Einzelkraft durch dasselbe $Q$ geteilt wird.
+:::
+:::karte zusammenhang Feld braucht Zeit
+Warum ist das elektrische Feld mehr als eine Rechenhilfe?
+---
+Weil die Wirkung Zeit braucht: Verschiebt man eine Ladung, ändert sich die Kraft auf eine andere erst, wenn die Änderung des Felds mit Lichtgeschwindigkeit dort ankommt, über 3 cm nach 100 ps. In der Zwischenzeit steckt die Änderung im Feld.
+--- falsch
+Weil das Feld die Kraft ohne jede Verzögerung überträgt: Verschiebt man eine Ladung, ändert sich die Kraft auf jede andere Ladung im selben Augenblick, gleich wie weit sie entfernt ist. Diese Wirkung ohne Zeitverzug leistet nur das Feld.
+--- falsch
+Weil das Feld selbst eine Ladung trägt: Sie kommt zu den erzeugenden Ladungen hinzu und verstärkt die Kraft auf jede Ladung, die man in das Feld hineinbringt. Ohne diese Feldladung wäre die Kraft kleiner.
+--- falsch
+Weil nur das Feld die Kraft überhaupt liefert: Ohne Feld wäre die Kraft zwischen zwei Ladungen so schwach wie die Gravitation zwischen ihren Massen. Das Feld verstärkt sie um viele Größenordnungen.
+:::
+:::karte zusammenhang Kleine Probeladung
+Warum definiert man die Feldstärke mit dem Grenzwert $Q\to0$ der Probeladung?
+---
+Weil eine große Probeladung die erzeugenden Ladungen verschieben würde, etwa die freien Elektronen einer Metallplatte. Gemessen werden soll aber das Feld ohne Probeladung.
+--- falsch
+Weil eine große Probeladung ihr eigenes Feld spüren würde. Die gemessene Kraft wäre dann um diesen Eigenanteil zu groß, und $\vec F/Q$ ergäbe ein zu starkes Feld.
+--- falsch
+Weil nur sehr kleine Ladungen überhaupt eine Kraft im Feld erfahren. Große Ladungen bleiben vom Feld unbeeinflusst und eignen sich deshalb nicht zum Messen der Feldstärke.
+--- falsch
+Weil die Probeladung genau eine Elementarladung sein muss. $Q\to0$ bedeutet, dass man ein einzelnes Elektron an den Ort bringt und die Kraft auf es misst.
+:::
+:::karte zusammenhang Feld am eigenen Ort
+Kugel B ($-20$ nC) erzeugt am Ort von Kugel A ($+10$ nC), 3 cm entfernt, ein doppelt so starkes Feld wie A am Ort von B. Warum sind die Kräfte auf beide trotzdem gleich groß?
+---
+Weil die Kraft Ladung mal Feld am eigenen Ort ist: A spürt $2{,}0\cdot10^5$ V/m mit 10 nC, B nur $1{,}0\cdot10^5$ V/m, aber mit 20 nC. Beide Produkte ergeben 2,0 mN.
+--- falsch
+Weil jede Kugel auch ihr eigenes Feld spürt. Das Eigenfeld von B ergänzt das schwächere Feld von A am Ort von B, bis beide Kräfte gleich groß sind.
+--- falsch
+Weil die Kraft nur vom Abstand abhängt. Beide Kugeln sind 3 cm voneinander entfernt; Feld und Ladung spielen für den Betrag der Kraft keine Rolle.
+--- falsch
+Weil sich das Feld von B auf dem Weg zu A halbiert. Am Ort von A kommt deshalb ebenfalls nur $1{,}0\cdot10^5$ V/m an, genau wie am Ort von B.
+:::
+::::

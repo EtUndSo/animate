@@ -225,11 +225,14 @@ var BEREICHE_UI={"de":{"lw_modul":"Modul","lw_artikel":"Artikel","lw_alle_art":"
        demselben Kapitel, sonst aus dem Modul; Herleitungen kommen nicht vor. */
     function quizfaehig(c){ return c.t!=="h" && !!antwort(c); }
     function optionen(c){ var ant=antwort(c), seen={}, pool=[]; seen[ohneTags(ant)]=1;
+      if(c.x && c.x.length>=3)                                     // geschriebene falsche Antworten (seit 11.11.2026): Option "x:<id>:<i>"
+        return mische([c.id].concat(c.x.slice(0,3).map(function(_,i){ return "x:"+c.id+":"+i; })));
       var kap=D.karten.filter(function(x){ return x.t===c.t && x.k===c.k && x.id!==c.id && quizfaehig(x); }),
           mod=D.karten.filter(function(x){ return x.t===c.t && x.k!==c.k && quizfaehig(x); });
       mische(kap).concat(mische(mod)).forEach(function(x){ var n=ohneTags(antwort(x)); if(pool.length<3 && n && !seen[n]){ seen[n]=1; pool.push(x.id); } });
       return pool.length<3 ? null : mische([c.id].concat(pool)); }
     function karteVon(id){ for(var i=0;i<D.karten.length;i++) if(D.karten[i].id===id) return D.karten[i]; return null; }
+    function optText(o){ var m=/^x:(.+):(\d+)$/.exec(o||""); if(m){ var c=karteVon(m[1]); return c&&c.x?(c.x[+m[2]]||""):""; } var k=karteVon(o); return k?antwort(k):""; }   // Text einer Quiz-Option
     function frageText(c){ return c.w ? w("quiz_p_w") : w("quiz_p_"+c.t); }
     function zahlWahl(){ var l=tx("label","lw-feld"), s=tx("select","lw-sel lw-zahl"); l.appendChild(tx("span",null,w("quiz_zahl"))); l.appendChild(s);
       [10,20,30].forEach(function(n){ s.appendChild(new Option(String(n),String(n))); }); return [l,s]; }
@@ -239,7 +242,7 @@ var BEREICHE_UI={"de":{"lw_modul":"Modul","lw_artikel":"Artikel","lw_alle_art":"
       var c=karteVon(f.id), box=tx("div","qz-frage");
       box.appendChild(tx("p","qz-p",frageText(c))); box.appendChild(hx("div","qz-vorne",c.v));
       var ol=tx("ol","qz-opt"), bs=[];
-      f.o.forEach(function(id,i){ var x=karteVon(id), li=tx("li"), b=knopf("qz-b"); b.innerHTML='<span class="qz-nr">'+(i+1)+'</span><span class="qz-a">'+(x?antwort(x):"")+'</span>';
+      f.o.forEach(function(id,i){ var li=tx("li"), b=knopf("qz-b"); b.innerHTML='<span class="qz-nr">'+(i+1)+'</span><span class="qz-a">'+optText(id)+'</span>';
         if(f.w===i) b.classList.add("gewaehlt");
         b.addEventListener("click",function(){ waehle(i); }); li.appendChild(b); ol.appendChild(li); bs.push(b); });
       box.appendChild(ol); ziel.appendChild(box);
@@ -254,7 +257,7 @@ var BEREICHE_UI={"de":{"lw_modul":"Modul","lw_artikel":"Artikel","lw_alle_art":"
     function fehlerListe(items){ var ol=tx("ol","qz-fehler");
       items.forEach(function(f){ var c=karteVon(f.id), li=tx("li"); if(!c) return;
         li.appendChild(hx("div","qz-vorne",c.v));
-        if(f.w>=0){ var d=karteVon(f.o[f.w]); li.appendChild(hx("div","qz-deine",'<span class="hl-k">'+w("quiz_deine")+'</span> '+(d?antwort(d):""))); }
+        if(f.w>=0){ li.appendChild(hx("div","qz-deine",'<span class="hl-k">'+w("quiz_deine")+'</span> '+optText(f.o[f.w]))); }
         li.appendChild(hx("div","qz-richtig",'<span class="hl-k">'+w("quiz_richtig")+'</span> '+antwort(c)));
         var a=tx("a","lk-stelle",w("lk_stelle")); a.href=stelle(c); li.appendChild(a); ol.appendChild(li); });
       return ol; }
