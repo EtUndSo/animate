@@ -767,7 +767,7 @@
    },
    "ende": {
     "de": "„fertig“",
-    "en": "“done”",
+    "en": "“fertig”",
     "es": "«listo»",
     "zh": "“完成”",
     "fr": "« terminé »",
@@ -775,7 +775,7 @@
    },
    "ok": {
     "de": "„in Ordnung“",
-    "en": "“OK”",
+    "en": "“in Ordnung”",
     "es": "«en orden»",
     "zh": "“正常”",
     "fr": "« correct »",

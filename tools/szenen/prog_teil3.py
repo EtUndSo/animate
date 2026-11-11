@@ -58,8 +58,9 @@ def k3if():
     lesen = s.tr("lesen", "temp einlesen", "read temp", "leer temp", "读取 temp", fr="lire temp", tr="temp'i oku")
     warn = s.tr("warn", "Warnung\nausgeben", "print\nwarning", "mostrar\naviso", "输出\n警告", fr="afficher\nl’alerte",
                 tr="uyarı\nyazdır")
-    ende = s.tr("ende", "„fertig“", "“done”", "«listo»", "“完成”", fr="« terminé »", tr="„bitti“")
-    ok = s.tr("ok", "„in Ordnung“", "“OK”", "«en orden»", "“正常”", fr="« correct »", tr="„uygun“")
+    # en: zitierte Ausgaben bleiben deutsch wie die Zeichenketten im Code (Code-Regel aus Python 1)
+    ende = s.tr("ende", "„fertig“", "“fertig”", "«listo»", "“完成”", fr="« terminé »", tr="„bitti“")
+    ok = s.tr("ok", "„in Ordnung“", "“in Ordnung”", "«en orden»", "“正常”", fr="« correct »", tr="„uygun“")
     s.formel(r"\texttt{if}", mitte=(-2.15, 2.65), hoehe=0.17)
     s.formel(r"\texttt{if}\ \text{+}\ \texttt{else}", mitte=(1.6, 2.65), hoehe=0.2)
     # links: if
@@ -127,9 +128,10 @@ def k3elif():
     s = Szene("prog/k3elif")
     ja, nein = ja_nein(s)
     lesen = s.tr("lesen", "temp einlesen", "read temp", "leer temp", "读取 temp", fr="lire temp", tr="temp'i oku")
-    niedrig = s.tr("niedrig", "„zu kalt“", "“too cold”", "«demasiado frío»", "“太冷”", fr="« trop froid »", tr="„çok soğuk“")
-    ok = s.tr("ok", "„in Ordnung“", "“OK”", "«en orden»", "“正常”", fr="« correct »", tr="„uygun“")
-    hoch = s.tr("hoch", "„zu warm“", "“too warm”", "«demasiado calor»", "“太热”", fr="« trop chaud »", tr="„çok sıcak“")
+    # en: zitierte Ausgaben bleiben deutsch wie die Zeichenketten im Code (Code-Regel aus Python 1)
+    niedrig = s.tr("niedrig", "„zu kalt“", "“zu kalt”", "«demasiado frío»", "“太冷”", fr="« trop froid »", tr="„çok soğuk“")
+    ok = s.tr("ok", "„in Ordnung“", "“in Ordnung”", "«en orden»", "“正常”", fr="« correct »", tr="„uygun“")
+    hoch = s.tr("hoch", "„zu warm“", "“zu warm”", "«demasiado calor»", "“太热”", fr="« trop chaud »", tr="„çok sıcak“")
     weiter = s.tr("weiter", "weiter nach dem letzten Block", "continue after the last block", "seguir tras el último bloque",
                   "在最后一个代码块之后继续", fr="suite après le dernier bloc", tr="son bloktan sonra devam")
     x, xr, xj = -1.4, 1.75, 3.05

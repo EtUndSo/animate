@@ -803,12 +803,13 @@ def _node_label(nd, depth):
     return html.escape(nd["name"])
 
 def sidebar_html(tree, active_path=None, art=None):
-    # Standard: bis zur Modul-Ebene offen, Module selbst ZUgeklappt (Oberthemen erst auf Klick);
-    # der Ast des aktuell geöffneten Artikels wird automatisch aufgeklappt.
+    # Seit 11.11.2026 (Wunsch des Users): immer nur die oberste Ebene (Studiengang/Bereich, z. B. Elektrotechnik) offen,
+    # darunter sieht man nur die nächste Ebene (z. B. 1. Semester) zugeklappt; auch der Ast des geöffneten Artikels
+    # bleibt zu (der Artikel ist weiter als aktiv markiert, falls man ihn aufklappt).
     def render(nodes, depth):
         rows = []
         for nd in nodes:
-            is_open = depth <= 1 or (active_path and _has_active(nd, active_path))
+            is_open = depth == 0
             rows.append(f'<details class="lvl lvl{depth}"{" open" if is_open else ""}><summary>{_node_label(nd, depth)}</summary>')
             if nd["articles"]:
                 rows.append("<ul>")

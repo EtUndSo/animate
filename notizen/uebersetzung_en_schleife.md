@@ -11,8 +11,8 @@ Status: offen · läuft · fertig (Datum, Artikel en, Seiten en). Ein Kapitel gi
 | # | Modul | Kap | Hauptdatei (de) | Status |
 |---|---|---|---|---|
 | 1 | prog | 1 | Kap1_Programme.tex | fertig 11.11. (8 Artikel, 46 S.; „Linux, Chapter 2“ noch ohne Link) |
-| 2 | prog | 2 | Kap2_Werte.tex | läuft seit 11.11. |
-| 3 | prog | 3 | Kap3_Kontrollfluss.tex | offen |
+| 2 | prog | 2 | Kap2_Werte.tex | fertig 11.11. (12 Artikel, 87 S.) |
+| 3 | prog | 3 | Kap3_Kontrollfluss.tex | läuft seit 11.11. |
 | 4 | linux | 1 | Kap1_Uebungslinux.tex | offen |
 | 5 | linux | 2 | Kap2_Shell.tex | offen |
 | 6 | linux | 3 | Kap3_Dateien.tex | offen |
@@ -50,10 +50,11 @@ Heftordner: prog `C:\Bücher\EtUndSo\Programmieren\Arbeitshefte`, linux `C:\Büc
 3. `PYTHONIOENCODING=utf-8 python build_wissen.py`: Die HTML-Menge wächst genau um die en-Seiten des Kapitels. Danach Browser-Stichprobe auf zwei en-Seiten (390 px: HTTP 200, keine Konsolenfehler, kein waagrechtes Scrollen, `[data-anim]` vorhanden).
 4. Status oben eintragen, Fehler im deutschen Original unten sammeln, dem User kurz berichten mit Commit-Hinweis (sicher bis zur Repo-Phase des nächsten Übersetzers, siehe Brief).
 5. Nächstes Kapitel starten (Brief unten, Platzhalter ersetzen).
-6. Nach dem letzten Kapitel: alle en-Fassungen der Schleife neu umwandeln, damit Verweise auf später übersetzte Kapitel Links werden (nur Link-Unterschiede erlaubt, wie bei den Linux-Heften), bauen, dann Schleife beenden und Linux 7 2b starten.
+6. Nach dem letzten Kapitel: alle en-Fassungen der Schleife neu umwandeln, damit Verweise auf später übersetzte Kapitel Links werden (nur Link-Unterschiede erlaubt, wie bei den Linux-Heften), bauen, dann Schleife beenden. **Danach (User 11.11.):** erst die Editor-Änderungen für Bildschirme und Fenster (`notizen/editor_bildschirme_plan.md`, Welle F1, effizient nach dem Abschnitt „Effizient umsetzen“; vorher mit dem User den Weg abstimmen), dann Linux 7 2b, 8 2b-1, 8 2b-2 mit dem neuen Terminal.
 
 ## Fehler im deutschen Original (von Übersetzern gemeldet, gesammelt)
 - Python 1: keine.
+- Python 2 (von mir im Deutschen behoben 11.11., PDF und Artikel de neu gebaut): `kap2_stufen_b.tex` Z. 239 alte Verweisform „Python~1“ → „Kapitel~1, Abschnitt~5.3“ (jetzt Link); Z. 1317 IEEE 754 rundet „bei Gleichstand“ zur geraden Mantisse; `kap2_loesungen.tex` Z. 809 falsche Begründung (−1,5 + 0,5 = −1,0, `int` schneidet nichts ab) ersetzt.
 
 ## Festlegungen aus den Durchgängen
 - Python 1: Zeichenketten im Code bleiben deutsch (ihre Ausgaben stehen im Text und in den Szenen), Kommentare übersetzt; kurze Glosse wie ``Zeile 1'' (German for ``line 1''). „übersetzen“ = translate/translator, nur die Spracheigenschaft heißt compiled/interpreted. Euro als €4.49. Prüfskripte `code_vergleich.py` und `formeln_b.py` im Scratchpad `en_prog1` (Formelvergleich ohne die `$`-Prompts in Code; das Struktur-Werkzeug meldet dort ein Artefakt).

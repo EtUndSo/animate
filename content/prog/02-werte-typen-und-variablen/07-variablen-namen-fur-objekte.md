@@ -244,7 +244,7 @@ Auch eine erweiterte Zuweisung bindet den Namen neu: `zaehler += 1` erzeugt ein 
 
 <span class="anker" id="stufe-6-6"></span>
 
-Mit Variablen wird ein Skript zur wiederverwendbaren Rechnung: Die Annahmen stehen oben, jede einmal, und die Formeln darunter lesen sich wie im Lehrbuch. Python 1 hat ein Rezept für Pizzateig mit festen Zahlen von 4 auf 6 Personen umgerechnet ([Programmieren, Python 1, Abschnitt 5.3](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/skripte-schreiben-und-ausfuhren.html#stufe-5-3)). Mit Namen sieht dasselbe Skript so aus:
+Mit Variablen wird ein Skript zur wiederverwendbaren Rechnung: Die Annahmen stehen oben, jede einmal, und die Formeln darunter lesen sich wie im Lehrbuch. [Kapitel 1](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/programme-und-der-python-interpreter.html) hat ein Rezept für Pizzateig mit festen Zahlen von 4 auf 6 Personen umgerechnet ([Kapitel 1, Abschnitt 5.3](/wissen/informatik/programmieren/python/programme-und-der-python-interpreter/skripte-schreiben-und-ausfuhren.html#stufe-5-3)). Mit Namen sieht dasselbe Skript so aus:
 
 ```python rezept_variablen.py
 # Pizzateig umrechnen, mit Namen für jede Größe

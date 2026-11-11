@@ -286,7 +286,7 @@ Die beiden Wege unterscheiden sich an zwei Stellen: bei genauen Hälften wie $2{
 ⁠**Kurz gesagt:** `round` rundet zur nächsten Zahl und bei genauen Hälften zur geraden; `int(x + 0.5)` klappt nur für positive Zahlen und rundet Hälften immer auf.
 
 :::hintergrund Warum zur geraden Zahl gerundet wird
-Die Schulregel rundet jede genaue Hälfte auf. Bei vielen gerundeten Werten summiert sich das zu einem Fehler, der immer in dieselbe Richtung zeigt. Ein Beispiel: $0{,}5+1{,}5+2{,}5+3{,}5=8$. Nach der Schulregel gerundet ergibt die Summe $1+2+3+4=10$. Zur geraden Zahl gerundet ergibt sie $0+2+2+4=8$: Die Hälfte der Fälle geht nach oben, die andere nach unten, und im Mittel heben sich die Fehler auf. Deshalb rundet IEEE 754 in der Grundeinstellung jede Rechnung mit `float` zur geraden Mantisse, und Python übernimmt dieselbe Regel für `round`. Es verhindert außerdem, dass ein Wert, den man immer wieder abzieht und hinzuzählt, langsam in eine Richtung wandert.
+Die Schulregel rundet jede genaue Hälfte auf. Bei vielen gerundeten Werten summiert sich das zu einem Fehler, der immer in dieselbe Richtung zeigt. Ein Beispiel: $0{,}5+1{,}5+2{,}5+3{,}5=8$. Nach der Schulregel gerundet ergibt die Summe $1+2+3+4=10$. Zur geraden Zahl gerundet ergibt sie $0+2+2+4=8$: Die Hälfte der Fälle geht nach oben, die andere nach unten, und im Mittel heben sich die Fehler auf. Deshalb rundet IEEE 754 in der Grundeinstellung jede Rechnung mit `float` bei Gleichstand zur geraden Mantisse, und Python übernimmt dieselbe Regel für `round`. Es verhindert außerdem, dass ein Wert, den man immer wieder abzieht und hinzuzählt, langsam in eine Richtung wandert.
 :::
 
 ### Anwendung: ein Rechner für das Lauftempo
@@ -441,7 +441,7 @@ Fülle die Tabelle für $x=0{,}5$; $1{,}5$; $-0{,}5$; $-1{,}5$; $4{,}49$ aus: `i
 | $-1{,}5$ | $-1$ | $-2$ | $-2$ | $-1$ |
 | $4{,}49$ | 4 | 4 | 4 | 4 |
 
-Nur bei $4{,}49$ stimmen alle vier überein: Die Zahl ist positiv, keine genaue Hälfte, und ihr Nachkommaanteil ist kleiner als $0{,}5$. `round` geht bei Hälften zur geraden Zahl ($0{,}5\to0$, $1{,}5\to2$, $-1{,}5\to-2$). Der Weg von Hand rundet Hälften immer auf und wird bei $-1{,}5$ zu $-1$, weil `int` Richtung null abschneidet. `math.floor` rundet nach unten, `int` Richtung null; beide unterscheiden sich nur bei negativen Zahlen.
+Nur bei $4{,}49$ stimmen alle vier überein: Die Zahl ist positiv, keine genaue Hälfte, und ihr Nachkommaanteil ist kleiner als $0{,}5$. `round` geht bei Hälften zur geraden Zahl ($0{,}5\to0$, $1{,}5\to2$, $-1{,}5\to-2$). Der Weg von Hand rundet Hälften immer auf, also zur größeren Zahl, und macht deshalb aus $-1{,}5$ die $-1$. `math.floor` rundet nach unten, `int` Richtung null; beide unterscheiden sich nur bei negativen Zahlen.
 :::
 :::
 

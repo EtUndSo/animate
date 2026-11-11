@@ -664,7 +664,7 @@
    },
    "niedrig": {
     "de": "„zu kalt“",
-    "en": "“too cold”",
+    "en": "“zu kalt”",
     "es": "«demasiado frío»",
     "zh": "“太冷”",
     "fr": "« trop froid »",
@@ -672,7 +672,7 @@
    },
    "ok": {
     "de": "„in Ordnung“",
-    "en": "“OK”",
+    "en": "“in Ordnung”",
     "es": "«en orden»",
     "zh": "“正常”",
     "fr": "« correct »",
@@ -680,7 +680,7 @@
    },
    "hoch": {
     "de": "„zu warm“",
-    "en": "“too warm”",
+    "en": "“zu warm”",
     "es": "«demasiado calor»",
     "zh": "“太热”",
     "fr": "« trop chaud »",
