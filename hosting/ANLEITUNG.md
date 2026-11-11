@@ -173,4 +173,3 @@ Erst wenn Schritt 9 geprüft ist. Kurze Unterbrechung von wenigen Minuten mögli
 - **Ausfall-Meldung:** Cloudflare-Dashboard → Notifications → Add → **Tunnel Health Alert** (Mail, wenn der Tunnel ausfällt).
 - **Sicherung:** nicht nötig für die Website, alles liegt im Git-Repo. Auf dem Pi sind nur `/etc/etundso/cloudflare.env` und der Deploy-Schlüssel eigen; beide lassen sich jederzeit neu anlegen.
 - **Ändern am Pi:** Neue Fassungen von `Caddyfile`, Skript oder Timer kommen mit dem Repo. Übernommen werden sie erst, wenn Schritte 4 und 6 erneut ausgeführt werden; das passiert absichtlich nicht automatisch.
-</content>

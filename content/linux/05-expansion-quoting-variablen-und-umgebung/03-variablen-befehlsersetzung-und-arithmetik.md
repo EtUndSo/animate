@@ -250,7 +250,7 @@ $ ls *notizen*
 Lea_notizen.txt
 ```
 
-(a) Zwei Zuweisungen ohne Leerzeichen um das Gleichheitszeichen, dann setzt `echo` die beiden Werte ein. (b) Der Unterstrich darf in Namen vorkommen, also sucht die Shell eine Variable `vorname_notizen`. Die gibt es nicht; sie wird zu leerem Text, und übrig bleibt `.txt`. (c) Die geschweiften Klammern beenden den Namen vor dem Unterstrich: `${vorname}_notizen.txt` ergibt `Lea_notizen.txt`.
+(a) Zwei Zuweisungen ohne Leerzeichen um das Gleichheitszeichen, dann setzt die Shell die beiden Werte für `echo` ein. (b) Der Unterstrich darf in Namen vorkommen, also sucht die Shell eine Variable `vorname_notizen`. Die gibt es nicht; sie wird zu leerem Text, und übrig bleibt `.txt`. (c) Die geschweiften Klammern beenden den Namen vor dem Unterstrich: `${vorname}_notizen.txt` ergibt `Lea_notizen.txt`.
 :::
 :::
 

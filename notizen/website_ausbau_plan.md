@@ -55,9 +55,17 @@ Wortlaut: „Wir sollten in dem Bereich Wissen auch zwischen verschiedenen Kateg
   - Also **geschriebene** Kurzfassung und Formelsammlung für jeden Artikel, als neues Inhaltsprojekt.
   - W4a legt die Haken an: Blöcke `::::kurzfassung` und `::::formelsammlung` im Artikel-Markdown ersetzen die automatische Fassung.
   - Download PNG/JPG/SVG im Browser erzeugt, PDF möglichst direkt (Bibliothek selbst ausgeliefert, erst beim Klick geladen); keine vorab gespeicherten Dateien je Artikel (Dateigrenze).
-  - **Pilot ET3, Kapitel 2 (User bestätigt 11.11.), läuft seit 11.11.:** `kap2_kurz.tex`, `kap2_formeln.tex`, `kurz_formeln_def.tex`, `Kap2_Laplace_Kurz.tex`, `Kap2_Laplace_Formeln.tex` im Heftordner. Format `egin{kurzfassung}{<Schlüssel>}{<Titel>}`, `egin{formelsammlung}{…}{…}` mit `ormel{Name}{Formel}{Bedeutung; Bedingungen}`; Schlüssel = erster `stufe`-Anker des Artikels bzw. `ueberblick`. Danach: Konverter-Erweiterung (Blöcke `::::kurzfassung`/`::::formelsammlung` ins Artikel-Markdown), Bau, Abnahme durch den User.
+  - **Pilot ET3, Kapitel 2 (User bestätigt 11.11.), fertig 11.11.** (8 Kurzfassungen 90–232 Wörter, 96 Formeln, alle mit Beleg im Heft; PDFs Kurz 5 S., Formeln 11 S., pdf_pruefen 0; Prüfskripte `scratchpad/pilot_kurz_et3k2/formelabgleich.py`, `wortzahl.py`). Hinweise: Überblicke brauchen kaum eine Kurzfassung; `b` trennt lange Komposita nicht. Wartet auf W4a-Haken, dann Konverter-Erweiterung und Abnahme durch den User.
+    Früher: `kap2_kurz.tex`, `kap2_formeln.tex`, `kurz_formeln_def.tex`, `Kap2_Laplace_Kurz.tex`, `Kap2_Laplace_Formeln.tex` im Heftordner. Format `egin{kurzfassung}{<Schlüssel>}{<Titel>}`, `egin{formelsammlung}{…}{…}` mit `ormel{Name}{Formel}{Bedeutung; Bedingungen}`; Schlüssel = erster `stufe`-Anker des Artikels bzw. `ueberblick`. Danach: Konverter-Erweiterung (Blöcke `::::kurzfassung`/`::::formelsammlung` ins Artikel-Markdown), Bau, Abnahme durch den User.
   - Plan für das Inhaltsprojekt: je Heft zwei neue LaTeX-Dateien (`kap<N>_kurz.tex`, `kap<N>_formeln.tex`) mit einem Block je Artikel. Der Konverter schreibt daraus die Blöcke; daraus entstehen auch PDFs „Kurzfassung“ und „Formelsammlung“ je Kapitel. Ein Schreib-Agent je Heft mit Formelabgleich gegen das Heft per Skript. Zuerst ein Pilot, dann alle Hefte, parallel zur Englisch-Schleife; danach Übersetzung der neuen Dateien.
 - Früher (bis 28.10.) gab es zwei geschriebene Fassungen je Thema; sie wurden mit dem Wechsel zu den Arbeitsheften abgelöst. Die automatische Ansicht kostet keine Schreib- und Übersetzungsarbeit.
+
+## Lernkarten überarbeiten (User, 11.11.2026 abends)
+Wortlaut: „Die Inhalte der Lernkarten machen keinen Sinn. Zum Beispiel Frage: Spannung, Antwort: Auf einer Blockbatterie steht 9 V. Diese Angabe ist eine Spannung. Wir sollten die Lernkarten nochmal in Ruhe überarbeiten, wenn kein anderer Agent läuft, um wirklich sinnvolle Karteikarten zu erhalten mit sinnvollen Fragen und Antworten.“
+- **Ursache:** W2 nimmt als „Bestimmung“ eines Begriffs den Satz seiner ersten Nennung. Das ist oft ein Beispiel, keine Definition. Dieselbe Quelle speist auch die Gruppe „Begriffe“ der Zusammenfassung (W1) und das Begriffsverzeichnis (W2).
+- **Zeitpunkt:** in Ruhe, **wenn kein anderer Agent läuft** (Wunsch des Users). Nicht nebenbei.
+- **Bis dahin online lassen** (User 11.11.: „Du kannst sie erstmal drauf lassen, aktuell nutzt sowieso noch niemand die Webseite. Wir überarbeiten sie später einfach. Das gleiche gilt auch für die Kurzfassungen, sie sollten nicht einfach aus Teilen der Langfassung zusammengesetzt werden, sondern jeweils neu erstellt werden.“). Die automatische Kurzansicht aus W4a ist also nur Übergang, bis die geschriebenen Kurzfassungen da sind.
+- **Idee:** geschriebene Karten aus dem Heft wie Kurzfassung und Formelsammlung (Frage/Antwort je Begriff, Formel, Herleitung, Zusammenhang), ggf. als dritte Datei je Heft im selben Durchgang. Format und Kartenarten vorher mit dem User festlegen.
 
 ## Idee: Konten mit Fortschritt auf dem Server (User, 11.11.2026) — PAUSIERT
 User 11.11.: „Die Anmelde-Funktion pausieren wir erstmal, ich bin noch nicht sicher.“ Nicht von selbst wieder anstoßen.
@@ -74,4 +82,3 @@ Wortlaut: „Wenn wir es später sowieso auf einem Pi umsetzen, dann könnten wi
 - `web/` hatte am 11.11. 14 843 Dateien. Laut Cloudflare-Doku sind im Gratis-Tarif 20 000 Dateien je Site erlaubt, bezahlt 100 000.
 - Wachstum: Englisch-Schleife, Linux 7/8, später es/zh/fr/tr für alle Hefte. Die Grenze ist absehbar.
 - Wege: bezahlter Tarif, oder Dateien sparen (z. B. eine Datei je Abbildung statt `.svg` + `.anim.svg`; Abbildungen in R2).
-</content>
