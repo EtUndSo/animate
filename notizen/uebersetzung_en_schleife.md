@@ -12,8 +12,8 @@ Status: offen · läuft · fertig (Datum, Artikel en, Seiten en). Ein Kapitel gi
 |---|---|---|---|---|
 | 1 | prog | 1 | Kap1_Programme.tex | fertig 11.11. (8 Artikel, 46 S.; „Linux, Chapter 2“ noch ohne Link) |
 | 2 | prog | 2 | Kap2_Werte.tex | fertig 11.11. (12 Artikel, 87 S.) |
-| 3 | prog | 3 | Kap3_Kontrollfluss.tex | läuft seit 11.11. |
-| 4 | linux | 1 | Kap1_Uebungslinux.tex | offen |
+| 3 | prog | 3 | Kap3_Kontrollfluss.tex | fertig 11.11. (11 Artikel, 83 S.) |
+| 4 | linux | 1 | Kap1_Uebungslinux.tex | läuft seit 11.11. |
 | 5 | linux | 2 | Kap2_Shell.tex | offen |
 | 6 | linux | 3 | Kap3_Dateien.tex | offen |
 | 7 | linux | 4 | Kap4_Stroeme.tex | offen |
@@ -54,10 +54,12 @@ Heftordner: prog `C:\Bücher\EtUndSo\Programmieren\Arbeitshefte`, linux `C:\Büc
 
 ## Fehler im deutschen Original (von Übersetzern gemeldet, gesammelt)
 - Python 1: keine.
+- Python 3: keine.
 - Python 2 (von mir im Deutschen behoben 11.11., PDF und Artikel de neu gebaut): `kap2_stufen_b.tex` Z. 239 alte Verweisform „Python~1“ → „Kapitel~1, Abschnitt~5.3“ (jetzt Link); Z. 1317 IEEE 754 rundet „bei Gleichstand“ zur geraden Mantisse; `kap2_loesungen.tex` Z. 809 falsche Begründung (−1,5 + 0,5 = −1,0, `int` schneidet nichts ab) ersetzt.
 
 ## Festlegungen aus den Durchgängen
-- Python 1: Zeichenketten im Code bleiben deutsch (ihre Ausgaben stehen im Text und in den Szenen), Kommentare übersetzt; kurze Glosse wie ``Zeile 1'' (German for ``line 1''). „übersetzen“ = translate/translator, nur die Spracheigenschaft heißt compiled/interpreted. Euro als €4.49. Prüfskripte `code_vergleich.py` und `formeln_b.py` im Scratchpad `en_prog1` (Formelvergleich ohne die `$`-Prompts in Code; das Struktur-Werkzeug meldet dort ein Artefakt).
+- Python 1: Zeichenketten im Code bleiben deutsch (ihre Ausgaben stehen im Text und in den Szenen), Kommentare übersetzt; kurze Glosse wie ``Zeile 1'' (German for ``line 1''). „übersetzen“ = translate/translator, nur die Spracheigenschaft heißt compiled/interpreted. Euro als €4.49. Prüfskripte `code_vergleich.py` und `formeln_b.py` im Scratchpad `en_prog1` (verbessert in `en_prog2`, `en_prog3`) (Formelvergleich ohne die `$`-Prompts in Code; das Struktur-Werkzeug meldet dort ein Artefakt).
+- Python 3: Flussdiagramme zeigen Programmausgaben wie im Code deutsch (“fertig”, “zu kalt”), mit Glosse im Text; dafür `en=` in `prog_teil3.py` angepasst (es/zh/fr/tr entscheiden ihre Übersetzer). „effektiver Jahreszins“ = effective annual interest rate (nicht APR).
 
 ## Brief für den Übersetzer (Vorlage)
 Vollständiger Brief des neuesten Durchgangs (seit Python 2, mit den Hilfsmitteln aus Python 1): `notizen/uebersetzung_en_brief.md`. Für jedes Kapitel anpassen: Modul, Kapitel, Dateinamen, Heftordner, Szenen-Datei, Scratchpad `en_<modul><kap>`, Regeln und Glossarort wie folgt, Stilvorbild (für ET-Module die en-Fassungen von HöMa1 1–3).
