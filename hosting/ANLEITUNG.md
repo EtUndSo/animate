@@ -68,9 +68,9 @@ sudo cat /srv/etundso/.ssh/id_ed25519.pub
 Den ausgegebenen Schlüssel auf GitHub eintragen: Repo **EtUndSo/animate** → Settings → Deploy keys → Add deploy key, **ohne** Schreibrecht. Dann:
 ```
 sudo -u etundso ssh -o StrictHostKeyChecking=accept-new -T git@github.com   # Meldung „successfully authenticated“ ist richtig
-sudo -u etundso git clone --branch main git@github.com:EtUndSo/animate.git /srv/etundso/repo
+sudo -u etundso git clone --depth 1 --branch main git@github.com:EtUndSo/animate.git /srv/etundso/repo
 ```
-Der erste Klon dauert eine Weile, `web/` allein hat etwa 700 MB.
+Geholt wird nur der aktuelle Stand ohne Geschichte (`--depth 1`), im November 2026 etwa 650 MB, davon `web/` etwa 430 MB.
 
 ## 4. Webserver Caddy
 ```

@@ -55,6 +55,7 @@ Wortlaut: „Wir sollten in dem Bereich Wissen auch zwischen verschiedenen Kateg
   - Also **geschriebene** Kurzfassung und Formelsammlung für jeden Artikel, als neues Inhaltsprojekt.
   - W4a legt die Haken an: Blöcke `::::kurzfassung` und `::::formelsammlung` im Artikel-Markdown ersetzen die automatische Fassung.
   - Download PNG/JPG/SVG im Browser erzeugt, PDF möglichst direkt (Bibliothek selbst ausgeliefert, erst beim Klick geladen); keine vorab gespeicherten Dateien je Artikel (Dateigrenze).
+  - **Pilot ET3, Kapitel 2 (User bestätigt 11.11.), läuft seit 11.11.:** `kap2_kurz.tex`, `kap2_formeln.tex`, `kurz_formeln_def.tex`, `Kap2_Laplace_Kurz.tex`, `Kap2_Laplace_Formeln.tex` im Heftordner. Format `egin{kurzfassung}{<Schlüssel>}{<Titel>}`, `egin{formelsammlung}{…}{…}` mit `ormel{Name}{Formel}{Bedeutung; Bedingungen}`; Schlüssel = erster `stufe`-Anker des Artikels bzw. `ueberblick`. Danach: Konverter-Erweiterung (Blöcke `::::kurzfassung`/`::::formelsammlung` ins Artikel-Markdown), Bau, Abnahme durch den User.
   - Plan für das Inhaltsprojekt: je Heft zwei neue LaTeX-Dateien (`kap<N>_kurz.tex`, `kap<N>_formeln.tex`) mit einem Block je Artikel. Der Konverter schreibt daraus die Blöcke; daraus entstehen auch PDFs „Kurzfassung“ und „Formelsammlung“ je Kapitel. Ein Schreib-Agent je Heft mit Formelabgleich gegen das Heft per Skript. Zuerst ein Pilot, dann alle Hefte, parallel zur Englisch-Schleife; danach Übersetzung der neuen Dateien.
 - Früher (bis 28.10.) gab es zwei geschriebene Fassungen je Thema; sie wurden mit dem Wechsel zu den Arbeitsheften abgelöst. Die automatische Ansicht kostet keine Schreib- und Übersetzungsarbeit.
 
@@ -69,6 +70,7 @@ Wortlaut: „Wenn wir es später sowieso auf einem Pi umsetzen, dann könnten wi
 - **Zeitpunkt:** frühestens nach dem Umzug auf den Pi (zurückgestellt) oder vorher mit D1; Entscheidung des Users offen.
 
 ## Dateibudget (Cloudflare Pages)
+- **Korrektur 11.11. abends:** Die bisherigen Zahlen (14 843, 15 006) zählten den lokalen Ordner `web/labor` mit (6 787 Dateien, 142 MB; v86/Alpine/xterm, über `.git/info/exclude` ausgeschlossen, also nie veröffentlicht). Veröffentlicht werden etwa **8 200 Dateien, 429 MB**. Bis zur Grenze von 20 000 ist also viel mehr Platz als gedacht.
 - `web/` hatte am 11.11. 14 843 Dateien. Laut Cloudflare-Doku sind im Gratis-Tarif 20 000 Dateien je Site erlaubt, bezahlt 100 000.
 - Wachstum: Englisch-Schleife, Linux 7/8, später es/zh/fr/tr für alle Hefte. Die Grenze ist absehbar.
 - Wege: bezahlter Tarif, oder Dateien sparen (z. B. eine Datei je Abbildung statt `.svg` + `.anim.svg`; Abbildungen in R2).

@@ -9,7 +9,8 @@ BRANCH=main
 ENVDATEI=/etc/etundso/cloudflare.env      # enthält CF_ZONE_ID=… und CF_API_TOKEN=… (Rechte 640, root:etundso)
 
 cd "$REPO"
-git fetch --quiet origin "$BRANCH"
+# Flach holen (--depth 1): Auf dem Pi wird nur der aktuelle Stand gebraucht, keine Geschichte.
+git fetch --quiet --depth 1 origin "$BRANCH"
 alt=$(git rev-parse HEAD)
 neu=$(git rev-parse "origin/$BRANCH")
 if [ "$alt" = "$neu" ]; then
@@ -17,6 +18,7 @@ if [ "$alt" = "$neu" ]; then
 fi
 
 git reset --quiet --hard "origin/$BRANCH"
+git gc --auto --quiet || true          # alte Stände gelegentlich aufräumen, damit der Ordner nicht wächst
 echo "Neuer Stand ${neu:0:8} (vorher ${alt:0:8})"
 
 if [ -r "$ENVDATEI" ]; then
