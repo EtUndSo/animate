@@ -468,6 +468,246 @@ UEBERSICHT_REIHEN = {"linux", "prog", "cyber", "c", "cpp"}   # Ordner unter cont
 MODUL_REF = set()                                             # Moduladressen dieser Reihen, alle Sprachen (main)
 LERNEN_JS += ("ans_kurz_min", "dl_laeuft", "dl_fehler", "dl_gross", "fb_titel", "ans_formeln", "fb_titel_ref")
 
+# Bereiche (W4b, 11.11.2026): Wissen · Lernkarten · Aufgaben · Editor in der Kopfleiste; Lernkarten/Quiz/Mischtest unter
+# /lernen/, Aufgaben unter /aufgaben/, Verweise unter jedem Artikel. Die Wörter unter BEREICHE_JS braucht bereiche.js.
+_UI_BEREICHE = {
+    "de": {"b_wissen": "Wissen", "b_lernen": "Lernkarten", "b_aufgaben": "Aufgaben", "b_editor": "Editor", "b_menue": "Bereiche",
+           "lw_titel": "Lernkarten und Quiz",
+           "lw_lede": "Begriffe, Formeln, Herleitungen und Zusammenhänge aus den Artikeln, für ein ganzes Modul, ein Kapitel oder einen "
+                      "einzelnen Artikel. Lerne mit dem Karteikasten, prüfe dich im Quiz oder mische Fragen und Aufgaben zu einem Test. "
+                      "Der Lernstand bleibt nur in diesem Browser.",
+           "lw_modul": "Modul", "lw_artikel": "Artikel", "lw_alle_art": "Alle Artikel", "lw_arten": "Kartenarten",
+           "typ_h": "Herleitungen", "typ1_l": "Zusammenhang", "mod_lernen": "Lernen", "mod_quiz": "Quiz", "mod_test": "Mischtest",
+           "lw_waehle": "Wähle ein Modul.", "lw_keine": "In dieser Auswahl gibt es keine Karten.", "lw_karten_n": "{n} Karten",
+           "lw_statisch": "Ohne JavaScript stehen die Begriffe, Formeln und Aufgaben jedes Moduls auf eigenen Seiten:",
+           "lw_umgezogen": "Die Lernkarten haben jetzt einen eigenen Bereich:",
+           "hl_ziel": "Ziel", "hl_start": "Ausgangspunkt", "hl_weiter": "Nächster Schritt", "hl_schritt": "Schritt {n} von {m}",
+           "quiz_zahl": "Fragen", "quiz_start": "Quiz starten", "quiz_frage": "Frage {n} von {m}",
+           "quiz_p_b": "Welche Bestimmung passt zu diesem Begriff?", "quiz_p_f": "Welche Formel gehört dazu?",
+           "quiz_p_l": "Was gehört in die Lücke?", "quiz_p_w": "Welche Antwort passt?", "quiz_weiter": "Weiter",
+           "quiz_ende": "Zur Auswertung", "quiz_auswertung": "Auswertung", "quiz_ergebnis": "{n} von {m} richtig",
+           "quiz_falsch": "Noch einmal ansehen", "quiz_alle": "Alles richtig.", "quiz_neu": "Neues Quiz",
+           "quiz_deine": "Deine Antwort", "quiz_richtig": "Richtig ist", "q_ok": "richtig", "q_nein": "falsch",
+           "quiz_zu_wenig": "Für ein Quiz braucht diese Auswahl mindestens vier Karten einer Art (Begriffe, Formeln oder Zusammenhänge).",
+           "quiz_tasten": "Tasten: 1 bis 4 wählen, Eingabe geht weiter.",
+           "test_lede": "Eine zufällige Mischung aus Quizfragen und Aufgaben der gewählten Kapitel. Lösungen und Auswertung kommen erst "
+                        "am Ende; die Aufgaben bewertest du dann selbst.",
+           "test_kapitel": "Kapitel für den Test", "test_alle": "Alle", "test_start": "Test starten",
+           "test_aufg_hinweis": "Löse die Aufgabe auf Papier. Die Lösung folgt in der Auswertung.", "test_selbst": "Wie lief es?",
+           "bew_richtig": "Richtig", "bew_teil": "Teilweise", "bew_falsch": "Falsch", "test_punkte": "{p} von {m} Punkten",
+           "test_offen": "Noch {n} Aufgaben selbst bewerten.",
+           "test_ohne_aufg": "Die Aufgaben konnten nicht geladen werden; der Test enthält nur Quizfragen.",
+           "test_kein_kap": "Wähle mindestens ein Kapitel.", "test_fortsetzen": "Laufenden Test fortsetzen", "test_neu": "Neuer Test",
+           "w_aufgabe": "Aufgabe",
+           "ag_lede": "Alle Aufgaben aus den Artikeln mit ausführlichen Lösungen, nach Modul, Kapitel und Artikel geordnet. Welche du "
+                      "gelöst hast, merkt sich nur dieser Browser.",
+           "ag_modul_lede": "Alle Aufgaben dieses Moduls, nach Kapiteln und Artikeln geordnet. Die Lösung ist zugeklappt; jede Aufgabe "
+                            "führt auch an ihre Stelle im Artikel.",
+           "ag_geloest": "gelöst", "ag_stand": "{n} von {m} gelöst", "ag_zufall": "Zufällige Aufgabe", "ag_offen": "Nur ungelöste",
+           "ag_keine": "Für dieses Modul gibt es noch keine Aufgaben.", "ag_leer": "Keine Aufgabe passt zu dieser Auswahl.",
+           "ag_reset": "Gelöst-Häkchen zurücksetzen", "ag_test": "Mischtest mit diesen Aufgaben",
+           "vw_lernen": "Lernkarten:", "vw_aufgaben": "Aufgaben:", "vw_artikel": "dieser Artikel", "vw_kapitel": "Kapitel",
+           "vw_modul": "Modul", "vw_label": "Weiter üben", "b_thema": "Hell/Dunkel"},
+    "en": {"b_wissen": "Knowledge", "b_lernen": "Flashcards", "b_aufgaben": "Exercises", "b_editor": "Editor", "b_menue": "Sections",
+           "lw_titel": "Flashcards and quiz",
+           "lw_lede": "Terms, formulas, derivations and key relationships from the articles, for a whole module, a chapter or a single "
+                      "article. Learn with the card box, check yourself in a quiz or mix questions and exercises into a test. Your "
+                      "progress stays in this browser only.",
+           "lw_modul": "Module", "lw_artikel": "Article", "lw_alle_art": "All articles", "lw_arten": "Card types",
+           "typ_h": "Derivations", "typ1_l": "Key relationship", "mod_lernen": "Learn", "mod_quiz": "Quiz", "mod_test": "Mixed test",
+           "lw_waehle": "Choose a module.", "lw_keine": "There are no cards in this selection.", "lw_karten_n": "{n} cards",
+           "lw_statisch": "Without JavaScript, the terms, formulas and exercises of each module are on their own pages:",
+           "lw_umgezogen": "Flashcards now have their own section:",
+           "hl_ziel": "Goal", "hl_start": "Starting point", "hl_weiter": "Next step", "hl_schritt": "Step {n} of {m}",
+           "quiz_zahl": "Questions", "quiz_start": "Start quiz", "quiz_frage": "Question {n} of {m}",
+           "quiz_p_b": "Which definition fits this term?", "quiz_p_f": "Which formula belongs to it?",
+           "quiz_p_l": "What goes in the gap?", "quiz_p_w": "Which answer fits?", "quiz_weiter": "Next",
+           "quiz_ende": "See results", "quiz_auswertung": "Results", "quiz_ergebnis": "{n} of {m} correct",
+           "quiz_falsch": "Worth another look", "quiz_alle": "All correct.", "quiz_neu": "New quiz",
+           "quiz_deine": "Your answer", "quiz_richtig": "Correct answer", "q_ok": "correct", "q_nein": "wrong",
+           "quiz_zu_wenig": "A quiz needs at least four cards of one type in this selection (terms, formulas or key relationships).",
+           "quiz_tasten": "Keys: 1 to 4 choose, Enter continues.",
+           "test_lede": "A random mix of quiz questions and exercises from the chosen chapters. Solutions and results come only at the "
+                        "end; you then rate the exercises yourself.",
+           "test_kapitel": "Chapters for the test", "test_alle": "All", "test_start": "Start test",
+           "test_aufg_hinweis": "Solve the exercise on paper. The solution follows in the results.", "test_selbst": "How did it go?",
+           "bew_richtig": "Correct", "bew_teil": "Partly", "bew_falsch": "Wrong", "test_punkte": "{p} of {m} points",
+           "test_offen": "Rate {n} more exercises yourself.",
+           "test_ohne_aufg": "The exercises could not be loaded; the test contains only quiz questions.",
+           "test_kein_kap": "Choose at least one chapter.", "test_fortsetzen": "Continue the current test", "test_neu": "New test",
+           "w_aufgabe": "Exercise",
+           "ag_lede": "All exercises from the articles with detailed solutions, ordered by module, chapter and article. Which ones you "
+                      "have solved is remembered by this browser only.",
+           "ag_modul_lede": "All exercises of this module, ordered by chapter and article. The solution is collapsed; each exercise also "
+                            "links to its place in the article.",
+           "ag_geloest": "solved", "ag_stand": "{n} of {m} solved", "ag_zufall": "Random exercise", "ag_offen": "Unsolved only",
+           "ag_keine": "There are no exercises for this module yet.", "ag_leer": "No exercise matches this selection.",
+           "ag_reset": "Reset solved marks", "ag_test": "Mixed test with these exercises",
+           "vw_lernen": "Flashcards:", "vw_aufgaben": "Exercises:", "vw_artikel": "this article", "vw_kapitel": "chapter",
+           "vw_modul": "module", "vw_label": "Keep practising", "b_thema": "Light/dark"},
+    "es": {"b_wissen": "Conocimiento", "b_lernen": "Tarjetas", "b_aufgaben": "Ejercicios", "b_editor": "Editor", "b_menue": "Secciones",
+           "lw_titel": "Tarjetas y cuestionario",
+           "lw_lede": "Términos, fórmulas, deducciones y relaciones clave de los artículos, para un módulo entero, un capítulo o un solo "
+                      "artículo. Aprende con el fichero de tarjetas, ponte a prueba en un cuestionario o mezcla preguntas y ejercicios "
+                      "en una prueba. Tu progreso se queda solo en este navegador.",
+           "lw_modul": "Módulo", "lw_artikel": "Artículo", "lw_alle_art": "Todos los artículos", "lw_arten": "Tipos de tarjeta",
+           "typ_h": "Deducciones", "typ1_l": "Relación clave", "mod_lernen": "Aprender", "mod_quiz": "Cuestionario", "mod_test": "Prueba mixta",
+           "lw_waehle": "Elige un módulo.", "lw_keine": "No hay tarjetas en esta selección.", "lw_karten_n": "{n} tarjetas",
+           "lw_statisch": "Sin JavaScript, los términos, fórmulas y ejercicios de cada módulo están en páginas propias:",
+           "lw_umgezogen": "Las tarjetas tienen ahora su propia sección:",
+           "hl_ziel": "Objetivo", "hl_start": "Punto de partida", "hl_weiter": "Siguiente paso", "hl_schritt": "Paso {n} de {m}",
+           "quiz_zahl": "Preguntas", "quiz_start": "Empezar el cuestionario", "quiz_frage": "Pregunta {n} de {m}",
+           "quiz_p_b": "¿Qué definición corresponde a este término?", "quiz_p_f": "¿Qué fórmula le corresponde?",
+           "quiz_p_l": "¿Qué va en el hueco?", "quiz_p_w": "¿Qué respuesta corresponde?", "quiz_weiter": "Siguiente",
+           "quiz_ende": "Ver resultados", "quiz_auswertung": "Resultados", "quiz_ergebnis": "{n} de {m} correctas",
+           "quiz_falsch": "Para repasar", "quiz_alle": "Todo correcto.", "quiz_neu": "Nuevo cuestionario",
+           "quiz_deine": "Tu respuesta", "quiz_richtig": "Respuesta correcta", "q_ok": "correcta", "q_nein": "incorrecta",
+           "quiz_zu_wenig": "Para un cuestionario, esta selección necesita al menos cuatro tarjetas de un mismo tipo (términos, fórmulas "
+                            "o relaciones clave).",
+           "quiz_tasten": "Teclas: 1 a 4 eligen, Intro continúa.",
+           "test_lede": "Una mezcla aleatoria de preguntas y ejercicios de los capítulos elegidos. Las soluciones y los resultados llegan "
+                        "al final; entonces valoras tú mismo los ejercicios.",
+           "test_kapitel": "Capítulos para la prueba", "test_alle": "Todos", "test_start": "Empezar la prueba",
+           "test_aufg_hinweis": "Resuelve el ejercicio en papel. La solución aparece en los resultados.", "test_selbst": "¿Cómo te fue?",
+           "bew_richtig": "Bien", "bew_teil": "En parte", "bew_falsch": "Mal", "test_punkte": "{p} de {m} puntos",
+           "test_offen": "Faltan {n} ejercicios por valorar.",
+           "test_ohne_aufg": "No se pudieron cargar los ejercicios; la prueba solo contiene preguntas.",
+           "test_kein_kap": "Elige al menos un capítulo.", "test_fortsetzen": "Continuar la prueba en curso", "test_neu": "Nueva prueba",
+           "w_aufgabe": "Ejercicio",
+           "ag_lede": "Todos los ejercicios de los artículos con soluciones detalladas, ordenados por módulo, capítulo y artículo. Cuáles "
+                      "has resuelto solo lo recuerda este navegador.",
+           "ag_modul_lede": "Todos los ejercicios de este módulo, ordenados por capítulos y artículos. La solución está plegada; cada "
+                            "ejercicio enlaza también con su lugar en el artículo.",
+           "ag_geloest": "resuelto", "ag_stand": "{n} de {m} resueltos", "ag_zufall": "Ejercicio al azar", "ag_offen": "Solo sin resolver",
+           "ag_keine": "Todavía no hay ejercicios para este módulo.", "ag_leer": "Ningún ejercicio corresponde a esta selección.",
+           "ag_reset": "Restablecer las marcas de resuelto", "ag_test": "Prueba mixta con estos ejercicios",
+           "vw_lernen": "Tarjetas:", "vw_aufgaben": "Ejercicios:", "vw_artikel": "este artículo", "vw_kapitel": "capítulo",
+           "vw_modul": "módulo", "vw_label": "Seguir practicando", "b_thema": "Claro/oscuro"},
+    "zh": {"b_wissen": "知识库", "b_lernen": "学习卡片", "b_aufgaben": "练习", "b_editor": "编辑器", "b_menue": "栏目",
+           "lw_titel": "学习卡片与测验",
+           "lw_lede": "文章中的术语、公式、推导和关键联系，可按整个模块、某一章或单篇文章选择。用卡片盒学习，用测验检验自己，"
+                      "或把问题和练习混合成一次测试。学习进度只保存在本浏览器中。",
+           "lw_modul": "模块", "lw_artikel": "文章", "lw_alle_art": "全部文章", "lw_arten": "卡片类型",
+           "typ_h": "推导", "typ1_l": "关键联系", "mod_lernen": "学习", "mod_quiz": "测验", "mod_test": "综合测试",
+           "lw_waehle": "请选择一个模块。", "lw_keine": "当前选择中没有卡片。", "lw_karten_n": "{n} 张卡片",
+           "lw_statisch": "未启用 JavaScript 时，各模块的术语、公式和练习可在单独的页面中查看：",
+           "lw_umgezogen": "学习卡片现已移至单独的栏目：",
+           "hl_ziel": "目标", "hl_start": "出发点", "hl_weiter": "下一步", "hl_schritt": "第 {n} 步，共 {m} 步",
+           "quiz_zahl": "题数", "quiz_start": "开始测验", "quiz_frage": "第 {n} 题，共 {m} 题",
+           "quiz_p_b": "哪条说明符合这个术语？", "quiz_p_f": "对应的是哪个公式？",
+           "quiz_p_l": "空白处应填什么？", "quiz_p_w": "哪个答案正确？", "quiz_weiter": "下一题",
+           "quiz_ende": "查看结果", "quiz_auswertung": "结果", "quiz_ergebnis": "答对 {n} 题，共 {m} 题",
+           "quiz_falsch": "值得再看一遍", "quiz_alle": "全部正确。", "quiz_neu": "再测一次",
+           "quiz_deine": "你的答案", "quiz_richtig": "正确答案", "q_ok": "正确", "q_nein": "错误",
+           "quiz_zu_wenig": "测验需要当前选择中至少有四张同类卡片（术语、公式或关键联系）。",
+           "quiz_tasten": "按键：1–4 选择，回车继续。",
+           "test_lede": "从所选章节中随机混合测验题和练习。答案和结果最后才显示，练习由你自己评分。",
+           "test_kapitel": "测试章节", "test_alle": "全选", "test_start": "开始测试",
+           "test_aufg_hinweis": "请在纸上完成这道练习，答案在结果中给出。", "test_selbst": "做得怎么样？",
+           "bew_richtig": "正确", "bew_teil": "部分正确", "bew_falsch": "错误", "test_punkte": "{m} 分中得 {p} 分",
+           "test_offen": "还有 {n} 道练习需要自评。",
+           "test_ohne_aufg": "练习无法加载，本次测试只包含测验题。",
+           "test_kein_kap": "请至少选择一章。", "test_fortsetzen": "继续当前测试", "test_neu": "新测试",
+           "w_aufgabe": "练习",
+           "ag_lede": "文章中的全部练习及详细解答，按模块、章节和文章排列。你做过哪些题只记录在本浏览器中。",
+           "ag_modul_lede": "本模块的全部练习，按章节和文章排列。解答默认折叠；每道题都可以跳到它在文章中的位置。",
+           "ag_geloest": "已完成", "ag_stand": "已完成 {n} / {m}", "ag_zufall": "随机一题", "ag_offen": "只看未完成",
+           "ag_keine": "本模块暂时还没有练习。", "ag_leer": "没有符合当前选择的练习。",
+           "ag_reset": "清除完成标记", "ag_test": "用这些练习做综合测试",
+           "vw_lernen": "学习卡片：", "vw_aufgaben": "练习：", "vw_artikel": "本文", "vw_kapitel": "本章",
+           "vw_modul": "本模块", "vw_label": "继续练习", "b_thema": "浅色/深色"},
+    "fr": {"b_wissen": "Connaissances", "b_lernen": "Fiches", "b_aufgaben": "Exercices", "b_editor": "Éditeur", "b_menue": "Rubriques",
+           "lw_titel": "Fiches et quiz",
+           "lw_lede": "Notions, formules, démonstrations et relations clés des articles, pour un module entier, un chapitre ou un seul "
+                      "article. Apprenez avec la boîte à fiches, testez-vous avec un quiz ou mélangez questions et exercices dans un "
+                      "test. Votre progression reste uniquement dans ce navigateur.",
+           "lw_modul": "Module", "lw_artikel": "Article", "lw_alle_art": "Tous les articles", "lw_arten": "Types de fiches",
+           "typ_h": "Démonstrations", "typ1_l": "Relation clé", "mod_lernen": "Apprendre", "mod_quiz": "Quiz", "mod_test": "Test mixte",
+           "lw_waehle": "Choisissez un module.", "lw_keine": "Il n’y a pas de fiches dans cette sélection.", "lw_karten_n": "{n} fiches",
+           "lw_statisch": "Sans JavaScript, les notions, formules et exercices de chaque module se trouvent sur des pages dédiées\u00a0:",
+           "lw_umgezogen": "Les fiches ont désormais leur propre rubrique\u00a0:",
+           "hl_ziel": "Objectif", "hl_start": "Point de départ", "hl_weiter": "Étape suivante", "hl_schritt": "Étape {n} sur {m}",
+           "quiz_zahl": "Questions", "quiz_start": "Commencer le quiz", "quiz_frage": "Question {n} sur {m}",
+           "quiz_p_b": "Quelle définition correspond à cette notion\u202f?", "quiz_p_f": "Quelle formule lui correspond\u202f?",
+           "quiz_p_l": "Que faut-il mettre dans le blanc\u202f?", "quiz_p_w": "Quelle réponse convient\u202f?", "quiz_weiter": "Suivant",
+           "quiz_ende": "Voir les résultats", "quiz_auswertung": "Résultats", "quiz_ergebnis": "{n} sur {m} correctes",
+           "quiz_falsch": "À revoir", "quiz_alle": "Tout est correct.", "quiz_neu": "Nouveau quiz",
+           "quiz_deine": "Votre réponse", "quiz_richtig": "Bonne réponse", "q_ok": "correcte", "q_nein": "incorrecte",
+           "quiz_zu_wenig": "Pour un quiz, cette sélection doit contenir au moins quatre fiches d’un même type (notions, formules ou "
+                            "relations clés).",
+           "quiz_tasten": "Touches\u00a0: 1 à 4 pour choisir, Entrée pour continuer.",
+           "test_lede": "Un mélange aléatoire de questions et d’exercices des chapitres choisis. Les solutions et les résultats ne "
+                        "viennent qu’à la fin\u202f; vous évaluez alors vous-même les exercices.",
+           "test_kapitel": "Chapitres du test", "test_alle": "Tous", "test_start": "Commencer le test",
+           "test_aufg_hinweis": "Résolvez l’exercice sur papier. La solution suit dans les résultats.",
+           "test_selbst": "Comment cela s’est-il passé\u202f?",
+           "bew_richtig": "Juste", "bew_teil": "En partie", "bew_falsch": "Faux", "test_punkte": "{p} points sur {m}",
+           "test_offen": "Encore {n} exercices à évaluer vous-même.",
+           "test_ohne_aufg": "Les exercices n’ont pas pu être chargés\u202f; le test ne contient que des questions.",
+           "test_kein_kap": "Choisissez au moins un chapitre.", "test_fortsetzen": "Reprendre le test en cours", "test_neu": "Nouveau test",
+           "w_aufgabe": "Exercice",
+           "ag_lede": "Tous les exercices des articles avec des solutions détaillées, classés par module, chapitre et article. Seul ce "
+                      "navigateur retient ceux que vous avez résolus.",
+           "ag_modul_lede": "Tous les exercices de ce module, classés par chapitre et par article. La solution est repliée\u202f; chaque "
+                            "exercice renvoie aussi à sa place dans l’article.",
+           "ag_geloest": "résolu", "ag_stand": "{n} sur {m} résolus", "ag_zufall": "Exercice au hasard", "ag_offen": "Non résolus seulement",
+           "ag_keine": "Il n’y a pas encore d’exercices pour ce module.", "ag_leer": "Aucun exercice ne correspond à cette sélection.",
+           "ag_reset": "Réinitialiser les coches «\u00a0résolu\u00a0»", "ag_test": "Test mixte avec ces exercices",
+           "vw_lernen": "Fiches\u00a0:", "vw_aufgaben": "Exercices\u00a0:", "vw_artikel": "cet article", "vw_kapitel": "chapitre",
+           "vw_modul": "module", "vw_label": "Continuer à s’exercer", "b_thema": "Clair/sombre"},
+    "tr": {"b_wissen": "Bilgi", "b_lernen": "Kartlar", "b_aufgaben": "Alıştırmalar", "b_editor": "Editör", "b_menue": "Bölümler",
+           "lw_titel": "Kartlar ve test",
+           "lw_lede": "Makalelerdeki kavramlar, formüller, türetmeler ve temel ilişkiler; bütün bir modül, bir bölüm ya da tek bir makale "
+                      "için. Kart kutusuyla öğrenin, testle kendinizi sınayın ya da soruları ve alıştırmaları karışık bir sınavda "
+                      "birleştirin. İlerlemeniz yalnızca bu tarayıcıda kalır.",
+           "lw_modul": "Modül", "lw_artikel": "Makale", "lw_alle_art": "Tüm makaleler", "lw_arten": "Kart türleri",
+           "typ_h": "Türetmeler", "typ1_l": "Temel ilişki", "mod_lernen": "Öğren", "mod_quiz": "Test", "mod_test": "Karma sınav",
+           "lw_waehle": "Bir modül seçin.", "lw_keine": "Bu seçimde kart yok.", "lw_karten_n": "{n} kart",
+           "lw_statisch": "JavaScript olmadan her modülün kavramları, formülleri ve alıştırmaları ayrı sayfalarda yer alır:",
+           "lw_umgezogen": "Kartların artık kendi bölümü var:",
+           "hl_ziel": "Hedef", "hl_start": "Başlangıç noktası", "hl_weiter": "Sonraki adım", "hl_schritt": "Adım {n} / {m}",
+           "quiz_zahl": "Soru sayısı", "quiz_start": "Testi başlat", "quiz_frage": "Soru {n} / {m}",
+           "quiz_p_b": "Bu kavrama hangi tanım uyar?", "quiz_p_f": "Hangi formül buna aittir?",
+           "quiz_p_l": "Boşluğa ne gelir?", "quiz_p_w": "Hangi cevap uyar?", "quiz_weiter": "İleri",
+           "quiz_ende": "Sonuçlara git", "quiz_auswertung": "Sonuçlar", "quiz_ergebnis": "{m} sorudan {n} doğru",
+           "quiz_falsch": "Tekrar bakın", "quiz_alle": "Hepsi doğru.", "quiz_neu": "Yeni test",
+           "quiz_deine": "Cevabınız", "quiz_richtig": "Doğru cevap", "q_ok": "doğru", "q_nein": "yanlış",
+           "quiz_zu_wenig": "Test için bu seçimde aynı türden en az dört kart olmalı (kavramlar, formüller veya temel ilişkiler).",
+           "quiz_tasten": "Tuşlar: 1–4 seçer, Enter devam eder.",
+           "test_lede": "Seçilen bölümlerden rastgele karıştırılmış test soruları ve alıştırmalar. Çözümler ve sonuçlar en sonda gelir; "
+                        "alıştırmaları o zaman kendiniz değerlendirirsiniz.",
+           "test_kapitel": "Sınav bölümleri", "test_alle": "Tümü", "test_start": "Sınavı başlat",
+           "test_aufg_hinweis": "Alıştırmayı kâğıt üzerinde çözün. Çözüm sonuçlarda gelir.", "test_selbst": "Nasıl geçti?",
+           "bew_richtig": "Doğru", "bew_teil": "Kısmen", "bew_falsch": "Yanlış", "test_punkte": "{m} puandan {p}",
+           "test_offen": "{n} alıştırmayı daha kendiniz değerlendirin.",
+           "test_ohne_aufg": "Alıştırmalar yüklenemedi; sınav yalnızca test sorularından oluşuyor.",
+           "test_kein_kap": "En az bir bölüm seçin.", "test_fortsetzen": "Süren sınava devam et", "test_neu": "Yeni sınav",
+           "w_aufgabe": "Alıştırma",
+           "ag_lede": "Makalelerdeki tüm alıştırmalar ayrıntılı çözümleriyle; modül, bölüm ve makaleye göre sıralı. Hangilerini "
+                      "çözdüğünüzü yalnızca bu tarayıcı hatırlar.",
+           "ag_modul_lede": "Bu modülün tüm alıştırmaları, bölümlere ve makalelere göre sıralı. Çözüm kapalıdır; her alıştırma "
+                            "makaledeki yerine de bağlanır.",
+           "ag_geloest": "çözüldü", "ag_stand": "{m} alıştırmadan {n} çözüldü", "ag_zufall": "Rastgele alıştırma",
+           "ag_offen": "Yalnızca çözülmemiş",
+           "ag_keine": "Bu modül için henüz alıştırma yok.", "ag_leer": "Bu seçime uyan alıştırma yok.",
+           "ag_reset": "Çözüldü işaretlerini sıfırla", "ag_test": "Bu alıştırmalarla karma sınav",
+           "vw_lernen": "Kartlar:", "vw_aufgaben": "Alıştırmalar:", "vw_artikel": "bu makale", "vw_kapitel": "bölüm",
+           "vw_modul": "modül", "vw_label": "Pratiğe devam", "b_thema": "Açık/koyu"},
+}
+for _l, _w in _UI_BEREICHE.items():
+    UI[_l].update(_w)
+BEREICHE_JS = ("lw_modul", "lw_artikel", "lw_alle_art", "lw_arten", "typ_h", "typ1_l", "mod_lernen", "mod_quiz", "mod_test",
+               "lw_waehle", "lw_keine", "lw_karten_n", "hl_ziel", "hl_start", "hl_weiter", "hl_schritt", "quiz_zahl", "quiz_start",
+               "quiz_frage", "quiz_p_b", "quiz_p_f", "quiz_p_l", "quiz_p_w", "quiz_weiter", "quiz_ende", "quiz_auswertung",
+               "quiz_ergebnis", "quiz_falsch", "quiz_alle", "quiz_neu", "quiz_deine", "quiz_richtig", "q_ok", "q_nein",
+               "quiz_zu_wenig", "quiz_tasten", "test_lede", "test_kapitel", "test_alle", "test_start", "test_aufg_hinweis",
+               "test_selbst", "bew_richtig", "bew_teil", "bew_falsch", "test_punkte", "test_offen", "test_ohne_aufg",
+               "test_kein_kap", "test_fortsetzen", "test_neu", "w_aufgabe", "ag_geloest", "ag_stand", "ag_leer",
+               "zf_begriffe", "zf_formeln", "zf_zusammenhaenge", "lk_begriff", "lk_formel", "herleitung", "loesung",
+               "lk_kapitel", "lk_alle_kap", "lk_faellig", "lk_davon_neu", "lk_umdrehen", "lk_gut", "lk_mittel", "lk_schlecht",
+               "lk_stelle", "lk_fertig", "lk_mehr_neu", "lk_heute", "lk_morgen", "lk_tage", "lk_reset", "lk_ohne_speicher",
+               "lk_tasten", "baum_laedt", "baum_fehler", "reset_sicher")
+
 def ist_ref(art):
     return art.get("reihe") in UEBERSICHT_REIHEN
 
@@ -722,7 +962,8 @@ def zf_start(ref=False):
     ZF.clear()
     # blatt/ku/nk (W4a): Einträge des Formelblatts und Ersatzformeln; eigener Zähler, die Nummern von kb/kf/kg bleiben gleich.
     # ref: Informatik-Reihe („Übersicht“): alle Kästen, dazu die Befehle der Konsolen-Blöcke
-    ZF.update(an=True, fb=[], fm=[], kg=[], schon=set(), n=0, h="", blatt=[], ku=[], nk=0, ref=ref)
+    ZF.update(an=True, fb=[], fm=[], kg=[], schon=set(), n=0, h="", blatt=[], ku=[], nk=0, ref=ref,
+              hl=[], ag=[])                            # W4b: Herleitungen (Lernkarten) und Aufgaben (Bereich „Aufgaben“)
 
 _EINGABE_RE = re.compile(r"^(?:\$ |# |>>> |\.\.\. |PS> )\S")   # Eingabezeile einer Konsolen-Sitzung (wie codeText in wissen.js)
 
@@ -751,7 +992,7 @@ KZ_KAESTEN = {"satz", "definition", "lemma", "merke", "formel", "kern", "warnung
 FB_KAESTEN = ("satz", "definition", "lemma", "merke", "formel")   # Formelblatt: diese Kästen, sofern sie Mathe enthalten
 KZ_ERST_MIN = 80                                                  # „erster Absatz“: mindestens so viele Zeichen Klartext
 _NUR_ETIKETT = re.compile(r"^\W*\*\*[^*]+\*\*\W*$")               # „**Die Idee in vier Schritten.**“: nur ein Etikett
-_BLOCK_RE = re.compile(r"(?ms)^::::(kurzfassung|formelsammlung)[ \t]*\n(.*?)^::::[ \t]*$\n?")
+_BLOCK_RE = re.compile(r"(?ms)^::::(kurzfassung|formelsammlung|lernkarten)[ \t]*\n(.*?)^::::[ \t]*$\n?")   # W4b: lernkarten
 
 def ansicht_bloecke(body):
     """Geschriebene Fassungen (später aus eigenen Heftdateien): ::::kurzfassung … :::: und ::::formelsammlung … ::::
@@ -1137,6 +1378,7 @@ def md_to_html(md):
     para = []
     h_ids = set()
     sek = {"kurz": False, "erst": None, "abb": False}       # Abschnitt der Ansicht „Kurz“ (nur oberste Ebene)
+    ziel = [None, 0]                                      # W4b: letzte Formel (Markdown) vor einer Herleitung, Blöcke seitdem
     def sek_ende():                                       # ohne „Kurz gesagt“ bleibt der erste richtige Absatz stehen
         if _oben() and not sek["kurz"] and sek["erst"] is not None:
             out[sek["erst"]] = out[sek["erst"]].replace(' class="kw', ' class="kz', 1)
@@ -1172,7 +1414,9 @@ def md_to_html(md):
                 formel = bool(mf and "$$" not in mf.group(1))
                 if formel:
                     zid = _zf_formel(mf.group(1).strip(), nr_roh) or (_zf_ersatzformel(mf.group(1).strip()) if not nr_roh else "")
+                    ziel[:] = ["$$" + mf.group(1).strip() + "$$", 0]
                 else:
+                    ziel[1] += 1
                     zid = _zf_kurz(txt)
                     txt = _zf_begriffe(txt)
                 ida = f' id="{zid}"' if zid else ""
@@ -1199,7 +1443,7 @@ def md_to_html(md):
         if not s:                                     # blank -> paragraph break
             flush(); i += 1; continue
         if s.startswith("```"):                       # fenced code: ```<sprache> <titel>
-            flush(); info = s[3:].strip(); i += 1; code = []
+            flush(); info = s[3:].strip(); i += 1; code = []; ziel[1] += 1
             while i < n and not lines[i].strip().startswith("```"):
                 code.append(lines[i]); i += 1
             i += 1
@@ -1267,6 +1511,10 @@ def md_to_html(md):
             i += 1
             if kind == "konzept":                         # „Zur Idee"-Einstiegskasten entfällt – Start ist das Inhaltsverzeichnis
                 continue
+            if kind in ZF_FORMELKASTEN and "$" in "".join(inner):   # W4b: Ziel einer folgenden Herleitung
+                ziel[:] = ["\n".join(inner), 0]
+            elif kind not in ("herleitung", "beweis"):
+                ziel[1] += 1
             if kind == "beispiel":                        # Kurzform :::beispiel … ::: (ohne innere Blöcke)
                 beispiel(label_arg, inner)
                 continue
@@ -1282,15 +1530,25 @@ def md_to_html(md):
                 out.append(_kz(_id_setzen(h, kid) if kid else h, True))
                 continue
             if kind in ("herleitung", "beweis"):          # Herleitung oder Beweis als ausklappbare Box an der Formel
+                anker = ""
+                if kind == "herleitung" and ZF.get("an"):  # W4b: Lernkarte „Herleitung“ (Ziel = Formel kurz davor, Schritte)
+                    anker = f"hl-{len(ZF['hl']) + 1}"
+                    ZF["hl"].append({"titel": label_arg, "zeilen": list(inner), "id": anker,
+                                     "ziel": ziel[0] if ziel[0] and ziel[1] <= 2 else None})
                 out.append(_kz(f'<details class="herleitung"><summary>{T(kind)}' + (": " + inline(label_arg) if label_arg else "") + '</summary>'
-                               '<div class="hl-body">' + _innen(kind, label_arg, inner) + '</div></details>', False))
+                               '<div class="hl-body">' + (f'<span class="anker" id="{anker}"></span>' if anker else "")
+                               + _innen(kind, label_arg, inner) + '</div></details>', False))
                 continue
             if kind == "zweck":                           # Einstieg einer Stufe: wozu sie da ist
                 out.append(_kz(f'<div class="zweck"><span class="zw-k">{T("zweck")}</span> ' + _innen("zweck", "", inner) + '</div>', True))
                 continue
             if kind == "aufgabe":                         # Aufgabe mit Nummer und Sternen, Lösung als Ausklappblock darin
-                out.append(_kz('<div class="aufg"><div class="aufg-h">' + inline(label_arg) + '</div>'
-                               '<div class="aufg-b">' + _innen("aufgabe", label_arg, inner) + '</div></div>', False))
+                h = ('<div class="aufg"><div class="aufg-h">' + inline(label_arg) + '</div>'
+                     '<div class="aufg-b">' + _innen("aufgabe", label_arg, inner) + '</div></div>')
+                if ZF.get("an"):                          # W4b: Bereich „Aufgaben“ und Mischtest
+                    ma = re.search(r'\sid="(aufg-[^"]+)"', h)
+                    ZF["ag"].append({"titel": label_arg, "html": h, "id": ma.group(1) if ma else ""})
+                out.append(_kz(h, False))
                 continue
             if kind == "loesung":
                 out.append(_kz(f'<details class="loesung"><summary>{T("loesung")}</summary>'
@@ -1349,7 +1607,7 @@ def md_to_html(md):
             flush(); out.append(_kz("<hr/>", False)); i += 1; continue
         hm = re.match(r"(#{1,4})\s+(.*)$", s)         # heading
         if hm:
-            flush(); lvl = len(hm.group(1)); txt = hm.group(2).strip()
+            flush(); lvl = len(hm.group(1)); txt = hm.group(2).strip(); ziel[0] = None
             if lvl in (2, 3):                              # neuer Abschnitt der Ansicht „Kurz“
                 sek_ende()
             hid = slugify(txt)
@@ -1371,13 +1629,13 @@ def md_to_html(md):
             out.append(f'<h{lvl} id="{hid}">{inline(txt)}{anker}</h{lvl}>')
             i += 1; continue
         if s.startswith(">"):                         # blockquote
-            flush(); quote = []
+            flush(); quote = []; ziel[1] += 1
             while i < n and lines[i].strip().startswith(">"):
                 quote.append(re.sub(r"^\s*>\s?", "", lines[i])); i += 1
             out.append(_kz("<blockquote>" + _innen("zitat", "", quote) + "</blockquote>", False))
             continue
         if s.startswith("|") and i + 1 < n and re.match(r"^\s*\|?[\s:|-]*-[\s:|-]*\|?\s*$", lines[i + 1].strip()):
-            flush()                                   # GitHub-Tabelle: Kopfzeile + |---|---|-Trenner + Zeilen
+            flush(); ziel[1] += 1                     # GitHub-Tabelle: Kopfzeile + |---|---|-Trenner + Zeilen
             cells = lambda row: [c.strip().replace("\\|", "|")          # \| (GFM) ist ein | im Zelleninhalt, z. B. in `ls | wc`
                                  for c in re.split(r"(?<!\\)\|", row.strip().strip("|"))]
             header = cells(s); i += 2; body = []
@@ -1388,7 +1646,7 @@ def md_to_html(md):
             out.append(_kz(f'<div class="table-wrap"><table class="md-table"><thead>{thead}</thead><tbody>{tbody}</tbody></table></div>', False))
             continue
         if re.match(r"[-*]\s+", s) or re.match(r"\d+\.\s+", s):   # list (ul/ol)
-            flush(); ordered = bool(re.match(r"\d+\.\s+", s)); items = []
+            flush(); ziel[1] += 1; ordered = bool(re.match(r"\d+\.\s+", s)); items = []
             while i < n:
                 raw = lines[i]; st = raw.strip()
                 if not st:
@@ -1605,8 +1863,9 @@ def sidebar_html(tree, active_path=None, art=None):
     return (f'<nav class="side" aria-label="Wissensbaum"{attr}>'
             + f'<a class="side-home" href="{home()}">{T("alle_module")}</a>' + "".join(rows) + "</nav>")
 
-def page_shell(title, desc, body, depth, alternates=None):
+def page_shell(title, desc, body, depth, alternates=None, js=()):
     up = "../" * depth
+    mehr_js = "".join(f'\n<script src="{s}"></script>' for s in js)   # W4b: bereiche.js auf den Seiten der Bereiche
     links = "".join(f'<link rel="alternate" hreflang="{l}" href="{SITE}{u}"/>' for l, u in (alternates or {}).items())
     return f"""<!doctype html>
 <html lang="{LANG_NOW[0]}"><head>
@@ -1622,7 +1881,7 @@ try{{var a=new URLSearchParams(location.search).get("ansicht");if(a==="uebersich
 {body}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/contrib/auto-render.min.js"></script>
-<script src="/wissen/assets/wissen.js"></script>
+<script src="/wissen/assets/wissen.js"></script>{mehr_js}
 </body></html>"""
 
 def alt_attr(a):
@@ -1697,26 +1956,58 @@ def ansicht_schalter(ref=False):
     return (f'<div class="ansicht" role="group" aria-label="{html.escape(T("ans"))}" hidden>{knoepfe}</div>'
             f'<select class="ans-sel" aria-label="{html.escape(T("ans"))}" hidden>{optionen}</select>')
 
-def topbar(panels=False, prev_a=None, next_a=None, art=None):
+BEREICHE = (("wissen", "b_wissen"), ("lernen", "b_lernen"), ("aufgaben", "b_aufgaben"), ("editor", "b_editor"))
+_B_ICON = ('<svg class="b-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" '
+           'stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" '
+           'width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" '
+           'height="7" rx="1.5"/></svg>')
+
+def bereich_url(b, lang=None):
+    """Einstieg eines Bereichs in der Sprache (Deutsch ohne Kürzel): /wissen/, /lernen/en/, /aufgaben/zh/; der Editor ist einer."""
+    l = lang or LANG_NOW[0]
+    if b == "editor":
+        return "/editor.html"
+    return f"/{b}/" if l == "de" else f"/{b}/{l}/"
+
+def bereiche_nav(aktiv=None):
+    """Die vier Bereiche (W4b): breit als Linkreihe (aktiver Bereich orange unterstrichen), schmal als Menü hinter einem Knopf
+    mit dem Namen des Bereichs (sehr schmal nur ein Symbol). Das Menü bedient wissen.js wie das Sprachmenü (data-langmenu).
+    Auf sehr schmalen Artikelseiten steht dort auch „Hell/Dunkel“ (der Knopf in der Leiste hat keinen Platz mehr)."""
+    reihe, menue = "", ""
+    for b, w in BEREICHE:
+        on = b == aktiv
+        cur = ' aria-current="true"' if on else ""
+        reihe += f'<li><a class="b-l{" on" if on else ""}" href="{bereich_url(b)}"{cur}>{html.escape(T(w))}</a></li>'
+        menue += (f'<li><a class="l-item{" on" if on else ""}" href="{bereich_url(b)}"{cur}><span class="l-name">{html.escape(T(w))}'
+                  f'</span>{_L_HAKEN if on else ""}</a></li>')
+    menue += f'<li class="b-thema"><button type="button" class="l-item b-thema-b">{html.escape(T("b_thema"))}</button></li>'
+    name = T(dict(BEREICHE)[aktiv]) if aktiv in dict(BEREICHE) else T("b_menue")
+    return (f'<nav class="bereiche" aria-label="{html.escape(T("b_menue"))}"><ul class="b-liste">{reihe}</ul>'
+            f'<div class="b-menu" data-langmenu><button type="button" class="l-toggle b-toggle" aria-expanded="false" '
+            f'aria-controls="bmenu" aria-label="{html.escape(T("b_menue"))}: {html.escape(name)}" title="{html.escape(T("b_menue"))}">'
+            f'{_B_ICON}<span class="b-cur">{html.escape(name)}</span>{_L_PFEIL}</button>'
+            f'<ul class="l-menu" id="bmenu" hidden>{menue}</ul></div></nav>')
+
+def topbar(panels=False, prev_a=None, next_a=None, art=None, bereich="wissen"):
     # Nur Artikelseiten, mittig: Knopf für den Themenbaum und der Umschalter der Ansicht (W4a, 11.11.2026; vorher standen
     # hier die Pfeile zum vorherigen/nächsten Artikel, sie sind jetzt nur noch am Artikelende). prev_a/next_a bleiben als
-    # Parameter, damit Aufrufer unverändert bleiben.
+    # Parameter, damit Aufrufer unverändert bleiben. W4b: links die Bereiche (statt des Editor-Links rechts), die Sprachwahl
+    # rechts vor der Suche; Klasse mit-mitte: Artikelseite, die Bereiche klappen dann früher zum Menü zusammen.
     pbtns = ('<div class="panelCenter">'
              + '<button id="toggleLeft" class="panelBtn" aria-label="Themenbaum ein-/ausblenden" title="Themenbaum ein-/ausblenden" aria-pressed="false">'
              '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">'
              '<rect x="3" y="4" width="18" height="16" rx="2"/><line x1="9" y1="4" x2="9" y2="20"/></svg></button>'
              + ansicht_schalter(bool(art) and ist_ref(art)) + '</div>') if panels else ''
     return (f'<a class="skip" href="#inhalt">{T("zum_inhalt")}</a>'   # Sprunglink für die Tastatur: erst beim Fokus sichtbar
-            '<div class="topbar"><a class="brand" href="/">Et<span>Und</span><span class="so">So</span></a>'
-            + pbtns + lang_switch(art)
+            f'<div class="topbar{" mit-mitte" if panels else ""}"><a class="brand" href="/">Et<span>Und</span><span class="so">So</span></a>'
+            + bereiche_nav(bereich) + pbtns + lang_switch(art)
             + f'<button id="searchBtn" class="searchBtn" aria-label="{T("suchen")}">'   # ohne Lupen-Symbol (User 2026-10-21)
             f'<span class="lbl">{T("suchen")}</span><kbd>/</kbd></button>'
             # Hell/Dunkel-Umschalter — immer oben rechts, auf allen Wissensseiten an gleicher Stelle.
             '<button id="themeBtn" class="iconBtn" aria-label="Hell/Dunkel umschalten" title="Hell/Dunkel umschalten">'
             '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" '
             'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
-            '<path d="M21 12.8A8 8 0 1 1 11.2 3 6 6 0 0 0 21 12.8z"/></svg></button>'
-            + '<a class="editorlink" href="/editor.html">Editor</a></div>'
+            '<path d="M21 12.8A8 8 0 1 1 11.2 3 6 6 0 0 0 21 12.8z"/></svg></button></div>'
             '<div id="searchOverlay" class="searchOverlay" hidden><div class="searchBox">'
             f'<input id="searchInput" type="search" placeholder="{T("suche_ph")}" autocomplete="off"/>'
             '<div id="searchResults" class="searchResults"></div>'
@@ -1848,10 +2139,8 @@ def render_article(art, tree, prev_a, next_a):
     body_html = f'<div class="art-body">{body_html}</div>'   # Ansicht „Kurz“ filtert darin (W4a)
     # am Artikelende, vor den Nachbar-Artikeln (User 11.11.2026); nicht in „Das Wichtigste (bis hier)“: Der Artikel ist
     # mit seinem Kasten :::kern schon die Zusammenfassung des Kapitels
-    lk = art["path"].rsplit("/", 1)[0]                 # Kapitelordner; die Lernkarten des Moduls liegen eine Ebene höher
-    mp = modul_pfad(art["path"])
-    kap_links = (f'<a href="/wissen/{mp}/lernkarten.html#k-{lk.rsplit("/", 1)[-1]}">{T("lk_zum_kapitel")}</a>'
-                 f'<span aria-hidden="true"> · </span><a href="{spickzettel_url(art)}">{T("sz_kurz")}</a>')
+    # W4b: Die Lernkarten des Kapitels stehen jetzt in den Verweisen darunter (Lernkarten und Aufgaben, BEREICH_PLATZ)
+    kap_links = f'<a href="{spickzettel_url(art)}">{T("sz_kurz")}</a>'
     fuss = f'<p class="zf-fuss">{kap_links}</p>'
     zf_html = "" if re.search(r"(?m)^:::kern\b", art["body"]) else zusammenfassung_html(zdaten, fuss)
     if not zf_html:                                    # ohne Zusammenfassung: die Kapitel-Links trotzdem am Artikelende
@@ -1921,7 +2210,8 @@ def render_article(art, tree, prev_a, next_a):
     hat = (" hat-kurz" if kurz_html else "") + (" hat-formeln" if bloecke.get("formelsammlung") else "") + (" ref" if ist_ref(art) else "")
     main = (f'<main class="article" id="inhalt" tabindex="-1"><article class="art{hat}">{crumb}<h1>{html.escape(art["title"])}</h1>'
             + meta + switch + arttoc + kurz_html
-            + body_html + blatt + zf_html + verwendet_html(art) + nav + quiz_html + legal_footer() + "</article>" + toc_html + "</main>")
+            + body_html + blatt + zf_html + verwendet_html(art) + BEREICH_PLATZ.format(tree_art(art)["path"])
+            + nav + quiz_html + legal_footer() + "</article>" + toc_html + "</main>")
     nav_path = tree_art(art)["path"]
     body = (topbar(panels=True, prev_a=prev_a, next_a=next_a, art=art)
             + '<div class="layout">'
@@ -1991,7 +2281,7 @@ def legal_footer():
 # Was ein Leser liest und lernt, bleibt in seinem Browser (localStorage, wissen.js). Der Build legt nur die Inhalte an, je
 # Modul und Sprache drei Dateien im Modulordner (…/<modul>/<kapitel>/<artikel>.html -> …/<modul>/):
 #   begriffe.html    Begriffsverzeichnis: Begriff, Bestimmung, Link auf die Stelle (alphabetisch; Chinesisch nach Kapiteln)
-#   lernkarten.html  Lernkarten; ohne Skript eine Liste mit Vorder- und Rückseite, mit Skript ein Stapel mit Leitner-Fächern
+#   lernkarten.html  seit W4b nur noch Weiterleitung in den Bereich /lernen/ (die Karten stehen in /lernen/daten/)
 #   vorschau.json    Titel, Kapitel und „Worum es geht“ jedes Artikels: das Kärtchen der Link-Vorschau
 # Quelle ist der Sammler der Zusammenfassung (ZF), den render_article je Artikel in SAMMEL ablegt; nichts wird neu gesucht.
 SAMMEL = {}                                            # Artikeladresse -> Sammler-Daten (fb, fm, kg) des Artikels
@@ -2030,7 +2320,7 @@ def _modul_von(nd):
 def lernen_links(mp, cls):
     """Leise Zeile „Begriffe · Lernkarten“ unter einem Modul (Seitenleiste, Übersicht)."""
     return (f'<div class="{cls}"><a href="/wissen/{mp}/begriffe.html">{T("begriffe")}</a><span aria-hidden="true"> · </span>'
-            f'<a href="/wissen/{mp}/lernkarten.html">{T("lernkarten")}</a><span aria-hidden="true"> · </span>'
+            f'<a href="{html.escape(lernen_url(mp))}">{T("lernkarten")}</a><span aria-hidden="true"> · </span>'
             f'<a href="/wissen/{mp}/{blatt_datei(mp)}">{TR("fb_titel", mp in MODUL_REF) if mp in MODUL_REF else T("ans_formeln")}</a></div>')
 
 def _vorschau_markieren(h):
@@ -2157,7 +2447,7 @@ def begriffe_html(tree, mp, arts, begriffe, lang):
     anzahl = html.escape(T("bg_anzahl").format(n=len(begriffe)))
     if begriffe:
         inhalt = (f'<p class="lede lern-lede">{T("bg_lede")}</p>'
-                  f'<p class="lern-nav"><a href="/wissen/{mp}/lernkarten.html">{T("lernkarten")}</a></p>'
+                  f'<p class="lern-nav"><a href="{html.escape(lernen_url(mp))}">{T("lernkarten")}</a></p>'
                   f'<nav class="bg-abc" aria-label="{html.escape(T("bg_abc"))}">{abc}</nav>'
                   f'<div class="bg-such" hidden><input type="search" class="bg-filter" placeholder="{html.escape(T("bg_filter"))}" '
                   f'aria-label="{html.escape(T("bg_filter"))}" autocomplete="off"/><span class="bg-n" aria-live="polite">{anzahl}</span></div>'
@@ -2169,8 +2459,9 @@ def begriffe_html(tree, mp, arts, begriffe, lang):
 
 def _lueckentext(md, woerter, lang):
     """„Kurz gesagt“-Satz als Lückentext: Das erste Wort aus dem Begriffsverzeichnis des Moduls (außerhalb von Formeln und
-    Code; Deutsch u. a. mit Endung, z. B. „rückwirkungsfrei|en“) wird zur Lücke. Rückgabe (Vorderseite, Rückseite) als
-    Markdown mit Marken oder None, wenn kein Begriff vorkommt oder vom Satz kaum etwas bliebe."""
+    Code; Deutsch u. a. mit Endung, z. B. „rückwirkungsfrei|en“) wird zur Lücke. Rückgabe (Vorderseite, Rückseite, Wort) als
+    Markdown mit Marken oder None, wenn kein Begriff vorkommt oder vom Satz kaum etwas bliebe. Das Wort ist die richtige
+    Antwort im Quiz (W4b)."""
     maske = _maskiert(md)
     best = None
     for w, rx in woerter:
@@ -2183,20 +2474,165 @@ def _lueckentext(md, woerter, lang):
     rest = klartext(md[:a] + md[b:])
     if len(rest) < (12 if lang == "zh" else 30):
         return None
-    return md[:a] + _LUECKE + md[b:], md[:a] + _AN + md[a:b] + _AUS + md[b:]
+    return md[:a] + _LUECKE + md[b:], md[:a] + _AN + md[a:b] + _AUS + md[b:], md[a:b]
 
 def _md_html(md):
     return (inline(md).replace(_LUECKE, '<span class="lk-luecke" aria-label="…">______</span>')
             .replace(_AN, '<strong class="lk-wort">').replace(_AUS, "</strong>"))
 
+# ------------------------------------------------------------------------- Bereiche (W4b) ----
+# Lernkarten/Quiz/Mischtest: eine App-Seite je Sprache (/lernen/, /lernen/<l>/), Daten je Modul und Sprache unter
+# /lernen/daten/<m>[.<l>].json. Aufgaben: Startseite je Sprache (/aufgaben/, /aufgaben/<l>/) und eine statische Seite je
+# Modul und Sprache (/aufgaben/<Moduladresse>.html, für Suchmaschinen), die auch der Mischtest liest (keine zweite Kopie der
+# Aufgaben). Die W2-Seiten …/lernkarten.html leiten auf den Bereich weiter (gleiche Zahl Dateien, keine toten Links).
+# Adressen: m = Ordner unter content/ (et3, linux, ml …), k = Kapitelnummer im Modul, a = Dateiname des Artikels ohne .html;
+# ?m=et3&k=2&a=… gilt so in allen Sprachen.
+LERNEN_OUT = ROOT / "web" / "lernen"
+AUFG_OUT = ROOT / "web" / "aufgaben"
+MODUL_ID = {}                                          # Moduladresse (jede Sprache) -> m (main)
+BEREICH_N = {"karten": {}, "aufg": {}, "kap_k": {}, "kap_a": {}, "mod_k": {}}   # Zahl der Karten/Aufgaben je Artikel, Kapitel, Modul
+PFAD_ART = {}                                          # Artikeladresse -> Artikel (Verweise unter dem Artikel)
+BEREICH_PLATZ = "<!--bereich-links:{}-->"            # setzt render_article; build_lang ersetzt ihn, sobald die Zahlen stehen
+_BEREICH_PLATZ_RE = re.compile(r"<!--bereich-links:([^>]*?)-->")
+TYP_ART = {"begriff": "b", "formel": "f", "herleitung": "h", "zusammenhang": "l"}   # ::::lernkarten: Kartenart -> Kürzel
+_KARTE_RE = re.compile(r"(?ms)^:::karte[ \t]+(\S+)[ \t]*\n(.*?)^:::[ \t]*$")
+_TRENNER_RE = re.compile(r"(?m)^---[ \t]*$")
+GESCHRIEBEN_BEREICH = set()                            # Dateien unter web/lernen und web/aufgaben aus diesem Build
+BEREICH_STAT = {}                                      # Sprache -> Zähler (Karten je Art, Herleitungen, Aufgaben je Modul)
+
+def art_stamm(a):
+    """Dateiname eines Artikels ohne .html (in allen Sprachen der deutsche): Parameter a der Bereichsadressen."""
+    return a["path"].rsplit("/", 1)[-1][:-5]
+
+def lernen_url(mp, art=None, kapitel=None, lang=None):
+    """Adresse im Bereich Lernkarten: Modul, dazu Kapitel (Nummer) und Artikel (Dateiname); roh, für href escapen."""
+    q = f"?m={MODUL_ID.get(mp, '')}"
+    if art is not None:
+        kapitel = kapitel_ordner(art["path"])
+    if kapitel:
+        q += f"&k={KAPITEL_NR.get(kapitel, 1)}"
+    if art is not None:
+        q += f"&a={art_stamm(art)}"
+    return bereich_url("lernen", lang) + q
+
+def aufgaben_url(mp, art=None, kapitel=None):
+    """Statische Aufgabenseite eines Moduls; Kapitel/Artikel als Filter (?k=, ?a=) und als Sprungmarke (ohne Skript)."""
+    u = f"/aufgaben/{mp}.html"
+    if art is not None:
+        kapitel = kapitel_ordner(art["path"])
+    if not kapitel:
+        return u
+    n = KAPITEL_NR.get(kapitel, 1)
+    if art is None:
+        return f"{u}?k={n}#k{n}"
+    return f"{u}?k={n}&a={art_stamm(art)}#k{n}-{art_stamm(art)}"
+
+def bereich_schreiben(path, text):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    if not path.exists() or path.read_text(encoding="utf-8") != text:
+        path.write_text(text, encoding="utf-8")
+    GESCHRIEBEN_BEREICH.add(path.resolve())
+
+def bereiche_aufraeumen():
+    """Dateien unter web/lernen und web/aufgaben, die dieser Build nicht geschrieben hat (Modul umbenannt), und leere Ordner."""
+    n = 0
+    for wurzel in (LERNEN_OUT, AUFG_OUT):
+        if not wurzel.exists():
+            continue
+        for p in sorted(wurzel.rglob("*")):
+            if p.is_file() and p.resolve() not in GESCHRIEBEN_BEREICH:
+                p.unlink()
+                n += 1
+        for d in sorted((d for d in wurzel.rglob("*") if d.is_dir()), key=lambda d: -len(d.parts)):
+            if not any(d.iterdir()):
+                d.rmdir()
+    return n
+
+def _karte_md(md, art_path):
+    """Markdown einer Karte (Herleitung, geschriebene Karte) als HTML: ohne Sprungziele, Links absolut."""
+    h = re.sub(r'\sid="[^"]*"', "", _block_html(md, "lk-"))
+    return _links_absolut(h, art_path).strip()
+
+def _hl_bloecke(zeilen):
+    """Blöcke eines Kasteninhalts: Leerzeilen trennen; abgesetzte Formeln über mehrere Zeilen und :::-Kästen bleiben ganz."""
+    bloecke, cur, tiefe, formel = [], [], 0, False
+    for z in zeilen:
+        s = z.strip()
+        if not s and not tiefe and not formel:
+            if cur:
+                bloecke.append("\n".join(cur))
+                cur = []
+            continue
+        cur.append(z)
+        if re.match(r":::+\w", s):
+            tiefe += 1
+        elif re.fullmatch(r":::+", s) and tiefe:
+            tiefe -= 1
+        elif s.count("$$") % 2:
+            formel = not formel
+    if cur:
+        bloecke.append("\n".join(cur))
+    return bloecke
+
+def _hl_schritte(zeilen):
+    """Schritte einer Herleitung (Markdown): Jeder Textabsatz beginnt einen Schritt, abgesetzte Formeln gehören zum Schritt
+    davor. Bleibt nur ein Schritt, teilen ihn seine Sätze (Formeln danach bleiben beim letzten Satz); Listen und HTML nicht."""
+    schritte = []
+    for b in _hl_bloecke(zeilen):
+        if b.lstrip().startswith("$$") and schritte:
+            schritte[-1] += "\n\n" + b
+        else:
+            schritte.append(b)
+    if len(schritte) == 1:
+        text, _, rest = schritte[0].partition("\n\n")
+        if not re.search(r"<\w|^\s*(?:[-*]|\d+\.)\s|\$\$", text, re.M):
+            flach = text.replace("\n", " ")
+            teile = [flach[a:b].strip() for a, b in _saetze(flach)]
+            teile = [t for t in teile if t]
+            if len(teile) >= 2:
+                schritte = teile[:-1] + [teile[-1] + ("\n\n" + rest if rest else "")]
+    return [s for s in schritte if s.strip()]
+
+def _ziel_md(z):
+    """Ziel einer Herleitung: die Formel davor; aus einem langen Satz- oder Definitionskasten nur seine abgesetzten Formeln."""
+    if not z or z.lstrip().startswith("$$"):
+        return z
+    if len(klartext(z)) > 280:
+        f = re.findall(r"\$\$.+?\$\$", z, re.S)
+        if f:
+            return "\n\n".join(f)
+    return z
+
+def geschriebene_karten(md):
+    """Block ::::lernkarten eines Artikels: [(Kürzel, Frage, [Antwort] bzw. [Schritte])] als Markdown. Format je Karte:
+    „:::karte <begriff|formel|herleitung|zusammenhang>“, Frage, eine Zeile „---“, Antwort, „:::“; bei Herleitungen trennen
+    weitere „---“ die Schritte. Unbekannte Arten und Karten ohne Antwort fallen weg (Meldung beim Bauen)."""
+    karten = []
+    for m in _KARTE_RE.finditer(md):
+        typ = TYP_ART.get(m.group(1).lower())
+        teile = [t.strip() for t in _TRENNER_RE.split(m.group(2))]
+        if not typ or len(teile) < 2 or not teile[0] or not any(teile[1:]):
+            print("  ::::lernkarten: Karte übersprungen (Art oder ---):", m.group(1), (teile[0] if teile else "")[:50])
+            continue
+        antwort = [t for t in teile[1:] if t]
+        if typ != "h":
+            antwort = ["\n\n".join(antwort)]
+        karten.append((typ, teile[0], antwort))
+    return karten
+
 def modul_karten(mp, arts, begriffe, lang):
-    """Lernkarten eines Moduls in Lesefolge: [(Kapitel-Slug, Kapitelname, Karte)] und Zähler (gut, aussortiert je Grund).
-    Begriff -> Bestimmung; benannte Formel -> Formel; „Kurz gesagt“ -> Lückentext. Ausgesondert: Begriffe ohne Bestimmung,
-    mit Bruchstück („…“) oder Rückbezug am Anfang, Sätze mit Verweis („Abschnitt 1.1“), Formeln ohne Namen oder zu einem
-    Beispiel, Sätze ohne Begriff aus dem Verzeichnis, Doppel."""
+    """Lernkarten eines Moduls in Lesefolge: [Karte] und Zähler (gut, aussortiert je Grund). Karte = {id, typ, vorne,
+    hinten, anker, _a (Artikel)}, dazu q (Antwort im Quiz, sonst hinten), z/s0/s (Herleitung: Ziel, Ausgangspunkt, Schritte),
+    w (geschrieben). Begriff -> Bestimmung; benannte Formel -> Formel; „Kurz gesagt“ -> Lückentext (Art Zusammenhang);
+    Herleitung (W4b) -> Ziel (die Formel kurz vor dem Kasten), Ausgangspunkt (erster Schritt) und die übrigen Schritte.
+    Ausgesondert: Begriffe ohne Bestimmung, mit Bruchstück („…“) oder Rückbezug am Anfang, Sätze mit Verweis
+    („Abschnitt 1.1“), Formeln ohne Namen oder zu einem Beispiel, Sätze ohne Begriff aus dem Verzeichnis, Herleitungen ohne
+    Ziel und Titel, Doppel. Hat ein Artikel einen Block ::::lernkarten, gelten für ihn nur dessen Karten. Die ids von
+    Begriff, Formel und Lückentext sind dieselben wie in W2: Der Lernstand im Browser bleibt."""
     import hashlib
     stat = {"gut": 0, "ohne Bestimmung": 0, "Bruchstück": 0, "Rückbezug": 0, "Verweis": 0, "Formel ohne Namen": 0,
-            "Formel eines Beispiels": 0, "Lückentext ohne Begriff": 0, "doppelt": 0}
+            "Formel eines Beispiels": 0, "Lückentext ohne Begriff": 0, "Herleitung ohne Ziel und Titel": 0,
+            "Herleitung leer": 0, "doppelt": 0}
     woerter = []                                       # Begriffe des Verzeichnisses als Suchmuster, längste zuerst
     for b in begriffe.values():
         w = re.sub(r"\s+", " ", klartext(b["md"])).strip()
@@ -2207,19 +2643,28 @@ def modul_karten(mp, arts, begriffe, lang):
         woerter.append((w, rx))
     woerter.sort(key=lambda x: -len(x[0]))
     karten, ids = [], set()
-    def neu(a, typ, key, vorne, hinten, anker):
+    def neu(a, typ, key, vorne, hinten, anker, **extra):
         kid = hashlib.sha1(f"{mp}|{typ}|{key}".encode("utf-8")).hexdigest()[:10]
         if kid in ids:
             stat["doppelt"] += 1
             return
         ids.add(kid)
         stat["gut"] += 1
-        teile = a["path"].rsplit("/", 2)
-        karten.append((teile[1], a["crumbs"][-1][0], {"id": kid, "typ": typ, "vorne": vorne, "hinten": hinten,
-                                                     "href": f"/wissen/{a['path']}#{anker}", "art": a["kurz"] or a["title"]}))
+        k = {"id": kid, "typ": typ, "vorne": vorne, "hinten": hinten, "anker": anker, "_a": a}
+        k.update({x: v for x, v in extra.items() if v})
+        karten.append(k)
     gewaehlt = {b["id"] + "|" + b["art"]["path"]: b for b in begriffe.values()}
     for a in arts:
         z = SAMMEL.get(a["path"]) or {}
+        eigene = (a.get("bloecke") or {}).get("lernkarten")
+        if eigene:                                     # geschriebene Karten: nur diese, keine automatischen
+            for typ, frage, antwort in geschriebene_karten(eigene):
+                key = f"w|{art_stamm(a)}|{fold(klartext(frage))}"
+                if typ == "h":
+                    neu(a, "h", key, _karte_md(frage, a["path"]), "", "", s=[_karte_md(x, a["path"]) for x in antwort], w=1)
+                else:
+                    neu(a, typ, key, _karte_md(frage, a["path"]), _karte_md(antwort[0], a["path"]), "", w=1)
+            continue
         fb = [b for b in z.get("fb", []) if b["id"] + "|" + a["path"] in gewaehlt]
         i = 0                                          # Begriffe mit demselben Satz: eine Karte (wie in der Zusammenfassung)
         while i < len(fb):
@@ -2264,51 +2709,213 @@ def modul_karten(mp, arts, begriffe, lang):
             if lt is None:
                 stat["Lückentext ohne Begriff"] += 1
                 continue
-            neu(a, "l", fold(klartext(k["md"])), _md_html(lt[0]), _md_html(lt[1]), k["id"])
+            neu(a, "l", fold(klartext(k["md"])), _md_html(lt[0]), _md_html(lt[1]), k["id"], q=inline(lt[2]))
+        for hl in z.get("hl", []):                     # W4b: Herleitungen, Schritt für Schritt
+            titel = (hl["titel"] or "").strip()
+            schritte = _hl_schritte(hl["zeilen"])
+            if not schritte or not klartext(" ".join(schritte)).strip():
+                stat["Herleitung leer"] += 1
+                continue
+            zmd = _ziel_md(hl["ziel"])
+            if not zmd and not klartext(titel):
+                stat["Herleitung ohne Ziel und Titel"] += 1
+                continue
+            zkey = re.sub(r"\s+", "", zmd or "")
+            neu(a, "h", f"{art_stamm(a)}|{fold(klartext(titel))}|{zkey}",
+                inline(_ohne_links(titel)) if titel else html.escape(T("herleitung")), "", hl["id"],
+                z=_karte_md(zmd, a["path"]) if zmd else "",
+                s0=_karte_md(schritte[0], a["path"]) if len(schritte) > 1 else "",
+                s=[_karte_md(x, a["path"]) for x in (schritte[1:] if len(schritte) > 1 else schritte)])
     return karten, stat
 
-def lernkarten_html(tree, mp, arts, karten, lang):
-    """Seite „Lernkarten“ eines Moduls. Ohne Skript: alle Karten als Liste je Kapitel (Vorder-, Rückseite, Link zur Stelle).
-    Mit Skript (wissen.js): Kartenstapel mit Kapitelwahl, Zähler „heute fällig“, Umdrehen und drei Bewertungen."""
-    kopf, pseudo, name = _modul_kopf(arts, "lernkarten", "lernkarten.html", lang)
-    typ_wort = {"b": T("lk_begriff"), "f": T("lk_formel"), "l": T("lk_luecke")}
-    kapitel = []
-    for slug, kname, k in karten:
-        if not kapitel or kapitel[-1][0] != slug:
-            kapitel.append((slug, kname, []))
-        kapitel[-1][2].append(k)
-    liste = []
-    for slug, kname, ks in kapitel:
-        zeilen = "".join(
-            f'<li class="lk" data-id="{k["id"]}" data-typ="{k["typ"]}"><div class="lk-v"><span class="lk-typ">{typ_wort[k["typ"]]}</span>'
-            f'{k["vorne"]}</div><div class="lk-r">{k["hinten"]}</div>'
-            f'<a class="lk-q" href="{k["href"]}">{html.escape(k["art"])}</a></li>' for k in ks)
-        liste.append(f'<section class="lk-kap" id="k-{slug}" data-k="{slug}"><h2>{html.escape(kname)}</h2><ol class="lk-l">{zeilen}</ol></section>')
-    optionen = "".join(f'<option value="{slug}">{html.escape(kname)}</option>' for slug, kname, _ in kapitel)
-    if karten:
-        app = (f'<div class="lk-app" data-modul="{mp}" hidden>'
-               f'<div class="lk-leiste"><label class="lk-wahl"><span>{T("lk_kapitel")}</span> <select class="lk-sel">'
-               f'<option value="">{T("lk_alle_kap")}</option>{optionen}</select></label>'
-               f'<span class="lk-zahl" aria-live="polite"></span></div>'
-               f'<div class="lk-karte" tabindex="-1"><div class="lk-kopf"></div><div class="lk-vorne"></div>'
-               f'<div class="lk-hinten" hidden></div></div>'
-               f'<div class="lk-steuer"><button type="button" class="lk-um">{T("lk_umdrehen")}</button>'
-               f'<div class="lk-bew" hidden><button type="button" class="lk-b lk-b0" data-b="0">{T("lk_schlecht")}<small></small></button>'
-               f'<button type="button" class="lk-b lk-b1" data-b="1">{T("lk_mittel")}<small></small></button>'
-               f'<button type="button" class="lk-b lk-b2" data-b="2">{T("lk_gut")}<small></small></button></div></div>'
-               f'<div class="lk-ende" hidden><p>{T("lk_fertig")}</p><button type="button" class="lk-neu"></button></div>'
-               f'<div class="lk-fuss"><a class="lk-stelle" href="#">{T("lk_stelle")}</a>'
-               f'<span class="lk-tasten">{T("lk_tasten")}</span></div>'
-               f'<p class="lk-hinweis" hidden>{T("lk_ohne_speicher")}</p>'
-               f'<button type="button" class="lern-reset lk-reset">{T("lk_reset")}</button></div>')
-        inhalt = (f'<p class="lede lern-lede">{T("lk_lede")}</p>'
-                  f'<p class="lern-nav"><a href="/wissen/{mp}/begriffe.html">{T("begriffe")}</a></p>' + app
-                  + f'<details class="lk-alle" open><summary>{html.escape(T("lk_liste").format(n=len(karten)))}</summary>'
-                  + "".join(liste) + "</details>")
+def _modul_name(arts):
+    return arts[0]["crumbs"][:-1][-1][0]
+
+def lernen_daten(mp, arts, karten):
+    """Inhalt von /lernen/daten/<m>[.<l>].json: Kapitel mit Artikeln (Dateiname, Titel, Adresse, Zahl der Aufgaben) und die
+    Karten (k = Kapitelnummer, a = Platz des Artikels im Kapitel, h = Sprungmarke im Artikel)."""
+    platz, kap = {}, []
+    for k, kname, nr, ks in _kapitel_folge(arts):
+        eintraege = []
+        for i, a in enumerate(ks):
+            platz[a["path"]] = (nr, i)
+            eintraege.append([art_stamm(a), klartext(a["kurz"] or a["title"]), "/wissen/" + a["path"],
+                              len((SAMMEL.get(a["path"]) or {}).get("ag", []))])
+        kap.append({"n": nr, "t": klartext(kname), "a": eintraege})
+    kj = []
+    for c in karten:
+        nr, i = platz[c["_a"]["path"]]
+        d = {"id": c["id"], "t": c["typ"], "k": nr, "a": i, "v": c["vorne"]}
+        if c["hinten"]:
+            d["r"] = c["hinten"]
+        if c["anker"]:
+            d["h"] = c["anker"]
+        for x in ("q", "z", "s0", "s", "w"):
+            if c.get(x):
+                d[x] = c[x]
+        kj.append(d)
+    return {"m": MODUL_ID.get(mp, ""), "mp": mp, "name": klartext(_modul_name(arts)), "aufg": f"/aufgaben/{mp}.html",
+            "kap": kap, "karten": kj}
+
+def umleitung_html(mp, arts, lang):
+    """Frühere Lernkarten-Seite eines Moduls (W2): leitet auf den Bereich weiter, #k-<Kapitel> auf ?k=<Nummer>."""
+    ziel = lernen_url(mp, lang=lang)
+    karte = {k.rsplit("/", 1)[-1]: nr for k, _, nr, _ in _kapitel_folge(arts)}
+    z = html.escape(ziel)
+    return (f'<!doctype html>\n<html lang="{lang}"><head><meta charset="utf-8"/>'
+            f'<meta name="viewport" content="width=device-width, initial-scale=1"/>\n'
+            f'<title>{html.escape(T("lernkarten"))}: {html.escape(klartext(_modul_name(arts)))} — EtUndSo</title>'
+            f'<meta name="robots" content="noindex"/><link rel="canonical" href="{SITE}{z}"/>\n'
+            f'<script>(function(){{var k={json.dumps(karte, ensure_ascii=False)},m=location.hash.match(/^#k-(.+)$/),'
+            f'z={json.dumps(ziel)};if(m&&k[m[1]])z+="&k="+k[m[1]];location.replace(z);}})();</script>\n'
+            f'<meta http-equiv="refresh" content="0; url={z}"/></head>\n'
+            f'<body><p>{html.escape(T("lw_umgezogen"))} <a href="{z}">{html.escape(T("lw_titel"))}</a></p></body></html>\n')
+
+def bereich_links_html(path):
+    """Verweise unter einem Artikel (W4b): „Lernkarten: dieser Artikel · Kapitel · Modul“ und „Aufgaben: dieser Artikel ·
+    Kapitel“, nur was es gibt."""
+    a = PFAD_ART.get(path)
+    if a is None:
+        return ""
+    n, kap, mp = BEREICH_N, kapitel_ordner(path), modul_pfad(path)
+    def zeile(wort, links):
+        links = [(w, u) for w, u, da in links if da]
+        if not links:
+            return ""
+        return (f'<p><span class="bl-k">{html.escape(T(wort))}</span> '
+                + '<span aria-hidden="true"> · </span>'.join(f'<a href="{html.escape(u)}">{html.escape(T(w))}</a>' for w, u in links)
+                + "</p>")
+    z1 = zeile("vw_lernen", [("vw_artikel", lernen_url(mp, a), n["karten"].get(path)),
+                             ("vw_kapitel", lernen_url(mp, kapitel=kap), n["kap_k"].get(kap)),
+                             ("vw_modul", lernen_url(mp), n["mod_k"].get(mp))])
+    z2 = zeile("vw_aufgaben", [("vw_artikel", aufgaben_url(mp, a), n["aufg"].get(path)),
+                               ("vw_kapitel", aufgaben_url(mp, kapitel=kap), n["kap_a"].get(kap))])
+    if not (z1 or z2):
+        return ""
+    return f'<nav class="bereich-links" aria-label="{html.escape(T("vw_label"))}">{z1}{z2}</nav>'
+
+def _bereich_ziele(datei):
+    """{Sprache: Adresse} einer Seite der Bereiche, die es in jeder Sprache gibt (/lernen/, /aufgaben/)."""
+    return {l: bereich_url(datei, l) for l in TREES}
+
+def bereich_seite(titel, desc, inhalt, bereich, ziele, cls=""):
+    """Seite eines Bereichs (Lernkarten, Aufgaben): Kopfleiste mit dem Bereich, ohne Themenbaum, schmale Spalte."""
+    pseudo = {"ziele": ziele}
+    body = (topbar(art=pseudo, bereich=bereich)
+            + f'<main class="article bereich-seite{" " + cls if cls else ""}" id="inhalt" tabindex="-1"><article>{inhalt}'
+            + f'{legal_footer()}</article></main>')
+    return page_shell(titel, desc, body, 0, ziele, js=("/wissen/assets/bereiche.js",))
+
+def _bereich_kopf(wort_bereich, titel_html, ziele, extra=""):
+    """Brotkrumen (Bereich), Titel und schmale Sprachwahl der Bereichsseiten."""
+    crumb = (f'<nav class="crumbs"><a class="cr-home" href="{html.escape(bereich_url(wort_bereich))}">'
+             f'{html.escape(T(dict(BEREICHE)[wort_bereich]))}</a>{extra}</nav>')
+    return crumb + titel_html + f'<div class="art-meta lern-meta">{lang_switch({"ziele": ziele}, "art")}</div>'
+
+def _modul_liste(module, zeile):
+    """Module nach Bereich der Website (Elektrotechnik, Informatik) gruppiert; zeile(eintrag) -> <li>…</li>."""
+    gruppen = {}
+    for e in module:
+        gruppen.setdefault(e["gruppe"], []).append(e)
+    return "".join(f'<h2 class="bm-g">{html.escape(g)}</h2><ul class="bm-liste">{"".join(zeile(e) for e in es)}</ul>'
+                   for g, es in gruppen.items())
+
+def lernen_app_html(lang, module):
+    """App-Seite des Bereichs Lernkarten/Quiz/Mischtest einer Sprache. Ohne Skript: die Module mit ihren statischen Seiten
+    (Begriffe, Formeln bzw. Übersicht, Aufgaben). Mit Skript (bereiche.js): Auswahl Modul → Kapitel → Artikel, Kartenarten,
+    Lernen (Leitner wie W2), Quiz, Mischtest; Adresse ?m=&k=&a=&arten=&modus= teilbar."""
+    def zeile(e):
+        n = sum(e["n"].values())
+        statisch = [(T("begriffe"), f'/wissen/{e["mp"]}/begriffe.html'),
+                    (TR("fb_titel", e["mp"] in MODUL_REF), f'/wissen/{e["mp"]}/{blatt_datei(e["mp"])}')]
+        if e["na"]:
+            statisch.append((T("b_aufgaben"), f'/aufgaben/{e["mp"]}.html'))
+        return (f'<li class="bm"><a class="bm-t" href="?m={e["m"]}" data-m="{e["m"]}">{html.escape(e["name"])}</a>'
+                f'<span class="bm-n">{html.escape(T("lw_karten_n").format(n=n))}</span>'
+                f'<span class="bm-s">' + '<span aria-hidden="true"> · </span>'.join(
+                    f'<a href="{html.escape(u)}">{html.escape(w)}</a>' for w, u in statisch) + "</span></li>")
+    ziele = _bereich_ziele("lernen")
+    daten = [{k: e[k] for k in ("m", "mp", "name", "kurz", "n", "na", "d", "ref")} for e in module]
+    inhalt = (_bereich_kopf("lernen", f'<h1>{html.escape(T("lw_titel"))}</h1>', ziele)
+              + f'<p class="lede lern-lede">{T("lw_lede")}</p>'
+              + '<div class="lw-app" hidden></div>'
+              + f'<noscript><p class="lw-ohne">{T("lw_statisch")}</p></noscript>'
+              + f'<section class="lw-module">{_modul_liste(module, zeile)}</section>'
+              + '<script type="application/json" id="lw-daten">'
+              + json.dumps(daten, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/") + "</script>")
+    return bereich_seite(T("lw_titel"), T("lw_lede"), inhalt, "lernen", ziele, "lw-seite")
+
+def aufgaben_start_html(lang, module):
+    """Startseite des Bereichs Aufgaben einer Sprache: die Module mit Zahl der Aufgaben."""
+    ziele = _bereich_ziele("aufgaben")
+    def zeile(e):
+        n = e["na"]
+        return (f'<li class="bm"><a class="bm-t" href="/aufgaben/{e["mp"]}.html">{html.escape(e["name"])}</a>'
+                f'<span class="bm-n">{html.escape(T("aufg_1") if n == 1 else T("aufg_n").format(n=n))}</span></li>')
+    mit = [e for e in module if e["na"]]
+    inhalt = (_bereich_kopf("aufgaben", f'<h1>{html.escape(T("b_aufgaben"))}</h1>', ziele)
+              + f'<p class="lede lern-lede">{T("ag_lede")}</p>'
+              + f'<section class="ag-module">{_modul_liste(mit, zeile)}</section>')
+    return bereich_seite(T("b_aufgaben"), T("ag_lede"), inhalt, "aufgaben", ziele, "ag-start")
+
+def aufgaben_modul_html(mp, arts, lang):
+    """Aufgaben eines Moduls (statisch, für Suchmaschinen): Kapitel und Artikel als Gliederung, je Aufgabe Nummer, Text,
+    zugeklappte Lösung (KaTeX erst beim Aufklappen: mathe-spaeter) und „Zur Stelle im Artikel“. Mit Skript (bereiche.js):
+    Filter Kapitel/Artikel (?k=, ?a=), „gelöst“-Häkchen, „Nur ungelöste“, „Zufällige Aufgabe“. ids in den Aufgaben
+    bekommen den Präfix k<N>-<Artikel>- (im Modul eindeutig)."""
+    name = _modul_name(arts)
+    kurz = name.split(" – ")[0]
+    de_mp = mp.split("/", 1)[1] if lang != "de" else mp
+    ziele = {l: f"/aufgaben/{'' if l == 'de' else l + '/'}{de_mp}.html" for l in LANGS if l in MODUL_SPRACHEN.get(de_mp, ())}
+    teile, nav, n_alle, kap_opt = [], [], 0, ""
+    for k, kname, nr, ks in _kapitel_folge(arts):
+        abschnitte, n_kap = [], 0
+        for a in ks:
+            ags = (SAMMEL.get(a["path"]) or {}).get("ag", [])
+            if not ags:
+                continue
+            st = art_stamm(a)
+            praefix = f"k{nr}-{st}-"
+            items = []
+            for g in ags:
+                h = _links_absolut(g["html"], a["path"])
+                h = re.sub(r'\sid="([^"]*)"', lambda m: f' id="{praefix}{m.group(1)}"', h)
+                h = h.replace('class="lo-body"', 'class="lo-body mathe-spaeter"')
+                stelle = f'/wissen/{a["path"]}' + (f'#{g["id"]}' if g["id"] else "")
+                items.append(f'<div class="ag" data-id="{html.escape(a["path"] + "#" + (g["id"] or str(len(items))))}">{h}'
+                             f'<div class="ag-fuss"><a class="ag-stelle" href="{html.escape(stelle)}">{T("lk_stelle")}</a></div></div>')
+            n_kap += len(items)
+            abschnitte.append(f'<section class="ag-art" id="k{nr}-{st}" data-a="{st}"><h3><a href="/wissen/{a["path"]}">'
+                              f'{html.escape(a["title"])}</a></h3>{"".join(items)}</section>')
+        if abschnitte:
+            n_alle += n_kap
+            nav.append(f'<li><a href="#k{nr}">{html.escape(kname)}</a> <span class="ag-zahl">({n_kap})</span></li>')
+            kap_opt += f'<option value="{nr}">{html.escape(kname)}</option>'
+            teile.append(f'<section class="ag-kap" id="k{nr}" data-k="{nr}"><h2>{html.escape(kname)}</h2>{"".join(abschnitte)}</section>')
+    extra = f'<span class="cr"><span class="cr-sep" aria-hidden="true"> › </span>{html.escape(kurz)}</span>'
+    titel = f'{T("b_aufgaben")}: {name}'
+    kopf = _bereich_kopf("aufgaben", f'<h1>{html.escape(T("b_aufgaben"))}: {html.escape(kurz)}</h1>', ziele, extra)
+    if name != kurz:
+        kopf = kopf.replace('<div class="art-meta lern-meta">', f'<div class="art-meta lern-meta"><span class="lern-modul">{html.escape(name)}</span>', 1)
+    if teile:
+        mischtest = lernen_url(mp) + "&modus=test"
+        inhalt = (kopf + f'<p class="lede lern-lede">{T("ag_modul_lede")}</p>'
+                  f'<p class="lern-nav"><span>{html.escape(T("aufg_1") if n_alle == 1 else T("aufg_n").format(n=n_alle))}</span>'
+                  f'<span aria-hidden="true"> · </span><a href="{html.escape(lernen_url(mp))}">{T("lernkarten")}</a>'
+                  f'<span aria-hidden="true"> · </span><a href="{html.escape(mischtest)}">{T("ag_test")}</a></p>'
+                  f'<nav class="kap-nav ag-nav" aria-label="{html.escape(T("kap_wahl"))}"><ol>{"".join(nav)}</ol></nav>'
+                  f'<div class="ag-leiste" hidden><label class="lw-feld"><span>{T("lk_kapitel")}</span> <select class="lw-sel ag-k">'
+                  f'<option value="">{T("lk_alle_kap")}</option>{kap_opt}</select></label>'
+                  f'<label class="lw-feld"><span>{T("lw_artikel")}</span> <select class="lw-sel ag-a"><option value="">'
+                  f'{T("lw_alle_art")}</option></select></label>'
+                  f'<label class="ag-offen"><input type="checkbox" class="ag-o"/> {T("ag_offen")}</label>'
+                  f'<button type="button" class="ag-zufall">{T("ag_zufall")}</button>'
+                  f'<span class="ag-stand" aria-live="polite"></span></div>'
+                  + "".join(teile) + f'<p class="ag-nichts" hidden>{T("ag_leer")}</p>'
+                  f'<button type="button" class="lern-reset ag-reset" hidden>{T("ag_reset")}</button>')
     else:
-        inhalt = f'<p class="lede lern-lede">{T("lk_keine")}</p>'
-    titel = f'{T("lernkarten")}: {name}'
-    return _modul_seite(tree, titel, f'{T("lernkarten")} – {name}.', kopf, inhalt, pseudo, mp, 2 + mp.count("/"))
+        inhalt = kopf + f'<p class="lede lern-lede">{T("ag_keine")}</p>'
+    return bereich_seite(titel, f'{titel}. {T("ag_modul_lede")}', inhalt, "aufgaben", ziele, "ag-seite")
 
 def _kapitel_folge(arts):
     """[(Kapitelordner, Name, Nummer, [Artikel])] eines Moduls in Lesefolge."""
@@ -2388,7 +2995,7 @@ def spickzettel_html(tree, mp, arts, lang):
     if teile:
         inhalt = (f'<p class="lede lern-lede">{T("sz_lede")}</p>'
                   f'<p class="lern-nav"><a href="/wissen/{mp}/{blatt_datei(mp)}">{TR("fb_titel", mp in MODUL_REF)}</a>'
-                  f'<span aria-hidden="true"> · </span><a href="/wissen/{mp}/lernkarten.html">{T("lernkarten")}</a></p>'
+                  f'<span aria-hidden="true"> · </span><a href="{html.escape(lernen_url(mp))}">{T("lernkarten")}</a></p>'
                   + _kapitel_leiste([x for x in kapitel if f'data-k="{x[2]}"' in "".join(teile)])
                   + '<div class="sz-inhalt">' + "".join(teile) + "</div>")
     else:
@@ -2417,18 +3024,50 @@ def lernen_seiten(lang, tree, flat, weitere):
     for a in flat + weitere:
         alle.setdefault(modul_pfad(a["path"]), []).append(a)
     KARTEN_STAT[lang] = {}
+    BEREICH_STAT[lang] = {"karten": {}, "aufg": {}, "geschrieben": 0}
+    eintraege = []                                     # W4b: Module der Startseiten von Lernkarten und Aufgaben
+    suffix = "" if lang == "de" else "." + lang
+    n = BEREICH_N
     for mp, arts in module.items():
         ordner = OUT / Path(mp)
         ordner.mkdir(parents=True, exist_ok=True)
         begriffe = _modul_begriffe(arts)
         schreibe(ordner / "begriffe.html", begriffe_html(tree, mp, arts, begriffe, lang))
         karten, stat = modul_karten(mp, arts, begriffe, lang)
-        schreibe(ordner / "lernkarten.html", lernkarten_html(tree, mp, arts, karten, lang))
+        schreibe(ordner / "lernkarten.html", umleitung_html(mp, arts, lang))            # W4b: alte Adresse leitet weiter
         schreibe(ordner / blatt_datei(mp), formeln_html(tree, mp, arts, lang))           # W4a: Formelsammlung/Befehlsübersicht
         schreibe(ordner / "spickzettel.html", spickzettel_html(tree, mp, arts, lang))    # W4a: Kapitel auf einer Seite
         (ordner / "vorschau.json").write_text(json.dumps(vorschau_daten(alle[mp], lang), ensure_ascii=False, separators=(",", ":")),
                                              encoding="utf-8")
         KARTEN_STAT[lang][mp] = stat
+        # W4b: Zahlen für die Verweise unter den Artikeln, Daten der Lernkarten, Aufgabenseite des Moduls
+        for a in arts:
+            PFAD_ART[a["path"]] = a
+            na = len((SAMMEL.get(a["path"]) or {}).get("ag", []))
+            n["aufg"][a["path"]] = na
+            n["kap_a"][kapitel_ordner(a["path"])] = n["kap_a"].get(kapitel_ordner(a["path"]), 0) + na
+        je_art = {}
+        for c in karten:
+            p = c["_a"]["path"]
+            n["karten"][p] = n["karten"].get(p, 0) + 1
+            n["kap_k"][kapitel_ordner(p)] = n["kap_k"].get(kapitel_ordner(p), 0) + 1
+            je_art[c["typ"]] = je_art.get(c["typ"], 0) + 1
+            BEREICH_STAT[lang]["geschrieben"] += 1 if c.get("w") else 0
+        n["mod_k"][mp] = len(karten)
+        m = MODUL_ID.get(mp, "")
+        bereich_schreiben(LERNEN_OUT / "daten" / f"{m}{suffix}.json",
+                          json.dumps(lernen_daten(mp, arts, karten), ensure_ascii=False, separators=(",", ":")))
+        na = sum(n["aufg"].get(a["path"], 0) for a in arts)
+        bereich_schreiben(AUFG_OUT / f"{mp}.html", aufgaben_modul_html(mp, arts, lang))
+        name = klartext(_modul_name(arts))
+        eintraege.append({"m": m, "mp": mp, "name": name, "kurz": name.split(" – ")[0], "gruppe": klartext(arts[0]["crumbs"][0][0]),
+                          "n": {t: je_art.get(t, 0) for t in "bfhl"}, "na": na, "d": f"/lernen/daten/{m}{suffix}.json",
+                          "ref": 1 if mp in MODUL_REF else 0})
+        BEREICH_STAT[lang]["karten"][m] = {t: je_art.get(t, 0) for t in "bfhl"}
+        BEREICH_STAT[lang]["aufg"][m] = na
+    start = "" if lang == "de" else lang + "/"
+    bereich_schreiben(LERNEN_OUT / start / "index.html", lernen_app_html(lang, eintraege))
+    bereich_schreiben(AUFG_OUT / start / "index.html", aufgaben_start_html(lang, eintraege))
 
 def _minuten(a):
     """Lesezeit eines Artikels in Minuten, einmal je Artikel berechnet."""
@@ -2554,21 +3193,22 @@ def build_lang(lang, tree):
             mp = modul_pfad(art["path"])
             zaehler[mp] = zaehler.get(mp, 0) + 1
             KAPITEL_NR[kap] = zaehler[mp]
+    seiten = []                                        # W4b: (Ziel, HTML); geschrieben nach lernen_seiten
     for idx, art in enumerate(flat):
         prev_a = flat[idx - 1] if idx > 0 else None
         nxt = flat[idx + 1] if idx + 1 < len(flat) else None
         dest = OUT / Path(art["path"])
         dest.parent.mkdir(parents=True, exist_ok=True)
-        schreibe(dest, render_article(art, tree, prev_a, nxt))
+        seiten.append((dest, render_article(art, tree, prev_a, nxt)))
         p2 = (prev_a.get("alt") or prev_a) if prev_a else None   # Nachbarn der ausführlichen Fassung möglichst ebenfalls ausführlich
         n2 = (nxt.get("alt") or nxt) if nxt else None
         if art.get("alt"):
-            schreibe(OUT / Path(art["alt"]["path"]), render_article(art["alt"], tree, p2, n2))
+            seiten.append((OUT / Path(art["alt"]["path"]), render_article(art["alt"], tree, p2, n2)))
         h = art.get("human")                           # von Hand geschriebene Fassung(en) desselben Themas
         if h:
-            schreibe(OUT / Path(h["path"]), render_article(h, tree, prev_a, nxt))
+            seiten.append((OUT / Path(h["path"]), render_article(h, tree, prev_a, nxt)))
             if h.get("alt"):
-                schreibe(OUT / Path(h["alt"]["path"]), render_article(h["alt"], tree, p2, n2))
+                seiten.append((OUT / Path(h["alt"]["path"]), render_article(h["alt"], tree, p2, n2)))
 
     start = OUT if lang == "de" else OUT / lang
     start.mkdir(parents=True, exist_ok=True)
@@ -2580,6 +3220,7 @@ def build_lang(lang, tree):
         mp = _modul_von(nd)
         if mp:
             d["mp"] = mp                               # Modul: Adresse für „Begriffe · Lernkarten“
+            d["m"] = MODUL_ID.get(mp, "")                # W4b: Lernkarten unter /lernen/?m=…
             if mp in MODUL_REF:
                 d["ref"] = 1                           # W4a: Befehlsübersicht (uebersicht.html) statt Formeln
         d["articles"] = []
@@ -2604,6 +3245,8 @@ def build_lang(lang, tree):
     humans += [h["alt"] for h in humans if h.get("alt")]
     suchindex_schreiben(lang, flat + alts)
     lernen_seiten(lang, tree, flat, alts + humans)     # je Modul: Begriffe, Lernkarten, Daten der Link-Vorschau
+    for dest, text in seiten:                          # W4b: Artikel erst jetzt, mit den Verweisen auf Lernkarten und Aufgaben
+        schreibe(dest, _BEREICH_PLATZ_RE.sub(lambda m: bereich_links_html(m.group(1)), text))
     return len(flat), len(alts), len(humans)
 
 # ------------------------------------------------------------- Suchindex (W3a) ----
@@ -2686,8 +3329,19 @@ def main():
             MODUL_SPRACHEN.setdefault(modul_pfad(p), set()).add(lang)
             if ist_ref(a):
                 MODUL_REF.add(modul_pfad(a["path"]))     # W4a: Modul mit „Übersicht“ (Adresse dieser Sprache)
+    reihen = {}                                        # W4b: m = Ordner unter content/ (bei mehreren Modulen darin: Ordner-Modul)
+    for lang, tree in TREES.items():
+        for a in flatten(tree):
+            p = a["path"] if lang == "de" else a["path"].split("/", 1)[1]
+            reihen.setdefault(a["reihe"], set()).add(modul_pfad(p))
+    for lang, tree in TREES.items():
+        for a in flatten(tree):
+            p = a["path"] if lang == "de" else a["path"].split("/", 1)[1]
+            r = a["reihe"]
+            MODUL_ID[modul_pfad(a["path"])] = r if len(reihen[r]) == 1 else f"{r}-{modul_pfad(p).rsplit('/', 1)[-1]}"
     counts = {lang: build_lang(lang, tree) for lang, tree in TREES.items()}
     alt = alte_seiten_entfernen()
+    alt_bereich = bereiche_aufraeumen()                # W4b: alte Dateien unter web/lernen, web/aufgaben
     for p in sorted((OUT / "data" / "suche").rglob("*.json")):   # Suchteile alter Module oder Sprachen
         if p.resolve() not in GESCHRIEBEN_DATEN:
             p.unlink()
@@ -2698,6 +3352,14 @@ def main():
         WISSEN_JS.replace("/*UI_LERNEN*/{}", json.dumps(ui_js, ensure_ascii=False, separators=(",", ":"))), encoding="utf-8")
     (OUT / "assets" / "suche.js").write_text(SUCHE_JS, encoding="utf-8")
     (OUT / "assets" / "formel-export.js").write_text(FORMEL_EXPORT_JS, encoding="utf-8")   # W4a: lädt erst beim Klick
+    ui_b = {l: {k: UI[l][k] for k in BEREICHE_JS if k in UI[l]} for l in LANGS}   # W4b: Wörter für bereiche.js
+    (OUT / "assets" / "bereiche.js").write_text(
+        BEREICHE_JS_CODE.replace("/*UI_BEREICHE*/{}", json.dumps(ui_b, ensure_ascii=False, separators=(",", ":"))), encoding="utf-8")
+    for lang, st in BEREICH_STAT.items():               # W4b: Karten je Art, Aufgaben je Modul
+        arten = {t: sum(k[t] for k in st["karten"].values()) for t in "bfhl"}
+        print(f"  Bereiche {lang}: Karten " + ", ".join(f"{t} {v}" for t, v in arten.items())
+              + f" (geschrieben {st['geschrieben']}); Aufgaben {sum(st['aufg'].values())}: "
+              + ", ".join(f"{m} {v}" for m, v in st["aufg"].items()) + (f"; {alt_bereich} alte Dateien entfernt" if alt_bereich and lang == "de" else ""))
     n_start = startseiten_schreiben()
     print(f"  Startseiten: {n_start} Übersetzungen von web/index.html")
     day = write_version()
@@ -2761,6 +3423,11 @@ STARTSEITE_TEXTE = {
                         "With the browser editor to rebuild them yourself.",
         "banner": "Still under construction, expanded continuously.", "update": "Last update:",
         "nav_wissen": "Knowledge", "nav_editor": "Editor", "nav_videos": "Videos", "editor_oeffnen": "Open editor",
+        "nav_lernen": "Flashcards", "nav_aufgaben": "Exercises", "nav_bereiche": "Sections",
+        "be_wissen": "Explanations from the ground up: detailed, short or as a formula collection.",
+        "be_lernen": "Terms, formulas, derivations and key relationships as a card box, quiz or mixed test.",
+        "be_aufgaben": "All exercises from the articles, with detailed solutions.",
+        "be_editor": "Build animations and figures right in the browser.",
         "eyebrow": "Electrical engineering — and so on",
         "h1": 'Electrical engineering and so on, explained <span class="u">in depth</span> and animated.',
         "hero_p": "EtUndSo brings together step-by-step explanations, animations and tools for electrical engineering and mathematics "
@@ -2807,6 +3474,11 @@ STARTSEITE_TEXTE = {
                         "Con el editor en el navegador para reconstruirlas tú mismo.",
         "banner": "Todavía en construcción; se amplía continuamente.", "update": "Última actualización:",
         "nav_wissen": "Conocimiento", "nav_editor": "Editor", "nav_videos": "Vídeos", "editor_oeffnen": "Abrir el editor",
+        "nav_lernen": "Tarjetas", "nav_aufgaben": "Ejercicios", "nav_bereiche": "Secciones",
+        "be_wissen": "Explicaciones desde la base: detalladas, breves o como formulario.",
+        "be_lernen": "Términos, fórmulas, deducciones y relaciones clave: fichero de tarjetas, cuestionario o prueba mixta.",
+        "be_aufgaben": "Todos los ejercicios de los artículos, con soluciones detalladas.",
+        "be_editor": "Crea animaciones y figuras directamente en el navegador.",
         "eyebrow": "Ingeniería eléctrica — y más",
         "h1": 'Ingeniería eléctrica y más, explicada <span class="u">a fondo</span> y animada.',
         "hero_p": "EtUndSo reúne explicaciones paso a paso, animaciones y herramientas para módulos de ingeniería eléctrica y matemáticas "
@@ -2852,6 +3524,11 @@ STARTSEITE_TEXTE = {
         "beschreibung": "EtUndSo：清晰的动画讲解和工具，涵盖电气工程与数学课程模块，还有更多。借助浏览器中的编辑器亲手重现。",
         "banner": "仍在建设中，持续扩充", "update": "最近更新：",
         "nav_wissen": "知识库", "nav_editor": "编辑器", "nav_videos": "视频", "editor_oeffnen": "打开编辑器",
+        "nav_lernen": "学习卡片", "nav_aufgaben": "练习", "nav_bereiche": "栏目",
+        "be_wissen": "从基础讲起的讲解：详细、简要或公式汇编。",
+        "be_lernen": "术语、公式、推导和关键联系：卡片盒、测验或综合测试。",
+        "be_aufgaben": "文章中的全部练习，附详细解答。",
+        "be_editor": "直接在浏览器中制作动画和插图。",
         "eyebrow": "电气工程及更多",
         "h1": '电气工程及更多，<span class="u">详细</span>讲解，配有动画。',
         "hero_p": "EtUndSo 汇集电气工程和数学课程模块的分步讲解、动画和工具，也顺带涉及其他一些学科。你看到的内容，都可以在"
@@ -2887,6 +3564,11 @@ STARTSEITE_TEXTE = {
                         "mathématiques — et plus encore. Avec l’éditeur dans le navigateur pour les reconstruire soi-même.",
         "banner": "Encore en construction, enrichi en continu.", "update": "Dernière mise à jour :",
         "nav_wissen": "Connaissances", "nav_editor": "Éditeur", "nav_videos": "Vidéos", "editor_oeffnen": "Ouvrir l’éditeur",
+        "nav_lernen": "Fiches", "nav_aufgaben": "Exercices", "nav_bereiche": "Rubriques",
+        "be_wissen": "Des explications en partant des bases\u00a0: détaillées, courtes ou sous forme de formulaire.",
+        "be_lernen": "Notions, formules, démonstrations et relations clés\u00a0: boîte à fiches, quiz ou test mixte.",
+        "be_aufgaben": "Tous les exercices des articles, avec des solutions détaillées.",
+        "be_editor": "Créez des animations et des figures directement dans le navigateur.",
         "eyebrow": "Électrotechnique — et plus",
         "h1": 'L’électrotechnique et plus, expliquée <span class="u">en détail</span> et animée.',
         "hero_p": "EtUndSo réunit des explications pas à pas, des animations et des outils pour les modules d’électrotechnique et de "
@@ -2936,6 +3618,11 @@ STARTSEITE_TEXTE = {
                         "fazlası. Tarayıcıdaki editörle kendiniz yeniden oluşturabilirsiniz.",
         "banner": "Hâlâ yapım aşamasında, sürekli genişletiliyor.", "update": "Son güncelleme:",
         "nav_wissen": "Bilgi", "nav_editor": "Editör", "nav_videos": "Videolar", "editor_oeffnen": "Editörü aç",
+        "nav_lernen": "Kartlar", "nav_aufgaben": "Alıştırmalar", "nav_bereiche": "Bölümler",
+        "be_wissen": "Temelden başlayan açıklamalar: ayrıntılı, kısa ya da formül derlemesi olarak.",
+        "be_lernen": "Kavramlar, formüller, türetmeler ve temel ilişkiler: kart kutusu, test ya da karma sınav.",
+        "be_aufgaben": "Makalelerdeki tüm alıştırmalar, ayrıntılı çözümleriyle.",
+        "be_editor": "Animasyonları ve şekilleri doğrudan tarayıcıda oluşturun.",
         "eyebrow": "Elektrik mühendisliği — ve daha fazlası",
         "h1": 'Elektrik mühendisliği ve daha fazlası, <span class="u">ayrıntılı</span> açıklamalı ve animasyonlu.',
         "hero_p": "EtUndSo, elektrik mühendisliği ve matematik modülleri için adım adım açıklamaları, animasyonları ve araçları bir araya "
@@ -3022,6 +3709,8 @@ def startseite_html(vorlage, l):
     t = _SPRACHWAHL.sub(lambda m: f"<!-- sprachwahl-{m.group(1)} -->" + lang_switch({"ziele": ziele}, m.group(1))
                         + f"<!-- /sprachwahl-{m.group(1)} -->", t)
     t = t.replace('href="/wissen/"', f'href="/wissen/{l}/"')
+    for b in ("lernen", "aufgaben"):                # W4b: Bereiche Lernkarten und Aufgaben
+        t = t.replace(f'href="/{b}/"', f'href="/{b}/{l}/"')
     def bild(m):
         rel = m.group(1)
         return f'src="/abbildungen/{l}/{rel}"' if (ABB_DIR / l / rel).exists() else m.group(0)
@@ -3886,6 +4575,167 @@ details.mk-kap details.mk-kap{margin-left:1em;}
   .sz-seite .zf-g{margin:.3em 0;} .sz-seite .zf-l li{margin:.1em 0;font-size:11.5pt;}
   .fb-nr{color:#454b48;}
 }
+/* ---------- Bereiche (W4b, 11.11.2026): Wissen · Lernkarten · Aufgaben · Editor in der Kopfleiste; breit eine Linkreihe
+   (aktiver Bereich orange unterstrichen), schmal ein Menü. Die Sprachwahl steht rechts vor der Suche. ---------- */
+.topbar .bereiche{display:flex;align-items:center;min-width:0;}
+.topbar .b-liste{display:flex;align-items:center;gap:2px;margin:0;padding:0;list-style:none;}
+.topbar .b-liste li{margin:0;}
+.topbar .b-l{display:block;padding:7px 10px 5px;color:var(--bar-ink);font-weight:600;font-size:14.5px;line-height:1.2;white-space:nowrap;
+  border-bottom:2px solid transparent;}
+.topbar .b-l:hover{color:var(--bar-hl);text-decoration:none;}
+.topbar .b-l.on{color:var(--bar-hl);border-bottom-color:var(--bar-hl);}
+.topbar .b-l:focus-visible{outline:2px solid var(--bar-hl);outline-offset:2px;border-radius:6px;}
+.topbar .b-menu{display:none;position:relative;}
+.topbar .b-toggle{display:inline-flex;align-items:center;gap:7px;height:36px;padding:0 11px 0 13px;border-radius:999px;border:1px solid var(--bar-rand);
+  background:var(--bar-soft);color:var(--bar-ink);font:inherit;font-size:13.5px;font-weight:700;line-height:1;cursor:pointer;white-space:nowrap;}
+.topbar .b-toggle:hover{border-color:var(--bar-hl);}
+.topbar .b-toggle[aria-expanded="true"]{border-color:var(--bar-hl);color:var(--bar-hl);}
+.topbar .b-toggle:focus-visible{outline:2px solid var(--bar-hl);outline-offset:2px;}
+.topbar .b-toggle .l-pfeil{opacity:.85;transition:transform .15s;}
+.topbar .b-toggle[aria-expanded="true"] .l-pfeil{transform:rotate(180deg);}
+.topbar .b-icon{display:none;flex:0 0 auto;}
+.b-menu .l-menu{position:absolute;top:calc(100% + 6px);left:0;z-index:40;min-width:200px;margin:0;padding:6px;list-style:none;background:var(--panel);
+  border:1px solid var(--border);border-radius:12px;box-shadow:0 12px 32px rgba(10,20,15,.16),0 2px 6px rgba(10,20,15,.08);}
+.b-menu .l-menu[hidden]{display:none;}
+.b-menu .l-menu li{margin:0;padding:0;font-size:14.5px;line-height:1.3;}
+.b-menu .l-item{display:flex;align-items:center;justify-content:space-between;gap:14px;width:100%;padding:9px 12px;border:0;border-radius:8px;
+  background:none;color:var(--ink);font:inherit;font-weight:500;text-align:left;text-decoration:none;cursor:pointer;}
+.b-menu a.l-item:hover,.b-menu a.l-item:focus,.b-menu button.l-item:hover{background:var(--soft);text-decoration:none;}
+.b-menu .l-item.on{color:var(--accent3);font-weight:700;background:color-mix(in srgb,var(--accent3) 9%,var(--panel));}
+.b-menu .l-item:focus-visible{outline:2px solid var(--accent3);outline-offset:2px;}
+.b-menu .b-thema{display:none;margin-top:4px;padding-top:4px;border-top:1px solid var(--border);}
+:root[data-theme="dark"] .b-menu .l-menu{border-color:var(--rahmen);box-shadow:0 12px 32px rgba(0,0,0,.55);}
+.topbar .langs-top{margin-left:auto;}
+.topbar .langs-top~.searchBtn{margin-left:0;}
+@media(max-width:900px){ .topbar .langs-top~.searchBtn{margin-left:auto;} }
+@media(max-width:1239px){ .topbar.mit-mitte .b-liste{display:none;} .topbar.mit-mitte .b-menu{display:block;} }   /* Artikel: Mitte belegt */
+@media(max-width:719px){ .topbar .b-liste{display:none;} .topbar .b-menu{display:block;} }
+@media(max-width:560px){ .topbar .b-cur,.topbar .b-toggle .l-pfeil{display:none;} .topbar .b-icon{display:block;}
+  .topbar .b-toggle{width:36px;padding:0;justify-content:center;} }
+@media(max-width:400px){ .topbar .b-toggle{width:32px;height:32px;border-radius:9px;} }
+@media(max-width:379px){ .topbar.mit-mitte #themeBtn{display:none;} .topbar.mit-mitte .b-menu .b-thema{display:block;} }   /* sehr schmal: Hell/Dunkel im Menü */
+/* Seiten der Bereiche: ohne Themenbaum, eine Spalte */
+.article.bereich-seite{grid-template-columns:minmax(0,1fr);max-width:900px;margin:0 auto;}
+.bereich-seite [hidden]{display:none!important;}
+.article .bm-g{margin:1.5em 0 .45em;font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);}
+.article ul.bm-liste{list-style:none;margin:0 0 1em;padding:0;}
+.article .bm-liste li.bm{display:flex;flex-wrap:wrap;align-items:baseline;gap:3px 12px;margin:0 0 8px;padding:11px 15px;border:1px solid var(--border);
+  border-radius:12px;background:var(--panel);font-size:16px;}
+:root[data-theme="dark"] .article .bm-liste li.bm{border-color:var(--rahmen);}
+.bm-t{font-weight:700;font-size:17px;}
+.bm-n{font-size:14px;color:var(--muted);}
+.bm-s{flex-basis:100%;font-size:14px;}
+.article p.lw-ohne{font-size:15.5px;color:var(--muted);}
+/* Lernkarten-App: Auswahl, Kartenarten, Modus */
+.lw-app{margin:0 0 1.6em;}
+.lw-wahl,.ag-leiste{display:flex;flex-wrap:wrap;align-items:flex-end;gap:10px 14px;margin:0 0 12px;}
+.lw-feld{display:flex;flex-direction:column;gap:3px;min-width:0;flex:1 1 200px;font-size:13px;font-weight:600;color:var(--muted);}
+.lw-sel{min-width:0;width:100%;font:inherit;font-size:15px;font-weight:500;color:var(--ink);padding:7px 9px;border:1px solid var(--border);
+  border-radius:9px;background:var(--panel);}
+.lw-sel:focus-visible,.lw-art input:focus-visible,.mt-kap input:focus-visible,.ag-offen input:focus-visible{outline:2px solid var(--accent3);outline-offset:2px;}
+.lw-arten,.mt-kap{display:flex;flex-wrap:wrap;gap:4px 18px;margin:0 0 12px;padding:7px 13px 10px;border:1px solid var(--border);border-radius:10px;}
+.lw-arten legend,.mt-kap legend{padding:0 4px;font-size:13px;font-weight:600;color:var(--muted);}
+:root[data-theme="dark"] :is(.lw-arten,.mt-kap,.lw-sel){border-color:var(--rahmen);}
+.lw-art,.mt-k,.mt-alle,.ag-offen{font-size:15px;cursor:pointer;}
+.lw-art{white-space:nowrap;}
+.lw-n{font-size:13px;color:var(--muted);}
+.mt-kap{flex-direction:column;}
+.mt-alle{font-weight:600;}
+.lw-modi{display:inline-flex;flex-wrap:wrap;gap:2px;max-width:100%;margin:0 0 16px;padding:3px;border:1px solid var(--border);border-radius:999px;background:var(--soft);}
+.lw-modus{border:0;background:transparent;color:var(--ink);font:inherit;font-size:15px;font-weight:600;padding:7px 16px;border-radius:999px;cursor:pointer;}
+.lw-modus:hover{color:var(--accent);}
+.lw-modus[aria-pressed="true"]{background:var(--accent);color:var(--on-accent);}
+.lw-modus:focus-visible{outline:2px solid var(--accent3);outline-offset:2px;}
+.article p.lw-hinweis{font-size:15.5px;color:var(--muted);}
+.article .lw-buehne p.lern-lede{font-size:16.5px;}
+.lw-buehne .lk-zahl{margin:0 0 10px;}
+.article p.lk-tasten{margin:6px 0 0;font-size:13px;color:var(--muted);}
+/* Herleitung auf der Karte: Ziel, Ausgangspunkt, Schritte */
+.hl-teil{margin:12px 0 0;padding:8px 13px 10px;border-left:3px solid var(--accent);border-radius:0 8px 8px 0;
+  background:color-mix(in srgb,var(--accent) 5%,var(--panel));font-size:16.5px;font-weight:400;line-height:1.6;}
+.hl-ziel{border-left-color:var(--accent3);background:var(--soft);}
+.lk-hinten .hl-teil:first-child{margin-top:0;}
+.hl-k{display:block;margin-bottom:2px;font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);}
+.article .hl-i p,.article .hl-i li{font-size:16.5px;} .article .hl-i p{margin:.3em 0;}
+.hl-i .katex-display{margin:.5em 0;}
+/* Quiz und Mischtest */
+.qz-setup{display:flex;flex-wrap:wrap;align-items:flex-end;gap:10px 14px;margin:0 0 10px;}
+.qz-setup .lw-feld{flex:0 0 130px;}
+.qz-setup .lk-um,.mt-fort{width:auto;}
+.mt-fort{margin:0 0 14px;}
+.article p.qz-kopf{margin:0 0 8px;font-size:13px;font-weight:600;letter-spacing:.02em;color:var(--muted);}
+.qz-frage{padding:14px 18px 16px;border:1px solid var(--border);border-top:4px solid var(--accent);border-radius:14px;background:var(--panel);}
+.article p.qz-p{margin:0 0 6px;font-size:14px;color:var(--muted);}
+.qz-vorne{margin:0 0 12px;font-size:19px;font-weight:600;line-height:1.45;}
+.article ol.qz-opt{display:grid;grid-template-columns:minmax(0,1fr);gap:8px;list-style:none;margin:0;padding:0;}
+.article .qz-opt li{margin:0;min-width:0;}
+.qz-b{display:flex;align-items:flex-start;gap:10px;width:100%;max-width:100%;min-width:0;padding:10px 12px;border:1px solid var(--border);border-radius:10px;background:var(--panel);
+  color:var(--ink);font:inherit;font-size:16px;line-height:1.5;text-align:left;cursor:pointer;}
+.qz-b:hover:not(:disabled){border-color:var(--accent);}
+.qz-b:focus-visible,.mt-b:focus-visible,.ag-zufall:focus-visible{outline:2px solid var(--accent3);outline-offset:2px;}
+.qz-b:disabled{cursor:default;}
+.qz-nr{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;margin-top:1px;border-radius:50%;
+  background:var(--soft);color:var(--muted);font-size:13px;font-weight:700;}
+.qz-a{flex:1;min-width:0;overflow-wrap:anywhere;}
+.qz-a .lk-formel .katex-display,.qz-a .katex-display{margin:.1em 0;}
+.qz-b.gewaehlt{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent);}
+.qz-b.ok{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 8%,var(--panel));color:var(--ink);box-shadow:none;}
+.qz-b.ok .qz-nr{background:var(--accent);color:var(--on-accent);}
+.qz-b.nein{border-color:var(--accent3);background:var(--soft);color:var(--ink);box-shadow:none;}
+.qz-b.nein .qz-nr{background:var(--accent3);color:#fff;}
+:root[data-theme="dark"] :is(.qz-frage,.qz-b,.lk-karte){border-color:var(--rahmen);}
+:root[data-theme="dark"] .qz-frage{border-top-color:var(--accent);}
+:root[data-theme="dark"] .qz-b.ok,:root[data-theme="dark"] .qz-b.gewaehlt{border-color:var(--accent);}
+:root[data-theme="dark"] .qz-b.nein{border-color:var(--accent3);}
+.qz-weiter{margin-top:12px;}
+.article h2.qz-h{margin:.4em 0 .3em;}
+.article h3.qz-h3{margin:1.2em 0 .4em;}
+.article p.qz-ergebnis{margin:0 0 .6em;font-size:20px;font-weight:700;color:var(--accent);}
+.article ol.qz-fehler,.article ol.mt-liste{margin:0 0 1.2em;padding-left:1.5em;}
+.article .qz-fehler li{padding:8px 0;border-bottom:1px solid var(--border);}
+.qz-fehler .qz-vorne{margin:0 0 4px;font-size:16.5px;}
+.qz-deine,.qz-richtig{margin:3px 0;font-size:15.5px;}
+.qz-richtig .hl-k{color:var(--accent);} .qz-deine .hl-k{color:var(--accent3);}
+.article .mt-liste>li.mt-e{margin:0 0 14px;padding:12px 15px;border:1px solid var(--border);border-left:4px solid var(--border);border-radius:10px;}
+:root[data-theme="dark"] .article .mt-liste>li.mt-e{border-color:var(--rahmen);}
+.article .mt-liste>li.mt-ok{border-left-color:var(--accent);}
+.article .mt-liste>li.mt-teil{border-left-color:color-mix(in srgb,var(--accent3) 50%,var(--border));}
+.article .mt-liste>li.mt-nein{border-left-color:var(--accent3);}
+.mt-aufg .aufg{margin:0;}
+.mt-selbst{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:10px 0 6px;}
+.mt-selbst .hl-k{display:inline;margin:0 4px 0 0;}
+.mt-b{padding:6px 14px;border:1px solid var(--border);border-radius:999px;background:var(--panel);color:var(--ink);font:inherit;font-size:14.5px;font-weight:600;cursor:pointer;}
+.mt-b:hover{border-color:var(--accent);}
+.mt-b[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent);}
+.article ul.mt-links{margin:0 0 1em;padding-left:1.2em;}
+.article .mt-links li{font-size:15.5px;}
+.mt-links .hl-k{display:inline;}
+/* Aufgabenseite eines Moduls */
+.ag-leiste{padding:12px 14px;border:1px solid var(--border);border-radius:12px;background:var(--soft);}
+:root[data-theme="dark"] .ag-leiste{border-color:var(--rahmen);}
+.ag-leiste .lw-feld{flex:1 1 190px;}
+.ag-offen{align-self:center;white-space:nowrap;}
+.ag-zufall{padding:7px 14px;border:1px solid var(--accent);border-radius:9px;background:var(--accent);color:var(--on-accent);font:inherit;font-size:15px;
+  font-weight:600;cursor:pointer;}
+.ag-zufall:hover{filter:brightness(1.08);}
+.ag-stand{align-self:center;font-size:14.5px;font-weight:600;color:var(--accent);}
+.ag-kap,.ag-art,.ag{scroll-margin-top:72px;}
+.article .ag-art>h3{font-size:18px;}
+.ag{margin:0 0 18px;}
+.ag .aufg{margin-bottom:6px;}
+.ag-fuss{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:6px 14px;margin:0 0 4px;font-size:14px;}
+.ag-ok{font-weight:600;color:var(--muted);cursor:pointer;}
+.ag-geloest .ag-ok{color:var(--accent);}
+.ag-hl .aufg{box-shadow:0 0 0 3px color-mix(in srgb,var(--accent3) 55%,transparent);}
+.ag-zahl{font-size:.9em;color:var(--muted);}
+/* Verweise unter dem Artikel: Lernkarten und Aufgaben */
+.bereich-links{margin:1.6em 0 1.1em;padding:9px 16px;border:1px solid var(--border);border-radius:12px;background:var(--soft);}
+:root[data-theme="dark"] .bereich-links{border-color:var(--rahmen);}
+.article .bereich-links p{margin:.2em 0;font-size:15.5px;}
+.bl-k{margin-right:4px;font-weight:700;color:var(--muted);}
+@media(max-width:620px){ .lw-modus{padding:7px 12px;font-size:14.5px;} .qz-frage{padding:12px 13px 14px;} .qz-vorne{font-size:17.5px;}
+  .lw-feld{flex-basis:100%;} .qz-setup .lw-feld{flex-basis:120px;} }
+@media print{ .bereich-links,.lw-app,.ag-leiste,.ag-fuss,.ag-reset,.ag-nav{display:none!important;} }
 """
 
 WISSEN_JS = r"""
@@ -3894,7 +4744,7 @@ var NICHTS={de:"Nichts gefunden für „{q}\".",en:"Nothing found for „{q}\"."
 // Suche: Teilwort-/Infix-Treffer, umlaut-/ß-tolerant, gerankt + hervorgehoben. Der Kern steht in suche.js (W3a, gemeinsam
 // mit der Startseite) und wird erst beim ersten Öffnen geladen; er holt zuerst nur Titel und Abschnitte, den Volltext je
 // Modul, sobald gesucht wird (und nur Module, die das Wort enthalten können).
-var KATEX_OPT={delimiters:[{left:"$$",right:"$$",display:true},{left:"$",right:"$",display:false},{left:"\\(",right:"\\)",display:false}],strict:false,ignoredClasses:["fb-spaeter"]};   // Formelblatt (W4a): erst beim Öffnen setzen
+var KATEX_OPT={delimiters:[{left:"$$",right:"$$",display:true},{left:"$",right:"$",display:false},{left:"\\(",right:"\\)",display:false}],strict:false,ignoredClasses:["fb-spaeter","mathe-spaeter"]};   // Formelblatt (W4a): erst beim Öffnen setzen
 function mathe(el){ if(window.renderMathInElement) try{ renderMathInElement(el,KATEX_OPT); }catch(e){} }
 (function(){
   var overlay=document.getElementById("searchOverlay"), input=document.getElementById("searchInput"),
@@ -3984,6 +4834,9 @@ function mathe(el){ if(window.renderMathInElement) try{ renderMathInElement(el,K
     if(e.key==="Escape") menus.forEach(function(m){ if(isOpen(m)) close(m, m.contains(document.activeElement)); });
   });
   document.addEventListener("click",function(e){ menus.forEach(function(m){ if(isOpen(m) && !m.contains(e.target)) close(m,false); }); });
+  // W4b: „Hell/Dunkel“ im Bereichsmenü (nur sehr schmale Artikelseiten, dort fehlt der Knopf in der Leiste)
+  [].forEach.call(document.querySelectorAll(".b-thema-b"),function(b){ b.addEventListener("click",function(){
+    var t=document.getElementById("themeBtn"); if(t) t.click(); menus.forEach(function(m){ close(m,false); }); }); });
 })();
 // Inhaltsverzeichnis: aktuellen Abschnitt beim Scrollen markieren.
 (function(){
@@ -4433,7 +5286,7 @@ var LERNEN=(function(){
   function inhalt(d,nd,tiefe){
     if(nd.mp){ var z=$.el("div","side-lernen"), a1=$.el("a",null,$.w("begriffe")||"Begriffe"), a2=$.el("a",null,$.w("lernkarten")||"Lernkarten"),
         a3=$.el("a",null,nd.ref?$.w("fb_titel_ref"):($.w("ans_formeln")||"Formeln"));   // W4a: Informatik: Befehlsübersicht
-      a1.href="/wissen/"+nd.mp+"/begriffe.html"; a2.href="/wissen/"+nd.mp+"/lernkarten.html"; a3.href="/wissen/"+nd.mp+(nd.ref?"/uebersicht.html":"/formeln.html");
+      a1.href="/wissen/"+nd.mp+"/begriffe.html"; a2.href="/lernen/"+lang+"?m="+nd.m; a3.href="/wissen/"+nd.mp+(nd.ref?"/uebersicht.html":"/formeln.html");
       [a1,a2,a3].forEach(function(a,i){ if(i){ var p=$.el("span",null," · "); p.setAttribute("aria-hidden","true"); z.appendChild(p); } z.appendChild(a); });
       d.appendChild(z); }
     if(nd.articles && nd.articles.length){ var ul=$.el("ul");
@@ -4652,85 +5505,7 @@ var LERNEN=(function(){
     gs.forEach(function(g){ g.hidden=!g.querySelector(".bg-e:not([hidden])"); });
     n.textContent=$.w("bg_anzahl",{n:k}); if(nichts) nichts.hidden=k>0; });
 })();
-// Lernkarten: Stapel mit Leitner-Fächern. Fach 1–5 = nächste Wiederholung nach 1, 3, 7, 14, 30 Tagen. „Wusste ich“: ein
-// Fach höher (neue Karte: Fach 2; nach „Wusste ich nicht“ in derselben Sitzung nur Fach 1); „Unsicher“: Fach bleibt (neue
-// Karte: Fach 1); „Wusste ich nicht“: Fach 1 und heute noch einmal am Ende des Stapels. Neue Karten: 20 je Tag und Modul,
-// weitere per Knopf. Leitner statt SM-2: drei Knöpfe passen direkt auf die Fächer, ohne Leichtigkeitsfaktor je Karte.
-// Stand je Karte [Fach, fällig am Tag] unter „etundso-karten“; ohne Skript zeigt die Seite die Karten als Liste.
-(function(){
-  var $=LERNEN, app=document.querySelector(".lk-app"); if(!app) return;
-  var K="etundso-karten", N="etundso-karten-neu", AB=[0,1,3,7,14,30], NEU=20, mp=app.getAttribute("data-modul");
-  var liste=document.querySelector(".lk-alle");
-  var karten=[].slice.call(document.querySelectorAll(".lk-alle li.lk")).map(function(li){ var s=li.closest(".lk-kap");
-    return {id:li.getAttribute("data-id"), typ:li.getAttribute("data-typ"), k:s?s.getAttribute("data-k"):"", kn:s?s.querySelector("h2").textContent:"", li:li}; });
-  if(!karten.length) return;
-  function q(c){ return app.querySelector(c); }
-  var sel=q(".lk-sel"), zahlEl=q(".lk-zahl"), karte=q(".lk-karte"), kopf=q(".lk-kopf"), vorne=q(".lk-vorne"), hinten=q(".lk-hinten"),
-      steuer=q(".lk-steuer"), um=q(".lk-um"), bew=q(".lk-bew"), ende=q(".lk-ende"), neuB=q(".lk-neu"), fuss=q(".lk-fuss"), stelle=q(".lk-stelle");
-  var TYP={b:$.w("lk_begriff"), f:$.w("lk_formel"), l:$.w("lk_luecke")};
-  var schlange=[], jetzt=null, gerade={}, extra=0;
-  function heute(){ var d=new Date(); return Math.floor((d.getTime()-d.getTimezoneOffset()*60000)/864e5); }
-  function stand(){ return $.get(K,{}); }
-  function neuHeute(){ var e=$.get(N,{})[mp]; return (e && e[0]===heute()) ? e[1] : 0; }
-  function neuZaehlen(){ var n=$.get(N,{}); n[mp]=[heute(),neuHeute()+1]; $.set(N,n); }
-  function auswahl(){ var k=sel.value; return karten.filter(function(c){ return !k || c.k===k; }); }
-  function baue(){
-    var s=stand(), t=heute(), faellig=[], neu=[];
-    auswahl().forEach(function(c){ var x=s[c.id]; if(x){ if(x[1]<=t) faellig.push(c); } else neu.push(c); });
-    faellig.sort(function(a,b){ return s[a.id][1]-s[b.id][1] || s[a.id][0]-s[b.id][0]; });
-    schlange=faellig.concat(neu.slice(0,Math.max(0,NEU-neuHeute())+extra));
-    zeige(); }
-  function fach(b,r,id){ return r===0 ? 1 : r===1 ? Math.max(1,b) : gerade[id] ? 1 : Math.min(5,Math.max(1,b)+1); }
-  function tage(d){ return d===0 ? $.w("lk_heute") : d===1 ? $.w("lk_morgen") : $.w("lk_tage",{n:d}); }
-  function zeige(){
-    var s=stand(), neu=0; schlange.forEach(function(c){ if(!s[c.id]) neu++; });
-    zahlEl.textContent=$.w("lk_faellig",{n:schlange.length})+(neu?" · "+$.w("lk_davon_neu",{n:neu}):"");
-    jetzt=schlange[0]||null;
-    karte.hidden=steuer.hidden=fuss.hidden=!jetzt; ende.hidden=!!jetzt;
-    if(!jetzt){ var rest=auswahl().filter(function(c){ return !s[c.id]; }).length;
-      neuB.hidden=!rest; neuB.textContent=$.w("lk_mehr_neu",{n:Math.min(NEU,rest)}); return; }
-    kopf.textContent=TYP[jetzt.typ]+" · "+jetzt.kn;
-    vorne.innerHTML=jetzt.li.querySelector(".lk-v").innerHTML;
-    var t=vorne.querySelector(".lk-typ"); if(t) t.parentNode.removeChild(t);
-    hinten.innerHTML=jetzt.li.querySelector(".lk-r").innerHTML; hinten.hidden=true;
-    var qu=jetzt.li.querySelector(".lk-q"); stelle.href=qu.getAttribute("href"); stelle.title=qu.textContent;
-    um.hidden=false; bew.hidden=true;
-    var x=s[jetzt.id], b=x?x[0]:0;
-    [0,1,2].forEach(function(r){ var sm=bew.querySelector(".lk-b"+r+" small"); if(sm) sm.textContent=tage(r===0?0:AB[fach(b,r,jetzt.id)]); }); }
-  function umdrehen(){ if(!jetzt || !hinten.hidden) return; hinten.hidden=false; um.hidden=true; bew.hidden=false; karte.focus({preventScroll:true});
-    var r=bew.getBoundingClientRect(); if(r.bottom>window.innerHeight) bew.scrollIntoView({block:"end",behavior:"smooth"}); }   // Handy: Bewertung ins Bild
-  function bewerten(r){
-    if(!jetzt || hinten.hidden) return;
-    var s=stand(), x=s[jetzt.id], c=jetzt, f=fach(x?x[0]:0,r,c.id);
-    if(!x) neuZaehlen();
-    s[c.id]=[f, heute()+(r===0?0:AB[f])]; $.set(K,s);
-    schlange.shift();
-    if(r===0){ gerade[c.id]=1; schlange.push(c); }
-    zeige(); if(!karte.hidden) karte.focus({preventScroll:true}); else if(!neuB.hidden) neuB.focus(); }
-  um.addEventListener("click",umdrehen);
-  karte.addEventListener("click",function(e){ if(!(e.target.closest && e.target.closest("a"))) umdrehen(); });
-  [].forEach.call(bew.querySelectorAll(".lk-b"),function(b){ b.addEventListener("click",function(){ bewerten(+b.getAttribute("data-b")); }); });
-  neuB.addEventListener("click",function(){ extra+=NEU; baue(); });
-  sel.addEventListener("change",function(){ extra=0; gerade={}; baue(); });
-  document.addEventListener("keydown",function(e){
-    if(app.hidden || e.ctrlKey || e.metaKey || e.altKey) return;
-    var t=e.target, tag=t && t.tagName; if(tag==="INPUT" || tag==="SELECT" || tag==="TEXTAREA" || (t && t.isContentEditable)) return;
-    var ov=document.getElementById("searchOverlay"); if(ov && !ov.hidden) return;
-    if((e.key===" " || e.key==="Enter") && jetzt && hinten.hidden){ if(tag==="BUTTON" || tag==="A") return; e.preventDefault(); umdrehen(); }
-    else if(jetzt && !hinten.hidden && (e.key==="1" || e.key==="2" || e.key==="3")){ e.preventDefault(); bewerten(+e.key-1); } });
-  $.sicher(q(".lk-reset"),function(){ var s=stand(), n=$.get(N,{});
-    karten.forEach(function(c){ delete s[c.id]; }); delete n[mp]; $.set(K,s); $.set(N,n); extra=0; gerade={}; baue(); });
-  // #k-<Kapitel> (Link aus der Zusammenfassung eines Artikels): dieses Kapitel wählen, die Liste bleibt zu
-  function kapitel(){ var m=location.hash.match(/^#k-(.+)$/); if(!m) return false;
-    for(var i=0;i<sel.options.length;i++) if(sel.options[i].value===m[1]){ sel.value=m[1]; break; }
-    try{ history.replaceState(null,"",location.pathname+location.search); }catch(e){}
-    extra=0; gerade={}; if(liste) liste.open=false; return true; }
-  window.addEventListener("hashchange",function(){ if(kapitel()){ baue(); app.scrollIntoView({block:"start"}); } });
-  kapitel();
-  app.hidden=false; if(liste) liste.open=false;
-  if(!$.ok) q(".lk-hinweis").hidden=false;
-  baue();
-})();
+// Lernkarten (W2) sind seit W4b ein eigener Bereich: /lernen/, Code in assets/bereiche.js (Leitner wie hier früher).
 /* ---------- Ansichten (W4a, 11.11.2026): Ausführlich | Kurz | Formeln ----------
    Der Kopf der Seite setzt data-ansicht an <html> schon vor dem ersten Zeichnen (?ansicht= in der Adresse, sonst die Wahl
    unter „etundso-ansicht“; sie gilt für alle Artikel). Umschalten = Attribut ändern; die Adresse bekommt ?ansicht= zum
@@ -5203,6 +5978,406 @@ FORMEL_EXPORT_JS = r"""/* EtUndSo Formel-Export: ETFormelExport(quelle, format, 
       throw new Error("format");
     });
   };
+})();
+"""
+
+BEREICHE_JS_CODE = r"""/* EtUndSo Bereiche (W4b, 11.11.2026): Lernkarten/Quiz/Mischtest (/lernen/) und Aufgaben (/aufgaben/). Lernstand, gelöste
+   Aufgaben und ein laufender Mischtest bleiben in diesem Browser (localStorage über LERNEN aus wissen.js); nichts wird
+   übertragen. Wörter: _UI_BEREICHE im Build. */
+var BEREICHE_UI=/*UI_BEREICHE*/{};
+(function(){
+  "use strict";
+  var $=window.LERNEN; if(!$) return;
+  var W=BEREICHE_UI[$.lang]||{}, D0=BEREICHE_UI.de||{};
+  function w(k,o){ var s=W[k]||D0[k]||""; if(o) for(var x in o) s=s.split("{"+x+"}").join(o[x]); return s; }
+  function tx(tag,cls,text){ var e=document.createElement(tag); if(cls) e.className=cls; if(text!=null) e.textContent=text; return e; }
+  function hx(tag,cls,h){ var e=document.createElement(tag); if(cls) e.className=cls; if(h!=null) e.innerHTML=h; return e; }
+  function knopf(cls,text){ var b=tx("button",cls,text); b.type="button"; return b; }
+  function setze(e){ if(typeof mathe==="function") mathe(e); try{ window.dispatchEvent(new Event("resize")); }catch(x){} }   // resize: wissen.js passt breite Formeln ein
+  function mische(a){ a=a.slice(); for(var i=a.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)), t=a[i]; a[i]=a[j]; a[j]=t; } return a; }
+  function heute(){ var d=new Date(); return Math.floor((d.getTime()-d.getTimezoneOffset()*60000)/864e5); }
+  function param(){ var p=new URLSearchParams(location.search), o={}; p.forEach(function(v,k){ o[k]=v; }); return o; }
+  // Sprachwahl: Auswahl (?m=&k=&a=…) mitnehmen; Kapitelnummer und Dateiname gelten in allen Sprachen
+  function sprachLinks(){ [].forEach.call(document.querySelectorAll(".langs a.l-item"),function(a){
+    try{ var u=new URL(a.getAttribute("href"),location.href); u.search=location.search; a.setAttribute("href",u.pathname+u.search); }catch(e){} }); }
+  function adresse(o){ var p=new URLSearchParams();
+    Object.keys(o).forEach(function(k){ if(o[k]!=null && o[k]!=="") p.set(k,o[k]); });
+    var q=p.toString(); try{ history.replaceState(null,"",location.pathname+(q?"?"+q:"")+location.hash); }catch(e){}
+    sprachLinks(); }
+  // Formeln in zugeklappten Lösungen erst beim Aufklappen setzen (Klasse mathe-spaeter, KATEX_OPT in wissen.js)
+  document.addEventListener("toggle",function(e){ var d=e.target; if(!d || d.tagName!=="DETAILS" || !d.open) return;
+    [].forEach.call(d.querySelectorAll(".mathe-spaeter"),function(x){ x.classList.remove("mathe-spaeter"); setze(x); }); },true);
+  function ohneTags(h){ var d=document.createElement("div"); d.innerHTML=h||""; return (d.textContent||"").replace(/\s+/g," ").trim().toLowerCase(); }
+
+  /* ---------- Aufgabenseite eines Moduls ---------- */
+  function aufgaben(leiste){
+    var S="etundso-aufgaben", seite=document.querySelector(".ag-seite");
+    var alle=[].slice.call(seite.querySelectorAll(".ag")), kaps=[].slice.call(seite.querySelectorAll(".ag-kap")),
+        arts=[].slice.call(seite.querySelectorAll(".ag-art"));
+    if(!alle.length) return;
+    var kSel=leiste.querySelector(".ag-k"), aSel=leiste.querySelector(".ag-a"), oCb=leiste.querySelector(".ag-o"),
+        zufall=leiste.querySelector(".ag-zufall"), zahl=leiste.querySelector(".ag-stand"), nichts=seite.querySelector(".ag-nichts"),
+        reset=seite.querySelector(".ag-reset");
+    function stand(){ return $.get(S,{}); }
+    function artikelOptionen(){ var k=kSel.value, alt=aSel.value; aSel.length=1;
+      arts.forEach(function(sec){ if(k && sec.closest(".ag-kap").getAttribute("data-k")===k)
+        aSel.appendChild(new Option(sec.querySelector("h3").textContent, sec.getAttribute("data-a"))); });
+      aSel.value=alt; if(aSel.value!==alt) aSel.value=""; aSel.disabled=!k; }
+    function malen(){ var s=stand();
+      alle.forEach(function(x){ var g=!!s[x.getAttribute("data-id")], cb=x.querySelector(".ag-ok input");
+        x.classList.toggle("ag-geloest",g); if(cb) cb.checked=g; }); }
+    function zaehlen(){ var s=stand(), n=0, m=0, k=kSel.value, a=aSel.value;
+      alle.forEach(function(x){ var sec=x.closest(".ag-art"), kap=x.closest(".ag-kap");
+        if((!k || kap.getAttribute("data-k")===k) && (!a || sec.getAttribute("data-a")===a)){ m++; if(s[x.getAttribute("data-id")]) n++; } });
+      zahl.textContent=w("ag_stand",{n:n,m:m}); }
+    function filtern(){ var k=kSel.value, a=aSel.value, nur=oCb.checked, s=stand(), sichtbar=0;
+      arts.forEach(function(sec){ var kap=sec.closest(".ag-kap"), ok=(!k || kap.getAttribute("data-k")===k) && (!a || sec.getAttribute("data-a")===a), n=0;
+        [].forEach.call(sec.querySelectorAll(".ag"),function(x){ var z=ok && !(nur && s[x.getAttribute("data-id")]); x.hidden=!z; if(z) n++; });
+        sec.hidden=!n; sichtbar+=n; });
+      kaps.forEach(function(sec){ sec.hidden=!sec.querySelector(".ag-art:not([hidden])"); });
+      nichts.hidden=!!sichtbar; zaehlen();
+      adresse({k:k, a:a}); }
+    alle.forEach(function(x){ var f=x.querySelector(".ag-fuss"), l=tx("label","ag-ok"), cb=document.createElement("input");
+      cb.type="checkbox"; l.appendChild(cb); l.appendChild(document.createTextNode(" "+w("ag_geloest"))); if(f) f.insertBefore(l,f.firstChild);
+      cb.addEventListener("change",function(){ var s=stand(), id=x.getAttribute("data-id");
+        if(cb.checked) s[id]=heute(); else delete s[id]; $.set(S,s); malen(); zaehlen(); }); });
+    kSel.addEventListener("change",function(){ artikelOptionen(); filtern(); });
+    aSel.addEventListener("change",filtern);
+    oCb.addEventListener("change",filtern);
+    zufall.addEventListener("click",function(){ var s=stand(), sicht=alle.filter(function(x){ return !x.hidden && !x.closest("[hidden]"); }),
+        offen=sicht.filter(function(x){ return !s[x.getAttribute("data-id")]; }), pool=offen.length ? offen : sicht;
+      if(!pool.length) return; var x=pool[Math.floor(Math.random()*pool.length)];
+      alle.forEach(function(y){ y.classList.remove("ag-hl"); }); x.classList.add("ag-hl"); x.setAttribute("tabindex","-1");
+      x.scrollIntoView({block:"start",behavior:"instant"}); x.focus({preventScroll:true}); });   // weite Sprünge ohne Gleiten
+    if(reset){ reset.hidden=false; $.sicher(reset,function(){ var s=stand(); alle.forEach(function(x){ delete s[x.getAttribute("data-id")]; });
+      $.set(S,s); malen(); filtern(); }); }
+    var p=param(); if(p.k){ kSel.value=p.k; if(kSel.value!==p.k) kSel.value=""; }
+    artikelOptionen(); if(p.a){ aSel.value=p.a; if(aSel.value!==p.a) aSel.value=""; }
+    leiste.hidden=false; malen(); filtern();
+    if(location.hash){ var z=document.getElementById(decodeURIComponent(location.hash.slice(1))); if(z && !z.closest("[hidden]")) z.scrollIntoView(); }
+  }
+
+  /* ---------- Lernkarten, Quiz, Mischtest ---------- */
+  function lernen(app){
+    var MODULE=[]; try{ MODULE=JSON.parse(document.getElementById("lw-daten").textContent); }catch(e){}
+    if(!MODULE.length) return;
+    var liste=document.querySelector(".lw-module");
+    var TYPEN=["b","f","h","l"], TYP_N={b:w("zf_begriffe"),f:w("zf_formeln"),h:w("typ_h"),l:w("zf_zusammenhaenge")},
+        TYP_1={b:w("lk_begriff"),f:w("lk_formel"),h:w("herleitung"),l:w("typ1_l")};
+    var K="etundso-karten", N="etundso-karten-neu", T="etundso-mischtest", AB=[0,1,3,7,14,30], NEU=20;
+    var p=param(), st={m:p.m||"", k:p.k||"", a:p.a||"", arten:(p.arten||"bfhl").split("").filter(function(t){ return TYPEN.indexOf(t)>=0; }),
+        modus:(/^(lernen|quiz|test)$/.test(p.modus||"") ? p.modus : "lernen")};
+    if(!st.arten.length) st.arten=TYPEN.slice();
+    var D=null, cache={}, laeuft=null;            // laeuft: Tastatur-Handler des aktuellen Modus
+    // Gerüst: Auswahl, Kartenarten, Modus, Bühne
+    var wahl=tx("div","lw-wahl"), mSel=tx("select","lw-sel"), kSel=tx("select","lw-sel"), aSel=tx("select","lw-sel");
+    function feld(lbl,sel){ var l=tx("label","lw-feld"); l.appendChild(tx("span",null,lbl)); l.appendChild(sel); return l; }
+    mSel.appendChild(new Option(w("lw_waehle"),""));
+    MODULE.forEach(function(e){ mSel.appendChild(new Option(e.name, e.m)); });
+    wahl.appendChild(feld(w("lw_modul"),mSel)); var kFeld=feld(w("lk_kapitel"),kSel), aFeld=feld(w("lw_artikel"),aSel);
+    wahl.appendChild(kFeld); wahl.appendChild(aFeld);
+    var arten=tx("fieldset","lw-arten"); arten.appendChild(tx("legend",null,w("lw_arten")));
+    var artCb={};
+    TYPEN.forEach(function(t){ var l=tx("label","lw-art"), cb=document.createElement("input"); cb.type="checkbox"; cb.value=t;
+      cb.checked=st.arten.indexOf(t)>=0; artCb[t]={cb:cb, n:tx("span","lw-n")}; l.appendChild(cb); l.appendChild(document.createTextNode(" "+TYP_N[t]+" "));
+      l.appendChild(artCb[t].n); arten.appendChild(l);
+      cb.addEventListener("change",function(){ st.arten=TYPEN.filter(function(x){ return artCb[x].cb.checked; }); neu(); }); });
+    var modi=tx("div","lw-modi"); modi.setAttribute("role","group"); var modB={};
+    [["lernen","mod_lernen"],["quiz","mod_quiz"],["test","mod_test"]].forEach(function(x){ var b=knopf("lw-modus",w(x[1]));
+      b.setAttribute("data-modus",x[0]); modB[x[0]]=b; modi.appendChild(b);
+      b.addEventListener("click",function(){ st.modus=x[0]; neu(); }); });
+    var buehne=tx("div","lw-buehne"); buehne.setAttribute("aria-live","polite");
+    app.appendChild(wahl); app.appendChild(arten); app.appendChild(modi); app.appendChild(buehne);
+    app.hidden=false;
+
+    function eintrag(m){ for(var i=0;i<MODULE.length;i++) if(MODULE[i].m===m) return MODULE[i]; return null; }
+    function kapitel(n){ if(!D) return null; for(var i=0;i<D.kap.length;i++) if(String(D.kap[i].n)===String(n)) return D.kap[i]; return null; }
+    function artIndex(){ var k=kapitel(st.k); if(!k || !st.a) return -1; for(var i=0;i<k.a.length;i++) if(k.a[i][0]===st.a) return i; return -1; }
+    function artikelVon(c){ var k=kapitel(c.k); return k ? k.a[c.a] : null; }
+    function stelle(c){ var a=artikelVon(c); return a ? a[2]+(c.h?"#"+c.h:"") : "#"; }
+    function kopfText(c){ var k=kapitel(c.k), a=artikelVon(c); return TYP_1[c.t]+" · "+(k?k.t.split(/\s*[:：]\s*/)[0]:"")+(a?" · "+a[1]:""); }
+    function antwort(c){ return c.q || c.r || ""; }
+    // Auswahl: Modul -> Kapitel -> Artikel; ohne Kartenarten-Filter (für die Zahlen an den Kästchen)
+    function ausschnitt(){ if(!D) return []; var ai=artIndex();
+      return D.karten.filter(function(c){ return (!st.k || String(c.k)===String(st.k)) && (ai<0 || c.a===ai); }); }
+    function auswahl(){ return ausschnitt().filter(function(c){ return st.arten.indexOf(c.t)>=0; }); }
+    function schreibeAdresse(){ adresse({m:st.m, k:st.k, a:st.a, arten:(st.arten.length===4?"":st.arten.join("")), modus:(st.modus==="lernen"?"":st.modus)}); }
+    function optionenFuellen(){
+      kSel.length=0; aSel.length=0; kSel.appendChild(new Option(w("lk_alle_kap"),"")); aSel.appendChild(new Option(w("lw_alle_art"),""));
+      if(D) D.kap.forEach(function(k){ kSel.appendChild(new Option(k.t, String(k.n))); });
+      kSel.value=st.k; if(kSel.value!==String(st.k)){ st.k=""; kSel.value=""; }
+      var k=kapitel(st.k); if(k) k.a.forEach(function(a){ aSel.appendChild(new Option(a[1], a[0])); });
+      aSel.value=st.a; if(aSel.value!==st.a){ st.a=""; aSel.value=""; }
+      kFeld.hidden=!D; aFeld.hidden=!D || !st.k; }
+    function zahlen(){ var a=ausschnitt(), n={b:0,f:0,h:0,l:0}; a.forEach(function(c){ n[c.t]++; });
+      TYPEN.forEach(function(t){ artCb[t].n.textContent="("+n[t]+")"; }); }
+    mSel.addEventListener("change",function(){ st.m=mSel.value; st.k=""; st.a=""; laden(); });
+    kSel.addEventListener("change",function(){ st.k=kSel.value; st.a=""; neu(); });
+    aSel.addEventListener("change",function(){ st.a=aSel.value; neu(); });
+    if(liste) liste.addEventListener("click",function(e){ var a=e.target.closest && e.target.closest("a.bm-t[data-m]"); if(!a) return;
+      e.preventDefault(); st.m=a.getAttribute("data-m"); st.k=""; st.a=""; laden(); window.scrollTo(0,0); });
+    document.addEventListener("keydown",function(e){
+      if(!laeuft || e.ctrlKey || e.metaKey || e.altKey) return;
+      var t=e.target, tag=t && t.tagName; if(tag==="INPUT" || tag==="SELECT" || tag==="TEXTAREA" || (t && t.isContentEditable)) return;
+      var ov=document.getElementById("searchOverlay"); if(ov && !ov.hidden) return;
+      laeuft(e, tag); });
+
+    function laden(){
+      var e=eintrag(st.m); mSel.value=e ? e.m : ""; D=null; laeuft=null;
+      if(!e){ st.m=""; optionenFuellen(); zahlen(); arten.hidden=modi.hidden=true; buehne.innerHTML=""; buehne.appendChild(tx("p","lw-hinweis",w("lw_waehle")));
+        if(liste) liste.hidden=false; schreibeAdresse(); return; }
+      if(liste) liste.hidden=true;
+      buehne.innerHTML=""; buehne.appendChild(tx("p","lw-hinweis",w("baum_laedt")));
+      (cache[e.m] || (cache[e.m]=fetch(e.d).then(function(r){ if(!r.ok) throw r.status; return r.json(); })))
+        .then(function(d){ if(st.m!==e.m) return; D=d; neu(); })
+        .catch(function(){ delete cache[e.m]; buehne.innerHTML=""; buehne.appendChild(tx("p","lw-hinweis",w("baum_fehler"))); });
+    }
+    function neu(){ laeuft=null; optionenFuellen(); zahlen(); arten.hidden=modi.hidden=!D;
+      Object.keys(modB).forEach(function(m){ modB[m].setAttribute("aria-pressed", m===st.modus ? "true" : "false"); });
+      schreibeAdresse(); buehne.innerHTML="";
+      if(!D) return;
+      if(st.modus==="quiz") quizStart(); else if(st.modus==="test") testStart(); else lernStapel(); }
+
+    /* Lernen: Leitner-Fächer wie W2 (Fach 1–5 = 1, 3, 7, 14, 30 Tage; neue Karten 20 je Tag und Modul) */
+    function lernStapel(){
+      var karten=auswahl(), gerade={}, extra=0, schlange=[], jetzt=null, schritt=0;
+      var zahlEl=tx("p","lk-zahl"), karte=tx("div","lk-karte"), kopf=tx("div","lk-kopf"), vorne=tx("div","lk-vorne"), hinten=tx("div","lk-hinten"),
+          steuer=tx("div","lk-steuer"), um=knopf("lk-um",w("lk_umdrehen")), bew=tx("div","lk-bew"), ende=tx("div","lk-ende"), neuB=knopf("lk-neu",""),
+          fuss=tx("div","lk-fuss"), stelleA=tx("a","lk-stelle",w("lk_stelle")), reset=knopf("lern-reset lk-reset",w("lk_reset"));
+      zahlEl.setAttribute("aria-live","polite"); karte.tabIndex=-1;
+      karte.appendChild(kopf); karte.appendChild(vorne); karte.appendChild(hinten);
+      [["lk_schlecht",0],["lk_mittel",1],["lk_gut",2]].forEach(function(x){ var b=knopf("lk-b lk-b"+x[1],w(x[0])); b.appendChild(tx("small"));
+        b.addEventListener("click",function(){ bewerten(x[1]); }); bew.appendChild(b); });
+      steuer.appendChild(um); steuer.appendChild(bew);
+      ende.appendChild(tx("p",null,w("lk_fertig"))); ende.appendChild(neuB);
+      fuss.appendChild(stelleA); fuss.appendChild(tx("span","lk-tasten",w("lk_tasten")));
+      if(!karten.length){ buehne.appendChild(tx("p","lw-hinweis",w("lw_keine"))); return; }
+      [zahlEl,karte,steuer,ende,fuss].forEach(function(e){ buehne.appendChild(e); });
+      if(!$.ok) buehne.appendChild(tx("p","lk-hinweis",w("lk_ohne_speicher")));
+      buehne.appendChild(reset);
+      function stand(){ return $.get(K,{}); }
+      function neuHeute(){ var e=$.get(N,{})[D.mp]; return (e && e[0]===heute()) ? e[1] : 0; }
+      function neuZaehlen(){ var n=$.get(N,{}); n[D.mp]=[heute(),neuHeute()+1]; $.set(N,n); }
+      function fach(b,r,id){ return r===0 ? 1 : r===1 ? Math.max(1,b) : gerade[id] ? 1 : Math.min(5,Math.max(1,b)+1); }
+      function tage(d){ return d===0 ? w("lk_heute") : d===1 ? w("lk_morgen") : w("lk_tage",{n:d}); }
+      function baue(){ var s=stand(), t=heute(), faellig=[], neue=[];
+        karten.forEach(function(c){ var x=s[c.id]; if(x){ if(x[1]<=t) faellig.push(c); } else neue.push(c); });
+        faellig.sort(function(a,b){ return s[a.id][1]-s[b.id][1] || s[a.id][0]-s[b.id][0]; });
+        schlange=faellig.concat(neue.slice(0,Math.max(0,NEU-neuHeute())+extra)); zeige(); }
+      function abschnitt(label,h,cls){ var d=hx("div",cls||"hl-teil"); d.appendChild(tx("span","hl-k",label)); d.appendChild(hx("div","hl-i",h)); return d; }
+      function schritte(c){ return c.t==="h" ? (c.s||[]) : []; }
+      function zeige(){
+        var s=stand(), n=0; schlange.forEach(function(c){ if(!s[c.id]) n++; });
+        zahlEl.textContent=w("lk_faellig",{n:schlange.length})+(n?" · "+w("lk_davon_neu",{n:n}):"");
+        jetzt=schlange[0]||null; karte.hidden=steuer.hidden=fuss.hidden=!jetzt; ende.hidden=!!jetzt;
+        if(!jetzt){ var rest=karten.filter(function(c){ return !s[c.id]; }).length; neuB.hidden=!rest; neuB.textContent=w("lk_mehr_neu",{n:Math.min(NEU,rest)}); return; }
+        kopf.textContent=kopfText(jetzt); vorne.innerHTML=jetzt.v; hinten.innerHTML=""; hinten.hidden=true; schritt=0;
+        if(jetzt.t==="h"){ if(jetzt.z) vorne.appendChild(abschnitt(w("hl_ziel"),jetzt.z,"hl-teil hl-ziel"));
+          if(jetzt.s0) vorne.appendChild(abschnitt(w("hl_start"),jetzt.s0));
+          var ss=schritte(jetzt), off=jetzt.s0?1:0;
+          ss.forEach(function(h,i){ var d=abschnitt(w("hl_schritt",{n:i+1+off,m:ss.length+off}),h); d.hidden=true; hinten.appendChild(d); });
+        } else hinten.innerHTML=jetzt.r||"";
+        stelleA.href=stelle(jetzt); um.hidden=false; bew.hidden=true; um.textContent=jetzt.t==="h" ? w("hl_weiter") : w("lk_umdrehen");
+        var x=s[jetzt.id], b=x?x[0]:0;
+        [0,1,2].forEach(function(r){ var sm=bew.querySelector(".lk-b"+r+" small"); if(sm) sm.textContent=tage(r===0?0:AB[fach(b,r,jetzt.id)]); });
+        setze(karte); }
+      function umdrehen(){ if(!jetzt) return; if(!bew.hidden) return;
+        if(jetzt.t==="h"){ var teile=hinten.children; hinten.hidden=false;
+          if(schritt<teile.length){ teile[schritt].hidden=false; schritt++; }
+          if(schritt<teile.length) return; }
+        hinten.hidden=false; um.hidden=true; bew.hidden=false; karte.focus({preventScroll:true});
+        var r=bew.getBoundingClientRect(); if(r.bottom>window.innerHeight) bew.scrollIntoView({block:"end",behavior:"smooth"}); }
+      function bewerten(r){ if(!jetzt || bew.hidden) return;
+        var s=stand(), x=s[jetzt.id], c=jetzt, f=fach(x?x[0]:0,r,c.id);
+        if(!x) neuZaehlen();
+        s[c.id]=[f, heute()+(r===0?0:AB[f])]; $.set(K,s); schlange.shift();
+        if(r===0){ gerade[c.id]=1; schlange.push(c); }
+        zeige(); if(!karte.hidden) karte.focus({preventScroll:true}); else if(!neuB.hidden) neuB.focus(); }
+      um.addEventListener("click",umdrehen);
+      karte.addEventListener("click",function(e){ if(!(e.target.closest && e.target.closest("a"))) umdrehen(); });
+      neuB.addEventListener("click",function(){ extra+=NEU; baue(); });
+      $.sicher(reset,function(){ var s=stand(), n=$.get(N,{}); karten.forEach(function(c){ delete s[c.id]; }); delete n[D.mp];
+        $.set(K,s); $.set(N,n); extra=0; gerade={}; baue(); });
+      laeuft=function(e,tag){
+        if((e.key===" " || e.key==="Enter") && jetzt && bew.hidden){ if(tag==="BUTTON" || tag==="A") return; e.preventDefault(); umdrehen(); }
+        else if(jetzt && !bew.hidden && (e.key==="1" || e.key==="2" || e.key==="3")){ e.preventDefault(); bewerten(+e.key-1); } };
+      baue();
+    }
+
+    /* Quiz und Mischtest: Mehrfachauswahl. Falsche Antworten sind echte Antworten anderer Karten derselben Art, zuerst aus
+       demselben Kapitel, sonst aus dem Modul; Herleitungen kommen nicht vor. */
+    function quizfaehig(c){ return c.t!=="h" && !!antwort(c); }
+    function optionen(c){ var ant=antwort(c), seen={}, pool=[]; seen[ohneTags(ant)]=1;
+      var kap=D.karten.filter(function(x){ return x.t===c.t && x.k===c.k && x.id!==c.id && quizfaehig(x); }),
+          mod=D.karten.filter(function(x){ return x.t===c.t && x.k!==c.k && quizfaehig(x); });
+      mische(kap).concat(mische(mod)).forEach(function(x){ var n=ohneTags(antwort(x)); if(pool.length<3 && n && !seen[n]){ seen[n]=1; pool.push(x.id); } });
+      return pool.length<3 ? null : mische([c.id].concat(pool)); }
+    function karteVon(id){ for(var i=0;i<D.karten.length;i++) if(D.karten[i].id===id) return D.karten[i]; return null; }
+    function frageText(c){ return c.w ? w("quiz_p_w") : w("quiz_p_"+c.t); }
+    function zahlWahl(){ var l=tx("label","lw-feld"), s=tx("select","lw-sel lw-zahl"); l.appendChild(tx("span",null,w("quiz_zahl"))); l.appendChild(s);
+      [10,20,30].forEach(function(n){ s.appendChild(new Option(String(n),String(n))); }); return [l,s]; }
+    // Eine Mehrfachauswahl-Frage zeichnen. modus "quiz": nach der Wahl gleich zeigen, ob richtig; "test": nur die Wahl
+    // merken (Mischtest); "zeigen": Ergebnis zeigen, nichts mehr wählbar (Auswertung des Mischtests)
+    function mcFrage(ziel, f, modus, fertig){ var sofort=modus==="quiz";
+      var c=karteVon(f.id), box=tx("div","qz-frage");
+      box.appendChild(tx("p","qz-p",frageText(c))); box.appendChild(hx("div","qz-vorne",c.v));
+      var ol=tx("ol","qz-opt"), bs=[];
+      f.o.forEach(function(id,i){ var x=karteVon(id), li=tx("li"), b=knopf("qz-b"); b.innerHTML='<span class="qz-nr">'+(i+1)+'</span><span class="qz-a">'+(x?antwort(x):"")+'</span>';
+        if(f.w===i) b.classList.add("gewaehlt");
+        b.addEventListener("click",function(){ waehle(i); }); li.appendChild(b); ol.appendChild(li); bs.push(b); });
+      box.appendChild(ol); ziel.appendChild(box);
+      function markieren(){ var r=f.o.indexOf(f.id);
+        bs.forEach(function(b,i){ b.disabled=true; if(i===r){ b.classList.add("ok"); b.setAttribute("aria-label",w("q_ok")+": "+b.textContent); }
+          else if(i===f.w){ b.classList.add("nein"); b.setAttribute("aria-label",w("q_nein")+": "+b.textContent); } }); }
+      function waehle(i){ if(sofort && f.w>=0) return; f.w=i; bs.forEach(function(b,j){ b.classList.toggle("gewaehlt",j===i); });
+        if(sofort) markieren(); if(fertig) fertig(); }
+      if((sofort && f.w>=0) || modus==="zeigen") markieren();
+      setze(box);
+      return waehle; }
+    function fehlerListe(items){ var ol=tx("ol","qz-fehler");
+      items.forEach(function(f){ var c=karteVon(f.id), li=tx("li"); if(!c) return;
+        li.appendChild(hx("div","qz-vorne",c.v));
+        if(f.w>=0){ var d=karteVon(f.o[f.w]); li.appendChild(hx("div","qz-deine",'<span class="hl-k">'+w("quiz_deine")+'</span> '+(d?antwort(d):""))); }
+        li.appendChild(hx("div","qz-richtig",'<span class="hl-k">'+w("quiz_richtig")+'</span> '+antwort(c)));
+        var a=tx("a","lk-stelle",w("lk_stelle")); a.href=stelle(c); li.appendChild(a); ol.appendChild(li); });
+      return ol; }
+
+    function quizStart(){
+      var kandidaten=auswahl().filter(quizfaehig), zw=zahlWahl(), start=knopf("lk-um qz-start",w("quiz_start")), box=tx("div","qz-setup");
+      box.appendChild(zw[0]); box.appendChild(start); buehne.appendChild(box);
+      var moeglich=kandidaten.filter(function(c){ return !!optionen(c); });
+      if(!moeglich.length){ start.disabled=true; buehne.appendChild(tx("p","lw-hinweis",w("quiz_zu_wenig"))); return; }
+      start.addEventListener("click",function(){ var n=+zw[1].value, fr=[];
+        mische(moeglich).forEach(function(c){ if(fr.length<n){ var o=optionen(c); if(o) fr.push({id:c.id,o:o,w:-1}); } });
+        quizLauf(fr); });
+    }
+    function quizLauf(fr){
+      var i=0; buehne.innerHTML="";
+      var kopf=tx("p","qz-kopf"), platz=tx("div"), weiter=knopf("lk-um qz-weiter",""), hinweis=tx("p","lk-tasten",w("quiz_tasten"));
+      buehne.appendChild(kopf); buehne.appendChild(platz); buehne.appendChild(weiter); buehne.appendChild(hinweis);
+      var waehle=null;
+      function zeige(){ platz.innerHTML=""; kopf.textContent=w("quiz_frage",{n:i+1,m:fr.length})+" · "+TYP_1[karteVon(fr[i].id).t];
+        weiter.hidden=true; weiter.textContent=i+1<fr.length ? w("quiz_weiter") : w("quiz_ende");
+        waehle=mcFrage(platz,fr[i],"quiz",function(){ weiter.hidden=false; weiter.focus({preventScroll:true}); }); }
+      weiter.addEventListener("click",function(){ if(i+1<fr.length){ i++; zeige(); kopf.scrollIntoView({block:"nearest"}); } else quizEnde(fr); });
+      laeuft=function(e){ var z=parseInt(e.key,10); if(z>=1 && z<=4 && fr[i].w<0){ e.preventDefault(); waehle(z-1); }
+        else if(e.key==="Enter" && !weiter.hidden && document.activeElement!==weiter){ e.preventDefault(); weiter.click(); } };
+      zeige();
+    }
+    function quizEnde(fr){ laeuft=null; buehne.innerHTML="";
+      var ok=fr.filter(function(f){ return f.w>=0 && f.o[f.w]===f.id; }).length, falsch=fr.filter(function(f){ return !(f.w>=0 && f.o[f.w]===f.id); });
+      buehne.appendChild(tx("h2","qz-h",w("quiz_auswertung")));
+      buehne.appendChild(tx("p","qz-ergebnis",w("quiz_ergebnis",{n:ok,m:fr.length})));
+      if(falsch.length){ buehne.appendChild(tx("h3","qz-h3",w("quiz_falsch"))); buehne.appendChild(fehlerListe(falsch)); }
+      else buehne.appendChild(tx("p",null,w("quiz_alle")));
+      var nb=knopf("lk-um",w("quiz_neu")); nb.addEventListener("click",neu); buehne.appendChild(nb);
+      setze(buehne); buehne.querySelector(".qz-h").scrollIntoView({block:"start"}); }
+
+    /* Mischtest: Kapitel wählen, Zahl der Fragen; Quizfragen und Aufgaben gemischt. Aufgaben stammen aus der statischen
+       Aufgabenseite des Moduls (einmal geladen). Lösungen und Auswertung erst am Ende; Aufgaben bewertet der Leser selbst
+       (richtig 1, teilweise ½, falsch 0). Ein laufender Test bleibt gespeichert (etundso-mischtest). */
+    var AUFG={};                                         // Moduladresse -> Promise {id: {k, html, stelle, titel}}
+    function aufgabenLaden(){ var u=D.aufg;
+      if(!AUFG[u]) AUFG[u]=fetch(u).then(function(r){ if(!r.ok) throw r.status; return r.text(); }).then(function(t){
+        var doc=new DOMParser().parseFromString(t,"text/html"), o={};
+        [].forEach.call(doc.querySelectorAll(".ag-kap"),function(kap){ var k=kap.getAttribute("data-k");
+          [].forEach.call(kap.querySelectorAll(".ag"),function(x){ var a=x.querySelector(".aufg"), s=x.querySelector(".ag-stelle");
+            if(a) o[x.getAttribute("data-id")]={k:k, html:a.outerHTML, stelle:s?s.getAttribute("href"):"#"}; }); });
+        return o; }).catch(function(e){ delete AUFG[u]; throw e; });
+      return AUFG[u]; }
+    function testLaden(){ var t=$.get(T,{}); return (t.m===D.m && t.l===$.lang && t.f && t.f.length) ? t : null; }
+    function testStart(){
+      buehne.appendChild(tx("p","lede lern-lede",w("test_lede")));
+      var alt=testLaden();
+      if(alt){ var fb=knopf("lk-um mt-fort",w("test_fortsetzen")); buehne.appendChild(fb); fb.addEventListener("click",function(){ testLauf(alt); }); }
+      var fs=tx("fieldset","mt-kap"); fs.appendChild(tx("legend",null,w("test_kapitel")));
+      var alleL=tx("label","mt-alle"), alleCb=document.createElement("input"); alleCb.type="checkbox"; alleL.appendChild(alleCb);
+      alleL.appendChild(document.createTextNode(" "+w("test_alle"))); fs.appendChild(alleL);
+      var cbs=D.kap.map(function(k){ var l=tx("label","mt-k"), cb=document.createElement("input"); cb.type="checkbox"; cb.value=String(k.n);
+        cb.checked=!st.k || String(k.n)===String(st.k); l.appendChild(cb); l.appendChild(document.createTextNode(" "+k.t)); fs.appendChild(l); return cb; });
+      function alleStand(){ alleCb.checked=cbs.every(function(c){ return c.checked; }); }
+      alleCb.addEventListener("change",function(){ cbs.forEach(function(c){ c.checked=alleCb.checked; }); });
+      cbs.forEach(function(c){ c.addEventListener("change",alleStand); }); alleStand();
+      var zw=zahlWahl(), start=knopf("lk-um mt-start",w("test_start")), meldung=tx("p","lw-hinweis");
+      buehne.appendChild(fs); var box=tx("div","qz-setup"); box.appendChild(zw[0]); box.appendChild(start); buehne.appendChild(box); buehne.appendChild(meldung);
+      start.addEventListener("click",function(){
+        var kap=cbs.filter(function(c){ return c.checked; }).map(function(c){ return c.value; });
+        if(!kap.length){ meldung.textContent=w("test_kein_kap"); return; }
+        var n=+zw[1].value; start.disabled=true; meldung.textContent=w("baum_laedt");
+        var karten=D.karten.filter(function(c){ return kap.indexOf(String(c.k))>=0 && st.arten.indexOf(c.t)>=0 && quizfaehig(c) && optionen(c); });
+        function bauen(auf,ohne){ var ids=Object.keys(auf).filter(function(id){ return kap.indexOf(String(auf[id].k))>=0; });
+          var nA=Math.min(ids.length, Math.round(n/2)), nQ=Math.min(karten.length, n-nA); nA=Math.min(ids.length, n-nQ);
+          var f=mische(karten).slice(0,nQ).map(function(c){ return {t:"q", id:c.id, o:optionen(c), w:-1}; })
+            .concat(mische(ids).slice(0,nA).map(function(id){ return {t:"a", id:id, b:null}; }));
+          if(!f.length){ start.disabled=false; meldung.textContent=w("lw_keine"); return; }
+          var t={m:D.m, l:$.lang, f:mische(f), i:0, ende:false, ohne:!!ohne}; $.set(T,t); testLauf(t); }
+        aufgabenLaden().then(function(a){ bauen(a,false); },function(){ bauen({},true); });
+      });
+    }
+    function testLauf(t){
+      aufgabenLaden().catch(function(){ return {}; }).then(function(auf){
+        t.f=t.f.filter(function(f){ return f.t==="q" ? !!karteVon(f.id) : !!auf[f.id]; });
+        if(!t.f.length){ $.del(T); neu(); return; }
+        if(t.ende){ testEnde(t,auf); return; }
+        buehne.innerHTML="";
+        var kopf=tx("p","qz-kopf"), platz=tx("div"), weiter=knopf("lk-um qz-weiter",""), hinweis=tx("p","lk-tasten",w("quiz_tasten"));
+        if(t.ohne) buehne.appendChild(tx("p","lw-hinweis",w("test_ohne_aufg")));
+        [kopf,platz,weiter,hinweis].forEach(function(e){ buehne.appendChild(e); });
+        var waehle=null;
+        function zeige(){ var f=t.f[t.i]; platz.innerHTML=""; waehle=null;
+          kopf.textContent=w("quiz_frage",{n:t.i+1,m:t.f.length})+" · "+(f.t==="q" ? TYP_1[karteVon(f.id).t] : w("w_aufgabe"));
+          weiter.textContent=t.i+1<t.f.length ? w("quiz_weiter") : w("quiz_ende");
+          if(f.t==="q") waehle=mcFrage(platz,f,"test",function(){ $.set(T,t); });
+          else { var d=hx("div","mt-aufg",auf[f.id].html); [].forEach.call(d.querySelectorAll("details.loesung"),function(x){ x.parentNode.removeChild(x); });
+            platz.appendChild(d); platz.appendChild(tx("p","lw-hinweis",w("test_aufg_hinweis"))); setze(d); } }
+        weiter.addEventListener("click",function(){ if(t.i+1<t.f.length){ t.i++; $.set(T,t); zeige(); kopf.scrollIntoView({block:"nearest"}); }
+          else { t.ende=true; $.set(T,t); testEnde(t,auf); } });
+        laeuft=function(e){ var z=parseInt(e.key,10); if(waehle && z>=1 && z<=4){ e.preventDefault(); waehle(z-1); }
+          else if(e.key==="Enter" && document.activeElement!==weiter){ e.preventDefault(); weiter.click(); } };
+        zeige();
+      });
+    }
+    function testEnde(t,auf){ laeuft=null; buehne.innerHTML="";
+      var kopf=tx("h2","qz-h",w("quiz_auswertung")), erg=tx("p","qz-ergebnis"), offen=tx("p","lw-hinweis"), nochmal=tx("div","mt-nochmal");
+      [kopf,erg,offen,nochmal].forEach(function(e){ buehne.appendChild(e); });
+      var ol=tx("ol","mt-liste"); buehne.appendChild(ol);
+      function rechnen(){ var p=0, m=t.f.length, o=0, falsch=[];
+        t.f.forEach(function(f){ if(f.t==="q"){ if(f.w>=0 && f.o[f.w]===f.id) p++; else falsch.push(f); }
+          else { if(f.b==null) o++; else { p+=f.b; if(f.b<1) falsch.push(f); } } });
+        erg.textContent=w("test_punkte",{p:String(Math.round(p*10)/10).replace(".",$.lang==="en"||$.lang==="zh"?".":","),m:m});
+        offen.textContent=o ? w("test_offen",{n:o}) : ""; offen.hidden=!o;
+        nochmal.innerHTML=""; if(falsch.length){ nochmal.appendChild(tx("h3","qz-h3",w("quiz_falsch")));
+          var ul=tx("ul","mt-links"); falsch.forEach(function(f){ var li=tx("li"), a=tx("a");
+            if(f.t==="q"){ var c=karteVon(f.id); a.innerHTML=c.v; a.href=stelle(c); li.appendChild(tx("span","hl-k",TYP_1[c.t]+": ")); }
+            else { var x=hx("div",null,auf[f.id].html), h=x.querySelector(".aufg-h"); a.innerHTML=h?h.innerHTML:w("w_aufgabe"); a.href=auf[f.id].stelle;
+              li.appendChild(tx("span","hl-k",w("w_aufgabe")+": ")); }
+            li.appendChild(a); ul.appendChild(li); }); nochmal.appendChild(ul); setze(nochmal); } }
+      t.f.forEach(function(f,i){ var li=tx("li","mt-e");
+        if(f.t==="q"){ var c=karteVon(f.id), r=f.w>=0 && f.o[f.w]===f.id;
+          li.classList.add(r?"mt-ok":"mt-nein"); li.appendChild(tx("p","qz-kopf",TYP_1[c.t]+" · "+(r?w("q_ok"):w("q_nein"))));
+          var platz=tx("div"); li.appendChild(platz); mcFrage(platz,f,"zeigen",null);
+          var a=tx("a","lk-stelle",w("lk_stelle")); a.href=stelle(c); li.appendChild(a); }
+        else { li.appendChild(tx("p","qz-kopf",w("w_aufgabe")));
+          var d=hx("div","mt-aufg",auf[f.id].html); [].forEach.call(d.querySelectorAll("details.loesung"),function(x){ x.open=true; });
+          [].forEach.call(d.querySelectorAll(".mathe-spaeter"),function(x){ x.classList.remove("mathe-spaeter"); });
+          li.appendChild(d); var s=tx("div","mt-selbst"); s.appendChild(tx("span","hl-k",w("test_selbst")));
+          [["bew_richtig",1],["bew_teil",0.5],["bew_falsch",0]].forEach(function(x){ var b=knopf("mt-b",w(x[0]));
+            b.setAttribute("aria-pressed",f.b===x[1]?"true":"false");
+            b.addEventListener("click",function(){ f.b=x[1]; $.set(T,t); [].forEach.call(s.querySelectorAll(".mt-b"),function(y){ y.setAttribute("aria-pressed",y===b?"true":"false"); });
+              li.classList.toggle("mt-ok",f.b===1); li.classList.toggle("mt-teil",f.b===0.5); li.classList.toggle("mt-nein",f.b===0); rechnen(); });
+            s.appendChild(b); });
+          if(f.b!=null) li.classList.add(f.b===1?"mt-ok":f.b===0?"mt-nein":"mt-teil");
+          li.appendChild(s); var a2=tx("a","lk-stelle",w("lk_stelle")); a2.href=auf[f.id].stelle; li.appendChild(a2); }
+        ol.appendChild(li); });
+      var nb=knopf("lk-um",w("test_neu")); nb.addEventListener("click",function(){ $.del(T); neu(); }); buehne.appendChild(nb);
+      rechnen(); setze(ol); kopf.scrollIntoView({block:"start"}); }
+
+    // Start: Auswahl aus der Adresse
+    if(st.m) laden(); else { optionenFuellen(); zahlen(); arten.hidden=modi.hidden=true; sprachLinks(); }
+  }
+
+  var leiste=document.querySelector(".ag-seite .ag-leiste"); if(leiste) aufgaben(leiste);
+  var app=document.querySelector(".lw-app"); if(app) lernen(app);
 })();
 """
 

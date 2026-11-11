@@ -73,6 +73,29 @@ Wortlaut: „Die Inhalte der Lernkarten machen keinen Sinn. Zum Beispiel Frage: 
 - **Bis dahin online lassen** (User 11.11.: „Du kannst sie erstmal drauf lassen, aktuell nutzt sowieso noch niemand die Webseite. Wir überarbeiten sie später einfach. Das gleiche gilt auch für die Kurzfassungen, sie sollten nicht einfach aus Teilen der Langfassung zusammengesetzt werden, sondern jeweils neu erstellt werden.“). Die automatische Kurzansicht aus W4a ist also nur Übergang, bis die geschriebenen Kurzfassungen da sind.
 - **Idee:** geschriebene Karten aus dem Heft wie Kurzfassung und Formelsammlung (Frage/Antwort je Begriff, Formel, Herleitung, Zusammenhang), ggf. als dritte Datei je Heft im selben Durchgang. Format und Kartenarten vorher mit dem User festlegen.
 
+### Haken für geschriebene Lernkarten (W4b)
+Enthält ein Artikel-Markdown einen Block `::::lernkarten … ::::`, nimmt der Bereich Lernkarten für **diesen Artikel nur diese Karten**, keine automatischen. Der Block erscheint nicht im Artikel (wie `::::kurzfassung`).
+```
+::::lernkarten
+:::karte begriff
+Frage (Markdown, Formeln mit $…$)
+---
+Antwort
+:::
+:::karte herleitung
+Frage, z. B. Ausgangspunkt und Ziel
+---
+Schritt 1
+---
+Schritt 2
+:::
+::::
+```
+- Kartenarten: `begriff`, `formel`, `herleitung`, `zusammenhang`. Je Karte: Frage, eine Zeile `---`, Antwort, `:::`. Bei `herleitung` trennen weitere `---` die Schritte (einzeln aufgedeckt).
+- Im Quiz ist die Antwort die richtige Wahl; die falschen sind Antworten anderer Karten derselben Art aus dem Kapitel (sonst Modul). Herleitungen kommen im Quiz nicht vor.
+- Unbekannte Art oder fehlendes `---`: Karte entfällt mit Meldung beim Bauen. Die Lernstand-id hängt an Artikel, Art und Frage.
+- Der Konverter (`tools/heft_zu_artikel.py`) schreibt den Block noch nicht. Für Hefte braucht es wie bei Kurzfassung/Formelsammlung eine Quelldatei je Heft (z. B. `kap<N>_karten.tex`); deren Format ist noch festzulegen. Bis dahin würde ein neu erzeugter Artikel einen von Hand eingefügten Block überschreiben.
+
 ## Fehlerliste für einen späteren Batch (vom User gemeldet)
 - **ERLEDIGT 11.11.:** Suche markiert das falsche Wort (Ursache und Lösung in `aufgabenliste.md` B2). Ursprüngliche Meldung (User, 11.11.2026): „Bei der Suche nach Begriffen werden die richtigen Stellen gefunden, aber in den angezeigten Stellen dann teilweise die falschen Begriffe rot markiert. Wenn ich z.B. nach Kurve suche wird bei Stufe 6: Die Wheatstonesche Brücke die richtige Zeile angezeigt, aber das Wort " geht" wird rot markiert.“ Im Batch nach der Ursache suchen.
   - Verdacht: Die Trefferstelle wird in einem anders aufbereiteten Text berechnet (z. B. kleingeschrieben, Umlaute/ß gefaltet, Formeln oder Markdown entfernt) als im angezeigten Ausschnitt. Dann verschiebt sich die Markierung um einige Zeichen.

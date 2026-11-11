@@ -829,3 +829,164 @@ details.mk-kap details.mk-kap{margin-left:1em;}
   .sz-seite .zf-g{margin:.3em 0;} .sz-seite .zf-l li{margin:.1em 0;font-size:11.5pt;}
   .fb-nr{color:#454b48;}
 }
+/* ---------- Bereiche (W4b, 11.11.2026): Wissen · Lernkarten · Aufgaben · Editor in der Kopfleiste; breit eine Linkreihe
+   (aktiver Bereich orange unterstrichen), schmal ein Menü. Die Sprachwahl steht rechts vor der Suche. ---------- */
+.topbar .bereiche{display:flex;align-items:center;min-width:0;}
+.topbar .b-liste{display:flex;align-items:center;gap:2px;margin:0;padding:0;list-style:none;}
+.topbar .b-liste li{margin:0;}
+.topbar .b-l{display:block;padding:7px 10px 5px;color:var(--bar-ink);font-weight:600;font-size:14.5px;line-height:1.2;white-space:nowrap;
+  border-bottom:2px solid transparent;}
+.topbar .b-l:hover{color:var(--bar-hl);text-decoration:none;}
+.topbar .b-l.on{color:var(--bar-hl);border-bottom-color:var(--bar-hl);}
+.topbar .b-l:focus-visible{outline:2px solid var(--bar-hl);outline-offset:2px;border-radius:6px;}
+.topbar .b-menu{display:none;position:relative;}
+.topbar .b-toggle{display:inline-flex;align-items:center;gap:7px;height:36px;padding:0 11px 0 13px;border-radius:999px;border:1px solid var(--bar-rand);
+  background:var(--bar-soft);color:var(--bar-ink);font:inherit;font-size:13.5px;font-weight:700;line-height:1;cursor:pointer;white-space:nowrap;}
+.topbar .b-toggle:hover{border-color:var(--bar-hl);}
+.topbar .b-toggle[aria-expanded="true"]{border-color:var(--bar-hl);color:var(--bar-hl);}
+.topbar .b-toggle:focus-visible{outline:2px solid var(--bar-hl);outline-offset:2px;}
+.topbar .b-toggle .l-pfeil{opacity:.85;transition:transform .15s;}
+.topbar .b-toggle[aria-expanded="true"] .l-pfeil{transform:rotate(180deg);}
+.topbar .b-icon{display:none;flex:0 0 auto;}
+.b-menu .l-menu{position:absolute;top:calc(100% + 6px);left:0;z-index:40;min-width:200px;margin:0;padding:6px;list-style:none;background:var(--panel);
+  border:1px solid var(--border);border-radius:12px;box-shadow:0 12px 32px rgba(10,20,15,.16),0 2px 6px rgba(10,20,15,.08);}
+.b-menu .l-menu[hidden]{display:none;}
+.b-menu .l-menu li{margin:0;padding:0;font-size:14.5px;line-height:1.3;}
+.b-menu .l-item{display:flex;align-items:center;justify-content:space-between;gap:14px;width:100%;padding:9px 12px;border:0;border-radius:8px;
+  background:none;color:var(--ink);font:inherit;font-weight:500;text-align:left;text-decoration:none;cursor:pointer;}
+.b-menu a.l-item:hover,.b-menu a.l-item:focus,.b-menu button.l-item:hover{background:var(--soft);text-decoration:none;}
+.b-menu .l-item.on{color:var(--accent3);font-weight:700;background:color-mix(in srgb,var(--accent3) 9%,var(--panel));}
+.b-menu .l-item:focus-visible{outline:2px solid var(--accent3);outline-offset:2px;}
+.b-menu .b-thema{display:none;margin-top:4px;padding-top:4px;border-top:1px solid var(--border);}
+:root[data-theme="dark"] .b-menu .l-menu{border-color:var(--rahmen);box-shadow:0 12px 32px rgba(0,0,0,.55);}
+.topbar .langs-top{margin-left:auto;}
+.topbar .langs-top~.searchBtn{margin-left:0;}
+@media(max-width:900px){ .topbar .langs-top~.searchBtn{margin-left:auto;} }
+@media(max-width:1239px){ .topbar.mit-mitte .b-liste{display:none;} .topbar.mit-mitte .b-menu{display:block;} }   /* Artikel: Mitte belegt */
+@media(max-width:719px){ .topbar .b-liste{display:none;} .topbar .b-menu{display:block;} }
+@media(max-width:560px){ .topbar .b-cur,.topbar .b-toggle .l-pfeil{display:none;} .topbar .b-icon{display:block;}
+  .topbar .b-toggle{width:36px;padding:0;justify-content:center;} }
+@media(max-width:400px){ .topbar .b-toggle{width:32px;height:32px;border-radius:9px;} }
+@media(max-width:379px){ .topbar.mit-mitte #themeBtn{display:none;} .topbar.mit-mitte .b-menu .b-thema{display:block;} }   /* sehr schmal: Hell/Dunkel im Menü */
+/* Seiten der Bereiche: ohne Themenbaum, eine Spalte */
+.article.bereich-seite{grid-template-columns:minmax(0,1fr);max-width:900px;margin:0 auto;}
+.bereich-seite [hidden]{display:none!important;}
+.article .bm-g{margin:1.5em 0 .45em;font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);}
+.article ul.bm-liste{list-style:none;margin:0 0 1em;padding:0;}
+.article .bm-liste li.bm{display:flex;flex-wrap:wrap;align-items:baseline;gap:3px 12px;margin:0 0 8px;padding:11px 15px;border:1px solid var(--border);
+  border-radius:12px;background:var(--panel);font-size:16px;}
+:root[data-theme="dark"] .article .bm-liste li.bm{border-color:var(--rahmen);}
+.bm-t{font-weight:700;font-size:17px;}
+.bm-n{font-size:14px;color:var(--muted);}
+.bm-s{flex-basis:100%;font-size:14px;}
+.article p.lw-ohne{font-size:15.5px;color:var(--muted);}
+/* Lernkarten-App: Auswahl, Kartenarten, Modus */
+.lw-app{margin:0 0 1.6em;}
+.lw-wahl,.ag-leiste{display:flex;flex-wrap:wrap;align-items:flex-end;gap:10px 14px;margin:0 0 12px;}
+.lw-feld{display:flex;flex-direction:column;gap:3px;min-width:0;flex:1 1 200px;font-size:13px;font-weight:600;color:var(--muted);}
+.lw-sel{min-width:0;width:100%;font:inherit;font-size:15px;font-weight:500;color:var(--ink);padding:7px 9px;border:1px solid var(--border);
+  border-radius:9px;background:var(--panel);}
+.lw-sel:focus-visible,.lw-art input:focus-visible,.mt-kap input:focus-visible,.ag-offen input:focus-visible{outline:2px solid var(--accent3);outline-offset:2px;}
+.lw-arten,.mt-kap{display:flex;flex-wrap:wrap;gap:4px 18px;margin:0 0 12px;padding:7px 13px 10px;border:1px solid var(--border);border-radius:10px;}
+.lw-arten legend,.mt-kap legend{padding:0 4px;font-size:13px;font-weight:600;color:var(--muted);}
+:root[data-theme="dark"] :is(.lw-arten,.mt-kap,.lw-sel){border-color:var(--rahmen);}
+.lw-art,.mt-k,.mt-alle,.ag-offen{font-size:15px;cursor:pointer;}
+.lw-art{white-space:nowrap;}
+.lw-n{font-size:13px;color:var(--muted);}
+.mt-kap{flex-direction:column;}
+.mt-alle{font-weight:600;}
+.lw-modi{display:inline-flex;flex-wrap:wrap;gap:2px;max-width:100%;margin:0 0 16px;padding:3px;border:1px solid var(--border);border-radius:999px;background:var(--soft);}
+.lw-modus{border:0;background:transparent;color:var(--ink);font:inherit;font-size:15px;font-weight:600;padding:7px 16px;border-radius:999px;cursor:pointer;}
+.lw-modus:hover{color:var(--accent);}
+.lw-modus[aria-pressed="true"]{background:var(--accent);color:var(--on-accent);}
+.lw-modus:focus-visible{outline:2px solid var(--accent3);outline-offset:2px;}
+.article p.lw-hinweis{font-size:15.5px;color:var(--muted);}
+.article .lw-buehne p.lern-lede{font-size:16.5px;}
+.lw-buehne .lk-zahl{margin:0 0 10px;}
+.article p.lk-tasten{margin:6px 0 0;font-size:13px;color:var(--muted);}
+/* Herleitung auf der Karte: Ziel, Ausgangspunkt, Schritte */
+.hl-teil{margin:12px 0 0;padding:8px 13px 10px;border-left:3px solid var(--accent);border-radius:0 8px 8px 0;
+  background:color-mix(in srgb,var(--accent) 5%,var(--panel));font-size:16.5px;font-weight:400;line-height:1.6;}
+.hl-ziel{border-left-color:var(--accent3);background:var(--soft);}
+.lk-hinten .hl-teil:first-child{margin-top:0;}
+.hl-k{display:block;margin-bottom:2px;font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);}
+.article .hl-i p,.article .hl-i li{font-size:16.5px;} .article .hl-i p{margin:.3em 0;}
+.hl-i .katex-display{margin:.5em 0;}
+/* Quiz und Mischtest */
+.qz-setup{display:flex;flex-wrap:wrap;align-items:flex-end;gap:10px 14px;margin:0 0 10px;}
+.qz-setup .lw-feld{flex:0 0 130px;}
+.qz-setup .lk-um,.mt-fort{width:auto;}
+.mt-fort{margin:0 0 14px;}
+.article p.qz-kopf{margin:0 0 8px;font-size:13px;font-weight:600;letter-spacing:.02em;color:var(--muted);}
+.qz-frage{padding:14px 18px 16px;border:1px solid var(--border);border-top:4px solid var(--accent);border-radius:14px;background:var(--panel);}
+.article p.qz-p{margin:0 0 6px;font-size:14px;color:var(--muted);}
+.qz-vorne{margin:0 0 12px;font-size:19px;font-weight:600;line-height:1.45;}
+.article ol.qz-opt{display:grid;grid-template-columns:minmax(0,1fr);gap:8px;list-style:none;margin:0;padding:0;}
+.article .qz-opt li{margin:0;min-width:0;}
+.qz-b{display:flex;align-items:flex-start;gap:10px;width:100%;max-width:100%;min-width:0;padding:10px 12px;border:1px solid var(--border);border-radius:10px;background:var(--panel);
+  color:var(--ink);font:inherit;font-size:16px;line-height:1.5;text-align:left;cursor:pointer;}
+.qz-b:hover:not(:disabled){border-color:var(--accent);}
+.qz-b:focus-visible,.mt-b:focus-visible,.ag-zufall:focus-visible{outline:2px solid var(--accent3);outline-offset:2px;}
+.qz-b:disabled{cursor:default;}
+.qz-nr{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;margin-top:1px;border-radius:50%;
+  background:var(--soft);color:var(--muted);font-size:13px;font-weight:700;}
+.qz-a{flex:1;min-width:0;overflow-wrap:anywhere;}
+.qz-a .lk-formel .katex-display,.qz-a .katex-display{margin:.1em 0;}
+.qz-b.gewaehlt{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent);}
+.qz-b.ok{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 8%,var(--panel));color:var(--ink);box-shadow:none;}
+.qz-b.ok .qz-nr{background:var(--accent);color:var(--on-accent);}
+.qz-b.nein{border-color:var(--accent3);background:var(--soft);color:var(--ink);box-shadow:none;}
+.qz-b.nein .qz-nr{background:var(--accent3);color:#fff;}
+:root[data-theme="dark"] :is(.qz-frage,.qz-b,.lk-karte){border-color:var(--rahmen);}
+:root[data-theme="dark"] .qz-frage{border-top-color:var(--accent);}
+:root[data-theme="dark"] .qz-b.ok,:root[data-theme="dark"] .qz-b.gewaehlt{border-color:var(--accent);}
+:root[data-theme="dark"] .qz-b.nein{border-color:var(--accent3);}
+.qz-weiter{margin-top:12px;}
+.article h2.qz-h{margin:.4em 0 .3em;}
+.article h3.qz-h3{margin:1.2em 0 .4em;}
+.article p.qz-ergebnis{margin:0 0 .6em;font-size:20px;font-weight:700;color:var(--accent);}
+.article ol.qz-fehler,.article ol.mt-liste{margin:0 0 1.2em;padding-left:1.5em;}
+.article .qz-fehler li{padding:8px 0;border-bottom:1px solid var(--border);}
+.qz-fehler .qz-vorne{margin:0 0 4px;font-size:16.5px;}
+.qz-deine,.qz-richtig{margin:3px 0;font-size:15.5px;}
+.qz-richtig .hl-k{color:var(--accent);} .qz-deine .hl-k{color:var(--accent3);}
+.article .mt-liste>li.mt-e{margin:0 0 14px;padding:12px 15px;border:1px solid var(--border);border-left:4px solid var(--border);border-radius:10px;}
+:root[data-theme="dark"] .article .mt-liste>li.mt-e{border-color:var(--rahmen);}
+.article .mt-liste>li.mt-ok{border-left-color:var(--accent);}
+.article .mt-liste>li.mt-teil{border-left-color:color-mix(in srgb,var(--accent3) 50%,var(--border));}
+.article .mt-liste>li.mt-nein{border-left-color:var(--accent3);}
+.mt-aufg .aufg{margin:0;}
+.mt-selbst{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:10px 0 6px;}
+.mt-selbst .hl-k{display:inline;margin:0 4px 0 0;}
+.mt-b{padding:6px 14px;border:1px solid var(--border);border-radius:999px;background:var(--panel);color:var(--ink);font:inherit;font-size:14.5px;font-weight:600;cursor:pointer;}
+.mt-b:hover{border-color:var(--accent);}
+.mt-b[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent);}
+.article ul.mt-links{margin:0 0 1em;padding-left:1.2em;}
+.article .mt-links li{font-size:15.5px;}
+.mt-links .hl-k{display:inline;}
+/* Aufgabenseite eines Moduls */
+.ag-leiste{padding:12px 14px;border:1px solid var(--border);border-radius:12px;background:var(--soft);}
+:root[data-theme="dark"] .ag-leiste{border-color:var(--rahmen);}
+.ag-leiste .lw-feld{flex:1 1 190px;}
+.ag-offen{align-self:center;white-space:nowrap;}
+.ag-zufall{padding:7px 14px;border:1px solid var(--accent);border-radius:9px;background:var(--accent);color:var(--on-accent);font:inherit;font-size:15px;
+  font-weight:600;cursor:pointer;}
+.ag-zufall:hover{filter:brightness(1.08);}
+.ag-stand{align-self:center;font-size:14.5px;font-weight:600;color:var(--accent);}
+.ag-kap,.ag-art,.ag{scroll-margin-top:72px;}
+.article .ag-art>h3{font-size:18px;}
+.ag{margin:0 0 18px;}
+.ag .aufg{margin-bottom:6px;}
+.ag-fuss{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:6px 14px;margin:0 0 4px;font-size:14px;}
+.ag-ok{font-weight:600;color:var(--muted);cursor:pointer;}
+.ag-geloest .ag-ok{color:var(--accent);}
+.ag-hl .aufg{box-shadow:0 0 0 3px color-mix(in srgb,var(--accent3) 55%,transparent);}
+.ag-zahl{font-size:.9em;color:var(--muted);}
+/* Verweise unter dem Artikel: Lernkarten und Aufgaben */
+.bereich-links{margin:1.6em 0 1.1em;padding:9px 16px;border:1px solid var(--border);border-radius:12px;background:var(--soft);}
+:root[data-theme="dark"] .bereich-links{border-color:var(--rahmen);}
+.article .bereich-links p{margin:.2em 0;font-size:15.5px;}
+.bl-k{margin-right:4px;font-weight:700;color:var(--muted);}
+@media(max-width:620px){ .lw-modus{padding:7px 12px;font-size:14.5px;} .qz-frage{padding:12px 13px 14px;} .qz-vorne{font-size:17.5px;}
+  .lw-feld{flex-basis:100%;} .qz-setup .lw-feld{flex-basis:120px;} }
+@media print{ .bereich-links,.lw-app,.ag-leiste,.ag-fuss,.ag-reset,.ag-nav{display:none!important;} }

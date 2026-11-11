@@ -22,13 +22,13 @@ Jede erledigte Aufgabe hier abhaken, mit Datum. Einzelheiten stehen in den verli
    - Kap. 1: „Nacheilwinkel“ φ = −arctan x; fehlende Bedingung b ≠ 0.
    - Kap. 3, darunter zwei echte Sachfehler: Existenzbedingung der Fourier-Transformation; Gauß-Vertiefung ohne Bedingung an das zweite Moment.
    - Danach PDFs in allen vorhandenen Sprachen (de/en/es/zh) und die Artikel neu bauen.
-4. [ ] (läuft seit 11.11., Arbeitskopie `wt_w4b`, Port 8005) **Website-Welle W4b „Bereiche“:**
+4. [x] (11.11.) **Website-Welle W4b „Bereiche“** eingespielt: Kopfleiste Wissen/Lernkarten/Aufgaben/Editor; `/lernen/` (drei Tiefen, Lernen/Quiz/Mischtest), `/aufgaben/` (1 076 de); Haken `::::lernkarten`; alte `lernkarten.html` leiten weiter; +63 Dateien (8 292). Startseite: „Videos“ und „Editor öffnen“ nicht mehr in der Kopfleiste. Früher:
    - Kopfleiste und Startseite mit vier Bereichen: Wissen, Lernkarten/Quiz, Aufgaben, Editor.
    - Lernkarten-Bereich mit drei Tiefen (Artikel, Kapitel, Modul).
    - Aufgaben-Bereich mit 1 076 Aufgaben samt Lösungen.
    - Mischtest; Verweise unter jedem Artikel.
    - Die Karteninhalte bleiben vorerst automatisch, ihre Überarbeitung ist B5.
-5. [ ] **Lernkarten neu, in Ruhe** (Wunsch des User: wenn kein anderer Agent läuft):
+5. [ ] (Pilot läuft seit 11.11.: ET1 Kap. 1, Muster `notizen/lernkarten_muster.md`; Entscheidungen: vier Arten, geschriebene falsche Antworten) **Lernkarten neu, in Ruhe** (Wunsch des User: wenn kein anderer Agent läuft):
    - zuerst mit dem User Kartenarten und Muster festlegen (Begriffe, Formeln, Herleitungen, Zusammenhänge; sinnvolle Fragen und Antworten), dann ein Pilot an einem Heft;
    - dabei die Begriffsbestimmungen für Zusammenfassung und Begriffsverzeichnis gleich mit lösen (Konverter-Wunsch `\fb[Bestimmung]{Begriff}`, Satzbruch um abgesetzte Formeln, `summary:` als Klartext);
    - das Schreiben für alle Hefte läuft danach in Loop C2.

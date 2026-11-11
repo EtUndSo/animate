@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="de"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Aufgaben: Cybersecurity — EtUndSo</title>
+<link rel="icon" href="/favicon.ico" sizes="32x32"/><link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
+<meta name="description" content="Aufgaben: Cybersecurity. Alle Aufgaben dieses Moduls, nach Kapiteln und Artikeln geordnet. Die Lösung ist zugeklappt; jede Aufgabe führt auch an ihre Stelle im Artikel."/><link rel="alternate" hreflang="de" href="https://etundso.de/aufgaben/informatik/cybersecurity.html"/>
+<script>try{var t=localStorage.getItem("animate-theme");if(t==="dark"||(!t&&matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.setAttribute("data-theme","dark");}catch(e){}
+try{var a=new URLSearchParams(location.search).get("ansicht");if(a==="uebersicht")a="formeln";if(!/^(voll|kurz|formeln)$/.test(a||""))a=localStorage.getItem("etundso-ansicht");if(a==="kurz"||a==="formeln")document.documentElement.setAttribute("data-ansicht",a);}catch(e){}</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css"/>
+<link rel="stylesheet" href="/wissen/assets/wissen.css"/>
+</head><body data-root="/wissen/">
+<a class="skip" href="#inhalt">Zum Inhalt</a><div class="topbar"><a class="brand" href="/">Et<span>Und</span><span class="so">So</span></a><nav class="bereiche" aria-label="Bereiche"><ul class="b-liste"><li><a class="b-l" href="/wissen/">Wissen</a></li><li><a class="b-l" href="/lernen/">Lernkarten</a></li><li><a class="b-l on" href="/aufgaben/" aria-current="true">Aufgaben</a></li><li><a class="b-l" href="/editor.html">Editor</a></li></ul><div class="b-menu" data-langmenu><button type="button" class="l-toggle b-toggle" aria-expanded="false" aria-controls="bmenu" aria-label="Bereiche: Aufgaben" title="Bereiche"><svg class="b-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg><span class="b-cur">Aufgaben</span><svg class="l-pfeil" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button><ul class="l-menu" id="bmenu" hidden><li><a class="l-item" href="/wissen/"><span class="l-name">Wissen</span></a></li><li><a class="l-item" href="/lernen/"><span class="l-name">Lernkarten</span></a></li><li><a class="l-item on" href="/aufgaben/" aria-current="true"><span class="l-name">Aufgaben</span><svg class="l-haken" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="5 12.5 10 17.5 19 7"/></svg></a></li><li><a class="l-item" href="/editor.html"><span class="l-name">Editor</span></a></li><li class="b-thema"><button type="button" class="l-item b-thema-b">Hell/Dunkel</button></li></ul></div></nav><nav class="langs langs-top" aria-label="Sprache" data-langmenu><button type="button" class="l-toggle" aria-expanded="false" aria-controls="lmenu-top" aria-label="Sprache: Deutsch" title="Sprache"><span class="l-cur">DE</span><svg class="l-pfeil" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button><ul class="l-menu" id="lmenu-top" hidden><li><a class="l-item on" href="/aufgaben/informatik/cybersecurity.html" hreflang="de" lang="de" aria-current="true"><span class="l-name">Deutsch</span><svg class="l-haken" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="5 12.5 10 17.5 19 7"/></svg></a></li><li><span class="l-item off" lang="en" aria-disabled="true" title="noch nicht übersetzt"><span class="l-name">English</span></span></li><li><span class="l-item off" lang="es" aria-disabled="true" title="noch nicht übersetzt"><span class="l-name">Español</span></span></li><li><span class="l-item off" lang="fr" aria-disabled="true" title="noch nicht übersetzt"><span class="l-name">Français</span></span></li><li><span class="l-item off" lang="tr" aria-disabled="true" title="noch nicht übersetzt"><span class="l-name">Türkçe</span></span></li><li><span class="l-item off" lang="zh" aria-disabled="true" title="noch nicht übersetzt"><span class="l-name">中文</span></span></li></ul></nav><button id="searchBtn" class="searchBtn" aria-label="Suchen"><span class="lbl">Suchen</span><kbd>/</kbd></button><button id="themeBtn" class="iconBtn" aria-label="Hell/Dunkel umschalten" title="Hell/Dunkel umschalten"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A8 8 0 1 1 11.2 3 6 6 0 0 0 21 12.8z"/></svg></button></div><div id="searchOverlay" class="searchOverlay" hidden><div class="searchBox"><input id="searchInput" type="search" placeholder="Thema, Begriff, Formel …" autocomplete="off"/><div id="searchResults" class="searchResults"></div><div class="searchHint">Teilwörter erlaubt (z. B. „teiler" findet „Spannungsteiler"). <kbd>Esc</kbd> schließt.</div></div></div><main class="article bereich-seite ag-seite" id="inhalt" tabindex="-1"><article><nav class="crumbs"><a class="cr-home" href="/aufgaben/">Aufgaben</a><span class="cr"><span class="cr-sep" aria-hidden="true"> › </span>Cybersecurity</span></nav><h1>Aufgaben: Cybersecurity</h1><div class="art-meta lern-meta"><nav class="langs langs-art" aria-label="Sprache" data-langmenu><button type="button" class="l-toggle" aria-expanded="false" aria-controls="lmenu-art" aria-label="Sprache: Deutsch" title="Sprache"><span class="l-cur">DE</span><svg class="l-pfeil" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button><ul class="l-menu" id="lmenu-art" hidden><li><a class="l-item on" href="/aufgaben/informatik/cybersecurity.html" hreflang="de" lang="de" aria-current="true"><span class="l-name">Deutsch</span><svg class="l-haken" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="5 12.5 10 17.5 19 7"/></svg></a></li><li><span class="l-item off" lang="en" aria-disabled="true" title="noch nicht übersetzt"><span class="l-name">English</span></span></li><li><span class="l-item off" lang="es" aria-disabled="true" title="noch nicht übersetzt"><span class="l-name">Español</span></span></li><li><span class="l-item off" lang="fr" aria-disabled="true" title="noch nicht übersetzt"><span class="l-name">Français</span></span></li><li><span class="l-item off" lang="tr" aria-disabled="true" title="noch nicht übersetzt"><span class="l-name">Türkçe</span></span></li><li><span class="l-item off" lang="zh" aria-disabled="true" title="noch nicht übersetzt"><span class="l-name">中文</span></span></li></ul></nav></div><p class="lede lern-lede">Alle Aufgaben dieses Moduls, nach Kapiteln und Artikeln geordnet. Die Lösung ist zugeklappt; jede Aufgabe führt auch an ihre Stelle im Artikel.</p><p class="lern-nav"><span>20 Aufgaben</span><span aria-hidden="true"> · </span><a href="/lernen/?m=cyber">Lernkarten</a><span aria-hidden="true"> · </span><a href="/lernen/?m=cyber&amp;modus=test">Mischtest mit diesen Aufgaben</a></p><nav class="kap-nav ag-nav" aria-label="Kapitel"><ol><li><a href="#k1">Kapitel 1: Sicherheit, Schutzziele und Spielregeln</a> <span class="ag-zahl">(20)</span></li></ol></nav><div class="ag-leiste" hidden><label class="lw-feld"><span>Kapitel</span> <select class="lw-sel ag-k"><option value="">Alle Kapitel</option><option value="1">Kapitel 1: Sicherheit, Schutzziele und Spielregeln</option></select></label><label class="lw-feld"><span>Artikel</span> <select class="lw-sel ag-a"><option value="">Alle Artikel</option></select></label><label class="ag-offen"><input type="checkbox" class="ag-o"/> Nur ungelöste</label><button type="button" class="ag-zufall">Zufällige Aufgabe</button><span class="ag-stand" aria-live="polite"></span></div><section class="ag-kap" id="k1" data-k="1"><h2>Kapitel 1: Sicherheit, Schutzziele und Spielregeln</h2><section class="ag-art" id="k1-was-geschutzt-wird-schutzgut-und-schutzziele" data-a="was-geschutzt-wird-schutzgut-und-schutzziele"><h3><a href="/wissen/informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln/was-geschutzt-wird-schutzgut-und-schutzziele.html">Was geschützt wird: Schutzgut und Schutzziele</a></h3><div class="ag" data-id="informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln/was-geschutzt-wird-schutzgut-und-schutzziele.html#aufg-1"><div class="aufg"><div class="aufg-h">Aufgabe 1 ★ Welches Schutzziel ist verletzt?</div><div class="aufg-b"><span class="anker" id="k1-was-geschutzt-wird-schutzgut-und-schutzziele-aufg-1"></span>
+<p>Nenne für jeden Vorfall alle verletzten Schutzziele (Vertraulichkeit, Integrität, Verfügbarkeit, Authentizität, Verbindlichkeit) und begründe jedes in einem Satz.</p>
+<ol class="al">
+<li>
+<p>Ein Mitarbeiter lässt ein Notebook mit unverschlüsselten Kundendaten im Zug liegen.</p>
+</li>
+<li>
+<p>In einer Bestellung wird unterwegs die Liefermenge von 10 auf 100 geändert.</p>
+</li>
+<li>
+<p>Ein Angreifer überlastet das Anmeldesystem einer Hochschule in der Woche der Prüfungsanmeldung.</p>
+</li>
+<li>
+<p>Eine Erpressungssoftware verschlüsselt die Patientenakten einer Arztpraxis; die Täter drohen, die Akten zu veröffentlichen.</p>
+</li>
+<li>
+<p>Eine SMS „von der Paketzustellung“ führt auf eine gefälschte Seite, die eine Zahlung von 1,99 € verlangt.</p>
+</li>
+<li>
+<p>Ein Vermieter behauptet, eine Kündigung per E-Mail nie erhalten zu haben, und die Mieterin kann nicht nachweisen, dass sie sie geschickt hat.</p>
+</li>
+</ol>
+<details class="loesung"><summary>Lösung</summary><div class="lo-body mathe-spaeter"><p>(a) <em>Vertraulichkeit</em>: Wer das Notebook findet, kann die Kundendaten lesen; sie sind nicht verschlüsselt. Zusätzlich ist für den Mitarbeiter die <em>Verfügbarkeit</em> seiner Daten verletzt, falls es keine Kopie gibt. Ob die Vertraulichkeit tatsächlich verletzt <em>wird</em>, hängt davon ab, wer das Gerät findet; bedroht ist sie sofort.</p>
+<p>(b) <em>Integrität</em>: Die Bestellung wurde unbefugt verändert. Fällt die Änderung nicht auf, folgen falsche Lieferung und falsche Rechnung.</p>
+<p>(c) <em>Verfügbarkeit</em>: Die Studierenden können sich nicht anmelden. Gespeicherte Daten werden weder bekannt noch verändert.</p>
+<p>(d) <em>Verfügbarkeit</em>, weil die Praxis nicht mehr an die Akten kommt; <em>Integrität</em>, weil die Dateien verändert wurden; <em>Vertraulichkeit</em>, weil die Täter die Akten kopiert haben. Für Patientenakten ist der Schutzbedarf bei der Vertraulichkeit sehr hoch.</p>
+<p>(e) <em>Authentizität</em>: Die Nachricht stammt nicht von der Paketzustellung. Wer zahlt und seine Kartendaten eingibt, verliert zusätzlich deren Vertraulichkeit.</p>
+<p>(f) <em>Verbindlichkeit</em>: Ob die Kündigung abgeschickt und empfangen wurde, lässt sich nicht nachweisen. Eine Empfangsbestätigung oder ein Einschreiben hätte sie verbindlich gemacht.</p></div></details></div></div><div class="ag-fuss"><a class="ag-stelle" href="/wissen/informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln/was-geschutzt-wird-schutzgut-und-schutzziele.html#aufg-1">Zur Stelle im Artikel</a></div></div><div class="ag" data-id="informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln/was-geschutzt-wird-schutzgut-und-schutzziele.html#aufg-2"><div class="aufg"><div class="aufg-h">Aufgabe 2 ★★ Dein eigenes Gerät, Teil 1: Schutzgüter und Schutzbedarf</div><div class="aufg-b"><span class="anker" id="k1-was-geschutzt-wird-schutzgut-und-schutzziele-aufg-2"></span>
+<p>Wähle ein Gerät oder einen Dienst, den du selbst benutzt oder gebaut hast, zum Beispiel deinen Router, ein Mikrocontroller-Projekt mit WLAN, dein Smartphone oder dein Konto bei einem Onlineshop. Arbeite auf Papier.</p>
+<ol class="al">
+<li>
+<p>Nenne mindestens drei Schutzgüter. Denke auch an Informationen, die nicht auf dem Gerät liegen, aber über das Gerät erreichbar sind.</p>
+</li>
+<li>
+<p>Wer ist Verfügungsberechtigter? Wer ist wofür berechtigt? Nenne mindestens drei Personen oder Gruppen mit ihren Handlungen.</p>
+</li>
+<li>
+<p>Bestimme den Schutzbedarf für jedes Schutzgut und jedes der drei grundlegenden Schutzziele in einer Tabelle wie Tabelle <a href="/wissen/informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln/was-geschutzt-wird-schutzgut-und-schutzziele.html#tab-1">1</a>. Begründe jede Stufe „hoch“ oder „sehr hoch“ mit einem Schadensszenario.</p>
+</li>
+</ol>
+<p>Bewahre das Blatt auf; Aufgabe <a href="/wissen/informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln/risiko-angreifermodell-und-angriffsflache.html#aufg-5">5</a> baut darauf auf.</p>
+<details class="loesung"><summary>Lösung</summary><div class="lo-body mathe-spaeter"><p>Jede gut begründete Lösung ist richtig; hier eine Musterlösung für einen <em>Router im Heimnetz einer Wohngemeinschaft</em>.</p>
+<p>(a) Schutzgüter: die Verwaltungsoberfläche mit allen Einstellungen (Steuerfunktion); das WLAN-Passwort; der gesamte Datenverkehr, der durch den Router läuft; der Internetanschluss selbst (ein Dienst, der für alle wichtig ist); die Geräte im Heimnetz, die über den Router erreichbar sind. Die letzten beiden liegen nicht auf dem Router, hängen aber von ihm ab.</p>
+<p>(b) Verfügungsberechtigt ist die Person, die den Anschluss gemietet hat, hier etwa die Hauptmieterin. Sie darf die Einstellungen ändern. Die Mitbewohner dürfen das WLAN nutzen, aber nicht die Einstellungen ändern und nicht den Verkehr der anderen einsehen. Gäste dürfen das Gäste-WLAN nutzen. Der Anbieter des Anschlusses darf den Router aus der Ferne aktualisieren, wenn der Vertrag das vorsieht.</p>
+<p>(c) Mögliche Tabelle:</p>
+<div class="table-wrap"><table class="md-table"><thead><tr><th>Schutzgut</th><th>V</th><th>I</th><th>Vf</th><th>Begründung für „hoch“</th></tr></thead><tbody><tr><td>Einstellungen</td><td>normal</td><td>hoch</td><td>hoch</td><td>Wer sie ändert, kann Verkehr umleiten (Integrität) oder den Anschluss für alle lahmlegen; ohne Internet können drei Bewohner nicht studieren oder arbeiten (Aufgabenerfüllung).</td></tr><tr><td>WLAN-Passwort</td><td>hoch</td><td>normal</td><td>normal</td><td>Mit ihm kommt ein Fremder ins Heimnetz zu allen Geräten (Selbstbestimmung über persönliche Daten).</td></tr><tr><td>Datenverkehr</td><td>hoch</td><td>hoch</td><td>normal</td><td>Er enthält Nachrichten und Anmeldungen aller Bewohner (Selbstbestimmung, finanzielle Folgen).</td></tr></tbody></table></div></div></details></div></div><div class="ag-fuss"><a class="ag-stelle" href="/wissen/informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln/was-geschutzt-wird-schutzgut-und-schutzziele.html#aufg-2">Zur Stelle im Artikel</a></div></div></section><section class="ag-art" id="k1-von-der-schwachstelle-zum-schaden" data-a="von-der-schwachstelle-zum-schaden"><h3><a href="/wissen/informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln/von-der-schwachstelle-zum-schaden.html">Von der Schwachstelle zum Schaden</a></h3><div class="ag" data-id="informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln/von-der-schwachstelle-zum-schaden.html#aufg-3"><div class="aufg"><div class="aufg-h">Aufgabe 3 ★ Die Kette zerlegen</div><div class="aufg-b"><span class="anker" id="k1-von-der-schwachstelle-zum-schaden-aufg-3"></span>
+<p>Nenne für jeden Fall Schwachstelle, Bedrohung, Angreifer (falls es einen gibt), Angriff, Exploit (falls es einen gibt), Schaden und die verletzten Schutzziele.</p>
+<ol class="al">
+<li>
+<p>Eine Kundin des Kundenportals aus diesem Abschnitt ändert aus Neugier die Rechnungsnummer in der Adresszeile und sieht Name, Anschrift und Einkäufe eines anderen Kunden.</p>
+</li>
+<li>
+<p>Ein Server steht in einem Kellerraum ohne Abfluss. Nach einem Starkregen steht das Wasser 20 cm hoch, der Server fällt aus, die letzte Sicherungskopie ist drei Wochen alt.</p>
+</li>
+<li>
+<p>Ein Angreifer schickt den Mitarbeitern einer Firma eine E-Mail im Namen der IT-Abteilung und bittet um das Passwort „zur Umstellung des Postfachs“. Zwei Mitarbeiter antworten. Mit ihren Konten liest er eine Woche lang die Geschäftspost mit.</p>
+</li>
+<li>
+<p>In welchem Fall gibt es keinen Angreifer und keinen Exploit? Welche Begriffe der Kette braucht man dann trotzdem?</p>
+</li>
+</ol>
+<details class="loesung"><summary>Lösung</summary><div class="lo-body mathe-spaeter"><p>(a) Schwachstelle: Das Portal prüft nicht, wem eine Rechnung gehört (fehlende Prüfung). Bedrohung: Neugierige oder böswillige Kunden rufen fremde Rechnungen ab. Angreifer: die Kundin; sie handelt absichtlich, wenn auch aus Neugier. Angriff: das Abrufen der fremden Rechnung. Exploit: die Nummer in der Adresse um eins erhöhen. Schaden: Name, Anschrift und Einkäufe eines anderen Kunden sind bekannt geworden; für den Shop drohen Meldepflichten und Ansehensverlust. Verletzt: Vertraulichkeit.</p>
+<p>(b) Schwachstelle: Serverraum ohne Abfluss im Keller, dazu eine veraltete Sicherungskopie. Bedrohung: Starkregen. Angreifer: keiner. Angriff: keiner; an seine Stelle tritt das Ereignis, das eindringende Wasser. Exploit: keiner. Schaden: Ausfall des Servers und drei Wochen verlorene Arbeit. Verletzt: Verfügbarkeit, durch die verlorenen Daten auch Integrität (der Datenbestand ist nicht mehr vollständig).</p>
+<p>(c) Schwachstelle: Mitarbeiter, die Passwörter auf Anfrage per E-Mail herausgeben (Gewohnheit), dazu fehlende Prüfung des Absenders. Bedrohung: Phishing gegen die Belegschaft. Angreifer: der Absender der E-Mail. Angriff: die gefälschte Bitte um das Passwort und danach die Anmeldung mit den erbeuteten Daten. Exploit: die glaubwürdige E-Mail im Namen der IT-Abteilung. Schaden: eine Woche mitgelesene Geschäftspost. Verletzt: zuerst Authentizität (die E-Mail), dann Vertraulichkeit (die Post).</p>
+<p>(d) Im Fall (b). Die Begriffe Schwachstelle, Bedrohung und Schaden braucht man trotzdem: Auch ohne Angreifer trifft eine Bedrohung auf eine Schwachstelle, und an die Stelle des Angriffs tritt das Ereignis. Deshalb ist eine Bedrohung als <em>mögliche Verletzung</em> definiert und nicht als Angreifer; Zufall und Natur gehören ebenso dazu.</p></div></details></div></div><div class="ag-fuss"><a class="ag-stelle" href="/wissen/informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln/von-der-schwachstelle-zum-schaden.html#aufg-3">Zur Stelle im Artikel</a></div></div></section><section class="ag-art" id="k1-risiko-angreifermodell-und-angriffsflache" data-a="risiko-angreifermodell-und-angriffsflache"><h3><a href="/wissen/informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln/risiko-angreifermodell-und-angriffsflache.html">Risiko, Angreifermodell und Angriffsfläche</a></h3><div class="ag" data-id="informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln/risiko-angreifermodell-und-angriffsflache.html#aufg-4"><div class="aufg"><div class="aufg-h">Aufgabe 4 ★★ Risiko rechnen und entscheiden</div><div class="aufg-b"><span class="anker" id="k1-risiko-angreifermodell-und-angriffsflache-aufg-4"></span>
+<p>Eine Steuerberatung mit zwölf Mitarbeitern schätzt drei Ereignisse ab:</p>
+<ul>
+<li>
+<p>Diebstahl eines Laptops: im Mittel einmal in fünf Jahren, Schaden 3 000 € (davon 1 000 € für das Gerät und 2 000 € für die Folgen, weil Mandantendaten darauf lagen);</p>
+</li>
+<li>
+<p>ein durch Phishing übernommenes E-Mail-Konto: zweimal im Jahr, je 800 €;</p>
+</li>
+<li>
+<p>Erpressungssoftware: einmal in 20 Jahren, Schaden 120 000 €.</p>
+</li>
+</ul>
+<ol class="al">
+<li>
+<p>Berechne die drei Risiken und das Gesamtrisiko, und ordne die Ereignisse nach ihrem Risiko.</p>
+</li>
+<li>
+<p>Drei Maßnahmen stehen zur Wahl: eine tägliche, vom Netz getrennte Sicherungskopie für 1 500 €/Jahr, die den Schaden durch Erpressungssoftware auf 20 000 € senkt; eine Schulung gegen Phishing für 1 000 €/Jahr, die die Häufigkeit übernommener Konten halbiert; eine Verschlüsselung der Laptop-Festplatten für 50 €/Jahr, die die Folgekosten eines Diebstahls verhindert. Berechne für jede den Nettonutzen. Welche lohnen sich?</p>
+</li>
+<li>
+<p>Die Schulung lohnt sich nach (b) nicht. Nenne zwei Gründe, warum die Steuerberatung sie trotzdem durchführen könnte, und ordne jeden einer Einschränkung der Formel $\textcolor{#1b7f4a}{R}\textcolor{#15633a}{=}\textcolor{#c2410c}{H\cdot S}$ zu.</p>
+</li>
+</ol>
+<details class="loesung"><summary>Lösung</summary><div class="lo-body mathe-spaeter"><p>(a) Mit <span class="nobr">$\textcolor{#1b7f4a}{R}\textcolor{#15633a}{=}\textcolor{#c2410c}{H\cdot S}$:</span></p>
+<ul>
+<li>
+<p>Laptop: <span class="nobr">$\textcolor{#1b7f4a}{H}\textcolor{#15633a}{=}\textcolor{#c2410c}{0{,}2/\text{Jahr}}$,</span> $\textcolor{#1b7f4a}{R}\textcolor{#15633a}{=}\textcolor{#c2410c}{0{,}2\cdot3\,000}\textcolor{#15633a}{=}\textcolor{#c2410c}{600}$ €/Jahr.</p>
+</li>
+<li>
+<p>Phishing: $\textcolor{#1b7f4a}{R}\textcolor{#15633a}{=}\textcolor{#c2410c}{2\cdot800}\textcolor{#15633a}{=}\textcolor{#c2410c}{1\,600}$ €/Jahr.</p>
+</li>
+<li>
+<p>Erpressungssoftware: <span class="nobr">$\textcolor{#1b7f4a}{H}\textcolor{#15633a}{=}\textcolor{#c2410c}{0{,}05/\text{Jahr}}$,</span> $\textcolor{#1b7f4a}{R}\textcolor{#15633a}{=}\textcolor{#c2410c}{0{,}05\cdot120\,000}\textcolor{#15633a}{=}\textcolor{#c2410c}{6\,000}$ €/Jahr.</p>
+</li>
+</ul>
+<p>Gesamtrisiko nach <a href="/wissen/informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln/risiko-angreifermodell-und-angriffsflache.html#gl-3-5">(3.5)</a>: $\textcolor{#1b7f4a}{R_\Sigma}\textcolor{#15633a}{=}\textcolor{#c2410c}{600+1\,600+6\,000}\textcolor{#15633a}{=}\textcolor{#c2410c}{8\,200}$ €/Jahr. Reihenfolge: Erpressungssoftware vor Phishing vor Laptop. Das seltenste Ereignis hat das größte Risiko; es macht allein fast drei Viertel des Gesamtrisikos aus.</p>
+<p>(b) Nettonutzen <span class="nobr">$\textcolor{#1b7f4a}{N}\textcolor{#15633a}{=}\textcolor{#c2410c}{R_\text{vorher}-R_\text{nachher}-K}$:</span></p>
+<ul>
+<li>
+<p>Sicherungskopie: $\textcolor{#1b7f4a}{R_\text{nachher}}\textcolor{#15633a}{=}\textcolor{#c2410c}{0{,}05\cdot20\,000}\textcolor{#15633a}{=}\textcolor{#c2410c}{1\,000}$, also $\textcolor{#1b7f4a}{N}\textcolor{#15633a}{=}\textcolor{#c2410c}{6\,000-1\,000-1\,500}\textcolor{#15633a}{=}\textcolor{#c2410c}{+3\,500}$ €/Jahr. Lohnt sich.</p>
+</li>
+<li>
+<p>Schulung: <span class="nobr">$\textcolor{#1b7f4a}{R_\text{nachher}}\textcolor{#15633a}{=}\textcolor{#c2410c}{1\cdot800}\textcolor{#15633a}{=}\textcolor{#c2410c}{800}$,</span> also $\textcolor{#1b7f4a}{N}\textcolor{#15633a}{=}\textcolor{#c2410c}{1\,600-800-1\,000}\textcolor{#15633a}{=}\textcolor{#c2410c}{-200}$ €/Jahr. Lohnt sich nach dieser Rechnung knapp nicht.</p>
+</li>
+<li>
+<p>Verschlüsselung: Ein Diebstahl kostet nur noch das Gerät, $\textcolor{#1b7f4a}{R_\text{nachher}}\textcolor{#15633a}{=}\textcolor{#c2410c}{0{,}2\cdot1\,000}\textcolor{#15633a}{=}\textcolor{#c2410c}{200}$, also $\textcolor{#1b7f4a}{N}\textcolor{#15633a}{=}\textcolor{#c2410c}{600-200-50}\textcolor{#15633a}{=}\textcolor{#c2410c}{+350}$ €/Jahr. Lohnt sich, und zwar im Verhältnis zu ihren Kosten am meisten.</p>
+</li>
+</ul>
+<p>(c) Zwei mögliche Gründe:</p>
+<ul>
+<li>
+<p>⁠<em>Die Zahlen sind Schätzungen.</em> Die Schulung kann mehr bewirken als eine Halbierung, oder die Häufigkeit von Phishing steigt; schon bei $\textcolor{#1b7f4a}{H}\textcolor{#15633a}{=}\textcolor{#c2410c}{3/\text{Jahr}}$ wäre $\textcolor{#1b7f4a}{N}\textcolor{#15633a}{=}\textcolor{#c2410c}{2\,400-1\,200-1\,000}\textcolor{#15633a}{=}\textcolor{#c2410c}{+200}$ €/Jahr. Die Formel hängt an unsicheren Eingaben.</p>
+</li>
+<li>
+<p>⁠<em>Ein übernommenes Konto kann mehr kosten als 800 €.</em> Über ein E-Mail-Konto kann ein Angreifer auch Erpressungssoftware einschleusen; dann hängt das größte Risiko am kleinsten. Die Formel betrachtet die Ereignisse getrennt, sie sind aber nicht unabhängig, und ein seltener, sehr hoher Schaden zählt für die Existenz der Firma mehr als sein Erwartungswert.</p>
+</li>
+</ul>
+<p>Dazu kommen Pflichten: Eine Steuerberatung muss die Daten ihrer Mandanten nach dem Datenschutzrecht angemessen schützen, ob sich das rechnet oder nicht.</p></div></details></div></div><div class="ag-fuss"><a class="ag-stelle" href="/wissen/informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln/risiko-angreifermodell-und-angriffsflache.html#aufg-4">Zur Stelle im Artikel</a></div></div><div class="ag" data-id="informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln/risiko-angreifermodell-und-angriffsflache.html#aufg-5"><div class="aufg"><div class="aufg-h">Aufgabe 5 ★★ Dein eigenes Gerät, Teil 2: Angreifermodell und Angriffsfläche</div><div class="aufg-b"><span class="anker" id="k1-risiko-angreifermodell-und-angriffsflache-aufg-5"></span>
+<p>Nimm dein Blatt aus Aufgabe <a href="/wissen/informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln/was-geschutzt-wird-schutzgut-und-schutzziele.html#aufg-2">2</a>.</p>
+<ol class="al">
+<li>
+<p>Beschreibe zwei verschiedene Angreifer, mit denen du für dein Gerät rechnen musst, jeweils mit Ziel, Können und Zugang. Einer davon soll aus der Ferne angreifen, der andere nicht.</p>
+</li>
+<li>
+<p>Zähle die Angriffsfläche deines Geräts auf: alle Stellen, an denen einer deiner beiden Angreifer ansetzen könnte. Ordne sie nach Eingaben, Netzdiensten, Anschlüssen, Menschen und Lieferanten.</p>
+</li>
+<li>
+<p>Welche zwei Stellen könntest du ganz abschalten oder entfernen, ohne dass dir eine Funktion fehlt, die du wirklich nutzt?</p>
+</li>
+</ol>
+<details class="loesung"><summary>Lösung</summary><div class="lo-body mathe-spaeter"><p>Musterlösung für den Router aus Aufgabe <a href="/wissen/informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln/was-geschutzt-wird-schutzgut-und-schutzziele.html#aufg-2">2</a>.</p>
+<p>(a) <em>Angreifer 1, aus der Ferne:</em> Betreiber automatischer Suchprogramme. Ziel: Geräte übernehmen und für Angriffe auf andere vermieten. Können: fertige Listen von Werkspasswörtern und Exploits für bekannte Lücken, unbegrenzt Zeit, aber kein Interesse an genau diesem Router. Zugang: über das Internet, nur zu Diensten, die von außen erreichbar sind. <em>Angreifer 2, nicht aus der Ferne:</em> ein Gast oder ehemaliger Mitbewohner. Ziel: den Verkehr der anderen mitlesen oder aus Ärger stören. Können: Alltagswissen, ein Laptop, Zeit. Zugang: im WLAN, vielleicht mit den Händen am Gerät, wenn es im Flur steht.</p>
+<p>(b) Angriffsfläche: <em>Eingaben</em> sind die Verwaltungsoberfläche mit ihrer Anmeldung und die Einrichtung per Knopfdruck am Gerät. <em>Netzdienste</em> sind die Verwaltung aus dem Internet (falls eingeschaltet), Fernwartung durch den Anbieter, Gäste-WLAN, ein Dienst zur Freigabe angeschlossener Festplatten, die WLAN-Funkschnittstelle selbst. <em>Anschlüsse</em> sind die Netzwerkbuchsen, ein USB-Anschluss und die Reset-Taste. <em>Menschen</em> sind alle Bewohner, die das WLAN-Passwort weitergeben könnten. <em>Lieferanten</em> sind der Hersteller, dessen Updates man vertraut, und der Anbieter des Anschlusses.</p>
+<p>(c) Typische Kandidaten: die Verwaltung aus dem Internet ausschalten und den Freigabedienst für Festplatten abschalten, wenn niemand ihn nutzt. Jede abgeschaltete Stelle senkt die Wahrscheinlichkeit einer offenen Stelle nach <a href="/wissen/informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln/risiko-angreifermodell-und-angriffsflache.html#gl-3-7">(3.7)</a>.</p></div></details></div></div><div class="ag-fuss"><a class="ag-stelle" href="/wissen/informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln/risiko-angreifermodell-und-angriffsflache.html#aufg-5">Zur Stelle im Artikel</a></div></div><div class="ag" data-id="informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln/risiko-angreifermodell-und-angriffsflache.html#aufg-6"><div class="aufg"><div class="aufg-h">Aufgabe 6 ★★ Wie die Angriffsfläche wächst</div><div class="aufg-b"><span class="anker" id="k1-risiko-angreifermodell-und-angriffsflache-aufg-6"></span>
+<p>Ein Hersteller vernetzter Kameras rechnet damit, dass jede Schnittstelle unabhängig mit $\textcolor{#1b7f4a}{p}\textcolor{#15633a}{=}\textcolor{#c2410c}{5\,\%}$ eine ausnutzbare Schwachstelle enthält.</p>
+<ol class="al">
+<li>
+<p>Wie groß ist die Wahrscheinlichkeit, dass eine Kamera mit $\textcolor{#1b7f4a}{n}\textcolor{#15633a}{=}\textcolor{#c2410c}{10}$ Schnittstellen mindestens eine solche Schwachstelle hat? Wie groß ist sie bei <span class="nobr">$\textcolor{#1b7f4a}{n}\textcolor{#15633a}{=}\textcolor{#c2410c}{20}$?</span></p>
+</li>
+<li>
+<p>Wie gut ist die Näherung $n\cdot p$ in beiden Fällen? Warum muss sie bei großem $n$ versagen?</p>
+</li>
+<li>
+<p>Bei wie vielen Schnittstellen liegt die Wahrscheinlichkeit gerade noch unter 25 %?</p>
+</li>
+</ol>
+<details class="loesung"><summary>Lösung</summary><div class="lo-body mathe-spaeter"><p>(a) Mit <a href="/wissen/informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln/risiko-angreifermodell-und-angriffsflache.html#gl-3-7">(3.7)</a>: <span class="nobr">$\textcolor{#1b7f4a}{n}\textcolor{#15633a}{=}\textcolor{#c2410c}{10}$:</span> $\textcolor{#1b7f4a}{P}\textcolor{#15633a}{=}\textcolor{#c2410c}{1-0{,}95^{10}}\textcolor{#15633a}{=}\textcolor{#c2410c}{1-0{,}5987}\textcolor{#15633a}{=}\textcolor{#c2410c}{0{,}401}$. <span class="nobr">$\textcolor{#1b7f4a}{n}\textcolor{#15633a}{=}\textcolor{#c2410c}{20}$:</span> $\textcolor{#1b7f4a}{P}\textcolor{#15633a}{=}\textcolor{#c2410c}{1-0{,}95^{20}}\textcolor{#15633a}{=}\textcolor{#c2410c}{1-0{,}3585}\textcolor{#15633a}{=}\textcolor{#c2410c}{0{,}642}$.</p>
+<p>(b) Die Näherung $n\cdot p$ liefert $0{,}5$ und <span class="nobr">$1{,}0$.</span> Bei $\textcolor{#1b7f4a}{n}\textcolor{#15633a}{=}\textcolor{#c2410c}{10}$ liegt sie um 25 % zu hoch, bei $\textcolor{#1b7f4a}{n}\textcolor{#15633a}{=}\textcolor{#c2410c}{20}$ ist sie unbrauchbar. Sie muss versagen, denn eine Wahrscheinlichkeit kann nicht größer als 1 werden, $n\cdot p$ aber schon. Die Näherung zählt Fälle mit zwei oder mehr Schwachstellen mehrfach; das fällt nur ins Gewicht, wenn $n\cdot p$ nicht mehr klein gegen 1 ist.</p>
+<p>(c) Gesucht ist das größte $n$ mit <span class="nobr">$1-0{,}95^n&lt;0{,}25$,</span> also <span class="nobr">$0{,}95^n&gt;0{,}75$.</span> Logarithmieren: <span class="nobr">$\textcolor{#1b7f4a}{n&lt;\ln0{,}75/\ln0{,}95}\textcolor{#15633a}{=}\textcolor{#c2410c}{5{,}61}$.</span> Also höchstens $\textcolor{#1b7f4a}{n}\textcolor{#15633a}{=}\textcolor{#c2410c}{5}$ Schnittstellen; dann ist <span class="nobr">$\textcolor{#1b7f4a}{P}\textcolor{#15633a}{=}\textcolor{#c2410c}{0{,}226}$,</span> bei sechs wären es <span class="nobr">$0{,}265$.</span></p></div></details></div></div><div class="ag-fuss"><a class="ag-stelle" href="/wissen/informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln/risiko-angreifermodell-und-angriffsflache.html#aufg-6">Zur Stelle im Artikel</a></div></div></section><section class="ag-art" id="k1-richtlinie-und-mechanismus" data-a="richtlinie-und-mechanismus"><h3><a href="/wissen/informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln/richtlinie-und-mechanismus.html">Richtlinie und Mechanismus</a></h3><div class="ag" data-id="informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln/richtlinie-und-mechanismus.html#aufg-7"><div class="aufg"><div class="aufg-h">Aufgabe 7 ★ Richtlinie, Mechanismus und ihre Ziele</div><div class="aufg-b"><span class="anker" id="k1-richtlinie-und-mechanismus-aufg-7"></span>
+<ol class="al">
+<li>
+<p>Richtlinie oder Mechanismus? (1) „Gäste dürfen das Internet nutzen, aber nicht auf den Drucker zugreifen.“ (2) Das Gäste-WLAN ist vom Firmennetz getrennt. (3) Jede Nacht wird eine Sicherungskopie auf ein Band geschrieben, das im Tresor liegt. (4) „Kundendaten dürfen nur auf Rechnern der Firma gespeichert werden.“ (5) Jede Anmeldung am Server wird mit Uhrzeit und Benutzername festgehalten.</p>
+</li>
+<li>
+<p>Ordne jedem Mechanismus aus (a) das Ziel zu, das er verfolgt: verhindern, erkennen oder wiederherstellen.</p>
+</li>
+<li>
+<p>Passiv oder aktiv? (1) Jemand zeichnet die Funksignale einer Funkmaus auf, um die Klicks nachzuvollziehen. (2) Jemand ändert in einer Datei auf dem Server einen Preis. (3) Jemand überlastet die Webseite eines Konkurrenten mit Anfragen.</p>
+</li>
+</ol>
+<details class="loesung"><summary>Lösung</summary><div class="lo-body mathe-spaeter"><p>(a) (1) Richtlinie. (2) Mechanismus. (3) Mechanismus. (4) Richtlinie. (5) Mechanismus.</p>
+<p>(b) (2) verhindern: Gäste können den Drucker nicht erreichen. (3) wiederherstellen: Nach einem Verlust holt man den Stand der letzten Nacht zurück; weil das Band im Tresor liegt, übersteht es auch einen Angriff auf den Server. (5) erkennen: Aus den Aufzeichnungen sieht man unerwartete Anmeldungen, verhindert werden sie dadurch nicht.</p>
+<p>(c) (1) passiv: Das Aufzeichnen verändert nichts. (2) aktiv: Ein Wert wird verändert. (3) aktiv: Ein Dienst wird lahmgelegt.</p></div></details></div></div><div class="ag-fuss"><a class="ag-stelle" href="/wissen/informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln/richtlinie-und-mechanismus.html#aufg-7">Zur Stelle im Artikel</a></div></div></section><section class="ag-art" id="k1-sicherheitsprinzipien-rechte-vergeben-und-prufen" data-a="sicherheitsprinzipien-rechte-vergeben-und-prufen"><h3><a href="/wissen/informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln/sicherheitsprinzipien-rechte-vergeben-und-prufen.html">Sicherheitsprinzipien: Rechte vergeben und prüfen</a></h3><div class="ag" data-id="informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln/sicherheitsprinzipien-rechte-vergeben-und-prufen.html#aufg-8"><div class="aufg"><div class="aufg-h">Aufgabe 8 ★★ Welches Prinzip ist verletzt?</div><div class="aufg-b"><span class="anker" id="k1-sicherheitsprinzipien-rechte-vergeben-und-prufen-aufg-8"></span>
+<p>Nenne für jeden Fall das verletzte Prinzip und schlage eine bessere Lösung vor.</p>
+<ol class="al">
+<li>
+<p>In einer Firma arbeiten alle Mitarbeiter mit Konten, die Programme installieren und die Einstellungen aller Rechner ändern dürfen, „damit niemand die IT-Abteilung anrufen muss“.</p>
+</li>
+<li>
+<p>Eine Webanwendung blockiert Anfragen, in denen bestimmte gefährliche Zeichenfolgen vorkommen; alles andere lässt sie durch. Die Liste wird gepflegt, sobald ein neuer Angriff bekannt wird.</p>
+</li>
+<li>
+<p>Ein Online-Speicherdienst prüft beim Öffnen eines geteilten Ordners, ob der Besucher eingeladen ist. Die Dateien im Ordner liefert er danach an jeden aus, der ihre Adresse kennt.</p>
+</li>
+<li>
+<p>In einem kleinen Verein kann der Kassenwart allein Überweisungen beliebiger Höhe vom Vereinskonto auslösen.</p>
+</li>
+<li>
+<p>Ein Mitarbeiter wechselt die Abteilung. Seine alten Zugriffsrechte behält er, weil „man sie vielleicht noch braucht“.</p>
+</li>
+</ol>
+<details class="loesung"><summary>Lösung</summary><div class="lo-body mathe-spaeter"><p>(a) <em>Minimale Rechte.</em> Jedes Konto, das durch Phishing übernommen wird, kann sofort Schadprogramme installieren und alle Rechner verändern. Besser: Alltagskonten ohne Verwaltungsrechte; Installationen über ein eigenes Konto oder eine Freigabe durch die IT.</p>
+<p>(b) <em>Sichere Voreinstellung.</em> Die Liste verbietet nur, was bekannt ist; jeder neue Angriff kommt durch, bis jemand die Liste ergänzt, und niemand bemerkt es. Besser: genau festlegen, welche Eingaben erlaubt sind, und alles andere ablehnen.</p>
+<p>(c) <em>Lückenlose Prüfung.</em> Geprüft wird nur der Ordner, nicht jeder Zugriff auf jede Datei. Wer eine Dateiadresse kennt, etwa weil ein früher Eingeladener sie weitergegeben hat, kommt an die Datei. Besser: bei jedem Abruf einer Datei prüfen, ob der Anfragende dazu berechtigt ist.</p>
+<p>(d) <em>Aufgabentrennung.</em> Ein einziger Fehler, eine Täuschung durch eine gefälschte Rechnung oder ein Vertrauensbruch genügt. Besser: Überweisungen ab einer Grenze nur mit Freigabe durch eine zweite Person.</p>
+<p>(e) <em>Minimale Rechte</em>, und zwar der Teil „nur so lange, wie sie nötig sind“. Mit jedem Wechsel sammelt das Konto mehr Rechte an, und wird es übernommen, liegt mehr offen. Besser: Rechte beim Wechsel entziehen und für die neue Aufgabe neu vergeben.</p></div></details></div></div><div class="ag-fuss"><a class="ag-stelle" href="/wissen/informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln/sicherheitsprinzipien-rechte-vergeben-und-prufen.html#aufg-8">Zur Stelle im Artikel</a></div></div><div class="ag" data-id="informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln/sicherheitsprinzipien-rechte-vergeben-und-prufen.html#aufg-9"><div class="aufg"><div class="aufg-h">Aufgabe 9 ★★★ Ein Gutschein, zweimal eingelöst</div><div class="aufg-b"><span class="anker" id="k1-sicherheitsprinzipien-rechte-vergeben-und-prufen-aufg-9"></span>
+<p>Ein Onlineshop gibt Gutscheincodes über 50 € aus, die jeweils nur einmal eingelöst werden dürfen. Beim Bezahlen läuft Folgendes ab: (1) Der Shop liest den Gutschein aus seiner Datenbank und prüft, ob er noch nicht eingelöst ist. (2) Er zieht 50 € vom Rechnungsbetrag ab. (3) Er trägt den Gutschein als eingelöst ein. Zwischen (1) und (3) vergehen etwa 200 ms.</p>
+<ol class="al">
+<li>
+<p>Ein Kunde öffnet zwei Browserfenster mit je einer Bestellung und schickt in beiden fast gleichzeitig denselben Code ab. Beschreibe mit Zeitpunkten wie in Abbildung <a href="/wissen/informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln/sicherheitsprinzipien-rechte-vergeben-und-prufen.html#abb-11">11</a>, was passieren kann.</p>
+</li>
+<li>
+<p>Ein Angreifer schickt 20 Bestellungen innerhalb von 100 ms ab, jede mit demselben Code. Wie viel Rabatt erhält er im ungünstigsten Fall für den Shop?</p>
+</li>
+<li>
+<p>Schlage zwei Abhilfen vor, die beide auf eine atomare Handlung hinauslaufen. Warum hilft es <em>nicht</em>, Schritt (1) einfach zweimal hintereinander auszuführen?</p>
+</li>
+</ol>
+<details class="loesung"><summary>Lösung</summary><div class="lo-body mathe-spaeter"><p>(a) Ein möglicher Ablauf mit den Zeitpunkten <span class="nobr">$t_1&lt;t_2&lt;t_3&lt;t_4$:</span> Zu $t_1$ liest Fenster 1 den Gutschein: noch nicht eingelöst. Zu $t_2$ liest Fenster 2 denselben Gutschein: noch nicht eingelöst, denn Fenster 1 hat noch nichts eingetragen. Zu $t_3$ zieht Fenster 1 50 € ab und trägt den Gutschein als eingelöst ein. Zu $t_4$ zieht auch Fenster 2 50 € ab und trägt ihn ein zweites Mal als eingelöst ein. Beide Bestellungen haben den Rabatt; jede Prüfung war richtig, aber beim Abziehen veraltet. Das ist eine TOCTTOU-Schwachstelle.</p>
+<p>(b) Alle 20 Anfragen kommen innerhalb von 100 ms an. Die erste trägt den Gutschein frühestens 200 ms nach ihrer eigenen Prüfung als eingelöst ein. Im ungünstigsten Fall haben bis dahin alle 20 Anfragen geprüft und den Gutschein für gültig befunden. Der Angreifer erhält dann $\textcolor{#1b7f4a}{20\cdot50}\textcolor{#15633a}{=}\textcolor{#c2410c}{1\,000}$ € Rabatt statt 50 €.</p>
+<p>(c) Zwei Abhilfen:</p>
+<ul>
+<li>
+<p>⁠<em>Prüfen und Eintragen in einem Schritt.</em> Die Datenbank führt eine einzige Anweisung aus: „Setze den Gutschein auf eingelöst, aber nur, wenn er noch nicht eingelöst ist, und melde, ob das geklappt hat.“ Nur die Anfrage, bei der die Änderung gelingt, bekommt den Rabatt. Da die Datenbank diese Anweisung atomar ausführt, kann keine zweite dazwischenkommen.</p>
+</li>
+<li>
+<p>⁠<em>Sperren.</em> Die Anfrage sperrt den Gutschein vor dem Prüfen und gibt ihn erst nach dem Eintragen wieder frei. Jede weitere Anfrage wartet, bis die Sperre aufgehoben ist, und sieht dann „eingelöst“.</p>
+</li>
+</ul>
+<p>Zweimal zu prüfen hilft nicht, weil sich an der Lücke nichts ändert: Auch nach der zweiten Prüfung vergeht Zeit bis zum Eintragen, und in dieser Zeit können andere Anfragen ebenfalls zweimal erfolgreich prüfen. Die Lücke schließt sich erst, wenn zwischen Prüfen und Handeln nichts mehr passieren kann.</p></div></details></div></div><div class="ag-fuss"><a class="ag-stelle" href="/wissen/informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln/sicherheitsprinzipien-rechte-vergeben-und-prufen.html#aufg-9">Zur Stelle im Artikel</a></div></div></section><section class="ag-art" id="k1-sicherheitsprinzipien-systeme-robust-entwerfen" data-a="sicherheitsprinzipien-systeme-robust-entwerfen"><h3><a href="/wissen/informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln/sicherheitsprinzipien-systeme-robust-entwerfen.html">Sicherheitsprinzipien: Systeme robust entwerfen</a></h3><div class="ag" data-id="informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln/sicherheitsprinzipien-systeme-robust-entwerfen.html#aufg-10"><div class="aufg"><div class="aufg-h">Aufgabe 10 ★★ Wie viel bringen mehrere Linien?</div><div class="aufg-b"><span class="anker" id="k1-sicherheitsprinzipien-systeme-robust-entwerfen-aufg-10"></span>
+<p>Ein Firmennetz hat drei Verteidigungslinien: einen Zugang aus dem Internet, der ein Passwort verlangt (ein Angreifer überwindet ihn mit der Wahrscheinlichkeit 0,1), die Anmeldung am Server mit einem weiteren Passwort (0,1) und eine Überwachung, die einen Eindringling bemerkt und aussperrt (sie übersieht ihn mit 0,05).</p>
+<ol class="al">
+<li>
+<p>Mit welcher Wahrscheinlichkeit kommt ein Angreifer unbemerkt bis zu den Daten, wenn die drei Linien unabhängig sind?</p>
+</li>
+<li>
+<p>Die Administratorin benutzt für den Zugang und für den Server dasselbe Passwort. Wie groß ist die Wahrscheinlichkeit jetzt? Um welchen Faktor ist das System schlechter geworden?</p>
+</li>
+<li>
+<p>Statt des zweiten Passworts wird eine Bestätigung auf einem Hardware-Schlüssel eingeführt, den ein Angreifer mit der Wahrscheinlichkeit 0,5 überwindet. Ist das besser oder schlechter als (b)? Als (a)? Begründe mit dem Begriff der Unabhängigkeit.</p>
+</li>
+</ol>
+<details class="loesung"><summary>Lösung</summary><div class="lo-body mathe-spaeter"><p>(a) Nach der Produktregel: <span class="nobr">$\textcolor{#1b7f4a}{0{,}1\cdot0{,}1\cdot0{,}05}\textcolor{#15633a}{=}\textcolor{#c2410c}{0{,}0005}$,</span> also 5 von 10 000 Versuchen.</p>
+<p>(b) Wer das erste Passwort kennt, kennt auch das zweite. Die zweite Linie überwindet er also mit der Wahrscheinlichkeit 1: <span class="nobr">$\textcolor{#1b7f4a}{0{,}1\cdot1\cdot0{,}05}\textcolor{#15633a}{=}\textcolor{#c2410c}{0{,}005}$.</span> Das System ist um den Faktor 10 schlechter geworden, obwohl jede einzelne Linie gleich geblieben ist. Die beiden Linien haben eine gemeinsame Ursache für ihr Versagen und sind nicht mehr unabhängig.</p>
+<p>(c) <span class="nobr">$\textcolor{#1b7f4a}{0{,}1\cdot0{,}5\cdot0{,}05}\textcolor{#15633a}{=}\textcolor{#c2410c}{0{,}0025}$.</span> Das ist halb so groß wie in (b) und damit besser, obwohl der Hardware-Schlüssel für sich genommen fünfmal so leicht zu überwinden ist wie ein Passwort mit 0,1. Der Grund: Er ist von der ersten Linie unabhängig, wer das Passwort kennt, hat deshalb noch nicht den Schlüssel. Gegenüber (a) ist es fünfmal schlechter, weil dort zwei unabhängige Linien mit je 0,1 standen. Am besten wäre ein Hardware-Schlüssel, der schwer zu überwinden <em>und</em> unabhängig ist.</p></div></details></div></div><div class="ag-fuss"><a class="ag-stelle" href="/wissen/informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln/sicherheitsprinzipien-systeme-robust-entwerfen.html#aufg-10">Zur Stelle im Artikel</a></div></div><div class="ag" data-id="informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln/sicherheitsprinzipien-systeme-robust-entwerfen.html#aufg-11"><div class="aufg"><div class="aufg-h">Aufgabe 11 ★★ Entwurfsentscheidungen beurteilen</div><div class="aufg-b"><span class="anker" id="k1-sicherheitsprinzipien-systeme-robust-entwerfen-aufg-11"></span>
+<p>Nenne jeweils das Prinzip aus diesem Abschnitt, das betroffen ist, und beurteile die Entscheidung.</p>
+<ol class="al">
+<li>
+<p>Ein Hersteller smarter Türschlösser wirbt: „Unser Funkprotokoll ist geheim, deshalb kann es niemand knacken.“</p>
+</li>
+<li>
+<p>Eine Sicherheitssoftware für Firmennetze umfasst nach Angaben des Herstellers 40 Millionen Programmzeilen und läuft mit den höchsten Rechten des Systems.</p>
+</li>
+<li>
+<p>Eine Webanwendung prüft die Rechte der Nutzer in jeder ihrer 120 Funktionen mit einer eigenen, jeweils leicht anders geschriebenen Abfrage.</p>
+</li>
+<li>
+<p>Ein Krankenhaus verlangt am Stationsrechner für jeden Blick in eine Akte ein 16-stelliges Passwort. Die Pflegekräfte kleben einen Zettel mit dem Passwort an den Bildschirm.</p>
+</li>
+</ol>
+<details class="loesung"><summary>Lösung</summary><div class="lo-body mathe-spaeter"><p>(a) <em>Offenes Verfahren.</em> Die Werbung verwechselt Geheimhaltung mit Sicherheit. Jedes verkaufte Schloss kann untersucht werden; sobald das Protokoll bekannt ist, sind alle Schlösser zugleich betroffen, und ändern lässt es sich nur durch neue Hardware. Ein öffentlich geprüftes Verfahren mit einem eigenen Schlüssel je Schloss wäre vorzuziehen.</p>
+<p>(b) <em>Kleine vertrauenswürdige Basis</em> und <em>Einfachheit</em>. Weil die Software mit den höchsten Rechten läuft, gehören alle 40 Millionen Zeilen zur vertrauenswürdigen Basis. Nach <a href="/wissen/informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln/risiko-angreifermodell-und-angriffsflache.html#gl-3-3">(3.3)</a> ist bei so vielen Teilen fast sicher, dass irgendwo ein Fehler steckt, und dann hat ein Angreifer sofort die höchsten Rechte. Eine Sicherheitssoftware kann so selbst zur größten Angriffsfläche werden. Besser: nur ein kleiner Teil mit hohen Rechten, der Rest mit minimalen.</p>
+<p>(c) <em>Kleine vertrauenswürdige Basis</em>, dazu Einfachheit. Alle 120 Abfragen gehören zur Basis, und jede kann einen eigenen Fehler haben. Besser: eine einzige zentrale Prüfung, die jede Funktion benutzt.</p>
+<p>(d) <em>Der Mensch als Teil des Systems.</em> Die Regel ist für den Arbeitsalltag auf einer Station zu lästig und wird umgangen; der Zettel macht das Passwort für jeden Besucher sichtbar. Besser: eine schnelle Anmeldung, etwa mit Chipkarte und kurzer PIN, die die Arbeit nicht aufhält.</p></div></details></div></div><div class="ag-fuss"><a class="ag-stelle" href="/wissen/informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln/sicherheitsprinzipien-systeme-robust-entwerfen.html#aufg-11">Zur Stelle im Artikel</a></div></div></section><section class="ag-art" id="k1-schwachstellen-benennen-und-bewerten" data-a="schwachstellen-benennen-und-bewerten"><h3><a href="/wissen/informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln/schwachstellen-benennen-und-bewerten.html">Schwachstellen benennen und bewerten</a></h3><div class="ag" data-id="informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln/schwachstellen-benennen-und-bewerten.html#aufg-12"><div class="aufg"><div class="aufg-h">Aufgabe 12 ★★ Einen CVE-Eintrag lesen</div><div class="aufg-b"><span class="anker" id="k1-schwachstellen-benennen-und-bewerten-aufg-12"></span>
+<p>Öffne im Browser die Seite der NVD zu Log4Shell: <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-44228">https://nvd.nist.gov/vuln/detail/CVE-2021-44228</a>. Die Beschreibung enthält Fachwörter, die in diesem Kapitel nicht vorkommen; für die Aufgabe brauchst du sie nicht.</p>
+<ol class="al">
+<li>
+<p>Welches Produkt ist betroffen, und welche Versionen nennt die Beschreibung?</p>
+</li>
+<li>
+<p>Suche unter „Metrics“ die Bewertung nach CVSS 3.x. Notiere Vektor und Zahl der Bewertung durch NIST und, falls angegeben, durch den Hersteller. Erkläre jedes Merkmal des Vektors mit Tabelle <a href="/wissen/informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln/schwachstellen-benennen-und-bewerten.html#tab-2">2</a> in eigenen Worten.</p>
+</li>
+<li>
+<p>Welche CWE-Nummern stehen unter „Weakness Enumeration“, und wer hat sie vergeben? Warum kann ein Eintrag mehrere CWE-Nummern haben?</p>
+</li>
+<li>
+<p>Was sagt der Abschnitt zum KEV-Katalog der CISA? Welche der beiden Größen aus $\textcolor{#1b7f4a}{R}\textcolor{#15633a}{=}\textcolor{#c2410c}{H\cdot S}$ betrifft diese Angabe?</p>
+</li>
+<li>
+<p>Gibt es eine Bewertung nach CVSS 4.0? Erkläre, warum das bei einem Eintrag aus dem Jahr 2021 zu erwarten ist.</p>
+</li>
+</ol>
+<details class="loesung"><summary>Lösung</summary><div class="lo-body mathe-spaeter"><p>Stand der Seite am 4. November 2026; die Gestaltung der Seite kann sich ändern.</p>
+<p>(a) Betroffen ist Apache Log4j2, ein Baustein zum Schreiben von Protokolldateien. Die Beschreibung nennt die Versionen 2.0-beta9 bis 2.15.0, ausgenommen die Korrekturversionen 2.12.2, 2.12.3 und 2.3.1.</p>
+<p>(b) NIST gibt nach CVSS 3.1 den Vektor <code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H</code> und die Bewertung 10,0, kritisch, an; der Hersteller, die Apache Software Foundation, hat denselben Vektor und dieselbe Zahl vergeben. Bedeutung: aus der Ferne über das Netz (AV:N), ohne besondere Bedingungen (AC:L), ohne Anmeldung (PR:N), ohne Mitwirkung eines Nutzers (UI:N), Folgen über den Baustein hinaus (S:C), schwere Folgen für Vertraulichkeit, Integrität und Verfügbarkeit (C:H, I:H, A:H). Zusätzlich steht eine ältere Bewertung nach CVSS 2.0 mit 9,3 da.</p>
+<p>(c) NIST nennt CWE-917, eine Art von Einschleusen über Ausdrücke, die das Programm auswertet. Der Hersteller nennt CWE-20 (unzureichende Prüfung von Eingaben), CWE-400 (unkontrollierter Verbrauch von Ressourcen) und CWE-502 (Verarbeitung nicht vertrauenswürdiger, serialisierter Daten). Ein Eintrag kann mehrere CWE-Nummern haben, weil ein Fehler oft aus mehreren Ursachen zusammenwirkt und weil verschiedene Stellen ihn verschieden einordnen: Die Nummern beschreiben Arten von Fehlern, und eine einzelne Schwachstelle kann zu mehreren Arten gehören.</p>
+<p>(d) Die Lücke wurde am 10. Dezember 2021 in den Katalog der nachweislich ausgenutzten Schwachstellen aufgenommen; die US-Bundesbehörden mussten sie bis zum 24. Dezember 2021 beheben. Die Angabe betrifft die Häufigkeit <span class="nobr">$H$:</span> Die Lücke wird tatsächlich angegriffen. Den Schaden $S$ kann nur jeder Betreiber für seine eigene Umgebung abschätzen.</p>
+<p>(e) Nein. CVSS 4.0 erschien im November 2023, der Eintrag stammt von 2021 und wurde damals nach 3.1 bewertet. Alte Einträge werden in der Regel nicht neu bewertet.</p></div></details></div></div><div class="ag-fuss"><a class="ag-stelle" href="/wissen/informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln/schwachstellen-benennen-und-bewerten.html#aufg-12">Zur Stelle im Artikel</a></div></div><div class="ag" data-id="informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln/schwachstellen-benennen-und-bewerten.html#aufg-13"><div class="aufg"><div class="aufg-h">Aufgabe 13 ★★★ Eine Bewertung selbst berechnen</div><div class="aufg-b"><span class="anker" id="k1-schwachstellen-benennen-und-bewerten-aufg-13"></span>
+<p>Benutze die Formeln und Zahlen aus Unterabschnitt <a href="/wissen/informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln/schwachstellen-benennen-und-bewerten.html#stufe-7-4">7.4</a>.</p>
+<ol class="al">
+<li>
+<p>Berechne die Bewertung für <code>AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H</code>. Vergleiche mit Log4Shell: Was ändert der Wirkungsbereich?</p>
+</li>
+<li>
+<p>Dieselbe Schwachstelle sei nur mit den Händen am Gerät ausnutzbar (AV:P). Berechne die Bewertung und die Stufe.</p>
+</li>
+<li>
+<p>Eine Lücke erlaubt es, aus der Ferne ohne Anmeldung vertrauliche Daten mitzulesen, aber nur unter Bedingungen, die der Angreifer nicht steuern kann; Integrität und Verfügbarkeit sind nicht betroffen. Stelle den Vektor auf (S:U) und berechne die Bewertung.</p>
+</li>
+</ol>
+<details class="loesung"><summary>Lösung</summary><div class="lo-body mathe-spaeter"><p>(a) <span class="nobr">$\textcolor{#1b7f4a}{\mathrm{ISS}}\textcolor{#15633a}{=}\textcolor{#c2410c}{1-0{,}44^3}\textcolor{#15633a}{=}\textcolor{#c2410c}{0{,}9148}$.</span> Bei S:U ist <span class="nobr">$\textcolor{#1b7f4a}{W}\textcolor{#15633a}{=}\textcolor{#c2410c}{6{,}42\cdot0{,}9148}\textcolor{#15633a}{=}\textcolor{#c2410c}{5{,}8731}$.</span> $\textcolor{#1b7f4a}{E}\textcolor{#15633a}{=}\textcolor{#c2410c}{8{,}22\cdot0{,}85\cdot0{,}77\cdot0{,}85\cdot0{,}85}\textcolor{#15633a}{=}\textcolor{#c2410c}{3{,}8870}$. Summe <span class="nobr">$9{,}7601$,</span> aufgerundet <strong>9,8</strong>, kritisch. Bei Log4Shell machten der Wirkungsbereich S:C, die andere Auswirkungsformel und der Faktor 1,08 daraus 10,0: Weil die Folgen über die verwundbare Komponente hinausreichen, wird die Lücke als schwerer eingestuft.</p>
+<p>(b) Nur $E$ ändert sich: $\textcolor{#1b7f4a}{E}\textcolor{#15633a}{=}\textcolor{#c2410c}{8{,}22\cdot0{,}2\cdot0{,}77\cdot0{,}85\cdot0{,}85}\textcolor{#15633a}{=}\textcolor{#c2410c}{0{,}9146}$. Summe <span class="nobr">$\textcolor{#1b7f4a}{5{,}8731+0{,}9146}\textcolor{#15633a}{=}\textcolor{#c2410c}{6{,}7877}$,</span> aufgerundet <strong>6,8</strong>, mittel. Wer die Hand am Gerät haben muss, hat ein großes Hindernis; der Faktor 0,2 statt 0,85 drückt die Bewertung um drei Punkte.</p>
+<p>(c) Vektor <code>AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N</code>. <span class="nobr">$\textcolor{#1b7f4a}{\mathrm{ISS}}\textcolor{#15633a}{=}\textcolor{#c2410c}{1-(1-0{,}56)}\textcolor{#15633a}{=}\textcolor{#c2410c}{0{,}56}$,</span> <span class="nobr">$\textcolor{#1b7f4a}{W}\textcolor{#15633a}{=}\textcolor{#c2410c}{6{,}42\cdot0{,}56}\textcolor{#15633a}{=}\textcolor{#c2410c}{3{,}5952}$.</span> $\textcolor{#1b7f4a}{E}\textcolor{#15633a}{=}\textcolor{#c2410c}{8{,}22\cdot0{,}85\cdot0{,}44\cdot0{,}85\cdot0{,}85}\textcolor{#15633a}{=}\textcolor{#c2410c}{2{,}2212}$. Summe <span class="nobr">$5{,}8164$,</span> aufgerundet <strong>5,9</strong>, mittel.</p></div></details></div></div><div class="ag-fuss"><a class="ag-stelle" href="/wissen/informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln/schwachstellen-benennen-und-bewerten.html#aufg-13">Zur Stelle im Artikel</a></div></div><div class="ag" data-id="informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln/schwachstellen-benennen-und-bewerten.html#aufg-14"><div class="aufg"><div class="aufg-h">Aufgabe 14 ★ Phasen einer Schwachstelle</div><div class="aufg-b"><span class="anker" id="k1-schwachstellen-benennen-und-bewerten-aufg-14"></span>
+<p>Ein Sicherheitsforscher meldet am 3. März einem Hersteller eine Lücke in einer Kamera. Der Hersteller veröffentlicht 60 Tage später einen Patch, und 30 Tage nach dem Patch erscheinen die Einzelheiten. Ein Jahr später sind laut einer Zählung noch 40 % der Kameras nicht aktualisiert.</p>
+<ol class="al">
+<li>
+<p>An welchen Daten erscheinen Patch und Einzelheiten?</p>
+</li>
+<li>
+<p>War die Lücke ein Zero-Day? Was müsste man wissen, um die Frage sicher zu beantworten?</p>
+</li>
+<li>
+<p>In welcher Phase befinden sich die 40 % der Kameras, und warum ist ihre Lage schlechter als vor der Veröffentlichung?</p>
+</li>
+</ol>
+<details class="loesung"><summary>Lösung</summary><div class="lo-body mathe-spaeter"><p>(a) 3. März plus 60 Tage: Der Patch erscheint am 2. Mai (28 Tage bis Ende März, 30 im April, 2 im Mai). 30 Tage später, am 1. Juni, erscheinen die Einzelheiten.</p>
+<p>(b) Aus den Angaben allein lässt sich das nicht sagen. Ein Zero-Day wäre die Lücke, wenn Angreifer sie schon vor dem Patch kannten oder ausnutzten. Man müsste also wissen, ob es vor dem 2. Mai Angriffe gab, etwa aus Spuren auf betroffenen Kameras oder aus Berichten von Sicherheitsfirmen. Dass ein Forscher sie gemeldet hat, schließt das nicht aus.</p>
+<p>(c) Sie sind in der Phase „Patch da, nicht eingespielt“. Ihre Lage ist schlechter als vor der Veröffentlichung, weil jetzt jeder Angreifer die Lücke kennt und der Patch zeigt, wo sie liegt. Vorher kannten sie höchstens wenige.</p></div></details></div></div><div class="ag-fuss"><a class="ag-stelle" href="/wissen/informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln/schwachstellen-benennen-und-bewerten.html#aufg-14">Zur Stelle im Artikel</a></div></div></section><section class="ag-art" id="k1-computerstrafrecht-was-verboten-ist" data-a="computerstrafrecht-was-verboten-ist"><h3><a href="/wissen/informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln/computerstrafrecht-was-verboten-ist.html">Computerstrafrecht: was verboten ist</a></h3><div class="ag" data-id="informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln/computerstrafrecht-was-verboten-ist.html#aufg-15"><div class="aufg"><div class="aufg-h">Aufgabe 15 ★★ Welche Vorschrift greift?</div><div class="aufg-b"><span class="anker" id="k1-computerstrafrecht-was-verboten-ist-aufg-15"></span>
+<p>Prüfe für jeden Fall, welche Vorschrift aus Tabelle <a href="/wissen/informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln/computerstrafrecht-was-verboten-ist.html#tab-3">3</a> in Betracht kommt, und nenne das Merkmal, auf das es ankommt. Wo keine greift, begründe, welches Merkmal fehlt.</p>
+<ol class="al">
+<li>
+<p>Eine Studentin sieht über die Schulter ihres Sitznachbarn dessen Passwort, meldet sich später in seinem Hochschulkonto an und liest seine Noten.</p>
+</li>
+<li>
+<p>Ein Mitbewohner zeichnet mit einem Programm den Funkverkehr im gemeinsamen WLAN auf, um zu sehen, welche Seiten die anderen besuchen.</p>
+</li>
+<li>
+<p>Ein Kunde ärgert sich über einen Onlineshop und löscht, nachdem er dessen Verwaltungspasswort erraten hat, alle Produktbilder. Er wird ertappt, bevor das Löschen fertig ist; es sind noch alle Bilder da.</p>
+</li>
+<li>
+<p>Ein Angestellter findet auf dem Firmenserver einen Ordner, für den jeder Mitarbeiter ohne Passwort Lesezugriff hat. Darin liegen die Gehaltsdaten aller Kollegen; er liest sie.</p>
+</li>
+<li>
+<p>Ein Forumsnutzer kauft in einem geschlossenen Forum eine Liste mit E-Mail-Adressen und Passwörtern, die bei einem Einbruch in einen Onlineshop erbeutet wurden, um sie an Spammer weiterzuverkaufen.</p>
+</li>
+</ol>
+<details class="loesung"><summary>Lösung</summary><div class="lo-body mathe-spaeter"><p>(a) § 202a. Die Noten sind Daten, nicht für die Studentin bestimmt und durch das Passwort besonders gesichert. Mit dem ausgespähten Passwort überwindet sie die Sicherung, verschafft sich Zugang, ohne Einverständnis und mit Vorsatz. Dass sie das Passwort nur gesehen und nicht geknackt hat, ändert daran sehr wahrscheinlich nichts. Der Bundesgerichtshof versteht unter dem Überwinden jede Handlung, mit der man die Sicherung ausschaltet oder umgeht, und lässt einen Passwortschutz genügen; die Anmeldung mit einem Passwort, das man nicht benutzen darf, umgeht genau diese Sicherung. Ausdrücklich entschieden ist der Fall des ausgespähten Passworts allerdings nicht.</p>
+<p>(b) § 202b. Der Mitbewohner verschafft sich mit einem technischen Mittel Daten aus einer nichtöffentlichen Übermittlung, die nicht für ihn bestimmt sind. Dass es das gemeinsame WLAN ist, macht den Verkehr der anderen nicht zu seinem; eine Sicherung verlangt § 202b nicht.</p>
+<p>(c) § 202a durch das Erraten des Verwaltungspassworts, denn damit hat er eine Sicherung überwunden und sich Zugang verschafft. Dazu versuchte Datenveränderung, § 303a Abs. 1 und 2: Er hat unmittelbar angesetzt, fremde Daten zu löschen; dass noch alle Bilder da sind, schützt ihn nicht, weil der Versuch strafbar ist. Ob zusätzlich eine versuchte Computersabotage nach § 303b vorliegt, hängt davon ab, ob die Bilder für den Shop von wesentlicher Bedeutung sind und das Löschen ihn erheblich gestört hätte.</p>
+<p>(d) § 202a greift nicht: Die Daten waren nicht besonders gesichert, und er hat keine Sicherung überwunden. Das heißt nicht, dass das Verhalten in Ordnung ist. Er verstößt gegen die Richtlinie des Unternehmens und riskiert arbeitsrechtliche Folgen, und das Unternehmen hat eine Datenschutzverletzung, die es beheben und gegebenenfalls melden muss.</p>
+<p>(e) § 202d. Die Daten sind nicht allgemein zugänglich, sie werden nur in einem geschlossenen Forum gegen Geld angeboten, und sie stammen aus einer rechtswidrigen Tat. Er verschafft sie sich, um sich durch den Weiterverkauf zu bereichern.</p></div></details></div></div><div class="ag-fuss"><a class="ag-stelle" href="/wissen/informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln/computerstrafrecht-was-verboten-ist.html#aufg-15">Zur Stelle im Artikel</a></div></div><div class="ag" data-id="informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln/computerstrafrecht-was-verboten-ist.html#aufg-16"><div class="aufg"><div class="aufg-h">Aufgabe 16 ★★★ Merkmale prüfen</div><div class="aufg-b"><span class="anker" id="k1-computerstrafrecht-was-verboten-ist-aufg-16"></span>
+<p>Ein Techniker wartet im Auftrag eines Unternehmens dessen Drucker. Dabei bemerkt er, dass der Rechner der Personalabteilung mit einem sehr kurzen Passwort geschützt ist. Nach Feierabend probiert er von seinem Laptop im Firmennetz aus 300 naheliegende Passwörter durch, bis eines passt, und öffnet die Personalakten.</p>
+<ol class="al">
+<li>
+<p>Prüfe die sieben Merkmale von § 202a Abs. 1 einzeln.</p>
+</li>
+<li>
+<p>Ändert sich etwas, wenn er nichts ausprobiert, sondern eine Kollegin ihm das Passwort nennt, weil sie glaubt, er solle auch diesen Rechner warten?</p>
+</li>
+<li>
+<p>Ändert sich etwas, wenn er nach 299 Fehlversuchen aufgibt?</p>
+</li>
+<li>
+<p>Ändert sich etwas, wenn er die Akten nicht liest, sondern eine davon löscht? Prüfe dazu § 303a.</p>
+</li>
+</ol>
+<details class="loesung"><summary>Lösung</summary><div class="lo-body mathe-spaeter"><p>(a) Die Merkmale von § 202a Abs. 1:</p>
+<ol>
+<li>
+<p>⁠<em>Daten</em>: Personalakten auf einem Rechner, also elektronisch gespeichert. Erfüllt.</p>
+</li>
+<li>
+<p>⁠<em>Nicht für ihn bestimmt</em>: Sein Auftrag umfasst die Drucker, nicht die Personalakten. Erfüllt.</p>
+</li>
+<li>
+<p>⁠<em>Besonders gesichert</em>: Der Rechner ist mit einem Passwort geschützt, das gerade den Zugang verhindern soll. Dass es kurz ist, ändert nichts daran, dass das Unternehmen damit seinen Willen zur Geheimhaltung zeigt. Erfüllt.</p>
+</li>
+<li>
+<p>⁠<em>Zugang verschafft</em>: Er öffnet die Akten. Erfüllt.</p>
+</li>
+<li>
+<p>⁠<em>Unter Überwindung der Zugangssicherung</em>: Ein Passwortschutz verlangt typischerweise einen nicht unerheblichen Aufwand, um ihn zu umgehen, und er schaltet ihn aus, indem er 300 Passwörter durchprobiert. Erfüllt.</p>
+</li>
+<li>
+<p>⁠<em>Unbefugt</em>: Der Auftrag des Unternehmens deckt nur die Drucker; für den Rechner der Personalabteilung hat er keine Erlaubnis. Erfüllt.</p>
+</li>
+<li>
+<p>⁠<em>Vorsatz</em>: Er weiß, was er tut, und will es. Erfüllt.</p>
+</li>
+</ol>
+<p>Damit ist § 202a erfüllt; Strafrahmen bis zu drei Jahre oder Geldstrafe.</p>
+<p>(b) Sehr wahrscheinlich nicht. Sicher bleibt es beim Merkmal <em>unbefugt</em>: Die Kollegin ist nicht verfügungsberechtigt und kann ihm keine Erlaubnis für die Personalakten erteilen, zumal sie sich über seinen Auftrag irrt. Offener ist das Merkmal der <em>Überwindung</em>. Ob die Anmeldung mit einem verratenen Passwort, das man nicht benutzen darf, als Überwindung gilt, ist nicht ausdrücklich entschieden. Nach der weiten Umschreibung des Bundesgerichtshofs, jede Handlung, mit der man die Sicherung ausschaltet oder umgeht, spricht aber viel dafür; geändert hätte sich dann nur der Weg zum Passwort.</p>
+<p>(c) Dann hat er sich keinen Zugang verschafft, und die Tat ist nur versucht. Der Versuch des § 202a ist nicht strafbar, weil die Vorschrift ein Vergehen beschreibt und keinen Satz über den Versuch enthält (§ 23 Abs. 1 StGB). Strafrechtlich bleibt er nach § 202a straflos; für den Auftrag und für sein Verhältnis zum Unternehmen ist das Verhalten trotzdem ein schwerer Vertrauensbruch, und der Auftraggeber wird ihn kaum weiter beschäftigen.</p>
+<p>(d) Zusätzlich zu § 202a, der mit dem Öffnen schon erfüllt ist, kommt § 303a Abs. 1 hinzu: Er löscht fremde Daten rechtswidrig. Eine Sicherung verlangt § 303a nicht, und schon der Versuch wäre strafbar. Ob auch § 303b greift, hängt davon ab, ob die gelöschte Akte für die Datenverarbeitung des Unternehmens wesentlich ist und ihr Fehlen sie erheblich stört; bei einer einzelnen Akte, von der es eine Sicherungskopie gibt, eher nicht.</p></div></details></div></div><div class="ag-fuss"><a class="ag-stelle" href="/wissen/informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln/computerstrafrecht-was-verboten-ist.html#aufg-16">Zur Stelle im Artikel</a></div></div></section><section class="ag-art" id="k1-erlaubnis-werkzeuge-und-gute-absicht" data-a="erlaubnis-werkzeuge-und-gute-absicht"><h3><a href="/wissen/informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln/erlaubnis-werkzeuge-und-gute-absicht.html">Erlaubnis, Werkzeuge und gute Absicht</a></h3><div class="ag" data-id="informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln/erlaubnis-werkzeuge-und-gute-absicht.html#aufg-17"><div class="aufg"><div class="aufg-h">Aufgabe 17 ★★ Erlaubt oder nicht?</div><div class="aufg-b"><span class="anker" id="k1-erlaubnis-werkzeuge-und-gute-absicht-aufg-17"></span>
+<p>Beurteile jeden Fall und begründe mit den Begriffen dieses Abschnitts.</p>
+<ol class="al">
+<li>
+<p>Ein Student lädt nmap herunter und lernt damit, sein eigenes Heimnetz zu untersuchen.</p>
+</li>
+<li>
+<p>Das nmap-Projekt betreibt den Rechner <code>scanme.nmap.org</code> und erlaubt ausdrücklich, ihn zum Ausprobieren gelegentlich mit nmap zu untersuchen. Eine Studentin tut das zweimal.</p>
+</li>
+<li>
+<p>Eine Prüferin hat den schriftlichen Auftrag, die Webseite eines Hotels zu testen. Dabei stößt sie auf den Server des Buchungsportals, über das das Hotel seine Zimmer anbietet, und testet ihn gleich mit.</p>
+</li>
+<li>
+<p>Ein Schüler findet ohne Erlaubnis eine Lücke im Notenportal seiner Schule, lädt zum Beweis seine eigene und zwei fremde Noten herunter und meldet die Lücke dem Schulleiter. Der Schulleiter bedankt sich und verzichtet auf einen Strafantrag. Ist damit alles erledigt?</p>
+</li>
+<li>
+<p>Ein Entwickler schreibt ein Programm, das automatisch Passwörter an fremden Anmeldeseiten ausprobiert, und bietet es in einem Forum an mit der Werbung: „Knackt jedes Instagram-Konto.“</p>
+</li>
+</ol>
+<details class="loesung"><summary>Lösung</summary><div class="lo-body mathe-spaeter"><p>(a) Erlaubt. nmap ist ein Dual-Use-Werkzeug, sein Zweck ist nicht das Ausspähen von Daten, also erfasst § 202c es nicht. Im eigenen Heimnetz handelt der Student als Verfügungsberechtigter, solange er keine Daten anderer Bewohner abgreift.</p>
+<p>(b) Erlaubt. Der Betreiber, also der Verfügungsberechtigte, hat die Untersuchung ausdrücklich erlaubt, und zwar in diesem Umfang: gelegentlich, nicht in großer Zahl. Zweimal liegt darin. Hundertmal am Tag oder andere Angriffe auf denselben Rechner lägen außerhalb.</p>
+<p>(c) Nicht erlaubt. Der Server des Buchungsportals gehört einem anderen Verfügungsberechtigten; der Auftrag des Hotels erstreckt sich nicht auf ihn, auch wenn er im selben Ablauf vorkommt. Die Prüferin hätte den Fund dem Hotel melden und es dem Portal überlassen müssen, ob es selbst prüfen lässt.</p>
+<p>(d) Nein. Mit dem Abrufen der Noten durch die Lücke, also unter Umgehung der Zugangssicherung des Portals, hat der Schüler § 202a erfüllt; die gute Absicht ändert daran nichts. Ob der Schulleiter wirksam auf einen Antrag verzichten kann, hängt davon ab, wer für das Notenportal verfügungsberechtigt ist; das kann der Schulträger oder das Land sein. Außerdem ist § 202a ein relatives Antragsdelikt: Die Staatsanwaltschaft kann bei besonderem öffentlichem Interesse auch ohne Antrag verfolgen. Mit den beiden fremden Noten hat er zudem Daten von Mitschülern abgerufen, deren Schutz die Schule zu sichern hat. Die Mitschüler selbst können keinen Strafantrag stellen; gerade für solche Fälle hat der Gesetzgeber das Antragsdelikt relativ gestaltet. Besser wäre gewesen, nur die Beobachtung zu melden, ohne fremde Daten anzutasten.</p>
+<p>(e) Strafbar nach § 202c Abs. 1 Nr. 2. Das Programm ist kein Dual-Use-Werkzeug mehr: Die Werbung zeigt objektiv, dass sein Zweck das Eindringen in fremde Konten ist, wie es das Bundesverfassungsgericht verlangt. Mit dem Anbieten macht er es anderen zugänglich und rechnet damit, dass sie es für Taten nach § 202a benutzen.</p></div></details></div></div><div class="ag-fuss"><a class="ag-stelle" href="/wissen/informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln/erlaubnis-werkzeuge-und-gute-absicht.html#aufg-17">Zur Stelle im Artikel</a></div></div></section><section class="ag-art" id="k1-offenlegung-und-ethik" data-a="offenlegung-und-ethik"><h3><a href="/wissen/informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln/offenlegung-und-ethik.html">Offenlegung und Ethik</a></h3><div class="ag" data-id="informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln/offenlegung-und-ethik.html#aufg-18"><div class="aufg"><div class="aufg-h">Aufgabe 18 ★ Die security.txt einer Webseite lesen</div><div class="aufg-b"><span class="anker" id="k1-offenlegung-und-ethik-aufg-18"></span>
+<p>Öffne im Browser die Adresse <a href="https://www.bsi.bund.de/.well-known/security.txt">https://www.bsi.bund.de/.well-known/security.txt</a>. Der Browser zeigt eine kurze Textdatei. Wähle dir außerdem zwei große Webseiten, die du selbst benutzt, und hänge an ihre Domain denselben Pfad an.</p>
+<ol class="al">
+<li>
+<p>Welche Kontakte nennt die Datei des BSI? Welcher steht an erster Stelle?</p>
+</li>
+<li>
+<p>Bis wann sollen die Angaben gelten? Entspricht das der Empfehlung des Standards?</p>
+</li>
+<li>
+<p>Welche freiwilligen Felder kommen vor, und wofür steht jedes?</p>
+</li>
+<li>
+<p>Haben deine beiden anderen Webseiten eine security.txt? Wenn ja: Ist ihr <code>Expires</code> noch nicht erreicht? Wenn nein: Wie würdest du dort einen Sicherheitskontakt finden?</p>
+</li>
+</ol>
+<p>Die Abrufe sind gewöhnliche Seitenaufrufe öffentlicher Dateien; sie berühren kein Schutzgut.</p>
+<details class="loesung"><summary>Lösung</summary><div class="lo-body mathe-spaeter"><p>Stand der Dateien am 4. November 2026; die Inhalte können sich ändern.</p>
+<p>(a) Die Datei des BSI nennt als Kontakte zuerst <code>mailto:vulnerability@bsi.bund.de</code>, dann eine Webseite des BSI für Sicherheitsmeldungen und außerdem <code>mailto:certbund@bsi.bund.de</code>, laut Kommentar für Sicherheitsvorfälle, die das BSI selbst betreffen. An erster Stelle steht die E-Mail-Adresse für Schwachstellenmeldungen.</p>
+<p>(b) <code>Expires: 2099-06-29T12:00:00.000Z</code>. Das entspricht nicht der Empfehlung des Standards, das Datum weniger als ein Jahr in die Zukunft zu legen. Das Feld ist vorhanden, wie verlangt, verliert aber seinen Zweck, die Organisation zur regelmäßigen Prüfung zu zwingen.</p>
+<p>(c) Unter anderem <code>Encryption</code> (Verweis auf den Schlüssel, mit dem man vertraulich schreiben kann), <code>Policy</code> (die Regeln des BSI für Schwachstellenmeldungen), <code>Acknowledgments</code> (die Seite, auf der das BSI Findern dankt), <code>Preferred-Languages: de, en</code>, <code>Canonical</code> (die Adresse, unter der die Datei maßgeblich liegt) und <code>Hiring</code> (Stellenangebote). Dazu kommt ein Feld <code>CSAF</code>, das auf maschinenlesbare Sicherheitshinweise verweist und nicht zu den Feldern des ursprünglichen Standards gehört. Die Zeilen mit <code>#</code> sind Kommentare.</p>
+<p>(d) Das hängt von deiner Wahl ab. Zum Vergleich am 4. November 2026: Google nennt eine Meldeseite und <code>security@google.com</code>, gültig bis 2030; GitHub verweist auf sein Bug-Bounty-Programm bei einer Plattform für solche Programme, gültig bis 4. Dezember 2026, also nur noch einen Monat. Gibt es keine security.txt, sucht man auf der Webseite nach einer Seite zu Sicherheit oder Schwachstellenmeldungen oder im Impressum nach einem Kontakt und fragt dort nach dem richtigen Ansprechpartner, ohne Einzelheiten der Lücke zu nennen.</p></div></details></div></div><div class="ag-fuss"><a class="ag-stelle" href="/wissen/informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln/offenlegung-und-ethik.html#aufg-18">Zur Stelle im Artikel</a></div></div><div class="ag" data-id="informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln/offenlegung-und-ethik.html#aufg-19"><div class="aufg"><div class="aufg-h">Aufgabe 19 ★★ Ein Fund im Smart-Home</div><div class="aufg-b"><span class="anker" id="k1-offenlegung-und-ethik-aufg-19"></span>
+<p>Du hast dir ein vernetztes Thermostat gekauft. Beim Einrichten in deinem eigenen Heimnetz siehst du in der App, dass das Gerät eine Verwaltungsseite hat, die im Heimnetz ohne Passwort erreichbar ist. Dort könnte jeder im Netz die WLAN-Zugangsdaten auslesen.</p>
+<ol class="al">
+<li>
+<p>Darfst du an deinem eigenen Gerät weiter untersuchen, wie weit die Lücke reicht? Wo liegen die Grenzen? Benutze Abbildung <a href="/wissen/informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln/offenlegung-und-ethik.html#abb-18">18</a>.</p>
+</li>
+<li>
+<p>Du willst prüfen, ob auch das Gerät eines Freundes betroffen ist. Was brauchst du dafür?</p>
+</li>
+<li>
+<p>Gliedere eine Meldung an den Hersteller: Welche Angaben gehören hinein? Schätze dazu auch einen CVSS-Vektor nach Tabelle <a href="/wissen/informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln/schwachstellen-benennen-und-bewerten.html#tab-2">2</a> ab.</p>
+</li>
+<li>
+<p>Der Hersteller antwortet acht Wochen lang nicht. Was tust du, und was tust du nicht?</p>
+</li>
+</ol>
+<details class="loesung"><summary>Lösung</summary><div class="lo-body mathe-spaeter"><p>(a) Ja, an deinem eigenen Gerät in deinem eigenen Netz darfst du untersuchen, wie weit die Lücke reicht; die erste Frage in Abbildung <a href="/wissen/informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln/offenlegung-und-ethik.html#abb-18">18</a> ist mit Ja beantwortet. Die Grenzen: Leben andere im selben Netz, deren Daten berührt werden könnten, hältst du dich davon fern. Die Server des Herstellers, mit denen die App spricht, gehören dir nicht; sie zu untersuchen wäre unbefugt. Du veröffentlichst nichts, solange der Hersteller nicht informiert ist.</p>
+<p>(b) Die ausdrückliche, am besten schriftliche Erlaubnis deines Freundes als Verfügungsberechtigtem, mit Umfang: welches Gerät, wann, was du tust. Wohnen bei ihm weitere Menschen, sollten auch sie einverstanden sein, weil ihre Daten im selben Netz laufen.</p>
+<p>(c) Gliederung: Produkt und Firmware-Version; wie und wo die Verwaltungsseite erreichbar ist; was ohne Anmeldung möglich ist, insbesondere das Auslesen der WLAN-Zugangsdaten; die Schritte, mit denen der Hersteller es nachvollziehen kann; Einordnung als CWE, etwa CWE-306 „Missing Authentication for Critical Function“; Schätzung der Schwere; deine Kontaktdaten und die Bitte um Rückmeldung. CVSS-Schätzung: Der Angreifer muss im selben Netz sein, also AV:A; keine besonderen Bedingungen, keine Anmeldung, kein Nutzer nötig: AC:L, PR:N, UI:N. Kann man nur lesen: C:H, I:N, A:N, mit S:U ergibt das 6,5, mittel. Kann man auch Einstellungen ändern, sind I und A ebenfalls hoch, das ergibt 8,8, hoch. Man kann auch S:C begründen, weil die WLAN-Zugangsdaten das ganze Heimnetz öffnen; für das reine Auslesen ergibt das 7,4.</p>
+<p>(d) Du erinnerst den Hersteller einmal mit einer angemessenen Frist und wendest dich, wenn wieder nichts kommt, an einen Koordinator, in Deutschland das BSI. Du veröffentlichst nicht auf eigene Faust, nutzt die Lücke an fremden Geräten nicht aus und gibst keine Anleitung weiter. Eine Veröffentlichung stimmst du mit dem Koordinator ab.</p></div></details></div></div><div class="ag-fuss"><a class="ag-stelle" href="/wissen/informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln/offenlegung-und-ethik.html#aufg-19">Zur Stelle im Artikel</a></div></div><div class="ag" data-id="informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln/offenlegung-und-ethik.html#aufg-20"><div class="aufg"><div class="aufg-h">Aufgabe 20 ★★ Hackerethik und Recht</div><div class="aufg-b"><span class="anker" id="k1-offenlegung-und-ethik-aufg-20"></span>
+<ol class="al">
+<li>
+<p>Ein Bekannter sagt: „Alle Informationen müssen frei sein, das ist Hackerethik. Also darf ich mir die Klausur aus dem Hochschulserver holen.“ Antworte ihm mit zwei Argumenten aus der Ethik und einem aus dem Recht.</p>
+</li>
+<li>
+<p>Ist es ein Widerspruch, dass ein Kapitel über Verteidigung Angriffe lehrt? Begründe mit dem Gedanken, dass Wissen weder gut noch schlecht ist, und mit dem Beschluss von 2009.</p>
+</li>
+</ol>
+<details class="loesung"><summary>Lösung</summary><div class="lo-body mathe-spaeter"><p>(a) Ethik: Zwei der Grundsätze lauten „Mülle nicht in den Daten anderer Leute“ und „Öffentliche Daten nützen, private Daten schützen“; eine unveröffentlichte Klausur auf dem Server der Hochschule ist nicht öffentlich, und wer in fremde Systeme eindringt, um sich einen Vorteil zu verschaffen, handelt gegen beide. Außerdem ist die Hackerethik eine Selbstverpflichtung der Szene, keine Erlaubnis; wer sich auf sie beruft, wird dadurch nicht befugt. Recht: Das Eindringen in den Server ist nach § 202a strafbar, wenn er eine Sicherung überwindet, gleich, wie er es begründet.</p>
+<p>(b) Kein Widerspruch. Eine Lücke findet und schließt nur, wer weiß, wie ein Angreifer vorgeht; Verteidigung ohne Kenntnis des Angriffs ist Raten. Das Wissen selbst ist weder gut noch schlecht, gut oder schlecht ist sein Einsatz. Genau so hat das Bundesverfassungsgericht 2009 unterschieden: Werkzeuge, die für Prüfung und Angriff taugen, sind nicht strafbar; strafbar ist ihr Einsatz gegen fremde Systeme ohne Erlaubnis. Deshalb übt diese Reihe Angriffe nur unter den Spielregeln.</p></div></details></div></div><div class="ag-fuss"><a class="ag-stelle" href="/wissen/informatik/cybersecurity/sicherheit-schutzziele-und-spielregeln/offenlegung-und-ethik.html#aufg-20">Zur Stelle im Artikel</a></div></div></section></section><p class="ag-nichts" hidden>Keine Aufgabe passt zu dieser Auswahl.</p><button type="button" class="lern-reset ag-reset" hidden>Gelöst-Häkchen zurücksetzen</button><footer class="wfoot">EtUndSo.de · <a href="/impressum.html">Impressum</a> · <a href="/datenschutz.html">Datenschutz</a></footer></article></main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/contrib/auto-render.min.js"></script>
+<script src="/wissen/assets/wissen.js"></script>
+<script src="/wissen/assets/bereiche.js"></script>
+</body></html>

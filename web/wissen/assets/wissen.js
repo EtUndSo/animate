@@ -4,7 +4,7 @@ var NICHTS={de:"Nichts gefunden für „{q}\".",en:"Nothing found for „{q}\"."
 // Suche: Teilwort-/Infix-Treffer, umlaut-/ß-tolerant, gerankt + hervorgehoben. Der Kern steht in suche.js (W3a, gemeinsam
 // mit der Startseite) und wird erst beim ersten Öffnen geladen; er holt zuerst nur Titel und Abschnitte, den Volltext je
 // Modul, sobald gesucht wird (und nur Module, die das Wort enthalten können).
-var KATEX_OPT={delimiters:[{left:"$$",right:"$$",display:true},{left:"$",right:"$",display:false},{left:"\\(",right:"\\)",display:false}],strict:false,ignoredClasses:["fb-spaeter"]};   // Formelblatt (W4a): erst beim Öffnen setzen
+var KATEX_OPT={delimiters:[{left:"$$",right:"$$",display:true},{left:"$",right:"$",display:false},{left:"\\(",right:"\\)",display:false}],strict:false,ignoredClasses:["fb-spaeter","mathe-spaeter"]};   // Formelblatt (W4a): erst beim Öffnen setzen
 function mathe(el){ if(window.renderMathInElement) try{ renderMathInElement(el,KATEX_OPT); }catch(e){} }
 (function(){
   var overlay=document.getElementById("searchOverlay"), input=document.getElementById("searchInput"),
@@ -94,6 +94,9 @@ function mathe(el){ if(window.renderMathInElement) try{ renderMathInElement(el,K
     if(e.key==="Escape") menus.forEach(function(m){ if(isOpen(m)) close(m, m.contains(document.activeElement)); });
   });
   document.addEventListener("click",function(e){ menus.forEach(function(m){ if(isOpen(m) && !m.contains(e.target)) close(m,false); }); });
+  // W4b: „Hell/Dunkel“ im Bereichsmenü (nur sehr schmale Artikelseiten, dort fehlt der Knopf in der Leiste)
+  [].forEach.call(document.querySelectorAll(".b-thema-b"),function(b){ b.addEventListener("click",function(){
+    var t=document.getElementById("themeBtn"); if(t) t.click(); menus.forEach(function(m){ close(m,false); }); }); });
 })();
 // Inhaltsverzeichnis: aktuellen Abschnitt beim Scrollen markieren.
 (function(){
@@ -543,7 +546,7 @@ var LERNEN=(function(){
   function inhalt(d,nd,tiefe){
     if(nd.mp){ var z=$.el("div","side-lernen"), a1=$.el("a",null,$.w("begriffe")||"Begriffe"), a2=$.el("a",null,$.w("lernkarten")||"Lernkarten"),
         a3=$.el("a",null,nd.ref?$.w("fb_titel_ref"):($.w("ans_formeln")||"Formeln"));   // W4a: Informatik: Befehlsübersicht
-      a1.href="/wissen/"+nd.mp+"/begriffe.html"; a2.href="/wissen/"+nd.mp+"/lernkarten.html"; a3.href="/wissen/"+nd.mp+(nd.ref?"/uebersicht.html":"/formeln.html");
+      a1.href="/wissen/"+nd.mp+"/begriffe.html"; a2.href="/lernen/"+lang+"?m="+nd.m; a3.href="/wissen/"+nd.mp+(nd.ref?"/uebersicht.html":"/formeln.html");
       [a1,a2,a3].forEach(function(a,i){ if(i){ var p=$.el("span",null," · "); p.setAttribute("aria-hidden","true"); z.appendChild(p); } z.appendChild(a); });
       d.appendChild(z); }
     if(nd.articles && nd.articles.length){ var ul=$.el("ul");
@@ -762,85 +765,7 @@ var LERNEN=(function(){
     gs.forEach(function(g){ g.hidden=!g.querySelector(".bg-e:not([hidden])"); });
     n.textContent=$.w("bg_anzahl",{n:k}); if(nichts) nichts.hidden=k>0; });
 })();
-// Lernkarten: Stapel mit Leitner-Fächern. Fach 1–5 = nächste Wiederholung nach 1, 3, 7, 14, 30 Tagen. „Wusste ich“: ein
-// Fach höher (neue Karte: Fach 2; nach „Wusste ich nicht“ in derselben Sitzung nur Fach 1); „Unsicher“: Fach bleibt (neue
-// Karte: Fach 1); „Wusste ich nicht“: Fach 1 und heute noch einmal am Ende des Stapels. Neue Karten: 20 je Tag und Modul,
-// weitere per Knopf. Leitner statt SM-2: drei Knöpfe passen direkt auf die Fächer, ohne Leichtigkeitsfaktor je Karte.
-// Stand je Karte [Fach, fällig am Tag] unter „etundso-karten“; ohne Skript zeigt die Seite die Karten als Liste.
-(function(){
-  var $=LERNEN, app=document.querySelector(".lk-app"); if(!app) return;
-  var K="etundso-karten", N="etundso-karten-neu", AB=[0,1,3,7,14,30], NEU=20, mp=app.getAttribute("data-modul");
-  var liste=document.querySelector(".lk-alle");
-  var karten=[].slice.call(document.querySelectorAll(".lk-alle li.lk")).map(function(li){ var s=li.closest(".lk-kap");
-    return {id:li.getAttribute("data-id"), typ:li.getAttribute("data-typ"), k:s?s.getAttribute("data-k"):"", kn:s?s.querySelector("h2").textContent:"", li:li}; });
-  if(!karten.length) return;
-  function q(c){ return app.querySelector(c); }
-  var sel=q(".lk-sel"), zahlEl=q(".lk-zahl"), karte=q(".lk-karte"), kopf=q(".lk-kopf"), vorne=q(".lk-vorne"), hinten=q(".lk-hinten"),
-      steuer=q(".lk-steuer"), um=q(".lk-um"), bew=q(".lk-bew"), ende=q(".lk-ende"), neuB=q(".lk-neu"), fuss=q(".lk-fuss"), stelle=q(".lk-stelle");
-  var TYP={b:$.w("lk_begriff"), f:$.w("lk_formel"), l:$.w("lk_luecke")};
-  var schlange=[], jetzt=null, gerade={}, extra=0;
-  function heute(){ var d=new Date(); return Math.floor((d.getTime()-d.getTimezoneOffset()*60000)/864e5); }
-  function stand(){ return $.get(K,{}); }
-  function neuHeute(){ var e=$.get(N,{})[mp]; return (e && e[0]===heute()) ? e[1] : 0; }
-  function neuZaehlen(){ var n=$.get(N,{}); n[mp]=[heute(),neuHeute()+1]; $.set(N,n); }
-  function auswahl(){ var k=sel.value; return karten.filter(function(c){ return !k || c.k===k; }); }
-  function baue(){
-    var s=stand(), t=heute(), faellig=[], neu=[];
-    auswahl().forEach(function(c){ var x=s[c.id]; if(x){ if(x[1]<=t) faellig.push(c); } else neu.push(c); });
-    faellig.sort(function(a,b){ return s[a.id][1]-s[b.id][1] || s[a.id][0]-s[b.id][0]; });
-    schlange=faellig.concat(neu.slice(0,Math.max(0,NEU-neuHeute())+extra));
-    zeige(); }
-  function fach(b,r,id){ return r===0 ? 1 : r===1 ? Math.max(1,b) : gerade[id] ? 1 : Math.min(5,Math.max(1,b)+1); }
-  function tage(d){ return d===0 ? $.w("lk_heute") : d===1 ? $.w("lk_morgen") : $.w("lk_tage",{n:d}); }
-  function zeige(){
-    var s=stand(), neu=0; schlange.forEach(function(c){ if(!s[c.id]) neu++; });
-    zahlEl.textContent=$.w("lk_faellig",{n:schlange.length})+(neu?" · "+$.w("lk_davon_neu",{n:neu}):"");
-    jetzt=schlange[0]||null;
-    karte.hidden=steuer.hidden=fuss.hidden=!jetzt; ende.hidden=!!jetzt;
-    if(!jetzt){ var rest=auswahl().filter(function(c){ return !s[c.id]; }).length;
-      neuB.hidden=!rest; neuB.textContent=$.w("lk_mehr_neu",{n:Math.min(NEU,rest)}); return; }
-    kopf.textContent=TYP[jetzt.typ]+" · "+jetzt.kn;
-    vorne.innerHTML=jetzt.li.querySelector(".lk-v").innerHTML;
-    var t=vorne.querySelector(".lk-typ"); if(t) t.parentNode.removeChild(t);
-    hinten.innerHTML=jetzt.li.querySelector(".lk-r").innerHTML; hinten.hidden=true;
-    var qu=jetzt.li.querySelector(".lk-q"); stelle.href=qu.getAttribute("href"); stelle.title=qu.textContent;
-    um.hidden=false; bew.hidden=true;
-    var x=s[jetzt.id], b=x?x[0]:0;
-    [0,1,2].forEach(function(r){ var sm=bew.querySelector(".lk-b"+r+" small"); if(sm) sm.textContent=tage(r===0?0:AB[fach(b,r,jetzt.id)]); }); }
-  function umdrehen(){ if(!jetzt || !hinten.hidden) return; hinten.hidden=false; um.hidden=true; bew.hidden=false; karte.focus({preventScroll:true});
-    var r=bew.getBoundingClientRect(); if(r.bottom>window.innerHeight) bew.scrollIntoView({block:"end",behavior:"smooth"}); }   // Handy: Bewertung ins Bild
-  function bewerten(r){
-    if(!jetzt || hinten.hidden) return;
-    var s=stand(), x=s[jetzt.id], c=jetzt, f=fach(x?x[0]:0,r,c.id);
-    if(!x) neuZaehlen();
-    s[c.id]=[f, heute()+(r===0?0:AB[f])]; $.set(K,s);
-    schlange.shift();
-    if(r===0){ gerade[c.id]=1; schlange.push(c); }
-    zeige(); if(!karte.hidden) karte.focus({preventScroll:true}); else if(!neuB.hidden) neuB.focus(); }
-  um.addEventListener("click",umdrehen);
-  karte.addEventListener("click",function(e){ if(!(e.target.closest && e.target.closest("a"))) umdrehen(); });
-  [].forEach.call(bew.querySelectorAll(".lk-b"),function(b){ b.addEventListener("click",function(){ bewerten(+b.getAttribute("data-b")); }); });
-  neuB.addEventListener("click",function(){ extra+=NEU; baue(); });
-  sel.addEventListener("change",function(){ extra=0; gerade={}; baue(); });
-  document.addEventListener("keydown",function(e){
-    if(app.hidden || e.ctrlKey || e.metaKey || e.altKey) return;
-    var t=e.target, tag=t && t.tagName; if(tag==="INPUT" || tag==="SELECT" || tag==="TEXTAREA" || (t && t.isContentEditable)) return;
-    var ov=document.getElementById("searchOverlay"); if(ov && !ov.hidden) return;
-    if((e.key===" " || e.key==="Enter") && jetzt && hinten.hidden){ if(tag==="BUTTON" || tag==="A") return; e.preventDefault(); umdrehen(); }
-    else if(jetzt && !hinten.hidden && (e.key==="1" || e.key==="2" || e.key==="3")){ e.preventDefault(); bewerten(+e.key-1); } });
-  $.sicher(q(".lk-reset"),function(){ var s=stand(), n=$.get(N,{});
-    karten.forEach(function(c){ delete s[c.id]; }); delete n[mp]; $.set(K,s); $.set(N,n); extra=0; gerade={}; baue(); });
-  // #k-<Kapitel> (Link aus der Zusammenfassung eines Artikels): dieses Kapitel wählen, die Liste bleibt zu
-  function kapitel(){ var m=location.hash.match(/^#k-(.+)$/); if(!m) return false;
-    for(var i=0;i<sel.options.length;i++) if(sel.options[i].value===m[1]){ sel.value=m[1]; break; }
-    try{ history.replaceState(null,"",location.pathname+location.search); }catch(e){}
-    extra=0; gerade={}; if(liste) liste.open=false; return true; }
-  window.addEventListener("hashchange",function(){ if(kapitel()){ baue(); app.scrollIntoView({block:"start"}); } });
-  kapitel();
-  app.hidden=false; if(liste) liste.open=false;
-  if(!$.ok) q(".lk-hinweis").hidden=false;
-  baue();
-})();
+// Lernkarten (W2) sind seit W4b ein eigener Bereich: /lernen/, Code in assets/bereiche.js (Leitner wie hier früher).
 /* ---------- Ansichten (W4a, 11.11.2026): Ausführlich | Kurz | Formeln ----------
    Der Kopf der Seite setzt data-ansicht an <html> schon vor dem ersten Zeichnen (?ansicht= in der Adresse, sonst die Wahl
    unter „etundso-ansicht“; sie gilt für alle Artikel). Umschalten = Attribut ändern; die Adresse bekommt ?ansicht= zum
