@@ -2,6 +2,8 @@
 
 Entscheidung des Users (11.11.2026): „Ja, wir sollten zu allen Artikeln die Formelsammlung und die kurze Erklärung neu erstellen.“ Der Pilot ET3, Kapitel 2 ist abgenommen: „Ja, beide sehen gut aus, gut gemacht.“
 
+**Kurzfassungen entfallen (User 11.11.2026, spät abends):** „Wir brauchen die Kurz-Artikel nicht, weil wir unter jedem Artikel sowieso eine Zusammenfassung haben, die Seite mit den reinen Formeln sollte aber bleiben, sie ist kompakt und zeigt die wichtigsten Formeln.“ Die Ansicht „Kurz“ ist aus der Website entfernt. Diese Schleife schreibt nur noch die Formelsammlung bzw. Befehlsübersicht (`kap<N>_formeln.tex`); alles zu `kap<N>_kurz.tex` unten ist überholt.
+
 **Pause (User 11.11. abends):** Nach ET3 Kap. 3 startet kein neues Heft, bis die einmaligen Aufgaben in `notizen/aufgabenliste.md` (Abschnitt B) erledigt sind. Dann weiter als Loop C2.
 
 ## Muster (aus dem Pilot)

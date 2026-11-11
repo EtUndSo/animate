@@ -27,6 +27,7 @@ with sync_playwright() as pw:
     pg.wait_for_timeout(1500)
     box = pg.locator("#view").bounding_box()
     def page_xy(x, y):                       # data coords of the 1:1 schematic panel -> page pixels
+        box = pg.locator("#view").bounding_box()   # each time: the editor may scroll the canvas fully into view
         cx, cy = 960 + x * 135.0, 540 - y * 135.0
         return box["x"] + cx / 1920 * box["width"], box["y"] + cy / 1080 * box["height"]
     def model():

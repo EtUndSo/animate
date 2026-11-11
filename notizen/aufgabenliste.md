@@ -32,7 +32,7 @@ Jede erledigte Aufgabe hier abhaken, mit Datum. Einzelheiten stehen in den verli
    - zuerst mit dem User Kartenarten und Muster festlegen (Begriffe, Formeln, Herleitungen, Zusammenhänge; sinnvolle Fragen und Antworten), dann ein Pilot an einem Heft;
    - dabei die Begriffsbestimmungen für Zusammenfassung und Begriffsverzeichnis gleich mit lösen (Konverter-Wunsch `\fb[Bestimmung]{Begriff}`, Satzbruch um abgesetzte Formeln, `summary:` als Klartext);
    - das Schreiben für alle Hefte läuft danach in Loop C2.
-6. [ ] **Website-Welle W3b „Auffindbarkeit“:**
+6. [ ] (läuft seit 11.11. abends: Agent in Arbeitskopie `scratchpad/wt_w3b`, Port 8006, Patch `scratchpad/website_w3b/w3b.patch`; KaTeX 0.16.11 + MathJax 3.2.2 aus npm, Prüfsumme geprüft, in `scratchpad/npm_pakete`; Vorschaubilder je Kapitel und Sprache) **Website-Welle W3b „Auffindbarkeit“:**
    - Sitemap, `canonical`, `x-default`, strukturierte Daten;
    - Vorschaubilder je Kapitel;
    - KaTeX **und MathJax** selbst ausliefern (MathJax lädt der Download-Knopf heute beim Klick von cdnjs; cdnjs fehlt auch in der Datenschutzerklärung);
@@ -71,7 +71,7 @@ Jede erledigte Aufgabe hier abhaken, mit Datum. Einzelheiten stehen in den verli
 ## C. Loops (nach B)
 Wie bisher: höchstens ein Schreib-Agent und parallel ein Übersetzer (C1 ‖ C2). Reihenfolge C1–C5 wie unten; User 11.11.: „danach dann die Loops“.
 - **C1 Englisch-Übersetzung:** Cybersecurity 1, ML 4–5, HöMa1 4–10, HöMa3 1, 2, 4–8, GEMB1 1–15. Danach alle en-Fassungen neu umwandeln (Links). Siehe `uebersetzung_en_schleife.md`.
-- **C2 Kurzfassung, Formelsammlung bzw. Befehlsübersicht** (und die neuen Lernkarten, falls im selben Durchgang) für alle Hefte: ET3, HöMa1, HöMa3, ML, ET1, GEMB1, dann Linux, Python, Cybersecurity. Siehe `kurzfassung_schleife.md`.
+- **C2 Formelsammlung bzw. Befehlsübersicht** (und die neuen Lernkarten, falls im selben Durchgang) für alle Hefte; **Kurzfassungen entfallen** (User 11.11. abends: die Zusammenfassung am Artikelende genügt, die Ansicht „Kurz“ ist entfernt): ET3, HöMa1, HöMa3, ML, ET1, GEMB1, dann Linux, Python, Cybersecurity. Siehe `kurzfassung_schleife.md`.
 - **C3 Übersetzungen es/zh/fr/tr:** alle Hefte nach Englisch, dazu die neuen Kurzfassungs-Dateien.
 - **C4 Neue Hefte** in der Reihenfolge des Users: Cybersecurity 2 (vorher Cyber-LERNPFAD auf 12 Hefte umstellen), Linux 9–10, Cybersecurity 3, Cybersecurity 4–5, weitere Cyber-Hefte. Danach Python 4/5/12/13, ML-Pfad, GEMB1 ab Teil 16. Je Heft Phase 1, 2a, 2b.
 - **C5 Nachrüstwellen** (ältere Hefte mit neuen Editor-Funktionen und Animationen), nach E4.

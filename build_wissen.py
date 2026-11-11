@@ -350,7 +350,7 @@ for _l, _w in _UI_FINDEN.items():
 # Ansichten (W4a, 11.11.2026): Ausführlich | Kurz | Formeln je Artikel, Formelsammlung und „Kapitel auf einer Seite“ je Modul
 _UI_ANSICHT = {
     "de": {"ans": "Ansicht", "ans_voll": "Ausführlich", "ans_kurz": "Kurz", "ans_formeln": "Formeln",
-           "ans_kurz_min": "Kurz: {n} min", "fb_leer": "Dieser Artikel hat keine Formeln.", "fb_zu_kurz": "Zur Kurzansicht",
+           "ans_kurz_min": "Kurz: {n} min", "fb_leer": "Dieser Artikel hat keine Formeln.", "fb_zu_kurz": "Zur ausführlichen Fassung",
            "fb_modul": "Alle Formeln des Moduls", "fb_titel": "Formelsammlung", "fb_sprung": "An die Stelle im Artikel",
            "fb_lede": "Die Sätze, Definitionen und nummerierten Formeln aller Artikel dieses Moduls, nach Kapiteln geordnet. "
                       "Jeder Eintrag führt an seine Stelle im Artikel.",
@@ -363,7 +363,7 @@ _UI_ANSICHT = {
            "dl": "Herunterladen", "dl_laeuft": "Wird erstellt …", "dl_fehler": "Das Erstellen hat nicht geklappt.",
            "dl_gross": "Zu lang für ein Bild. Wähle ein Kapitel oder nimm PDF.", "fb_quelle": "Formeln"},
     "en": {"ans": "View", "ans_voll": "Detailed", "ans_kurz": "Short", "ans_formeln": "Formulas",
-           "ans_kurz_min": "Short: {n} min", "fb_leer": "This article has no formulas.", "fb_zu_kurz": "Go to the short view",
+           "ans_kurz_min": "Short: {n} min", "fb_leer": "This article has no formulas.", "fb_zu_kurz": "Go to the detailed view",
            "fb_modul": "All formulas of the module", "fb_titel": "Formula collection", "fb_sprung": "Go to the place in the article",
            "fb_lede": "The theorems, definitions and numbered formulas of all articles in this module, ordered by chapter. "
                       "Each entry takes you to its place in the article.",
@@ -376,7 +376,7 @@ _UI_ANSICHT = {
            "dl": "Download", "dl_laeuft": "Creating …", "dl_fehler": "Creating the file did not work.",
            "dl_gross": "Too long for one image. Choose a chapter or use PDF.", "fb_quelle": "Formulas"},
     "es": {"ans": "Vista", "ans_voll": "Detallada", "ans_kurz": "Breve", "ans_formeln": "Fórmulas",
-           "ans_kurz_min": "Breve: {n} min", "fb_leer": "Este artículo no tiene fórmulas.", "fb_zu_kurz": "Ir a la vista breve",
+           "ans_kurz_min": "Breve: {n} min", "fb_leer": "Este artículo no tiene fórmulas.", "fb_zu_kurz": "Ir a la vista detallada",
            "fb_modul": "Todas las fórmulas del módulo", "fb_titel": "Formulario", "fb_sprung": "Ir al lugar en el artículo",
            "fb_lede": "Los teoremas, definiciones y fórmulas numeradas de todos los artículos de este módulo, por capítulos. "
                       "Cada entrada lleva a su lugar en el artículo.",
@@ -389,7 +389,7 @@ _UI_ANSICHT = {
            "dl": "Descargar", "dl_laeuft": "Creando …", "dl_fehler": "No se pudo crear el archivo.",
            "dl_gross": "Demasiado largo para una imagen. Elige un capítulo o usa PDF.", "fb_quelle": "Fórmulas"},
     "zh": {"ans": "视图", "ans_voll": "详细", "ans_kurz": "简要", "ans_formeln": "公式",
-           "ans_kurz_min": "简要：{n} 分钟", "fb_leer": "本文没有公式。", "fb_zu_kurz": "转到简要视图",
+           "ans_kurz_min": "简要：{n} 分钟", "fb_leer": "本文没有公式。", "fb_zu_kurz": "转到详细视图",
            "fb_modul": "本模块全部公式", "fb_titel": "公式汇编", "fb_sprung": "跳到文章中的位置",
            "fb_lede": "本模块所有文章中的定理、定义和带编号的公式，按章节排列。每一条都可以跳到它在文章中的位置。",
            "fb_keine": "本模块暂时还没有公式。",
@@ -400,7 +400,7 @@ _UI_ANSICHT = {
            "dl": "下载", "dl_laeuft": "正在生成 …", "dl_fehler": "文件生成失败。",
            "dl_gross": "内容太长，无法生成一张图片。请选择一章或使用 PDF。", "fb_quelle": "公式"},
     "fr": {"ans": "Affichage", "ans_voll": "Détaillé", "ans_kurz": "Court", "ans_formeln": "Formules",
-           "ans_kurz_min": "Court : {n} min", "fb_leer": "Cet article ne contient pas de formules.", "fb_zu_kurz": "Passer à l’affichage court",
+           "ans_kurz_min": "Court : {n} min", "fb_leer": "Cet article ne contient pas de formules.", "fb_zu_kurz": "Passer à l’affichage détaillé",
            "fb_modul": "Toutes les formules du module", "fb_titel": "Formulaire", "fb_sprung": "Aller à l’endroit dans l’article",
            "fb_lede": "Les théorèmes, définitions et formules numérotées de tous les articles de ce module, classés par chapitre. "
                       "Chaque entrée mène à sa place dans l’article.",
@@ -413,7 +413,7 @@ _UI_ANSICHT = {
            "dl": "Télécharger", "dl_laeuft": "Création …", "dl_fehler": "La création du fichier a échoué.",
            "dl_gross": "Trop long pour une image. Choisissez un chapitre ou utilisez le PDF.", "fb_quelle": "Formules"},
     "tr": {"ans": "Görünüm", "ans_voll": "Ayrıntılı", "ans_kurz": "Kısa", "ans_formeln": "Formüller",
-           "ans_kurz_min": "Kısa: {n} dk", "fb_leer": "Bu makalede formül yok.", "fb_zu_kurz": "Kısa görünüme geç",
+           "ans_kurz_min": "Kısa: {n} dk", "fb_leer": "Bu makalede formül yok.", "fb_zu_kurz": "Ayrıntılı görünüme geç",
            "fb_modul": "Modülün tüm formülleri", "fb_titel": "Formül derlemesi", "fb_sprung": "Makaledeki yerine git",
            "fb_lede": "Bu modüldeki tüm makalelerin teoremleri, tanımları ve numaralı formülleri, bölümlere göre sıralı. "
                       "Her kayıt sizi makaledeki yerine götürür.",
@@ -1906,7 +1906,7 @@ def page_shell(title, desc, body, depth, alternates=None, js=()):
 <link rel="icon" href="/favicon.ico" sizes="32x32"/><link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
 <meta name="description" content="{html.escape(klartext(desc))}"/>{links}
 <script>try{{var t=localStorage.getItem("animate-theme");if(t==="dark"||(!t&&matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.setAttribute("data-theme","dark");}}catch(e){{}}
-try{{var a=new URLSearchParams(location.search).get("ansicht");if(a==="uebersicht")a="formeln";if(!/^(voll|kurz|formeln)$/.test(a||""))a=localStorage.getItem("etundso-ansicht");if(a==="kurz"||a==="formeln")document.documentElement.setAttribute("data-ansicht",a);}}catch(e){{}}</script>
+try{{var a=new URLSearchParams(location.search).get("ansicht");if(a==="uebersicht")a="formeln";if(!/^(voll|formeln)$/.test(a||""))a=localStorage.getItem("etundso-ansicht");if(a==="formeln")document.documentElement.setAttribute("data-ansicht",a);}}catch(e){{}}</script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css"/>
 <link rel="stylesheet" href="{asset("wissen.css")}"/>
 </head><body data-root="{home()}">
@@ -1976,10 +1976,11 @@ def lesezeit(body):
     t = re.sub(r"^\s*<.*$", " ", t, flags=re.M)
     return max(1, round(len([w for w in t.split() if re.search(r"[A-Za-zÄÖÜäöüß0-9]", w)]) / 170))
 
-ANSICHTEN = (("voll", "ans_voll"), ("kurz", "ans_kurz"), ("formeln", "ans_formeln"))
+ANSICHTEN = (("voll", "ans_voll"), ("formeln", "ans_formeln"))   # „Kurz“ entfällt (User 11.11.2026 abends: die Zusammenfassung
+                                                               # am Artikelende genügt; „Formeln“ bleibt, kompakt)
 
 def ansicht_schalter(ref=False):
-    """Umschalter Ausführlich | Kurz | Formeln (W4a) an der Stelle der früheren Pfeile: breit ein Segmentschalter, schmal eine
+    """Umschalter Ausführlich | Formeln (W4a; „Kurz“ entfiel am 11.11. abends) zwischen den Pfeilen: breit ein Segmentschalter, schmal eine
     Auswahl; ohne Skript verborgen (dann gilt „Ausführlich“). wissen.js setzt data-ansicht an <html> und merkt die Wahl.
     In den Informatik-Reihen heißt die dritte Ansicht „Übersicht“ (intern dieselbe: formeln)."""
     knoepfe = "".join(f'<button type="button" class="ans-b" data-ansicht="{k}" aria-pressed="{"true" if k == "voll" else "false"}">'
@@ -2020,16 +2021,40 @@ def bereiche_nav(aktiv=None):
             f'{_B_ICON}<span class="b-cur">{html.escape(name)}</span>{_L_PFEIL}</button>'
             f'<ul class="l-menu" id="bmenu" hidden>{menue}</ul></div></nav>')
 
-def topbar(panels=False, prev_a=None, next_a=None, art=None, bereich="wissen"):
-    # Nur Artikelseiten, mittig: Knopf für den Themenbaum und der Umschalter der Ansicht (W4a, 11.11.2026; vorher standen
-    # hier die Pfeile zum vorherigen/nächsten Artikel, sie sind jetzt nur noch am Artikelende). prev_a/next_a bleiben als
-    # Parameter, damit Aufrufer unverändert bleiben. W4b: links die Bereiche (statt des Editor-Links rechts), die Sprachwahl
-    # rechts vor der Suche; Klasse mit-mitte: Artikelseite, die Bereiche klappen dann früher zum Menü zusammen.
-    pbtns = ('<div class="panelCenter">'
-             + '<button id="toggleLeft" class="panelBtn" aria-label="Themenbaum ein-/ausblenden" title="Themenbaum ein-/ausblenden" aria-pressed="false">'
+def nav_arrow(a, prev):
+    """Pfeil zum vorherigen/nächsten Artikel in der Kopfleiste (dieselbe Reihenfolge wie unten „Vorheriger/Nächster Artikel“),
+    daneben der Titel des Nachbarartikels (User 2026-11-04: „sonst weiß man gar nicht was kommt“; links vom Zurück-Pfeil,
+    rechts vom Weiter-Pfeil, lange Titel enden mit …). Am Anfang bzw. Ende grau und ohne Funktion. Seit W4a (11.11.) fehlten
+    die Pfeile; der User wollte sie am 11.11. abends zurück, neben dem Umschalter der Ansicht."""
+    bid, word = ("navPrev", T("vorher")) if prev else ("navNext", T("weiter"))
+    svg = ('<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" '
+           'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
+           + ('<line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/>' if prev else
+              '<line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>') + '</svg>')
+    if a:
+        t = html.escape(f'{word}: {klartext(a["title"])}')     # Attribute ohne TeX (KaTeX setzt nur den Text der Seite)
+        knopf = f'<a id="{bid}" class="navBtn" href="/wissen/{a["path"]}"{alt_attr(a)} title="{t}" aria-label="{t}">{svg}</a>'
+        name = (f'<a class="navTitel {"vor" if prev else "nach"}" href="/wissen/{a["path"]}"{alt_attr(a)} title="{t}" '
+                f'tabindex="-1" aria-hidden="true">{html.escape(a["title"])}</a>')
+        return name + knopf if prev else knopf + name
+    knopf = f'<span id="{bid}" class="navBtn disabled" aria-disabled="true" title="{word}">{svg}</span>'
+    leer = f'<span class="navTitel {"vor" if prev else "nach"}"></span>'   # Platzhalter: die Knöpfe bleiben mittig
+    return leer + knopf if prev else knopf + leer
+
+def topbar(panels=False, prev_a=None, next_a=None, art=None, bereich="wissen", leiste=False):
+    # Artikelseiten, mittig: Pfeil zurück (mit Titel), Knopf für den Themenbaum, Umschalter der Ansicht (W4a), Pfeil weiter
+    # (mit Titel). leiste: andere Seiten mit Themenbaum (Wissensübersicht, Begriffe, Formeln, Spickzettel): nur der Knopf
+    # für den Themenbaum, sonst fehlte er dort (auf dem Handy war der Baum dann gar nicht erreichbar).
+    # W4b: links die Bereiche (statt des Editor-Links rechts), die Sprachwahl rechts vor der Suche; Klasse mit-mitte:
+    # Artikelseite, die Bereiche klappen dann früher zum Menü zusammen.
+    knopf = ('<button id="toggleLeft" class="panelBtn" aria-label="Themenbaum ein-/ausblenden" title="Themenbaum ein-/ausblenden" aria-pressed="false">'
              '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">'
-             '<rect x="3" y="4" width="18" height="16" rx="2"/><line x1="9" y1="4" x2="9" y2="20"/></svg></button>'
-             + ansicht_schalter(bool(art) and ist_ref(art)) + '</div>') if panels else ''
+             '<rect x="3" y="4" width="18" height="16" rx="2"/><line x1="9" y1="4" x2="9" y2="20"/></svg></button>')
+    if panels:
+        pbtns = ('<div class="panelCenter">' + nav_arrow(prev_a, True) + knopf
+                 + ansicht_schalter(bool(art) and ist_ref(art)) + nav_arrow(next_a, False) + '</div>')
+    else:
+        pbtns = f'<div class="panelCenter">{knopf}</div>' if leiste else ''
     return (f'<a class="skip" href="#inhalt">{T("zum_inhalt")}</a>'   # Sprunglink für die Tastatur: erst beim Fokus sichtbar
             f'<div class="topbar{" mit-mitte" if panels else ""}"><a class="brand" href="/">Et<span>Und</span><span class="so">So</span></a>'
             + bereiche_nav(bereich) + pbtns + lang_switch(art)
@@ -2141,7 +2166,7 @@ def formelblatt_html(art, z, block_html=""):
                   + (f'<div class="fb-block">{block_html}</div>' if block_html else blatt_html(eintraege)) + "</div>")
         werkzeug = dl_knopf() + kopf_rechts
     else:
-        inhalt = (f'<p class="fb-leer">{TR("fb_leer", ref)} <button type="button" class="fb-zu-kurz" data-ansicht-setzen="kurz">'
+        inhalt = (f'<p class="fb-leer">{TR("fb_leer", ref)} <button type="button" class="fb-zu-kurz" data-ansicht-setzen="voll">'
                   f'{T("fb_zu_kurz")}</button></p>')
         werkzeug = kopf_rechts
     return (f'<section class="fb-blatt fb-spaeter" id="formelblatt" aria-labelledby="fb-titel"><div class="fb-kopf">'
@@ -2234,8 +2259,7 @@ def render_article(art, tree, prev_a, next_a):
         zf_html = f'<p class="zf-fuss art-ende">{kap_links}</p>'
     # Ansichten (W4a): geschriebene Kurzfassung (sonst filtert „Kurz“ den Artikel) und Formelblatt
     bloecke = art.get("bloecke") or {}
-    kurz_html = (f'<div class="ans-kurz" id="kurzfassung">{_block_html(bloecke["kurzfassung"], "kzf-")}</div>'
-                 if bloecke.get("kurzfassung") else "")
+    kurz_html = ""                                     # Ansicht „Kurz“ entfällt (11.11.); ::::kurzfassung wird nicht mehr gezeigt
     blatt = formelblatt_html(art, zdaten, _block_html(bloecke["formelsammlung"], "fsb-") if bloecke.get("formelsammlung") else "")
     pill = (f'<span class="apill apill-mensch">{T("hand_pill")}</span>' if art["autor"] == "mensch"
             else f'<span class="apill">{T("ki_pill")}</span>')
@@ -2491,7 +2515,7 @@ def _modul_kopf(arts, wort, datei, lang):
 def _modul_seite(tree, titel, desc, kopf, inhalt, pseudo, mp, depth_datei, cls=""):
     main = (f'<main class="article lern-seite{" " + cls if cls else ""}" id="inhalt" tabindex="-1"><article>{kopf}{inhalt}'
             f'{legal_footer()}</article></main>')
-    body = topbar(art=pseudo) + '<div class="layout">' + sidebar_html(tree, None) + main + "</div>"
+    body = topbar(art=pseudo, leiste=True) + '<div class="layout">' + sidebar_html(tree, None) + main + "</div>"
     return page_shell(titel, desc, body, depth_datei, pseudo["ziele"])
 
 def begriffe_html(tree, mp, arts, begriffe, lang):
@@ -3263,7 +3287,7 @@ def render_index(tree):
                      + (_themen_karte(nd["articles"]) if nd["articles"] else "") + "</section>")
     teile.append(_nur_deutsch(tree))
     teile.append(legal_footer() + "</article></main>")
-    body = topbar() + '<div class="layout">' + sidebar_html(tree, None) + "".join(teile) + "</div>"
+    body = topbar(leiste=True) + '<div class="layout">' + sidebar_html(tree, None) + "".join(teile) + "</div>"
     return page_shell(T("wissen"), T("lede"), body, 1, sprachen(None))
 
 # --------------------------------------------------------------------- main ----
@@ -3878,6 +3902,15 @@ kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px s
 .topbar .panelBtn:hover{background:color-mix(in srgb,var(--bar-hl) 18%,var(--bar-soft));}   /* Hover nur über den Hintergrund: der Rand zeigt den Zustand */
 .topbar .panelBtn.is-open{color:var(--bar-hl);border-color:var(--bar-hl);}   /* Panel offen = orange, zu = Grundfarbe */
 .topbar .panelCenter{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;align-items:center;gap:8px;}  /* Einklapp-Knopf und Ansicht mittig in der Leiste */
+/* Titel des vorherigen/nächsten Artikels neben den Pfeilen; beide Seiten gleich breit, damit die Knöpfe mittig bleiben. Nur wo
+   neben den Bereichen links und Sprache/Suche rechts Platz ist (ab 1480 px; 1100–1239 px, wenn die Bereiche ein Menü sind). */
+.topbar .navTitel{display:none;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font-size:13.5px;font-weight:500;
+  color:#ffffff;height:36px;line-height:36px;}   /* weiß; Zeilenhöhe = Höhe der Pfeil-Kreise -> Text genau auf deren Mitte */
+.topbar .navTitel.vor{text-align:right;} .topbar .navTitel.nach{text-align:left;}
+.topbar a.navTitel:hover{color:var(--bar-hl);text-decoration:none;}
+@media(min-width:1480px){ .topbar .navTitel{display:block;width:min(260px,calc(50vw - 620px));} }
+@media(min-width:1100px) and (max-width:1239px){ .topbar .navTitel{display:block;width:calc(50vw - 440px);} }
+@media(max-width:520px){ .topbar .navBtn{display:none;} }   /* Handy: Pfeile nur am Artikelende, die Leiste ist sonst zu voll */
 /* Ansicht Ausführlich | Kurz | Formeln (W4a, an der Stelle der früheren Pfeile): breit Segmentschalter, schmal Auswahl */
 .topbar .ansicht{display:inline-flex;align-items:stretch;height:36px;padding:2px;border:1px solid var(--bar-rand);border-radius:999px;background:var(--bar-soft);}
 .topbar .ans-b{border:0;background:transparent;color:var(--bar-ink);font:inherit;font-size:13.5px;font-weight:600;padding:0 13px;border-radius:999px;cursor:pointer;white-space:nowrap;}
@@ -4585,13 +4618,6 @@ details.mk-kap details.mk-kap{margin-left:1em;}
 }
 @media(max-width:330px){ .topbar .ans-sel{max-width:92px;font-size:12.5px;} }
 .ans-kurz,.fb-blatt{display:none;}
-:root[data-ansicht="kurz"] .art .kw,
-:root[data-ansicht="kurz"] .art-body :is(ol,ul,li):not(.kz *):not(:has(.kz)),
-:root[data-ansicht="kurz"] .art-body .sect:not(:has(.kz,h2,h3)),
-:root[data-ansicht="kurz"] .art-body hr{display:none!important;}
-:root[data-ansicht="kurz"] .art-body .sect>h3:first-child{margin-top:.7em;}
-:root[data-ansicht="kurz"] .art.hat-kurz .art-body{display:none!important;}
-:root[data-ansicht="kurz"] .art.hat-kurz .ans-kurz{display:block;}
 :root[data-ansicht="formeln"] .art :is(.art-body,.ans-kurz,.arttoc,.zf,.zf-fuss,.verwendet,.cx-quiz,.am-zf),
 :root[data-ansicht="formeln"] .article .toc{display:none!important;}
 :root[data-ansicht="formeln"] .art .fb-blatt{display:block;}
@@ -5611,7 +5637,7 @@ var LERNEN=(function(){
 window.ETAnsicht=(function(){
   var $=LERNEN, root=document.documentElement, K="etundso-ansicht";
   var art=document.querySelector("main.article > article.art");
-  function jetzt(){ var a=root.getAttribute("data-ansicht"); return a==="kurz"||a==="formeln"?a:"voll"; }
+  function jetzt(){ var a=root.getAttribute("data-ansicht"); return a==="formeln"?a:"voll"; }
   function verborgen(el){ for(var x=el; x && x!==document.body; x=x.parentElement){ if(getComputedStyle(x).display==="none") return true; } return false; }
   if(!art){ root.removeAttribute("data-ansicht"); return {jetzt:jetzt, verborgen:function(){ return false; }, setze:function(){}}; }
   var seg=document.querySelector(".topbar .ansicht"), sel=document.querySelector(".topbar .ans-sel");
@@ -5634,7 +5660,7 @@ window.ETAnsicht=(function(){
     if(zeit) zeit.textContent=a==="kurz" ? $.w("ans_kurz_min",{n:kurzZeit()}) : zeitVoll;
   }
   function setze(a,merken){
-    a=(a==="kurz"||a==="formeln")?a:"voll";
+    a=a==="formeln"?a:"voll";                                     // „kurz“ (alte Links, gemerkte Wahl) -> Ausführlich
     var vorher=jetzt(), oben=null;
     if(scrollY>200 && a!=="formeln"){                               // Lage halten: Abschnitt oben im Fenster merken
       var hs=art.querySelectorAll(".art-body h2,.art-body h3");

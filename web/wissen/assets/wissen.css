@@ -35,6 +35,15 @@ kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px s
 .topbar .panelBtn:hover{background:color-mix(in srgb,var(--bar-hl) 18%,var(--bar-soft));}   /* Hover nur über den Hintergrund: der Rand zeigt den Zustand */
 .topbar .panelBtn.is-open{color:var(--bar-hl);border-color:var(--bar-hl);}   /* Panel offen = orange, zu = Grundfarbe */
 .topbar .panelCenter{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;align-items:center;gap:8px;}  /* Einklapp-Knopf und Ansicht mittig in der Leiste */
+/* Titel des vorherigen/nächsten Artikels neben den Pfeilen; beide Seiten gleich breit, damit die Knöpfe mittig bleiben. Nur wo
+   neben den Bereichen links und Sprache/Suche rechts Platz ist (ab 1480 px; 1100–1239 px, wenn die Bereiche ein Menü sind). */
+.topbar .navTitel{display:none;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font-size:13.5px;font-weight:500;
+  color:#ffffff;height:36px;line-height:36px;}   /* weiß; Zeilenhöhe = Höhe der Pfeil-Kreise -> Text genau auf deren Mitte */
+.topbar .navTitel.vor{text-align:right;} .topbar .navTitel.nach{text-align:left;}
+.topbar a.navTitel:hover{color:var(--bar-hl);text-decoration:none;}
+@media(min-width:1480px){ .topbar .navTitel{display:block;width:min(260px,calc(50vw - 620px));} }
+@media(min-width:1100px) and (max-width:1239px){ .topbar .navTitel{display:block;width:calc(50vw - 440px);} }
+@media(max-width:520px){ .topbar .navBtn{display:none;} }   /* Handy: Pfeile nur am Artikelende, die Leiste ist sonst zu voll */
 /* Ansicht Ausführlich | Kurz | Formeln (W4a, an der Stelle der früheren Pfeile): breit Segmentschalter, schmal Auswahl */
 .topbar .ansicht{display:inline-flex;align-items:stretch;height:36px;padding:2px;border:1px solid var(--bar-rand);border-radius:999px;background:var(--bar-soft);}
 .topbar .ans-b{border:0;background:transparent;color:var(--bar-ink);font:inherit;font-size:13.5px;font-weight:600;padding:0 13px;border-radius:999px;cursor:pointer;white-space:nowrap;}
@@ -742,13 +751,6 @@ details.mk-kap details.mk-kap{margin-left:1em;}
 }
 @media(max-width:330px){ .topbar .ans-sel{max-width:92px;font-size:12.5px;} }
 .ans-kurz,.fb-blatt{display:none;}
-:root[data-ansicht="kurz"] .art .kw,
-:root[data-ansicht="kurz"] .art-body :is(ol,ul,li):not(.kz *):not(:has(.kz)),
-:root[data-ansicht="kurz"] .art-body .sect:not(:has(.kz,h2,h3)),
-:root[data-ansicht="kurz"] .art-body hr{display:none!important;}
-:root[data-ansicht="kurz"] .art-body .sect>h3:first-child{margin-top:.7em;}
-:root[data-ansicht="kurz"] .art.hat-kurz .art-body{display:none!important;}
-:root[data-ansicht="kurz"] .art.hat-kurz .ans-kurz{display:block;}
 :root[data-ansicht="formeln"] .art :is(.art-body,.ans-kurz,.arttoc,.zf,.zf-fuss,.verwendet,.cx-quiz,.am-zf),
 :root[data-ansicht="formeln"] .article .toc{display:none!important;}
 :root[data-ansicht="formeln"] .art .fb-blatt{display:block;}

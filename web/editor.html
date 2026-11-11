@@ -40,8 +40,23 @@
      own colour (the white header/accent buttons) override this via higher specificity and stay white. */
   select,input,button,textarea{color:var(--ink);}
   option{color:var(--ink);background:var(--panel);}
-  header{padding:12px 20px;background:var(--bar);color:var(--bar-ink);border-bottom:1px solid var(--bar-rand);font-weight:600;display:flex;align-items:center;gap:16px;}
-  header .brand{flex:none;color:var(--bar-ink);}
+  /* Kopfleiste wie auf den übrigen Seiten (User 11.11.2026): Logo, die vier Bereiche (Editor aktiv), Hell/Dunkel rechts.
+     Werte wie .topbar/.brand/.b-l in build_wissen.py (WISSEN_CSS); Höhe 65 px wie dort. Sprache und Suche fehlen hier:
+     Der Editor ist nicht übersetzt, und die Suche würde den Editor verlassen. */
+  .topbar{display:flex;align-items:center;gap:14px;min-height:65px;padding:11px 18px;background:var(--bar);border-bottom:1px solid var(--bar-rand);}
+  .topbar .brand{font-family:"Segoe UI",system-ui,-apple-system,Roboto,sans-serif;font-weight:800;font-size:19px;letter-spacing:-.02em;color:#ff9650;text-decoration:none;}
+  .topbar .brand span{color:var(--bar-ink);} .topbar .brand span.so{color:#ff4d4d;}
+  .topbar .b-liste{display:flex;align-items:center;gap:2px;margin:0;padding:0;list-style:none;}
+  .topbar .b-liste li{margin:0;}
+  .topbar .b-l{display:block;padding:7px 10px 5px;color:var(--bar-ink);font-weight:600;font-size:14.5px;line-height:1.2;white-space:nowrap;border-bottom:2px solid transparent;text-decoration:none;}
+  .topbar .b-l:hover{color:var(--bar-hl);}
+  .topbar .b-l.on{color:var(--bar-hl);border-bottom-color:var(--bar-hl);}
+  .topbar .b-l:focus-visible{outline:2px solid var(--bar-hl);outline-offset:2px;border-radius:6px;}
+  .topbar .iconBtn{margin-left:auto;display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;padding:0;background:var(--bar-soft);border:1px solid var(--bar-rand);color:var(--bar-ink);border-radius:999px;cursor:pointer;}
+  .topbar .iconBtn:hover{border-color:var(--bar-hl);}
+  @media(max-width:560px){ .topbar{gap:6px;padding:11px 10px;} .topbar .b-l{padding:7px 6px 5px;font-size:13.5px;} }
+  /* Werkzeugleiste (früher die Kopfleiste): unter der Kopfleiste, hell, Knöpfe in der Mitte, Ansicht rechts */
+  header{padding:10px 20px;background:var(--s2);color:var(--ink);border-bottom:1px solid var(--border);font-weight:600;display:flex;align-items:center;gap:16px;}
   header .header-center{flex:1;display:flex;justify-content:center;gap:8px;}
   header .header-center button,header .header-center #load-lbl{color:#fff;border:none;padding:8px 16px;border-radius:8px;font-weight:600;cursor:pointer;font:inherit;display:inline-block;}
   header .header-center #save-btn{background:var(--btn-save);}              /* Save = grün   */
@@ -56,7 +71,7 @@
   .export-item{padding:9px 13px;cursor:pointer;color:var(--ink);font-weight:600;font-size:14px;}
   .export-item:hover{background:rgba(127,127,127,.2);}
   header .tabs{display:flex;gap:4px;flex:none;}
-  header .tabs button{border:1px solid var(--bar-rand);background:var(--bar-soft);color:var(--bar-ink);padding:6px 12px;border-radius:8px;cursor:pointer;font:inherit;}
+  header .tabs button{border:1px solid var(--border);background:var(--field);color:var(--ink);padding:6px 12px;border-radius:8px;cursor:pointer;font:inherit;}
   header .tabs button:disabled{opacity:.55;cursor:default;}
   header .tabs button.active{background:var(--bar-hl);color:#2a1205;border-color:var(--bar-hl);}
   main{display:flex;flex-direction:column;gap:16px;padding:16px;}
@@ -160,27 +175,29 @@
   .anim-row.drop-target{box-shadow:inset 0 2px 0 var(--accent);}
   .build-banner{background:var(--sel);color:var(--ink);border-bottom:1px solid var(--border);padding:6px 16px;font-size:13px;text-align:center;}
   .build-banner b{color:var(--accent);font-weight:700;}
-  /* day/night SLIDE switch: a box slides left<->right; the exposed half is white (day) / black (night) */
-  .theme-switch{position:relative;flex:none;width:56px;height:28px;border-radius:14px;border:1px solid var(--bar-rand);
-                background:#000;cursor:pointer;padding:0;transition:background .18s;}
-  .theme-switch .knob{position:absolute;top:2px;left:2px;width:25px;height:22px;border-radius:11px;background:var(--bar-hl);
-                      transform:translateX(26px);transition:transform .18s;}
-  :root[data-theme="light"] .theme-switch{background:#fff;}
-  :root[data-theme="light"] .theme-switch .knob{transform:translateX(0);}
-  .theme-switch:hover{border-color:var(--bar-hl);}
+  /* Play: grün wie die Kopfleiste, Symbol und Schrift orange (User 11.11.2026) */
+  .preview-bar #play-btn{background:var(--bar);color:var(--bar-hl);border-color:var(--bar);font-weight:700;}
+  .preview-bar #play-btn:hover{background:var(--bar-soft);color:var(--bar-hl);border-color:var(--bar-hl);}
 </style>
 </head>
 <body>
+<div class="topbar"><a class="brand" href="/">Et<span>Und</span><span class="so">So</span></a>
+  <nav class="bereiche" aria-label="Bereiche"><ul class="b-liste">
+    <li><a class="b-l" href="/wissen/">Wissen</a></li>
+    <li><a class="b-l" href="/lernen/">Lernkarten</a></li>
+    <li><a class="b-l" href="/aufgaben/">Aufgaben</a></li>
+    <li><a class="b-l on" href="/editor.html" aria-current="true">Editor</a></li>
+  </ul></nav>
+  <button id="theme-toggle" class="iconBtn" aria-label="Hell/Dunkel umschalten" title="Hell/Dunkel umschalten"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A8 8 0 1 1 11.2 3 6 6 0 0 0 21 12.8z"/></svg></button>
+</div>
 <div class="build-banner">🚧 Diese Seite ist noch im Aufbau und wird laufend aktualisiert. · Letztes Update: <b id="build-date">…</b></div>
 <header>
-  <span class="brand">animate — Editor</span>
   <div class="header-center">
     <button id="save-btn">Save scene</button>
     <label id="load-lbl">Load scene<input id="load-input" type="file" accept=".json,application/json" hidden></label>
     <span class="export-split"><button id="dl-png">Photo</button><button id="dl-png-caret" class="export-caret" title="Format wählen">▾</button><div id="dl-png-menu" class="export-menu"></div></span>
     <span class="export-split"><button id="dl-video">Animation</button><button id="dl-video-caret" class="export-caret" title="Format wählen">▾</button><div id="dl-video-menu" class="export-menu"></div></span>
   </div>
-  <button id="theme-toggle" class="theme-switch" title="Tag-/Nachtmodus umschalten"><span class="knob"></span></button>
   <div class="tabs">
     <button class="active">Editor</button>
     <button title="coming in Batch 5" disabled>Code</button>

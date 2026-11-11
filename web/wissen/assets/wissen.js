@@ -774,7 +774,7 @@ var LERNEN=(function(){
 window.ETAnsicht=(function(){
   var $=LERNEN, root=document.documentElement, K="etundso-ansicht";
   var art=document.querySelector("main.article > article.art");
-  function jetzt(){ var a=root.getAttribute("data-ansicht"); return a==="kurz"||a==="formeln"?a:"voll"; }
+  function jetzt(){ var a=root.getAttribute("data-ansicht"); return a==="formeln"?a:"voll"; }
   function verborgen(el){ for(var x=el; x && x!==document.body; x=x.parentElement){ if(getComputedStyle(x).display==="none") return true; } return false; }
   if(!art){ root.removeAttribute("data-ansicht"); return {jetzt:jetzt, verborgen:function(){ return false; }, setze:function(){}}; }
   var seg=document.querySelector(".topbar .ansicht"), sel=document.querySelector(".topbar .ans-sel");
@@ -797,7 +797,7 @@ window.ETAnsicht=(function(){
     if(zeit) zeit.textContent=a==="kurz" ? $.w("ans_kurz_min",{n:kurzZeit()}) : zeitVoll;
   }
   function setze(a,merken){
-    a=(a==="kurz"||a==="formeln")?a:"voll";
+    a=a==="formeln"?a:"voll";                                     // „kurz“ (alte Links, gemerkte Wahl) -> Ausführlich
     var vorher=jetzt(), oben=null;
     if(scrollY>200 && a!=="formeln"){                               // Lage halten: Abschnitt oben im Fenster merken
       var hs=art.querySelectorAll(".art-body h2,.art-body h3");
