@@ -22,7 +22,7 @@ Damit erledigt: Die Frage „offen/zugeklappt“ und der Konflikt mit „Keine V
 |---|---|---|
 | **W1 Artikel lesen** | 1 Inhaltsverzeichnis aus `###`; 2 Zusammenfassung am Artikelende (Begriffe, Formeln, Zusammenhänge); Kennzahlenzeile mit Lesezeit; Titel/Beschreibung ohne TeX; 3 Lesbarkeit auf dem Handy (weniger Verschachtelung, Abbildung antippen zum Vergrößern); schnelle Gewinne (Kopierknopf, Ankerlinks, Druckansicht, Nachtmodus nach System beim ersten Besuch, Sprunglink „Zum Inhalt“, Standbild statt leerem Startbild) | **fertig 11.11., eingespielt** (Patch `scratchpad/website_w1/w1.patch`, 3 Dateien, +820/−50). Inhaltsverzeichnis de 229 statt 77 Seiten; Zusammenfassung auf 641 von 752 de-Seiten (nicht bei „Das Wichtigste“, 44 ohne Material); 0 TeX in Titeln; HTML-Menge gleich; von mir im Browser geprüft (Overlay, Box, Inhaltsverzeichnis, de/en/zh, 390/1300 px). Schwächen: Bruchstücke bei Begriffen, wenn abgesetzte Formeln Sätze teilen; ET1/GEMB1/HöMa1 fast ohne „Kurz gesagt“. Konverter-Wünsche: `b[Bestimmung]{Begriff}`, kein Absatzbruch um Formeln mitten im Satz, `summary:` als Klartext. |
 | **W2 Lernen** | 4 Lesefortschritt im Browser; 5 Begriffsverzeichnis je Modul und Link-Vorschau; 6 Lernkarten mit verteilter Wiederholung (zuerst Abdeck-Modus) | **fertig 11.11., eingespielt** (Patch `scratchpad/website_w2/w2.patch`: build_wissen, wissen.css/js, index.html „Weiterlesen“, datenschutz.html §6). Fortschritt (localStorage), Begriffe- und Lernkarten-Seite je Modul und Sprache (+50 HTML, +25 JSON), Link-Vorschau, Selbsttest in der Zusammenfassung, Leitner 1/3/7/14/30. `web/` danach 14 963 Dateien. Schwächen: Seiten 250–600 KB (Seitenleiste ~143 KB je Seite), Lernstand je Gerät/Sprache ohne Export, Formeln ohne Namen fallen weg. |
-| **W3a Finden I** | Wissensübersicht mit Modulkarten; Startseite in sechs Sprachen; Seitenleiste nur obere Ebenen im HTML, Rest aus `tree*.json` (Seiten ~143 KB leichter); Suchindex geteilt (Titel zuerst, Volltext je Modul) | läuft seit 11.11. (Arbeitskopie `wt_w3a`, Port 8003) |
+| **W3a Finden I** | Wissensübersicht mit Modulkarten; Startseite in sechs Sprachen; Seitenleiste nur obere Ebenen im HTML, Rest aus `tree*.json` (Seiten ~143 KB leichter); Suchindex geteilt (Titel zuerst, Volltext je Modul) | **fertig 11.11., eingespielt** (Patch `scratchpad/website_w3a/w3a.patch`; neu `web/wissen/assets/suche.js`, Startseiten `/en/ … /tr/` werden vom Build aus `web/index.html` mit `data-i18n` erzeugt). HTML im Mittel 121 → 33 KB, `web/wissen` 218 → 78 MB; Übersicht 32 000 → 1 500 px; Suche lädt zuerst 68 KB statt 2 MB (Treffer gleich, von mir geprüft). Alte `search*.json` gelöscht (Commit muss die Löschung mitnehmen). `web/` 15 006 Dateien. |
 | **W3b Finden II** (Rest von W3) | 7 Startseite in sechs Sprachen, Wissensübersicht mit Modulkarten; 8 Sitemap, `canonical`, `x-default`, strukturierte Daten, Vorschaubilder je Kapitel; KaTeX selbst ausliefern; Suchindex verkleinern | offen (Vorschaubilder hängen am Hosting-Tarif) |
 | **W5 Rückmeldung und Regler** (früher W4) | 9 „Hat das geholfen?“ (Cloudflare D1) und „Fehler melden“; 10 Regler-Modus für Abbildungen (Parameter über die Zeit gibt es seit E2) | offen (Rückmelde-Adresse mit dem User klären) |
 
@@ -39,8 +39,29 @@ Wortlaut: „Lass uns die Lernkarten als eigenen separaten Bereich einbauen und 
   - Ein eigener Bereich mit allen Aufgaben samt Lösungen aus den Heften: am 11.11. 1 076 (de), dazu 234 Herleitungen.
   - Filter nach Modul, Kapitel und Artikel; Lösung zugeklappt; Link zum Artikel.
   - Weitere Aufgaben über die Hefte hinaus wären ein eigenes Inhaltsprojekt (offen).
+- **Ergänzungen (User, 11.11.):** „1. Formelsammlung, 3. Kapitel auf einer Seite und 4. Mischtest noch ergänzen. Die anderen nicht.“
+  - Formelsammlung je Modul: automatisch aus Satz- und Formelkästen, druckbar.
+  - Kapitel auf einer Seite: alle Zusammenfassungen eines Kapitels als druckbarer Spickzettel.
+  - Mischtest: zufällige Mischung aus Karten und Aufgaben gewählter Kapitel; Auswertung und Lösungen erst am Ende.
+  - **Nicht:** „Mein Lernstand“ mit Export/Import; zusätzliche Aufgaben über die Hefte hinaus.
 - **Reihenfolge:** Welle **W4 Bereiche** startet nach W3a, weil W3a Kopfleiste und Startseite umbaut. Die frühere W4 (Rückmeldung, Regler) wird W5.
 - **Dateibudget:** Eine App-Seite je Bereich und Sprache plus Daten-JSON je Modul statt Tausender Einzelseiten. Statische Aufgaben-Seiten je Modul sind für Suchmaschinen sinnvoll; ihre Zahl muss im Budget bleiben.
+
+## Drei Ansichten je Artikel (User, 11.11.2026 abends)
+Wortlaut: „Wir sollten in dem Bereich Wissen auch zwischen verschiedenen Kategorien unterscheiden, die sich durch ihre Ausführlichkeit der Erklärung unterscheiden. Die aktuellen Artikel sind sehr ausführlich (war so gewollt und ist sehr gut), manche Leser wollen aber vielleicht nur kurz nachgucken und brauchen keine Details. Ich denke, dass wir zwischen "Sehr ausführlich (wie aktuell)", "Kurze Erklärungen" und "Formelsammlung" unterscheiden sollten. Diese jeweils für jeden Artikel, oben in der Leiste wo aktuell die zwei Pfeile sind umschaltbar.“
+- Umsetzung als Welle **W4a „Ansichten“** (vor W4b Lernkarten/Aufgaben). Formelsammlung je Modul und „Kapitel auf einer Seite“ wandern mit hinein, weil sie dieselben Daten nutzen.
+- „Kurz“ zuerst **automatisch** als Ansicht des vorhandenen Artikels (Überschriften, „Kurz gesagt“, Definitionen, Sätze, Kernformeln, Abbildungen). Ob später eigene, geschriebene Kurzfassungen kommen, entscheidet der User nach Ansicht der automatischen Fassung.
+- Früher (bis 28.10.) gab es zwei geschriebene Fassungen je Thema; sie wurden mit dem Wechsel zu den Arbeitsheften abgelöst. Die automatische Ansicht kostet keine Schreib- und Übersetzungsarbeit.
+
+## Idee: Konten mit Fortschritt auf dem Server (User, 11.11.2026) — PAUSIERT
+User 11.11.: „Die Anmelde-Funktion pausieren wir erstmal, ich bin noch nicht sicher.“ Nicht von selbst wieder anstoßen.
+Wortlaut: „Wenn wir es später sowieso auf einem Pi umsetzen, dann könnten wir dort auch lokal eine Datenbank anlegen in der wir Nutzerdaten speichern. Dann könnten sich Nutzer auf der Webseite auch anmelden und erst dann würden Funktionen, die den Stand des Fortschritts messen auch Sinn machen.“
+- **Meine Empfehlung (11.11.):** Konten nur freiwillig. Ohne Anmeldung bleibt alles lokal wie in W2. Mit Anmeldung wird derselbe Stand geräteübergreifend gespeichert (Fortschritt, Lernkarten, gelöste Aufgaben).
+- **Daten sparsam:** Nutzername, Passwort-Hash (Argon2id), optional E-Mail für das Zurücksetzen. Kein Auswerten einzelner Nutzer.
+- **Technik:** kleiner Dienst auf dem Pi (z. B. Python/FastAPI) mit SQLite hinter dem Tunnel; `/api/*` vom Cloudflare-Zwischenspeicher ausnehmen; Sitzungs-Cookie `HttpOnly`, `Secure`, `SameSite=Lax`; Begrenzung der Anmeldeversuche.
+- **Pflichten:** Datenschutzerklärung, Auskunft, Löschen und Export auf Wunsch, Meldepflicht bei Datenpannen. Verschlüsselte Sicherung außer Haus, denn der Pi hätte dann Daten, die nicht im Repo stehen.
+- **Alternative ohne Pi:** Cloudflare Worker mit D1-Datenbank (Gratis-Tarif).
+- **Zeitpunkt:** frühestens nach dem Umzug auf den Pi (zurückgestellt) oder vorher mit D1; Entscheidung des Users offen.
 
 ## Dateibudget (Cloudflare Pages)
 - `web/` hatte am 11.11. 14 843 Dateien. Laut Cloudflare-Doku sind im Gratis-Tarif 20 000 Dateien je Site erlaubt, bezahlt 100 000.

@@ -3,9 +3,20 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>EtUndSo — Erklärungen & Tools für Elektrotechnik</title>
+  <title data-i18n="titel">EtUndSo — Erklärungen & Tools für Elektrotechnik</title>
   <link rel="icon" href="/favicon.ico" sizes="32x32"/><link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
-  <meta name="description" content="EtUndSo: verständliche, animierte Erklärungen und Werkzeuge zu Elektrotechnik- und Mathematik-Modulen — und so. Mit dem Browser-Editor zum selbst Nachbauen."/>
+  <meta name="description" data-i18n-attr="content:beschreibung" content="EtUndSo: verständliche, animierte Erklärungen und Werkzeuge zu Elektrotechnik- und Mathematik-Modulen — und so. Mit dem Browser-Editor zum selbst Nachbauen."/>
+  <!-- Diese Seite ist die Vorlage der Startseiten in den anderen Sprachen (/en/, /es/, /zh/, /fr/, /tr/): build_wissen.py
+       übersetzt beim Bauen den Inhalt jedes Elements mit data-i18n="schlüssel" und die Attribute aus data-i18n-attr
+       (Texte in STARTSEITE_TEXTE), setzt Sprachwahl, Bilder und Wissens-Links der Sprache ein. Neue Texte hier also mit
+       data-i18n versehen und in STARTSEITE_TEXTE übersetzen; fehlt eine Übersetzung, bleibt dort der deutsche Text. -->
+  <link rel="alternate" hreflang="de" href="https://etundso.de/"/>
+  <link rel="alternate" hreflang="en" href="https://etundso.de/en/"/>
+  <link rel="alternate" hreflang="es" href="https://etundso.de/es/"/>
+  <link rel="alternate" hreflang="zh" href="https://etundso.de/zh/"/>
+  <link rel="alternate" hreflang="fr" href="https://etundso.de/fr/"/>
+  <link rel="alternate" hreflang="tr" href="https://etundso.de/tr/"/>
+  <link rel="alternate" hreflang="x-default" href="https://etundso.de/"/>
   <style>
     /* Vorlage „Kopfleiste“ wie im Wissensbereich: dunkelgrüne Leiste, Primär = Grün, Marke und Überschriften = Lila, Akzent = Orange.
        Tag = hell (Default), Nacht über data-theme="dark". Fonts als Tokens: aktuell System-Stack; selbst-gehostete Schriften
@@ -33,13 +44,37 @@
     header.site{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 24px;border-bottom:1px solid var(--bar-rand);background:var(--bar);position:sticky;top:0;z-index:5;}
     .brand{font-family:var(--font-display);font-weight:800;font-size:21px;letter-spacing:-0.02em;color:var(--logo-et);}
     .brand span{color:var(--bar-ink);} .brand span.so{color:var(--logo-so);}
-    nav{display:flex;align-items:center;gap:20px;}
-    nav a.lnk{color:var(--bar-ink);font-weight:600;font-size:15px;}
+    header.site>nav{display:flex;align-items:center;gap:20px;}
+    nav a.lnk{color:var(--bar-ink);font-weight:600;font-size:15px;white-space:nowrap;}
     nav a.lnk:hover{color:var(--bar-hl);}
-    nav a.navcta{background:var(--bar-hl);color:#2a1205;padding:8px 15px;border-radius:9px;font-weight:700;font-size:14px;}
+    nav a.navcta{background:var(--bar-hl);color:#2a1205;padding:8px 15px;border-radius:9px;font-weight:700;font-size:14px;white-space:nowrap;}
     /* Schmale Handys: Leiste passt sonst nicht (375 px liefen 18 px über) – „Videos“ (kommt erst) entfällt dort. */
-    @media (max-width:480px){ header.site{padding:12px 16px;gap:10px;} nav{gap:14px;} nav a.lnk[href="#videos"]{display:none;}
+    @media (max-width:480px){ header.site{padding:12px 16px;gap:10px;} header.site>nav{gap:14px;} nav a.lnk[href="#videos"]{display:none;}
       nav a.navcta{padding:7px 12px;font-size:13.5px;} }
+
+    /* Sprachwahl wie im Wissensbereich (build_wissen.lang_switch): Knopf mit der Sprache, darunter die Liste. In der Leiste;
+       auf schmalen Bildschirmen über dem Seitentitel, dort fällt in der Leiste dafür der Sprung „Editor“ weg. */
+    .langs{position:relative;display:inline-flex;}
+    .langs .l-toggle{display:inline-flex;align-items:center;gap:6px;height:34px;padding:0 10px 0 13px;border-radius:999px;border:1px solid var(--border);
+      background:var(--soft);color:var(--ink);font:inherit;font-size:13.5px;font-weight:700;letter-spacing:.03em;line-height:1;cursor:pointer;}
+    .langs .l-toggle:hover,.langs .l-toggle[aria-expanded="true"]{border-color:var(--accent3);color:var(--accent3);}
+    header.site .langs .l-toggle{background:transparent;border-color:var(--bar-rand);color:var(--bar-ink);}
+    header.site .langs .l-toggle:hover,header.site .langs .l-toggle[aria-expanded="true"]{border-color:var(--bar-hl);color:var(--bar-hl);}
+    .langs .l-pfeil{opacity:.85;transition:transform .15s;}
+    .langs .l-toggle[aria-expanded="true"] .l-pfeil{transform:rotate(180deg);}
+    .langs .l-toggle:focus-visible,.langs .l-item:focus-visible{outline:2px solid var(--accent3);outline-offset:2px;}
+    .langs .l-menu{position:absolute;top:calc(100% + 6px);left:0;z-index:40;min-width:180px;margin:0;padding:6px;list-style:none;background:var(--panel);
+      border:1px solid var(--border);border-radius:12px;box-shadow:0 12px 32px rgba(10,20,15,.16),0 2px 6px rgba(10,20,15,.08);}
+    header.site .langs .l-menu{left:auto;right:0;}
+    .langs .l-menu[hidden]{display:none;}
+    .langs .l-menu li{margin:0;padding:0;font-size:14.5px;line-height:1.3;}
+    .langs .l-item{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:8px 12px;border-radius:8px;color:var(--ink);font-weight:500;}
+    .langs a.l-item:hover,.langs a.l-item:focus{background:var(--soft);}
+    .langs .l-item.on{color:var(--accent3);font-weight:700;background:color-mix(in srgb,var(--accent3) 9%,var(--panel));}
+    :root[data-theme="dark"] .langs .l-menu{border-color:rgba(255,255,255,.32);box-shadow:0 12px 32px rgba(0,0,0,.55);}
+    .langs-art{display:none;}
+    @media (max-width:560px){ header.site .langs-top,header.site a.lnk[href="#editor"]{display:none;} .langs-art{display:inline-flex;margin:0 0 4px;} }
+    html[lang="zh"] body{font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei","Noto Sans CJK SC",sans-serif;}
 
     main{max-width:1040px;margin:0 auto;padding:16px 24px 72px;}
     .eyebrow{display:inline-block;font-size:12px;font-weight:700;color:var(--accent2);text-transform:uppercase;letter-spacing:.06em;}
@@ -116,7 +151,10 @@
     .mod-arts a:hover{color:var(--ink);background:var(--soft);text-decoration:none;}
     .mod-arts .a-snip{display:block;font-size:12.5px;color:var(--muted);opacity:.85;padding:0 8px 4px;}
     .mod-tree mark{background:color-mix(in srgb,var(--accent3) 55%,transparent);color:inherit;border-radius:3px;padding:0 1px;}
-    .mod-noresult{color:var(--muted);padding:6px 2px;}
+    .mod-noresult,.mod-laedt{color:var(--muted);padding:6px 2px;}
+    .mod-laedt{font-size:13.5px;}
+    .nur-de{color:var(--muted);font-size:14.5px;margin:16px 0 0;}
+    .nur-de[hidden]{display:none;}
 
     .feature{background:var(--panel);border:1px solid var(--border);border-radius:20px;padding:30px;display:flex;gap:30px;align-items:center;flex-wrap:wrap;}
     .feature .txt{flex:1 1 320px;min-width:0;}
@@ -151,76 +189,78 @@
   </style>
 </head>
 <body>
-  <div class="build-banner">🚧 Noch im Aufbau, wird laufend erweitert. · Letztes Update: <b id="build-date">…</b></div>
+  <div class="build-banner"><span data-i18n="banner">Noch im Aufbau, wird laufend erweitert.</span> · <span data-i18n="update">Letztes Update:</span> <b id="build-date">…</b></div>
 
   <header class="site">
     <div class="brand">Et<span>Und</span><span class="so">So</span></div>
     <nav>
-      <a class="lnk" href="/wissen/">Wissen</a>
-      <a class="lnk" href="#editor">Editor</a>
-      <a class="lnk" href="#videos">Videos</a>
-      <a class="navcta" href="editor.html">Editor öffnen</a>
+      <a class="lnk" href="/wissen/" data-i18n="nav_wissen">Wissen</a>
+      <a class="lnk" href="#editor" data-i18n="nav_editor">Editor</a>
+      <a class="lnk" href="#videos" data-i18n="nav_videos">Videos</a>
+      <!-- sprachwahl-top --><nav class="langs langs-top" aria-label="Sprache" data-langmenu><button type="button" class="l-toggle" aria-expanded="false" aria-controls="lmenu-top" aria-label="Sprache: Deutsch" title="Sprache"><span class="l-cur">DE</span><svg class="l-pfeil" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button><ul class="l-menu" id="lmenu-top" hidden><li><a class="l-item on" href="/" hreflang="de" lang="de" aria-current="true"><span class="l-name">Deutsch</span><svg class="l-haken" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="5 12.5 10 17.5 19 7"/></svg></a></li><li><a class="l-item" href="/en/" hreflang="en" lang="en"><span class="l-name">English</span></a></li><li><a class="l-item" href="/es/" hreflang="es" lang="es"><span class="l-name">Español</span></a></li><li><a class="l-item" href="/fr/" hreflang="fr" lang="fr"><span class="l-name">Français</span></a></li><li><a class="l-item" href="/tr/" hreflang="tr" lang="tr"><span class="l-name">Türkçe</span></a></li><li><a class="l-item" href="/zh/" hreflang="zh" lang="zh"><span class="l-name">中文</span></a></li></ul></nav><!-- /sprachwahl-top -->
+      <a class="navcta" href="/editor.html" data-i18n="editor_oeffnen">Editor öffnen</a>
     </nav>
   </header>
 
   <main>
     <section class="hero">
       <div>
-        <span class="eyebrow">Elektrotechnik — und so</span>
-        <h1>Elektrotechnik und So, <span class="u">ausführlich</span> erklärt und animiert.</h1>
-        <p>EtUndSo bündelt Schritt-für-Schritt-Erklärungen, Animationen und Werkzeuge zu Elektrotechnik-
+        <!-- sprachwahl-art --><nav class="langs langs-art" aria-label="Sprache" data-langmenu><button type="button" class="l-toggle" aria-expanded="false" aria-controls="lmenu-art" aria-label="Sprache: Deutsch" title="Sprache"><span class="l-cur">DE</span><svg class="l-pfeil" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button><ul class="l-menu" id="lmenu-art" hidden><li><a class="l-item on" href="/" hreflang="de" lang="de" aria-current="true"><span class="l-name">Deutsch</span><svg class="l-haken" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="5 12.5 10 17.5 19 7"/></svg></a></li><li><a class="l-item" href="/en/" hreflang="en" lang="en"><span class="l-name">English</span></a></li><li><a class="l-item" href="/es/" hreflang="es" lang="es"><span class="l-name">Español</span></a></li><li><a class="l-item" href="/fr/" hreflang="fr" lang="fr"><span class="l-name">Français</span></a></li><li><a class="l-item" href="/tr/" hreflang="tr" lang="tr"><span class="l-name">Türkçe</span></a></li><li><a class="l-item" href="/zh/" hreflang="zh" lang="zh"><span class="l-name">中文</span></a></li></ul></nav><!-- /sprachwahl-art -->
+        <span class="eyebrow" data-i18n="eyebrow">Elektrotechnik — und so</span>
+        <h1 data-i18n="h1">Elektrotechnik und So, <span class="u">ausführlich</span> erklärt und animiert.</h1>
+        <p data-i18n="hero_p">EtUndSo bündelt Schritt-für-Schritt-Erklärungen, Animationen und Werkzeuge zu Elektrotechnik-
            und Mathematik-Modulen — und nebenbei ein paar andere Fächer. Was du siehst, kannst du im
            <strong>Editor</strong> direkt selbst nachbauen.</p>
         <div class="row">
-          <a class="btn" href="editor.html">Editor öffnen →</a>
-          <a class="btn alt" href="#module">Module ansehen</a>
+          <a class="btn" href="/editor.html" data-i18n="editor_oeffnen_pfeil">Editor öffnen →</a>
+          <a class="btn alt" href="#module" data-i18n="module_ansehen">Module ansehen</a>
         </div>
       </div>
       <div class="hero-art">
-        <!-- Drei Abbildungen aus den Artikeln (SVG-Export des Editors, web/abbildungen/de); jede öffnet ihre Szene. -->
+        <!-- Drei Abbildungen aus den Artikeln (SVG-Export des Editors, web/abbildungen/<sprache>); jede öffnet ihre Szene. -->
         <div class="photos">
-          <a class="photo p1" href="editor.html?scene=szenen/et1/k1feldlinien.json" title="Feldlinien – im Editor öffnen">
-            <img src="abbildungen/de/et1/k1feldlinien.svg" width="488" height="423" decoding="async"
+          <a class="photo p1" href="/editor.html?scene=szenen/et1/k1feldlinien.json" title="Feldlinien – im Editor öffnen" data-i18n-attr="title:foto1_t">
+            <img src="/abbildungen/de/et1/k1feldlinien.svg" width="488" height="423" decoding="async" data-i18n-attr="alt:foto1_alt"
                  alt="Feldlinienbilder: ungleichnamige und gleichnamige Ladungen, Plattenpaar, Metallrohr zwischen Platten"/></a>
-          <a class="photo p2" href="editor.html?scene=szenen/beispiel/skalarprodukt.json" title="Skalarprodukt – im Editor öffnen">
-            <img src="abbildungen/de/beispiel/skalarprodukt.svg" width="381" height="192" decoding="async"
+          <a class="photo p2" href="/editor.html?scene=szenen/beispiel/skalarprodukt.json" title="Skalarprodukt – im Editor öffnen" data-i18n-attr="title:foto2_t">
+            <img src="/abbildungen/de/beispiel/skalarprodukt.svg" width="381" height="192" decoding="async" data-i18n-attr="alt:foto2_alt"
                  alt="Skalarprodukt zweier Vektoren, Schritt für Schritt ausgerechnet: 360 + 30 + (−100) = 290"/></a>
-          <a class="photo p3" href="editor.html?scene=szenen/et1/k10flaeche.json" title="3D-Fläche – im Editor öffnen">
-            <img src="abbildungen/de/et1/k10flaeche.svg" width="432" height="295" decoding="async"
+          <a class="photo p3" href="/editor.html?scene=szenen/et1/k10flaeche.json" title="3D-Fläche – im Editor öffnen" data-i18n-attr="title:foto3_t">
+            <img src="/abbildungen/de/et1/k10flaeche.svg" width="432" height="295" decoding="async" data-i18n-attr="alt:foto3_alt"
                  alt="3D-Fläche: Kollektorstrom I_C eines Transistors über U_BE und U_CE"/></a>
         </div>
-        <p class="hero-cap">Drei Abbildungen aus den Artikeln, gebaut im Editor. Ein Klick öffnet sie dort.</p>
+        <p class="hero-cap" data-i18n="hero_cap">Drei Abbildungen aus den Artikeln, gebaut im Editor. Ein Klick öffnet sie dort.</p>
       </div>
     </section>
 
     <section id="editor">
       <div class="sec-head">
-        <h2>Der Editor</h2>
+        <h2 data-i18n="editor_h2">Der Editor</h2>
       </div>
       <div class="feature">
         <div class="txt">
-          <h2 style="margin-top:0">Mathematische Animationen direkt im Browser</h2>
-          <p>Eine browserbasierte Weiterentwicklung von Manim: Objekte und Operationen zusammenstellen,
+          <h2 style="margin-top:0" data-i18n="editor_titel">Mathematische Animationen direkt im Browser</h2>
+          <p data-i18n="editor_p">Eine browserbasierte Weiterentwicklung von Manim: Objekte und Operationen zusammenstellen,
              abspielen und als Bild oder Video exportieren. Keine Installation, nichts einzurichten.</p>
           <ul class="feat-list">
-            <li>Funktionen, 3D-Flächen, Summen & Produkte, Faltungen</li>
-            <li>Schritt-für-Schritt-Choreografie statt bloßer Grafik</li>
-            <li>Export als Bild oder flüssiges Video</li>
+            <li data-i18n="editor_li1">Funktionen, 3D-Flächen, Summen & Produkte, Faltungen</li>
+            <li data-i18n="editor_li2">Schritt-für-Schritt-Choreografie statt bloßer Grafik</li>
+            <li data-i18n="editor_li3">Export als Bild oder flüssiges Video</li>
           </ul>
-          <a class="btn" href="editor.html">Editor öffnen →</a>
+          <a class="btn" href="/editor.html" data-i18n="editor_oeffnen_pfeil">Editor öffnen →</a>
         </div>
         <div class="art">
           <!-- Szene web/szenen/startseite/fourier.json (tools/szenen/startseite.py), aufgenommen mit dem Video-Export
                des Editors (tools/startseite_video.py). Nahtlose Schleife: letztes Bild = erstes Bild. -->
           <figure>
             <video id="editor-video" autoplay muted loop playsinline preload="auto" width="1920" height="1080"
-                   poster="startseite/fourier_poster.jpg"
+                   poster="/startseite/fourier_poster.jpg" data-i18n-attr="aria-label:video_label"
                    aria-label="Animation: Die Fourier-Reihe baut eine Rechteckschwingung Glied für Glied auf, mit Harmonischen und Amplitudenspektrum">
-              <source src="startseite/fourier.mp4" type="video/mp4"/>
-              <source src="startseite/fourier.webm" type="video/webm"/>
+              <source src="/startseite/fourier.mp4" type="video/mp4"/>
+              <source src="/startseite/fourier.webm" type="video/webm"/>
             </video>
-            <figcaption><span>Fourier-Reihe einer Rechteckschwingung, Glied für Glied</span>
-              <a href="editor.html?scene=szenen/startseite/fourier.json">Im Editor öffnen →</a></figcaption>
+            <figcaption><span data-i18n="video_cap">Fourier-Reihe einer Rechteckschwingung, Glied für Glied</span>
+              <a href="/editor.html?scene=szenen/startseite/fourier.json" data-i18n="im_editor">Im Editor öffnen →</a></figcaption>
           </figure>
         </div>
       </div>
@@ -228,59 +268,62 @@
 
     <section id="module">
       <div class="sec-head">
-        <span class="eyebrow">Module</span>
-        <h2>Fächer & Themen</h2>
-        <p>Ein Überblick über alle Module — ein Modul anklicken, um seine Themen aufzuklappen; oder direkt
+        <span class="eyebrow" data-i18n="mod_eyebrow">Module</span>
+        <h2 data-i18n="mod_h2">Fächer & Themen</h2>
+        <p data-i18n="mod_p">Ein Überblick über alle Module — ein Modul anklicken, um seine Themen aufzuklappen; oder direkt
            suchen: nach Modul, Thema oder einem Begriff mitten im Artikeltext.</p>
       </div>
       <p id="weiterlesen" class="weiterlesen" hidden></p>
       <div class="mod-searchwrap">
-        <input id="module-search" type="search" autocomplete="off" aria-label="Wissen durchsuchen"
-               placeholder="Modul, Thema oder Begriff suchen — auch Teilwörter (z. B. „teiler")"/>
+        <input id="module-search" type="search" autocomplete="off" aria-label="Wissen durchsuchen" data-i18n-attr="aria-label:suche_label;placeholder:suche_ph"
+               placeholder="Modul, Thema oder Begriff suchen — auch Teilwörter (z. B. „teiler“)"/>
       </div>
       <div id="module-tree" class="mod-tree" aria-live="polite">
-        <p class="mod-fallback">Übersicht wird geladen … <a href="/wissen/">Zum Wissensbereich →</a></p>
+        <p class="mod-fallback"><span data-i18n="laedt">Übersicht wird geladen …</span> <a href="/wissen/" data-i18n="zum_wissen">Zum Wissensbereich →</a></p>
       </div>
-      <div class="row" style="margin-top:20px"><a class="btn alt" href="/wissen/">Ganzen Wissensbereich öffnen →</a></div>
+      <p id="nur-de" class="nur-de" data-i18n="nur_de" hidden></p>
+      <div class="row" style="margin-top:20px"><a class="btn alt" href="/wissen/" data-i18n="ganzer_bereich">Ganzen Wissensbereich öffnen →</a></div>
     </section>
 
     <section id="how">
       <div class="sec-head">
-        <span class="eyebrow">So läuft's</span>
-        <h2>Vom Konzept zur Klarheit</h2>
+        <span class="eyebrow" data-i18n="how_eyebrow">So läuft's</span>
+        <h2 data-i18n="how_h2">Vom Konzept zur Klarheit</h2>
       </div>
       <div class="how">
-        <div class="step"><div class="n">1</div><h3>Erst das Bild</h3>
-          <p>Jedes Thema beginnt anschaulich — mit Analogie und großem Zusammenhang, bevor Formeln kommen.</p></div>
-        <div class="step"><div class="n">2</div><h3>Dann die Physik</h3>
-          <p>Sauber hergeleitet, immer mit dem „Warum": welcher Mechanismus die Wirkung erzeugt.</p></div>
-        <div class="step"><div class="n">3</div><h3>Selbst nachbauen</h3>
-          <p>Die Animationen entstehen im Editor — du kannst sie öffnen, verändern und selbst experimentieren.</p></div>
+        <div class="step"><div class="n">1</div><h3 data-i18n="how1_h">Erst das Bild</h3>
+          <p data-i18n="how1_p">Jedes Thema beginnt anschaulich — mit Analogie und großem Zusammenhang, bevor Formeln kommen.</p></div>
+        <div class="step"><div class="n">2</div><h3 data-i18n="how2_h">Dann die Physik</h3>
+          <p data-i18n="how2_p">Sauber hergeleitet, immer mit dem „Warum": welcher Mechanismus die Wirkung erzeugt.</p></div>
+        <div class="step"><div class="n">3</div><h3 data-i18n="how3_h">Selbst nachbauen</h3>
+          <p data-i18n="how3_p">Die Animationen entstehen im Editor — du kannst sie öffnen, verändern und selbst experimentieren.</p></div>
       </div>
     </section>
 
     <section id="videos">
       <div class="sec-head">
-        <span class="eyebrow">bald</span>
-        <h2 class="soon">Erklärvideos</h2>
+        <span class="eyebrow" data-i18n="videos_eyebrow">bald</span>
+        <h2 class="soon" data-i18n="videos_h2">Erklärvideos</h2>
       </div>
       <div class="feature soon">
         <div class="txt">
-          <p style="margin:0">Kurze, animierte Videos zu einzelnen Themen — gebaut mit dem Editor. Kommt bald.</p>
+          <p style="margin:0" data-i18n="videos_p">Kurze, animierte Videos zu einzelnen Themen — gebaut mit dem Editor. Kommt bald.</p>
         </div>
       </div>
     </section>
 
-    <section class="stats" aria-label="Nutzungszahlen">
-      <div class="stat site"><div class="num" id="stat-site">–</div><div class="lbl">Seitenaufrufe</div></div>
-      <div class="stat"><div class="num" id="stat-editor">–</div><div class="lbl">Editor geöffnet</div></div>
+    <section class="stats" aria-label="Nutzungszahlen" data-i18n-attr="aria-label:stats_label">
+      <div class="stat site"><div class="num" id="stat-site">–</div><div class="lbl" data-i18n="stat_site">Seitenaufrufe</div></div>
+      <div class="stat"><div class="num" id="stat-editor">–</div><div class="lbl" data-i18n="stat_editor">Editor geöffnet</div></div>
     </section>
   </main>
 
   <footer>
-    EtUndSo.de · Erklärungen & Tools für Elektrotechnik — und so.<br/>
-    <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a>
+    <span data-i18n="fuss">EtUndSo.de · Erklärungen & Tools für Elektrotechnik — und so.</span><br/>
+    <a href="/impressum.html" hreflang="de" data-i18n="impressum" data-i18n-attr="title:recht_de">Impressum</a> · <a href="/datenschutz.html" hreflang="de" data-i18n="datenschutz" data-i18n-attr="title:recht_de">Datenschutz</a>
   </footer>
+  <!-- Wörter der Skripte unten; die Übersetzungen setzt build_wissen.py ein -->
+  <script type="application/json" id="seite-text">{"artikel":"{n} Artikel","nichts":"Nichts gefunden für „{q}“.","fehler":"Übersicht konnte nicht geladen werden.","zum_wissen":"Zum Wissensbereich →","weiterlesen":"Weiterlesen","volltext":"Volltext wird durchsucht …","locale":"de-DE"}</script>
 
   <script>
   // Editor-Video: bei „Bewegung reduzieren“ nur das Poster (mit Bedienleiste, falls man es doch ansehen will);
@@ -306,27 +349,31 @@
     lauf();
   })();
   </script>
+  <script src="/wissen/assets/suche.js" defer></script>
   <script>
-  // Interaktive Modul-/Themen-Übersicht: Baum aus /wissen/data/tree.json, Volltext aus search.json.
+  // Interaktive Modul-/Themen-Übersicht: Baum aus /wissen/data/tree<.sprache>.json (schlank, ohne Texte). Die Suche nutzt
+  // denselben Kern wie der Wissensbereich (/wissen/assets/suche.js): Titel, Schlagwörter und Abschnitte sofort, den Volltext
+  // je Modul erst beim Suchen (W3a, 11.11.2026; vorher lud jeder Besuch der Startseite den ganzen Index, 8 MB).
   // Standard: Fächer EINGEKLAPPT (reine Übersicht), Themen beim Öffnen eines Fachs AUFGEKLAPPT.
   // Suche filtert den Baum live: Treffer in Fach-/Themennamen ODER im Artikeltext (Teilwort/infix,
   // umlaut-/ß-tolerant); passende Äste klappen automatisch auf, Treffer werden hervorgehoben.
+  var TXT=(function(){ try{ return JSON.parse(document.getElementById("seite-text").textContent); }catch(e){ return {}; } })();
+  var LANG=(document.documentElement.lang||"de").slice(0,2);
   (function(){
     var treeEl=document.getElementById("module-tree"), input=document.getElementById("module-search");
     if(!treeEl) return;
-    var roots=[];
-    function fold(s){ return (s||"").toLowerCase().replace(/ß/g,"ss").normalize("NFKD").replace(/[̀-ͯ]/g,""); }
+    var roots=[], S=null;
+    function fold(s){ return (s||"").toLowerCase().replace(/ß/g,"ss").replace(/ı/g,"i").replace(/œ/g,"oe").replace(/æ/g,"ae")
+      .normalize("NFKD").replace(/[̀-ͯ]/g,""); }
     function esc(s){ return (s||"").replace(/[&<>]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;"}[c];}); }
     function hl(text,raw){ var e=esc(text), q=raw.trim(); if(!q) return e;
       try{ return e.replace(new RegExp(q.replace(/[.*+?^${}()|[\]\\]/g,"\\$&"),"gi"),function(m){return "<mark>"+m+"</mark>";}); }catch(_){ return e; } }
-    function snippet(text,raw){ if(!text) return ""; var q=raw.trim(), i=text.toLowerCase().indexOf(q.toLowerCase());
-      if(i<0) return hl(text.slice(0,120),raw)+(text.length>120?"…":"");
-      var a=Math.max(0,i-40); return (a>0?"…":"")+hl(text.slice(a,i+q.length+70),raw)+"…"; }
     function el(tag,cls){ var e=document.createElement(tag); if(cls)e.className=cls; return e; }
     function countArts(n){ var c=(n.articles||[]).length; (n.children||[]).forEach(function(k){c+=countArts(k);}); return c; }
+    function kern(){ if(!S && window.ETSuche){ S=window.ETSuche(LANG); S.start().catch(function(){}); } return S; }
 
     // Ein Knoten (Studiengang/Semester/Modul/Oberthema) -> <details>; Artikel (Themen) als Links am Blatt.
-    function buildNode(node, byPath, depth, parentEl){
+    function buildNode(node, depth, parentEl){
       var det=el("details","mod-node lvl"+depth); det.open = depth <= 1;   // offen bis Modul-Ebene (Studiengang+Semester), Module zugeklappt -> schneller Ueberblick
       var sum=el("summary"), nm=el("span"); nm.textContent=node.name;
       var cnt=el("span", depth===0?"count":"tcount");
@@ -335,74 +382,119 @@
       if(node.articles && node.articles.length){
         var ul=el("ul","mod-arts");
         node.articles.forEach(function(a){
-          var li=el("li"), link=el("a"); link.href="/wissen/"+a.path; link.textContent=a.title;
+          var titel=a.klar||a.title, li=el("li"), link=el("a"); link.href="/wissen/"+a.path; link.textContent=titel;
           var snip=el("span","a-snip"); snip.hidden=true; li.appendChild(link); li.appendChild(snip); ul.appendChild(li);
-          var d=byPath[a.path]||{};
-          arts.push({li:li,a:link,snip:snip,title:a.title,text:d.text||a.summary||"",
-                     ftTitle:d.ft_title||fold(a.title),ftTags:d.ft_tags||"",ftText:d.ft_text||fold(a.summary||"")});
+          arts.push({li:li,a:link,snip:snip,title:titel,path:a.path,ftTitle:fold(a.title)});
         });
         box.appendChild(ul);
       }
       var kids=[];
-      (node.children||[]).forEach(function(c){ kids.push(buildNode(c, byPath, depth+1, box)); });
+      (node.children||[]).forEach(function(c){ kids.push(buildNode(c, depth+1, box)); });
       det.appendChild(box); parentEl.appendChild(det);
-      var total=countArts(node); cnt.textContent = depth===0 ? (total+" Artikel") : total;
+      var total=countArts(node); cnt.textContent = depth===0 ? (TXT.artikel||"{n}").split("{n}").join(total) : total;
       return {det:det, depth:depth, folded:fold(node.name), arts:arts, kids:kids};
     }
-    function render(tree, byPath){
+    function render(tree){
       treeEl.innerHTML=""; roots=[];
-      tree.forEach(function(n){ roots.push(buildNode(n, byPath, 0, treeEl)); });
+      tree.forEach(function(n){ roots.push(buildNode(n, 0, treeEl)); });
     }
     function walkReset(v){ v.det.hidden=false; v.det.open=v.depth <= 1;
       v.arts.forEach(function(a){ a.li.hidden=false; a.a.textContent=a.title; a.snip.hidden=true; });
       v.kids.forEach(walkReset); }
-    function reset(){ var nr=treeEl.querySelector(".mod-noresult"); if(nr) nr.remove(); roots.forEach(walkReset); }
+    function hinweis(cls,text){ [].forEach.call(treeEl.querySelectorAll(".mod-noresult,.mod-laedt"),function(x){ x.remove(); });
+      if(text){ var nr=el("div",cls); nr.textContent=text; treeEl.appendChild(nr); } }
+    function reset(){ hinweis(); roots.forEach(walkReset); }
     // Treffer, wenn der Knotenname passt (dann alle Nachkommen zeigen: forced) ODER ein Nachkomme passt.
-    function matchNode(v, nq, raw, forced){
+    // treffer: Adresse -> {d, sc} aus dem Suchkern (Titel, Schlagwort, Abschnitt, Text).
+    function matchNode(v, nq, raw, forced, treffer, q){
       var nameM = forced || v.folded.indexOf(nq)>=0, any=false;
       v.arts.forEach(function(a){
-        var inTitle=a.ftTitle.indexOf(nq)>=0, inTag=a.ftTags.indexOf(nq)>=0, inText=a.ftText.indexOf(nq)>=0;
-        var show=nameM||inTitle||inTag||inText; a.li.hidden=!show;
+        var h=treffer[a.path], inTitle=a.ftTitle.indexOf(nq)>=0, inText=!!h && h.sc>=1;
+        var show=nameM||inTitle||!!h; a.li.hidden=!show;
         if(show){ a.a.innerHTML=hl(a.title,raw);
-          if(inText && !inTitle){ a.snip.innerHTML=snippet(a.text,raw); a.snip.hidden=false; } else a.snip.hidden=true;
+          if(inText && !inTitle){ a.snip.innerHTML=S.snippet(h.d,q); a.snip.hidden=false; } else a.snip.hidden=true;
           any=true;
         } else { a.a.textContent=a.title; a.snip.hidden=true; }
       });
-      v.kids.forEach(function(k){ if(matchNode(k,nq,raw,nameM)) any=true; });
+      v.kids.forEach(function(k){ if(matchNode(k,nq,raw,nameM,treffer,q)) any=true; });
       var show=nameM||any; v.det.hidden=!show; v.det.open=show; return show;
+    }
+    function anwenden(raw,res){
+      if(input.value!==raw) return;                       // inzwischen weitergetippt
+      var nq=fold(raw.trim()), treffer={};
+      (res.hits||[]).forEach(function(h){ treffer[h.d.path]=h; });
+      var any=false; roots.forEach(function(r){ if(matchNode(r,nq,raw,false,treffer,res.q||nq)) any=true; });
+      if(res.laedt) hinweis("mod-laedt",TXT.volltext||"…");
+      else if(!any) hinweis("mod-noresult",(TXT.nichts||"{q}").split("{q}").join(raw.trim()));
+      else hinweis();
     }
     function filter(raw){
       var nq=fold(raw.trim()); if(nq.length<2){ reset(); return; }
-      var any=false; roots.forEach(function(r){ if(matchNode(r,nq,raw,false)) any=true; });
-      var nr=treeEl.querySelector(".mod-noresult");
-      if(!any){ if(!nr){ nr=el("div","mod-noresult"); treeEl.appendChild(nr); } nr.textContent='Nichts gefunden für „'+raw.trim()+'".'; }
-      else if(nr) nr.remove();
+      var s=kern();
+      if(!s){ anwenden(raw,{hits:[],laedt:false}); return; }  // ohne Suchkern: nur Namen und Titel
+      s.suche(raw,function(res){ anwenden(raw,res); });
     }
 
-    Promise.all([
-      fetch("/wissen/data/tree.json").then(function(r){return r.json();}),
-      fetch("/wissen/data/search.json").then(function(r){return r.json();}).catch(function(){return [];})
-    ]).then(function(res){
-      var tree=res[0], docs=res[1], byPath={}; docs.forEach(function(d){byPath[d.path]=d;});
-      render(tree, byPath);
-      if(input) input.addEventListener("input",function(){ filter(input.value); });
+    fetch("/wissen/data/tree"+(LANG==="de"?"":"."+LANG)+".json").then(function(r){ if(!r.ok) throw r.status; return r.json(); }).then(function(tree){
+      render(tree);
+      if(input){ input.addEventListener("input",function(){ filter(input.value); });
+        input.addEventListener("focus",kern); }
     }).catch(function(){
-      treeEl.innerHTML='<p class="mod-fallback">Übersicht konnte nicht geladen werden. <a href="/wissen/">Zum Wissensbereich →</a></p>';
+      var p=el("p","mod-fallback"), a=el("a"); p.textContent=(TXT.fehler||"")+" "; a.href=LANG==="de"?"/wissen/":"/wissen/"+LANG+"/";
+      a.textContent=TXT.zum_wissen||"→"; p.appendChild(a); treeEl.innerHTML=""; treeEl.appendChild(p);
     });
   })();
   </script>
   <script>
-  // „Weiterlesen“ wie auf /wissen/: jüngster Eintrag aus „etundso-verlauf“, der nicht in „etundso-gelesen“ steht (wissen.js)
+  // „Weiterlesen“ wie auf /wissen/: jüngster Eintrag dieser Sprache aus „etundso-verlauf“, der nicht in „etundso-gelesen“ steht (wissen.js)
   (function(){ try{
     var v=JSON.parse(localStorage.getItem("etundso-verlauf")||"[]"), g=JSON.parse(localStorage.getItem("etundso-gelesen")||"{}"), e=null;
-    for(var i=0;i<v.length;i++){ if(v[i] && v[i].p && !g[v[i].p]){ e=v[i]; break; } }
+    for(var i=0;i<v.length;i++){ if(v[i] && v[i].p && !g[v[i].p] && (v[i].l||"de")===LANG){ e=v[i]; break; } }
     var p=document.getElementById("weiterlesen"); if(!e || !p) return;
     var s=document.createElement("span"), a=document.createElement("a");
-    s.textContent="Weiterlesen"; a.href=e.p; a.textContent=(e.k?e.k+" › ":"")+(e.t||"");
+    s.textContent=TXT.weiterlesen||"Weiterlesen"; a.href=e.p; a.textContent=(e.k?e.k+" › ":"")+(e.t||"");
     p.appendChild(s); p.appendChild(a); p.hidden=false;
   }catch(x){} })();
   </script>
-  <script>fetch("version.json?v="+Date.now()).then(r=>r.json()).then(v=>{var e=document.getElementById("build-date");if(e&&v.updated)e.textContent=new Date(v.updated).toLocaleDateString("de-DE");}).catch(function(){});</script>
+  <script>
+  // Sprachmenü wie im Wissensbereich (wissen.js): Knopf öffnet/schließt, Esc und Klick daneben schließen, Pfeiltasten wandern.
+  (function(){
+    var menus=[].slice.call(document.querySelectorAll("[data-langmenu]"));
+    function btn(m){ return m.querySelector(".l-toggle"); }
+    function list(m){ return m.querySelector(".l-menu"); }
+    function links(m){ return [].slice.call(m.querySelectorAll("a.l-item")); }
+    function isOpen(m){ var l=list(m); return !!(l && !l.hidden); }
+    function close(m, focusBtn){ if(!isOpen(m)) return; list(m).hidden=true; btn(m).setAttribute("aria-expanded","false"); if(focusBtn) btn(m).focus(); }
+    function open(m, focus){
+      menus.forEach(function(o){ if(o!==m) close(o,false); });
+      list(m).hidden=false; btn(m).setAttribute("aria-expanded","true");
+      if(focus){ var ls=links(m), t=(focus==="last") ? ls[ls.length-1] : (m.querySelector("a.l-item.on")||ls[0]); if(t) t.focus(); }
+    }
+    function move(m, d){ var ls=links(m); if(!ls.length) return; var i=ls.indexOf(document.activeElement);
+      i=(i<0) ? (d>0 ? 0 : ls.length-1) : (i+d+ls.length)%ls.length; ls[i].focus(); }
+    menus.forEach(function(m){
+      var b=btn(m), l=list(m); if(!b || !l) return;
+      b.addEventListener("click",function(e){ if(isOpen(m)) close(m,false); else open(m, e.detail===0); });
+      b.addEventListener("keydown",function(e){
+        if(e.key==="ArrowDown"){ e.preventDefault(); open(m,true); }
+        else if(e.key==="ArrowUp"){ e.preventDefault(); open(m,"last"); }
+      });
+      l.addEventListener("keydown",function(e){
+        var ls=links(m);
+        if(e.key==="ArrowDown"){ e.preventDefault(); move(m,1); }
+        else if(e.key==="ArrowUp"){ e.preventDefault(); move(m,-1); }
+        else if(e.key==="Home" && ls.length){ e.preventDefault(); ls[0].focus(); }
+        else if(e.key==="End" && ls.length){ e.preventDefault(); ls[ls.length-1].focus(); }
+      });
+      m.addEventListener("focusout",function(e){ if(e.relatedTarget && !m.contains(e.relatedTarget)) close(m,false); });
+    });
+    document.addEventListener("keydown",function(e){
+      if(e.key==="Escape") menus.forEach(function(m){ if(isOpen(m)) close(m, m.contains(document.activeElement)); });
+    });
+    document.addEventListener("click",function(e){ menus.forEach(function(m){ if(isOpen(m) && !m.contains(e.target)) close(m,false); }); });
+  })();
+  </script>
+  <script>fetch("/version.json?v="+Date.now()).then(r=>r.json()).then(v=>{var e=document.getElementById("build-date");if(e&&v.updated)e.textContent=new Date(v.updated).toLocaleDateString(TXT.locale||"de-DE");}).catch(function(){});</script>
   <script>
   // Anonyme Nutzungszähler: diesen Aufruf einmal zählen, dann die Anzeige minütlich auffrischen (read-only,
   // bläht also nicht auf). Scheitert still, falls die API (noch) nicht erreichbar ist.

@@ -1,46 +1,50 @@
 
 var NICHTS={de:"Nichts gefunden für „{q}\".",en:"Nothing found for „{q}\".",es:"Nada encontrado para „{q}\".",zh:"未找到 „{q}\".",
             fr:"Aucun résultat pour «\u00a0{q}\u00a0».",tr:"“{q}” için sonuç bulunamadı."};
-// Suche: vorab gebauter Index (search.json), Teilwort-/Infix-Treffer, umlaut-/ß-tolerant, gerankt + hervorgehoben.
+// Suche: Teilwort-/Infix-Treffer, umlaut-/ß-tolerant, gerankt + hervorgehoben. Der Kern steht in suche.js (W3a, gemeinsam
+// mit der Startseite) und wird erst beim ersten Öffnen geladen; er holt zuerst nur Titel und Abschnitte, den Volltext je
+// Modul, sobald gesucht wird (und nur Module, die das Wort enthalten können).
+var KATEX_OPT={delimiters:[{left:"$$",right:"$$",display:true},{left:"$",right:"$",display:false},{left:"\\(",right:"\\)",display:false}],strict:false};
+function mathe(el){ if(window.renderMathInElement) try{ renderMathInElement(el,KATEX_OPT); }catch(e){} }
 (function(){
   var overlay=document.getElementById("searchOverlay"), input=document.getElementById("searchInput"),
       results=document.getElementById("searchResults"), btn=document.getElementById("searchBtn");
-  var DOCS=null, sel=-1, rows=[];
-  function fold(s){ return (s||"").toLowerCase().replace(/ß/g,"ss").replace(/ı/g,"i").replace(/œ/g,"oe").replace(/æ/g,"ae")
-    .normalize("NFKD").replace(/[̀-ͯ]/g,""); }                // wie fold() in build_wissen.py
-  function load(){ if(DOCS) return Promise.resolve(DOCS);
-    var L=document.documentElement.lang; L=(L&&L!=="de")?"."+L:"";
-    return fetch("/wissen/data/search"+L+".json").then(function(r){return r.json();}).then(function(d){DOCS=d;return d;}).catch(function(){DOCS=[];return [];}); }
-  function esc(s){ return s.replace(/[&<>]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;"}[c];}); }
-  function safeSnippet(doc,q){
-    var t=doc.text||doc.summary||"", ft=fold(t), i=ft.indexOf(q);
-    if(i<0) return esc(t.slice(0,130))+(t.length>130?"…":"");
-    var a=Math.max(0,i-45);
-    return (a>0?"…":"")+esc(t.slice(a,i))+"<mark>"+esc(t.slice(i,i+q.length))+"</mark>"+esc(t.slice(i+q.length,i+q.length+70))+"…";
+  var S=null, P=null, sel=-1, rows=[], frage="";
+  var LANG=(document.documentElement.lang||"de").slice(0,2);
+  function kern(){                                     // suche.js einmal einbinden, Index starten
+    if(!P) P=new Promise(function(ok,nein){
+      if(window.ETSuche){ ok(); return; }
+      var s=document.createElement("script"); s.src="/wissen/assets/suche.js"; s.onload=ok; s.onerror=nein; document.head.appendChild(s);
+    }).then(function(){ S=window.ETSuche(LANG); return S.start(); }).catch(function(){ P=null; throw 0; });
+    return P;
   }
-  function search(raw){
-    var q=fold(raw.trim()); results.innerHTML=""; rows=[]; sel=-1;
-    if(q.length<2 || !DOCS) return;
-    var hits=[];
-    for(var k=0;k<DOCS.length;k++){ var d=DOCS[k], sc=-1;
-      if(d.ft_title.indexOf(q)>=0) sc=0;                 // Titel-Treffer: höchster Rang
-      else if((d.ft_tags||"").indexOf(q)>=0) sc=1;       // Tag
-      else { var p=d.ft_text.indexOf(q); if(p>=0) sc=2+Math.min(p/500,1); }  // Text, früher = besser
-      if(sc>=0) hits.push([sc,d]);
-    }
-    hits.sort(function(a,b){return a[0]-b[0];});
-    hits.slice(0,25).forEach(function(h){ var d=h[1];
-      var a=document.createElement("a"); a.href="/wissen/"+d.path;
-      a.innerHTML='<div class="r-crumb">'+esc(d.crumb||"")+'</div>'+
-                  '<div class="r-title">'+esc(d.title)+'</div>'+
-                  '<div class="r-snip">'+safeSnippet(d,q)+'</div>';
+  function esc(s){ return (s||"").replace(/[&<>]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;"}[c];}); }
+  function zeigen(raw,res){
+    if(raw!==frage) return;                            // inzwischen anders getippt
+    results.innerHTML=""; rows=[];
+    if(res.q.length<2) return;
+    res.hits.slice(0,25).forEach(function(h){ var d=h.d;
+      var a=document.createElement("a"); a.href="/wissen/"+d.path+(h.anker?"#"+encodeURIComponent(h.anker):"");
+      a.innerHTML='<div class="r-crumb">'+esc(d.crumb)+(h.abschnitt?' › <span class="r-abschnitt">'+esc(h.abschnitt)+'</span>':"")+'</div>'+
+                  '<div class="r-title">'+esc(d.klar)+'</div>'+
+                  '<div class="r-snip">'+S.snippet(d,res.q)+'</div>';
       results.appendChild(a); rows.push(a);
     });
-    if(!rows.length) results.innerHTML='<div class="searchHint">'+esc(NICHTS[document.documentElement.lang]||NICHTS.de).split("{q}").join(esc(raw.trim()))+'</div>';
+    if(sel>=rows.length) sel=rows.length-1;
+    paintSel();
+    if(res.laedt){ var w=document.createElement("div"); w.className="searchHint laedt"; w.textContent=LERNEN.w("suche_volltext"); results.appendChild(w); }
+    else if(!rows.length) results.innerHTML='<div class="searchHint">'+esc(NICHTS[LANG]||NICHTS.de).split("{q}").join(esc(raw.trim()))+'</div>';
   }
-  function open(){ if(!overlay) return; overlay.hidden=false; load().then(function(){ input.value=""; results.innerHTML=""; input.focus(); }); }
+  function search(raw){
+    frage=raw; sel=-1;
+    if(S && S.fold(raw.trim()).length<2){ results.innerHTML=""; rows=[]; return; }
+    kern().then(function(){ S.suche(raw,function(res){ zeigen(raw,res); }); }).catch(function(){});
+  }
+  function open(){ if(!overlay) return; overlay.hidden=false; input.value=""; results.innerHTML=""; rows=[]; sel=-1; input.focus();
+    kern().catch(function(){}); }
   function close(){ if(overlay) overlay.hidden=true; }
   if(btn) btn.addEventListener("click",open);
+  [].forEach.call(document.querySelectorAll("[data-suche]"),function(b){ b.hidden=false; b.addEventListener("click",open); });
   document.addEventListener("keydown",function(e){
     if(e.key==="/" && !/input|textarea|select/i.test((document.activeElement||{}).tagName) && (!overlay||overlay.hidden)){ e.preventDefault(); open(); }
     else if(e.key==="Escape"){ close(); }
@@ -183,8 +187,7 @@ var NICHTS={de:"Nichts gefunden für „{q}\".",en:"Nothing found for „{q}\"."
   }
   var t=null; function later(){ clearTimeout(t); t=setTimeout(fitMath,120); }
   window.addEventListener("DOMContentLoaded",function(){
-    if(window.renderMathInElement) renderMathInElement(document.body,{delimiters:[
-      {left:"$$",right:"$$",display:true},{left:"$",right:"$",display:false},{left:"\\(",right:"\\)",display:false}],strict:false});
+    if(window.renderMathInElement) renderMathInElement(document.body,KATEX_OPT);
     fitMath();
   });
   window.addEventListener("resize",later);
@@ -499,7 +502,7 @@ var NICHTS={de:"Nichts gefunden für „{q}\".",en:"Nothing found for „{q}\"."
 /* ---------- Lernen (W2, 11.11.2026): Lesefortschritt, Link-Vorschau, Selbsttest, Begriffe-Filter, Lernkarten ----------
    Alles bleibt in diesem Browser (localStorage), nichts wird übertragen. Ohne Speicher (privates Fenster, gesperrt) gilt
    es nur, solange die Seite offen ist; Fehler beim Lesen und Schreiben werden abgefangen. Wörter: _UI_LERNEN im Build. */
-var LERNEN_UI={"de":{"bg_leer":"Kein Begriff passt.","bg_anzahl":"{n} Begriffe","lk_faellig":"Heute fällig: {n}","lk_davon_neu":"davon neu: {n}","lk_fertig":"Für heute ist in dieser Auswahl nichts mehr fällig.","lk_mehr_neu":"{n} weitere neue Karten","lk_begriff":"Begriff","lk_formel":"Formel","lk_luecke":"Lückentext","reset_sicher":"Wirklich zurücksetzen?","lk_heute":"gleich noch einmal","lk_morgen":"morgen","lk_tage":"in {n} Tagen","lk_ohne_speicher":"Dieser Browser speichert gerade nichts. Der Lernstand gilt nur, solange die Seite offen ist.","aufdecken":"Aufdecken","gelesen":"Gelesen","lf_kapitel":"{n} von {m} gelesen","lf_artikel":"Gelesen. In diesem Kapitel: {n} von {m}.","weiterlesen":"Weiterlesen","fs_reset":"Fortschritt zurücksetzen","fs_lokal":"Der Lesefortschritt bleibt nur in diesem Browser.","vs_oeffnen":"Öffnen","vs_schliessen":"Schließen"},"en":{"bg_leer":"No term matches.","bg_anzahl":"{n} terms","lk_faellig":"Due today: {n}","lk_davon_neu":"new: {n}","lk_fertig":"Nothing more is due today in this selection.","lk_mehr_neu":"{n} more new cards","lk_begriff":"Term","lk_formel":"Formula","lk_luecke":"Fill in the blank","reset_sicher":"Really reset?","lk_heute":"again shortly","lk_morgen":"tomorrow","lk_tage":"in {n} days","lk_ohne_speicher":"This browser is not saving anything right now. Progress lasts only while the page is open.","aufdecken":"Reveal","gelesen":"Read","lf_kapitel":"{n} of {m} read","lf_artikel":"Read. In this chapter: {n} of {m}.","weiterlesen":"Continue reading","fs_reset":"Reset reading progress","fs_lokal":"Reading progress stays in this browser only.","vs_oeffnen":"Open","vs_schliessen":"Close"},"es":{"bg_leer":"Ningún término coincide.","bg_anzahl":"{n} términos","lk_faellig":"Pendientes hoy: {n}","lk_davon_neu":"nuevas: {n}","lk_fertig":"Hoy no queda nada pendiente en esta selección.","lk_mehr_neu":"{n} tarjetas nuevas más","lk_begriff":"Término","lk_formel":"Fórmula","lk_luecke":"Completar","reset_sicher":"¿Reiniciar de verdad?","lk_heute":"otra vez enseguida","lk_morgen":"mañana","lk_tage":"en {n} días","lk_ohne_speicher":"Este navegador no guarda nada ahora mismo. El progreso solo dura mientras la página esté abierta.","aufdecken":"Descubrir","gelesen":"Leído","lf_kapitel":"{n} de {m} leídos","lf_artikel":"Leído. En este capítulo: {n} de {m}.","weiterlesen":"Seguir leyendo","fs_reset":"Reiniciar el progreso de lectura","fs_lokal":"El progreso de lectura se queda solo en este navegador.","vs_oeffnen":"Abrir","vs_schliessen":"Cerrar"},"zh":{"bg_leer":"没有匹配的术语。","bg_anzahl":"共 {n} 个术语","lk_faellig":"今天到期：{n}","lk_davon_neu":"其中新卡：{n}","lk_fertig":"此范围内今天已没有到期的卡片。","lk_mehr_neu":"再学 {n} 张新卡","lk_begriff":"术语","lk_formel":"公式","lk_luecke":"填空","reset_sicher":"确定要重置吗？","lk_heute":"稍后再来一次","lk_morgen":"明天","lk_tage":"{n} 天后","lk_ohne_speicher":"此浏览器目前无法保存数据，学习进度只在页面打开期间有效。","aufdecken":"揭开","gelesen":"已读","lf_kapitel":"已读 {n} / {m}","lf_artikel":"已读。本章已读 {n} / {m}。","weiterlesen":"继续阅读","fs_reset":"重置阅读进度","fs_lokal":"阅读进度只保存在本浏览器中。","vs_oeffnen":"打开","vs_schliessen":"关闭"},"fr":{"bg_leer":"Aucun terme ne correspond.","bg_anzahl":"{n} termes","lk_faellig":"À revoir aujourd’hui : {n}","lk_davon_neu":"dont nouvelles : {n}","lk_fertig":"Plus rien à revoir aujourd’hui dans cette sélection.","lk_mehr_neu":"{n} nouvelles fiches de plus","lk_begriff":"Terme","lk_formel":"Formule","lk_luecke":"Texte à trous","reset_sicher":"Vraiment réinitialiser ?","lk_heute":"encore une fois tout de suite","lk_morgen":"demain","lk_tage":"dans {n} jours","lk_ohne_speicher":"Ce navigateur n’enregistre rien pour le moment. La progression ne dure que tant que la page est ouverte.","aufdecken":"Révéler","gelesen":"Lu","lf_kapitel":"{n} sur {m} lus","lf_artikel":"Lu. Dans ce chapitre : {n} sur {m}.","weiterlesen":"Reprendre la lecture","fs_reset":"Réinitialiser la progression de lecture","fs_lokal":"La progression de lecture reste uniquement dans ce navigateur.","vs_oeffnen":"Ouvrir","vs_schliessen":"Fermer"},"tr":{"bg_leer":"Eşleşen terim yok.","bg_anzahl":"{n} terim","lk_faellig":"Bugün sırası gelen: {n}","lk_davon_neu":"yeni: {n}","lk_fertig":"Bu seçimde bugün için başka kart yok.","lk_mehr_neu":"{n} yeni kart daha","lk_begriff":"Terim","lk_formel":"Formül","lk_luecke":"Boşluk doldurma","reset_sicher":"Gerçekten sıfırlansın mı?","lk_heute":"birazdan tekrar","lk_morgen":"yarın","lk_tage":"{n} gün sonra","lk_ohne_speicher":"Bu tarayıcı şu anda hiçbir şey kaydetmiyor. İlerleme yalnızca sayfa açıkken geçerli.","aufdecken":"Aç","gelesen":"Okundu","lf_kapitel":"{m} makaleden {n} tanesi okundu","lf_artikel":"Okundu. Bu bölümde: {m} makaleden {n} tanesi.","weiterlesen":"Okumaya devam et","fs_reset":"Okuma ilerlemesini sıfırla","fs_lokal":"Okuma ilerlemesi yalnızca bu tarayıcıda kalır.","vs_oeffnen":"Aç","vs_schliessen":"Kapat"}};
+var LERNEN_UI={"de":{"bg_leer":"Kein Begriff passt.","bg_anzahl":"{n} Begriffe","lk_faellig":"Heute fällig: {n}","lk_davon_neu":"davon neu: {n}","lk_fertig":"Für heute ist in dieser Auswahl nichts mehr fällig.","lk_mehr_neu":"{n} weitere neue Karten","lk_begriff":"Begriff","lk_formel":"Formel","lk_luecke":"Lückentext","reset_sicher":"Wirklich zurücksetzen?","lk_heute":"gleich noch einmal","lk_morgen":"morgen","lk_tage":"in {n} Tagen","lk_ohne_speicher":"Dieser Browser speichert gerade nichts. Der Lernstand gilt nur, solange die Seite offen ist.","aufdecken":"Aufdecken","gelesen":"Gelesen","lf_kapitel":"{n} von {m} gelesen","lf_artikel":"Gelesen. In diesem Kapitel: {n} von {m}.","weiterlesen":"Weiterlesen","fs_reset":"Fortschritt zurücksetzen","fs_lokal":"Der Lesefortschritt bleibt nur in diesem Browser.","vs_oeffnen":"Öffnen","vs_schliessen":"Schließen","baum_laedt":"Wird geladen …","baum_fehler":"Konnte nicht geladen werden.","suche_volltext":"Volltext wird durchsucht …","begriffe":"Begriffe","lernkarten":"Lernkarten"},"en":{"bg_leer":"No term matches.","bg_anzahl":"{n} terms","lk_faellig":"Due today: {n}","lk_davon_neu":"new: {n}","lk_fertig":"Nothing more is due today in this selection.","lk_mehr_neu":"{n} more new cards","lk_begriff":"Term","lk_formel":"Formula","lk_luecke":"Fill in the blank","reset_sicher":"Really reset?","lk_heute":"again shortly","lk_morgen":"tomorrow","lk_tage":"in {n} days","lk_ohne_speicher":"This browser is not saving anything right now. Progress lasts only while the page is open.","aufdecken":"Reveal","gelesen":"Read","lf_kapitel":"{n} of {m} read","lf_artikel":"Read. In this chapter: {n} of {m}.","weiterlesen":"Continue reading","fs_reset":"Reset reading progress","fs_lokal":"Reading progress stays in this browser only.","vs_oeffnen":"Open","vs_schliessen":"Close","baum_laedt":"Loading …","baum_fehler":"Could not be loaded.","suche_volltext":"Searching the full text …","begriffe":"Glossary","lernkarten":"Flashcards"},"es":{"bg_leer":"Ningún término coincide.","bg_anzahl":"{n} términos","lk_faellig":"Pendientes hoy: {n}","lk_davon_neu":"nuevas: {n}","lk_fertig":"Hoy no queda nada pendiente en esta selección.","lk_mehr_neu":"{n} tarjetas nuevas más","lk_begriff":"Término","lk_formel":"Fórmula","lk_luecke":"Completar","reset_sicher":"¿Reiniciar de verdad?","lk_heute":"otra vez enseguida","lk_morgen":"mañana","lk_tage":"en {n} días","lk_ohne_speicher":"Este navegador no guarda nada ahora mismo. El progreso solo dura mientras la página esté abierta.","aufdecken":"Descubrir","gelesen":"Leído","lf_kapitel":"{n} de {m} leídos","lf_artikel":"Leído. En este capítulo: {n} de {m}.","weiterlesen":"Seguir leyendo","fs_reset":"Reiniciar el progreso de lectura","fs_lokal":"El progreso de lectura se queda solo en este navegador.","vs_oeffnen":"Abrir","vs_schliessen":"Cerrar","baum_laedt":"Cargando …","baum_fehler":"No se pudo cargar.","suche_volltext":"Buscando en el texto completo …","begriffe":"Glosario","lernkarten":"Tarjetas de estudio"},"zh":{"bg_leer":"没有匹配的术语。","bg_anzahl":"共 {n} 个术语","lk_faellig":"今天到期：{n}","lk_davon_neu":"其中新卡：{n}","lk_fertig":"此范围内今天已没有到期的卡片。","lk_mehr_neu":"再学 {n} 张新卡","lk_begriff":"术语","lk_formel":"公式","lk_luecke":"填空","reset_sicher":"确定要重置吗？","lk_heute":"稍后再来一次","lk_morgen":"明天","lk_tage":"{n} 天后","lk_ohne_speicher":"此浏览器目前无法保存数据，学习进度只在页面打开期间有效。","aufdecken":"揭开","gelesen":"已读","lf_kapitel":"已读 {n} / {m}","lf_artikel":"已读。本章已读 {n} / {m}。","weiterlesen":"继续阅读","fs_reset":"重置阅读进度","fs_lokal":"阅读进度只保存在本浏览器中。","vs_oeffnen":"打开","vs_schliessen":"关闭","baum_laedt":"加载中 …","baum_fehler":"无法加载。","suche_volltext":"正在搜索全文 …","begriffe":"术语表","lernkarten":"学习卡片"},"fr":{"bg_leer":"Aucun terme ne correspond.","bg_anzahl":"{n} termes","lk_faellig":"À revoir aujourd’hui : {n}","lk_davon_neu":"dont nouvelles : {n}","lk_fertig":"Plus rien à revoir aujourd’hui dans cette sélection.","lk_mehr_neu":"{n} nouvelles fiches de plus","lk_begriff":"Terme","lk_formel":"Formule","lk_luecke":"Texte à trous","reset_sicher":"Vraiment réinitialiser ?","lk_heute":"encore une fois tout de suite","lk_morgen":"demain","lk_tage":"dans {n} jours","lk_ohne_speicher":"Ce navigateur n’enregistre rien pour le moment. La progression ne dure que tant que la page est ouverte.","aufdecken":"Révéler","gelesen":"Lu","lf_kapitel":"{n} sur {m} lus","lf_artikel":"Lu. Dans ce chapitre : {n} sur {m}.","weiterlesen":"Reprendre la lecture","fs_reset":"Réinitialiser la progression de lecture","fs_lokal":"La progression de lecture reste uniquement dans ce navigateur.","vs_oeffnen":"Ouvrir","vs_schliessen":"Fermer","baum_laedt":"Chargement …","baum_fehler":"Chargement impossible.","suche_volltext":"Recherche dans le texte intégral …","begriffe":"Glossaire","lernkarten":"Fiches de révision"},"tr":{"bg_leer":"Eşleşen terim yok.","bg_anzahl":"{n} terim","lk_faellig":"Bugün sırası gelen: {n}","lk_davon_neu":"yeni: {n}","lk_fertig":"Bu seçimde bugün için başka kart yok.","lk_mehr_neu":"{n} yeni kart daha","lk_begriff":"Terim","lk_formel":"Formül","lk_luecke":"Boşluk doldurma","reset_sicher":"Gerçekten sıfırlansın mı?","lk_heute":"birazdan tekrar","lk_morgen":"yarın","lk_tage":"{n} gün sonra","lk_ohne_speicher":"Bu tarayıcı şu anda hiçbir şey kaydetmiyor. İlerleme yalnızca sayfa açıkken geçerli.","aufdecken":"Aç","gelesen":"Okundu","lf_kapitel":"{m} makaleden {n} tanesi okundu","lf_artikel":"Okundu. Bu bölümde: {m} makaleden {n} tanesi.","weiterlesen":"Okumaya devam et","fs_reset":"Okuma ilerlemesini sıfırla","fs_lokal":"Okuma ilerlemesi yalnızca bu tarayıcıda kalır.","vs_oeffnen":"Aç","vs_schliessen":"Kapat","baum_laedt":"Yükleniyor …","baum_fehler":"Yüklenemedi.","suche_volltext":"Tam metinde aranıyor …","begriffe":"Sözlük","lernkarten":"Çalışma kartları"}};
 var LERNEN=(function(){
   var L=(document.documentElement.lang||"de").slice(0,2), W=LERNEN_UI[L]||{}, D=LERNEN_UI.de||{}, ok=false, mem={};
   try{ localStorage.setItem("etundso-probe","1"); localStorage.removeItem("etundso-probe"); ok=true; }catch(e){}
@@ -521,6 +524,52 @@ var LERNEN=(function(){
       btn.classList.add("frage"); btn.textContent=w("reset_sicher"); t=setTimeout(zurueck,5000); }); }
   return {lang:L, ok:ok, get:get, set:set, del:del, w:w, pfad:pfad, el:el, sicher:sicher};
 })();
+// Seitenleiste (W3a): Im HTML stehen nur Bereich (offen) und Gruppen (zu). Beim ersten Aufklappen einer Gruppe holt
+// dieser Teil den Baum der Sprache (data/tree*.json; einmal je Seite, danach aus dem Zwischenspeicher des Browsers) und
+// setzt Module, Kapitel und Themen ein, wie sie früher im HTML standen: alles zugeklappt, der aktive Artikel markiert.
+// Danach meldet er „etundso-baum“; der Lesefortschritt malt dann Häkchen und „N/M“ auch in den neuen Zeilen.
+(function(){
+  var $=LERNEN, side=document.querySelector(".side[data-baum-url]"); if(!side) return;
+  var P=null, aktiv=side.getAttribute("data-aktiv")||"";
+  var lang=($.lang==="de"?"":$.lang+"/"), fassung=null;
+  try{ fassung=localStorage.getItem("wissen-fassung"); }catch(e){}
+  function laden(){ if(!P) P=fetch(side.getAttribute("data-baum-url")).then(function(r){ if(!r.ok) throw r.status; return r.json(); })
+    .catch(function(e){ P=null; throw e; }); return P; }
+  function knoten(nd,tiefe){                          // wie build_wissen.sidebar_html vor W3a
+    var d=$.el("details","lvl lvl"+tiefe), s=$.el("summary",null,nd.name); d.appendChild(s); inhalt(d,nd,tiefe); return d; }
+  function inhalt(d,nd,tiefe){
+    if(nd.mp){ var z=$.el("div","side-lernen"), a1=$.el("a",null,$.w("begriffe")||"Begriffe"), a2=$.el("a",null,$.w("lernkarten")||"Lernkarten");
+      a1.href="/wissen/"+nd.mp+"/begriffe.html"; a2.href="/wissen/"+nd.mp+"/lernkarten.html";
+      var p=$.el("span",null," · "); p.setAttribute("aria-hidden","true"); z.appendChild(a1); z.appendChild(p); z.appendChild(a2); d.appendChild(z); }
+    if(nd.articles && nd.articles.length){ var ul=$.el("ul");
+      nd.articles.forEach(function(x){ var li=$.el("li"), a=$.el("a",null,x.kurz||x.title), p="/wissen/"+x.path;
+        a.href=(x.alt && fassung==="ausfuehrlich")?"/wissen/"+x.alt:p; a.setAttribute("data-lf",p);
+        if(x.alt) a.setAttribute("data-alt","/wissen/"+x.alt);
+        if(p===aktiv){ a.className="active"; a.setAttribute("aria-current","page"); }
+        li.appendChild(a); ul.appendChild(li); });
+      d.appendChild(ul); }
+    (nd.children||[]).forEach(function(c){ d.appendChild(knoten(c,tiefe+1)); });
+  }
+  function fuellen(d){
+    if(d.getAttribute("data-gefuellt")) return;
+    var ix=d.getAttribute("data-baum").split(".").map(Number), mehr=d.querySelector(".side-mehr");
+    var warte=$.el("span","baum-hinweis",$.w("baum_laedt")); d.appendChild(warte);
+    laden().then(function(baum){
+      var b=baum[ix[0]], nd=b&&b.children&&b.children[ix[1]];
+      if(!nd || nd.name!==d.firstElementChild.firstChild.nodeValue) throw 0;   // Baum passt nicht zur Seite (anderer Stand)
+      d.removeChild(warte); if(mehr) d.removeChild(mehr);
+      inhalt(d,nd,1); d.setAttribute("data-gefuellt","1"); mathe(d);
+      document.dispatchEvent(new CustomEvent("etundso-baum"));
+    }).catch(function(){ warte.textContent=$.w("baum_fehler"); setTimeout(function(){ if(warte.parentNode) d.removeChild(warte); },4000); });
+  }
+  [].forEach.call(side.querySelectorAll("details[data-baum]"),function(d){
+    d.addEventListener("toggle",function(){ if(d.open) fuellen(d); });
+    if(d.open) fuellen(d);
+  });
+  function vorab(){ laden().catch(function(){}); }    // Leiste in Sicht oder unter dem Zeiger: Baum schon einmal holen
+  side.addEventListener("pointerenter",vorab,{once:true}); side.addEventListener("focusin",vorab,{once:true});
+  var bL=document.getElementById("toggleLeft"); if(bL) bL.addEventListener("click",vorab,{once:true});
+})();
 // Lesefortschritt: Ein Artikel gilt als gelesen, wenn seine Zusammenfassung (sonst sein Ende) 1 s lang sichtbar war.
 // Häkchen in der Seitenleiste und in der Übersicht, „N/M“ an Kapiteln, Balken je Kapitel in der Übersicht, Zeile am
 // Artikelende, „Weiterlesen“ (zuletzt geöffnet, nicht gelesen) auf der Übersicht, Knopf „Fortschritt zurücksetzen“.
@@ -534,8 +583,10 @@ var LERNEN=(function(){
     d.setAttribute("role","progressbar"); d.setAttribute("aria-valuemin","0"); d.setAttribute("aria-valuemax",String(m));
     d.setAttribute("aria-valuenow",String(n)); d.setAttribute("aria-label",$.w("lf_kapitel",{n:n,m:m}));
     s.style.width=(m?Math.round(100*n/m):0)+"%"; d.appendChild(s); return d; }
-  var art=document.querySelector("main.article > article"), aktiv=document.querySelector(".side li a.active");
-  var key=aktiv?aktiv.getAttribute("data-lf"):null;
+  // Artikel: Adresse, Kapitelname und Themen des Kapitels stehen an der Seitenleiste (W3a: deren Kapitel lädt erst beim Aufklappen)
+  var art=document.querySelector("main.article > article"), side=document.querySelector(".side"), aktiv=document.querySelector(".side li a.active");
+  var key=(side&&side.getAttribute("data-aktiv"))||(aktiv?aktiv.getAttribute("data-lf"):null);
+  var kapitel=((side&&side.getAttribute("data-kap"))||"").split(" ").filter(Boolean).map(function(p){ return "/wissen/"+p; });
   function malen(){
     var g=gelesen();
     [].forEach.call(document.querySelectorAll("a[data-lf]"),function(a){
@@ -543,8 +594,9 @@ var LERNEN=(function(){
       a.classList.toggle("gelesen",on);
       if(on && !sr) a.appendChild($.el("span","lf-sr"," ("+$.w("gelesen")+")"));
       if(!on && sr) a.removeChild(sr); });
-    [].forEach.call(document.querySelectorAll(".side details"),function(d){       // Kapitel in der Seitenleiste: „5/12“
-      var ul=null; for(var c=d.firstElementChild;c;c=c.nextElementSibling) if(c.tagName==="UL"){ ul=c; break; }
+    [].forEach.call(document.querySelectorAll(".side details, details.mk-kap"),function(d){   // Kapitel (Leiste, Modulkarte): „5/12“
+      var ul=null; for(var c=d.firstElementChild;c;c=c.nextElementSibling){
+        if(c.tagName==="UL"){ ul=c; break; } if(c.classList.contains("theme-card")){ ul=c.querySelector("ul"); break; } }
       var s=d.firstElementChild; if(!ul || !s || s.tagName!=="SUMMARY") return;
       var as=[].slice.call(ul.querySelectorAll("a[data-lf]")), n=zahl(as,g), z=s.querySelector(".lf-z");
       if(!n){ if(z) s.removeChild(z); return; }
@@ -556,20 +608,25 @@ var LERNEN=(function(){
       if(!n) return;
       var box=$.el("div","lf-kap"); box.appendChild(balken(n,as.length)); box.appendChild($.el("span","lf-text",$.w("lf_kapitel",{n:n,m:as.length})));
       c.insertBefore(box,c.firstChild); });
+    [].forEach.call(document.querySelectorAll(".mk"),function(k){                // Übersicht: Balken je Modulkarte
+      var as=[].slice.call(k.querySelectorAll("a[data-lf]")), n=zahl(as,g), f=k.querySelector(".mk-lf");
+      if(!f) return; f.innerHTML="";
+      if(n){ f.appendChild(balken(n,as.length)); f.appendChild($.el("span","lf-text",$.w("lf_kapitel",{n:n,m:as.length}))); } });
     if(art && key){                                                              // Artikel: Zeile vor den Nachbarartikeln
       var z=art.querySelector(".lf-art");
       if(g[key]){
-        var as=[].slice.call(aktiv.closest("ul").querySelectorAll("a[data-lf]")), n=zahl(as,g);
+        var m=kapitel.length?kapitel:[key], n=0; m.forEach(function(p){ if(g[p]) n++; });
         if(!z){ z=$.el("div","lf-art"); art.insertBefore(z,art.querySelector(".neighbors")); }
-        z.innerHTML=""; z.appendChild(balken(n,as.length)); z.appendChild($.el("span","lf-text",$.w("lf_artikel",{n:n,m:as.length})));
+        z.innerHTML=""; z.appendChild(balken(n,m.length)); z.appendChild($.el("span","lf-text",$.w("lf_artikel",{n:n,m:m.length})));
       } else if(z) z.parentNode.removeChild(z);
     }
     weiter();
   }
+  document.addEventListener("etundso-baum",malen);                               // Seitenleiste hat Zeilen nachgeladen
   if(art && key){
-    var kap=aktiv.closest("details"), sum=kap&&kap.firstElementChild, titel=document.title.replace(/\s+—\s+EtUndSo$/,"");
+    var titel=document.title.replace(/\s+—\s+EtUndSo$/,"");
     var v=$.get(V,[]).filter(function(e){ return e && e.p!==key; });
-    v.unshift({p:key, t:titel, k:sum&&sum.firstChild?String(sum.firstChild.textContent).trim():"", l:$.lang, z:Date.now()});
+    v.unshift({p:key, t:titel, k:(side&&side.getAttribute("data-kapitel"))||"", l:$.lang, z:Date.now()});
     $.set(V,v.slice(0,12));
     var ende=document.getElementById("zusammenfassung")||art.querySelector(".neighbors");
     if(ende && !gelesen()[key] && window.IntersectionObserver){
@@ -586,7 +643,7 @@ var LERNEN=(function(){
     var g=gelesen(), v=$.get(V,[]), e=null;
     for(var i=0;i<v.length;i++){ if(v[i] && v[i].l===$.lang && v[i].p && !g[v[i].p]){ e=v[i]; break; } }
     if(!box){
-      var lede=document.querySelector("main.article .lede"); if(!lede) return;
+      var lede=document.querySelector("main.article .idx-suche")||document.querySelector("main.article .lede"); if(!lede) return;
       box=$.el("div","lf-weiter"); box.hidden=true; lede.parentNode.insertBefore(box,lede.nextSibling);
     }
     box.innerHTML="";

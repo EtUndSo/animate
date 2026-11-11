@@ -314,7 +314,42 @@ for _l, _w in _UI_LERNEN.items():
     UI[_l].update(_w)
 LERNEN_JS = ("bg_leer", "bg_anzahl", "lk_faellig", "lk_davon_neu", "lk_fertig", "lk_mehr_neu", "lk_begriff", "lk_formel", "lk_luecke",
              "reset_sicher", "lk_heute", "lk_morgen", "lk_tage", "lk_ohne_speicher", "aufdecken", "gelesen", "lf_kapitel", "lf_artikel",
-             "weiterlesen", "fs_reset", "fs_lokal", "vs_oeffnen", "vs_schliessen")
+             "weiterlesen", "fs_reset", "fs_lokal", "vs_oeffnen", "vs_schliessen", "baum_laedt", "baum_fehler", "suche_volltext",
+             "begriffe", "lernkarten")
+
+# Finden (W3a, 11.11.2026): Modulkarten der Übersicht, nachgeladene Seitenleiste, geteilte Suche
+_UI_FINDEN = {
+    "de": {"n_kapitel": "{n} Kapitel", "n_kapitel_1": "1 Kapitel", "n_artikel": "{n} Artikel", "n_artikel_1": "1 Artikel",
+           "nur_de": "Bisher nur auf Deutsch:", "baum_mehr": "In der Übersicht ansehen",
+           "suche_feld": "Thema, Begriff oder Teilwort suchen …", "baum_laedt": "Wird geladen …",
+           "baum_fehler": "Konnte nicht geladen werden.", "suche_volltext": "Volltext wird durchsucht …"},
+    "en": {"n_kapitel": "{n} chapters", "n_kapitel_1": "1 chapter", "n_artikel": "{n} articles", "n_artikel_1": "1 article",
+           "nur_de": "So far only in German:", "baum_mehr": "View in the overview",
+           "suche_feld": "Search for a topic, term or part of a word …", "baum_laedt": "Loading …",
+           "baum_fehler": "Could not be loaded.", "suche_volltext": "Searching the full text …"},
+    "es": {"n_kapitel": "{n} capítulos", "n_kapitel_1": "1 capítulo", "n_artikel": "{n} artículos", "n_artikel_1": "1 artículo",
+           "nur_de": "Por ahora solo en alemán:", "baum_mehr": "Ver en la vista general",
+           "suche_feld": "Buscar un tema, un término o parte de una palabra …", "baum_laedt": "Cargando …",
+           "baum_fehler": "No se pudo cargar.", "suche_volltext": "Buscando en el texto completo …"},
+    "zh": {"n_kapitel": "{n} 章", "n_kapitel_1": "1 章", "n_artikel": "{n} 篇文章", "n_artikel_1": "1 篇文章",
+           "nur_de": "目前只有德语版：", "baum_mehr": "在总览中查看",
+           "suche_feld": "搜索主题、术语或词的一部分 …", "baum_laedt": "加载中 …",
+           "baum_fehler": "无法加载。", "suche_volltext": "正在搜索全文 …"},
+    "fr": {"n_kapitel": "{n} chapitres", "n_kapitel_1": "1 chapitre", "n_artikel": "{n} articles", "n_artikel_1": "1 article",
+           "nur_de": "Pour l’instant uniquement en allemand :", "baum_mehr": "Voir dans la vue d’ensemble",
+           "suche_feld": "Rechercher un thème, une notion ou une partie de mot …", "baum_laedt": "Chargement …",
+           "baum_fehler": "Chargement impossible.", "suche_volltext": "Recherche dans le texte intégral …"},
+    "tr": {"n_kapitel": "{n} bölüm", "n_kapitel_1": "1 bölüm", "n_artikel": "{n} makale", "n_artikel_1": "1 makale",
+           "nur_de": "Şimdilik yalnızca Almanca:", "baum_mehr": "Genel bakışta gör",
+           "suche_feld": "Konu, kavram veya kelime parçası ara …", "baum_laedt": "Yükleniyor …",
+           "baum_fehler": "Yüklenemedi.", "suche_volltext": "Tam metinde aranıyor …"},
+}
+for _l, _w in _UI_FINDEN.items():
+    UI[_l].update(_w)
+
+def anzahl(n, wort):
+    """„1 Kapitel“ / „12 Kapitel“ in der Sprache der Seite (wort = n_kapitel, n_artikel)."""
+    return T(wort + "_1") if n == 1 else T(wort).format(n=n)
 
 def T(key):
     """Wort der Oberfläche in der Sprache der gerade gebauten Seite."""
@@ -1221,30 +1256,65 @@ def _has_active(nd, active_path):
 def _node_label(nd, depth):
     return html.escape(nd["name"])
 
+_KNOTEN_VON = {}                                       # id(Baum) -> {Artikeladresse: Knoten, an dem der Artikel hängt}
+
+def knoten_von(tree, path):
+    """Knoten (Kapitel), an dem der Artikel mit dieser Adresse im Baum hängt, sonst None."""
+    tab = _KNOTEN_VON.get(id(tree))
+    if tab is None:
+        tab = _KNOTEN_VON[id(tree)] = {}
+        def walk(nodes):
+            for nd in nodes:
+                for a in nd["articles"]:
+                    tab[a["path"]] = nd
+                walk(nd["children"])
+        walk(tree)
+    return tab.get(path)
+
+def _uebersicht_anker(nd, tiefe=1):
+    """Anker eines Knotens in der Wissensübersicht: Modul m-<Ordner>, sonst Bereich (tiefe 0) b-<Ordner>, Gruppe g-<Ordner>.
+    Die Ordner kommen aus den Artikeladressen, die in allen Sprachen die deutschen sind: Die Anker sind überall gleich."""
+    mp = _modul_von(nd)
+    if mp:
+        return "m-" + mp.rsplit("/", 1)[-1]
+    a = next(iter(flatten([nd])), None)
+    if a is None:
+        return ("b-" if tiefe == 0 else "g-") + nd["slug"]
+    teile = (a["path"].split("/", 1)[1] if a["lang"] != "de" else a["path"]).split("/")
+    return ("b-" if tiefe == 0 else "g-") + teile[min(tiefe, len(teile) - 2)]
+
 def sidebar_html(tree, active_path=None, art=None):
     # Seit 11.11.2026 (Wunsch des Users): immer nur die oberste Ebene (Studiengang/Bereich, z. B. Elektrotechnik) offen,
     # darunter sieht man nur die nächste Ebene (z. B. 1. Semester) zugeklappt; auch der Ast des geöffneten Artikels
     # bleibt zu (der Artikel ist weiter als aktiv markiert, falls man ihn aufklappt).
-    def render(nodes, depth):
-        rows = []
-        for nd in nodes:
-            is_open = depth == 0
-            rows.append(f'<details class="lvl lvl{depth}"{" open" if is_open else ""}><summary>{_node_label(nd, depth)}</summary>')
-            mp = _modul_von(nd)                        # Modul: Begriffe und Lernkarten als leise Zeile über den Kapiteln
-            if mp:
-                rows.append(lernen_links(mp, "side-lernen"))
-            if nd["articles"]:
-                rows.append("<ul>")
-                for a in nd["articles"]:
-                    cls = ' class="active"' if a["path"] == active_path else ""
-                    rows.append(f'<li><a{cls} href="/wissen/{a["path"]}"{alt_attr(a)}>{html.escape(a["kurz"] or a["title"])}</a></li>')
-                rows.append("</ul>")
-            if nd["children"]:
-                rows.append(render(nd["children"], depth + 1))
-            rows.append("</details>")
-        return "".join(rows)
-    return ('<nav class="side" aria-label="Wissensbaum">'
-            + f'<a class="side-home" href="{home()}">{T("alle_module")}</a>' + render(tree, 0) + "</nav>")
+    # W3a (11.11.2026): Nur diese oberen Ebenen stehen im HTML (vorher ~140 KB je deutscher Seite). Den Inhalt einer Gruppe
+    # setzt wissen.js beim ersten Aufklappen aus data/tree*.json ein (data-baum = Platz im Baum: Bereich.Gruppe). Ohne
+    # Skript führt der Link in der Gruppe zur Übersicht. Für den Lesefortschritt trägt die Leiste den aktiven Artikel, den
+    # Namen seines Kapitels und die Adressen aller Themen des Kapitels (data-aktiv, data-kapitel, data-kap).
+    rows = []
+    for i, nd in enumerate(tree):
+        rows.append(f'<details class="lvl lvl0" open><summary>{_node_label(nd, 0)}</summary>')
+        mp = _modul_von(nd)                            # Modul: Begriffe und Lernkarten als leise Zeile über den Kapiteln
+        if mp:
+            rows.append(lernen_links(mp, "side-lernen"))
+        if nd["articles"]:                             # Themen direkt am Bereich (gibt es derzeit nicht)
+            rows.append("<ul>")
+            for a in nd["articles"]:
+                cls = ' class="active"' if a["path"] == active_path else ""
+                rows.append(f'<li><a{cls} href="/wissen/{a["path"]}"{alt_attr(a)}>{html.escape(a["kurz"] or a["title"])}</a></li>')
+            rows.append("</ul>")
+        for j, c in enumerate(nd["children"]):
+            rows.append(f'<details class="lvl lvl1" data-baum="{i}.{j}"><summary>{_node_label(c, 1)}</summary>'
+                        f'<a class="side-mehr" href="{home()}#{_uebersicht_anker(c)}">{T("baum_mehr")}</a></details>')
+        rows.append("</details>")
+    suffix = "" if LANG_NOW[0] == "de" else "." + LANG_NOW[0]
+    attr = f' data-baum-url="/wissen/data/tree{suffix}.json"'
+    kap = knoten_von(tree, active_path) if active_path else None
+    if kap is not None:
+        attr += (f' data-aktiv="/wissen/{html.escape(active_path)}" data-kapitel="{html.escape(kap["name"])}"'
+                 f' data-kap="{html.escape(" ".join(a["path"] for a in kap["articles"]))}"')
+    return (f'<nav class="side" aria-label="Wissensbaum"{attr}>'
+            + f'<a class="side-home" href="{home()}">{T("alle_module")}</a>' + "".join(rows) + "</nav>")
 
 def page_shell(title, desc, body, depth, alternates=None):
     up = "../" * depth
@@ -1871,42 +1941,109 @@ def lernen_seiten(lang, tree, flat, weitere):
                                              encoding="utf-8")
         KARTEN_STAT[lang][mp] = stat
 
-def render_index(tree):
-    cards = [f'<main class="article" id="inhalt" tabindex="-1"><article><h1>{T("wissen")}</h1>{lang_switch(None, "art")}<p class="lede">{T("lede")}</p>']
-    if not tree:
-        cards.append(f'<p class="empty">{T("leer")}</p>')
-    # Übersicht: oberste Ebene(n) als Abschnitt, darunter der Baum rekursiv; Themen als verlinkte Karten.
-    def block(nodes, depth):
-        rows = []
+def _minuten(a):
+    """Lesezeit eines Artikels in Minuten, einmal je Artikel berechnet."""
+    if "_min" not in a:
+        a["_min"] = lesezeit(a["body"])
+    return a["_min"]
+
+def _themen_karte(arts):
+    """Themenliste eines Kapitels (Klasse theme-card: Häkchen und Balken des Lesefortschritts, wissen.js)."""
+    links = "".join(f'<li><a href="/wissen/{a["path"]}"{alt_attr(a)}>{html.escape(a["kurz"] or a["title"])}</a></li>' for a in arts)
+    return f'<div class="theme-card"><ul>{links}</ul></div>'
+
+def _hinweis(nd):
+    return f'<p class="idx-hinweis">{inline(nd["hinweis"])}</p>' if nd.get("hinweis") else ""   # content/**/_*.md
+
+def _kapitel_html(nd):
+    """Kapitel in einer Modulkarte: zugeklappt, mit Zahl der Artikel und Lesezeit; darin die Themen (und Unterkapitel)."""
+    arts = flatten([nd])
+    zahl = f'{anzahl(len(arts), "n_artikel")} · {T("lesezeit").format(n=sum(_minuten(a) for a in arts))}'
+    return (f'<details class="mk-kap"><summary><span class="kap-name">{html.escape(nd["name"])}</span>'
+            f'<span class="kap-zahl">{html.escape(zahl)}</span></summary>{_hinweis(nd)}'
+            + (_themen_karte(nd["articles"]) if nd["articles"] else "")
+            + "".join(_kapitel_html(c) for c in nd["children"]) + "</details>")
+
+def _modul_karte(nd, mp):
+    """Karte eines Moduls: Kurzname, voller Name, Zahl der Kapitel und Artikel, Platz für den Fortschrittsbalken; ein Klick
+    klappt die Karte über die ganze Breite auf und zeigt die Kapitel. Begriffe und Lernkarten stehen unter der Karte."""
+    arts = flatten([nd])
+    kurz, _, voll = nd["name"].partition(" – ")
+    n_kap = len(nd["children"]) + (1 if nd["articles"] else 0)
+    kopf = (f'<summary class="mk-kopf" id="{_uebersicht_anker(nd)}"><span class="mk-titel">{html.escape(kurz)}</span>'
+            + (f'<span class="mk-voll">{html.escape(voll)}</span>' if voll else "")
+            + f'<span class="mk-zahl">{html.escape(anzahl(n_kap, "n_kapitel"))} · {html.escape(anzahl(len(arts), "n_artikel"))}</span>'
+            + '<span class="mk-lf"></span></summary>')
+    inhalt = ('<div class="mk-inhalt">' + _hinweis(nd) + (_themen_karte(nd["articles"]) if nd["articles"] else "")
+              + "".join(_kapitel_html(c) for c in nd["children"]) + "</div>")
+    return f'<div class="mk"><details class="mk-det">{kopf}{inhalt}</details>{lernen_links(mp, "mk-lernen")}</div>'
+
+def _gruppe_html(nd, tiefe):
+    """Gruppe (Semester, Reihe): Überschrift und eine Reihe Modulkarten. Ist die Gruppe selbst ein Modul (Linux,
+    Cybersecurity), trägt die Reihe genau dessen Karte; Untergruppen folgen als eigene Gruppen."""
+    mp = _modul_von(nd)
+    karten, weitere = [], []
+    if mp:
+        karten.append(_modul_karte(nd, mp))
+    else:
+        for c in nd["children"]:
+            cmp_ = _modul_von(c)
+            if cmp_:
+                karten.append(_modul_karte(c, cmp_))
+            elif c["children"] or c["articles"]:
+                weitere.append(_gruppe_html(c, tiefe + 1))
+        if nd["articles"]:
+            karten.append(f'<div class="mk">{_themen_karte(nd["articles"])}</div>')
+    anker = "" if mp else f' id="{_uebersicht_anker(nd, tiefe)}"'
+    n = min(max(len(karten), 1), 3)
+    return (f'<div class="gruppe gr-n{n}"{anker}><h3 class="gr-h">{html.escape(nd["name"])}</h3>{"" if mp else _hinweis(nd)}'
+            + (f'<div class="mk-grid">{"".join(karten)}</div>' if karten else "") + "</div>" + "".join(weitere))
+
+def _nur_deutsch(tree):
+    """Übersicht einer Übersetzung: Module, die es bisher nur auf Deutsch gibt, als eine Zeile mit Links (einheitlich auf
+    Übersicht und Startseite: nicht als Karte, sondern als Hinweis am Ende)."""
+    if LANG_NOW[0] == "de" or "de" not in TREES:
+        return ""
+    fehlt = []
+    def walk(nodes):
         for nd in nodes:
-            leaf_cards = ""
-            if nd["articles"]:
-                links = "".join(f'<li><a href="/wissen/{a["path"]}">{html.escape(a["kurz"] or a["title"])}</a></li>' for a in nd["articles"])
-                leaf_cards = f'<div class="theme-card"><ul>{links}</ul></div>'
-            hw = f'<p class="idx-hinweis">{inline(nd["hinweis"])}</p>' if nd.get("hinweis") else ""   # content/**/_*.md
-            if depth == 0:
-                rows.append(f'<section class="field-block"><h2 id="{nd["slug"]}">{html.escape(nd["name"])}</h2>{hw}')
-                rows.append(block(nd["children"], depth + 1) + (f'<div class="field-grid">{leaf_cards}</div>' if leaf_cards else ""))
-                rows.append("</section>")
+            mp = _modul_von(nd)
+            if mp:
+                if LANG_NOW[0] not in MODUL_SPRACHEN.get(mp, ()):
+                    fehlt.append((nd["name"].split(" – ")[0], "/wissen/#" + _uebersicht_anker(nd)))
             else:
-                hd = (f'<h3 class="idx-lvl{depth}">{html.escape(nd["name"])}</h3>' if depth >= 2
-                      else f'<h4 class="lvl-h idx-lvl{depth}">{_node_label(nd, depth)}</h4>')
-                mp = _modul_von(nd)                    # Modul: Begriffe und Lernkarten unter der Überschrift
-                if mp:
-                    hd += lernen_links(mp, "idx-lernen")
-                inner = block(nd["children"], depth + 1)
-                rows.append(f'<div class="idx-node">{hd}{hw}{leaf_cards}{inner}</div>' if (inner or leaf_cards) else "")
-        return "".join(rows)
-    cards.append(block(tree, 0))
-    cards.append(legal_footer() + "</article></main>")
-    body = topbar() + '<div class="layout">' + sidebar_html(tree, None) + "".join(cards) + "</div>"
-    return page_shell("Wissen", "Verständliche Erklärungen zu Elektrotechnik, Mathematik und mehr.", body, 1)
+                walk(nd["children"])
+    walk(TREES["de"])
+    if not fehlt:
+        return ""
+    links = ", ".join(f'<a href="{u}" hreflang="de" lang="de">{html.escape(n)}</a>' for n, u in fehlt)
+    return f'<p class="idx-nur-de">{html.escape(T("nur_de"))} {links}</p>'
+
+def render_index(tree):
+    """Wissensübersicht (W3a, 11.11.2026; vorher alle Artikeltitel untereinander, ~32 000 px): je Bereich ein Abschnitt,
+    darin je Gruppe eine Reihe Modulkarten. Eine Karte zeigt Name, Zahl der Kapitel und Artikel und (wissen.js) den
+    Lesefortschritt; ein Klick klappt sie auf und zeigt die Kapitel, jedes wieder zugeklappt mit seinen Themen. Alles sind
+    <details> mit festen Links: Ohne Skript lässt sich jede Seite erreichen, Suchmaschinen sehen alle Artikel."""
+    teile = [f'<main class="article idx" id="inhalt" tabindex="-1"><article><h1>{T("wissen")}</h1>{lang_switch(None, "art")}'
+             f'<p class="lede">{T("lede")}</p>'
+             f'<button type="button" class="idx-suche" data-suche hidden><span>{html.escape(T("suche_feld"))}</span><kbd>/</kbd></button>']
+    if not tree:
+        teile.append(f'<p class="empty">{T("leer")}</p>')
+    for nd in tree:
+        teile.append(f'<section class="field-block" id="{_uebersicht_anker(nd, 0)}"><h2>{html.escape(nd["name"])}</h2>{_hinweis(nd)}'
+                     f'<div class="gruppen">' + "".join(_gruppe_html(c, 1) for c in nd["children"]) + "</div>"
+                     + (_themen_karte(nd["articles"]) if nd["articles"] else "") + "</section>")
+    teile.append(_nur_deutsch(tree))
+    teile.append(legal_footer() + "</article></main>")
+    body = topbar() + '<div class="layout">' + sidebar_html(tree, None) + "".join(teile) + "</div>"
+    return page_shell(T("wissen"), T("lede"), body, 1, sprachen(None))
 
 # --------------------------------------------------------------------- main ----
 TREES = {}                                             # {Sprache: Baum}, von main gesetzt
 ART_LANG = {}                                          # (Ordner, Stamm) -> {Sprache: Artikel}: der Sprachumschalter
 
 GESCHRIEBEN = set()                                    # alle Seiten dieses Builds; main löscht danach die übrigen (alte Adressen)
+GESCHRIEBEN_DATEN = set()                              # Dateien unter data/suche/ dieses Builds; main löscht die übrigen
 
 def schreibe(path, text):
     path.write_text(text, encoding="utf-8")
@@ -1937,33 +2074,100 @@ def build_lang(lang, tree):
     start.mkdir(parents=True, exist_ok=True)
     schreibe(start / "index.html", render_index(tree))
 
-    # navigation tree (ohne bodies, beliebig tief) + search index
+    # Navigationsbaum (Seitenleiste, Startseite): schlank, ohne Texte; beliebig tief
     def jnode(nd):
-        return {"name": nd["name"], "slug": nd["slug"],
-                "articles": [{"title": a["title"], "path": a["path"], "summary": a["summary"],
-                              **({"alt": a["alt"]["path"]} if a.get("alt") else {})} for a in nd["articles"]],
-                "children": [jnode(c) for c in nd["children"]]}
+        d = {"name": nd["name"], "slug": nd["slug"]}
+        mp = _modul_von(nd)
+        if mp:
+            d["mp"] = mp                               # Modul: Adresse für „Begriffe · Lernkarten“
+        d["articles"] = []
+        for a in nd["articles"]:
+            e = {"title": a["title"], "path": a["path"]}
+            if a["kurz"] and a["kurz"] != a["title"]:
+                e["kurz"] = a["kurz"]                  # Aufschrift in der Seitenleiste
+            if klartext(a["title"]) != a["title"]:
+                e["klar"] = klartext(a["title"])       # ohne TeX (Startseite, ohne KaTeX)
+            if a.get("alt"):
+                e["alt"] = a["alt"]["path"]
+            d["articles"].append(e)
+        d["children"] = [jnode(c) for c in nd["children"]]
+        return d
     tree_json = [jnode(n) for n in tree]
     suffix = "" if lang == "de" else "." + lang
-    (OUT / "data" / f"tree{suffix}.json").write_text(json.dumps(tree_json, ensure_ascii=False), encoding="utf-8")
+    (OUT / "data" / f"tree{suffix}.json").write_text(json.dumps(tree_json, ensure_ascii=False, separators=(",", ":")),
+                                                   encoding="utf-8")
 
-    search = []
     alts = [a["alt"] for a in flat if a.get("alt")]
     humans = [a["human"] for a in flat if a.get("human")]
     humans += [h["alt"] for h in humans if h.get("alt")]
-    for a in flat + alts:
-        plain = to_plain(a["body"])
-        crumb = " › ".join(nm for nm, sl in a["crumbs"])
-        title = a["title"] + (" (ausführlich)" if a.get("fassung") == "ausfuehrlich" and a.get("alt") else "") \
-            + (" (von Hand)" if a["autor"] == "mensch" else "")
-        search.append({"title": title, "crumb": crumb, "path": a["path"],
-                       "summary": a["summary"], "tags": a["tags"],
-                       # pre-folded fields for fast infix matching; 'text' kept (original) for snippets
-                       "ft_title": fold(title), "ft_tags": fold(a["tags"]),
-                       "ft_text": fold(a["summary"] + " " + plain), "text": plain})
-    (OUT / "data" / f"search{suffix}.json").write_text(json.dumps(search, ensure_ascii=False), encoding="utf-8")
+    suchindex_schreiben(lang, flat + alts)
     lernen_seiten(lang, tree, flat, alts + humans)     # je Modul: Begriffe, Lernkarten, Daten der Link-Vorschau
     return len(flat), len(alts), len(humans)
+
+# ------------------------------------------------------------- Suchindex (W3a) ----
+# Vorher eine Datei search<.l>.json je Sprache (Deutsch 8,4 MB: Text zweimal, einmal gefaltet), beim ersten Öffnen der
+# Suche ganz geladen. Jetzt unter data/suche/<l>/:
+#   titel.json    sofort: je Artikel Titel, Brotkrumen, Adresse, Schlagwörter, summary und Abschnitte (Anker, Überschrift),
+#                 dazu die Module mit ihrer Volltext-Datei;
+#   woerter.json  beim ersten Suchwort: alle Wörter des gefalteten Volltexts, gruppiert nach der Menge der Module, in denen
+#                 sie vorkommen ({"0,3": "wort1 wort2 …"}). Ein Suchwort ohne Leerzeichen steht genau dann im Text eines
+#                 Moduls, wenn es Teil eines seiner Wörter ist: Geladen werden also nur Module, die wirklich treffen (bei
+#                 Leerzeichen: die alle Teile enthalten). Nur ab drei Modulen und wenn das Verzeichnis klein gegen den Text
+#                 ist (Chinesisch hat keine Leerzeichen zwischen Wörtern: dort fehlt es, es laden alle Module);
+#   <modul>.json  bei Bedarf: der Volltext jedes Artikels des Moduls (ungefaltet; suche.js faltet beim Laden).
+# Treffer wie vorher: Teilwort im Titel, in den Schlagwörtern, im Text (summary + Text), gefaltet wie fold(); neu nur der
+# Rang für Abschnittsüberschriften zwischen Schlagwort und Text und der Sprung an den Abschnitt.
+SUCH_WORT_ANTEIL = 0.25                                # Verzeichnis höchstens ein Viertel so lang wie der Text, sonst keins
+
+def fold_js(s):
+    """fold() genau wie suche.js faltet (toLowerCase, ß, ı, œ, æ, NFKD, ohne U+0300–036F): Grundlage des Wortverzeichnisses."""
+    s = s.lower().replace("ß", "ss").replace("ı", "i").replace("œ", "oe").replace("æ", "ae")
+    return re.sub("[̀-ͯ]", "", unicodedata.normalize("NFKD", s))
+
+def suchindex_schreiben(lang, arts):
+    ordner = OUT / "data" / "suche" / lang
+    ordner.mkdir(parents=True, exist_ok=True)
+    docs, module, texte = [], [], {}
+    for a in arts:
+        mp = modul_pfad(a["path"])
+        if mp not in texte:
+            texte[mp] = []
+            module.append(mp)
+        title = a["title"] + (" (ausführlich)" if a.get("fassung") == "ausfuehrlich" and a.get("alt") else "") \
+            + (" (von Hand)" if a["autor"] == "mensch" else "")
+        if a["body"] not in _TOC:
+            _TOC[a["body"]] = md_to_html(a["body"])[1]
+        abschnitte = [[hid, klartext(_ohne_links(txt))] for hid, txt, _ in _TOC[a["body"]]]
+        d = [title, " › ".join(nm for nm, _ in a["crumbs"]), a["path"], a["tags"], a["summary"], module.index(mp), abschnitte]
+        if klartext(title) != title:
+            d.append(klartext(title))                  # Anzeige ohne TeX
+        texte[mp].append([len(docs), to_plain(a["body"])])
+        docs.append(d)
+    eintraege, wort, zeichen = [], {}, 0
+    for k, mp in enumerate(module):
+        datei = (mp if lang == "de" else mp.split("/", 1)[1]).replace("/", "_") + ".json"
+        (ordner / datei).write_text(json.dumps(texte[mp], ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+        GESCHRIEBEN_DATEN.add((ordner / datei).resolve())
+        gesamt = " ".join(fold_js(docs[i][4] + " " + t) for i, t in texte[mp])   # so durchsucht suche.js den Text
+        zeichen += len(gesamt)
+        for w in set(gesamt.split(" ")):
+            if w:
+                wort.setdefault(w, set()).add(k)
+        eintraege.append({"p": mp, "f": datei})
+    mit_woertern = len(module) >= 3 and sum(len(w) + 1 for w in wort) <= SUCH_WORT_ANTEIL * max(zeichen, 1)
+    if mit_woertern:
+        gruppen = {}
+        for w, ks in wort.items():
+            gruppen.setdefault(",".join(str(k) for k in sorted(ks)), []).append(w)
+        (ordner / "woerter.json").write_text(json.dumps({m: " ".join(sorted(ws)) for m, ws in sorted(gruppen.items())},
+                                                        ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+        GESCHRIEBEN_DATEN.add((ordner / "woerter.json").resolve())
+    (ordner / "titel.json").write_text(json.dumps({"m": eintraege, "w": mit_woertern, "d": docs}, ensure_ascii=False,
+                                                  separators=(",", ":")), encoding="utf-8")
+    GESCHRIEBEN_DATEN.add((ordner / "titel.json").resolve())
+    alt = OUT / "data" / f"search{'' if lang == 'de' else '.' + lang}.json"   # Index von vor W3a
+    if alt.exists():
+        alt.unlink()
 
 def main():
     TREES.update(collect())
@@ -1980,11 +2184,17 @@ def main():
             MODUL_SPRACHEN.setdefault(modul_pfad(p), set()).add(lang)
     counts = {lang: build_lang(lang, tree) for lang, tree in TREES.items()}
     alt = alte_seiten_entfernen()
+    for p in sorted((OUT / "data" / "suche").rglob("*.json")):   # Suchteile alter Module oder Sprachen
+        if p.resolve() not in GESCHRIEBEN_DATEN:
+            p.unlink()
     LANG_NOW[0] = "de"
     (OUT / "assets" / "wissen.css").write_text(WISSEN_CSS, encoding="utf-8")
     ui_js = {l: {k: UI[l][k] for k in LERNEN_JS if k in UI[l]} for l in LANGS}   # Oberflächenwörter für wissen.js
     (OUT / "assets" / "wissen.js").write_text(
         WISSEN_JS.replace("/*UI_LERNEN*/{}", json.dumps(ui_js, ensure_ascii=False, separators=(",", ":"))), encoding="utf-8")
+    (OUT / "assets" / "suche.js").write_text(SUCHE_JS, encoding="utf-8")
+    n_start = startseiten_schreiben()
+    print(f"  Startseiten: {n_start} Übersetzungen von web/index.html")
     day = write_version()
     for lang, st in KARTEN_STAT.items():               # Lernkarten je Sprache: gute und aussortierte (Gründe siehe modul_karten)
         gut = sum(s["gut"] for s in st.values())
@@ -2031,6 +2241,313 @@ def write_version():
     day = datetime.date.fromtimestamp(max(p.stat().st_mtime for p in srcs)).isoformat()
     (web / "version.json").write_text(f'{{ "updated": "{day}" }}\n', encoding="utf-8")
     return day
+
+# ------------------------------------------------------- Startseite in sechs Sprachen (W3a) ----
+# web/index.html bleibt die deutsche Startseite und die Vorlage (von Hand gepflegt). Der Build schreibt daraus
+# web/<l>/index.html: Inhalt der Elemente mit data-i18n="schlüssel" und Attribute aus data-i18n-attr="attr:schlüssel;…"
+# kommen aus STARTSEITE_TEXTE, die Wörter der Skripte (<script id="seite-text">) aus deren "js", die Sprachwahl aus
+# lang_switch, Bilder aus web/abbildungen/<l>/ (wenn es sie gibt), Links auf /wissen/ zeigen auf /wissen/<l>/. Module,
+# die es in der Sprache noch nicht gibt, nennt eine Zeile unter der Übersicht (wie auf /wissen/<l>/). Fehlt ein Text,
+# bleibt der deutsche stehen (Meldung beim Bauen). Impressum und Datenschutz bleiben deutsch.
+STARTSEITE_TEXTE = {
+    "en": {
+        "titel": "EtUndSo — Explanations & tools for electrical engineering",
+        "beschreibung": "EtUndSo: clear, animated explanations and tools for electrical engineering and mathematics modules — and so on. "
+                        "With the browser editor to rebuild them yourself.",
+        "banner": "Still under construction, expanded continuously.", "update": "Last update:",
+        "nav_wissen": "Knowledge", "nav_editor": "Editor", "nav_videos": "Videos", "editor_oeffnen": "Open editor",
+        "eyebrow": "Electrical engineering — and so on",
+        "h1": 'Electrical engineering and so on, explained <span class="u">in depth</span> and animated.',
+        "hero_p": "EtUndSo brings together step-by-step explanations, animations and tools for electrical engineering and mathematics "
+                  "modules — plus a few other subjects along the way. Anything you see, you can rebuild yourself in the <strong>editor</strong>.",
+        "editor_oeffnen_pfeil": "Open editor →", "module_ansehen": "Browse modules",
+        "foto1_t": "Field lines – open in the editor",
+        "foto1_alt": "Field line diagrams: opposite and like charges, a pair of plates, a metal tube between plates",
+        "foto2_t": "Dot product – open in the editor",
+        "foto2_alt": "Dot product of two vectors, worked out step by step: 360 + 30 + (−100) = 290",
+        "foto3_t": "3D surface – open in the editor",
+        "foto3_alt": "3D surface: collector current I_C of a transistor over U_BE and U_CE",
+        "hero_cap": "Three figures from the articles, built in the editor. A click opens them there.",
+        "editor_h2": "The editor", "editor_titel": "Mathematical animations right in the browser",
+        "editor_p": "A browser-based evolution of Manim: put together objects and operations, play them back and export them as an image "
+                    "or video. No installation, nothing to set up.",
+        "editor_li1": "Functions, 3D surfaces, sums & products, convolutions",
+        "editor_li2": "Step-by-step choreography instead of a mere graphic", "editor_li3": "Export as an image or smooth video",
+        "video_label": "Animation: The Fourier series builds a square wave term by term, with harmonics and amplitude spectrum",
+        "video_cap": "Fourier series of a square wave, term by term", "im_editor": "Open in the editor →",
+        "mod_eyebrow": "Modules", "mod_h2": "Subjects & topics",
+        "mod_p": "An overview of all modules — click a module to expand its topics, or search directly: for a module, a topic or a term "
+                 "anywhere in the article text.",
+        "suche_label": "Search the knowledge base",
+        "suche_ph": "Search for a module, topic or term — parts of words work too (e.g. “divider”)",
+        "laedt": "Loading the overview …", "zum_wissen": "Go to the knowledge base →", "ganzer_bereich": "Open the whole knowledge base →",
+        "how_eyebrow": "How it works", "how_h2": "From concept to clarity",
+        "how1_h": "The picture first",
+        "how1_p": "Every topic starts with something you can picture — an analogy and the big picture, before any formulas.",
+        "how2_h": "Then the physics", "how2_p": "Derived carefully, always with the “why”: which mechanism produces the effect.",
+        "how3_h": "Rebuild it yourself",
+        "how3_p": "The animations are made in the editor — you can open them, change them and experiment on your own.",
+        "videos_eyebrow": "soon", "videos_h2": "Explainer videos",
+        "videos_p": "Short animated videos on individual topics — built with the editor. Coming soon.",
+        "stats_label": "Usage figures", "stat_site": "Page views", "stat_editor": "Editor opened",
+        "fuss": "EtUndSo.de · Explanations & tools for electrical engineering — and so on.",
+        "impressum": "Legal notice", "datenschutz": "Privacy", "recht_de": "The legal pages are in German.",
+        "js": {"artikel": "{n} articles", "nichts": "Nothing found for “{q}”.", "fehler": "The overview could not be loaded.",
+               "zum_wissen": "Go to the knowledge base →", "weiterlesen": "Continue reading", "volltext": "Searching the full text …",
+               "locale": "en-GB"},
+    },
+    "es": {
+        "titel": "EtUndSo — Explicaciones y herramientas de ingeniería eléctrica",
+        "beschreibung": "EtUndSo: explicaciones claras y animadas, y herramientas para módulos de ingeniería eléctrica y matemáticas — y más. "
+                        "Con el editor en el navegador para reconstruirlas tú mismo.",
+        "banner": "Todavía en construcción; se amplía continuamente.", "update": "Última actualización:",
+        "nav_wissen": "Conocimiento", "nav_editor": "Editor", "nav_videos": "Vídeos", "editor_oeffnen": "Abrir el editor",
+        "eyebrow": "Ingeniería eléctrica — y más",
+        "h1": 'Ingeniería eléctrica y más, explicada <span class="u">a fondo</span> y animada.',
+        "hero_p": "EtUndSo reúne explicaciones paso a paso, animaciones y herramientas para módulos de ingeniería eléctrica y matemáticas "
+                  "— y, de paso, algunas otras materias. Lo que ves puedes reconstruirlo tú mismo en el <strong>editor</strong>.",
+        "editor_oeffnen_pfeil": "Abrir el editor →", "module_ansehen": "Ver los módulos",
+        "foto1_t": "Líneas de campo – abrir en el editor",
+        "foto1_alt": "Diagramas de líneas de campo: cargas opuestas e iguales, un par de placas, un tubo metálico entre placas",
+        "foto2_t": "Producto escalar – abrir en el editor",
+        "foto2_alt": "Producto escalar de dos vectores, calculado paso a paso: 360 + 30 + (−100) = 290",
+        "foto3_t": "Superficie 3D – abrir en el editor",
+        "foto3_alt": "Superficie 3D: corriente de colector I_C de un transistor en función de U_BE y U_CE",
+        "hero_cap": "Tres figuras de los artículos, creadas en el editor. Un clic las abre allí.",
+        "editor_h2": "El editor", "editor_titel": "Animaciones matemáticas directamente en el navegador",
+        "editor_p": "Una evolución de Manim en el navegador: combina objetos y operaciones, reprodúcelos y expórtalos como imagen o "
+                    "vídeo. Sin instalación, nada que configurar.",
+        "editor_li1": "Funciones, superficies 3D, sumas y productos, convoluciones",
+        "editor_li2": "Coreografía paso a paso en lugar de un simple gráfico", "editor_li3": "Exportación como imagen o vídeo fluido",
+        "video_label": "Animación: la serie de Fourier construye una onda cuadrada término a término, con armónicos y espectro de amplitud",
+        "video_cap": "Serie de Fourier de una onda cuadrada, término a término", "im_editor": "Abrir en el editor →",
+        "mod_eyebrow": "Módulos", "mod_h2": "Materias y temas",
+        "mod_p": "Una vista general de todos los módulos: haz clic en un módulo para desplegar sus temas, o busca directamente un "
+                 "módulo, un tema o un término en el texto de los artículos.",
+        "suche_label": "Buscar en el conocimiento",
+        "suche_ph": "Buscar módulo, tema o término — también partes de palabras (p. ej., «divisor»)",
+        "laedt": "Cargando la vista general …", "zum_wissen": "Ir al conocimiento →", "ganzer_bereich": "Abrir todo el conocimiento →",
+        "how_eyebrow": "Cómo funciona", "how_h2": "Del concepto a la claridad",
+        "how1_h": "Primero la imagen",
+        "how1_p": "Cada tema empieza de forma intuitiva — con una analogía y el contexto general, antes de las fórmulas.",
+        "how2_h": "Luego la física", "how2_p": "Deducida con cuidado, siempre con el «porqué»: qué mecanismo produce el efecto.",
+        "how3_h": "Reconstruirlo tú mismo",
+        "how3_p": "Las animaciones se crean en el editor — puedes abrirlas, modificarlas y experimentar por tu cuenta.",
+        "videos_eyebrow": "pronto", "videos_h2": "Vídeos explicativos",
+        "videos_p": "Vídeos cortos y animados sobre temas concretos — hechos con el editor. Próximamente.",
+        "stats_label": "Cifras de uso", "stat_site": "Visitas", "stat_editor": "Editor abierto",
+        "fuss": "EtUndSo.de · Explicaciones y herramientas de ingeniería eléctrica — y más.",
+        "impressum": "Aviso legal", "datenschutz": "Privacidad", "recht_de": "Las páginas legales están en alemán.",
+        "js": {"artikel": "{n} artículos", "nichts": "No se encontró nada para «{q}».", "fehler": "No se pudo cargar la vista general.",
+               "zum_wissen": "Ir al conocimiento →", "weiterlesen": "Seguir leyendo", "volltext": "Buscando en el texto completo …",
+               "locale": "es-ES"},
+    },
+    "zh": {
+        "titel": "EtUndSo — 电气工程讲解与工具",
+        "beschreibung": "EtUndSo：清晰的动画讲解和工具，涵盖电气工程与数学课程模块，还有更多。借助浏览器中的编辑器亲手重现。",
+        "banner": "仍在建设中，持续扩充", "update": "最近更新：",
+        "nav_wissen": "知识库", "nav_editor": "编辑器", "nav_videos": "视频", "editor_oeffnen": "打开编辑器",
+        "eyebrow": "电气工程及更多",
+        "h1": '电气工程及更多，<span class="u">详细</span>讲解，配有动画。',
+        "hero_p": "EtUndSo 汇集电气工程和数学课程模块的分步讲解、动画和工具，也顺带涉及其他一些学科。你看到的内容，都可以在"
+                  "<strong>编辑器</strong>中亲手重现。",
+        "editor_oeffnen_pfeil": "打开编辑器 →", "module_ansehen": "浏览模块",
+        "foto1_t": "电场线 – 在编辑器中打开", "foto1_alt": "电场线图：异号和同号电荷、一对极板、极板之间的金属管",
+        "foto2_t": "标量积 – 在编辑器中打开", "foto2_alt": "两个向量的标量积，逐步计算：360 + 30 + (−100) = 290",
+        "foto3_t": "三维曲面 – 在编辑器中打开", "foto3_alt": "三维曲面：晶体管集电极电流 I_C 随 U_BE 和 U_CE 的变化",
+        "hero_cap": "三幅插图取自文章，均用编辑器制作。点击即可在编辑器中打开。",
+        "editor_h2": "编辑器", "editor_titel": "直接在浏览器中制作数学动画",
+        "editor_p": "在浏览器中运行、以 Manim 为基础进一步发展的工具：组合对象和操作，播放，并导出为图片或视频。无需安装，无需配置。",
+        "editor_li1": "函数、三维曲面、求和与乘积、卷积", "editor_li2": "分步编排，而不只是一张静态图", "editor_li3": "导出为图片或流畅的视频",
+        "video_label": "动画：傅里叶级数逐项构建方波，附谐波和幅度谱",
+        "video_cap": "方波的傅里叶级数，逐项展开", "im_editor": "在编辑器中打开 →",
+        "mod_eyebrow": "模块", "mod_h2": "学科与主题",
+        "mod_p": "所有模块一览：点击模块即可展开其主题；也可以直接搜索模块、主题或文章正文中的术语。",
+        "suche_label": "搜索知识库", "suche_ph": "搜索模块、主题或术语，也可以只输入词的一部分（例如“分压”）",
+        "laedt": "正在加载总览 …", "zum_wissen": "前往知识库 →", "ganzer_bereich": "打开整个知识库 →",
+        "how_eyebrow": "学习方式", "how_h2": "从概念到清晰",
+        "how1_h": "先看图景", "how1_p": "每个主题都从直观入手：先用类比和整体联系，再引入公式。",
+        "how2_h": "再讲物理", "how2_p": "严谨推导，始终回答“为什么”：是哪种机制产生了这种效果。",
+        "how3_h": "亲手重现", "how3_p": "动画都在编辑器中制作：你可以打开、修改并自己动手实验。",
+        "videos_eyebrow": "即将推出", "videos_h2": "讲解视频", "videos_p": "针对单个主题的简短动画视频，用编辑器制作。即将推出。",
+        "stats_label": "使用统计", "stat_site": "页面访问", "stat_editor": "编辑器打开次数",
+        "fuss": "EtUndSo.de · 电气工程讲解与工具，以及更多。",
+        "impressum": "法律声明", "datenschutz": "隐私", "recht_de": "法律页面为德语。",
+        "js": {"artikel": "{n} 篇文章", "nichts": "未找到“{q}”。", "fehler": "无法加载总览。", "zum_wissen": "前往知识库 →",
+               "weiterlesen": "继续阅读", "volltext": "正在搜索全文 …", "locale": "zh-CN"},
+    },
+    "fr": {
+        "titel": "EtUndSo — Explications et outils pour l’électrotechnique",
+        "beschreibung": "EtUndSo : des explications claires et animées et des outils pour les modules d’électrotechnique et de "
+                        "mathématiques — et plus encore. Avec l’éditeur dans le navigateur pour les reconstruire soi-même.",
+        "banner": "Encore en construction, enrichi en continu.", "update": "Dernière mise à jour :",
+        "nav_wissen": "Connaissances", "nav_editor": "Éditeur", "nav_videos": "Vidéos", "editor_oeffnen": "Ouvrir l’éditeur",
+        "eyebrow": "Électrotechnique — et plus",
+        "h1": 'L’électrotechnique et plus, expliquée <span class="u">en détail</span> et animée.',
+        "hero_p": "EtUndSo réunit des explications pas à pas, des animations et des outils pour les modules d’électrotechnique et de "
+                  "mathématiques — et, au passage, quelques autres matières. Ce que vous voyez, vous pouvez le reconstruire vous-même "
+                  "dans l’<strong>éditeur</strong>.",
+        "editor_oeffnen_pfeil": "Ouvrir l’éditeur →", "module_ansehen": "Voir les modules",
+        "foto1_t": "Lignes de champ – ouvrir dans l’éditeur",
+        "foto1_alt": "Lignes de champ : charges de signes opposés et de même signe, paire de plaques, tube métallique entre des plaques",
+        "foto2_t": "Produit scalaire – ouvrir dans l’éditeur",
+        "foto2_alt": "Produit scalaire de deux vecteurs, calculé pas à pas : 360 + 30 + (−100) = 290",
+        "foto3_t": "Surface 3D – ouvrir dans l’éditeur",
+        "foto3_alt": "Surface 3D : courant de collecteur I_C d’un transistor en fonction de U_BE et U_CE",
+        "hero_cap": "Trois figures tirées des articles, construites dans l’éditeur. Un clic les y ouvre.",
+        "editor_h2": "L’éditeur", "editor_titel": "Des animations mathématiques directement dans le navigateur",
+        "editor_p": "Une évolution de Manim dans le navigateur : assembler des objets et des opérations, les lire et les exporter "
+                    "en image ou en vidéo. Aucune installation, rien à configurer.",
+        "editor_li1": "Fonctions, surfaces 3D, sommes et produits, convolutions",
+        "editor_li2": "Une chorégraphie pas à pas plutôt qu’un simple graphique", "editor_li3": "Export en image ou en vidéo fluide",
+        "video_label": "Animation : la série de Fourier construit un signal carré terme par terme, avec les harmoniques et le "
+                       "spectre d’amplitude",
+        "video_cap": "Série de Fourier d’un signal carré, terme par terme", "im_editor": "Ouvrir dans l’éditeur →",
+        "mod_eyebrow": "Modules", "mod_h2": "Matières et thèmes",
+        "mod_p": "Un aperçu de tous les modules — cliquez sur un module pour déplier ses thèmes, ou cherchez directement un module, un "
+                 "thème ou une notion dans le texte des articles.",
+        "suche_label": "Rechercher dans les connaissances",
+        "suche_ph": "Chercher un module, un thème ou une notion — aussi une partie de mot (p. ex. « diviseur »)",
+        "laedt": "Chargement de l’aperçu …", "zum_wissen": "Vers les connaissances →", "ganzer_bereich": "Ouvrir toutes les connaissances →",
+        "how_eyebrow": "Comment ça marche", "how_h2": "Du concept à la clarté",
+        "how1_h": "D’abord l’image",
+        "how1_p": "Chaque thème commence de façon concrète — par une analogie et la vue d’ensemble, avant les formules.",
+        "how2_h": "Ensuite la physique",
+        "how2_p": "Établie avec soin, toujours avec le « pourquoi » : quel mécanisme produit l’effet.",
+        "how3_h": "Reconstruire soi-même",
+        "how3_p": "Les animations sont créées dans l’éditeur — vous pouvez les ouvrir, les modifier et expérimenter vous-même.",
+        "videos_eyebrow": "bientôt", "videos_h2": "Vidéos explicatives",
+        "videos_p": "De courtes vidéos animées sur des thèmes précis — réalisées avec l’éditeur. Bientôt disponibles.",
+        "stats_label": "Chiffres d’utilisation", "stat_site": "Pages vues", "stat_editor": "Éditeur ouvert",
+        "fuss": "EtUndSo.de · Explications et outils pour l’électrotechnique — et plus.",
+        "impressum": "Mentions légales", "datenschutz": "Confidentialité", "recht_de": "Les pages juridiques sont en allemand.",
+        "js": {"artikel": "{n} articles", "nichts": "Aucun résultat pour « {q} ».", "fehler": "Impossible de charger l’aperçu.",
+               "zum_wissen": "Vers les connaissances →", "weiterlesen": "Reprendre la lecture",
+               "volltext": "Recherche dans le texte intégral …", "locale": "fr-FR"},
+    },
+    "tr": {
+        "titel": "EtUndSo — Elektrik mühendisliği için açıklamalar ve araçlar",
+        "beschreibung": "EtUndSo: elektrik mühendisliği ve matematik modülleri için anlaşılır, animasyonlu açıklamalar ve araçlar — ve daha "
+                        "fazlası. Tarayıcıdaki editörle kendiniz yeniden oluşturabilirsiniz.",
+        "banner": "Hâlâ yapım aşamasında, sürekli genişletiliyor.", "update": "Son güncelleme:",
+        "nav_wissen": "Bilgi", "nav_editor": "Editör", "nav_videos": "Videolar", "editor_oeffnen": "Editörü aç",
+        "eyebrow": "Elektrik mühendisliği — ve daha fazlası",
+        "h1": 'Elektrik mühendisliği ve daha fazlası, <span class="u">ayrıntılı</span> açıklamalı ve animasyonlu.',
+        "hero_p": "EtUndSo, elektrik mühendisliği ve matematik modülleri için adım adım açıklamaları, animasyonları ve araçları bir araya "
+                  "getirir; yanı sıra birkaç başka dersi de. Gördüğünüz her şeyi <strong>editörde</strong> kendiniz yeniden "
+                  "oluşturabilirsiniz.",
+        "editor_oeffnen_pfeil": "Editörü aç →", "module_ansehen": "Modüllere göz at",
+        "foto1_t": "Alan çizgileri – editörde aç",
+        "foto1_alt": "Alan çizgisi resimleri: zıt ve aynı işaretli yükler, plaka çifti, plakalar arasında metal boru",
+        "foto2_t": "Skaler çarpım – editörde aç",
+        "foto2_alt": "İki vektörün skaler çarpımı, adım adım hesaplanmış: 360 + 30 + (−100) = 290",
+        "foto3_t": "3B yüzey – editörde aç",
+        "foto3_alt": "3B yüzey: bir transistörün kolektör akımı I_C, U_BE ve U_CE’ye göre",
+        "hero_cap": "Makalelerden üç şekil, editörde oluşturuldu. Tıklayınca orada açılır.",
+        "editor_h2": "Editör", "editor_titel": "Doğrudan tarayıcıda matematiksel animasyonlar",
+        "editor_p": "Manim’in tarayıcıda çalışan bir geliştirmesi: nesneleri ve işlemleri bir araya getirin, oynatın ve resim ya da "
+                    "video olarak dışa aktarın. Kurulum yok, ayarlanacak bir şey yok.",
+        "editor_li1": "Fonksiyonlar, 3B yüzeyler, toplamlar ve çarpımlar, konvolüsyonlar",
+        "editor_li2": "Salt bir grafik yerine adım adım koreografi", "editor_li3": "Resim ya da akıcı video olarak dışa aktarma",
+        "video_label": "Animasyon: Fourier serisi kare dalgayı terim terim oluşturur; harmonikler ve genlik spektrumuyla",
+        "video_cap": "Kare dalganın Fourier serisi, terim terim", "im_editor": "Editörde aç →",
+        "mod_eyebrow": "Modüller", "mod_h2": "Dersler ve konular",
+        "mod_p": "Tüm modüllere genel bakış: konularını açmak için bir modüle tıklayın ya da doğrudan arayın — modül, konu veya makale "
+                 "metnindeki bir kavram.",
+        "suche_label": "Bilgide ara", "suche_ph": "Modül, konu veya kavram arayın — kelime parçaları da olur (ör. “bölücü”)",
+        "laedt": "Genel bakış yükleniyor …", "zum_wissen": "Bilgi alanına git →", "ganzer_bereich": "Bilgi alanının tamamını aç →",
+        "how_eyebrow": "Nasıl işler", "how_h2": "Kavramdan berraklığa",
+        "how1_h": "Önce resim", "how1_p": "Her konu somut başlar — formüllerden önce bir benzetme ve büyük resimle.",
+        "how2_h": "Sonra fizik", "how2_p": "Özenle türetilir, her zaman “neden” sorusuyla: etkiyi hangi mekanizma oluşturur.",
+        "how3_h": "Kendiniz oluşturun",
+        "how3_p": "Animasyonlar editörde oluşturulur — onları açabilir, değiştirebilir ve kendiniz deneyebilirsiniz.",
+        "videos_eyebrow": "yakında", "videos_h2": "Açıklayıcı videolar",
+        "videos_p": "Tek tek konular hakkında kısa, animasyonlu videolar — editörle yapılır. Yakında.",
+        "stats_label": "Kullanım sayıları", "stat_site": "Sayfa görüntüleme", "stat_editor": "Editör açıldı",
+        "fuss": "EtUndSo.de · Elektrik mühendisliği için açıklamalar ve araçlar — ve daha fazlası.",
+        "impressum": "Künye", "datenschutz": "Gizlilik", "recht_de": "Yasal sayfalar Almancadır.",
+        "js": {"artikel": "{n} makale", "nichts": "“{q}” için sonuç bulunamadı.", "fehler": "Genel bakış yüklenemedi.",
+               "zum_wissen": "Bilgi alanına git →", "weiterlesen": "Okumaya devam et", "volltext": "Tam metinde aranıyor …",
+               "locale": "tr-TR"},
+    },
+}
+
+_I18N_EL = re.compile(r'(<(\w+)\b[^>]*?\sdata-i18n="([\w-]+)"[^>]*>)(.*?)(</\2>)', re.S)
+_I18N_ATTR = re.compile(r'<[^>]*?\sdata-i18n-attr="([^"]+)"[^>]*>', re.S)
+_SPRACHWAHL = re.compile(r"<!-- sprachwahl-(top|art) -->.*?<!-- /sprachwahl-\1 -->", re.S)
+
+def _attr_setzen(tag, name, wert):
+    """Attribut name im Start-Tag tag auf wert setzen (vorhanden: ersetzen, sonst vor dem Ende anfügen)."""
+    w = html.escape(wert, quote=True)
+    m = re.search(r'\s%s="[^"]*"' % re.escape(name), tag)
+    if m:
+        return tag[:m.start()] + f' {name}="{w}"' + tag[m.end():]
+    ende = len(tag) - (2 if tag.endswith("/>") else 1)
+    return tag[:ende] + f' {name}="{w}"' + tag[ende:]
+
+def startseite_html(vorlage, l):
+    """Startseite der Sprache l aus der deutschen Vorlage (web/index.html)."""
+    texte, fehlt = STARTSEITE_TEXTE[l], set()
+    LANG_NOW[0] = l
+    def el(m):
+        key = m.group(3)
+        if key == "nur_de":                            # Module nur auf Deutsch: Zeile wie in der Übersicht, sonst leer
+            zeile = _nur_deutsch(TREES.get(l, []))
+            if not zeile:
+                return m.group(0)
+            inhalt = zeile[zeile.index(">") + 1:zeile.rindex("</p>")]
+            return m.group(1).replace(" hidden", "", 1) + inhalt + m.group(5)
+        if key not in texte:
+            fehlt.add(key)
+            return m.group(0)
+        return m.group(1) + texte[key] + m.group(5)
+    t = _I18N_EL.sub(el, vorlage)
+    def attr(m):
+        tag = m.group(0)
+        for paar in m.group(1).split(";"):
+            name, _, key = paar.partition(":")
+            if key in texte:
+                tag = _attr_setzen(tag, name.strip(), texte[key])
+            else:
+                fehlt.add(key)
+        return tag
+    t = _I18N_ATTR.sub(attr, t)
+    t = re.sub(r'<html lang="de">', f'<html lang="{l}">', t, count=1)
+    ziele = {x: "/" if x == "de" else f"/{x}/" for x in LANGS}
+    t = _SPRACHWAHL.sub(lambda m: f"<!-- sprachwahl-{m.group(1)} -->" + lang_switch({"ziele": ziele}, m.group(1))
+                        + f"<!-- /sprachwahl-{m.group(1)} -->", t)
+    t = t.replace('href="/wissen/"', f'href="/wissen/{l}/"')
+    def bild(m):
+        rel = m.group(1)
+        return f'src="/abbildungen/{l}/{rel}"' if (ABB_DIR / l / rel).exists() else m.group(0)
+    t = re.sub(r'src="/abbildungen/de/([^"]+)"', bild, t)
+    js = re.search(r'(<script type="application/json" id="seite-text">)(.*?)(</script>)', t, re.S)
+    if js:
+        d = json.loads(js.group(2))
+        d.update(texte.get("js", {}))
+        t = t[:js.start(2)] + json.dumps(d, ensure_ascii=False) + t[js.end(2):]
+    LANG_NOW[0] = "de"
+    return t, fehlt
+
+def startseiten_schreiben():
+    """web/<l>/index.html für alle Sprachen außer Deutsch; schreibt nur bei geänderter Seite (Datum „Letztes Update“)."""
+    pfad = ROOT / "web" / "index.html"
+    if not pfad.exists():
+        return 0
+    vorlage = pfad.read_text(encoding="utf-8")
+    n = 0
+    for l in LANGS:
+        if l == "de" or l not in STARTSEITE_TEXTE:
+            continue
+        t, fehlt = startseite_html(vorlage, l)
+        if fehlt:
+            print(f"  Startseite {l}: ohne Übersetzung (deutsch gelassen): {', '.join(sorted(fehlt))}")
+        ziel = ROOT / "web" / l / "index.html"
+        ziel.parent.mkdir(parents=True, exist_ok=True)
+        if not ziel.exists() or ziel.read_text(encoding="utf-8") != t:
+            ziel.write_text(t, encoding="utf-8")
+        n += 1
+    return n
 
 # --------------------------------------------------------- shared CSS / JS ----
 WISSEN_CSS = r"""
@@ -2701,51 +3218,117 @@ details.lk-alle>summary{cursor:pointer;font-size:15px;font-weight:600;color:var(
 @media print{
   .lf-weiter,.lf-art,.lf-z,.side-lernen,.idx-lernen,.vs-karte,.zf-test,.zf-fuss,.zf-cue,.bg-abc,.bg-such,.lk-app,.lern-reset{display:none!important;}
 }
+/* ---------- Finden (W3a, 11.11.2026): nachgeladene Seitenleiste, Modulkarten der Übersicht, Suchfeld ---------- */
+.side .side-mehr,.side .baum-hinweis{display:block;margin:2px 0 6px 22px;font-size:13px;color:var(--muted);}
+.side .side-mehr:hover{color:var(--accent);}
+.article.idx{grid-template-columns:minmax(0,1fr);}         /* Übersicht ohne rechte Spalte: Platz für drei Karten nebeneinander */
+.article.idx>article{max-width:none;}
+.article.idx .lede,.article.idx .idx-hinweis{max-width:70ch;}
+.idx-suche{display:flex;align-items:center;gap:10px;width:100%;max-width:620px;margin:-.3em 0 1.6em;padding:12px 16px;
+  border:1px solid var(--border);border-radius:12px;background:var(--panel);color:var(--muted);font:inherit;font-size:16px;text-align:left;cursor:text;}
+.idx-suche span{flex:1;min-width:0;}
+.idx-suche:hover,.idx-suche:focus-visible{border-color:var(--accent);}
+.idx-suche[hidden]{display:none;}
+:root[data-theme="dark"] .idx-suche{border-color:var(--rahmen);}
+.field-block>h2{scroll-margin-top:70px;}
+.gruppen{display:flex;flex-wrap:wrap;gap:22px 18px;margin:.4em 0 .6em;}
+.gruppe{flex:1 1 250px;min-width:0;scroll-margin-top:70px;}
+.gruppe.gr-n2{flex-basis:520px;} .gruppe.gr-n3{flex-basis:790px;}
+.gruppe:has(.mk-det[open]){flex-basis:100%;}                 /* aufgeklappte Karte: die Gruppe nimmt die ganze Breite */
+.article .gruppe h3.gr-h{margin:0 0 8px;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent3);}
+.mk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px;align-items:start;}
+.mk{display:flex;flex-direction:column;min-width:0;background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);}
+.mk:has(.mk-det[open]){grid-column:1/-1;}
+:root[data-theme="dark"] .mk{border-color:var(--rahmen);}
+.mk>.theme-card{border:0;}
+.mk-det>summary{list-style:none;cursor:pointer;}
+.mk-det>summary::-webkit-details-marker{display:none;}
+.mk-kopf{display:flex;flex-direction:column;gap:2px;padding:14px 16px 8px;border-radius:var(--radius) var(--radius) 0 0;scroll-margin-top:70px;}
+.mk-kopf:hover{background:var(--soft);}
+.mk-kopf:focus-visible{outline:2px solid var(--accent);outline-offset:-2px;}
+.mk-titel{font-family:var(--fdisp);font-weight:700;font-size:17px;color:var(--accent);}
+.mk-titel::after{content:"";display:inline-block;width:.42em;height:.42em;margin:0 0 .16em .5em;border:solid var(--muted);
+  border-width:0 2px 2px 0;transform:rotate(45deg);transition:transform .15s;}  /* Winkel: zu = nach unten, offen = nach oben */
+.mk-det[open]>.mk-kopf .mk-titel::after{transform:rotate(-135deg);margin-bottom:-.05em;}
+.mk-voll{font-size:14px;line-height:1.35;color:var(--ink);}
+.mk-zahl{margin-top:4px;font-size:13px;color:var(--muted);}
+.mk-lf:empty{display:none;}
+.mk-lf{display:flex;align-items:center;gap:8px;margin-top:6px;}
+.mk-lf .lf-balken{flex:1;} .mk-lf .lf-text{font-size:12.5px;color:var(--muted);white-space:nowrap;}
+.mk-inhalt{padding:4px 16px 8px;border-top:1px solid var(--border);}
+:root[data-theme="dark"] .mk-inhalt{border-top-color:var(--rahmen);}
+.mk-lernen{margin-top:auto;padding:4px 16px 12px;font-size:13.5px;color:var(--muted);}
+.mk-lernen a{color:var(--muted);} .mk-lernen a:hover{color:var(--accent);}
+details.mk-kap{border-bottom:1px solid var(--border);}
+details.mk-kap:last-child{border-bottom:0;}
+details.mk-kap>summary{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 12px;padding:9px 2px;cursor:pointer;list-style:none;}
+details.mk-kap>summary::-webkit-details-marker{display:none;}
+details.mk-kap>summary::before{content:"▸";color:var(--muted);display:inline-block;width:.9em;transition:transform .15s;}
+details.mk-kap[open]>summary::before{transform:rotate(90deg);}
+.kap-name{flex:1 1 260px;min-width:0;font-weight:600;color:var(--ink);}
+.kap-zahl{font-size:13px;color:var(--muted);white-space:nowrap;}
+details.mk-kap>summary .lf-z{font-size:12px;color:var(--muted);}
+details.mk-kap .theme-card,:root[data-theme="dark"] details.mk-kap .theme-card{margin:0 0 10px;padding:0 0 0 1.15em;border:0;background:transparent;}
+.article details.mk-kap .theme-card li{font-size:15.5px;margin:3px 0;}
+details.mk-kap details.mk-kap{margin-left:1em;}
+.article p.idx-nur-de{font-size:15px;color:var(--muted);margin:1.6em 0 0;}
+.searchResults .r-abschnitt{color:var(--accent);}
+.searchHint.laedt{border-top:0;}
+@media(max-width:620px){
+  .gruppe,.gruppe.gr-n2,.gruppe.gr-n3{flex-basis:100%;}
+  .mk-grid{grid-template-columns:1fr;}
+  .mk-inhalt{padding:2px 12px 6px;}
+}
+@media print{ .idx-suche,.mk-lf{display:none!important;} }
 """
 
 WISSEN_JS = r"""
 var NICHTS={de:"Nichts gefunden für „{q}\".",en:"Nothing found for „{q}\".",es:"Nada encontrado para „{q}\".",zh:"未找到 „{q}\".",
             fr:"Aucun résultat pour «\u00a0{q}\u00a0».",tr:"“{q}” için sonuç bulunamadı."};
-// Suche: vorab gebauter Index (search.json), Teilwort-/Infix-Treffer, umlaut-/ß-tolerant, gerankt + hervorgehoben.
+// Suche: Teilwort-/Infix-Treffer, umlaut-/ß-tolerant, gerankt + hervorgehoben. Der Kern steht in suche.js (W3a, gemeinsam
+// mit der Startseite) und wird erst beim ersten Öffnen geladen; er holt zuerst nur Titel und Abschnitte, den Volltext je
+// Modul, sobald gesucht wird (und nur Module, die das Wort enthalten können).
+var KATEX_OPT={delimiters:[{left:"$$",right:"$$",display:true},{left:"$",right:"$",display:false},{left:"\\(",right:"\\)",display:false}],strict:false};
+function mathe(el){ if(window.renderMathInElement) try{ renderMathInElement(el,KATEX_OPT); }catch(e){} }
 (function(){
   var overlay=document.getElementById("searchOverlay"), input=document.getElementById("searchInput"),
       results=document.getElementById("searchResults"), btn=document.getElementById("searchBtn");
-  var DOCS=null, sel=-1, rows=[];
-  function fold(s){ return (s||"").toLowerCase().replace(/ß/g,"ss").replace(/ı/g,"i").replace(/œ/g,"oe").replace(/æ/g,"ae")
-    .normalize("NFKD").replace(/[̀-ͯ]/g,""); }                // wie fold() in build_wissen.py
-  function load(){ if(DOCS) return Promise.resolve(DOCS);
-    var L=document.documentElement.lang; L=(L&&L!=="de")?"."+L:"";
-    return fetch("/wissen/data/search"+L+".json").then(function(r){return r.json();}).then(function(d){DOCS=d;return d;}).catch(function(){DOCS=[];return [];}); }
-  function esc(s){ return s.replace(/[&<>]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;"}[c];}); }
-  function safeSnippet(doc,q){
-    var t=doc.text||doc.summary||"", ft=fold(t), i=ft.indexOf(q);
-    if(i<0) return esc(t.slice(0,130))+(t.length>130?"…":"");
-    var a=Math.max(0,i-45);
-    return (a>0?"…":"")+esc(t.slice(a,i))+"<mark>"+esc(t.slice(i,i+q.length))+"</mark>"+esc(t.slice(i+q.length,i+q.length+70))+"…";
+  var S=null, P=null, sel=-1, rows=[], frage="";
+  var LANG=(document.documentElement.lang||"de").slice(0,2);
+  function kern(){                                     // suche.js einmal einbinden, Index starten
+    if(!P) P=new Promise(function(ok,nein){
+      if(window.ETSuche){ ok(); return; }
+      var s=document.createElement("script"); s.src="/wissen/assets/suche.js"; s.onload=ok; s.onerror=nein; document.head.appendChild(s);
+    }).then(function(){ S=window.ETSuche(LANG); return S.start(); }).catch(function(){ P=null; throw 0; });
+    return P;
   }
-  function search(raw){
-    var q=fold(raw.trim()); results.innerHTML=""; rows=[]; sel=-1;
-    if(q.length<2 || !DOCS) return;
-    var hits=[];
-    for(var k=0;k<DOCS.length;k++){ var d=DOCS[k], sc=-1;
-      if(d.ft_title.indexOf(q)>=0) sc=0;                 // Titel-Treffer: höchster Rang
-      else if((d.ft_tags||"").indexOf(q)>=0) sc=1;       // Tag
-      else { var p=d.ft_text.indexOf(q); if(p>=0) sc=2+Math.min(p/500,1); }  // Text, früher = besser
-      if(sc>=0) hits.push([sc,d]);
-    }
-    hits.sort(function(a,b){return a[0]-b[0];});
-    hits.slice(0,25).forEach(function(h){ var d=h[1];
-      var a=document.createElement("a"); a.href="/wissen/"+d.path;
-      a.innerHTML='<div class="r-crumb">'+esc(d.crumb||"")+'</div>'+
-                  '<div class="r-title">'+esc(d.title)+'</div>'+
-                  '<div class="r-snip">'+safeSnippet(d,q)+'</div>';
+  function esc(s){ return (s||"").replace(/[&<>]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;"}[c];}); }
+  function zeigen(raw,res){
+    if(raw!==frage) return;                            // inzwischen anders getippt
+    results.innerHTML=""; rows=[];
+    if(res.q.length<2) return;
+    res.hits.slice(0,25).forEach(function(h){ var d=h.d;
+      var a=document.createElement("a"); a.href="/wissen/"+d.path+(h.anker?"#"+encodeURIComponent(h.anker):"");
+      a.innerHTML='<div class="r-crumb">'+esc(d.crumb)+(h.abschnitt?' › <span class="r-abschnitt">'+esc(h.abschnitt)+'</span>':"")+'</div>'+
+                  '<div class="r-title">'+esc(d.klar)+'</div>'+
+                  '<div class="r-snip">'+S.snippet(d,res.q)+'</div>';
       results.appendChild(a); rows.push(a);
     });
-    if(!rows.length) results.innerHTML='<div class="searchHint">'+esc(NICHTS[document.documentElement.lang]||NICHTS.de).split("{q}").join(esc(raw.trim()))+'</div>';
+    if(sel>=rows.length) sel=rows.length-1;
+    paintSel();
+    if(res.laedt){ var w=document.createElement("div"); w.className="searchHint laedt"; w.textContent=LERNEN.w("suche_volltext"); results.appendChild(w); }
+    else if(!rows.length) results.innerHTML='<div class="searchHint">'+esc(NICHTS[LANG]||NICHTS.de).split("{q}").join(esc(raw.trim()))+'</div>';
   }
-  function open(){ if(!overlay) return; overlay.hidden=false; load().then(function(){ input.value=""; results.innerHTML=""; input.focus(); }); }
+  function search(raw){
+    frage=raw; sel=-1;
+    if(S && S.fold(raw.trim()).length<2){ results.innerHTML=""; rows=[]; return; }
+    kern().then(function(){ S.suche(raw,function(res){ zeigen(raw,res); }); }).catch(function(){});
+  }
+  function open(){ if(!overlay) return; overlay.hidden=false; input.value=""; results.innerHTML=""; rows=[]; sel=-1; input.focus();
+    kern().catch(function(){}); }
   function close(){ if(overlay) overlay.hidden=true; }
   if(btn) btn.addEventListener("click",open);
+  [].forEach.call(document.querySelectorAll("[data-suche]"),function(b){ b.hidden=false; b.addEventListener("click",open); });
   document.addEventListener("keydown",function(e){
     if(e.key==="/" && !/input|textarea|select/i.test((document.activeElement||{}).tagName) && (!overlay||overlay.hidden)){ e.preventDefault(); open(); }
     else if(e.key==="Escape"){ close(); }
@@ -2888,8 +3471,7 @@ var NICHTS={de:"Nichts gefunden für „{q}\".",en:"Nothing found for „{q}\"."
   }
   var t=null; function later(){ clearTimeout(t); t=setTimeout(fitMath,120); }
   window.addEventListener("DOMContentLoaded",function(){
-    if(window.renderMathInElement) renderMathInElement(document.body,{delimiters:[
-      {left:"$$",right:"$$",display:true},{left:"$",right:"$",display:false},{left:"\\(",right:"\\)",display:false}],strict:false});
+    if(window.renderMathInElement) renderMathInElement(document.body,KATEX_OPT);
     fitMath();
   });
   window.addEventListener("resize",later);
@@ -3226,6 +3808,52 @@ var LERNEN=(function(){
       btn.classList.add("frage"); btn.textContent=w("reset_sicher"); t=setTimeout(zurueck,5000); }); }
   return {lang:L, ok:ok, get:get, set:set, del:del, w:w, pfad:pfad, el:el, sicher:sicher};
 })();
+// Seitenleiste (W3a): Im HTML stehen nur Bereich (offen) und Gruppen (zu). Beim ersten Aufklappen einer Gruppe holt
+// dieser Teil den Baum der Sprache (data/tree*.json; einmal je Seite, danach aus dem Zwischenspeicher des Browsers) und
+// setzt Module, Kapitel und Themen ein, wie sie früher im HTML standen: alles zugeklappt, der aktive Artikel markiert.
+// Danach meldet er „etundso-baum“; der Lesefortschritt malt dann Häkchen und „N/M“ auch in den neuen Zeilen.
+(function(){
+  var $=LERNEN, side=document.querySelector(".side[data-baum-url]"); if(!side) return;
+  var P=null, aktiv=side.getAttribute("data-aktiv")||"";
+  var lang=($.lang==="de"?"":$.lang+"/"), fassung=null;
+  try{ fassung=localStorage.getItem("wissen-fassung"); }catch(e){}
+  function laden(){ if(!P) P=fetch(side.getAttribute("data-baum-url")).then(function(r){ if(!r.ok) throw r.status; return r.json(); })
+    .catch(function(e){ P=null; throw e; }); return P; }
+  function knoten(nd,tiefe){                          // wie build_wissen.sidebar_html vor W3a
+    var d=$.el("details","lvl lvl"+tiefe), s=$.el("summary",null,nd.name); d.appendChild(s); inhalt(d,nd,tiefe); return d; }
+  function inhalt(d,nd,tiefe){
+    if(nd.mp){ var z=$.el("div","side-lernen"), a1=$.el("a",null,$.w("begriffe")||"Begriffe"), a2=$.el("a",null,$.w("lernkarten")||"Lernkarten");
+      a1.href="/wissen/"+nd.mp+"/begriffe.html"; a2.href="/wissen/"+nd.mp+"/lernkarten.html";
+      var p=$.el("span",null," · "); p.setAttribute("aria-hidden","true"); z.appendChild(a1); z.appendChild(p); z.appendChild(a2); d.appendChild(z); }
+    if(nd.articles && nd.articles.length){ var ul=$.el("ul");
+      nd.articles.forEach(function(x){ var li=$.el("li"), a=$.el("a",null,x.kurz||x.title), p="/wissen/"+x.path;
+        a.href=(x.alt && fassung==="ausfuehrlich")?"/wissen/"+x.alt:p; a.setAttribute("data-lf",p);
+        if(x.alt) a.setAttribute("data-alt","/wissen/"+x.alt);
+        if(p===aktiv){ a.className="active"; a.setAttribute("aria-current","page"); }
+        li.appendChild(a); ul.appendChild(li); });
+      d.appendChild(ul); }
+    (nd.children||[]).forEach(function(c){ d.appendChild(knoten(c,tiefe+1)); });
+  }
+  function fuellen(d){
+    if(d.getAttribute("data-gefuellt")) return;
+    var ix=d.getAttribute("data-baum").split(".").map(Number), mehr=d.querySelector(".side-mehr");
+    var warte=$.el("span","baum-hinweis",$.w("baum_laedt")); d.appendChild(warte);
+    laden().then(function(baum){
+      var b=baum[ix[0]], nd=b&&b.children&&b.children[ix[1]];
+      if(!nd || nd.name!==d.firstElementChild.firstChild.nodeValue) throw 0;   // Baum passt nicht zur Seite (anderer Stand)
+      d.removeChild(warte); if(mehr) d.removeChild(mehr);
+      inhalt(d,nd,1); d.setAttribute("data-gefuellt","1"); mathe(d);
+      document.dispatchEvent(new CustomEvent("etundso-baum"));
+    }).catch(function(){ warte.textContent=$.w("baum_fehler"); setTimeout(function(){ if(warte.parentNode) d.removeChild(warte); },4000); });
+  }
+  [].forEach.call(side.querySelectorAll("details[data-baum]"),function(d){
+    d.addEventListener("toggle",function(){ if(d.open) fuellen(d); });
+    if(d.open) fuellen(d);
+  });
+  function vorab(){ laden().catch(function(){}); }    // Leiste in Sicht oder unter dem Zeiger: Baum schon einmal holen
+  side.addEventListener("pointerenter",vorab,{once:true}); side.addEventListener("focusin",vorab,{once:true});
+  var bL=document.getElementById("toggleLeft"); if(bL) bL.addEventListener("click",vorab,{once:true});
+})();
 // Lesefortschritt: Ein Artikel gilt als gelesen, wenn seine Zusammenfassung (sonst sein Ende) 1 s lang sichtbar war.
 // Häkchen in der Seitenleiste und in der Übersicht, „N/M“ an Kapiteln, Balken je Kapitel in der Übersicht, Zeile am
 // Artikelende, „Weiterlesen“ (zuletzt geöffnet, nicht gelesen) auf der Übersicht, Knopf „Fortschritt zurücksetzen“.
@@ -3239,8 +3867,10 @@ var LERNEN=(function(){
     d.setAttribute("role","progressbar"); d.setAttribute("aria-valuemin","0"); d.setAttribute("aria-valuemax",String(m));
     d.setAttribute("aria-valuenow",String(n)); d.setAttribute("aria-label",$.w("lf_kapitel",{n:n,m:m}));
     s.style.width=(m?Math.round(100*n/m):0)+"%"; d.appendChild(s); return d; }
-  var art=document.querySelector("main.article > article"), aktiv=document.querySelector(".side li a.active");
-  var key=aktiv?aktiv.getAttribute("data-lf"):null;
+  // Artikel: Adresse, Kapitelname und Themen des Kapitels stehen an der Seitenleiste (W3a: deren Kapitel lädt erst beim Aufklappen)
+  var art=document.querySelector("main.article > article"), side=document.querySelector(".side"), aktiv=document.querySelector(".side li a.active");
+  var key=(side&&side.getAttribute("data-aktiv"))||(aktiv?aktiv.getAttribute("data-lf"):null);
+  var kapitel=((side&&side.getAttribute("data-kap"))||"").split(" ").filter(Boolean).map(function(p){ return "/wissen/"+p; });
   function malen(){
     var g=gelesen();
     [].forEach.call(document.querySelectorAll("a[data-lf]"),function(a){
@@ -3248,8 +3878,9 @@ var LERNEN=(function(){
       a.classList.toggle("gelesen",on);
       if(on && !sr) a.appendChild($.el("span","lf-sr"," ("+$.w("gelesen")+")"));
       if(!on && sr) a.removeChild(sr); });
-    [].forEach.call(document.querySelectorAll(".side details"),function(d){       // Kapitel in der Seitenleiste: „5/12“
-      var ul=null; for(var c=d.firstElementChild;c;c=c.nextElementSibling) if(c.tagName==="UL"){ ul=c; break; }
+    [].forEach.call(document.querySelectorAll(".side details, details.mk-kap"),function(d){   // Kapitel (Leiste, Modulkarte): „5/12“
+      var ul=null; for(var c=d.firstElementChild;c;c=c.nextElementSibling){
+        if(c.tagName==="UL"){ ul=c; break; } if(c.classList.contains("theme-card")){ ul=c.querySelector("ul"); break; } }
       var s=d.firstElementChild; if(!ul || !s || s.tagName!=="SUMMARY") return;
       var as=[].slice.call(ul.querySelectorAll("a[data-lf]")), n=zahl(as,g), z=s.querySelector(".lf-z");
       if(!n){ if(z) s.removeChild(z); return; }
@@ -3261,20 +3892,25 @@ var LERNEN=(function(){
       if(!n) return;
       var box=$.el("div","lf-kap"); box.appendChild(balken(n,as.length)); box.appendChild($.el("span","lf-text",$.w("lf_kapitel",{n:n,m:as.length})));
       c.insertBefore(box,c.firstChild); });
+    [].forEach.call(document.querySelectorAll(".mk"),function(k){                // Übersicht: Balken je Modulkarte
+      var as=[].slice.call(k.querySelectorAll("a[data-lf]")), n=zahl(as,g), f=k.querySelector(".mk-lf");
+      if(!f) return; f.innerHTML="";
+      if(n){ f.appendChild(balken(n,as.length)); f.appendChild($.el("span","lf-text",$.w("lf_kapitel",{n:n,m:as.length}))); } });
     if(art && key){                                                              // Artikel: Zeile vor den Nachbarartikeln
       var z=art.querySelector(".lf-art");
       if(g[key]){
-        var as=[].slice.call(aktiv.closest("ul").querySelectorAll("a[data-lf]")), n=zahl(as,g);
+        var m=kapitel.length?kapitel:[key], n=0; m.forEach(function(p){ if(g[p]) n++; });
         if(!z){ z=$.el("div","lf-art"); art.insertBefore(z,art.querySelector(".neighbors")); }
-        z.innerHTML=""; z.appendChild(balken(n,as.length)); z.appendChild($.el("span","lf-text",$.w("lf_artikel",{n:n,m:as.length})));
+        z.innerHTML=""; z.appendChild(balken(n,m.length)); z.appendChild($.el("span","lf-text",$.w("lf_artikel",{n:n,m:m.length})));
       } else if(z) z.parentNode.removeChild(z);
     }
     weiter();
   }
+  document.addEventListener("etundso-baum",malen);                               // Seitenleiste hat Zeilen nachgeladen
   if(art && key){
-    var kap=aktiv.closest("details"), sum=kap&&kap.firstElementChild, titel=document.title.replace(/\s+—\s+EtUndSo$/,"");
+    var titel=document.title.replace(/\s+—\s+EtUndSo$/,"");
     var v=$.get(V,[]).filter(function(e){ return e && e.p!==key; });
-    v.unshift({p:key, t:titel, k:sum&&sum.firstChild?String(sum.firstChild.textContent).trim():"", l:$.lang, z:Date.now()});
+    v.unshift({p:key, t:titel, k:(side&&side.getAttribute("data-kapitel"))||"", l:$.lang, z:Date.now()});
     $.set(V,v.slice(0,12));
     var ende=document.getElementById("zusammenfassung")||art.querySelector(".neighbors");
     if(ende && !gelesen()[key] && window.IntersectionObserver){
@@ -3291,7 +3927,7 @@ var LERNEN=(function(){
     var g=gelesen(), v=$.get(V,[]), e=null;
     for(var i=0;i<v.length;i++){ if(v[i] && v[i].l===$.lang && v[i].p && !g[v[i].p]){ e=v[i]; break; } }
     if(!box){
-      var lede=document.querySelector("main.article .lede"); if(!lede) return;
+      var lede=document.querySelector("main.article .idx-suche")||document.querySelector("main.article .lede"); if(!lede) return;
       box=$.el("div","lf-weiter"); box.hidden=true; lede.parentNode.insertBefore(box,lede.nextSibling);
     }
     box.innerHTML="";
@@ -3480,6 +4116,91 @@ var LERNEN=(function(){
   app.hidden=false; if(liste) liste.open=false;
   if(!$.ok) q(".lk-hinweis").hidden=false;
   baue();
+})();
+"""
+
+# Kern der Suche (W3a, 11.11.2026), als /wissen/assets/suche.js: wissen.js lädt ihn beim ersten Öffnen der Suche, die
+# Startseite für ihr Filterfeld. Daten und Treffer-Regeln: suchindex_schreiben.
+SUCHE_JS = r"""/* EtUndSo-Suche: ETSuche(sprache) -> Index mit start(), suche(text, rückruf), snippet(doc, q), fold(text).
+   start() lädt titel.json (Titel, Brotkrumen, Schlagwörter, summary, Abschnitte). suche() meldet sofort die Treffer aus
+   diesen Feldern und den schon geladenen Volltexten, holt dann die Volltexte der Module, deren Wörter das Suchwort
+   enthalten (woerter.json; ohne Verzeichnis: alle), und meldet nach jedem Modul neu. Rang wie zuvor: Titel 0,
+   Schlagwort 1, Abschnittsüberschrift 1,5, Text 2 + Lage (früher = besser). Nichts verlässt den Browser. */
+window.ETSuche=(function(){
+  var INDEX={};
+  function fold(s){ return (s||"").toLowerCase().replace(/ß/g,"ss").replace(/ı/g,"i").replace(/œ/g,"oe").replace(/æ/g,"ae")
+    .normalize("NFKD").replace(/[̀-ͯ]/g,""); }          // wie fold_js() in build_wissen.py
+  function esc(s){ return (s||"").replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];}); }
+  function json(u){ return fetch(u).then(function(r){ if(!r.ok) throw new Error(u+": "+r.status); return r.json(); }); }
+  function Index(lang){
+    var B="/wissen/data/suche/"+lang+"/", self=this, T=null, WP=null, WG=null, mods=[], docs=[], jetzt=null, warte=null;
+    self.fold=fold; self.esc=esc; self.docs=docs;
+    self.start=function(){
+      if(!T) T=json(B+"titel.json").then(function(d){
+        d.m.forEach(function(m){ mods.push({f:m.f, p:m.p, da:false, P:null}); });
+        d.d.forEach(function(x,i){ var sec=x[6]||[];
+          docs.push({i:i, title:x[0], crumb:x[1], path:x[2], tags:x[3]||"", summary:x[4]||"", m:x[5], sec:sec, klar:x[7]||x[0],
+            fTitle:fold(x[0]), fTags:fold(x[3]||""), fSum:fold(x[4]||""), fSec:sec.map(function(s){ return fold(s[1]); }),
+            ft:null, text:null}); });
+        self.w=!!d.w; return self;
+      }).catch(function(e){ T=null; throw e; });
+      return T; };
+    function woerter(){                                                 // Wortverzeichnis: [{m:[Modul…], w:" wort wort … "}]
+      if(!WP) WP=(self.w ? json(B+"woerter.json").then(function(d){
+        WG=Object.keys(d).map(function(k){ return {m:k.split(",").map(Number), w:" "+d[k]+" "}; });
+      }) : Promise.resolve()).catch(function(){ WG=null; });          // ohne Verzeichnis: alle Module laden
+      return WP; }
+    function moeglich(q){                                               // Module, deren Text q enthalten kann (Menge) oder null = alle
+      if(!WG) return null;
+      var erg=null;
+      q.split(" ").filter(Boolean).forEach(function(t){                 // ein Teil ohne Leerzeichen liegt in einem Wort
+        var s={}; WG.forEach(function(g){ if(g.w.indexOf(t)>=0) g.m.forEach(function(k){ s[k]=1; }); });
+        if(erg) Object.keys(erg).forEach(function(k){ if(!s[k]) delete erg[k]; }); else erg=s; });
+      return erg; }
+    function laden(m){
+      if(!m.P) m.P=json(B+m.f).then(function(rows){
+        rows.forEach(function(r){ var d=docs[r[0]]; d.text=r[1]; d.ft=fold(d.summary+" "+r[1]); }); m.da=true;
+      }).catch(function(){ m.P=null; m.fehler=true; });
+      return m.P; }
+    function rang(d,q){
+      if(d.fTitle.indexOf(q)>=0) return [0];                            // Titel-Treffer: höchster Rang
+      if(d.fTags.indexOf(q)>=0) return [1];                             // Schlagwort
+      for(var k=0;k<d.fSec.length;k++) if(d.fSec[k].indexOf(q)>=0) return [1.5,d.sec[k][0],d.sec[k][1]];   // Abschnitt
+      var p=(d.ft!==null?d.ft:d.fSum).indexOf(q);                       // Text (summary steht vorn, gilt also schon vorher)
+      return p>=0 ? [2+Math.min(p/500,1)] : null; }
+    function treffer(q){
+      var hits=[]; docs.forEach(function(d){ var r=rang(d,q); if(r) hits.push({d:d, sc:r[0], anker:r[1]||null, abschnitt:r[2]||null}); });
+      hits.sort(function(a,b){ return a.sc-b.sc; });                    // stabil: gleicher Rang in Lese-Reihenfolge
+      return hits; }
+    self.suche=function(raw,cb){
+      var q=fold((raw||"").trim()), ich={}; jetzt=ich; clearTimeout(warte);
+      if(q.length<2){ cb({q:q, hits:[], laedt:false}); return; }
+      self.start().then(function(){
+        if(jetzt!==ich) return;
+        var ok0=moeglich(q), offen=mods.filter(function(m,k){ return !m.da && !m.fehler && (!ok0 || ok0[k]); }).length;
+        function melden(){ if(jetzt===ich) cb({q:q, hits:treffer(q), laedt:offen>0}); }
+        melden();
+        if(!offen) return;
+        woerter();                                                      // schon holen, während noch getippt wird
+        warte=setTimeout(function(){                                    // erst nach einer kurzen Tipp-Pause nachladen
+          woerter().then(function(){
+            if(jetzt!==ich) return;
+            var ok=moeglich(q);
+            var noetig=mods.filter(function(m,k){ return !m.da && !m.fehler && (!ok || ok[k]); });
+            offen=noetig.length; if(!offen){ melden(); return; }
+            noetig.forEach(function(m){ laden(m).then(function(){ offen--; melden(); }); });
+          });
+        },180);
+      }).catch(function(){ if(jetzt===ich) cb({q:q, hits:[], laedt:false, fehler:true}); });
+    };
+    self.snippet=function(d,q){
+      var t=d.text||d.summary||"", ft=fold(t), i=ft.indexOf(q);
+      if(i<0) return esc(t.slice(0,130))+(t.length>130?"…":"");
+      var a=Math.max(0,i-45);
+      return (a>0?"…":"")+esc(t.slice(a,i))+"<mark>"+esc(t.slice(i,i+q.length))+"</mark>"+esc(t.slice(i+q.length,i+q.length+70))+"…";
+    };
+  }
+  return function(lang){ lang=lang||"de"; return INDEX[lang]||(INDEX[lang]=new Index(lang)); };
 })();
 """
 

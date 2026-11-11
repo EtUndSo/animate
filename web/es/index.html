@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title data-i18n="titel">EtUndSo — Explicaciones y herramientas de ingeniería eléctrica</title>
+  <link rel="icon" href="/favicon.ico" sizes="32x32"/><link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
+  <meta name="description" data-i18n-attr="content:beschreibung" content="EtUndSo: explicaciones claras y animadas, y herramientas para módulos de ingeniería eléctrica y matemáticas — y más. Con el editor en el navegador para reconstruirlas tú mismo."/>
+  <!-- Diese Seite ist die Vorlage der Startseiten in den anderen Sprachen (/en/, /es/, /zh/, /fr/, /tr/): build_wissen.py
+       übersetzt beim Bauen den Inhalt jedes Elements mit data-i18n="schlüssel" und die Attribute aus data-i18n-attr
+       (Texte in STARTSEITE_TEXTE), setzt Sprachwahl, Bilder und Wissens-Links der Sprache ein. Neue Texte hier also mit
+       data-i18n versehen und in STARTSEITE_TEXTE übersetzen; fehlt eine Übersetzung, bleibt dort der deutsche Text. -->
+  <link rel="alternate" hreflang="de" href="https://etundso.de/"/>
+  <link rel="alternate" hreflang="en" href="https://etundso.de/en/"/>
+  <link rel="alternate" hreflang="es" href="https://etundso.de/es/"/>
+  <link rel="alternate" hreflang="zh" href="https://etundso.de/zh/"/>
+  <link rel="alternate" hreflang="fr" href="https://etundso.de/fr/"/>
+  <link rel="alternate" hreflang="tr" href="https://etundso.de/tr/"/>
+  <link rel="alternate" hreflang="x-default" href="https://etundso.de/"/>
+  <style>
+    /* Vorlage „Kopfleiste“ wie im Wissensbereich: dunkelgrüne Leiste, Primär = Grün, Marke und Überschriften = Lila, Akzent = Orange.
+       Tag = hell (Default), Nacht über data-theme="dark". Fonts als Tokens: aktuell System-Stack; selbst-gehostete Schriften
+       später per @font-face auf --font-display/--font-body legen. */
+    :root{
+      --bg:#ffffff; --panel:#ffffff; --ink:#16191a; --muted:#59605b; --border:#e6e8e6; --soft:#f6f7f6;
+      --accent:#15633a; --accent2:#1b7f4a; --accent3:#c2410c; --green:#15633a; --on-accent:#ffffff;
+      --bar:#123d29; --bar-ink:#eaf3ec; --bar-rand:#1f5a3d; --bar-hl:#ff9650;
+      --logo-et:#ff9650; --logo-so:#ff4d4d;   /* Logo: „Et“ orange wie „Editor öffnen“, „So“ rot (Wunsch des Users 09.11.2026) */
+      --font-display:"Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+      --font-body:system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    }
+    :root[data-theme="dark"]{
+      --bg:#0e1110; --panel:#141816; --ink:#eff2ef; --muted:#a6afa8; --border:#262c29; --soft:#181d1a;
+      --accent:#6ad19b; --accent2:#8fdcb2; --accent3:#ff9650; --green:#6ad19b; --on-accent:#0d1f15;
+      --bar:#0b2a1c; --bar-ink:#dcebe1; --bar-rand:#174630;
+    }
+    *{box-sizing:border-box;}
+    body{margin:0;font-family:var(--font-body);background:var(--bg);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased;}
+    a{color:var(--accent);text-decoration:none;}
+    .build-banner{background:var(--soft);color:var(--muted);border-bottom:1px solid var(--border);padding:7px 16px;font-size:13px;text-align:center;}
+    .build-banner b{color:var(--accent2);font-weight:700;}
+    .build-banner a{margin:0 6px;}
+
+    header.site{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 24px;border-bottom:1px solid var(--bar-rand);background:var(--bar);position:sticky;top:0;z-index:5;}
+    .brand{font-family:var(--font-display);font-weight:800;font-size:21px;letter-spacing:-0.02em;color:var(--logo-et);}
+    .brand span{color:var(--bar-ink);} .brand span.so{color:var(--logo-so);}
+    header.site>nav{display:flex;align-items:center;gap:20px;}
+    nav a.lnk{color:var(--bar-ink);font-weight:600;font-size:15px;white-space:nowrap;}
+    nav a.lnk:hover{color:var(--bar-hl);}
+    nav a.navcta{background:var(--bar-hl);color:#2a1205;padding:8px 15px;border-radius:9px;font-weight:700;font-size:14px;white-space:nowrap;}
+    /* Schmale Handys: Leiste passt sonst nicht (375 px liefen 18 px über) – „Videos“ (kommt erst) entfällt dort. */
+    @media (max-width:480px){ header.site{padding:12px 16px;gap:10px;} header.site>nav{gap:14px;} nav a.lnk[href="#videos"]{display:none;}
+      nav a.navcta{padding:7px 12px;font-size:13.5px;} }
+
+    /* Sprachwahl wie im Wissensbereich (build_wissen.lang_switch): Knopf mit der Sprache, darunter die Liste. In der Leiste;
+       auf schmalen Bildschirmen über dem Seitentitel, dort fällt in der Leiste dafür der Sprung „Editor“ weg. */
+    .langs{position:relative;display:inline-flex;}
+    .langs .l-toggle{display:inline-flex;align-items:center;gap:6px;height:34px;padding:0 10px 0 13px;border-radius:999px;border:1px solid var(--border);
+      background:var(--soft);color:var(--ink);font:inherit;font-size:13.5px;font-weight:700;letter-spacing:.03em;line-height:1;cursor:pointer;}
+    .langs .l-toggle:hover,.langs .l-toggle[aria-expanded="true"]{border-color:var(--accent3);color:var(--accent3);}
+    header.site .langs .l-toggle{background:transparent;border-color:var(--bar-rand);color:var(--bar-ink);}
+    header.site .langs .l-toggle:hover,header.site .langs .l-toggle[aria-expanded="true"]{border-color:var(--bar-hl);color:var(--bar-hl);}
+    .langs .l-pfeil{opacity:.85;transition:transform .15s;}
+    .langs .l-toggle[aria-expanded="true"] .l-pfeil{transform:rotate(180deg);}
+    .langs .l-toggle:focus-visible,.langs .l-item:focus-visible{outline:2px solid var(--accent3);outline-offset:2px;}
+    .langs .l-menu{position:absolute;top:calc(100% + 6px);left:0;z-index:40;min-width:180px;margin:0;padding:6px;list-style:none;background:var(--panel);
+      border:1px solid var(--border);border-radius:12px;box-shadow:0 12px 32px rgba(10,20,15,.16),0 2px 6px rgba(10,20,15,.08);}
+    header.site .langs .l-menu{left:auto;right:0;}
+    .langs .l-menu[hidden]{display:none;}
+    .langs .l-menu li{margin:0;padding:0;font-size:14.5px;line-height:1.3;}
+    .langs .l-item{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:8px 12px;border-radius:8px;color:var(--ink);font-weight:500;}
+    .langs a.l-item:hover,.langs a.l-item:focus{background:var(--soft);}
+    .langs .l-item.on{color:var(--accent3);font-weight:700;background:color-mix(in srgb,var(--accent3) 9%,var(--panel));}
+    :root[data-theme="dark"] .langs .l-menu{border-color:rgba(255,255,255,.32);box-shadow:0 12px 32px rgba(0,0,0,.55);}
+    .langs-art{display:none;}
+    @media (max-width:560px){ header.site .langs-top,header.site a.lnk[href="#editor"]{display:none;} .langs-art{display:inline-flex;margin:0 0 4px;} }
+    html[lang="zh"] body{font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei","Noto Sans CJK SC",sans-serif;}
+
+    main{max-width:1040px;margin:0 auto;padding:16px 24px 72px;}
+    .eyebrow{display:inline-block;font-size:12px;font-weight:700;color:var(--accent2);text-transform:uppercase;letter-spacing:.06em;}
+
+    .hero{display:grid;grid-template-columns:1.2fr 1fr;gap:36px;align-items:center;padding:52px 0 20px;}
+    @media (max-width:760px){ .hero{grid-template-columns:1fr;gap:24px;padding-top:36px;} }
+    .hero h1{font-family:var(--font-display);font-size:clamp(30px,5.2vw,50px);line-height:1.05;margin:12px 0 16px;letter-spacing:-0.025em;text-wrap:balance;}
+    .hero h1 .u{background:linear-gradient(transparent 62%, color-mix(in srgb, var(--accent3) 55%, transparent) 62%);}
+    .hero p{font-size:clamp(16px,2.1vw,19px);color:var(--muted);max-width:52ch;margin:0 0 26px;}
+    .row{display:flex;gap:12px;flex-wrap:wrap;}
+    .btn{display:inline-block;padding:13px 22px;border-radius:12px;font-weight:700;background:var(--accent);color:var(--on-accent);border:1.5px solid var(--accent);}
+    .btn:hover{filter:brightness(1.06);}
+    .btn.alt{background:transparent;color:var(--accent);}
+    /* Hero: drei Editor-Abbildungen als übereinandergelegte Fotos. Die SVGs haben weißen Grund, daher ein weißer
+       Fotorand in beiden Modi; hell trennt ein feiner Rand vom weißen Seitengrund, dunkel trägt der Schatten. */
+    .photos{position:relative;aspect-ratio:1.12;max-width:500px;margin:0 auto;}
+    .photo{position:absolute;display:block;padding:7px;background:#fff;border:1px solid var(--border);border-radius:12px;
+           box-shadow:0 12px 28px rgba(16,22,31,.14),0 2px 6px rgba(16,22,31,.08);transition:transform .25s ease,box-shadow .25s ease;}
+    .photo img{display:block;width:100%;height:auto;border-radius:6px;}
+    .photo.p1{left:3%;top:2%;width:54%;transform:rotate(-7deg);z-index:1;}
+    .photo.p2{right:3%;top:10%;width:58%;transform:rotate(6deg);z-index:2;}
+    .photo.p3{left:20%;bottom:2%;width:70%;transform:rotate(-1.5deg);z-index:3;}
+    .photo:hover,.photo:focus-visible{z-index:5;transform:rotate(0) scale(1.04);box-shadow:0 18px 40px rgba(16,22,31,.22),0 3px 8px rgba(16,22,31,.10);}
+    .photo:focus-visible{outline:3px solid var(--accent);outline-offset:3px;}
+    :root[data-theme="dark"] .photo{border-color:transparent;box-shadow:0 14px 32px rgba(0,0,0,.55),0 2px 6px rgba(0,0,0,.4);}
+    :root[data-theme="dark"] .photo:hover,:root[data-theme="dark"] .photo:focus-visible{box-shadow:0 20px 44px rgba(0,0,0,.65),0 3px 8px rgba(0,0,0,.45);}
+    @media (prefers-reduced-motion:reduce){ .photo{transition:none;} }
+    .hero p.hero-cap{margin:14px auto 0;max-width:none;font-size:12.5px;text-align:center;}
+
+    section{scroll-margin-top:72px;}
+    .sec-head{margin:56px 0 18px;}
+    .sec-head h2{font-family:var(--font-display);font-size:clamp(22px,3.2vw,30px);margin:6px 0 6px;letter-spacing:-0.02em;}
+    .sec-head p{color:var(--muted);margin:0;max-width:60ch;}
+
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;}
+    .card{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:6px;}
+    .card .tag{font-size:11.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--accent);}
+    .card.m2 .tag{color:var(--accent2);} .card.m3 .tag{color:var(--accent3);}
+    .card h3{font-family:var(--font-display);margin:2px 0 2px;font-size:17.5px;}
+    .card p{color:var(--muted);margin:0;font-size:14.5px;}
+    .card .status{margin-top:auto;padding-top:10px;font-size:12px;color:var(--muted);}
+    .dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--accent3);margin-right:6px;vertical-align:middle;}
+
+    /* --- interaktive Modul-/Themen-Übersicht (#module) --- */
+    .mod-searchwrap{position:relative;margin:4px 0 18px;}
+    #module-search{width:100%;padding:13px 16px;border:1px solid var(--border);border-radius:12px;background:var(--panel);color:var(--ink);font:inherit;font-size:16px;}
+    #module-search:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 22%,transparent);}
+    .mod-tree{display:flex;flex-direction:column;gap:10px;}
+    .mod-fallback{color:var(--muted);}
+    /* „Weiterlesen“: zuletzt geöffneter, nicht gelesener Artikel (nur aus dem localStorage dieses Browsers, wie im Wissensbereich) */
+    .weiterlesen{display:flex;flex-direction:column;margin:0 0 16px;padding:10px 14px 10px 16px;border:1px solid var(--border);
+      border-left:4px solid var(--accent3);border-radius:12px;background:var(--soft);}
+    .weiterlesen[hidden]{display:none;}
+    .weiterlesen span{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent3);}
+    .weiterlesen a{font-weight:600;}
+    /* oberste Ebene (Studiengang) = Karte; tiefere Ebenen (Semester/Modul/Oberthema) = eingerückte Äste */
+    .mod-node.lvl0{background:var(--panel);border:1px solid var(--border);border-radius:14px;overflow:hidden;}
+    .mod-node.lvl0>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;padding:16px 18px;font-family:var(--font-display);font-weight:700;font-size:18px;}
+    .mod-node.lvl0>summary::-webkit-details-marker{display:none;}
+    .mod-node.lvl0>summary::before{content:"▸";color:var(--accent);font-size:14px;transition:transform .15s;}
+    .mod-node.lvl0[open]>summary::before{transform:rotate(90deg);}
+    .mod-node.lvl0>summary .count{margin-left:auto;font-family:var(--font-body);font-weight:600;font-size:12.5px;color:var(--muted);background:var(--soft);padding:3px 10px;border-radius:999px;}
+    .mod-node.lvl0>.mod-children{padding:2px 18px 14px 22px;display:flex;flex-direction:column;gap:4px;}
+    .mod-node:not(.lvl0){border-left:2px solid var(--border);padding-left:12px;margin-left:4px;}
+    .mod-node:not(.lvl0)>summary{list-style:none;cursor:pointer;padding:6px 4px;font-weight:600;font-size:15px;display:flex;align-items:center;gap:8px;color:var(--ink);}
+    .mod-node:not(.lvl0)>summary::-webkit-details-marker{display:none;}
+    .mod-node:not(.lvl0)>summary::before{content:"▸";color:var(--muted);font-size:12px;transition:transform .15s;}
+    .mod-node:not(.lvl0)[open]>summary::before{transform:rotate(90deg);}
+    .mod-node.lvl2>summary,.mod-node.lvl3>summary{font-weight:500;font-size:14.5px;color:var(--muted);}
+    .mod-node>summary .tcount{margin-left:6px;font-size:12px;color:var(--muted);font-weight:500;}
+    .mod-children{display:flex;flex-direction:column;gap:3px;}
+    .mod-arts{list-style:none;margin:2px 0 8px;padding-left:20px;display:flex;flex-direction:column;gap:2px;}
+    .mod-arts a{display:block;padding:5px 8px;border-radius:8px;color:var(--muted);font-size:14.5px;}
+    .mod-arts a:hover{color:var(--ink);background:var(--soft);text-decoration:none;}
+    .mod-arts .a-snip{display:block;font-size:12.5px;color:var(--muted);opacity:.85;padding:0 8px 4px;}
+    .mod-tree mark{background:color-mix(in srgb,var(--accent3) 55%,transparent);color:inherit;border-radius:3px;padding:0 1px;}
+    .mod-noresult,.mod-laedt{color:var(--muted);padding:6px 2px;}
+    .mod-laedt{font-size:13.5px;}
+    .nur-de{color:var(--muted);font-size:14.5px;margin:16px 0 0;}
+    .nur-de[hidden]{display:none;}
+
+    .feature{background:var(--panel);border:1px solid var(--border);border-radius:20px;padding:30px;display:flex;gap:30px;align-items:center;flex-wrap:wrap;}
+    .feature .txt{flex:1 1 320px;min-width:0;}
+    .feature h2{font-family:var(--font-display);margin:.1em 0 .45em;font-size:clamp(21px,3vw,27px);letter-spacing:-0.02em;}
+    .feature p{color:var(--muted);margin:0 0 18px;}
+    .feat-list{list-style:none;padding:0;margin:0 0 20px;display:grid;gap:9px;}
+    .feat-list li{padding-left:26px;position:relative;font-size:15px;}
+    .feat-list li::before{content:"";position:absolute;left:0;top:7px;width:12px;height:12px;border-radius:3px;background:var(--accent);}
+    .feat-list li:nth-child(2)::before{background:var(--accent2);} .feat-list li:nth-child(3)::before{background:var(--accent3);}
+    .feature .art{flex:1 1 280px;min-width:0;}
+    .feature .art figure{margin:0;}
+    .feature .art video{display:block;width:100%;height:auto;aspect-ratio:16/9;border:1px solid var(--border);border-radius:14px;background:#fff;}
+    :root[data-theme="dark"] .feature .art video{border-color:transparent;box-shadow:0 10px 26px rgba(0,0,0,.45);}
+    .feature .art figcaption{margin-top:10px;font-size:12.5px;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 12px;justify-content:space-between;}
+    .feature .art figcaption a{font-weight:700;white-space:nowrap;}
+
+    .how{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;}
+    .step{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:20px;}
+    .step .n{font-family:var(--font-display);font-weight:800;font-size:28px;color:var(--accent);line-height:1;}
+    .step h3{font-family:var(--font-display);margin:10px 0 4px;font-size:16.5px;}
+    .step p{color:var(--muted);margin:0;font-size:14.5px;}
+
+    .soon{opacity:.62;}
+    .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:56px;}
+    .stat{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:22px;text-align:center;}
+    .stat .num{font-family:var(--font-display);font-size:clamp(28px,4vw,40px);font-weight:800;letter-spacing:-0.02em;color:var(--accent);line-height:1.1;font-variant-numeric:tabular-nums;}
+    .stat .lbl{color:var(--muted);font-size:14px;margin-top:6px;}
+    .stat.site .num{color:var(--accent2);}
+
+    footer{color:var(--muted);font-size:14px;padding:30px 24px;border-top:1px solid var(--border);text-align:center;}
+    footer a{margin:0 8px;}
+  </style>
+</head>
+<body>
+  <div class="build-banner"><span data-i18n="banner">Todavía en construcción; se amplía continuamente.</span> · <span data-i18n="update">Última actualización:</span> <b id="build-date">…</b></div>
+
+  <header class="site">
+    <div class="brand">Et<span>Und</span><span class="so">So</span></div>
+    <nav>
+      <a class="lnk" href="/wissen/es/" data-i18n="nav_wissen">Conocimiento</a>
+      <a class="lnk" href="#editor" data-i18n="nav_editor">Editor</a>
+      <a class="lnk" href="#videos" data-i18n="nav_videos">Vídeos</a>
+      <!-- sprachwahl-top --><nav class="langs langs-top" aria-label="Idioma" data-langmenu><button type="button" class="l-toggle" aria-expanded="false" aria-controls="lmenu-top" aria-label="Idioma: Español" title="Idioma"><span class="l-cur">ES</span><svg class="l-pfeil" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button><ul class="l-menu" id="lmenu-top" hidden><li><a class="l-item" href="/" hreflang="de" lang="de"><span class="l-name">Deutsch</span></a></li><li><a class="l-item" href="/en/" hreflang="en" lang="en"><span class="l-name">English</span></a></li><li><a class="l-item on" href="/es/" hreflang="es" lang="es" aria-current="true"><span class="l-name">Español</span><svg class="l-haken" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="5 12.5 10 17.5 19 7"/></svg></a></li><li><a class="l-item" href="/fr/" hreflang="fr" lang="fr"><span class="l-name">Français</span></a></li><li><a class="l-item" href="/tr/" hreflang="tr" lang="tr"><span class="l-name">Türkçe</span></a></li><li><a class="l-item" href="/zh/" hreflang="zh" lang="zh"><span class="l-name">中文</span></a></li></ul></nav><!-- /sprachwahl-top -->
+      <a class="navcta" href="/editor.html" data-i18n="editor_oeffnen">Abrir el editor</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <!-- sprachwahl-art --><nav class="langs langs-art" aria-label="Idioma" data-langmenu><button type="button" class="l-toggle" aria-expanded="false" aria-controls="lmenu-art" aria-label="Idioma: Español" title="Idioma"><span class="l-cur">ES</span><svg class="l-pfeil" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button><ul class="l-menu" id="lmenu-art" hidden><li><a class="l-item" href="/" hreflang="de" lang="de"><span class="l-name">Deutsch</span></a></li><li><a class="l-item" href="/en/" hreflang="en" lang="en"><span class="l-name">English</span></a></li><li><a class="l-item on" href="/es/" hreflang="es" lang="es" aria-current="true"><span class="l-name">Español</span><svg class="l-haken" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="5 12.5 10 17.5 19 7"/></svg></a></li><li><a class="l-item" href="/fr/" hreflang="fr" lang="fr"><span class="l-name">Français</span></a></li><li><a class="l-item" href="/tr/" hreflang="tr" lang="tr"><span class="l-name">Türkçe</span></a></li><li><a class="l-item" href="/zh/" hreflang="zh" lang="zh"><span class="l-name">中文</span></a></li></ul></nav><!-- /sprachwahl-art -->
+        <span class="eyebrow" data-i18n="eyebrow">Ingeniería eléctrica — y más</span>
+        <h1 data-i18n="h1">Ingeniería eléctrica y más, explicada <span class="u">a fondo</span> y animada.</h1>
+        <p data-i18n="hero_p">EtUndSo reúne explicaciones paso a paso, animaciones y herramientas para módulos de ingeniería eléctrica y matemáticas — y, de paso, algunas otras materias. Lo que ves puedes reconstruirlo tú mismo en el <strong>editor</strong>.</p>
+        <div class="row">
+          <a class="btn" href="/editor.html" data-i18n="editor_oeffnen_pfeil">Abrir el editor →</a>
+          <a class="btn alt" href="#module" data-i18n="module_ansehen">Ver los módulos</a>
+        </div>
+      </div>
+      <div class="hero-art">
+        <!-- Drei Abbildungen aus den Artikeln (SVG-Export des Editors, web/abbildungen/<sprache>); jede öffnet ihre Szene. -->
+        <div class="photos">
+          <a class="photo p1" href="/editor.html?scene=szenen/et1/k1feldlinien.json" title="Líneas de campo – abrir en el editor" data-i18n-attr="title:foto1_t">
+            <img src="/abbildungen/es/et1/k1feldlinien.svg" width="488" height="423" decoding="async" data-i18n-attr="alt:foto1_alt"
+                 alt="Diagramas de líneas de campo: cargas opuestas e iguales, un par de placas, un tubo metálico entre placas"/></a>
+          <a class="photo p2" href="/editor.html?scene=szenen/beispiel/skalarprodukt.json" title="Producto escalar – abrir en el editor" data-i18n-attr="title:foto2_t">
+            <img src="/abbildungen/es/beispiel/skalarprodukt.svg" width="381" height="192" decoding="async" data-i18n-attr="alt:foto2_alt"
+                 alt="Producto escalar de dos vectores, calculado paso a paso: 360 + 30 + (−100) = 290"/></a>
+          <a class="photo p3" href="/editor.html?scene=szenen/et1/k10flaeche.json" title="Superficie 3D – abrir en el editor" data-i18n-attr="title:foto3_t">
+            <img src="/abbildungen/es/et1/k10flaeche.svg" width="432" height="295" decoding="async" data-i18n-attr="alt:foto3_alt"
+                 alt="Superficie 3D: corriente de colector I_C de un transistor en función de U_BE y U_CE"/></a>
+        </div>
+        <p class="hero-cap" data-i18n="hero_cap">Tres figuras de los artículos, creadas en el editor. Un clic las abre allí.</p>
+      </div>
+    </section>
+
+    <section id="editor">
+      <div class="sec-head">
+        <h2 data-i18n="editor_h2">El editor</h2>
+      </div>
+      <div class="feature">
+        <div class="txt">
+          <h2 style="margin-top:0" data-i18n="editor_titel">Animaciones matemáticas directamente en el navegador</h2>
+          <p data-i18n="editor_p">Una evolución de Manim en el navegador: combina objetos y operaciones, reprodúcelos y expórtalos como imagen o vídeo. Sin instalación, nada que configurar.</p>
+          <ul class="feat-list">
+            <li data-i18n="editor_li1">Funciones, superficies 3D, sumas y productos, convoluciones</li>
+            <li data-i18n="editor_li2">Coreografía paso a paso en lugar de un simple gráfico</li>
+            <li data-i18n="editor_li3">Exportación como imagen o vídeo fluido</li>
+          </ul>
+          <a class="btn" href="/editor.html" data-i18n="editor_oeffnen_pfeil">Abrir el editor →</a>
+        </div>
+        <div class="art">
+          <!-- Szene web/szenen/startseite/fourier.json (tools/szenen/startseite.py), aufgenommen mit dem Video-Export
+               des Editors (tools/startseite_video.py). Nahtlose Schleife: letztes Bild = erstes Bild. -->
+          <figure>
+            <video id="editor-video" autoplay muted loop playsinline preload="auto" width="1920" height="1080"
+                   poster="/startseite/fourier_poster.jpg" data-i18n-attr="aria-label:video_label"
+                   aria-label="Animación: la serie de Fourier construye una onda cuadrada término a término, con armónicos y espectro de amplitud">
+              <source src="/startseite/fourier.mp4" type="video/mp4"/>
+              <source src="/startseite/fourier.webm" type="video/webm"/>
+            </video>
+            <figcaption><span data-i18n="video_cap">Serie de Fourier de una onda cuadrada, término a término</span>
+              <a href="/editor.html?scene=szenen/startseite/fourier.json" data-i18n="im_editor">Abrir en el editor →</a></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="module">
+      <div class="sec-head">
+        <span class="eyebrow" data-i18n="mod_eyebrow">Módulos</span>
+        <h2 data-i18n="mod_h2">Materias y temas</h2>
+        <p data-i18n="mod_p">Una vista general de todos los módulos: haz clic en un módulo para desplegar sus temas, o busca directamente un módulo, un tema o un término en el texto de los artículos.</p>
+      </div>
+      <p id="weiterlesen" class="weiterlesen" hidden></p>
+      <div class="mod-searchwrap">
+        <input id="module-search" type="search" autocomplete="off" aria-label="Buscar en el conocimiento" data-i18n-attr="aria-label:suche_label;placeholder:suche_ph"
+               placeholder="Buscar módulo, tema o término — también partes de palabras (p. ej., «divisor»)"/>
+      </div>
+      <div id="module-tree" class="mod-tree" aria-live="polite">
+        <p class="mod-fallback"><span data-i18n="laedt">Cargando la vista general …</span> <a href="/wissen/es/" data-i18n="zum_wissen">Ir al conocimiento →</a></p>
+      </div>
+      <p id="nur-de" class="nur-de" data-i18n="nur_de">Por ahora solo en alemán: <a href="/wissen/#m-hohere-mathematik-3" hreflang="de" lang="de">HöMa3</a>, <a href="/wissen/#m-elektronische-materialien-und-bauelemente-1" hreflang="de" lang="de">GEMB1</a>, <a href="/wissen/#m-python" hreflang="de" lang="de">Python</a>, <a href="/wissen/#m-linux-und-kommandozeile" hreflang="de" lang="de">Linux und Kommandozeile</a>, <a href="/wissen/#m-cybersecurity" hreflang="de" lang="de">Cybersecurity</a></p>
+      <div class="row" style="margin-top:20px"><a class="btn alt" href="/wissen/es/" data-i18n="ganzer_bereich">Abrir todo el conocimiento →</a></div>
+    </section>
+
+    <section id="how">
+      <div class="sec-head">
+        <span class="eyebrow" data-i18n="how_eyebrow">Cómo funciona</span>
+        <h2 data-i18n="how_h2">Del concepto a la claridad</h2>
+      </div>
+      <div class="how">
+        <div class="step"><div class="n">1</div><h3 data-i18n="how1_h">Primero la imagen</h3>
+          <p data-i18n="how1_p">Cada tema empieza de forma intuitiva — con una analogía y el contexto general, antes de las fórmulas.</p></div>
+        <div class="step"><div class="n">2</div><h3 data-i18n="how2_h">Luego la física</h3>
+          <p data-i18n="how2_p">Deducida con cuidado, siempre con el «porqué»: qué mecanismo produce el efecto.</p></div>
+        <div class="step"><div class="n">3</div><h3 data-i18n="how3_h">Reconstruirlo tú mismo</h3>
+          <p data-i18n="how3_p">Las animaciones se crean en el editor — puedes abrirlas, modificarlas y experimentar por tu cuenta.</p></div>
+      </div>
+    </section>
+
+    <section id="videos">
+      <div class="sec-head">
+        <span class="eyebrow" data-i18n="videos_eyebrow">pronto</span>
+        <h2 class="soon" data-i18n="videos_h2">Vídeos explicativos</h2>
+      </div>
+      <div class="feature soon">
+        <div class="txt">
+          <p style="margin:0" data-i18n="videos_p">Vídeos cortos y animados sobre temas concretos — hechos con el editor. Próximamente.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats" aria-label="Cifras de uso" data-i18n-attr="aria-label:stats_label">
+      <div class="stat site"><div class="num" id="stat-site">–</div><div class="lbl" data-i18n="stat_site">Visitas</div></div>
+      <div class="stat"><div class="num" id="stat-editor">–</div><div class="lbl" data-i18n="stat_editor">Editor abierto</div></div>
+    </section>
+  </main>
+
+  <footer>
+    <span data-i18n="fuss">EtUndSo.de · Explicaciones y herramientas de ingeniería eléctrica — y más.</span><br/>
+    <a href="/impressum.html" hreflang="de" data-i18n="impressum" data-i18n-attr="title:recht_de" title="Las páginas legales están en alemán.">Aviso legal</a> · <a href="/datenschutz.html" hreflang="de" data-i18n="datenschutz" data-i18n-attr="title:recht_de" title="Las páginas legales están en alemán.">Privacidad</a>
+  </footer>
+  <!-- Wörter der Skripte unten; die Übersetzungen setzt build_wissen.py ein -->
+  <script type="application/json" id="seite-text">{"artikel": "{n} artículos", "nichts": "No se encontró nada para «{q}».", "fehler": "No se pudo cargar la vista general.", "zum_wissen": "Ir al conocimiento →", "weiterlesen": "Seguir leyendo", "volltext": "Buscando en el texto completo …", "locale": "es-ES"}</script>
+
+  <script>
+  // Editor-Video: bei „Bewegung reduzieren“ nur das Poster (mit Bedienleiste, falls man es doch ansehen will);
+  // sonst läuft es nur, solange es zu sehen ist (spart Rechenzeit und Akku).
+  (function(){
+    var v=document.getElementById("editor-video"); if(!v) return;
+    var still=window.matchMedia ? window.matchMedia("(prefers-reduced-motion: reduce)") : null;
+    var sichtbar=true;
+    function lauf(){
+      if(still && still.matches){
+        var lief=!v.paused || v.currentTime>0;
+        v.removeAttribute("autoplay"); v.autoplay=false; v.pause(); v.controls=true;
+        if(lief) v.load();                                   // zurück auf das Poster
+        return;
+      }
+      v.controls=false;
+      if(sichtbar){ var p=v.play(); if(p && p.catch) p.catch(function(){}); } else v.pause();
+    }
+    if(still){ if(still.addEventListener) still.addEventListener("change",lauf); else if(still.addListener) still.addListener(lauf); }
+    if("IntersectionObserver" in window){
+      new IntersectionObserver(function(es){ sichtbar=es[0].isIntersecting; if(!(still && still.matches)) lauf(); }).observe(v);
+    }
+    lauf();
+  })();
+  </script>
+  <script src="/wissen/assets/suche.js" defer></script>
+  <script>
+  // Interaktive Modul-/Themen-Übersicht: Baum aus /wissen/data/tree<.sprache>.json (schlank, ohne Texte). Die Suche nutzt
+  // denselben Kern wie der Wissensbereich (/wissen/assets/suche.js): Titel, Schlagwörter und Abschnitte sofort, den Volltext
+  // je Modul erst beim Suchen (W3a, 11.11.2026; vorher lud jeder Besuch der Startseite den ganzen Index, 8 MB).
+  // Standard: Fächer EINGEKLAPPT (reine Übersicht), Themen beim Öffnen eines Fachs AUFGEKLAPPT.
+  // Suche filtert den Baum live: Treffer in Fach-/Themennamen ODER im Artikeltext (Teilwort/infix,
+  // umlaut-/ß-tolerant); passende Äste klappen automatisch auf, Treffer werden hervorgehoben.
+  var TXT=(function(){ try{ return JSON.parse(document.getElementById("seite-text").textContent); }catch(e){ return {}; } })();
+  var LANG=(document.documentElement.lang||"de").slice(0,2);
+  (function(){
+    var treeEl=document.getElementById("module-tree"), input=document.getElementById("module-search");
+    if(!treeEl) return;
+    var roots=[], S=null;
+    function fold(s){ return (s||"").toLowerCase().replace(/ß/g,"ss").replace(/ı/g,"i").replace(/œ/g,"oe").replace(/æ/g,"ae")
+      .normalize("NFKD").replace(/[̀-ͯ]/g,""); }
+    function esc(s){ return (s||"").replace(/[&<>]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;"}[c];}); }
+    function hl(text,raw){ var e=esc(text), q=raw.trim(); if(!q) return e;
+      try{ return e.replace(new RegExp(q.replace(/[.*+?^${}()|[\]\\]/g,"\\$&"),"gi"),function(m){return "<mark>"+m+"</mark>";}); }catch(_){ return e; } }
+    function el(tag,cls){ var e=document.createElement(tag); if(cls)e.className=cls; return e; }
+    function countArts(n){ var c=(n.articles||[]).length; (n.children||[]).forEach(function(k){c+=countArts(k);}); return c; }
+    function kern(){ if(!S && window.ETSuche){ S=window.ETSuche(LANG); S.start().catch(function(){}); } return S; }
+
+    // Ein Knoten (Studiengang/Semester/Modul/Oberthema) -> <details>; Artikel (Themen) als Links am Blatt.
+    function buildNode(node, depth, parentEl){
+      var det=el("details","mod-node lvl"+depth); det.open = depth <= 1;   // offen bis Modul-Ebene (Studiengang+Semester), Module zugeklappt -> schneller Ueberblick
+      var sum=el("summary"), nm=el("span"); nm.textContent=node.name;
+      var cnt=el("span", depth===0?"count":"tcount");
+      sum.appendChild(nm); sum.appendChild(cnt); det.appendChild(sum);
+      var box=el("div","mod-children"), arts=[];
+      if(node.articles && node.articles.length){
+        var ul=el("ul","mod-arts");
+        node.articles.forEach(function(a){
+          var titel=a.klar||a.title, li=el("li"), link=el("a"); link.href="/wissen/es/"+a.path; link.textContent=titel;
+          var snip=el("span","a-snip"); snip.hidden=true; li.appendChild(link); li.appendChild(snip); ul.appendChild(li);
+          arts.push({li:li,a:link,snip:snip,title:titel,path:a.path,ftTitle:fold(a.title)});
+        });
+        box.appendChild(ul);
+      }
+      var kids=[];
+      (node.children||[]).forEach(function(c){ kids.push(buildNode(c, depth+1, box)); });
+      det.appendChild(box); parentEl.appendChild(det);
+      var total=countArts(node); cnt.textContent = depth===0 ? (TXT.artikel||"{n}").split("{n}").join(total) : total;
+      return {det:det, depth:depth, folded:fold(node.name), arts:arts, kids:kids};
+    }
+    function render(tree){
+      treeEl.innerHTML=""; roots=[];
+      tree.forEach(function(n){ roots.push(buildNode(n, 0, treeEl)); });
+    }
+    function walkReset(v){ v.det.hidden=false; v.det.open=v.depth <= 1;
+      v.arts.forEach(function(a){ a.li.hidden=false; a.a.textContent=a.title; a.snip.hidden=true; });
+      v.kids.forEach(walkReset); }
+    function hinweis(cls,text){ [].forEach.call(treeEl.querySelectorAll(".mod-noresult,.mod-laedt"),function(x){ x.remove(); });
+      if(text){ var nr=el("div",cls); nr.textContent=text; treeEl.appendChild(nr); } }
+    function reset(){ hinweis(); roots.forEach(walkReset); }
+    // Treffer, wenn der Knotenname passt (dann alle Nachkommen zeigen: forced) ODER ein Nachkomme passt.
+    // treffer: Adresse -> {d, sc} aus dem Suchkern (Titel, Schlagwort, Abschnitt, Text).
+    function matchNode(v, nq, raw, forced, treffer, q){
+      var nameM = forced || v.folded.indexOf(nq)>=0, any=false;
+      v.arts.forEach(function(a){
+        var h=treffer[a.path], inTitle=a.ftTitle.indexOf(nq)>=0, inText=!!h && h.sc>=1;
+        var show=nameM||inTitle||!!h; a.li.hidden=!show;
+        if(show){ a.a.innerHTML=hl(a.title,raw);
+          if(inText && !inTitle){ a.snip.innerHTML=S.snippet(h.d,q); a.snip.hidden=false; } else a.snip.hidden=true;
+          any=true;
+        } else { a.a.textContent=a.title; a.snip.hidden=true; }
+      });
+      v.kids.forEach(function(k){ if(matchNode(k,nq,raw,nameM,treffer,q)) any=true; });
+      var show=nameM||any; v.det.hidden=!show; v.det.open=show; return show;
+    }
+    function anwenden(raw,res){
+      if(input.value!==raw) return;                       // inzwischen weitergetippt
+      var nq=fold(raw.trim()), treffer={};
+      (res.hits||[]).forEach(function(h){ treffer[h.d.path]=h; });
+      var any=false; roots.forEach(function(r){ if(matchNode(r,nq,raw,false,treffer,res.q||nq)) any=true; });
+      if(res.laedt) hinweis("mod-laedt",TXT.volltext||"…");
+      else if(!any) hinweis("mod-noresult",(TXT.nichts||"{q}").split("{q}").join(raw.trim()));
+      else hinweis();
+    }
+    function filter(raw){
+      var nq=fold(raw.trim()); if(nq.length<2){ reset(); return; }
+      var s=kern();
+      if(!s){ anwenden(raw,{hits:[],laedt:false}); return; }  // ohne Suchkern: nur Namen und Titel
+      s.suche(raw,function(res){ anwenden(raw,res); });
+    }
+
+    fetch("/wissen/data/tree"+(LANG==="de"?"":"."+LANG)+".json").then(function(r){ if(!r.ok) throw r.status; return r.json(); }).then(function(tree){
+      render(tree);
+      if(input){ input.addEventListener("input",function(){ filter(input.value); });
+        input.addEventListener("focus",kern); }
+    }).catch(function(){
+      var p=el("p","mod-fallback"), a=el("a"); p.textContent=(TXT.fehler||"")+" "; a.href=LANG==="de"?"/wissen/":"/wissen/"+LANG+"/";
+      a.textContent=TXT.zum_wissen||"→"; p.appendChild(a); treeEl.innerHTML=""; treeEl.appendChild(p);
+    });
+  })();
+  </script>
+  <script>
+  // „Weiterlesen“ wie auf /wissen/: jüngster Eintrag dieser Sprache aus „etundso-verlauf“, der nicht in „etundso-gelesen“ steht (wissen.js)
+  (function(){ try{
+    var v=JSON.parse(localStorage.getItem("etundso-verlauf")||"[]"), g=JSON.parse(localStorage.getItem("etundso-gelesen")||"{}"), e=null;
+    for(var i=0;i<v.length;i++){ if(v[i] && v[i].p && !g[v[i].p] && (v[i].l||"de")===LANG){ e=v[i]; break; } }
+    var p=document.getElementById("weiterlesen"); if(!e || !p) return;
+    var s=document.createElement("span"), a=document.createElement("a");
+    s.textContent=TXT.weiterlesen||"Weiterlesen"; a.href=e.p; a.textContent=(e.k?e.k+" › ":"")+(e.t||"");
+    p.appendChild(s); p.appendChild(a); p.hidden=false;
+  }catch(x){} })();
+  </script>
+  <script>
+  // Sprachmenü wie im Wissensbereich (wissen.js): Knopf öffnet/schließt, Esc und Klick daneben schließen, Pfeiltasten wandern.
+  (function(){
+    var menus=[].slice.call(document.querySelectorAll("[data-langmenu]"));
+    function btn(m){ return m.querySelector(".l-toggle"); }
+    function list(m){ return m.querySelector(".l-menu"); }
+    function links(m){ return [].slice.call(m.querySelectorAll("a.l-item")); }
+    function isOpen(m){ var l=list(m); return !!(l && !l.hidden); }
+    function close(m, focusBtn){ if(!isOpen(m)) return; list(m).hidden=true; btn(m).setAttribute("aria-expanded","false"); if(focusBtn) btn(m).focus(); }
+    function open(m, focus){
+      menus.forEach(function(o){ if(o!==m) close(o,false); });
+      list(m).hidden=false; btn(m).setAttribute("aria-expanded","true");
+      if(focus){ var ls=links(m), t=(focus==="last") ? ls[ls.length-1] : (m.querySelector("a.l-item.on")||ls[0]); if(t) t.focus(); }
+    }
+    function move(m, d){ var ls=links(m); if(!ls.length) return; var i=ls.indexOf(document.activeElement);
+      i=(i<0) ? (d>0 ? 0 : ls.length-1) : (i+d+ls.length)%ls.length; ls[i].focus(); }
+    menus.forEach(function(m){
+      var b=btn(m), l=list(m); if(!b || !l) return;
+      b.addEventListener("click",function(e){ if(isOpen(m)) close(m,false); else open(m, e.detail===0); });
+      b.addEventListener("keydown",function(e){
+        if(e.key==="ArrowDown"){ e.preventDefault(); open(m,true); }
+        else if(e.key==="ArrowUp"){ e.preventDefault(); open(m,"last"); }
+      });
+      l.addEventListener("keydown",function(e){
+        var ls=links(m);
+        if(e.key==="ArrowDown"){ e.preventDefault(); move(m,1); }
+        else if(e.key==="ArrowUp"){ e.preventDefault(); move(m,-1); }
+        else if(e.key==="Home" && ls.length){ e.preventDefault(); ls[0].focus(); }
+        else if(e.key==="End" && ls.length){ e.preventDefault(); ls[ls.length-1].focus(); }
+      });
+      m.addEventListener("focusout",function(e){ if(e.relatedTarget && !m.contains(e.relatedTarget)) close(m,false); });
+    });
+    document.addEventListener("keydown",function(e){
+      if(e.key==="Escape") menus.forEach(function(m){ if(isOpen(m)) close(m, m.contains(document.activeElement)); });
+    });
+    document.addEventListener("click",function(e){ menus.forEach(function(m){ if(isOpen(m) && !m.contains(e.target)) close(m,false); }); });
+  })();
+  </script>
+  <script>fetch("/version.json?v="+Date.now()).then(r=>r.json()).then(v=>{var e=document.getElementById("build-date");if(e&&v.updated)e.textContent=new Date(v.updated).toLocaleDateString(TXT.locale||"de-DE");}).catch(function(){});</script>
+  <script>
+  // Anonyme Nutzungszähler: diesen Aufruf einmal zählen, dann die Anzeige minütlich auffrischen (read-only,
+  // bläht also nicht auf). Scheitert still, falls die API (noch) nicht erreichbar ist.
+  (function(){
+    var fmt=function(n){ return (n==null?"–":Number(n).toLocaleString("de-DE")); };
+    var paint=function(d){ if(!d) return;
+      var s=document.getElementById("stat-site"), e=document.getElementById("stat-editor");
+      if(s) s.textContent=fmt(d.site); if(e) e.textContent=fmt(d.editor); };
+    var read=function(){ fetch("/api/count?mode=read").then(function(r){return r.json();}).then(paint).catch(function(){}); };
+    fetch("/api/count?event=site&mode=hit").then(function(r){return r.json();}).then(paint).catch(function(){});
+    setInterval(read, 60000);
+  })();
+  </script>
+</body>
+</html>
