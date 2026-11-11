@@ -333,3 +333,105 @@ Welcher Pol in $G(p)$ stammt vom Eingang, welcher vom System?
 (d) Der Pol $p=0$ stammt vom Eingang (Sprung), der Pol $p=-2$ vom System. Beim Teilen $G/S$ kürzt sich genau der Pol des Eingangs heraus.
 :::
 :::
+
+::::kurzfassung
+Zusammengesetzte Systeme berechnet man im Bildbereich mit einfacher Algebra. Umgekehrt lässt sich jedes System mit rationaler Übertragungsfunktion aus wenigen Grundbausteinen aufbauen.
+
+Bei einer __Rückkopplung__ wird ein Teil des Ausgangs zum Eingang zurückgeführt. Das System $H_1(p)$ im __Vorwärtszweig__ erhält die Differenz aus dem Eingang und dem Signal, das das System $H_2(p)$ in der __Rückführung__ aus dem Ausgang formt. Die Differenz bildet eine __Summierstelle__. Aus $G(p)=H_1(p)\cdot\bigl[S(p)-H_2(p)\cdot G(p)\bigr]$ folgt
+
+$$H(p)=\frac{G(p)}{S(p)}=\frac{H_1(p)}{1+H_1(p)\cdot H_2(p)} .$$
+
+Ist $|H_1H_2|\gg1$, wird $H(p)$ nahezu gleich $\frac{1}{H_2(p)}$: Das Verhalten hängt fast nur noch von der Rückführung ab. Darauf beruht jede Operationsverstärkerschaltung mit Gegenkopplung.
+
+Grundbausteine sind der __Integrierer__ mit $H(p)=1/p$, der __Differenzierer__ mit $H(p)=p$, das __Proportionalglied__ mit einem festen Faktor und die Summierstelle. Ein Integrierer mit der Rückführung $b$ ergibt das System erster Ordnung $\frac{1}{p+b}$. Ein System zweiter Ordnung lässt sich in Polynomform, Produktform oder Parallelform schreiben; daraus folgen die direkte Darstellung, die Kaskadendarstellung und die Paralleldarstellung, drei Schaltungen mit demselben Verhalten. Die __direkte Form__ baut jeden Polynombruch aus einer Kette von Integrierern: Der Nenner bestimmt die Rückführungen, der Zähler die Abgriffe. Man zieht Integrierer vor, weil ein Differenzierer schnelle Störungen umso stärker verstärkt, je schneller sie sind.
+
+Im Bildbereich hat jedes Bauelement eine __Impedanz__ $Z(p)=U(p)/I(p)$, nämlich $R$, $\frac{1}{pC}$ oder $pL$. Ein Netzwerk rechnet man damit wie eine Widerstandsschaltung. Aus gemessenem Eingang und Ausgang folgt das System als $H(p)=G(p)/S(p)$.
+
+Falle: Die Rückkopplung verschiebt auch die Pole und kann ein System instabil machen.
+::::
+
+::::formelsammlung
+**Rückkopplung: Gleichung im Bildbereich**
+
+$$G(p)=H_1(p)\cdot\bigl[S(p)-H_2(p)\cdot G(p)\bigr]$$
+
+$H_1$ im Vorwärtszweig, $H_2$ in der Rückführung; die Summierstelle bildet die Differenz.
+
+**Rückkopplung: Übertragungsfunktion**
+
+$$H(p)=\frac{G(p)}{S(p)}=\frac{H_1(p)}{1+H_1(p)\cdot H_2(p)}=\frac{1}{1/H_1(p)+H_2(p)}$$
+
+Gesamtsystem vom Eingang $S$ zum Ausgang $G$.
+
+**Gegenkopplung**
+
+$$H(p)=\frac{H_1}{1+H_1H_2}\approx\frac{H_1}{H_1H_2}=\frac{1}{H_2(p)}$$
+
+Für $|H_1H_2|\gg1$: Das Gesamtsystem hängt fast nur von der Rückführung ab.
+
+**Empfindlichkeit gegen Änderungen von $H_1$**
+
+$$\frac{\mathrm{d} H/H}{\mathrm{d} H_1/H_1}=\frac{1}{1+H_1H_2}$$
+
+Eine relative Änderung von $H_1$ kommt um den Faktor $1+H_1H_2$ verkleinert an.
+
+**Grundbausteine**
+
+$$\text{Integrierer: }H(p)=1/p,\qquad\text{Differenzierer: }H(p)=p,\qquad\text{Proportionalglied: }H(p)=b$$
+
+Impulsantworten $\varepsilon(t)$ bzw. $\delta'(t)$; das Proportionalglied multipliziert mit der festen Zahl $b$. Dazu die Summierstelle. Integrierer werden vorgezogen, da der Differenzierer mit $|H(\mathrm{j}2\pi f)|=2\pi f$ Störungen verstärkt.
+
+**System erster Ordnung**
+
+$$\frac{\mathrm{d} g(t)}{\mathrm{d} t}+b\cdot g(t)=s(t),\qquad H(p)=\frac{1}{p+b}$$
+
+Aufbau als Rückkopplung mit $H_1(p)=1/p$ und $H_2(p)=b$ (ohne Differenzierer) oder mit $H_1(p)=\frac1b$ und $H_2(p)=p$.
+
+**System zweiter Ordnung: drei Formen**
+
+$$H(p)=\underbrace{\frac{1}{p^2+(c_1+c_2)\,p+c_1c_2}}_{\text{Polynomform}}=\underbrace{\frac{1}{p+c_1}\cdot\frac{1}{p+c_2}}_{\text{Produktform}}=\underbrace{\frac{1}{c_2-c_1}\Bigl[\frac{1}{p+c_1}-\frac{1}{p+c_2}\Bigr]}_{\text{Parallelform}}$$
+
+Pole $-c_1$ und $-c_2$, $c_1\ne c_2$. Aufbauten: direkte Darstellung, Kaskadendarstellung, Paralleldarstellung.
+
+**System zweiter Ordnung: Differentialgleichung**
+
+$$\frac{\mathrm{d}^2g(t)}{\mathrm{d} t^2}+(c_1+c_2)\,\frac{\mathrm{d} g(t)}{\mathrm{d} t}+c_1c_2\cdot g(t)=s(t)$$
+
+Gehört zu $H(p)$ in Polynomform.
+
+**Direkte Form**
+
+$$H(p)=\frac{\beta_2p^2+\beta_1p+\beta_0}{p^2+\alpha_1p+\alpha_0}=\frac{H_1(p)}{H_2(p)}$$
+
+Kette $1/H_2$ (Integrierer mit Rückführungen $\alpha_1$, $\alpha_0$), dann $H_1$ (Abgriffe $\beta_2$, $\beta_1$, $\beta_0$). Allgemein bei $Q\le R$: $R+Q+1$ Proportionalglieder, $R+Q$ Summierer mit je zwei Eingängen, $\max(R,Q)$ Integrierer.
+
+**Ohmscher Widerstand im Bildbereich**
+
+$$u(t)=R\cdot i(t)\quad\Longrightarrow\quad U(p)=R\cdot I(p)$$
+
+Wegen der Linearität.
+
+**Kapazität im Bildbereich**
+
+$$u(t)=\frac1C\int i(t)\,\mathrm{d} t\quad\Longrightarrow\quad U(p)=\frac1p\cdot\frac{I(p)}{C}$$
+
+Spannung ist das Integral des Stroms.
+
+**Induktivität im Bildbereich**
+
+$$u(t)=L\,\frac{\mathrm{d} i(t)}{\mathrm{d} t}\quad\Longrightarrow\quad U(p)=p\cdot L\cdot I(p)$$
+
+Spannung ist die Ableitung des Stroms.
+
+**Impedanz**
+
+$$Z(p)=U(p)/I(p)$$
+
+$R$, $\frac{1}{pC}$ und $pL$; Netzwerke rechnet man damit wie Widerstandsschaltungen (Spannungsteiler, Reihen- und Parallelschaltung).
+
+**System aus Messungen**
+
+$$H(p)=G(p)/S(p)$$
+
+Eingang $s(t)$ und Ausgang $g(t)$ je für sich transformiert; die Pole des Eingangs kürzen sich heraus.
+::::

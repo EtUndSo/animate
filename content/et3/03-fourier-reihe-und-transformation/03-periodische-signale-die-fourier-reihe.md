@@ -49,7 +49,7 @@ Ein Signal mit der Periode $T=1/F$ und endlicher Leistung (der Mittelwert von $|
 <span class="anker" id="gl-2-5"></span>
 $$S_p(k)=\frac1T\int_{t_1}^{t_1+T}s_p(t)\,\mathrm{e}^{-\mathrm{j}2\pi kFt}\,\mathrm{d} t, \tag{2.5}$$
 
-wobei $t_1$ beliebig ist (Analyse).
+wobei $t_1$ beliebig ist (Analyse). Das Gleichheitszeichen in [(2.1)](#gl-2-1) gilt im quadratischen Mittel: Der Mittelwert von $\bigl|s_p(t)-\sum_{|k|\le N}S_p(k)\,\mathrm{e}^{\mathrm{j}2\pi kFt}\bigr|^2$ über eine Periode, die Leistung des Fehlers, geht für $N\to\infty$ gegen null. In einzelnen Punkten, etwa an Sprungstellen, muss die Reihe nicht den Signalwert liefern.
 :::
 
 ⁠**So liest man das:** $S_p(k)$ ist der Mittelwert des Signals, nachdem man es mit der $k$-ten Harmonischen „entgegengedreht“ hat. Steckt die Harmonische im Signal, dreht sich der Zeiger an dieser Stelle nicht mehr, und ihr Anteil bleibt im Mittel übrig. $S_p(0)$ ist einfach der Mittelwert.
@@ -146,3 +146,67 @@ Warum ist $S_p(4)=0$? Deute es mit der Orthogonalität: Wie viele Perioden der v
 (b) Die vierte Harmonische hat die Periode $T/4$, genau die Impulsbreite. Die Analyseformel integriert $\mathrm{e}^{-\mathrm{j}2\pi4Ft}$ über den Impuls, also über genau eine volle Umdrehung des Zeigers. Der Mittelwert ist null. Allgemein verschwindet $S_p(k)$, wenn eine ganze Zahl von Perioden der $k$-ten Harmonischen in den Impuls passt.
 :::
 :::
+
+::::kurzfassung
+Ein periodisches Signal lässt sich aus Schwingungen zusammensetzen, aber nur aus solchen, deren Frequenz ein ganzzahliges Vielfaches einer Grundfrequenz ist. Ihre Gewichte findet man durch Mitteln über eine Periode.
+
+Das Signal $s_p(t)$ wiederhole sich nach der Periode $T$. Die __Grundfrequenz__ ist $F=1/T$, die __Harmonischen__ sind die Schwingungen mit den Frequenzen $f_k=kF$. Die __Fourier-Reihe__ setzt das Signal aus ihnen zusammen (Synthese), die Analyseformel liefert die komplexen Gewichte $S_p(k)$:
+
+$$s_p(t)=\sum_{k=-\infty}^{\infty}S_p(k)\,\mathrm{e}^{\mathrm{j}2\pi kFt},\qquad S_p(k)=\frac1T\int_{t_1}^{t_1+T}s_p(t)\,\mathrm{e}^{-\mathrm{j}2\pi kFt}\,\mathrm{d} t.$$
+
+Das gilt für Signale mit endlicher Leistung, bei denen also der Mittelwert von $|s_p(t)|^2$ über eine Periode endlich ist; $t_1$ ist beliebig. $S_p(0)$ ist der __Gleichanteil__, der Mittelwert des Signals. Für reelle Signale gilt $S_p(-k)=S_p^*(k)$. Jedes Paar $k,-k$ ergibt dann eine reelle Kosinusschwingung mit der Amplitude $2|S_p(k)|$ und der Phase $\varphi_p(k)$.
+
+Der Grund: Eine Schwingung $\mathrm{e}^{\mathrm{j}2\pi ft}$ hat die Periode $T$ genau dann, wenn $fT$ ganzzahlig ist. Um ein Gewicht herauszuholen, multipliziert man mit $\mathrm{e}^{-\mathrm{j}2\pi nFt}$, bringt so die $n$-te Harmonische zum Stillstand und mittelt. Jede andere Harmonische dreht sich dabei in der Periode $|k-n|$-mal ganz herum und mittelt sich zu null weg. Schwingungen verschiedener Frequenz heißen deshalb __orthogonal__.
+
+Falle: Die Amplitude der reellen Kosinusschwingung ist $2|S_p(k)|$, nicht $|S_p(k)|$, denn $k$ und $-k$ tragen je die Hälfte bei. Nur der Gleichanteil $S_p(0)$ steht ohne Faktor 2.
+::::
+
+::::formelsammlung
+**Grundfrequenz und Harmonische**
+
+$$F=1/T,\qquad f_k=kF$$
+
+$T$ Periode, $k$ ganzzahlig. Eine Schwingung $\mathrm{e}^{\mathrm{j}2\pi ft}$ hat die Periode $T$ genau dann, wenn $fT$ ganzzahlig ist.
+
+**Fourier-Reihe (Synthese)**
+
+$$s_p(t)=\sum_{k=-\infty}^{\infty}S_p(k)\,\mathrm{e}^{\mathrm{j}2\pi kFt}$$
+
+$s_p$ periodisch mit $T=1/F$ und endlicher Leistung: Der Mittelwert von $|s_p(t)|^2$ über eine Periode ist endlich. $S_p(k)$ komplexes Gewicht der $k$-ten Harmonischen.
+
+**Orthogonalität**
+
+$$\frac1T\int_0^T\mathrm{e}^{\mathrm{j}2\pi(k-n)Ft}\,\mathrm{d} t=\begin{cases}1&k=n\\0&k\neq n\end{cases}$$
+
+$k$, $n$ ganzzahlig. Für $k\neq n$ dreht sich der Zeiger in der Periode $|k-n|$-mal ganz herum, sein Mittelwert ist null.
+
+**Fourier-Koeffizienten (Analyse)**
+
+$$S_p(k)=\frac1T\int_{t_1}^{t_1+T}s_p(t)\,\mathrm{e}^{-\mathrm{j}2\pi kFt}\,\mathrm{d} t$$
+
+$t_1$ beliebig, integriert wird über eine Periode. $S_p(0)$ ist der Gleichanteil, der Mittelwert des Signals.
+
+**Reelle Signale**
+
+$$S_p(-k)=S_p^*(k)$$
+
+Für $s_p=s_p^*$. Jedes Paar $k,-k$ ergibt $2\operatorname{Re}\{S_p(k)\mathrm{e}^{\mathrm{j}2\pi kFt}\}$, eine reelle Kosinusschwingung.
+
+**Kosinusform**
+
+$$s_p(t)=S_p(0)+2\sum_{k=1}^{\infty}|S_p(k)|\cos\bigl(2\pi kFt+\varphi_p(k)\bigr)$$
+
+Reelles Signal, $S_p(k)=|S_p(k)|\,\mathrm{e}^{\mathrm{j}\varphi_p(k)}$. Die Phase $\varphi_p(k)$ bestimmt man mit $\arctan$ und Quadrantenkorrektur ($+\pi$ bei negativem Realteil).
+
+**Kosinus-Sinus-Form**
+
+$$s_p(t)=S_p(0)+2\sum_{k=1}^{\infty}\Bigl[\operatorname{Re}\{S_p(k)\}\cos(2\pi kFt)-\operatorname{Im}\{S_p(k)\}\sin(2\pi kFt)\Bigr]$$
+
+Reelles Signal.
+
+**Koeffizienten der Rechteckschwingung**
+
+$$S_p(0)=\frac{T_1}{T},\qquad S_p(k)=\frac{\sin(\pi kT_1/T)}{\pi k}\quad(k\neq0)$$
+
+Signal 1 für $|t|\le T_1/2$ und 0 im Rest der Periode $T$. Das Signal ist gerade, deshalb sind alle Koeffizienten reell. Bei $T_1=T/2$ fehlen die geraden Harmonischen.
+::::

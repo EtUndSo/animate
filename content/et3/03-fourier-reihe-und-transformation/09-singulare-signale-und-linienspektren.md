@@ -143,3 +143,79 @@ Berechne mit [(8.7)](#gl-8-7) das Spektrum von $\int_{-\infty}^t\operatorname{re
 (b) $\frac{\operatorname{si}(\pi f)}{\mathrm{j}2\pi f}+\frac12\delta(f)$. Das Signal ist das laufende Integral des Rechtecks: 0 für $t\le-\frac12$, dann eine Rampe bis 1 bei $t=\frac12$, danach konstant 1. Der Mittelwert über alle Zeiten ist $\frac12$, daher $\frac12\delta(f)$.
 :::
 :::
+
+::::kurzfassung
+Konstanten, Schwingungen, der Sprung und periodische Signale sind nicht absolut integrierbar. Mit Dirac-Impulsen im Spektrum lassen sie sich trotzdem transformieren, und die Fourier-Reihe wird ein Sonderfall des Fourier-Integrals.
+
+Eine Konstante ist eine Schwingung der Frequenz 0, ihr Spektrum eine einzige Linie: $c\;\circ\!\!-\!\!\bullet\;c\,\delta(f)$. Eine Schwingung ist eine Linie bei ihrer Frequenz, $\mathrm{e}^{\mathrm{j}2\pi Ft}\;\circ\!\!-\!\!\bullet\;\delta(f-F)$; ein reeller Kosinus besteht aus zwei halben Linien bei $\pm F$. Ein periodisches Signal hat deshalb ein __Linienspektrum__: Dirac-Impulse bei den Harmonischen, mit den Fourier-Koeffizienten als Gewichten.
+
+$$\sum_kS_p(k)\mathrm{e}^{\mathrm{j}2\pi kFt}\;\circ\!\!-\!\!\bullet\;\sum_kS_p(k)\,\delta(f-kF).$$
+
+Der __Dirac-Kamm__ $\sum_n\delta(t-nT)$ hat als Spektrum wieder einen Kamm, mit dem Abstand $1/T$ und dem Gewicht $1/|T|$. Der Sprung hat das Spektrum $\tfrac12\delta(f)+\frac{1}{\mathrm{j}2\pi f}$, das Signum das Spektrum $\frac{1}{\mathrm{j}\pi f}$.
+
+Der Grund: Die Symmetrie macht aus $\delta(t)\;\circ\!\!-\!\!\bullet\;1$ das Paar $1\;\circ\!\!-\!\!\bullet\;\delta(f)$, und die Modulation verschiebt diese Linie nach $F$. Beim Sprung kommt die Linie $\tfrac12\delta(f)$ vom Gleichanteil $\tfrac12$. Der Wechselanteil $\tfrac12\operatorname{sgn}(t)$ liefert den Teil, der wie $1/f$ abfällt.
+
+Falle: Aus $\frac{\mathrm{d}}{\mathrm{d} t}\varepsilon=\delta$ folgt nur $\mathrm{j}2\pi f\,S(f)=1$. Das legt $S$ bei $f=0$ nicht fest, denn wegen $f\delta(f)=0$ fällt jeder Summand $c\,\delta(f)$ heraus. Ableiten vergisst Konstanten; die Linie $\tfrac12\delta(f)$ ergänzt man aus dem Mittelwert $\tfrac12$ des Sprungs.
+::::
+
+::::formelsammlung
+**Dirac-Impuls und Konstante**
+
+$$\delta(t)\;\circ\!\!-\!\!\bullet\;1,\qquad c\;\circ\!\!-\!\!\bullet\;c\,\delta(f)$$
+
+Die Konstante $c$ ist eine Schwingung der Frequenz 0: eine einzige Linie bei $f=0$. Folgt mit der Symmetrie aus $\delta(t)\;\circ\!\!-\!\!\bullet\;1$.
+
+**Komplexe Schwingung**
+
+$$\mathrm{e}^{\mathrm{j}2\pi Ft}\;\circ\!\!-\!\!\bullet\;\delta(f-F)$$
+
+Eine Linie bei $F$; die Modulation verschiebt die Linie von $f=0$ nach $F$.
+
+**Kosinus**
+
+$$\cos(2\pi Ft)\;\circ\!\!-\!\!\bullet\;\tfrac12\delta(f+F)+\tfrac12\delta(f-F)$$
+
+Zwei halbe Linien bei $\pm F$; mit der Eulerschen Formel.
+
+**Sinus**
+
+$$\sin(2\pi Ft)\;\circ\!\!-\!\!\bullet\;\tfrac{\mathrm{j}}{2}\delta(f+F)-\tfrac{\mathrm{j}}{2}\delta(f-F)$$
+
+Mit der Eulerschen Formel.
+
+**Linienspektrum eines periodischen Signals**
+
+$$\sum_kS_p(k)\mathrm{e}^{\mathrm{j}2\pi kFt}\;\circ\!\!-\!\!\bullet\;\sum_kS_p(k)\,\delta(f-kF)$$
+
+Dirac-Impulse bei den Harmonischen, die Fourier-Koeffizienten sind ihre Gewichte. Die Fourier-Reihe ist ein Sonderfall des Fourier-Integrals.
+
+**Dirac-Kamm**
+
+$$\sum_n\delta(t-nT)\;\circ\!\!-\!\!\bullet\;\frac{1}{|T|}\sum_k\delta\Bigl(f-\frac kT\Bigr)$$
+
+Impulse im Abstand $T$; das Spektrum ist wieder ein Kamm, mit dem Abstand $1/T$ und dem Gewicht $1/|T|$.
+
+**Sprung und Signum**
+
+$$\varepsilon(t)\;\circ\!\!-\!\!\bullet\;\tfrac12\delta(f)+\frac{1}{\mathrm{j}2\pi f},\qquad\operatorname{sgn}(t)\;\circ\!\!-\!\!\bullet\;\frac{1}{\mathrm{j}\pi f}$$
+
+Signum als Grenzfall von $\operatorname{sgn}(t)\mathrm{e}^{-a|t|}$ für $a\to0$. Mit $\varepsilon(t)=\frac12+\frac12\operatorname{sgn}(t)$ gibt der Gleichanteil $\tfrac12$ die Linie $\tfrac12\delta(f)$.
+
+**Integration**
+
+$$\int_{-\infty}^ts(\tau)\mathrm{d}\tau\;\circ\!\!-\!\!\bullet\;\frac{S(f)}{\mathrm{j}2\pi f}+\tfrac12S(0)\,\delta(f)$$
+
+Weil $\int_{-\infty}^ts\,\mathrm{d}\tau=s*\varepsilon$; Faltungssatz.
+
+**Rechnen mit Dirac-Impulsen im Spektrum**
+
+$$f\delta(f)=0,\qquad S(f)\delta(f)=S(0)\delta(f)$$
+
+Deshalb legt $\mathrm{j}2\pi f\,S(f)=1$, aus $\frac{\mathrm{d}}{\mathrm{d} t}\varepsilon=\delta$, das Spektrum bei $f=0$ nicht fest. Die Linie $\tfrac12\delta(f)$ des Sprungs folgt aus seinem Mittelwert $\tfrac12$.
+
+**Eingeschalteter Kosinus**
+
+$$\varepsilon(t)\cos(2\pi Ft)\;\circ\!\!-\!\!\bullet\;\tfrac14\bigl[\delta(f+F)+\delta(f-F)\bigr]-\frac{\mathrm{j}}{4\pi}\Bigl[\frac{1}{f+F}+\frac{1}{f-F}\Bigr]$$
+
+Multiplikation wird Faltung. Neben den halbierten Linien bei $\pm F$ entsteht ein breites Spektrum des Einschaltvorgangs.
+::::

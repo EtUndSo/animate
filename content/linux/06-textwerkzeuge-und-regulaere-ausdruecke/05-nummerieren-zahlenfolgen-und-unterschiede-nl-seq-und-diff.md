@@ -186,7 +186,7 @@ $ diff -u kurz.csv klein.csv
  2026-11-04,Anna,6.4,35
 ```
 
-Die Kopfzeilen nennen beide Dateien mit ihrer Änderungszeit. `@@ -1,5 +1,5 @@` heißt: fünf Zeilen ab Zeile 1 in beiden Dateien. Zeilen mit `-` fallen weg, Zeilen mit `+` kommen hinzu, Zeilen mit einem Leerzeichen am Anfang stehen zur Orientierung dabei. Das Programm `patch` kann ihn auf eine andere Kopie der ersten Datei anwenden. So schicken Entwickler einander Änderungen, statt ganze Dateien zu verschicken.
+Die Kopfzeilen nennen beide Dateien mit ihrer Änderungszeit. `@@ -1,5 +1,5 @@` heißt: fünf Zeilen ab Zeile 1 in beiden Dateien. Zeilen mit `-` fallen weg, Zeilen mit `+` kommen hinzu, Zeilen mit einem Leerzeichen am Anfang stehen zur Orientierung dabei. Das Programm `patch` kann einen solchen Unterschied auf eine andere Kopie der ersten Datei anwenden. So schicken Entwickler einander Änderungen, statt ganze Dateien zu verschicken.
 :::
 
 ### Aufgaben zu Abschnitt [4](#stufe-4)

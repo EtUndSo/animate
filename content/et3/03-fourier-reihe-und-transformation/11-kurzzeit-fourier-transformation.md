@@ -53,3 +53,49 @@ Für $\tau$ zwischen $nT$ und $(n+1)T$ mit $T=T_0/2$ sind genau die Fenster $n$ 
 $$w(\tau-nT)+w(\tau-(n+1)T)=\cos^2x+\cos^2\Bigl(x-\frac\pi2\Bigr)=\cos^2x+\sin^2x=1.$$
 :::
 :::
+
+::::kurzfassung
+Das Spektrum $S(f)$ beschreibt ein Signal über alle Zeiten. Die Kurzzeit-Fourier-Transformation fragt dagegen, welche Frequenzen das Signal um einen bestimmten Zeitpunkt $t$ enthält.
+
+Man schneidet mit einem __Fenster__ $w$ einen Ausschnitt um $t$ heraus und transformiert nur ihn. Das ergibt die __Kurzzeit-Fourier-Transformation__
+
+$$S_T(f,t)=\int_{-\infty}^{\infty}s(\tau)\,w(\tau-t)\,\mathrm{e}^{-\mathrm{j}2\pi f\tau}\,\mathrm{d}\tau,$$
+
+ein Spektrum, das von der Zeit abhängt. Dabei ist $\tau$ die Zeit des Signals und $t$ die Lage des Fensters. Trägt man $|S_T|$ über $t$ und $f$ auf, entsteht ein __Spektrogramm__. Ergänzen sich die um $T$ verschobenen Fenster zu einer Konstanten, $\sum_nw(\tau-nT)=c$, setzen sich die Ausschnitte lückenlos zum Signal zusammen, und es gilt $S(f)=\frac1c\sum_nS_T(f,nT)$. Das weiche __Hann-Fenster__ der Breite $T_0$, $w(\tau)=\cos^2\bigl(\frac{\pi\tau}{T_0}\bigr)\operatorname{rect}\bigl(\frac{\tau}{T_0}\bigr)$, erfüllt das mit $T=T_0/2$ und $c=1$.
+
+Der Grund für die Verschmierung: Das Fenster multipliziert das Signal, im Frequenzbereich wird also das Spektrum mit dem Spektrum des Fensters gefaltet. Beim Rechteckfenster der Breite $T_0$ ist das $T_0\operatorname{si}(\pi T_0f)$. Seine harten Kanten erzeugen langsam abfallende __Nebenzipfel__, die Nebenmaxima neben dem Hauptmaximum; weiche Fenster dämpfen sie.
+
+Falle: Ein kurzes Fenster lokalisiert gut in der Zeit, verschmiert aber stark in der Frequenz, denn nach dem Ähnlichkeitssatz ist sein Spektrum breit. Beides zugleich beliebig scharf geht nicht.
+::::
+
+::::formelsammlung
+**Ausschnitt mit Rechteckfenster**
+
+$$s_T(\tau,t)=s(\tau)\operatorname{rect}\Bigl(\frac{\tau-t}{T_0}\Bigr)\;\circ\!\!-\!\!\bullet\;S_T(f,t)=S(f)*\bigl[T_0\operatorname{si}(\pi T_0f)\,\mathrm{e}^{-\mathrm{j}2\pi tf}\bigr]$$
+
+Fenster der Breite $T_0$ um den Zeitpunkt $t$, transformiert wird nach $\tau$. Das wahre Spektrum wird mit dem si-Spektrum des Fensters verschmiert; ein kurzes Fenster lokalisiert gut in der Zeit und verschmiert stark in der Frequenz.
+
+**Hann-Fenster**
+
+$$w(\tau)=\tfrac12\Bigl[1+\cos\Bigl(\frac{2\pi\tau}{T_0}\Bigr)\Bigr]\operatorname{rect}\Bigl(\frac{\tau}{T_0}\Bigr)=\cos^2\Bigl(\frac{\pi\tau}{T_0}\Bigr)\operatorname{rect}\Bigl(\frac{\tau}{T_0}\Bigr)$$
+
+Breite $T_0$. Weiche Kanten statt der harten Kanten des Rechtecks, deshalb schneller abfallende Nebenzipfel.
+
+**Kurzzeit-Fourier-Transformation**
+
+$$S_T(f,t)=\int_{-\infty}^{\infty}s(\tau)\,w(\tau-t)\,\mathrm{e}^{-\mathrm{j}2\pi f\tau}\,\mathrm{d}\tau$$
+
+Fenster $w$, um $t$ verschoben. $|S_T|$ über $t$ und $f$ aufgetragen ergibt das Spektrogramm.
+
+**Zusammensetzen aus Ausschnitten**
+
+$$s(\tau)=\frac1c\sum_ns(\tau)\,w(\tau-nT),\qquad S(f)=\frac1c\sum_nS_T(f,nT)$$
+
+Bedingung: Die um $T$ verschobenen Fenster ergänzen sich zu einer Konstanten, $\sum_nw(\tau-nT)=c$.
+
+**Hann-Fenster mit halbem Versatz**
+
+$$\sum_nw(\tau-nT)=1$$
+
+Für $T=T_0/2$, also $c=1$, weil $\cos^2x+\sin^2x=1$.
+::::

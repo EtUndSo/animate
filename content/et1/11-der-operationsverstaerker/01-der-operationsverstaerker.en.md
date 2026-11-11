@@ -14,8 +14,6 @@ lang: en
 
 An __operational amplifier__, op amp for short, is an integrated amplifier made of a few dozen transistors. It amplifies the voltage between its two inputs by a factor of about 100000. This factor is called the __open-loop gain__. It varies by a factor of four from one specimen to the next and changes with temperature. Nevertheless, this component is used to build amplifiers that feel only 0.01 % of this variation, as well as summing amplifiers and integrators. The question is: *How does a huge, imprecise factor turn into a component whose behavior is determined by the resistors alone?* The answer is __negative feedback__: part of the output voltage is fed back to the input in such a way that it counteracts its own cause.
 
-
-
 **How to work with this chapter.** The sections build on each other, and every new term has its own subsection with an example. Expandable boxes contain background (why something is the way it is and where it comes from), derivations and simulation hints; you do not need them to read on. Try the exercises (★ to ★★★) yourself first; the solution expands right below each exercise.
 
 :::merke The reference model for this chapter
@@ -47,5 +45,4 @@ An __operational amplifier__, op amp for short, is an integrated amplifier made 
 
 </ul>
 
-The script `rechnung_kap11.py` recalculates all the numbers.
 :::

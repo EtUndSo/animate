@@ -364,3 +364,73 @@ $\omega=3$, also genau im Pol $p=1+3\mathrm{j}$: Der Integrand ist konstant 1, d
 Auf der Grenzgeraden konvergiert das Integral also nirgends. Der Konvergenzbereich ist die offene Halbebene $\operatorname{Re} p>1$.
 :::
 :::
+
+::::kurzfassung
+Das Laplace-Integral existiert nur in einem Teil der $p$-Ebene. Erst der Ausdruck $S(p)$ zusammen mit diesem Teil legt das Signal fest.
+
+Ein Signal heißt __rechtsseitig__ oder kausal, wenn es für $t<0$ null ist, und __linksseitig__ oder antikausal, wenn es für $t>0$ null ist. Der __Konvergenzbereich__ ist die Menge aller $p$, für die $\int_{-\infty}^{\infty}\bigl|s(t)\,\mathrm{e}^{-pt}\bigr|\,\mathrm{d} t<\infty$ ist. Wegen $|\mathrm{e}^{-pt}|=\mathrm{e}^{-\sigma t}$ hängt er nur von $\operatorname{Re} p$ ab; seine Grenzen sind senkrechte Geraden. Eine __Polstelle__ oder kurz ein Pol ist eine Stelle, an der $S(p)$ über alle Grenzen wächst; bei einem Bruch aus zwei Polynomen sind das die Nullstellen des Nenners, sofern sie sich nicht kürzen. Pole liegen auf den Grenzen des Konvergenzbereichs, nie in ihm. Die __Linearität__, auch __Superposition__ genannt, erlaubt, Summen gliedweise zu transformieren, dort, wo alle Teile konvergieren. Aus den Beispielen folgen die Grundpaare für eine komplexe Zahl $p_0$:
+
+$$\mathrm{e}^{p_0t}\,\varepsilon(t)\longleftrightarrow\frac{1}{p-p_0},\ \operatorname{Re} p>\operatorname{Re} p_0;\qquad -\mathrm{e}^{p_0t}\,\varepsilon(-t)\longleftrightarrow\frac{1}{p-p_0},\ \operatorname{Re} p<\operatorname{Re} p_0 .$$
+
+Dazu kommen $\delta(t)\longleftrightarrow1$ für alle $p$ und $t\,\varepsilon(t)\longleftrightarrow\frac{1}{p^2}$ für $\operatorname{Re} p>0$.
+
+Der Mechanismus: Das Integral prüft das Signal mit der Probe $\mathrm{e}^{-pt}$. Trifft $p$ den Exponenten $p_0$ eines Anteils $\mathrm{e}^{p_0t}$, bleibt ein konstanter Integrand, und das Integral wird unendlich; dort sitzt ein Pol. Die Pole zeigen also, aus welchen Exponentialfunktionen das Signal besteht. Eine abklingende Schwingung liefert so ein konjugiert komplexes Polpaar.
+
+Falle: Der rechtsseitige und der linksseitige Impuls haben denselben Ausdruck $\frac{1}{p-p_0}$; erst der Konvergenzbereich unterscheidet sie. Ein zweiseitiges Signal hat einen __Streifen__ als Konvergenzbereich, und ist er leer, gibt es keine Laplace-Transformierte.
+::::
+
+::::formelsammlung
+**Rechtsseitiger Exponentialimpuls**
+
+$$s_1(t)=\mathrm{e}^{-bt}\cdot\varepsilon(t)\qquad\longleftrightarrow\qquad S_1(p)=\frac{1}{b+p}$$
+
+$b$ konstant, auch komplex; Konvergenzbereich $\sigma=\operatorname{Re}\{p\}>-\operatorname{Re}\{b\}$. Rechtsseitig (kausal): null für $t<0$.
+
+**Konvergenzbereich (Definition)**
+
+$$\int_{-\infty}^{\infty}\bigl|s(t)\,\mathrm{e}^{-pt}\bigr|\,\mathrm{d} t<\infty$$
+
+Menge aller $p$, für die das Laplace-Integral absolut konvergiert. Hängt wegen $|\mathrm{e}^{-pt}|=\mathrm{e}^{-\sigma t}$ nur von $\operatorname{Re} p$ ab; die Grenzen sind senkrechte Geraden.
+
+**Linksseitiger Exponentialimpuls**
+
+$$s_2(t)=\mathrm{e}^{-bt}\cdot\varepsilon(-t)\qquad\longleftrightarrow\qquad S_2(p)=-\frac{1}{b+p}$$
+
+Konvergenzbereich $\sigma=\operatorname{Re}\{p\}<-\operatorname{Re}\{b\}$. Linksseitig (antikausal): null für $t>0$.
+
+**Linearität (Superposition)**
+
+$$\mathcal{L}\{a_1s_1(t)+a_2s_2(t)\}=a_1S_1(p)+a_2S_2(p)$$
+
+$a_1,a_2$ Konstanten; gilt für alle $p$, für die beide Integrale konvergieren. Der Konvergenzbereich der Summe enthält den Durchschnitt beider Bereiche.
+
+**Zweiseitiger Exponentialimpuls**
+
+$$s_3(t)=\mathrm{e}^{-b|t|}\qquad\longleftrightarrow\qquad S_3(p)=\frac{2b}{b^2-p^2}$$
+
+Konvergenzbereich ist der Streifen $-\operatorname{Re}\{b\}<\operatorname{Re}\{p\}<\operatorname{Re}\{b\}$; nicht leer nur für $\operatorname{Re} b>0$. Pole bei $p=\pm b$.
+
+**Grundpaar: rechtsseitig**
+
+$$\mathrm{e}^{p_0t}\,\varepsilon(t)\longleftrightarrow\frac{1}{p-p_0}$$
+
+$p_0$ beliebig komplex; $\operatorname{Re} p>\operatorname{Re} p_0$. Mit $p_0=0$: Sprung $\varepsilon(t)\leftrightarrow1/p$ für $\operatorname{Re} p>0$.
+
+**Grundpaar: linksseitig**
+
+$$-\mathrm{e}^{p_0t}\,\varepsilon(-t)\longleftrightarrow\frac{1}{p-p_0}$$
+
+$\operatorname{Re} p<\operatorname{Re} p_0$. Derselbe Ausdruck wie rechtsseitig; nur der Konvergenzbereich unterscheidet die Signale.
+
+**Grundpaar: Dirac-Impuls**
+
+$$\delta(t)\longleftrightarrow1$$
+
+Für alle $p$ (Siebeigenschaft).
+
+**Grundpaar: Rampe**
+
+$$t\,\varepsilon(t)\longleftrightarrow\frac{1}{p^2}$$
+
+$\operatorname{Re} p>0$.
+::::

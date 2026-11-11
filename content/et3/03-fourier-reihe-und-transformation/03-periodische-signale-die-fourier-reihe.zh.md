@@ -49,7 +49,7 @@ $$\frac1T\int_0^T\mathrm{e}^{\mathrm{j}2\pi(k-n)Ft}\,\mathrm{d} t=\begin{cases}1
 <span class="anker" id="gl-2-5"></span>
 $$S_p(k)=\frac1T\int_{t_1}^{t_1+T}s_p(t)\,\mathrm{e}^{-\mathrm{j}2\pi kFt}\,\mathrm{d} t, \tag{2.5}$$
 
-$t_1$ 可任意选取（分析）。
+$t_1$ 可任意选取（分析）。式 [(2.1)](#gl-2-1) 中的等号在均方意义下成立：$\bigl|s_p(t)-\sum_{|k|\le N}S_p(k)\,\mathrm{e}^{\mathrm{j}2\pi kFt}\bigr|^2$ 在一个周期内的平均值，即误差的功率，当 $N\to\infty$ 时趋于零。在个别点上，例如在跳变处，级数不一定给出信号的值。
 :::
 
 ⁠**如何理解：**$S_p(k)$ 是信号用第 $k$ 次谐波“反向旋转”之后的平均值。若信号中含有该谐波，则相量在此处不再旋转，其份额在取平均后保留下来。$S_p(0)$ 就是平均值。

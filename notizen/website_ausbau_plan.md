@@ -48,6 +48,12 @@ Wortlaut: „Lass uns die Lernkarten als eigenen separaten Bereich einbauen und 
 - **Dateibudget:** Eine App-Seite je Bereich und Sprache plus Daten-JSON je Modul statt Tausender Einzelseiten. Statische Aufgaben-Seiten je Modul sind für Suchmaschinen sinnvoll; ihre Zahl muss im Budget bleiben.
 
 ## Drei Ansichten je Artikel (User, 11.11.2026 abends)
+**W4a fertig und eingespielt 11.11.:**
+- Umschalter Ausführlich/Kurz/Formeln (Informatik: Übersicht) an der Stelle der Pfeile;
+- Seiten je Modul `formeln.html` bzw. `uebersicht.html` und `spickzettel.html` (`?kapitel=N`);
+- Download PNG/JPG/SVG/PDF (`assets/formel-export.js`, MathJax beim Klick von cdnjs);
+- Haken `::::kurzfassung`/`::::formelsammlung`;
+- automatisches Kurz: 18–34 % der Wörter.
 Wortlaut: „Wir sollten in dem Bereich Wissen auch zwischen verschiedenen Kategorien unterscheiden, die sich durch ihre Ausführlichkeit der Erklärung unterscheiden. Die aktuellen Artikel sind sehr ausführlich (war so gewollt und ist sehr gut), manche Leser wollen aber vielleicht nur kurz nachgucken und brauchen keine Details. Ich denke, dass wir zwischen "Sehr ausführlich (wie aktuell)", "Kurze Erklärungen" und "Formelsammlung" unterscheiden sollten. Diese jeweils für jeden Artikel, oben in der Leiste wo aktuell die zwei Pfeile sind umschaltbar.“
 - Umsetzung als Welle **W4a „Ansichten“** (vor W4b Lernkarten/Aufgaben). Formelsammlung je Modul und „Kapitel auf einer Seite“ wandern mit hinein, weil sie dieselben Daten nutzen.
 - „Kurz“ zuerst **automatisch** als Ansicht des vorhandenen Artikels (Überschriften, „Kurz gesagt“, Definitionen, Sätze, Kernformeln, Abbildungen). Ob später eigene, geschriebene Kurzfassungen kommen, entscheidet der User nach Ansicht der automatischen Fassung.
@@ -66,6 +72,12 @@ Wortlaut: „Die Inhalte der Lernkarten machen keinen Sinn. Zum Beispiel Frage: 
 - **Zeitpunkt:** in Ruhe, **wenn kein anderer Agent läuft** (Wunsch des Users). Nicht nebenbei.
 - **Bis dahin online lassen** (User 11.11.: „Du kannst sie erstmal drauf lassen, aktuell nutzt sowieso noch niemand die Webseite. Wir überarbeiten sie später einfach. Das gleiche gilt auch für die Kurzfassungen, sie sollten nicht einfach aus Teilen der Langfassung zusammengesetzt werden, sondern jeweils neu erstellt werden.“). Die automatische Kurzansicht aus W4a ist also nur Übergang, bis die geschriebenen Kurzfassungen da sind.
 - **Idee:** geschriebene Karten aus dem Heft wie Kurzfassung und Formelsammlung (Frage/Antwort je Begriff, Formel, Herleitung, Zusammenhang), ggf. als dritte Datei je Heft im selben Durchgang. Format und Kartenarten vorher mit dem User festlegen.
+
+## Fehlerliste für einen späteren Batch (vom User gemeldet)
+- **ERLEDIGT 11.11.:** Suche markiert das falsche Wort (Ursache und Lösung in `aufgabenliste.md` B2). Ursprüngliche Meldung (User, 11.11.2026): „Bei der Suche nach Begriffen werden die richtigen Stellen gefunden, aber in den angezeigten Stellen dann teilweise die falschen Begriffe rot markiert. Wenn ich z.B. nach Kurve suche wird bei Stufe 6: Die Wheatstonesche Brücke die richtige Zeile angezeigt, aber das Wort " geht" wird rot markiert.“ Im Batch nach der Ursache suchen.
+  - Verdacht: Die Trefferstelle wird in einem anders aufbereiteten Text berechnet (z. B. kleingeschrieben, Umlaute/ß gefaltet, Formeln oder Markdown entfernt) als im angezeigten Ausschnitt. Dann verschiebt sich die Markierung um einige Zeichen.
+  - Zu prüfen: `web/wissen/assets/suche.js` (seit W3a), die Ausschnitt- und Markierungslogik; Vergleich mit dem Stand vor W3a (`wissen.js`).
+  - Testfall: Suche „Kurve“, Treffer „Stufe 6: Die Wheatstonesche Brücke“ (ET1).
 
 ## Idee: Konten mit Fortschritt auf dem Server (User, 11.11.2026) — PAUSIERT
 User 11.11.: „Die Anmelde-Funktion pausieren wir erstmal, ich bin noch nicht sicher.“ Nicht von selbst wieder anstoßen.

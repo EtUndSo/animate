@@ -16,8 +16,6 @@ Two metal plates with an insulator between them: this component is called a __ca
 
 Each plate is an __electrode__; the insulator between them is called the __dielectric__. The quantity that characterizes the component is the __capacitance__: it says how much charge sits on the plates per volt. The basic form is two flat plates, the __parallel-plate capacitor__.
 
-
-
 **How to work with this chapter.** The sections build on each other, and every new term has its own subsection with an example. Expandable boxes contain background (why something is the way it is and where it comes from), derivations and simulation hints; you do not need them to read on. Try the exercises (★ to ★★★) yourself first; the solution expands right below each exercise.
 
 :::merke The reference model for this chapter
@@ -43,5 +41,4 @@ Each plate is an __electrode__; the insulator between them is called the __diele
 
 </ul>
 
-The script `rechnung_kap3.py` recalculates all the numbers.
 :::

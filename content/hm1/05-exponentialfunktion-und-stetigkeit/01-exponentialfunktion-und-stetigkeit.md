@@ -14,8 +14,6 @@ lang: de
 
 $2^{3/2}$ ist die Wurzel aus $2^3$, aber $2^{\sqrt2}$ hatte bisher keinen Sinn. Die Antwort liefern die __Exponentialfunktion__ $\exp(x)=\mathrm{e}^x$, die aus fortlaufender Verzinsung entsteht, und ihre Umkehrung, der __Logarithmus__. Wer $\sqrt2$ auf $1{,}414$ rundet, erwartet trotzdem ein fast richtiges Ergebnis. Dahinter steht die __Stetigkeit__: Kleine Änderungen am Eingang machen kleine Änderungen am Ausgang. Exakt fassen sie der __Grenzwert__ einer Funktion (der Wert, dem sich $f(x)$ nähert, wenn $x$ gegen eine Stelle läuft) und das __Epsilon-Delta-Kriterium__ (ein Toleranztest wie in [Kapitel 4](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/folgen-und-grenzwerte/folgen-und-grenzwerte.html)). Auf einem abgeschlossenen Intervall folgen daraus mit dem __Häufungspunkt__ (einer Stelle, um die sich unendlich viele Folgenglieder sammeln) der __Satz vom Maximum__ (es gibt einen größten Funktionswert) und der __Zwischenwertsatz__ (kein Wert wird übersprungen).
 
-
-
 **So arbeitest du mit diesem Kapitel.** Die Abschnitte bauen aufeinander auf, jeder neue Begriff hat einen eigenen Unterabschnitt mit Beispiel. Kästen zum Aufklappen enthalten Hintergrund (warum etwas so ist und woher es kommt), Herleitungen und Hinweise zur Simulation; zum Weiterlesen braucht man sie nicht. Versuche die Aufgaben (★ bis ★★★) zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf.
 
 :::merke Das Rechenmodell für dieses Kapitel
@@ -41,5 +39,4 @@ $2^{3/2}$ ist die Wurzel aus $2^3$, aber $2^{\sqrt2}$ hatte bisher keinen Sinn. 
 
 </ul>
 
-Alle Zahlen rechnet `rechnung_kap5.py` nach.
 :::

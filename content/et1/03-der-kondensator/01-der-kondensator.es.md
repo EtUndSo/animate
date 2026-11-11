@@ -16,8 +16,6 @@ Dos placas metálicas con un aislante entre ellas: este componente se llama __co
 
 Cada placa es un __electrodo__; el aislante entre ellas se llama __dieléctrico__. La magnitud que caracteriza al componente es la __capacidad__: indica cuánta carga hay en las placas por cada voltio. La forma básica son dos placas planas, el __condensador de placas paralelas__.
 
-
-
 **Cómo trabajar con este capítulo.** Las secciones se apoyan unas en otras y cada término nuevo tiene su propia subsección con un ejemplo. Los recuadros desplegables contienen el contexto (por qué algo es así y de dónde viene), deducciones e indicaciones para la simulación; no hacen falta para seguir leyendo. Intenta primero los ejercicios (de ★ a ★★★) por tu cuenta; la solución se despliega justo debajo de cada ejercicio.
 
 :::merke El modelo de referencia de este capítulo
@@ -43,5 +41,4 @@ Cada placa es un __electrodo__; el aislante entre ellas se llama __dieléctrico_
 
 </ul>
 
-El script `rechnung_kap3.py` comprueba todos los números.
 :::

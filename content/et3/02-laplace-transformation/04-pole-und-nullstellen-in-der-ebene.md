@@ -320,3 +320,63 @@ $$\int_{-\infty}^{\infty}\dot s(t)\,\mathrm{e}^{-pt}\mathrm{d} t=\Bigl[s(t)\,\ma
 Der Randterm verschwindet nach Voraussetzung.
 :::
 :::
+
+::::kurzfassung
+Eine Laplace-Transformierte, die ein Bruch aus zwei Polynomen ist, ist durch ihre Pole, ihre Nullstellen und einen Faktor $H_0$ festgelegt. Das Signal legt erst der Konvergenzbereich dazu fest. Außerdem wird aus der Faltung ein Produkt.
+
+Eine __Nullstelle__ ist eine Stelle $p$ mit $S(p)=0$; bei einem Polynombruch ist es eine Nullstelle des Zählers, die sich nicht gegen einen Pol kürzt. Mit den $Q$ Nullstellen $p_{\mathrm N,q}$ und den $R$ Polen $p_{\mathrm P,r}$ gilt die __Produktform__
+
+$$H(p)=H_0\,\frac{\prod_{q=1}^{Q}\bigl(p-p_{\mathrm N,q}\bigr)}{\prod_{r=1}^{R}\bigl(p-p_{\mathrm P,r}\bigr)} ;$$
+
+$H_0$ ist der Quotient der höchsten Koeffizienten von Zähler und Nenner. Pole als Kreuze und Nullstellen als Kreise in der $p$-Ebene ergeben das __Pol-Nullstellen-Diagramm__. Der Konvergenzbereich liegt bei rechtsseitigen Signalen rechts aller Pole, bei linksseitigen links aller Pole, bei zweiseitigen in einem Streifen zwischen ihnen.
+
+Der __Faltungssatz__ $\mathcal{L}\{s(t)*h(t)\}=S(p)\cdot H(p)$ gilt für alle $p$ in beiden Konvergenzbereichen. Daraus folgt: Ableiten im Zeitbereich ist Multiplizieren mit $p$, denn $\mathcal{L}\{\delta'(t)\}=p$. Integrieren ist Dividieren durch $p$, mit der Zusatzbedingung $\operatorname{Re} p>0$. Der Dirac-Impuls hat die Transformierte $1$.
+
+Der Grund für das Produkt: $S(p)$ beschreibt den Eingang durch die Funktionen $\mathrm{e}^{pt}$, und das System multipliziert jede von ihnen für sich mit ihrem Eigenwert $H(p)$. Die Kopplung aller Zeitpunkte durch die Faltung gibt es im Bildbereich nicht.
+
+Falle: Diagramm und $H_0$ legen nur den Ausdruck fest. Je nach Konvergenzbereich gehört er zu einem rechtsseitigen, einem linksseitigen oder einem zweiseitigen Signal.
+::::
+
+::::formelsammlung
+**Produktform**
+
+$$H(p)=H_0\,\frac{\prod_{q=1}^{Q}\bigl(p-p_{\mathrm N,q}\bigr)}{\prod_{r=1}^{R}\bigl(p-p_{\mathrm P,r}\bigr)}$$
+
+$p_{\mathrm N,q}$ die $Q$ Nullstellen, $p_{\mathrm P,r}$ die $R$ Pole (mehrfache mehrfach gezählt); $H_0$ Quotient der höchsten Koeffizienten von Zähler und Nenner. Gilt für jede rationale Laplace-Transformierte.
+
+**Betrag aus Polen und Nullstellen**
+
+$$|H(p)|=|H_0|\,\frac{\prod_q|p-p_{\mathrm N,q}|}{\prod_r|p-p_{\mathrm P,r}|}$$
+
+Jeder Faktor ist ein Abstand des Punkts $p$ von einer Nullstelle bzw. einem Pol: nahe einem Pol wird $|H|$ groß, nahe einer Nullstelle klein.
+
+**Faltungssatz**
+
+$$\mathcal{L}\{s(t)*h(t)\}=S(p)\cdot H(p)$$
+
+Für alle $p$, die in den Konvergenzbereichen von $S$ und von $H$ liegen.
+
+**Ableitung im Zeitbereich**
+
+$$\frac{\mathrm{d}^n}{\mathrm{d} t^n}s(t)\longleftrightarrow p^n\,S(p)$$
+
+Für $n=1$: Differenzierer mit der Impulsantwort $\delta'(t)$, $\frac{\mathrm{d}}{\mathrm{d} t}s(t)=s(t)*\delta'(t)$. Konvergenzbereich mindestens der von $S(p)$.
+
+**Doppelimpuls**
+
+$$\mathcal{L}\{\delta'(t)\}=p$$
+
+Für alle $p$; folgt aus $\mathrm{e}^{pt}*\delta'(t)=\frac{\mathrm{d}}{\mathrm{d} t}\mathrm{e}^{pt}=p\,\mathrm{e}^{pt}$.
+
+**Integration im Zeitbereich**
+
+$$\mathcal{L}\Bigl\{\int_{-\infty}^{t}s(\tau)\,\mathrm{d}\tau=s(t)*\varepsilon(t)\Bigr\}=\frac1p\,S(p)$$
+
+Konvergenzbereich mindestens der Durchschnitt des Konvergenzbereichs von $S(p)$ mit $\operatorname{Re} p>0$; Integrierer mit der Impulsantwort $\varepsilon(t)$, $\mathcal{L}\{\varepsilon(t)\}=\frac1p$ für $\operatorname{Re}\{p\}>0$.
+
+**Dirac-Impuls**
+
+$$\mathcal{L}\{\delta(t)\}=1$$
+
+Für alle $p$; folgt aus $s(t)=s(t)*\delta(t)$.
+::::

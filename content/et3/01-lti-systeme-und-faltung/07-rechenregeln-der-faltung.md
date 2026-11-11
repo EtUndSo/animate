@@ -103,3 +103,83 @@ Also $h_{\text{Kette}}(t)=t\,\mathrm{e}^{-t}\varepsilon(t)$.
 (c) Ohne Entkopplung zieht das zweite RC-Glied Strom aus dem ersten Kondensator. Dann ist die Spannung am ersten Kondensator nicht mehr die eines unbelasteten RC-Glieds, und die Kette hat nicht $h*h$ als Impulsantwort. Sie bleibt ein LTI-System, aber mit einer anderen Impulsantwort. Die Faltung der Einzelantworten setzt voraus, dass jedes System seinen Eingang nicht zurückbeeinflusst.
 :::
 :::
+
+::::kurzfassung
+Die Faltung verhält sich in vielem wie eine Multiplikation, und jede ihrer Rechenregeln hat eine Bedeutung für Systeme.
+
+Man schreibt das Faltungsintegral kurz als __Faltungsprodukt__ $g(t)=s(t)*h(t)$. Es gelten:
+
+<ul>
+
+<li>
+
+Einselement: $s*\delta=s$. Ein System mit $h(t)=\delta(t)$ gibt jedes Signal unverändert weiter; es heißt __ideal verzerrungsfrei__.
+
+</li>
+
+<li>
+
+Kommutativgesetz: $s*h=h*s$. Eingang und Impulsantwort dürfen die Rollen tauschen.
+
+</li>
+
+<li>
+
+Assoziativgesetz: $(f*s)*h=f*(s*h)$. Zwei Systeme in Kette wirken wie eines mit der Impulsantwort $h_1*h_2$.
+
+</li>
+
+<li>
+
+Distributivgesetz: $f*(s+h)=f*s+f*h$. Zwei parallele Systeme, deren Ausgänge addiert werden, wirken wie eines mit der Impulsantwort $h_1+h_2$.
+
+</li>
+
+</ul>
+
+Weil die Faltung linear ist, zerfällt sie bei komplexen Signalen in Real- und Imaginärteile:
+
+$$s*h=\bigl[\operatorname{Re} s*\operatorname{Re} h-\operatorname{Im} s*\operatorname{Im} h\bigr]+\mathrm{j}\bigl[\operatorname{Re} s*\operatorname{Im} h+\operatorname{Im} s*\operatorname{Re} h\bigr].$$
+
+Der Grund für das Kommutativgesetz ist die Substitution $\tau'=t-\tau$. Sie kehrt die Integrationsrichtung um, und das Vertauschen der Grenzen hebt das Minuszeichen aus $\mathrm{d}\tau=-\mathrm{d}\tau'$ wieder auf.
+
+Falle: Die Impulsantwort $h_1*h_2$ der Kette setzt voraus, dass das zweite System das erste nicht belastet, etwa dank eines Spannungsfolgers dazwischen. Zieht ein zweites RC-Glied Strom aus dem ersten Kondensator, hat die Kette eine andere Impulsantwort.
+::::
+
+::::formelsammlung
+**Faltungsprodukt**
+
+$$g(t)=s(t)*h(t)$$
+
+Kurzschreibweise für das Faltungsintegral.
+
+**Einselement**
+
+$$s*\delta=s$$
+
+Ein System mit $h(t)=\delta(t)$ gibt jedes Signal unverändert weiter: ideal verzerrungsfrei.
+
+**Kommutativgesetz**
+
+$$s*h=\int_{-\infty}^{\infty}s(\tau)\,h(t-\tau)\,\mathrm{d}\tau=\int_{-\infty}^{\infty}s(t-\tau')\,h(\tau')\,\mathrm{d}\tau'=h*s$$
+
+Substitution $\tau'=t-\tau$, $\mathrm{d}\tau=-\mathrm{d}\tau'$; das Vertauschen der Grenzen hebt das Minuszeichen auf. Eingang und Impulsantwort dürfen die Rollen tauschen.
+
+**Assoziativgesetz**
+
+$$(f*s)*h=f*(s*h)$$
+
+Zwei Systeme in Kette wirken wie ein System mit der Impulsantwort $h_1*h_2$; vorausgesetzt, das zweite belastet das erste nicht.
+
+**Distributivgesetz**
+
+$$f*(s+h)=f*s+f*h$$
+
+Zwei parallel geschaltete Systeme, deren Ausgänge addiert werden, wirken wie ein System mit der Impulsantwort $h_1+h_2$.
+
+**Faltung komplexer Signale**
+
+$$s*h=\bigl[\operatorname{Re} s*\operatorname{Re} h-\operatorname{Im} s*\operatorname{Im} h\bigr]+\mathrm{j}\bigl[\operatorname{Re} s*\operatorname{Im} h+\operatorname{Im} s*\operatorname{Re} h\bigr]$$
+
+Folgt aus der Linearität der Faltung.
+::::

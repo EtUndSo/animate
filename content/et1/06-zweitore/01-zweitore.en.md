@@ -14,8 +14,6 @@ lang: en
 
 Between source and load there often sits another network: a cable, a filter, an attenuator or an amplifier. It has an input side and an output side, and from the outside all that counts is what it does to voltage and current. A network with two such terminal pairs is called a __two-port__, and each terminal pair is a __port__. [Chapter 5](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html) replaced a network at one terminal pair by two numbers, equivalent voltage and internal resistance. The question of this chapter is: *How many numbers do you need for two terminal pairs, and how do you measure them from the outside?*
 
-
-
 **How to work with this chapter.** The sections build on each other, and every new term has its own subsection with an example. Expandable boxes contain background (why something is the way it is and where it comes from), derivations and simulation hints; you do not need them to read on. Try the exercises (★ to ★★★) yourself first; the solution expands right below each exercise.
 
 :::merke The reference model for this chapter
@@ -41,7 +39,7 @@ Between source and load there often sits another network: a cable, a filter, an 
 
 <li>
 
-All quantities are DC quantities. The script `rechnung_kap6.py` recalculates all the numbers.
+All quantities are DC quantities.
 
 </li>
 

@@ -12,8 +12,6 @@ lang: en
 
 ## What this is about
 
-
-
 **How to work with this chapter.** Each stage is a short article of its own with the idea, typical questions you can expand, and exercises (★ to ★★★). Try the exercises yourself first; the solution expands right below each exercise. Finish one stage before you move on to the next.
 
 :::merke The reference model for this chapter
@@ -39,5 +37,4 @@ the **unit step** $s(t)=\varepsilon(t)$ with $S(p)=1/p$ for $\operatorname{Re} p
 
 </ul>
 
-The script `rechnung_kap2.py` recomputes the numbers and curves.
 :::

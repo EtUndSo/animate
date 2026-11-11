@@ -16,8 +16,6 @@ Zwei Metallplatten, dazwischen ein Isolator: Dieses Bauteil heißt __Kondensator
 
 Jede Platte ist eine __Elektrode__, der Isolator dazwischen heißt __Dielektrikum__. Die Größe, die das Bauteil kennzeichnet, ist die __Kapazität__: Sie sagt, wie viel Ladung je Volt auf den Platten sitzt. Die Grundform sind zwei ebene Platten, der __Plattenkondensator__.
 
-
-
 **So arbeitest du mit diesem Kapitel.** Die Abschnitte bauen aufeinander auf, jeder neue Begriff hat einen eigenen Unterabschnitt mit Beispiel. Kästen zum Aufklappen enthalten Hintergrund (warum etwas so ist und woher es kommt), Herleitungen und Hinweise zur Simulation; zum Weiterlesen braucht man sie nicht. Versuche die Aufgaben (★ bis ★★★) zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf.
 
 :::merke Das Rechenmodell für dieses Kapitel
@@ -43,5 +41,4 @@ Jede Platte ist eine __Elektrode__, der Isolator dazwischen heißt __Dielektriku
 
 </ul>
 
-Alle Zahlen rechnet `rechnung_kap3.py` nach.
 :::

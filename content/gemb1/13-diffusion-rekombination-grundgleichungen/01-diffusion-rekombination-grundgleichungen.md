@@ -35,7 +35,7 @@ Der Weg führt über acht Begriffe. __Diffusion__ ist die Ausbreitung von Teilch
 
 <li>
 
-⁠**Dotieren:** Bor in Silizium, $D_0=6\,\mathrm{cm^2/s}$, $E_\text{Diff}=3{,}6$ eV, 1100 °C. Alle Zahlen rechnet `rechnung_kap13.py` nach.
+⁠**Dotieren:** Bor in Silizium, $D_0=6\,\mathrm{cm^2/s}$, $E_\text{Diff}=3{,}6$ eV, 1100 °C.
 
 </li>
 

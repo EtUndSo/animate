@@ -14,8 +14,6 @@ lang: es
 
 En un divisor de tensión debería haber 3 V, y el instrumento muestra 2,73 V. El divisor está bien y la lectura es correcta: muestra la tensión presente desde que se conectó el instrumento. Y es que un instrumento de medida es un componente con una __resistencia interna__, la resistencia entre sus terminales. La pregunta es: *¿Por qué todo instrumento modifica el circuito que mide, qué tamaño tiene el error y por qué un puente mide con más exactitud que un instrumento por sí solo?*
 
-
-
 **Cómo trabajar con este capítulo.** Las secciones se apoyan unas en otras y cada término nuevo tiene su propia subsección con un ejemplo. Los recuadros desplegables contienen el contexto (por qué algo es así y de dónde viene), deducciones e indicaciones para la simulación; no hacen falta para seguir leyendo. Intenta primero los ejercicios (de ★ a ★★★) por tu cuenta; la solución se despliega justo debajo de cada ejercicio.
 
 :::merke El modelo de referencia de este capítulo
@@ -47,5 +45,4 @@ En un divisor de tensión debería haber 3 V, y el instrumento muestra 2,73 
 
 </ul>
 
-El script `rechnung_kap4.py` recalcula todos los números.
 :::

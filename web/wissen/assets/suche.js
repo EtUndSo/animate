@@ -73,8 +73,18 @@ window.ETSuche=(function(){
     self.snippet=function(d,q){
       var t=d.text||d.summary||"", ft=fold(t), i=ft.indexOf(q);
       if(i<0) return esc(t.slice(0,130))+(t.length>130?"…":"");
-      var a=Math.max(0,i-45);
-      return (a>0?"…":"")+esc(t.slice(a,i))+"<mark>"+esc(t.slice(i,i+q.length))+"</mark>"+esc(t.slice(i+q.length,i+q.length+70))+"…";
+      // Die Fundstelle i gilt im gefalteten Text. fold() ändert die Länge („ß“→„ss“, „…“→„...“, Ligaturen), deshalb
+      // Zeichen für Zeichen zurück auf den Originaltext abbilden; sonst rutscht die Markierung (Fehler vom 11.11.2026).
+      var von=-1, bis=t.length, n=0;
+      for(var k=0;k<t.length && n<i+q.length;k++){
+        var g=fold(t[k]).length;
+        if(von<0 && n+g>i) von=k;
+        n+=g;
+        if(n>=i+q.length){ bis=k+1; break; }
+      }
+      if(von<0) von=Math.min(i,t.length);
+      var a=Math.max(0,von-45);
+      return (a>0?"…":"")+esc(t.slice(a,von))+"<mark>"+esc(t.slice(von,bis))+"</mark>"+esc(t.slice(bis,bis+70))+"…";
     };
   }
   return function(lang){ lang=lang||"de"; return INDEX[lang]||(INDEX[lang]=new Index(lang)); };

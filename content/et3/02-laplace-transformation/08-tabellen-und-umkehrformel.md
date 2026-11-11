@@ -494,3 +494,171 @@ Vergleiche mit den Grundpaaren [(2.9)](beispiele-zur-laplace-transformation.html
 (c) Das sind genau die Grundpaare [(2.9)](beispiele-zur-laplace-transformation.html#gl-2-9) und [(2.10)](beispiele-zur-laplace-transformation.html#gl-2-10) mit $p_0=-1$. Die Angabe „$S(p)=1/(p+1)$“ allein legt das Signal nicht fest. Erst mit dem Konvergenzbereich ist klar, auf welcher Seite der Geraden der Pol liegt und ob er einen rechtsseitigen oder einen linksseitigen Anteil liefert.
 :::
 :::
+
+::::kurzfassung
+Hier stehen die Rechenregeln und Transformationspaare des Kapitels gesammelt, ergänzt um fünf Regeln. Dazu kommt die Umkehrformel, die aus $S(p)$ das Signal zurückgewinnt.
+
+Die neuen Regeln folgen je mit einer Substitution aus der Definition. Eine Verzögerung $s(t-t_0)$ multipliziert $S(p)$ mit $\mathrm{e}^{-pt_0}$. Der Faktor $\mathrm{e}^{p_0t}$ im Zeitbereich verschiebt die Transformierte zu $S(p-p_0)$ und damit alle Pole um $p_0$. Konjugation ergibt $S^*(p^*)$, Zeitspiegelung $S(-p)$ mit gespiegeltem Konvergenzbereich, Zeitdehnung $s\bigl(\frac tT\bigr)$ ergibt $|T|\,S(pT)$. Neu unter den Paaren ist nur der verschobene Dirac-Impuls, $\delta(t-t_0)\longleftrightarrow\mathrm{e}^{-pt_0}$ für alle $p$.
+
+Mit $\sigma_0$ beliebig im Konvergenzbereich lautet die Umkehrformel
+
+$$s(t)=\mathcal{L}^{-1}\{S(p)\}=\frac{1}{2\pi\mathrm{j}}\int_{\sigma_0-\mathrm{j}\infty}^{\sigma_0+\mathrm{j}\infty}S(p)\,\mathrm{e}^{pt}\,\mathrm{d} p .$$
+
+Sie setzt das Signal aus den Funktionen $\mathrm{e}^{pt}$ auf der senkrechten Geraden $\operatorname{Re} p=\sigma_0$ zusammen, jede mit dem Gewicht $S(p)$; $S(p)$ ist also eine Dichte. An einer Sprungstelle liefert sie den Mittelwert aus links- und rechtsseitigem Grenzwert.
+
+Der Mechanismus: Man dämpft das Signal mit $\mathrm{e}^{-\sigma_0t}$, bis es absolut integrierbar ist, und zerlegt es mit der __Fourier-Darstellung__ in Schwingungen $\mathrm{e}^{\mathrm{j}2\pi ft}$. Das __Spektrum__ des gedämpften Signals ist $S(\sigma_0+\mathrm{j}2\pi f)$. Danach multipliziert man mit $\mathrm{e}^{\sigma_0t}$ zurück. Liegt die imaginäre Achse im Konvergenzbereich, ist $\sigma_0=0$ erlaubt, und die Formel wird zur Fourier-Darstellung.
+
+Bei einem Polynombruch $S(p)$ führen Partialbrüche und Tabelle schneller zum Ziel. Falle: Die Gerade muss im Konvergenzbereich liegen; ihre Lage entscheidet, welche Pole rechtsseitige und welche linksseitige Anteile liefern.
+::::
+
+::::formelsammlung
+**Superposition**
+
+$$\sum_ia_i\,s_i(t)\longleftrightarrow\sum_ia_i\,S_i(p)$$
+
+Für alle $p$, für die alle Integrale konvergieren.
+
+**Verschiebung in $t$**
+
+$$s(t-t_0)\longleftrightarrow S(p)\,\mathrm{e}^{-pt_0}$$
+
+Konvergenzbereich bleibt gleich. Einseitig nur für $t_0>0$ oder wenn $s(t)=0$ für $t<t_0$.
+
+**Verschiebung in $p$**
+
+$$s(t)\cdot\mathrm{e}^{p_0t}\longleftrightarrow S(p-p_0)$$
+
+Konvergenzbereich um $\operatorname{Re} p_0$ verschoben; alle Pole wandern um $p_0$.
+
+**Konjugation**
+
+$$s^*(t)\longleftrightarrow S^*(p^*)$$
+
+Für ein reelles Signal folgt $S(p^*)=S(p)^*$.
+
+**Zeitspiegelung**
+
+$$s(-t)\longleftrightarrow S(-p)$$
+
+Konvergenzbereich und Pole an der imaginären Achse gespiegelt. Bei einseitiger Transformation nicht anwendbar.
+
+**Zeitdehnung**
+
+$$s\bigl(\frac tT\bigr)\longleftrightarrow|T|\,S(pT)$$
+
+$T\ne0$; bei einseitiger Transformation nur für $T>0$. Ein Pol $p_r$ wird zu $p_r/T$.
+
+**Faltung**
+
+$$g(t)=s(t)*h(t)\longleftrightarrow G(p)=S(p)\cdot H(p)$$
+
+Für alle $p$ in den Konvergenzbereichen von $S$ und $H$.
+
+**Ableitung**
+
+$$\frac{\mathrm{d}^n}{\mathrm{d} t^n}s(t)\longleftrightarrow p^n\cdot S(p)$$
+
+Konvergenzbereich mindestens der von $S(p)$.
+
+**Integration**
+
+$$\int_{-\infty}^ts(\tau)\,\mathrm{d}\tau\longleftrightarrow\frac1p\,S(p)$$
+
+Zusätzlich $\operatorname{Re} p>0$.
+
+**Paar: Dirac-Impuls**
+
+$$\delta(t)\longleftrightarrow1$$
+
+Alle $p$.
+
+**Paar: verschobener Dirac-Impuls**
+
+$$\delta(t-t_0)\longleftrightarrow\mathrm{e}^{-pt_0}$$
+
+Alle $p$.
+
+**Paar: Sprung**
+
+$$\varepsilon(t)\longleftrightarrow\frac1p$$
+
+$\operatorname{Re} p>0$.
+
+**Paar: linksseitiger Sprung**
+
+$$-\varepsilon(-t)\longleftrightarrow\frac1p$$
+
+$\operatorname{Re} p<0$.
+
+**Paar: Potenzen von $t$**
+
+$$\frac{t^{n-1}}{(n-1)!}\,\varepsilon(t)=\underbrace{\varepsilon(t)*\ldots*\varepsilon(t)}_{n\text{ Funktionen}}\longleftrightarrow\frac{1}{p^n}$$
+
+$\operatorname{Re} p>0$.
+
+**Paar: rechtsseitige Exponentialfunktion**
+
+$$\mathrm{e}^{p_0t}\,\varepsilon(t)\longleftrightarrow\frac{1}{p-p_0}$$
+
+$\operatorname{Re} p>\operatorname{Re} p_0$; $p_0$ komplex.
+
+**Paar: linksseitige Exponentialfunktion**
+
+$$-\mathrm{e}^{p_0t}\,\varepsilon(-t)\longleftrightarrow\frac{1}{p-p_0}$$
+
+$\operatorname{Re} p<\operatorname{Re} p_0$.
+
+**Paar: mehrfacher Pol**
+
+$$\frac{t^{\,j-1}}{(j-1)!}\,\mathrm{e}^{p_0t}\,\varepsilon(t)\longleftrightarrow\frac{1}{(p-p_0)^j}$$
+
+$\operatorname{Re} p>\operatorname{Re} p_0$.
+
+**Paar: gedämpfter Kosinus**
+
+$$\mathrm{e}^{-\gamma t}\cos(\omega_1t)\cdot\varepsilon(t)\longleftrightarrow\frac{p+\gamma}{(p+\gamma)^2+\omega_1^2}$$
+
+$\operatorname{Re} p>-\gamma$; $\gamma$, $\omega_1$ reell.
+
+**Paar: gedämpfter Sinus**
+
+$$\mathrm{e}^{-\gamma t}\sin(\omega_1t)\cdot\varepsilon(t)\longleftrightarrow\frac{\omega_1}{(p+\gamma)^2+\omega_1^2}$$
+
+$\operatorname{Re} p>-\gamma$.
+
+**Umkehrformel**
+
+$$s(t)=\mathcal{L}^{-1}\{S(p)\}=\frac{1}{2\pi\mathrm{j}}\int_{\sigma_0-\mathrm{j}\infty}^{\sigma_0+\mathrm{j}\infty}S(p)\,\mathrm{e}^{pt}\,\mathrm{d} p$$
+
+$\sigma_0$ beliebig im Konvergenzbereich; Weg: senkrechte Gerade $\operatorname{Re} p=\sigma_0$, von unten nach oben. An Sprungstellen liefert sie den Mittelwert aus links- und rechtsseitigem Grenzwert.
+
+**Umkehrformel über die Frequenz**
+
+$$s(t)=\int_{-\infty}^{\infty}S(\sigma_0+\mathrm{j}2\pi f)\,\mathrm{e}^{(\sigma_0+\mathrm{j}2\pi f)t}\,\mathrm{d} f$$
+
+Mit $p=\sigma_0+\mathrm{j}2\pi f$, $\mathrm{d} p=\mathrm{j}2\pi\,\mathrm{d} f$; Integral als $\lim_{F\to\infty}\int_{-F}^{F}\dots\mathrm{d} f$. $S(p)$ ist eine Dichte (Gewicht pro Frequenzintervall).
+
+**Fourier-Darstellung**
+
+$$s(t)=\int_{-\infty}^{\infty}\mathcal{F}\{s\}(f)\,\mathrm{e}^{\mathrm{j}2\pi ft}\,\mathrm{d} f,\qquad \mathcal{F}\{s\}(f)=\int_{-\infty}^{\infty}s(t)\,\mathrm{e}^{-\mathrm{j}2\pi ft}\,\mathrm{d} t$$
+
+Für absolut integrierbare Signale; $\mathcal{F}\{s\}(f)$ ist das Spektrum.
+
+**Laplace als Fourier eines gedämpften Signals**
+
+$$S(\sigma+\mathrm{j}2\pi f)=\mathcal{F}\{s(t)\,\mathrm{e}^{-\sigma t}\}(f)$$
+
+Für $\sigma$ im Konvergenzbereich. Liegt die imaginäre Achse darin, ist $S(\mathrm{j}2\pi f)=\mathcal{F}\{s\}(f)$.
+
+**Rücktransformation mit Residuen, $t>0$**
+
+$$s(t)=\sum_{\text{Pole links der Geraden}}\operatorname*{Res}_{p=p_r}\bigl[S(p)\,\mathrm{e}^{pt}\bigr]=\sum_{\text{links}}A_r\,\mathrm{e}^{p_r t}$$
+
+$S(p)$ Polynombruch mit kleinerem Zähler- als Nennergrad und einfachen Polen; Weg nach links geschlossen.
+
+**Rücktransformation mit Residuen, $t<0$**
+
+$$s(t)=-\sum_{\text{Pole rechts der Geraden}}A_r\,\mathrm{e}^{p_r t}$$
+
+Weg nach rechts geschlossen. Die Lage der Geraden entscheidet, welche Pole rechts- und welche linksseitige Anteile liefern.
+::::

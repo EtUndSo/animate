@@ -14,8 +14,6 @@ lang: es
 
 Una batería de 9 V tiene 2 $\Omega$ de __resistencia interna__, la resistencia que la corriente debe vencer dentro de la propia fuente. Alimenta una __carga__, el aparato conectado. ¿Qué valor debe tener la carga para que a ella llegue la mayor __potencia__ posible, es decir, la mayor energía por unidad de tiempo? La respuesta es 2 $\Omega$, y tiene un precio: la mitad de la energía se queda entonces como calor en la batería. La pregunta de este capítulo es: *¿De dónde viene la potencia, adónde va, y por qué el máximo está justo en un aprovechamiento del 50 %?*
 
-
-
 **Cómo trabajar con este capítulo.** Las secciones se apoyan unas en otras y cada término nuevo tiene su propia subsección con un ejemplo. Los recuadros desplegables contienen el contexto (por qué algo es así y de dónde viene), deducciones e indicaciones para la simulación; no hacen falta para seguir leyendo. Intenta primero los ejercicios (de ★ a ★★★) por tu cuenta; la solución se despliega justo debajo de cada ejercicio.
 
 :::merke El modelo de referencia de este capítulo
@@ -41,5 +39,4 @@ Una batería de 9 V tiene 2 $\Omega$ de __resistencia interna__, la resisten
 
 </ul>
 
-El script `rechnung_kap7.py` comprueba todos los números.
 :::

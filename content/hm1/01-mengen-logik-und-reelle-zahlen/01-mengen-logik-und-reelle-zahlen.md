@@ -16,8 +16,6 @@ Aus der Schule kennt man Regeln wie $(-1)\cdot(-1)=1$ oder „durch null darf ma
 
 Die Antwort braucht zwei Werkzeuge und eine kurze Liste von Annahmen. Eine __Menge__ fasst Objekte zusammen, eine __Aussage__ ist ein Satz, der wahr oder falsch ist. Ein __Axiom__ ist eine Grundannahme, die man festlegt und nicht beweist. Drei Gruppen von Axiomen genügen: Ein __Körper__ ist eine Menge, in der Plus und Mal nach den bekannten Regeln funktionieren. Die __Anordnung__ legt fest, welche Zahlen positiv sind. Die __Vollständigkeit__ sagt, dass die Zahlengerade keine Lücken hat. Dazu kommen die __vollständige Induktion__, das Beweisverfahren für Aussagen über alle natürlichen Zahlen, und der __Betrag__, der Abstand einer Zahl von der Null.
 
-
-
 **So arbeitest du mit diesem Kapitel.** Die Abschnitte bauen aufeinander auf, jeder neue Begriff hat einen eigenen Unterabschnitt mit Beispiel. Kästen zum Aufklappen enthalten Hintergrund (warum etwas so ist und woher es kommt), Herleitungen und Hinweise zur Simulation; zum Weiterlesen braucht man sie nicht. Versuche die Aufgaben (★ bis ★★★) zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf.
 
 :::merke Das Rechenmodell für dieses Kapitel
@@ -43,7 +41,7 @@ Die Antwort braucht zwei Werkzeuge und eine kurze Liste von Annahmen. Eine __Men
 
 <li>
 
-⁠**Zahlen für Ungleichungen:** $x=-3$, $y=5$ für den Betrag; $x=2$, $y=8$ für die Mittelwerte; die Listen $\vec x=(3,4)$, $\vec y=(1,2)$ für Cauchy-Schwarz. Alle Zahlen und Tafeln prüft `rechnung_kap1.py`.
+⁠**Zahlen für Ungleichungen:** $x=-3$, $y=5$ für den Betrag; $x=2$, $y=8$ für die Mittelwerte; die Listen $\vec x=(3,4)$, $\vec y=(1,2)$ für Cauchy-Schwarz.
 
 </li>
 

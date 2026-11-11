@@ -80,3 +80,43 @@ Prüfe für jedes System Linearität und Zeitinvarianz: (a) $g(t)=3\,s(t-2)$, (b
 (a) Linear und zeitinvariant (Verstärkung 3, Verzögerung 2): LTI. (b) Nicht linear: $\operatorname{Tr}\{2s\}=4s^2\neq2s^2$. Zeitinvariant. (c) Nicht linear (affin, $\operatorname{Tr}\{0\}=1$). Zeitinvariant. (d) Linear. Nicht zeitinvariant: $\operatorname{Tr}\{s(t-t_0)\}=t\,s(t-t_0)$, aber $g(t-t_0)=(t-t_0)\,s(t-t_0)$. Der Faktor $t$ ist ein Bauteil, das sich mit der Zeit ändert. (e) Linear. Nicht zeitinvariant: $\operatorname{Tr}\{s(t-t_0)\}=s(2t-t_0)$, aber $g(t-t_0)=s(2t-2t_0)$. Wer die Zeit staucht, staucht auch jede Verschiebung. (f) LTI. Linear, weil das Integral linear ist. Zeitinvariant: $\int_{-\infty}^ts(\tau-t_0)\mathrm{d}\tau=\int_{-\infty}^{t-t_0}s(\vartheta)\mathrm{d}\vartheta=g(t-t_0)$. Seine Impulsantwort ist $\varepsilon(t)$ (Stufe [8](integrieren-und-differenzieren.html#stufe-8)).
 :::
 :::
+
+::::kurzfassung
+Linearität und Zeitinvarianz sind die beiden Eigenschaften, auf denen alles Weitere beruht. Mit ihnen folgt aus der Antwort auf ein Signal die Antwort auf jede Summe verschobener und skalierter Kopien davon.
+
+Ein __System__ ordnet einem Eingangssignal ein Ausgangssignal zu, $g(t)=\operatorname{Tr}\{s(t)\}$. Eine solche Zuordnung von Funktionen zu Funktionen heißt __Transformation__; der Ausgang zur Zeit $t$ darf vom ganzen bisherigen Verlauf des Eingangs abhängen. Ein System heißt __linear__, wenn für beliebige Konstanten $a_i$ der Überlagerungssatz gilt:
+
+$$\operatorname{Tr}\Bigl\{\sum_ia_is_i(t)\Bigr\}=\sum_ia_i\operatorname{Tr}\{s_i(t)\}=\sum_ia_ig_i(t).$$
+
+Es heißt __zeitinvariant__, wenn für jede Verschiebung $t_0$ gilt: $\operatorname{Tr}\{s(t-t_0)\}=g(t-t_0)$. Ein System mit beiden Eigenschaften heißt __LTI-System__, nach dem englischen linear time-invariant.
+
+Der Grund für die Wirkung: Die Zeitinvarianz liefert zu jeder verschobenen Kopie die verschobene Antwort, die Linearität überträgt Faktoren und Summe. Beim RC-Glied stehen in der Differentialgleichung weder Produkte noch Quadrate von $u_1$ und $u_2$, und $R$ und $C$ ändern sich nicht mit der Zeit. Netzwerke aus $R$, $L$ und $C$ werden durch lineare Differentialgleichungen mit konstanten Koeffizienten beschrieben. Nicht jedes LTI-System hat aber eine solche Gleichung, etwa ein ideales Laufzeitglied, das sein Eingangssignal nur um eine feste Zeit verzögert.
+
+Falle: $g(t)=2s(t)+1$ ist nicht linear, obwohl die Kennlinie eine Gerade ist. Mit allen $a_i=0$ verlangt der Überlagerungssatz $\operatorname{Tr}\{0\}=0$, hier ist aber $\operatorname{Tr}\{0\}=1$. Eine Gerade, die nicht durch den Ursprung geht, heißt __affin__.
+::::
+
+::::formelsammlung
+**System (Transformation)**
+
+$$g(t)=\operatorname{Tr}\{s(t)\}$$
+
+Ordnet dem Eingangssignal $s(t)$ das Ausgangssignal $g(t)$ zu; der Ausgang zur Zeit $t$ darf vom ganzen bisherigen Verlauf des Eingangs abhängen.
+
+**Linearität (Überlagerungssatz)**
+
+$$\operatorname{Tr}\Bigl\{\sum_ia_is_i(t)\Bigr\}=\sum_ia_i\operatorname{Tr}\{s_i(t)\}=\sum_ia_ig_i(t)$$
+
+Für beliebige Konstanten $a_i$; $g_i(t)$ Antwort auf $s_i(t)$.
+
+**Nullsignal bei linearen Systemen**
+
+$$\operatorname{Tr}\{0\}=0$$
+
+Folgt aus dem Überlagerungssatz mit allen $a_i=0$. Deshalb ist $g(t)=2s(t)+1$ nicht linear, sondern affin.
+
+**Zeitinvarianz**
+
+$$\operatorname{Tr}\{s(t-t_0)\}=g(t-t_0)$$
+
+Für jede Verschiebung $t_0$. Linear und zeitinvariant zusammen: LTI-System.
+::::

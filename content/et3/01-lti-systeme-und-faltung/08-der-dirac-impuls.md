@@ -30,7 +30,7 @@ Links: Rechtecke der Fläche 1, immer schmaler und höher. Rechts: das Symbol de
 <span class="anker" id="gl-7-4"></span>
 <span class="anker" id="gl-7-5"></span>
 <span class="anker" id="gl-7-6"></span>
-$$\begin{aligned} &\text{Gewicht:} && [a\,\delta(t)]*s(t)=a\,s(t),\qquad a_1\delta(t)+a_2\delta(t)=(a_1+a_2)\,\delta(t),\\ &\text{Sieb:} && \int_{-\infty}^{\infty}\delta(\tau)\,s(-\tau)\,\mathrm{d}\tau=s(0),\qquad s(t)\,\delta(t-T)=s(T)\,\delta(t-T),\\ &\text{Fläche:} && \int_{-\infty}^{\infty}a\,\delta(t)\,\mathrm{d} t=a,\\ &\text{Dehnung:} && \delta(bt)=\frac{1}{|b|}\,\delta(t),\qquad \delta(-t)=\delta(t),\\ &\text{Verschiebung:} && \delta(t-t_0)*s(t)=s(t-t_0),\\ &\text{Integral:} && \varepsilon(t)=\int_{-\infty}^t\delta(\tau)\,\mathrm{d}\tau,\qquad \frac{\mathrm{d}}{\mathrm{d} t}\varepsilon(t)=\delta(t). \end{aligned} \tag{7.1|7.2|7.3|7.4|7.5|7.6}$$
+$$\begin{aligned} &\text{Gewicht:} && [a\,\delta(t)]*s(t)=a\,s(t),\qquad a_1\delta(t)+a_2\delta(t)=(a_1+a_2)\,\delta(t),\\ &\text{Sieb:} && \int_{-\infty}^{\infty}\delta(\tau)\,s(-\tau)\,\mathrm{d}\tau=s(0),\qquad s(t)\,\delta(t-T)=s(T)\,\delta(t-T),\\ &\text{Fläche:} && \int_{-\infty}^{\infty}a\,\delta(t)\,\mathrm{d} t=a,\\ &\text{Dehnung:} && \delta(bt)=\frac{1}{|b|}\,\delta(t)\quad(b\neq0),\qquad \delta(-t)=\delta(t),\\ &\text{Verschiebung:} && \delta(t-t_0)*s(t)=s(t-t_0),\\ &\text{Integral:} && \varepsilon(t)=\int_{-\infty}^t\delta(\tau)\,\mathrm{d}\tau,\qquad \frac{\mathrm{d}}{\mathrm{d} t}\varepsilon(t)=\delta(t). \end{aligned} \tag{7.1|7.2|7.3|7.4|7.5|7.6}$$
 :::
 
 ⁠**So liest man das:** Das Produkt $s(t)\,\delta(t-T)$ kann nur an der Stelle $T$ etwas bewirken, also zählt nur $s(T)$. Ein gestauchter Impuls $\delta(bt)$ ist zwar genauso „unendlich hoch“, hat aber nur noch die Fläche $1/|b|$. Ein System mit $h(t)=\delta(t-t_0)$ verzögert jedes Signal um $t_0$, es heißt __ideales Laufzeitglied__. Und weil der Sprung das laufende Integral des Stoßes ist, darf man Funktionen mit Sprungstellen ableiten: Ein Sprung der Höhe $A$ wird zu $A\,\delta$. Das heißt __verallgemeinerte Differentiation__. Vorsicht: Viele Operationen, etwa das Quadrieren $\delta^2$, sind für Dirac-Impulse nicht definiert.
@@ -64,3 +64,61 @@ Berechne: (a) $\int_{-\infty}^\infty\delta(t-2)\,\mathrm{e}^{-t}\mathrm{d} t$, (
 (a) $\mathrm{e}^{-2}=0{,}135$. (b) $\mathrm{e}^{-1}\,\delta(t-1)$. (c) $\tfrac12$. (d) $\delta(t-3)$. (e) $\operatorname{rect}(t-1)$. (f) $3\,\delta(t-1)$.
 :::
 :::
+
+::::kurzfassung
+Der Dirac-Impuls ist keine gewöhnliche Funktion. Alle seine Eigenschaften folgen daraus, dass er nur über seine Fläche wirkt.
+
+Die Rechtecke $\frac{1}{T_0}\operatorname{rect}(t/T_0)$ werden für $T_0\to0$ immer schmaler und höher, ihre Fläche bleibt 1. Einen Grenzwert im Sinne gewöhnlicher Funktionen gibt es nicht, denn eine Funktion, die überall außer in einem Punkt null ist, hat die Fläche null. $\delta(t)$ ist deshalb eine __Distribution__: ein Objekt, das nur durch seine Wirkung unter einem Integral festgelegt ist. Man zeichnet es als Pfeil, dessen Höhe das Gewicht angibt, also die Fläche. Die wichtigsten Regeln sind das Sieb-Produkt und die Dehnung:
+
+$$s(t)\,\delta(t-T)=s(T)\,\delta(t-T),\qquad \delta(bt)=\frac{1}{|b|}\,\delta(t).$$
+
+Dazu kommen $\delta(-t)=\delta(t)$ und $\delta(t-t_0)*s(t)=s(t-t_0)$. Ein System mit $h(t)=\delta(t-t_0)$ verzögert also jedes Signal um $t_0$; es heißt __ideales Laufzeitglied__. Aus $\frac{\mathrm{d}}{\mathrm{d} t}\varepsilon(t)=\delta(t)$ folgt: Ein Sprung der Höhe $A$ wird beim Ableiten zu $A\,\delta$. Dieses Ableiten über Sprungstellen hinweg heißt __verallgemeinerte Differentiation__.
+
+Der Grund für die Dehnung: Staucht man das Rechteck der Fläche 1 auf die halbe Breite und lässt die Höhe gleich, halbiert sich die Fläche. Das Produkt $s(t)\,\delta(t-T)$ kann nur an der Stelle $T$ etwas bewirken, also zählt nur $s(T)$.
+
+Falle: „Unendlich hoch“ beschreibt $\delta$ nicht. Deshalb ist $\delta(2t)$ nicht dasselbe wie $\delta(t)$, sondern $\frac12\delta(t)$. Manche Operationen, etwa das Quadrieren $\delta^2$, sind gar nicht definiert.
+::::
+
+::::formelsammlung
+**Rechtecke der Fläche 1**
+
+$$\frac{1}{T_0}\operatorname{rect}(t/T_0)$$
+
+Für $T_0\to0$ immer schmaler und höher, Fläche stets 1. Einen gewöhnlichen Grenzwert gibt es nicht; $\delta(t)$ ist eine Distribution, festgelegt durch $s(t)=\int_{-\infty}^{\infty}s(\tau)\,\delta(t-\tau)\,\mathrm{d}\tau$.
+
+**Gewicht**
+
+$$[a\,\delta(t)]*s(t)=a\,s(t),\qquad a_1\delta(t)+a_2\delta(t)=(a_1+a_2)\,\delta(t)$$
+
+$a$, $a_1$, $a_2$ Konstanten. Gezeichnet als Pfeil, dessen Höhe das Gewicht (die Fläche) angibt.
+
+**Siebeigenschaft**
+
+$$\int_{-\infty}^{\infty}\delta(\tau)\,s(-\tau)\,\mathrm{d}\tau=s(0),\qquad s(t)\,\delta(t-T)=s(T)\,\delta(t-T)$$
+
+Das Produkt mit $\delta(t-T)$ wirkt nur an der Stelle $T$; es zählt nur $s(T)$.
+
+**Fläche**
+
+$$\int_{-\infty}^{\infty}a\,\delta(t)\,\mathrm{d} t=a$$
+
+$a$ konstant.
+
+**Dehnung**
+
+$$\delta(bt)=\frac{1}{|b|}\,\delta(t),\qquad \delta(-t)=\delta(t)$$
+
+$b$ reell, $b\ne0$. Der gestauchte Impuls hat nur noch die Fläche $1/|b|$.
+
+**Verschiebung**
+
+$$\delta(t-t_0)*s(t)=s(t-t_0)$$
+
+Ein System mit $h(t)=\delta(t-t_0)$ verzögert jedes Signal um $t_0$: ideales Laufzeitglied.
+
+**Sprung als Integral des Dirac-Impulses**
+
+$$\varepsilon(t)=\int_{-\infty}^t\delta(\tau)\,\mathrm{d}\tau,\qquad \frac{\mathrm{d}}{\mathrm{d} t}\varepsilon(t)=\delta(t)$$
+
+Verallgemeinerte Differentiation: Ein Sprung der Höhe $A$ wird beim Ableiten zu $A\,\delta$. Nicht definiert sind viele Operationen, etwa $\delta^2$.
+::::

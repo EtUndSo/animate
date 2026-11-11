@@ -44,7 +44,7 @@ With $x=2\pi FRC$:
 $$\begin{aligned} \operatorname{Re}\{H\}&=\frac{1}{1+x^2},\qquad \operatorname{Im}\{H\}=\frac{-x}{1+x^2},\\ |H(F)|&=\sqrt{\operatorname{Re}\{H\}^2+\operatorname{Im}\{H\}^2}=\sqrt{H\,H^*}=\frac{1}{\sqrt{1+x^2}},\qquad \varphi(F)=-\arctan x. \end{aligned} \tag{2.2|2.3}$$
 :::
 
-⁠**How to read it:** $|H|$ tells you by what factor the amplitude shrinks, and $\varphi$ by what angle the oscillation lags. At $x=1$, that is, $F=1/(2\pi RC)=0.16$ Hz in the reference model, $|H|=0.707$ and $\varphi=-45^\circ$. At $x=10$, $|H|=0.0995$ and $\varphi=-84.3^\circ$ (Fig. [3](#abb-3)). **Limiting cases:** $F\to0$ gives $H\to1$ (the capacitor has time to charge fully); $F\to\infty$ gives $H\to0$ with $\varphi\to-90^\circ$ (the capacitor acts like a short circuit).
+⁠**How to read it:** $|H|$ tells you by what factor the amplitude shrinks. $\varphi$ is negative: the oscillation lags by the angle $-\varphi=\arctan x$. At $x=1$, that is, $F=1/(2\pi RC)=0.16$ Hz in the reference model, $|H|=0.707$ and $\varphi=-45^\circ$. At $x=10$, $|H|=0.0995$ and $\varphi=-84.3^\circ$ (Fig. [3](#abb-3)). **Limiting cases:** $F\to0$ gives $H\to1$ (the capacitor has time to charge fully); $F\to\infty$ gives $H\to0$ with $\varphi\to-90^\circ$ (the capacitor acts like a short circuit).
 
 :::abbildung et3/k1bode 3
 Magnitude and phase of the transfer function of the RC low-pass versus $x=2\pi FRC$ (logarithmic scale). Slow oscillations pass almost unchanged; fast ones are attenuated and lag by up to $90^\circ$.

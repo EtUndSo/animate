@@ -16,8 +16,6 @@ Un sistema recibe una señal y entrega otra: un circuito RC suaviza una tensión
 
 Para la amplia clase de los sistemas lineales e invariantes en el tiempo (sistemas LTI), la respuesta es sorprendentemente breve: la respuesta a un único impulso infinitamente corto. La herramienta que obtiene de esta única respuesta todas las demás es la convolución.
 
-
-
 **Cómo trabajar con este capítulo.** Las secciones se apoyan unas en otras y cada término nuevo tiene su propia subsección con un ejemplo. Los recuadros desplegables contienen el contexto (por qué algo es así y de dónde viene), deducciones e indicaciones para la simulación; no hacen falta para seguir leyendo. Intenta primero los ejercicios (de ★ a ★★★) por tu cuenta; la solución se despliega justo debajo de cada ejercicio.
 
 :::merke El modelo de referencia de este capítulo
@@ -37,5 +35,4 @@ Para la amplia clase de los sistemas lineales e invariantes en el tiempo (sistem
 
 </ul>
 
-El script `rechnung_kap1.py` recalcula los números y las curvas.
 :::

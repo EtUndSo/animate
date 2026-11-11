@@ -14,8 +14,6 @@ lang: de
 
 [Kapitel 2](/wissen/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html) hat gezeigt: Jedes Signal ist eine Überlagerung von Bausteinen $\mathrm{e}^{pt}$, und ein LTI-System multipliziert jeden Baustein nur mit einer Zahl. Die Fourier-Beschreibung benutzt davon nur die Bausteine auf der imaginären Achse, $p=\mathrm{j}2\pi f$: reine Schwingungen $\mathrm{e}^{\mathrm{j}2\pi ft}$, die weder wachsen noch abklingen. Das hat einen großen Vorteil. Eine Schwingung hat eine Frequenz, die man hören, messen und filtern kann. Das __Spektrum__ $S(f)$ sagt, mit welcher Amplitude und Phase jede Frequenz im Signal steckt.
 
-
-
 **So arbeitest du mit diesem Kapitel.** Die Abschnitte bauen aufeinander auf, jeder neue Begriff hat einen eigenen Unterabschnitt mit Beispiel. Kästen zum Aufklappen enthalten Hintergrund (warum etwas so ist und woher es kommt), Herleitungen und Hinweise zur Simulation; zum Weiterlesen braucht man sie nicht. Versuche die Aufgaben (★ bis ★★★) zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf.
 
 :::merke Das Rechenmodell für dieses Kapitel
@@ -35,11 +33,10 @@ lang: de
 
 <li>
 
-⁠**Rechteckimpuls** $\operatorname{rect}(t)$ und $\operatorname{si}(x)=\sin(x)/x$.
+⁠**Rechteckimpuls** $\operatorname{rect}(t)$ und $\operatorname{si}(x)=\sin(x)/x$, an der Stelle null durch den Grenzwert $\operatorname{si}(0)=1$ ergänzt.
 
 </li>
 
 </ul>
 
-Die Zahlen und Kurven rechnet `rechnung_kap3.py` nach.
 :::

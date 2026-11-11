@@ -14,8 +14,6 @@ lang: de
 
 Ein __Operationsverstärker__, kurz OPV, ist ein integrierter Verstärker aus einigen Dutzend Transistoren. Er verstärkt die Spannung zwischen seinen zwei Eingängen rund 100000-fach. Dieser Faktor heißt __Leerlaufverstärkung__. Er schwankt von Exemplar zu Exemplar um den Faktor vier und ändert sich mit der Temperatur. Trotzdem baut man aus diesem Bauteil Verstärker, die von dieser Schwankung nur 0,01 % spüren, dazu Addierer und Integrierer. Die Frage lautet: *Wie wird aus einem riesigen, ungenauen Faktor ein Bauteil, dessen Verhalten nur noch die Widerstände bestimmen?* Die Antwort heißt __Gegenkopplung__: Ein Teil der Ausgangsspannung wird so zum Eingang zurückgeführt, dass er seiner eigenen Ursache entgegenwirkt.
 
-
-
 **So arbeitest du mit diesem Kapitel.** Die Abschnitte bauen aufeinander auf, jeder neue Begriff hat einen eigenen Unterabschnitt mit Beispiel. Kästen zum Aufklappen enthalten Hintergrund (warum etwas so ist und woher es kommt), Herleitungen und Hinweise zur Simulation; zum Weiterlesen braucht man sie nicht. Versuche die Aufgaben (★ bis ★★★) zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf.
 
 :::merke Das Rechenmodell für dieses Kapitel
@@ -47,5 +45,4 @@ Ein __Operationsverstärker__, kurz OPV, ist ein integrierter Verstärker aus ei
 
 </ul>
 
-Alle Zahlen rechnet `rechnung_kap11.py` nach.
 :::

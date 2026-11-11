@@ -34,16 +34,21 @@ kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px s
 .topbar .iconBtn:hover{border-color:var(--bar-hl);}
 .topbar .panelBtn:hover{background:color-mix(in srgb,var(--bar-hl) 18%,var(--bar-soft));}   /* Hover nur über den Hintergrund: der Rand zeigt den Zustand */
 .topbar .panelBtn.is-open{color:var(--bar-hl);border-color:var(--bar-hl);}   /* Panel offen = orange, zu = Grundfarbe */
-.topbar .navBtn{color:var(--bar-hl);border-color:var(--bar-hl);}             /* Pfeile zum vorherigen/nächsten Artikel */
-.topbar .navBtn:hover{text-decoration:none;background:color-mix(in srgb,var(--bar-hl) 18%,var(--bar-soft));}
-.topbar .navBtn.disabled{color:var(--bar-ink);border-color:var(--bar-rand);opacity:.45;cursor:default;pointer-events:none;}   /* erster/letzter Artikel: grau, ohne Funktion */
-.topbar .panelCenter{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;align-items:center;gap:8px;}  /* Einklapp-Buttons mittig in der Leiste */
-/* Titel des vorherigen/nächsten Artikels neben den Pfeilen; beide Seiten gleich breit, damit die Knöpfe mittig bleiben */
-.topbar .navTitel{width:min(280px,calc(50vw - 350px));overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font-size:13.5px;font-weight:500;
-  color:#ffffff;height:36px;line-height:36px;}   /* weiß; Zeilenhöhe = Höhe der Pfeil-Kreise -> Text genau auf deren Mitte */
-.topbar .navTitel.vor{text-align:right;} .topbar .navTitel.nach{text-align:left;}
-.topbar a.navTitel:hover{color:var(--bar-hl);text-decoration:none;}
-@media(max-width:1000px){ .topbar .navTitel{display:none;} }
+.topbar .panelCenter{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;align-items:center;gap:8px;}  /* Einklapp-Knopf und Ansicht mittig in der Leiste */
+/* Ansicht Ausführlich | Kurz | Formeln (W4a, an der Stelle der früheren Pfeile): breit Segmentschalter, schmal Auswahl */
+.topbar .ansicht{display:inline-flex;align-items:stretch;height:36px;padding:2px;border:1px solid var(--bar-rand);border-radius:999px;background:var(--bar-soft);}
+.topbar .ans-b{border:0;background:transparent;color:var(--bar-ink);font:inherit;font-size:13.5px;font-weight:600;padding:0 13px;border-radius:999px;cursor:pointer;white-space:nowrap;}
+.topbar .ans-b:hover{color:var(--bar-hl);}
+.topbar .ans-b[aria-pressed="true"]{background:var(--bar-hl);color:#14301f;}
+.topbar .ans-b:focus-visible,.topbar .ans-sel:focus-visible{outline:2px solid var(--bar-hl);outline-offset:2px;}
+.topbar .ans-sel{height:36px;max-width:118px;padding:0 26px 0 12px;border:1px solid var(--bar-hl);border-radius:999px;background-color:var(--bar-soft);color:var(--bar-ink);
+  font:inherit;font-size:13.5px;font-weight:600;cursor:pointer;appearance:none;-webkit-appearance:none;text-overflow:ellipsis;
+  background-image:linear-gradient(45deg,transparent 50%,var(--bar-hl) 50%),linear-gradient(135deg,var(--bar-hl) 50%,transparent 50%);
+  background-position:calc(100% - 15px) 52%,calc(100% - 10px) 52%;background-size:5px 5px,5px 5px;background-repeat:no-repeat;}
+.topbar .ans-sel option{color:#16191a;background:#fff;}
+.topbar .ansicht[hidden],.topbar .ans-sel[hidden]{display:none!important;}
+@media(min-width:821px){ .topbar .ans-sel{display:none!important;} }
+@media(max-width:820px){ .topbar .ansicht{display:none!important;} }
 .apill{display:inline-block;margin-left:6px;padding:0 8px;border:1px solid var(--border);border-radius:999px;font-size:11.5px;font-weight:600;color:var(--muted);line-height:1.6;}
 .apill-mensch{color:var(--accent3);border-color:var(--accent3);}
 /* Fokusmodus: Themenbaum (links) bzw. Gliederung (rechts) einklappen; Mittelbereich bleibt gleich breit (zentriert) */
@@ -429,6 +434,7 @@ main.article:focus{outline:none;}
 .art-meta .am-zahlen{display:inline-flex;flex-wrap:wrap;align-items:baseline;}
 .art-meta .am-zahlen>span+span::before{content:"·";margin:0 .5em;}
 .art-meta .am-zf{color:var(--accent);font-weight:600;}
+.art-meta .am-lf{color:var(--accent);}
 .art-meta .apill{margin-left:0;}
 .art-meta .langs-art{margin:0 0 0 auto;}
 /* Zusammenfassung am Artikelende: Begriffe, Formeln, Zusammenhänge; jeder Punkt springt an seine Stelle */
@@ -728,3 +734,98 @@ details.mk-kap details.mk-kap{margin-left:1em;}
   .mk-inhalt{padding:2px 12px 6px;}
 }
 @media print{ .idx-suche,.mk-lf{display:none!important;} }
+/* ---------- Ansichten (W4a, 11.11.2026): Ausführlich | Kurz | Formeln auf derselben Seite, Formelsammlung und
+   „Kapitel auf einer Seite“ je Modul. <html data-ansicht> setzt der Kopf der Seite (Adresse ?ansicht=, sonst gemerkte Wahl);
+   ohne Skript gilt „Ausführlich“. Kurz: Blöcke mit Klasse kw fallen weg, rohe Listen ohne bleibenden Inhalt ebenso. ---------- */
+@media(max-width:400px){
+  .topbar .ans-sel{height:32px;max-width:104px;padding:0 21px 0 9px;font-size:13px;background-position:calc(100% - 12px) 52%,calc(100% - 7px) 52%;}
+}
+@media(max-width:330px){ .topbar .ans-sel{max-width:92px;font-size:12.5px;} }
+.ans-kurz,.fb-blatt{display:none;}
+:root[data-ansicht="kurz"] .art .kw,
+:root[data-ansicht="kurz"] .art-body :is(ol,ul,li):not(.kz *):not(:has(.kz)),
+:root[data-ansicht="kurz"] .art-body .sect:not(:has(.kz,h2,h3)),
+:root[data-ansicht="kurz"] .art-body hr{display:none!important;}
+:root[data-ansicht="kurz"] .art-body .sect>h3:first-child{margin-top:.7em;}
+:root[data-ansicht="kurz"] .art.hat-kurz .art-body{display:none!important;}
+:root[data-ansicht="kurz"] .art.hat-kurz .ans-kurz{display:block;}
+:root[data-ansicht="formeln"] .art :is(.art-body,.ans-kurz,.arttoc,.zf,.zf-fuss,.verwendet,.cx-quiz,.am-zf),
+:root[data-ansicht="formeln"] .article .toc{display:none!important;}
+:root[data-ansicht="formeln"] .art .fb-blatt{display:block;}
+.art.ansicht-anker .art-body{scroll-margin-top:72px;}
+/* Formelblatt am Artikel und Formelsammlung des Moduls: Name bzw. Abschnitt, darunter die Formel; jeder Eintrag springt an
+   seine Stelle im Artikel (ausführliche Ansicht) */
+.fb-blatt{margin:0 0 1.6em;padding:6px 22px 16px;border:1px solid var(--border);border-radius:16px;background:var(--panel);}
+:root[data-theme="dark"] .fb-blatt{border-color:var(--rahmen);}
+.fb-kopf{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 14px;margin:.5em 0 .6em;}
+.article .fb-kopf h2{margin:0;font-size:22px;color:var(--accent2);}
+.fb-werkzeug{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;font-size:14px;}
+.fb-modul{font-weight:600;}
+.fb-dl{display:inline-flex;flex-wrap:wrap;align-items:center;gap:4px;}
+.fb-dl[hidden]{display:none;}
+.fb-dl-t{color:var(--muted);margin-right:2px;}
+.fb-dl-b{font:inherit;font-size:12.5px;font-weight:700;letter-spacing:.03em;padding:3px 9px;border:1px solid var(--border);border-radius:999px;
+  background:var(--soft);color:var(--accent);cursor:pointer;}
+.fb-dl-b:hover,.fb-dl-b:focus-visible{border-color:var(--accent);}
+.fb-dl-b[aria-busy="true"]{opacity:.55;cursor:progress;}
+:root[data-theme="dark"] .fb-dl-b{border-color:var(--rahmen);}
+.fb-dl-s{font-size:13px;color:var(--muted);}
+.fb-dl-s.fehler{color:var(--accent3);}
+.fb-h{margin:1.1em 0 .3em;font-size:12.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--accent3);}
+.fb-e{margin:.35em 0;padding:8px 0 8px;border-top:1px solid var(--border);}
+:root[data-theme="dark"] .fb-e{border-top-color:var(--rahmen);}
+.fb-h+.fb-e,.fb-inhalt>.fb-e:first-child{border-top:0;}
+.fb-n{display:inline-block;font-weight:700;color:var(--accent2);}
+.fb-i>p:first-child{margin-top:.25em;} .fb-i>:last-child{margin-bottom:.1em;}
+.fb-i .anker{display:none;}
+.fb-gl{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:10px;}
+.fb-f{min-width:0;} .fb-f .katex-display{margin:.3em 0;}
+.fb-nr{font-size:14px;color:var(--muted);white-space:nowrap;}
+.fb-nr:hover{color:var(--accent);}
+.fb-leer{color:var(--muted);}
+.fb-cmd{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:start;gap:10px;}   /* Übersicht: Befehle eines Blocks */
+.fb-code{margin:.15em 0;padding:7px 12px;background:var(--soft);border:1px solid var(--border);border-radius:8px;font-family:var(--fmono);
+  font-size:14px;line-height:1.55;white-space:pre-wrap;overflow-wrap:anywhere;}
+:root[data-theme="dark"] .fb-code{border-color:var(--rahmen);}
+.fb-cmd .fb-nr{padding-top:6px;}
+.fb-zu-kurz{font:inherit;font-weight:600;color:var(--accent);background:none;border:0;padding:0;cursor:pointer;text-decoration:underline;}
+.fb-block>.sect{border:0;padding:0;box-shadow:none;}
+.ans-kurz{margin:0 0 18px;}
+/* Modulseiten: Kapitelwahl, Formelsammlung, Kapitel auf einer Seite */
+.kap-nav[hidden]{display:none;}
+.kap-nav ol{margin:.2em 0 1.2em;padding:0;list-style:none;columns:2 260px;column-gap:28px;}
+.article .kap-nav li{margin:0 0 4px;font-size:15px;line-height:1.45;break-inside:avoid;}
+.kap-leiste{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin:0 0 1.2em;}
+.kap-leiste[hidden]{display:none;}
+.kap-wahl{display:inline-flex;align-items:center;gap:8px;font-size:14.5px;color:var(--muted);}
+.kap-sel{font:inherit;font-size:15px;max-width:min(78vw,460px);padding:6px 10px;border:1px solid var(--border);border-radius:10px;background:var(--panel);color:var(--ink);}
+.kap-druck{font:inherit;font-size:14.5px;font-weight:600;padding:6px 14px;border:1px solid var(--accent);border-radius:999px;background:var(--panel);color:var(--accent);cursor:pointer;}
+.kap-druck:hover{background:var(--soft);}
+:root[data-theme="dark"] :is(.kap-sel,.kap-druck){border-color:var(--rahmen);}
+.fs-werkzeug{margin:0 0 1em;}
+.fs-kap,.sz-kap{margin:0 0 1.8em;scroll-margin-top:70px;}
+.article .fs-kap>h2,.article .sz-kap>h2{margin:1.2em 0 .4em;padding-bottom:4px;border-bottom:2px solid var(--accent);font-size:22px;}
+.fs-art,.sz-art{margin:.6em 0 1.2em;padding:4px 18px 10px;border:1px solid var(--border);border-radius:12px;background:var(--panel);scroll-margin-top:70px;}
+:root[data-theme="dark"] :is(.fs-art,.sz-art){border-color:var(--rahmen);}
+.article .fs-art>h3,.article .sz-art>h3{margin:.6em 0 .2em;font-size:17px;}
+.sz-art .zf-g{margin:.5em 0 .4em;}
+.sz-kern{font-size:14.5px;color:var(--muted);}
+[data-kapitel-filter] :is(.fs-kap,.sz-kap):not(.kap-an){display:none;}
+.kap-seite{margin:0 0 10px 1.15em;font-size:14px;}
+.zf-fuss.art-ende{margin:2em 0 1em;}
+@media(max-width:620px){                                     /* Handy: ohne Karte, wie die Abschnitte */
+  .fb-blatt,:root[data-theme="dark"] .fb-blatt{border:0;padding:0;background:transparent;}
+  .fs-art,.sz-art{padding:2px 12px 8px;}
+  .fb-gl{gap:6px;}
+}
+@page{size:A4;margin:14mm 13mm;}
+@media print{
+  .fb-dl,.fb-modul,.fb-zu-kurz,.kap-nav,.kap-leiste,.fs-werkzeug,.lern-nav,.kap-seite{display:none!important;}
+  .fb-blatt{border:0;padding:0;margin:0;}
+  .fb-e,.sz-art .zf-l li,.sz-art .zf-gh{break-inside:avoid;}
+  .fs-art>h3,.sz-art>h3,.fs-kap>h2,.sz-kap>h2,.zf-gh,.fb-h,.fb-n{break-after:avoid;}
+  .fs-art,.sz-art{border:0;border-top:1px solid #cfd4d1;border-radius:0;padding:4px 0 6px;margin:.4em 0 .6em;}
+  main:not([data-kapitel-filter]) :is(.fs-kap+.fs-kap,.sz-kap+.sz-kap){break-before:page;}
+  .sz-seite .zf-g{margin:.3em 0;} .sz-seite .zf-l li{margin:.1em 0;font-size:11.5pt;}
+  .fb-nr{color:#454b48;}
+}

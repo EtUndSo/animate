@@ -14,8 +14,6 @@ lang: de
 
 Eine 9-V-Batterie hat 2 $\Omega$ __Innenwiderstand__, den Widerstand, den der Strom in der Quelle selbst überwinden muss. Sie speist eine __Last__, das angeschlossene Gerät. Wie groß muss die Last sein, damit möglichst viel __Leistung__, also Energie je Zeit, bei ihr ankommt? Die Antwort lautet 2 $\Omega$, und sie hat einen Preis: Dann bleibt die Hälfte der Energie als Wärme in der Batterie. Die Frage dieses Kapitels lautet: *Woher kommt die Leistung, wohin geht sie, und warum liegt das Maximum ausgerechnet bei 50 % Ausnutzung?*
 
-
-
 **So arbeitest du mit diesem Kapitel.** Die Abschnitte bauen aufeinander auf, jeder neue Begriff hat einen eigenen Unterabschnitt mit Beispiel. Kästen zum Aufklappen enthalten Hintergrund (warum etwas so ist und woher es kommt), Herleitungen und Hinweise zur Simulation; zum Weiterlesen braucht man sie nicht. Versuche die Aufgaben (★ bis ★★★) zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf.
 
 :::merke Das Rechenmodell für dieses Kapitel
@@ -41,5 +39,4 @@ Eine 9-V-Batterie hat 2 $\Omega$ __Innenwiderstand__, den Widerstand, den der 
 
 </ul>
 
-Alle Zahlen rechnet `rechnung_kap7.py` nach.
 :::

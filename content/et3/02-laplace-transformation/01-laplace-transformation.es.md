@@ -12,8 +12,6 @@ lang: es
 
 ## De qué trata
 
-
-
 **Cómo trabajar con este capítulo.** Cada etapa es un artículo breve con la idea, preguntas típicas desplegables y ejercicios (de ★ a ★★★). Intenta resolverlos primero por tu cuenta; la solución se despliega justo debajo de cada ejercicio. Termina una etapa antes de pasar a la siguiente.
 
 :::merke El modelo de cálculo de este capítulo
@@ -39,5 +37,4 @@ el **escalón unitario** $s(t)=\varepsilon(t)$ con $S(p)=1/p$ para $\operatornam
 
 </ul>
 
-Los números y las curvas se comprueban con `rechnung_kap2.py`.
 :::

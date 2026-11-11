@@ -14,8 +14,6 @@ lang: es
 
 Un micrófono entrega milivoltios, un altavoz necesita voltios. Una salida de ordenador entrega miliamperios, un motor necesita amperios. Entre ambos se sitúa un componente que controla una gran corriente con una señal pequeña. Su representante clásico es el __transistor bipolar__, un componente semiconductor de tres capas con tres terminales. La energía procede de la tensión de alimentación; la señal solo ajusta la cantidad. El otro tipo importante, el MOSFET, domina la electrónica digital y no es tema de este capítulo. La pregunta es: *¿Cómo puede una tensión de 0,6 V controlar una corriente que circula por un diodo bloqueado?*
 
-
-
 **Cómo trabajar con este capítulo.** Las secciones se apoyan unas en otras y cada término nuevo tiene su propia subsección con un ejemplo. Los recuadros desplegables contienen el contexto (por qué algo es así y de dónde viene), deducciones e indicaciones para la simulación; no hacen falta para seguir leyendo. Intenta primero los ejercicios (de ★ a ★★★) por tu cuenta; la solución se despliega justo debajo de cada ejercicio.
 
 :::merke El modelo de referencia de este capítulo
@@ -41,5 +39,4 @@ Un micrófono entrega milivoltios, un altavoz necesita voltios. Una salida de or
 
 </ul>
 
-El script `rechnung_kap10.py` comprueba todos los números.
 :::

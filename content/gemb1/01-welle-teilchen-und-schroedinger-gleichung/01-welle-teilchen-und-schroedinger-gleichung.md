@@ -45,5 +45,4 @@ Ein Kupferkabel leitet Strom, seine Kunststoffhülle nicht, und im Chip eines Te
 
 </ul>
 
-Alle Zahlen rechnet `rechnung_kap1.py` nach.
 :::

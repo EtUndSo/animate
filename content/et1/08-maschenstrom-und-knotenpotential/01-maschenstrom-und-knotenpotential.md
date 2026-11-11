@@ -14,8 +14,6 @@ lang: de
 
 Das Netz aus [Kapitel 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html) hat sechs Zweige. Jeder trägt einen Strom und eine Spannung, das sind zwölf Unbekannte, und erst nach langem Einsetzen blieben drei Gleichungen übrig. Eine Schaltung mit Transistoren hat Hunderte Zweige. Die Frage dieses Kapitels lautet: *Wie wenige Unbekannte reichen für ein ganzes Netz, und wie schreibt man die Gleichungen hin, ohne umzuformen?*
 
-
-
 **So arbeitest du mit diesem Kapitel.** Die Abschnitte bauen aufeinander auf, jeder neue Begriff hat einen eigenen Unterabschnitt mit Beispiel. Kästen zum Aufklappen enthalten Hintergrund (warum etwas so ist und woher es kommt), Herleitungen und Hinweise zur Simulation; zum Weiterlesen braucht man sie nicht. Versuche die Aufgaben (★ bis ★★★) zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf.
 
 :::merke Das Rechenmodell für dieses Kapitel
@@ -35,7 +33,7 @@ Das Netz aus [Kapitel 2](/wissen/elektrotechnik/1-semester/grundlagen-der-elekt
 
 <li>
 
-⁠**Einheiten:** Gerechnet wird in V, mA, k$\Omega$ und mS. Wegen $\mathrm{k\Omega\cdot mA}=\mathrm V$ und $\mathrm{mS\cdot V}=\mathrm{mA}$ tauchen keine Zehnerpotenzen auf. Alle Zahlen rechnet `rechnung_kap8.py` nach.
+⁠**Einheiten:** Gerechnet wird in V, mA, k$\Omega$ und mS. Wegen $\mathrm{k\Omega\cdot mA}=\mathrm V$ und $\mathrm{mS\cdot V}=\mathrm{mA}$ tauchen keine Zehnerpotenzen auf.
 
 </li>
 

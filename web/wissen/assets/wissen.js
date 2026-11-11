@@ -4,7 +4,7 @@ var NICHTS={de:"Nichts gefunden für „{q}\".",en:"Nothing found for „{q}\"."
 // Suche: Teilwort-/Infix-Treffer, umlaut-/ß-tolerant, gerankt + hervorgehoben. Der Kern steht in suche.js (W3a, gemeinsam
 // mit der Startseite) und wird erst beim ersten Öffnen geladen; er holt zuerst nur Titel und Abschnitte, den Volltext je
 // Modul, sobald gesucht wird (und nur Module, die das Wort enthalten können).
-var KATEX_OPT={delimiters:[{left:"$$",right:"$$",display:true},{left:"$",right:"$",display:false},{left:"\\(",right:"\\)",display:false}],strict:false};
+var KATEX_OPT={delimiters:[{left:"$$",right:"$$",display:true},{left:"$",right:"$",display:false},{left:"\\(",right:"\\)",display:false}],strict:false,ignoredClasses:["fb-spaeter"]};   // Formelblatt (W4a): erst beim Öffnen setzen
 function mathe(el){ if(window.renderMathInElement) try{ renderMathInElement(el,KATEX_OPT); }catch(e){} }
 (function(){
   var overlay=document.getElementById("searchOverlay"), input=document.getElementById("searchInput"),
@@ -158,7 +158,10 @@ function mathe(el){ if(window.renderMathInElement) try{ renderMathInElement(el,K
     if(!id) return null;
     try{ id=decodeURIComponent(id); }catch(e){}
     var el=document.getElementById(id); if(!el) return null;
-    var auf=false;
+    var auf=false, A=window.ETAnsicht;                             // W4a: Ziel in der gewählten Ansicht versteckt -> „Ausführlich“
+    if(A && id==="formelblatt"){ if(A.jetzt()!=="formeln"){ A.setze("formeln",false); auf=true; } }
+    else if(A && id==="kurzfassung"){ if(A.jetzt()!=="kurz"){ A.setze("kurz",false); auf=true; } }
+    else if(A && A.verborgen(el)){ A.setze("voll",false); auf=true; }
     for(var d=el.parentElement; d; d=d.parentElement){ if(d.tagName==="DETAILS" && !d.open){ d.open=true; auf=true; } }
     if(auf || immer) el.scrollIntoView();
     return auf ? el : null;
@@ -502,7 +505,7 @@ function mathe(el){ if(window.renderMathInElement) try{ renderMathInElement(el,K
 /* ---------- Lernen (W2, 11.11.2026): Lesefortschritt, Link-Vorschau, Selbsttest, Begriffe-Filter, Lernkarten ----------
    Alles bleibt in diesem Browser (localStorage), nichts wird übertragen. Ohne Speicher (privates Fenster, gesperrt) gilt
    es nur, solange die Seite offen ist; Fehler beim Lesen und Schreiben werden abgefangen. Wörter: _UI_LERNEN im Build. */
-var LERNEN_UI={"de":{"bg_leer":"Kein Begriff passt.","bg_anzahl":"{n} Begriffe","lk_faellig":"Heute fällig: {n}","lk_davon_neu":"davon neu: {n}","lk_fertig":"Für heute ist in dieser Auswahl nichts mehr fällig.","lk_mehr_neu":"{n} weitere neue Karten","lk_begriff":"Begriff","lk_formel":"Formel","lk_luecke":"Lückentext","reset_sicher":"Wirklich zurücksetzen?","lk_heute":"gleich noch einmal","lk_morgen":"morgen","lk_tage":"in {n} Tagen","lk_ohne_speicher":"Dieser Browser speichert gerade nichts. Der Lernstand gilt nur, solange die Seite offen ist.","aufdecken":"Aufdecken","gelesen":"Gelesen","lf_kapitel":"{n} von {m} gelesen","lf_artikel":"Gelesen. In diesem Kapitel: {n} von {m}.","weiterlesen":"Weiterlesen","fs_reset":"Fortschritt zurücksetzen","fs_lokal":"Der Lesefortschritt bleibt nur in diesem Browser.","vs_oeffnen":"Öffnen","vs_schliessen":"Schließen","baum_laedt":"Wird geladen …","baum_fehler":"Konnte nicht geladen werden.","suche_volltext":"Volltext wird durchsucht …","begriffe":"Begriffe","lernkarten":"Lernkarten"},"en":{"bg_leer":"No term matches.","bg_anzahl":"{n} terms","lk_faellig":"Due today: {n}","lk_davon_neu":"new: {n}","lk_fertig":"Nothing more is due today in this selection.","lk_mehr_neu":"{n} more new cards","lk_begriff":"Term","lk_formel":"Formula","lk_luecke":"Fill in the blank","reset_sicher":"Really reset?","lk_heute":"again shortly","lk_morgen":"tomorrow","lk_tage":"in {n} days","lk_ohne_speicher":"This browser is not saving anything right now. Progress lasts only while the page is open.","aufdecken":"Reveal","gelesen":"Read","lf_kapitel":"{n} of {m} read","lf_artikel":"Read. In this chapter: {n} of {m}.","weiterlesen":"Continue reading","fs_reset":"Reset reading progress","fs_lokal":"Reading progress stays in this browser only.","vs_oeffnen":"Open","vs_schliessen":"Close","baum_laedt":"Loading …","baum_fehler":"Could not be loaded.","suche_volltext":"Searching the full text …","begriffe":"Glossary","lernkarten":"Flashcards"},"es":{"bg_leer":"Ningún término coincide.","bg_anzahl":"{n} términos","lk_faellig":"Pendientes hoy: {n}","lk_davon_neu":"nuevas: {n}","lk_fertig":"Hoy no queda nada pendiente en esta selección.","lk_mehr_neu":"{n} tarjetas nuevas más","lk_begriff":"Término","lk_formel":"Fórmula","lk_luecke":"Completar","reset_sicher":"¿Reiniciar de verdad?","lk_heute":"otra vez enseguida","lk_morgen":"mañana","lk_tage":"en {n} días","lk_ohne_speicher":"Este navegador no guarda nada ahora mismo. El progreso solo dura mientras la página esté abierta.","aufdecken":"Descubrir","gelesen":"Leído","lf_kapitel":"{n} de {m} leídos","lf_artikel":"Leído. En este capítulo: {n} de {m}.","weiterlesen":"Seguir leyendo","fs_reset":"Reiniciar el progreso de lectura","fs_lokal":"El progreso de lectura se queda solo en este navegador.","vs_oeffnen":"Abrir","vs_schliessen":"Cerrar","baum_laedt":"Cargando …","baum_fehler":"No se pudo cargar.","suche_volltext":"Buscando en el texto completo …","begriffe":"Glosario","lernkarten":"Tarjetas de estudio"},"zh":{"bg_leer":"没有匹配的术语。","bg_anzahl":"共 {n} 个术语","lk_faellig":"今天到期：{n}","lk_davon_neu":"其中新卡：{n}","lk_fertig":"此范围内今天已没有到期的卡片。","lk_mehr_neu":"再学 {n} 张新卡","lk_begriff":"术语","lk_formel":"公式","lk_luecke":"填空","reset_sicher":"确定要重置吗？","lk_heute":"稍后再来一次","lk_morgen":"明天","lk_tage":"{n} 天后","lk_ohne_speicher":"此浏览器目前无法保存数据，学习进度只在页面打开期间有效。","aufdecken":"揭开","gelesen":"已读","lf_kapitel":"已读 {n} / {m}","lf_artikel":"已读。本章已读 {n} / {m}。","weiterlesen":"继续阅读","fs_reset":"重置阅读进度","fs_lokal":"阅读进度只保存在本浏览器中。","vs_oeffnen":"打开","vs_schliessen":"关闭","baum_laedt":"加载中 …","baum_fehler":"无法加载。","suche_volltext":"正在搜索全文 …","begriffe":"术语表","lernkarten":"学习卡片"},"fr":{"bg_leer":"Aucun terme ne correspond.","bg_anzahl":"{n} termes","lk_faellig":"À revoir aujourd’hui : {n}","lk_davon_neu":"dont nouvelles : {n}","lk_fertig":"Plus rien à revoir aujourd’hui dans cette sélection.","lk_mehr_neu":"{n} nouvelles fiches de plus","lk_begriff":"Terme","lk_formel":"Formule","lk_luecke":"Texte à trous","reset_sicher":"Vraiment réinitialiser ?","lk_heute":"encore une fois tout de suite","lk_morgen":"demain","lk_tage":"dans {n} jours","lk_ohne_speicher":"Ce navigateur n’enregistre rien pour le moment. La progression ne dure que tant que la page est ouverte.","aufdecken":"Révéler","gelesen":"Lu","lf_kapitel":"{n} sur {m} lus","lf_artikel":"Lu. Dans ce chapitre : {n} sur {m}.","weiterlesen":"Reprendre la lecture","fs_reset":"Réinitialiser la progression de lecture","fs_lokal":"La progression de lecture reste uniquement dans ce navigateur.","vs_oeffnen":"Ouvrir","vs_schliessen":"Fermer","baum_laedt":"Chargement …","baum_fehler":"Chargement impossible.","suche_volltext":"Recherche dans le texte intégral …","begriffe":"Glossaire","lernkarten":"Fiches de révision"},"tr":{"bg_leer":"Eşleşen terim yok.","bg_anzahl":"{n} terim","lk_faellig":"Bugün sırası gelen: {n}","lk_davon_neu":"yeni: {n}","lk_fertig":"Bu seçimde bugün için başka kart yok.","lk_mehr_neu":"{n} yeni kart daha","lk_begriff":"Terim","lk_formel":"Formül","lk_luecke":"Boşluk doldurma","reset_sicher":"Gerçekten sıfırlansın mı?","lk_heute":"birazdan tekrar","lk_morgen":"yarın","lk_tage":"{n} gün sonra","lk_ohne_speicher":"Bu tarayıcı şu anda hiçbir şey kaydetmiyor. İlerleme yalnızca sayfa açıkken geçerli.","aufdecken":"Aç","gelesen":"Okundu","lf_kapitel":"{m} makaleden {n} tanesi okundu","lf_artikel":"Okundu. Bu bölümde: {m} makaleden {n} tanesi.","weiterlesen":"Okumaya devam et","fs_reset":"Okuma ilerlemesini sıfırla","fs_lokal":"Okuma ilerlemesi yalnızca bu tarayıcıda kalır.","vs_oeffnen":"Aç","vs_schliessen":"Kapat","baum_laedt":"Yükleniyor …","baum_fehler":"Yüklenemedi.","suche_volltext":"Tam metinde aranıyor …","begriffe":"Sözlük","lernkarten":"Çalışma kartları"}};
+var LERNEN_UI={"de":{"bg_leer":"Kein Begriff passt.","bg_anzahl":"{n} Begriffe","lk_faellig":"Heute fällig: {n}","lk_davon_neu":"davon neu: {n}","lk_fertig":"Für heute ist in dieser Auswahl nichts mehr fällig.","lk_mehr_neu":"{n} weitere neue Karten","lk_begriff":"Begriff","lk_formel":"Formel","lk_luecke":"Lückentext","reset_sicher":"Wirklich zurücksetzen?","lk_heute":"gleich noch einmal","lk_morgen":"morgen","lk_tage":"in {n} Tagen","lk_ohne_speicher":"Dieser Browser speichert gerade nichts. Der Lernstand gilt nur, solange die Seite offen ist.","aufdecken":"Aufdecken","gelesen":"Gelesen","lf_kapitel":"{n} von {m} gelesen","lf_artikel":"Gelesen. In diesem Kapitel: {n} von {m}.","weiterlesen":"Weiterlesen","fs_reset":"Fortschritt zurücksetzen","fs_lokal":"Der Lesefortschritt bleibt nur in diesem Browser.","vs_oeffnen":"Öffnen","vs_schliessen":"Schließen","baum_laedt":"Wird geladen …","baum_fehler":"Konnte nicht geladen werden.","suche_volltext":"Volltext wird durchsucht …","begriffe":"Begriffe","lernkarten":"Lernkarten","ans_kurz_min":"Kurz: {n} min","dl_laeuft":"Wird erstellt …","dl_fehler":"Das Erstellen hat nicht geklappt.","dl_gross":"Zu lang für ein Bild. Wähle ein Kapitel oder nimm PDF.","fb_titel":"Formelsammlung","ans_formeln":"Formeln","fb_titel_ref":"Befehlsübersicht"},"en":{"bg_leer":"No term matches.","bg_anzahl":"{n} terms","lk_faellig":"Due today: {n}","lk_davon_neu":"new: {n}","lk_fertig":"Nothing more is due today in this selection.","lk_mehr_neu":"{n} more new cards","lk_begriff":"Term","lk_formel":"Formula","lk_luecke":"Fill in the blank","reset_sicher":"Really reset?","lk_heute":"again shortly","lk_morgen":"tomorrow","lk_tage":"in {n} days","lk_ohne_speicher":"This browser is not saving anything right now. Progress lasts only while the page is open.","aufdecken":"Reveal","gelesen":"Read","lf_kapitel":"{n} of {m} read","lf_artikel":"Read. In this chapter: {n} of {m}.","weiterlesen":"Continue reading","fs_reset":"Reset reading progress","fs_lokal":"Reading progress stays in this browser only.","vs_oeffnen":"Open","vs_schliessen":"Close","baum_laedt":"Loading …","baum_fehler":"Could not be loaded.","suche_volltext":"Searching the full text …","begriffe":"Glossary","lernkarten":"Flashcards","ans_kurz_min":"Short: {n} min","dl_laeuft":"Creating …","dl_fehler":"Creating the file did not work.","dl_gross":"Too long for one image. Choose a chapter or use PDF.","fb_titel":"Formula collection","ans_formeln":"Formulas","fb_titel_ref":"Command reference"},"es":{"bg_leer":"Ningún término coincide.","bg_anzahl":"{n} términos","lk_faellig":"Pendientes hoy: {n}","lk_davon_neu":"nuevas: {n}","lk_fertig":"Hoy no queda nada pendiente en esta selección.","lk_mehr_neu":"{n} tarjetas nuevas más","lk_begriff":"Término","lk_formel":"Fórmula","lk_luecke":"Completar","reset_sicher":"¿Reiniciar de verdad?","lk_heute":"otra vez enseguida","lk_morgen":"mañana","lk_tage":"en {n} días","lk_ohne_speicher":"Este navegador no guarda nada ahora mismo. El progreso solo dura mientras la página esté abierta.","aufdecken":"Descubrir","gelesen":"Leído","lf_kapitel":"{n} de {m} leídos","lf_artikel":"Leído. En este capítulo: {n} de {m}.","weiterlesen":"Seguir leyendo","fs_reset":"Reiniciar el progreso de lectura","fs_lokal":"El progreso de lectura se queda solo en este navegador.","vs_oeffnen":"Abrir","vs_schliessen":"Cerrar","baum_laedt":"Cargando …","baum_fehler":"No se pudo cargar.","suche_volltext":"Buscando en el texto completo …","begriffe":"Glosario","lernkarten":"Tarjetas de estudio","ans_kurz_min":"Breve: {n} min","dl_laeuft":"Creando …","dl_fehler":"No se pudo crear el archivo.","dl_gross":"Demasiado largo para una imagen. Elige un capítulo o usa PDF.","fb_titel":"Formulario","ans_formeln":"Fórmulas","fb_titel_ref":"Referencia de comandos"},"zh":{"bg_leer":"没有匹配的术语。","bg_anzahl":"共 {n} 个术语","lk_faellig":"今天到期：{n}","lk_davon_neu":"其中新卡：{n}","lk_fertig":"此范围内今天已没有到期的卡片。","lk_mehr_neu":"再学 {n} 张新卡","lk_begriff":"术语","lk_formel":"公式","lk_luecke":"填空","reset_sicher":"确定要重置吗？","lk_heute":"稍后再来一次","lk_morgen":"明天","lk_tage":"{n} 天后","lk_ohne_speicher":"此浏览器目前无法保存数据，学习进度只在页面打开期间有效。","aufdecken":"揭开","gelesen":"已读","lf_kapitel":"已读 {n} / {m}","lf_artikel":"已读。本章已读 {n} / {m}。","weiterlesen":"继续阅读","fs_reset":"重置阅读进度","fs_lokal":"阅读进度只保存在本浏览器中。","vs_oeffnen":"打开","vs_schliessen":"关闭","baum_laedt":"加载中 …","baum_fehler":"无法加载。","suche_volltext":"正在搜索全文 …","begriffe":"术语表","lernkarten":"学习卡片","ans_kurz_min":"简要：{n} 分钟","dl_laeuft":"正在生成 …","dl_fehler":"文件生成失败。","dl_gross":"内容太长，无法生成一张图片。请选择一章或使用 PDF。","fb_titel":"公式汇编","ans_formeln":"公式","fb_titel_ref":"命令速查"},"fr":{"bg_leer":"Aucun terme ne correspond.","bg_anzahl":"{n} termes","lk_faellig":"À revoir aujourd’hui : {n}","lk_davon_neu":"dont nouvelles : {n}","lk_fertig":"Plus rien à revoir aujourd’hui dans cette sélection.","lk_mehr_neu":"{n} nouvelles fiches de plus","lk_begriff":"Terme","lk_formel":"Formule","lk_luecke":"Texte à trous","reset_sicher":"Vraiment réinitialiser ?","lk_heute":"encore une fois tout de suite","lk_morgen":"demain","lk_tage":"dans {n} jours","lk_ohne_speicher":"Ce navigateur n’enregistre rien pour le moment. La progression ne dure que tant que la page est ouverte.","aufdecken":"Révéler","gelesen":"Lu","lf_kapitel":"{n} sur {m} lus","lf_artikel":"Lu. Dans ce chapitre : {n} sur {m}.","weiterlesen":"Reprendre la lecture","fs_reset":"Réinitialiser la progression de lecture","fs_lokal":"La progression de lecture reste uniquement dans ce navigateur.","vs_oeffnen":"Ouvrir","vs_schliessen":"Fermer","baum_laedt":"Chargement …","baum_fehler":"Chargement impossible.","suche_volltext":"Recherche dans le texte intégral …","begriffe":"Glossaire","lernkarten":"Fiches de révision","ans_kurz_min":"Court : {n} min","dl_laeuft":"Création …","dl_fehler":"La création du fichier a échoué.","dl_gross":"Trop long pour une image. Choisissez un chapitre ou utilisez le PDF.","fb_titel":"Formulaire","ans_formeln":"Formules","fb_titel_ref":"Aide-mémoire des commandes"},"tr":{"bg_leer":"Eşleşen terim yok.","bg_anzahl":"{n} terim","lk_faellig":"Bugün sırası gelen: {n}","lk_davon_neu":"yeni: {n}","lk_fertig":"Bu seçimde bugün için başka kart yok.","lk_mehr_neu":"{n} yeni kart daha","lk_begriff":"Terim","lk_formel":"Formül","lk_luecke":"Boşluk doldurma","reset_sicher":"Gerçekten sıfırlansın mı?","lk_heute":"birazdan tekrar","lk_morgen":"yarın","lk_tage":"{n} gün sonra","lk_ohne_speicher":"Bu tarayıcı şu anda hiçbir şey kaydetmiyor. İlerleme yalnızca sayfa açıkken geçerli.","aufdecken":"Aç","gelesen":"Okundu","lf_kapitel":"{m} makaleden {n} tanesi okundu","lf_artikel":"Okundu. Bu bölümde: {m} makaleden {n} tanesi.","weiterlesen":"Okumaya devam et","fs_reset":"Okuma ilerlemesini sıfırla","fs_lokal":"Okuma ilerlemesi yalnızca bu tarayıcıda kalır.","vs_oeffnen":"Aç","vs_schliessen":"Kapat","baum_laedt":"Yükleniyor …","baum_fehler":"Yüklenemedi.","suche_volltext":"Tam metinde aranıyor …","begriffe":"Sözlük","lernkarten":"Çalışma kartları","ans_kurz_min":"Kısa: {n} dk","dl_laeuft":"Oluşturuluyor …","dl_fehler":"Dosya oluşturulamadı.","dl_gross":"Tek bir resim için çok uzun. Bir bölüm seçin ya da PDF kullanın.","fb_titel":"Formül derlemesi","ans_formeln":"Formüller","fb_titel_ref":"Komut başvurusu"}};
 var LERNEN=(function(){
   var L=(document.documentElement.lang||"de").slice(0,2), W=LERNEN_UI[L]||{}, D=LERNEN_UI.de||{}, ok=false, mem={};
   try{ localStorage.setItem("etundso-probe","1"); localStorage.removeItem("etundso-probe"); ok=true; }catch(e){}
@@ -538,9 +541,11 @@ var LERNEN=(function(){
   function knoten(nd,tiefe){                          // wie build_wissen.sidebar_html vor W3a
     var d=$.el("details","lvl lvl"+tiefe), s=$.el("summary",null,nd.name); d.appendChild(s); inhalt(d,nd,tiefe); return d; }
   function inhalt(d,nd,tiefe){
-    if(nd.mp){ var z=$.el("div","side-lernen"), a1=$.el("a",null,$.w("begriffe")||"Begriffe"), a2=$.el("a",null,$.w("lernkarten")||"Lernkarten");
-      a1.href="/wissen/"+nd.mp+"/begriffe.html"; a2.href="/wissen/"+nd.mp+"/lernkarten.html";
-      var p=$.el("span",null," · "); p.setAttribute("aria-hidden","true"); z.appendChild(a1); z.appendChild(p); z.appendChild(a2); d.appendChild(z); }
+    if(nd.mp){ var z=$.el("div","side-lernen"), a1=$.el("a",null,$.w("begriffe")||"Begriffe"), a2=$.el("a",null,$.w("lernkarten")||"Lernkarten"),
+        a3=$.el("a",null,nd.ref?$.w("fb_titel_ref"):($.w("ans_formeln")||"Formeln"));   // W4a: Informatik: Befehlsübersicht
+      a1.href="/wissen/"+nd.mp+"/begriffe.html"; a2.href="/wissen/"+nd.mp+"/lernkarten.html"; a3.href="/wissen/"+nd.mp+(nd.ref?"/uebersicht.html":"/formeln.html");
+      [a1,a2,a3].forEach(function(a,i){ if(i){ var p=$.el("span",null," · "); p.setAttribute("aria-hidden","true"); z.appendChild(p); } z.appendChild(a); });
+      d.appendChild(z); }
     if(nd.articles && nd.articles.length){ var ul=$.el("ul");
       nd.articles.forEach(function(x){ var li=$.el("li"), a=$.el("a",null,x.kurz||x.title), p="/wissen/"+x.path;
         a.href=(x.alt && fassung==="ausfuehrlich")?"/wissen/"+x.alt:p; a.setAttribute("data-lf",p);
@@ -612,12 +617,12 @@ var LERNEN=(function(){
       var as=[].slice.call(k.querySelectorAll("a[data-lf]")), n=zahl(as,g), f=k.querySelector(".mk-lf");
       if(!f) return; f.innerHTML="";
       if(n){ f.appendChild(balken(n,as.length)); f.appendChild($.el("span","lf-text",$.w("lf_kapitel",{n:n,m:as.length}))); } });
-    if(art && key){                                                              // Artikel: Zeile vor den Nachbarartikeln
-      var z=art.querySelector(".lf-art");
-      if(g[key]){
+    if(art && key){                                                              // Artikel: „Gelesen …“ in der Kennzahlenzeile neben der Lesezeit (User, 11.11.2026)
+      var zl=document.querySelector(".art-meta .am-zahlen"), z=zl?zl.querySelector(".am-lf"):null;
+      if(g[key] && zl){
         var m=kapitel.length?kapitel:[key], n=0; m.forEach(function(p){ if(g[p]) n++; });
-        if(!z){ z=$.el("div","lf-art"); art.insertBefore(z,art.querySelector(".neighbors")); }
-        z.innerHTML=""; z.appendChild(balken(n,m.length)); z.appendChild($.el("span","lf-text",$.w("lf_artikel",{n:n,m:m.length})));
+        if(!z){ z=$.el("span","am-lf"); zl.appendChild(z); }
+        z.textContent=$.w("lf_artikel",{n:n,m:m.length});
       } else if(z) z.parentNode.removeChild(z);
     }
     weiter();
@@ -628,12 +633,15 @@ var LERNEN=(function(){
     var v=$.get(V,[]).filter(function(e){ return e && e.p!==key; });
     v.unshift({p:key, t:titel, k:(side&&side.getAttribute("data-kapitel"))||"", l:$.lang, z:Date.now()});
     $.set(V,v.slice(0,12));
-    var ende=document.getElementById("zusammenfassung")||art.querySelector(".neighbors");
-    if(ende && !gelesen()[key] && window.IntersectionObserver){
-      var t=null, io=new IntersectionObserver(function(es){ es.forEach(function(e){
+    // W4a: in „Formeln“ ist die Zusammenfassung verborgen, dort zählt das Ende des Formelblatts
+    var enden=[document.getElementById("zusammenfassung")||art.querySelector(".neighbors"), art.querySelector(".fb-ende")].filter(Boolean);
+    if(enden.length && !gelesen()[key] && window.IntersectionObserver){
+      var t=null, io=new IntersectionObserver(function(es){
+        es.forEach(function(e){ e.target._lfSicht=e.isIntersecting; });
         clearTimeout(t);
-        if(e.isIntersecting) t=setTimeout(function(){ var g=gelesen(); g[key]=Date.now(); $.set(G,g); io.disconnect(); malen(); },1000); }); });
-      io.observe(ende);
+        if(enden.some(function(x){ return x._lfSicht; }))
+          t=setTimeout(function(){ var g=gelesen(); g[key]=Date.now(); $.set(G,g); io.disconnect(); malen(); },1000); });
+      enden.forEach(function(x){ io.observe(x); });
     }
   }
   // Übersicht: „Weiterlesen“ und „Fortschritt zurücksetzen“ unter dem Einleitungssatz
@@ -832,4 +840,121 @@ var LERNEN=(function(){
   app.hidden=false; if(liste) liste.open=false;
   if(!$.ok) q(".lk-hinweis").hidden=false;
   baue();
+})();
+/* ---------- Ansichten (W4a, 11.11.2026): Ausführlich | Kurz | Formeln ----------
+   Der Kopf der Seite setzt data-ansicht an <html> schon vor dem ersten Zeichnen (?ansicht= in der Adresse, sonst die Wahl
+   unter „etundso-ansicht“; sie gilt für alle Artikel). Umschalten = Attribut ändern; die Adresse bekommt ?ansicht= zum
+   Teilen. Ein Sprung auf ein Ziel, das die Ansicht verbirgt (Anker, Link aus Zusammenfassung, Suche, Begriffen), schaltet
+   für diese Seite auf „Ausführlich“, ohne die Wahl zu ändern (Teil „Sprung auf einen Anker“ ruft dazu ETAnsicht). */
+window.ETAnsicht=(function(){
+  var $=LERNEN, root=document.documentElement, K="etundso-ansicht";
+  var art=document.querySelector("main.article > article.art");
+  function jetzt(){ var a=root.getAttribute("data-ansicht"); return a==="kurz"||a==="formeln"?a:"voll"; }
+  function verborgen(el){ for(var x=el; x && x!==document.body; x=x.parentElement){ if(getComputedStyle(x).display==="none") return true; } return false; }
+  if(!art){ root.removeAttribute("data-ansicht"); return {jetzt:jetzt, verborgen:function(){ return false; }, setze:function(){}}; }
+  var seg=document.querySelector(".topbar .ansicht"), sel=document.querySelector(".topbar .ans-sel");
+  var blatt=document.getElementById("formelblatt"), zeit=art.querySelector(".am-zeit"), zeitVoll=zeit?zeit.textContent:"";
+  // Formelblatt: KaTeX erst beim ersten Öffnen (vor DOMContentLoaded übernimmt das der Durchgang über die ganze Seite)
+  function blattSetzen(){ if(!blatt || !blatt.classList.contains("fb-spaeter")) return;
+    blatt.classList.remove("fb-spaeter"); if(document.readyState!=="loading") mathe(blatt); }
+  // Lesezeit der Kurzansicht: sichtbare Wörter (ohne Formeln und Code) / 170, wie lesezeit() im Build
+  function kurzZeit(){ var n=0, wurzel=art.querySelector(art.classList.contains("hat-kurz")?".ans-kurz":".art-body"); if(!wurzel) return 1;
+    [].forEach.call(wurzel.querySelectorAll("p,li,dt,dd,td,th,figcaption"),function(x){
+      if(!x.getClientRects().length || x.querySelector("p,li")) return;
+      var c=x.cloneNode(true); [].forEach.call(c.querySelectorAll(".katex,code,.katex-display"),function(k){ k.parentNode.removeChild(k); });
+      n+=c.textContent.split(/\s+/).filter(function(w){ return /[A-Za-zÄÖÜäöüß0-9]/.test(w); }).length; });
+    return Math.max(1,Math.round(n/170)); }
+  function malen(){
+    var a=jetzt();
+    if(seg) [].forEach.call(seg.querySelectorAll(".ans-b"),function(b){ b.setAttribute("aria-pressed",String(b.getAttribute("data-ansicht")===a)); });
+    if(sel) sel.value=a;
+    if(a==="formeln") blattSetzen();
+    if(zeit) zeit.textContent=a==="kurz" ? $.w("ans_kurz_min",{n:kurzZeit()}) : zeitVoll;
+  }
+  function setze(a,merken){
+    a=(a==="kurz"||a==="formeln")?a:"voll";
+    var vorher=jetzt(), oben=null;
+    if(scrollY>200 && a!=="formeln"){                               // Lage halten: Abschnitt oben im Fenster merken
+      var hs=art.querySelectorAll(".art-body h2,.art-body h3");
+      for(var i=0;i<hs.length;i++){ var r=hs[i].getBoundingClientRect(); if(!r.height) continue; if(r.top<=130) oben=hs[i]; else break; } }
+    if(a==="voll") root.removeAttribute("data-ansicht"); else root.setAttribute("data-ansicht",a);
+    if(merken){ try{ localStorage.setItem(K,a); }catch(e){} }
+    try{ var u=new URL(location.href); if(a==="voll") u.searchParams.delete("ansicht");    // Informatik: ?ansicht=uebersicht
+      else u.searchParams.set("ansicht",a==="formeln" && art.classList.contains("ref")?"uebersicht":a);
+      if(u.href!==location.href) history.replaceState(history.state,"",u.href); }catch(e){}
+    malen();
+    if(a!==vorher && merken){                                       // ohne weiches Scrollen (html hat scroll-behavior:smooth)
+      root.style.scrollBehavior="auto";
+      if(a==="formeln" && blatt){ if(blatt.getBoundingClientRect().top<0) blatt.scrollIntoView({block:"start"}); }
+      else if(oben && oben.getClientRects().length) oben.scrollIntoView({block:"start"});
+      else if(scrollY>art.offsetTop) window.scrollTo(0,0);
+      root.style.scrollBehavior="";
+    }
+    window.dispatchEvent(new Event("resize"));                      // abgesetzte Formeln neu einpassen (fitMath)
+  }
+  if(seg){ seg.hidden=false;
+    seg.addEventListener("click",function(e){ var b=e.target.closest(".ans-b"); if(b) setze(b.getAttribute("data-ansicht"),true); });
+    seg.addEventListener("keydown",function(e){                      // Pfeiltasten wandern und wählen (wie eine Optionsgruppe)
+      if(e.key!=="ArrowLeft" && e.key!=="ArrowRight" && e.key!=="Home" && e.key!=="End") return;
+      var bs=[].slice.call(seg.querySelectorAll(".ans-b")), i=bs.indexOf(document.activeElement); if(i<0) return;
+      e.preventDefault();
+      i=e.key==="Home"?0:e.key==="End"?bs.length-1:(i+(e.key==="ArrowRight"?1:-1)+bs.length)%bs.length;
+      bs[i].focus(); setze(bs[i].getAttribute("data-ansicht"),true); }); }
+  if(sel){ sel.hidden=false; sel.addEventListener("change",function(){ setze(sel.value,true); }); }
+  [].forEach.call(document.querySelectorAll("[data-ansicht-setzen]"),function(b){
+    b.addEventListener("click",function(){ setze(b.getAttribute("data-ansicht-setzen"),true); }); });
+  malen();
+  if(jetzt()==="kurz" && zeit) window.addEventListener("load",malen);   // Lesezeit nach dem Setzen der Formeln
+  window.addEventListener("pageshow",function(e){ if(e.persisted) malen(); });
+  return {jetzt:jetzt, verborgen:verborgen, setze:setze};
+})();
+// Modulseiten (Formelsammlung, Kapitel auf einer Seite): ?kapitel=N zeigt und druckt nur Kapitel N; die Kapitelliste
+// wechselt dann das Kapitel, statt an eine ausgeblendete Stelle zu springen. „Drucken“ öffnet den Druckdialog.
+(function(){
+  var leiste=document.querySelector(".kap-leiste"); if(!leiste) return;
+  var sel=leiste.querySelector(".kap-sel"), main=document.querySelector("main.article");
+  var kaps=[].slice.call(document.querySelectorAll(".fs-kap,.sz-kap"));
+  function hat(n){ return kaps.some(function(k){ return k.getAttribute("data-k")===n; }); }
+  function zeige(n,schreiben){
+    if(!hat(n)) n="";
+    if(n) main.setAttribute("data-kapitel-filter",n); else main.removeAttribute("data-kapitel-filter");
+    kaps.forEach(function(k){ k.classList.toggle("kap-an",k.getAttribute("data-k")===n); });
+    sel.value=n;
+    if(schreiben){ try{ var u=new URL(location.href); if(n) u.searchParams.set("kapitel",n); else u.searchParams.delete("kapitel");
+      u.hash=""; history.replaceState(null,"",u.href); }catch(e){} }
+  }
+  leiste.hidden=false;
+  zeige(new URLSearchParams(location.search).get("kapitel")||"",false);
+  sel.addEventListener("change",function(){ zeige(sel.value,true); });
+  leiste.querySelector(".kap-druck").addEventListener("click",function(){ window.print(); });
+  document.addEventListener("click",function(e){                    // Kapitelliste bei aktivem Filter: Kapitel wechseln
+    var a=e.target.closest && e.target.closest(".kap-nav a"); if(!a || !main.hasAttribute("data-kapitel-filter")) return;
+    var k=document.getElementById(a.getAttribute("href").slice(1)); if(!k) return;
+    e.preventDefault(); zeige(k.getAttribute("data-k"),true); k.scrollIntoView({block:"start"}); });
+})();
+// Download des Formelblatts (Artikel) bzw. der Formelsammlung (Modul) als PNG, JPG, SVG oder PDF. Die Dateien entstehen
+// im Browser aus der angezeigten Seite; assets/formel-export.js (setzt die Formeln mit MathJax als SVG, PDF ohne fremde
+// Bibliothek) lädt erst beim ersten Klick.
+(function(){
+  var boxen=[].slice.call(document.querySelectorAll(".fb-dl")); if(!boxen.length) return;
+  var $=LERNEN, P=null;
+  function laden(){ if(!P) P=new Promise(function(ok,fehler){ var s=document.createElement("script"); s.src="/wissen/assets/formel-export.js";
+      s.onload=function(){ window.ETFormelExport ? ok(window.ETFormelExport) : fehler(new Error("laden")); };
+      s.onerror=function(){ P=null; fehler(new Error("laden")); }; document.head.appendChild(s); });
+    return P; }
+  boxen.forEach(function(box){
+    var status=box.querySelector(".fb-dl-s"), seite=box.closest(".fb-blatt")||document.querySelector("main.article"), quelle=seite.querySelector(".fb-inhalt");
+    if(!quelle) return;
+    box.hidden=false;
+    box.addEventListener("click",function(e){
+      var b=e.target.closest(".fb-dl-b"); if(!b || b.getAttribute("aria-busy")==="true") return;
+      var main=document.querySelector("main.article"), kap=main && main.getAttribute("data-kapitel-filter");
+      b.setAttribute("aria-busy","true"); status.textContent=$.w("dl_laeuft"); status.classList.remove("fehler");
+      laden().then(function(X){ return X(quelle,b.getAttribute("data-format"),{kapitel:kap||"", lang:$.lang}); })
+        .then(function(){ status.textContent=""; },
+              function(err){ status.textContent=(err && err.message==="zu-gross")?$.w("dl_gross"):$.w("dl_fehler"); status.classList.add("fehler");
+                if(window.console) console.warn("Formel-Export:",err); })
+        .then(function(){ b.removeAttribute("aria-busy"); });
+    });
+  });
 })();

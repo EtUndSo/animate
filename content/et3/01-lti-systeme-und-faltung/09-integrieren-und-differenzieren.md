@@ -75,3 +75,49 @@ Hier springt die Sprungantwort bei $t=0$ von 0 auf 1, deshalb bleibt der Dirac-A
 (c) $\int_{-\infty}^t\bigl[\delta(\tau)-\mathrm{e}^{-\tau}\varepsilon(\tau)\bigr]\mathrm{d}\tau=\varepsilon(t)-\bigl(1-\mathrm{e}^{-t}\bigr)\varepsilon(t)=\mathrm{e}^{-t}\varepsilon(t)$.
 :::
 :::
+
+::::kurzfassung
+Integrator und Differenzierer sind LTI-Systeme. Mit ihnen folgt: Die Sprungantwort ist das laufende Integral der Impulsantwort, und die Impulsantwort ist die Ableitung der Sprungantwort.
+
+Ein System mit der Impulsantwort $\varepsilon(t)$ bildet das laufende Integral seines Eingangs,
+
+$$s(t)*\varepsilon(t)=\int_{-\infty}^ts(\tau)\,\mathrm{d}\tau ,$$
+
+und heißt __Integrator__. Mit vertauschten Rollen gelesen, als $\varepsilon*s$, sagt die Gleichung: Die Antwort eines Systems auf den Sprung $\varepsilon(t)$ ist das laufende Integral seiner Impulsantwort. Integrator und __Differenzierer__ nacheinander lassen jedes Signal unverändert. Die Impulsantwort des Differenzierers ist deshalb die Distribution $\delta'(t)$, der __Doppelimpuls__, festgelegt durch $\delta'(t)*s(t)=\frac{\mathrm{d}}{\mathrm{d} t}s(t)$. Näherungsweise ist er ein Rechteck der Höhe $+1/T_0^2$, gefolgt von einem der Höhe $-1/T_0^2$, jedes $T_0$ breit.
+
+Der Grund für die Ableitung: Weil $\delta=\frac{\mathrm{d}}{\mathrm{d} t}\varepsilon$ und das System linear und zeitinvariant ist, ist die Impulsantwort die Ableitung der Sprungantwort. Beim RC-Glied liefert die Produktregel aus $\bigl(1-\mathrm{e}^{-t/RC}\bigr)\varepsilon(t)$ die Impulsantwort $\frac{1}{RC}\mathrm{e}^{-t/RC}\varepsilon(t)$ und dazu den Term $\bigl(1-\mathrm{e}^{-t/RC}\bigr)\delta(t)$, der nach dem Sieb-Produkt null ist.
+
+Falle: Dieser Zusatzterm verschwindet nur, weil die Sprungantwort bei $t=0$ nicht springt; der Kondensator braucht Zeit zum Laden. Eine springende Sprungantwort erzeugt einen Dirac-Impuls in $h$.
+::::
+
+::::formelsammlung
+**Integrator**
+
+$$s(t)*\varepsilon(t)=\int_{-\infty}^ts(\tau)\,\mathrm{d}\tau$$
+
+System mit der Impulsantwort $\varepsilon(t)$; bildet das laufende Integral seines Eingangs.
+
+**Sprungantwort aus der Impulsantwort**
+
+$$\varepsilon(t)*h(t)=\int_{-\infty}^{t}h(\tau)\,\mathrm{d}\tau$$
+
+Die Sprungantwort eines Systems ist das laufende Integral seiner Impulsantwort (Integrator-Formel mit vertauschten Rollen).
+
+**Doppelimpuls**
+
+$$\delta'(t)*s(t)=\frac{\mathrm{d}}{\mathrm{d} t}s(t)$$
+
+$\delta'(t)$ Impulsantwort des Differenzierers. Näherung: Rechteck der Höhe $+1/T_0^2$, dann eines der Höhe $-1/T_0^2$, jedes $T_0$ breit.
+
+**Impulsantwort aus der Sprungantwort**
+
+$$h=\frac{\mathrm{d}}{\mathrm{d} t}(\text{Sprungantwort})$$
+
+Für jedes LTI-System, wegen $\delta=\frac{\mathrm{d}}{\mathrm{d} t}\varepsilon$.
+
+**Impulsantwort des RC-Glieds durch Ableiten**
+
+$$h(t)=\frac{\mathrm{d}}{\mathrm{d} t}\Bigl[\bigl(1-\mathrm{e}^{-t/RC}\bigr)\varepsilon(t)\Bigr]=\frac{1}{RC}\mathrm{e}^{-t/RC}\varepsilon(t)+\bigl(1-\mathrm{e}^{-t/RC}\bigr)\delta(t)=\frac{1}{RC}\mathrm{e}^{-t/RC}\varepsilon(t)$$
+
+Produktregel; der zweite Summand ist nach dem Sieb-Produkt null, weil die Sprungantwort bei $t=0$ nicht springt. Nur eine springende Sprungantwort erzeugt einen Dirac-Impuls in $h$.
+::::

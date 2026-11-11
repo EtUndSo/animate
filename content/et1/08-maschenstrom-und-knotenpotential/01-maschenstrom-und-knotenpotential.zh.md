@@ -14,7 +14,6 @@ lang: zh
 
 [第 2 章](/wissen/zh/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html)的网络有六条支路。每条支路有一个电流和一个电压，共十二个未知量，经过漫长的代入之后才剩下三个方程。一个含晶体管的电路有数百条支路。本章要回答的问题是：**整个网络最少需要多少个未知量，又如何不经变形就写出方程？**
 
-
 **所有结论背后的同一个原理。** 基尔霍夫要求两件事：节点定律和网孔定律。如果这样选取未知量，使其中一条定律对任意数值都成立，就只需写出另一条。这时未知量的个数恰好等于余下方程的个数。
 
 | 结论 | 来源 |
@@ -48,7 +47,7 @@ lang: zh
 
 <li>
 
-⁠**单位：**计算使用 V、mA、k$\Omega$ 和 mS。由于 $\mathrm{k\Omega\cdot mA}=\mathrm V$，$\mathrm{mS\cdot V}=\mathrm{mA}$，不会出现十的幂。脚本 `rechnung_kap8.py` 可复算所有数值。
+⁠**单位：**计算使用 V、mA、k$\Omega$ 和 mS。由于 $\mathrm{k\Omega\cdot mA}=\mathrm V$，$\mathrm{mS\cdot V}=\mathrm{mA}$，不会出现十的幂。
 
 </li>
 

@@ -503,3 +503,161 @@ in $1/\mathrm s$, also etwa $2{,}31\,\mathrm{e}^{-t}\sin(1{,}732\,t)$. Mit dem P
 (c) Aperiodischer Grenzfall bei $\frac{R^2}{4L^2}=\frac{1}{LC}$, also $R=2\sqrt{L/C}=2\sqrt{4}\,\mathrm{\Omega}=4\,\mathrm{\Omega}$. Das entspricht $\xi=1$.
 :::
 :::
+
+::::kurzfassung
+Im Bildbereich wird aus einer linearen Differentialgleichung mit konstanten Koeffizienten eine algebraische Gleichung. Die Übertragungsfunktion ist dann ein Polynombruch, und Partialbrüche führen zur Impulsantwort.
+
+Die Gleichung verknüpft gewichtete Ableitungen von Ausgang $u_2$ und Eingang $u_1$; ihre reellen, zeitunabhängigen __Koeffizienten__ heißen $\alpha_r$ und $\beta_q$. Die höchste Ableitung $R$ des Ausgangs ist die __Ordnung__. Jede Ableitung wird zum Faktor $p$, also
+
+$$H(p)=\frac{U_2(p)}{U_1(p)}=\frac{\sum_{q=0}^{Q}\beta_q\,p^q}{\sum_{r=0}^{R}\alpha_r\,p^r}.$$
+
+Die Pole sind die Nullstellen des Nenners, die Nullstellen die des Zählers. Bei einfachen Polen und $Q\le R$ schreibt die __Partialbruchzerlegung__ $H(p)$ als Konstante $A_0=\lim_{p\to\infty}H(p)$ plus Brüche $\frac{A_r}{p-p_{\mathrm P,r}}$ mit je einem Pol. Den Koeffizienten $A_r$ erhält man, indem man den Faktor $(p-p_{\mathrm P,r})$ herauskürzt und den Pol einsetzt. Für ein kausales System folgt mit den Grundpaaren
+
+$$h(t)=A_0\,\delta(t)+\sum_{r=1}^{R}A_r\,\mathrm{e}^{p_{\mathrm P,r}t}\,\varepsilon(t).$$
+
+Der Grund: Der Nenner ist das __charakteristische Polynom__ der Gleichung ohne Eingang. Die Pole sind deshalb die Exponenten der __Eigenbewegungen__, die das System ohne Eingang ausführen kann.
+
+Das RLC-System (Widerstand und Spule in Reihe, Ausgang am Kondensator) hat die __Kennkreisfrequenz__ $\omega_0=1/\sqrt{LC}$ und den __Dämpfungsgrad__ $\xi=\frac R2\sqrt{\frac CL}$. Seine Pole liegen bei $-\xi\omega_0\pm\omega_0\sqrt{\xi^2-1}$. Für $\xi>1$ liegt der __Kriechfall__ vor, für $\xi=1$ der __aperiodische Grenzfall__, für $\xi<1$ der __Schwingfall__. Ein konjugiert komplexes Polpaar $-\gamma\pm\mathrm{j}\omega_1$ gehört zu einer Schwingung mit der Kreisfrequenz $\omega_1$, die mit $\mathrm{e}^{-\gamma t}$ abklingt. Ein __Pol des Grades__ $k$ liefert $k$ Summanden und im Zeitbereich Potenzen von $t$ bis $t^{k-1}$.
+
+Falle: Die Kreisfrequenz $\omega_1$ der Schwingung ist nicht die Kennkreisfrequenz $\omega_0$.
+::::
+
+::::formelsammlung
+**Lineare Differentialgleichung mit konstanten Koeffizienten**
+
+$$\sum_{r=0}^{R}\alpha_r\,\frac{\mathrm{d}^r u_2(t)}{\mathrm{d} t^r}=\sum_{q=0}^{Q}\beta_q\,\frac{\mathrm{d}^q u_1(t)}{\mathrm{d} t^q}$$
+
+$u_1$ Eingang, $u_2$ Ausgang; Koeffizienten $\alpha_r$, $\beta_q$ reell und zeitunabhängig; Ordnung $R$ (höchste Ableitung des Ausgangs).
+
+**Gleichung im Bildbereich**
+
+$$\Bigl(\sum_{r=0}^{R}\alpha_r\,p^r\Bigr)\,U_2(p)=\Bigl(\sum_{q=0}^{Q}\beta_q\,p^q\Bigr)\,U_1(p)$$
+
+Jede $r$-te Ableitung wird zum Faktor $p^r$.
+
+**Übertragungsfunktion als Polynombruch**
+
+$$\mathcal{L}\{h(t)\}=H(p)=\frac{U_2(p)}{U_1(p)}=\frac{\sum_{q=0}^{Q}\beta_q\,p^q}{\sum_{r=0}^{R}\alpha_r\,p^r}$$
+
+Koeffizienten direkt aus der Differentialgleichung.
+
+**Nullstellen**
+
+$$\sum_{q=0}^{Q}\beta_q\,p^q=0$$
+
+Die $Q$ Lösungen; hängen nur davon ab, wie der Eingang in die Gleichung eingeht.
+
+**Pole**
+
+$$\sum_{r=0}^{R}\alpha_r\,p^r=0$$
+
+Die $R$ Lösungen; Nullstellen des charakteristischen Polynoms, also Exponenten der Eigenbewegungen ohne Eingang.
+
+**RLC-System: Differentialgleichung**
+
+$$LC\,\frac{\mathrm{d}^2u_2(t)}{\mathrm{d} t^2}+RC\,\frac{\mathrm{d} u_2(t)}{\mathrm{d} t}+u_2(t)=u_1(t)$$
+
+$R$ und $L$ in Reihe, Ausgang $u_2$ am Kondensator $C$.
+
+**RLC-System: Übertragungsfunktion**
+
+$$H(p)=\frac{U_2(p)}{U_1(p)}=\frac{1}{LCp^2+RCp+1}=\frac{1/LC}{p^2+(R/L)\,p+1/LC}$$
+
+Keine Nullstelle, $H_0=1/LC$.
+
+**RLC-System: Pole**
+
+$$p_{\mathrm P1,2}=-\underbrace{\frac{R}{2L}}_{a}\pm\underbrace{\sqrt{\frac{R^2}{4L^2}-\frac{1}{LC}}}_{b}$$
+
+Abkürzungen $a$ und $b$.
+
+**RLC-System: Kennkreisfrequenz und Dämpfungsgrad**
+
+$$p_{\mathrm P1,2}=-\underbrace{\xi\,\omega_0}_{a}\pm\underbrace{\omega_0\sqrt{\xi^2-1}}_{b}\qquad\text{mit}\qquad\omega_0=\frac{1}{\sqrt{LC}}\quad\text{und}\quad\xi=\frac R2\sqrt{\frac CL}$$
+
+$\omega_0$ Kennkreisfrequenz in $1/\mathrm s$, $\xi$ Dämpfungsgrad (reine Zahl). $\xi>1$: zwei reelle Pole symmetrisch um $-\xi\omega_0$.
+
+**RLC-System: Polpaar für $\xi<1$**
+
+$$-\xi\omega_0\pm\mathrm{j}\omega_0\sqrt{1-\xi^2}$$
+
+Konjugiert komplex, auf dem Kreis mit Radius $\omega_0$; Winkel zur negativen reellen Achse $\theta=\arccos\xi$.
+
+**Partialbruchzerlegung bei einfachen Polen**
+
+$$H(p)=H_0\,\frac{\prod_{q=1}^{Q}\bigl(p-p_{\mathrm N,q}\bigr)}{\prod_{r=1}^{R}\bigl(p-p_{\mathrm P,r}\bigr)}=A_0+\sum_{r=1}^{R}\frac{A_r}{p-p_{\mathrm P,r}}$$
+
+$R$ verschiedene Pole, $Q\le R$; $A_r$ Partialbruchkoeffizienten.
+
+**Konstanter Summand**
+
+$$A_0=\lim_{p\to\infty}H(p)$$
+
+Nur für $Q=R$ von null verschieden, dann $A_0=H_0$.
+
+**Partialbruchkoeffizient**
+
+$$A_r=\lim_{p\to p_{\mathrm P,r}}\bigl[H(p)\,(p-p_{\mathrm P,r})\bigr]$$
+
+Faktor des Pols herauskürzen, Pol einsetzen; $A_r$ ist das Residuum von $H$ am Pol $p_{\mathrm P,r}$.
+
+**Impulsantwort eines kausalen Systems**
+
+$$h(t)=A_0\,\delta(t)+\sum_{r=1}^{R}A_r\,\mathrm{e}^{p_{\mathrm P,r}t}\,\varepsilon(t)$$
+
+Konvergenzbereich rechts aller Pole; Pole sind die Exponenten, Partialbruchkoeffizienten die Vorfaktoren.
+
+**RLC-System: Impulsantwort**
+
+$$h(t)=\frac{1}{\sqrt{R^2C^2-4LC}}\,\bigl[\mathrm{e}^{p_{\mathrm P1}t}-\mathrm{e}^{p_{\mathrm P2}t}\bigr]\cdot\varepsilon(t)$$
+
+Kausal, zwei verschiedene Pole $p_{\mathrm P1,2}=-a\pm b$.
+
+**Kriechfall**
+
+$$h(t)=\frac{1}{bLC}\,\mathrm{e}^{-at}\sinh(bt)\cdot\varepsilon(t)$$
+
+$b$ reell, $\frac{1}{LC}<\frac{R^2}{4L^2}$; $\sinh x=\frac{\mathrm{e}^{x}-\mathrm{e}^{-x}}{2}$. Keine Schwingung.
+
+**Aperiodischer Grenzfall**
+
+$$h(t)=\frac{1}{LC}\,t\,\mathrm{e}^{-at}\,\varepsilon(t)$$
+
+$b=0$, $\frac{1}{LC}=\frac{R^2}{4L^2}$; doppelter Pol bei $-a$. Rückkehr zur Ruhe ohne Überschwingen.
+
+**Schwingfall**
+
+$$h(t)=\frac{1}{\beta LC}\,\mathrm{e}^{-at}\sin(\beta t)\cdot\varepsilon(t)$$
+
+$b=\mathrm{j}\beta$ imaginär, $\frac{1}{LC}>\frac{R^2}{4L^2}$, $\beta=\sqrt{\frac{1}{LC}-\frac{R^2}{4L^2}}$.
+
+**Polpaar: gedämpfter Kosinus**
+
+$$\mathcal{L}\bigl\{\mathrm{e}^{-\gamma t}\cos(\omega_1t)\cdot\varepsilon(t)\bigr\}=\frac{p+\gamma}{(p+\gamma)^2+\omega_1^2}$$
+
+$\operatorname{Re} p>-\gamma$; Pole $p_\mathrm P=-\gamma-\mathrm{j}\omega_1$ und $p_\mathrm P^*$, $\gamma$ reelle Abklingrate, $\omega_1$ reelle Kreisfrequenz. Beim RLC-System im Schwingfall $\gamma=a$, $\omega_1=\beta$; $\omega_1$ ist nicht $\omega_0$.
+
+**Polpaar: gedämpfter Sinus**
+
+$$\mathcal{L}\bigl\{\mathrm{e}^{-\gamma t}\sin(\omega_1t)\cdot\varepsilon(t)\bigr\}=\frac{\omega_1}{(p+\gamma)^2+\omega_1^2}$$
+
+$\operatorname{Re} p>-\gamma$.
+
+**Mehrfacher Pol: Summanden**
+
+$$\sum_{j=1}^{k}\frac{A_{i,j}}{(p-p_{\mathrm P,i})^j}$$
+
+Ein Pol $p_{\mathrm P,i}$ des Grades $k$ ($k$ zusammenfallende Pole) liefert diese $k$ Summanden statt eines.
+
+**Mehrfacher Pol: Koeffizienten**
+
+$$A_{i,j}=\frac{1}{(k-j)!}\,\lim_{p\to p_{\mathrm P,i}}\frac{\mathrm{d}^{\,k-j}}{\mathrm{d} p^{\,k-j}}\Bigl[H(p)\,(p-p_{\mathrm P,i})^k\Bigr]$$
+
+Für $j=k$ dieselbe Regel wie bei einfachen Polen.
+
+**Mehrfacher Pol: Rücktransformation**
+
+$$\frac{t^{\,j-1}}{(j-1)!}\,\mathrm{e}^{p_0t}\,\varepsilon(t)\quad\longleftrightarrow\quad\frac{1}{(p-p_0)^j}$$
+
+$\operatorname{Re} p>\operatorname{Re} p_0$.
+::::

@@ -66,3 +66,53 @@ Untersuche (a) $h(t)=\mathrm{e}^{-2t}\varepsilon(t)$, (b) $h(t)=\mathrm{e}^{t}\v
 (e) $\delta(t+1)$ ist für $t=-1<0$ wirksam: $g(t)=s(t+1)$, das System „sieht“ den Eingang eine Sekunde im Voraus. Nicht kausal, aber stabil ($\int|h|=1$).
 :::
 :::
+
+::::kurzfassung
+Zwei Eigenschaften, die jedes reale System haben soll, liest man bei einem LTI-System direkt an der Impulsantwort $h(t)$ ab.
+
+Ein System heißt __kausal__, wenn der Ausgang nicht vor dem Eingang beginnt. Für ein LTI-System heißt das $h(t)=0$ für $t<0$: Ein Stoß zur Zeit 0 kann vorher keine Wirkung haben. In der Faltung tragen dann nur Stöße der Vergangenheit bei, $g(t)=\int_{-\infty}^ts(\tau)h(t-\tau)\mathrm{d}\tau$. Ein System heißt __stabil__, genauer BIBO-stabil (bounded input, bounded output), wenn es auf jeden beschränkten Eingang $|s(t)|\le A<\infty$ mit einem beschränkten Ausgang antwortet. Ein LTI-System ist genau dann stabil, wenn seine Impulsantwort absolut integrierbar ist:
+
+$$\int_{-\infty}^{\infty}|h(\tau)|\,\mathrm{d}\tau<\infty .$$
+
+Der Grund: Ist das Integral endlich, begrenzt die Dreiecksungleichung den Ausgang durch $A\int|h(\tau)|\,\mathrm{d}\tau$. Ist es unendlich, wählt man den ungünstigsten beschränkten Eingang $s(t_1-\tau)=\operatorname{sign}h(\tau)$, also immer $\pm1$ mit dem Vorzeichen von $h$. Dann addieren sich alle Beiträge, und $g(t_1)$ wird unendlich, obwohl $|s|\le1$ ist.
+
+Falle: Instabil heißt nicht, dass der Ausgang zu einer bestimmten Zeit unendlich werden muss. Der Integrator hat $\int_0^\infty\varepsilon\,\mathrm{d} t=\infty$; auf den beschränkten Sprung antwortet er mit der Rampe $t\,\varepsilon(t)$, die zu jeder Zeit endlich, aber nicht beschränkt ist.
+::::
+
+::::formelsammlung
+**Kausalität**
+
+$$h(t)=0\quad\text{für }t<0$$
+
+Für LTI-Systeme gleichwertig damit, dass der Ausgang nicht vor dem Eingang beginnt.
+
+**Faltung bei kausalen Systemen**
+
+$$g(t)=\int_{-\infty}^ts(\tau)h(t-\tau)\mathrm{d}\tau$$
+
+Nur Stöße der Vergangenheit tragen bei.
+
+**Beschränkter Eingang**
+
+$$|s(t)|\le A<\infty$$
+
+BIBO-stabil (bounded input, bounded output): Jeder solche Eingang ergibt einen beschränkten Ausgang.
+
+**Stabilitätsbedingung**
+
+$$\int_{-\infty}^{\infty}|h(\tau)|\,\mathrm{d}\tau<\infty$$
+
+Notwendig und hinreichend für die Stabilität eines LTI-Systems. Beispiele: RC-Glied und ideales Laufzeitglied stabil ($\int|h|=1$), Integrator instabil.
+
+**Schranke des Ausgangs**
+
+$$|g(t)|\le A\int|h(\tau)|\,\mathrm{d}\tau$$
+
+Aus der Dreiecksungleichung für Integrale und $|s|\le A$; zeigt, dass die Bedingung hinreicht.
+
+**Ungünstigster beschränkter Eingang**
+
+$$s(t_1-\tau)=\operatorname{sign}h(\tau)$$
+
+Immer $\pm1$ mit dem Vorzeichen von $h$; ergibt $g(t_1)=\int|h(\tau)|\,\mathrm{d}\tau$ und zeigt, dass die Bedingung notwendig ist.
+::::

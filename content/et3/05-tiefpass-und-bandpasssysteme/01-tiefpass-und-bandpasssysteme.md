@@ -14,8 +14,6 @@ lang: de
 
 Fast jede Übertragung soll ein Signal möglichst unverändert ankommen lassen, aber nur in einem bestimmten Frequenzbereich: Ein Tiefpass lässt die tiefen Frequenzen durch, ein Bandpass ein Band um eine Trägerfrequenz. Dieses Kapitel fragt: *Was heißt „unverändert“ genau, was kostet ein scharf begrenztes Band, und wie rechnet man mit Signalen, die auf einem hochfrequenten Träger sitzen?*
 
-
-
 **So arbeitest du mit diesem Kapitel.** Die Abschnitte bauen aufeinander auf, jeder neue Begriff hat einen eigenen Unterabschnitt mit Beispiel. Kästen zum Aufklappen enthalten Hintergrund (warum etwas so ist und woher es kommt), Herleitungen und Hinweise zur Simulation; zum Weiterlesen braucht man sie nicht. Versuche die Aufgaben (★ bis ★★★) zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf.
 
 :::merke Das Rechenmodell für dieses Kapitel
@@ -47,5 +45,5 @@ Fast jede Übertragung soll ein Signal möglichst unverändert ankommen lassen, 
 
 </ul>
 
-Die Zahlen und Kurven rechnet `rechnung_kap5.py` nach. $\operatorname{si}(x)=\sin(x)/x$ wie in [Kapitel 3](/wissen/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html).
+$\operatorname{si}(x)=\sin(x)/x$ wie in [Kapitel 3](/wissen/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html).
 :::

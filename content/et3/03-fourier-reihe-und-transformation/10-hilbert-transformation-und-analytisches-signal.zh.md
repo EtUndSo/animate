@@ -5,7 +5,7 @@ adresse: elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transfo
 knoten: 第 3 章：傅里叶级数与变换
 order: 3231000
 summary: 对于因果信号，频谱的实部与虚部相互关联：一个决定另一个。同样的计算还能得到一个只含正频率的信号。
-tags: 希尔伯特变换, 解析分量, 全通
+tags: 希尔伯特变换, 主值, 解析分量, 全通
 lang: zh
 ---
 
@@ -26,14 +26,14 @@ lang: zh
 $$\operatorname{Re}\{S(f)\}=\operatorname{Im}\{S(f)\}*\frac{1}{\pi f},\qquad\operatorname{Im}\{S(f)\}=-\operatorname{Re}\{S(f)\}*\frac{1}{\pi f}. \tag{9.1}$$
 :::
 
-⁠**如何理解：**与 $\frac{1}{\pi f}$ 的卷积称为__希尔伯特变换__。对于因果系统，只要知道频率响应的实部就够了，虚部可由它求出。因此，因果性是对频谱的一个很强的约束。
+⁠**如何理解：**与 $\frac{1}{\pi f}$ 的卷积称为__希尔伯特变换__。它的积分只能作为__主值__存在：在核变为无穷大的点周围对称地挖去一小段，再让这一段收缩到零。对于因果系统，只要知道频率响应的实部就够了，虚部可由它求出。因此，因果性是对频谱的一个很强的约束。
 
 **解析分量。** 利用*频域*中的阶跃，可以截去负频率：$S_+(f)=S(f)\,\varepsilon(f)$。由对偶性得 $\varepsilon(f)\;\bullet\!\!-\!\!\circ\;\frac12\delta(t)+\frac{\mathrm{j}}{2\pi t}$，因此
 
 <span class="anker" id="gl-9-2"></span>
 $$s_+(t)=\frac12s(t)+\frac{\mathrm{j}}{2}\,\hat s(t),\qquad\hat s(t)=s(t)*\frac{1}{\pi t}\;\circ\!\!-\!\!\bullet\;-\mathrm{j}\operatorname{sgn}(f)\,S(f). \tag{9.2}$$
 
-$s_+$ 称为__解析分量__，$\hat s$ 称为 $s$ 的希尔伯特变换。对实信号有 $S_-(f)=S_+^*(-f)$，因此 $s_-=s_+^*$，且 $s(t)=s_++s_-=2\operatorname{Re}\{s_+(t)\}$。$s_+$ 的实部与虚部同样互为希尔伯特变换。
+$s_+$ 称为__解析分量__，$\hat s$ 称为 $s$ 的希尔伯特变换；与 $\frac{1}{\pi t}$ 的卷积同样按主值理解。同理，$S_-(f)=S(f)\,\varepsilon(-f)$ 及其时间函数 $s_-(t)$ 只包含负频率。对实信号有 $S_-(f)=S_+^*(-f)$，因此 $s_-=s_+^*$，且 $s(t)=s_++s_-=2\operatorname{Re}\{s_+(t)\}$。$s_+$ 的实部与虚部同样互为希尔伯特变换。
 
 **希尔伯特变换器。** $h(t)=\frac{1}{\pi t}$ 的 LTI 系统具有 $H(f)=-\mathrm{j}\operatorname{sgn}(f)$：在所有频率上模均为 1（__全通__系统），$f>0$ 时相位为 $-90^\circ$，$f<0$ 时为 $+90^\circ$。它把 $\cos(2\pi Ft)$ 变为
 

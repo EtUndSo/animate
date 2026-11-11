@@ -44,7 +44,7 @@ $$\underline U_2=\frac{1/(\mathrm{j}2\pi FC)}{R+1/(\mathrm{j}2\pi FC)}\,\underli
 $$\begin{aligned} \operatorname{Re}\{H\}&=\frac{1}{1+x^2},\qquad \operatorname{Im}\{H\}=\frac{-x}{1+x^2},\\ |H(F)|&=\sqrt{\operatorname{Re}\{H\}^2+\operatorname{Im}\{H\}^2}=\sqrt{H\,H^*}=\frac{1}{\sqrt{1+x^2}},\qquad \varphi(F)=-\arctan x. \end{aligned} \tag{2.2|2.3}$$
 :::
 
-⁠**如何理解：**$|H|$ 表明幅度按多大的因子缩小，$\varphi$ 表明振荡滞后多大的角度。在 $x=1$ 处，即参考模型中 $F=1/(2\pi RC)=0.16$ Hz 时，$|H|=0.707$，$\varphi=-45^\circ$。在 $x=10$ 处，$|H|=0.0995$，$\varphi=-84.3^\circ$（图 [3](#abb-3)）。**极限情况：**$F\to0$ 时 $H\to1$（电容有足够的时间充满电）；$F\to\infty$ 时 $H\to0$，且 $\varphi\to-90^\circ$（电容相当于短路）。
+⁠**如何理解：**$|H|$ 表明幅度按多大的因子缩小。$\varphi$ 为负：振荡滞后的角度为 $-\varphi=\arctan x$。在 $x=1$ 处，即参考模型中 $F=1/(2\pi RC)=0.16$ Hz 时，$|H|=0.707$，$\varphi=-45^\circ$。在 $x=10$ 处，$|H|=0.0995$，$\varphi=-84.3^\circ$（图 [3](#abb-3)）。**极限情况：**$F\to0$ 时 $H\to1$（电容有足够的时间充满电）；$F\to\infty$ 时 $H\to0$，且 $\varphi\to-90^\circ$（电容相当于短路）。
 
 :::abbildung et3/k1bode 3
 RC 低通滤波器传递函数的幅值和相位随 $x=2\pi FRC$ 的变化（对数坐标）。慢的振荡几乎不变地通过；快的振荡被衰减，并且滞后最多可达 $90^\circ$。

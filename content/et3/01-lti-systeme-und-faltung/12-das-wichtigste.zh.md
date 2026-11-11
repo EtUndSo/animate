@@ -74,7 +74,7 @@ $s*\delta=s$；交换律、结合律（级联：$h_1*h_2$）、分配律（并�
 
 <li>
 
-$s(t)\delta(t-T)=s(T)\delta(t-T)$；$\delta(bt)=\delta(t)/|b|$；$\delta(t-t_0)*s=s(t-t_0)$；$\frac{\mathrm{d}}{\mathrm{d} t}\varepsilon=\delta$。
+$s(t)\delta(t-T)=s(T)\delta(t-T)$；$\delta(bt)=\delta(t)/|b|$（$b\neq0$）；$\delta(t-t_0)*s=s(t-t_0)$；$\frac{\mathrm{d}}{\mathrm{d} t}\varepsilon=\delta$。
 
 </li>
 

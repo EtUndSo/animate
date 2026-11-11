@@ -122,3 +122,43 @@ $$g_0(t)=\frac{1}{T_0}\Bigl[\bigl(1-\mathrm{e}^{-t}\bigr)\varepsilon(t)-\bigl(1-
 (c) Jede Stufe hält den Wert $s(nT_0)$ vom *Anfang* des Intervalls bis zu dessen Ende. Auf der steigenden Flanke liegt die Treppe deshalb unter dem Dreieck, auf der fallenden darüber: Sie ist im Mittel um $T_0/2$ verzögert. Der Ausgang erbt diese Verzögerung, auf der abfallenden Seite liegt $g_a$ über $g$ ($g_a(2)=0{,}508$ statt $0{,}400$ für $T_0=0{,}5$ s). Mit kleinerem $T_0$ schrumpft die Verzögerung und mit ihr der Fehler.
 :::
 :::
+
+::::kurzfassung
+Ein LTI-System ist durch seine Antwort auf einen einzigen, unendlich kurzen Stoß vollständig beschrieben. Die Antwort auf jedes andere Signal liefert das Faltungsintegral.
+
+Man nähert den Eingang durch eine Treppe aus schmalen Rechtecken der Breite $T_0$. Baustein ist ein Rechteck $s_0(t)$ der Höhe $1/T_0$, also der Fläche 1; die Stufe bei $nT_0$ trägt das Gewicht $s(nT_0)\,T_0$. Das System antwortet auf $s_0$ mit $g_0(t)$. Die Zeitinvarianz liefert zu jedem verschobenen Baustein die verschobene Antwort, die Linearität überträgt Gewichte und Summe. Für $T_0\to0$ wird das Rechteck der Fläche 1 zum __Dirac-Impuls__ $\delta(t)$, einem unendlich kurzen Stoß der Fläche 1. Die Antwort darauf heißt __Impulsantwort__ $h(t)$. Aus der Summe wird das Integral
+
+$$g(t)=\int_{-\infty}^{\infty}s(\tau)\,h(t-\tau)\,\mathrm{d}\tau .$$
+
+Darin ist $\tau$ der Zeitpunkt eines Eingangsstoßes und $s(\tau)\,\mathrm{d}\tau$ sein Gewicht. $h(t-\tau)$ ist die Antwort zur Zeit $t$ auf einen Stoß, der vor $t-\tau$ Sekunden kam. Der Eingang selbst ist eine Überlagerung solcher Stöße, $s(t)=\int_{-\infty}^{\infty}s(\tau)\,\delta(t-\tau)\,\mathrm{d}\tau$. Die Zerlegung gilt für jedes Signal, das Faltungsintegral exakt für jedes LTI-System.
+
+Anschaulich sammelt der Ausgang alle Stöße der Vergangenheit, jeden gewichtet damit, wie stark sich das System nach dieser Zeit noch an ihn „erinnert“.
+
+Falle: Die Bausteine brauchen die Fläche 1. Ein Rechteck der festen Höhe 1 hätte für $T_0\to0$ die Fläche null, und seine Antwort würde verschwinden. Zum Messen von $h(t)$ genügt ein Impuls, der viel kürzer ist als die Zeitkonstanten des Systems, beim RC-Glied also viel kürzer als $RC$: Das System sieht dann nur seine Fläche.
+::::
+
+::::formelsammlung
+**Treppennäherung des Eingangs**
+
+$$s(t)\approx s_a(t)=\sum_{n=-\infty}^{\infty}s(nT_0)\,s_0(t-nT_0)\,T_0$$
+
+$s_0(t)$ Rechteck der Dauer $T_0$ und der Höhe $1/T_0$, also der Fläche 1; $s(nT_0)\,T_0$ Fläche des Streifens bei $nT_0$.
+
+**Summe der Bausteinantworten**
+
+$$g_a(t)=\sum_{n=-\infty}^{\infty}s(nT_0)\,g_0(t-nT_0)\,T_0\approx g(t)$$
+
+$g_0(t)$ Antwort des Systems auf $s_0(t)$; folgt aus Zeitinvarianz (verschobener Baustein, verschobene Antwort) und Linearität (Gewichte und Summe).
+
+**Zerlegung in Stöße**
+
+$$s(t)=\int_{-\infty}^{\infty}s(\tau)\,\delta(t-\tau)\,\mathrm{d}\tau$$
+
+Für jedes Signal $s(t)$. Grenzübergang $T_0\to0$: $s_0$ wird zum Dirac-Impuls $\delta(t)$ (unendlich kurzer Stoß der Fläche 1), $nT_0\to\tau$, $T_0\to\mathrm{d}\tau$.
+
+**Faltungsintegral**
+
+$$g(t)=\int_{-\infty}^{\infty}s(\tau)\,h(t-\tau)\,\mathrm{d}\tau$$
+
+Exakt für jedes LTI-System; $h(t)$ Impulsantwort (Antwort auf $\delta(t)$). $\tau$ Zeitpunkt eines Eingangsstoßes, $s(\tau)\,\mathrm{d}\tau$ sein Gewicht, $h(t-\tau)$ Antwort zur Zeit $t$ auf einen Stoß, der vor $t-\tau$ Sekunden kam.
+::::

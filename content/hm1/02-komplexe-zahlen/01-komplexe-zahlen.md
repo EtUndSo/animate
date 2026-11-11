@@ -14,8 +14,6 @@ lang: de
 
 Die Gleichung $x^2=-1$ hat in $\mathbb{R}$ keine Lösung, denn das Quadrat einer reellen Zahl ist nie negativ. Trotzdem führen quadratische Gleichungen immer wieder auf Wurzeln aus negativen Zahlen, und die Wechselstromtechnik rechnet täglich damit. Die Frage lautet: *Lässt sich $\mathbb{R}$ so erweitern, dass $x^2=-1$ lösbar wird und die Rechengesetze erhalten bleiben, und was geht dabei verloren?*
 
-
-
 **So arbeitest du mit diesem Kapitel.** Die Abschnitte bauen aufeinander auf, jeder neue Begriff hat einen eigenen Unterabschnitt mit Beispiel. Kästen zum Aufklappen enthalten Hintergrund (warum etwas so ist und woher es kommt), Herleitungen und Hinweise zur Simulation; zum Weiterlesen braucht man sie nicht. Versuche die Aufgaben (★ bis ★★★) zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf.
 
 :::merke Das Rechenmodell für dieses Kapitel
@@ -41,5 +39,4 @@ Die Gleichung $x^2=-1$ hat in $\mathbb{R}$ keine Lösung, denn das Quadrat einer
 
 </ul>
 
-Alle Zahlen rechnet `rechnung_kap2.py` nach.
 :::

@@ -14,8 +14,6 @@ lang: de
 
 Ein Rechner kann keine Funktion $s(t)$ speichern, nur eine Folge von Zahlen. Man misst das Signal deshalb im festen Takt $T$ und arbeitet mit den __Abtastwerten__ $s(nT)$. Zwei Fragen bestimmen dieses Kapitel: *Geht dabei Information verloren?* Und: *Wie rechnet man mit Zahlenfolgen so, wie die [Kapitel 1](/wissen/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html) bis 3 mit Funktionen gerechnet haben?*
 
-
-
 **So arbeitest du mit diesem Kapitel.** Die Abschnitte bauen aufeinander auf, jeder neue Begriff hat einen eigenen Unterabschnitt mit Beispiel. Kästen zum Aufklappen enthalten Hintergrund (warum etwas so ist und woher es kommt), Herleitungen und Hinweise zur Simulation; zum Weiterlesen braucht man sie nicht. Versuche die Aufgaben (★ bis ★★★) zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf.
 
 :::merke Das Rechenmodell für dieses Kapitel
@@ -47,5 +45,4 @@ Bei Folgen wird die Frequenz auf die Abtastrate bezogen: $f=1$ entspricht $f_\ma
 
 </ul>
 
-Die Zahlen und Kurven rechnet `rechnung_kap4.py` nach.
 :::

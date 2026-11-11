@@ -16,8 +16,6 @@ Eine Drehung der Ebene bewegt unendlich viele Punkte, trotzdem legen vier Zahlen
 
 Die Antwort führt über acht Begriffe. Eine __lineare Abbildung__ schickt Summen auf Summen und Vielfache auf Vielfache. Eine __Matrix__ ist ein rechteckiges Zahlenschema, das eine solche Abbildung festhält. Der __Kern__ enthält alle Vektoren, die auf null gehen, das __Bild__ alle Vektoren, die getroffen werden. Der __Rang__ ist die Dimension des Bilds. Das __Matrizenprodukt__ ist das Hintereinanderausführen zweier Abbildungen in Zahlen. Ein __lineares Gleichungssystem__ sucht zu einer Matrix $A$ und einem Vektor $b$ alle $x$ mit $Ax=b$, und der __Gauß-Algorithmus__ löst es durch Abziehen von Zeilen.
 
-
-
 **So arbeitest du mit diesem Kapitel.** Die Abschnitte bauen aufeinander auf, jeder neue Begriff hat einen eigenen Unterabschnitt mit Beispiel. Kästen zum Aufklappen enthalten Hintergrund (warum etwas so ist und woher es kommt), Herleitungen und Hinweise zur Simulation; zum Weiterlesen braucht man sie nicht. Versuche die Aufgaben (★ bis ★★★) zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf.
 
 :::merke Das Rechenmodell für dieses Kapitel
@@ -49,5 +47,4 @@ Die Antwort führt über acht Begriffe. Eine __lineare Abbildung__ schickt Summe
 
 </ul>
 
-Alle Zahlen rechnet `rechnung_kap10.py` nach.
 :::

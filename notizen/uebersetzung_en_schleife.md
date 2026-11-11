@@ -5,6 +5,8 @@ Entscheidungen des Users (11.11.2026):
 - **Erst übersetzen:** Linux 7 und 8 (Phase 2b) warten, bis die Schleife fertig ist. Nur ein Übersetzer zur Zeit, kein anderer Schreib-Agent daneben.
 - **HöMa3, Kapitel 3 vorerst auslassen:** Die Überarbeitung ist halb fertig und pausiert. Übersetzt wird erst nach der Überarbeitung.
 
+**Pause (User 11.11. abends):** Nach Linux 6 startet kein neues Kapitel, bis die einmaligen Aufgaben in `notizen/aufgabenliste.md` (Abschnitt B) erledigt sind. Dann weiter als Loop C1.
+
 ## Warteschlange (41 Kapitel, in dieser Reihenfolge)
 Status: offen · läuft · fertig (Datum, Artikel en, Seiten en). Ein Kapitel gilt als fertig, wenn ich es geprüft und die Website gebaut habe.
 
@@ -18,7 +20,7 @@ Status: offen · läuft · fertig (Datum, Artikel en, Seiten en). Ein Kapitel gi
 | 6 | linux | 3 | Kap3_Dateien.tex | fertig 11.11. (12 Artikel, 89 S.; k3lsl en „gray“) |
 | 7 | linux | 4 | Kap4_Stroeme.tex | fertig 11.11. (9 Artikel, 62 S.) |
 | 8 | linux | 5 | Kap5_Expansion.tex | fertig 11.11. (8 Artikel, 61 S.) |
-| 9 | linux | 6 | Kap6_Textwerkzeuge.tex | läuft seit 11.11. |
+| 9 | linux | 6 | Kap6_Textwerkzeuge.tex | fertig 11.11. (12 Artikel, 78 S.) — danach Pause (Aufgabenliste B) |
 | 10 | cyber | 1 | Kap1_Sicherheit.tex | offen |
 | 11 | ml | 4 | Kap4_Wahrscheinlichkeit.tex | offen |
 | 12 | ml | 5 | Kap5_Statistik.tex | offen |
@@ -56,6 +58,7 @@ Heftordner: prog `C:\Bücher\EtUndSo\Programmieren\Arbeitshefte`, linux `C:\Büc
 - Python 1: keine.
 - Python 3: keine.
 - Linux 4: keine.
+- Linux 6 (von mir behoben 11.11., PDF und Artikel de neu): 10× „Schrägstrich“ → „umgekehrter Schrägstrich“, wo der Backslash gemeint ist (`kap6_stufen_b.tex` 79, 80×2, 370, 373, 480, 701, 1122; `kap6_loesungen.tex` 339×2); Bildunterschrift k6regeln `"` → `	extquotedbl{}` (babel); `kap6_stufen.tex` 948 „kann ihn“ → „kann einen solchen Unterschied“.
 - Linux 5 (von mir behoben 11.11., PDF und Artikel de neu): `kap5_loesungen.tex` Z. 74 „setzt `echo` die beiden Werte ein“ → „setzt die Shell die beiden Werte für `echo` ein“.
 - Linux 3 (von mir behoben 11.11., PDFs de/en und Artikel neu; Sitzung geprüft): `kap3_loesungen.tex` Z. 85 „gut 3,7 KiB“ → „knapp“ (3771/1024 = 3,68); Z. 97 vor `BSD` stehen bei `ls -lhSr` die Links GPL/LGPL/GFDL; Z. 275 `ls -h` zeigt 477G (rundet ab 10 auf); `kap3_stufen_b.tex` Z. 546 „Öffnet“ → „Liest“ (/proc/uptime); Z. 1411 Dateinamen: außer `/` „und dem Nullbyte“ (auch en).
 - Linux 2 (von mir behoben 11.11., PDF und Artikel de neu): `kap2_loesungen.tex` Z. 281 Speicher und Kerne „die du der Maschine zugeteilt hast“ gilt nur für die VM; im Live-System die des Rechners.

@@ -14,8 +14,6 @@ lang: en
 
 A microphone delivers millivolts, a loudspeaker needs volts. A computer output delivers milliamperes, a motor needs amperes. Between them sits a component that controls a large current with a small signal. The classic representative is the __bipolar transistor__, a semiconductor component made of three layers with three terminals. The energy comes from the supply voltage; the signal only sets the amount. The other important type, the MOSFET, dominates digital electronics and is not the subject of this chapter. The question is: *How can a voltage of 0.6 V control a current that flows through a blocking diode?*
 
-
-
 **How to work with this chapter.** The sections build on each other, and every new term has its own subsection with an example. Expandable boxes contain background (why something is the way it is and where it comes from), derivations and simulation hints; you do not need them to read on. Try the exercises (★ to ★★★) yourself first; the solution expands right below each exercise.
 
 :::merke The reference model for this chapter
@@ -41,5 +39,4 @@ A microphone delivers millivolts, a loudspeaker needs volts. A computer output d
 
 </ul>
 
-The script `rechnung_kap10.py` recalculates all the numbers.
 :::

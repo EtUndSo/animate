@@ -16,7 +16,6 @@ lang: zh
 
 通向答案的路分为三段。第 [1](widerstande-zusammenfassen.html#stufe-1) 到第 [3](stern-und-dreieck.html#stufe-3) 阶段合并不含电源的网络。第 [4](ideale-quellen.html#stufe-4) 到第 [7](quellen-zusammenschalten.html#stufe-7) 阶段引入电源，并说明电源同样是直线。第 [8](uberlagerung.html#stufe-8) 和第 [9](thevenin-und-norton.html#stufe-9) 阶段证明这对每个线性网络都成立，第 [10](der-r-2r-wandler.html#stufe-10) 阶段把它用于一个转换器。
 
-
 **所有结论背后的同一个原理。** 线性网络在两个接线端上的行为，就像电流-电压图中的一条直线，因此两个数就够了。从外部看，起作用的只有这条特性曲线：直线相同的两个电路可以互换，不管它们内部是什么样子。下表把各个结论归到这一思想之下。
 
 | 结论 | 来源 |
@@ -57,5 +56,4 @@ lang: zh
 
 </ul>
 
-脚本 `rechnung_kap5.py` 可复算所有数值。
 :::

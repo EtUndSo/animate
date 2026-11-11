@@ -16,8 +16,6 @@ Ein Temperatursensor liefert zu jeder Temperatur genau eine Spannung. Eine solch
 
 Die Antwort führt über sieben Begriffe. Die __Umkehrfunktion__ liefert den Rückweg als eigene Funktion. Ein __Polynom__ ist eine Summe von Potenzen von $x$ mit festen Zahlen davor. Eine __Nullstelle__ ist ein $x_0$ mit $P(x_0)=0$, zu ihr gehört ein __Linearfaktor__ $x-x_0$, ein Faktor ersten Grades. Das __Horner-Schema__ ist das Rechenverfahren, das ihn abspaltet. Dazu kommen die __rationale Funktion__, ein Quotient zweier Polynome, und die __Polstelle__, an der ihr Nenner null wird und ihr Betrag über jede Grenze wächst.
 
-
-
 **So arbeitest du mit diesem Kapitel.** Die Abschnitte bauen aufeinander auf, jeder neue Begriff hat einen eigenen Unterabschnitt mit Beispiel. Kästen zum Aufklappen enthalten Hintergrund (warum etwas so ist und woher es kommt), Herleitungen und Hinweise zur Simulation; zum Weiterlesen braucht man sie nicht. Versuche die Aufgaben (★ bis ★★★) zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf.
 
 :::merke Das Rechenmodell für dieses Kapitel
@@ -55,5 +53,4 @@ Die Antwort führt über sieben Begriffe. Die __Umkehrfunktion__ liefert den Rü
 
 </ul>
 
-Alle Zahlen rechnet `rechnung_kap3.py` nach.
 :::

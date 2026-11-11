@@ -47,7 +47,7 @@ Der Weg führt über acht Begriffe. __Ladungsträger__ sind bewegliche Ladungen,
 
 <li>
 
-⁠**Konstante:** $\hbar^2/(2m_0)=0{,}0381\,\mathrm{eV\,nm^2}$. Zahlen: `rechnung_kap10.py`.
+⁠**Konstante:** $\hbar^2/(2m_0)=0{,}0381\,\mathrm{eV\,nm^2}$.
 
 </li>
 

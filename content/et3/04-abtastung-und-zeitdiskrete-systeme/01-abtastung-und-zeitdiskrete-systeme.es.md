@@ -14,8 +14,6 @@ lang: es
 
 Un ordenador no puede almacenar una función $s(t)$, solo una secuencia de números. Por eso se mide la señal con un periodo de muestreo fijo $T$ y se trabaja con las __muestras__ $s(nT)$. Dos preguntas guían este capítulo: *¿Se pierde información en el proceso?* Y: *¿cómo se calcula con secuencias de números del mismo modo en que los [capítulos 1](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html) a 3 calculaban con funciones?*
 
-
-
 **Cómo trabajar con este capítulo.** Las secciones se apoyan unas en otras y cada término nuevo tiene su propia subsección con un ejemplo. Los recuadros desplegables contienen el contexto (por qué algo es así y de dónde viene), deducciones e indicaciones para la simulación; no hacen falta para seguir leyendo. Intenta primero los ejercicios (de ★ a ★★★) por tu cuenta; la solución se despliega justo debajo de cada ejercicio.
 
 :::merke El modelo de referencia de este capítulo
@@ -47,5 +45,4 @@ En las secuencias, la frecuencia se normaliza a la frecuencia de muestreo: $f=1$
 
 </ul>
 
-El script `rechnung_kap4.py` recalcula los números y las curvas.
 :::

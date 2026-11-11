@@ -16,8 +16,6 @@ Eine Kraft, eine Spalte aus Messwerten und ein Polynom haben wenig gemeinsam. Tr
 
 Die Antwort führt über acht Begriffe. Alles, was man addieren und strecken kann, heißt __Vektor__, die Menge solcher Objekte __Vektorraum__. Eine __Linearkombination__ ist eine Summe gestreckter Vektoren. Ein __Unterraum__ ist ein Teil des Vektorraums, den keine Linearkombination verlässt. __Lineare Unabhängigkeit__ heißt: Keiner der Vektoren lässt sich aus den anderen bauen. Das __Skalarprodukt__ macht aus zwei Vektoren eine Zahl. Aus ihm folgen die __Norm__, also die Länge, und die __Orthogonalprojektion__, die einen Vektor in einen Teil längs einer Richtung und einen Rest senkrecht dazu zerlegt.
 
-
-
 **So arbeitest du mit diesem Kapitel.** Die Abschnitte bauen aufeinander auf, jeder neue Begriff hat einen eigenen Unterabschnitt mit Beispiel. Kästen zum Aufklappen enthalten Hintergrund (warum etwas so ist und woher es kommt), Herleitungen und Hinweise zur Simulation; zum Weiterlesen braucht man sie nicht. Versuche die Aufgaben (★ bis ★★★) zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf.
 
 :::merke Das Rechenmodell für dieses Kapitel
@@ -49,5 +47,4 @@ Die Antwort führt über acht Begriffe. Alles, was man addieren und strecken kan
 
 </ul>
 
-Alle Zahlen rechnet `rechnung_kap8.py` nach.
 :::

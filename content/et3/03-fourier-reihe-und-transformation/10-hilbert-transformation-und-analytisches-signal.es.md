@@ -5,7 +5,7 @@ adresse: elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transfo
 knoten: Capítulo 3: Serie y transformada de Fourier
 order: 3231000
 summary: En una señal causal, las partes real e imaginaria del espectro están relacionadas: una determina la otra.
-tags: transformada de Hilbert, componente analítica, paso todo
+tags: transformada de Hilbert, valor principal, componente analítica, paso todo
 lang: es
 ---
 
@@ -26,14 +26,14 @@ Para una señal causal se cumple
 $$\operatorname{Re}\{S(f)\}=\operatorname{Im}\{S(f)\}*\frac{1}{\pi f},\qquad\operatorname{Im}\{S(f)\}=-\operatorname{Re}\{S(f)\}*\frac{1}{\pi f}. \tag{9.1}$$
 :::
 
-⁠**Cómo leerlo:** la convolución con $\frac{1}{\pi f}$ se llama __transformada de Hilbert__. En un sistema causal basta con conocer la parte real de la respuesta en frecuencia; la parte imaginaria se deduce de ella. La causalidad es, por tanto, una restricción fuerte sobre el espectro.
+⁠**Cómo leerlo:** la convolución con $\frac{1}{\pi f}$ se llama __transformada de Hilbert__. Su integral solo existe como __valor principal__: alrededor del punto donde el núcleo se hace infinito se recorta un trozo simétrico, que luego se hace tender a cero. En un sistema causal basta con conocer la parte real de la respuesta en frecuencia; la parte imaginaria se deduce de ella. La causalidad es, por tanto, una restricción fuerte sobre el espectro.
 
 **Componente analítica.** Con el escalón en el *dominio de la frecuencia* se eliminan las frecuencias negativas: $S_+(f)=S(f)\,\varepsilon(f)$. De la simetría se sigue $\varepsilon(f)\;\bullet\!\!-\!\!\circ\;\frac12\delta(t)+\frac{\mathrm{j}}{2\pi t}$, por tanto
 
 <span class="anker" id="gl-9-2"></span>
 $$s_+(t)=\frac12s(t)+\frac{\mathrm{j}}{2}\,\hat s(t),\qquad\hat s(t)=s(t)*\frac{1}{\pi t}\;\circ\!\!-\!\!\bullet\;-\mathrm{j}\operatorname{sgn}(f)\,S(f). \tag{9.2}$$
 
-$s_+$ se llama __componente analítica__, y $\hat s$, transformada de Hilbert de $s$. Para señales reales, $S_-(f)=S_+^*(-f)$, es decir, $s_-=s_+^*$ y $s(t)=s_++s_-=2\operatorname{Re}\{s_+(t)\}$. Las partes real e imaginaria de $s_+$ son, a su vez, transformadas de Hilbert la una de la otra.
+$s_+$ se llama __componente analítica__, y $\hat s$, transformada de Hilbert de $s$; también la convolución con $\frac{1}{\pi t}$ se entiende como valor principal. Del mismo modo, $S_-(f)=S(f)\,\varepsilon(-f)$, con la función temporal $s_-(t)$, contiene solo las frecuencias negativas. Para señales reales, $S_-(f)=S_+^*(-f)$, es decir, $s_-=s_+^*$ y $s(t)=s_++s_-=2\operatorname{Re}\{s_+(t)\}$. Las partes real e imaginaria de $s_+$ son, a su vez, transformadas de Hilbert la una de la otra.
 
 **El transformador de Hilbert.** El sistema LTI con $h(t)=\frac{1}{\pi t}$ tiene $H(f)=-\mathrm{j}\operatorname{sgn}(f)$: módulo 1 en todas las frecuencias (un __paso todo__), fase $-90^\circ$ para $f>0$ y $+90^\circ$ para $f<0$. A partir de $\cos(2\pi Ft)$ produce
 

@@ -143,3 +143,121 @@ $$\frac{1}{1+t^2}\;\circ\!\!-\!\!\bullet\;\pi\,\mathrm{e}^{-2\pi|f|}.$$
 Probe mit dem Flächensatz: $\int\frac{\mathrm{d} t}{1+t^2}=\pi=S(0)$.
 :::
 :::
+
+::::kurzfassung
+Die Rechenregeln der Fourier-Transformation sagen, wie sich das Spektrum ändert, wenn man das Signal verschiebt, dehnt, ableitet oder moduliert. Jede folgt daraus, was die Operation mit einer einzelnen Schwingung $\mathrm{e}^{\mathrm{j}2\pi ft}$ macht. Die wichtigsten:
+
+<ul>
+
+<li>
+
+__Ähnlichkeit__: $s(bt)\;\circ\!\!-\!\!\bullet\;\frac{1}{|b|}S\bigl(\frac fb\bigr)$ für $b\neq0$. Ein gestauchtes Signal hat ein breiteres Spektrum; Dauer und Bandbreite verhalten sich umgekehrt.
+
+</li>
+
+<li>
+
+__Verschiebung__: $s(t-t_0)\;\circ\!\!-\!\!\bullet\;S(f)\,\mathrm{e}^{-\mathrm{j}2\pi ft_0}$. Der Betrag bleibt, nur die Phase ändert sich, und zwar linear in $f$.
+
+</li>
+
+<li>
+
+Ableitung: $\frac{\mathrm{d}}{\mathrm{d} t}$ wird zur Multiplikation mit $\mathrm{j}2\pi f$; hohe Frequenzen werden verstärkt.
+
+</li>
+
+<li>
+
+__Modulation__: $\mathrm{e}^{\mathrm{j}2\pi Ft}s(t)\;\circ\!\!-\!\!\bullet\;S(f-F)$, das Spektrum wird um $F$ verschoben.
+
+</li>
+
+<li>
+
+__Symmetrie__ oder Dualität: $S(t)\;\circ\!\!-\!\!\bullet\;s(-f)$. Jedes Paar liefert ein zweites mit vertauschten Rollen.
+
+</li>
+
+</ul>
+
+Außerdem wird ein Produkt zweier Signale zur Faltung ihrer Spektren. Nach Parseval ist die Energie in beiden Bereichen gleich, $|S(f)|^2$ ist die __Energiedichte__ über der Frequenz.
+
+Der Grund am Beispiel der Verschiebung: Eine Verzögerung um $t_0$ verschiebt jede Schwingung um dieselbe Zeit. Bei der Frequenz $f$ ist das der Winkel $2\pi ft_0$, bei höherer Frequenz also ein größerer. Die Symmetrie gilt, weil sich Hin- und Rücktransformation nur im Vorzeichen des Exponenten unterscheiden.
+
+Falle: Beim Dehnen steht $f/b$ im Argument und $1/|b|$ davor, mit Betrag. Für $b<0$ wäre ein Faktor $\frac1b$ negativ, die Fläche eines Signals ändert aber durch Spiegeln ihr Vorzeichen nicht.
+::::
+
+::::formelsammlung
+**Superposition**
+
+$$\sum_ia_is_i(t)\;\circ\!\!-\!\!\bullet\;\sum_ia_iS_i(f)$$
+
+Für beliebige Konstanten $a_i$.
+
+**Konjugation**
+
+$$s^*(t)\;\circ\!\!-\!\!\bullet\;S^*(-f)$$
+
+Für reelle Signale folgt daraus $S(-f)=S^*(f)$.
+
+**Ähnlichkeit**
+
+$$s(bt)\;\circ\!\!-\!\!\bullet\;\frac{1}{|b|}S\Bigl(\frac fb\Bigr),\quad b\neq0;\qquad s(-t)\;\circ\!\!-\!\!\bullet\;S(-f)$$
+
+Zeitlich gestaucht ($|b|>1$): breiteres Spektrum; Dauer und Bandbreite verhalten sich umgekehrt. Betrag $|b|$, weil sich für $b<0$ die Integrationsgrenzen umkehren.
+
+**Verschiebung**
+
+$$s(t-t_0)\;\circ\!\!-\!\!\bullet\;S(f)\,\mathrm{e}^{-\mathrm{j}2\pi ft_0},\qquad\delta(t-t_0)\;\circ\!\!-\!\!\bullet\;\mathrm{e}^{-\mathrm{j}2\pi ft_0}$$
+
+Betrag unverändert. Die Phase sinkt um $2\pi ft_0$, ist also eine Gerade in $f$ mit der Steigung $-2\pi t_0$. Ein System mit $|H|=1$ und linearer Phase verzögert ein Signal, ohne seine Form zu ändern.
+
+**Ableitung**
+
+$$\frac{\mathrm{d}^n}{\mathrm{d} t^n}s(t)\;\circ\!\!-\!\!\bullet\;(\mathrm{j}2\pi f)^nS(f)$$
+
+Grund: $\frac{\mathrm{d}}{\mathrm{d} t}\mathrm{e}^{\mathrm{j}2\pi ft}=\mathrm{j}2\pi f\,\mathrm{e}^{\mathrm{j}2\pi ft}$. Ableiten verstärkt hohe Frequenzen.
+
+**Symmetrie (Dualität)**
+
+$$S(t)\;\circ\!\!-\!\!\bullet\;s(-f)$$
+
+Für jedes Paar $s(t)\;\circ\!\!-\!\!\bullet\;S(f)$. Hin- und Rücktransformation unterscheiden sich nur im Vorzeichen des Exponenten.
+
+**Modulation**
+
+$$\mathrm{e}^{\mathrm{j}2\pi Ft}s(t)\;\circ\!\!-\!\!\bullet\;S(f-F)$$
+
+Multiplikation mit $\mathrm{e}^{\mathrm{j}2\pi Ft}$ verschiebt das ganze Spektrum um $F$.
+
+**Ableitung im Frequenzbereich**
+
+$$-\mathrm{j}2\pi t\,s(t)\;\circ\!\!-\!\!\bullet\;\frac{\mathrm{d}}{\mathrm{d} f}S(f)$$
+
+Folgt durch Ableiten der Hintransformation nach $f$.
+
+**Faltung und Multiplikation**
+
+$$s_1*s_2\;\circ\!\!-\!\!\bullet\;S_1S_2,\qquad s_1s_2\;\circ\!\!-\!\!\bullet\;S_1*S_2$$
+
+Das Produkt zweier Signale hat als Spektrum die Faltung der Spektren, das Gegenstück zum Faltungssatz.
+
+**Flächensätze**
+
+$$\int s(t)\mathrm{d} t=S(0),\qquad\int S(f)\mathrm{d} f=s(0)$$
+
+Integrale über alle Zeiten bzw. alle Frequenzen; $f=0$ in die Hin-, $t=0$ in die Rücktransformation eingesetzt.
+
+**Parseval**
+
+$$\int|s(t)|^2\mathrm{d} t=\int|S(f)|^2\mathrm{d} f$$
+
+Die Energie ist in beiden Bereichen dieselbe; $|S(f)|^2$ ist die Energiedichte über der Frequenz.
+
+**Ein Paar aus der Symmetrie**
+
+$$\frac{1}{1+t^2}\;\circ\!\!-\!\!\bullet\;\pi\,\mathrm{e}^{-2\pi|f|}$$
+
+Aus $\mathrm{e}^{-|t|}\;\circ\!\!-\!\!\bullet\;\frac{2}{1+(2\pi f)^2}$ mit Symmetrie und Ähnlichkeit.
+::::

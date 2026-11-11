@@ -200,7 +200,7 @@ In der Kopfzeile steht kein Datum, also kein Treffer, und sie bleibt, wie sie wa
 ⁠**Kurz gesagt:** Gruppen merken sich ihre Treffer, und `\1` bis `\9` setzen sie im Ersatztext in beliebiger Reihenfolge wieder ein.
 
 :::hintergrund Dieselbe Ersetzung in der Grundform und Rückverweise im Ausdruck
-In der Grundform braucht jede Klammer einen Schrägstrich, und der Befehl wird schwer lesbar:
+In der Grundform braucht jede Klammer einen umgekehrten Schrägstrich, und der Befehl wird schwer lesbar:
 
 ```console
 $ sed 's/^\([0-9]\{4\}\)-\([0-9]\{2\}\)-\([0-9]\{2\}\)/\3.\2.\1/' laeufe.csv | sed -n 2p

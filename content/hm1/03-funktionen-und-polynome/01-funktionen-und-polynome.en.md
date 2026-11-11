@@ -16,8 +16,6 @@ A temperature sensor delivers exactly one voltage for each temperature. Such an 
 
 The answer leads through seven concepts. The __inverse function__ provides the way back as a function in its own right. A __polynomial__ is a sum of powers of $x$ with fixed numbers in front. A __zero__ is an $x_0$ with $P(x_0)=0$; it comes with a __linear factor__ $x-x_0$, a factor of degree one. The __Horner scheme__ is the computational procedure that splits it off. Then there are the __rational function__, a quotient of two polynomials, and the __pole__, where its denominator becomes zero and its absolute value grows beyond every bound.
 
-
-
 **How to work with this chapter.** The sections build on each other, and every new term has its own subsection with an example. Expandable boxes contain background (why something is the way it is and where it comes from), derivations and simulation hints; you do not need them to read on. Try the exercises (★ to ★★★) yourself first; the solution expands right below each exercise.
 
 :::merke The reference model for this chapter
@@ -55,5 +53,4 @@ The answer leads through seven concepts. The __inverse function__ provides the w
 
 </ul>
 
-The script `rechnung_kap3.py` checks all numbers.
 :::

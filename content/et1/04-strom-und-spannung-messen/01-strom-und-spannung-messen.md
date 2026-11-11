@@ -14,8 +14,6 @@ lang: de
 
 An einem Spannungsteiler sollen 3 V liegen, das Messgerät zeigt 2,73 V. Der Teiler ist in Ordnung, und die Anzeige stimmt: Sie zeigt die Spannung, die anliegt, seit das Gerät angeschlossen ist. Denn ein Messgerät ist ein Bauteil mit einem __Innenwiderstand__, dem Widerstand zwischen seinen Anschlüssen. Die Frage lautet: *Warum verändert jedes Messgerät die Schaltung, die es misst, wie groß ist der Fehler, und warum misst eine Brücke genauer als ein Instrument allein?*
 
-
-
 **So arbeitest du mit diesem Kapitel.** Die Abschnitte bauen aufeinander auf, jeder neue Begriff hat einen eigenen Unterabschnitt mit Beispiel. Kästen zum Aufklappen enthalten Hintergrund (warum etwas so ist und woher es kommt), Herleitungen und Hinweise zur Simulation; zum Weiterlesen braucht man sie nicht. Versuche die Aufgaben (★ bis ★★★) zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf.
 
 :::merke Das Rechenmodell für dieses Kapitel
@@ -47,5 +45,4 @@ An einem Spannungsteiler sollen 3 V liegen, das Messgerät zeigt 2,73 V. Der
 
 </ul>
 
-Alle Zahlen rechnet `rechnung_kap4.py` nach.
 :::

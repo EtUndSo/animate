@@ -347,6 +347,138 @@ _UI_FINDEN = {
 for _l, _w in _UI_FINDEN.items():
     UI[_l].update(_w)
 
+# Ansichten (W4a, 11.11.2026): Ausführlich | Kurz | Formeln je Artikel, Formelsammlung und „Kapitel auf einer Seite“ je Modul
+_UI_ANSICHT = {
+    "de": {"ans": "Ansicht", "ans_voll": "Ausführlich", "ans_kurz": "Kurz", "ans_formeln": "Formeln",
+           "ans_kurz_min": "Kurz: {n} min", "fb_leer": "Dieser Artikel hat keine Formeln.", "fb_zu_kurz": "Zur Kurzansicht",
+           "fb_modul": "Alle Formeln des Moduls", "fb_titel": "Formelsammlung", "fb_sprung": "An die Stelle im Artikel",
+           "fb_lede": "Die Sätze, Definitionen und nummerierten Formeln aller Artikel dieses Moduls, nach Kapiteln geordnet. "
+                      "Jeder Eintrag führt an seine Stelle im Artikel.",
+           "fb_keine": "Für dieses Modul gibt es noch keine Formeln.",
+           "sz_titel": "Kapitel auf einer Seite", "sz_kurz": "Kapitel auf einer Seite",
+           "sz_lede": "Die Zusammenfassungen aller Artikel, Kapitel für Kapitel: Begriffe, Formeln und Zusammenhänge. "
+                      "Wähle ein Kapitel, dann druckt der Browser nur dieses.",
+           "sz_keine": "Für dieses Modul gibt es noch keine Zusammenfassungen.",
+           "kap_wahl": "Kapitel", "kap_alle": "Alle Kapitel", "drucken": "Drucken",
+           "dl": "Herunterladen", "dl_laeuft": "Wird erstellt …", "dl_fehler": "Das Erstellen hat nicht geklappt.",
+           "dl_gross": "Zu lang für ein Bild. Wähle ein Kapitel oder nimm PDF.", "fb_quelle": "Formeln"},
+    "en": {"ans": "View", "ans_voll": "Detailed", "ans_kurz": "Short", "ans_formeln": "Formulas",
+           "ans_kurz_min": "Short: {n} min", "fb_leer": "This article has no formulas.", "fb_zu_kurz": "Go to the short view",
+           "fb_modul": "All formulas of the module", "fb_titel": "Formula collection", "fb_sprung": "Go to the place in the article",
+           "fb_lede": "The theorems, definitions and numbered formulas of all articles in this module, ordered by chapter. "
+                      "Each entry takes you to its place in the article.",
+           "fb_keine": "There are no formulas for this module yet.",
+           "sz_titel": "Chapter on one page", "sz_kurz": "Chapter on one page",
+           "sz_lede": "The summaries of all articles, chapter by chapter: terms, formulas and key relationships. "
+                      "Choose a chapter and the browser prints only that one.",
+           "sz_keine": "There are no summaries for this module yet.",
+           "kap_wahl": "Chapter", "kap_alle": "All chapters", "drucken": "Print",
+           "dl": "Download", "dl_laeuft": "Creating …", "dl_fehler": "Creating the file did not work.",
+           "dl_gross": "Too long for one image. Choose a chapter or use PDF.", "fb_quelle": "Formulas"},
+    "es": {"ans": "Vista", "ans_voll": "Detallada", "ans_kurz": "Breve", "ans_formeln": "Fórmulas",
+           "ans_kurz_min": "Breve: {n} min", "fb_leer": "Este artículo no tiene fórmulas.", "fb_zu_kurz": "Ir a la vista breve",
+           "fb_modul": "Todas las fórmulas del módulo", "fb_titel": "Formulario", "fb_sprung": "Ir al lugar en el artículo",
+           "fb_lede": "Los teoremas, definiciones y fórmulas numeradas de todos los artículos de este módulo, por capítulos. "
+                      "Cada entrada lleva a su lugar en el artículo.",
+           "fb_keine": "Todavía no hay fórmulas para este módulo.",
+           "sz_titel": "El capítulo en una página", "sz_kurz": "Capítulo en una página",
+           "sz_lede": "Los resúmenes de todos los artículos, capítulo a capítulo: términos, fórmulas y relaciones clave. "
+                      "Elige un capítulo y el navegador imprime solo ese.",
+           "sz_keine": "Todavía no hay resúmenes para este módulo.",
+           "kap_wahl": "Capítulo", "kap_alle": "Todos los capítulos", "drucken": "Imprimir",
+           "dl": "Descargar", "dl_laeuft": "Creando …", "dl_fehler": "No se pudo crear el archivo.",
+           "dl_gross": "Demasiado largo para una imagen. Elige un capítulo o usa PDF.", "fb_quelle": "Fórmulas"},
+    "zh": {"ans": "视图", "ans_voll": "详细", "ans_kurz": "简要", "ans_formeln": "公式",
+           "ans_kurz_min": "简要：{n} 分钟", "fb_leer": "本文没有公式。", "fb_zu_kurz": "转到简要视图",
+           "fb_modul": "本模块全部公式", "fb_titel": "公式汇编", "fb_sprung": "跳到文章中的位置",
+           "fb_lede": "本模块所有文章中的定理、定义和带编号的公式，按章节排列。每一条都可以跳到它在文章中的位置。",
+           "fb_keine": "本模块暂时还没有公式。",
+           "sz_titel": "一页看完一章", "sz_kurz": "一页看完一章",
+           "sz_lede": "所有文章的小结，逐章排列：术语、公式和关键联系。选择一章后，浏览器只打印这一章。",
+           "sz_keine": "本模块暂时还没有小结。",
+           "kap_wahl": "章节", "kap_alle": "全部章节", "drucken": "打印",
+           "dl": "下载", "dl_laeuft": "正在生成 …", "dl_fehler": "文件生成失败。",
+           "dl_gross": "内容太长，无法生成一张图片。请选择一章或使用 PDF。", "fb_quelle": "公式"},
+    "fr": {"ans": "Affichage", "ans_voll": "Détaillé", "ans_kurz": "Court", "ans_formeln": "Formules",
+           "ans_kurz_min": "Court : {n} min", "fb_leer": "Cet article ne contient pas de formules.", "fb_zu_kurz": "Passer à l’affichage court",
+           "fb_modul": "Toutes les formules du module", "fb_titel": "Formulaire", "fb_sprung": "Aller à l’endroit dans l’article",
+           "fb_lede": "Les théorèmes, définitions et formules numérotées de tous les articles de ce module, classés par chapitre. "
+                      "Chaque entrée mène à sa place dans l’article.",
+           "fb_keine": "Il n’y a pas encore de formules pour ce module.",
+           "sz_titel": "Le chapitre sur une page", "sz_kurz": "Chapitre sur une page",
+           "sz_lede": "Les résumés de tous les articles, chapitre par chapitre : notions, formules et relations clés. "
+                      "Choisissez un chapitre et le navigateur n’imprime que celui-ci.",
+           "sz_keine": "Il n’y a pas encore de résumés pour ce module.",
+           "kap_wahl": "Chapitre", "kap_alle": "Tous les chapitres", "drucken": "Imprimer",
+           "dl": "Télécharger", "dl_laeuft": "Création …", "dl_fehler": "La création du fichier a échoué.",
+           "dl_gross": "Trop long pour une image. Choisissez un chapitre ou utilisez le PDF.", "fb_quelle": "Formules"},
+    "tr": {"ans": "Görünüm", "ans_voll": "Ayrıntılı", "ans_kurz": "Kısa", "ans_formeln": "Formüller",
+           "ans_kurz_min": "Kısa: {n} dk", "fb_leer": "Bu makalede formül yok.", "fb_zu_kurz": "Kısa görünüme geç",
+           "fb_modul": "Modülün tüm formülleri", "fb_titel": "Formül derlemesi", "fb_sprung": "Makaledeki yerine git",
+           "fb_lede": "Bu modüldeki tüm makalelerin teoremleri, tanımları ve numaralı formülleri, bölümlere göre sıralı. "
+                      "Her kayıt sizi makaledeki yerine götürür.",
+           "fb_keine": "Bu modül için henüz formül yok.",
+           "sz_titel": "Tek sayfada bölüm", "sz_kurz": "Tek sayfada bölüm",
+           "sz_lede": "Tüm makalelerin özetleri, bölüm bölüm: kavramlar, formüller ve temel ilişkiler. "
+                      "Bir bölüm seçerseniz tarayıcı yalnızca onu yazdırır.",
+           "sz_keine": "Bu modül için henüz özet yok.",
+           "kap_wahl": "Bölüm", "kap_alle": "Tüm bölümler", "drucken": "Yazdır",
+           "dl": "İndir", "dl_laeuft": "Oluşturuluyor …", "dl_fehler": "Dosya oluşturulamadı.",
+           "dl_gross": "Tek bir resim için çok uzun. Bir bölüm seçin ya da PDF kullanın.", "fb_quelle": "Formüller"},
+}
+for _l, _w in _UI_ANSICHT.items():
+    UI[_l].update(_w)
+# Informatik-Reihen (User 11.11.2026 abends): Die dritte Ansicht heißt dort „Übersicht“ (Befehls- und Syntaxübersicht), die
+# Modulseite „Befehlsübersicht“ (uebersicht.html). Inhalt später aus ::::formelsammlung; bis dahin automatisch: Kästen und
+# die Eingabezeilen der Konsolen-Blöcke je Abschnitt (siehe md_to_html).
+_UI_REF = {
+    "de": {"ans_formeln_ref": "Übersicht", "fb_titel_ref": "Befehlsübersicht", "fb_modul_ref": "Befehlsübersicht des Moduls",
+           "fb_leer_ref": "Für diesen Artikel gibt es noch keine Übersicht.", "fb_befehle": "Befehle",
+           "fb_lede_ref": "Die Definitionen, Regeln und Befehle aller Artikel dieses Moduls, nach Kapiteln geordnet. "
+                          "Jeder Eintrag führt an seine Stelle im Artikel.",
+           "fb_keine_ref": "Für dieses Modul gibt es noch keine Übersicht."},
+    "en": {"ans_formeln_ref": "Reference", "fb_titel_ref": "Command reference", "fb_modul_ref": "Command reference of the module",
+           "fb_leer_ref": "There is no reference for this article yet.", "fb_befehle": "Commands",
+           "fb_lede_ref": "The definitions, rules and commands of all articles in this module, ordered by chapter. "
+                          "Each entry takes you to its place in the article.",
+           "fb_keine_ref": "There is no reference for this module yet."},
+    "es": {"ans_formeln_ref": "Referencia", "fb_titel_ref": "Referencia de comandos", "fb_modul_ref": "Referencia de comandos del módulo",
+           "fb_leer_ref": "Este artículo aún no tiene referencia.", "fb_befehle": "Comandos",
+           "fb_lede_ref": "Las definiciones, reglas y comandos de todos los artículos de este módulo, por capítulos. "
+                          "Cada entrada lleva a su lugar en el artículo.",
+           "fb_keine_ref": "Todavía no hay referencia para este módulo."},
+    "zh": {"ans_formeln_ref": "速查", "fb_titel_ref": "命令速查", "fb_modul_ref": "本模块命令速查",
+           "fb_leer_ref": "本文暂无速查内容。", "fb_befehle": "命令",
+           "fb_lede_ref": "本模块所有文章中的定义、规则和命令，按章节排列。每一条都可以跳到它在文章中的位置。",
+           "fb_keine_ref": "本模块暂时还没有速查内容。"},
+    "fr": {"ans_formeln_ref": "Aide-mémoire", "fb_titel_ref": "Aide-mémoire des commandes", "fb_modul_ref": "Aide-mémoire des commandes du module",
+           "fb_leer_ref": "Cet article n’a pas encore d’aide-mémoire.", "fb_befehle": "Commandes",
+           "fb_lede_ref": "Les définitions, règles et commandes de tous les articles de ce module, classées par chapitre. "
+                          "Chaque entrée mène à sa place dans l’article.",
+           "fb_keine_ref": "Il n’y a pas encore d’aide-mémoire pour ce module."},
+    "tr": {"ans_formeln_ref": "Hızlı başvuru", "fb_titel_ref": "Komut başvurusu", "fb_modul_ref": "Modülün komut başvurusu",
+           "fb_leer_ref": "Bu makale için henüz başvuru yok.", "fb_befehle": "Komutlar",
+           "fb_lede_ref": "Bu modüldeki tüm makalelerin tanımları, kuralları ve komutları, bölümlere göre sıralı. "
+                          "Her kayıt sizi makaledeki yerine götürür.",
+           "fb_keine_ref": "Bu modül için henüz başvuru yok."},
+}
+for _l, _w in _UI_REF.items():
+    UI[_l].update(_w)
+UEBERSICHT_REIHEN = {"linux", "prog", "cyber", "c", "cpp"}   # Ordner unter content/ mit „Übersicht“ statt „Formeln“
+MODUL_REF = set()                                             # Moduladressen dieser Reihen, alle Sprachen (main)
+LERNEN_JS += ("ans_kurz_min", "dl_laeuft", "dl_fehler", "dl_gross", "fb_titel", "ans_formeln", "fb_titel_ref")
+
+def ist_ref(art):
+    return art.get("reihe") in UEBERSICHT_REIHEN
+
+def blatt_datei(mp):
+    """Modulseite der dritten Ansicht: Formelsammlung (formeln.html) bzw. Befehlsübersicht (uebersicht.html)."""
+    return "uebersicht.html" if mp in MODUL_REF else "formeln.html"
+
+def TR(key, ref):
+    """Wort der dritten Ansicht: in den Informatik-Reihen die Fassung *_ref („Übersicht“ statt „Formeln“)."""
+    return T(key + "_ref") if ref and key + "_ref" in UI["de"] else T(key)
+
 def anzahl(n, wort):
     """„1 Kapitel“ / „12 Kapitel“ in der Sprache der Seite (wort = n_kapitel, n_artikel)."""
     return T(wort + "_1") if n == 1 else T(wort).format(n=n)
@@ -586,9 +718,116 @@ _RUECKBEZUG = re.compile(r"(?:(?:das|dies|diese|dieser|dieses|diesen|sie|er|es|s
                          r"esto|eso|esta|este|estos|estas|ello|así|cela|ceci|ce|cette|ces|cet|il|elle|ils|elles|bu|buna|bunu|"
                          r"bunun|bunlar|bunlara|böyle|şu)\b|[这此它该])", re.I)
 
-def zf_start():
+def zf_start(ref=False):
     ZF.clear()
-    ZF.update(an=True, fb=[], fm=[], kg=[], schon=set(), n=0, h="")
+    # blatt/ku/nk (W4a): Einträge des Formelblatts und Ersatzformeln; eigener Zähler, die Nummern von kb/kf/kg bleiben gleich.
+    # ref: Informatik-Reihe („Übersicht“): alle Kästen, dazu die Befehle der Konsolen-Blöcke
+    ZF.update(an=True, fb=[], fm=[], kg=[], schon=set(), n=0, h="", blatt=[], ku=[], nk=0, ref=ref)
+
+_EINGABE_RE = re.compile(r"^(?:\$ |# |>>> |\.\.\. |PS> )\S")   # Eingabezeile einer Konsolen-Sitzung (wie codeText in wissen.js)
+
+def _blatt_befehle(info, code):
+    """Übersicht (Informatik-Reihen): Eingabezeilen eines Konsolen-Blocks im Haupttext merken; Rückgabe: id oder ""."""
+    if not (ZF.get("ref") and _zf_haupt()) or info.partition(" ")[0].lower() != "console":
+        return ""
+    zeilen = []
+    for z in code.split("\n"):
+        z = z.rstrip()
+        if _EINGABE_RE.match(z) and "cmd:" + z not in ZF["schon"]:
+            ZF["schon"].add("cmd:" + z)
+            zeilen.append(z)
+    if not zeilen:
+        return ""
+    ZF["nk"] += 1
+    kid = f"kc-{ZF['nk']}"
+    ZF["blatt"].append({"typ": "cmd", "id": kid, "zeilen": zeilen, "h": ZF["h"]})
+    return kid
+
+# Ansichten (W4a, 11.11.2026): Die Blöcke der obersten Ebene eines Artikels tragen eine Klasse, nach der die Ansicht „Kurz“
+# filtert (dieselbe Seite, Umschalten per Klasse an <html>): kz bleibt, kw fällt weg. Je Abschnitt (## oder ###) bleiben
+# Überschrift, „Kurz gesagt“, Kästen aus KZ_KAESTEN, nummerierte Formeln und die erste Abbildung; ohne „Kurz gesagt“ auch
+# der erste richtige Absatz. Fließtext, Listen, Tabellen, Code, Beispiele, Hintergrund, Herleitungen und Aufgaben fallen weg.
+KZ_KAESTEN = {"satz", "definition", "lemma", "merke", "formel", "kern", "warnung", "zweck"}
+FB_KAESTEN = ("satz", "definition", "lemma", "merke", "formel")   # Formelblatt: diese Kästen, sofern sie Mathe enthalten
+KZ_ERST_MIN = 80                                                  # „erster Absatz“: mindestens so viele Zeichen Klartext
+_NUR_ETIKETT = re.compile(r"^\W*\*\*[^*]+\*\*\W*$")               # „**Die Idee in vier Schritten.**“: nur ein Etikett
+_BLOCK_RE = re.compile(r"(?ms)^::::(kurzfassung|formelsammlung)[ \t]*\n(.*?)^::::[ \t]*$\n?")
+
+def ansicht_bloecke(body):
+    """Geschriebene Fassungen (später aus eigenen Heftdateien): ::::kurzfassung … :::: und ::::formelsammlung … ::::
+    stehen im Artikel-Markdown, erscheinen aber nur in ihrer Ansicht. Rückgabe (Text ohne die Blöcke, {Art: Markdown})."""
+    bloecke = {}
+    def weg(m):
+        bloecke[m.group(1)] = m.group(2)
+        return ""
+    return _BLOCK_RE.sub(weg, body), bloecke
+
+def _oben():
+    """Block auf der obersten Ebene des gerade gesetzten Artikels (nicht in einem Kasten)?"""
+    return bool(ZF.get("an")) and not _KASTEN
+
+def _klasse(h, cls):
+    """cls an das erste Tag von h hängen."""
+    m = re.match(r"<([a-zA-Z][a-zA-Z0-9]*)([^>]*)>", h)
+    if not m:
+        return h
+    attrs = m.group(2)
+    attrs = attrs.replace(' class="', f' class="{cls} ', 1) if ' class="' in attrs else f' class="{cls}"' + attrs
+    return f"<{m.group(1)}{attrs}>" + h[m.end():]
+
+def _kz(h, bleibt):
+    """Klasse der Ansicht „Kurz“ an einen Block der obersten Ebene (sonst unverändert)."""
+    return _klasse(h, "kz" if bleibt else "kw") if _oben() else h
+
+def _id_setzen(h, wert):
+    m = re.match(r"<([a-zA-Z][a-zA-Z0-9]*)", h)
+    return h if not m else h[:m.end()] + f' id="{wert}"' + h[m.end():]
+
+def _ohne_tag(h, tag, start=""):
+    """Alle Elemente <tag …>…</tag> (verschachtelt gezählt), deren Anfang mit start beginnt, aus h entfernen."""
+    auf, zu = re.compile(rf"<{tag}\b[^>]*>"), f"</{tag}>"
+    i, raus = 0, []
+    while True:
+        m = auf.search(h, i)
+        while m and start and not m.group(0).startswith(start):
+            m = auf.search(h, m.end())
+        if not m:
+            break
+        tiefe, j = 1, m.end()
+        while tiefe and j < len(h):
+            a, z = auf.search(h, j), h.find(zu, j)
+            if z < 0:
+                j = len(h); break
+            if a and a.start() < z:
+                tiefe += 1; j = a.end()
+            else:
+                tiefe -= 1; j = z + len(zu)
+        raus.append((m.start(), j))
+        i = j
+    for a, b in reversed(raus):
+        h = h[:a] + h[b:]
+    return h
+
+def _blatt_html(h):
+    """Inhalt eines Kastens fürs Formelblatt: ohne Herleitungen, Beweise, Abbildungen und Ankerlinks, ohne ids (der
+    Kasten steht schon im Artikel)."""
+    h = _ohne_tag(h, "details")
+    h = _ohne_tag(h, "figure")
+    h = _ohne_tag(h, "aside", '<aside class="callout cx-grafik"')
+    h = re.sub(r'<a class="h-anker"[^>]*>#</a>', "", h)
+    return re.sub(r'\s(?:id|aria-labelledby)="[^"]*"', "", h)
+
+def _blatt_kasten(kind, titel_html, inner_md, inner_html):
+    """Kasten (Satz, Definition, …) fürs Formelblatt merken, wenn er Mathe enthält; Rückgabe: id für den Kasten oder ""."""
+    if not (_zf_haupt() and kind in FB_KAESTEN and not any(k in FB_KAESTEN for k, _ in _KASTEN)):
+        return ""
+    t = re.sub(r"```.*?```|`` .+? ``|`[^`\n]+?`", " ", "\n".join(inner_md), flags=re.S)   # $HOME in Code ist keine Mathe
+    if not ZF.get("ref") and not re.search(r"\$\$.+?\$\$|\$[^$\n]+?\$", t, flags=re.S):
+        return ""                                          # Formelblatt: nur Kästen mit Mathe; Übersicht: alle
+    ZF["nk"] += 1
+    kid = f"kk-{ZF['nk']}"
+    ZF["blatt"].append({"typ": "box", "id": kid, "titel": titel_html, "html": _blatt_html(inner_html), "h": ZF["h"]})
+    return kid
 
 def _zf_haupt():
     return ZF.get("an") and not any(k in ZF_NEBEN for k, _ in _KASTEN)
@@ -685,6 +924,22 @@ def _zf_formel(tex, nr):
     ZF["schon"].add(schluessel)
     hid = _zf_id("kf")
     ZF["fm"].append({"id": hid, "tex": tex, "nr": nr, "titel": kasten[1] if kasten else ZF["h"], "rang": 0 if kasten else 1})
+    if kasten is None:                                    # Formelblatt (W4a): Formeln in Kästen kommen mit dem ganzen Kasten
+        ZF["blatt"].append({"typ": "gl", "id": hid, "tex": tex, "nr": nr, "h": ZF["h"]})
+    return hid
+
+def _zf_ersatzformel(tex):
+    """Unnummerierte abgesetzte Formel des Haupttexts (außerhalb von Kästen): Ersatz fürs Formelblatt eines Artikels ohne
+    Kästen und nummerierte Formeln. Rückgabe: id oder ""."""
+    if not _zf_haupt() or any(k in FB_KAESTEN for k, _ in _KASTEN):
+        return ""
+    schluessel = "ku:" + re.sub(r"\s+", "", tex)
+    if schluessel in ZF["schon"]:
+        return ""
+    ZF["schon"].add(schluessel)
+    ZF["nk"] += 1
+    hid = f"ku-{ZF['nk']}"
+    ZF["ku"].append({"typ": "gl", "id": hid, "tex": tex, "nr": "", "h": ZF["h"]})
     return hid
 
 def _zf_kurz(txt):
@@ -699,15 +954,17 @@ def _zf_kurz(txt):
 def _ohne_links(md):
     return re.sub(r"(?<!!)\[([^\]]+)\]\([^)]+\)", r"\1", md)
 
-def zusammenfassung_html(z, fuss=""):
+def zusammenfassung_html(z, fuss="", art_path=None):
     """Kasten „Zusammenfassung“ (am Artikelende, immer offen) aus dem Sammler ZF; ohne Material: "".
-    Dazu (W2) der Knopf „Selbsttest“ (ohne Skript verborgen, wissen.js deckt die Punkte zu) und fuss (Link auf die Lernkarten)."""
+    Dazu (W2) der Knopf „Selbsttest“ (ohne Skript verborgen, wissen.js deckt die Punkte zu) und fuss (Link auf die Lernkarten).
+    Mit art_path (W4a, „Kapitel auf einer Seite“): nur die Gruppen, alle Punkte offen, Links auf den Artikel."""
     gruppen = []
+    basis = f"/wissen/{art_path}" if art_path else ""
     def gruppe(wort, cls, punkte):
         if not punkte:
             return
         rest = len(punkte) - ZF_SICHTBAR
-        if rest <= 1:                                          # „1 weitere zeigen“ lohnt nicht
+        if rest <= 1 or art_path:                              # „1 weitere zeigen“ lohnt nicht
             sichtbar, mehr = punkte, []
         else:
             sichtbar, mehr = punkte[:ZF_SICHTBAR], punkte[ZF_SICHTBAR:]
@@ -722,7 +979,7 @@ def zusammenfassung_html(z, fuss=""):
         b, gleich = z["fb"][i], [z["fb"][i]]
         while b["satz"] and i + len(gleich) < len(z["fb"]) and z["fb"][i + len(gleich)]["satz"] == b["satz"]:
             gleich.append(z["fb"][i + len(gleich)])
-        namen = ", ".join(f'<a class="zf-b" href="#{x["id"]}">{inline(_ohne_links(x["md"]))}</a>' for x in gleich)
+        namen = ", ".join(f'<a class="zf-b" href="{basis}#{x["id"]}">{inline(_ohne_links(x["md"]))}</a>' for x in gleich)
         punkte.append(f"<li>{namen}" + (f'<span class="zf-d"> – {inline(b["satz"])}</span>' if b["satz"] else "") + "</li>")
         i += len(gleich)
     gruppe("zf_begriffe", "begriffe", punkte)
@@ -735,15 +992,17 @@ def zusammenfassung_html(z, fuss=""):
         teile = split_display("$$" + f["tex"] + "$$")              # mehrteilige Formel (\qquad): Teile dürfen umbrechen
         formel = ('<div class="mrow">' + "".join(f'<div class="mcell">{inline("$$" + t + "$$")}</div>' for t in teile) + "</div>"
                   if teile else inline("$$" + f["tex"] + "$$"))
-        punkte.append(f'<li><a class="zf-fl" href="#{f["id"]}">{kopf}</a><div class="zf-f">{formel}</div></li>')
+        punkte.append(f'<li><a class="zf-fl" href="{basis}#{f["id"]}">{kopf}</a><div class="zf-f">{formel}</div></li>')
     gruppe("zf_formeln", "formeln", punkte)
     def _stichwort(k):                                             # Selbsttest: Abschnitt als Stichwort über dem zugedeckten Satz
         h = re.sub(r"^\s*(?:\d+(?:\.\d+)*\.?|Stufe\s+\d+\s*:)\s*", "", _ohne_links(k.get("h") or "")).strip()
         return (f'<span class="zf-cue" hidden>{T("zf_zu").format(h=inline(h))} </span>' if h else "")
     gruppe("zf_zusammenhaenge", "zusammenhaenge",
-           [f'<li>{_stichwort(k)}<a class="zf-a" href="#{k["id"]}">{inline(_ohne_links(k["md"]))}</a></li>' for k in z["kg"]])
+           [f'<li>{"" if art_path else _stichwort(k)}<a class="zf-a" href="{basis}#{k["id"]}">{inline(_ohne_links(k["md"]))}</a></li>' for k in z["kg"]])
     if not gruppen:
         return ""
+    if art_path:
+        return "".join(gruppen)
     test = (f'<button type="button" class="zf-test" aria-pressed="false" title="{html.escape(T("zf_test_t"))}" hidden>'
             f'{T("zf_test")}</button>')
     return (f'<aside class="zf" id="zusammenfassung" aria-labelledby="zf-titel"><div class="zf-kopf">'
@@ -877,20 +1136,25 @@ def md_to_html(md):
     formel_n = 0                                          # fortlaufende Nummer der :::formel-Boxen (zum Referenzieren, wie im Skript)
     para = []
     h_ids = set()
+    sek = {"kurz": False, "erst": None, "abb": False}       # Abschnitt der Ansicht „Kurz“ (nur oberste Ebene)
+    def sek_ende():                                       # ohne „Kurz gesagt“ bleibt der erste richtige Absatz stehen
+        if _oben() and not sek["kurz"] and sek["erst"] is not None:
+            out[sek["erst"]] = out[sek["erst"]].replace(' class="kw', ' class="kz', 1)
+        sek.update(kurz=False, erst=None, abb=False)
     def beispiel(arg, inner):                             # Beispiel: zugeklappte Box „Beispiel: Titel“, ohne Nummer (wie im Heft)
         wort, titel = T("beispiel"), arg                  # Kopf: „[Rechenbeispiel 2] Titel“, „[Gegenbeispiel]“, „Titel“ oder leer
         mw = re.match(r"\[([^\]]*)\]\s*(.*)$", arg)
         if mw:
             wort, titel = (mw.group(1).strip() or T("beispiel")), mw.group(2).strip()
-        out.append(f'<details class="beispiel"><summary><span class="bsp-k">{inline(wort)}</span>' + inline(titel) + '</summary>'
-                   '<div class="bsp-body">' + _innen("beispiel", titel, inner) + '</div></details>')
+        out.append(_kz(f'<details class="beispiel"><summary><span class="bsp-k">{inline(wort)}</span>' + inline(titel) + '</summary>'
+                       '<div class="bsp-body">' + _innen("beispiel", titel, inner) + '</div></details>', False))
     def vorwissen(arg, inner):                            # „Was du dafür brauchst: Titel“: zugeklappte Box (User, 10.11.2026)
         kopf, titel = arg, ""                             # Kopf bis zum ersten Doppelpunkt (auch „：“ und „ :“), dann der Titel
         mk = re.match(r"(.+?)\s*[:：]\s*(.*)$", arg)
         if mk:
             kopf, titel = mk.group(1).strip(), mk.group(2).strip()
-        out.append(f'<details class="vorwissen"><summary><span class="vo-k">{inline(kopf)}</span>' + inline(titel) + '</summary>'
-                   '<div class="vo-body">' + _innen("vorwissen", titel, inner) + '</div></details>')
+        out.append(_kz(f'<details class="vorwissen"><summary><span class="vo-k">{inline(kopf)}</span>' + inline(titel) + '</summary>'
+                       '<div class="vo-body">' + _innen("vorwissen", titel, inner) + '</div></details>', False))
     def flush():
         if para:
             txt = " ".join(para).strip()
@@ -905,8 +1169,9 @@ def md_to_html(md):
                     nummer = "".join(f"<span>({n})</span>" for n in mt.group(2).split("|"))
                 # Zusammenfassung: abgesetzte Formel, „Kurz gesagt“, neue Fachbegriffe; id = Sprungziel des Stichpunkts
                 mf = re.fullmatch(r"\$\$(.+)\$\$", txt, flags=re.S)
-                if mf and "$$" not in mf.group(1):
-                    zid = _zf_formel(mf.group(1).strip(), nr_roh)
+                formel = bool(mf and "$$" not in mf.group(1))
+                if formel:
+                    zid = _zf_formel(mf.group(1).strip(), nr_roh) or (_zf_ersatzformel(mf.group(1).strip()) if not nr_roh else "")
                 else:
                     zid = _zf_kurz(txt)
                     txt = _zf_begriffe(txt)
@@ -917,7 +1182,16 @@ def md_to_html(md):
                                                              for p in parts) + "</div>")
                 else:
                     inhalt = inline(txt) if nummer else f"<p{ida}>" + inline(txt) + "</p>"
-                out.append(f'<div class="gl-zeile"{ida}><div class="gl-f">{inhalt}</div><div class="gl-nr">{nummer}</div></div>' if nummer else inhalt)
+                if nummer:                               # Ansicht „Kurz“: nummerierte Formeln und „Kurz gesagt“ bleiben
+                    out.append(_kz(f'<div class="gl-zeile"{ida}><div class="gl-f">{inhalt}</div><div class="gl-nr">{nummer}</div></div>', True))
+                else:
+                    kurz = zid.startswith("kg-")
+                    out.append(_kz(inhalt, kurz))
+                    if kurz:
+                        sek["kurz"] = True
+                    elif (_oben() and not formel and sek["erst"] is None and not _NUR_ETIKETT.match(txt)
+                          and len(klartext(txt)) >= KZ_ERST_MIN):
+                        sek["erst"] = len(out) - 1
             para.clear()
     while i < n:
         ln = lines[i]
@@ -929,7 +1203,9 @@ def md_to_html(md):
             while i < n and not lines[i].strip().startswith("```"):
                 code.append(lines[i]); i += 1
             i += 1
-            out.append(code_html(info, "\n".join(code)))
+            h = code_html(info, "\n".join(code))
+            kid = _blatt_befehle(info, "\n".join(code))  # Übersicht (Informatik): Befehle des Blocks
+            out.append(_kz(_id_setzen(h, kid) if kid else h, False))
             continue
         mv = re.match(r":::::vorwissen(?:\s+(.+?))?\s*$", s)   # :::::vorwissen Titel … ::::: (fünf Doppelpunkte, darf ::::beispiel enthalten)
         if mv:
@@ -972,8 +1248,8 @@ def md_to_html(md):
                 a_html = _innen("quiz", "", [it["a"].strip()])
                 body.append(f'<details class="quiz-item"><summary><span class="quiz-n">{k}.</span> {q_html}</summary>'
                             f'<div class="quiz-a">{a_html}</div></details>')
-            out.append(f'<aside class="callout cx-quiz"><div class="callout-h">{T("quiz")}</div>'
-                       + "".join(body) + "</aside>")
+            out.append(_kz(f'<aside class="callout cx-quiz"><div class="callout-h">{T("quiz")}</div>'
+                           + "".join(body) + "</aside>", False))
             continue
         m = re.match(r":::(\w+)(?:\s+(.+?))?\s*$", s)  # callout block  :::konzept / :::formel Definition ... :::
         if m:
@@ -999,41 +1275,43 @@ def md_to_html(md):
             if kind == "formel":                          # wichtige Formel: Box mit Typ-Label (Definition/Satz/…) + Nummer
                 formel_n += 1
                 lbl = label_arg or "Formel"
-                out.append(f'<div class="fbox"><div class="fbox-h"><span class="fbox-t">{html.escape(lbl)}</span>'
-                           f'<span class="fbox-n">({formel_n})</span></div>'
-                           + _innen("formel", lbl, inner) + '</div>')
+                innen = _innen("formel", lbl, inner)
+                h = (f'<div class="fbox"><div class="fbox-h"><span class="fbox-t">{html.escape(lbl)}</span>'
+                     f'<span class="fbox-n">({formel_n})</span></div>' + innen + '</div>')
+                kid = _blatt_kasten("formel", f"{html.escape(lbl)} ({formel_n})", inner, innen)
+                out.append(_kz(_id_setzen(h, kid) if kid else h, True))
                 continue
             if kind in ("herleitung", "beweis"):          # Herleitung oder Beweis als ausklappbare Box an der Formel
-                out.append(f'<details class="herleitung"><summary>{T(kind)}' + (": " + inline(label_arg) if label_arg else "") + '</summary>'
-                           '<div class="hl-body">' + _innen(kind, label_arg, inner) + '</div></details>')
+                out.append(_kz(f'<details class="herleitung"><summary>{T(kind)}' + (": " + inline(label_arg) if label_arg else "") + '</summary>'
+                               '<div class="hl-body">' + _innen(kind, label_arg, inner) + '</div></details>', False))
                 continue
             if kind == "zweck":                           # Einstieg einer Stufe: wozu sie da ist
-                out.append(f'<div class="zweck"><span class="zw-k">{T("zweck")}</span> ' + _innen("zweck", "", inner) + '</div>')
+                out.append(_kz(f'<div class="zweck"><span class="zw-k">{T("zweck")}</span> ' + _innen("zweck", "", inner) + '</div>', True))
                 continue
             if kind == "aufgabe":                         # Aufgabe mit Nummer und Sternen, Lösung als Ausklappblock darin
-                out.append('<div class="aufg"><div class="aufg-h">' + inline(label_arg) + '</div>'
-                           '<div class="aufg-b">' + _innen("aufgabe", label_arg, inner) + '</div></div>')
+                out.append(_kz('<div class="aufg"><div class="aufg-h">' + inline(label_arg) + '</div>'
+                               '<div class="aufg-b">' + _innen("aufgabe", label_arg, inner) + '</div></div>', False))
                 continue
             if kind == "loesung":
-                out.append(f'<details class="loesung"><summary>{T("loesung")}</summary>'
-                           '<div class="lo-body">' + _innen("loesung", "", inner) + '</div></details>')
+                out.append(_kz(f'<details class="loesung"><summary>{T("loesung")}</summary>'
+                               '<div class="lo-body">' + _innen("loesung", "", inner) + '</div></details>', False))
                 continue
             if kind == "zusatz":                          # Vertiefung: darf übersprungen werden
-                out.append(f'<aside class="callout cx-zusatz"><div class="callout-h">{T("zusatz")}'
-                           + (": " + inline(label_arg) if label_arg else "") + '</div>' + _innen("zusatz", label_arg, inner) + "</aside>")
+                out.append(_kz(f'<aside class="callout cx-zusatz"><div class="callout-h">{T("zusatz")}'
+                               + (": " + inline(label_arg) if label_arg else "") + '</div>' + _innen("zusatz", label_arg, inner) + "</aside>", False))
                 continue
             if kind == "warnung":                         # Achtung (Recht, Datenverlust, Sicherheit): immer offen
-                out.append(f'<aside class="callout cx-warnung"><div class="callout-h">{T("warnung")}'
-                           + (": " + inline(label_arg) if label_arg else "") + '</div>' + _innen("warnung", label_arg, inner) + "</aside>")
+                out.append(_kz(f'<aside class="callout cx-warnung"><div class="callout-h">{T("warnung")}'
+                               + (": " + inline(label_arg) if label_arg else "") + '</div>' + _innen("warnung", label_arg, inner) + "</aside>", True))
                 continue
             if kind == "ltspice":                         # LTspice-Hinweis (nachbauen und messen): standardmaessig geschlossen
-                out.append('<details class="ltspice"><summary><span class="lt-k">LTspice</span>'
-                           + inline(label_arg) + '</summary>'
-                           '<div class="lt-body">' + _innen("ltspice", label_arg, inner) + '</div></details>')
+                out.append(_kz('<details class="ltspice"><summary><span class="lt-k">LTspice</span>'
+                               + inline(label_arg) + '</summary>'
+                               '<div class="lt-body">' + _innen("ltspice", label_arg, inner) + '</div></details>', False))
                 continue
             if kind == "hintergrund":                     # Hintergrundwissen: Titel sichtbar, Inhalt zugeklappt (Haupttext bleibt skriptgeordnet)
-                out.append(f'<details class="hintergrund"><summary><span class="hg-k">{T("hintergrund")}</span>' + inline(label_arg) + '</summary>'
-                           '<div class="hg-body">' + _innen("hintergrund", label_arg, inner) + '</div></details>')
+                out.append(_kz(f'<details class="hintergrund"><summary><span class="hg-k">{T("hintergrund")}</span>' + inline(label_arg) + '</summary>'
+                               '<div class="hg-body">' + _innen("hintergrund", label_arg, inner) + '</div></details>', False))
                 continue
             if kind == "frage":                           # Frage-Kasten (wie im Lernskript): Frage sichtbar, Antwort ausklappbar
                 if label_arg:
@@ -1041,31 +1319,39 @@ def md_to_html(md):
                 else:
                     k0 = next((j for j, l in enumerate(inner) if l.strip()), len(inner))
                     frage, rest = (inner[k0].strip() if k0 < len(inner) else ""), inner[k0 + 1:]
-                out.append(f'<details class="frage"><summary><span class="fr-k">{T("frage")}</span>' + inline(frage) + '</summary>'
-                           '<div class="fr-body">' + _innen("frage", frage, rest) + '</div></details>')
+                out.append(_kz(f'<details class="frage"><summary><span class="fr-k">{T("frage")}</span>' + inline(frage) + '</summary>'
+                               '<div class="fr-body">' + _innen("frage", frage, rest) + '</div></details>', False))
                 continue
             if kind == "abbildung":                       # Editor-Abbildung: exportiertes SVG, nummerierte Bildunterschrift, Link in den Editor
-                out.append(abbildung_html(label_arg, inner))
+                h = abbildung_html(label_arg, inner)      # Ansicht „Kurz“: die erste Abbildung eines Abschnitts bleibt
+                erste = _oben() and not sek["abb"] and h.startswith("<figure")
+                out.append(_kz(h, erste))
+                if erste:
+                    sek["abb"] = True
                 continue
             if kind == "grafik":                          # Platzhalter einer Editor-Abbildung: Beschreibung als Text, Szene-Zeile klein darunter
                 k0 = next((j for j, l in enumerate(inner) if l.strip()), len(inner))
                 szene = ""
                 if k0 < len(inner) and inner[k0].strip().startswith("Szene:"):
                     szene, inner = inner[k0].strip()[len("Szene:"):].strip(), inner[k0 + 1:]
-                out.append('<aside class="callout cx-grafik"' + (f' data-szene="{html.escape(szene)}"' if szene else "")
-                           + '><div class="callout-h">Abbildung in Vorbereitung</div>' + _innen("grafik", "", inner)
-                           + (f'<div class="gr-szene">Editor-Szene: {html.escape(szene)}</div>' if szene else "") + "</aside>")
+                out.append(_kz('<aside class="callout cx-grafik"' + (f' data-szene="{html.escape(szene)}"' if szene else "")
+                               + '><div class="callout-h">Abbildung in Vorbereitung</div>' + _innen("grafik", "", inner)
+                               + (f'<div class="gr-szene">Editor-Szene: {html.escape(szene)}</div>' if szene else "") + "</aside>", False))
                 continue
             key = CALLOUTS.get(kind, kind.title())
             label = inline(label_arg) if label_arg else html.escape(UI["de"].get(key) and T(key) or key)
-            out.append(f'<aside class="callout cx-{kind}"><div class="callout-h">{label}</div>'
-                       + _innen(kind, label_arg or (T(key) if key in UI["de"] else key), inner) + "</aside>")
+            innen = _innen(kind, label_arg or (T(key) if key in UI["de"] else key), inner)
+            h = f'<aside class="callout cx-{kind}"><div class="callout-h">{label}</div>' + innen + "</aside>"
+            kid = _blatt_kasten(kind, label, inner, innen)  # Satz, Definition, … mit Mathe: Eintrag im Formelblatt
+            out.append(_kz(_id_setzen(h, kid) if kid else h, kind in KZ_KAESTEN))
             continue
         if re.match(r"(---|\*\*\*|___)\s*$", s):      # horizontal rule
-            flush(); out.append("<hr/>"); i += 1; continue
+            flush(); out.append(_kz("<hr/>", False)); i += 1; continue
         hm = re.match(r"(#{1,4})\s+(.*)$", s)         # heading
         if hm:
             flush(); lvl = len(hm.group(1)); txt = hm.group(2).strip()
+            if lvl in (2, 3):                              # neuer Abschnitt der Ansicht „Kurz“
+                sek_ende()
             hid = slugify(txt)
             if hid == "x" or hid in h_ids:                 # chinesische Überschrift oder gleicher Titel: Nummer anhängen
                 hid = f"{hid}-{len(h_ids)}"
@@ -1088,7 +1374,7 @@ def md_to_html(md):
             flush(); quote = []
             while i < n and lines[i].strip().startswith(">"):
                 quote.append(re.sub(r"^\s*>\s?", "", lines[i])); i += 1
-            out.append("<blockquote>" + _innen("zitat", "", quote) + "</blockquote>")
+            out.append(_kz("<blockquote>" + _innen("zitat", "", quote) + "</blockquote>", False))
             continue
         if s.startswith("|") and i + 1 < n and re.match(r"^\s*\|?[\s:|-]*-[\s:|-]*\|?\s*$", lines[i + 1].strip()):
             flush()                                   # GitHub-Tabelle: Kopfzeile + |---|---|-Trenner + Zeilen
@@ -1099,7 +1385,7 @@ def md_to_html(md):
                 body.append(cells(lines[i].strip())); i += 1
             thead = "<tr>" + "".join(f"<th>{inline(_zf_begriffe(c, False))}</th>" for c in header) + "</tr>"
             tbody = "".join("<tr>" + "".join(f"<td>{inline(_zf_begriffe(c, False))}</td>" for c in r) + "</tr>" for r in body)
-            out.append(f'<div class="table-wrap"><table class="md-table"><thead>{thead}</thead><tbody>{tbody}</tbody></table></div>')
+            out.append(_kz(f'<div class="table-wrap"><table class="md-table"><thead>{thead}</thead><tbody>{tbody}</tbody></table></div>', False))
             continue
         if re.match(r"[-*]\s+", s) or re.match(r"\d+\.\s+", s):   # list (ul/ol)
             flush(); ordered = bool(re.match(r"\d+\.\s+", s)); items = []
@@ -1114,12 +1400,13 @@ def md_to_html(md):
                 else:
                     break
             tag = "ol" if ordered else "ul"
-            out.append(f"<{tag}>" + "".join(f"<li>{inline(_zf_begriffe(it))}</li>" for it in items) + f"</{tag}>")
+            out.append(_kz(f"<{tag}>" + "".join(f"<li>{inline(_zf_begriffe(it))}</li>" for it in items) + f"</{tag}>", False))
             continue
         if s.startswith("<"):                         # raw HTML / SVG / editor embed -> passthrough
             flush(); out.append(ln); i += 1; continue
         para.append(s); i += 1                         # ordinary paragraph line
     flush()
+    sek_ende()
     if section_open:                                   # letzte Abschnitts-Karte schließen
         out.append("</section>")
     # Verzeichnis: die ##-Abschnitte; ohne sie die ###-Unterabschnitte, sobald es mindestens zwei sind
@@ -1192,8 +1479,10 @@ def collect():
         if re.search(r"-mensch(-ausfuehrlich)?$", a_slug):   # Dateiname-Suffix genügt
             autor = autor or "mensch"
         title = title.replace("`", "")                 # Code in Titeln (`float`) als normaler Text: Kopfleiste, Seitentitel, Suche
+        body, bloecke = ansicht_bloecke(body)          # geschriebene Kurzfassung/Formelsammlung: nur in ihrer Ansicht (W4a)
         art = {"title": title, "kurz": meta.get("kurz", "").replace("`", ""), "slug": a_slug, "order": order, "path": path,
-               "summary": meta.get("summary", ""), "tags": meta.get("tags", ""), "body": body,
+               "summary": meta.get("summary", ""), "tags": meta.get("tags", ""), "body": body, "bloecke": bloecke,
+               "reihe": md_file.relative_to(SRC).parts[0],   # Ordner unter content/ (Informatik-Reihen: „Übersicht“)
                "crumbs": [(nd["name"], nd["slug"]) for nd in chain], "lang": lang, "key": key,
                "fassung": (meta.get("fassung") or "").strip().lower(),
                # Nachschlagebereich (ML-Grundlagen): unter dem Artikel steht „Verwendet in“ mit den Artikeln, die ihn verlinken
@@ -1325,7 +1614,8 @@ def page_shell(title, desc, body, depth, alternates=None):
 <title>{html.escape(klartext(title))} — EtUndSo</title>
 <link rel="icon" href="/favicon.ico" sizes="32x32"/><link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
 <meta name="description" content="{html.escape(klartext(desc))}"/>{links}
-<script>try{{var t=localStorage.getItem("animate-theme");if(t==="dark"||(!t&&matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.setAttribute("data-theme","dark");}}catch(e){{}}</script>
+<script>try{{var t=localStorage.getItem("animate-theme");if(t==="dark"||(!t&&matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.setAttribute("data-theme","dark");}}catch(e){{}}
+try{{var a=new URLSearchParams(location.search).get("ansicht");if(a==="uebersicht")a="formeln";if(!/^(voll|kurz|formeln)$/.test(a||""))a=localStorage.getItem("etundso-ansicht");if(a==="kurz"||a==="formeln")document.documentElement.setAttribute("data-ansicht",a);}}catch(e){{}}</script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.11/katex.min.css"/>
 <link rel="stylesheet" href="/wissen/assets/wissen.css"/>
 </head><body data-root="{home()}">
@@ -1395,34 +1685,27 @@ def lesezeit(body):
     t = re.sub(r"^\s*<.*$", " ", t, flags=re.M)
     return max(1, round(len([w for w in t.split() if re.search(r"[A-Za-zÄÖÜäöüß0-9]", w)]) / 170))
 
-def nav_arrow(a, prev):
-    # Pfeil neben den Panel-Buttons zum vorherigen/nächsten Artikel (dieselbe Reihenfolge wie unten
-    # „Vorheriger/Nächster Artikel"); am Anfang bzw. Ende grau und ohne Funktion.
-    bid, word = ("navPrev", T("vorher")) if prev else ("navNext", T("weiter"))
-    svg = ('<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" '
-           'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
-           + ('<line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/>' if prev else
-              '<line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>') + '</svg>')
-    if a:
-        t = html.escape(f'{word}: {klartext(a["title"])}')     # Attribute ohne TeX (KaTeX setzt nur den Text der Seite)
-        knopf = f'<a id="{bid}" class="navBtn" href="/wissen/{a["path"]}"{alt_attr(a)} title="{t}" aria-label="{t}">{svg}</a>'
-        # Titel des Nachbarartikels neben dem Pfeil (User 2026-11-04: „sonst weiß man gar nicht was kommt“);
-        # links vom Zurück-Pfeil, rechts vom Weiter-Pfeil; lange Titel enden mit …
-        name = (f'<a class="navTitel {"vor" if prev else "nach"}" href="/wissen/{a["path"]}"{alt_attr(a)} title="{t}" '
-                f'tabindex="-1" aria-hidden="true">{html.escape(a["title"])}</a>')
-        return name + knopf if prev else knopf + name
-    knopf = f'<span id="{bid}" class="navBtn disabled" aria-disabled="true" title="{word}">{svg}</span>'
-    leer = f'<span class="navTitel {"vor" if prev else "nach"}"></span>'   # Platzhalter: die Knöpfe bleiben mittig
-    return leer + knopf if prev else knopf + leer
+ANSICHTEN = (("voll", "ans_voll"), ("kurz", "ans_kurz"), ("formeln", "ans_formeln"))
+
+def ansicht_schalter(ref=False):
+    """Umschalter Ausführlich | Kurz | Formeln (W4a) an der Stelle der früheren Pfeile: breit ein Segmentschalter, schmal eine
+    Auswahl; ohne Skript verborgen (dann gilt „Ausführlich“). wissen.js setzt data-ansicht an <html> und merkt die Wahl.
+    In den Informatik-Reihen heißt die dritte Ansicht „Übersicht“ (intern dieselbe: formeln)."""
+    knoepfe = "".join(f'<button type="button" class="ans-b" data-ansicht="{k}" aria-pressed="{"true" if k == "voll" else "false"}">'
+                      f'{TR(w, ref)}</button>' for k, w in ANSICHTEN)
+    optionen = "".join(f'<option value="{k}">{TR(w, ref)}</option>' for k, w in ANSICHTEN)
+    return (f'<div class="ansicht" role="group" aria-label="{html.escape(T("ans"))}" hidden>{knoepfe}</div>'
+            f'<select class="ans-sel" aria-label="{html.escape(T("ans"))}" hidden>{optionen}</select>')
 
 def topbar(panels=False, prev_a=None, next_a=None, art=None):
-    # Nur Artikelseiten, mittig: Knopf für den Themenbaum, davor und dahinter je ein Pfeil zum vorherigen/nächsten
-    # Artikel mit dessen Titel. (Der Knopf für die rechte Gliederung ist weg: rechts steht nichts mehr, User 2026-11-04.)
-    pbtns = ('<div class="panelCenter">' + nav_arrow(prev_a, True)
+    # Nur Artikelseiten, mittig: Knopf für den Themenbaum und der Umschalter der Ansicht (W4a, 11.11.2026; vorher standen
+    # hier die Pfeile zum vorherigen/nächsten Artikel, sie sind jetzt nur noch am Artikelende). prev_a/next_a bleiben als
+    # Parameter, damit Aufrufer unverändert bleiben.
+    pbtns = ('<div class="panelCenter">'
              + '<button id="toggleLeft" class="panelBtn" aria-label="Themenbaum ein-/ausblenden" title="Themenbaum ein-/ausblenden" aria-pressed="false">'
              '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">'
              '<rect x="3" y="4" width="18" height="16" rx="2"/><line x1="9" y1="4" x2="9" y2="20"/></svg></button>'
-             + nav_arrow(next_a, False) + '</div>') if panels else ''
+             + ansicht_schalter(bool(art) and ist_ref(art)) + '</div>') if panels else ''
     return (f'<a class="skip" href="#inhalt">{T("zum_inhalt")}</a>'   # Sprunglink für die Tastatur: erst beim Fokus sichtbar
             '<div class="topbar"><a class="brand" href="/">Et<span>Und</span><span class="so">So</span></a>'
             + pbtns + lang_switch(art)
@@ -1441,10 +1724,111 @@ def topbar(panels=False, prev_a=None, next_a=None, art=None):
 
 _TOC = {}                                              # Artikeltext -> Abschnittsliste (für die Nachbar-Karten)
 
+# ---------------------------------------------------------------- Ansichten, Formelblatt (W4a) ----
+KAPITEL_NR = {}                                        # Kapitelordner (Adresse) -> Nummer im Modul, 1 … n (build_lang)
+FB_DL = ("png", "jpg", "svg", "pdf")                   # Formate des Download-Knopfs (assets/formel-export.js)
+
+def kapitel_ordner(path):
+    return path.rsplit("/", 1)[0]
+
+def spickzettel_url(art):
+    """„Kapitel auf einer Seite“: eine Seite je Modul und Sprache, ?kapitel=N zeigt und druckt nur Kapitel N."""
+    kap = kapitel_ordner(art["path"])
+    return f'/wissen/{modul_pfad(art["path"])}/spickzettel.html?kapitel={KAPITEL_NR.get(kap, 1)}#k-{kap.rsplit("/", 1)[-1]}'
+
+def _art_anker(art):
+    """Sprungmarke eines Artikels auf den Modulseiten (Kapitel-Slug + Artikel-Slug, eindeutig im Modul)."""
+    return "a-" + kapitel_ordner(art["path"]).rsplit("/", 1)[-1] + "-" + art["path"].rsplit("/", 1)[-1][:-5]
+
+def _formel_html(tex):
+    """Abgesetzte Formel; mehrteilige (\\qquad) als Zeile, deren Teile umbrechen dürfen."""
+    teile = split_display("$$" + tex + "$$")
+    return ('<div class="mrow">' + "".join(f'<div class="mcell">{inline("$$" + t + "$$")}</div>' for t in teile) + "</div>"
+            if teile else inline("$$" + tex + "$$"))
+
+def _links_absolut(h, art_path):
+    """Links eines Artikel-Ausschnitts für eine andere Seite: #anker -> Artikel#anker, relative Adressen -> absolut."""
+    ordner = kapitel_ordner(art_path)
+    def ersetze(m):
+        u = m.group(1)
+        if u.startswith(("/", "http:", "https:", "mailto:")):
+            return m.group(0)
+        return f'href="/wissen/{art_path}{u}"' if u.startswith("#") else f'href="/wissen/{ordner}/{u}"'
+    return re.sub(r'href="([^"]*)"', ersetze, h)
+
+def blatt_eintraege(z):
+    """Formelblatt eines Artikels: Kästen mit Mathe und nummerierte Formeln; gibt es beides nicht, die unnummerierten
+    abgesetzten Formeln des Haupttexts."""
+    return (z or {}).get("blatt") or (z or {}).get("ku") or []
+
+def blatt_html(eintraege, art_path=None):
+    """Einträge als HTML, nach Abschnitten gruppiert. art_path: Seite außerhalb des Artikels (Links absolut)."""
+    teile, h_alt = [], None
+    basis = f"/wissen/{art_path}" if art_path else ""
+    for e in eintraege:
+        if e["h"] != h_alt:
+            if e["h"]:
+                teile.append(f'<div class="fb-h">{inline(_ohne_links(e["h"]))}</div>')
+            h_alt = e["h"]
+        ziel = f'{basis}#{e["id"]}'
+        if e["typ"] == "box":
+            inhalt = _links_absolut(e["html"], art_path) if art_path else e["html"]
+            teile.append(f'<div class="fb-e fb-k"><a class="fb-n" href="{ziel}">{e["titel"]}</a><div class="fb-i">{inhalt}</div></div>')
+        elif e["typ"] == "cmd":                            # Übersicht (Informatik): Eingabezeilen eines Konsolen-Blocks
+            teile.append(f'<div class="fb-e fb-cmd"><pre class="fb-code"><code>{html.escape(chr(10).join(e["zeilen"]), quote=False)}</code></pre>'
+                         f'<a class="fb-nr fb-ohne" href="{ziel}" title="{html.escape(T("fb_sprung"))}" '
+                         f'aria-label="{html.escape(T("fb_sprung"))}">&#8599;</a></div>')
+        else:
+            nr = " ".join(f"({n})" for n in e["nr"].split("|")) if e["nr"] else ""
+            teile.append(f'<div class="fb-e fb-gl"><div class="fb-f">{_formel_html(e["tex"])}</div>'
+                         f'<a class="fb-nr{"" if nr else " fb-ohne"}" href="{ziel}" title="{html.escape(T("fb_sprung"))}"'
+                         f' aria-label="{html.escape(T("fb_sprung") + (" " + nr if nr else ""))}">{html.escape(nr) or "&#8599;"}</a></div>')
+    return "".join(teile)
+
+def _block_html(md, praefix):
+    """Geschriebene Kurzfassung/Formelsammlung setzen: eigene Abbildungsnummern, ids mit Präfix (keine Dopplung mit dem
+    Artikel), ohne Ankerlinks an den Überschriften."""
+    alt = ABB_N[0]
+    ABB_N[0] = 0
+    try:
+        h = md_to_html(md)[0]
+    finally:
+        ABB_N[0] = alt
+    h = re.sub(r'<a class="h-anker"[^>]*>#</a>', "", h)
+    return re.sub(r'\sid="([^"]*)"', lambda m: f' id="{praefix}{m.group(1)}"', h)
+
+def dl_knopf():
+    """Download-Knopf des Formelblatts: ohne Skript verborgen; Dateien entstehen erst beim Klick im Browser."""
+    return (f'<div class="fb-dl" role="group" aria-label="{html.escape(T("dl"))}" hidden><span class="fb-dl-t">{T("dl")}:</span>'
+            + "".join(f'<button type="button" class="fb-dl-b" data-format="{f}">{f.upper()}</button>' for f in FB_DL)
+            + '<span class="fb-dl-s" aria-live="polite"></span></div>')
+
+def formelblatt_html(art, z, block_html=""):
+    """Ansicht „Formeln“ (W4a): Formelblatt des Artikels, ohne Skript verborgen. Mit geschriebener Formelsammlung
+    (::::formelsammlung) steht diese da, sonst die Einträge des Sammlers; ohne Formeln ein Hinweis mit dem Wechsel zu
+    „Kurz“. Die Formeln setzt KaTeX erst beim ersten Öffnen (Klasse fb-spaeter)."""
+    eintraege = blatt_eintraege(z)
+    mp, ref = modul_pfad(art["path"]), ist_ref(art)       # ref: Informatik-Reihe, „Übersicht“ statt „Formeln“
+    kopf_rechts = f'<a class="fb-modul" href="/wissen/{mp}/{blatt_datei(mp)}#{_art_anker(art)}">{TR("fb_modul", ref)}</a>'
+    unter = " · ".join(klartext(x) for x in (art["crumbs"][-2][0].split(" – ")[0] if len(art["crumbs"]) > 1 else "",
+                                             art["crumbs"][-1][0] if art["crumbs"] else "") if x)
+    if block_html or eintraege:
+        inhalt = (f'<div class="fb-inhalt" data-titel="{html.escape(TR("ans_formeln", ref) + ": " + klartext(art["title"]))}" '
+                  f'data-unter="{html.escape(unter)}" data-datei="{"uebersicht" if ref else "formeln"}-{art["path"].rsplit("/", 1)[-1][:-5]}">'
+                  + (f'<div class="fb-block">{block_html}</div>' if block_html else blatt_html(eintraege)) + "</div>")
+        werkzeug = dl_knopf() + kopf_rechts
+    else:
+        inhalt = (f'<p class="fb-leer">{TR("fb_leer", ref)} <button type="button" class="fb-zu-kurz" data-ansicht-setzen="kurz">'
+                  f'{T("fb_zu_kurz")}</button></p>')
+        werkzeug = kopf_rechts
+    return (f'<section class="fb-blatt fb-spaeter" id="formelblatt" aria-labelledby="fb-titel"><div class="fb-kopf">'
+            f'<h2 id="fb-titel">{TR("ans_formeln", ref)}</h2><div class="fb-werkzeug">{werkzeug}</div></div>'
+            + inhalt + '<div class="fb-ende"></div></section>')
+
 
 def render_article(art, tree, prev_a, next_a):
     ABB_N[0] = 0                                       # Abbildungen je Artikel ab 1 nummerieren
-    zf_start()                                         # Sammler der Zusammenfassung: nur für den Artikel selbst
+    zf_start(ist_ref(art))                             # Sammler der Zusammenfassung: nur für den Artikel selbst
     body_html, toc = md_to_html(art["body"])
     zdaten = dict(ZF)
     ZF["an"] = False
@@ -1452,19 +1836,31 @@ def render_article(art, tree, prev_a, next_a):
     body_html = _vorschau_markieren(body_html)         # Links auf Artikel: Link-Vorschau (data-vs)
     _TOC[art["body"]] = toc
     quiz_html = ""                                     # Quiz ganz unten, unter den Nachbar-Spalten (User 2026-10-21)
-    qa = body_html.find('<aside class="callout cx-quiz">')
-    if qa >= 0:
+    mq = re.search(r'<aside class="(?:k[zw] )?callout cx-quiz">', body_html)
+    if mq:
+        qa = mq.start()
         qe = body_html.index("</aside>", qa) + len("</aside>")
         quiz_html, body_html = body_html[qa:qe], body_html[:qa] + body_html[qe:]
-    n_abb, n_aufg = body_html.count('<figure class="abb"'), body_html.count('<div class="aufg">')
+    n_abb = len(re.findall(r'<figure class="(?:k[zw] )?abb"', body_html))
+    n_aufg = len(re.findall(r'<div class="(?:k[zw] )?aufg">', body_html))
     if not any(lvl == 2 for _, _, lvl in toc):         # ohne ##-Abschnitte (kurz oder nur ###): eine einzige Karte
         body_html = f'<section class="sect">{body_html}</section>'
+    body_html = f'<div class="art-body">{body_html}</div>'   # Ansicht „Kurz“ filtert darin (W4a)
     # am Artikelende, vor den Nachbar-Artikeln (User 11.11.2026); nicht in „Das Wichtigste (bis hier)“: Der Artikel ist
     # mit seinem Kasten :::kern schon die Zusammenfassung des Kapitels
     lk = art["path"].rsplit("/", 1)[0]                 # Kapitelordner; die Lernkarten des Moduls liegen eine Ebene höher
-    fuss = (f'<p class="zf-fuss"><a href="/wissen/{modul_pfad(art["path"])}/lernkarten.html#k-{lk.rsplit("/", 1)[-1]}">'
-            f'{T("lk_zum_kapitel")}</a></p>')
+    mp = modul_pfad(art["path"])
+    kap_links = (f'<a href="/wissen/{mp}/lernkarten.html#k-{lk.rsplit("/", 1)[-1]}">{T("lk_zum_kapitel")}</a>'
+                 f'<span aria-hidden="true"> · </span><a href="{spickzettel_url(art)}">{T("sz_kurz")}</a>')
+    fuss = f'<p class="zf-fuss">{kap_links}</p>'
     zf_html = "" if re.search(r"(?m)^:::kern\b", art["body"]) else zusammenfassung_html(zdaten, fuss)
+    if not zf_html:                                    # ohne Zusammenfassung: die Kapitel-Links trotzdem am Artikelende
+        zf_html = f'<p class="zf-fuss art-ende">{kap_links}</p>'
+    # Ansichten (W4a): geschriebene Kurzfassung (sonst filtert „Kurz“ den Artikel) und Formelblatt
+    bloecke = art.get("bloecke") or {}
+    kurz_html = (f'<div class="ans-kurz" id="kurzfassung">{_block_html(bloecke["kurzfassung"], "kzf-")}</div>'
+                 if bloecke.get("kurzfassung") else "")
+    blatt = formelblatt_html(art, zdaten, _block_html(bloecke["formelsammlung"], "fsb-") if bloecke.get("formelsammlung") else "")
     pill = (f'<span class="apill apill-mensch">{T("hand_pill")}</span>' if art["autor"] == "mensch"
             else f'<span class="apill">{T("ki_pill")}</span>')
     # Brotkrumen; am Handy nur die letzten zwei Glieder, der Modulname kurz („ET3“ statt „ET3 – Grundgebiete …“)
@@ -1483,14 +1879,16 @@ def render_article(art, tree, prev_a, next_a):
         zahlen.append(T("abb_1") if n_abb == 1 else T("abb_n").format(n=n_abb))
     if n_aufg:
         zahlen.append(T("aufg_1") if n_aufg == 1 else T("aufg_n").format(n=n_aufg))
-    meta = ('<div class="art-meta"><span class="am-zahlen">' + "".join(f"<span>{html.escape(z)}</span>" for z in zahlen) + "</span>"
-            + (f'<a class="am-zf" href="#zusammenfassung">{T("zf_sprung")}</a>' if zf_html else "")
+    meta = ('<div class="art-meta"><span class="am-zahlen">'
+            + "".join(("<span class=\"am-zeit\">" if k == 0 else "<span>") + f"{html.escape(z)}</span>" for k, z in enumerate(zahlen))
+            + "</span>"
+            + (f'<a class="am-zf" href="#zusammenfassung">{T("zf_sprung")}</a>' if 'id="zusammenfassung"' in zf_html else "")
             + pill + lang_switch(art, "art") + "</div>")
     toc_html = ""
     arttoc = ""
     if toc:
         eintraege = "".join(f'<li><a href="#{hid}">{inline(_ohne_links(txt))}</a></li>' for hid, txt, _ in toc)
-        if zf_html:
+        if 'id="zusammenfassung"' in zf_html:
             eintraege += f'<li class="toc-zf"><a href="#zusammenfassung">{T("zf")}</a></li>'
         toc_html = f'<aside class="toc"><div class="toc-h">{T("auf_seite")}</div><ul>{eintraege}</ul></aside>'
         arttoc = f'<nav class="arttoc" aria-label="{T("im_artikel")}"><div class="arttoc-h">{T("im_artikel")}</div><ul>{eintraege}</ul></nav>'
@@ -1520,9 +1918,10 @@ def render_article(art, tree, prev_a, next_a):
     else:
         nav += '<div class="nb empty"></div>'
     nav += "</div>"
-    main = (f'<main class="article" id="inhalt" tabindex="-1"><article>{crumb}<h1>{html.escape(art["title"])}</h1>'
-            + meta + switch + arttoc
-            + body_html + zf_html + verwendet_html(art) + nav + quiz_html + legal_footer() + "</article>" + toc_html + "</main>")
+    hat = (" hat-kurz" if kurz_html else "") + (" hat-formeln" if bloecke.get("formelsammlung") else "") + (" ref" if ist_ref(art) else "")
+    main = (f'<main class="article" id="inhalt" tabindex="-1"><article class="art{hat}">{crumb}<h1>{html.escape(art["title"])}</h1>'
+            + meta + switch + arttoc + kurz_html
+            + body_html + blatt + zf_html + verwendet_html(art) + nav + quiz_html + legal_footer() + "</article>" + toc_html + "</main>")
     nav_path = tree_art(art)["path"]
     body = (topbar(panels=True, prev_a=prev_a, next_a=next_a, art=art)
             + '<div class="layout">'
@@ -1631,7 +2030,8 @@ def _modul_von(nd):
 def lernen_links(mp, cls):
     """Leise Zeile „Begriffe · Lernkarten“ unter einem Modul (Seitenleiste, Übersicht)."""
     return (f'<div class="{cls}"><a href="/wissen/{mp}/begriffe.html">{T("begriffe")}</a><span aria-hidden="true"> · </span>'
-            f'<a href="/wissen/{mp}/lernkarten.html">{T("lernkarten")}</a></div>')
+            f'<a href="/wissen/{mp}/lernkarten.html">{T("lernkarten")}</a><span aria-hidden="true"> · </span>'
+            f'<a href="/wissen/{mp}/{blatt_datei(mp)}">{TR("fb_titel", mp in MODUL_REF) if mp in MODUL_REF else T("ans_formeln")}</a></div>')
 
 def _vorschau_markieren(h):
     """Links auf Artikel bekommen data-vs: wissen.js zeigt dann beim Überfahren, beim Tastaturfokus oder langem Tippen ein
@@ -1711,8 +2111,9 @@ def _modul_kopf(arts, wort, datei, lang):
             + f'<div class="art-meta lern-meta">{voll}{lang_switch(pseudo, "art")}</div>')
     return kopf, pseudo, name
 
-def _modul_seite(tree, titel, desc, kopf, inhalt, pseudo, mp, depth_datei):
-    main = (f'<main class="article lern-seite" id="inhalt" tabindex="-1"><article>{kopf}{inhalt}{legal_footer()}</article></main>')
+def _modul_seite(tree, titel, desc, kopf, inhalt, pseudo, mp, depth_datei, cls=""):
+    main = (f'<main class="article lern-seite{" " + cls if cls else ""}" id="inhalt" tabindex="-1"><article>{kopf}{inhalt}'
+            f'{legal_footer()}</article></main>')
     body = topbar(art=pseudo) + '<div class="layout">' + sidebar_html(tree, None) + main + "</div>"
     return page_shell(titel, desc, body, depth_datei, pseudo["ziele"])
 
@@ -1909,6 +2310,92 @@ def lernkarten_html(tree, mp, arts, karten, lang):
     titel = f'{T("lernkarten")}: {name}'
     return _modul_seite(tree, titel, f'{T("lernkarten")} – {name}.', kopf, inhalt, pseudo, mp, 2 + mp.count("/"))
 
+def _kapitel_folge(arts):
+    """[(Kapitelordner, Name, Nummer, [Artikel])] eines Moduls in Lesefolge."""
+    kap = []
+    for a in arts:
+        k = kapitel_ordner(a["path"])
+        if not kap or kap[-1][0] != k:
+            kap.append((k, a["crumbs"][-1][0], KAPITEL_NR.get(k, len(kap) + 1), []))
+        kap[-1][3].append(a)
+    return kap
+
+def _kapitel_leiste(kapitel):
+    """Kapitel der Modulseiten (Formelsammlung, Kapitel auf einer Seite): ohne Skript Sprunglinks; mit Skript dazu eine
+    Auswahl (?kapitel=N: nur dieses Kapitel zeigen und drucken) und „Drucken“."""
+    links = "".join(f'<li><a href="#k-{k.rsplit("/", 1)[-1]}">{html.escape(name)}</a></li>' for k, name, _, _ in kapitel)
+    optionen = "".join(f'<option value="{n}">{html.escape(name)}</option>' for _, name, n, _ in kapitel)
+    return (f'<nav class="kap-nav" aria-label="{html.escape(T("kap_wahl"))}"><ol>{links}</ol></nav>'
+            f'<div class="kap-leiste" hidden><label class="kap-wahl"><span>{T("kap_wahl")}</span> <select class="kap-sel">'
+            f'<option value="">{T("kap_alle")}</option>{optionen}</select></label>'
+            f'<button type="button" class="kap-druck">{T("drucken")}</button></div>')
+
+def _modul_kurzname(arts):
+    return arts[0]["crumbs"][:-1][-1][0].split(" – ")[0]
+
+def formeln_html(tree, mp, arts, lang):
+    """Formelsammlung eines Moduls (W4a): je Kapitel und Artikel die Einträge des Formelblatts (Kästen mit Mathe, nummerierte
+    Formeln mit Abschnitt); jeder Eintrag verlinkt seine Stelle. Druckbar (A4, ohne Leisten), Download wie am Artikel."""
+    ref = mp in MODUL_REF                              # Informatik-Reihe: „Befehlsübersicht“ (uebersicht.html)
+    wort = "fb_titel_ref" if ref else "fb_titel"
+    kopf, pseudo, name = _modul_kopf(arts, wort, blatt_datei(mp), lang)
+    kapitel, teile, n = _kapitel_folge(arts), [], 0
+    for k, kname, nr, ks in kapitel:
+        abschnitte = []
+        for a in ks:
+            e = blatt_eintraege(SAMMEL.get(a["path"]))
+            if not e:
+                continue
+            n += len(e)
+            abschnitte.append(f'<section class="fs-art" id="{_art_anker(a)}"><h3><a href="/wissen/{a["path"]}">'
+                              f'{html.escape(a["title"])}</a></h3>{blatt_html(e, a["path"])}</section>')
+        if abschnitte:
+            teile.append(f'<section class="fs-kap" id="k-{k.rsplit("/", 1)[-1]}" data-k="{nr}"><h2>{html.escape(kname)}</h2>'
+                         + "".join(abschnitte) + "</section>")
+    kurz = _modul_kurzname(arts)
+    if teile:
+        inhalt = (f'<p class="lede lern-lede">{TR("fb_lede", ref)}</p>'
+                  f'<p class="lern-nav"><a href="/wissen/{mp}/spickzettel.html">{T("sz_kurz")}</a>'
+                  f'<span aria-hidden="true"> · </span><a href="/wissen/{mp}/begriffe.html">{T("begriffe")}</a></p>'
+                  + _kapitel_leiste([x for x in kapitel if any(blatt_eintraege(SAMMEL.get(a["path"])) for a in x[3])])
+                  + f'<div class="fb-werkzeug fs-werkzeug">{dl_knopf()}</div>'
+                  f'<div class="fb-inhalt fs-inhalt" data-titel="{html.escape(T(wort) + ": " + klartext(name))}" '
+                  f'data-datei="{"befehlsuebersicht" if ref else "formelsammlung"}-{slugify(kurz)}">' + "".join(teile) + "</div>")
+    else:
+        inhalt = f'<p class="lede lern-lede">{TR("fb_keine", ref)}</p>'
+    titel = f'{T(wort)}: {name}'
+    return _modul_seite(tree, titel, f'{T(wort)} – {name}.', kopf, inhalt, pseudo, mp, 2 + mp.count("/"), "fs-seite")
+
+def spickzettel_html(tree, mp, arts, lang):
+    """„Kapitel auf einer Seite“ (W4a): die Zusammenfassungen (Begriffe, Formeln, Zusammenhänge) aller Artikel, Kapitel für
+    Kapitel; ?kapitel=N zeigt und druckt nur Kapitel N. Artikel „Das Wichtigste“ (Kasten :::kern) haben keine eigene
+    Zusammenfassung, sie stehen als Link im Kapitelkopf."""
+    kopf, pseudo, name = _modul_kopf(arts, "sz_titel", "spickzettel.html", lang)
+    kapitel, teile = _kapitel_folge(arts), []
+    for k, kname, nr, ks in kapitel:
+        abschnitte, kern = [], []
+        for a in ks:
+            if re.search(r"(?m)^:::kern\b", a["body"]):
+                kern.append(f'<a href="/wissen/{a["path"]}">{html.escape(a["title"])}</a>')
+                continue
+            zf = zusammenfassung_html(SAMMEL.get(a["path"]) or {"fb": [], "fm": [], "kg": []}, art_path=a["path"])
+            if zf:
+                abschnitte.append(f'<section class="sz-art"><h3><a href="/wissen/{a["path"]}">{html.escape(a["title"])}</a></h3>'
+                                  f'{_links_absolut(zf, a["path"])}</section>')
+        if abschnitte:
+            teile.append(f'<section class="sz-kap" id="k-{k.rsplit("/", 1)[-1]}" data-k="{nr}"><h2>{html.escape(kname)}</h2>'
+                         + (f'<p class="sz-kern">{" · ".join(kern)}</p>' if kern else "") + "".join(abschnitte) + "</section>")
+    if teile:
+        inhalt = (f'<p class="lede lern-lede">{T("sz_lede")}</p>'
+                  f'<p class="lern-nav"><a href="/wissen/{mp}/{blatt_datei(mp)}">{TR("fb_titel", mp in MODUL_REF)}</a>'
+                  f'<span aria-hidden="true"> · </span><a href="/wissen/{mp}/lernkarten.html">{T("lernkarten")}</a></p>'
+                  + _kapitel_leiste([x for x in kapitel if f'data-k="{x[2]}"' in "".join(teile)])
+                  + '<div class="sz-inhalt">' + "".join(teile) + "</div>")
+    else:
+        inhalt = f'<p class="lede lern-lede">{T("sz_keine")}</p>'
+    titel = f'{T("sz_titel")}: {name}'
+    return _modul_seite(tree, titel, f'{T("sz_titel")} – {name}.', kopf, inhalt, pseudo, mp, 2 + mp.count("/"), "sz-seite")
+
 def vorschau_daten(arts, lang):
     """Inhalt der vorschau.json eines Moduls: {Artikeladresse: [Titel, „Modul · Kapitel“, „Worum es geht“ (gekürzt)]}."""
     d = {}
@@ -1937,6 +2424,8 @@ def lernen_seiten(lang, tree, flat, weitere):
         schreibe(ordner / "begriffe.html", begriffe_html(tree, mp, arts, begriffe, lang))
         karten, stat = modul_karten(mp, arts, begriffe, lang)
         schreibe(ordner / "lernkarten.html", lernkarten_html(tree, mp, arts, karten, lang))
+        schreibe(ordner / blatt_datei(mp), formeln_html(tree, mp, arts, lang))           # W4a: Formelsammlung/Befehlsübersicht
+        schreibe(ordner / "spickzettel.html", spickzettel_html(tree, mp, arts, lang))    # W4a: Kapitel auf einer Seite
         (ordner / "vorschau.json").write_text(json.dumps(vorschau_daten(alle[mp], lang), ensure_ascii=False, separators=(",", ":")),
                                              encoding="utf-8")
         KARTEN_STAT[lang][mp] = stat
@@ -1959,9 +2448,13 @@ def _kapitel_html(nd):
     """Kapitel in einer Modulkarte: zugeklappt, mit Zahl der Artikel und Lesezeit; darin die Themen (und Unterkapitel)."""
     arts = flatten([nd])
     zahl = f'{anzahl(len(arts), "n_artikel")} · {T("lesezeit").format(n=sum(_minuten(a) for a in arts))}'
+    seite = ""                                         # W4a: „Kapitel auf einer Seite“ (Spickzettel des Kapitels)
+    if nd["articles"]:
+        a0 = nd["articles"][0]
+        seite = f'<p class="kap-seite"><a href="{spickzettel_url(a0).split("#")[0]}">{T("sz_kurz")}</a></p>'
     return (f'<details class="mk-kap"><summary><span class="kap-name">{html.escape(nd["name"])}</span>'
             f'<span class="kap-zahl">{html.escape(zahl)}</span></summary>{_hinweis(nd)}'
-            + (_themen_karte(nd["articles"]) if nd["articles"] else "")
+            + (_themen_karte(nd["articles"]) if nd["articles"] else "") + seite
             + "".join(_kapitel_html(c) for c in nd["children"]) + "</details>")
 
 def _modul_karte(nd, mp):
@@ -2054,6 +2547,13 @@ def build_lang(lang, tree):
     RUECK.clear()
     RUECK.update(rueckverweise(tree))
     flat = flatten(tree)
+    zaehler = {}                                       # Kapitelnummer im Modul (?kapitel=N der Modulseiten), in Lesefolge
+    for art in flat:
+        kap = kapitel_ordner(art["path"])
+        if kap not in KAPITEL_NR:
+            mp = modul_pfad(art["path"])
+            zaehler[mp] = zaehler.get(mp, 0) + 1
+            KAPITEL_NR[kap] = zaehler[mp]
     for idx, art in enumerate(flat):
         prev_a = flat[idx - 1] if idx > 0 else None
         nxt = flat[idx + 1] if idx + 1 < len(flat) else None
@@ -2080,6 +2580,8 @@ def build_lang(lang, tree):
         mp = _modul_von(nd)
         if mp:
             d["mp"] = mp                               # Modul: Adresse für „Begriffe · Lernkarten“
+            if mp in MODUL_REF:
+                d["ref"] = 1                           # W4a: Befehlsübersicht (uebersicht.html) statt Formeln
         d["articles"] = []
         for a in nd["articles"]:
             e = {"title": a["title"], "path": a["path"]}
@@ -2182,6 +2684,8 @@ def main():
                     VORSCHAU.add(x["path"])            # Ziele der Link-Vorschau (alle Fassungen, alle Sprachen)
             p = a["path"] if lang == "de" else a["path"].split("/", 1)[1]
             MODUL_SPRACHEN.setdefault(modul_pfad(p), set()).add(lang)
+            if ist_ref(a):
+                MODUL_REF.add(modul_pfad(a["path"]))     # W4a: Modul mit „Übersicht“ (Adresse dieser Sprache)
     counts = {lang: build_lang(lang, tree) for lang, tree in TREES.items()}
     alt = alte_seiten_entfernen()
     for p in sorted((OUT / "data" / "suche").rglob("*.json")):   # Suchteile alter Module oder Sprachen
@@ -2193,6 +2697,7 @@ def main():
     (OUT / "assets" / "wissen.js").write_text(
         WISSEN_JS.replace("/*UI_LERNEN*/{}", json.dumps(ui_js, ensure_ascii=False, separators=(",", ":"))), encoding="utf-8")
     (OUT / "assets" / "suche.js").write_text(SUCHE_JS, encoding="utf-8")
+    (OUT / "assets" / "formel-export.js").write_text(FORMEL_EXPORT_JS, encoding="utf-8")   # W4a: lädt erst beim Klick
     n_start = startseiten_schreiben()
     print(f"  Startseiten: {n_start} Übersetzungen von web/index.html")
     day = write_version()
@@ -2586,16 +3091,21 @@ kbd{font-family:var(--fmono);font-size:.82em;background:var(--soft);border:1px s
 .topbar .iconBtn:hover{border-color:var(--bar-hl);}
 .topbar .panelBtn:hover{background:color-mix(in srgb,var(--bar-hl) 18%,var(--bar-soft));}   /* Hover nur über den Hintergrund: der Rand zeigt den Zustand */
 .topbar .panelBtn.is-open{color:var(--bar-hl);border-color:var(--bar-hl);}   /* Panel offen = orange, zu = Grundfarbe */
-.topbar .navBtn{color:var(--bar-hl);border-color:var(--bar-hl);}             /* Pfeile zum vorherigen/nächsten Artikel */
-.topbar .navBtn:hover{text-decoration:none;background:color-mix(in srgb,var(--bar-hl) 18%,var(--bar-soft));}
-.topbar .navBtn.disabled{color:var(--bar-ink);border-color:var(--bar-rand);opacity:.45;cursor:default;pointer-events:none;}   /* erster/letzter Artikel: grau, ohne Funktion */
-.topbar .panelCenter{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;align-items:center;gap:8px;}  /* Einklapp-Buttons mittig in der Leiste */
-/* Titel des vorherigen/nächsten Artikels neben den Pfeilen; beide Seiten gleich breit, damit die Knöpfe mittig bleiben */
-.topbar .navTitel{width:min(280px,calc(50vw - 350px));overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font-size:13.5px;font-weight:500;
-  color:#ffffff;height:36px;line-height:36px;}   /* weiß; Zeilenhöhe = Höhe der Pfeil-Kreise -> Text genau auf deren Mitte */
-.topbar .navTitel.vor{text-align:right;} .topbar .navTitel.nach{text-align:left;}
-.topbar a.navTitel:hover{color:var(--bar-hl);text-decoration:none;}
-@media(max-width:1000px){ .topbar .navTitel{display:none;} }
+.topbar .panelCenter{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;align-items:center;gap:8px;}  /* Einklapp-Knopf und Ansicht mittig in der Leiste */
+/* Ansicht Ausführlich | Kurz | Formeln (W4a, an der Stelle der früheren Pfeile): breit Segmentschalter, schmal Auswahl */
+.topbar .ansicht{display:inline-flex;align-items:stretch;height:36px;padding:2px;border:1px solid var(--bar-rand);border-radius:999px;background:var(--bar-soft);}
+.topbar .ans-b{border:0;background:transparent;color:var(--bar-ink);font:inherit;font-size:13.5px;font-weight:600;padding:0 13px;border-radius:999px;cursor:pointer;white-space:nowrap;}
+.topbar .ans-b:hover{color:var(--bar-hl);}
+.topbar .ans-b[aria-pressed="true"]{background:var(--bar-hl);color:#14301f;}
+.topbar .ans-b:focus-visible,.topbar .ans-sel:focus-visible{outline:2px solid var(--bar-hl);outline-offset:2px;}
+.topbar .ans-sel{height:36px;max-width:118px;padding:0 26px 0 12px;border:1px solid var(--bar-hl);border-radius:999px;background-color:var(--bar-soft);color:var(--bar-ink);
+  font:inherit;font-size:13.5px;font-weight:600;cursor:pointer;appearance:none;-webkit-appearance:none;text-overflow:ellipsis;
+  background-image:linear-gradient(45deg,transparent 50%,var(--bar-hl) 50%),linear-gradient(135deg,var(--bar-hl) 50%,transparent 50%);
+  background-position:calc(100% - 15px) 52%,calc(100% - 10px) 52%;background-size:5px 5px,5px 5px;background-repeat:no-repeat;}
+.topbar .ans-sel option{color:#16191a;background:#fff;}
+.topbar .ansicht[hidden],.topbar .ans-sel[hidden]{display:none!important;}
+@media(min-width:821px){ .topbar .ans-sel{display:none!important;} }
+@media(max-width:820px){ .topbar .ansicht{display:none!important;} }
 .apill{display:inline-block;margin-left:6px;padding:0 8px;border:1px solid var(--border);border-radius:999px;font-size:11.5px;font-weight:600;color:var(--muted);line-height:1.6;}
 .apill-mensch{color:var(--accent3);border-color:var(--accent3);}
 /* Fokusmodus: Themenbaum (links) bzw. Gliederung (rechts) einklappen; Mittelbereich bleibt gleich breit (zentriert) */
@@ -2981,6 +3491,7 @@ main.article:focus{outline:none;}
 .art-meta .am-zahlen{display:inline-flex;flex-wrap:wrap;align-items:baseline;}
 .art-meta .am-zahlen>span+span::before{content:"·";margin:0 .5em;}
 .art-meta .am-zf{color:var(--accent);font-weight:600;}
+.art-meta .am-lf{color:var(--accent);}
 .art-meta .apill{margin-left:0;}
 .art-meta .langs-art{margin:0 0 0 auto;}
 /* Zusammenfassung am Artikelende: Begriffe, Formeln, Zusammenhänge; jeder Punkt springt an seine Stelle */
@@ -3280,6 +3791,101 @@ details.mk-kap details.mk-kap{margin-left:1em;}
   .mk-inhalt{padding:2px 12px 6px;}
 }
 @media print{ .idx-suche,.mk-lf{display:none!important;} }
+/* ---------- Ansichten (W4a, 11.11.2026): Ausführlich | Kurz | Formeln auf derselben Seite, Formelsammlung und
+   „Kapitel auf einer Seite“ je Modul. <html data-ansicht> setzt der Kopf der Seite (Adresse ?ansicht=, sonst gemerkte Wahl);
+   ohne Skript gilt „Ausführlich“. Kurz: Blöcke mit Klasse kw fallen weg, rohe Listen ohne bleibenden Inhalt ebenso. ---------- */
+@media(max-width:400px){
+  .topbar .ans-sel{height:32px;max-width:104px;padding:0 21px 0 9px;font-size:13px;background-position:calc(100% - 12px) 52%,calc(100% - 7px) 52%;}
+}
+@media(max-width:330px){ .topbar .ans-sel{max-width:92px;font-size:12.5px;} }
+.ans-kurz,.fb-blatt{display:none;}
+:root[data-ansicht="kurz"] .art .kw,
+:root[data-ansicht="kurz"] .art-body :is(ol,ul,li):not(.kz *):not(:has(.kz)),
+:root[data-ansicht="kurz"] .art-body .sect:not(:has(.kz,h2,h3)),
+:root[data-ansicht="kurz"] .art-body hr{display:none!important;}
+:root[data-ansicht="kurz"] .art-body .sect>h3:first-child{margin-top:.7em;}
+:root[data-ansicht="kurz"] .art.hat-kurz .art-body{display:none!important;}
+:root[data-ansicht="kurz"] .art.hat-kurz .ans-kurz{display:block;}
+:root[data-ansicht="formeln"] .art :is(.art-body,.ans-kurz,.arttoc,.zf,.zf-fuss,.verwendet,.cx-quiz,.am-zf),
+:root[data-ansicht="formeln"] .article .toc{display:none!important;}
+:root[data-ansicht="formeln"] .art .fb-blatt{display:block;}
+.art.ansicht-anker .art-body{scroll-margin-top:72px;}
+/* Formelblatt am Artikel und Formelsammlung des Moduls: Name bzw. Abschnitt, darunter die Formel; jeder Eintrag springt an
+   seine Stelle im Artikel (ausführliche Ansicht) */
+.fb-blatt{margin:0 0 1.6em;padding:6px 22px 16px;border:1px solid var(--border);border-radius:16px;background:var(--panel);}
+:root[data-theme="dark"] .fb-blatt{border-color:var(--rahmen);}
+.fb-kopf{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 14px;margin:.5em 0 .6em;}
+.article .fb-kopf h2{margin:0;font-size:22px;color:var(--accent2);}
+.fb-werkzeug{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;font-size:14px;}
+.fb-modul{font-weight:600;}
+.fb-dl{display:inline-flex;flex-wrap:wrap;align-items:center;gap:4px;}
+.fb-dl[hidden]{display:none;}
+.fb-dl-t{color:var(--muted);margin-right:2px;}
+.fb-dl-b{font:inherit;font-size:12.5px;font-weight:700;letter-spacing:.03em;padding:3px 9px;border:1px solid var(--border);border-radius:999px;
+  background:var(--soft);color:var(--accent);cursor:pointer;}
+.fb-dl-b:hover,.fb-dl-b:focus-visible{border-color:var(--accent);}
+.fb-dl-b[aria-busy="true"]{opacity:.55;cursor:progress;}
+:root[data-theme="dark"] .fb-dl-b{border-color:var(--rahmen);}
+.fb-dl-s{font-size:13px;color:var(--muted);}
+.fb-dl-s.fehler{color:var(--accent3);}
+.fb-h{margin:1.1em 0 .3em;font-size:12.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--accent3);}
+.fb-e{margin:.35em 0;padding:8px 0 8px;border-top:1px solid var(--border);}
+:root[data-theme="dark"] .fb-e{border-top-color:var(--rahmen);}
+.fb-h+.fb-e,.fb-inhalt>.fb-e:first-child{border-top:0;}
+.fb-n{display:inline-block;font-weight:700;color:var(--accent2);}
+.fb-i>p:first-child{margin-top:.25em;} .fb-i>:last-child{margin-bottom:.1em;}
+.fb-i .anker{display:none;}
+.fb-gl{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:10px;}
+.fb-f{min-width:0;} .fb-f .katex-display{margin:.3em 0;}
+.fb-nr{font-size:14px;color:var(--muted);white-space:nowrap;}
+.fb-nr:hover{color:var(--accent);}
+.fb-leer{color:var(--muted);}
+.fb-cmd{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:start;gap:10px;}   /* Übersicht: Befehle eines Blocks */
+.fb-code{margin:.15em 0;padding:7px 12px;background:var(--soft);border:1px solid var(--border);border-radius:8px;font-family:var(--fmono);
+  font-size:14px;line-height:1.55;white-space:pre-wrap;overflow-wrap:anywhere;}
+:root[data-theme="dark"] .fb-code{border-color:var(--rahmen);}
+.fb-cmd .fb-nr{padding-top:6px;}
+.fb-zu-kurz{font:inherit;font-weight:600;color:var(--accent);background:none;border:0;padding:0;cursor:pointer;text-decoration:underline;}
+.fb-block>.sect{border:0;padding:0;box-shadow:none;}
+.ans-kurz{margin:0 0 18px;}
+/* Modulseiten: Kapitelwahl, Formelsammlung, Kapitel auf einer Seite */
+.kap-nav[hidden]{display:none;}
+.kap-nav ol{margin:.2em 0 1.2em;padding:0;list-style:none;columns:2 260px;column-gap:28px;}
+.article .kap-nav li{margin:0 0 4px;font-size:15px;line-height:1.45;break-inside:avoid;}
+.kap-leiste{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin:0 0 1.2em;}
+.kap-leiste[hidden]{display:none;}
+.kap-wahl{display:inline-flex;align-items:center;gap:8px;font-size:14.5px;color:var(--muted);}
+.kap-sel{font:inherit;font-size:15px;max-width:min(78vw,460px);padding:6px 10px;border:1px solid var(--border);border-radius:10px;background:var(--panel);color:var(--ink);}
+.kap-druck{font:inherit;font-size:14.5px;font-weight:600;padding:6px 14px;border:1px solid var(--accent);border-radius:999px;background:var(--panel);color:var(--accent);cursor:pointer;}
+.kap-druck:hover{background:var(--soft);}
+:root[data-theme="dark"] :is(.kap-sel,.kap-druck){border-color:var(--rahmen);}
+.fs-werkzeug{margin:0 0 1em;}
+.fs-kap,.sz-kap{margin:0 0 1.8em;scroll-margin-top:70px;}
+.article .fs-kap>h2,.article .sz-kap>h2{margin:1.2em 0 .4em;padding-bottom:4px;border-bottom:2px solid var(--accent);font-size:22px;}
+.fs-art,.sz-art{margin:.6em 0 1.2em;padding:4px 18px 10px;border:1px solid var(--border);border-radius:12px;background:var(--panel);scroll-margin-top:70px;}
+:root[data-theme="dark"] :is(.fs-art,.sz-art){border-color:var(--rahmen);}
+.article .fs-art>h3,.article .sz-art>h3{margin:.6em 0 .2em;font-size:17px;}
+.sz-art .zf-g{margin:.5em 0 .4em;}
+.sz-kern{font-size:14.5px;color:var(--muted);}
+[data-kapitel-filter] :is(.fs-kap,.sz-kap):not(.kap-an){display:none;}
+.kap-seite{margin:0 0 10px 1.15em;font-size:14px;}
+.zf-fuss.art-ende{margin:2em 0 1em;}
+@media(max-width:620px){                                     /* Handy: ohne Karte, wie die Abschnitte */
+  .fb-blatt,:root[data-theme="dark"] .fb-blatt{border:0;padding:0;background:transparent;}
+  .fs-art,.sz-art{padding:2px 12px 8px;}
+  .fb-gl{gap:6px;}
+}
+@page{size:A4;margin:14mm 13mm;}
+@media print{
+  .fb-dl,.fb-modul,.fb-zu-kurz,.kap-nav,.kap-leiste,.fs-werkzeug,.lern-nav,.kap-seite{display:none!important;}
+  .fb-blatt{border:0;padding:0;margin:0;}
+  .fb-e,.sz-art .zf-l li,.sz-art .zf-gh{break-inside:avoid;}
+  .fs-art>h3,.sz-art>h3,.fs-kap>h2,.sz-kap>h2,.zf-gh,.fb-h,.fb-n{break-after:avoid;}
+  .fs-art,.sz-art{border:0;border-top:1px solid #cfd4d1;border-radius:0;padding:4px 0 6px;margin:.4em 0 .6em;}
+  main:not([data-kapitel-filter]) :is(.fs-kap+.fs-kap,.sz-kap+.sz-kap){break-before:page;}
+  .sz-seite .zf-g{margin:.3em 0;} .sz-seite .zf-l li{margin:.1em 0;font-size:11.5pt;}
+  .fb-nr{color:#454b48;}
+}
 """
 
 WISSEN_JS = r"""
@@ -3288,7 +3894,7 @@ var NICHTS={de:"Nichts gefunden für „{q}\".",en:"Nothing found for „{q}\"."
 // Suche: Teilwort-/Infix-Treffer, umlaut-/ß-tolerant, gerankt + hervorgehoben. Der Kern steht in suche.js (W3a, gemeinsam
 // mit der Startseite) und wird erst beim ersten Öffnen geladen; er holt zuerst nur Titel und Abschnitte, den Volltext je
 // Modul, sobald gesucht wird (und nur Module, die das Wort enthalten können).
-var KATEX_OPT={delimiters:[{left:"$$",right:"$$",display:true},{left:"$",right:"$",display:false},{left:"\\(",right:"\\)",display:false}],strict:false};
+var KATEX_OPT={delimiters:[{left:"$$",right:"$$",display:true},{left:"$",right:"$",display:false},{left:"\\(",right:"\\)",display:false}],strict:false,ignoredClasses:["fb-spaeter"]};   // Formelblatt (W4a): erst beim Öffnen setzen
 function mathe(el){ if(window.renderMathInElement) try{ renderMathInElement(el,KATEX_OPT); }catch(e){} }
 (function(){
   var overlay=document.getElementById("searchOverlay"), input=document.getElementById("searchInput"),
@@ -3442,7 +4048,10 @@ function mathe(el){ if(window.renderMathInElement) try{ renderMathInElement(el,K
     if(!id) return null;
     try{ id=decodeURIComponent(id); }catch(e){}
     var el=document.getElementById(id); if(!el) return null;
-    var auf=false;
+    var auf=false, A=window.ETAnsicht;                             // W4a: Ziel in der gewählten Ansicht versteckt -> „Ausführlich“
+    if(A && id==="formelblatt"){ if(A.jetzt()!=="formeln"){ A.setze("formeln",false); auf=true; } }
+    else if(A && id==="kurzfassung"){ if(A.jetzt()!=="kurz"){ A.setze("kurz",false); auf=true; } }
+    else if(A && A.verborgen(el)){ A.setze("voll",false); auf=true; }
     for(var d=el.parentElement; d; d=d.parentElement){ if(d.tagName==="DETAILS" && !d.open){ d.open=true; auf=true; } }
     if(auf || immer) el.scrollIntoView();
     return auf ? el : null;
@@ -3822,9 +4431,11 @@ var LERNEN=(function(){
   function knoten(nd,tiefe){                          // wie build_wissen.sidebar_html vor W3a
     var d=$.el("details","lvl lvl"+tiefe), s=$.el("summary",null,nd.name); d.appendChild(s); inhalt(d,nd,tiefe); return d; }
   function inhalt(d,nd,tiefe){
-    if(nd.mp){ var z=$.el("div","side-lernen"), a1=$.el("a",null,$.w("begriffe")||"Begriffe"), a2=$.el("a",null,$.w("lernkarten")||"Lernkarten");
-      a1.href="/wissen/"+nd.mp+"/begriffe.html"; a2.href="/wissen/"+nd.mp+"/lernkarten.html";
-      var p=$.el("span",null," · "); p.setAttribute("aria-hidden","true"); z.appendChild(a1); z.appendChild(p); z.appendChild(a2); d.appendChild(z); }
+    if(nd.mp){ var z=$.el("div","side-lernen"), a1=$.el("a",null,$.w("begriffe")||"Begriffe"), a2=$.el("a",null,$.w("lernkarten")||"Lernkarten"),
+        a3=$.el("a",null,nd.ref?$.w("fb_titel_ref"):($.w("ans_formeln")||"Formeln"));   // W4a: Informatik: Befehlsübersicht
+      a1.href="/wissen/"+nd.mp+"/begriffe.html"; a2.href="/wissen/"+nd.mp+"/lernkarten.html"; a3.href="/wissen/"+nd.mp+(nd.ref?"/uebersicht.html":"/formeln.html");
+      [a1,a2,a3].forEach(function(a,i){ if(i){ var p=$.el("span",null," · "); p.setAttribute("aria-hidden","true"); z.appendChild(p); } z.appendChild(a); });
+      d.appendChild(z); }
     if(nd.articles && nd.articles.length){ var ul=$.el("ul");
       nd.articles.forEach(function(x){ var li=$.el("li"), a=$.el("a",null,x.kurz||x.title), p="/wissen/"+x.path;
         a.href=(x.alt && fassung==="ausfuehrlich")?"/wissen/"+x.alt:p; a.setAttribute("data-lf",p);
@@ -3896,12 +4507,12 @@ var LERNEN=(function(){
       var as=[].slice.call(k.querySelectorAll("a[data-lf]")), n=zahl(as,g), f=k.querySelector(".mk-lf");
       if(!f) return; f.innerHTML="";
       if(n){ f.appendChild(balken(n,as.length)); f.appendChild($.el("span","lf-text",$.w("lf_kapitel",{n:n,m:as.length}))); } });
-    if(art && key){                                                              // Artikel: Zeile vor den Nachbarartikeln
-      var z=art.querySelector(".lf-art");
-      if(g[key]){
+    if(art && key){                                                              // Artikel: „Gelesen …“ in der Kennzahlenzeile neben der Lesezeit (User, 11.11.2026)
+      var zl=document.querySelector(".art-meta .am-zahlen"), z=zl?zl.querySelector(".am-lf"):null;
+      if(g[key] && zl){
         var m=kapitel.length?kapitel:[key], n=0; m.forEach(function(p){ if(g[p]) n++; });
-        if(!z){ z=$.el("div","lf-art"); art.insertBefore(z,art.querySelector(".neighbors")); }
-        z.innerHTML=""; z.appendChild(balken(n,m.length)); z.appendChild($.el("span","lf-text",$.w("lf_artikel",{n:n,m:m.length})));
+        if(!z){ z=$.el("span","am-lf"); zl.appendChild(z); }
+        z.textContent=$.w("lf_artikel",{n:n,m:m.length});
       } else if(z) z.parentNode.removeChild(z);
     }
     weiter();
@@ -3912,12 +4523,15 @@ var LERNEN=(function(){
     var v=$.get(V,[]).filter(function(e){ return e && e.p!==key; });
     v.unshift({p:key, t:titel, k:(side&&side.getAttribute("data-kapitel"))||"", l:$.lang, z:Date.now()});
     $.set(V,v.slice(0,12));
-    var ende=document.getElementById("zusammenfassung")||art.querySelector(".neighbors");
-    if(ende && !gelesen()[key] && window.IntersectionObserver){
-      var t=null, io=new IntersectionObserver(function(es){ es.forEach(function(e){
+    // W4a: in „Formeln“ ist die Zusammenfassung verborgen, dort zählt das Ende des Formelblatts
+    var enden=[document.getElementById("zusammenfassung")||art.querySelector(".neighbors"), art.querySelector(".fb-ende")].filter(Boolean);
+    if(enden.length && !gelesen()[key] && window.IntersectionObserver){
+      var t=null, io=new IntersectionObserver(function(es){
+        es.forEach(function(e){ e.target._lfSicht=e.isIntersecting; });
         clearTimeout(t);
-        if(e.isIntersecting) t=setTimeout(function(){ var g=gelesen(); g[key]=Date.now(); $.set(G,g); io.disconnect(); malen(); },1000); }); });
-      io.observe(ende);
+        if(enden.some(function(x){ return x._lfSicht; }))
+          t=setTimeout(function(){ var g=gelesen(); g[key]=Date.now(); $.set(G,g); io.disconnect(); malen(); },1000); });
+      enden.forEach(function(x){ io.observe(x); });
     }
   }
   // Übersicht: „Weiterlesen“ und „Fortschritt zurücksetzen“ unter dem Einleitungssatz
@@ -4117,6 +4731,123 @@ var LERNEN=(function(){
   if(!$.ok) q(".lk-hinweis").hidden=false;
   baue();
 })();
+/* ---------- Ansichten (W4a, 11.11.2026): Ausführlich | Kurz | Formeln ----------
+   Der Kopf der Seite setzt data-ansicht an <html> schon vor dem ersten Zeichnen (?ansicht= in der Adresse, sonst die Wahl
+   unter „etundso-ansicht“; sie gilt für alle Artikel). Umschalten = Attribut ändern; die Adresse bekommt ?ansicht= zum
+   Teilen. Ein Sprung auf ein Ziel, das die Ansicht verbirgt (Anker, Link aus Zusammenfassung, Suche, Begriffen), schaltet
+   für diese Seite auf „Ausführlich“, ohne die Wahl zu ändern (Teil „Sprung auf einen Anker“ ruft dazu ETAnsicht). */
+window.ETAnsicht=(function(){
+  var $=LERNEN, root=document.documentElement, K="etundso-ansicht";
+  var art=document.querySelector("main.article > article.art");
+  function jetzt(){ var a=root.getAttribute("data-ansicht"); return a==="kurz"||a==="formeln"?a:"voll"; }
+  function verborgen(el){ for(var x=el; x && x!==document.body; x=x.parentElement){ if(getComputedStyle(x).display==="none") return true; } return false; }
+  if(!art){ root.removeAttribute("data-ansicht"); return {jetzt:jetzt, verborgen:function(){ return false; }, setze:function(){}}; }
+  var seg=document.querySelector(".topbar .ansicht"), sel=document.querySelector(".topbar .ans-sel");
+  var blatt=document.getElementById("formelblatt"), zeit=art.querySelector(".am-zeit"), zeitVoll=zeit?zeit.textContent:"";
+  // Formelblatt: KaTeX erst beim ersten Öffnen (vor DOMContentLoaded übernimmt das der Durchgang über die ganze Seite)
+  function blattSetzen(){ if(!blatt || !blatt.classList.contains("fb-spaeter")) return;
+    blatt.classList.remove("fb-spaeter"); if(document.readyState!=="loading") mathe(blatt); }
+  // Lesezeit der Kurzansicht: sichtbare Wörter (ohne Formeln und Code) / 170, wie lesezeit() im Build
+  function kurzZeit(){ var n=0, wurzel=art.querySelector(art.classList.contains("hat-kurz")?".ans-kurz":".art-body"); if(!wurzel) return 1;
+    [].forEach.call(wurzel.querySelectorAll("p,li,dt,dd,td,th,figcaption"),function(x){
+      if(!x.getClientRects().length || x.querySelector("p,li")) return;
+      var c=x.cloneNode(true); [].forEach.call(c.querySelectorAll(".katex,code,.katex-display"),function(k){ k.parentNode.removeChild(k); });
+      n+=c.textContent.split(/\s+/).filter(function(w){ return /[A-Za-zÄÖÜäöüß0-9]/.test(w); }).length; });
+    return Math.max(1,Math.round(n/170)); }
+  function malen(){
+    var a=jetzt();
+    if(seg) [].forEach.call(seg.querySelectorAll(".ans-b"),function(b){ b.setAttribute("aria-pressed",String(b.getAttribute("data-ansicht")===a)); });
+    if(sel) sel.value=a;
+    if(a==="formeln") blattSetzen();
+    if(zeit) zeit.textContent=a==="kurz" ? $.w("ans_kurz_min",{n:kurzZeit()}) : zeitVoll;
+  }
+  function setze(a,merken){
+    a=(a==="kurz"||a==="formeln")?a:"voll";
+    var vorher=jetzt(), oben=null;
+    if(scrollY>200 && a!=="formeln"){                               // Lage halten: Abschnitt oben im Fenster merken
+      var hs=art.querySelectorAll(".art-body h2,.art-body h3");
+      for(var i=0;i<hs.length;i++){ var r=hs[i].getBoundingClientRect(); if(!r.height) continue; if(r.top<=130) oben=hs[i]; else break; } }
+    if(a==="voll") root.removeAttribute("data-ansicht"); else root.setAttribute("data-ansicht",a);
+    if(merken){ try{ localStorage.setItem(K,a); }catch(e){} }
+    try{ var u=new URL(location.href); if(a==="voll") u.searchParams.delete("ansicht");    // Informatik: ?ansicht=uebersicht
+      else u.searchParams.set("ansicht",a==="formeln" && art.classList.contains("ref")?"uebersicht":a);
+      if(u.href!==location.href) history.replaceState(history.state,"",u.href); }catch(e){}
+    malen();
+    if(a!==vorher && merken){                                       // ohne weiches Scrollen (html hat scroll-behavior:smooth)
+      root.style.scrollBehavior="auto";
+      if(a==="formeln" && blatt){ if(blatt.getBoundingClientRect().top<0) blatt.scrollIntoView({block:"start"}); }
+      else if(oben && oben.getClientRects().length) oben.scrollIntoView({block:"start"});
+      else if(scrollY>art.offsetTop) window.scrollTo(0,0);
+      root.style.scrollBehavior="";
+    }
+    window.dispatchEvent(new Event("resize"));                      // abgesetzte Formeln neu einpassen (fitMath)
+  }
+  if(seg){ seg.hidden=false;
+    seg.addEventListener("click",function(e){ var b=e.target.closest(".ans-b"); if(b) setze(b.getAttribute("data-ansicht"),true); });
+    seg.addEventListener("keydown",function(e){                      // Pfeiltasten wandern und wählen (wie eine Optionsgruppe)
+      if(e.key!=="ArrowLeft" && e.key!=="ArrowRight" && e.key!=="Home" && e.key!=="End") return;
+      var bs=[].slice.call(seg.querySelectorAll(".ans-b")), i=bs.indexOf(document.activeElement); if(i<0) return;
+      e.preventDefault();
+      i=e.key==="Home"?0:e.key==="End"?bs.length-1:(i+(e.key==="ArrowRight"?1:-1)+bs.length)%bs.length;
+      bs[i].focus(); setze(bs[i].getAttribute("data-ansicht"),true); }); }
+  if(sel){ sel.hidden=false; sel.addEventListener("change",function(){ setze(sel.value,true); }); }
+  [].forEach.call(document.querySelectorAll("[data-ansicht-setzen]"),function(b){
+    b.addEventListener("click",function(){ setze(b.getAttribute("data-ansicht-setzen"),true); }); });
+  malen();
+  if(jetzt()==="kurz" && zeit) window.addEventListener("load",malen);   // Lesezeit nach dem Setzen der Formeln
+  window.addEventListener("pageshow",function(e){ if(e.persisted) malen(); });
+  return {jetzt:jetzt, verborgen:verborgen, setze:setze};
+})();
+// Modulseiten (Formelsammlung, Kapitel auf einer Seite): ?kapitel=N zeigt und druckt nur Kapitel N; die Kapitelliste
+// wechselt dann das Kapitel, statt an eine ausgeblendete Stelle zu springen. „Drucken“ öffnet den Druckdialog.
+(function(){
+  var leiste=document.querySelector(".kap-leiste"); if(!leiste) return;
+  var sel=leiste.querySelector(".kap-sel"), main=document.querySelector("main.article");
+  var kaps=[].slice.call(document.querySelectorAll(".fs-kap,.sz-kap"));
+  function hat(n){ return kaps.some(function(k){ return k.getAttribute("data-k")===n; }); }
+  function zeige(n,schreiben){
+    if(!hat(n)) n="";
+    if(n) main.setAttribute("data-kapitel-filter",n); else main.removeAttribute("data-kapitel-filter");
+    kaps.forEach(function(k){ k.classList.toggle("kap-an",k.getAttribute("data-k")===n); });
+    sel.value=n;
+    if(schreiben){ try{ var u=new URL(location.href); if(n) u.searchParams.set("kapitel",n); else u.searchParams.delete("kapitel");
+      u.hash=""; history.replaceState(null,"",u.href); }catch(e){} }
+  }
+  leiste.hidden=false;
+  zeige(new URLSearchParams(location.search).get("kapitel")||"",false);
+  sel.addEventListener("change",function(){ zeige(sel.value,true); });
+  leiste.querySelector(".kap-druck").addEventListener("click",function(){ window.print(); });
+  document.addEventListener("click",function(e){                    // Kapitelliste bei aktivem Filter: Kapitel wechseln
+    var a=e.target.closest && e.target.closest(".kap-nav a"); if(!a || !main.hasAttribute("data-kapitel-filter")) return;
+    var k=document.getElementById(a.getAttribute("href").slice(1)); if(!k) return;
+    e.preventDefault(); zeige(k.getAttribute("data-k"),true); k.scrollIntoView({block:"start"}); });
+})();
+// Download des Formelblatts (Artikel) bzw. der Formelsammlung (Modul) als PNG, JPG, SVG oder PDF. Die Dateien entstehen
+// im Browser aus der angezeigten Seite; assets/formel-export.js (setzt die Formeln mit MathJax als SVG, PDF ohne fremde
+// Bibliothek) lädt erst beim ersten Klick.
+(function(){
+  var boxen=[].slice.call(document.querySelectorAll(".fb-dl")); if(!boxen.length) return;
+  var $=LERNEN, P=null;
+  function laden(){ if(!P) P=new Promise(function(ok,fehler){ var s=document.createElement("script"); s.src="/wissen/assets/formel-export.js";
+      s.onload=function(){ window.ETFormelExport ? ok(window.ETFormelExport) : fehler(new Error("laden")); };
+      s.onerror=function(){ P=null; fehler(new Error("laden")); }; document.head.appendChild(s); });
+    return P; }
+  boxen.forEach(function(box){
+    var status=box.querySelector(".fb-dl-s"), seite=box.closest(".fb-blatt")||document.querySelector("main.article"), quelle=seite.querySelector(".fb-inhalt");
+    if(!quelle) return;
+    box.hidden=false;
+    box.addEventListener("click",function(e){
+      var b=e.target.closest(".fb-dl-b"); if(!b || b.getAttribute("aria-busy")==="true") return;
+      var main=document.querySelector("main.article"), kap=main && main.getAttribute("data-kapitel-filter");
+      b.setAttribute("aria-busy","true"); status.textContent=$.w("dl_laeuft"); status.classList.remove("fehler");
+      laden().then(function(X){ return X(quelle,b.getAttribute("data-format"),{kapitel:kap||"", lang:$.lang}); })
+        .then(function(){ status.textContent=""; },
+              function(err){ status.textContent=(err && err.message==="zu-gross")?$.w("dl_gross"):$.w("dl_fehler"); status.classList.add("fehler");
+                if(window.console) console.warn("Formel-Export:",err); })
+        .then(function(){ b.removeAttribute("aria-busy"); });
+    });
+  });
+})();
 """
 
 # Kern der Suche (W3a, 11.11.2026), als /wissen/assets/suche.js: wissen.js lädt ihn beim ersten Öffnen der Suche, die
@@ -4196,11 +4927,282 @@ window.ETSuche=(function(){
     self.snippet=function(d,q){
       var t=d.text||d.summary||"", ft=fold(t), i=ft.indexOf(q);
       if(i<0) return esc(t.slice(0,130))+(t.length>130?"…":"");
-      var a=Math.max(0,i-45);
-      return (a>0?"…":"")+esc(t.slice(a,i))+"<mark>"+esc(t.slice(i,i+q.length))+"</mark>"+esc(t.slice(i+q.length,i+q.length+70))+"…";
+      // Die Fundstelle i gilt im gefalteten Text. fold() ändert die Länge („ß“→„ss“, „…“→„...“, Ligaturen), deshalb
+      // Zeichen für Zeichen zurück auf den Originaltext abbilden; sonst rutscht die Markierung (Fehler vom 11.11.2026).
+      var von=-1, bis=t.length, n=0;
+      for(var k=0;k<t.length && n<i+q.length;k++){
+        var g=fold(t[k]).length;
+        if(von<0 && n+g>i) von=k;
+        n+=g;
+        if(n>=i+q.length){ bis=k+1; break; }
+      }
+      if(von<0) von=Math.min(i,t.length);
+      var a=Math.max(0,von-45);
+      return (a>0?"…":"")+esc(t.slice(a,von))+"<mark>"+esc(t.slice(von,bis))+"</mark>"+esc(t.slice(bis,bis+70))+"…";
     };
   }
   return function(lang){ lang=lang||"de"; return INDEX[lang]||(INDEX[lang]=new Index(lang)); };
+})();
+"""
+
+# Download des Formelblatts (W4a, 11.11.2026), als /wissen/assets/formel-export.js: wissen.js lädt es beim ersten Klick auf
+# PNG, JPG, SVG oder PDF. Es liest die angezeigte Formelseite (.fb-inhalt; nur sichtbare Teile, also auch nur das gewählte
+# Kapitel), setzt Text und Formeln selbst neu als ein SVG (Formeln: MathJax, dasselbe wie im Editor, als Pfade; Text: Arial
+# mit gemessener Breite) und macht daraus die Datei: SVG direkt, PNG/JPG über ein Canvas (doppelte Auflösung), PDF als
+# A4-Seiten (je Seite ein JPEG mit 2,5-facher Auflösung) mit einem kleinen eigenen PDF-Schreiber, ohne fremde Bibliothek.
+# Keine vorab gespeicherten Dateien: jede Datei entsteht erst im Browser des Lesers.
+FORMEL_EXPORT_JS = r"""/* EtUndSo Formel-Export: ETFormelExport(quelle, format, {kapitel, lang}) -> Promise (lädt die Datei herunter). */
+(function(){
+  var MJ="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js";   // dieselbe Fassung wie der Editor
+  var W=794, H_SEITE=1123, RAND=48, INNEN=W-2*RAND;                   // A4 bei 96 dpi (Pixel = CSS-Pixel)
+  var SCHRIFT="Arial, Helvetica, sans-serif", EXF=0.45;              // Mathe: 1 ex = 0,45 der Schriftgröße
+  var FARBE={text:"#16191a", leise:"#5b6360", gruen:"#15633a", gruen2:"#1b7f4a", orange:"#c2410c", linie:"#d5dad7"};
+  var mjP=null, messer=null;
+  function mathjax(){
+    if(mjP) return mjP;
+    mjP=new Promise(function(ok,fehler){
+      if(window.MathJax && window.MathJax.tex2svg){ ok(); return; }
+      window.MathJax={loader:{load:["[tex]/color"]},tex:{packages:{"[+]":["color"]}},svg:{fontCache:"none"},
+        startup:{typeset:false,ready:function(){ MathJax.startup.defaultReady(); MathJax.startup.promise.then(function(){ ok(); }); }}};
+      var s=document.createElement("script"); s.src=MJ; s.async=true;
+      s.onerror=function(){ mjP=null; fehler(new Error("mathjax")); }; document.head.appendChild(s);
+    });
+    return mjP;
+  }
+  function esc(t){ return String(t).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+  function font(st){ return (st.i?"italic ":"")+(st.b?"bold ":"")+st.fs+"px "+(st.mono?"Consolas, 'Courier New', monospace":SCHRIFT); }
+  function breite(t,st){ if(!messer) messer=document.createElement("canvas").getContext("2d"); messer.font=font(st); return messer.measureText(t).width; }
+  // ---- Formeln: TeX aus der KaTeX-Ausgabe (annotation), Satz mit MathJax als SVG ----
+  function tex(k){ var a=k.querySelector('annotation[encoding="application/x-tex"]'); return a?a.textContent:""; }
+  function mathe(t,display,fs){
+    var ex=fs*EXF, node;
+    try{ node=MathJax.tex2svg(t,{display:display,em:fs,ex:ex,containerWidth:INNEN}); }catch(e){ return null; }
+    var svg=node.querySelector("svg"); if(!svg || node.querySelector('[data-mml-node="merror"]')) return null;
+    var w=parseFloat(svg.getAttribute("width"))*ex, h=parseFloat(svg.getAttribute("height"))*ex;
+    var va=/vertical-align:\s*(-?[\d.]+)ex/.exec(svg.getAttribute("style")||""), tief=va?-parseFloat(va[1])*ex:0;
+    svg.removeAttribute("style"); svg.removeAttribute("role"); svg.removeAttribute("focusable"); svg.removeAttribute("aria-hidden");
+    var inner=new XMLSerializer().serializeToString(svg);
+    return {w:w,h:h,tief:tief,svg:function(x,y,s){ s=s||1;
+      return inner.replace(/^<svg\b/,'<svg x="'+x.toFixed(2)+'" y="'+y.toFixed(2)+'" style="color:'+FARBE.text+'" overflow="visible"')
+        .replace(/ width="[^"]*"/,' width="'+(w*s).toFixed(2)+'"').replace(/ height="[^"]*"/,' height="'+(h*s).toFixed(2)+'"'); }};
+  }
+  // ---- Inhalt sammeln: Blöcke (Titel, Etikett, Name, Absatz, Formel, Trennlinie) aus den sichtbaren Elementen ----
+  var BLOCK=/^(P|DIV|SECTION|ASIDE|UL|OL|LI|H1|H2|H3|H4|H5|H6|TABLE|PRE|BLOCKQUOTE|DL|DT|DD|FIGURE|DETAILS|NAV|HR|FIGCAPTION|ARTICLE|TR|TBODY|THEAD)$/;
+  var WEG=/^(FIGURE|IMG|DETAILS|BUTTON|SCRIPT|STYLE|NAV|SELECT|INPUT|HR)$/;
+  function versteckt(n){ return n.hidden || getComputedStyle(n).display==="none"; }
+  function sammeln(quelle){
+    var aus=[], vorWartet="";                                       // Aufzählungszeichen für den ersten Absatz eines Listenpunkts
+    function absatz(z,einzug,art){
+      if(z.runs.some(function(r){ return r.m || (r.t && r.t.trim()); })){ aus.push({typ:art||"absatz",runs:z.runs,einzug:einzug||0,vor:vorWartet}); vorWartet=""; }
+      z.runs=[]; }
+    function fluss(el,st,z,einzug){
+      for(var n=el.firstChild;n;n=n.nextSibling){
+        if(n.nodeType===3){ z.runs.push({t:n.nodeValue,st:st}); continue; }
+        if(n.nodeType!==1 || versteckt(n)) continue;
+        var c=n.classList, tag=n.tagName;
+        if(c.contains("katex-display") || c.contains("mrow") || c.contains("gl-zeile") || c.contains("fb-gl") || c.contains("fb-n")
+           || c.contains("fb-h") || c.contains("callout-h") || c.contains("fbox-h")){ absatz(z,einzug); block(n,einzug); continue; }
+        if(c.contains("katex")){ z.runs.push({m:tex(n),st:st}); continue; }
+        if(c.contains("katex-mathml") || c.contains("fb-nr") || WEG.test(tag) || tag==="svg") continue;
+        if(tag==="BR"){ z.runs.push({br:true,st:st}); continue; }
+        if(BLOCK.test(tag)){ absatz(z,einzug); block(n,einzug); continue; }
+        var s2={fs:st.fs,b:st.b||/^(STRONG|B|TH)$/.test(tag),i:st.i||/^(EM|I)$/.test(tag),mono:st.mono||tag==="CODE",farbe:st.farbe};
+        fluss(n,s2,z,einzug);
+      }
+    }
+    function formel(n,einzug){                                     // eine Formelzeile: Teile (mrow) und Nummer
+      var ks=[].slice.call(n.classList.contains("katex-display")?[n]:n.querySelectorAll(".katex-display")).map(tex).filter(Boolean);
+      if(!ks.length) ks=[].slice.call(n.querySelectorAll(".katex")).map(tex).filter(Boolean);
+      var nr=n.querySelector(".gl-nr, .fb-nr:not(.fb-ohne)");
+      if(ks.length) aus.push({typ:"formel",tex:ks,nr:nr?nr.textContent.replace(/\)\s*\(/g,") (").trim():"",einzug:einzug||0});
+    }
+    function block(el,einzug){
+      if(versteckt(el)) return;
+      var c=el.classList, tag=el.tagName;
+      if(WEG.test(tag) || c.contains("fb-dl") || c.contains("abb-knopf") || c.contains("gr-szene") || c.contains("zf-cue")) return;
+      if(c.contains("fb-e")){ aus.push({typ:"trenn"}); }
+      if(c.contains("katex-display") || c.contains("mrow") || c.contains("gl-zeile") || c.contains("fb-gl")){ formel(el,einzug); return; }
+      if(c.contains("fb-h")){ aus.push({typ:"etikett",runs:[{t:el.textContent.toUpperCase(),st:{fs:11.5,b:true,farbe:FARBE.orange}}]}); return; }
+      if(c.contains("fb-n") || c.contains("callout-h") || c.contains("fbox-h") || c.contains("zf-gh")){
+        var z0={runs:[]}; fluss(el,{fs:15,b:true,farbe:FARBE.gruen2},z0,einzug); absatz(z0,einzug,"name"); return; }
+      if(/^H[1-4]$/.test(tag)){ var lv=+tag.charAt(1), zh={runs:[]};
+        fluss(el,{fs:lv<=2?20:16.5,b:true,farbe:lv<=2?FARBE.gruen:FARBE.text},zh,einzug); absatz(zh,einzug,"h"+Math.max(2,lv)); return; }
+      if(tag==="UL" || tag==="OL"){ var k=0;
+        [].forEach.call(el.children,function(li){ if(li.tagName!=="LI" || versteckt(li)) return; k++;
+          var zl={runs:[]}; vorWartet=tag==="OL"?k+".":"•"; fluss(li,{fs:15},zl,(einzug||0)+22); absatz(zl,(einzug||0)+22); vorWartet=""; });
+        return; }
+      if(tag==="TABLE"){ [].forEach.call(el.querySelectorAll("tr"),function(tr){ var zt={runs:[]};
+          [].forEach.call(tr.children,function(td,i){ if(i) zt.runs.push({t:"   |   ",st:{fs:14,farbe:FARBE.leise}}); fluss(td,{fs:14,b:td.tagName==="TH"},zt,einzug); });
+          absatz(zt,einzug); }); return; }
+      if(tag==="PRE"){ var zs=el.textContent.replace(/\n$/,"").split("\n");
+        zs.forEach(function(l,k){ aus.push({typ:k===zs.length-1?"code-ende":"code",runs:[{t:l||" ",st:{fs:13,mono:true}}],einzug:einzug||0}); }); return; }
+      var z={runs:[]}; fluss(el,{fs:15},z,einzug); absatz(z,einzug);
+    }
+    var t=quelle.getAttribute("data-titel")||"", u=quelle.getAttribute("data-unter")||"";
+    aus.push({typ:"titel",runs:[{t:t,st:{fs:22,b:true,farbe:FARBE.gruen}}]});
+    if(u) aus.push({typ:"unter",runs:[{t:u,st:{fs:13,farbe:FARBE.leise}}]});
+    block(quelle,0);
+    return aus;
+  }
+  // ---- Setzen: jeder Block bekommt Höhe und eine Zeichenfunktion (SVG-Text ab Höhe y) ----
+  var CJK=/[⺀-鿿豈-﫿＀-￯　-〿]/;
+  function tokens(runs){                                            // Wörter, Leerzeichen, CJK-Zeichen einzeln, Formeln
+    var out=[];
+    runs.forEach(function(r){
+      if(r.br){ out.push({br:true}); return; }
+      if(r.m!=null){ var m=mathe(r.m,false,r.st.fs); if(m) out.push({m:m,st:r.st}); else out.push({t:r.m,st:r.st}); return; }
+      var t=r.t.replace(/\s+/g," ");
+      var teile=t.match(/ |[^ ]+/g)||[];
+      teile.forEach(function(w){
+        if(w===" "){ out.push({sp:true,st:r.st}); return; }
+        if(CJK.test(w)){ (w.match(/[⺀-鿿豈-﫿＀-￯　-〿][,.;:!?)\]，。；：！？）」』]*|[^⺀-鿿豈-﫿＀-￯　-〿]+/g)||[]).forEach(function(x){ out.push({t:x,st:r.st,cjk:true}); }); }
+        else out.push({t:w,st:r.st});
+      });
+    });
+    return out;
+  }
+  function absatzSetzen(b,breiteMax){
+    var tk=tokens(b.runs), zeilen=[], z={el:[],w:0,auf:0,ab:0}, x0=b.einzug||0;
+    function neu(){ zeilen.push(z); z={el:[],w:0,auf:0,ab:0}; }
+    var fs0=(b.runs[0]&&b.runs[0].st&&b.runs[0].st.fs)||15;
+    tk.forEach(function(t){
+      if(t.br){ neu(); return; }
+      if(t.sp){ if(z.el.length){ var ws=breite(" ",t.st); z.el.push({sp:true,w:ws}); z.w+=ws; } return; }
+      var w=t.m?t.m.w:breite(t.t,t.st);
+      if(z.el.length && z.w+w>breiteMax-x0){ while(z.el.length && z.el[z.el.length-1].sp){ z.w-=z.el.pop().w; } neu(); }
+      z.el.push(t.m?{m:t.m,w:w}:{t:t.t,w:w,st:t.st}); z.w+=w;
+      if(t.m){ z.auf=Math.max(z.auf,t.m.h-t.m.tief); z.ab=Math.max(z.ab,t.m.tief); }
+    });
+    if(z.el.length) neu();
+    var zh=fs0*1.5, ys=[], h=0;
+    zeilen.forEach(function(zz){ var auf=Math.max(fs0*1.05,zz.auf+3), ab=Math.max(fs0*0.45,zz.ab+3); ys.push({auf:auf,ab:ab}); h+=Math.max(zh,auf+ab); });
+    return {h:h,zeichne:function(y){
+      var s="", yy=y;
+      zeilen.forEach(function(zz,k){
+        var hz=Math.max(zh,ys[k].auf+ys[k].ab), base=yy+(hz-(ys[k].auf+ys[k].ab))/2+ys[k].auf, x=RAND+x0;
+        if(k===0 && b.vor) s+='<text x="'+(RAND+x0-16).toFixed(2)+'" y="'+base.toFixed(2)+'" font-family="'+SCHRIFT+'" font-size="'+fs0+'" fill="'+FARBE.leise+'" text-anchor="middle">'+esc(b.vor)+'</text>';
+        zz.el.forEach(function(e){
+          if(e.m){ s+=e.m.svg(x,base+e.m.tief-e.m.h); }
+          else if(!e.sp){ var st=e.st; s+='<text x="'+x.toFixed(2)+'" y="'+base.toFixed(2)+'" font-family="'+(st.mono?"Consolas, Courier New, monospace":SCHRIFT)+'" font-size="'+st.fs+'"'
+              +(st.b?' font-weight="bold"':'')+(st.i?' font-style="italic"':'')+' fill="'+(st.farbe||FARBE.text)+'">'+esc(e.t)+'</text>'; }
+          x+=e.w; });
+        yy+=hz; });
+      return s; }};
+  }
+  function formelSetzen(b){
+    var teile=b.tex.map(function(t){ return mathe(t,true,16); }), nrB=b.nr?breite(b.nr,{fs:14})+14:0, platz=INNEN-(b.einzug||0)-nrB;
+    var gut=teile.filter(Boolean); if(!gut.length) return absatzSetzen({runs:[{t:b.tex.join("   "),st:{fs:14,mono:true}}],einzug:b.einzug},INNEN);
+    var luecke=28, summe=gut.reduce(function(a,m){ return a+m.w; },0)+luecke*(gut.length-1);
+    var reihen=summe<=platz?[gut]:gut.map(function(m){ return [m]; });   // nebeneinander oder untereinander
+    var hs=reihen.map(function(r){ var wR=r.reduce(function(a,m){ return a+m.w; },0)+luecke*(r.length-1), s=Math.min(1,platz/wR);
+      return {r:r,s:s,w:wR*s,h:Math.max.apply(null,r.map(function(m){ return m.h; }))*s}; });
+    var h=hs.reduce(function(a,x){ return a+x.h+10; },0)+6;
+    return {h:h,zeichne:function(y){ var s="", yy=y+6;
+      hs.forEach(function(x,k){ var xx=RAND+(b.einzug||0)+Math.max(0,(platz-x.w)/2);
+        x.r.forEach(function(m){ s+=m.svg(xx,yy+(x.h-m.h*x.s)/2,x.s); xx+=(m.w+luecke)*x.s; });
+        if(k===hs.length-1 && b.nr) s+='<text x="'+(W-RAND).toFixed(2)+'" y="'+(yy+x.h/2+5).toFixed(2)+'" font-family="'+SCHRIFT+'" font-size="14" fill="'+FARBE.leise+'" text-anchor="end">'+esc(b.nr)+'</text>';
+        yy+=x.h+10; });
+      return s; }};
+  }
+  function setzen(items){
+    var lay=[];
+    items.forEach(function(b,i){
+      if(b.typ==="trenn"){ if(lay.length && !/^(titel|unter|h2|h3|etikett|trenn)$/.test(lay[lay.length-1].typ)) lay.push({typ:"trenn",h:14,zeichne:function(y){ return '<line x1="'+RAND+'" x2="'+(W-RAND)+'" y1="'+(y+7)+'" y2="'+(y+7)+'" stroke="'+FARBE.linie+'" stroke-width="1"/>'; }}); return; }
+      if(b.typ==="formel"){ var f=formelSetzen(b); f.typ="formel"; lay.push(f); return; }
+      var V={titel:0,unter:2,etikett:14,name:6,h2:22,h3:14,code:0,"code-ende":0}, N={titel:4,unter:18,etikett:2,name:2,h2:8,h3:4,code:0,"code-ende":6};
+      var a=absatzSetzen(b,INNEN), vor=b.typ in V?V[b.typ]:4, nach=b.typ in N?N[b.typ]:4;
+      if(b.typ==="h2") nach+=6;
+      lay.push({typ:b.typ,h:a.h+vor+nach,zeichne:function(y){ var s=a.zeichne(y+vor);
+        if(b.typ==="h2") s+='<line x1="'+RAND+'" x2="'+(W-RAND)+'" y1="'+(y+vor+a.h+4).toFixed(2)+'" y2="'+(y+vor+a.h+4).toFixed(2)+'" stroke="'+FARBE.gruen+'" stroke-width="2"/>';
+        return s; }});
+    });
+    return lay;
+  }
+  function svgDoc(stuecke,h,skala){                                 // stuecke: [{y, s}] in CSS-Pixeln
+    return '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="'+Math.round(W*skala)+'" height="'+Math.round(h*skala)
+      +'" viewBox="0 0 '+W+' '+Math.ceil(h)+'"><rect width="'+W+'" height="'+Math.ceil(h)+'" fill="#ffffff"/>'+stuecke+'</svg>';
+  }
+  function fuss(y,text){ return '<text x="'+(W-RAND)+'" y="'+y.toFixed(2)+'" font-family="'+SCHRIFT+'" font-size="10.5" fill="'+FARBE.leise+'" text-anchor="end">'+esc(text)+'</text>'; }
+  function lang(lay){                                               // eine lange Seite (SVG, PNG, JPG)
+    var y=RAND, s="";
+    lay.forEach(function(b){ s+=b.zeichne(y); y+=b.h; });
+    y+=18; s+=fuss(y,"etundso.de"); y+=RAND-18;
+    return {s:s,h:y};
+  }
+  function seiten(lay){                                             // A4-Seiten (PDF): Überschriften und Namen bleiben beim Folgenden
+    var unten=H_SEITE-RAND-20, out=[], y=RAND, s="";
+    function umbruch(){ out.push(s); s=""; y=RAND; }
+    for(var i=0;i<lay.length;i++){
+      var b=lay[i], need=b.h, j=i;
+      while(j<lay.length-1 && /^(h2|h3|etikett|name|titel|unter|trenn)$/.test(lay[j].typ)){ j++; need+=lay[j].h; }
+      if(b.typ==="trenn" && y===RAND) continue;
+      if(y+need>unten && y>RAND && need<=unten-RAND) umbruch();
+      else if(y+b.h>unten && y>RAND) umbruch();
+      if(b.typ==="trenn" && y===RAND) continue;
+      s+=b.zeichne(y); y+=b.h;
+    }
+    if(s) out.push(s);
+    return out.map(function(x,k){ return x+fuss(H_SEITE-RAND+14,"etundso.de · "+(k+1)+" / "+out.length); });
+  }
+  function rastern(svg,w,h,typ,q){
+    return new Promise(function(ok,fehler){
+      var url=URL.createObjectURL(new Blob([svg],{type:"image/svg+xml"})), img=new Image();
+      img.onload=function(){ try{
+          var c=document.createElement("canvas"); c.width=w; c.height=h; var x=c.getContext("2d");
+          x.fillStyle="#ffffff"; x.fillRect(0,0,w,h); x.drawImage(img,0,0,w,h); URL.revokeObjectURL(url);
+          c.toBlob(function(b){ b?ok(b):fehler(new Error("canvas")); },typ,q); }catch(e){ fehler(e); } };
+      img.onerror=function(){ URL.revokeObjectURL(url); fehler(new Error("svg")); };
+      img.src=url;
+    });
+  }
+  function pdfDatei(bilder){                                        // bilder: [{w,h,bytes}] JPEG, je eine A4-Seite
+    var teile=[], len=0, off=[], enc=new TextEncoder();
+    function add(x){ var b=typeof x==="string"?enc.encode(x):x; teile.push(b); len+=b.length; }
+    function obj(n,body){ off[n]=len; add(n+" 0 obj\n"+body+"\nendobj\n"); }
+    add("%PDF-1.4\n%âãÏÓ\n");
+    var kids=bilder.map(function(_,i){ return (3+3*i)+" 0 R"; }).join(" ");
+    obj(1,"<< /Type /Catalog /Pages 2 0 R >>");
+    obj(2,"<< /Type /Pages /Kids ["+kids+"] /Count "+bilder.length+" >>");
+    bilder.forEach(function(b,i){
+      var p=3+3*i, c=p+1, im=p+2, cs="q 595.28 0 0 841.89 0 0 cm /Im0 Do Q";
+      obj(p,"<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /XObject << /Im0 "+im+" 0 R >> >> /Contents "+c+" 0 R >>");
+      obj(c,"<< /Length "+cs.length+" >>\nstream\n"+cs+"\nendstream");
+      off[im]=len;
+      add(im+" 0 obj\n<< /Type /XObject /Subtype /Image /Width "+b.w+" /Height "+b.h+" /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length "+b.bytes.length+" >>\nstream\n");
+      add(b.bytes); add("\nendstream\nendobj\n");
+    });
+    var n=2+3*bilder.length, xref=len, z="xref\n0 "+(n+1)+"\n0000000000 65535 f \n";
+    for(var i=1;i<=n;i++) z+=("0000000000"+off[i]).slice(-10)+" 00000 n \n";
+    add(z+"trailer\n<< /Size "+(n+1)+" /Root 1 0 R >>\nstartxref\n"+xref+"\n%%EOF\n");
+    return new Blob(teile,{type:"application/pdf"});
+  }
+  function speichern(blob,name){
+    var a=document.createElement("a"), url=URL.createObjectURL(blob); a.href=url; a.download=name; a.rel="noopener";
+    document.body.appendChild(a); a.click(); setTimeout(function(){ URL.revokeObjectURL(url); a.parentNode.removeChild(a); },4000);
+  }
+  window.ETFormelExport=function(quelle,format,opt){
+    opt=opt||{};
+    return mathjax().then(function(){
+      var lay=setzen(sammeln(quelle));
+      var datei=(quelle.getAttribute("data-datei")||"formeln")+(opt.kapitel?"-kapitel-"+opt.kapitel:"");
+      if(format==="svg"){ var l=lang(lay); speichern(new Blob(['<?xml version="1.0" encoding="UTF-8"?>\n'+svgDoc(l.s,l.h,1)],{type:"image/svg+xml"}),datei+".svg"); return; }
+      if(format==="png" || format==="jpg"){
+        var g=lang(lay), sk=Math.min(2,32000/g.h,Math.sqrt(2.6e8/(W*g.h)));
+        if(sk<1) throw new Error("zu-gross");
+        return rastern(svgDoc(g.s,g.h,sk),Math.round(W*sk),Math.round(g.h*sk),format==="png"?"image/png":"image/jpeg",0.93)
+          .then(function(b){ speichern(b,datei+"."+format); });
+      }
+      if(format==="pdf"){
+        var sk2=2.5, ps=seiten(lay);
+        return ps.reduce(function(p,s){ return p.then(function(liste){
+            return rastern(svgDoc(s,H_SEITE,sk2),Math.round(W*sk2),Math.round(H_SEITE*sk2),"image/jpeg",0.9)
+              .then(function(b){ return b.arrayBuffer(); })
+              .then(function(buf){ liste.push({w:Math.round(W*sk2),h:Math.round(H_SEITE*sk2),bytes:new Uint8Array(buf)}); return liste; }); }); },
+          Promise.resolve([])).then(function(bilder){ speichern(pdfDatei(bilder),datei+".pdf"); });
+      }
+      throw new Error("format");
+    });
+  };
 })();
 """
 

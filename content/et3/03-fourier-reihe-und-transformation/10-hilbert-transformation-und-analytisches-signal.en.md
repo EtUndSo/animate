@@ -5,7 +5,7 @@ adresse: elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transfo
 knoten: Chapter 3: Fourier Series and Transform
 order: 3231000
 summary: For a causal signal, the real and imaginary parts of the spectrum are linked: one determines the other.
-tags: Hilbert transform, analytic component, all-pass
+tags: Hilbert transform, principal value, analytic component, all-pass
 lang: en
 ---
 
@@ -26,14 +26,14 @@ For a causal signal,
 $$\operatorname{Re}\{S(f)\}=\operatorname{Im}\{S(f)\}*\frac{1}{\pi f},\qquad\operatorname{Im}\{S(f)\}=-\operatorname{Re}\{S(f)\}*\frac{1}{\pi f}. \tag{9.1}$$
 :::
 
-⁠**How to read it:** Convolution with $\frac{1}{\pi f}$ is called the __Hilbert transform__. For a causal system it is enough to know the real part of the frequency response; the imaginary part follows from it. Causality is therefore a strong constraint on the spectrum.
+⁠**How to read it:** Convolution with $\frac{1}{\pi f}$ is called the __Hilbert transform__. Its integral exists only as a __principal value__: around the point where the kernel becomes infinite, a symmetric piece is cut out and then shrunk to zero. For a causal system it is enough to know the real part of the frequency response; the imaginary part follows from it. Causality is therefore a strong constraint on the spectrum.
 
 **Analytic component.** With the step in the *frequency domain* you cut off the negative frequencies: $S_+(f)=S(f)\,\varepsilon(f)$. Symmetry gives $\varepsilon(f)\;\bullet\!\!-\!\!\circ\;\frac12\delta(t)+\frac{\mathrm{j}}{2\pi t}$, so
 
 <span class="anker" id="gl-9-2"></span>
 $$s_+(t)=\frac12s(t)+\frac{\mathrm{j}}{2}\,\hat s(t),\qquad\hat s(t)=s(t)*\frac{1}{\pi t}\;\circ\!\!-\!\!\bullet\;-\mathrm{j}\operatorname{sgn}(f)\,S(f). \tag{9.2}$$
 
-$s_+$ is called the __analytic component__, $\hat s$ the Hilbert transform of $s$. For real signals, $S_-(f)=S_+^*(-f)$, so $s_-=s_+^*$ and $s(t)=s_++s_-=2\operatorname{Re}\{s_+(t)\}$. The real and imaginary parts of $s_+$ are again Hilbert transforms of each other.
+$s_+$ is called the __analytic component__, $\hat s$ the Hilbert transform of $s$; the convolution with $\frac{1}{\pi t}$ is also meant as a principal value. Likewise, $S_-(f)=S(f)\,\varepsilon(-f)$, with the time function $s_-(t)$, contains only the negative frequencies. For real signals, $S_-(f)=S_+^*(-f)$, so $s_-=s_+^*$ and $s(t)=s_++s_-=2\operatorname{Re}\{s_+(t)\}$. The real and imaginary parts of $s_+$ are again Hilbert transforms of each other.
 
 **The Hilbert transformer.** The LTI system with $h(t)=\frac{1}{\pi t}$ has $H(f)=-\mathrm{j}\operatorname{sgn}(f)$: magnitude 1 at all frequencies (an __all-pass__), phase $-90^\circ$ for $f>0$ and $+90^\circ$ for $f<0$. It turns $\cos(2\pi Ft)$ into
 

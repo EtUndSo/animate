@@ -14,8 +14,6 @@ lang: en
 
 The noise of a resistor, speech, a data stream: such signals cannot be predicted. Their exact waveform is unknown, but their *average properties* are known: how large they typically are, how fast they change, which frequencies they contain. This chapter shows how to describe such random signals, what an LTI system does to them and how to detect a known signal in noise most reliably.
 
-
-
 **How to work with this chapter.** The sections build on each other, and every new term has its own subsection with an example. Expandable boxes contain background (why something is the way it is and where it comes from), derivations and simulation hints; you do not need them to read on. Try the exercises (★ to ★★★) yourself first; the solution expands right below each exercise.
 
 :::merke The reference model for this chapter
@@ -41,5 +39,4 @@ The noise of a resistor, speech, a data stream: such signals cannot be predicted
 
 </ul>
 
-The script `rechnung_kap7.py` recomputes the numbers, in part checking them with simulated random numbers.
 :::

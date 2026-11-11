@@ -49,7 +49,7 @@ A signal with the period $T=1/F$ and finite power (the mean of $|s(t)|^2$ over o
 <span class="anker" id="gl-2-5"></span>
 $$S_p(k)=\frac1T\int_{t_1}^{t_1+T}s_p(t)\,\mathrm{e}^{-\mathrm{j}2\pi kFt}\,\mathrm{d} t, \tag{2.5}$$
 
-where $t_1$ is arbitrary (analysis).
+where $t_1$ is arbitrary (analysis). The equals sign in [(2.1)](#gl-2-1) holds in the mean-square sense: the mean of $\bigl|s_p(t)-\sum_{|k|\le N}S_p(k)\,\mathrm{e}^{\mathrm{j}2\pi kFt}\bigr|^2$ over one period, the power of the error, tends to zero as $N\to\infty$. At individual points, for example at jumps, the series need not give the value of the signal.
 :::
 
 ⁠**How to read it:** $S_p(k)$ is the mean value of the signal after it has been “counter-rotated” with the $k$th harmonic. If the harmonic is contained in the signal, the phasor no longer rotates at this point, and its share remains after averaging. $S_p(0)$ is simply the mean value.

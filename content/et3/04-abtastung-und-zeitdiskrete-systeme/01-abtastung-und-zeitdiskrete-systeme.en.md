@@ -14,8 +14,6 @@ lang: en
 
 A computer cannot store a function $s(t)$, only a sequence of numbers. The signal is therefore measured at fixed intervals $T$, and one works with the __samples__ $s(nT)$. Two questions shape this chapter: *Is information lost in the process?* And: *How do you calculate with sequences of numbers the way [Chapters 1](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/lti-systeme-und-faltung/lti-systeme-und-faltung.html) to 3 calculated with functions?*
 
-
-
 **How to work with this chapter.** The sections build on each other, and every new term has its own subsection with an example. Expandable boxes contain background (why something is the way it is and where it comes from), derivations and simulation hints; you do not need them to read on. Try the exercises (★ to ★★★) yourself first; the solution expands right below each exercise.
 
 :::merke The reference model for this chapter
@@ -47,5 +45,4 @@ For sequences, the frequency is normalized to the sampling rate: $f=1$ correspon
 
 </ul>
 
-The script `rechnung_kap4.py` recomputes the numbers and curves.
 :::

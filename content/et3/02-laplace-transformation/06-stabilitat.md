@@ -155,3 +155,55 @@ $H(p)=\frac{p-2}{(p+1)(p+3)}$, $\operatorname{Re} p>-1$. Stört die Nullstelle i
 (d) Partialbrüche mit [(4.11)](losung-von-differentialgleichungen.html#gl-4-11): $A_1=\lim_{p\to-1}\frac{p-2}{p+3}=\frac{-3}{2}$, $A_2=\lim_{p\to-3}\frac{p-2}{p+1}=\frac{-5}{-2}=\frac52$. Also $h(t)=\bigl(-\tfrac32\mathrm{e}^{-t}+\tfrac52\mathrm{e}^{-3t}\bigr)\varepsilon(t)$. Kausal und stabil, denn beide Pole liegen links. Die Nullstelle bei $+2$ stört nicht: Für die Stabilität zählen nur die Pole, denn nur sie bestimmen die Exponenten in $h(t)$.
 :::
 :::
+
+::::kurzfassung
+Ob ein LTI-System stabil ist, liest man an der Lage seiner Pole ab, ohne die Impulsantwort zu integrieren: Ein kausales System ist genau dann stabil, wenn alle Pole von $H(p)$ in der linken Halbebene liegen.
+
+Stabil heißt, dass jeder beschränkte Eingang einen beschränkten Ausgang ergibt. Für ein LTI-System ist das gleichbedeutend mit
+
+$$\int_{-\infty}^{\infty}|h(t)|\,\mathrm{d} t<\infty .$$
+
+Bei einem Polynombruch $H(p)$ ist $h(t)$ nach der Partialbruchzerlegung eine Summe von Exponentialfunktionen $\mathrm{e}^{p_\mathrm Pt}$, eventuell mit Potenzen von $t$ und einem Dirac-Impuls. Die Summe ist genau dann absolut integrierbar, wenn jeder Summand auf seiner Seite abklingt, und das hängt nur von $\sigma_\mathrm P=\operatorname{Re} p_\mathrm P$ ab. Pole rechtsseitiger Summanden müssen deshalb bei $\sigma_\mathrm P<0$ liegen, Pole linksseitiger bei $\sigma_\mathrm P>0$. Beide Regeln fasst ein Kriterium zusammen: Ein LTI-System ist genau dann stabil, wenn die imaginäre Achse im Konvergenzbereich von $H(p)$ liegt.
+
+Physikalisch: Ein Netzwerk aus Widerständen, Spulen und Kondensatoren verliert ohne Eingang Energie in den Widerständen. Seine Eigenbewegungen klingen ab, alle Pole liegen links. Ein Verstärker kann dagegen Energie zuführen und Pole in die rechte Halbebene schieben; gewollt ergibt das einen Oszillator. Das kausale System zweiter Ordnung ist genau dann stabil, wenn sein Dämpfungsgrad $\xi$ positiv ist.
+
+Fallen: Ein Pol genau auf der imaginären Achse macht das System instabil, auch wenn $h(t)$ beschränkt bleibt. Nullstellen spielen für die Stabilität keine Rolle, auch nicht in der rechten Halbebene.
+::::
+
+::::formelsammlung
+**Stabilität (BIBO) eines LTI-Systems**
+
+$$\int_{-\infty}^{\infty}|h(t)|\,\mathrm{d} t<\infty$$
+
+Genau dann antwortet das System auf jeden beschränkten Eingang mit einem beschränkten Ausgang.
+
+**Bedingung für Pole rechtsseitiger Anteile**
+
+$$\sigma_\mathrm P<0$$
+
+$\sigma_\mathrm P=\operatorname{Re} p_\mathrm P$; gilt für jeden Pol eines rechtsseitigen (kausalen) Summanden von $h(t)$. Kausales System: stabil genau dann, wenn alle Pole in der linken Halbebene liegen.
+
+**Bedingung für Pole linksseitiger Anteile**
+
+$$\sigma_\mathrm P>0$$
+
+Für jeden Pol eines linksseitigen (antikausalen) Summanden. Allgemein: stabil genau dann, wenn die imaginäre Achse im Konvergenzbereich von $H(p)$ liegt. Ein Pol auf der imaginären Achse macht instabil; Nullstellen spielen keine Rolle.
+
+**System zweiter Ordnung: Impulsantwort**
+
+$$h(t)=A\cdot\bigl[\mathrm{e}^{p_{\mathrm P1}t}-\mathrm{e}^{p_{\mathrm P2}t}\bigr]\cdot\varepsilon(t)\quad\text{mit}\quad A=\frac{\omega_0}{2\sqrt{\xi^2-1}}$$
+
+Kausal; Pole $p_{\mathrm P1,2}=-\xi\omega_0\pm\omega_0\sqrt{\xi^2-1}$; beim RLC-System $\omega_0=1/\sqrt{LC}$, $\xi=\frac R2\sqrt{\frac CL}$.
+
+**System zweiter Ordnung: Übertragungsfunktion**
+
+$$H(p)=\frac{\omega_0^2}{(p-p_{\mathrm P1})(p-p_{\mathrm P2})}\qquad\text{mit}\qquad\operatorname{Re}\{p\}>\begin{cases}-\xi\omega_0+\omega_0\sqrt{\xi^2-1}, & \text{wenn }|\xi|\ge1,\\ -\xi\omega_0, & \text{wenn }|\xi|\le1 .\end{cases}$$
+
+Stabil genau für $\xi>0$; für $\xi<0$ wachsende Impulsantwort.
+
+**System zweiter Ordnung: ungedämpft**
+
+$$h(t)=\omega_0\sin(\omega_0t)\,\varepsilon(t)$$
+
+$\xi=0$, Pole bei $\pm\mathrm{j}\omega_0$ auf der imaginären Achse: beschränkt, aber nicht absolut integrierbar, also instabil.
+::::

@@ -14,7 +14,6 @@ lang: zh
 
 [第 2 章](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html)表明，每个信号都是基本单元 $\mathrm{e}^{pt}$ 的叠加，而 LTI 系统只是把每个基本单元乘以一个数。傅里叶描述只使用虚轴上的基本单元 $p=\mathrm{j}2\pi f$：既不增长也不衰减的纯振荡 $\mathrm{e}^{\mathrm{j}2\pi ft}$。这有一个很大的优点：振荡具有频率，而频率可以听到、测量和滤波。__频谱__ $S(f)$ 表明信号中各个频率分别以怎样的幅度和相位存在。
 
-
 **所有结论背后的同一个原理。**
 
 | 结论 | 来源 |
@@ -50,11 +49,10 @@ lang: zh
 
 <li>
 
-⁠**矩形脉冲** $\operatorname{rect}(t)$ 与 $\operatorname{si}(x)=\sin(x)/x$。
+⁠**矩形脉冲** $\operatorname{rect}(t)$ 与 $\operatorname{si}(x)=\sin(x)/x$，在零点处用其极限值补充为 $\operatorname{si}(0)=1$。
 
 </li>
 
 </ul>
 
-脚本 `rechnung_kap3.py` 可重新计算这些数值和曲线。
 :::

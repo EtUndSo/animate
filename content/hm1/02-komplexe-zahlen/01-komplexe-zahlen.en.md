@@ -14,8 +14,6 @@ lang: en
 
 The equation $x^2=-1$ has no solution in $\mathbb{R}$, because the square of a real number is never negative. Yet quadratic equations keep leading to square roots of negative numbers, and AC engineering calculates with them every day. The question is: *Can $\mathbb{R}$ be extended so that $x^2=-1$ becomes solvable and the rules of arithmetic stay intact, and what is lost in the process?*
 
-
-
 **How to work with this chapter.** The sections build on each other, and every new term has its own subsection with an example. Expandable boxes contain background (why something is the way it is and where it comes from), derivations and simulation hints; you do not need them to read on. Try the exercises (★ to ★★★) yourself first; the solution expands right below each exercise.
 
 :::merke The reference model for this chapter
@@ -41,5 +39,4 @@ The equation $x^2=-1$ has no solution in $\mathbb{R}$, because the square of a r
 
 </ul>
 
-The script `rechnung_kap2.py` checks all numbers.
 :::

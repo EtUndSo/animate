@@ -162,3 +162,67 @@ $$\int g\,\mathrm{d} t=a\Bigl[T_0-T\bigl(1-\mathrm{e}^{-T_0/T}\bigr)\Bigr]+a\big
 Ohne Rechnung: Die Fläche einer Faltung ist das Produkt der Flächen, $\int g\,\mathrm{d} t=\int\!\!\int s(\tau)h(t-\tau)\,\mathrm{d}\tau\,\mathrm{d} t=\int s\,\mathrm{d}\tau\cdot\int h\,\mathrm{d} t=aT_0\cdot1$. Numerisch: 1,000.
 :::
 :::
+
+::::kurzfassung
+Man wertet das Faltungsintegral aus, indem man beide Faktoren über der Integrationsvariablen $\tau$ zeichnet. Für einen festen Zeitpunkt $t$ gilt das Rezept:
+
+<ol>
+
+<li>
+
+$s(\tau)$ über $\tau$ zeichnen;
+
+</li>
+
+<li>
+
+$h$ an der senkrechten Achse spiegeln, das ergibt $h(-\tau)$;
+
+</li>
+
+<li>
+
+das gespiegelte $h$ um $t$ nach rechts schieben, das ergibt $h(t-\tau)$;
+
+</li>
+
+<li>
+
+beide multiplizieren und über $\tau$ integrieren, das ergibt $g(t)$.
+
+</li>
+
+</ol>
+
+Lässt man $t$ wachsen, gleitet das gespiegelte $h$ von links nach rechts über $s$. Wo sich beide nicht überlappen, ist $g(t)=0$.
+
+Der Grund für das Spiegeln: Als Funktion von $\tau$ fällt das Argument $t-\tau$, wenn $\tau$ wächst. Der Anfang von $h$, das Alter null, liegt bei $\tau=t$; ältere Stöße liegen weiter links.
+
+Die Impulsantwort des RC-Glieds mit der __Zeitkonstanten__ $T=RC$ ist ein abfallender Exponentialimpuls der Fläche 1:
+
+$$h(t)=\frac1T\,\varepsilon(t)\,\mathrm{e}^{-t/T}.$$
+
+Der kurze Stoß lädt den Kondensator schlagartig auf $1/T$, danach entlädt er sich über $R$.
+
+Falle: Die Integrationsgrenzen sind die Ränder der Überlappung und hängen von $t$ ab. Deshalb zerfällt das Ergebnis in Bereiche, beim Rechteckimpuls am RC-Glied in drei. Spiegeln darf man auch $s$ statt $h$: Die Substitution $\tau'=t-\tau$ macht aus $\int s(\tau)\,h(t-\tau)\,\mathrm{d}\tau$ das Integral $\int s(t-\tau')\,h(\tau')\,\mathrm{d}\tau'$.
+::::
+
+::::formelsammlung
+**Spiegeln von $s$ statt $h$**
+
+$$\int_{-\infty}^{\infty}s(\tau)\,h(t-\tau)\,\mathrm{d}\tau=\int_{-\infty}^{\infty}s(t-\tau')\,h(\tau')\,\mathrm{d}\tau'$$
+
+Substitution $\tau'=t-\tau$. Rezept für festes $t$: $s(\tau)$ zeichnen, $h$ zu $h(-\tau)$ spiegeln, um $t$ nach rechts zu $h(t-\tau)$ schieben, multiplizieren, über $\tau$ integrieren. Ohne Überlappung ist $g(t)=0$.
+
+**Impulsantwort des RC-Glieds**
+
+$$h(t)=\frac1T\,\varepsilon(t)\,\mathrm{e}^{-t/T}$$
+
+Zeitkonstante $T=RC$; abfallender Exponentialimpuls der Fläche 1. Der Stoß lädt den Kondensator schlagartig auf $1/T$, danach entlädt er sich über $R$.
+
+**Antwort des RC-Glieds auf einen Rechteckimpuls**
+
+$$g(t)=\begin{cases}0 & t<0,\\[2pt] a\bigl(1-\mathrm{e}^{-t/T}\bigr) & 0\le t\le T_0,\\[2pt] a\bigl(\mathrm{e}^{T_0/T}-1\bigr)\mathrm{e}^{-t/T} & t>T_0.\end{cases}$$
+
+Eingang: Rechteck der Höhe $a$ von $0$ bis $T_0$; $T=RC$. Drei Bereiche: keine Überlappung, Überlappung für $0<\tau<t$, Überlappung für $0<\tau<T_0$.
+::::

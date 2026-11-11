@@ -35,7 +35,7 @@ Der Weg führt über acht Begriffe. Die __Stromdichte__ ist der Strom je Quersch
 
 <li>
 
-⁠**Kette:** $a=0{,}25$ nm, $t_0=0{,}5$ eV, Band $E(k)=E_\mathrm C+2t_0(1-\cos(ka))$ mit $m^*=1{,}22\,m_0$ an der Unterkante ([Kapitel 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html)). Alle Zahlen rechnet `rechnung_kap12.py` nach.
+⁠**Kette:** $a=0{,}25$ nm, $t_0=0{,}5$ eV, Band $E(k)=E_\mathrm C+2t_0(1-\cos(ka))$ mit $m^*=1{,}22\,m_0$ an der Unterkante ([Kapitel 2](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/das-teilchen-in-der-box/das-teilchen-in-der-box.html)).
 
 </li>
 

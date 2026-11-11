@@ -16,8 +16,6 @@ A system takes in one signal and puts out another: an RC circuit smooths a volta
 
 For the large class of linear, time-invariant systems (LTI systems), the answer is surprisingly short: the response to a single, infinitely short impulse. The tool that turns this one response into every other one is convolution.
 
-
-
 **How to work with this chapter.** The sections build on each other, and every new term has its own subsection with an example. Expandable boxes contain background (why something is the way it is and where it comes from), derivations and simulation hints; you do not need them to read on. Try the exercises (★ to ★★★) yourself first; the solution expands right below each exercise.
 
 :::merke The reference model for this chapter
@@ -37,5 +35,4 @@ For the large class of linear, time-invariant systems (LTI systems), the answer 
 
 </ul>
 
-The script `rechnung_kap1.py` recomputes the numbers and curves.
 :::

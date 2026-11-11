@@ -61,3 +61,67 @@ $$\int_{-\infty}^0\mathrm{e}^{at}\mathrm{e}^{-\mathrm{j}2\pi ft}\mathrm{d} t+\in
 Reell und gerade in $f$. Das muss so sein: Das Signal ist reell und gerade, also ist sein ungerader Anteil null und damit auch $\operatorname{Im} S$ (Stufe [5](symmetrien-im-signal-und-im-spektrum.html#stufe-5)).
 :::
 :::
+
+::::kurzfassung
+Ein einmaliges Signal ist der Grenzfall eines periodischen Signals mit unendlich langer Periode. Aus der Fourier-Reihe wird dabei ein Integral über alle Frequenzen.
+
+Setzt man einen Impuls $s(t)$ mit der Periode $T$ fort, sind die Koeffizienten Werte einer festen Funktion an den Stellen $kF$: $S_p(k)=F\cdot S(kF)$. Für $T\to\infty$ rücken die Linien zusammen, der Abstand $F$ wird zu $\mathrm{d} f$ und die Summe zum Integral. Das ergibt die __Fourier-Transformation__ und ihre Rücktransformation:
+
+$$S(f)=\int_{-\infty}^{\infty}s(t)\,\mathrm{e}^{-\mathrm{j}2\pi ft}\,\mathrm{d} t,\qquad s(t)=\int_{-\infty}^{\infty}S(f)\,\mathrm{e}^{\mathrm{j}2\pi ft}\,\mathrm{d} f.$$
+
+Man schreibt kurz $s(t)\;\circ\!\!-\!\!\bullet\;S(f)$ oder $S(f)=\mathcal{F}\{s(t)\}$. $S(f)$ ist eine __Spektraldichte__, ein Gewicht pro Frequenzintervall; zu einer Spannung in V gehört ein Spektrum in V/Hz. Hinreichend für die Existenz ist $\int|s(t)|\,\mathrm{d} t<\infty$. Liegt die imaginäre Achse im Konvergenzbereich der Laplace-Transformierten, gilt $S(f)=S_{\mathcal{L}}(\mathrm{j}2\pi f)$. Wie dort wird die Faltung zum Produkt, $s(t)*h(t)\;\circ\!\!-\!\!\bullet\;S(f)\,H(f)$, und aus $s*\delta=s$ folgt $\delta(t)\;\circ\!\!-\!\!\bullet\;1$.
+
+Der Grund für die Dichte: Bei einem einmaligen Signal hat keine einzelne Frequenz eine endliche Amplitude. Erst ein Band der Breite $\Delta f$ trägt etwa $S(f)\,\Delta f$, so wie jede Linie der Reihe ein Band der Breite $F$ vertritt.
+
+Falle: $S_p(k)$ und $S(f)$ haben verschiedene Einheiten, V und V/Hz. Wer eine Linienhöhe mit einem Wert der Dichte vergleicht, muss die Dichte mit $F$ multiplizieren.
+::::
+
+::::formelsammlung
+**Koeffizienten der periodischen Fortsetzung**
+
+$$S_p(k)=F\cdot S(kF)$$
+
+Impuls $s(t)$, kürzer als $T$, mit der Periode $T=1/F$ fortgesetzt; $S(f)$ seine Fourier-Transformierte. Jede Linie vertritt ein Band der Breite $F$.
+
+**Fourier-Transformation und Rücktransformation**
+
+$$S(f)=\int_{-\infty}^{\infty}s(t)\,\mathrm{e}^{-\mathrm{j}2\pi ft}\,\mathrm{d} t,\qquad s(t)=\int_{-\infty}^{\infty}S(f)\,\mathrm{e}^{\mathrm{j}2\pi ft}\,\mathrm{d} f$$
+
+Kurzschreibweise $s(t)\;\circ\!\!-\!\!\bullet\;S(f)$ oder $S(f)=\mathcal{F}\{s(t)\}$. $S(f)$ ist eine Spektraldichte: Ist $s$ eine Spannung in V, hat $S$ die Einheit V/Hz.
+
+**Hinreichende Existenzbedingung**
+
+$$\int|s(t)|\,\mathrm{d} t<\infty$$
+
+Absolut integrierbares Signal; Integral über alle Zeiten.
+
+**Zusammenhang mit der Laplace-Transformierten**
+
+$$S(f)=S_{\mathcal{L}}(\mathrm{j}2\pi f)$$
+
+Sofern die imaginäre Achse im Konvergenzbereich der Laplace-Transformierten liegt.
+
+**Faltungssatz**
+
+$$s(t)*h(t)\;\circ\!\!-\!\!\bullet\;S(f)\,H(f)$$
+
+Faltung im Zeitbereich wird Produkt im Frequenzbereich.
+
+**Dirac-Impuls**
+
+$$\delta(t)\;\circ\!\!-\!\!\bullet\;1$$
+
+Aus $s*\delta=s$. Der Dirac-Impuls enthält alle Frequenzen mit gleichem Gewicht.
+
+**Exponentialimpuls (Impulsantwort des RC-Glieds)**
+
+$$h(t)=\frac1{RC}\varepsilon(t)\mathrm{e}^{-t/RC},\qquad H(f)=\frac{1}{1+\mathrm{j}2\pi f\,RC}$$
+
+Derselbe Frequenzgang wie aus der Wechselstromrechnung: Die Impulsantwort enthält die ganze Information über das Frequenzverhalten.
+
+**Zweiseitiger Exponentialimpuls**
+
+$$\mathcal{F}\{\mathrm{e}^{-a|t|}\}=\frac{2a}{a^2+(2\pi f)^2}$$
+
+Für $a>0$. Reell und gerade in $f$, weil das Signal reell und gerade ist.
+::::

@@ -2,6 +2,8 @@
 
 Entscheidung des Users (11.11.2026): „Ja, wir sollten zu allen Artikeln die Formelsammlung und die kurze Erklärung neu erstellen.“ Der Pilot ET3, Kapitel 2 ist abgenommen: „Ja, beide sehen gut aus, gut gemacht.“
 
+**Pause (User 11.11. abends):** Nach ET3 Kap. 3 startet kein neues Heft, bis die einmaligen Aufgaben in `notizen/aufgabenliste.md` (Abschnitt B) erledigt sind. Dann weiter als Loop C2.
+
 ## Muster (aus dem Pilot)
 - **Dateien je Heft im Heftordner:**
   - `kap<N>_kurz.tex` und `kap<N>_formeln.tex`;
@@ -36,4 +38,15 @@ Ein Schreib-Agent zur Zeit, parallel zur Englisch-Schleife.
 | Modul | Kap | Status |
 |---|---|---|
 | et3 | 2 | fertig 11.11. (Pilot) |
-| et3 | 1 | läuft seit 11.11. |
+| et3 | 1 | fertig 11.11. (10 Kurzfassungen 159–233 Wörter, 57 Formeln, alle belegt; PDFs 6/8 S.) |
+| et3 | 3 | fertig 11.11. (11 Kurzfassungen 171–213 Wörter, 75 Formeln, alle belegt; PDFs 6/9 S.). Danach Pause laut Aufgabenliste. |
+
+## Fragliche Stellen in den Heften (von den Schreibern gemeldet)
+- ET3 Kap. 1: Heft nennt φ = −arctan x „Nacheilwinkel“; die Kurzfassung sagt „der Ausgang eilt um arctan x nach“. Bei der Dehnung des Dirac-Impulses fehlt im Heft die Bedingung b ≠ 0 (Kurzfassung nennt sie). Später im Heft prüfen.
+- ET3 Kap. 3 (gemeldet 11.11.):
+  - `kap3_stufen_b.tex:239` Existenzbedingung „∫|s|e^{−c|t|}dt<∞ für jedes c>0 genügt“ falsch (Gegenbeispiel e^{√|t|}); richtig: höchstens wie eine Potenz wachsen.
+  - `:246` Gauß-Vertiefung: „Viele positive Impulse endlicher Fläche nähern sich einer Gaußkurve“ falsch (1/(1+t²) bleibt Cauchy); nötig: endliches zweites Moment.
+  - `:154/162` Hilbert-Faltung nur als Hauptwert.
+  - `:165` S₋/s₋ nie definiert.
+  - si(0)=1 nur im Kommentar.
+  - `kap3_stufen_a.tex:104` Gleichheit der Fourier-Reihe nur im Sinn verschwindender Fehlerleistung.

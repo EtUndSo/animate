@@ -16,8 +16,6 @@ Der Punkt $(5,0)$ lässt sich in Kästchen abzählen. Mit den schiefen Richtunge
 
 Die Antwort führt über acht Begriffe. Das __Vektorprodukt__ macht aus zwei Vektoren des $\mathbb{R}^3$ einen dritten, der auf beiden senkrecht steht. Das __Spatprodukt__ misst damit das Volumen eines schiefen Quaders. Ein __Orthonormalsystem__ besteht aus Vektoren der Länge 1, die paarweise senkrecht stehen. Mit ihm liefert die __Orthogonalprojektion__ den nächsten Punkt eines Unterraums: Man fällt das Lot. Eine __Basis__ ist ein Koordinatensystem: eine geordnete Liste von Vektoren, aus denen sich jeder Vektor auf genau eine Weise bauen lässt. Die __Dimension__ ist ihre Länge. Eine __Orthonormalbasis__ ist eine Basis aus senkrechten Einheitsvektoren, und das __Gram-Schmidt-Verfahren__ baut sie aus einer beliebigen Basis.
 
-
-
 **So arbeitest du mit diesem Kapitel.** Die Abschnitte bauen aufeinander auf, jeder neue Begriff hat einen eigenen Unterabschnitt mit Beispiel. Kästen zum Aufklappen enthalten Hintergrund (warum etwas so ist und woher es kommt), Herleitungen und Hinweise zur Simulation; zum Weiterlesen braucht man sie nicht. Versuche die Aufgaben (★ bis ★★★) zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf.
 
 :::merke Das Rechenmodell für dieses Kapitel
@@ -49,5 +47,4 @@ Die Antwort führt über acht Begriffe. Das __Vektorprodukt__ macht aus zwei Vek
 
 </ul>
 
-Alle Zahlen rechnet `rechnung_kap9.py` nach.
 :::

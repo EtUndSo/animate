@@ -90,3 +90,43 @@ Warum sieht der Ausgang schon „sinusähnlicher“ aus als der Eingang?
 (c) $|H(kF)|=1/\sqrt{1+k^2}\approx1/k$: Die Oberschwingungen werden umso stärker geschwächt, je höher sie sind. Übrig bleibt vor allem die Grundschwingung, und ein Signal, das fast nur aus der Grundschwingung besteht, ist fast ein Sinus.
 :::
 :::
+
+::::kurzfassung
+Weil die Harmonischen orthogonal sind, lassen sich drei Fragen Harmonische für Harmonische beantworten: wie viel Leistung jede trägt, wie gut eine abgebrochene Reihe das Signal nähert und was ein LTI-System mit einem periodischen Eingang macht.
+
+Die mittlere __Leistung__ $L_s$ ist der Mittelwert von $|s_p(t)|^2$ über eine Periode. Der Satz von Parseval verteilt sie auf die Harmonischen:
+
+$$L_s=\frac1T\int_0^T|s_p(t)|^2\,\mathrm{d} t=\sum_{k=-\infty}^{\infty}|S_p(k)|^2.$$
+
+Die __Teilsumme__ $s_{p,N}(t)$ enthält nur die Harmonischen mit $|k|\le N$. Die Leistung ihres Fehlers ist die Summe der weggelassenen $|S_p(k)|^2$ und geht für $N\to\infty$ gegen null. In diesem Sinn stellt die Reihe das Signal dar. Ein LTI-System mit dem Frequenzgang $H(f)$ multipliziert jede Harmonische mit $H(kF)$. Der Ausgang hat dieselbe Periode und die Koeffizienten $G_p(k)=S_p(k)\,H(kF)$.
+
+Der Grund: In $|s_p|^2$ entstehen Mischterme aus zwei verschiedenen Harmonischen; über eine Periode gemittelt verschwinden sie wegen der Orthogonalität. Im LTI-System ist jede Harmonische eine Eigenfunktion und wird für sich übertragen. Ein Tiefpass schwächt deshalb die hohen Harmonischen, aus denen die Kanten bestehen, und rundet die Kanten ab.
+
+Falle: An einer Sprungstelle bleibt ein Überschwinger stehen, das __Gibbs-Phänomen__. Er wird mit wachsendem $N$ nur schmaler, nicht niedriger; seine Höhe strebt gegen 8,95 % der Sprunghöhe. Das widerspricht der Konvergenz nicht, denn seine Fläche und damit die Fehlerleistung gehen gegen null. Die Reihe nähert das Signal im Mittel, aber nicht in jedem Punkt gleich gut.
+::::
+
+::::formelsammlung
+**Parseval für Fourier-Reihen**
+
+$$L_s=\frac1T\int_0^T|s_p(t)|^2\,\mathrm{d} t=\sum_{k=-\infty}^{\infty}|S_p(k)|^2$$
+
+Mittlere Leistung gleich Summe der Leistungen der Harmonischen; die Mischterme verschwinden wegen der Orthogonalität.
+
+**Teilsumme**
+
+$$s_{p,N}(t)=\sum_{k=-N}^{N}S_p(k)\mathrm{e}^{\mathrm{j}2\pi kFt}$$
+
+Nur die Harmonischen mit $|k|\le N$. An Sprungstellen bleibt ein Überschwinger (Gibbs-Phänomen); seine Höhe strebt für $N\to\infty$ gegen 8,95 % der Sprunghöhe, er wird nur schmaler.
+
+**Fehlerleistung der Teilsumme**
+
+$$\frac1T\int_0^T|s_p(t)-s_{p,N}(t)|^2\,\mathrm{d} t=\sum_{|k|>N}|S_p(k)|^2$$
+
+Summe der weggelassenen $|S_p(k)|^2$; geht für $N\to\infty$ gegen null, wenn das Signal endliche Leistung hat. In diesem Sinn stellt die Reihe das Signal dar, nicht unbedingt in jedem Punkt.
+
+**LTI-System mit periodischem Eingang**
+
+$$G_p(k)=S_p(k)\,H(kF)$$
+
+$G_p(k)$ Fourier-Koeffizienten des Ausgangs, $H(f)$ Frequenzgang. Der Ausgang hat dieselbe Periode wie der Eingang.
+::::

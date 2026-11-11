@@ -16,8 +16,6 @@ Al cerrar un circuito, la lámpara se enciende en el mismo instante. Y eso que l
 
 La respuesta consta de tres leyes. La __ley de Ohm__ relaciona la tensión y la corriente en un componente. La __ley de los nudos__ dice que en una bifurcación no desaparece corriente. La __ley de las mallas__ dice que las tensiones a lo largo de un camino cerrado suman cero.
 
-
-
 **Cómo trabajar con este capítulo.** Las secciones se apoyan unas en otras y cada término nuevo tiene su propia subsección con un ejemplo. Los recuadros desplegables contienen el contexto (por qué algo es así y de dónde viene), deducciones e indicaciones para la simulación; no hacen falta para seguir leyendo. Intenta primero los ejercicios (de ★ a ★★★) por tu cuenta; la solución se despliega justo debajo de cada ejercicio.
 
 :::merke El modelo de referencia de este capítulo
@@ -49,5 +47,4 @@ La respuesta consta de tres leyes. La __ley de Ohm__ relaciona la tensión y la 
 
 </ul>
 
-El script `rechnung_kap2.py` comprueba todos los números.
 :::

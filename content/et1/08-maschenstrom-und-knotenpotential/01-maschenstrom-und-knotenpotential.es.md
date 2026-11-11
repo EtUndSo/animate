@@ -14,8 +14,6 @@ lang: es
 
 La red del [capítulo 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html) tiene seis ramas. Cada una lleva una corriente y una tensión, lo que da doce incógnitas, y solo tras largas sustituciones quedaron tres ecuaciones. Un circuito con transistores tiene cientos de ramas. La pregunta de este capítulo es: *¿Cuán pocas incógnitas bastan para una red entera, y cómo se escriben las ecuaciones sin tener que despejar?*
 
-
-
 **Cómo trabajar con este capítulo.** Las secciones se apoyan unas en otras y cada término nuevo tiene su propia subsección con un ejemplo. Los recuadros desplegables contienen el contexto (por qué algo es así y de dónde viene), deducciones e indicaciones para la simulación; no hacen falta para seguir leyendo. Intenta primero los ejercicios (de ★ a ★★★) por tu cuenta; la solución se despliega justo debajo de cada ejercicio.
 
 :::merke La red modelo de este capítulo
@@ -35,7 +33,7 @@ La red del [capítulo 2](/wissen/es/elektrotechnik/1-semester/grundlagen-der-el
 
 <li>
 
-⁠**Unidades:** Se calcula en V, mA, k$\Omega$ y mS. Como $\mathrm{k\Omega\cdot mA}=\mathrm V$ y $\mathrm{mS\cdot V}=\mathrm{mA}$, no aparecen potencias de diez. El script `rechnung_kap8.py` comprueba todos los números.
+⁠**Unidades:** Se calcula en V, mA, k$\Omega$ y mS. Como $\mathrm{k\Omega\cdot mA}=\mathrm V$ y $\mathrm{mS\cdot V}=\mathrm{mA}$, no aparecen potencias de diez.
 
 </li>
 

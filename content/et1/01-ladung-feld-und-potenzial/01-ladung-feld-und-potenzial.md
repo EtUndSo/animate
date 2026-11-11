@@ -16,8 +16,6 @@ Auf einer Blockbatterie steht 9 V. Diese Angabe ist eine __Spannung__. Sie sag
 
 Die Antwort führt über zwei Begriffe. Ein __elektrisches Feld__ legt für jeden Ort fest, welche Kraft dort auf eine Ladung wirkt. Das __Potenzial__ legt für jeden Ort fest, wie viel Energie je Coulomb eine Ladung dort gegenüber einem frei gewählten Nullpunkt hat, dem __Bezugspunkt__.
 
-
-
 **So arbeitest du mit diesem Kapitel.** Die Abschnitte bauen aufeinander auf, jeder neue Begriff hat einen eigenen Unterabschnitt mit Beispiel. Kästen zum Aufklappen enthalten Hintergrund (warum etwas so ist und woher es kommt), Herleitungen und Hinweise zur Simulation; zum Weiterlesen braucht man sie nicht. Versuche die Aufgaben (★ bis ★★★) zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf.
 
 :::merke Das Rechenmodell für dieses Kapitel
@@ -43,7 +41,7 @@ Die Antwort führt über zwei Begriffe. Ein __elektrisches Feld__ legt für jede
 
 <li>
 
-⁠**Konstanten:** $e=1{,}602\cdot10^{-19}$ C, $m_\mathrm{e}=9{,}109\cdot10^{-31}$ kg, $k=8{,}99\cdot10^{9}\,\mathrm{N\,m^2/C^2}$, $g=9{,}81\,\mathrm{m/s^2}$; die Stufen erklären sie. Alle Zahlen rechnet `rechnung_kap1.py` nach.
+⁠**Konstanten:** $e=1{,}602\cdot10^{-19}$ C, $m_\mathrm{e}=9{,}109\cdot10^{-31}$ kg, $k=8{,}99\cdot10^{9}\,\mathrm{N\,m^2/C^2}$, $g=9{,}81\,\mathrm{m/s^2}$; die Stufen erklären sie.
 
 </li>
 

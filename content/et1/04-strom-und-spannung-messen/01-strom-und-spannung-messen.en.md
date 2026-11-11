@@ -14,8 +14,6 @@ lang: en
 
 A voltage divider is supposed to have 3 V across it, and the meter shows 2.73 V. The divider is fine and the reading is correct: it shows the voltage that has been present since the meter was connected. That is because a meter is a component with an __internal resistance__, the resistance between its terminals. The question is: *Why does every meter change the circuit it measures, how large is the error, and why does a bridge measure more accurately than an instrument alone?*
 
-
-
 **How to work with this chapter.** The sections build on each other, and every new term has its own subsection with an example. Expandable boxes contain background (why something is the way it is and where it comes from), derivations and simulation hints; you do not need them to read on. Try the exercises (★ to ★★★) yourself first; the solution expands right below each exercise.
 
 :::merke The reference model for this chapter
@@ -47,5 +45,4 @@ A voltage divider is supposed to have 3 V across it, and the meter shows 2.73�
 
 </ul>
 
-The script `rechnung_kap4.py` recalculates all the numbers.
 :::

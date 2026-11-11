@@ -16,8 +16,6 @@ Ein Sensor hängt an zwei Drähten, dahinter liegt eine Schaltung aus Dutzenden 
 
 Der Weg dorthin hat drei Teile. Die Stufen [1](widerstande-zusammenfassen.html#stufe-1) bis [3](stern-und-dreieck.html#stufe-3) fassen Netze ohne Quelle zusammen. Die Stufen [4](ideale-quellen.html#stufe-4) bis [7](quellen-zusammenschalten.html#stufe-7) führen Quellen ein und zeigen, dass auch sie Geraden sind. Die Stufen [8](uberlagerung.html#stufe-8) und [9](thevenin-und-norton.html#stufe-9) beweisen, dass das für jedes lineare Netz gilt, Stufe [10](der-r-2r-wandler.html#stufe-10) nutzt es in einem Wandler.
 
-
-
 **So arbeitest du mit diesem Kapitel.** Die Abschnitte bauen aufeinander auf, jeder neue Begriff hat einen eigenen Unterabschnitt mit Beispiel. Kästen zum Aufklappen enthalten Hintergrund (warum etwas so ist und woher es kommt), Herleitungen und Hinweise zur Simulation; zum Weiterlesen braucht man sie nicht. Versuche die Aufgaben (★ bis ★★★) zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf.
 
 :::merke Das Rechenmodell für dieses Kapitel
@@ -43,5 +41,4 @@ Der Weg dorthin hat drei Teile. Die Stufen [1](widerstande-zusammenfassen.html#s
 
 </ul>
 
-Alle Zahlen rechnet `rechnung_kap5.py` nach.
 :::

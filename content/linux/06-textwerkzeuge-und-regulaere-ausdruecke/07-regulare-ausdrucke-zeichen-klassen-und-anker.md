@@ -95,8 +95,8 @@ Beide Wege finden nur noch die Zeile mit dem Punkt.
 
 ⁠**Kurz gesagt:** `\` vor einem Sonderzeichen macht es gewöhnlich; `grep -F` nimmt den ganzen Suchtext wörtlich.
 
-:::hintergrund Warum ein vergessener Schrägstrich selten auffällt
-Ein Punkt ohne Schrägstrich passt auch auf einen Punkt. Alle Zeilen, die man finden wollte, werden deshalb weiterhin gefunden, und der Fehler zeigt sich nur in zusätzlichen Treffern, die man leicht übersieht: Eine Suche nach `bericht.txt` findet auch `berichtXtxt`. Das ist eine Folge davon, dass ein Ausdruck eine Menge beschreibt: Ohne Schrägstrich ist die Menge größer, enthält aber die gemeinte Zeichenkette noch. Wer einen festen Text sucht, in dem Punkte oder andere Sonderzeichen vorkommen, etwa einen Dateinamen, nimmt deshalb am besten gleich `grep -F`.
+:::hintergrund Warum ein vergessener umgekehrter Schrägstrich selten auffällt
+Ein Punkt ohne umgekehrten Schrägstrich passt auch auf einen Punkt. Alle Zeilen, die man finden wollte, werden deshalb weiterhin gefunden, und der Fehler zeigt sich nur in zusätzlichen Treffern, die man leicht übersieht: Eine Suche nach `bericht.txt` findet auch `berichtXtxt`. Das ist eine Folge davon, dass ein Ausdruck eine Menge beschreibt: Ohne umgekehrten Schrägstrich ist die Menge größer, enthält aber die gemeinte Zeichenkette noch. Wer einen festen Text sucht, in dem Punkte oder andere Sonderzeichen vorkommen, etwa einen Dateinamen, nimmt deshalb am besten gleich `grep -F`.
 :::
 
 ### Eine Auswahl von Zeichen: der Klammerausdruck

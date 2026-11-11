@@ -49,7 +49,7 @@ Una señal de periodo $T=1/F$ y potencia finita (la media de $|s(t)|^2$ en un pe
 <span class="anker" id="gl-2-5"></span>
 $$S_p(k)=\frac1T\int_{t_1}^{t_1+T}s_p(t)\,\mathrm{e}^{-\mathrm{j}2\pi kFt}\,\mathrm{d} t, \tag{2.5}$$
 
-donde $t_1$ es arbitrario (análisis).
+donde $t_1$ es arbitrario (análisis). El signo igual en [(2.1)](#gl-2-1) se cumple en media cuadrática: la media de $\bigl|s_p(t)-\sum_{|k|\le N}S_p(k)\,\mathrm{e}^{\mathrm{j}2\pi kFt}\bigr|^2$ en un periodo, la potencia del error, tiende a cero para $N\to\infty$. En puntos aislados, por ejemplo en los saltos, la serie no tiene por qué dar el valor de la señal.
 :::
 
 ⁠**Cómo leerlo:** $S_p(k)$ es el valor medio de la señal después de «girarla en sentido contrario» con el $k$-ésimo armónico. Si el armónico está en la señal, su fasor deja de girar y su contribución se conserva en el promedio. $S_p(0)$ es simplemente el valor medio.

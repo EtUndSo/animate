@@ -16,8 +16,6 @@ Ein Ladegerät macht aus der Wechselspannung der Steckdose die Gleichspannung f�
 
 Die Antwort führt über sechs Begriffe. __Dotierung__ heißt: Man baut wenige Fremdatome ein und legt so fest, wie viele __Ladungsträger__ (bewegliche Ladungen) der Kristall hat. An der Grenze zweier verschieden dotierter Gebiete, dem __pn-Übergang__, bildet sich von selbst die __Raumladungszone__, eine dünne Schicht ohne bewegliche Ladungen, die als Energiebarriere wirkt. Die __Kennlinie__ ist der Graph des Stroms über der Spannung, der __Arbeitspunkt__ das Paar aus Spannung und Strom, das sich in einer Schaltung einstellt.
 
-
-
 **So arbeitest du mit diesem Kapitel.** Die Abschnitte bauen aufeinander auf, jeder neue Begriff hat einen eigenen Unterabschnitt mit Beispiel. Kästen zum Aufklappen enthalten Hintergrund (warum etwas so ist und woher es kommt), Herleitungen und Hinweise zur Simulation; zum Weiterlesen braucht man sie nicht. Versuche die Aufgaben (★ bis ★★★) zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf.
 
 :::merke Das Rechenmodell für dieses Kapitel
@@ -49,7 +47,7 @@ Die Antwort führt über sechs Begriffe. __Dotierung__ heißt: Man baut wenige F
 
 <li>
 
-⁠**Konstanten:** $e=1{,}602\cdot10^{-19}$ C, $k_\mathrm B=1{,}3806\cdot10^{-23}$ J/K. Alle Zahlen rechnet `rechnung_kap9.py` nach.
+⁠**Konstanten:** $e=1{,}602\cdot10^{-19}$ C, $k_\mathrm B=1{,}3806\cdot10^{-23}$ J/K.
 
 </li>
 

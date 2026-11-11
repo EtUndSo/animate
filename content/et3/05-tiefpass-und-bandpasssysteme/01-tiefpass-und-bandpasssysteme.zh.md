@@ -14,7 +14,6 @@ lang: zh
 
 几乎所有传输都要求信号尽可能不变地到达，但只限于某个频率范围：低通让低频通过，带通让载波频率附近的一个频带通过。本章要回答的问题是：“不变”究竟是什么意思？严格限定的频带要付出什么代价？对于搭载在高频载波上的信号，又该如何计算？
 
-
 **所有结论背后的同一个原理。**
 
 | 结论 | 来源 |
@@ -59,5 +58,5 @@ lang: zh
 
 </ul>
 
-脚本 `rechnung_kap5.py` 可重新计算这些数值和曲线。与[第 3 章](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)相同，抽样函数 $\operatorname{si}(x)=\sin(x)/x$。
+与[第 3 章](/wissen/zh/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)相同，抽样函数 $\operatorname{si}(x)=\sin(x)/x$。
 :::

@@ -16,8 +16,6 @@ En la escuela se aprenden reglas como $(-1)\cdot(-1)=1$ o «no se puede dividir 
 
 La respuesta necesita dos herramientas y una lista breve de supuestos. Un __conjunto__ agrupa objetos; una __proposición__ es una oración que es verdadera o falsa. Un __axioma__ es un supuesto básico que se establece y no se demuestra. Bastan tres grupos de axiomas: un __cuerpo__ es un conjunto en el que la suma y el producto funcionan según las reglas conocidas. El __orden__ establece qué números son positivos. La __completitud__ dice que la recta numérica no tiene huecos. A esto se añaden la __inducción matemática__, el método de demostración para proposiciones sobre todos los números naturales, y el __valor absoluto__, la distancia de un número al cero.
 
-
-
 **Cómo trabajar con este capítulo.** Las secciones se apoyan unas en otras y cada término nuevo tiene su propia subsección con un ejemplo. Los recuadros desplegables contienen el contexto (por qué algo es así y de dónde viene), deducciones e indicaciones para la simulación; no hacen falta para seguir leyendo. Intenta primero los ejercicios (de ★ a ★★★) por tu cuenta; la solución se despliega justo debajo de cada ejercicio.
 
 :::merke El modelo de referencia de este capítulo
@@ -43,7 +41,7 @@ La respuesta necesita dos herramientas y una lista breve de supuestos. Un __conj
 
 <li>
 
-⁠**Números para desigualdades:** $x=-3$, $y=5$ para el valor absoluto; $x=2$, $y=8$ para las medias; las listas $\vec x=(3,4)$, $\vec y=(1,2)$ para Cauchy-Schwarz. El script `rechnung_kap1.py` comprueba todos los números y tablas.
+⁠**Números para desigualdades:** $x=-3$, $y=5$ para el valor absoluto; $x=2$, $y=8$ para las medias; las listas $\vec x=(3,4)$, $\vec y=(1,2)$ para Cauchy-Schwarz.
 
 </li>
 

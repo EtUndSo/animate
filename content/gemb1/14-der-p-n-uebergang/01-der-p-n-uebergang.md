@@ -35,7 +35,7 @@ Der Weg führt über acht Begriffe. Ein __p-n-Übergang__ ist die Grenze zwische
 
 <li>
 
-⁠**Minoritätsträger:** Elektronen im p-Gebiet mit $\mu_\mathrm n=925\,\mathrm{cm^2/(V\,s)}$, Löcher im n-Gebiet mit $\mu_\mathrm p=419\,\mathrm{cm^2/(V\,s)}$ ([Kapitel 12](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/strom-im-halbleiter/strom-im-halbleiter.html)), Rekombinationszeit auf beiden Seiten $\tau_\text{rec}=1$ µ s. Alle Zahlen rechnet `rechnung_kap14.py` nach.
+⁠**Minoritätsträger:** Elektronen im p-Gebiet mit $\mu_\mathrm n=925\,\mathrm{cm^2/(V\,s)}$, Löcher im n-Gebiet mit $\mu_\mathrm p=419\,\mathrm{cm^2/(V\,s)}$ ([Kapitel 12](/wissen/elektrotechnik/4-semester/elektronische-materialien-und-bauelemente-1/strom-im-halbleiter/strom-im-halbleiter.html)), Rekombinationszeit auf beiden Seiten $\tau_\text{rec}=1$ µ s.
 
 </li>
 

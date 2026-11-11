@@ -14,8 +14,6 @@ lang: de
 
 Ein Mikrofon liefert Millivolt, ein Lautsprecher braucht Volt. Ein Rechnerausgang liefert Milliampere, ein Motor braucht Ampere. Dazwischen sitzt ein Bauteil, das mit einem kleinen Signal einen großen Strom steuert. Der klassische Vertreter ist der __Bipolartransistor__, ein Halbleiterbauelement aus drei Schichten mit drei Anschlüssen. Die Energie kommt aus der Versorgungsspannung, das Signal stellt nur ein. Der andere wichtige Typ, der MOSFET, prägt die Digitaltechnik und ist nicht Thema dieses Kapitels. Die Frage lautet: *Wie kann eine Spannung von 0,6 V einen Strom steuern, der durch eine gesperrte Diode fließt?*
 
-
-
 **So arbeitest du mit diesem Kapitel.** Die Abschnitte bauen aufeinander auf, jeder neue Begriff hat einen eigenen Unterabschnitt mit Beispiel. Kästen zum Aufklappen enthalten Hintergrund (warum etwas so ist und woher es kommt), Herleitungen und Hinweise zur Simulation; zum Weiterlesen braucht man sie nicht. Versuche die Aufgaben (★ bis ★★★) zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf.
 
 :::merke Das Rechenmodell für dieses Kapitel
@@ -41,5 +39,4 @@ Ein Mikrofon liefert Millivolt, ein Lautsprecher braucht Volt. Ein Rechnerausgan
 
 </ul>
 
-Alle Zahlen rechnet `rechnung_kap10.py` nach.
 :::

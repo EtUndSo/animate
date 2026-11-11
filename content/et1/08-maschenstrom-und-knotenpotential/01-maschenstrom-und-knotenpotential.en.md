@@ -14,8 +14,6 @@ lang: en
 
 The network from [Chapter 2](/wissen/en/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/strom-widerstand-und-kirchhoff/strom-widerstand-und-kirchhoff.html) has six branches. Each carries a current and a voltage, which makes twelve unknowns, and only after long substitution did three equations remain. A circuit with transistors has hundreds of branches. The question of this chapter is: *How few unknowns are enough for an entire network, and how do you write down the equations without rearranging?*
 
-
-
 **How to work with this chapter.** The sections build on each other, and every new term has its own subsection with an example. Expandable boxes contain background (why something is the way it is and where it comes from), derivations and simulation hints; you do not need them to read on. Try the exercises (★ to ★★★) yourself first; the solution expands right below each exercise.
 
 :::merke The model network for this chapter
@@ -35,7 +33,7 @@ The network from [Chapter 2](/wissen/en/elektrotechnik/1-semester/grundlagen-de
 
 <li>
 
-⁠**Units:** All calculations use V, mA, k$\Omega$ and mS. Because $\mathrm{k\Omega\cdot mA}=\mathrm V$ and $\mathrm{mS\cdot V}=\mathrm{mA}$, no powers of ten appear. The script `rechnung_kap8.py` recalculates all the numbers.
+⁠**Units:** All calculations use V, mA, k$\Omega$ and mS. Because $\mathrm{k\Omega\cdot mA}=\mathrm V$ and $\mathrm{mS\cdot V}=\mathrm{mA}$, no powers of ten appear.
 
 </li>
 

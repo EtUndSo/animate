@@ -16,8 +16,6 @@ A sensor hangs on two wires, and behind them lies a circuit of dozens of compone
 
 The way there has three parts. Stages [1](widerstande-zusammenfassen.html#stufe-1) to [3](stern-und-dreieck.html#stufe-3) reduce networks without a source. Stages [4](ideale-quellen.html#stufe-4) to [7](quellen-zusammenschalten.html#stufe-7) introduce sources and show that they too are straight lines. Stages [8](uberlagerung.html#stufe-8) and [9](thevenin-und-norton.html#stufe-9) prove that this holds for every linear network, and Stage [10](der-r-2r-wandler.html#stufe-10) uses it in a converter.
 
-
-
 **How to work with this chapter.** The sections build on each other, and every new term has its own subsection with an example. Expandable boxes contain background (why something is the way it is and where it comes from), derivations and simulation hints; you do not need them to read on. Try the exercises (★ to ★★★) yourself first; the solution expands right below each exercise.
 
 :::merke The reference model for this chapter
@@ -43,5 +41,4 @@ The way there has three parts. Stages [1](widerstande-zusammenfassen.html#stufe
 
 </ul>
 
-The script `rechnung_kap5.py` recalculates all the numbers.
 :::

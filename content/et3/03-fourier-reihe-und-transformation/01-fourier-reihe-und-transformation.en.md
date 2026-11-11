@@ -14,8 +14,6 @@ lang: en
 
 [Chapter 2](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/laplace-transformation/laplace-transformation.html) showed that every signal is a superposition of building blocks $\mathrm{e}^{pt}$, and that an LTI system merely multiplies each building block by a number. The Fourier description uses only the building blocks on the imaginary axis, $p=\mathrm{j}2\pi f$: pure oscillations $\mathrm{e}^{\mathrm{j}2\pi ft}$ that neither grow nor decay. This has a big advantage. An oscillation has a frequency that you can hear, measure and filter. The __spectrum__ $S(f)$ tells you with which amplitude and phase each frequency is contained in the signal.
 
-
-
 **How to work with this chapter.** The sections build on each other, and every new term has its own subsection with an example. Expandable boxes contain background (why something is the way it is and where it comes from), derivations and simulation hints; you do not need them to read on. Try the exercises (★ to ★★★) yourself first; the solution expands right below each exercise.
 
 :::merke The reference model for this chapter
@@ -35,11 +33,10 @@ lang: en
 
 <li>
 
-⁠**Rectangular pulse** $\operatorname{rect}(t)$ and $\operatorname{si}(x)=\sin(x)/x$.
+⁠**Rectangular pulse** $\operatorname{rect}(t)$ and $\operatorname{si}(x)=\sin(x)/x$, completed at zero by its limit $\operatorname{si}(0)=1$.
 
 </li>
 
 </ul>
 
-The script `rechnung_kap3.py` recomputes the numbers and curves.
 :::

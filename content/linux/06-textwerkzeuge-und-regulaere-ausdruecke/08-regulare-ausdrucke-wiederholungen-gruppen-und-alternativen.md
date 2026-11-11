@@ -185,10 +185,10 @@ $ grep 'Clara\|Ben' laeufe.csv | wc -l
 5
 ```
 
-Mit Schrägstrichen vor den geschweiften Klammern findet die Grundform den Lauf über 128 Minuten, und GNU `grep` versteht auch `\|`: fünf Läufe von Clara oder Ben.
+Mit umgekehrten Schrägstrichen vor den geschweiften Klammern findet die Grundform den Lauf über 128 Minuten, und GNU `grep` versteht auch `\|`: fünf Läufe von Clara oder Ben.
 ::::
 
-⁠**Kurz gesagt:** In der Grundform bekommen `{ }` und `( )` einen Schrägstrich davor, `\+ \? \|` sind dort eine Zugabe der GNU-Werkzeuge; im Zweifel schreibt man `-E`.
+⁠**Kurz gesagt:** In der Grundform bekommen `{ }` und `( )` einen umgekehrten Schrägstrich davor, `\+ \? \|` sind dort eine Zugabe der GNU-Werkzeuge; im Zweifel schreibt man `-E`.
 
 :::hintergrund Warum es zwei Formen gibt
 Die Grundform ist die ältere. Sie stammt aus dem Editor `ed` und dem ersten `grep`, die `+`, `?` und `|` noch nicht als Sonderzeichen kannten. Als ein zweites Programm namens `egrep` diese Zeichen hinzunahm, hätten alte Suchtexte mit einem gewöhnlichen `+` plötzlich etwas anderes bedeutet. Also blieb die Grundform, wie sie war, und die erweiterte kam als zweite Schreibweise dazu. Die Handbuchseite `regex` im Abschnitt 7 des Handbuchs ([Kapitel 2, Abschnitt 4.5](/wissen/informatik/linux-und-kommandozeile/die-shell-erste-befehle/hilfe-finden.html#stufe-4-5)) nennt die zwei Arten von Ausdrücken offen einen Fehlgriff; loswerden kann man ihn aber nicht mehr. Bei GNU `grep` können beide Formen dasselbe, sie unterscheiden sich nur in der Schreibweise. `egrep` gilt heute als veraltet; GNU `grep` gibt seit Version 3.8 eine Warnung aus und empfiehlt `grep -E`.
@@ -300,7 +300,7 @@ Tabelle [2](#tab-2) übersetzt die wichtigsten Muster in reguläre Ausdrücke. 
 
 <span class="anker" id="tab-2"></span>
 
-**Tabelle 2:** Muster für Dateinamen und die gleichwertigen regulären Ausdrücke. Ein Punkt ist im Muster ein gewöhnliches Zeichen, im Ausdruck braucht er einen Schrägstrich.
+**Tabelle 2:** Muster für Dateinamen und die gleichwertigen regulären Ausdrücke. Ein Punkt ist im Muster ein gewöhnliches Zeichen, im Ausdruck braucht er einen umgekehrten Schrägstrich.
 
 | Bedeutung | Muster für Dateinamen | regulärer Ausdruck |
 |---|---|---|
@@ -436,6 +436,6 @@ $ grep '\(Anna\|Ben\),[0-9]\{2\}\.' laeufe.csv
 2026-11-08,Ben,21.1,128
 ```
 
-(a) `foto?.jpg` wird `^foto.\.jpg$`: das Fragezeichen wird zum Punkt, der Punkt der Endung braucht einen Schrägstrich, und die Anker verlangen den ganzen Namen; `foto10.jpg` hat zwei Zeichen nach `foto` und fällt heraus. `*.csv` wird `^.*\.csv$`; weil `^.*` auf jeden Anfang passt, genügt `\.csv$`. `[!0-9]*` wird `^[^0-9]`: ein erstes Zeichen, das keine Ziffer ist, der Rest ist beliebig und braucht keinen Ausdruck. (b) In der Grundform bekommen Klammern, senkrechter Strich und geschweifte Klammern einen Schrägstrich; `\|` ist eine Zugabe der GNU-Werkzeuge. Beide Formen finden dieselben drei Läufe über mindestens 10 km von Anna oder Ben.
+(a) `foto?.jpg` wird `^foto.\.jpg$`: das Fragezeichen wird zum Punkt, der Punkt der Endung braucht einen umgekehrten Schrägstrich, und die Anker verlangen den ganzen Namen; `foto10.jpg` hat zwei Zeichen nach `foto` und fällt heraus. `*.csv` wird `^.*\.csv$`; weil `^.*` auf jeden Anfang passt, genügt `\.csv$`. `[!0-9]*` wird `^[^0-9]`: ein erstes Zeichen, das keine Ziffer ist, der Rest ist beliebig und braucht keinen Ausdruck. (b) In der Grundform bekommen Klammern, senkrechter Strich und geschweifte Klammern einen umgekehrten Schrägstrich; `\|` ist eine Zugabe der GNU-Werkzeuge. Beide Formen finden dieselben drei Läufe über mindestens 10 km von Anna oder Ben.
 :::
 :::

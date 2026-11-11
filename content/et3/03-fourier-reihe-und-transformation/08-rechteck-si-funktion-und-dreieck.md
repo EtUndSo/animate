@@ -78,3 +78,61 @@ Welches Spektrum hat $\operatorname{rect}*\operatorname{rect}*\operatorname{rect
 (b) $\operatorname{si}^3(\pi f)$. Jede weitere Faltung multipliziert das Spektrum mit $\operatorname{si}(\pi f)$, das in den Nebenzipfeln wie $1/(\pi f)$ abfällt. Bei $M$ gefalteten Rechtecken fallen die Nebenzipfel wie $1/f^M$. Im Zeitbereich: Das Rechteck springt (Abfall $1/f$), das Dreieck hat Knicke ($1/f^2$), die dreifache Faltung hat eine stetige Ableitung ($1/f^3$). Je glatter ein Signal, desto schneller fällt sein Spektrum ab.
 :::
 :::
+
+::::kurzfassung
+Drei Transformationspaare kommen ständig vor: Rechteck, si-Funktion und Dreieck. Alle folgen aus einer einzigen Rechnung und den Rechenregeln.
+
+Die __si-Funktion__ ist $\operatorname{si}(x)=\sin(x)/x$, an der Stelle null durch ihren Grenzwert 1 ergänzt. Das Rechteck $\operatorname{rect}(t)$ hat das Spektrum $\int_{-1/2}^{1/2}\mathrm{e}^{-\mathrm{j}2\pi ft}\,\mathrm{d} t=\operatorname{si}(\pi f)$. Mit der Ähnlichkeit folgt für ein Rechteck der Dauer $|T|$
+
+$$\operatorname{rect}\Bigl(\frac tT\Bigr)\;\circ\!\!-\!\!\bullet\;|T|\operatorname{si}(\pi Tf).$$
+
+Die Symmetrie liefert umgekehrt $\operatorname{si}\bigl(\frac{\pi t}{T}\bigr)\;\circ\!\!-\!\!\bullet\;|T|\operatorname{rect}(Tf)$. Das Dreieck ist die Faltung zweier Rechtecke, $\Lambda(t)=\operatorname{rect}(t)*\operatorname{rect}(t)$; nach dem Faltungssatz ist sein Spektrum $\operatorname{si}^2(\pi f)$. Schließlich gilt $\operatorname{si}(\pi t)*\operatorname{si}(\pi t)=\operatorname{si}(\pi t)$, weil im Frequenzbereich $\operatorname{rect}(f)\cdot\operatorname{rect}(f)=\operatorname{rect}(f)$ ist. Ein __idealer Tiefpass__ lässt alle Frequenzen eines Bandes unverändert durch und sperrt alle anderen; er ändert ein Signal nicht, das schon auf sein Band begrenzt ist.
+
+Der Grund für die Form des Spektrums: Bei $f=0$ ist es die Fläche $|T|$ des Rechtecks. Bei den Frequenzen $k/T$ mit ganzzahligem $k\neq0$ passen genau $k$ Perioden der Schwingung in das Rechteck. Sie mitteln sich zu null, daher die Nullstellen. Doppelte Dauer heißt doppelte Höhe und halbe Breite des Spektrums.
+
+Falle: $\operatorname{si}(x)$ ist null, wo $\sin(x)$ null ist, also bei den von null verschiedenen ganzzahligen Vielfachen von $\pi$. Im Argument $\pi Tf$ steckt das $\pi$ schon. Die Nullstellen von $\operatorname{si}(\pi Tf)$ liegen deshalb bei $k/T$.
+::::
+
+::::formelsammlung
+**si-Funktion**
+
+$$\operatorname{si}(x)=\sin(x)/x$$
+
+An der Stelle null durch den Grenzwert 1 ergänzt.
+
+**Rechteck**
+
+$$\operatorname{rect}(t)\;\circ\!\!-\!\!\bullet\;\operatorname{si}(\pi f)$$
+
+Direkt aus $\int_{-1/2}^{1/2}\mathrm{e}^{-\mathrm{j}2\pi ft}\,\mathrm{d} t=\operatorname{si}(\pi f)$.
+
+**Rechteck der Dauer $|T|$**
+
+$$\operatorname{rect}\Bigl(\frac tT\Bigr)\;\circ\!\!-\!\!\bullet\;|T|\operatorname{si}(\pi Tf)$$
+
+$T$ ungleich null. Höhe $|T|$ bei $f=0$ (Fläche des Rechtecks), Nullstellen bei allen von null verschiedenen Vielfachen von $1/T$. Doppelte Dauer: doppelte Höhe, halbe Breite.
+
+**si-Funktion als Zeitsignal**
+
+$$\operatorname{si}\Bigl(\frac{\pi t}{T}\Bigr)\;\circ\!\!-\!\!\bullet\;|T|\operatorname{rect}(Tf)$$
+
+Folgt aus der Symmetrie.
+
+**Dreieck**
+
+$$\Lambda(t)=\operatorname{rect}(t)*\operatorname{rect}(t)\;\circ\!\!-\!\!\bullet\;\operatorname{si}^2(\pi f)$$
+
+Folgt aus dem Faltungssatz.
+
+**Faltung der si-Funktion mit sich selbst**
+
+$$\operatorname{si}(\pi t)*\operatorname{si}(\pi t)=\operatorname{si}(\pi t)$$
+
+Weil $\operatorname{rect}(f)\cdot\operatorname{rect}(f)=\operatorname{rect}(f)$: Ein idealer Tiefpass ändert ein Signal nicht, das schon auf sein Band begrenzt ist.
+
+**Fläche und Energie der si-Funktion**
+
+$$\int_{-\infty}^{\infty}\operatorname{si}(\pi t)\,\mathrm{d} t=1,\qquad\int_{-\infty}^{\infty}\operatorname{si}^2(\pi t)\,\mathrm{d} t=1$$
+
+Mit dem Flächensatz, $\operatorname{rect}(0)=1$, und mit Parseval, $\int\operatorname{rect}^2(f)\mathrm{d} f=1$.
+::::

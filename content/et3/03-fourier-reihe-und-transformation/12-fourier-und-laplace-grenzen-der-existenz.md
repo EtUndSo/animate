@@ -19,14 +19,14 @@ Hinreichend für die Existenz ist absolute Integrierbarkeit, $\int|s(t)|\mathrm{
 
 $$S_{\mathcal{L}}(\sigma+\mathrm{j}2\pi f)=\mathcal{F}\bigl\{s(t)\mathrm{e}^{-\sigma t}\bigr\}(f).$$
 
-Sie untersucht ein Signal also auf zweierlei: auf Frequenzanteile wie die Fourier-Transformation und auf exponentielles Wachsen oder Abklingen. Liegt $\sigma=0$ im Konvergenzbereich, ist die Fourier-Transformierte die Laplace-Transformierte auf der imaginären Achse. Mit Dirac-Impulsen (Stufe [8](singulare-signale-und-linienspektren.html#stufe-8)) fasst die Fourier-Transformation aber auch Signale, die die Laplace-Transformation nicht fasst: Konstanten und Schwingungen über alle Zeiten. Allgemein genügt es, dass $\int|s(t)|\mathrm{e}^{-c|t|}\mathrm{d} t<\infty$ für jedes $c>0$ gilt. Dann darf das Signal wie eine Potenz $t^n$ wachsen, aber nicht exponentiell.
+Sie untersucht ein Signal also auf zweierlei: auf Frequenzanteile wie die Fourier-Transformation und auf exponentielles Wachsen oder Abklingen. Liegt $\sigma=0$ im Konvergenzbereich, ist die Fourier-Transformierte die Laplace-Transformierte auf der imaginären Achse. Mit Dirac-Impulsen (Stufe [8](singulare-signale-und-linienspektren.html#stufe-8)) fasst die Fourier-Transformation aber auch Signale, die die Laplace-Transformation nicht fasst: Konstanten und Schwingungen über alle Zeiten. Allgemein genügt es, dass das Signal höchstens so schnell wächst wie eine Potenz von $t$, genauer: dass $\int|s(t)|\,(1+t^2)^{-n}\mathrm{d} t<\infty$ für ein $n\ge0$ gilt. Das erfüllen Konstanten, Schwingungen, der Sprung und $t^n$, nicht aber exponentiell wachsende Signale wie $\mathrm{e}^{t}\varepsilon(t)$; diese fasst nur die Laplace-Transformation.
 
 :::zusatz Warum Mehrfachfaltungen gaußförmig werden
 Faltet man $M$ Rechtecke $\operatorname{rect}(t)$ miteinander, ist das Spektrum $\operatorname{si}^M(\pi f)$. Für kleine $f$ ist $\operatorname{si}(\pi f)\approx1-\frac{(\pi f)^2}{6}$ und $\ln(1+w)\approx w$, also
 
 $$\operatorname{si}^M(\pi f)=\mathrm{e}^{M\ln\operatorname{si}(\pi f)}\approx\mathrm{e}^{-M(\pi f)^2/6}\;\bullet\!\!-\!\!\circ\;\sqrt{\frac{6}{\pi M}}\,\mathrm{e}^{-6t^2/M}.$$
 
-Für große $M$ trägt nur der Bereich kleiner $f$ bei, die Näherung wird immer besser. Bei $M=4$ ist der Wert bei $t=0$ exakt $0{,}667$, die Gaußkurve gibt $0{,}691$. Das ist ein Fall des __zentralen Grenzwertsatzes__ (Teil zur Statistik): Die Faltung vieler positiver Impulse endlicher Fläche nähert sich einer Gaußkurve. Ein Beispiel ist die Impulsantwort einer Kette vieler kurzer Integratoren.
+Für große $M$ trägt nur der Bereich kleiner $f$ bei, die Näherung wird immer besser. Bei $M=4$ ist der Wert bei $t=0$ exakt $0{,}667$, die Gaußkurve gibt $0{,}691$. Das ist ein Fall des __zentralen Grenzwertsatzes__ (Teil zur Statistik): Die Faltung vieler gleicher positiver Impulse endlicher Fläche nähert sich einer Gaußkurve, sofern die Impulse schnell genug abklingen, genauer: sofern ihr zweites Moment $\int t^2s(t)\,\mathrm{d} t$ endlich ist. Ein Beispiel ist die Impulsantwort einer Kette vieler kurzer Integratoren. Ohne diese Bedingung geht es nicht: $\frac{1}{1+t^2}$ aus Aufgabe [7](die-rechenregeln-theoreme.html#aufg-7) hat ein unendliches zweites Moment, und die $M$-fache Faltung mit dem Spektrum $\pi^M\mathrm{e}^{-2\pi M|f|}$ ist wieder eine gedehnte Kurve der Form $\frac{1}{1+t^2}$.
 :::
 
 :::aufgabe Aufgabe 14 ★★★ (Vertiefung) Die Gaußnäherung prüfen
@@ -54,3 +54,37 @@ Zeige, dass die Gaußkurve $\sqrt{6/(\pi M)}\,\mathrm{e}^{-6t^2/M}$ die Fläche 
 (b) $\int\mathrm{e}^{-6t^2/M}\mathrm{d} t=\sqrt{\pi M/6}$, mal $\sqrt{6/(\pi M)}$ ergibt 1. Das muss so sein: Die Fläche einer Faltung ist das Produkt der Flächen, hier $1^M=1$. Im Spektrum ist das der Wert bei $f=0$, $\operatorname{si}^M(0)=1$, und die Näherung $\mathrm{e}^{-M(\pi f)^2/6}$ hat dort ebenfalls 1.
 :::
 :::
+
+::::kurzfassung
+Fourier- und Laplace-Transformation erweitern die Klasse der transformierbaren Signale auf verschiedene Weise. Keine der beiden umfasst die andere.
+
+Hinreichend für die Existenz des Fourier-Integrals ist $\int|s(t)|\,\mathrm{d} t<\infty$. Die Laplace-Transformation gewichtet das Signal vorher mit $\mathrm{e}^{-\sigma t}$:
+
+$$S_{\mathcal{L}}(\sigma+\mathrm{j}2\pi f)=\mathcal{F}\bigl\{s(t)\mathrm{e}^{-\sigma t}\bigr\}(f).$$
+
+Sie untersucht ein Signal damit auf Frequenzanteile und auf exponentielles Wachsen oder Abklingen. Liegt $\sigma=0$ im Konvergenzbereich, ist die Fourier-Transformierte die Laplace-Transformierte auf der imaginären Achse. Mit Dirac-Impulsen im Spektrum fasst die Fourier-Transformation dagegen Signale, die die Laplace-Transformation nicht fasst, etwa Konstanten und Schwingungen über alle Zeiten. Es genügt dann, dass ein Signal höchstens wie eine Potenz $t^n$ wächst; exponentiell wachsende Signale fasst nur die Laplace-Transformation.
+
+Eine Vertiefung zeigt, warum Mehrfachfaltungen gaußförmig werden. Faltet man $M$ Rechtecke $\operatorname{rect}(t)$, ist das Spektrum $\operatorname{si}^M(\pi f)$. Für großes $M$ zählt nur die Umgebung von $f=0$, und dort ist es nahezu $\mathrm{e}^{-M(\pi f)^2/6}$, das Spektrum einer Gaußkurve. Das ist ein Fall des __zentralen Grenzwertsatzes__: Die Faltung vieler positiver Impulse endlicher Fläche nähert sich einer Gaußkurve, sofern die Impulse schnell genug abklingen, etwa weil sie wie das Rechteck nur auf einem endlichen Intervall von null verschieden sind.
+
+Falle: Auf dem Rand des Konvergenzbereichs darf man nicht einfach $p=\mathrm{j}2\pi f$ einsetzen. Beim Sprung $\varepsilon(t)$ liegt die imaginäre Achse genau dort; das Einsetzen liefert nur $\frac{1}{\mathrm{j}2\pi f}$, die Linie $\tfrac12\delta(f)$ fehlt.
+::::
+
+::::formelsammlung
+**Hinreichende Existenzbedingung**
+
+$$\int|s(t)|\,\mathrm{d} t<\infty$$
+
+Absolut integrierbares Signal. Mit Dirac-Impulsen im Spektrum genügt, dass das Signal höchstens wie eine Potenz $t^n$ wächst (Konstanten, Schwingungen, Sprung); exponentiell wachsende Signale fasst nur die Laplace-Transformation.
+
+**Laplace-Transformation als gewichtete Fourier-Transformation**
+
+$$S_{\mathcal{L}}(\sigma+\mathrm{j}2\pi f)=\mathcal{F}\bigl\{s(t)\mathrm{e}^{-\sigma t}\bigr\}(f)$$
+
+$\sigma$ reell, im Konvergenzbereich. Liegt $\sigma=0$ im Konvergenzbereich, ist $S(f)=S_{\mathcal{L}}(\mathrm{j}2\pi f)$. Liegt die imaginäre Achse nur auf seinem Rand, wie beim Sprung, fehlen beim Einsetzen die Dirac-Anteile.
+
+**Gaußnäherung der Mehrfachfaltung**
+
+$$\operatorname{si}^M(\pi f)=\mathrm{e}^{M\ln\operatorname{si}(\pi f)}\approx\mathrm{e}^{-M(\pi f)^2/6}\;\bullet\!\!-\!\!\circ\;\sqrt{\frac{6}{\pi M}}\,\mathrm{e}^{-6t^2/M}$$
+
+$\operatorname{si}^M(\pi f)$ ist das Spektrum von $M$ miteinander gefalteten Rechtecken $\operatorname{rect}(t)$. Mit $\operatorname{si}(\pi f)\approx1-\frac{(\pi f)^2}{6}$ für kleine $f$; umso genauer, je größer $M$. Die Gaußkurve hat die Fläche 1 wie die Faltung der Rechtecke.
+::::

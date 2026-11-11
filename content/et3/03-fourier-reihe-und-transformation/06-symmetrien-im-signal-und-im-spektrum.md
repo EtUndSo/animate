@@ -56,3 +56,49 @@ Was lässt sich ohne Rechnung über das Spektrum sagen? (a) $s(t)=\operatorname{
 (a) Reell und gerade: Spektrum reell und gerade ($\operatorname{si}(\pi f)$). (b) Reell und ungerade: Spektrum rein imaginär und ungerade. (c) Komplex, aber $x^*(-t)=\mathrm{e}^{-\mathrm{j}2\pi(-t)}\operatorname{rect}(-t)=x(t)$: Im Sinne der Definition ist das Signal gerade, also ist sein Spektrum reell. Nach der Modulationsregel ist es $\operatorname{si}(\pi(f-1))$, reell, aber nicht symmetrisch um $f=0$, weil das Signal nicht reell ist. (d) $S(-1\,\mathrm{Hz})=S^*(1\,\mathrm{Hz})=2+3\mathrm{j}$.
 :::
 :::
+
+::::kurzfassung
+Ob ein Signal reell, gerade oder ungerade ist, liest man direkt an seinem Spektrum ab. Bei einem reellen Signal ist die Hälfte des Spektrums bei negativen Frequenzen schon durch die positive Hälfte festgelegt.
+
+Eine komplexe Funktion heißt __gerade__, wenn $x(t)=x^*(-t)$, und __ungerade__, wenn $x(t)=-x^*(-t)$. Für reelle Funktionen ist das die übliche Spiegel- bzw. Punktsymmetrie. Jedes Signal zerfällt eindeutig in einen geraden Anteil $s_g(t)=\tfrac12\bigl[s(t)+s^*(-t)\bigr]$ und einen ungeraden Anteil $s_u(t)=\tfrac12\bigl[s(t)-s^*(-t)\bigr]$. Ihre Spektren sind Real- und Imaginärteil des ganzen Spektrums:
+
+$$s_g(t)\;\circ\!\!-\!\!\bullet\;\operatorname{Re}\{S(f)\},\qquad s_u(t)\;\circ\!\!-\!\!\bullet\;\mathrm{j}\operatorname{Im}\{S(f)\}.$$
+
+Für reelle Signale gilt $S(-f)=S^*(f)$: Realteil und Betrag sind gerade in $f$, Imaginärteil und Phase ungerade. Ein reelles, gerades Signal hat deshalb ein reelles, gerades Spektrum, ein reelles, ungerades Signal ein rein imaginäres, ungerades.
+
+Der Grund: Spiegeln und Konjugieren des Signals konjugiert das Spektrum, $\mathcal{F}\{s^*(-t)\}=S^*(f)$. Damit wird aus $\tfrac12\bigl[s(t)+s^*(-t)\bigr]$ im Spektrum $\tfrac12\bigl[S(f)+S^*(f)\bigr]=\operatorname{Re}\{S(f)\}$. Ein reelles Signal enthält jede Schwingung zusammen mit ihrer konjugierten Partnerin bei der negativen Frequenz.
+
+Falle: $S(-f)=S^*(f)$ gilt nur für reelle Signale. Ein komplexes Signal kann bei positiven und negativen Frequenzen völlig verschiedene Anteile haben; dort enthält die negative Hälfte eigene Information.
+::::
+
+::::formelsammlung
+**Gerade und ungerade Funktion**
+
+$$x(t)=x^*(-t),\qquad x(t)=-x^*(-t)$$
+
+Links gerade, rechts ungerade. Für reelle Funktionen die übliche Spiegel- bzw. Punktsymmetrie.
+
+**Zerlegung in geraden und ungeraden Anteil**
+
+$$s(t)=s_g(t)+s_u(t),\qquad s_g(t)=\tfrac12\bigl[s(t)+s^*(-t)\bigr],\qquad s_u(t)=\tfrac12\bigl[s(t)-s^*(-t)\bigr]$$
+
+Für jedes Signal, eindeutig.
+
+**Gespiegeltes und konjugiertes Signal**
+
+$$\mathcal{F}\{s^*(-t)\}=S^*(f)$$
+
+Spiegeln und Konjugieren des Signals konjugiert das Spektrum.
+
+**Symmetriesatz**
+
+$$s_g(t)\;\circ\!\!-\!\!\bullet\;\operatorname{Re}\{S(f)\},\qquad s_u(t)\;\circ\!\!-\!\!\bullet\;\mathrm{j}\operatorname{Im}\{S(f)\}$$
+
+Der gerade Anteil liefert den Realteil, der ungerade Anteil den mit $\mathrm{j}$ multiplizierten Imaginärteil des Spektrums.
+
+**Reelle Signale**
+
+$$S(-f)=S^*(f)$$
+
+Realteil und Betrag $|S|$ gerade in $f$, Imaginärteil und Phase ungerade. Reell und gerade: Spektrum reell und gerade. Reell und ungerade: Spektrum rein imaginär und ungerade.
+::::

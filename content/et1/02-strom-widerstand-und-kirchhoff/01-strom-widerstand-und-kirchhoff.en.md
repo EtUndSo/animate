@@ -16,8 +16,6 @@ Close a circuit and the lamp lights up at that very moment. Yet the electrons in
 
 The answer consists of three laws. __Ohm's law__ links voltage and current at a component. The __node rule__ says that no current disappears at a junction. The __mesh rule__ says that the voltages along a closed path add up to zero.
 
-
-
 **How to work with this chapter.** The sections build on each other, and every new term has its own subsection with an example. Expandable boxes contain background (why something is the way it is and where it comes from), derivations and simulation hints; you do not need them to read on. Try the exercises (★ to ★★★) yourself first; the solution expands right below each exercise.
 
 :::merke The reference model for this chapter
@@ -49,5 +47,4 @@ The answer consists of three laws. __Ohm's law__ links voltage and current at a 
 
 </ul>
 
-The script `rechnung_kap2.py` recalculates all the numbers.
 :::

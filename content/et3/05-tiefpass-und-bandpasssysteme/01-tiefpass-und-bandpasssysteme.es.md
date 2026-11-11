@@ -14,8 +14,6 @@ lang: es
 
 Casi toda transmisión debe hacer llegar una señal lo más inalterada posible, pero solo en un determinado rango de frecuencias: un paso bajo deja pasar las frecuencias bajas; un paso banda, una banda en torno a una frecuencia portadora. Este capítulo se pregunta: *¿qué significa exactamente «inalterada», qué precio tiene una banda limitada de forma abrupta y cómo se calcula con señales que van montadas sobre una portadora de alta frecuencia?*
 
-
-
 **Cómo trabajar con este capítulo.** Las secciones se apoyan unas en otras y cada término nuevo tiene su propia subsección con un ejemplo. Los recuadros desplegables contienen el contexto (por qué algo es así y de dónde viene), deducciones e indicaciones para la simulación; no hacen falta para seguir leyendo. Intenta primero los ejercicios (de ★ a ★★★) por tu cuenta; la solución se despliega justo debajo de cada ejercicio.
 
 :::merke El modelo de referencia de este capítulo
@@ -47,5 +45,5 @@ Casi toda transmisión debe hacer llegar una señal lo más inalterada posible, 
 
 </ul>
 
-El script `rechnung_kap5.py` recalcula los números y las curvas. $\operatorname{si}(x)=\sin(x)/x$, como en el [capítulo 3](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html).
+$\operatorname{si}(x)=\sin(x)/x$, como en el [capítulo 3](/wissen/es/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html).
 :::

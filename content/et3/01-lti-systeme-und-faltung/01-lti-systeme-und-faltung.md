@@ -16,8 +16,6 @@ Ein System nimmt ein Signal auf und gibt ein anderes ab: Ein RC-Glied glättet e
 
 Für die große Klasse der linearen, zeitinvarianten Systeme (LTI-Systeme) ist die Antwort überraschend knapp: die Antwort auf einen einzigen, unendlich kurzen Stoß. Das Werkzeug, das aus dieser einen Antwort jede andere macht, ist die Faltung.
 
-
-
 **So arbeitest du mit diesem Kapitel.** Die Abschnitte bauen aufeinander auf, jeder neue Begriff hat einen eigenen Unterabschnitt mit Beispiel. Kästen zum Aufklappen enthalten Hintergrund (warum etwas so ist und woher es kommt), Herleitungen und Hinweise zur Simulation; zum Weiterlesen braucht man sie nicht. Versuche die Aufgaben (★ bis ★★★) zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf.
 
 :::merke Das Rechenmodell für dieses Kapitel
@@ -37,5 +35,4 @@ Für die große Klasse der linearen, zeitinvarianten Systeme (LTI-Systeme) ist d
 
 </ul>
 
-Die Zahlen und Kurven rechnet `rechnung_kap1.py` nach.
 :::

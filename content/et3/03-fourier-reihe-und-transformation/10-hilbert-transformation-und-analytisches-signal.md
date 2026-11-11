@@ -5,7 +5,7 @@ adresse: elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transfo
 knoten: Kapitel 3: Fourier-Reihe und -Transformation
 order: 3231000
 summary: Bei einem kausalen Signal hängen Real- und Imaginärteil des Spektrums zusammen: Der eine legt den anderen fest.
-tags: Hilbert-Transformation, analytische Komponente, Allpass
+tags: Hilbert-Transformation, Hauptwert, analytische Komponente, Allpass
 lang: de
 ---
 
@@ -26,14 +26,14 @@ Für ein kausales Signal gilt
 $$\operatorname{Re}\{S(f)\}=\operatorname{Im}\{S(f)\}*\frac{1}{\pi f},\qquad\operatorname{Im}\{S(f)\}=-\operatorname{Re}\{S(f)\}*\frac{1}{\pi f}. \tag{9.1}$$
 :::
 
-⁠**So liest man das:** Die Faltung mit $\frac{1}{\pi f}$ heißt __Hilbert-Transformation__. Bei einem kausalen System genügt es, den Realteil des Frequenzgangs zu kennen, der Imaginärteil folgt daraus. Kausalität ist also eine starke Einschränkung für das Spektrum.
+⁠**So liest man das:** Die Faltung mit $\frac{1}{\pi f}$ heißt __Hilbert-Transformation__. Ihr Integral existiert nur als __Hauptwert__: Um die Stelle, an der der Kern unendlich wird, spart man ein symmetrisches Stück aus und lässt es gegen null schrumpfen. Bei einem kausalen System genügt es, den Realteil des Frequenzgangs zu kennen, der Imaginärteil folgt daraus. Kausalität ist also eine starke Einschränkung für das Spektrum.
 
 **Analytische Komponente.** Mit dem Sprung im *Frequenzbereich* schneidet man die negativen Frequenzen ab: $S_+(f)=S(f)\,\varepsilon(f)$. Aus der Symmetrie folgt $\varepsilon(f)\;\bullet\!\!-\!\!\circ\;\frac12\delta(t)+\frac{\mathrm{j}}{2\pi t}$, also
 
 <span class="anker" id="gl-9-2"></span>
 $$s_+(t)=\frac12s(t)+\frac{\mathrm{j}}{2}\,\hat s(t),\qquad\hat s(t)=s(t)*\frac{1}{\pi t}\;\circ\!\!-\!\!\bullet\;-\mathrm{j}\operatorname{sgn}(f)\,S(f). \tag{9.2}$$
 
-$s_+$ heißt __analytische Komponente__, $\hat s$ die Hilbert-Transformierte von $s$. Für reelle Signale ist $S_-(f)=S_+^*(-f)$, also $s_-=s_+^*$ und $s(t)=s_++s_-=2\operatorname{Re}\{s_+(t)\}$. Real- und Imaginärteil von $s_+$ sind wieder Hilbert-Transformierte voneinander.
+$s_+$ heißt __analytische Komponente__, $\hat s$ die Hilbert-Transformierte von $s$; auch die Faltung mit $\frac{1}{\pi t}$ ist als Hauptwert gemeint. Ebenso enthält $S_-(f)=S(f)\,\varepsilon(-f)$ mit der Zeitfunktion $s_-(t)$ nur die negativen Frequenzen. Für reelle Signale ist $S_-(f)=S_+^*(-f)$, also $s_-=s_+^*$ und $s(t)=s_++s_-=2\operatorname{Re}\{s_+(t)\}$. Real- und Imaginärteil von $s_+$ sind wieder Hilbert-Transformierte voneinander.
 
 **Der Hilbert-Transformator.** Das LTI-System mit $h(t)=\frac{1}{\pi t}$ hat $H(f)=-\mathrm{j}\operatorname{sgn}(f)$: Betrag 1 bei allen Frequenzen (ein __Allpass__), Phase $-90^\circ$ für $f>0$ und $+90^\circ$ für $f<0$. Aus $\cos(2\pi Ft)$ macht er
 
@@ -74,3 +74,67 @@ Warum ist der Hilbert-Transformator nicht kausal? Schau auf $h(t)$.
 (c) $h(t)=\frac{1}{\pi t}$ ist auch für $t<0$ von null verschieden. Der Ausgang zur Zeit $t$ hängt also von zukünftigen Eingangswerten ab. In der Praxis nähert man den Hilbert-Transformator mit einer abgeschnittenen Impulsantwort und nimmt dafür eine Verzögerung in Kauf.
 :::
 :::
+
+::::kurzfassung
+Bei einem kausalen Signal legt der Realteil des Spektrums den Imaginärteil fest und umgekehrt. Dieselbe Rechnung liefert ein Signal, das nur positive Frequenzen enthält.
+
+Ein Signal heißt __kausal__, wenn $s(t)=0$ für $t<0$ gilt. Dann sind gerader und ungerader Anteil für $t>0$ gleich und für $t<0$ entgegengesetzt, also $s_u(t)=s_g(t)\operatorname{sgn}(t)$. Die Multiplikation mit $\operatorname{sgn}(t)$ wird im Frequenzbereich zur Faltung mit $\frac{1}{\mathrm{j}\pi f}$:
+
+$$\operatorname{Re}\{S(f)\}=\operatorname{Im}\{S(f)\}*\frac{1}{\pi f},\qquad\operatorname{Im}\{S(f)\}=-\operatorname{Re}\{S(f)\}*\frac{1}{\pi f}.$$
+
+Die Faltung mit $\frac{1}{\pi f}$ heißt __Hilbert-Transformation__. Ihr Integral nimmt man als __Hauptwert__: Um die Stelle, an der der Kern unendlich wird, spart man ein symmetrisches Stück aus und lässt es gegen null schrumpfen. Schneidet man die negativen Frequenzen ab, $S_+(f)=S(f)\,\varepsilon(f)$, entsteht die __analytische Komponente__ $s_+(t)=\frac12s(t)+\frac{\mathrm{j}}{2}\,\hat s(t)$ mit der Hilbert-Transformierten $\hat s(t)=s(t)*\frac{1}{\pi t}$. Für reelle Signale gilt $s(t)=2\operatorname{Re}\{s_+(t)\}$.
+
+Der Grund: Das System mit $h(t)=\frac{1}{\pi t}$, der __Hilbert-Transformator__, hat $H(f)=-\mathrm{j}\operatorname{sgn}(f)$. Es ist ein __Allpass__, ändert also keinen Betrag, und dreht jede Schwingung um $90^\circ$. Aus $\cos(2\pi Ft)$ wird so $\sin(2\pi Ft)$.
+
+Falle: Die Phase ist nur für $f>0$ gleich $-90^\circ$, für $f<0$ ist sie $+90^\circ$. Nur so bleibt ein reelles Signal reell, denn seine Schwingungen treten in konjugierten Paaren auf.
+::::
+
+::::formelsammlung
+**Kausales Signal**
+
+$$s_u(t)=s_g(t)\operatorname{sgn}(t),\qquad s_g(t)=s_u(t)\operatorname{sgn}(t)$$
+
+Für $s(t)=0$ bei $t<0$: Gerader und ungerader Anteil sind für $t>0$ gleich ($\frac12s$), für $t<0$ entgegengesetzt.
+
+**Hilbert-Beziehung kausaler Signale**
+
+$$\operatorname{Re}\{S(f)\}=\operatorname{Im}\{S(f)\}*\frac{1}{\pi f},\qquad\operatorname{Im}\{S(f)\}=-\operatorname{Re}\{S(f)\}*\frac{1}{\pi f}$$
+
+Die Faltung mit $\frac{1}{\pi f}$ heißt Hilbert-Transformation; ihr Integral als Hauptwert (symmetrisch ausgesparte, gegen null schrumpfende Umgebung der Stelle, an der der Kern unendlich wird). Bei einem kausalen System legt der Realteil des Frequenzgangs den Imaginärteil fest.
+
+**Analytische Komponente im Frequenzbereich**
+
+$$S_+(f)=S(f)\,\varepsilon(f)$$
+
+Die negativen Frequenzen werden abgeschnitten.
+
+**Sprung im Frequenzbereich**
+
+$$\varepsilon(f)\;\bullet\!\!-\!\!\circ\;\frac12\delta(t)+\frac{\mathrm{j}}{2\pi t}$$
+
+Folgt mit der Symmetrie aus dem Spektrum des Sprungs.
+
+**Analytische Komponente und Hilbert-Transformierte**
+
+$$s_+(t)=\frac12s(t)+\frac{\mathrm{j}}{2}\,\hat s(t),\qquad\hat s(t)=s(t)*\frac{1}{\pi t}\;\circ\!\!-\!\!\bullet\;-\mathrm{j}\operatorname{sgn}(f)\,S(f)$$
+
+$\hat s$ Hilbert-Transformierte von $s$; das Faltungsintegral ebenfalls als Hauptwert.
+
+**Reelle Signale**
+
+$$S_-(f)=S_+^*(-f),\qquad s(t)=s_++s_-=2\operatorname{Re}\{s_+(t)\}$$
+
+$S_-(f)=S(f)\,\varepsilon(-f)$ und $s_-$ sind der Anteil der negativen Frequenzen; für reelle Signale ist $s_-=s_+^*$. Für reelles $s$ ist der Imaginärteil von $s_+$ die Hilbert-Transformierte seines Realteils.
+
+**Hilbert-Transformator**
+
+$$h(t)=\frac{1}{\pi t},\qquad H(f)=-\mathrm{j}\operatorname{sgn}(f)$$
+
+Allpass: Betrag 1 bei allen Frequenzen; Phase $-90^\circ$ für $f>0$ und $+90^\circ$ für $f<0$. Nicht kausal, denn $h(t)$ ist auch für $t<0$ von null verschieden.
+
+**Hilbert-Transformierte von Kosinus und Sinus**
+
+$$\cos(2\pi Ft)\;\to\;\sin(2\pi Ft),\qquad\sin(2\pi Ft)\;\to\;-\cos(2\pi Ft)$$
+
+Zweimal angewandt: $(-\mathrm{j}\operatorname{sgn}f)^2=-1$, das Signal wird invertiert.
+::::

@@ -41,5 +41,4 @@ Der Weg führt über acht Begriffe. Das __Coulomb-Potential__ ist die Energielan
 
 </ul>
 
-Alle Zahlen rechnet `rechnung_kap4.py` nach.
 :::

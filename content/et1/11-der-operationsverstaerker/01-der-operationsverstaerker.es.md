@@ -14,8 +14,6 @@ lang: es
 
 Un __amplificador operacional__, abreviado AO, es un amplificador integrado formado por unas cuantas decenas de transistores. Amplifica la tensión entre sus dos entradas unas 100000 veces. Este factor se llama __ganancia en lazo abierto__. Varía en un factor de cuatro de un ejemplar a otro y cambia con la temperatura. Aun así, con este componente se construyen amplificadores que solo notan un 0,01 % de esa variación, además de sumadores e integradores. La pregunta es: *¿Cómo un factor enorme e impreciso se convierte en un componente cuyo comportamiento solo depende de las resistencias?* La respuesta es la __realimentación negativa__: una parte de la tensión de salida se devuelve a la entrada de modo que actúa contra su propia causa.
 
-
-
 **Cómo trabajar con este capítulo.** Las secciones se apoyan unas en otras y cada término nuevo tiene su propia subsección con un ejemplo. Los recuadros desplegables contienen el contexto (por qué algo es así y de dónde viene), deducciones e indicaciones para la simulación; no hacen falta para seguir leyendo. Intenta primero los ejercicios (de ★ a ★★★) por tu cuenta; la solución se despliega justo debajo de cada ejercicio.
 
 :::merke El modelo de referencia de este capítulo
@@ -47,5 +45,4 @@ Un __amplificador operacional__, abreviado AO, es un amplificador integrado form
 
 </ul>
 
-El script `rechnung_kap11.py` comprueba todos los números.
 :::

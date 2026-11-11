@@ -16,8 +16,6 @@ Die Zahlen $1;\ 1{,}5;\ 1{,}75;\ 1{,}875;\ \dots$ legen jeweils die Hälfte des 
 
 Die Antwort ist ein Toleranztest, das __Epsilon-Kriterium__. Wer ihn besteht, zeigt __Konvergenz__ (die Folge hat einen Grenzwert), bei Grenzwert 0 heißt sie __Nullfolge__. Die __Vollständigkeit__ der reellen Zahlen (keine Lücken, [Kapitel 1](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/mengen-logik-und-reelle-zahlen/mengen-logik-und-reelle-zahlen.html)) gibt Folgen mit __Monotonie__ (sie laufen nur in eine Richtung) und jeder __Cauchy-Folge__ (die Glieder kommen einander beliebig nah) ein Ziel.
 
-
-
 **So arbeitest du mit diesem Kapitel.** Die Abschnitte bauen aufeinander auf, jeder neue Begriff hat einen eigenen Unterabschnitt mit Beispiel. Kästen zum Aufklappen enthalten Hintergrund (warum etwas so ist und woher es kommt), Herleitungen und Hinweise zur Simulation; zum Weiterlesen braucht man sie nicht. Versuche die Aufgaben (★ bis ★★★) zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf.
 
 :::merke Das Rechenmodell für dieses Kapitel
@@ -49,5 +47,4 @@ Die Antwort ist ein Toleranztest, das __Epsilon-Kriterium__. Wer ihn besteht, ze
 
 </ul>
 
-Alle Zahlen rechnet `rechnung_kap4.py` nach.
 :::

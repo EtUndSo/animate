@@ -1775,6 +1775,37 @@ def convert(cfg, kap, lang):
     return h, md, tt, sub, rest, teile
 
 
+# Sätze über das Prüfskript rechnung_kap<N>.py („Alle Zahlen rechnet `rechnung_kap2.py` nach.“) stehen nur im Heft,
+# nicht auf der Website (Wunsch des Users, 11.11.2026). Gilt für alle Sprachen; Code-Blöcke bleiben unberührt.
+_SKRIPT_RE = re.compile(r"`?rechnung_kap\d+\.py`?")
+_SATZENDE_RE = re.compile(r"[.!?](?=\s|$)|[。！？]")
+
+
+def ohne_rechenskript(text):
+    """Entfernt jeden Satz, der rechnung_kap<N>.py nennt; leere Zeilen danach werden zusammengefasst."""
+    if "rechnung_kap" not in text:
+        return text
+    aus, im_code = [], False
+    for z in text.split("\n"):
+        if z.lstrip().startswith("```"):
+            im_code = not im_code
+        if not im_code:
+            while True:
+                m = _SKRIPT_RE.search(z)
+                if not m:
+                    break
+                anfang = 0
+                for e in _SATZENDE_RE.finditer(z, 0, m.start()):
+                    anfang = e.end()
+                e2 = _SATZENDE_RE.search(z, m.end())
+                ende = e2.end() if e2 else len(z)
+                vorn, hinten = z[:anfang].rstrip(), z[ende:].lstrip()
+                trenn = "" if (not vorn or not hinten or vorn.endswith(("。", "！", "？"))) else " "
+                z = vorn + trenn + hinten
+        aus.append(z)
+    return re.sub(r"\n{3,}", "\n\n", "\n".join(aus))
+
+
 def webtext(md, lang, cfg, teile, kap=None, fehlt=None):
     """Texte anpassen, die nur im PDF stimmen; Verweise („Kapitel 3“, „Python, Kapitel 2, Abschnitt 4.1“, übergangsweise
     „Teil 3“) werden zu Links. Formeln, Code, Überschriften und Blockköpfe bleiben. Mit kap (immer, außer in alten Aufrufen):
@@ -1947,6 +1978,47 @@ def kurztext(md, ersatz):
     return re.split(r"(?<=[.!?。])\s", t)[0]
 
 
+# Geschriebene Kurzfassung und Formelsammlung je Artikel (seit 11.11.2026, Wunsch des Users): kap<N>_kurz[_<lang>].tex
+# und kap<N>_formeln[_<lang>].tex im Heftordner mit Blöcken \begin{kurzfassung}{<Schlüssel>}{<Titel>} … \end{kurzfassung}
+# und \begin{formelsammlung}{…}{…} mit \formel{Name}{Formel}{Erläuterung}. Schlüssel = erster stufe-Anker des Artikels,
+# beim Überblick „ueberblick“. build_wissen zeigt sie in den Ansichten „Kurz“ und „Formeln“/„Übersicht“.
+_KF_RE = re.compile(r"\\begin\{(kurzfassung|formelsammlung)\}\s*\{([^{}]*)\}\s*\{")
+
+
+def kurz_formeln(cfg, kap, lang, h):
+    """{Schlüssel: {"kurzfassung": md, "formelsammlung": md}} aus den beiden Dateien, sofern vorhanden."""
+    endung = "" if lang == "de" else "_" + lang
+    bloecke = {}
+    for art in ("kurz", "formeln"):
+        f = cfg["quelle"] / ("kap%d_%s%s.tex" % (kap, art, endung))
+        if not f.is_file():
+            continue
+        s = re.sub(r"(?m)(?<!\\)%.*$", "", f.read_text(encoding="utf-8"))     # Kommentare weg, \% bleibt
+        for m in _KF_RE.finditer(s):
+            umg, key = m.group(1), m.group(2).strip()
+            _titel, j = group(s, m.end() - 1)
+            body = s[j:s.find("\\end{%s}" % umg, j)]
+            if umg == "kurzfassung":
+                md = h.block(body)
+            else:
+                teile, k = [], 0
+                while True:
+                    p = body.find("\\formel", k)
+                    if p < 0:
+                        break
+                    args, q = [], p + len("\\formel")
+                    for _ in range(3):
+                        while body[q].isspace():
+                            q += 1
+                        a, q = group(body, q)
+                        args.append(a)
+                    teile.append("**%s**\n\n$$%s$$\n\n%s" % (h.text(args[0]).strip(), h.math(args[1]), h.text(args[2]).strip()))
+                    k = q
+                md = "\n\n".join(teile)
+            bloecke.setdefault(key, {})[umg] = md
+    return bloecke
+
+
 def artikel(cfg, kap, lang):
     """Liste [(Dateiname, Text)] der Artikel eines Hefts, dazu Heft, offene Lösungen, Anker ohne Ziel."""
     stem, slug, thema = cfg["hefte"][kap]
@@ -1961,6 +2033,7 @@ def artikel(cfg, kap, lang):
         raise ValueError("Kap. %d %s: %d Artikel, deutsch %d" % (kap, lang, len(stuecke), len(namen)))
     fehlt = verweise(stuecke, namen)
     b = bereich(cfg, kap)                                # „Kapitel 1: …“ im Baum (knoten:), der Überblick ohne Nummer
+    kf, kf_genutzt = kurz_formeln(cfg, kap, lang, h), set()
     aus = []
     for i, (a, n) in enumerate(zip(stuecke, namen), 1):
         if a["art"] == "ueberblick":
@@ -1976,7 +2049,18 @@ def artikel(cfg, kap, lang):
             "order: %d" % (cfg["order"] + (b.get("order", 0) if b else 0) + kap * 10000 + 100 * i),
             "summary: " + info, "tags: " + begriffe(a["md"]), "lang: " + lang, "---", ""]
         text = re.sub(r"@@CODE:(\d+)@@", lambda mm: h.code[int(mm.group(1))], a["md"].strip())   # Code erst ganz zum Schluss
+        anker = re.search(r'id="(stufe-[0-9-]+)"', text)
+        key = "ueberblick" if a["art"] == "ueberblick" else (anker.group(1) if anker else None)
+        if key in kf:                                    # geschriebene Kurzfassung/Formelsammlung ans Artikelende
+            kf_genutzt.add(key)
+            for umg in ("kurzfassung", "formelsammlung"):
+                if umg in kf[key]:
+                    blk = webtext(kf[key][umg], lang, cfg, teile, kap, [])
+                    blk = re.sub(r"@@CODE:(\d+)@@", lambda mm: h.code[int(mm.group(1))], blk)
+                    text += "\n\n::::%s\n%s\n::::" % (umg, blk.strip())
         aus.append((n, "\n".join(kopf) + "\n" + text + "\n"))
+    if set(kf) - kf_genutzt:
+        print("⚠ Kap. %d %s: Kurzfassung/Formeln ohne passenden Artikel: %s" % (kap, lang, ", ".join(sorted(set(kf) - kf_genutzt))))
     return aus, h, rest, fehlt
 
 
@@ -2039,7 +2123,7 @@ def main():
                     if "-mensch" not in alt.name and (m.group(1) if m else "de") == lang:
                         alt.unlink()
                 for n, t in arts:
-                    (ordner / (n + endung + ".md")).write_text(t, encoding="utf-8", newline="\n")
+                    (ordner / (n + endung + ".md")).write_text(ohne_rechenskript(t), encoding="utf-8", newline="\n")
                 _ANKER.pop((cfg["ziel"], kap), None)             # spätere Hefte verweisen auf die neuen Abschnitte
             print(("⚠ " if msg else "✓ ") + ("Kap. %d (%s)" % (kap, name))
                   + " %s: %d Artikel, %d Zeichen, %d Abb., %d Aufg." % (lang, len(arts), len(txt), h.fig, h.aufg))

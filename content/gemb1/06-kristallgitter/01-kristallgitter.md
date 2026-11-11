@@ -35,5 +35,4 @@ Der Weg führt über acht Begriffe. Ein __Kristall__ ist eine regelmäßige, sic
 
 </ul>
 
-Alle Zahlen rechnet `rechnung_kap6.py` nach.
 :::

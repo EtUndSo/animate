@@ -16,8 +16,6 @@ Ein Signal läuft in einer Rückkopplungsschleife im Kreis, jeder Umlauf halbier
 
 Die Antwort: Man addiert die ersten $N$ Zahlen, das ergibt eine __Teilsumme__, und lässt $N$ wachsen. Die Folge der Teilsummen heißt __Reihe__. Hat sie einen Grenzwert, liegt __Konvergenz__ vor. Der Maßstab ist die __geometrische Reihe__ $1+q+q^2+\dots$, in der jeder Summand das $q$-Fache des vorigen ist. Die __harmonische Reihe__ $1+\frac12+\frac13+\dots$ zeigt, dass schrumpfende Summanden nicht reichen. Eine __absolute Konvergenz__ liegt vor, wenn die Reihe auch dann konvergiert, wenn man alle Minuszeichen durch Pluszeichen ersetzt. Das __Quotientenkriterium__, ein Test mit dem Verhältnis benachbarter Summanden, prüft das am häufigsten. Eine __Umordnung__, also dieselben Summanden in anderer Reihenfolge, kann ohne absolute Konvergenz den Wert ändern.
 
-
-
 **So arbeitest du mit diesem Kapitel.** Die Abschnitte bauen aufeinander auf, jeder neue Begriff hat einen eigenen Unterabschnitt mit Beispiel. Kästen zum Aufklappen enthalten Hintergrund (warum etwas so ist und woher es kommt), Herleitungen und Hinweise zur Simulation; zum Weiterlesen braucht man sie nicht. Versuche die Aufgaben (★ bis ★★★) zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf.
 
 :::merke Das Rechenmodell für dieses Kapitel
@@ -49,5 +47,4 @@ Die Antwort: Man addiert die ersten $N$ Zahlen, das ergibt eine __Teilsumme__, u
 
 </ul>
 
-Alle Zahlen rechnet `rechnung_kap6.py` nach.
 :::

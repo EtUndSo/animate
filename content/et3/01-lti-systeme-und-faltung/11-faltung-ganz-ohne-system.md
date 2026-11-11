@@ -64,3 +64,31 @@ Multipliziere $(1+2x)(3+x)$ aus. Zeige, dass die Koeffizientenfolge des Ergebnis
 (c) $(1+2x)(3+x)=3+x+6x+2x^2=3+7x+2x^2$. Der Koeffizient von $x^k$ sammelt alle Paare von Potenzen $i+j=k$: $c_0=1\cdot3=3$, $c_1=1\cdot1+2\cdot3=7$, $c_2=2\cdot1=2$. Das ist die Faltungssumme $c_k=\sum_ia_ib_{k-i}$, dieselbe Struktur wie bei den Würfeln.
 :::
 :::
+
+::::kurzfassung
+Die Faltung ist eine Rechenoperation mit einer eigenen, allgemeinen Bedeutung: Für jede Art, ein Ergebnis in zwei Anteile aufzuteilen, multipliziert man die Gewichte der beiden Anteile und summiert über alle Aufteilungen.
+
+Ein System ist nur eine Deutung davon, mit dem Zeitpunkt $\tau$ eines Stoßes als erstem und seinem Alter $t-\tau$ als zweitem Anteil. Ein Beispiel ohne System und ohne Zeit ist die Augensumme $k$ zweier Würfel. Jede Aufteilung $k=i+(k-i)$ trägt mit der Wahrscheinlichkeit $P_1(i)\,P_2(k-i)$ bei:
+
+$$P(k)=\sum_iP_1(i)\,P_2(k-i).$$
+
+Darin sind $P_1$ und $P_2$ die Wahrscheinlichkeiten der Augenzahlen des ersten und des zweiten Würfels. Ebenso ist ein gleitender Mittelwert über Messwerte eine Faltung mit einem Rechteck. Ein unscharfes Foto ist das scharfe Bild, gefaltet mit dem Lichtfleck, den die Optik aus einem Punkt macht. Wer zwei Polynome multipliziert, faltet ihre Koeffizienten.
+
+Der Grund für die Form der Ergebnisse: Zwei gleichverteilte Würfel, also zwei „Rechtecke“, ergeben eine Dreieckverteilung, genau wie $\operatorname{rect}*\operatorname{rect}=\Lambda$. Die 7 ist am häufigsten, weil sie die meisten Aufteilungen hat. Faltet man immer mehr gleiche Verteilungen, nähert sich das Ergebnis einer Gaußkurve, fast unabhängig von der Ausgangsform.
+
+Falle: Das Produkt $P_1(i)\,P_2(k-i)$ setzt voraus, dass die beiden Würfel einander nicht beeinflussen. Nur dann multiplizieren sich die Wahrscheinlichkeiten der Anteile.
+::::
+
+::::formelsammlung
+**Augensumme zweier Würfel**
+
+$$P(k)=\sum_iP_1(i)\,P_2(k-i)$$
+
+$P_1$, $P_2$ Wahrscheinlichkeiten der Augenzahlen des ersten und zweiten Würfels, die einander nicht beeinflussen; Summe über alle Aufteilungen $k=i+(k-i)$. Dieselbe Struktur wie $g(t)=\int s(\tau)h(t-\tau)\mathrm{d}\tau$: $\tau$ entspricht $i$, $t$ entspricht $k$, $t-\tau$ entspricht $k-i$.
+
+**Zwei Rechtecke ergeben ein Dreieck**
+
+$$\operatorname{rect}*\operatorname{rect}=\Lambda$$
+
+Ebenso ergeben zwei gleichverteilte Würfel eine Dreieckverteilung.
+::::

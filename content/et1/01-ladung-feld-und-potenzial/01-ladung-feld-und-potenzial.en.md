@@ -16,8 +16,6 @@ A small rectangular battery is labeled 9 V. This figure is a __voltage__. It d
 
 The answer leads through two concepts. An __electric field__ determines, for every location, what force acts on a charge there. The __potential__ determines, for every location, how much energy per coulomb a charge has there relative to a freely chosen zero point, the __reference point__.
 
-
-
 **How to work with this chapter.** The sections build on each other, and every new term has its own subsection with an example. Expandable boxes contain background (why something is the way it is and where it comes from), derivations and simulation hints; you do not need them to read on. Try the exercises (★ to ★★★) yourself first; the solution expands right below each exercise.
 
 :::merke The reference model for this chapter
@@ -43,7 +41,7 @@ The answer leads through two concepts. An __electric field__ determines, for eve
 
 <li>
 
-⁠**Constants:** $e=1.602\cdot10^{-19}$ C, $m_\mathrm{e}=9.109\cdot10^{-31}$ kg, $k=8.99\cdot10^{9}\,\mathrm{N\,m^2/C^2}$, $g=9.81\,\mathrm{m/s^2}$; the stages explain them. The script `rechnung_kap1.py` recalculates all the numbers.
+⁠**Constants:** $e=1.602\cdot10^{-19}$ C, $m_\mathrm{e}=9.109\cdot10^{-31}$ kg, $k=8.99\cdot10^{9}\,\mathrm{N\,m^2/C^2}$, $g=9.81\,\mathrm{m/s^2}$; the stages explain them.
 
 </li>
 

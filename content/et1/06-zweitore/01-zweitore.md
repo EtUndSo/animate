@@ -14,8 +14,6 @@ lang: de
 
 Zwischen Quelle und Last sitzt oft ein weiteres Netzwerk: ein Kabel, ein Filter, ein Dämpfungsglied oder ein Verstärker. Es hat eine Eingangsseite und eine Ausgangsseite, und von außen zählt nur, was es mit Spannung und Strom macht. Ein Netzwerk mit zwei solchen Anschlusspaaren heißt __Zweitor__, jedes Anschlusspaar ist ein __Tor__. [Kapitel 5](/wissen/elektrotechnik/1-semester/grundlagen-der-elektrotechnik/quellen-und-ersatzquellen/quellen-und-ersatzquellen.html) hat ein Netzwerk an einem Klemmenpaar durch zwei Zahlen ersetzt, Ersatzspannung und Innenwiderstand. Die Frage dieses Kapitels lautet: *Wie viele Zahlen braucht man bei zwei Klemmenpaaren, und wie misst man sie von außen?*
 
-
-
 **So arbeitest du mit diesem Kapitel.** Die Abschnitte bauen aufeinander auf, jeder neue Begriff hat einen eigenen Unterabschnitt mit Beispiel. Kästen zum Aufklappen enthalten Hintergrund (warum etwas so ist und woher es kommt), Herleitungen und Hinweise zur Simulation; zum Weiterlesen braucht man sie nicht. Versuche die Aufgaben (★ bis ★★★) zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf.
 
 :::merke Das Rechenmodell für dieses Kapitel
@@ -41,7 +39,7 @@ Zwischen Quelle und Last sitzt oft ein weiteres Netzwerk: ein Kabel, ein Filter,
 
 <li>
 
-Alle Größen sind Gleichgrößen. Alle Zahlen rechnet `rechnung_kap6.py` nach.
+Alle Größen sind Gleichgrößen.
 
 </li>
 

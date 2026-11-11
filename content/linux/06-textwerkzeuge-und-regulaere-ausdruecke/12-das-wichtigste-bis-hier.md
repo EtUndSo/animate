@@ -44,7 +44,7 @@ Eine Tabelle als Text besteht aus Datensätzen, einer je Zeile, und Feldern, get
 
 <li>
 
-Ein regulärer Ausdruck beschreibt eine Menge von Zeichenketten: `.` ein beliebiges Zeichen, `[…]` eines aus einer Liste, `[[:digit:]]` eine Klasse, `^` und `$` Anfang und Ende, `*` `+` `?` `{n,m}` Wiederholungen, `( )` Gruppen, `|` Alternativen; `\` oder `grep -F` nehmen Zeichen wörtlich. Die Grundform braucht vor `{ }` und `( )` einen Schrägstrich, `-E` schaltet die erweiterte ein.
+Ein regulärer Ausdruck beschreibt eine Menge von Zeichenketten: `.` ein beliebiges Zeichen, `[…]` eines aus einer Liste, `[[:digit:]]` eine Klasse, `^` und `$` Anfang und Ende, `*` `+` `?` `{n,m}` Wiederholungen, `( )` Gruppen, `|` Alternativen; `\` oder `grep -F` nehmen Zeichen wörtlich. Die Grundform braucht vor `{ }` und `( )` einen umgekehrten Schrägstrich, `-E` schaltet die erweiterte ein.
 
 </li>
 

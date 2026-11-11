@@ -362,3 +362,93 @@ $$g(t)=\tfrac12H(\mathrm{j})\mathrm{e}^{\mathrm{j} t}+\tfrac12H(-\mathrm{j})\mat
 Also $A=1/\sqrt2\approx0{,}707$ und $\varphi=-45^\circ$ (numerisch: $g(1\,\mathrm{s})=0{,}6909$). Jede der beiden komplexen Exponentialfunktionen ist eine Eigenfunktion, ihre Summe $\cos t$ nicht: Die beiden werden mit *verschiedenen* Zahlen multipliziert, $H(\mathrm{j})\neq H(-\mathrm{j})$. Dadurch verschiebt sich die Phase.
 :::
 :::
+
+::::kurzfassung
+Ein LTI-System verändert die Form fast jedes Signals. Die komplexe Exponentialfunktion $\mathrm{e}^{pt}$ ist die Ausnahme: Jedes LTI-System multipliziert sie nur mit einer Zahl.
+
+Ein Signal $s_\mathrm{E}(t)$ heißt __Eigenfunktion__ eines LTI-Systems mit der Impulsantwort $h(t)$, wenn $s_\mathrm{E}(t)*h(t)=H\cdot s_\mathrm{E}(t)$ für alle $t$ gilt. Die Konstante $H$ heißt __Eigenwert__; sie darf komplex sein, aber nicht von $t$ abhängen. Der Exponent $p=\sigma+\mathrm{j}2\pi f$ heißt __komplexe Frequenz__: $\sigma=\operatorname{Re} p$ ist die Wachstumsrate, $f$ die Frequenz der Schwingung. In der __$p$-Ebene__ steht jeder Punkt für eine Funktion $\mathrm{e}^{pt}$; links der senkrechten Achse klingt sie ab, rechts wächst sie. Der Eigenwert zu $\mathrm{e}^{pt}$ ist die __Laplace-Übertragungsfunktion__
+
+$$H(p)=\int_{-\infty}^{\infty}h(t)\,\mathrm{e}^{-pt}\,\mathrm{d} t ,$$
+
+erklärt für alle $p$, für die das Integral existiert.
+
+Der Grund ist $\mathrm{e}^{p(t-\tau)}=\mathrm{e}^{-p\tau}\cdot\mathrm{e}^{pt}$: Jede verzögerte Kopie von $\mathrm{e}^{pt}$ ist ein Vielfaches von $\mathrm{e}^{pt}$, also auch die gewichtete Summe solcher Kopien, die das Faltungsintegral bildet. Das folgt allein aus der Zeitinvarianz; vom System hängt nur der Eigenwert ab.
+
+Zwei Systeme sind __in Kette__ geschaltet, wenn der Ausgang des ersten der Eingang des zweiten ist. Ist die Kette __rückwirkungsfrei__, multiplizieren sich die Übertragungsfunktionen zu $H_1(p)\,H_2(p)$. Dieselbe Rechenvorschrift, auf ein beliebiges Signal angewandt, ergibt seine __Laplace-Transformierte__ $S(p)=\mathcal{L}_2\{s(t)\}$. Das Signal $s(t)$ liegt im __Zeitbereich__, $S(p)$ im __Bildbereich__. Für Signale, die erst bei $t=0$ beginnen, liefert die __einseitige Laplace-Transformation__ $\mathcal{L}_1$ mit dem Integral ab $0$ denselben Wert.
+
+Falle: Ein reeller Kosinus ist im Allgemeinen keine Eigenfunktion. Er besteht aus $\mathrm{e}^{\mathrm{j}\omega_0t}$ und $\mathrm{e}^{-\mathrm{j}\omega_0t}$, und jede der beiden bekommt ihren eigenen Eigenwert.
+::::
+
+::::formelsammlung
+**Eulersche Formel**
+
+$$\mathrm{e}^{\mathrm{j}\varphi}=\cos\varphi+\mathrm{j}\sin\varphi$$
+
+$\varphi$ reell; $\mathrm{e}^{\mathrm{j}\varphi}$ liegt auf dem Kreis mit Radius 1, $|\mathrm{e}^{\mathrm{j}\varphi}|=1$.
+
+**Kosinus und Sinus durch Exponentialfunktionen**
+
+$$\cos\varphi=\frac{\mathrm{e}^{\mathrm{j}\varphi}+\mathrm{e}^{-\mathrm{j}\varphi}}{2},\qquad \sin\varphi=\frac{\mathrm{e}^{\mathrm{j}\varphi}-\mathrm{e}^{-\mathrm{j}\varphi}}{2\mathrm{j}}$$
+
+Aufgelöst aus der Eulerschen Formel für $\varphi$ und $-\varphi$.
+
+**Exponent mit Real- und Imaginärteil**
+
+$$\mathrm{e}^{(\sigma+\mathrm{j}\omega)t}=\mathrm{e}^{\sigma t}\cdot\mathrm{e}^{\mathrm{j}\omega t}=\mathrm{e}^{\sigma t}\bigl[\cos(\omega t)+\mathrm{j}\sin(\omega t)\bigr]$$
+
+$\sigma$ reell, $\omega$ reelle Kreisfrequenz, $t$ Zeit. Die Amplitude $\mathrm{e}^{\sigma t}$ klingt für $\sigma<0$ ab, wächst für $\sigma>0$ und ist für $\sigma=0$ konstant 1.
+
+**Antwort eines LTI-Systems (Faltung)**
+
+$$g(t)=s(t)*h(t)=\int_{-\infty}^{\infty}h(\tau)\,s(t-\tau)\,\mathrm{d}\tau$$
+
+$s(t)$ Eingang, $h(t)$ Impulsantwort, $g(t)$ Ausgang; die um $\tau$ verzögerte Kopie des Eingangs geht mit dem Gewicht $h(\tau)\,\mathrm{d}\tau$ ein.
+
+**Eigenfunktion und Eigenwert (Definition)**
+
+$$s_\mathrm{E}(t)*h(t)=H\cdot s_\mathrm{E}(t)$$
+
+Für alle $t$. $s_\mathrm{E}(t)$ Eigenfunktion des LTI-Systems mit der Impulsantwort $h(t)$; $H$ Eigenwert, darf komplex sein, hängt nicht von $t$ ab.
+
+**Komplexe Frequenz**
+
+$$p=\sigma+\mathrm{j}2\pi f$$
+
+$\sigma=\operatorname{Re} p$ Wachstumsrate in $1/\mathrm s$ ($\sigma<0$ abklingend, $\sigma=0$ konstante Amplitude, $\sigma>0$ wachsend); $\operatorname{Im} p=2\pi f$ mit der Frequenz $f$ in Hz, $\omega=2\pi f$. Jeder Punkt der $p$-Ebene steht für eine Funktion $\mathrm{e}^{pt}$.
+
+**$\mathrm{e}^{pt}$ als Eigenfunktion jedes LTI-Systems**
+
+$$h(t)*\mathrm{e}^{pt}=\int_{-\infty}^{\infty}h(\tau)\,\mathrm{e}^{p(t-\tau)}\,\mathrm{d}\tau=\mathrm{e}^{pt}\underbrace{\int_{-\infty}^{\infty}h(\tau)\,\mathrm{e}^{-p\tau}\,\mathrm{d}\tau}_{H(p)}$$
+
+Für jedes komplexe $p$, für das das Integral existiert. Schlüssel: $\mathrm{e}^{p(t-\tau)}=\mathrm{e}^{pt}\cdot\mathrm{e}^{-p\tau}$.
+
+**Laplace-Übertragungsfunktion (Definition)**
+
+$$H(p)=\int_{-\infty}^{\infty}h(t)\,\mathrm{e}^{-pt}\,\mathrm{d} t$$
+
+Eigenwert, mit dem das System $\mathrm{e}^{pt}$ multipliziert; erklärt für alle $p$, für die das Integral existiert. Hat $h$ die Einheit $1/\mathrm s$, ist $H(p)$ eine reine Zahl.
+
+**RC-Tiefpass**
+
+$$h(t)=\frac{1}{RC}\,\mathrm{e}^{-t/RC}\varepsilon(t),\qquad H(p)=\frac{1}{1+pRC}$$
+
+Das Integral existiert für $\operatorname{Re} p>-1/RC$.
+
+**Rückwirkungsfreie Kette**
+
+$$\bigl[s_\mathrm{E}(t)*h_1(t)\bigr]*h_2(t)=\bigl[H_1(p)\,s_\mathrm{E}(t)\bigr]*h_2(t)=H_1(p)\,H_2(p)\,s_\mathrm{E}(t)$$
+
+$s_\mathrm{E}(t)=\mathrm{e}^{pt}$; Ausgang des ersten Systems ist Eingang des zweiten, das zweite verändert den Ausgang des ersten nicht.
+
+**Zweiseitige Laplace-Transformation (Definition)**
+
+$$S(p)=\mathcal{L}_2\{s(t)\}=\int_{-\infty}^{\infty}s(t)\,\mathrm{e}^{-pt}\,\mathrm{d} t$$
+
+Für alle $p$, für die das Integral konvergiert. $s(t)$ im Zeitbereich, $S(p)$ im Bildbereich; Schreibweise $s(t)\longleftrightarrow S(p)$. Es gilt $H(p)=\mathcal{L}_2\{h(t)\}$.
+
+**Einseitige Laplace-Transformation**
+
+$$S(p)=\mathcal{L}_1\{s(t)\}=\int_{0}^{\infty}s(t)\,\mathrm{e}^{-pt}\,\mathrm{d} t$$
+
+Untere Grenze knapp links von null, damit ein Dirac-Impuls bei $t=0$ mitzählt. Gleich der zweiseitigen, wenn $s(t)=0$ für $t<0$. $\mathcal{L}$ ohne Index bedeutet die zweiseitige Transformation.
+::::

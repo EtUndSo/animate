@@ -35,7 +35,7 @@ Der Weg führt über acht Begriffe. Ein __Halbleiter__ ist ein Kristall, dessen 
 
 <li>
 
-⁠**Probe:** Phosphor mit $N_\mathrm D=10^{16}\,\mathrm{cm^{-3}}$ und $\Delta E_\mathrm D=45$ meV. Alle Zahlen rechnet `rechnung_kap11.py` nach.
+⁠**Probe:** Phosphor mit $N_\mathrm D=10^{16}\,\mathrm{cm^{-3}}$ und $\Delta E_\mathrm D=45$ meV.
 
 </li>
 

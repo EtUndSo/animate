@@ -14,8 +14,6 @@ lang: es
 
 La ecuación $x^2=-1$ no tiene solución en $\mathbb{R}$, porque el cuadrado de un número real nunca es negativo. Aun así, las ecuaciones cuadráticas llevan una y otra vez a raíces de números negativos, y la técnica de corriente alterna calcula con ellas a diario. La pregunta es: *¿Se puede ampliar $\mathbb{R}$ de modo que $x^2=-1$ tenga solución y las leyes del cálculo se conserven, y qué se pierde por el camino?*
 
-
-
 **Cómo trabajar con este capítulo.** Las secciones se apoyan unas en otras y cada término nuevo tiene su propia subsección con un ejemplo. Los recuadros desplegables contienen el contexto (por qué algo es así y de dónde viene), deducciones e indicaciones para la simulación; no hacen falta para seguir leyendo. Intenta primero los ejercicios (de ★ a ★★★) por tu cuenta; la solución se despliega justo debajo de cada ejercicio.
 
 :::merke El modelo de referencia de este capítulo
@@ -41,5 +39,4 @@ La ecuación $x^2=-1$ no tiene solución en $\mathbb{R}$, porque el cuadrado de 
 
 </ul>
 
-El script `rechnung_kap2.py` comprueba todos los números.
 :::

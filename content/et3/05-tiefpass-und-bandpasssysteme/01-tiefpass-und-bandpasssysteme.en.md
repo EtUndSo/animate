@@ -14,8 +14,6 @@ lang: en
 
 Almost every transmission is meant to deliver a signal as unchanged as possible, but only within a certain frequency range: a lowpass passes the low frequencies, a bandpass passes a band around a carrier frequency. This chapter asks: *What exactly does “unchanged” mean, what does a sharply limited band cost, and how do you calculate with signals that ride on a high-frequency carrier?*
 
-
-
 **How to work with this chapter.** The sections build on each other, and every new term has its own subsection with an example. Expandable boxes contain background (why something is the way it is and where it comes from), derivations and simulation hints; you do not need them to read on. Try the exercises (★ to ★★★) yourself first; the solution expands right below each exercise.
 
 :::merke The reference model for this chapter
@@ -47,5 +45,5 @@ Almost every transmission is meant to deliver a signal as unchanged as possible,
 
 </ul>
 
-The script `rechnung_kap5.py` recomputes the numbers and curves. $\operatorname{si}(x)=\sin(x)/x$ as in [Chapter 3](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html).
+$\operatorname{si}(x)=\sin(x)/x$ as in [Chapter 3](/wissen/en/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html).
 :::

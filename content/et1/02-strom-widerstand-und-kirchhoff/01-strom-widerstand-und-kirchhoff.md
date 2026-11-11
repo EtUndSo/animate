@@ -16,8 +16,6 @@ Schließt man einen Stromkreis, leuchtet die Lampe im selben Augenblick. Dabei k
 
 Die Antwort besteht aus drei Gesetzen. Das __ohmsche Gesetz__ verknüpft Spannung und Strom an einem Bauteil. Die __Knotenregel__ sagt, dass an einer Verzweigung kein Strom verschwindet. Die __Maschenregel__ sagt, dass die Spannungen längs eines geschlossenen Wegs zusammen null ergeben.
 
-
-
 **So arbeitest du mit diesem Kapitel.** Die Abschnitte bauen aufeinander auf, jeder neue Begriff hat einen eigenen Unterabschnitt mit Beispiel. Kästen zum Aufklappen enthalten Hintergrund (warum etwas so ist und woher es kommt), Herleitungen und Hinweise zur Simulation; zum Weiterlesen braucht man sie nicht. Versuche die Aufgaben (★ bis ★★★) zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf.
 
 :::merke Das Rechenmodell für dieses Kapitel
@@ -49,5 +47,4 @@ Die Antwort besteht aus drei Gesetzen. Das __ohmsche Gesetz__ verknüpft Spannun
 
 </ul>
 
-Alle Zahlen rechnet `rechnung_kap2.py` nach.
 :::

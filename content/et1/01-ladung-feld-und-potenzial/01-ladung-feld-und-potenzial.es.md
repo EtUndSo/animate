@@ -16,8 +16,6 @@ En una batería rectangular pone 9 V. Este dato es una __tensión__. No dice c
 
 La respuesta pasa por dos conceptos. Un __campo eléctrico__ determina para cada lugar qué fuerza actúa allí sobre una carga. El __potencial__ determina para cada lugar cuánta energía por culombio tiene allí una carga respecto a un cero elegido libremente, el __punto de referencia__.
 
-
-
 **Cómo trabajar con este capítulo.** Las secciones se apoyan unas en otras y cada término nuevo tiene su propia subsección con un ejemplo. Los recuadros desplegables contienen el contexto (por qué algo es así y de dónde viene), deducciones e indicaciones para la simulación; no hacen falta para seguir leyendo. Intenta primero los ejercicios (de ★ a ★★★) por tu cuenta; la solución se despliega justo debajo de cada ejercicio.
 
 :::merke El modelo de referencia de este capítulo
@@ -43,7 +41,7 @@ La respuesta pasa por dos conceptos. Un __campo eléctrico__ determina para cada
 
 <li>
 
-⁠**Constantes:** $e=1{,}602\cdot10^{-19}$ C, $m_\mathrm{e}=9{,}109\cdot10^{-31}$ kg, $k=8{,}99\cdot10^{9}\,\mathrm{N\,m^2/C^2}$, $g=9{,}81\,\mathrm{m/s^2}$; las etapas las explican. El script `rechnung_kap1.py` comprueba todos los números.
+⁠**Constantes:** $e=1{,}602\cdot10^{-19}$ C, $m_\mathrm{e}=9{,}109\cdot10^{-31}$ kg, $k=8{,}99\cdot10^{9}\,\mathrm{N\,m^2/C^2}$, $g=9{,}81\,\mathrm{m/s^2}$; las etapas las explican.
 
 </li>
 

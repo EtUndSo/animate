@@ -16,8 +16,6 @@ School teaches rules like $(-1)\cdot(-1)=1$ or “you must not divide by zero.�
 
 The answer needs two tools and a short list of assumptions. A __set__ collects objects; a __statement__ is a sentence that is true or false. An __axiom__ is a basic assumption that is laid down and not proved. Three groups of axioms suffice: A __field__ is a set in which plus and times work according to the familiar rules. The __order__ fixes which numbers are positive. __Completeness__ says that the number line has no gaps. In addition there are __mathematical induction__, the proof method for statements about all natural numbers, and the __absolute value__, the distance of a number from zero.
 
-
-
 **How to work with this chapter.** The sections build on each other, and every new term has its own subsection with an example. Expandable boxes contain background (why something is the way it is and where it comes from), derivations and simulation hints; you do not need them to read on. Try the exercises (★ to ★★★) yourself first; the solution expands right below each exercise.
 
 :::merke The reference model for this chapter
@@ -43,7 +41,7 @@ The answer needs two tools and a short list of assumptions. A __set__ collects o
 
 <li>
 
-⁠**Numbers for inequalities:** $x=-3$, $y=5$ for the absolute value; $x=2$, $y=8$ for the means; the lists $\vec x=(3,4)$, $\vec y=(1,2)$ for Cauchy-Schwarz. The script `rechnung_kap1.py` checks all numbers and tables.
+⁠**Numbers for inequalities:** $x=-3$, $y=5$ for the absolute value; $x=2$, $y=8$ for the means; the lists $\vec x=(3,4)$, $\vec y=(1,2)$ for Cauchy-Schwarz.
 
 </li>
 

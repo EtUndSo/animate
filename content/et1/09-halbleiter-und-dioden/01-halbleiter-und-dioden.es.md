@@ -16,8 +16,6 @@ Un cargador convierte la tensión alterna de la toma de corriente en la tensión
 
 La respuesta pasa por seis conceptos. __Dopado__ significa introducir unos pocos átomos de impureza y fijar así cuántos __portadores de carga__ (cargas móviles) tiene el cristal. En el límite entre dos regiones dopadas de forma distinta, la __unión pn__, se forma por sí sola la __zona de carga espacial__, una capa delgada sin cargas móviles que actúa como barrera de energía. La __curva característica__ es la gráfica de la corriente frente a la tensión, y el __punto de trabajo__ es el par de tensión y corriente que se establece en un circuito.
 
-
-
 **Cómo trabajar con este capítulo.** Las secciones se apoyan unas en otras y cada término nuevo tiene su propia subsección con un ejemplo. Los recuadros desplegables contienen el contexto (por qué algo es así y de dónde viene), deducciones e indicaciones para la simulación; no hacen falta para seguir leyendo. Intenta primero los ejercicios (de ★ a ★★★) por tu cuenta; la solución se despliega justo debajo de cada ejercicio.
 
 :::merke El modelo de referencia de este capítulo
@@ -49,7 +47,7 @@ La respuesta pasa por seis conceptos. __Dopado__ significa introducir unos pocos
 
 <li>
 
-⁠**Constantes:** $e=1{,}602\cdot10^{-19}$ C, $k_\mathrm B=1{,}3806\cdot10^{-23}$ J/K. El script `rechnung_kap9.py` comprueba todos los números.
+⁠**Constantes:** $e=1{,}602\cdot10^{-19}$ C, $k_\mathrm B=1{,}3806\cdot10^{-23}$ J/K.
 
 </li>
 

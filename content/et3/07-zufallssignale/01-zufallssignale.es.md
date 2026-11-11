@@ -14,8 +14,6 @@ lang: es
 
 El ruido de una resistencia, la voz, un flujo de datos: estas señales no se pueden predecir. No se conoce su evolución exacta, pero sí sus *propiedades en promedio*: qué tamaño tienen típicamente, con qué rapidez cambian, qué frecuencias contienen. Este capítulo muestra cómo se describen estas señales aleatorias, qué hace con ellas un sistema LTI y cómo se reconoce con la mayor seguridad una señal conocida en medio del ruido.
 
-
-
 **Cómo trabajar con este capítulo.** Las secciones se apoyan unas en otras y cada término nuevo tiene su propia subsección con un ejemplo. Los recuadros desplegables contienen el contexto (por qué algo es así y de dónde viene), deducciones e indicaciones para la simulación; no hacen falta para seguir leyendo. Intenta primero los ejercicios (de ★ a ★★★) por tu cuenta; la solución se despliega justo debajo de cada ejercicio.
 
 :::merke El modelo de referencia de este capítulo
@@ -41,5 +39,4 @@ El ruido de una resistencia, la voz, un flujo de datos: estas señales no se pue
 
 </ul>
 
-El script `rechnung_kap7.py` recalcula los números, en parte como control con números aleatorios simulados.
 :::

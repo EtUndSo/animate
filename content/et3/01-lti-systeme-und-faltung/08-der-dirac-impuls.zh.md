@@ -30,7 +30,7 @@ lang: zh
 <span class="anker" id="gl-7-4"></span>
 <span class="anker" id="gl-7-5"></span>
 <span class="anker" id="gl-7-6"></span>
-$$\begin{aligned} &\text{权重：} && [a\,\delta(t)]*s(t)=a\,s(t),\qquad a_1\delta(t)+a_2\delta(t)=(a_1+a_2)\,\delta(t),\\ &\text{筛选：} && \int_{-\infty}^{\infty}\delta(\tau)\,s(-\tau)\,\mathrm{d}\tau=s(0),\qquad s(t)\,\delta(t-T)=s(T)\,\delta(t-T),\\ &\text{面积：} && \int_{-\infty}^{\infty}a\,\delta(t)\,\mathrm{d} t=a,\\ &\text{尺度变换：} && \delta(bt)=\frac{1}{|b|}\,\delta(t),\qquad \delta(-t)=\delta(t),\\ &\text{平移：} && \delta(t-t_0)*s(t)=s(t-t_0),\\ &\text{积分：} && \varepsilon(t)=\int_{-\infty}^t\delta(\tau)\,\mathrm{d}\tau,\qquad \frac{\mathrm{d}}{\mathrm{d} t}\varepsilon(t)=\delta(t). \end{aligned} \tag{7.1|7.2|7.3|7.4|7.5|7.6}$$
+$$\begin{aligned} &\text{权重：} && [a\,\delta(t)]*s(t)=a\,s(t),\qquad a_1\delta(t)+a_2\delta(t)=(a_1+a_2)\,\delta(t),\\ &\text{筛选：} && \int_{-\infty}^{\infty}\delta(\tau)\,s(-\tau)\,\mathrm{d}\tau=s(0),\qquad s(t)\,\delta(t-T)=s(T)\,\delta(t-T),\\ &\text{面积：} && \int_{-\infty}^{\infty}a\,\delta(t)\,\mathrm{d} t=a,\\ &\text{尺度变换：} && \delta(bt)=\frac{1}{|b|}\,\delta(t)\quad(b\neq0),\qquad \delta(-t)=\delta(t),\\ &\text{平移：} && \delta(t-t_0)*s(t)=s(t-t_0),\\ &\text{积分：} && \varepsilon(t)=\int_{-\infty}^t\delta(\tau)\,\mathrm{d}\tau,\qquad \frac{\mathrm{d}}{\mathrm{d} t}\varepsilon(t)=\delta(t). \end{aligned} \tag{7.1|7.2|7.3|7.4|7.5|7.6}$$
 :::
 
 ⁠**如何理解：**乘积 $s(t)\,\delta(t-T)$ 只可能在 $T$ 点起作用，因此只有 $s(T)$ 有意义。压缩后的冲激 $\delta(bt)$ 同样是“无限高”的，但它的面积只有 $1/|b|$。$h(t)=\delta(t-t_0)$ 的系统把每个信号延迟 $t_0$，称为__理想延时器__。此外，由于阶跃是冲激的变上限积分，带跳变的函数也可以求导：高度为 $A$ 的跳变变成 $A\,\delta$。这称为__广义求导__。注意：许多运算，例如平方（$\delta^2$），对狄拉克冲激是没有定义的。

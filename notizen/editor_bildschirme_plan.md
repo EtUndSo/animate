@@ -2,7 +2,7 @@
 
 Wunsch des Users (11.11.2026): „Wir sollten für den Editor auch Funktionen einbauen, um einen Bildschirm bzw. Fenster darin möglichst realistisch nachbauen zu können. Also für Linux, Programmierung, Einstellungen, etc. Überlege dir, welche Funktionen wir am besten in den Editor einbauen, damit wir alle Fälle abbilden können.“
 Stand: Vorschlag, noch nicht beauftragt.
-**Entscheidung des Users (11.11.2026):** „Wir warten auf die Fertigstellung der Übersetzungen, dann machen wir die Änderungen am Editor. Wir müssen auch überlegen, wie wir das effizient umsetzen.“ Also erst nach der Englisch-Schleife; vorher den effizienten Weg festlegen (Abschnitt „Effizient umsetzen“ unten).
+**Entscheidung des Users (11.11.2026):** „Wir warten auf die Fertigstellung der Übersetzungen, dann machen wir die Änderungen am Editor. Wir müssen auch überlegen, wie wir das effizient umsetzen.“ Am 11.11. abends geändert: „F1 bleibt vorne, danach dann die Loops“ — F1 ist einmalige Aufgabe B8 in `notizen/aufgabenliste.md`, vor den Loops. Ursprünglich: erst nach der Englisch-Schleife; vorher den effizienten Weg festlegen (Abschnitt „Effizient umsetzen“ unten).
 
 ## Effizient umsetzen (Vorschlag, 11.11.2026)
 1. **Nur bauen, was gebraucht wird:** Vor jeder Welle die Szenentabellen der nächsten Hefte auswerten (Linux 7/8: `uebergabe_kap7.md`/`uebergabe_kap8.md`, 58 Szenen; später Cyber 2, Python 4). Daraus entsteht die genaue Funktionsliste; der Rest des Plans bleibt Vorrat.

@@ -44,7 +44,7 @@ Con $x=2\pi FRC$:
 $$\begin{aligned} \operatorname{Re}\{H\}&=\frac{1}{1+x^2},\qquad \operatorname{Im}\{H\}=\frac{-x}{1+x^2},\\ |H(F)|&=\sqrt{\operatorname{Re}\{H\}^2+\operatorname{Im}\{H\}^2}=\sqrt{H\,H^*}=\frac{1}{\sqrt{1+x^2}},\qquad \varphi(F)=-\arctan x. \end{aligned} \tag{2.2|2.3}$$
 :::
 
-⁠**Cómo leerlo:** $|H|$ indica en qué factor se reduce la amplitud; $\varphi$, en qué ángulo se retrasa la oscilación. Para $x=1$, es decir, $F=1/(2\pi RC)=0{,}16$ Hz en el modelo de referencia, $|H|=0{,}707$ y $\varphi=-45^\circ$. Para $x=10$, $|H|=0{,}0995$ y $\varphi=-84{,}3^\circ$ (fig. [3](#abb-3)). **Casos límite:** $F\to0$ da $H\to1$ (el condensador tiene tiempo de cargarse por completo); $F\to\infty$ da $H\to0$ con $\varphi\to-90^\circ$ (el condensador actúa como un cortocircuito).
+⁠**Cómo leerlo:** $|H|$ indica en qué factor se reduce la amplitud. $\varphi$ es negativa: la oscilación se retrasa el ángulo $-\varphi=\arctan x$. Para $x=1$, es decir, $F=1/(2\pi RC)=0{,}16$ Hz en el modelo de referencia, $|H|=0{,}707$ y $\varphi=-45^\circ$. Para $x=10$, $|H|=0{,}0995$ y $\varphi=-84{,}3^\circ$ (fig. [3](#abb-3)). **Casos límite:** $F\to0$ da $H\to1$ (el condensador tiene tiempo de cargarse por completo); $F\to\infty$ da $H\to0$ con $\varphi\to-90^\circ$ (el condensador actúa como un cortocircuito).
 
 :::abbildung et3/k1bode 3
 Módulo y fase de la función de transferencia del paso bajo RC en función de $x=2\pi FRC$ (escala logarítmica). Las oscilaciones lentas pasan casi sin cambios; las rápidas se atenúan y se retrasan hasta $90^\circ$.

@@ -14,8 +14,6 @@ lang: de
 
 Auf dem Taschenrechner sind $\mathrm{e}^x$, $\sin x$ und $\cos x$ drei getrennte Tasten, und [Kapitel 2](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/komplexe-zahlen/komplexe-zahlen.html) hat die Polarform offen gelassen. Die Frage lautet: *Wie hängen die drei Funktionen zusammen, und warum ist Multiplizieren in $\mathbb{C}$ ein Drehen und Strecken?*
 
-
-
 **So arbeitest du mit diesem Kapitel.** Die Abschnitte bauen aufeinander auf, jeder neue Begriff hat einen eigenen Unterabschnitt mit Beispiel. Kästen zum Aufklappen enthalten Hintergrund (warum etwas so ist und woher es kommt), Herleitungen und Hinweise zur Simulation; zum Weiterlesen braucht man sie nicht. Versuche die Aufgaben (★ bis ★★★) zuerst selbst, die Lösung klappst du direkt unter der Aufgabe auf.
 
 :::merke Das Rechenmodell für dieses Kapitel
@@ -47,5 +45,4 @@ Auf dem Taschenrechner sind $\mathrm{e}^x$, $\sin x$ und $\cos x$ drei getrennte
 
 </ul>
 
-Alle Zahlen rechnet `rechnung_kap7.py` nach.
 :::

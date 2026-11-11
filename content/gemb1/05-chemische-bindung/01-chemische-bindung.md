@@ -35,5 +35,4 @@ Der Weg führt über acht Begriffe. Eine __chemische Bindung__ ist der Zusammenh
 
 </ul>
 
-Alle Zahlen rechnet `rechnung_kap5.py` nach.
 :::

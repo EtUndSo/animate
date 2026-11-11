@@ -41,7 +41,7 @@ Der Weg führt über acht Begriffe. Der __MIS-Kondensator__ besteht aus Metall, 
 
 <li>
 
-⁠**Isolator:** $\mathrm{SiO_2}$ mit $d_\mathrm{IS}=20$ nm und $\varepsilon_\mathrm{IS}=3{,}9\,\varepsilon_0$. Alle Zahlen rechnet `rechnung_kap15.py` nach.
+⁠**Isolator:** $\mathrm{SiO_2}$ mit $d_\mathrm{IS}=20$ nm und $\varepsilon_\mathrm{IS}=3{,}9\,\varepsilon_0$.
 
 </li>
 

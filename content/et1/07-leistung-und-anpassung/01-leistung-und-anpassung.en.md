@@ -14,8 +14,6 @@ lang: en
 
 A 9 V battery has 2 $\Omega$ of __internal resistance__, the resistance that the current must overcome inside the source itself. It feeds a __load__, the connected device. How large must the load be so that as much __power__, that is, energy per time, as possible arrives at it? The answer is 2 $\Omega$, and it comes at a price: half of the energy then stays in the battery as heat. The question of this chapter is: *Where does the power come from, where does it go, and why does the maximum lie at exactly 50 % utilization?*
 
-
-
 **How to work with this chapter.** The sections build on each other, and every new term has its own subsection with an example. Expandable boxes contain background (why something is the way it is and where it comes from), derivations and simulation hints; you do not need them to read on. Try the exercises (★ to ★★★) yourself first; the solution expands right below each exercise.
 
 :::merke The reference model for this chapter
@@ -41,5 +39,4 @@ A 9 V battery has 2 $\Omega$ of __internal resistance__, the resistance that
 
 </ul>
 
-The script `rechnung_kap7.py` recalculates all the numbers.
 :::
