@@ -1,0 +1,809 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 27,
+  "nextAnimId": 32,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Text",
+    "props": {
+     "text": "\\e[38;2;235;104;52m1\\e[0m:\\e[38;2;42;120;214m2.41.3\\e[0m-\\e[38;2;0;130;60m3ubuntu2.2\\e[0m",
+     "position": [
+      -1.4356,
+      2.0,
+      0
+     ],
+     "font_size": 34,
+     "align": "left",
+     "color": "#111111",
+     "ansi": true,
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Shape",
+    "props": {
+     "points": "-1.4156,2.22;-1.4156,2.29;-1.3044,2.29;-1.3044,2.22",
+     "closed": false,
+     "label": "",
+     "material": "custom",
+     "font_size": 24,
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 0.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o3",
+    "type": "Shape",
+    "props": {
+     "points": "-1.1133,2.22;-1.1133,2.29;-0.2467,2.29;-0.2467,2.22",
+     "closed": false,
+     "label": "",
+     "material": "custom",
+     "font_size": 24,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 0.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Shape",
+    "props": {
+     "points": "-0.0556,2.22;-0.0556,2.29;1.4156,2.29;1.4156,2.22",
+     "closed": false,
+     "label": "",
+     "material": "custom",
+     "font_size": 24,
+     "color": "#00823c",
+     "fill_color": "#00823c",
+     "fill_opacity": 0.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o5",
+    "type": "Text",
+    "props": {
+     "text": "@ep",
+     "position": [
+      -1.5556,
+      2.34,
+      0
+     ],
+     "font_size": 18,
+     "align": "right",
+     "color": "#eb6834"
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Text",
+    "props": {
+     "text": "@pv",
+     "position": [
+      -0.68,
+      2.56,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o7",
+    "type": "Text",
+    "props": {
+     "text": "@rv",
+     "position": [
+      1.5556,
+      2.34,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#00823c"
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Text",
+    "props": {
+     "text": "@ep2",
+     "position": [
+      -1.5556,
+      2.09,
+      0
+     ],
+     "font_size": 18,
+     "align": "right",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o9",
+    "type": "Text",
+    "props": {
+     "text": "@pv2",
+     "position": [
+      -0.68,
+      2.81,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o10",
+    "type": "Text",
+    "props": {
+     "text": "@rv2",
+     "position": [
+      1.5556,
+      2.09,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o11",
+    "type": "Text",
+    "props": {
+     "text": "3",
+     "position": [
+      -0.0756,
+      2.0,
+      0
+     ],
+     "font_size": 34.0,
+     "align": "left",
+     "color": "#00823c",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Text",
+    "props": {
+     "text": "@r1",
+     "position": [
+      -2.2,
+      0.62,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#333333"
+    }
+   },
+   {
+    "id": "o13",
+    "type": "Text",
+    "props": {
+     "text": "ubuntu2",
+     "position": [
+      0.0756,
+      2.0,
+      0
+     ],
+     "font_size": 34.0,
+     "align": "left",
+     "color": "#00823c",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o14",
+    "type": "Text",
+    "props": {
+     "text": "@r2",
+     "position": [
+      0.0,
+      0.62,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#333333"
+    }
+   },
+   {
+    "id": "o15",
+    "type": "Text",
+    "props": {
+     "text": ".2",
+     "position": [
+      1.1333,
+      2.0,
+      0
+     ],
+     "font_size": 34.0,
+     "align": "left",
+     "color": "#00823c",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o16",
+    "type": "Text",
+    "props": {
+     "text": "@r3",
+     "position": [
+      2.2,
+      0.62,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#333333"
+    }
+   },
+   {
+    "id": "o17",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -3.25,
+      -0.6,
+      0
+     ],
+     "end": [
+      3.25,
+      -0.6,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.12,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o18",
+    "type": "Text",
+    "props": {
+     "text": "@folge",
+     "position": [
+      -3.25,
+      -0.3,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o19",
+    "type": "Text",
+    "props": {
+     "text": "@alt",
+     "position": [
+      -3.25,
+      -0.85,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o20",
+    "type": "Text",
+    "props": {
+     "text": "@neu",
+     "position": [
+      3.25,
+      -0.85,
+      0
+     ],
+     "font_size": 18,
+     "align": "right",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o21",
+    "type": "Dot",
+    "props": {
+     "center": [
+      1.45,
+      -0.6,
+      0
+     ],
+     "radius": 0.06,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o22",
+    "type": "Text",
+    "props": {
+     "text": "0.10.0-1ubuntu2",
+     "position": [
+      1.45,
+      -0.87,
+      0
+     ],
+     "font_size": 17,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o23",
+    "type": "Dot",
+    "props": {
+     "center": [
+      0.8,
+      -0.6,
+      0
+     ],
+     "radius": 0.06,
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 1,
+     "stroke_width": 0
+    }
+   },
+   {
+    "id": "o24",
+    "type": "Text",
+    "props": {
+     "text": "0.10.0-1ubuntu2\\e[38;2;235;104;52m~\\e[0m26.04.1",
+     "position": [
+      0.8,
+      -0.31,
+      0
+     ],
+     "font_size": 17,
+     "align": "center",
+     "color": "#111111",
+     "ansi": true,
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o25",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      1.37,
+      -0.48,
+      0
+     ],
+     "end": [
+      0.88,
+      -0.48,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.08,
+     "font_size": 26,
+     "color": "#eb6834",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o26",
+    "type": "Text",
+    "props": {
+     "text": "@tilde",
+     "position": [
+      1.75,
+      -0.31,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#eb6834"
+    }
+   }
+  ],
+  "animations": [
+   {
+    "id": "a1",
+    "type": "FadeIn",
+    "target": "o1",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a2",
+    "type": "Create",
+    "target": "o2",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a3",
+    "type": "Create",
+    "target": "o3",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a4",
+    "type": "Create",
+    "target": "o4",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a5",
+    "type": "FadeIn",
+    "target": "o5",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a6",
+    "type": "FadeIn",
+    "target": "o6",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a7",
+    "type": "FadeIn",
+    "target": "o7",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a8",
+    "type": "FadeIn",
+    "target": "o11",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a9",
+    "type": "FadeIn",
+    "target": "o13",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a10",
+    "type": "FadeIn",
+    "target": "o15",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a11",
+    "type": "FadeIn",
+    "target": "o8",
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a12",
+    "type": "FadeIn",
+    "target": "o9",
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a13",
+    "type": "FadeIn",
+    "target": "o10",
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a14",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 3
+   },
+   {
+    "id": "a15",
+    "type": "Shift",
+    "target": "o11",
+    "run_time": 1.1,
+    "step": 4,
+    "vector": [
+     -2.1999,
+     -1.05,
+     0
+    ]
+   },
+   {
+    "id": "a16",
+    "type": "Shift",
+    "target": "o13",
+    "run_time": 1.1,
+    "step": 4,
+    "vector": [
+     -0.6045,
+     -1.05,
+     0
+    ]
+   },
+   {
+    "id": "a17",
+    "type": "Shift",
+    "target": "o15",
+    "run_time": 1.1,
+    "step": 4,
+    "vector": [
+     0.9156,
+     -1.05,
+     0
+    ]
+   },
+   {
+    "id": "a18",
+    "type": "FadeIn",
+    "target": "o12",
+    "run_time": 0.6,
+    "step": 5
+   },
+   {
+    "id": "a19",
+    "type": "FadeIn",
+    "target": "o14",
+    "run_time": 0.6,
+    "step": 5
+   },
+   {
+    "id": "a20",
+    "type": "FadeIn",
+    "target": "o16",
+    "run_time": 0.6,
+    "step": 5
+   },
+   {
+    "id": "a21",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 6
+   },
+   {
+    "id": "a22",
+    "type": "FadeIn",
+    "target": "o17",
+    "run_time": 0.6,
+    "step": 7
+   },
+   {
+    "id": "a23",
+    "type": "FadeIn",
+    "target": "o18",
+    "run_time": 0.6,
+    "step": 7
+   },
+   {
+    "id": "a24",
+    "type": "FadeIn",
+    "target": "o19",
+    "run_time": 0.6,
+    "step": 7
+   },
+   {
+    "id": "a25",
+    "type": "FadeIn",
+    "target": "o20",
+    "run_time": 0.6,
+    "step": 7
+   },
+   {
+    "id": "a26",
+    "type": "GrowFromCenter",
+    "target": "o21",
+    "run_time": 0.5,
+    "step": 8
+   },
+   {
+    "id": "a27",
+    "type": "FadeIn",
+    "target": "o22",
+    "run_time": 0.5,
+    "step": 8
+   },
+   {
+    "id": "a28",
+    "type": "GrowFromCenter",
+    "target": "o23",
+    "run_time": 0.6,
+    "step": 9
+   },
+   {
+    "id": "a29",
+    "type": "FadeIn",
+    "target": "o24",
+    "run_time": 0.6,
+    "step": 9
+   },
+   {
+    "id": "a30",
+    "type": "Create",
+    "target": "o25",
+    "run_time": 0.6,
+    "step": 9
+   },
+   {
+    "id": "a31",
+    "type": "FadeIn",
+    "target": "o26",
+    "run_time": 0.5,
+    "step": 10
+   }
+  ],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "ep": {
+    "de": "Epoche",
+    "en": "epoch",
+    "es": "época",
+    "zh": "纪元",
+    "fr": "époque",
+    "tr": "dönem"
+   },
+   "pv": {
+    "de": "Programmversion",
+    "en": "program version",
+    "es": "versión del programa",
+    "zh": "程序版本",
+    "fr": "version du programme",
+    "tr": "program sürümü"
+   },
+   "rv": {
+    "de": "Revision",
+    "en": "revision",
+    "es": "revisión",
+    "zh": "修订号",
+    "fr": "révision",
+    "tr": "revizyon"
+   },
+   "ep2": {
+    "de": "„Zählweise geändert“",
+    "en": "“numbering changed”",
+    "es": "«cambió la numeración»",
+    "zh": "“编号方式变了”",
+    "fr": "« numérotation changée »",
+    "tr": "“numaralama değişti”"
+   },
+   "pv2": {
+    "de": "„vom Projekt“",
+    "en": "“from the project”",
+    "es": "«del proyecto»",
+    "zh": "“来自项目”",
+    "fr": "« du projet »",
+    "tr": "“projeden”"
+   },
+   "rv2": {
+    "de": "„von der Distribution“",
+    "en": "“from the distribution”",
+    "es": "«de la distribución»",
+    "zh": "“来自发行版”",
+    "fr": "« de la distribution »",
+    "tr": "“dağıtımdan”"
+   },
+   "r1": {
+    "de": "von Debian",
+    "en": "from Debian",
+    "es": "de Debian",
+    "zh": "来自 Debian",
+    "fr": "de Debian",
+    "tr": "Debian'dan"
+   },
+   "r2": {
+    "de": "zwei Änderungen durch Ubuntu",
+    "en": "two changes by Ubuntu",
+    "es": "dos cambios de Ubuntu",
+    "zh": "Ubuntu 的两次修改",
+    "fr": "deux modifications par Ubuntu",
+    "tr": "Ubuntu'nun iki değişikliği"
+   },
+   "r3": {
+    "de": "zwei spätere Korrekturen",
+    "en": "two later fixes",
+    "es": "dos correcciones posteriores",
+    "zh": "两次后续修正",
+    "fr": "deux corrections ultérieures",
+    "tr": "iki sonraki düzeltme"
+   },
+   "folge": {
+    "de": "Reihenfolge der Versionen",
+    "en": "order of versions",
+    "es": "orden de las versiones",
+    "zh": "版本的先后顺序",
+    "fr": "ordre des versions",
+    "tr": "sürümlerin sırası"
+   },
+   "alt": {
+    "de": "älter",
+    "en": "older",
+    "es": "más antigua",
+    "zh": "更旧",
+    "fr": "plus ancienne",
+    "tr": "daha eski"
+   },
+   "neu": {
+    "de": "neuer",
+    "en": "newer",
+    "es": "más nueva",
+    "zh": "更新",
+    "fr": "plus récente",
+    "tr": "daha yeni"
+   },
+   "tilde": {
+    "de": "~: etwas älter",
+    "en": "~: slightly older",
+    "es": "~: algo más antigua",
+    "zh": "~：稍旧一些",
+    "fr": "~ : un peu plus ancienne",
+    "tr": "~: biraz daha eski"
+   }
+  },
+  "drawOrder": "creation"
+ }
+}

@@ -1,0 +1,1450 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 44,
+  "nextAnimId": 64,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.4,
+      1.85,
+      0
+     ],
+     "width": 1.5,
+     "height": 0.38,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Text",
+    "props": {
+     "text": "@prozessa_d431",
+     "position": [
+      -2.4,
+      1.85,
+      0
+     ],
+     "font_size": 20,
+     "align": "center",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o3",
+    "type": "Text",
+    "props": {
+     "text": "0x7ffd3c2a1f48",
+     "position": [
+      -2.4,
+      1.48,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#333333",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o4",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.4,
+      0.35,
+      0
+     ],
+     "width": 2.0,
+     "height": 1.4,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#333333",
+     "fill_color": "#efefef",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o5",
+    "type": "Text",
+    "props": {
+     "text": "@kern_be0b",
+     "position": [
+      -3.3,
+      -0.22,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#333333"
+    }
+   },
+   {
+    "id": "o6",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.4,
+      0.58,
+      0
+     ],
+     "width": 1.1,
+     "height": 0.34,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#333333",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o7",
+    "type": "Text",
+    "props": {
+     "text": "MMU",
+     "position": [
+      -2.4,
+      0.58,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o8",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.4,
+      0.08,
+      0
+     ],
+     "width": 1.1,
+     "height": 0.34,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#eb6834",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o9",
+    "type": "Text",
+    "props": {
+     "text": "CR3",
+     "position": [
+      -2.4,
+      0.08,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o10",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -2.4,
+      1.36,
+      0
+     ],
+     "end": [
+      -2.4,
+      0.77,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.1,
+     "font_size": 26,
+     "color": "#333333",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o11",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.125,
+      -0.1,
+      0
+     ],
+     "width": 2.35,
+     "height": 2.9,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#efefef",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Text",
+    "props": {
+     "text": "@speicherdesker_fe7e",
+     "position": [
+      0.125,
+      1.18,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o13",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.125,
+      0.52,
+      0
+     ],
+     "width": 2.05,
+     "height": 0.85,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o14",
+    "type": "Text",
+    "props": {
+     "text": "@tabellea_03cb",
+     "position": [
+      0.125,
+      0.8,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o15",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.125,
+      0.5,
+      0
+     ],
+     "width": 1.85,
+     "height": 0.22,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#b5b5b5",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o16",
+    "type": "Text",
+    "props": {
+     "text": "@seitemitdaten_3812",
+     "position": [
+      0.125,
+      0.5,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o17",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.125,
+      0.25,
+      0
+     ],
+     "width": 1.85,
+     "height": 0.22,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#b5b5b5",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o18",
+    "type": "Text",
+    "props": {
+     "text": "@seitemitcode_4c55",
+     "position": [
+      0.125,
+      0.25,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o19",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.125,
+      -0.78,
+      0
+     ],
+     "width": 2.05,
+     "height": 0.85,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#00823c",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o20",
+    "type": "Text",
+    "props": {
+     "text": "@tabelleb_4b9a",
+     "position": [
+      0.125,
+      -0.5,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#00823c"
+    }
+   },
+   {
+    "id": "o21",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.125,
+      -0.78,
+      0
+     ],
+     "width": 1.85,
+     "height": 0.22,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#b5b5b5",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o22",
+    "type": "Text",
+    "props": {
+     "text": "@seitemitcode_4c55",
+     "position": [
+      0.125,
+      -0.78,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o23",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.125,
+      -1.03,
+      0
+     ],
+     "width": 1.85,
+     "height": 0.22,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#b5b5b5",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o24",
+    "type": "Text",
+    "props": {
+     "text": "@seitemitdaten_3812",
+     "position": [
+      0.125,
+      -1.03,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o25",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.65,
+      0.0,
+      0
+     ],
+     "width": 1.35,
+     "height": 2.6,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#b5b5b5",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o26",
+    "type": "Text",
+    "props": {
+     "text": "@physischerspei_4d3b",
+     "position": [
+      2.65,
+      1.5,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o27",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.65,
+      0.8,
+      0
+     ],
+     "width": 1.25,
+     "height": 0.42,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#e3eefb",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o28",
+    "type": "Text",
+    "props": {
+     "text": "@rahmenvona_37bd",
+     "position": [
+      2.65,
+      0.8,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o29",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.65,
+      0.0,
+      0
+     ],
+     "width": 1.25,
+     "height": 0.42,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#efefef",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o30",
+    "type": "Text",
+    "props": {
+     "text": "@programmcode_9025",
+     "position": [
+      2.65,
+      0.0,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o31",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.65,
+      -0.8,
+      0
+     ],
+     "width": 1.25,
+     "height": 0.42,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#00823c",
+     "fill_color": "#e6f3ea",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o32",
+    "type": "Text",
+    "props": {
+     "text": "@rahmenvonb_b3a8",
+     "position": [
+      2.65,
+      -0.8,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o33",
+    "type": "Text",
+    "props": {
+     "text": "@inbeidentabell_5732",
+     "position": [
+      2.65,
+      -1.5,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o34",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -1.83,
+      0.12,
+      0
+     ],
+     "end": [
+      -0.93,
+      0.45,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.1,
+     "font_size": 26,
+     "color": "#eb6834",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o35",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -1.83,
+      0.04,
+      0
+     ],
+     "end": [
+      -0.93,
+      -0.7,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.1,
+     "font_size": 26,
+     "color": "#eb6834",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o36",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      1.07,
+      0.5,
+      0
+     ],
+     "end": [
+      2.0,
+      0.8,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.1,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o37",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      1.07,
+      0.25,
+      0
+     ],
+     "end": [
+      2.0,
+      0.06,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.1,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o38",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      1.07,
+      -0.78,
+      0
+     ],
+     "end": [
+      2.0,
+      -0.06,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.1,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o39",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      1.07,
+      -1.03,
+      0
+     ],
+     "end": [
+      2.0,
+      -0.8,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.1,
+     "font_size": 26,
+     "color": "#00823c",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o40",
+    "type": "Text",
+    "props": {
+     "text": "@zeitgeberunter_eecd",
+     "position": [
+      -2.4,
+      -0.5,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#eb6834"
+    }
+   },
+   {
+    "id": "o41",
+    "type": "Text",
+    "props": {
+     "text": "@kernellaedtcr3_6238",
+     "position": [
+      -2.4,
+      -0.78,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#333333"
+    }
+   },
+   {
+    "id": "o42",
+    "type": "Text",
+    "props": {
+     "text": "@nurstufe0_1e5f",
+     "position": [
+      -2.4,
+      -1.03,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o43",
+    "type": "Text",
+    "props": {
+     "text": "@prozessb_cadc",
+     "position": [
+      -2.4,
+      1.85,
+      0
+     ],
+     "font_size": 20,
+     "align": "center",
+     "color": "#00823c"
+    }
+   }
+  ],
+  "animations": [
+   {
+    "id": "a1",
+    "type": "FadeIn",
+    "target": "o1",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a2",
+    "type": "FadeIn",
+    "target": "o2",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a3",
+    "type": "FadeIn",
+    "target": "o3",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a4",
+    "type": "FadeIn",
+    "target": "o4",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a5",
+    "type": "FadeIn",
+    "target": "o5",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a6",
+    "type": "FadeIn",
+    "target": "o6",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a7",
+    "type": "FadeIn",
+    "target": "o7",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a8",
+    "type": "FadeIn",
+    "target": "o8",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a9",
+    "type": "FadeIn",
+    "target": "o9",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a10",
+    "type": "FadeIn",
+    "target": "o11",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a11",
+    "type": "FadeIn",
+    "target": "o12",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a12",
+    "type": "FadeIn",
+    "target": "o13",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a13",
+    "type": "FadeIn",
+    "target": "o14",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a14",
+    "type": "FadeIn",
+    "target": "o15",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a15",
+    "type": "FadeIn",
+    "target": "o16",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a16",
+    "type": "FadeIn",
+    "target": "o17",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a17",
+    "type": "FadeIn",
+    "target": "o18",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a18",
+    "type": "FadeIn",
+    "target": "o19",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a19",
+    "type": "FadeIn",
+    "target": "o20",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a20",
+    "type": "FadeIn",
+    "target": "o21",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a21",
+    "type": "FadeIn",
+    "target": "o22",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a22",
+    "type": "FadeIn",
+    "target": "o23",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a23",
+    "type": "FadeIn",
+    "target": "o24",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a24",
+    "type": "FadeIn",
+    "target": "o25",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a25",
+    "type": "FadeIn",
+    "target": "o26",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a26",
+    "type": "FadeIn",
+    "target": "o27",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a27",
+    "type": "FadeIn",
+    "target": "o28",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a28",
+    "type": "FadeIn",
+    "target": "o29",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a29",
+    "type": "FadeIn",
+    "target": "o30",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a30",
+    "type": "FadeIn",
+    "target": "o31",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a31",
+    "type": "FadeIn",
+    "target": "o32",
+    "run_time": 0.8,
+    "step": 0
+   },
+   {
+    "id": "a32",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.4,
+    "step": 1
+   },
+   {
+    "id": "a33",
+    "type": "Create",
+    "target": "o34",
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a34",
+    "type": "Create",
+    "target": "o10",
+    "run_time": 0.5,
+    "step": 3
+   },
+   {
+    "id": "a35",
+    "type": "Indicate",
+    "target": "o6",
+    "run_time": 0.7,
+    "step": 3
+   },
+   {
+    "id": "a36",
+    "type": "Indicate",
+    "target": "o15",
+    "run_time": 0.6,
+    "step": 4
+   },
+   {
+    "id": "a37",
+    "type": "Indicate",
+    "target": "o16",
+    "run_time": 0.6,
+    "step": 4
+   },
+   {
+    "id": "a38",
+    "type": "Create",
+    "target": "o36",
+    "run_time": 0.6,
+    "step": 4
+   },
+   {
+    "id": "a39",
+    "type": "Indicate",
+    "target": "o27",
+    "run_time": 0.6,
+    "step": 5
+   },
+   {
+    "id": "a40",
+    "type": "Indicate",
+    "target": "o28",
+    "run_time": 0.6,
+    "step": 5
+   },
+   {
+    "id": "a41",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 6
+   },
+   {
+    "id": "a42",
+    "type": "FadeIn",
+    "target": "o40",
+    "run_time": 0.5,
+    "step": 7
+   },
+   {
+    "id": "a43",
+    "type": "FadeOut",
+    "target": "o34",
+    "run_time": 0.5,
+    "step": 8
+   },
+   {
+    "id": "a44",
+    "type": "Create",
+    "target": "o35",
+    "run_time": 0.8,
+    "step": 8
+   },
+   {
+    "id": "a45",
+    "type": "FadeIn",
+    "target": "o41",
+    "run_time": 0.8,
+    "step": 8
+   },
+   {
+    "id": "a46",
+    "type": "FadeIn",
+    "target": "o42",
+    "run_time": 0.8,
+    "step": 8
+   },
+   {
+    "id": "a47",
+    "type": "Indicate",
+    "target": "o8",
+    "run_time": 0.8,
+    "step": 8
+   },
+   {
+    "id": "a48",
+    "type": "Indicate",
+    "target": "o40",
+    "run_time": 0.8,
+    "step": 8
+   },
+   {
+    "id": "a49",
+    "type": "Transform",
+    "target": "o2",
+    "run_time": 0.8,
+    "step": 8,
+    "to": "o43"
+   },
+   {
+    "id": "a50",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.4,
+    "step": 9
+   },
+   {
+    "id": "a51",
+    "type": "Indicate",
+    "target": "o10",
+    "run_time": 0.6,
+    "step": 10
+   },
+   {
+    "id": "a52",
+    "type": "Indicate",
+    "target": "o6",
+    "run_time": 0.6,
+    "step": 10
+   },
+   {
+    "id": "a53",
+    "type": "Indicate",
+    "target": "o23",
+    "run_time": 0.6,
+    "step": 11
+   },
+   {
+    "id": "a54",
+    "type": "Indicate",
+    "target": "o24",
+    "run_time": 0.6,
+    "step": 11
+   },
+   {
+    "id": "a55",
+    "type": "Create",
+    "target": "o39",
+    "run_time": 0.6,
+    "step": 11
+   },
+   {
+    "id": "a56",
+    "type": "Indicate",
+    "target": "o31",
+    "run_time": 0.6,
+    "step": 12
+   },
+   {
+    "id": "a57",
+    "type": "Indicate",
+    "target": "o32",
+    "run_time": 0.6,
+    "step": 12
+   },
+   {
+    "id": "a58",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 13
+   },
+   {
+    "id": "a59",
+    "type": "Create",
+    "target": "o37",
+    "run_time": 0.7,
+    "step": 14
+   },
+   {
+    "id": "a60",
+    "type": "Create",
+    "target": "o38",
+    "run_time": 0.7,
+    "step": 14
+   },
+   {
+    "id": "a61",
+    "type": "FadeIn",
+    "target": "o33",
+    "run_time": 0.7,
+    "step": 14
+   },
+   {
+    "id": "a62",
+    "type": "Indicate",
+    "target": "o29",
+    "run_time": 0.8,
+    "step": 14
+   },
+   {
+    "id": "a63",
+    "type": "Indicate",
+    "target": "o30",
+    "run_time": 0.8,
+    "step": 14
+   }
+  ],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "prozessa_d431": {
+    "de": "Prozess A",
+    "en": "process A",
+    "es": "proceso A",
+    "zh": "进程 A",
+    "fr": "processus A",
+    "tr": "süreç A"
+   },
+   "kern_be0b": {
+    "de": "Kern",
+    "en": "core",
+    "es": "núcleo",
+    "zh": "核心",
+    "fr": "cœur",
+    "tr": "işlemci çekirdeği"
+   },
+   "speicherdesker_fe7e": {
+    "de": "Speicher des Kernels",
+    "en": "kernel memory",
+    "es": "memoria del kernel",
+    "zh": "内核内存",
+    "fr": "mémoire du noyau",
+    "tr": "çekirdek belleği"
+   },
+   "tabellea_03cb": {
+    "de": "Tabelle A",
+    "en": "table A",
+    "es": "tabla A",
+    "zh": "页表 A",
+    "fr": "table A",
+    "tr": "tablo A"
+   },
+   "seitemitdaten_3812": {
+    "de": "Seite mit Daten",
+    "en": "data page",
+    "es": "página de datos",
+    "zh": "数据页",
+    "fr": "page de données",
+    "tr": "veri sayfası"
+   },
+   "seitemitcode_4c55": {
+    "de": "Seite mit Code",
+    "en": "code page",
+    "es": "página de código",
+    "zh": "代码页",
+    "fr": "page de code",
+    "tr": "kod sayfası"
+   },
+   "tabelleb_4b9a": {
+    "de": "Tabelle B",
+    "en": "table B",
+    "es": "tabla B",
+    "zh": "页表 B",
+    "fr": "table B",
+    "tr": "tablo B"
+   },
+   "physischerspei_4d3b": {
+    "de": "physischer Speicher",
+    "en": "physical memory",
+    "es": "memoria física",
+    "zh": "物理内存",
+    "fr": "mémoire physique",
+    "tr": "fiziksel bellek"
+   },
+   "rahmenvona_37bd": {
+    "de": "Rahmen von A",
+    "en": "frame of A",
+    "es": "marco de A",
+    "zh": "A 的页框",
+    "fr": "cadre de A",
+    "tr": "A'nın çerçevesi"
+   },
+   "programmcode_9025": {
+    "de": "Programmcode",
+    "en": "program code",
+    "es": "código del\nprograma",
+    "zh": "程序代码",
+    "fr": "code du\nprogramme",
+    "tr": "program kodu"
+   },
+   "rahmenvonb_b3a8": {
+    "de": "Rahmen von B",
+    "en": "frame of B",
+    "es": "marco de B",
+    "zh": "B 的页框",
+    "fr": "cadre de B",
+    "tr": "B'nin çerçevesi"
+   },
+   "inbeidentabell_5732": {
+    "de": "in beiden Tabellen",
+    "en": "in both tables",
+    "es": "en ambas tablas",
+    "zh": "在两个页表中",
+    "fr": "dans les deux tables",
+    "tr": "iki tabloda da"
+   },
+   "zeitgeberunter_eecd": {
+    "de": "Zeitgeber-Unterbrechung",
+    "en": "timer interrupt",
+    "es": "interrupción del temporizador",
+    "zh": "定时器中断",
+    "fr": "interruption du temporisateur",
+    "tr": "zamanlayıcı kesmesi"
+   },
+   "kernellaedtcr3_6238": {
+    "de": "Kernel lädt CR3 neu",
+    "en": "kernel reloads CR3",
+    "es": "el kernel recarga CR3",
+    "zh": "内核重新载入 CR3",
+    "fr": "le noyau recharge CR3",
+    "tr": "çekirdek CR3'ü yeniden yükler"
+   },
+   "nurstufe0_1e5f": {
+    "de": "(nur Stufe 0)",
+    "en": "(level 0 only)",
+    "es": "(solo nivel 0)",
+    "zh": "（仅限第 0 级）",
+    "fr": "(niveau 0 seulement)",
+    "tr": "(yalnızca seviye 0)"
+   },
+   "prozessb_cadc": {
+    "de": "Prozess B",
+    "en": "process B",
+    "es": "proceso B",
+    "zh": "进程 B",
+    "fr": "processus B",
+    "tr": "süreç B"
+   }
+  },
+  "drawOrder": "creation"
+ }
+}

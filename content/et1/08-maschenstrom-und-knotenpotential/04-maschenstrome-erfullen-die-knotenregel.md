@@ -95,3 +95,115 @@ Welche Spannung muss die Quelle in jeder Masche in Umlaufrichtung treiben?
 (c) Masche a: $R_\mathrm a\,I_\mathrm a+R_\mathrm g\,(I_\mathrm a-I_\mathrm b)=6+12=18$ V. Masche b: $R_\mathrm b\,I_\mathrm b+R_\mathrm g\,(I_\mathrm b-I_\mathrm a)=-1-12=-13$ V. Die Quelle in b treibt also mit 13 V gegen den Uhrzeigersinn.
 :::
 :::
+
+::::formelsammlung
+**Zweigstrom aus Maschenströmen**
+
+$$I_\mathrm{Zweig}=\sum_{\mu=1}^{m}\sigma_\mu\,I_\mu,\qquad\sigma_\mu=\begin{cases}+1&\text{Masche }\mu\text{ läuft in Pfeilrichtung des Zweigs,}\\-1&\text{Masche }\mu\text{ läuft gegen den Pfeil,}\\0&\text{Masche }\mu\text{ enthält den Zweig nicht.}\end{cases}$$
+
+$I_\mu$ ist der Maschenstrom der Masche $\mu$ mit frei gewählter Richtung; ein negativer Wert heißt, der Kreisstrom läuft andersherum. Die Knotenregel ist für alle Werte der $I_\mu$ erfüllt, und jede Stromverteilung, die die Knotenregel erfüllt, lässt sich so darstellen. Die $m$ Maschen müssen unabhängig sein, etwa die Fenster eines ohne Kreuzungen gezeichneten Netzes.
+::::
+
+::::lernkarten
+:::karte begriff Maschenstrom
+Was versteht man unter einem Maschenstrom, mit dem man die Ströme eines Netzes beschreibt?
+---
+Einen gedachten Kreisstrom mit frei gewählter Richtung, je einen in jeder von $m$ unabhängigen Maschen. Er ist eine Rechengröße: Wirklich fließt nur der Zweigstrom, die Summe der Maschenströme im Zweig.
+--- falsch
+Den Strom, den ein Strommesser in jedem Zweig einer Masche anzeigt. In allen Zweigen einer Masche fließt derselbe Maschenstrom, auch in Zweigen, die zu zwei Maschen gehören.
+--- falsch
+Den Strom, den die Quelle einer Masche liefert. Maschen ohne Quelle haben keinen Maschenstrom, und seine Richtung ist durch die Polung der Quelle festgelegt, nicht frei wählbar.
+--- falsch
+Einen gedachten Kreisstrom je Knoten, der durch alle Zweige an diesem Knoten läuft und zu ihm zurückkehrt. Er ist eine Rechengröße, und die Summe aller dieser Ströme eines Knotens ergibt seinen Knotenstrom.
+:::
+:::karte formel Zweigstrom aus Maschenströmen
+Wie berechnet man den Strom eines Zweigs aus den Maschenströmen $I_\mu$ der $m$ unabhängigen Maschen?
+---
+$I_\mathrm{Zweig}=\sum_{\mu=1}^{m}\sigma_\mu\,I_\mu$ mit dem Vorzeichen $\sigma_\mu$: $+1$, wenn Masche $\mu$ in Pfeilrichtung des Zweigs läuft, $-1$, wenn sie gegen den Pfeil läuft, und $0$, wenn sie den Zweig nicht enthält.
+--- falsch
+$I_\mathrm{Zweig}=\sum_{\mu=1}^{m}I_\mu$, die Summe aller Maschenströme des Netzes ohne Vorzeichen. Jeder Maschenstrom trägt zu jedem Zweig bei, weil alle Maschen miteinander zusammenhängen.
+--- falsch
+$I_\mathrm{Zweig}=\sum_{\mu=1}^{m}\sigma_\mu\,I_\mu$ mit $\sigma_\mu=+1$ für jede Masche, die den Zweig enthält, und $0$ sonst. Die Richtung der Maschenströme spielt dabei keine Rolle.
+--- falsch
+Der Zweigstrom ist gleich dem größten Maschenstrom, der durch den Zweig läuft. Die übrigen Maschenströme fließen nur in den Zweigen, die ihrer Masche allein gehören.
+:::
+:::karte zusammenhang Knotenregel von selbst
+Warum ist die Knotenregel für jeden Zahlenwert der Maschenströme von selbst erfüllt?
+---
+Weil jeder Maschenstrom im Kreis läuft: In einer Masche hängt jeder Knoten an genau zwei Zweigen. Der Strom tritt über den einen ein und über den anderen aus, seine Beiträge heben sich auf.
+--- falsch
+Weil man die Maschenströme so berechnet, dass die Knotenregel stimmt. Erst die Lösung des Gleichungssystems sorgt dafür, dass an jedem Knoten die Summe der Ströme null ist.
+--- falsch
+Weil jeder Maschenstrom nur durch Knoten läuft, an denen keine Quelle liegt. Solche Knoten haben keinen Zufluss von außen, deshalb ist ihre Stromsumme in jedem Fall null.
+--- falsch
+Weil sich an jedem Knoten die Maschenströme verschiedener Maschen gegenseitig aufheben. Zwei benachbarte Maschenströme laufen dort stets entgegengesetzt und löschen sich deshalb vollständig aus.
+:::
+:::karte herleitung Vollständigkeit der Maschenströme
+Zeige, dass sich jede Stromverteilung, die die Knotenregel erfüllt, durch Maschenströme darstellen lässt.
+---
+Man wählt einen Baum und gibt jeder Masche, die ein Verbindungszweig mit Baumzweigen schließt, als Maschenstrom den Strom dieses Verbindungszweigs, weil jeder Verbindungszweig genau eine solche Masche schließt.
+---
+Man zieht alle diese Kreisströme von der gegebenen Verteilung ab. Der Rest erfüllt weiter die Knotenregel, weil jeder Kreisstrom sie für sich erfüllt.
+---
+Der Rest ist in allen Verbindungszweigen null, weil dort genau der abgezogene Maschenstrom floss. Er kann also nur im Baum fließen.
+---
+Der Baum hat ein Ende, einen Knoten mit nur einem Baumzweig. Dort erzwingt die Knotenregel den Strom null, weil die Verbindungszweige an diesem Knoten keinen Rest führen.
+---
+Man streicht diesen Zweig und wiederholt das, bis kein Baumzweig übrig ist. Der Rest ist überall null, weil so jeder Baumzweig einmal am Ende hängt; die Verteilung besteht also nur aus Maschenströmen.
+:::
+:::karte begriff Fenster
+Welche Maschen wählt man als unabhängige Maschen, wenn sich ein Netz ohne Kreuzungen zeichnen lässt, und wie viele sind es?
+---
+Die Fenster, also die Flächen zwischen den Zweigen. Es gibt genau $m$ davon, weil beim Aufbau aus dem Baum jeder neue Verbindungszweig genau eine Fläche in zwei teilt.
+--- falsch
+Die Fenster, also die Flächen zwischen den Zweigen. Es gibt genau $k-1$ davon, weil jeder Knoten außer dem Bezug genau eine Fläche nach oben begrenzt.
+--- falsch
+Die Fenster, also die Flächen zwischen den Zweigen samt der Außenfläche um das Netz. Es gibt genau $m+1$ davon, weil die Außenfläche als eigene Masche mitzählt.
+--- falsch
+Die Fenster, also die Flächen zwischen den Zweigen. Ihre Zahl hängt aber davon ab, wie man das Netz zeichnet, deshalb muss man ihre Unabhängigkeit jedes Mal einzeln prüfen.
+:::
+:::karte zusammenhang Strommesser im gemeinsamen Zweig
+Welchen Strom zeigt ein Strommesser in einem Zweig an, der zu zwei Maschen gehört, und wo ist ein Maschenstrom direkt messbar?
+---
+Den Zweigstrom, also die Summe beider Maschenströme mit Vorzeichen, etwa $I_\mathrm I-I_\mathrm{II}$ im Zweig von $R_2$. Direkt messbar ist ein Maschenstrom nur in einem Zweig, der allein zu seiner Masche gehört.
+--- falsch
+Den größeren der beiden Maschenströme, weil der kleinere im gemeinsamen Zweig vom größeren verdrängt wird. Direkt messbar ist ein Maschenstrom deshalb in jedem Zweig seiner Masche, auch im gemeinsamen.
+--- falsch
+Beide Maschenströme getrennt, je nachdem, wie man das Messgerät polt. Direkt messbar ist ein Maschenstrom deshalb in jedem Zweig seiner Masche, auch im gemeinsamen.
+--- falsch
+Den Zweigstrom, also die Summe beider Maschenströme mit Vorzeichen. Direkt messbar ist ein Maschenstrom nirgends, weil er in jedem Zweig von anderen Maschenströmen überlagert wird.
+:::
+:::karte zusammenhang Negativer Maschenstrom
+Was bedeutet es, wenn sich für einen Maschenstrom mit frei gewählter Richtung ein negativer Wert ergibt?
+---
+Der Kreisstrom läuft in Wirklichkeit andersherum als gewählt. Die Richtung darf man frei wählen, ein Minus im Ergebnis ist deshalb kein Fehler.
+--- falsch
+Die Masche gibt Energie ab, weil in ihr eine Quelle gegen die gewählte Richtung arbeitet. Ein negativer Maschenstrom kommt deshalb nur in Maschen mit Quelle vor.
+--- falsch
+Die Richtung war falsch gewählt, und man muss die Rechnung mit umgedrehtem Maschenstrom wiederholen, weil die Gleichungen nur für positive Werte gelten.
+--- falsch
+In dieser Masche fließt kein Strom, weil ein Kreisstrom nicht negativ werden kann. Das Minus zeigt einen Rechenfehler beim Aufstellen der Gleichungen an.
+:::
+:::karte zusammenhang Maschenstrom als Rechengröße
+Kann man bei einem Elektron im gemeinsamen Zweig zweier Maschen angeben, zu welchem Maschenstrom es gehört?
+---
+Nein. Ein Elektron gehört keiner Masche an. Maschenströme sind Rechengrößen, die sich im gemeinsamen Zweig überlagern; wirklich fließt nur der Zweigstrom.
+--- falsch
+Ja, an seiner Richtung: Elektronen, die im Uhrzeigersinn laufen, gehören zur einen Masche, die übrigen zur anderen. Der Zweigstrom zählt beide Gruppen.
+--- falsch
+Ja, wie bei zwei Buslinien auf derselben Straße: Jedes Elektron läuft in einer bestimmten Masche im Kreis und verlässt jede Kreuzung wieder in seiner Masche.
+--- falsch
+Nein, weil im gemeinsamen Zweig gar keine Elektronen fließen. Dort heben sich die beiden Maschenströme stets auf, und der Zweig bleibt stromlos.
+:::
+:::karte zusammenhang Eine einzige Masche
+Welchem Strom entspricht der Maschenstrom eines Netzes, das nur eine unabhängige Masche hat, also $m=1$?
+---
+Dem Strom der Reihenschaltung. Es gibt keinen gemeinsamen Zweig, also fließt in allen Zweigen derselbe Strom, und das ist der Maschenstrom.
+--- falsch
+Gar keinem, er ist null, weil ein Maschenstrom erst durch den Unterschied zweier Maschen entsteht. Bei $m=1$ fließt der Strom nur in Zweigen außerhalb der Masche.
+--- falsch
+Der Hälfte des Stroms der Reihenschaltung, weil der Kreisstrom jeden Knoten einmal hinein- und einmal hinausläuft und deshalb doppelt gezählt wird.
+--- falsch
+Dem Strom einer Parallelschaltung, weil bei einer einzigen Masche alle Zweige an denselben zwei Knoten hängen und sich den Strom teilen.
+:::
+::::

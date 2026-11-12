@@ -193,3 +193,138 @@ $$u_2(t)=1-\mathrm{e}^{-t/RC}$$
 
 Für $t\ge0$; Sprung auf $u_1=1$ V bei $t=0$, Kondensator anfangs leer. Aus der Maschenregel $u_2=1-R\,i$.
 ::::
+
+::::lernkarten
+:::karte formel Differentialgleichung des RC-Tiefpasses
+Welche Differentialgleichung verknüpft Eingang $u_1$ und Ausgang $u_2$ des RC-Tiefpasses, und woher kommt sie?
+---
+$RC\,\frac{\mathrm{d} u_2}{\mathrm{d} t}+u_2=u_1$. Der Strom $(u_1-u_2)/R$ durch $R$ fließt vollständig in den Kondensator und lädt ihn, $C\,\dot u_2=(u_1-u_2)/R$.
+--- falsch
+$RC\,\frac{\mathrm{d} u_1}{\mathrm{d} t}+u_1=u_2$. Der Strom $u_2/R$ durch $R$ lädt den Kondensator, und die Eingangsspannung folgt der Ladung mit einer Verzögerung.
+--- falsch
+$RC\,\frac{\mathrm{d} u_2}{\mathrm{d} t}=u_1$. Der Strom $u_1/R$ fließt vollständig in den Kondensator, weil die Spannung am Kondensator den Strom durch $R$ nicht beeinflusst.
+--- falsch
+$\frac{1}{RC}\,\frac{\mathrm{d} u_2}{\mathrm{d} t}+u_2=u_1$. Der Strom durch $R$ ist $(u_1-u_2)\,R$; er fließt vollständig in den Kondensator und lädt ihn auf.
+:::
+:::karte begriff Frequenzgang
+Was gibt der Frequenzgang $H(F)$ eines Systems wie des RC-Tiefpasses an?
+---
+Die komplexe Zahl, mit der das System die Eingangsschwingung $\mathrm{e}^{\mathrm{j}2\pi Ft}$ im eingeschwungenen Zustand multipliziert, $u_2=H(F)\,\mathrm{e}^{\mathrm{j}2\pi Ft}$. Sie hängt von der Frequenz ab und legt Amplitude und Phase des Ausgangs fest.
+--- falsch
+Den zeitlichen Verlauf der Ausgangsspannung, nachdem am Eingang eine Schwingung der Frequenz $F$ eingeschaltet wurde, einschließlich des Einschwingens bis zum eingeschwungenen Zustand. Er hängt von der Frequenz ab, daher der Name.
+--- falsch
+Die reelle Zahl, um die das System die Frequenz einer Eingangsschwingung ändert: Aus $\mathrm{e}^{\mathrm{j}2\pi Ft}$ wird $\mathrm{e}^{\mathrm{j}2\pi H(F)t}$, Amplitude und Phase bleiben dabei gleich.
+--- falsch
+Die komplexe Zahl, die das System im eingeschwungenen Zustand zur Eingangsschwingung addiert, $u_2=\mathrm{e}^{\mathrm{j}2\pi Ft}+H(F)$. Sie hängt von der Frequenz ab und verschiebt den Ausgang nach oben.
+:::
+:::karte zusammenhang Ableiten ändert die Form nicht
+Warum antwortet der RC-Tiefpass auf den Eingang $\mathrm{e}^{\mathrm{j}2\pi Ft}$ im eingeschwungenen Zustand wieder mit einer Funktion derselben Form?
+---
+Weil Ableiten die Form nicht ändert, $\frac{\mathrm{d}}{\mathrm{d} t}\mathrm{e}^{\mathrm{j}2\pi Ft}=\mathrm{j}2\pi F\,\mathrm{e}^{\mathrm{j}2\pi Ft}$. Mit $u_2=H(F)\,\mathrm{e}^{\mathrm{j}2\pi Ft}$ wird jedes Glied der Differentialgleichung ein Vielfaches von $\mathrm{e}^{\mathrm{j}2\pi Ft}$, und es bleibt eine Gleichung für die Zahl $H(F)$.
+--- falsch
+Weil $\mathrm{e}^{\mathrm{j}2\pi Ft}$ den Betrag 1 hat. Signale mit dem Betrag 1 kommen durch jedes System unverändert hindurch, sie werden höchstens verzögert, und die Form bleibt deshalb erhalten; bei einem Sinus wäre das anders.
+--- falsch
+Weil Ableiten aus $\mathrm{e}^{\mathrm{j}2\pi Ft}$ einen reellen Kosinus macht. Der Ausgang ist deshalb im eingeschwungenen Zustand immer ein reeller Kosinus derselben Frequenz, nur kleiner.
+--- falsch
+Weil der RC-Tiefpass bei jeder Frequenz $H=1$ hat. Im eingeschwungenen Zustand ist der Kondensator voll geladen, und der Ausgang ist deshalb gleich dem Eingang.
+:::
+:::karte herleitung Frequenzgang des RC-Tiefpasses
+Wie folgt aus der Differentialgleichung $RC\,\frac{\mathrm{d} u_2}{\mathrm{d} t}+u_2=u_1$ mit dem Eingang $u_1=\mathrm{e}^{\mathrm{j}2\pi Ft}$ der Frequenzgang des RC-Tiefpasses?
+---
+Man setzt $u_2=H(F)\,\mathrm{e}^{\mathrm{j}2\pi Ft}$ an, weil der Ausgang im eingeschwungenen Zustand dieselbe Form wie der Eingang hat, nur mit anderer Amplitude und Phase.
+---
+Die Ableitung ist $\frac{\mathrm{d}}{\mathrm{d} t}\mathrm{e}^{\mathrm{j}2\pi Ft}=\mathrm{j}2\pi F\,\mathrm{e}^{\mathrm{j}2\pi Ft}$, weil Ableiten die Form nicht ändert. Eingesetzt entsteht $H(F)\,\mathrm{e}^{\mathrm{j}2\pi Ft}\,(1+\mathrm{j}2\pi FRC)=\mathrm{e}^{\mathrm{j}2\pi Ft}$.
+---
+Man teilt durch $\mathrm{e}^{\mathrm{j}2\pi Ft}$, weil dieser Faktor auf beiden Seiten steht und nie null wird, und erhält $H(F)=\frac{1}{1+\mathrm{j}2\pi FRC}$.
+---
+Der Spannungsteiler mit Zeigern liefert dasselbe, weil der Kondensator die Impedanz $1/(\mathrm{j}2\pi FC)$ hat: $\underline U_2=\frac{1/(\mathrm{j}2\pi FC)}{R+1/(\mathrm{j}2\pi FC)}\,\underline U_1=\frac{1}{1+\mathrm{j}2\pi FRC}\,\underline U_1$.
+:::
+:::karte formel Betrag und Phase
+Wie groß sind Betrag und Phase des Frequenzgangs des RC-Tiefpasses, ausgedrückt mit $x=2\pi FRC$, und was bedeuten sie?
+---
+$|H(F)|=\frac{1}{\sqrt{1+x^2}}$ ist der Faktor, um den die Amplitude schrumpft. $\varphi(F)=-\arctan x$ ist negativ: Der Ausgang eilt um den Winkel $\arctan x$ nach. Bei $x=1$ ist $|H|=0{,}707$ und $\varphi=-45^\circ$.
+--- falsch
+$|H(F)|=\frac{1}{1+x^2}$ ist der Faktor, um den die Amplitude schrumpft; er ist gleich dem Realteil von $H$, weil der Imaginärteil nur die Phase trägt. $\varphi(F)=-\arctan x$, bei $x=1$ also $-45^\circ$ und $|H|=0{,}5$.
+--- falsch
+$|H(F)|=\frac{1}{\sqrt{1+x^2}}$ ist der Faktor, um den die Amplitude schrumpft. $\varphi(F)=+\arctan x$ ist positiv: Der Ausgang eilt voraus, weil der Kondensator die Spannung vorwegnimmt. Bei $x=1$ ist $\varphi=+45^\circ$.
+--- falsch
+$|H(F)|=\sqrt{1+x^2}$ ist der Faktor, um den die Amplitude wächst, weil der Kondensator bei höherer Frequenz schneller umgeladen wird. $\varphi(F)=-\arctan x$, bei $x=1$ also $-45^\circ$ und $|H|=1{,}41$.
+:::
+:::karte formel Real- und Imaginärteil
+Wie lauten Real- und Imaginärteil des Frequenzgangs des RC-Tiefpasses, und wie folgt daraus der Betrag?
+---
+Mit $x=2\pi FRC$ ist $\operatorname{Re}\{H\}=\frac{1}{1+x^2}$ und $\operatorname{Im}\{H\}=\frac{-x}{1+x^2}$. Der Betrag ist $|H(F)|=\sqrt{\operatorname{Re}\{H\}^2+\operatorname{Im}\{H\}^2}=\sqrt{H\,H^*}=\frac{1}{\sqrt{1+x^2}}$.
+--- falsch
+Mit $x=2\pi FRC$ ist $\operatorname{Re}\{H\}=1$ und $\operatorname{Im}\{H\}=-x$, denn das sind die beiden Summanden im Nenner. Der Betrag ist deshalb $|H(F)|=\operatorname{Re}\{H\}+\operatorname{Im}\{H\}=1-x$.
+--- falsch
+Mit $x=2\pi FRC$ ist $\operatorname{Re}\{H\}=\frac{1}{1+x^2}$ und $\operatorname{Im}\{H\}=\frac{x}{1+x^2}$. Der Betrag ist $|H(F)|=\operatorname{Re}\{H\}^2+\operatorname{Im}\{H\}^2=\frac{1}{1+x^2}$, ganz ohne Wurzel.
+--- falsch
+Mit $x=2\pi FRC$ ist $\operatorname{Re}\{H\}=\frac{1}{1+x}$ und $\operatorname{Im}\{H\}=\frac{-x}{1+x}$. Der Betrag ist $|H(F)|=\sqrt{H\,H^*}=1$, weil sich die beiden Teile gegenseitig ausgleichen.
+:::
+:::karte zusammenhang Grenzfälle
+Was passiert mit dem Frequenzgang des RC-Tiefpasses bei sehr kleinen und bei sehr großen Frequenzen, und warum?
+---
+Für $F\to0$ geht $H\to1$, weil der Kondensator Zeit hat, sich voll aufzuladen. Für $F\to\infty$ geht $H\to0$ mit $\varphi\to-90^\circ$, weil der Kondensator wie ein Kurzschluss wirkt.
+--- falsch
+Für $F\to0$ geht $H\to0$, weil der Kondensator Gleichspannung sperrt. Für $F\to\infty$ geht $H\to1$, weil der Kondensator dann wie ein Kurzschluss wirkt und alles durchlässt.
+--- falsch
+Für $F\to0$ geht $H\to1$. Für $F\to\infty$ geht $H\to0$ mit $\varphi\to-180^\circ$, weil sich die Phase mit wachsender Frequenz ohne Grenze immer weiter dreht.
+--- falsch
+In beiden Grenzfällen geht $H\to1$, weil der Kondensator weder bei Gleichspannung noch bei sehr schnellen Schwingungen nennenswert Ladung aufnimmt und so nichts abzweigt.
+:::
+:::karte zusammenhang Zusatz in der Phasenformel
+Warum braucht die allgemeine Phasenformel $\varphi=\arctan\frac{\operatorname{Im}\{H\}}{\operatorname{Re}\{H\}}+\lambda\pi+l\cdot2\pi$ den Zusatz $\lambda\pi$?
+---
+$\arctan$ sieht nur das Verhältnis $\operatorname{Im}/\operatorname{Re}$ und liefert den Hauptwert in $[-\pi/2,\pi/2]$. $1+\mathrm{j}$ und $-1-\mathrm{j}$ haben dasselbe Verhältnis, liegen aber in entgegengesetzten Quadranten. Bei negativem Realteil muss man deshalb $\pi$ addieren.
+--- falsch
+$\arctan$ liefert nur Winkel bis $\pi/4$. Für größere Winkel addiert man $\pi$, und zwar immer dann, wenn der Imaginärteil negativ ist, weil die Zahl dann unterhalb der reellen Achse liegt.
+--- falsch
+Die Phase eines Systems muss negativ sein, damit der Ausgang dem Eingang nacheilt. $\lambda\pi$ zieht bei positivem Realteil eine halbe Umdrehung ab und sorgt so dafür, dass der Winkel stets negativ wird, wie beim RC-Tiefpass.
+--- falsch
+$\arctan$ rechnet im Bogenmaß, die Phase gibt man aber in Grad an. $\lambda\pi$ rechnet das Ergebnis um, sobald der Realteil negativ ist; bei positivem Realteil stimmen beide Maße ohnehin überein.
+:::
+:::karte formel Effektivwertzeiger
+Wie gewinnt man aus dem Effektivwertzeiger $\underline U$ einer Spannung die reelle Spannung $u(t)$?
+---
+$u(t)=\operatorname{Re}\{\sqrt2\,|\underline U|\,\mathrm{e}^{\mathrm{j}(2\pi Ft+\varphi)}\}=\sqrt2\,|\underline U|\cos(2\pi Ft+\varphi)$. Der Betrag des Zeigers ist der Effektivwert, die Amplitude ist $\sqrt2$-mal so groß.
+--- falsch
+$u(t)=\operatorname{Re}\{|\underline U|\,\mathrm{e}^{\mathrm{j}(2\pi Ft+\varphi)}\}=|\underline U|\cos(2\pi Ft+\varphi)$. Der Betrag des Zeigers ist die Amplitude; einen Faktor braucht man nicht, weil der Realteil schon reell ist.
+--- falsch
+$u(t)=\operatorname{Im}\{\sqrt2\,|\underline U|\,\mathrm{e}^{\mathrm{j}(2\pi Ft+\varphi)}\}=\sqrt2\,|\underline U|\sin(2\pi Ft+\varphi)$. Der Betrag des Zeigers ist der Effektivwert, die reelle Spannung ist stets ein Sinus.
+--- falsch
+$u(t)=\operatorname{Re}\{|\underline U|/\sqrt2\,\mathrm{e}^{\mathrm{j}(2\pi Ft+\varphi)}\}=|\underline U|\cos(2\pi Ft+\varphi)/\sqrt2$. Der Betrag des Zeigers ist die Amplitude, der Effektivwert ist $\sqrt2$-mal kleiner.
+:::
+:::karte begriff Sprungantwort
+Was ist die Sprungantwort eines Systems, und wie verläuft sie beim RC-Tiefpass?
+---
+Die Antwort des Systems auf einen Sprung am Eingang. Beim RC-Tiefpass mit anfangs leerem Kondensator und einem Sprung auf $u_1=1$ V bei $t=0$ ist sie $u_2(t)=1-\mathrm{e}^{-t/RC}$ für $t\ge0$, eine Exponentialkurve von 0 gegen 1.
+--- falsch
+Die Antwort des Systems auf einen Sprung am Eingang. Beim RC-Tiefpass springt der Ausgang sofort mit auf 1 V, weil am Ausgang keine Last hängt und der Kondensator deshalb keinen Strom braucht.
+--- falsch
+Die Antwort des Systems auf einen Sprung am Eingang. Beim RC-Tiefpass ist sie eine Gerade mit der Steigung $1/RC$, die bei $t=RC$ den Endwert 1 erreicht und dort stehen bleibt, weil der Ladestrom konstant ist.
+--- falsch
+Der Sprung, den der Ausgang eines Systems macht, wenn man es einschaltet. Beim RC-Tiefpass ist das der Strom $i(t)=1-\mathrm{e}^{-t/RC}$, der von 0 gegen 1 steigt, bis der Kondensator voll ist.
+:::
+:::karte zusammenhang Rückwirkung beim Laden
+Woran liegt es, dass die Sprungantwort des RC-Tiefpasses exponentiell verläuft und nicht geradlinig?
+---
+An einer Rückwirkung: Je voller der Kondensator, desto weniger Spannung bleibt für $R$, desto kleiner der Ladestrom, desto langsamer füllt er sich weiter.
+--- falsch
+Daran, dass der Widerstand mit wachsender Spannung zunimmt und den Ladestrom immer stärker bremst; mit konstantem $R$ verliefe die Ladung geradlinig.
+--- falsch
+Daran, dass die Quelle ihre Spannung selbst nur exponentiell erhöht; ein idealer Sprung würde den Kondensator geradlinig bis zum Endwert laden.
+--- falsch
+Daran, dass der Kondensator Ladung nur in festen Portionen aufnimmt; jede Portion halbiert den freien Platz für die nächste, bis er voll ist.
+:::
+:::karte herleitung Sprungantwort aus der Maschenregel
+Wie folgt aus der Maschenregel $1=R\,i(t)+\frac1C\int_0^ti(\tau)\,\mathrm{d}\tau$ für den anfangs leeren Kondensator die Sprungantwort $u_2(t)=1-\mathrm{e}^{-t/RC}$?
+---
+Ableiten gibt $0=R\,\frac{\mathrm{d} i}{\mathrm{d} t}+\frac iC$, weil die angelegte Spannung von 1 V für $t\ge0$ konstant ist.
+---
+Umgestellt ist $\frac{\mathrm{d} i}{i}=-\frac{\mathrm{d} t}{RC}$, und Integrieren gibt $\ln|i|=-\frac{t}{RC}+K$, weil links nur noch $i$ und rechts nur noch $t$ steht.
+---
+Also ist $i(t)=A\,\mathrm{e}^{-t/RC}$ mit $A=i(0)=\frac1R$, weil im ersten Moment die ganze Spannung an $R$ liegt.
+---
+Mit der Maschenregel $u_2=1-R\,i$ folgt $u_2(t)=1-\mathrm{e}^{-t/RC}$, weil am Kondensator der Rest der angelegten Spannung liegt.
+:::
+::::

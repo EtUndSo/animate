@@ -87,3 +87,162 @@ Die Basis von T liegt direkt an $U_\mathrm{ein}=1{,}6$ V, dazu $U_\mathrm{CC}=
 (b) $I_\mathrm{E}$ bleibt 2 mA, denn es hängt nur an $U_\mathrm{ein}$ und $R_\mathrm{E}$. $I_\mathrm{B}$ wird 19,8 µ A, $I_\mathrm{C}$ wird 1,98 mA, $U_\mathrm{CE}$ wird 7,04 V. Halbes $B$, aber nur 0,5 % weniger Kollektorstrom.
 :::
 :::
+
+::::formelsammlung
+**Eingangsmasche**
+
+$$U_\mathrm{ein}=R_\mathrm{B}I_\mathrm{B}+U_\mathrm{BE}$$
+
+Schaltung mit Basiswiderstand $R_\mathrm{B}$ und Kollektorwiderstand $R_\mathrm{C}$, Emitter an Masse, Eingangsspannung $U_\mathrm{ein}$ gegen Masse. Für $U_\mathrm{ein}\le U_\mathrm{BE,ein}$ sperrt der Transistor, und $U_\mathrm{BE}=U_\mathrm{ein}$.
+
+**Arbeitsgerade**
+
+$$U_\mathrm{CE}=U_\mathrm{CC}-R_\mathrm{C}I_\mathrm{C}$$
+
+Ausgangsmasche mit der Versorgungsspannung $U_\mathrm{CC}$; im Rechenmodell von $(0;\,4\,\mathrm{mA})$ nach $(12\,\mathrm{V};\,0)$. Der Arbeitspunkt ist ihr Schnitt mit der Kennlinie.
+
+**Basisstrom im leitenden Betrieb**
+
+$$I_\mathrm{B}=\frac{U_\mathrm{ein}-U_\mathrm{BE,ein}}{R_\mathrm{B}}$$
+
+Für $U_\mathrm{ein}>U_\mathrm{BE,ein}$, in beiden leitenden Bereichen, weil dort dieselbe 0,6-V-Quelle zwischen B und E liegt.
+
+**Arbeitspunkt, aktiv angenommen**
+
+$$I_\mathrm{C}=B\,I_\mathrm{B},\qquad U_\mathrm{CE}=U_\mathrm{CC}-B\,I_\mathrm{B}R_\mathrm{C}$$
+
+Die Annahme stimmt, wenn $U_\mathrm{CE}\ge U_\mathrm{CE,sat}$ herauskommt.
+
+**Arbeitspunkt in der Sättigung**
+
+$$U_\mathrm{CE}=U_\mathrm{CE,sat},\qquad I_\mathrm{C}=\frac{U_\mathrm{CC}-U_\mathrm{CE,sat}}{R_\mathrm{C}}<B\,I_\mathrm{B}$$
+
+Gilt, wenn die aktive Annahme $U_\mathrm{CE}<U_\mathrm{CE,sat}$ ergibt.
+
+**Mitte des aktiven Bereichs**
+
+$$U_\mathrm{CE,AP}=U_\mathrm{CE,sat}+\frac{\Delta U}{2},\qquad I_\mathrm{C}=\frac{U_\mathrm{CC}-U_\mathrm{CE,AP}}{R_\mathrm{C}}$$
+
+Mit $\Delta U=U_\mathrm{CC}-U_\mathrm{CE,sat}$; ein Signal hat dann nach beiden Seiten gleich viel Platz. Der passende Basiswiderstand ist $R_\mathrm{B}=(U_\mathrm{ein}-U_\mathrm{BE})\,B/I_\mathrm{C}$.
+
+**Arbeitspunkt mit Emitterwiderstand**
+
+$$I_\mathrm{E}=\frac{U_\mathrm{ein}-U_\mathrm{BE,ein}}{R_\mathrm{E}},\quad I_\mathrm{B}=\frac{I_\mathrm{E}}{1+B},\quad I_\mathrm{C}=B\,I_\mathrm{B},\quad U_\mathrm{CE}=U_\mathrm{CC}-R_\mathrm{C}I_\mathrm{C}-R_\mathrm{E}I_\mathrm{E}$$
+
+Basis direkt an $U_\mathrm{ein}$, Emitter über $R_\mathrm{E}$ an Masse, $U_\mathrm{ein}>0{,}6$ V; aus der Masche $U_\mathrm{ein}=U_\mathrm{BE,ein}+R_\mathrm{E}I_\mathrm{E}$. $B$ geht erst im letzten Schritt ein und ändert fast nichts.
+::::
+
+::::lernkarten
+:::karte zusammenhang Arbeitspunkt
+Wie legt die äußere Schaltung den Arbeitspunkt eines Transistors fest?
+---
+Der Transistor liefert Kennlinien, der Stromkreis Maschengleichungen, und beide müssen zugleich gelten. Der Arbeitspunkt ist der Gleichstromzustand, der beides erfüllt: der Schnitt der Arbeitsgeraden mit einer Kennlinie.
+--- falsch
+Der Transistor wählt seinen Arbeitspunkt selbst, und zwar immer im Knick der Eingangskennlinie bei 0,6 V. Die äußere Schaltung bestimmt nur, wie viel Strom dort fließt, nicht, in welchem Bereich er liegt.
+--- falsch
+Die Versorgungsspannung allein legt ihn fest: Der Arbeitspunkt liegt immer bei $U_\mathrm{CE}=U_\mathrm{CC}/2$, gleich welche Widerstände angeschlossen sind und welches $B$ der Transistor hat, weil sich die Spannung symmetrisch aufteilt.
+--- falsch
+Der Arbeitspunkt ist der Punkt, an dem die Kennlinien zweier Transistoren sich schneiden. Die äußere Schaltung legt fest, welche zwei Kennlinien man dafür verwendet.
+:::
+:::karte begriff Versorgungsspannung
+Welche Aufgabe hat die Versorgungsspannung $U_\mathrm{CC}$ in der Schaltung mit Basis- und Kollektorwiderstand?
+---
+Die Gleichspannung, die den Ausgangskreis aus Kollektorwiderstand und Transistor speist. Aus ihr kommt die Energie am Ausgang, das Eingangssignal stellt nur ein.
+--- falsch
+Die Eingangsspannung gegen Masse, die über $R_\mathrm{B}$ den Basisstrom einstellt. Aus ihr kommt das Signal, das der Transistor am Ausgang verstärkt wiedergibt.
+--- falsch
+Die Spannung zwischen Basis und Emitter, die den Transistor leitend macht. Sie beträgt im leitenden Betrieb immer rund 0,6 V.
+--- falsch
+Die Spannung, die am Kollektorwiderstand abfällt. Aus ihr folgt mit dem ohmschen Gesetz direkt der Basisstrom, der den Transistor steuert.
+:::
+:::karte zusammenhang Arbeitsgerade
+Warum ist die Ausgangsmasche $U_\mathrm{CE}=U_\mathrm{CC}-R_\mathrm{C}I_\mathrm{C}$ eine Gerade im Ausgangskennlinienfeld, und wo verläuft sie im Rechenmodell?
+---
+Sie hängt linear von $I_\mathrm{C}$ ab, weil nur der Widerstand $R_\mathrm{C}$ und die Quelle $U_\mathrm{CC}$ den Kreis bilden. Im Rechenmodell verbindet sie $(0;\,4\,\mathrm{mA})$ und $(12\,\mathrm{V};\,0)$.
+--- falsch
+Sie ist eine Gerade, weil der Transistor im aktiven Bereich wie ein Widerstand wirkt. Im Rechenmodell verbindet sie $(0;\,2\,\mathrm{mA})$ und $(6\,\mathrm{V};\,0)$, den Arbeitspunkt.
+--- falsch
+Sie ist eine Gerade, weil $I_\mathrm{C}=B\,I_\mathrm{B}$ linear ist. Im Rechenmodell läuft sie waagerecht bei 2 mA, weil der Basisstrom fest ist.
+--- falsch
+Sie hängt linear von $I_\mathrm{C}$ ab, weil $R_\mathrm{C}$ fest ist. Im Rechenmodell verläuft sie senkrecht bei 12 V, weil die Versorgung die Spannung festhält.
+:::
+:::karte formel Basisstrom in den leitenden Bereichen
+Wie groß ist $I_\mathrm{B}$ in der Schaltung mit Basis- und Kollektorwiderstand, wenn der Transistor leitet, und warum gilt die Formel in beiden leitenden Bereichen?
+---
+$I_\mathrm{B}=\frac{U_\mathrm{ein}-U_\mathrm{BE,ein}}{R_\mathrm{B}}$ für $U_\mathrm{ein}>U_\mathrm{BE,ein}$, aus der Eingangsmasche $U_\mathrm{ein}=R_\mathrm{B}I_\mathrm{B}+U_\mathrm{BE}$. In beiden Bereichen liegt dieselbe 0,6-V-Quelle zwischen B und E.
+--- falsch
+$I_\mathrm{B}=\frac{U_\mathrm{ein}}{R_\mathrm{B}}$ für jedes $U_\mathrm{ein}$, aus dem ohmschen Gesetz am Basiswiderstand. Die Basis liegt in beiden Bereichen an Masse, deshalb fällt dort keine Spannung ab.
+--- falsch
+$I_\mathrm{B}=\frac{U_\mathrm{CC}-U_\mathrm{BE,ein}}{R_\mathrm{B}}$ für $U_\mathrm{CC}>U_\mathrm{BE,ein}$, aus der Ausgangsmasche. In beiden Bereichen fließt der Basisstrom aus der Versorgung über $R_\mathrm{C}$.
+--- falsch
+$I_\mathrm{B}=\frac{U_\mathrm{ein}-U_\mathrm{BE,ein}}{R_\mathrm{B}}$, aber nur im aktiven Bereich. In der Sättigung sinkt $U_\mathrm{BE}$ auf $U_\mathrm{CE,sat}$, und der Basisstrom wird entsprechend größer.
+:::
+:::karte formel Arbeitspunkt aktiv oder gesättigt
+Welche Werte haben $I_\mathrm{C}$ und $U_\mathrm{CE}$ in der Schaltung mit Basis- und Kollektorwiderstand, wenn der Transistor aktiv ist, und welche in der Sättigung?
+---
+Aktiv: $I_\mathrm{C}=B\,I_\mathrm{B}$, $U_\mathrm{CE}=U_\mathrm{CC}-B\,I_\mathrm{B}R_\mathrm{C}$, gültig, wenn $U_\mathrm{CE}\ge U_\mathrm{CE,sat}$ herauskommt. Sonst Sättigung: $U_\mathrm{CE}=U_\mathrm{CE,sat}$, $I_\mathrm{C}=\frac{U_\mathrm{CC}-U_\mathrm{CE,sat}}{R_\mathrm{C}}<B\,I_\mathrm{B}$.
+--- falsch
+Aktiv: $I_\mathrm{C}=B\,I_\mathrm{B}$, $U_\mathrm{CE}=U_\mathrm{CC}+B\,I_\mathrm{B}R_\mathrm{C}$, gültig, wenn $U_\mathrm{CE}\le U_\mathrm{CC}$ herauskommt. Sonst Sättigung: $U_\mathrm{CE}=U_\mathrm{CC}$, $I_\mathrm{C}=0$.
+--- falsch
+Aktiv: $I_\mathrm{C}=\frac{U_\mathrm{CC}}{R_\mathrm{C}}$, $U_\mathrm{CE}=U_\mathrm{CE,sat}$, gültig für jedes $I_\mathrm{B}>0$. Sättigung: $I_\mathrm{C}=B\,I_\mathrm{B}$, $U_\mathrm{CE}=U_\mathrm{CC}-B\,I_\mathrm{B}R_\mathrm{C}$, wenn das Ergebnis für $U_\mathrm{CE}$ negativ wird.
+--- falsch
+Aktiv: $I_\mathrm{C}=B\,I_\mathrm{B}$, $U_\mathrm{CE}=U_\mathrm{CC}-B\,I_\mathrm{B}R_\mathrm{C}$, gültig für jedes Ergebnis. Sättigung tritt nur auf, wenn $I_\mathrm{B}$ größer als $I_\mathrm{C}$ wird, unabhängig von $R_\mathrm{C}$.
+:::
+:::karte herleitung Annehmen und Prüfen
+Wie bestimmt man den Arbeitspunkt der Schaltung mit $R_\mathrm{B}$ und $R_\mathrm{C}$, wenn man den Bereich vorher nicht kennt?
+---
+Man vergleicht $U_\mathrm{ein}$ mit $U_\mathrm{BE,ein}$, weil der Transistor für $U_\mathrm{ein}\le U_\mathrm{BE,ein}$ sperrt und dann $I_\mathrm{C}=0$ gilt.
+---
+Sonst berechnet man $I_\mathrm{B}=\frac{U_\mathrm{ein}-U_\mathrm{BE,ein}}{R_\mathrm{B}}$, weil in beiden leitenden Bereichen dieselbe 0,6-V-Quelle zwischen B und E liegt.
+---
+Man nimmt den aktiven Bereich an und rechnet $U_\mathrm{CE}=U_\mathrm{CC}-B\,I_\mathrm{B}R_\mathrm{C}$, weil dort $I_\mathrm{C}=B\,I_\mathrm{B}$ gilt und die Arbeitsgerade den Rest liefert.
+---
+Ist $U_\mathrm{CE}\ge U_\mathrm{CE,sat}$, stimmt die Annahme, sonst liegt Sättigung vor, weil ein Widerspruch zu den Bedingungen des Bereichs die falsche Annahme verrät.
+---
+In der Sättigung gilt $U_\mathrm{CE}=U_\mathrm{CE,sat}$ und $I_\mathrm{C}=\frac{U_\mathrm{CC}-U_\mathrm{CE,sat}}{R_\mathrm{C}}$, weil dann zwischen C und E die 0,2-V-Quelle liegt.
+:::
+:::karte zusammenhang Falsche erste Annahme
+Was passiert, wenn man für den Arbeitspunkt des Rechenmodells zuerst den falschen Bereich annimmt?
+---
+Nichts Schlimmes: Das Ergebnis widerspricht dann den Bedingungen des angenommenen Bereichs. Sättigung ergäbe $I_\mathrm{C}=3{,}93$ mA, aber $B\,I_\mathrm{B}=2$ mA ist kleiner, also ist der Transistor aktiv.
+--- falsch
+Man erhält einen zweiten, ebenso gültigen Arbeitspunkt. Der Transistor kann dann zwischen beiden springen, je nachdem, welcher Bereich beim Einschalten zuerst erreicht wird.
+--- falsch
+Die Rechnung liefert dann ein Ergebnis, das ohne Widerspruch aussieht. Den Fehler erkennt man erst mit einer Messung, weil die Bedingungen der Bereiche dafür nicht ausreichen.
+--- falsch
+Das Ergebnis ist trotzdem richtig, weil beide Ersatzschaltbilder dieselben Werte liefern. Im Rechenmodell ergeben aktiver Bereich und Sättigung beide $I_\mathrm{C}=2$ mA.
+:::
+:::karte formel Mitte des aktiven Bereichs
+Wo legt man den Arbeitspunkt auf die Arbeitsgerade, damit ein Signal nach beiden Seiten gleich viel Platz hat, und welche Formel ergibt sich?
+---
+In die Mitte des aktiven Bereichs: $U_\mathrm{CE,AP}=U_\mathrm{CE,sat}+\frac{\Delta U}{2}$ mit $\Delta U=U_\mathrm{CC}-U_\mathrm{CE,sat}$, dazu $I_\mathrm{C}=\frac{U_\mathrm{CC}-U_\mathrm{CE,AP}}{R_\mathrm{C}}$. Im Rechenmodell sind das 6,1 V und 1,97 mA.
+--- falsch
+In die Mitte der Versorgung: $U_\mathrm{CE,AP}=\frac{U_\mathrm{CC}}{2}$, dazu $I_\mathrm{C}=\frac{U_\mathrm{CC}}{R_\mathrm{C}}$. Im Rechenmodell sind das 6 V und 4 mA, der volle Strom der Arbeitsgeraden.
+--- falsch
+Möglichst nahe an die Sättigung: $U_\mathrm{CE,AP}=U_\mathrm{CE,sat}$, dazu $I_\mathrm{C}=\frac{U_\mathrm{CC}-U_\mathrm{CE,sat}}{R_\mathrm{C}}$. Dort ist der Strom am größten und das Signal deshalb am stärksten und saubersten.
+--- falsch
+In die Mitte des aktiven Bereichs: $U_\mathrm{CE,AP}=U_\mathrm{CE,sat}+\Delta U$ mit $\Delta U=U_\mathrm{CC}-U_\mathrm{CE,sat}$, dazu $I_\mathrm{C}=B\,I_\mathrm{B}$. Im Rechenmodell sind das 12 V und 2 mA.
+:::
+:::karte formel Arbeitspunkt mit Emitterwiderstand
+Wie berechnet man den Arbeitspunkt, wenn die Basis direkt an $U_\mathrm{ein}$ liegt und der Emitter über $R_\mathrm{E}$ an Masse?
+---
+Aus der Masche $U_\mathrm{ein}=U_\mathrm{BE,ein}+R_\mathrm{E}I_\mathrm{E}$: $I_\mathrm{E}=\frac{U_\mathrm{ein}-U_\mathrm{BE,ein}}{R_\mathrm{E}}$, $I_\mathrm{B}=\frac{I_\mathrm{E}}{1+B}$, $I_\mathrm{C}=B\,I_\mathrm{B}$, $U_\mathrm{CE}=U_\mathrm{CC}-R_\mathrm{C}I_\mathrm{C}-R_\mathrm{E}I_\mathrm{E}$; für $U_\mathrm{ein}>0{,}6$ V.
+--- falsch
+Aus der Masche $U_\mathrm{ein}=R_\mathrm{E}I_\mathrm{B}$: $I_\mathrm{B}=\frac{U_\mathrm{ein}}{R_\mathrm{E}}$, $I_\mathrm{C}=B\,I_\mathrm{B}$, $I_\mathrm{E}=(1+B)\,I_\mathrm{B}$, $U_\mathrm{CE}=U_\mathrm{CC}-R_\mathrm{C}I_\mathrm{C}$; der Emitterwiderstand spielt für $U_\mathrm{CE}$ keine Rolle.
+--- falsch
+Aus der Masche $U_\mathrm{ein}=U_\mathrm{BE,ein}+R_\mathrm{E}I_\mathrm{E}$: $I_\mathrm{E}=\frac{U_\mathrm{ein}-U_\mathrm{BE,ein}}{R_\mathrm{E}}$, $I_\mathrm{C}=(1+B)\,I_\mathrm{E}$, $U_\mathrm{CE}=U_\mathrm{CC}-R_\mathrm{C}I_\mathrm{C}+R_\mathrm{E}I_\mathrm{E}$; für jedes $U_\mathrm{ein}$.
+--- falsch
+Aus der Masche $U_\mathrm{CC}=U_\mathrm{BE,ein}+R_\mathrm{E}I_\mathrm{E}$: $I_\mathrm{E}=\frac{U_\mathrm{CC}-U_\mathrm{BE,ein}}{R_\mathrm{E}}$, $I_\mathrm{B}=\frac{I_\mathrm{E}}{B}$, $U_\mathrm{CE}=U_\mathrm{CC}-R_\mathrm{E}I_\mathrm{E}$; $U_\mathrm{ein}$ legt nur fest, ob der Transistor leitet.
+:::
+:::karte zusammenhang Emitterwiderstand macht B fast unwichtig
+Warum ändert ein kleineres $B$ den Kollektorstrom kaum, wenn die Basis direkt an $U_\mathrm{ein}$ liegt und der Emitter über $R_\mathrm{E}$ an Masse?
+---
+$I_\mathrm{E}$ folgt nur aus $U_\mathrm{ein}$, $U_\mathrm{BE,ein}$ und $R_\mathrm{E}$. $B$ kommt erst beim Aufteilen von $I_\mathrm{E}$ in Basis- und Kollektorstrom ins Spiel: Halbes $B$ senkt $I_\mathrm{C}$ nur um rund 0,5 %.
+--- falsch
+Weil $R_\mathrm{E}$ den Basisstrom auf einen festen Wert begrenzt. $I_\mathrm{C}=B\,I_\mathrm{B}$ ändert sich deshalb zwar proportional zu $B$, aber der Emitterwiderstand gleicht das über $U_\mathrm{CE}$ aus.
+--- falsch
+Weil der Transistor mit Emitterwiderstand immer gesättigt ist. In der Sättigung legen nur $U_\mathrm{CC}$ und die Widerstände den Strom fest, $B$ spielt dort keine Rolle mehr.
+--- falsch
+Weil $R_\mathrm{E}$ den Transistor so stark erwärmt, dass $B$ immer auf denselben Wert steigt. Exemplare mit kleinem $B$ gleichen sich dadurch den anderen an.
+:::
+::::

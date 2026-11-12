@@ -141,3 +141,170 @@ Welcher Strom fließt bei $U=-1$ V und bei $U=-0{,}2$ V?
 (a) 100 mA sind zwei Dekaden mehr: $0{,}655\,\mathrm{V}+2\cdot0{,}060\,\mathrm{V}=0{,}775$ V (exakt 0,774 V). 10 µ A sind zwei Dekaden weniger: 0,535 V (exakt 0,536 V). (b) Verdoppeln: $U_T\ln2=17{,}9$ mV. Verdreifachen: $U_T\ln3=28{,}4$ mV. (c) Bei $-1$ V ist $\mathrm{e}^{U/U_T}\approx0$, also $I=-10^{-14}$ A. Bei $-0{,}2$ V ist $\mathrm{e}^{-7{,}7}=4{,}4\cdot10^{-4}$, also ebenfalls $I=-10^{-14}$ A auf 0,05 % genau.
 :::
 :::
+
+::::formelsammlung
+**Barriere mit äußerer Spannung**
+
+$$W_\mathrm B=e(U_\mathrm{D0}-U)$$
+
+$U$ von der p-Seite (Anode) zur n-Seite (Kathode); sie fällt fast ganz an der Zone ab. Spannung in Durchlassrichtung senkt die Barriere.
+
+**Shockley-Gleichung**
+
+$$I=I_\mathrm S\bigl(\mathrm{e}^{U/U_T}-1\bigr),\qquad U_T=\frac{k_\mathrm BT}{e}$$
+
+Ideale Diode, $U$ und $I$ von Anode nach Kathode. $I_\mathrm S$ ist der Sättigungssperrstrom, je nach Fläche und Dotierung $10^{-15}$ bis $10^{-9}$ A; $U_T$ die Temperaturspannung, bei 300 K 25,85 mV. Gilt für $U<U_\mathrm{D0}$ und ohne Durchbruch. In Sperrrichtung ($U\ll-U_T$) bleibt $I=-I_\mathrm S$.
+
+**Näherung im Durchlass**
+
+$$I\approx I_\mathrm S\mathrm{e}^{U/U_T}$$
+
+Ab $U=119$ mV ist der Summand $-1$ kleiner als 1 % des ersten.
+
+**Spannung je Dekade**
+
+$$U_T\ln10=59{,}5\,\mathrm{mV}$$
+
+Spannungszuwachs für den Faktor 10 im Strom, also rund 60 mV je Dekade.
+
+**Reale Dioden**
+
+$$\mathrm{e}^{U/(mU_T)},\qquad 1\le m\le2$$
+
+Reale Dioden folgen oft diesem Faktor statt $\mathrm{e}^{U/U_T}$. $I_\mathrm S$ wächst je 10 K rund um den Faktor 4; bei festem Strom sinkt die Spannung um rund 2 mV/K.
+::::
+
+::::lernkarten
+:::karte zusammenhang Spannung an der Raumladungszone
+Warum fällt eine äußere Spannung an der Diode fast ganz an der Raumladungszone ab, und wie ändert sie die Barriere?
+---
+Nur in der Zone fehlen Ladungsträger, die neutralen Gebiete leiten gut. Die Barriere ändert sich deshalb auf $W_\mathrm B=e(U_\mathrm{D0}-U)$: Spannung in Durchlassrichtung senkt sie.
+--- falsch
+Die Zone ist der dünnste Teil der Diode, und an dünnen Schichten fällt immer die meiste Spannung ab. Die Barriere ändert sich auf $W_\mathrm B=e(U_\mathrm{D0}+U)$, Durchlassspannung erhöht sie.
+--- falsch
+Nur in der Zone gibt es bewegliche Träger, die neutralen Gebiete sind leer und isolieren. Die Barriere bleibt dabei fest bei $e\,U_\mathrm{D0}$, nur der Strom über sie ändert sich.
+--- falsch
+Die äußere Spannung verteilt sich gleichmäßig auf die ganze Diode, und die Zone erhält nur ihren Anteil. Die Barriere ändert sich deshalb nur um wenige Prozent von $U$.
+:::
+:::karte zusammenhang Zwei Ströme über die Barriere
+Welche zwei Elektronenströme laufen über die Raumladungszone, und warum fließt ohne äußere Spannung kein Strom?
+---
+Bergauf die Mehrheitselektronen des n-Gebiets, von denen nur der Anteil $\mathrm{e}^{-W_\mathrm B/(k_\mathrm BT)}$ über die Barriere kommt; bergab die Minderheitselektronen des p-Gebiets, die immer durchkommen. Ohne Spannung sind beide gleich groß.
+--- falsch
+Bergauf die Minderheitselektronen des p-Gebiets, deren Zahl mit der Barriere sinkt; bergab die Mehrheitselektronen des n-Gebiets, die immer durchkommen. Ohne Spannung sind beide null, weil die Zone alle Träger fernhält.
+--- falsch
+Bergauf die Mehrheitselektronen des n-Gebiets, bergab die Löcher des p-Gebiets; beide sind bei jeder Spannung gleich groß. Ohne Spannung fließt nichts, weil die Zone dann alle Träger einfängt.
+--- falsch
+Ein Strom der Elektronen und ein gleich großer Strom der Ionen in Gegenrichtung. Ohne Spannung bleiben die Ionen fest, und beide Ströme sind deshalb null.
+:::
+:::karte formel Shockley-Gleichung
+Wie lautet die Shockley-Gleichung für den Strom einer idealen Diode, und in welchen Richtungen zählen $U$ und $I$?
+---
+$I=I_\mathrm S\bigl(\mathrm{e}^{U/U_T}-1\bigr)$ mit $U_T=\frac{k_\mathrm BT}{e}$; $U$ und $I$ zählen von Anode nach Kathode. Gilt für $U<U_\mathrm{D0}$ und ohne Durchbruch.
+--- falsch
+$I=I_\mathrm S\,\mathrm{e}^{-U/U_T}$ mit $U_T=\frac{k_\mathrm BT}{e}$; $U$ und $I$ zählen von Kathode nach Anode. Gilt für alle Spannungen, auch im Durchbruch.
+--- falsch
+$I=I_\mathrm S\bigl(\mathrm{e}^{U/U_T}-1\bigr)$ mit $U_T=\frac{k_\mathrm BT}{e}$; $U$ zählt von Anode nach Kathode, $I$ von Kathode nach Anode. Gilt nur für $U>U_\mathrm{D0}$.
+--- falsch
+$I=I_\mathrm S\bigl(\mathrm{e}^{U/U_T}+1\bigr)$ mit $U_T=k_\mathrm BT$; $U$ und $I$ zählen von Anode nach Kathode. Gilt für $U<U_\mathrm{D0}$ und ohne Durchbruch.
+:::
+:::karte herleitung Von der Barriere zur Kennlinie
+Wie folgt aus den beiden Strömen über die Barriere die Shockley-Gleichung $I=I_\mathrm S\bigl(\mathrm{e}^{U/U_T}-1\bigr)$?
+---
+Bergauf gilt $I_\text{auf}=c\,\mathrm{e}^{-(U_\mathrm{D0}-U)/U_T}=I_0\,\mathrm{e}^{U/U_T}$, weil der Strom dem Anteil über der auf $e(U_\mathrm{D0}-U)$ gesenkten Barriere proportional ist.
+---
+Der Strom bergab $I_\text{ab}$ hängt nicht von $U$ ab, weil die Potenzialstufe für die Minderheit ein Gefälle ist.
+---
+Bei $U=0$ fließt kein Strom, also ist $I_\text{ab}=I_0$ und $I=I_\text{auf}-I_\text{ab}=I_0(\mathrm{e}^{U/U_T}-1)$, weil sich beide Ströme ohne Spannung genau aufheben.
+---
+Für Elektronen und Löcher addieren sich die Ströme mit demselben Faktor, und $I_0$ wird $I_\mathrm S$, weil beide Sorten dieselbe Barriere sehen.
+:::
+:::karte begriff Sättigungssperrstrom
+Was gibt der Sättigungssperrstrom $I_\mathrm S$ in der Shockley-Gleichung an, und in welchem Bereich liegt er?
+---
+Den winzigen Strom, der in Sperrrichtung übrig bleibt, $I=-I_\mathrm S$. Er hängt von Fläche und Dotierung ab und liegt bei $10^{-15}$ bis $10^{-9}$ A.
+--- falsch
+Den größten Strom, den die Diode in Durchlassrichtung führen kann, bevor sie sättigt. Er hängt von der Fläche ab und liegt bei 1 bis 10 A.
+--- falsch
+Den Strom, ab dem die Diode in Durchlassrichtung zu leiten beginnt. Er liegt bei 1 mA und legt die Schwelle von 0,6 V fest.
+--- falsch
+Den winzigen Strom, der in Sperrrichtung fließt. Er wächst mit der Sperrspannung linear an und erreicht bei 1 V Sperrspannung $10^{-3}$ A.
+:::
+:::karte begriff Temperaturspannung
+Was ist die Temperaturspannung $U_T$, und warum ist sie nicht dasselbe wie $k_\mathrm BT$?
+---
+Die Wärmeenergie $k_\mathrm BT$ geteilt durch $e$, also $U_T=k_\mathrm BT/e$, bei 300 K 25,85 mV. $k_\mathrm BT$ allein ist eine Energie, erst $k_\mathrm BT/e$ eine Spannung.
+--- falsch
+Die Spannung, die eine Diode bei 300 K in Durchlassrichtung hält, rund 0,7 V. Sie ist dasselbe wie $k_\mathrm BT$, nur in Volt statt in Joule geschrieben.
+--- falsch
+Die Wärmeenergie $k_\mathrm BT$ mal $e$, also $U_T=e\,k_\mathrm BT$, bei 300 K 25,85 mV. Der Faktor $e$ macht aus der Energie eine Spannung.
+--- falsch
+Die Spannung, um die sich die Diodenspannung je Kelvin ändert, rund 2 mV/K. Sie ist dasselbe wie $k_\mathrm B$, nur auf die Ladung eines Elektrons bezogen.
+:::
+:::karte begriff Dekade
+Was ist eine Dekade des Diodenstroms, und welche Spannungsänderung kostet sie nach der Shockley-Gleichung?
+---
+Eine Änderung des Stroms um den Faktor 10. Sie kostet $U_T\ln10=59{,}5$ mV, also rund 60 mV, gleich bei welchem Strom, weil der Strom exponentiell mit der Spannung wächst.
+--- falsch
+Eine Änderung des Stroms um den Faktor 10. Sie kostet 0,7 V, die Durchlassspannung einer Siliziumdiode, weil jede Dekade die Barriere neu überwinden muss.
+--- falsch
+Eine Änderung des Stroms um den Faktor 2,718. Sie kostet genau 25,85 mV, also eine Temperaturspannung, weil der Strom exponentiell mit $U/U_T$ wächst.
+--- falsch
+Eine Änderung des Stroms um zehn Prozent. Sie kostet nur wenige Millivolt, rund 2,5 mV, weil die Kennlinie im Durchlass sehr steil ist.
+:::
+:::karte zusammenhang Spannung bei hundertfachem Strom
+Eine Diode zeigt 0,655 V bei 1 mA. Welche Spannung erwartet man bei 100 mA, und warum genügt dafür eine Kopfrechnung?
+---
+Rund 0,775 V, exakt 0,774 V: 100 mA sind zwei Dekaden mehr, und jede Dekade kostet rund 60 mV.
+--- falsch
+Rund 65,5 V, weil die Spannung wie bei einem Widerstand proportional zum Strom wächst und der Strom hundertmal größer ist.
+--- falsch
+Rund 0,715 V, weil 100 mA eine Dekade mehr sind als 1 mA und jede Dekade rund 60 mV kostet.
+--- falsch
+Rund 0,775 V, weil die Spannung je Milliampere Strom um 1,2 mV steigt und das für 99 mA mehr gut 0,12 V ergibt.
+:::
+:::karte zusammenhang Sättigung in Sperrrichtung
+Warum bleibt der Strom in Sperrrichtung bei $-I_\mathrm S$ stehen, auch wenn die Sperrspannung weiter wächst?
+---
+Die Barriere wächst, und der Strom bergauf erlischt. Es bleibt nur der Strom der Minderheit bergab; er hängt nicht von der Höhe der Barriere ab, nur davon, wie viele Träger an ihren Rand gelangen.
+--- falsch
+Die Zone wird mit der Sperrspannung so breit, dass sie die ganze Diode füllt. Danach kann sie nicht weiter wachsen, und der Strom bleibt bei dem Wert stehen, den diese größte Breite vorgibt.
+--- falsch
+Die Minderheitsträger werden von der steigenden Barriere zunehmend gebremst, und der Strom bergauf wächst im Gegenzug. Beide Änderungen heben sich bei jeder Sperrspannung genau auf.
+--- falsch
+Die Sperrspannung lädt die Zone wie einen Kondensator auf. Sobald er voll ist, fließt nur noch ein Leckstrom $I_\mathrm S$, der allein vom Material der Kontakte abhängt.
+:::
+:::karte zusammenhang Näherung im Durchlass
+Ab welcher Spannung darf man die Shockley-Gleichung im Durchlass durch $I\approx I_\mathrm S\mathrm{e}^{U/U_T}$ ersetzen, und warum?
+---
+Ab $U=119$ mV ist der Summand $-1$ kleiner als 1 % des ersten Glieds, denn $\mathrm{e}^{U/U_T}$ erreicht dort rund 100. Im üblichen Durchlass ist der Fehler verschwindend klein.
+--- falsch
+Erst ab $U=U_\mathrm{D0}$, weil die Barriere dort verschwindet und der Summand $-1$ den Strom der Minderheit beschreibt, der erst dann gegen den Strom bergauf vernachlässigbar wird.
+--- falsch
+Ab $U=0$, weil der Summand $-1$ nur in Sperrrichtung eine Bedeutung hat und im Durchlass bei jeder Spannung wegfällt.
+--- falsch
+Ab $U=0{,}6$ V, weil die Diode dort zu leiten beginnt; darunter fließt kein Strom, und die Gleichung gilt dort nicht.
+:::
+:::karte begriff Bahnwiderstand
+Was ist der Bahnwiderstand einer Diode, und wann macht er sich bemerkbar?
+---
+Der Widerstand der neutralen Gebiete, wenige $\Omega$. Bei hohem Strom, wenn $U$ in die Nähe von $U_\mathrm{D0}$ kommt, fällt an ihm ein Teil der äußeren Spannung ab, und die Kennlinie wird flacher und fast gerade.
+--- falsch
+Der Widerstand der Raumladungszone in Sperrrichtung, einige G$\Omega$. Er macht sich bei hoher Sperrspannung bemerkbar, wenn der Strom kurz vor dem Durchbruch allein durch ihn begrenzt wird und die Kennlinie abknickt.
+--- falsch
+Der Widerstand der Anschlussdrähte, der bei sehr kleinem Strom die Kennlinie bestimmt, weil die Zone dann noch kaum Spannung aufnimmt und der Draht den Rest trägt.
+--- falsch
+Der Widerstand der neutralen Gebiete, wenige $\Omega$. Bei hohem Strom senkt er die Barriere unter null, sodass die Kennlinie dort steiler als exponentiell ansteigt.
+:::
+:::karte zusammenhang Erwärmte Diode
+Was passiert mit der Diodenspannung bei festem Strom, wenn sich die Diode erwärmt?
+---
+Sie sinkt um rund 2 mV/K. $I_\mathrm S$ enthält $n_\mathrm i^2$ und wächst je 10 K rund um den Faktor 4; das überwiegt das Wachsen von $U_T$.
+--- falsch
+Sie steigt um rund 2 mV/K, weil $U_T=k_\mathrm BT/e$ mit der Temperatur wächst und für denselben Exponenten mehr Spannung nötig ist.
+--- falsch
+Sie bleibt gleich, weil $I_\mathrm S$ und $U_T$ mit der Temperatur genau gleich schnell wachsen und sich ihre Wirkungen aufheben.
+--- falsch
+Sie sinkt um rund 60 mV/K, weil sich $I_\mathrm S$ je Kelvin verzehnfacht und jede Dekade des Stroms rund 60 mV kostet.
+:::
+::::

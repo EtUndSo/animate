@@ -1,0 +1,757 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 26,
+  "nextAnimId": 29,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.35,
+      2.3,
+      0
+     ],
+     "width": 1.2222,
+     "height": 0.28,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#e3eefb",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Text",
+    "props": {
+     "text": "/usr/bin/sudo",
+     "position": [
+      -2.35,
+      2.3,
+      0
+     ],
+     "font_size": 17,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o3",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.35,
+      2.3,
+      0
+     ],
+     "width": 1.9022,
+     "height": 0.28,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#e3eefb",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Text",
+    "props": {
+     "text": "/etc/alternatives/sudo",
+     "position": [
+      0.35,
+      2.3,
+      0
+     ],
+     "font_size": 17,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o5",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -1.7189,
+      2.3,
+      0
+     ],
+     "end": [
+      -0.6311,
+      2.3,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.09,
+     "font_size": 26,
+     "color": "#333333",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Line",
+    "props": {
+     "start": [
+      -2.9611111111111112,
+      2.45,
+      0
+     ],
+     "end": [
+      -2.9611111111111112,
+      2.52,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o7",
+    "type": "Line",
+    "props": {
+     "start": [
+      -2.9611111111111112,
+      2.52,
+      0
+     ],
+     "end": [
+      1.301111111111111,
+      2.52,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Line",
+    "props": {
+     "start": [
+      1.301111111111111,
+      2.52,
+      0
+     ],
+     "end": [
+      1.301111111111111,
+      2.45,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o9",
+    "type": "Text",
+    "props": {
+     "text": "@kein",
+     "position": [
+      -1.0,
+      2.72,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o10",
+    "type": "Text",
+    "props": {
+     "text": "dpkg -S /usr/bin/sudo",
+     "position": [
+      -2.35,
+      1.55,
+      0
+     ],
+     "font_size": 17,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o11",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -2.35,
+      1.68,
+      0
+     ],
+     "end": [
+      -2.35,
+      2.14,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.09,
+     "font_size": 26,
+     "color": "#333333",
+     "stroke_width": 2,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Text",
+    "props": {
+     "text": "no path found",
+     "position": [
+      -2.35,
+      1.27,
+      0
+     ],
+     "font_size": 17,
+     "align": "center",
+     "color": "#c82828",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o13",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.35,
+      0.375,
+      0
+     ],
+     "width": 2.15,
+     "height": 0.75,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#efefef",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o14",
+    "type": "Text",
+    "props": {
+     "text": "@rs",
+     "position": [
+      0.35,
+      0.375,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#333333"
+    }
+   },
+   {
+    "id": "o15",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.55,
+      0.3,
+      0
+     ],
+     "width": 1.6,
+     "height": 0.6,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#efefef",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o16",
+    "type": "Text",
+    "props": {
+     "text": "@ws",
+     "position": [
+      2.55,
+      0.3,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#333333"
+    }
+   },
+   {
+    "id": "o17",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.35,
+      0.89,
+      0
+     ],
+     "width": 1.9778,
+     "height": 0.28,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#00823c",
+     "fill_color": "#e6f3ea",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o18",
+    "type": "Text",
+    "props": {
+     "text": "/usr/lib/cargo/bin/sudo",
+     "position": [
+      0.35,
+      0.89,
+      0
+     ],
+     "font_size": 17,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o19",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.55,
+      0.74,
+      0
+     ],
+     "width": 1.4489,
+     "height": 0.28,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o20",
+    "type": "Text",
+    "props": {
+     "text": "/usr/bin/sudo.ws",
+     "position": [
+      2.55,
+      0.74,
+      0
+     ],
+     "font_size": 17,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o21",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      0.35,
+      2.14,
+      0
+     ],
+     "end": [
+      0.35,
+      1.05,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.09,
+     "font_size": 26,
+     "color": "#333333",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o22",
+    "type": "Text",
+    "props": {
+     "text": "@auto",
+     "position": [
+      0.5,
+      1.55,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o23",
+    "type": "Text",
+    "props": {
+     "text": "@folge",
+     "position": [
+      -3.4,
+      -0.38,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o24",
+    "type": "Text",
+    "props": {
+     "text": "sudo.8.gz → sudo-rs.8.gz",
+     "position": [
+      -1.0,
+      -0.38,
+      0
+     ],
+     "font_size": 17,
+     "align": "left",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o25",
+    "type": "Text",
+    "props": {
+     "text": "visudo → /usr/lib/cargo/bin/visudo",
+     "position": [
+      -1.0,
+      -0.65,
+      0
+     ],
+     "font_size": 17,
+     "align": "left",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   }
+  ],
+  "animations": [
+   {
+    "id": "a1",
+    "type": "FadeIn",
+    "target": "o1",
+    "run_time": 0.5,
+    "step": 0
+   },
+   {
+    "id": "a2",
+    "type": "FadeIn",
+    "target": "o2",
+    "run_time": 0.5,
+    "step": 0
+   },
+   {
+    "id": "a3",
+    "type": "FadeIn",
+    "target": "o3",
+    "run_time": 0.5,
+    "step": 0
+   },
+   {
+    "id": "a4",
+    "type": "FadeIn",
+    "target": "o4",
+    "run_time": 0.5,
+    "step": 0
+   },
+   {
+    "id": "a5",
+    "type": "Create",
+    "target": "o5",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a6",
+    "type": "Create",
+    "target": "o6",
+    "run_time": 0.5,
+    "step": 1
+   },
+   {
+    "id": "a7",
+    "type": "Create",
+    "target": "o7",
+    "run_time": 0.5,
+    "step": 1
+   },
+   {
+    "id": "a8",
+    "type": "Create",
+    "target": "o8",
+    "run_time": 0.5,
+    "step": 1
+   },
+   {
+    "id": "a9",
+    "type": "FadeIn",
+    "target": "o9",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a10",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.4,
+    "step": 2
+   },
+   {
+    "id": "a11",
+    "type": "FadeIn",
+    "target": "o10",
+    "run_time": 0.5,
+    "step": 3
+   },
+   {
+    "id": "a12",
+    "type": "Create",
+    "target": "o11",
+    "run_time": 0.5,
+    "step": 3
+   },
+   {
+    "id": "a13",
+    "type": "FadeIn",
+    "target": "o12",
+    "run_time": 0.5,
+    "step": 4
+   },
+   {
+    "id": "a14",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 5
+   },
+   {
+    "id": "a15",
+    "type": "FadeIn",
+    "target": "o13",
+    "run_time": 0.7,
+    "step": 6
+   },
+   {
+    "id": "a16",
+    "type": "FadeIn",
+    "target": "o14",
+    "run_time": 0.7,
+    "step": 6
+   },
+   {
+    "id": "a17",
+    "type": "FadeIn",
+    "target": "o15",
+    "run_time": 0.7,
+    "step": 6
+   },
+   {
+    "id": "a18",
+    "type": "FadeIn",
+    "target": "o16",
+    "run_time": 0.7,
+    "step": 6
+   },
+   {
+    "id": "a19",
+    "type": "FadeIn",
+    "target": "o17",
+    "run_time": 0.7,
+    "step": 6
+   },
+   {
+    "id": "a20",
+    "type": "FadeIn",
+    "target": "o18",
+    "run_time": 0.7,
+    "step": 6
+   },
+   {
+    "id": "a21",
+    "type": "FadeIn",
+    "target": "o19",
+    "run_time": 0.7,
+    "step": 6
+   },
+   {
+    "id": "a22",
+    "type": "FadeIn",
+    "target": "o20",
+    "run_time": 0.7,
+    "step": 6
+   },
+   {
+    "id": "a23",
+    "type": "Create",
+    "target": "o21",
+    "run_time": 0.7,
+    "step": 7
+   },
+   {
+    "id": "a24",
+    "type": "FadeIn",
+    "target": "o22",
+    "run_time": 0.7,
+    "step": 7
+   },
+   {
+    "id": "a25",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.4,
+    "step": 8
+   },
+   {
+    "id": "a26",
+    "type": "FadeIn",
+    "target": "o23",
+    "run_time": 0.6,
+    "step": 9
+   },
+   {
+    "id": "a27",
+    "type": "FadeIn",
+    "target": "o24",
+    "run_time": 0.6,
+    "step": 9
+   },
+   {
+    "id": "a28",
+    "type": "FadeIn",
+    "target": "o25",
+    "run_time": 0.6,
+    "step": 9
+   }
+  ],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "kein": {
+    "de": "angelegt von update-alternatives, in keinem Paket",
+    "en": "created by update-alternatives, in no package",
+    "es": "creados por update-alternatives, en ningún paquete",
+    "zh": "由 update-alternatives 创建，不属于任何软件包",
+    "fr": "créés par update-alternatives, dans aucun paquet",
+    "tr": "update-alternatives oluşturur, hiçbir pakette değil"
+   },
+   "rs": {
+    "de": "Paket sudo-rs\nPriorität 50",
+    "en": "package sudo-rs\npriority 50",
+    "es": "paquete sudo-rs\nprioridad 50",
+    "zh": "软件包 sudo-rs\n优先级 50",
+    "fr": "paquet sudo-rs\npriorité 50",
+    "tr": "paket sudo-rs\nöncelik 50"
+   },
+   "ws": {
+    "de": "Paket sudo\nPriorität 40",
+    "en": "package sudo\npriority 40",
+    "es": "paquete sudo\nprioridad 40",
+    "zh": "软件包 sudo\n优先级 40",
+    "fr": "paquet sudo\npriorité 40",
+    "tr": "paket sudo\nöncelik 40"
+   },
+   "auto": {
+    "de": "automatisch: höchste Priorität",
+    "en": "automatic: highest priority",
+    "es": "automático: prioridad más alta",
+    "zh": "自动：最高优先级",
+    "fr": "automatique : priorité la plus haute",
+    "tr": "otomatik: en yüksek öncelik"
+   },
+   "folge": {
+    "de": "Folgelinks (slave):",
+    "en": "follower links (slave):",
+    "es": "enlaces dependientes (slave):",
+    "zh": "从属链接（slave）：",
+    "fr": "liens suiveurs (slave) :",
+    "tr": "bağlı bağlantılar (slave):"
+   }
+  },
+  "drawOrder": "creation"
+ }
+}

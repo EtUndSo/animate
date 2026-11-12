@@ -110,3 +110,192 @@ Ein Sensor mit 10 mV soll mit V auf rund 1 V verstärkt werden: $R_1=1$ k$
 (a) $\beta=1/101$, $G\approx101$, Abweichung $101/A=0{,}10$ %. (b) $f_G=1\,\mathrm{MHz}/101=9{,}9$ kHz. $|G(5\,\mathrm{kHz})|=101/\sqrt{1+(5/9{,}9)^2}=90{,}2$. Eine solche Schaltung verliert schon bei 5 kHz ein Zehntel. (c) $101\cdot1\,\mathrm{mV}=101$ mV, also 10 % des Signals von 1,01 V. Dazu $I_\mathrm{B}R_2=5$ mV. (d) $11\,\mathrm{V}/101=109$ mV. (e) $1\,\mathrm{mV}/10\,\mathrm{ms}=0{,}1$ V/s, nach 110 s am Anschlag. Ein realer Integrierer braucht deshalb einen Rücksetzschalter oder einen großen Widerstand parallel zu $C$.
 :::
 :::
+
+::::formelsammlung
+**Fehlerbeiträge**
+
+$$1/(A\beta),\qquad U_\mathrm{off}/\beta,\qquad I_\mathrm{B}R_2$$
+
+Relative Abweichung durch endliches $A$ bei der Signalfrequenz; Offsetspannung und Eingangsruhestrom als Spannungen am Ausgang des nicht-invertierenden Verstärkers.
+
+**Gleichtaktunterdrückung**
+
+$$\mathrm{CMRR}=\frac{A}{A_\mathrm{gl}},\qquad \mathrm{CMRR}_\mathrm{dB}=20\lg\frac{A}{A_\mathrm{gl}}$$
+
+Ideal $\mathrm{CMRR}\to\infty$, üblich 60 bis 120 dB.
+
+**Gleichtakt in der realen Differenzstufe**
+
+$$R_\mathrm{C}/(2r_\mathrm{CE})$$
+
+Faktor, mit dem sich jeder Kollektor bei Gleichtakt ändert, wenn T3 ein endliches $r_\mathrm{CE}$ hat; der Summenstrom wächst um $U_\mathrm{gl}/r_\mathrm{CE}$.
+
+**Leerlaufverstärkung über der Frequenz**
+
+$$|A(f)|\approx f_\mathrm{T}/f,\qquad f_A=f_\mathrm{T}/A$$
+
+Oberhalb von $f_A$ fällt $A$ um den Faktor 10 je Dekade; bei der Transitfrequenz $f_\mathrm{T}$ ist $|A|=1$.
+
+**Frequenzgang der gegengekoppelten Schaltung**
+
+$$|G(f)|=\frac{1/\beta}{\sqrt{1+(f/f_G)^2}},\qquad f_G=\beta\,f_\mathrm{T},\qquad G\,f_G=f_\mathrm{T}$$
+
+Die Schleife wirkt, solange $|A(f)|\,\beta\gg1$ ist; für $f\gg f_G$ geht $|G|\to|A|$.
+::::
+
+::::lernkarten
+:::karte zusammenhang Zwei Wege realer Abweichungen
+Wie wirken reale Abweichungen eines OPV auf den Punkt, auf den die Schleife regelt, und auf ihre Reserve $A\beta$?
+---
+Die einen verschieben den Ruhepunkt auf $U_\mathrm{D}=U_\mathrm{off}$, weil die Eingangstransistoren nie gleich sind. Die anderen verkleinern $A\beta$, vor allem die Frequenz, weil $A$ dann fällt.
+--- falsch
+Sie verkleinern alle nur $A$; der Ruhepunkt der Schleife bleibt immer bei $U_\mathrm{D}=0$, weil die Gegenkopplung ihn unabhängig vom Bauteil erzwingt und jeden Versatz ausregelt.
+--- falsch
+Die Frequenz verschiebt den Ruhepunkt, weil $A$ fällt; ungleiche Eingangstransistoren verkleinern dagegen die Reserve $A\beta$, weil sie $A$ senken und die Schleife schwächen.
+--- falsch
+Mit Gegenkopplung werden alle realen Abweichungen um den Faktor $1+A\beta$ geschwächt; sie zählen deshalb nur bei einem OPV ohne Rückführung, etwa beim Komparator oder beim Schmitt-Trigger.
+:::
+:::karte begriff Offsetspannung
+Was ist die Offsetspannung eines OPV, und woher kommt sie?
+---
+Die Eingangsspannung, bei der der Ausgang null wird. Sie entsteht, weil die Eingangstransistoren nie exakt gleich sind, und ändert sich mit Temperatur, Versorgung und Alter.
+--- falsch
+Die Spannung am Ausgang ohne Eingangssignal; bei einem guten OPV ist sie genau 0 V, sonst entsteht sie nur durch das Rauschen der Transistoren.
+--- falsch
+Die kleinste Eingangsspannung, die der OPV überhaupt verstärkt, rund 1 mV; darunter bleibt der Ausgang wegen einer Schwelle der Transistoren auf null.
+--- falsch
+Die Eingangsspannung, bei der der Ausgang null wird; sie ist ein fester Wert des Exemplars, der sich mit Temperatur, Versorgung und Alter nicht ändert und deshalb einmal abgeglichen wird.
+:::
+:::karte begriff Eingangsruhestrom
+Was ist der Eingangsruhestrom $I_\mathrm{B}$ eines OPV, und warum gibt es ihn?
+---
+Der Strom, den die Eingänge auch ohne Signal ziehen, im Rechenmodell 50 nA. Es sind die Basisströme der Eingangstransistoren T1 und T2.
+--- falsch
+Der Strom, den der OPV ohne Last aus seiner Versorgung zieht; er heizt das Bauteil im Ruhezustand und fließt nicht durch die Eingänge.
+--- falsch
+Der Strom, der wegen der Offsetspannung über $r_\mathrm{e}$ fließt, also 1 nA; ohne Offsetspannung wäre der Eingangsruhestrom null.
+--- falsch
+Der Kollektorstrom der Eingangstransistoren T1 und T2, je 1 mA; er fließt aus den Eingängen heraus in die Signalquelle.
+:::
+:::karte formel Fehler durch Offset und Eingangsruhestrom
+Wie groß sind die Fehler, die Offsetspannung und Eingangsruhestrom am Ausgang eines nicht-invertierenden Verstärkers erzeugen?
+---
+Der Offset erscheint am Ausgang als $U_\mathrm{off}/\beta$, im Rechenmodell 5 mV, auch bei $U_\mathrm{E}=0$. Der Eingangsruhestrom fließt durch $R_2$ und gibt $I_\mathrm{B}R_2$, hier 2 mV.
+--- falsch
+Der Offset erscheint unverstärkt als $U_\mathrm{off}=1$ mV, weil die Schleife ihn nicht vergrößert; der Eingangsruhestrom gibt $I_\mathrm{B}R_1$, hier 0,5 mV, weil er durch $R_1$ nach Masse fließt.
+--- falsch
+Der Offset erscheint als $A\,U_\mathrm{off}$, also 100 V, und treibt den Ausgang an den Anschlag; der Eingangsruhestrom spielt daneben keine Rolle.
+--- falsch
+Der Offset erscheint als $U_\mathrm{off}\,\beta$, hier 0,2 mV; der Eingangsruhestrom gibt $I_\mathrm{B}R_2$, hier 2 mV, aber nur, solange $U_\mathrm{E}\ne0$ ist.
+:::
+:::karte begriff Gleichtaktunterdrückung
+Was gibt die Gleichtaktunterdrückung CMRR eines OPV an, und welche Werte sind üblich?
+---
+Das Verhältnis von Differenz- zu Gleichtaktverstärkung, $\mathrm{CMRR}=\frac{A}{A_\mathrm{gl}}$, in Dezibel $\mathrm{CMRR}_\mathrm{dB}=20\lg\frac{A}{A_\mathrm{gl}}$. Ideal ist $\mathrm{CMRR}\to\infty$, üblich sind 60 bis 120 dB.
+--- falsch
+Sie ist das Verhältnis der Gleichtaktverstärkung zur Differenzverstärkung, $A_\mathrm{gl}/A$; ideal ist es unendlich groß, weil der Gleichtakt dann voll durchkommt, üblich sind 60 bis 120 dB.
+--- falsch
+Sie vergleicht die Verstärkung der Differenz mit der des Gleichtakts, in Dezibel $10\lg\frac{A}{A_\mathrm{gl}}$; ideal ist null, üblich sind 3 bis 6 dB.
+--- falsch
+Sie gibt die größte Gleichtaktspannung an, die der OPV verarbeitet, ohne anzuschlagen; ideal ist sie unendlich, üblich sind 60 bis 120 V.
+:::
+:::karte zusammenhang Gleichtakt in der realen Differenzstufe
+Warum dringt bei einer realen Differenzstufe ein Teil des Gleichtakts zum Ausgang durch?
+---
+Ein realer T3 hat ein endliches $r_\mathrm{CE}$: Steigt der Gleichtakt, steigt E, und der Summenstrom wächst um $U_\mathrm{gl}/r_\mathrm{CE}$. Jeder Kollektor ändert sich dann mit dem Faktor $R_\mathrm{C}/(2r_\mathrm{CE})$.
+--- falsch
+Die Kollektorwiderstände sind nie exakt gleich; 1 % Unterschied lässt 1 % des Gleichtakts durch, die Stromquelle T3 spielt dafür keine Rolle, solange sie überhaupt einen Strom liefert und nicht sperrt.
+--- falsch
+Der Gleichtakt verschiebt die Basisströme, die an den Innenwiderständen der Quellen eine Spannung erzeugen; genau diese erscheint am Ausgang.
+--- falsch
+Ein realer T3 hat ein endliches $r_\mathrm{CE}$: Steigt der Gleichtakt, sinkt E, und der Summenstrom fällt auf null, bis der Gleichtakt zurückgeht und T3 wieder leitet.
+:::
+:::karte zusammenhang Transitfrequenz
+Warum fällt die Leerlaufverstärkung eines OPV oberhalb von $f_A=f_\mathrm{T}/A$, und was gibt die Transitfrequenz $f_\mathrm{T}$ dabei an?
+---
+Damit die Schleife nicht schwingt, begrenzt eine innere Kapazität die Bandbreite. $A$ fällt um den Faktor 10 je Dekade, $|A(f)|\approx f_\mathrm{T}/f$, und bei der Transitfrequenz ist $|A|=1$.
+--- falsch
+Die Eingangstransistoren sind für höhere Frequenzen zu langsam; $A$ fällt deshalb sprunghaft auf 1, und zwar genau bei der Transitfrequenz von rund 10 Hz.
+--- falsch
+Die Transitfrequenz ist die Frequenz, ab der $A$ zu fallen beginnt, hier 1 MHz; darunter bleibt $A$ konstant 100000, darüber fällt es schnell auf null.
+--- falsch
+Eine innere Kapazität begrenzt die Bandbreite; $A$ fällt um den Faktor 2 je Dekade, und bei der Transitfrequenz ist $A$ auf die Hälfte gefallen, also auf 50000.
+:::
+:::karte formel Frequenzgang der gegengekoppelten Schaltung
+Wie hängt der Betrag der Verstärkung $|G(f)|$ eines gegengekoppelten Verstärkers von der Frequenz ab, und bis wohin reicht seine Bandbreite?
+---
+$|G(f)|=\frac{1/\beta}{\sqrt{1+(f/f_G)^2}}$ mit $f_G=\beta\,f_\mathrm{T}$. Das Produkt ist fest, $G\,f_G=f_\mathrm{T}$: Mit $G=5$ reicht die Bandbreite bis 200 kHz.
+--- falsch
+$|G(f)|=\frac{1/\beta}{\sqrt{1+(f/f_G)^2}}$ mit $f_G=f_\mathrm{T}/\beta$: Je größer $G$, desto größer die Bandbreite, mit $G=5$ also 5 MHz.
+--- falsch
+$|G(f)|=1/\beta$ für alle Frequenzen bis $f_\mathrm{T}$: Die Gegenkopplung gleicht den Abfall von $A$ vollständig aus, die Bandbreite ist immer 1 MHz.
+--- falsch
+$|G(f)|=\frac{1/\beta}{1+f/f_G}$ mit $f_G=\beta\,f_\mathrm{T}$: Das Produkt $G\,f_G$ wächst mit $G$, mit $G=100$ sind es 100 MHz.
+:::
+:::karte zusammenhang Reserve aufgebraucht
+Was passiert mit der Wirkung der Rückführung, wenn die Frequenz weit über $f_G$ steigt?
+---
+Die Schleife wirkt nur, solange $|A(f)|\,\beta\gg1$ ist; bei $f_G$ ist diese Reserve aufgebraucht. Für $f\gg f_G$ ist $|G|\to|A|$, die Rückführung wirkt nicht mehr.
+--- falsch
+Die Rückführung wird stärker, weil die innere Kapazität sie bei hohen Frequenzen kurzschließt; $|G|$ fällt deshalb auf null.
+--- falsch
+Nichts: Die Verstärkung bleibt $1/\beta$, weil die Widerstände der Rückführung nicht von der Frequenz abhängen.
+--- falsch
+Die Schleife wird zur Mitkopplung, weil sich das Vorzeichen bei hohen Frequenzen umkehrt; der Ausgang läuft an einen Anschlag.
+:::
+:::karte begriff Anstiegsrate
+Was ist die Anstiegsrate eines OPV, und warum begrenzt sie einen Sinus mit großer Amplitude?
+---
+Die höchste Geschwindigkeit, mit der sich der Ausgang ändern kann, 0,5 V/µ s. Ein Sinus mit 11 V Amplitude bleibt deshalb nur bis rund 7,2 kHz unverzerrt.
+--- falsch
+Die Frequenz, bis zu der der OPV überhaupt verstärkt, typisch 0,5 MHz; ein Sinus jeder Amplitude bleibt bis zu dieser Frequenz unverzerrt und darüber abgeschnitten.
+--- falsch
+Die Geschwindigkeit, mit der $A$ über der Frequenz fällt, der Faktor 10 je Dekade; sie gilt nur für kleine Signale und begrenzt große nicht.
+--- falsch
+Die höchste Änderungsgeschwindigkeit des Ausgangs, typisch 0,5 V/µ s; sie hängt nur von der Gegenkopplung ab und ist bei $G=1$ unbegrenzt und bei großem $G$ am kleinsten.
+:::
+:::karte begriff übersteuert
+Wann nennt man einen gegengekoppelten OPV übersteuert, und wie rechnet man die Schaltung dann?
+---
+Wenn die mit $U_\mathrm{D}=0$ berechnete Ausgangsspannung außerhalb der Grenzen liegt. Dann steht $U_\mathrm{A}$ am Anschlag, und man rechnet das Netz mit diesem festen Wert.
+--- falsch
+Wenn am Eingang mehr als 1 V liegt; dann rechnet man mit der halben Verstärkung weiter, weil die Kennlinie des Ausgangs abflacht und $A$ dort halbiert ist.
+--- falsch
+Wenn der Ausgangsstrom über 20 mA steigt; dann gilt weiter $U_\mathrm{D}=0$, und nur die Ausgangsspannung sinkt um $r_\mathrm{a}$ mal Strom.
+--- falsch
+Wenn die berechnete Ausgangsspannung außerhalb der Grenzen liegt; man rechnet dann weiter mit $U_\mathrm{D}=0$ und setzt den Anschlag nur beim Strom ein.
+:::
+:::karte zusammenhang Vorzeichen der Rückführung prüfen
+Woran erkennt man in einer OPV-Schaltung, ob die Rückführung gegenkoppelt oder mitkoppelt, und was folgt daraus für die Rechnung?
+---
+Man hebt den Ausgang in Gedanken. Sinkt dadurch $U_\mathrm{D}$, ist es Gegenkopplung; steigt $U_\mathrm{D}$, ist es Mitkopplung, und der Ausgang steht am Anschlag.
+--- falsch
+Man schaut, an welchem Eingang $U_\mathrm{E}$ liegt: Am Plus-Eingang ist es immer Gegenkopplung, am Minus-Eingang immer Mitkopplung.
+--- falsch
+Man hebt den Ausgang in Gedanken. Steigt dadurch $U_\mathrm{D}$, ist es Gegenkopplung, weil der Ausgang nachregeln kann; sinkt es, ist es Mitkopplung mit Hysterese.
+--- falsch
+Man zählt die Widerstände in der Rückführung: Einer bedeutet Gegenkopplung, zwei oder mehr bedeuten Mitkopplung mit Hysterese und zwei Schwellen.
+:::
+:::karte zusammenhang Eigenrauschen des OPV
+Wie verändert das Eigenrauschen des OPV das Signal-Rausch-Verhältnis des Sensors aus dem Rechenmodell?
+---
+Die 1,41 µ V des OPV addieren sich quadratisch zu den 1,82 µ V des Sensors, zusammen 2,31 µ V. Das SNR sinkt um 2,1 dB auf 52,7 dB.
+--- falsch
+Die Rauschspannungen addieren sich linear zu 3,23 µ V; das SNR sinkt dadurch um 5,0 dB auf 49,8 dB.
+--- falsch
+Gar nicht: Der OPV verstärkt Signal und Rauschen um denselben Faktor, sein eigenes Rauschen fällt dabei heraus wie ein Gleichtakt.
+--- falsch
+Das kleinere Rauschen des OPV wird vom größeren des Sensors verdeckt; es zählt nur der größere Wert, das SNR bleibt bei 54,8 dB.
+:::
+:::karte zusammenhang Offset am Integrierer
+Warum braucht ein realer Integrierer einen Rücksetzschalter oder einen großen Widerstand parallel zu $C$?
+---
+Der Offset wirkt wie eine kleine feste Eingangsspannung, die er auch bei $U_\mathrm{E}=0$ integriert. Mit 1 mV und $R\,C=10$ ms läuft der Ausgang mit 0,1 V/s und schlägt nach 110 s an.
+--- falsch
+Der Kondensator entlädt sich sonst über den Eingang des OPV; ohne diese Bauteile verliert der Integrierer seinen Wert nach wenigen Sekunden.
+--- falsch
+Der Rauschstrom der Eingänge lädt den Kondensator in wenigen Mikrosekunden auf; ohne Rücksetzen stünde der Ausgang immer am Anschlag.
+--- falsch
+Der Eingangsruhestrom fließt sonst in den Ausgang; ohne zusätzlichen Weg würde der OPV überhitzen, weil der Strom nirgends abfließen kann.
+:::
+::::

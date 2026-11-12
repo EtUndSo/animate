@@ -1,0 +1,781 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 25,
+  "nextAnimId": 27,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0,
+      2.15,
+      0
+     ],
+     "width": 4.6,
+     "height": 0.42,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#e3eefb",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Text",
+    "props": {
+     "text": "@programmstufe3_fe11",
+     "position": [
+      0,
+      2.15,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o3",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      0,
+      1.93,
+      0
+     ],
+     "end": [
+      0,
+      1.2,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.13,
+     "font_size": 26,
+     "color": "#c82828",
+     "stroke_width": 3,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Text",
+    "props": {
+     "text": "@seitenfehler_7afe",
+     "position": [
+      0.15,
+      1.6,
+      0
+     ],
+     "font_size": 20,
+     "align": "left",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o5",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.25,
+      1.72,
+      0
+     ],
+     "width": 1.75,
+     "height": 0.28,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Text",
+    "props": {
+     "text": "@adresse_50d4",
+     "position": [
+      -1.25,
+      1.72,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o7",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.25,
+      1.41,
+      0
+     ],
+     "width": 1.75,
+     "height": 0.28,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Text",
+    "props": {
+     "text": "@artdeszugriffs_6ea3",
+     "position": [
+      -1.25,
+      1.41,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o9",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0,
+      -0.04,
+      0
+     ],
+     "width": 6.8,
+     "height": 2.42,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#eb6834",
+     "fill_color": "#fdece3",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o10",
+    "type": "Text",
+    "props": {
+     "text": "@kernelstufe0_298d",
+     "position": [
+      -3.3,
+      -1.1,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#eb6834"
+    }
+   },
+   {
+    "id": "o11",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0,
+      0.75,
+      0
+     ],
+     "width": 4.0,
+     "height": 0.62,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#eb6834",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Text",
+    "props": {
+     "text": "@gehoertdieadre_22d6",
+     "position": [
+      0,
+      0.75,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o13",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -1.0,
+      0.44,
+      0
+     ],
+     "end": [
+      -1.6,
+      -0.08,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.11,
+     "font_size": 26,
+     "color": "#00823c",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o14",
+    "type": "Text",
+    "props": {
+     "text": "@jaseitenurnich_a5df",
+     "position": [
+      -1.55,
+      0.25,
+      0
+     ],
+     "font_size": 18,
+     "align": "right",
+     "color": "#00823c"
+    }
+   },
+   {
+    "id": "o15",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.85,
+      -0.5,
+      0
+     ],
+     "width": 2.6,
+     "height": 0.8,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#00823c",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o16",
+    "type": "Text",
+    "props": {
+     "text": "@seiteholeneint_8c92",
+     "position": [
+      -1.85,
+      -0.5,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o17",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -1.85,
+      -0.9,
+      0
+     ],
+     "end": [
+      -1.85,
+      -1.48,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.11,
+     "font_size": 26,
+     "color": "#00823c",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o18",
+    "type": "Text",
+    "props": {
+     "text": "@programmlaeuft_4b11",
+     "position": [
+      -1.85,
+      -1.68,
+      0
+     ],
+     "font_size": 20,
+     "align": "center",
+     "color": "#00823c"
+    }
+   },
+   {
+    "id": "o19",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      1.0,
+      0.44,
+      0
+     ],
+     "end": [
+      1.6,
+      -0.12,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.11,
+     "font_size": 26,
+     "color": "#c82828",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o20",
+    "type": "Text",
+    "props": {
+     "text": "@nein_caba",
+     "position": [
+      1.5,
+      0.25,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o21",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.85,
+      -0.3,
+      0
+     ],
+     "width": 1.3,
+     "height": 0.34,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#c82828",
+     "fill_color": "#f9e1e1",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o22",
+    "type": "Text",
+    "props": {
+     "text": "SIGSEGV",
+     "position": [
+      1.85,
+      -0.3,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o23",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      1.85,
+      -0.47,
+      0
+     ],
+     "end": [
+      1.85,
+      -1.48,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.11,
+     "font_size": 26,
+     "color": "#c82828",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o24",
+    "type": "Text",
+    "props": {
+     "text": "@prozessendetst_4e75",
+     "position": [
+      1.85,
+      -1.68,
+      0
+     ],
+     "font_size": 20,
+     "align": "center",
+     "color": "#c82828"
+    }
+   }
+  ],
+  "animations": [
+   {
+    "id": "a1",
+    "type": "FadeIn",
+    "target": "o1",
+    "run_time": 0.5,
+    "step": 0
+   },
+   {
+    "id": "a2",
+    "type": "FadeIn",
+    "target": "o2",
+    "run_time": 0.5,
+    "step": 0
+   },
+   {
+    "id": "a3",
+    "type": "Create",
+    "target": "o3",
+    "run_time": 0.7,
+    "step": 1
+   },
+   {
+    "id": "a4",
+    "type": "FadeIn",
+    "target": "o4",
+    "run_time": 0.7,
+    "step": 1
+   },
+   {
+    "id": "a5",
+    "type": "FadeIn",
+    "target": "o5",
+    "run_time": 0.7,
+    "step": 1
+   },
+   {
+    "id": "a6",
+    "type": "FadeIn",
+    "target": "o6",
+    "run_time": 0.7,
+    "step": 1
+   },
+   {
+    "id": "a7",
+    "type": "FadeIn",
+    "target": "o7",
+    "run_time": 0.7,
+    "step": 1
+   },
+   {
+    "id": "a8",
+    "type": "FadeIn",
+    "target": "o8",
+    "run_time": 0.7,
+    "step": 1
+   },
+   {
+    "id": "a9",
+    "type": "FadeIn",
+    "target": "o9",
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a10",
+    "type": "FadeIn",
+    "target": "o10",
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a11",
+    "type": "FadeIn",
+    "target": "o11",
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a12",
+    "type": "FadeIn",
+    "target": "o12",
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a13",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 3
+   },
+   {
+    "id": "a14",
+    "type": "Create",
+    "target": "o13",
+    "run_time": 0.5,
+    "step": 4
+   },
+   {
+    "id": "a15",
+    "type": "FadeIn",
+    "target": "o14",
+    "run_time": 0.5,
+    "step": 4
+   },
+   {
+    "id": "a16",
+    "type": "FadeIn",
+    "target": "o15",
+    "run_time": 0.7,
+    "step": 5
+   },
+   {
+    "id": "a17",
+    "type": "FadeIn",
+    "target": "o16",
+    "run_time": 0.7,
+    "step": 5
+   },
+   {
+    "id": "a18",
+    "type": "Create",
+    "target": "o17",
+    "run_time": 0.5,
+    "step": 6
+   },
+   {
+    "id": "a19",
+    "type": "FadeIn",
+    "target": "o18",
+    "run_time": 0.5,
+    "step": 6
+   },
+   {
+    "id": "a20",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 7
+   },
+   {
+    "id": "a21",
+    "type": "Create",
+    "target": "o19",
+    "run_time": 0.5,
+    "step": 8
+   },
+   {
+    "id": "a22",
+    "type": "FadeIn",
+    "target": "o20",
+    "run_time": 0.5,
+    "step": 8
+   },
+   {
+    "id": "a23",
+    "type": "FadeIn",
+    "target": "o21",
+    "run_time": 0.5,
+    "step": 9
+   },
+   {
+    "id": "a24",
+    "type": "FadeIn",
+    "target": "o22",
+    "run_time": 0.5,
+    "step": 9
+   },
+   {
+    "id": "a25",
+    "type": "Create",
+    "target": "o23",
+    "run_time": 0.5,
+    "step": 10
+   },
+   {
+    "id": "a26",
+    "type": "FadeIn",
+    "target": "o24",
+    "run_time": 0.5,
+    "step": 10
+   }
+  ],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "programmstufe3_fe11": {
+    "de": "Programm (Stufe 3): Zugriff an einer Adresse",
+    "en": "program (level 3): access to an address",
+    "es": "programa (nivel 3): acceso a una dirección",
+    "zh": "程序（第 3 级）：访问某个地址",
+    "fr": "programme (niveau 3) : accès à une adresse",
+    "tr": "program (seviye 3): bir adrese erişim"
+   },
+   "seitenfehler_7afe": {
+    "de": "Seitenfehler",
+    "en": "page fault",
+    "es": "fallo de página",
+    "zh": "缺页异常",
+    "fr": "défaut de page",
+    "tr": "sayfa hatası"
+   },
+   "adresse_50d4": {
+    "de": "Adresse",
+    "en": "address",
+    "es": "dirección",
+    "zh": "地址",
+    "fr": "adresse",
+    "tr": "adres"
+   },
+   "artdeszugriffs_6ea3": {
+    "de": "Art des Zugriffs",
+    "en": "type of access",
+    "es": "tipo de acceso",
+    "zh": "访问类型",
+    "fr": "type d'accès",
+    "tr": "erişim türü"
+   },
+   "kernelstufe0_298d": {
+    "de": "Kernel (Stufe 0)",
+    "en": "kernel (level 0)",
+    "es": "kernel (nivel 0)",
+    "zh": "内核（第 0 级）",
+    "fr": "noyau (niveau 0)",
+    "tr": "çekirdek (seviye 0)"
+   },
+   "gehoertdieadre_22d6": {
+    "de": "Gehört die Adresse zum Adressraum\nund ist der Zugriff erlaubt?",
+    "en": "Does the address belong to the address space,\nand is the access allowed?",
+    "es": "¿Pertenece la dirección al espacio de direcciones\ny está permitido el acceso?",
+    "zh": "该地址属于地址空间吗？\n这种访问被允许吗？",
+    "fr": "L'adresse appartient-elle à l'espace d'adressage\net l'accès est-il autorisé ?",
+    "tr": "Adres, adres alanına ait mi\nve erişime izin var mı?"
+   },
+   "jaseitenurnich_a5df": {
+    "de": "ja, Seite nur\nnicht geladen",
+    "en": "yes, page just\nnot loaded",
+    "es": "sí, la página solo\nno está cargada",
+    "zh": "是，只是页面\n尚未载入",
+    "fr": "oui, page juste\nnon chargée",
+    "tr": "evet, sayfa yalnızca\nyüklenmemiş"
+   },
+   "seiteholeneint_8c92": {
+    "de": "Seite holen\nEintrag setzen\nBefehl wiederholen",
+    "en": "fetch the page\nset the entry\nrepeat the instruction",
+    "es": "traer la página\nescribir la entrada\nrepetir la instrucción",
+    "zh": "取回页面\n写入表项\n重新执行指令",
+    "fr": "charger la page\nécrire l'entrée\nrépéter l'instruction",
+    "tr": "sayfayı getir\ngirdiyi yaz\nkomutu yinele"
+   },
+   "programmlaeuft_4b11": {
+    "de": "Programm läuft weiter",
+    "en": "program keeps running",
+    "es": "el programa sigue",
+    "zh": "程序继续运行",
+    "fr": "le programme continue",
+    "tr": "program çalışmaya devam eder"
+   },
+   "nein_caba": {
+    "de": "nein",
+    "en": "no",
+    "es": "no",
+    "zh": "否",
+    "fr": "non",
+    "tr": "hayır"
+   },
+   "prozessendetst_4e75": {
+    "de": "Prozess endet, Status 139",
+    "en": "process ends, status 139",
+    "es": "el proceso termina, estado 139",
+    "zh": "进程结束，状态 139",
+    "fr": "le processus se termine, statut 139",
+    "tr": "süreç biter, durum 139"
+   }
+  },
+  "drawOrder": "creation"
+ }
+}

@@ -1,0 +1,1237 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 37,
+  "nextAnimId": 53,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Terminal",
+    "props": {
+     "text": "student@labor:~/linuxk9$ \\e|\\e>curl -fsSL https://example.org/install.sh | bash\n\\e|\\e~",
+     "cols": 74,
+     "rows": 2,
+     "font_size": 18.0,
+     "line_height": 1.2,
+     "position": [
+      -3.45,
+      2.95,
+      0
+     ],
+     "frame": "fenster",
+     "theme": "dunkel",
+     "title": "student@labor: ~/linuxk9",
+     "buttons": "drei",
+     "cursor": true,
+     "prompt_colors": true,
+     "shadow": true,
+     "state": "term1"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Text",
+    "props": {
+     "text": "@sieht",
+     "position": [
+      -3.21,
+      2.3833,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#8a8990"
+    }
+   },
+   {
+    "id": "o3",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.95,
+      1.4,
+      0
+     ],
+     "width": 0.95,
+     "height": 0.6,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#333333",
+     "fill_color": "#efefef",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Text",
+    "props": {
+     "text": "@server",
+     "position": [
+      -2.95,
+      1.53,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o5",
+    "type": "Text",
+    "props": {
+     "text": "install.sh",
+     "position": [
+      -2.95,
+      1.27,
+      0
+     ],
+     "font_size": 17,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o6",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -2.46,
+      1.4,
+      0
+     ],
+     "end": [
+      -2.1,
+      1.4,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.09,
+     "font_size": 26,
+     "color": "#333333",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o7",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.7,
+      1.4,
+      0
+     ],
+     "width": 0.75,
+     "height": 0.42,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#333333",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Text",
+    "props": {
+     "text": "curl",
+     "position": [
+      -1.7,
+      1.4,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o9",
+    "type": "Line",
+    "props": {
+     "start": [
+      -1.32,
+      1.4,
+      0
+     ],
+     "end": [
+      1.12,
+      1.4,
+      0
+     ],
+     "color": "#b5b5b5",
+     "stroke_width": 12,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o10",
+    "type": "Text",
+    "props": {
+     "text": "@pipe",
+     "position": [
+      -0.1,
+      1.64,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o11",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.75,
+      1.4,
+      0
+     ],
+     "width": 1.25,
+     "height": 0.42,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#333333",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Text",
+    "props": {
+     "text": "bash",
+     "position": [
+      1.75,
+      1.4,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o13",
+    "type": "Text",
+    "props": {
+     "text": "@fuehrt",
+     "position": [
+      1.75,
+      1.9,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#333333"
+    }
+   },
+   {
+    "id": "o14",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.0,
+      1.4,
+      0
+     ],
+     "width": 0.8,
+     "height": 0.24,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o15",
+    "type": "Text",
+    "props": {
+     "text": "@z1",
+     "position": [
+      -1.0,
+      1.4,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o16",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.0,
+      1.4,
+      0
+     ],
+     "width": 0.8,
+     "height": 0.24,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o17",
+    "type": "Text",
+    "props": {
+     "text": "@z2",
+     "position": [
+      -1.0,
+      1.4,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o18",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.0,
+      1.4,
+      0
+     ],
+     "width": 0.8,
+     "height": 0.24,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#c82828",
+     "fill_color": "#f9e1e1",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o19",
+    "type": "Text",
+    "props": {
+     "text": "sudo …",
+     "position": [
+      -1.0,
+      1.4,
+      0
+     ],
+     "font_size": 17,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o20",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.19,
+      1.4,
+      0
+     ],
+     "width": 0.42,
+     "height": 0.24,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#eb6834",
+     "fill_color": "#fdece3",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": "3,3"
+    }
+   },
+   {
+    "id": "o21",
+    "type": "Line",
+    "props": {
+     "start": [
+      2.23,
+      0.9534999999999999,
+      0
+     ],
+     "end": [
+      2.2824999999999998,
+      0.8975,
+      0
+     ],
+     "color": "#00823c",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o22",
+    "type": "Line",
+    "props": {
+     "start": [
+      2.2824999999999998,
+      0.8975,
+      0
+     ],
+     "end": [
+      2.3699999999999997,
+      1.013,
+      0
+     ],
+     "color": "#00823c",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o23",
+    "type": "Line",
+    "props": {
+     "start": [
+      2.23,
+      0.6835,
+      0
+     ],
+     "end": [
+      2.2824999999999998,
+      0.6275000000000001,
+      0
+     ],
+     "color": "#00823c",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o24",
+    "type": "Line",
+    "props": {
+     "start": [
+      2.2824999999999998,
+      0.6275000000000001,
+      0
+     ],
+     "end": [
+      2.3699999999999997,
+      0.7430000000000001,
+      0
+     ],
+     "color": "#00823c",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o25",
+    "type": "Text",
+    "props": {
+     "text": "@root",
+     "position": [
+      1.2,
+      0.41,
+      0
+     ],
+     "font_size": 18,
+     "align": "right",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o26",
+    "type": "Text",
+    "props": {
+     "text": "@halb",
+     "position": [
+      1.2,
+      0.14,
+      0
+     ],
+     "font_size": 18,
+     "align": "right",
+     "color": "#eb6834"
+    }
+   },
+   {
+    "id": "o27",
+    "type": "Mark",
+    "props": {
+     "center": [
+      -2.28,
+      1.4,
+      0
+     ],
+     "kind": "cross",
+     "size": 0.2,
+     "color": "#c82828",
+     "stroke_width": 4
+    }
+   },
+   {
+    "id": "o28",
+    "type": "Text",
+    "props": {
+     "text": "@abbruch",
+     "position": [
+      -2.95,
+      0.85,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o29",
+    "type": "Text",
+    "props": {
+     "text": "@sicher",
+     "position": [
+      -3.4,
+      -0.48,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#00823c"
+    }
+   },
+   {
+    "id": "o30",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.3,
+      -0.48,
+      0
+     ],
+     "width": 1.65,
+     "height": 0.3,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#00823c",
+     "fill_color": "#e6f3ea",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o31",
+    "type": "Text",
+    "props": {
+     "text": "@s1",
+     "position": [
+      -1.3,
+      -0.48,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o32",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.45,
+      -0.48,
+      0
+     ],
+     "width": 1.65,
+     "height": 0.3,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#00823c",
+     "fill_color": "#e6f3ea",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o33",
+    "type": "Text",
+    "props": {
+     "text": "@s2",
+     "position": [
+      0.45,
+      -0.48,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o34",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.2,
+      -0.48,
+      0
+     ],
+     "width": 1.65,
+     "height": 0.3,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#00823c",
+     "fill_color": "#e6f3ea",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o35",
+    "type": "Text",
+    "props": {
+     "text": "@s3",
+     "position": [
+      2.2,
+      -0.48,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o36",
+    "type": "Parameter",
+    "props": {
+     "name": "term1",
+     "value": 0.0,
+     "min": 0.0,
+     "max": 2.0,
+     "step": 0.01
+    }
+   }
+  ],
+  "animations": [
+   {
+    "id": "a1",
+    "type": "FadeIn",
+    "target": "o1",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a2",
+    "type": "ChangeValue",
+    "target": "o36",
+    "run_time": 2.0,
+    "step": 1,
+    "value": 1.0,
+    "rate": "linear"
+   },
+   {
+    "id": "a3",
+    "type": "ChangeValue",
+    "target": "o36",
+    "run_time": 1.0,
+    "step": 2,
+    "value": 2.0,
+    "rate": "linear"
+   },
+   {
+    "id": "a4",
+    "type": "FadeIn",
+    "target": "o2",
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a5",
+    "type": "FadeIn",
+    "target": "o3",
+    "run_time": 0.7,
+    "step": 3
+   },
+   {
+    "id": "a6",
+    "type": "FadeIn",
+    "target": "o4",
+    "run_time": 0.7,
+    "step": 3
+   },
+   {
+    "id": "a7",
+    "type": "FadeIn",
+    "target": "o5",
+    "run_time": 0.7,
+    "step": 3
+   },
+   {
+    "id": "a8",
+    "type": "FadeIn",
+    "target": "o6",
+    "run_time": 0.7,
+    "step": 3
+   },
+   {
+    "id": "a9",
+    "type": "FadeIn",
+    "target": "o7",
+    "run_time": 0.7,
+    "step": 3
+   },
+   {
+    "id": "a10",
+    "type": "FadeIn",
+    "target": "o8",
+    "run_time": 0.7,
+    "step": 3
+   },
+   {
+    "id": "a11",
+    "type": "FadeIn",
+    "target": "o9",
+    "run_time": 0.7,
+    "step": 3
+   },
+   {
+    "id": "a12",
+    "type": "FadeIn",
+    "target": "o10",
+    "run_time": 0.7,
+    "step": 3
+   },
+   {
+    "id": "a13",
+    "type": "FadeIn",
+    "target": "o11",
+    "run_time": 0.7,
+    "step": 3
+   },
+   {
+    "id": "a14",
+    "type": "FadeIn",
+    "target": "o12",
+    "run_time": 0.7,
+    "step": 3
+   },
+   {
+    "id": "a15",
+    "type": "FadeIn",
+    "target": "o13",
+    "run_time": 0.7,
+    "step": 3
+   },
+   {
+    "id": "a16",
+    "type": "FadeIn",
+    "target": "o14",
+    "run_time": 0.25,
+    "step": 4
+   },
+   {
+    "id": "a17",
+    "type": "FadeIn",
+    "target": "o15",
+    "run_time": 0.25,
+    "step": 4
+   },
+   {
+    "id": "a18",
+    "type": "Shift",
+    "target": "o14",
+    "run_time": 0.7,
+    "step": 5,
+    "vector": [
+     2.75,
+     0,
+     0
+    ]
+   },
+   {
+    "id": "a19",
+    "type": "Shift",
+    "target": "o15",
+    "run_time": 0.7,
+    "step": 5,
+    "vector": [
+     2.75,
+     0,
+     0
+    ]
+   },
+   {
+    "id": "a20",
+    "type": "Shift",
+    "target": "o14",
+    "run_time": 0.4,
+    "step": 6,
+    "vector": [
+     0,
+     -0.45,
+     0
+    ]
+   },
+   {
+    "id": "a21",
+    "type": "Shift",
+    "target": "o15",
+    "run_time": 0.4,
+    "step": 6,
+    "vector": [
+     0,
+     -0.45,
+     0
+    ]
+   },
+   {
+    "id": "a22",
+    "type": "FadeIn",
+    "target": "o21",
+    "run_time": 0.4,
+    "step": 6
+   },
+   {
+    "id": "a23",
+    "type": "FadeIn",
+    "target": "o22",
+    "run_time": 0.4,
+    "step": 6
+   },
+   {
+    "id": "a24",
+    "type": "FadeIn",
+    "target": "o16",
+    "run_time": 0.25,
+    "step": 7
+   },
+   {
+    "id": "a25",
+    "type": "FadeIn",
+    "target": "o17",
+    "run_time": 0.25,
+    "step": 7
+   },
+   {
+    "id": "a26",
+    "type": "Shift",
+    "target": "o16",
+    "run_time": 0.7,
+    "step": 8,
+    "vector": [
+     2.75,
+     0,
+     0
+    ]
+   },
+   {
+    "id": "a27",
+    "type": "Shift",
+    "target": "o17",
+    "run_time": 0.7,
+    "step": 8,
+    "vector": [
+     2.75,
+     0,
+     0
+    ]
+   },
+   {
+    "id": "a28",
+    "type": "Shift",
+    "target": "o16",
+    "run_time": 0.4,
+    "step": 9,
+    "vector": [
+     0,
+     -0.72,
+     0
+    ]
+   },
+   {
+    "id": "a29",
+    "type": "Shift",
+    "target": "o17",
+    "run_time": 0.4,
+    "step": 9,
+    "vector": [
+     0,
+     -0.72,
+     0
+    ]
+   },
+   {
+    "id": "a30",
+    "type": "FadeIn",
+    "target": "o23",
+    "run_time": 0.4,
+    "step": 9
+   },
+   {
+    "id": "a31",
+    "type": "FadeIn",
+    "target": "o24",
+    "run_time": 0.4,
+    "step": 9
+   },
+   {
+    "id": "a32",
+    "type": "FadeIn",
+    "target": "o18",
+    "run_time": 0.25,
+    "step": 10
+   },
+   {
+    "id": "a33",
+    "type": "FadeIn",
+    "target": "o19",
+    "run_time": 0.25,
+    "step": 10
+   },
+   {
+    "id": "a34",
+    "type": "Shift",
+    "target": "o18",
+    "run_time": 0.7,
+    "step": 11,
+    "vector": [
+     2.75,
+     0,
+     0
+    ]
+   },
+   {
+    "id": "a35",
+    "type": "Shift",
+    "target": "o19",
+    "run_time": 0.7,
+    "step": 11,
+    "vector": [
+     2.75,
+     0,
+     0
+    ]
+   },
+   {
+    "id": "a36",
+    "type": "Shift",
+    "target": "o18",
+    "run_time": 0.4,
+    "step": 12,
+    "vector": [
+     0,
+     -0.99,
+     0
+    ]
+   },
+   {
+    "id": "a37",
+    "type": "Shift",
+    "target": "o19",
+    "run_time": 0.4,
+    "step": 12,
+    "vector": [
+     0,
+     -0.99,
+     0
+    ]
+   },
+   {
+    "id": "a38",
+    "type": "FadeIn",
+    "target": "o25",
+    "run_time": 0.4,
+    "step": 12
+   },
+   {
+    "id": "a39",
+    "type": "FadeIn",
+    "target": "o27",
+    "run_time": 0.5,
+    "step": 13
+   },
+   {
+    "id": "a40",
+    "type": "FadeIn",
+    "target": "o28",
+    "run_time": 0.5,
+    "step": 13
+   },
+   {
+    "id": "a41",
+    "type": "FadeIn",
+    "target": "o20",
+    "run_time": 0.25,
+    "step": 14
+   },
+   {
+    "id": "a42",
+    "type": "Shift",
+    "target": "o20",
+    "run_time": 0.7,
+    "step": 15,
+    "vector": [
+     2.75,
+     0,
+     0
+    ]
+   },
+   {
+    "id": "a43",
+    "type": "Shift",
+    "target": "o20",
+    "run_time": 0.4,
+    "step": 16,
+    "vector": [
+     0,
+     -1.26,
+     0
+    ]
+   },
+   {
+    "id": "a44",
+    "type": "FadeIn",
+    "target": "o26",
+    "run_time": 0.4,
+    "step": 16
+   },
+   {
+    "id": "a45",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.5,
+    "step": 17
+   },
+   {
+    "id": "a46",
+    "type": "FadeIn",
+    "target": "o29",
+    "run_time": 0.7,
+    "step": 18
+   },
+   {
+    "id": "a47",
+    "type": "FadeIn",
+    "target": "o30",
+    "run_time": 0.7,
+    "step": 18
+   },
+   {
+    "id": "a48",
+    "type": "FadeIn",
+    "target": "o31",
+    "run_time": 0.7,
+    "step": 18
+   },
+   {
+    "id": "a49",
+    "type": "FadeIn",
+    "target": "o32",
+    "run_time": 0.7,
+    "step": 18
+   },
+   {
+    "id": "a50",
+    "type": "FadeIn",
+    "target": "o33",
+    "run_time": 0.7,
+    "step": 18
+   },
+   {
+    "id": "a51",
+    "type": "FadeIn",
+    "target": "o34",
+    "run_time": 0.7,
+    "step": 18
+   },
+   {
+    "id": "a52",
+    "type": "FadeIn",
+    "target": "o35",
+    "run_time": 0.7,
+    "step": 18
+   }
+  ],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "sieht": {
+    "de": "← du siehst nur eine leere Zeile",
+    "en": "← you see only an empty line",
+    "es": "← solo ves una línea vacía",
+    "zh": "← 你只看到一行空白",
+    "fr": "← tu ne vois qu'une ligne vide",
+    "tr": "← yalnızca boş bir satır görürsün"
+   },
+   "server": {
+    "de": "Server",
+    "en": "server",
+    "es": "servidor",
+    "zh": "服务器",
+    "fr": "serveur",
+    "tr": "sunucu"
+   },
+   "pipe": {
+    "de": "Pipe",
+    "en": "pipe",
+    "es": "tubería",
+    "zh": "管道",
+    "fr": "tube",
+    "tr": "boru"
+   },
+   "fuehrt": {
+    "de": "bash führt jede Zeile\nsofort aus",
+    "en": "bash runs each line\nat once",
+    "es": "bash ejecuta cada línea\nen el acto",
+    "zh": "bash 立即执行\n每一行",
+    "fr": "bash exécute chaque\nligne aussitôt",
+    "tr": "bash her satırı\nhemen çalıştırır"
+   },
+   "z1": {
+    "de": "Zeile 1",
+    "en": "line 1",
+    "es": "línea 1",
+    "zh": "第 1 行",
+    "fr": "ligne 1",
+    "tr": "satır 1"
+   },
+   "z2": {
+    "de": "Zeile 2",
+    "en": "line 2",
+    "es": "línea 2",
+    "zh": "第 2 行",
+    "fr": "ligne 2",
+    "tr": "satır 2"
+   },
+   "root": {
+    "de": "jetzt mit root",
+    "en": "now as root",
+    "es": "ahora como root",
+    "zh": "现在以 root 运行",
+    "fr": "maintenant en root",
+    "tr": "şimdi root olarak"
+   },
+   "halb": {
+    "de": "halbe Zeile wird ausgeführt",
+    "en": "half a line is run",
+    "es": "se ejecuta media línea",
+    "zh": "半行被执行",
+    "fr": "une demi-ligne est exécutée",
+    "tr": "yarım satır çalıştırılır"
+   },
+   "abbruch": {
+    "de": "Verbindung\nbricht ab",
+    "en": "connection\ndrops",
+    "es": "se corta la\nconexión",
+    "zh": "连接\n中断",
+    "fr": "la connexion\ncoupe",
+    "tr": "bağlantı\nkopar"
+   },
+   "sicher": {
+    "de": "sicherer Weg:",
+    "en": "safer way:",
+    "es": "camino más seguro:",
+    "zh": "更安全的做法：",
+    "fr": "voie plus sûre :",
+    "tr": "daha güvenli yol:"
+   },
+   "s1": {
+    "de": "1 in eine Datei laden",
+    "en": "1 download to a file",
+    "es": "1 guardarlo en archivo",
+    "zh": "1 下载到文件",
+    "fr": "1 le télécharger",
+    "tr": "1 dosyaya indir"
+   },
+   "s2": {
+    "de": "2 lesen: less datei",
+    "en": "2 read: less file",
+    "es": "2 leer: less archivo",
+    "zh": "2 阅读：less 文件",
+    "fr": "2 lire : less fichier",
+    "tr": "2 oku: less dosya"
+   },
+   "s3": {
+    "de": "3 ausführen: bash datei",
+    "en": "3 run: bash file",
+    "es": "3 ejecutar: bash archivo",
+    "zh": "3 运行：bash 文件",
+    "fr": "3 lancer : bash fichier",
+    "tr": "3 çalıştır: bash dosya"
+   }
+  },
+  "drawOrder": "creation"
+ }
+}

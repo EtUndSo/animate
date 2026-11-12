@@ -62,3 +62,138 @@ Nein. Vor und hinter dem Bauteil fließt derselbe Strom, die Ladung kommt vollst
 (a) $Q=2\,\mathrm{A}\cdot3600\,\mathrm{s}=7200$ C, also $W=3{,}7\,\mathrm{V}\cdot7200\,\mathrm{C}=26{,}64$ kJ $=7{,}4$ Wh. Bei 0,74 W reicht das 10 h. (b) $W=2\,\mathrm{kW}\cdot0{,}05\,\mathrm{h}=0{,}1$ kWh, das kostet 3 ct. (c) $P=12\,\mathrm{V}\cdot(-3\,\mathrm{A})=-36$ W. Das Eintor gibt 36 W ab.
 :::
 :::
+
+::::formelsammlung
+**Energie und Leistung**
+
+$$p(t)=\frac{\mathrm{d} W}{\mathrm{d} t}=u(t)\,i(t),\qquad W=\int u\,\mathrm{d} Q=\int_{t_1}^{t_2}u(t)\,i(t)\,\mathrm{d} t$$
+
+Die Ladung $\mathrm{d} Q$ gibt beim Durchlaufen der Spannung $u$ die Energie $\mathrm{d} W=u\,\mathrm{d} Q$ ab, mit dem Strom $i=\mathrm{d} Q/\mathrm{d} t$. $p(t)$ ist der Momentanwert der Leistung. Gilt für jedes Eintor, wenn $u$ und $i$ am selben Anschlusspaar gezählt werden; über das Innere wird nichts vorausgesetzt. Mit Verbraucher-Zählpfeilen heißt $p>0$: Das Bauteil nimmt Energie auf, $p<0$: Es gibt Energie ab; mit Erzeuger-Zählpfeilen umgekehrt.
+
+**Gleichgrößen**
+
+$$W=U\,I\,\Delta t,\qquad P=\frac{W}{\Delta t}=U\,I$$
+
+$U$ und $I$ hängen nicht von der Zeit ab. Allgemein ist $W/\Delta t$ der Mittelwert der Leistung über die Zeit $\Delta t$.
+
+**Einheiten**
+
+$$[P]=\mathrm{V\,A}=\mathrm{J/s}=\mathrm W,\qquad 1\,\mathrm{W\,s}=1\,\mathrm{V\,A\,s}=1\,\mathrm{J}=1\,\mathrm{N\,m},\qquad 1\,\mathrm{kWh}=3{,}6\,\mathrm{MJ}$$
+
+Leistung in Watt. Energie in der Elektrotechnik meist in Wattsekunden oder Kilowattstunden.
+::::
+
+::::lernkarten
+:::karte begriff Leistung
+Was gibt die elektrische Leistung an, die ein Bauteil umsetzt, und wie folgt sie aus Spannung und Strom?
+---
+Die Energie, die je Zeit umgesetzt wird. Die Spannung gibt die Energie je Coulomb an, der Strom die Coulomb je Sekunde, ihr Produkt ist $p=u\,i$ in Watt.
+--- falsch
+Die Ladung, die je Zeit durch das Bauteil fließt. Sie steigt mit der Spannung und wird wie der Strom in Coulomb je Sekunde angegeben.
+--- falsch
+Die gesamte Energie, die ein Bauteil während seines Betriebs aufnimmt. Sie ist das Produkt aus Spannung, Strom und Betriebszeit und wird in Watt angegeben.
+--- falsch
+Die Energie, die eine einzelne Ladung im Bauteil abgibt. Sie ist das Produkt aus Spannung und Elementarladung und wird in Watt angegeben.
+:::
+:::karte formel Momentanleistung und Energie
+Wie berechnet man aus den zeitabhängigen Größen $u(t)$ und $i(t)$ eines Eintors die Leistung und die Energie zwischen $t_1$ und $t_2$?
+---
+$p(t)=\frac{\mathrm{d} W}{\mathrm{d} t}=u(t)\,i(t)$ und $W=\int_{t_1}^{t_2}u(t)\,i(t)\,\mathrm{d} t$. Die Leistung ist der Momentanwert, die Energie ihr Zeitintegral.
+--- falsch
+$p(t)=u(t)\,i(t)$ und $W=p(t_2)\,(t_2-t_1)$. Die Energie folgt aus der Leistung am Ende des Zeitraums, weil sie sich bis dahin aufgebaut hat.
+--- falsch
+$p(t)=\frac{\mathrm{d} W}{\mathrm{d} t}=u(t)\,i(t)$ und $W=\frac{\mathrm{d} p}{\mathrm{d} t}$. Die Energie ist die Änderung der Leistung, weil sie den Zuwachs je Zeit misst.
+--- falsch
+$p(t)=\int_{t_1}^{t_2}u(t)\,i(t)\,\mathrm{d} t$ und $W=u(t)\,i(t)$. Die Leistung sammelt sich über die Zeit an, die Energie ist ihr Momentanwert.
+:::
+:::karte formel Energie und Leistung bei Gleichgrößen
+Wie berechnet man Energie und Leistung, wenn Spannung $U$ und Strom $I$ während der Zeit $\Delta t$ konstant sind?
+---
+$W=U\,I\,\Delta t$ und $P=\frac{W}{\Delta t}=U\,I$. Allgemein ist $W/\Delta t$ der Mittelwert der Leistung über die Zeit $\Delta t$, $p(t)$ ihr Momentanwert.
+--- falsch
+$P=U\,I\,\Delta t$ und $W=\frac{P}{\Delta t}=U\,I$. Die Leistung wächst mit der Betriebszeit, die Energie ist der Wert, den das Gerät gerade aufnimmt.
+--- falsch
+$W=U\,I\,\Delta t$ und $P=\frac{W}{\Delta t}=U\,I$. Das gilt auch bei zeitabhängigen Größen, wenn man für $U$ und $I$ die Spitzenwerte einsetzt.
+--- falsch
+$W=\frac{U}{I}\,\Delta t$ und $P=\frac{W}{\Delta t}=\frac{U}{I}$. Die Leistung steigt mit der Spannung und sinkt mit dem Strom, der die Energie verteilt.
+:::
+:::karte formel Einheiten von Leistung und Energie
+In welchen Einheiten gibt man Leistung und elektrische Energie an, und wie hängen diese Einheiten zusammen?
+---
+Leistung in Watt, $[P]=\mathrm{V\,A}=\mathrm{J/s}=\mathrm W$. Energie in $1\,\mathrm{W\,s}=1\,\mathrm{V\,A\,s}=1\,\mathrm{J}=1\,\mathrm{N\,m}$, in der Elektrotechnik meist in Wattsekunden oder Kilowattstunden, $1\,\mathrm{kWh}=3{,}6\,\mathrm{MJ}$.
+--- falsch
+Leistung in Watt, $[P]=\mathrm{V/A}=\mathrm{J\,s}=\mathrm W$. Energie in Wattstunden, $1\,\mathrm{Wh}=1\,\mathrm{J}$, in der Elektrotechnik meist in Kilowatt, $1\,\mathrm{kW}=3{,}6\,\mathrm{MJ}$.
+--- falsch
+Leistung in Kilowattstunden, $1\,\mathrm{kWh}=1000\,\mathrm{W}$. Energie in Watt, $[W]=\mathrm{V\,A}=\mathrm{J/s}$, in der Elektrotechnik meist in Joule, weil Wattsekunden unüblich sind.
+--- falsch
+Leistung in Watt, $[P]=\mathrm{V\,A}=\mathrm{J/s}=\mathrm W$. Energie in Joule oder Kilowattstunden, wobei $1\,\mathrm{kWh}=3{,}6\,\mathrm{kJ}$ ist, weil eine Stunde 3600 Sekunden hat.
+:::
+:::karte formel Vorzeichen der Leistung
+Was sagt das Vorzeichen der Leistung $p=u\,i$ aus, wenn Spannung und Strom an einem Eintor mit Verbraucher-Zählpfeilen gezählt werden?
+---
+$p>0$ heißt: Das Bauteil nimmt Energie auf. $p<0$ heißt: Es gibt Energie ab. Mit Erzeuger-Zählpfeilen ist es umgekehrt.
+--- falsch
+$p>0$ heißt: Das Bauteil gibt Energie ab. $p<0$ heißt: Es nimmt Energie auf. Mit Erzeuger-Zählpfeilen gilt dieselbe Zuordnung.
+--- falsch
+$p<0$ kommt bei Verbraucher-Zählpfeilen nicht vor, weil Energie je Zeit nie negativ werden kann. Ein Minus deutet auf einen Messfehler hin.
+--- falsch
+$p>0$ heißt: Das Bauteil nimmt Energie auf. $p<0$ heißt: Es nimmt ebenfalls Energie auf, nur mit umgekehrter Stromrichtung im Inneren.
+:::
+:::karte zusammenhang Spannung und Strom als Faktoren
+Warum setzt ein Bauteil keine Leistung um, wenn an ihm Spannung, aber kein Strom, oder Strom, aber keine Spannung liegt?
+---
+Spannung ohne Strom setzt nichts um, weil keine Ladung läuft. Strom ohne Spannung setzt nichts um, weil keine Ladung etwas abgibt. Beispiele sind offene Klemmen und ein idealer Draht.
+--- falsch
+Spannung ohne Strom setzt sehr wohl Leistung um, weil die Ladungen unter Spannung stehen. Nur Strom ohne Spannung setzt nichts um, weil dann im Bauteil kein Feld herrscht.
+--- falsch
+Strom ohne Spannung setzt sehr wohl Leistung um, weil die Ladungen das Bauteil durchlaufen und es erwärmen. Nur Spannung ohne Strom setzt nichts um, weil keine Ladung läuft.
+--- falsch
+Weil die Energie nicht von den Ladungen, sondern vom Widerstand des Bauteils abgegeben wird. Ohne Spannung oder ohne Strom ist sein Widerstand nicht festgelegt.
+:::
+:::karte zusammenhang Stromverbrauch
+Wird in einem elektrischen Gerät Strom verbraucht, und was wird auf der Rechnung für den „Stromverbrauch“ tatsächlich abgerechnet?
+---
+Nein. Vor und hinter dem Gerät fließt derselbe Strom, die Ladung kommt vollständig wieder heraus, nur auf niedrigerem Potenzial. Verbraucht wird Energie, deshalb stehen Kilowattstunden auf der Rechnung.
+--- falsch
+Ja. Hinter dem Gerät fließt weniger Strom als davor, weil ein Teil der Ladung im Gerät bleibt und dort zu Wärme wird. Abgerechnet wird die verbrauchte Ladung, umgerechnet in Kilowattstunden.
+--- falsch
+Ja. Der Strom wird im Gerät aufgebraucht und fließt über den Schutzleiter ab. Abgerechnet wird deshalb die Ladung, die das Gerät insgesamt aufgenommen hat, gemessen in Amperestunden.
+--- falsch
+Nein, aber die Ladung kommt langsamer wieder heraus, weil sie im Gerät Bewegungsenergie abgegeben hat. Abgerechnet wird diese Bewegungsenergie der Elektronen, gemessen in Kilowatt.
+:::
+:::karte zusammenhang Gültigkeit für jedes Eintor
+Warum gilt $p=u\,i$ für jedes Eintor, ohne dass man etwas über das Innere des Bauteils wissen muss?
+---
+Weil in der Zeit $\mathrm{d} t$ an einem Anschluss die Ladung $\mathrm{d} Q=i\,\mathrm{d} t$ ein- und am anderen dieselbe Ladung austritt und das Innere unverändert bleibt. Für die Bilanz ist es, als wäre $\mathrm{d} Q$ unmittelbar von $\varphi_1$ nach $\varphi_2$ gelangt.
+--- falsch
+Weil jedes Bauteil im Inneren ein Widerstand ist, an dem die Leistung als Wärme entsteht. Deshalb genügt es, Spannung und Strom an den Anschlüssen zu kennen, gleich in welcher Richtung und an welcher Stelle sie gezählt werden.
+--- falsch
+Weil man $u$ und $i$ beliebig an verschiedenen Stellen der Schaltung messen darf. Die Leistung hängt nur von den Beträgen der beiden Größen ab, nicht davon, wo sie gezählt werden.
+--- falsch
+Sie gilt nur für Bauteile, deren Inneres bekannt ist, weil man sonst nicht weiß, ob die Ladung innen Energie speichert. Bei unbekanntem Inneren bilanziert man die Energie einzeln.
+:::
+:::karte zusammenhang Leistung als Kennzeichen von Geräten
+Warum kennzeichnet man elektrische Geräte meist durch ihre Leistung und nicht durch die Energie, die sie aufnehmen?
+---
+Weil Geräte oft dauerhaft laufen. Die aufgenommene Energie wächst mit der Betriebszeit, die Leistung als Energie je Zeit beschreibt dagegen das Gerät selbst.
+--- falsch
+Weil die Energie eines Geräts nicht messbar ist, solange es läuft. Erst nach dem Abschalten lässt sich aus der Leistung zurückrechnen, wie viel es aufgenommen hat.
+--- falsch
+Weil Leistung und Energie dieselbe Größe sind und Watt nur die kürzere Einheit ist. Die Angabe in Joule wäre gleichwertig, aber deutlich unübersichtlicher.
+--- falsch
+Weil die Leistung angibt, wie viel Ladung das Gerät je Sekunde verbraucht. Diese Angabe braucht man, um die passende Sicherung für das Gerät zu wählen.
+:::
+:::karte herleitung Leistung eines Eintors
+Leite aus der Energie, die eine Ladung beim Wechsel von $\varphi_1$ nach $\varphi_2$ abgibt, die Leistung $p=u\,i$ eines Eintors her.
+---
+In der Zeit $\mathrm{d} t$ tritt am Anschluss 1 die Ladung $\mathrm{d} Q=i\,\mathrm{d} t$ ein und am Anschluss 2 dieselbe Ladung aus, weil nach der Knotenregel keine Ladung im Bauteil bleibt.
+---
+Für die Bilanz ist es so, als wäre $\mathrm{d} Q$ unmittelbar von $\varphi_1$ nach $\varphi_2$ gelangt, weil das Innere unverändert bleibt.
+---
+Die abgegebene Energie ist $\mathrm{d} W=(\varphi_1-\varphi_2)\,\mathrm{d} Q=u\,i\,\mathrm{d} t$, weil jedes Coulomb beim Potenzialwechsel die Potenzialdifferenz in Joule abgibt.
+---
+Division durch $\mathrm{d} t$ ergibt $p(t)=\frac{\mathrm{d} W}{\mathrm{d} t}=u(t)\,i(t)$, weil Leistung Energie je Zeit ist.
+---
+Für Elektronen gilt dasselbe, weil sie umgekehrt laufen und negative Ladung tragen; beide Vorzeichen zusammen ergeben dasselbe Produkt.
+:::
+::::

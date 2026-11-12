@@ -183,3 +183,94 @@ $$s*h=\bigl[\operatorname{Re} s*\operatorname{Re} h-\operatorname{Im} s*\operato
 
 Folgt aus der Linearität der Faltung.
 ::::
+
+::::lernkarten
+:::karte begriff Faltungsprodukt
+Was bezeichnet das Faltungsprodukt $s(t)*h(t)$, und wie lautet damit die Zerlegung eines Signals in Stöße?
+---
+Die Kurzschreibweise $g(t)=s(t)*h(t)$ für das Faltungsintegral $\int_{-\infty}^{\infty}s(\tau)\,h(t-\tau)\,\mathrm{d}\tau$. Die Zerlegung in Stöße lautet damit $s(t)=s(t)*\delta(t)$.
+--- falsch
+Das gewöhnliche Produkt $s(t)\,h(t)$ zweier Signale zur selben Zeit; den Stern schreibt man nur, um es von Produkten von Zahlen zu unterscheiden. Die Zerlegung lautet $s(t)=s(t)*1$.
+--- falsch
+Die Kurzschreibweise $g(t)=s(t)*h(t)$ für $\int_{-\infty}^{\infty}s(\tau)\,h(\tau)\,\mathrm{d}\tau$, also für die Fläche des Produkts der beiden Signale. Die Zerlegung lautet $s(t)=s(t)*\varepsilon(t)$.
+--- falsch
+Das Produkt $s(t)\,h^*(t)$ mit dem konjugiert komplexen $h$; für reelle Signale ist es das gewöhnliche Produkt. Die Zerlegung in Stöße lautet damit $s(t)=s(t)*s(t)$.
+:::
+:::karte begriff ideal verzerrungsfrei
+Wann heißt ein System ideal verzerrungsfrei, und welche Rechenregel der Faltung steckt dahinter?
+---
+Wenn seine Impulsantwort $h(t)=\delta(t)$ ist: Es gibt jedes Signal unverändert weiter. Dahinter steckt das Einselement der Faltung, $s*\delta=s$; der Dirac-Impuls spielt die Rolle der Eins.
+--- falsch
+Wenn seine Impulsantwort $h(t)=\varepsilon(t)$ ist: Ein Sprung bleibt ein Sprung, also wird jedes Signal unverändert weitergegeben. Der Sprung spielt bei der Faltung die Rolle der Eins.
+--- falsch
+Wenn seine Impulsantwort für alle $t$ gleich 1 ist: Dann ist $s*h=s$, weil die Faltung mit der Konstanten 1 wie die Multiplikation mit 1 wirkt und nichts verändert.
+--- falsch
+Wenn es linear ist: Jedes lineare System gibt die Form eines Signals unverändert weiter und ändert höchstens die Amplitude. Das folgt unmittelbar aus dem Überlagerungssatz.
+:::
+:::karte formel Kommutativgesetz
+Was besagt das Kommutativgesetz der Faltung für Eingang und Impulsantwort eines Systems?
+---
+$s*h=h*s$: Eingang und Impulsantwort dürfen die Rollen tauschen. Das System mit der Impulsantwort $s$ antwortet auf den Eingang $h$ genauso wie das System $h$ auf den Eingang $s$.
+--- falsch
+$s*h=-h*s$: Beim Vertauschen kehrt sich das Vorzeichen um, weil die Substitution $\tau'=t-\tau$ das Differential $\mathrm{d}\tau=-\mathrm{d}\tau'$ liefert. Eingang und Impulsantwort sind daher nicht gleichwertig.
+--- falsch
+$s*h=h*s$ gilt nur für symmetrische Signale. Sonst kommt beim Vertauschen das zeitlich gespiegelte Ergebnis heraus, weil die Spiegelung beim Ausrechnen dann die andere Funktion trifft.
+--- falsch
+$s*h=h*s$ gilt nur für Signale, die vor $t=0$ null sind. Sonst ändern sich beim Vertauschen die Integrationsgrenzen, und es kommt ein anderes Ergebnis heraus.
+:::
+:::karte herleitung Kommutativgesetz durch Substitution
+Wie zeigt man mit der Substitution $\tau'=t-\tau$, dass $s*h=h*s$ gilt?
+---
+Aus $\tau'=t-\tau$ folgt $\tau=t-\tau'$ und $\mathrm{d}\tau=-\mathrm{d}\tau'$, weil $t$ beim Integrieren fest ist.
+---
+Die Grenzen $\tau=\mp\infty$ werden zu $\tau'=\pm\infty$, weil die Substitution das Vorzeichen von $\tau$ umkehrt.
+---
+Das Vertauschen der Grenzen hebt das Minuszeichen aus $\mathrm{d}\tau=-\mathrm{d}\tau'$ auf, weil ein Integral beim Vertauschen der Grenzen sein Vorzeichen wechselt.
+---
+Es bleibt $\int_{-\infty}^{\infty}s(t-\tau')\,h(\tau')\,\mathrm{d}\tau'=h*s$, weil jetzt $h$ an der Integrationsvariablen und $s$ am gespiegelten, geschobenen Argument steht.
+:::
+:::karte formel Assoziativgesetz
+Was bedeutet das Assoziativgesetz $(f*s)*h=f*(s*h)$ für zwei Systeme in Kette?
+---
+Zwei Systeme in Kette wirken wie ein System, dessen Impulsantwort die Faltung der beiden Impulsantworten ist, $h_1*h_2$.
+--- falsch
+Zwei Systeme in Kette wirken wie ein System mit der Impulsantwort $h_1+h_2$, weil sich die Wirkungen der beiden Systeme addieren.
+--- falsch
+Zwei Systeme in Kette wirken wie ein System mit der Impulsantwort $h_1\,h_2$, weil jedes System das Signal mit seiner Antwort multipliziert.
+--- falsch
+Zwei Systeme in Kette kann man nur nacheinander berechnen, erst das erste, dann das zweite; eine gemeinsame Impulsantwort gibt es nicht.
+:::
+:::karte formel Distributivgesetz
+Was bedeutet das Distributivgesetz $f*(s+h)=f*s+f*h$ für zwei parallel geschaltete Systeme, deren Ausgänge addiert werden?
+---
+Sie wirken wie ein System mit der Summe der Impulsantworten, $h_1+h_2$, denn jedes bekommt denselben Eingang.
+--- falsch
+Sie wirken wie ein System mit der Impulsantwort $h_1*h_2$, weil das Signal beide Systeme durchläuft.
+--- falsch
+Sie wirken wie ein System mit der Impulsantwort $\frac12(h_1+h_2)$, weil sich der Eingang auf beide Zweige aufteilt.
+--- falsch
+Sie wirken wie ein System mit der Summe $h_1+h_2$, aber nur, wenn beide Impulsantworten gleich sind; sonst stören sie sich.
+:::
+:::karte formel Faltung komplexer Signale
+Wie zerfällt die Faltung zweier komplexer Signale $s$ und $h$ in Real- und Imaginärteile?
+---
+$s*h=\bigl[\operatorname{Re} s*\operatorname{Re} h-\operatorname{Im} s*\operatorname{Im} h\bigr]+\mathrm{j}\bigl[\operatorname{Re} s*\operatorname{Im} h+\operatorname{Im} s*\operatorname{Re} h\bigr]$. Das folgt aus der Linearität der Faltung: Man faltet jedes Paar von Teilen einzeln.
+--- falsch
+$s*h=\operatorname{Re} s*\operatorname{Re} h+\mathrm{j}\,\operatorname{Im} s*\operatorname{Im} h$: Realteile falten sich mit Realteilen, Imaginärteile mit Imaginärteilen, gemischte Glieder fallen weg.
+--- falsch
+$s*h=\bigl[\operatorname{Re} s*\operatorname{Re} h+\operatorname{Im} s*\operatorname{Im} h\bigr]+\mathrm{j}\bigl[\operatorname{Re} s*\operatorname{Im} h-\operatorname{Im} s*\operatorname{Re} h\bigr]$, weil die Faltung mit dem konjugiert Komplexen rechnet.
+--- falsch
+Gar nicht: Die Faltung ist nur für reelle Signale definiert. Bei komplexen Signalen faltet man stattdessen Betrag und Phase getrennt und setzt das Ergebnis danach wieder zusammen.
+:::
+:::karte zusammenhang Zwei RC-Glieder in Kette
+Welche Impulsantwort hat eine Kette aus zwei RC-Gliedern mit $RC=1$ s, und was muss dafür gelten?
+---
+$h*h$ mit $h(t)=\mathrm{e}^{-t}\varepsilon(t)$, also $t\,\mathrm{e}^{-t}\varepsilon(t)$, mit dem Maximum $\mathrm{e}^{-1}=0{,}368$ bei $t=1$ s und der Fläche 1. Das zweite Glied darf das erste nicht belasten, sonst zieht es Strom aus dem ersten Kondensator.
+--- falsch
+$h(t)^2=\mathrm{e}^{-2t}\varepsilon(t)$, das Quadrat der Einzelantwort, weil jedes Glied das Signal mit seiner Impulsantwort multipliziert. Ob das zweite Glied das erste belastet, spielt keine Rolle, weil beide LTI-Systeme sind.
+--- falsch
+$2\,\mathrm{e}^{-t}\varepsilon(t)$, die Summe der beiden Einzelantworten, mit der Fläche 2. Das zweite Glied muss das erste dabei belasten, denn nur wenn Strom vom ersten ins zweite fließt, kommt das Signal überhaupt an.
+--- falsch
+$t\,\mathrm{e}^{-t}\varepsilon(t)$ mit dem Maximum bei $t=0$ und der Fläche 2. Ob das zweite Glied das erste belastet, spielt keine Rolle: Die Kette ist in jedem Fall ein LTI-System mit der Impulsantwort $h*h$.
+:::
+::::

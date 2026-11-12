@@ -1,0 +1,944 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 31,
+  "nextAnimId": 36,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.2,
+      2.35,
+      0
+     ],
+     "width": 0.3911,
+     "height": 0.28,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#eb6834",
+     "fill_color": "#fdece3",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Text",
+    "props": {
+     "text": "jq",
+     "position": [
+      -1.2,
+      2.35,
+      0
+     ],
+     "font_size": 17,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o3",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.4,
+      1.25,
+      0
+     ],
+     "width": 0.6933,
+     "height": 0.28,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#eb6834",
+     "fill_color": "#fdece3",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Text",
+    "props": {
+     "text": "libjq1",
+     "position": [
+      -2.4,
+      1.25,
+      0
+     ],
+     "font_size": 17,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o5",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.0,
+      1.25,
+      0
+     ],
+     "width": 0.8444,
+     "height": 0.28,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#eb6834",
+     "fill_color": "#fdece3",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Text",
+    "props": {
+     "text": "libonig5",
+     "position": [
+      0.0,
+      1.25,
+      0
+     ],
+     "font_size": 17,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o7",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.2,
+      0.1,
+      0
+     ],
+     "width": 0.6178,
+     "height": 0.28,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#00823c",
+     "fill_color": "#e6f3ea",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Text",
+    "props": {
+     "text": "libc6",
+     "position": [
+      -1.2,
+      0.1,
+      0
+     ],
+     "font_size": 17,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o9",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.4,
+      -0.9,
+      0
+     ],
+     "width": 0.92,
+     "height": 0.28,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#00823c",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o10",
+    "type": "Text",
+    "props": {
+     "text": "libgcc-s1",
+     "position": [
+      -2.4,
+      -0.9,
+      0
+     ],
+     "font_size": 17,
+     "align": "center",
+     "color": "#7f7f7f",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o11",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.4,
+      -1.7,
+      0
+     ],
+     "width": 1.0711,
+     "height": 0.28,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#00823c",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Text",
+    "props": {
+     "text": "gcc-16-base",
+     "position": [
+      -2.4,
+      -1.7,
+      0
+     ],
+     "font_size": 17,
+     "align": "center",
+     "color": "#7f7f7f",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o13",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.15,
+      -0.9,
+      0
+     ],
+     "width": 2.0533,
+     "height": 0.28,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#00823c",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o14",
+    "type": "Text",
+    "props": {
+     "text": "libc-gconv-modules-extra",
+     "position": [
+      0.15,
+      -0.9,
+      0
+     ],
+     "font_size": 17,
+     "align": "center",
+     "color": "#7f7f7f",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o15",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -1.33,
+      2.2,
+      0
+     ],
+     "end": [
+      -2.25,
+      1.4,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.09,
+     "font_size": 26,
+     "color": "#333333",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o16",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -1.07,
+      2.2,
+      0
+     ],
+     "end": [
+      -0.15,
+      1.4,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.09,
+     "font_size": 26,
+     "color": "#333333",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o17",
+    "type": "ParametricCurve",
+    "props": {
+     "fx": "-0.99+0.11*t+1.6*4*t*(1-t)",
+     "fy": "2.35+-2.25*t",
+     "t_min": 0,
+     "t_max": 1,
+     "samples": 41,
+     "show_arrow": true,
+     "arrow_at": "0.55",
+     "color": "#333333",
+     "stroke_width": 2.5,
+     "dash": "",
+     "head_size": 0.11
+    }
+   },
+   {
+    "id": "o18",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -2.03,
+      1.25,
+      0
+     ],
+     "end": [
+      -0.45,
+      1.25,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.09,
+     "font_size": 26,
+     "color": "#333333",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o19",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -2.3,
+      1.1,
+      0
+     ],
+     "end": [
+      -1.42,
+      0.25,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.09,
+     "font_size": 26,
+     "color": "#333333",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o20",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -0.1,
+      1.1,
+      0
+     ],
+     "end": [
+      -0.98,
+      0.25,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.09,
+     "font_size": 26,
+     "color": "#333333",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o21",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -1.45,
+      -0.05,
+      0
+     ],
+     "end": [
+      -2.25,
+      -0.75,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.09,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "stroke_width": 2,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o22",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -2.4,
+      -1.05,
+      0
+     ],
+     "end": [
+      -2.4,
+      -1.55,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.09,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "stroke_width": 2,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o23",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -0.95,
+      -0.05,
+      0
+     ],
+     "end": [
+      -0.25,
+      -0.75,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.09,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "stroke_width": 2,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o24",
+    "type": "Text",
+    "props": {
+     "text": "@grau",
+     "position": [
+      -3.4,
+      -2.2,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o25",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.82,
+      2.35,
+      0
+     ],
+     "width": 0.3,
+     "height": 0.2,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#00823c",
+     "fill_color": "#e6f3ea",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o26",
+    "type": "Text",
+    "props": {
+     "text": "@inst",
+     "position": [
+      2.05,
+      2.35,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o27",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.82,
+      2.05,
+      0
+     ],
+     "width": 0.3,
+     "height": 0.2,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#eb6834",
+     "fill_color": "#fdece3",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o28",
+    "type": "Text",
+    "props": {
+     "text": "@neu",
+     "position": [
+      2.05,
+      2.05,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o29",
+    "type": "Parameter",
+    "props": {
+     "name": "n",
+     "value": 0.0,
+     "min": 0.0,
+     "max": 3.0,
+     "step": 1.0,
+     "integer": true
+    }
+   },
+   {
+    "id": "o30",
+    "type": "DecimalNumber",
+    "props": {
+     "value": "n",
+     "decimals": 0,
+     "prefix": "@neu3",
+     "suffix": "",
+     "position": [
+      1.62,
+      1.6,
+      0
+     ],
+     "font_size": 20,
+     "align": "left",
+     "color": "#eb6834"
+    }
+   }
+  ],
+  "animations": [
+   {
+    "id": "a1",
+    "type": "FadeIn",
+    "target": "o25",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a2",
+    "type": "FadeIn",
+    "target": "o26",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a3",
+    "type": "FadeIn",
+    "target": "o27",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a4",
+    "type": "FadeIn",
+    "target": "o28",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a5",
+    "type": "FadeIn",
+    "target": "o30",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a6",
+    "type": "GrowFromCenter",
+    "target": "o1",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a7",
+    "type": "FadeIn",
+    "target": "o2",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a8",
+    "type": "ChangeValue",
+    "target": "o29",
+    "run_time": 0.6,
+    "step": 1,
+    "value": 1.0
+   },
+   {
+    "id": "a9",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.5,
+    "step": 2
+   },
+   {
+    "id": "a10",
+    "type": "Create",
+    "target": "o15",
+    "run_time": 0.9,
+    "step": 3
+   },
+   {
+    "id": "a11",
+    "type": "Create",
+    "target": "o16",
+    "run_time": 0.9,
+    "step": 3
+   },
+   {
+    "id": "a12",
+    "type": "Create",
+    "target": "o17",
+    "run_time": 0.9,
+    "step": 3
+   },
+   {
+    "id": "a13",
+    "type": "FadeIn",
+    "target": "o3",
+    "run_time": 0.9,
+    "step": 3
+   },
+   {
+    "id": "a14",
+    "type": "FadeIn",
+    "target": "o4",
+    "run_time": 0.9,
+    "step": 3
+   },
+   {
+    "id": "a15",
+    "type": "FadeIn",
+    "target": "o5",
+    "run_time": 0.9,
+    "step": 3
+   },
+   {
+    "id": "a16",
+    "type": "FadeIn",
+    "target": "o6",
+    "run_time": 0.9,
+    "step": 3
+   },
+   {
+    "id": "a17",
+    "type": "FadeIn",
+    "target": "o7",
+    "run_time": 0.9,
+    "step": 3
+   },
+   {
+    "id": "a18",
+    "type": "FadeIn",
+    "target": "o8",
+    "run_time": 0.9,
+    "step": 3
+   },
+   {
+    "id": "a19",
+    "type": "ChangeValue",
+    "target": "o29",
+    "run_time": 0.9,
+    "step": 3,
+    "value": 3.0
+   },
+   {
+    "id": "a20",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.5,
+    "step": 4
+   },
+   {
+    "id": "a21",
+    "type": "Create",
+    "target": "o18",
+    "run_time": 0.9,
+    "step": 5
+   },
+   {
+    "id": "a22",
+    "type": "Create",
+    "target": "o19",
+    "run_time": 0.9,
+    "step": 5
+   },
+   {
+    "id": "a23",
+    "type": "Create",
+    "target": "o20",
+    "run_time": 0.9,
+    "step": 5
+   },
+   {
+    "id": "a24",
+    "type": "Indicate",
+    "target": "o6",
+    "run_time": 0.7,
+    "step": 6
+   },
+   {
+    "id": "a25",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.5,
+    "step": 7
+   },
+   {
+    "id": "a26",
+    "type": "Create",
+    "target": "o21",
+    "run_time": 0.7,
+    "step": 8
+   },
+   {
+    "id": "a27",
+    "type": "Create",
+    "target": "o22",
+    "run_time": 0.7,
+    "step": 8
+   },
+   {
+    "id": "a28",
+    "type": "Create",
+    "target": "o23",
+    "run_time": 0.7,
+    "step": 8
+   },
+   {
+    "id": "a29",
+    "type": "FadeIn",
+    "target": "o9",
+    "run_time": 0.7,
+    "step": 8
+   },
+   {
+    "id": "a30",
+    "type": "FadeIn",
+    "target": "o10",
+    "run_time": 0.7,
+    "step": 8
+   },
+   {
+    "id": "a31",
+    "type": "FadeIn",
+    "target": "o11",
+    "run_time": 0.7,
+    "step": 8
+   },
+   {
+    "id": "a32",
+    "type": "FadeIn",
+    "target": "o12",
+    "run_time": 0.7,
+    "step": 8
+   },
+   {
+    "id": "a33",
+    "type": "FadeIn",
+    "target": "o13",
+    "run_time": 0.7,
+    "step": 8
+   },
+   {
+    "id": "a34",
+    "type": "FadeIn",
+    "target": "o14",
+    "run_time": 0.7,
+    "step": 8
+   },
+   {
+    "id": "a35",
+    "type": "FadeIn",
+    "target": "o24",
+    "run_time": 0.7,
+    "step": 8
+   }
+  ],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "grau": {
+    "de": "braucht libc6 selbst (schon da)",
+    "en": "needed by libc6 (already there)",
+    "es": "los necesita libc6 (ya están)",
+    "zh": "libc6 自身的依赖（已有）",
+    "fr": "requis par libc6 (déjà là)",
+    "tr": "libc6'nın ihtiyacı (zaten var)"
+   },
+   "inst": {
+    "de": "schon installiert",
+    "en": "already installed",
+    "es": "ya instalado",
+    "zh": "已安装",
+    "fr": "déjà installé",
+    "tr": "zaten kurulu"
+   },
+   "neu": {
+    "de": "neu",
+    "en": "new",
+    "es": "nuevo",
+    "zh": "新",
+    "fr": "nouveau",
+    "tr": "yeni"
+   },
+   "neu3": {
+    "de": "neu zu installieren: ",
+    "en": "to be installed: ",
+    "es": "por instalar: ",
+    "zh": "需要新安装：",
+    "fr": "à installer : ",
+    "tr": "kurulacak: "
+   }
+  },
+  "drawOrder": "creation"
+ }
+}

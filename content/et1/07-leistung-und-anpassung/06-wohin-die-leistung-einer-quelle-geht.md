@@ -67,3 +67,121 @@ Eine Quelle hat $U_\mathrm{q}=12$ V und $R_\mathrm{i}=3\,\Omega$. (a) Berechne
 (a) $I=12\,\mathrm{V}/12\,\Omega=1$ A, $U_\mathrm{Ri}=3$ V, $U_\mathrm{L}=9$ V, $P_\mathrm{q}=12$ W, $P_\mathrm{v}=3$ W, $P_\mathrm{L}=9$ W, $\eta=75$ %. (b) $R_\mathrm{L}/(R_\mathrm{L}+3\,\Omega)=0{,}9$ ergibt $R_\mathrm{L}=27\,\Omega$, $I=0{,}4$ A, $P_\mathrm{L}=4{,}32$ W. (c) $I_\mathrm{KS}=4$ A, alle 48 W entstehen in $R_\mathrm{i}$, $\eta=0$.
 :::
 :::
+
+::::formelsammlung
+**Leistungsbilanz**
+
+$$P_\mathrm{q}=U_\mathrm{q}\,I,\qquad P_\mathrm{v}=U_\mathrm{Ri}\,I=I^2R_\mathrm{i},\qquad P_\mathrm{L}=U_\mathrm{L}\,I=I^2R_\mathrm{L},\qquad P_\mathrm{q}=P_\mathrm{v}+P_\mathrm{L}$$
+
+Ideale Quelle $U_\mathrm{q}$ in Reihe mit $R_\mathrm{i}$ und $R_\mathrm{L}$, Strom $I=U_\mathrm{q}/(R_\mathrm{i}+R_\mathrm{L})$. $P_\mathrm{q}$ Leistung der Quelle, $P_\mathrm{v}$ Verlustleistung im Innenwiderstand, $P_\mathrm{L}$ Nutzleistung, $U_\mathrm{Ri}=R_\mathrm{i}I$. Die Bilanz ist die Maschenregel $U_\mathrm{q}=U_\mathrm{Ri}+U_\mathrm{L}$, multipliziert mit $I$.
+
+**Wirkungsgrad**
+
+$$\eta=\frac{P_\mathrm{L}}{P_\mathrm{q}}=\frac{I\,U_\mathrm{L}}{I\,U_\mathrm{q}}=\frac{U_\mathrm{L}}{U_\mathrm{q}}=\frac{R_\mathrm{L}}{R_\mathrm{L}+R_\mathrm{i}}=\frac{R_\mathrm{L}/R_\mathrm{i}}{1+R_\mathrm{L}/R_\mathrm{i}}$$
+
+Genutzte Leistung, bezogen auf die gesamte aufgewendete Leistung der Quelle; reine Zahl zwischen 0 und 1, hängt nur von $R_\mathrm{L}/R_\mathrm{i}$ ab. Spannungsteiler: $U_\mathrm{L}=U_\mathrm{q}\,R_\mathrm{L}/(R_\mathrm{L}+R_\mathrm{i})$. Kurzschluss $R_\mathrm{L}=0$: $\eta=0$; Leerlauf $R_\mathrm{L}\to\infty$: $\eta\to1$, aber $P_\mathrm{L}\to0$. Gilt für die Reihenschaltung aus idealer Quelle, $R_\mathrm{i}$ und $R_\mathrm{L}$; bei einer Ersatzquelle stimmen die inneren Größen nicht.
+::::
+
+::::lernkarten
+:::karte begriff Innenwiderstand
+Was ist der Innenwiderstand einer Quelle, und was geschieht in ihm mit der Energie der Ladungen?
+---
+Der Widerstand $R_\mathrm{i}$, den der Strom in der Quelle selbst überwinden muss. Jedes Coulomb verliert in ihm $U_\mathrm{Ri}=R_\mathrm{i}I$ in Joule als Wärme, nur der Rest erreicht die Last.
+--- falsch
+Der Widerstand $R_\mathrm{i}$, den die Quelle der Last entgegensetzt, um den Strom zu begrenzen. Er nimmt keine Energie auf, weil durch die Quelle selbst kein Strom fließt.
+--- falsch
+Der Widerstand $R_\mathrm{i}$ der Leitungen zwischen Quelle und Last. Jedes Coulomb verliert in ihnen $R_\mathrm{i}I$ in Joule; die Quelle selbst arbeitet dagegen verlustfrei.
+--- falsch
+Der Widerstand $R_\mathrm{i}$, den der Strom in der Quelle überwinden muss. Er speichert die Energie, die die Last nicht abnimmt, und gibt sie bei kleinerem Strom wieder ab.
+:::
+:::karte begriff Last
+Was bezeichnet man in einem Stromkreis aus einer Quelle und einem angeschlossenen Gerät als Last?
+---
+Das angeschlossene Gerät, das die Quelle speist, im Rechenmodell ein Widerstand $R_\mathrm{L}$. In ihm gibt jedes Coulomb den Teil $U_\mathrm{L}$ seiner Energie ab, der nach dem Innenwiderstand übrig ist.
+--- falsch
+Die Leistung, die eine Quelle höchstens abgeben kann, im Rechenmodell $P_\mathrm{L}$. Sie wird in Watt angegeben und steht als Kennwert auf jeder Batterie und jedem Netzteil.
+--- falsch
+Den Widerstand in der Quelle, den der Strom selbst überwinden muss, im Rechenmodell $R_\mathrm{L}$. In ihm verliert jedes Coulomb einen Teil seiner Energie als Wärme.
+--- falsch
+Die Ladung, die eine Quelle bis zur völligen Erschöpfung liefern kann, angegeben in Amperestunden. Je größer die Last, desto länger hält die Batterie durch, bevor sie vollständig entladen ist.
+:::
+:::karte begriff Wirkungsgrad
+Was gibt der Wirkungsgrad einer Quelle an einer Last an, und zwischen welchen Werten liegt er?
+---
+Den genutzten Anteil der Leistung: die Leistung an der Last, bezogen auf die gesamte aufgewendete Leistung der Quelle, $\eta=\frac{P_\mathrm{L}}{P_\mathrm{q}}$. Er ist eine reine Zahl zwischen 0 und 1.
+--- falsch
+Die Leistung, die an der Last ankommt, in Watt gemessen: $\eta=P_\mathrm{L}$. Er kann beliebig groß werden, wenn man die Quellenspannung nur weit genug erhöht.
+--- falsch
+Den verlorenen Anteil der Leistung: die Leistung im Innenwiderstand, bezogen auf die gesamte Leistung der Quelle, $\eta=\frac{P_\mathrm{v}}{P_\mathrm{q}}$. Er ist eine reine Zahl zwischen 0 und 1.
+--- falsch
+Das Verhältnis der Leistung an der Last zur Leistung im Innenwiderstand, $\eta=\frac{P_\mathrm{L}}{P_\mathrm{v}}$. Er ist eine reine Zahl zwischen 0 und unendlich.
+:::
+:::karte formel Leistungsbilanz
+Wie teilt sich die Leistung einer Quelle mit Innenwiderstand $R_\mathrm{i}$ an einer Last $R_\mathrm{L}$ auf?
+---
+$P_\mathrm{q}=U_\mathrm{q}\,I$, $P_\mathrm{v}=U_\mathrm{Ri}\,I=I^2R_\mathrm{i}$, $P_\mathrm{L}=U_\mathrm{L}\,I=I^2R_\mathrm{L}$ und $P_\mathrm{q}=P_\mathrm{v}+P_\mathrm{L}$, mit $I=U_\mathrm{q}/(R_\mathrm{i}+R_\mathrm{L})$.
+--- falsch
+$P_\mathrm{q}=U_\mathrm{q}\,I$, $P_\mathrm{L}=I^2R_\mathrm{L}$ und $P_\mathrm{q}=P_\mathrm{L}$, weil der Innenwiderstand nur die Spannung senkt und selbst keine Leistung aufnimmt.
+--- falsch
+$P_\mathrm{v}=I^2R_\mathrm{i}$ und $P_\mathrm{L}=I^2R_\mathrm{L}$, mit verschiedenen Strömen $I=U_\mathrm{q}/R_\mathrm{i}$ in der Quelle und $I=U_\mathrm{q}/R_\mathrm{L}$ in der Last.
+--- falsch
+$P_\mathrm{q}=U_\mathrm{q}\,I$, $P_\mathrm{v}=U_\mathrm{Ri}\,I$, $P_\mathrm{L}=U_\mathrm{L}\,I$ und $P_\mathrm{q}=P_\mathrm{v}\cdot P_\mathrm{L}$, mit $I=U_\mathrm{q}/(R_\mathrm{i}\,R_\mathrm{L})$.
+:::
+:::karte formel Wirkungsgrad aus Spannungen und Widerständen
+Wie berechnet man den Wirkungsgrad einer Quelle mit Innenwiderstand aus den Spannungen und aus den Widerständen?
+---
+$\eta=\frac{U_\mathrm{L}}{U_\mathrm{q}}=\frac{R_\mathrm{L}}{R_\mathrm{L}+R_\mathrm{i}}$. Er hängt nur vom Verhältnis $R_\mathrm{L}/R_\mathrm{i}$ ab. Das gilt für die Reihenschaltung aus idealer Quelle, $R_\mathrm{i}$ und $R_\mathrm{L}$.
+--- falsch
+$\eta=\frac{U_\mathrm{L}}{U_\mathrm{q}}=\frac{R_\mathrm{i}}{R_\mathrm{L}+R_\mathrm{i}}$. Er hängt nur vom Verhältnis $R_\mathrm{L}/R_\mathrm{i}$ ab und sinkt, wenn die Last größer wird.
+--- falsch
+$\eta=\frac{U_\mathrm{L}}{U_\mathrm{q}}=\frac{R_\mathrm{L}}{R_\mathrm{L}+R_\mathrm{i}}$. Das gilt für jede Quelle, auch für Ersatzquellen eines Netzes, weil die Klemmengrößen das Innere vollständig beschreiben.
+--- falsch
+$\eta=\left(\frac{U_\mathrm{L}}{U_\mathrm{q}}\right)^2$, weil die Leistung quadratisch von der Spannung abhängt. Er hängt nur vom Verhältnis $R_\mathrm{L}/R_\mathrm{i}$ ab.
+:::
+:::karte zusammenhang Spannungsverhältnis als Leistungsanteil
+Warum bestimmt das Verhältnis $U_\mathrm{L}/U_\mathrm{q}$, welcher Anteil der Leistung einer Quelle an der Last ankommt?
+---
+Jedes Coulomb bekommt in der Quelle $U_\mathrm{q}$ in Joule, verliert $U_\mathrm{Ri}$ in $R_\mathrm{i}$ und gibt den Rest $U_\mathrm{L}$ in der Last ab. Alle Coulomb machen dieselbe Runde, also gilt derselbe Anteil für die Leistung.
+--- falsch
+Weil die Last die Spannung bestimmt und die Quelle den Strom. Die Leistung der Last hängt deshalb nur von $U_\mathrm{L}$ ab, die der Quelle nur von $U_\mathrm{q}$, und der Strom spielt keine Rolle.
+--- falsch
+Weil in der Last mehr Coulomb ankommen, als in der Quelle starten, wenn $U_\mathrm{L}$ klein ist. Das Verhältnis der Spannungen gibt an, wie viele Coulomb unterwegs im Innenwiderstand hinzukommen.
+--- falsch
+Weil die Spannung an der Last quadratisch in die Leistung eingeht. Das Verhältnis $U_\mathrm{L}/U_\mathrm{q}$ ist deshalb die Wurzel aus dem Anteil, der an der Last ankommt.
+:::
+:::karte zusammenhang Anteil und Menge
+Warum macht man die Last nicht beliebig groß, obwohl der Wirkungsgrad mit $R_\mathrm{L}$ immer weiter steigt?
+---
+Weil $\eta$ ein Anteil ist und keine Menge. Bei großem $R_\mathrm{L}$ gibt jedes Coulomb fast alles in der Last ab, aber es kommen kaum noch Coulomb, und $P_\mathrm{L}$ sinkt.
+--- falsch
+Weil der Wirkungsgrad oberhalb eines bestimmten Werts von $R_\mathrm{L}$ wieder fällt. Eine größere Last bringt dann weniger Leistung und dazu einen schlechteren Wirkungsgrad.
+--- falsch
+Weil eine große Last die Quelle überlastet: Sie zieht mehr Strom, als die Quelle liefern kann, und der Innenwiderstand erwärmt sich dabei zu stark.
+--- falsch
+Man macht sie tatsächlich möglichst groß, weil dann auch die Leistung an der Last immer weiter steigt. Begrenzt wird $R_\mathrm{L}$ nur durch die Baugröße des Geräts.
+:::
+:::karte zusammenhang Kurzschluss und Leerlauf
+Was geschieht mit Wirkungsgrad und Lastleistung einer Quelle mit Innenwiderstand im Kurzschluss und im Leerlauf?
+---
+Im Kurzschluss $R_\mathrm{L}=0$ ist $\eta=0$: Die Last bleibt kalt, die ganze Leistung heizt $R_\mathrm{i}$. Im Leerlauf $R_\mathrm{L}\to\infty$ geht $\eta\to1$, doch $I\to0$ und damit $P_\mathrm{L}\to0$.
+--- falsch
+Im Kurzschluss ist $\eta=1$, weil kein Widerstand außerhalb der Quelle Energie aufnimmt. Im Leerlauf ist $\eta=0$, weil gar kein Strom fließt und an der Last nichts ankommt.
+--- falsch
+Im Kurzschluss ist $\eta=0$, und auch die Quelle gibt keine Leistung ab, weil ohne Lastwiderstand keine Spannung anliegt. Im Leerlauf ist $\eta=1$ und $P_\mathrm{L}$ maximal.
+--- falsch
+In beiden Fällen ist $\eta=0{,}5$, weil sich die Leistung dann gleichmäßig auf Quelle und Last verteilt. Erst dazwischen weicht der Wirkungsgrad von der Hälfte ab.
+:::
+:::karte herleitung Bilanz aus der Maschenregel
+Leite aus der Maschenregel des Kreises aus Quelle, $R_\mathrm{i}$ und $R_\mathrm{L}$ die Leistungsbilanz und den Wirkungsgrad $\eta=\frac{R_\mathrm{L}}{R_\mathrm{L}+R_\mathrm{i}}$ her.
+---
+Die Maschenregel lautet $U_\mathrm{q}=U_\mathrm{Ri}+U_\mathrm{L}$, weil die Energie, die die Quelle einem Coulomb gibt, in $R_\mathrm{i}$ und in der Last wieder abgegeben wird.
+---
+Multipliziert mit $I$ ergibt sie $P_\mathrm{q}=P_\mathrm{v}+P_\mathrm{L}$, weil jede Spannung mal dem Strom durch das zugehörige Bauteil dessen Leistung ist.
+---
+Im Wirkungsgrad $\eta=\frac{P_\mathrm{L}}{P_\mathrm{q}}=\frac{I\,U_\mathrm{L}}{I\,U_\mathrm{q}}$ kürzt sich $I$, weil beide Widerstände denselben Strom führen; also ist $\eta=U_\mathrm{L}/U_\mathrm{q}$.
+---
+Der Spannungsteiler liefert $U_\mathrm{L}=U_\mathrm{q}\,R_\mathrm{L}/(R_\mathrm{L}+R_\mathrm{i})$, weil $R_\mathrm{i}$ und $R_\mathrm{L}$ in Reihe liegen.
+---
+Eingesetzt folgt $\eta=\frac{R_\mathrm{L}}{R_\mathrm{L}+R_\mathrm{i}}$, weil sich $U_\mathrm{q}$ kürzt; der Wirkungsgrad hängt also nur vom Verhältnis $R_\mathrm{L}/R_\mathrm{i}$ ab.
+:::
+::::

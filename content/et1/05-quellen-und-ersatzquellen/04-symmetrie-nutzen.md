@@ -97,3 +97,116 @@ Die Klemmen seien A und B. C und D sind die zwei Ecken, die Nachbarn von A und v
 Halbschaltung von A zur Achse: über C und D je $R$, zusammen $\frac R2$. Über P: $R$, dann von P nach E und nach F je $R$, zusammen $R+\frac R2=\frac32R$. Parallel: $\frac R2\parallel\frac32R=\frac38R$. Damit ist $R_\mathrm{AB}=\frac34R=9\,\Omega$.
 :::
 :::
+
+::::formelsammlung
+**Potenziale bei vertauschten Klemmen (Regel 2)**
+
+$$\varphi(P')=-\varphi(P)$$
+
+Das Netz geht durch Spiegeln in sich über, A und B tauschen die Plätze; Bezugspunkt in der Mitte, $\varphi_\mathrm{A}=+\frac12U$ und $\varphi_\mathrm{B}=-\frac12U$. $P'$ ist das Spiegelbild von $P$. Ein Punkt auf der Achse ist sein eigenes Spiegelbild, also $\varphi=0$: Er liegt auf dem Mittelwert $\frac12(\varphi_\mathrm{A}+\varphi_\mathrm{B})$. Bleiben A und B beim Spiegeln oder Drehen am Platz (Regel 1), haben aufeinanderfallende Knoten gleiches Potenzial.
+
+**Halbschaltung**
+
+$$R_\mathrm{AB}=2\,R_\mathrm{A,Achse}$$
+
+$R_\mathrm{A,Achse}$ ist der Widerstand zwischen A und der zu einem Knoten verbundenen Achse. Ein Widerstand, der die Achse quert, zerfällt in zwei halbe; einer längs der Achse ist stromlos. Die Symmetrie muss auch die Werte erfassen.
+
+**Widerstandswürfel über die Raumdiagonale**
+
+$$R_\mathrm{AB}=\frac R3+\frac R6+\frac R3=\frac56R$$
+
+Zwölf gleiche Kanten $R$. Nach Regel 1 liegen die drei Nachbarn von A auf gleichem Potenzial, ebenso die drei Nachbarn von B; es entsteht eine Kette aus drei, sechs und drei parallelen Kanten.
+::::
+
+::::lernkarten
+:::karte zusammenhang Knoten gleichen Potenzials
+Warum darf man zwei Knoten gleichen Potenzials durch einen Draht verbinden, ohne dass sich im Netz etwas ändert?
+---
+Zwischen ihnen ist die Spannung null. Ein Draht führt nur Strom, wenn zwischen seinen Enden Spannung liegt; er bleibt also stromlos, und kein Strom im übrigen Netz ändert sich. Ebenso darf man einen stromlosen Zweig auftrennen.
+--- falsch
+Weil ein Draht keinen Widerstand hat und deshalb nie Strom führt, gleich welche Spannung zwischen seinen Enden liegt. Das gilt für beliebige Knoten, nicht nur für solche gleichen Potenzials, und ebenso für das Auftrennen.
+--- falsch
+Weil sich zwar die Ströme ändern, der Gesamtwiderstand aber gleich bleibt. Das genügt, solange nur $R_\mathrm{AB}$ gesucht ist; die Ströme muss man danach im ursprünglichen Netz neu rechnen.
+--- falsch
+Weil der Draht die Potenziale der beiden Knoten angleicht: Vorher sind sie verschieden, danach gleich. Das ist erlaubt, weil sich die Spannung an den Klemmen dabei nicht ändert.
+:::
+:::karte zusammenhang Symmetrieregel 1
+Was folgt nach der ersten Symmetrieregel für Knoten, die beim Spiegeln oder Drehen eines Widerstandsnetzes aufeinanderfallen, wenn A und B dabei am Platz bleiben?
+---
+Sie haben gleiches Potenzial. Man darf sie verbinden, und ein Widerstand zwischen ihnen ist stromlos.
+--- falsch
+Sie haben entgegengesetzt gleiches Potenzial, $\varphi(P')=-\varphi(P)$. Man darf sie deshalb nicht verbinden.
+--- falsch
+Sie führen gleiche Ströme, haben aber verschiedene Potenziale. Ein Widerstand zwischen ihnen führt den doppelten Strom.
+--- falsch
+Sie liegen auf dem Mittelwert $\frac12(\varphi_\mathrm{A}+\varphi_\mathrm{B})$. Man darf sie deshalb mit der Klemme B verbinden.
+:::
+:::karte zusammenhang Warum Symmetrie gleiche Potenziale liefert
+Warum müssen Knoten, die beim Spiegeln eines Netzes aufeinanderfallen, dasselbe Potenzial haben, wenn A und B dabei am Platz bleiben?
+---
+Das gespiegelte Netz hat dieselben Bauteile, dieselben Klemmen und dieselbe Spannung, also dieselben Gleichungen. Diese haben genau eine Lösung, also müssen aufeinanderfallende Knoten dasselbe Potenzial haben.
+--- falsch
+Weil gleiche Widerstände immer gleiche Spannungen tragen, gleich wo sie im Netz liegen. Aufeinanderfallende Knoten sind über gleiche Widerstände mit A verbunden und liegen deshalb gleich hoch über dem Potenzial von B.
+--- falsch
+Weil sich beim Spiegeln alle Ströme umkehren und dadurch die Potenziale ausgleichen. Was vorher höher lag, liegt danach tiefer, im Mittel also auf demselben Wert.
+--- falsch
+Weil die Gleichungen des Netzes viele Lösungen haben und man die symmetrische auswählen darf. Sie ist nicht die einzige, aber die einfachste zum Rechnen.
+:::
+:::karte begriff Halbschaltung
+Was ist die Halbschaltung eines Widerstandsnetzes, und unter welcher Bedingung darf man mit ihr rechnen?
+---
+Die eine Hälfte eines Netzes, das durch Spiegeln in sich übergeht, wobei A und B die Plätze tauschen. Die Punkte der Spiegelachse liegen auf dem Mittelwert der Klemmenpotenziale; man verbindet sie und rechnet: $R_\mathrm{AB}=2\,R_\mathrm{A,Achse}$.
+--- falsch
+Ein Netz, in dem man jeden Widerstand halbiert, um den Strom zu verdoppeln. Das darf man immer, wenn alle Widerstände gleich groß sind, und es gilt dann $R_\mathrm{AB}=\frac12R_\mathrm{A,Achse}$, weil nur die halbe Zahl von Widerständen übrig bleibt.
+--- falsch
+Die eine Hälfte eines Netzes, das beim Drehen in sich übergeht, wobei A und B am Platz bleiben. Man rechnet nur diese Seite und halbiert: $R_\mathrm{AB}=\frac12R_\mathrm{A,Achse}$.
+--- falsch
+Die eine Hälfte eines spiegelsymmetrischen Netzes, wobei A und B die Plätze tauschen. Die Achse liegt dabei auf dem Potenzial von B, man verbindet sie mit B, und es gilt $R_\mathrm{AB}=R_\mathrm{A,Achse}$.
+:::
+:::karte zusammenhang Widerstände an der Spiegelachse
+Was geschieht in der Halbschaltung mit einem Widerstand, der die Spiegelachse quert, und mit einem, der längs der Achse liegt?
+---
+Ein querender Widerstand zerfällt in zwei halbe Widerstände, seine Mitte liegt auf der Achse. Ein Widerstand längs der Achse hat beide Enden auf demselben Potenzial und ist stromlos.
+--- falsch
+Ein querender Widerstand fällt ganz weg, weil seine Mitte auf der Achse liegt. Ein Widerstand längs der Achse zerfällt in zwei halbe Widerstände, je einer für jede Seite der Halbschaltung.
+--- falsch
+Ein querender Widerstand bleibt ganz in der Halbschaltung, weil er an der Seite von A beginnt. Ein Widerstand längs der Achse wird doppelt gezählt.
+--- falsch
+Ein querender Widerstand zerfällt in zwei doppelt so große Widerstände, die parallel liegen. Ein Widerstand längs der Achse führt den halben Strom.
+:::
+:::karte herleitung Mittelwert auf der Spiegelachse
+Leite aus der Linearität her, dass bei einem Netz, dessen Spiegelung A und B vertauscht, jeder Punkt der Spiegelachse auf dem Mittelwert der Klemmenpotenziale liegt.
+---
+Man legt den Bezugspunkt in die Mitte, also $\varphi_\mathrm{A}=+\frac12U$ und $\varphi_\mathrm{B}=-\frac12U$, weil der Mittelwert dann null ist und nur noch $\varphi=0$ zu zeigen bleibt.
+---
+Das Spiegeln tauscht A und B und wirkt deshalb wie ein Umpolen der Spannung, weil das gespiegelte Netz dieselben Bauteile hat und nur die Klemmen vertauscht sind.
+---
+Für einen Punkt $P$ und sein Spiegelbild $P'$ gilt $\varphi(P')=-\varphi(P)$, weil Umpolen in einem linearen Netz jedes Potenzial umkehrt.
+---
+Ein Punkt auf der Achse ist sein eigenes Spiegelbild, also gilt $\varphi=-\varphi$ und damit $\varphi=0$, weil nur null gleich seinem Negativen ist.
+---
+Beide Hälften sind gleich und liegen in Reihe, also $R_\mathrm{AB}=2\,R_\mathrm{A,Achse}$, weil der Strom erst durch die eine, dann durch die andere Hälfte fließt.
+:::
+:::karte zusammenhang Symmetrie und Widerstandswerte
+Was hebt die Symmetrie eines Widerstandsnetzes auf, auch wenn seine Zeichnung symmetrisch aussieht?
+---
+Ein einziger abweichender Widerstandswert. Die Symmetrie muss auch die Werte erfassen, nicht nur die Form der Schaltung.
+--- falsch
+Nur eine unsymmetrische Form. Die Werte der Widerstände spielen keine Rolle, solange die Zeichnung beim Spiegeln in sich übergeht.
+--- falsch
+Eine andere Spannung an den Klemmen. Bei jeder Spannung außer der berechneten verschieben sich die Potenziale auf der Achse.
+--- falsch
+Ein Draht zwischen zwei Knoten gleichen Potenzials. Danach ist das Netz verändert, und die Symmetrieregeln gelten nicht mehr.
+:::
+:::karte formel Widerstandswürfel
+Welchen Widerstand hat ein Würfel aus zwölf gleichen Widerständen $R$ zwischen zwei gegenüberliegenden Ecken (Raumdiagonale), und warum?
+---
+$R_\mathrm{AB}=\frac R3+\frac R6+\frac R3=\frac56R$. Nach Regel 1 liegen die drei Nachbarn von A auf gleichem Potenzial, ebenso die drei Nachbarn von B; es entsteht eine Kette aus drei, sechs und drei parallelen Kanten.
+--- falsch
+$R_\mathrm{AB}=\frac R3+\frac R6+\frac R3=\frac56R$. Nach Regel 2 liegen alle sechs übrigen Ecken auf dem Mittelwert der Klemmenpotenziale; man verbindet sie und rechnet nur eine Hälfte des Würfels, also sechs der zwölf Kanten.
+--- falsch
+$R_\mathrm{AB}=\frac R3+\frac R3=\frac23R$. Nur die drei Kanten an A und die drei an B führen Strom, die sechs mittleren Kanten verbinden Knoten gleichen Potenzials, sind stromlos und dürfen fehlen.
+--- falsch
+$R_\mathrm{AB}=R$. Der Strom fließt über drei gleichwertige Wege mit je drei Kanten; jeder Weg hat $3R$, und drei solche Wege parallel ergeben ein Drittel davon.
+:::
+::::

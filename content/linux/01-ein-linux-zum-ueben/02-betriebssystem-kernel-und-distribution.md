@@ -178,7 +178,7 @@ Ein Kernel allein kann mit dir nicht reden. Er hat kein Fenster, in das man etwa
 :::definition Definition 1.6 (Distribution)
 <span class="anker" id="satz-1-6"></span>
 
-Eine __Distribution__ ist ein vollständiges Betriebssystem, das ein Hersteller oder eine Gemeinschaft aus dem Linux-Kernel, Werkzeugen, Anwendungsprogrammen und Voreinstellungen zusammenstellt und als Ganzes pflegt. Zu jeder Distribution gehört eine __Paketverwaltung__: ein Programm, mit dem man Software aus den Quellen der Distribution installiert, aktualisiert und wieder entfernt. Wie sie arbeitet, erklärt Kapitel 9.
+Eine __Distribution__ ist ein vollständiges Betriebssystem, das ein Hersteller oder eine Gemeinschaft aus dem Linux-Kernel, Werkzeugen, Anwendungsprogrammen und Voreinstellungen zusammenstellt und als Ganzes pflegt. Zu jeder Distribution gehört eine __Paketverwaltung__: ein Programm, mit dem man Software aus den Quellen der Distribution installiert, aktualisiert und wieder entfernt. Wie sie arbeitet, erklärt [Kapitel 9](/wissen/informatik/linux-und-kommandozeile/software-installieren-paketverwaltung/software-installieren-paketverwaltung.html).
 :::
 
 ::::beispiel [Beispiele] Vier Distributionen

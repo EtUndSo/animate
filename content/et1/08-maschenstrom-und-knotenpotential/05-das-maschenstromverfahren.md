@@ -189,3 +189,160 @@ In beiden gemeinsamen Zweigen laufen die Kreise nun gleichsinnig. Die rechte Sei
 (b) $Z_{23}=Z_{32}=0$, denn $R_4$ war der einzige gemeinsame Widerstand. Masche III enthält nur noch $R_5$ und $U_\mathrm{q5}$: $I_\mathrm{III}=-20\,\mathrm{V}/5\,\mathrm{k\Omega}=-4$ mA. Das ist die umgewandelte Stromquelle im Kurzschluss, der Kurzschlussstrom von 4 mA. Die Maschen I und II bleiben gekoppelt.
 :::
 :::
+
+::::formelsammlung
+**Umwandeln einer realen Stromquelle**
+
+$$U_\mathrm q=I_\mathrm q\,R$$
+
+Derselbe Widerstand $R$ liegt danach in Reihe. Erster Schritt des Maschenstromverfahrens.
+
+**Matrixform des Maschenstromverfahrens**
+
+$$\begin{pmatrix}Z_{11}&Z_{12}&\dots&Z_{1m}\\mathbb{Z}_{21}&Z_{22}&\dots&Z_{2m}\\\vdots&\vdots&\ddots&\vdots\\mathbb{Z}_{m1}&Z_{m2}&\dots&Z_{mm}\end{pmatrix} \begin{pmatrix}I_1\\I_2\\\vdots\\I_m\end{pmatrix}= \begin{pmatrix}U_\mathrm{q1}\\U_\mathrm{q2}\\\vdots\\U_{\mathrm qm}\end{pmatrix}$$
+
+Kurz $\mathbf Z\,\mathbf I=\mathbf U_\mathrm q$. $Z_{\mu\mu}$ ist die Summe aller Widerstände der Masche $\mu$. $U_{\mathrm q\mu}$ ist die Summe der Quellenspannungen der Masche, positiv für jede Quelle, die den Maschenstrom antreibt; bei Spannungspfeilen vom Plus- zum Minuspol zählt ein Pfeil gegen den Umlauf positiv. Zeile $\mu$ ist die Maschenregel der Masche $\mu$, Einheit Ohm. Gilt für lineare Widerstände und feste Spannungsquellen.
+
+**Koppelwiderstand**
+
+$$Z_{\mu\nu}=Z_{\nu\mu}$$
+
+Summe der Widerstände, die beide Maschen durchlaufen: positiv, wenn beide Ströme dort gleichsinnig fließen, negativ bei gegensinnigen Strömen, null ohne gemeinsamen Zweig. Die Symmetrie dient als Kontrolle beim Aufstellen.
+::::
+
+::::lernkarten
+:::karte begriff Maschenstromverfahren
+Was ist das Maschenstromverfahren, und in welchen Schritten berechnet man damit ein Netz?
+---
+Ein Verfahren mit $m$ Maschenströmen als Unbekannten, bei dem nur Maschenregeln aufzustellen sind. Schritte: reale Stromquellen in Spannungsquellen umwandeln, Maschenströme wählen, Matrix ablesen, lösen.
+--- falsch
+Ein Verfahren mit den $m$ Maschenströmen als Unbekannten, sodass nur Knotenregeln aufzustellen sind. Schritte: reale Spannungsquellen in Stromquellen umwandeln, Maschen wählen, Knotenregeln aufstellen, lösen.
+--- falsch
+Ein Verfahren mit allen $z$ Zweigströmen als Unbekannten, das für jede Masche eine Gleichung aufstellt. Schritte: Zweigströme eintragen, alle Maschenregeln aufschreiben, nacheinander einsetzen, lösen.
+--- falsch
+Ein Verfahren mit den $m$ Maschenströmen als Unbekannten, das Knoten- und Maschenregeln gemeinsam aufstellt. Schritte: alle Quellen entfernen, Maschen wählen, für jeden Knoten und jede Masche eine Gleichung, lösen.
+:::
+:::karte formel Matrixform des Maschenstromverfahrens
+Welche Matrixgleichung erfüllen die Maschenströme eines Netzes, und was steht auf der Diagonale, daneben und rechts?
+---
+$\mathbf Z\,\mathbf I=\mathbf U_\mathrm q$. $Z_{\mu\mu}$ ist die Summe aller Widerstände der Masche $\mu$, $Z_{\mu\nu}$ der Koppelwiderstand zu Masche $\nu$, $U_{\mathrm q\mu}$ die Summe der Quellenspannungen der Masche. Das gilt für lineare Widerstände und feste Spannungsquellen.
+--- falsch
+$\mathbf Z\,\mathbf I=\mathbf U_\mathrm q$. $Z_{\mu\mu}$ ist der größte Widerstand der Masche $\mu$, $Z_{\mu\nu}$ die Summe ihrer übrigen Widerstände, $U_{\mathrm q\mu}$ die Summe der Quellenspannungen. Das gilt auch für Stromquellen, die man dafür nicht erst umwandeln muss.
+--- falsch
+$\mathbf Z\,\mathbf I=\mathbf U_\mathrm q$. $Z_{\mu\mu}$ ist die Summe aller Widerstände der Masche $\mu$, $Z_{\mu\nu}$ die Summe aller Widerstände der Masche $\nu$, $U_{\mathrm q\mu}$ die Summe der Quellenströme der Masche $\mu$.
+--- falsch
+$\mathbf Z\,\mathbf U_\mathrm q=\mathbf I$. $Z_{\mu\mu}$ ist die Summe aller Widerstände der Masche $\mu$, $Z_{\mu\nu}$ der Koppelwiderstand, rechts stehen die gesuchten Maschenströme. Das gilt für lineare Widerstände und feste Quellen.
+:::
+:::karte begriff Widerstandsmatrix
+Was beschreiben die Zeilen und die Spalten der Widerstandsmatrix $\mathbf Z$ im Maschenstromverfahren, und welche Einheit hat sie?
+---
+Zeile $\mu$ ist die Maschenregel der Masche $\mu$, mit der Summe ihrer Widerstände auf der Diagonale und gemeinsamen Widerständen daneben. Spalte $\nu$ gibt die Spannung an, die ein Ampere Maschenstrom $\nu$ in jeder Masche erzeugt, daher Ohm.
+--- falsch
+Zeile $\mu$ ist die Knotenregel des Knotens $\mu$: Auf der Diagonale steht die Summe der Widerstände am Knoten, daneben stehen die Widerstände zwischen zwei Knoten. Die Einheit ist Ohm, weil man Widerstände einträgt.
+--- falsch
+Zeile $\mu$ ist die Maschenregel der Masche $\mu$: Auf der Diagonale steht die Summe der Widerstände der Masche, daneben stehen ihre Kehrwerte, die Leitwerte. Spalte $\nu$ gibt an, welchen Strom ein Volt in Masche $\nu$ treibt, daher die Einheit Siemens.
+--- falsch
+Zeile $\mu$ ist die Maschenregel der Masche $\mu$: Auf der Diagonale stehen nur die Widerstände, die keine andere Masche durchläuft, daneben die gemeinsamen. Die Einheit ist Volt, weil jede Zeile eine Spannungsbilanz ist.
+:::
+:::karte begriff Koppelwiderstand
+Was gibt der Koppelwiderstand $Z_{\mu\nu}$ zweier Maschen an, und welches Vorzeichen hat er?
+---
+Die Summe der Widerstände, die beide Maschen durchlaufen: positiv, wenn beide Maschenströme dort gleichsinnig fließen, negativ bei gegensinnigen Strömen, null ohne gemeinsamen Zweig. Es gilt $Z_{\mu\nu}=Z_{\nu\mu}$.
+--- falsch
+Die Summe der Widerstände, die beide Maschen durchlaufen. Er ist immer negativ, weil benachbarte Maschenströme im gemeinsamen Zweig stets gegeneinander laufen, und es gilt $Z_{\mu\nu}=-Z_{\nu\mu}$.
+--- falsch
+Die Summe aller Widerstände beider Maschen zusammen, auch der nicht gemeinsamen: positiv bei gleichsinnigen, negativ bei gegensinnigen Strömen im gemeinsamen Zweig, null ohne gemeinsamen Zweig. Es gilt $Z_{\mu\nu}=Z_{\nu\mu}$.
+--- falsch
+Die Summe der Widerstände, die beide Maschen durchlaufen: positiv bei gegensinnigen Strömen, negativ bei gleichsinnigen Strömen, null ohne gemeinsamen Zweig. Es gilt $Z_{\mu\nu}=Z_{\nu\mu}$.
+:::
+:::karte formel Umwandeln einer realen Stromquelle
+Wie bringt man eine reale Stromquelle mit dem Quellenstrom $I_\mathrm q$ und dem Parallelwiderstand $R$ in eine Form, die das Maschenstromverfahren verarbeiten kann?
+---
+Man wandelt sie in eine reale Spannungsquelle um: $U_\mathrm q=I_\mathrm q\,R$, derselbe Widerstand liegt danach in Reihe. Im Rechenmodell wird so $U_\mathrm{q5}=I_\mathrm q\,R_5=20$ V.
+--- falsch
+Man wandelt sie in eine reale Spannungsquelle um: $U_\mathrm q=I_\mathrm q/R$, derselbe Widerstand liegt danach in Reihe. Im Rechenmodell wird so aus 4 mA und 5 k$\Omega$ eine Quelle mit 0,8 V.
+--- falsch
+Man wandelt sie in eine reale Spannungsquelle um: $U_\mathrm q=I_\mathrm q\,R$, derselbe Widerstand bleibt parallel zur neuen Quelle, weil er auch vorher parallel lag.
+--- falsch
+Man lässt den Parallelwiderstand weg und setzt eine ideale Spannungsquelle mit $U_\mathrm q=I_\mathrm q\,R$ ein, weil der Widerstand in der Quellenspannung schon enthalten ist.
+:::
+:::karte formel Quellenspannungen auf der rechten Seite
+Mit welchem Vorzeichen geht eine Quellenspannung in die rechte Seite $U_{\mathrm q\mu}$ einer Maschengleichung ein?
+---
+Positiv für jede Quelle, die den Maschenstrom antreibt. Bei Spannungspfeilen vom Plus- zum Minuspol zählt deshalb ein Pfeil gegen den Umlauf positiv, ein Pfeil mit dem Umlauf negativ.
+--- falsch
+Positiv für jede Quelle, die den Maschenstrom antreibt. Bei Spannungspfeilen vom Plus- zum Minuspol zählt deshalb ein Pfeil mit dem Umlauf positiv, ein Pfeil gegen den Umlauf negativ.
+--- falsch
+Immer positiv, weil jede Quelle Energie in die Masche liefert. Das Vorzeichen des Spannungspfeils spielt erst bei der Berechnung der Zweigströme eine Rolle.
+--- falsch
+Negativ für jede Quelle, die den Maschenstrom antreibt, weil sie beim Wechsel auf die rechte Seite das Vorzeichen tauscht. Quellen, die gegen den Umlauf wirken, zählen positiv.
+:::
+:::karte herleitung Von der Maschenregel zur Matrix
+Leite aus der Maschenregel der Masche $\mu$ die Einträge der Widerstandsmatrix her und zeige, dass $\mathbf Z$ symmetrisch ist.
+---
+Für die Masche $\mu$ ist die Summe aller $R_a\,I_a$ gleich der treibenden Spannung $U_{\mathrm q\mu}$, weil die Quellen auf die rechte Seite wechseln. Dabei ist $I_a$ der Strom in $R_a$, gezählt im Umlaufsinn von $\mu$.
+---
+Jeder dieser Ströme ist $I_a=I_\mu+\sum_{\nu\neq\mu}\sigma_{a\nu}\,I_\nu$, weil sich ein Zweigstrom aus dem eigenen Maschenstrom und den Maschenströmen der Nachbarn zusammensetzt.
+---
+Ordnet man nach Maschenströmen, steht vor $I_\mu$ die Summe aller $R_a$ der Masche, weil der eigene Strom durch alle ihre Widerstände läuft.
+---
+Vor $I_\nu$ steht $\sum_a\sigma_{a\nu}R_a$, nur über die gemeinsamen Widerstände, weil der fremde Maschenstrom nur dort fließt.
+---
+Masche $\nu$ erhält denselben Widerstand mit demselben Vorzeichen, weil gleichsinnig eine Beziehung zwischen zwei Maschen ist. Deshalb ist $\mathbf Z$ symmetrisch.
+:::
+:::karte zusammenhang Symmetrie als Kontrolle
+Warum ist die Widerstandsmatrix symmetrisch, und wozu nutzt man das beim Aufstellen?
+---
+Ein gemeinsamer Widerstand steht in beiden Maschengleichungen mit demselben Vorzeichen, denn gleichsinnig ist eine Beziehung zwischen zwei Maschen. Ein Fehler beim Aufstellen zerstört die Symmetrie meist, sie dient also als Kontrolle.
+--- falsch
+Weil jede Masche gleich viele Widerstände enthält, sodass alle Zeilen dieselbe Summe haben. Ein Fehler beim Aufstellen ändert eine Zeilensumme, deshalb vergleicht man die Summen der Zeilen zur Kontrolle.
+--- falsch
+Weil man alle Maschenströme im Uhrzeigersinn wählt. Mit anderen Richtungen ist $\mathbf Z$ nicht mehr symmetrisch, denn dann wechseln einzelne Einträge ihr Vorzeichen; die Symmetrie taugt also nur bei gleicher Drehrichtung als Kontrolle.
+--- falsch
+Weil die Quellenspannungen auf beide Maschen gleich verteilt werden. Die Symmetrie hängt deshalb von den Quellen ab und taugt nicht als Kontrolle für die Widerstände.
+:::
+:::karte zusammenhang Negative Nebendiagonale
+Warum sind alle Einträge neben der Diagonale von $\mathbf Z$ negativ, wenn alle Maschenströme im Uhrzeigersinn laufen?
+---
+Benachbarte Kreise gleicher Drehrichtung laufen im gemeinsamen Zweig gegeneinander. Der fremde Maschenstrom zählt dort gegen den eigenen Umlauf, also steht der gemeinsame Widerstand mit Minus da.
+--- falsch
+Weil im Uhrzeigersinn alle Spannungspfeile gegen den Umlauf zeigen. Die Widerstände außerhalb der Diagonale wechseln dadurch das Vorzeichen, die auf der Diagonale nicht.
+--- falsch
+Benachbarte Kreise gleicher Drehrichtung laufen im gemeinsamen Zweig in dieselbe Richtung. Der fremde Strom verstärkt dort den eigenen, und das Minus gleicht diese Verdopplung im gemeinsamen Widerstand aus.
+--- falsch
+Weil Koppelwiderstände immer negativ sind, gleich welche Richtung man wählt. Das Minus kennzeichnet Widerstände, die zu zwei Maschen gehören, nicht eine Stromrichtung.
+:::
+:::karte zusammenhang Maschenstrom umdrehen
+Was ändert sich am Gleichungssystem und an den Ergebnissen, wenn man die Richtung eines einzelnen Maschenstroms umdreht?
+---
+Seine Zeile und seine Spalte wechseln das Vorzeichen, die Diagonale bleibt, und der Wert des Stroms wechselt ebenfalls das Vorzeichen. Die Zweigströme ändern sich nicht.
+--- falsch
+Nur seine Spalte wechselt das Vorzeichen, weil sie zu dieser Unbekannten gehört, die Zeile bleibt. Der Wert des Stroms wechselt das Vorzeichen, und die Zweigströme ändern sich mit.
+--- falsch
+Seine Zeile und seine Spalte wechseln das Vorzeichen, auch der Eintrag auf der Diagonale. Der Wert des Stroms bleibt gleich, weil nur die Bezeichnung der Richtung geändert wurde.
+--- falsch
+Die Matrix bleibt gleich, nur die rechte Seite wechselt das Vorzeichen. Der Strom wechselt sein Vorzeichen, und in allen Zweigen seiner Masche dreht sich der Zweigstrom um.
+:::
+:::karte zusammenhang Ideale Stromquelle
+Wie behandelt man im Maschenstromverfahren eine ideale Stromquelle, die sich nicht in eine Spannungsquelle umwandeln lässt?
+---
+Man legt die Maschen so, dass nur eine durch die Stromquelle läuft. Ihr Maschenstrom ist dann bekannt, und ihre Maschengleichung lässt man weg, weil sie die unbekannte Spannung der Quelle enthält: eine Unbekannte und eine Gleichung weniger.
+--- falsch
+Man setzt für die Stromquelle eine Spannungsquelle mit $U_\mathrm q=0$ ein, weil eine ideale Stromquelle keinen Innenwiderstand hat. Der Maschenstrom durch sie bleibt dann eine gewöhnliche Unbekannte, und alle Gleichungen bleiben stehen.
+--- falsch
+Man legt die Maschen so, dass möglichst viele durch die Stromquelle laufen. Ihr Strom verteilt sich dann auf diese Maschen, und für jede Masche stellt man die Maschenregel wie üblich auf, die Quelle steht rechts.
+--- falsch
+Man nimmt einen sehr großen Parallelwiderstand an und wandelt um. $U_\mathrm q=I_\mathrm q\,R$ wird dabei zwar groß, das Ergebnis ist aber genau, solange man bei der Rechnung genug Stellen mitnimmt.
+:::
+:::karte zusammenhang Draht als gemeinsamer Zweig
+Was passiert mit der Kopplung zweier Maschen, wenn man ihren einzigen gemeinsamen Widerstand durch einen Draht ersetzt?
+---
+Der Koppelwiderstand wird null, die Maschen sind entkoppelt. Ein Draht trennt beide Seiten, denn seine Spannung ist null, was immer durch ihn fließt.
+--- falsch
+Die Kopplung wird unendlich stark, weil der Draht beide Maschen kurzschließt. Beide Maschenströme werden gleich, und eine Unbekannte fällt weg.
+--- falsch
+Der Koppelwiderstand wird null, aber die Maschen bleiben gekoppelt, weil der Draht den Strom beider Maschen führt und die Ströme so aneinander bindet.
+--- falsch
+Der Koppelwiderstand wird null, und beide Maschenströme werden null, weil der Draht den ganzen Strom an den übrigen Widerständen vorbeileitet.
+:::
+::::

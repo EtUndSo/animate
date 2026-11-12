@@ -1,0 +1,638 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 21,
+  "nextAnimId": 23,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.8,
+      -1.35,
+      0
+     ],
+     "width": 3.9,
+     "height": 0.5,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#efefef",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Text",
+    "props": {
+     "text": "@startkettefirm_5c15",
+     "position": [
+      -0.8,
+      -1.35,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o3",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.8,
+      -0.45,
+      0
+     ],
+     "width": 3.9,
+     "height": 0.5,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#333333",
+     "fill_color": "#efefef",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Text",
+    "props": {
+     "text": "@prozessor_3b80",
+     "position": [
+      -0.8,
+      -0.45,
+      0
+     ],
+     "font_size": 20,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o5",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.8,
+      0.45,
+      0
+     ],
+     "width": 3.9,
+     "height": 0.5,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#eb6834",
+     "fill_color": "#fdece3",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Text",
+    "props": {
+     "text": "@kernel_6ff9",
+     "position": [
+      -0.8,
+      0.45,
+      0
+     ],
+     "font_size": 20,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o7",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.8,
+      1.35,
+      0
+     ],
+     "width": 3.9,
+     "height": 0.5,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#e3eefb",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Text",
+    "props": {
+     "text": "@programme_8913",
+     "position": [
+      -0.8,
+      1.35,
+      0
+     ],
+     "font_size": 20,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o9",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -2.35,
+      -1.08,
+      0
+     ],
+     "end": [
+      -2.35,
+      -0.72,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.1,
+     "font_size": 26,
+     "color": "#333333",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o10",
+    "type": "Text",
+    "props": {
+     "text": "@richteteinunds_7c9b",
+     "position": [
+      -2.2,
+      -0.9,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#333333"
+    }
+   },
+   {
+    "id": "o11",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -2.35,
+      -0.18,
+      0
+     ],
+     "end": [
+      -2.35,
+      0.18,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.1,
+     "font_size": 26,
+     "color": "#333333",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Text",
+    "props": {
+     "text": "@richteteinunds_7c9b",
+     "position": [
+      -2.2,
+      0.0,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#333333"
+    }
+   },
+   {
+    "id": "o13",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -2.35,
+      0.72,
+      0
+     ],
+     "end": [
+      -2.35,
+      1.08,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.1,
+     "font_size": 26,
+     "color": "#333333",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o14",
+    "type": "Text",
+    "props": {
+     "text": "@richteteinunds_7c9b",
+     "position": [
+      -2.2,
+      0.9,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#333333"
+    }
+   },
+   {
+    "id": "o15",
+    "type": "Line",
+    "props": {
+     "start": [
+      1.25,
+      -1.6,
+      0
+     ],
+     "end": [
+      1.35,
+      -1.6,
+      0
+     ],
+     "color": "#eb6834",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o16",
+    "type": "Line",
+    "props": {
+     "start": [
+      1.35,
+      -1.6,
+      0
+     ],
+     "end": [
+      1.35,
+      0.7,
+      0
+     ],
+     "color": "#eb6834",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o17",
+    "type": "Line",
+    "props": {
+     "start": [
+      1.35,
+      0.7,
+      0
+     ],
+     "end": [
+      1.25,
+      0.7,
+      0
+     ],
+     "color": "#eb6834",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o18",
+    "type": "Text",
+    "props": {
+     "text": "@vertrauenswuer_c452",
+     "position": [
+      1.5,
+      -0.45,
+      0
+     ],
+     "font_size": 20,
+     "align": "left",
+     "color": "#eb6834"
+    }
+   },
+   {
+    "id": "o19",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      0.6,
+      1.1,
+      0
+     ],
+     "end": [
+      0.6,
+      0.72,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.11,
+     "font_size": 26,
+     "color": "#eb6834",
+     "stroke_width": 3,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o20",
+    "type": "Text",
+    "props": {
+     "text": "@wirdgeprueft_2acf",
+     "position": [
+      0.75,
+      0.91,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#eb6834"
+    }
+   }
+  ],
+  "animations": [
+   {
+    "id": "a1",
+    "type": "FadeIn",
+    "target": "o1",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a2",
+    "type": "FadeIn",
+    "target": "o2",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a3",
+    "type": "Create",
+    "target": "o9",
+    "run_time": 0.5,
+    "step": 1
+   },
+   {
+    "id": "a4",
+    "type": "FadeIn",
+    "target": "o10",
+    "run_time": 0.5,
+    "step": 1
+   },
+   {
+    "id": "a5",
+    "type": "FadeIn",
+    "target": "o3",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a6",
+    "type": "FadeIn",
+    "target": "o4",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a7",
+    "type": "Create",
+    "target": "o11",
+    "run_time": 0.5,
+    "step": 2
+   },
+   {
+    "id": "a8",
+    "type": "FadeIn",
+    "target": "o12",
+    "run_time": 0.5,
+    "step": 2
+   },
+   {
+    "id": "a9",
+    "type": "FadeIn",
+    "target": "o5",
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a10",
+    "type": "FadeIn",
+    "target": "o6",
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a11",
+    "type": "Create",
+    "target": "o13",
+    "run_time": 0.5,
+    "step": 3
+   },
+   {
+    "id": "a12",
+    "type": "FadeIn",
+    "target": "o14",
+    "run_time": 0.5,
+    "step": 3
+   },
+   {
+    "id": "a13",
+    "type": "FadeIn",
+    "target": "o7",
+    "run_time": 0.6,
+    "step": 3
+   },
+   {
+    "id": "a14",
+    "type": "FadeIn",
+    "target": "o8",
+    "run_time": 0.6,
+    "step": 3
+   },
+   {
+    "id": "a15",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.5,
+    "step": 4
+   },
+   {
+    "id": "a16",
+    "type": "Create",
+    "target": "o15",
+    "run_time": 0.7,
+    "step": 5
+   },
+   {
+    "id": "a17",
+    "type": "Create",
+    "target": "o16",
+    "run_time": 0.7,
+    "step": 5
+   },
+   {
+    "id": "a18",
+    "type": "Create",
+    "target": "o17",
+    "run_time": 0.7,
+    "step": 5
+   },
+   {
+    "id": "a19",
+    "type": "FadeIn",
+    "target": "o18",
+    "run_time": 0.7,
+    "step": 5
+   },
+   {
+    "id": "a20",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.4,
+    "step": 6
+   },
+   {
+    "id": "a21",
+    "type": "Create",
+    "target": "o19",
+    "run_time": 0.6,
+    "step": 7
+   },
+   {
+    "id": "a22",
+    "type": "FadeIn",
+    "target": "o20",
+    "run_time": 0.6,
+    "step": 7
+   }
+  ],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "startkettefirm_5c15": {
+    "de": "Startkette (Firmware, Bootloader)",
+    "en": "boot chain (firmware, boot loader)",
+    "es": "cadena de arranque (firmware, bootloader)",
+    "zh": "启动链（固件、引导加载程序）",
+    "fr": "chaîne de démarrage (firmware, bootloader)",
+    "tr": "başlatma zinciri (ürün yazılımı, önyükleyici)"
+   },
+   "prozessor_3b80": {
+    "de": "Prozessor",
+    "en": "processor",
+    "es": "procesador",
+    "zh": "处理器",
+    "fr": "processeur",
+    "tr": "işlemci"
+   },
+   "kernel_6ff9": {
+    "de": "Kernel",
+    "en": "kernel",
+    "es": "kernel",
+    "zh": "内核",
+    "fr": "noyau",
+    "tr": "çekirdek"
+   },
+   "programme_8913": {
+    "de": "Programme",
+    "en": "programs",
+    "es": "programas",
+    "zh": "程序",
+    "fr": "programmes",
+    "tr": "programlar"
+   },
+   "richteteinunds_7c9b": {
+    "de": "richtet ein und schützt",
+    "en": "sets up and protects",
+    "es": "configura y protege",
+    "zh": "设置并保护",
+    "fr": "configure et protège",
+    "tr": "kurar ve korur"
+   },
+   "vertrauenswuer_c452": {
+    "de": "vertrauenswürdige\nBasis",
+    "en": "trusted\ncomputing base",
+    "es": "base de cómputo\nconfiable",
+    "zh": "可信\n计算基",
+    "fr": "base informatique\nde confiance",
+    "tr": "güvenilir\nhesaplama tabanı"
+   },
+   "wirdgeprueft_2acf": {
+    "de": "wird geprüft",
+    "en": "is checked",
+    "es": "se comprueba",
+    "zh": "受到检查",
+    "fr": "est contrôlé",
+    "tr": "denetlenir"
+   }
+  },
+  "drawOrder": "creation"
+ }
+}

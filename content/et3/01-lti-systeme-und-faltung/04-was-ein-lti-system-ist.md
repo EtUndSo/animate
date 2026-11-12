@@ -120,3 +120,116 @@ $$\operatorname{Tr}\{s(t-t_0)\}=g(t-t_0)$$
 
 Für jede Verschiebung $t_0$. Linear und zeitinvariant zusammen: LTI-System.
 ::::
+
+::::lernkarten
+:::karte begriff System
+Was tut ein System im Sinn der Systemtheorie, und wie schreibt man das?
+---
+Es ordnet einem Eingangssignal $s(t)$ ein Ausgangssignal $g(t)$ zu, geschrieben $g(t)=\operatorname{Tr}\{s(t)\}$. Ein Beispiel ist das RC-Glied, das aus $u_1$ die Spannung $u_2$ macht.
+--- falsch
+Es ordnet jedem Zeitpunkt $t$ einen Signalwert zu, geschrieben $g(t)=\operatorname{Tr}\{t\}$. Ein Beispiel ist eine Quelle, die von sich aus eine Sinusspannung abgibt.
+--- falsch
+Es ordnet einem Ausgangssignal $g(t)$ das Eingangssignal zu, aus dem es entstanden ist, geschrieben $s(t)=\operatorname{Tr}\{g(t)\}$. Ein Beispiel ist ein Messgerät.
+--- falsch
+Es ordnet einem Eingangssignal $s(t)$ eine einzelne Zahl zu, etwa seinen Höchstwert, geschrieben $g=\operatorname{Tr}\{s(t)\}$. Ein Beispiel ist ein Spitzenwertmesser.
+:::
+:::karte begriff Transformation
+Was unterscheidet eine Transformation wie $\operatorname{Tr}$ von einer Abbildung, die einen Zahlenwert auf einen anderen abbildet?
+---
+Sie ordnet Funktionen Funktionen zu. Der Ausgang zur Zeit $t$ darf vom ganzen bisherigen Verlauf des Eingangs abhängen; beim RC-Glied hängt $u_2(t)$ davon ab, wie viel Ladung sich bis $t$ angesammelt hat.
+--- falsch
+Sie ordnet Funktionen Funktionen zu, aber der Ausgang zur Zeit $t$ darf nur vom Eingang zur selben Zeit abhängen; beim RC-Glied ist $u_2(t)$ deshalb zu jeder Zeit ein fester Bruchteil von $u_1(t)$.
+--- falsch
+Sie bildet ebenfalls einen Zahlenwert auf einen anderen ab, behält dabei aber die Einheit bei; beim RC-Glied wird aus einer Spannung in Volt wieder eine Spannung in Volt.
+--- falsch
+Sie überführt ein Signal aus dem Zeitbereich in den Frequenzbereich: Aus $s(t)$ wird eine Funktion der Frequenz; beim RC-Glied ist das Ergebnis der Frequenzgang $H(F)$.
+:::
+:::karte begriff linear
+Welche Bedingung muss ein System erfüllen, damit es linear heißt?
+---
+Für beliebige Konstanten $a_i$ muss der Überlagerungssatz gelten, $\operatorname{Tr}\Bigl\{\sum_ia_is_i(t)\Bigr\}=\sum_ia_i\operatorname{Tr}\{s_i(t)\}=\sum_ia_ig_i(t)$: Die Antwort auf eine gewichtete Summe ist die gewichtete Summe der Antworten.
+--- falsch
+Seine Kennlinie muss eine Gerade sein, also $g(t)=m\,s(t)+b$ mit beliebigen Konstanten $m$ und $b$; dann ist die Antwort auf eine gewichtete Summe von Eingängen stets die gewichtete Summe der Antworten.
+--- falsch
+Der Überlagerungssatz muss nur für positive Konstanten $a_i$ gelten, $\operatorname{Tr}\Bigl\{\sum_ia_is_i(t)\Bigr\}=\sum_ia_ig_i(t)$; negative Gewichte kommen bei physikalischen Signalen gar nicht vor.
+--- falsch
+Ein verschobener Eingang muss den gleich verschobenen Ausgang ergeben, $\operatorname{Tr}\{s(t-t_0)\}=g(t-t_0)$; dann reagiert das System zu jeder Zeit auf dieselbe Weise und ist linear.
+:::
+:::karte begriff zeitinvariant
+Welche Bedingung muss ein System erfüllen, damit es zeitinvariant heißt?
+---
+Für jede Verschiebung $t_0$ muss $\operatorname{Tr}\{s(t-t_0)\}=g(t-t_0)$ gelten: Ein verschobener Eingang ergibt den gleich verschobenen Ausgang. Beim RC-Glied liegt das daran, dass sich $R$ und $C$ nicht mit der Zeit ändern.
+--- falsch
+Für jede Verschiebung $t_0$ muss $\operatorname{Tr}\{s(t-t_0)\}=g(t)$ gelten: Der Ausgang darf nicht davon abhängen, wann der Eingang kommt. Beim RC-Glied liegt das daran, dass der Kondensator jede Ladung speichert.
+--- falsch
+Sein Ausgang darf sich bei konstantem Eingang zeitlich nicht ändern, er muss also sofort seinen Endwert annehmen. Beim RC-Glied gilt das erst im eingeschwungenen Zustand, vorher ist es zeitvariant.
+--- falsch
+Es darf keine Zeit zum Antworten brauchen: Der Ausgang zur Zeit $t$ hängt nur vom Eingang zur selben Zeit ab, ohne jede Verzögerung. Ein Laufzeitglied ist deshalb niemals zeitinvariant.
+:::
+:::karte begriff LTI-System
+Was ist ein LTI-System, und wofür steht die Abkürzung?
+---
+Ein System, das linear und zeitinvariant ist, englisch linear time-invariant. Beispiele sind das RC-Glied und alle Netzwerke aus $R$, $L$ und $C$.
+--- falsch
+Ein System, das linear und zeitinvariant ist, englisch low time inertia. Gemeint ist, dass es ohne nennenswerte Verzögerung auf den Eingang antwortet.
+--- falsch
+Ein System, das durch eine lineare Differentialgleichung mit konstanten Koeffizienten beschrieben wird. Ein ideales Laufzeitglied ist deshalb keines.
+--- falsch
+Ein System, dessen Kennlinie eine Gerade ist, englisch linear transfer interface. Ob es sich mit der Zeit ändert, spielt dafür keine Rolle.
+:::
+:::karte zusammenhang Linearität und Zeitinvarianz des RC-Glieds
+Woran liegt es, dass das RC-Glied linear und zeitinvariant ist?
+---
+Linear ist es, weil in seiner Differentialgleichung weder Produkte noch Quadrate von $u_1$ und $u_2$ stehen. Zeitinvariant ist es, weil sich $R$ und $C$ nicht mit der Zeit ändern.
+--- falsch
+Linear ist es, weil sich $R$ und $C$ nicht mit der Zeit ändern. Zeitinvariant ist es, weil in seiner Differentialgleichung weder Produkte noch Quadrate von $u_1$ und $u_2$ stehen.
+--- falsch
+Linear ist es, weil seine Sprungantwort gleichmäßig ansteigt. Zeitinvariant ist es, weil der Kondensator nach langer Zeit voll ist und sich danach nichts mehr ändert.
+--- falsch
+Linear ist es, weil die Differentialgleichung nur eine einzige Ableitung enthält. Zeitinvariant ist es, weil die Zeit in der Lösung $1-\mathrm{e}^{-t/RC}$ nur im Exponenten steht.
+:::
+:::karte zusammenhang LTI-Systeme ohne Differentialgleichung
+Wird jedes LTI-System durch eine lineare Differentialgleichung mit konstanten Koeffizienten beschrieben?
+---
+Nein. Alle Netzwerke aus $R$, $L$ und $C$ werden so beschrieben, aber nicht jedes LTI-System: Ein ideales Laufzeitglied, das sein Eingangssignal nur um eine feste Zeit verzögert, hat keine solche Gleichung.
+--- falsch
+Ja. Linearität verlangt eine lineare Gleichung und Zeitinvarianz konstante Koeffizienten; ein System ohne eine solche Gleichung kann deshalb gar kein LTI-System sein, auch kein Laufzeitglied.
+--- falsch
+Nein. Schon Netzwerke aus $R$, $L$ und $C$ haben keine solche Gleichung, sobald mehr als ein Kondensator darin vorkommt; nur ein einzelnes RC-Glied hat eine.
+--- falsch
+Ja, mit einer Ausnahme: Systeme, deren Bauteile sich mit der Zeit ändern, haben eine Gleichung mit veränderlichen Koeffizienten und sind trotzdem LTI-Systeme.
+:::
+:::karte zusammenhang Was die beiden Eigenschaften erlauben
+Was folgt für ein LTI-System, das auf den Rechteckimpuls $s_0$ mit $g_0$ antwortet, über seine Antwort auf $s(t)=s_0(t)+0{,}5\,s_0(t-2)$?
+---
+Ohne weitere Rechnung ist der Ausgang $g_0(t)+0{,}5\,g_0(t-2)$: Die Linearität überträgt Summe und Gewicht, die Zeitinvarianz die Verschiebung um 2.
+--- falsch
+Der Ausgang ist $1{,}5\,g_0(t)$, weil ein LTI-System nur die Summe der Gewichte sieht und die Verschiebung des zweiten Impulses nicht bemerkt.
+--- falsch
+Man muss die Differentialgleichung neu lösen, weil die Antwort auf eine Summe nicht aus den Einzelantworten folgt, sobald sich diese überlappen.
+--- falsch
+Der Ausgang ist $g_0(t)+0{,}5\,g_0(t+2)$, weil die Antwort auf den späteren Impuls um 2 nach links rückt, damit sie zum Eingang passt.
+:::
+:::karte begriff affin
+Warum ist das System $g(t)=2s(t)+1$ nicht linear, obwohl seine Kennlinie eine Gerade ist, und wie nennt man es?
+---
+Ein lineares System muss auf den Eingang null mit null antworten, $\operatorname{Tr}\{0\}=0$; hier ist $\operatorname{Tr}\{0\}=1$. Eine Gerade, die nicht durch den Ursprung geht, heißt affin.
+--- falsch
+Weil $2s(t)$ mit wachsendem Eingang schneller steigt als die Konstante 1; linear ist es deshalb nur für große Eingänge. Ein solches System heißt affin.
+--- falsch
+Weil der Faktor 2 die Amplitude verdoppelt; ein lineares System darf die Amplitude eines Signals nicht verändern. Ein System mit einem solchen Faktor heißt affin.
+--- falsch
+Weil die Konstante 1 einen festen Zeitpunkt auszeichnet; das System ist deshalb nicht zeitinvariant und heißt affin, also zeitlich veränderlich.
+:::
+:::karte zusammenhang Bauteil, das sich mit der Zeit ändert
+Warum ist das System $g(t)=t\,s(t)$ linear, aber nicht zeitinvariant?
+---
+Der Faktor $t$ lässt Summen und Gewichte durch. Aber $\operatorname{Tr}\{s(t-t_0)\}=t\,s(t-t_0)$, während $g(t-t_0)=(t-t_0)\,s(t-t_0)$ ist: Der Faktor $t$ wirkt wie ein Bauteil, das sich mit der Zeit ändert.
+--- falsch
+Der Faktor $t$ lässt Summen und Gewichte durch. Zeitinvariant ist es nicht, weil der Ausgang für $t<0$ das Vorzeichen wechselt; ein zeitinvariantes System darf das Vorzeichen eines Signals nicht ändern.
+--- falsch
+Linear ist es, weil $t$ nur einmal vorkommt und nicht quadriert wird. Zeitinvariant ist es nicht, weil der Ausgang mit der Zeit immer größer wird und so nie einen Endwert erreicht.
+--- falsch
+Der Faktor $t$ lässt Summen und Gewichte durch. Zeitinvariant ist es nicht, weil es nicht durch eine Differentialgleichung beschrieben wird; ohne eine solche Gleichung ist kein System zeitinvariant.
+:::
+::::

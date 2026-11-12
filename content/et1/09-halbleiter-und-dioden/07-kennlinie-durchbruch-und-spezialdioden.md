@@ -116,3 +116,187 @@ Wie viele Zellen braucht man in Reihe, um bei je 0,5 V eine Batterie mit 14 
 (a) $U_\mathrm L=25{,}85\,\mathrm{mV}\cdot\ln(3\cdot10^{9}+1)=0{,}564$ V. Bei 1 A ist $U_\mathrm L=0{,}536$ V, also nur 28 mV weniger. (b) $I=10^{-9}\,\mathrm{A}\cdot(\mathrm{e}^{19{,}34}-1)-3\,\mathrm{A}=0{,}25\,\mathrm{A}-3\,\mathrm{A}=-2{,}75$ A. Abgegeben werden $0{,}5\,\mathrm{V}\cdot2{,}75\,\mathrm{A}=1{,}37$ W. (c) $14\,\mathrm{V}/0{,}5\,\mathrm{V}=28$ Zellen.
 :::
 :::
+
+::::formelsammlung
+**Leistung im Durchbruch**
+
+$$P=U\,I$$
+
+Wärme in der Diode; sie zerstört die Diode im Durchbruch, wenn nichts den Strom begrenzt. Der Durchbruch selbst schadet nicht.
+
+**Widerstand der Zener-Diode**
+
+$$r_\mathrm Z=\Delta U/\Delta I$$
+
+Kleiner Widerstand der fast senkrechten Kennlinie oberhalb von $U_\mathrm Z$. Ein Vorwiderstand nimmt Schwankungen der Quelle auf.
+
+**Sperrschichtkapazität**
+
+$$C_\mathrm{Sp}=\frac{\varepsilon A}{w}=\frac{C_0}{\sqrt{1+U_\mathrm R/U_\mathrm{D0}}}$$
+
+$A$ Fläche, $w$ Breite der Zone, $U_\mathrm R=-U$ die Sperrspannung. Gilt für einen scharfen Übergang in Sperrrichtung. Kapazitätsdioden nutzen den Effekt.
+
+**Photonenenergie und innerer Photoeffekt**
+
+$$W=h\,c/\lambda,\qquad W\ge W_\mathrm g$$
+
+$h$ Planck-Konstante, $c$ Lichtgeschwindigkeit, $\lambda$ Wellenlänge. Ist $W\ge W_\mathrm g$, hebt ein Photon ein Elektron ins Leitungsband; bei Silizium verlangt das $\lambda\le1107$ nm.
+
+**Beleuchtete Diode**
+
+$$I=I_\mathrm S\bigl(\mathrm{e}^{U/U_T}-1\bigr)-I_\mathrm{Ph}$$
+
+$I_\mathrm{Ph}$ ist der Photostrom, der Lichtleistung proportional. Ersatzschaltbild: Stromquelle parallel zur Diode. Als Lichtsensor in Sperrrichtung ist $I\approx-I_\mathrm{Ph}$. Eine Solarzelle arbeitet bei $U>0$ und $I<0$ und gibt Leistung ab.
+
+**Leerlaufspannung**
+
+$$U_\mathrm L=U_T\ln\Bigl(\frac{I_\mathrm{Ph}}{I_\mathrm S}+1\Bigr)$$
+
+Gilt im Leerlauf ($I=0$). Zehnfaches Licht hebt $U_\mathrm L$ nur um rund 60 mV; bei Silizium liegt die Spannung im Betrieb um 0,5 V. Für $I_\mathrm{Ph}=0$ ist $U_\mathrm L=0$.
+::::
+
+::::lernkarten
+:::karte begriff Anode und Kathode
+Welche Seite einer Diode heißt Anode, welche Kathode, und wie zeigt das Schaltzeichen die Durchlassrichtung?
+---
+Die p-Seite heißt Anode, die n-Seite Kathode; beide tragen Metallkontakte. Das Dreieck des Schaltzeichens zeigt in Durchlassrichtung, von der Anode zur Kathode.
+--- falsch
+Die n-Seite heißt Anode, die p-Seite Kathode. Das Dreieck des Schaltzeichens zeigt in Sperrrichtung, und der Strich markiert die Seite, an der der Strom eintritt.
+--- falsch
+Die p-Seite heißt Anode, die n-Seite Kathode. Das Dreieck des Schaltzeichens zeigt in Sperrrichtung, also von der Kathode zur Anode.
+--- falsch
+Der Anschluss mit dem höheren Potenzial heißt immer Anode, der andere Kathode. Die Namen wechseln deshalb mit der Polung der angelegten Spannung.
+:::
+:::karte zusammenhang Kennlinie ohne Schwelle
+Warum zeigt die Kennlinie einer Diode in linearer Darstellung scheinbar einen Knick bei 0,6 V, obwohl sie keine Schwelle hat?
+---
+Der Knick liegt am Maßstab, eine Exponentialfunktion hat keine Schwelle. Auf einer Achse bis 10 mA erreicht die Kurve 1 % des Endwerts bei 0,595 V, auf einer bis 10 µ A schon bei 0,417 V.
+--- falsch
+Bei 0,6 V verschwindet die Barriere der Raumladungszone schlagartig, und die Diode schaltet von Sperren auf Leiten um. Darunter fließt gar kein Strom, darüber der volle, den die Schaltung zulässt.
+--- falsch
+Der Knick ist echt: Bei 0,6 V setzt der Bahnwiderstand der neutralen Gebiete ein und begrenzt den Strom, sodass die Kurve oberhalb gerade weiterläuft und darunter waagerecht bleibt.
+--- falsch
+Der Knick liegt am Maßstab, aber nur bei Silizium: Dort ist der Sperrstrom null, und die Kurve beginnt erst bei 0,6 V. Bei Germanium beginnt sie tiefer und hat deshalb keinen Knick.
+:::
+:::karte begriff Durchbruch
+Was geschieht beim Durchbruch einer Diode, und wodurch wird sie dabei zerstört?
+---
+Bei großer Sperrspannung steigt der Sperrstrom steil an. Der Durchbruch selbst schadet nicht; zerstört wird die Diode erst durch die Wärme $P=U\,I$, wenn nichts den Strom begrenzt.
+--- falsch
+Bei großer Sperrspannung reißt die Raumladungszone mechanisch auf, und der Strom steigt steil an. Die Diode ist danach dauerhaft leitend, gleich wie groß der Strom war.
+--- falsch
+Bei großer Durchlassspannung verschwindet die Barriere, und der Strom steigt steil an. Dabei schmilzt die Diode sofort, auch wenn ein Widerstand den Strom begrenzt.
+--- falsch
+Bei großer Sperrspannung sinkt der Sperrstrom auf null, weil die Zone den ganzen Kristall füllt. Zerstört wird die Diode durch die hohe Spannung selbst, nicht durch Wärme.
+:::
+:::karte begriff Lawineneffekt und Zener-Effekt
+Durch welche zwei Mechanismen setzt bei großer Sperrspannung der Durchbruch einer Diode ein?
+---
+Beim Lawineneffekt setzen Träger, die das starke Feld beschleunigt, durch Stöße neue Paare frei. Beim Zener-Effekt gelangen Elektronen im starken Feld direkt aus dem VB ins LB.
+--- falsch
+Beim Lawineneffekt schmilzt die Zone durch die Wärme und wird leitend. Beim Zener-Effekt wandern die Ionen im starken Feld aus der Zone heraus und lassen sie zusammenbrechen.
+--- falsch
+Beim Lawineneffekt gelangen Elektronen im starken Feld direkt aus dem VB ins LB. Beim Zener-Effekt setzen beschleunigte Träger durch Stöße neue Paare frei.
+--- falsch
+Beim Lawineneffekt rutschen die Mehrheitsträger über die gesunkene Barriere. Beim Zener-Effekt senkt das Feld den Bandabstand, bis die Wärme genügt, um Elektronen anzuheben.
+:::
+:::karte zusammenhang Zener-Diode mit Vorwiderstand
+Warum hält eine Zener-Diode mit Vorwiderstand ihre Spannung fast fest, wenn die Quelle schwankt?
+---
+Oberhalb von $U_\mathrm Z$ ist ihre Kennlinie fast senkrecht, ihr kleiner Widerstand ist $r_\mathrm Z=\Delta U/\Delta I$. Der Vorwiderstand nimmt die Schwankung auf: Der Strom ändert sich, die Spannung kaum.
+--- falsch
+Sie hat in Sperrrichtung einen sehr großen Widerstand, der die Schwankung der Quelle fast ganz übernimmt. Der Vorwiderstand führt dann einen konstanten Strom, und die Spannung an ihm bleibt fest.
+--- falsch
+Oberhalb von $U_\mathrm Z$ fließt kein Strom mehr durch sie, sie trennt die Last von der Quelle. Der Vorwiderstand teilt die Spannung dann in einem festen Verhältnis, das die Schwankung halbiert.
+--- falsch
+Sie arbeitet im Durchlass, wo ihre Spannung immer genau 0,7 V beträgt. Mehrere davon in Reihe ergeben $U_\mathrm Z$, und der Vorwiderstand begrenzt nur den Strom durch sie.
+:::
+:::karte begriff Sperrschichtkapazität
+Was ist die Sperrschichtkapazität eines pn-Übergangs, und warum sinkt sie mit der Sperrspannung?
+---
+Die trägerfreie Zone ist eine isolierende Schicht zwischen zwei leitenden Gebieten, also ein Kondensator mit Fläche $A$ und Abstand $w$: $C_\mathrm{Sp}=\varepsilon A/w$. Mit der Sperrspannung wächst $w$, also sinkt $C_\mathrm{Sp}$.
+--- falsch
+Die Kapazität zwischen den beiden Metallkontakten der Diode. Sie sinkt mit der Sperrspannung, weil sich die Kontakte unter der Kraft des Feldes ein wenig voneinander entfernen.
+--- falsch
+Die trägerfreie Zone wirkt als Kondensator mit $C_\mathrm{Sp}=\varepsilon A\,w$. Mit der Sperrspannung wird die Zone schmaler, weil das Feld die Ionen zusammendrückt, und die Kapazität sinkt deshalb.
+--- falsch
+Die Fähigkeit der Zone, Ladungsträger zu speichern, die bei Sperrspannung abfließen. Je mehr Sperrspannung anliegt, desto mehr Träger fehlen ihr, und die Kapazität sinkt deshalb genau proportional zu $U_\mathrm R$.
+:::
+:::karte formel Kapazitätsdiode
+Wie hängt die Sperrschichtkapazität von der Sperrspannung $U_\mathrm R=-U$ ab, und wofür nutzt man das in Kapazitätsdioden?
+---
+$C_\mathrm{Sp}=\frac{C_0}{\sqrt{1+U_\mathrm R/U_\mathrm{D0}}}$ für einen scharfen Übergang in Sperrrichtung. Mit ihr verstellt man per Spannung die Frequenz von Schwingkreisen, etwa in Funkempfängern.
+--- falsch
+$C_\mathrm{Sp}=C_0\sqrt{1+U_\mathrm R/U_\mathrm{D0}}$, sie wächst also mit der Sperrspannung. Man nutzt sie, um per Spannung die Lautstärke von Funkempfängern zu verstellen.
+--- falsch
+$C_\mathrm{Sp}=\frac{C_0}{1+U_\mathrm R/U_\mathrm{D0}}$, ohne Wurzel. Man nutzt sie als Speicher für große Energiemengen, weil sie mit steigender Spannung immer mehr Ladung aufnimmt und nie voll wird.
+--- falsch
+$C_\mathrm{Sp}=\frac{C_0}{\sqrt{1+U_\mathrm R/U_\mathrm{D0}}}$ für den Betrieb im Durchlass. Man nutzt sie, um den Strom durch die Diode bei hohen Frequenzen zu glätten.
+:::
+:::karte begriff Photonen und innerer Photoeffekt
+Was sind Photonen, und wann löst ein Photon in einem Halbleiter den inneren Photoeffekt aus?
+---
+Photonen sind die Energiepakete des Lichts mit $W=h\,c/\lambda$. Ist $W\ge W_\mathrm g$, hebt ein Photon ein Elektron ins LB, das ist der innere Photoeffekt; bei Silizium verlangt das $\lambda\le1107$ nm.
+--- falsch
+Photonen sind die Elektronen, die Licht aus einer Oberfläche schlägt. Der innere Photoeffekt tritt ein, wenn ihre Energie größer als die Wärmeenergie ist, bei Silizium also für jede Wellenlänge.
+--- falsch
+Photonen sind die Energiepakete des Lichts mit $W=h\,c/\lambda$. Ist $W\ge W_\mathrm g$, hebt ein Photon ein Elektron ins LB; bei Silizium verlangt das $\lambda\ge1107$ nm, also langwelliges Licht.
+--- falsch
+Photonen sind Lichtteilchen, deren Energie mit der Helligkeit wächst. Der innere Photoeffekt tritt bei jedem Licht ein, wenn es nur hell genug ist, weil sich die Energien vieler Photonen addieren.
+:::
+:::karte begriff Photostrom
+Was ist der Photostrom einer beleuchteten Diode, und in welche Richtung fließt er?
+---
+Der Strom der Paare, die das Licht erzeugt und das Feld der Zone trennt: Das Elektron läuft zur n-Seite, das Loch zur p-Seite. Er fließt in Sperrrichtung und ist der Lichtleistung proportional.
+--- falsch
+Der Strom, den das Licht in den Metallkontakten auslöst. Er fließt von Anode nach Kathode durch die Diode, also in Durchlassrichtung, und wächst mit dem Logarithmus der Lichtleistung.
+--- falsch
+Der Strom der Paare, die das Licht erzeugt und das Feld der Zone trennt: Das Elektron läuft zur p-Seite, das Loch zur n-Seite. Er fließt in Durchlassrichtung und ist der Lichtleistung proportional.
+--- falsch
+Der Strom der Paare, die das Licht erzeugt und das Feld der Zone trennt. Er fließt in Sperrrichtung, hängt aber nur von der Wellenlänge ab und nicht davon, wie hell das Licht ist.
+:::
+:::karte formel Beleuchtete Diode
+Wie lautet die Kennlinie einer beleuchteten Diode, und durch welches Ersatzschaltbild wird sie dargestellt?
+---
+$I=I_\mathrm S\bigl(\mathrm{e}^{U/U_T}-1\bigr)-I_\mathrm{Ph}$: Die Kennlinie verschiebt sich um den Photostrom nach unten. Das Ersatzschaltbild ist eine Stromquelle parallel zur Diode.
+--- falsch
+$I=I_\mathrm S\bigl(\mathrm{e}^{U/U_T}-1\bigr)+I_\mathrm{Ph}$: Die Kennlinie verschiebt sich um den Photostrom nach oben. Das Ersatzschaltbild ist eine Spannungsquelle in Reihe mit der Diode.
+--- falsch
+$I=(I_\mathrm S-I_\mathrm{Ph})\bigl(\mathrm{e}^{U/U_T}-1\bigr)$: Licht verkleinert den Sperrstrom. Das Ersatzschaltbild ist ein Widerstand parallel zur Diode, dessen Wert mit dem Licht sinkt.
+--- falsch
+$I=I_\mathrm S\bigl(\mathrm{e}^{U/U_T}-1\bigr)-I_\mathrm{Ph}$: Die Kennlinie verschiebt sich um den Photostrom nach rechts. Das Ersatzschaltbild ist eine Stromquelle in Reihe mit der Diode.
+:::
+:::karte zusammenhang Photodiode als Lichtsensor
+Warum betreibt man eine Photodiode als Lichtsensor in Sperrrichtung?
+---
+Dann ist $I\approx-I_\mathrm{Ph}$: Der Anteil $I_\mathrm S(\mathrm{e}^{U/U_T}-1)$ ist auf $-I_\mathrm S$ geschrumpft, und der Strom folgt direkt dem Photostrom, also der Lichtleistung.
+--- falsch
+Dann ist die Spannung an ihr der Lichtleistung proportional, und man kann die Helligkeit direkt mit einem Voltmeter an den Anschlüssen ablesen.
+--- falsch
+Dann leitet sie nicht, und das Licht kann die Zone ungehindert durchdringen; im Durchlass würden die freien Elektronen das Licht verschlucken.
+--- falsch
+Dann ist $I\approx-I_\mathrm S$: Der Strom hängt nicht vom Licht ab, und die Diode dient als fester Bezug, gegen den man die Helligkeit vergleicht.
+:::
+:::karte formel Leerlaufspannung der Solarzelle
+Wie groß ist die Leerlaufspannung einer beleuchteten Diode, und warum hebt zehnfaches Licht sie nur um rund 60 mV?
+---
+$U_\mathrm L=U_T\ln\Bigl(\frac{I_\mathrm{Ph}}{I_\mathrm S}+1\Bigr)$ für $I=0$. Zehnfaches Licht verzehnfacht $I_\mathrm{Ph}$, doch der Logarithmus macht daraus nur rund 60 mV mehr.
+--- falsch
+$U_\mathrm L=U_T\,\frac{I_\mathrm{Ph}}{I_\mathrm S}$ für $I=0$. Zehnfaches Licht hebt sie trotzdem nur um rund 60 mV, weil sich die Zelle dabei erwärmt und $U_T$ entsprechend sinkt.
+--- falsch
+$U_\mathrm L=I_\mathrm{Ph}\,R$ mit dem inneren Widerstand der Zelle. Zehnfaches Licht hebt sie nur um rund 60 mV, weil dieser Widerstand mit dem Licht stark sinkt und den Anstieg fast aufhebt.
+--- falsch
+$U_\mathrm L=U_T\ln\Bigl(\frac{I_\mathrm S}{I_\mathrm{Ph}}+1\Bigr)$ für $I=0$. Zehnfaches Licht senkt sie um rund 60 mV, weil mehr Ladungsträger die Zone leeren.
+:::
+:::karte begriff Solarzelle
+Was ist eine Solarzelle, und woran erkennt man an ihren Zählpfeilen, dass sie Leistung abgibt?
+---
+Eine großflächige Photodiode, die bei $U>0$ und $I<0$ arbeitet. Das Produkt $U\,I$ ist dann negativ, sie gibt also Leistung ab; ihre Spannung liegt bei Silizium im Betrieb um 0,5 V.
+--- falsch
+Eine Photodiode, die in Sperrrichtung bei $U<0$ und $I<0$ arbeitet. Das Produkt $U\,I$ ist dann positiv, und sie gibt diese Leistung als Strom an die Last ab.
+--- falsch
+Eine großflächige Photodiode, die bei $U>0$ und $I>0$ arbeitet. Das Licht verstärkt dabei den Durchlassstrom, und die zusätzliche Leistung fließt über die Anschlüsse in die Last.
+--- falsch
+Eine Zener-Diode, die Licht in Wärme umwandelt. Sie gibt Leistung ab, weil ihre Spannung $U_\mathrm Z$ bei Beleuchtung über die Diffusionsspannung steigt.
+:::
+::::

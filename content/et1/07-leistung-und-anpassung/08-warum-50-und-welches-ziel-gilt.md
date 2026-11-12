@@ -97,3 +97,184 @@ Eine Quelle mit $U_\mathrm{q}=24$ V und $R_\mathrm{q}=4\,\Omega$ wird mit $R=1
 (a) $R_\mathrm{i}=4\,\Omega\parallel12\,\Omega=3\,\Omega$, $U_\mathrm{LL}=24\,\mathrm{V}\cdot12/16=18$ V. (b) $U_\mathrm{L}=9$ V, $P_\mathrm{L}=(9\,\mathrm{V})^2/3\,\Omega=27$ W $=U_\mathrm{LL}^2/(4R_\mathrm{i})$. (c) 3 A durch die Last, 0,75 A durch $R$, also 3,75 A aus der Quelle. $P_\mathrm{q}=90$ W $=56{,}25\,\mathrm{W}+6{,}75\,\mathrm{W}+27\,\mathrm{W}$, $\eta=30$ %, wie $\frac12\cdot12/20$. (d) $\frac12R/(8\,\Omega+R)=0{,}45$ ergibt $R=72\,\Omega$.
 :::
 :::
+
+::::formelsammlung
+**Wirkungsgrad und Leistung über dem Strom**
+
+$$\eta=1-x,\qquad\frac{P_\mathrm{L}}{P_\mathrm{KS}}=x\,\eta=x(1-x)$$
+
+$x=I/I_\mathrm{KS}$; folgt aus $U_\mathrm{L}=U_\mathrm{q}-R_\mathrm{i}I$, geteilt durch $U_\mathrm{q}$. Bei Leistungsanpassung ist $x=\frac12$, also $\eta=\frac12$ (Antennen, Signalverarbeitung). $x=0$ ist der Leerlauf mit $\eta=1$, $x=1$ der Kurzschluss mit $\eta=0$, in beiden ist $P_\mathrm{L}=0$. Gilt für die Reihenschaltung aus idealer Quelle, $R_\mathrm{i}$ und $R_\mathrm{L}$.
+
+**Spannungsanpassung**
+
+$$R_\mathrm{L}\gg R_\mathrm{i},\qquad U_\mathrm{L}\approx U_\mathrm{q}$$
+
+Spannung kaum lastabhängig, $\eta$ nahe 1. Einsatz: Stromnetz, Batterie, Spannungsmesser; allgemein die Energietechnik.
+
+**Stromanpassung**
+
+$$R_\mathrm{L}\ll R_\mathrm{i},\qquad I\approx I_\mathrm{KS}$$
+
+Strom kaum lastabhängig, $\eta$ nahe 0. Einsatz: Strommesser, Stromquellen.
+
+**Ersatzquelle eines Netzes**
+
+$$R_\mathrm{i}=R_\mathrm{q}\parallel R,\qquad U_\mathrm{LL}=U_\mathrm{q}R/(R_\mathrm{q}+R)$$
+
+Quelle $U_\mathrm{q}$ mit $R_\mathrm{q}$ und dem Widerstand $R$ parallel zu den Klemmen A, B.
+
+**Netz bei Leistungsanpassung**
+
+$$U_\mathrm{L}=U_\mathrm{q}\,\frac{R}{2(R_\mathrm{q}+R)},\qquad P_\mathrm{L}=\frac{U_\mathrm{L}^2}{R_\mathrm{L}}=\frac{U_\mathrm{q}^2\,R}{4\,R_\mathrm{q}(R_\mathrm{q}+R)}$$
+
+Last $R_\mathrm{L}=R_\mathrm{i}$. Das Maximum liegt richtig, weil für die Last nur die Klemmengerade zählt.
+
+**Leistung der echten Quelle bei Anpassung**
+
+$$R_\mathrm{ges}=R_\mathrm{q}+R\parallel R_\mathrm{L},\qquad P_\mathrm{q}=\frac{U_\mathrm{q}^2}{R_\mathrm{ges}}=\frac{U_\mathrm{q}^2\,(2R_\mathrm{q}+R)}{2R_\mathrm{q}(R_\mathrm{q}+R)}$$
+
+Die echte Quelle arbeitet auf $R_\mathrm{ges}$, nicht auf $R_\mathrm{i}+R_\mathrm{L}$; der Strom durch $R$ fließt auch ohne Last.
+
+**Wirkungsgrad des Netzes**
+
+$$\eta=\frac{P_\mathrm{L}}{P_\mathrm{q}}=\frac12\,\frac{R}{2R_\mathrm{q}+R}<\frac12\quad\text{für }R<\infty$$
+
+Die Ersatzquelle zeigt scheinbar 50 %, denn sie sagt über das Innere nichts aus. Für $R\to\infty$ wird wieder $\eta=\frac12$.
+::::
+
+::::lernkarten
+:::karte begriff Spannungsanpassung
+Was versteht man unter Spannungsanpassung einer Last an eine Quelle, und wo setzt man sie ein?
+---
+Den Betrieb mit $R_\mathrm{L}\gg R_\mathrm{i}$, bei dem die Quelle eine feste Spannung liefert: $U_\mathrm{L}\approx U_\mathrm{q}$, kaum lastabhängig, und $\eta$ nahe 1. Einsatz: Stromnetz, Batterie, Spannungsmesser.
+--- falsch
+Den Betrieb mit $R_\mathrm{L}\ll R_\mathrm{i}$, bei dem die Quelle eine feste Spannung liefert: $U_\mathrm{L}\approx U_\mathrm{q}$, kaum lastabhängig, und $\eta$ nahe 0. Einsatz: Strommesser, Stromquellen.
+--- falsch
+Den Betrieb mit $R_\mathrm{L}=R_\mathrm{i}$, bei dem an der Last genau die halbe Quellenspannung liegt: $U_\mathrm{L}=U_\mathrm{q}/2$, und $\eta=\frac12$. Einsatz: Stromnetz, Batterie, Spannungsmesser.
+--- falsch
+Das Nachregeln der Quellenspannung, bis die Last ihre Nennspannung erhält: $U_\mathrm{q}$ wird erhöht, bis $U_\mathrm{L}$ stimmt, und $\eta$ bleibt dabei gleich. Einsatz: Netzteile und Ladegeräte.
+:::
+:::karte begriff Stromanpassung
+Was versteht man unter Stromanpassung einer Last an eine Quelle, und wo setzt man sie ein?
+---
+Den Betrieb mit $R_\mathrm{L}\ll R_\mathrm{i}$, bei dem die Quelle einen festen Strom liefert: $I\approx I_\mathrm{KS}$, kaum lastabhängig, und $\eta$ nahe 0. Einsatz: Strommesser, Stromquellen.
+--- falsch
+Den Betrieb mit $R_\mathrm{L}\gg R_\mathrm{i}$, bei dem die Quelle einen festen Strom liefert: $I\approx I_\mathrm{KS}$, kaum lastabhängig, und $\eta$ nahe 1. Einsatz: Spannungsmesser, Batterien.
+--- falsch
+Den Betrieb mit $R_\mathrm{L}\ll R_\mathrm{i}$, bei dem die Quelle einen festen Strom liefert: $I\approx I_\mathrm{KS}$, und $\eta$ nahe 1, weil an der Last kaum Spannung verloren geht. Einsatz: Stromnetz.
+--- falsch
+Die Wahl des Leitungsquerschnitts passend zum Strom der Last, damit die Leitung nicht überlastet wird: $I\le I_\mathrm{max}$, und $\eta$ bleibt nahe 1. Einsatz: Hausinstallation.
+:::
+:::karte formel Leistung und Wirkungsgrad über dem Strom
+Wie hängen Wirkungsgrad und Lastleistung vom Strombruchteil $x=I/I_\mathrm{KS}$ ab, und welcher Wirkungsgrad gehört zur Leistungsanpassung?
+---
+$\eta=1-x$ und $\frac{P_\mathrm{L}}{P_\mathrm{KS}}=x\,\eta=x(1-x)$. Bei Leistungsanpassung ist $x=\frac12$, also $\eta=\frac12$. Im Leerlauf $x=0$ ist $\eta=1$, im Kurzschluss $x=1$ ist $\eta=0$.
+--- falsch
+$\eta=x$ und $\frac{P_\mathrm{L}}{P_\mathrm{KS}}=x\,\eta=x^2$. Bei Leistungsanpassung ist $x=1$, also $\eta=1$: Am Leistungsmaximum kommt die ganze Energie jeder Ladung an der Last an.
+--- falsch
+$\eta=1-x$ und $\frac{P_\mathrm{L}}{P_\mathrm{KS}}=x(1-x)$. Bei Leistungsanpassung ist $x=\frac12$, aber $\eta=\frac14$, weil an der Last nur ein Viertel der Kurzschlussleistung ankommt.
+--- falsch
+$\eta=1-x^2$ und $\frac{P_\mathrm{L}}{P_\mathrm{KS}}=x(1-x^2)$, weil die Verluste quadratisch mit dem Strom wachsen. Bei Leistungsanpassung ist $x=\frac12$, also $\eta=\frac34$.
+:::
+:::karte zusammenhang Wirkungsgrad fällt linear
+Warum fällt der Wirkungsgrad einer Quelle mit Innenwiderstand linear mit dem Strom?
+---
+Weil $\eta=U_\mathrm{L}/U_\mathrm{q}$ ist und die Lastspannung auf der Quellengeraden $U_\mathrm{L}=U_\mathrm{q}-R_\mathrm{i}I$ linear mit dem Strom sinkt: Je mehr Strom, desto mehr Spannung bleibt in $R_\mathrm{i}$.
+--- falsch
+Weil der Innenwiderstand linear mit dem Strom wächst: Je mehr Strom, desto wärmer wird die Quelle und desto größer $R_\mathrm{i}$, sodass immer mehr Energie im Inneren bleibt.
+--- falsch
+Weil die Verlustleistung $I^2R_\mathrm{i}$ linear mit dem Strom wächst, während die Leistung der Quelle konstant bleibt. Der Anteil der Last nimmt deshalb gleichmäßig ab.
+--- falsch
+Er fällt nicht linear, sondern quadratisch, weil die Verluste in $R_\mathrm{i}$ mit $I^2$ wachsen. Linear fiele er nur, wenn die Quelle keinen Innenwiderstand hätte.
+:::
+:::karte zusammenhang Warum genau die Hälfte
+Warum beträgt der Wirkungsgrad am Leistungsmaximum zwangsläufig 50 % und hängt nicht vom Material der Quelle ab?
+---
+$\eta$ fällt linear mit dem Strom, $P_\mathrm{q}=U_\mathrm{q}I$ steigt linear, und an der Last kommt das Produkt $P_\mathrm{L}=P_\mathrm{q}\,\eta$ an. Diese Parabel hat ihren Scheitel in der Mitte, und dort steht die fallende Gerade auf halber Höhe.
+--- falsch
+Weil jede reale Quelle im Inneren aus zwei gleich großen Hälften besteht, einer chemischen und einer ohmschen. Am Leistungsmaximum arbeiten beide gleich stark, deshalb geht dort genau die Hälfte der Energie verloren.
+--- falsch
+Weil am Leistungsmaximum Strom und Spannung an der Last zahlenmäßig gleich groß sind. Ihr Verhältnis ist dort 1, und davon erreicht im Mittel genau die Hälfte die Last.
+--- falsch
+Weil die Quelle am Leistungsmaximum den vollen Kurzschlussstrom liefert. Dann fällt die halbe Spannung innen ab, und trotz des großen Stroms bleibt der Anteil bei der Hälfte.
+:::
+:::karte zusammenhang Energietechnik
+Warum betreibt man in der Energietechnik Quellen weit entfernt von der Leistungsanpassung, mit $R_\mathrm{i}\ll R_\mathrm{L}$?
+---
+Die Leistungen liegen im kW-Bereich, und jede Wärme in der Quelle kostet Geld und gefährdet sie. Man will hohen Wirkungsgrad; beim Werkzeug-Akku brächte Anpassung 1350 W Wärme im Akku.
+--- falsch
+Weil Quellen der Energietechnik keinen Innenwiderstand haben. Leistungsanpassung wäre dort gar nicht möglich, weil man dafür auch $R_\mathrm{L}$ gleich null machen müsste und dann nichts mehr ankäme.
+--- falsch
+Weil bei großen Leistungen das Maximum der Lastleistung bei $R_\mathrm{L}\gg R_\mathrm{i}$ liegt. Die Regel $R_\mathrm{L}=R_\mathrm{i}$ gilt nur für kleine Signale im µ W-Bereich, nicht für Netze.
+--- falsch
+Weil Verbraucher im Netz einen festen Strom brauchen. Mit $R_\mathrm{i}\ll R_\mathrm{L}$ liefert die Quelle nahezu den Kurzschlussstrom, und zwar unabhängig davon, welche Last gerade angeschlossen ist.
+:::
+:::karte zusammenhang Nachrichtentechnik
+Warum ist in der Nachrichtentechnik die Leistungsanpassung das richtige Ziel, obwohl dabei die Hälfte der Leistung in der Quelle bleibt?
+---
+Die Leistungen liegen im µ W-Bereich, und ein Empfänger kann nur nehmen, was die Antenne anbietet. Es zählt die absolute Leistung, nicht der Anteil, und die Wärme in der Quelle schadet nicht.
+--- falsch
+Weil Antennen keinen Innenwiderstand haben und deshalb bei Anpassung überhaupt keine Leistung verlieren. Die Hälfte bleibt nur bei Quellen zurück, die wie Batterien chemische Energie umwandeln.
+--- falsch
+Weil der Wirkungsgrad bei kleinen Leistungen nicht mehr linear vom Strom abhängt. Bei Signalen im µ W-Bereich liegt er am Leistungsmaximum deutlich über 50 %.
+--- falsch
+Weil bei Anpassung das Signal die größte Spannung am Empfänger erzeugt. Es zählt die Spannung, nicht die Leistung, und diese ist bei $R_\mathrm{L}=R_\mathrm{i}$ am größten.
+:::
+:::karte formel Netz bei Leistungsanpassung
+Welche Spannung und Leistung erhält eine angepasste Last an einem Netz aus der Quelle $U_\mathrm{q}$, $R_\mathrm{q}$ mit dem Widerstand $R$ parallel zu den Klemmen?
+---
+Die Ersatzquelle hat $R_\mathrm{i}=R_\mathrm{q}\parallel R$ und $U_\mathrm{LL}=U_\mathrm{q}R/(R_\mathrm{q}+R)$. Bei $R_\mathrm{L}=R_\mathrm{i}$ sind $U_\mathrm{L}=U_\mathrm{q}\,\frac{R}{2(R_\mathrm{q}+R)}$ und $P_\mathrm{L}=\frac{U_\mathrm{q}^2\,R}{4\,R_\mathrm{q}(R_\mathrm{q}+R)}$.
+--- falsch
+Die Ersatzquelle hat $R_\mathrm{i}=R_\mathrm{q}+R$ und $U_\mathrm{LL}=U_\mathrm{q}$, weil beide Widerstände im Weg liegen. Bei $R_\mathrm{L}=R_\mathrm{i}$ sind $U_\mathrm{L}=U_\mathrm{q}/2$ und $P_\mathrm{L}=\frac{U_\mathrm{q}^2}{4\,(R_\mathrm{q}+R)}$.
+--- falsch
+Die Ersatzquelle hat $R_\mathrm{i}=R_\mathrm{q}\parallel R$ und $U_\mathrm{LL}=U_\mathrm{q}$, weil $R$ im Leerlauf keinen Strom führt. Bei $R_\mathrm{L}=R_\mathrm{i}$ sind $U_\mathrm{L}=U_\mathrm{q}/2$ und $P_\mathrm{L}=\frac{U_\mathrm{q}^2}{4\,R_\mathrm{i}}$.
+--- falsch
+Anpassung verlangt hier $R_\mathrm{L}=R_\mathrm{q}$, weil nur die echte Quelle einen Innenwiderstand hat und $R$ zur Last gehört. Dann sind $U_\mathrm{L}=U_\mathrm{q}/2$ und $P_\mathrm{L}=\frac{U_\mathrm{q}^2}{4\,R_\mathrm{q}}$.
+:::
+:::karte formel Wirkungsgrad des Netzes bei Anpassung
+Welchen Wirkungsgrad hat das Netz aus $U_\mathrm{q}$, $R_\mathrm{q}$ und parallelem $R$, wenn die Last an seine Ersatzquelle angepasst ist?
+---
+$\eta=\frac{P_\mathrm{L}}{P_\mathrm{q}}=\frac12\,\frac{R}{2R_\mathrm{q}+R}<\frac12$ für $R<\infty$, weil die echte Quelle auf $R_\mathrm{ges}=R_\mathrm{q}+R\parallel R_\mathrm{L}$ arbeitet. Erst für $R\to\infty$ wird $\eta=\frac12$.
+--- falsch
+$\eta=\frac12$, wie bei jeder Leistungsanpassung, weil sich die Energie jeder Ladung zu gleichen Teilen auf Ersatzquelle und Last aufteilt. Der Widerstand $R$ ändert daran nichts.
+--- falsch
+$\eta=\frac12\,\frac{2R_\mathrm{q}+R}{R}>\frac12$ für $R<\infty$, weil $R$ einen Teil des Stroms an der Last vorbeiführt und so den Innenwiderstand der Quelle entlastet.
+--- falsch
+$\eta=\frac{R}{R_\mathrm{q}+R}$, weil der Teil des Stroms, der durch $R$ fließt, verloren ist und der Rest vollständig die Last erreicht. Für $R\to\infty$ wird $\eta=1$.
+:::
+:::karte zusammenhang Ersatzquelle und Wirkungsgrad
+Warum zeigt die Ersatzquelle eines Netzes das Leistungsmaximum richtig, den Wirkungsgrad von 50 % aber nicht?
+---
+Für die Last zählt nur die Klemmengerade, deshalb liegt das Maximum bei $R_\mathrm{L}=R_\mathrm{i}$. Über das Innere sagt die Ersatzquelle nichts aus: Im Netz fließt durch $R$ auch ohne Last ein Strom, und diese Wärme fehlt in ihrer Bilanz.
+--- falsch
+Weil eine Ersatzquelle nur für Gleichspannung gültig ist. Bei Wechselspannung verschiebt sich der Wirkungsgrad des Netzes, das Maximum der Leistung bleibt aber an derselben Stelle wie bei der Ersatzquelle, also bei $R_\mathrm{L}=R_\mathrm{i}$.
+--- falsch
+Sie zeigt beides richtig: Auch im echten Netz teilt sich bei Anpassung die Leistung zu gleichen Teilen auf Quelle und Last auf, weil $R$ nur im Leerlauf einen nennenswerten Strom führt.
+--- falsch
+Weil die Ersatzquelle den Innenwiderstand zu groß angibt. Im echten Netz ist der Widerstand vor der Last kleiner, deshalb liegt der Wirkungsgrad dort über den angezeigten 50 %.
+:::
+:::karte zusammenhang Hälfte verloren
+Verliert man bei Leistungsanpassung tatsächlich die Hälfte der Energie, und wann nimmt man das in Kauf?
+---
+Bei einer Quelle mit echtem Innenwiderstand ja, sie heizt sich so stark wie die Last. Bei kleiner Leistung ist das tragbar; wo Energie teuer oder die Quelle empfindlich ist, arbeitet man bei großem $R_\mathrm{L}$.
+--- falsch
+Nein, die Hälfte bleibt nur scheinbar in der Quelle: Sie wird in ihr gespeichert und bei kleinerem Strom wieder an die Last abgegeben. Deshalb nimmt man Anpassung überall in Kauf.
+--- falsch
+Ja, und deshalb nutzt man Anpassung gerade bei großen Leistungen: Dort lohnt es sich am meisten, die größtmögliche Leistung herauszuholen, auch wenn die Quelle dabei sehr heiß wird.
+--- falsch
+Nein, verloren geht nur ein Viertel der Kurzschlussleistung $P_\mathrm{KS}$, der Rest erreicht die Last. Diesen kleinen Verlust nimmt man deshalb bei jeder Leistung in Kauf, auch bei großen Quellen.
+:::
+:::karte herleitung Wirkungsgrad des Netzes
+Leite für das Netz aus $U_\mathrm{q}$, $R_\mathrm{q}$ und parallelem $R$ bei angepasster Last den Wirkungsgrad $\eta=\frac12\,\frac{R}{2R_\mathrm{q}+R}$ her.
+---
+Bei Anpassung ist $R_\mathrm{L}=R_\mathrm{q}R/(R_\mathrm{q}+R)$, also $R\parallel R_\mathrm{L}=R\,R_\mathrm{q}/(R+2R_\mathrm{q})$, weil der Innenwiderstand der Ersatzquelle $R_\mathrm{q}\parallel R$ ist.
+---
+Das ergibt $R_\mathrm{ges}=2R_\mathrm{q}(R_\mathrm{q}+R)/(2R_\mathrm{q}+R)$, weil die echte Quelle auf $R_\mathrm{q}$ in Reihe mit $R\parallel R_\mathrm{L}$ arbeitet.
+---
+Der Spannungsteiler $U_\mathrm{L}=U_\mathrm{q}(R\parallel R_\mathrm{L})/R_\mathrm{ges}$ ergibt $U_\mathrm{L}=U_\mathrm{q}\,\frac{R}{2(R_\mathrm{q}+R)}$, weil an $R$ und Last dieselbe Spannung liegt.
+---
+Damit ist $P_\mathrm{L}=U_\mathrm{L}^2(R_\mathrm{q}+R)/(R_\mathrm{q}R)$ und $P_\mathrm{q}=\frac{U_\mathrm{q}^2}{R_\mathrm{ges}}$, weil $P_\mathrm{L}=\frac{U_\mathrm{L}^2}{R_\mathrm{L}}$ ist und die Quelle $U_\mathrm{q}$ an $R_\mathrm{ges}$ liegt.
+---
+Der Quotient aus $P_\mathrm{L}$ und $P_\mathrm{q}$ kürzt sich auf $\eta=\frac12\,\frac{R}{2R_\mathrm{q}+R}$, weil sich $U_\mathrm{q}^2$, $R_\mathrm{q}$ und $R_\mathrm{q}+R$ herausheben.
+:::
+::::

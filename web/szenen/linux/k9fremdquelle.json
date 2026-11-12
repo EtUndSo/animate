@@ -1,0 +1,766 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 26,
+  "nextAnimId": 32,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Text",
+    "props": {
+     "text": "$ apt policy sudo-rs",
+     "position": [
+      0,
+      2.88,
+      0
+     ],
+     "font_size": 17,
+     "align": "center",
+     "color": "#333333",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Text",
+    "props": {
+     "text": "@titel",
+     "position": [
+      0,
+      2.62,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o3",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.72,
+      1.7,
+      0
+     ],
+     "width": 3.2,
+     "height": 1.08,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Text",
+    "props": {
+     "text": "@ubuntu",
+     "position": [
+      -1.72,
+      2.06,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o5",
+    "type": "Text",
+    "props": {
+     "text": "0.2.13-0ubuntu1.2",
+     "position": [
+      -1.72,
+      1.82,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Text",
+    "props": {
+     "text": "500",
+     "position": [
+      -3.17,
+      1.56,
+      0
+     ],
+     "font_size": 17,
+     "align": "left",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o7",
+    "type": "Text",
+    "props": {
+     "text": "resolute-updates",
+     "position": [
+      -2.77,
+      1.56,
+      0
+     ],
+     "font_size": 17,
+     "align": "left",
+     "color": "#7f7f7f",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Text",
+    "props": {
+     "text": "500",
+     "position": [
+      -3.17,
+      1.33,
+      0
+     ],
+     "font_size": 17,
+     "align": "left",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o9",
+    "type": "Text",
+    "props": {
+     "text": "resolute-security",
+     "position": [
+      -2.77,
+      1.33,
+      0
+     ],
+     "font_size": 17,
+     "align": "left",
+     "color": "#7f7f7f",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o10",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.72,
+      1.7,
+      0
+     ],
+     "width": 3.2,
+     "height": 1.08,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#eb6834",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o11",
+    "type": "Text",
+    "props": {
+     "text": "@zus",
+     "position": [
+      1.72,
+      2.06,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Text",
+    "props": {
+     "text": "0.3.0-1",
+     "position": [
+      1.72,
+      1.82,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o13",
+    "type": "Text",
+    "props": {
+     "text": "500",
+     "position": [
+      0.27,
+      1.56,
+      0
+     ],
+     "font_size": 17,
+     "align": "left",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o14",
+    "type": "Text",
+    "props": {
+     "text": "pakete.example.org",
+     "position": [
+      0.67,
+      1.56,
+      0
+     ],
+     "font_size": 17,
+     "align": "left",
+     "color": "#7f7f7f",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o15",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.72,
+      0.94,
+      0
+     ],
+     "width": 0.92,
+     "height": 0.26,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#00823c",
+     "fill_color": "#e6f3ea",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o16",
+    "type": "Text",
+    "props": {
+     "text": "Candidate",
+     "position": [
+      -1.72,
+      0.94,
+      0
+     ],
+     "font_size": 17,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o17",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -3.057,
+      1.56,
+      0
+     ],
+     "width": 0.34,
+     "height": 0.2,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 0.35,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o18",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -3.057,
+      1.33,
+      0
+     ],
+     "width": 0.34,
+     "height": 0.2,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 0.35,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o19",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.383,
+      1.56,
+      0
+     ],
+     "width": 0.34,
+     "height": 0.2,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 0.35,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o20",
+    "type": "Text",
+    "props": {
+     "text": "@prio",
+     "position": [
+      0,
+      0.56,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#eb6834"
+    }
+   },
+   {
+    "id": "o21",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.72,
+      1.82,
+      0
+     ],
+     "width": 0.68,
+     "height": 0.25,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#00823c",
+     "fill_color": "#ffffff",
+     "fill_opacity": 0.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o22",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.72,
+      1.82,
+      0
+     ],
+     "width": 1.48,
+     "height": 0.25,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#ffffff",
+     "fill_opacity": 0.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o23",
+    "type": "Text",
+    "props": {
+     "text": "@vers",
+     "position": [
+      0,
+      0.3,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#00823c",
+     "raw": true
+    }
+   },
+   {
+    "id": "o24",
+    "type": "Lock",
+    "props": {
+     "center": [
+      2.28,
+      1.56,
+      0
+     ],
+     "size": 0.24,
+     "open": false,
+     "color": "#333333"
+    }
+   },
+   {
+    "id": "o25",
+    "type": "Text",
+    "props": {
+     "text": "@schloss",
+     "position": [
+      0,
+      -0.16,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#333333"
+    }
+   }
+  ],
+  "animations": [
+   {
+    "id": "a1",
+    "type": "FadeIn",
+    "target": "o1",
+    "run_time": 0.5,
+    "step": 0
+   },
+   {
+    "id": "a2",
+    "type": "FadeIn",
+    "target": "o2",
+    "run_time": 0.5,
+    "step": 0
+   },
+   {
+    "id": "a3",
+    "type": "FadeIn",
+    "target": "o3",
+    "run_time": 0.7,
+    "step": 1
+   },
+   {
+    "id": "a4",
+    "type": "FadeIn",
+    "target": "o4",
+    "run_time": 0.7,
+    "step": 1
+   },
+   {
+    "id": "a5",
+    "type": "FadeIn",
+    "target": "o5",
+    "run_time": 0.7,
+    "step": 1
+   },
+   {
+    "id": "a6",
+    "type": "FadeIn",
+    "target": "o6",
+    "run_time": 0.7,
+    "step": 1
+   },
+   {
+    "id": "a7",
+    "type": "FadeIn",
+    "target": "o7",
+    "run_time": 0.7,
+    "step": 1
+   },
+   {
+    "id": "a8",
+    "type": "FadeIn",
+    "target": "o8",
+    "run_time": 0.7,
+    "step": 1
+   },
+   {
+    "id": "a9",
+    "type": "FadeIn",
+    "target": "o9",
+    "run_time": 0.7,
+    "step": 1
+   },
+   {
+    "id": "a10",
+    "type": "FadeIn",
+    "target": "o15",
+    "run_time": 0.7,
+    "step": 1
+   },
+   {
+    "id": "a11",
+    "type": "FadeIn",
+    "target": "o16",
+    "run_time": 0.7,
+    "step": 1
+   },
+   {
+    "id": "a12",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a13",
+    "type": "FadeIn",
+    "target": "o10",
+    "run_time": 0.6,
+    "step": 3
+   },
+   {
+    "id": "a14",
+    "type": "FadeIn",
+    "target": "o11",
+    "run_time": 0.6,
+    "step": 3
+   },
+   {
+    "id": "a15",
+    "type": "FadeIn",
+    "target": "o12",
+    "run_time": 0.6,
+    "step": 3
+   },
+   {
+    "id": "a16",
+    "type": "FadeIn",
+    "target": "o13",
+    "run_time": 0.6,
+    "step": 3
+   },
+   {
+    "id": "a17",
+    "type": "FadeIn",
+    "target": "o14",
+    "run_time": 0.6,
+    "step": 3
+   },
+   {
+    "id": "a18",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.4,
+    "step": 4
+   },
+   {
+    "id": "a19",
+    "type": "FadeIn",
+    "target": "o17",
+    "run_time": 0.6,
+    "step": 5
+   },
+   {
+    "id": "a20",
+    "type": "FadeIn",
+    "target": "o18",
+    "run_time": 0.6,
+    "step": 5
+   },
+   {
+    "id": "a21",
+    "type": "FadeIn",
+    "target": "o19",
+    "run_time": 0.6,
+    "step": 5
+   },
+   {
+    "id": "a22",
+    "type": "FadeIn",
+    "target": "o20",
+    "run_time": 0.6,
+    "step": 5
+   },
+   {
+    "id": "a23",
+    "type": "FadeIn",
+    "target": "o21",
+    "run_time": 0.6,
+    "step": 6
+   },
+   {
+    "id": "a24",
+    "type": "FadeIn",
+    "target": "o22",
+    "run_time": 0.6,
+    "step": 6
+   },
+   {
+    "id": "a25",
+    "type": "FadeIn",
+    "target": "o23",
+    "run_time": 0.6,
+    "step": 6
+   },
+   {
+    "id": "a26",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.3,
+    "step": 7
+   },
+   {
+    "id": "a27",
+    "type": "Shift",
+    "target": "o15",
+    "run_time": 0.9,
+    "step": 8,
+    "vector": [
+     3.44,
+     0,
+     0
+    ]
+   },
+   {
+    "id": "a28",
+    "type": "Shift",
+    "target": "o16",
+    "run_time": 0.9,
+    "step": 8,
+    "vector": [
+     3.44,
+     0,
+     0
+    ]
+   },
+   {
+    "id": "a29",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.4,
+    "step": 9
+   },
+   {
+    "id": "a30",
+    "type": "GrowFromCenter",
+    "target": "o24",
+    "run_time": 0.6,
+    "step": 10
+   },
+   {
+    "id": "a31",
+    "type": "FadeIn",
+    "target": "o25",
+    "run_time": 0.6,
+    "step": 10
+   }
+  ],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "titel": {
+    "de": "gedacht: eine zusätzliche Quelle bietet sudo-rs an",
+    "en": "imagined: an extra source offers sudo-rs",
+    "es": "supuesto: una fuente adicional ofrece sudo-rs",
+    "zh": "设想：一个附加软件源提供 sudo-rs",
+    "fr": "supposons : une source ajoutée propose sudo-rs",
+    "tr": "varsayım: ek bir kaynak sudo-rs sunuyor"
+   },
+   "ubuntu": {
+    "de": "Ubuntu",
+    "en": "Ubuntu",
+    "es": "Ubuntu",
+    "zh": "Ubuntu",
+    "fr": "Ubuntu",
+    "tr": "Ubuntu"
+   },
+   "zus": {
+    "de": "zusätzliche Quelle (Version erfunden)",
+    "en": "extra source (made-up version)",
+    "es": "fuente adicional (versión inventada)",
+    "zh": "附加软件源（版本为虚构）",
+    "fr": "source ajoutée (version inventée)",
+    "tr": "ek kaynak (uydurma sürüm)"
+   },
+   "prio": {
+    "de": "1. höchste Priorität: 500 = 500, Gleichstand",
+    "en": "1. highest priority: 500 = 500, a tie",
+    "es": "1. prioridad más alta: 500 = 500, empate",
+    "zh": "1. 最高优先级：500 = 500，平局",
+    "fr": "1. priorité la plus haute : 500 = 500, égalité",
+    "tr": "1. en yüksek öncelik: 500 = 500, eşit"
+   },
+   "vers": {
+    "de": "2. Version: 0.3.0-1 ist höher als 0.2.13-0ubuntu1.2",
+    "en": "2. version: 0.3.0-1 is higher than 0.2.13-0ubuntu1.2",
+    "es": "2. versión: 0.3.0-1 es mayor que 0.2.13-0ubuntu1.2",
+    "zh": "2. 版本：0.3.0-1 高于 0.2.13-0ubuntu1.2",
+    "fr": "2. version : 0.3.0-1 est plus haute que 0.2.13-0ubuntu1.2",
+    "tr": "2. sürüm: 0.3.0-1, 0.2.13-0ubuntu1.2'den yüksek"
+   },
+   "schloss": {
+    "de": "Signed-By prüft, wer die Liste unterschrieben hat,\nnicht, welche Pakete darin stehen",
+    "en": "Signed-By checks who signed the list,\nnot which packages it contains",
+    "es": "Signed-By comprueba quién firmó la lista,\nno qué paquetes contiene",
+    "zh": "Signed-By 检查谁签署了列表，\n不检查其中有哪些软件包",
+    "fr": "Signed-By vérifie qui a signé la liste,\npas quels paquets elle contient",
+    "tr": "Signed-By listeyi kimin imzaladığını denetler,\nhangi paketleri içerdiğini değil"
+   }
+  },
+  "drawOrder": "creation"
+ }
+}

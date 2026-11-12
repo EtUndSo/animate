@@ -50,7 +50,7 @@ und verweisen mit Link darauf.
     Ratenkredits numerisch (Restschuld, Annuitätenformel, effektiver Jahreszins nur als Umrechnung (1+i)^12 − 1, Ableitung per
     Schleife, Absicherung von Newton durch Bisektion und Dämpfung als Hintergrund). Numerik-Hefte und ML-Grundlagen
     (Gradientenabstieg, Optimierung) können für Bisektion/Newton darauf verweisen. Eigene Funktionen: Python, Kapitel 4; Listen: Python, Kapitel 5.
-- **Linux und Kommandozeile** (Informatik / Linux und Kommandozeile, Kapitel 1–8 fertig): Shell, Dateien, Rechte (vollständig erklärt in Linux, Kapitel 7 „Benutzer, Gruppen und Rechte“), Prozesse, Signale und Dienste (Linux, Kapitel 8).
+- **Linux und Kommandozeile** (Informatik / Linux und Kommandozeile, Kapitel 1–9 fertig): Shell, Dateien, Rechte (vollständig erklärt in Linux, Kapitel 7 „Benutzer, Gruppen und Rechte“), Prozesse, Signale und Dienste (Linux, Kapitel 8).
   Cybersecurity hat seit 11.11.2026 einen Stamm mit 12 Teilen: Die alten Hefte „Linux vom USB-Stick“ und „Die Shell als Werkzeug“
   entfallen (Inhalt in Linux, Kapitel 1–6, 8, 10), Cybersecurity, Kapitel 3 ist das Fachheft „Linux-Sicherheit“ (siehe unten).
   - Linux, Kapitel 1 erklärt vollständig (spätere Hefte, auch Cyber und ML, verweisen mit „Linux, Kapitel~1, Abschnitt~M“): Betriebssystem,
@@ -143,7 +143,7 @@ und verweisen mit Link darauf.
     `cut --complement`, `sed y/a/i/c/-f`, `grep -w/-x/-h/-L/-P`, `\b \< \>`, `awk -v`, awk-Funktionen, `getline`, `patch`.
   - Paketverwaltung `apt` und `sudo`: in Python, Kapitel 1, Abschnitt 3.3 nur je ein Satz; ausführlich im Linux-Bereich
     (Heftnummer laut Linux-Lernpfad).
-- **Cybersecurity** (Informatik / Cybersecurity, Kapitel 1 fertig; Stamm seit 11.11.2026 mit 12 Teilen, Kapitel N = Teil N = Datei
+- **Cybersecurity** (Informatik / Cybersecurity, Kapitel 1–2 fertig; Stamm seit 11.11.2026 mit 12 Teilen, Kapitel N = Teil N = Datei
   `Kap<N>`, Zuordnung und Einträge in `C:\Bücher\EtUndSo\Cybersecurity\Recherche\LERNPFAD.md`). Setzt Linux, Python und C voraus und
   erklärt nur das Sicherheitsspezifische. Geplant (noch ohne Heft; Einträge aus den Grenztabellen der Linux- und Programmieren-
   Lernpfade übernommen):
@@ -984,6 +984,19 @@ Je Zeile ein Abschnitt: Verweis-Wendung, Abschnittstitel, dann die Unterabschnit
 - Cybersecurity, Kapitel 1, Abschnitt 8 „Computerstrafrecht: was verboten ist“: 8.1 Was du dafür brauchst: wie ein Straftatbestand gebaut ist · 8.2 Ausspähen von Daten (§ 202a StGB) · 8.3 Abfangen von Daten (§ 202b StGB) · 8.4 Vorbereiten des Ausspähens und Abfangens (§ 202c StGB) · 8.5 Datenhehlerei (§ 202d StGB) · 8.6 Datenveränderung (§ 303a StGB) · 8.7 Computersabotage (§ 303b StGB) · 8.8 Computerbetrug (§ 263a StGB)
 - Cybersecurity, Kapitel 1, Abschnitt 9 „Erlaubnis, Werkzeuge und gute Absicht“: 9.1 Die Erlaubnis des Berechtigten · 9.2 Antragsdelikt heißt nicht erlaubt · 9.3 Werkzeuge besitzen: der Beschluss von 2009 · 9.4 Gute Absicht schützt nicht
 - Cybersecurity, Kapitel 1, Abschnitt 10 „Offenlegung und Ethik“: 10.1 Was du dafür brauchst: der Aufbau einer Webadresse · 10.2 Koordinierte Offenlegung · 10.3 Meldeprogramme und Bug-Bounty · 10.4 security.txt · 10.5 Was man bei einem Zufallsfund tut · 10.6 Hackerethik · 10.7 Die Spielregeln dieser Reihe
+
+### Cybersecurity, Kapitel 2: Schutzgrenzen in Hardware und Betriebssystem (`Kap2_Schutzgrenzen`, Modul cyber)
+
+- Cybersecurity, Kapitel 2, Abschnitt 1 „Schutzgrenzen und der Referenzmonitor“: 1.1 Was du dafür brauchst: Kernel, Systemaufruf und Prozess · 1.2 Was du dafür brauchst: lückenlose Prüfung und vertrauenswürdige Basis · 1.3 Die Schutzgrenze · 1.4 Der Referenzmonitor · 1.5 Der Kernel als Referenzmonitor
+- Cybersecurity, Kapitel 2, Abschnitt 2 „Code und Daten im selben Speicher“: 2.1 Was du dafür brauchst: Byte, Hexadezimalzahl und Adresse · 2.2 Der Befehlszeiger · 2.3 Das Von-Neumann-Prinzip · 2.4 Wenn Daten zu Befehlen werden
+- Cybersecurity, Kapitel 2, Abschnitt 3 „Privilegstufen und Schutzringe“: 3.1 Was du dafür brauchst: Signal und Exit-Status · 3.2 Die Privilegstufe · 3.3 Die Schutzringe · 3.4 Privilegierte Befehle · 3.5 Die Ausnahme und die Schutzverletzung
+- Cybersecurity, Kapitel 2, Abschnitt 4 „Der Eintritt in den Kernel“: 4.1 Die Einsprungstelle und die Einsprungtabelle · 4.2 Drei Wege in den Kernel · 4.3 Die Rückkehr in den Benutzermodus · 4.4 Die Prüfung der Argumente · 4.5 Der Systemaufruf als einzige Tür
+- Cybersecurity, Kapitel 2, Abschnitt 5 „Die Zeitgeber-Unterbrechung“: 5.1 Was du dafür brauchst: Zeitteilung und Planer · 5.2 Der Zeitgeber · 5.3 Die Zeitgeber-Unterbrechung · 5.4 Kooperativ oder erzwungen · 5.5 Warum kein Programm den Wecker abstellen kann · 5.6 Zeitgeber-Unterbrechungen zählen
+- Cybersecurity, Kapitel 2, Abschnitt 6 „Der virtuelle Adressraum“: 6.1 Die virtuelle Adresse · 6.2 Seite und Seitenrahmen · 6.3 Die Seitentabelle · 6.4 Die MMU · 6.5 Das Wurzelregister · 6.6 Der Seitenfehler · 6.7 Gemeinsame Seiten · 6.8 Die mehrstufige Seitentabelle
+- Cybersecurity, Kapitel 2, Abschnitt 7 „Seitenrechte: Kernel, Code und Daten trennen“: 7.1 Die Rechte eines Seitentabelleneintrags · 7.2 Der Kernel in jedem Adressraum · 7.3 Das NX-Bit · 7.4 Die Regel W^X · 7.5 SMEP und SMAP · 7.6 Seitenrechte beobachten: /proc/self/maps
+- Cybersecurity, Kapitel 2, Abschnitt 8 „Die Startkette als Schutzgrenze“: 8.1 Was du dafür brauchst: Firmware, Bootloader und Secure Boot · 8.2 Die Startkette als Schutzgrenze und das Bootkit · 8.3 Der Vertrauensanker · 8.4 Die Schlüssel von Secure Boot · 8.5 Wer die Schlüssel ändern darf · 8.6 Der Widerruf und seine Grenzen
+- Cybersecurity, Kapitel 2, Abschnitt 9 „Measured Boot: messen statt blockieren“: 9.1 Was du dafür brauchst: die Prüfsumme · 9.2 Messen statt blockieren · 9.3 Das TPM · 9.4 Das Plattform-Konfigurationsregister · 9.5 Das Erweitern · 9.6 Das Ereignisprotokoll · 9.7 Was Measured Boot nicht tut
+- Cybersecurity, Kapitel 2, Abschnitt 10 „Das TPM: versiegeln, nachweisen und die Grenzen“: 10.1 Was du dafür brauchst: die Geräteverschlüsselung · 10.2 Die Bauformen des TPM · 10.3 Schlüssel im TPM · 10.4 Das Versiegeln · 10.5 BitLocker mit PCR 7 und PCR 11 · 10.6 Die Attestierung · 10.7 Die Grenzen des TPM · 10.8 Zusammenschau: die Schutzgrenzen im Überblick
 
 ## Informatik / Machine Learning / Mathematische Grundlagen
 

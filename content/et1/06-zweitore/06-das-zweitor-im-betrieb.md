@@ -99,3 +99,135 @@ Berechne für $R_\mathrm{L}=10\,\Omega$ mit Quelle die Ströme $I_1$, $I_2$ und 
 (a) $Z_1=35\,\Omega-400\,\Omega^2/50\,\Omega=27\,\Omega$. (b) $400\,\Omega^2/(40\,\Omega+R_\mathrm{L})=5\,\Omega$, also $R_\mathrm{L}=40\,\Omega$. (c) $I_1=9\,\mathrm{V}/32\,\Omega=281{,}25$ mA, $I_2=-\frac{20}{50}I_1=-112{,}5$ mA, $U_2=1{,}125$ V. Die Ersatzquelle ergibt $4{,}5\,\mathrm{V}/(30\,\Omega+10\,\Omega)=112{,}5$ mA.
 :::
 :::
+
+::::formelsammlung
+**Last an Tor 2**
+
+$$U_2=-Z_\mathrm{L}I_2$$
+
+Das Minus steht, weil $I_2$ in das Zweitor zeigt und damit gegen den Strom durch die Last.
+
+**Eingangswiderstand bei Last**
+
+$$I_2=-\frac{Z_{21}}{Z_{22}+Z_\mathrm{L}}\,I_1,\qquad Z_1=\frac{U_1}{I_1}=Z_{11}-\frac{Z_{12}Z_{21}}{Z_{22}+Z_\mathrm{L}}$$
+
+Der Bruch ist der Betrag, um den die Last den Eingangswiderstand ändert (Rückwirkung über $Z_{12}$). Ist $Z_{12}=0$, ist er null: Das Zweitor ist rückwirkungsfrei. Das Zweitor muss linear sein.
+
+**Leerlauf- und Kurzschlusseingangswiderstand**
+
+$$Z_{1,\mathrm{LL}}=Z_{11},\qquad Z_{1,\mathrm{KS}}=Z_{11}-\frac{Z_{12}Z_{21}}{Z_{22}}$$
+
+Grenzfälle $Z_\mathrm{L}\to\infty$ und $Z_\mathrm{L}=0$; der Eingangswiderstand liegt für jede Last dazwischen.
+
+**Ausgang als Ersatzspannungsquelle**
+
+$$U_\mathrm{i}=\frac{Z_{21}}{Z_{11}+R_\mathrm{q}}\,U_\mathrm{q},\qquad R_\mathrm{i}=Z_{22}-\frac{Z_{12}Z_{21}}{Z_{11}+R_\mathrm{q}}$$
+
+Eine lineare Quelle $U_\mathrm{q}$, $R_\mathrm{q}$ speist Tor 1. $R_\mathrm{i}$ ist der Eingangswiderstand mit vertauschten Indizes, Tor 1 durch $R_\mathrm{q}$ abgeschlossen.
+::::
+
+::::lernkarten
+:::karte begriff Rückwirkung
+Was bezeichnet man bei einem Zweitor als Rückwirkung, und über welchen Parameter der Z-Form kommt sie zustande?
+---
+Die Wirkung des Ausgangs auf den Eingang. Entnimmt die Last Tor 2 einen Strom $I_2$, erscheint er über die Quelle $Z_{12}I_2$ als Spannung am Eingang.
+--- falsch
+Die Wirkung des Eingangs auf den Ausgang. Ein Strom $I_1$ erscheint über die Quelle $Z_{21}I_1$ als Spannung am Ausgang und treibt dort den Laststrom.
+--- falsch
+Den Strom, den die Last an die Quelle zurückschickt. Er fließt über die Masseleitung zum Eingang zurück und wird dabei durch $Z_{22}$ begrenzt.
+--- falsch
+Die Wirkung des Ausgangs auf den Eingang. Sie kommt über $Z_{11}$ zustande, weil die Last den Eingangsleerlaufwiderstand selbst verändert.
+:::
+:::karte formel Last an Tor 2
+Welche Gleichung beschreibt die Last $Z_\mathrm{L}$ an Tor 2, und warum steht darin ein Minus?
+---
+$U_2=-Z_\mathrm{L}I_2$. Das Minus steht, weil $I_2$ in das Zweitor zeigt und damit gegen den Strom durch die Last.
+--- falsch
+$U_2=Z_\mathrm{L}I_2$. Ein Minus ist hier nicht nötig, weil Spannung und Strom an einer Last immer dieselbe Richtung haben.
+--- falsch
+$U_2=Z_\mathrm{L}I_2-U_1$. Das Minus steht, weil an der Last nur ankommt, was am Eingang nicht schon abgefallen ist.
+--- falsch
+$U_2=-Z_\mathrm{L}I_2$. Das Minus steht, weil die Spannung an der Last der Torspannung $U_2$ entgegengerichtet ist.
+:::
+:::karte formel Eingangswiderstand bei Last
+Wie groß ist der Eingangswiderstand $Z_1$ eines linearen Zweitors, an dessen Tor 2 die Last $Z_\mathrm{L}$ hängt?
+---
+$Z_1=\frac{U_1}{I_1}=Z_{11}-\frac{Z_{12}Z_{21}}{Z_{22}+Z_\mathrm{L}}$. Der Bruch ist der Betrag, um den die Last den Eingangswiderstand ändert; bei $Z_{12}=0$ ist er null.
+--- falsch
+$Z_1=Z_{11}+Z_\mathrm{L}$. Die Last liegt über das Zweitor in Reihe zum Eingangsleerlaufwiderstand, deshalb addieren sich die beiden Widerstände einfach.
+--- falsch
+$Z_1=\frac{U_1}{I_1}=Z_{11}-\frac{Z_{12}Z_{21}}{Z_{11}+Z_\mathrm{L}}$. Der Bruch ist der Betrag, um den die Last den Eingangswiderstand ändert; bei $Z_{12}=0$ ist er null.
+--- falsch
+$Z_1=\frac{U_1}{I_1}=Z_{11}-\frac{Z_{12}Z_{21}}{Z_{22}+Z_\mathrm{L}}$. Der Bruch ist die auf den Eingang umgerechnete Last; er bleibt auch bei $Z_{12}=0$ bestehen.
+:::
+:::karte formel Leerlauf- und Kurzschlusseingangswiderstand
+Zwischen welchen Grenzwerten liegt der Eingangswiderstand $Z_1$ eines Zweitors für jede Last, und wie lauten sie?
+---
+Zwischen $Z_{1,\mathrm{LL}}=Z_{11}$ im Leerlauf, $Z_\mathrm{L}\to\infty$, und $Z_{1,\mathrm{KS}}=Z_{11}-\frac{Z_{12}Z_{21}}{Z_{22}}$ im Kurzschluss, $Z_\mathrm{L}=0$. Beim T-Zweitor sind das 35 $\Omega$ und 25 $\Omega$.
+--- falsch
+Zwischen $Z_{11}$ für $Z_\mathrm{L}=0$ und $Z_{11}-\frac{Z_{12}Z_{21}}{Z_{22}}$ für $Z_\mathrm{L}\to\infty$. Beim T-Zweitor sind das 35 $\Omega$ im Kurzschluss und 25 $\Omega$ im Leerlauf.
+--- falsch
+Zwischen null für $Z_\mathrm{L}=0$ und $Z_{11}$ für $Z_\mathrm{L}\to\infty$, weil ein Kurzschluss am Ausgang auch den Eingang kurzschließt. Beim T-Zweitor sind das 0 und 35 $\Omega$.
+--- falsch
+Zwischen $Z_{11}$ im Leerlauf und $Z_{11}+Z_{22}$ im Kurzschluss, weil die Last den Ausgangsleerlaufwiderstand zum Eingang hinzufügt. Beim T-Zweitor sind das 35 und 75 $\Omega$.
+:::
+:::karte begriff rückwirkungsfrei
+Wann heißt ein Zweitor rückwirkungsfrei, und was merkt sein Eingang dann von der Last?
+---
+Wenn $Z_{12}=0$ ist. Dann ist der Bruch im Eingangswiderstand null, der Eingangswiderstand ist für jede Last $Z_{11}$, und der Eingang merkt nichts von der Last.
+--- falsch
+Wenn $Z_{11}=Z_{22}$ ist. Dann sehen Eingang und Ausgang denselben Widerstand, und keine der beiden Seiten kann auf die andere zurückwirken.
+--- falsch
+Wenn $Z_{12}=Z_{21}$ ist. Dann wirkt das Zweitor in beide Richtungen gleich stark, und die Wirkungen der Last auf den Eingang heben sich gegenseitig auf.
+--- falsch
+Wenn die Last sehr groß ist. Dann fließt kaum Ausgangsstrom, und der Eingang merkt nichts von der Last, gleich welche Parameter das Zweitor hat.
+:::
+:::karte zusammenhang Rückwirkung im T-Zweitor
+Warum sinkt der Eingangswiderstand des T-Zweitors, wenn man an Tor 2 eine Last anschließt?
+---
+Ein Teil des Stroms, der sonst durch $R_\mathrm{b}$ flösse, weicht über $R_\mathrm{c}$ zur Last aus. An $R_\mathrm{b}$ fällt weniger ab, $U_1$ sinkt, und der Eingang wirkt niederohmiger.
+--- falsch
+Weil die Last über das Zweitor parallel zum Eingang liegt und so den Widerstand zwischen den Klemmen 1 und 1$'$ unmittelbar verkleinert.
+--- falsch
+Er sinkt nicht, sondern steigt: Die Last liegt in Reihe hinter $R_\mathrm{c}$, und der Strom muss nun zusätzlich durch einen weiteren Widerstand fließen, die Last selbst.
+--- falsch
+Weil durch $R_\mathrm{b}$ nun mehr Strom fließt als vorher. Der größere Strom bei gleicher Spannung bedeutet einen kleineren Widerstand am Eingang.
+:::
+:::karte formel Ausgang als Ersatzspannungsquelle
+Welche Ersatzspannungsquelle sieht die Last an Tor 2, wenn eine lineare Quelle $U_\mathrm{q}$, $R_\mathrm{q}$ Tor 1 speist?
+---
+$U_\mathrm{i}=\frac{Z_{21}}{Z_{11}+R_\mathrm{q}}\,U_\mathrm{q}$ und $R_\mathrm{i}=Z_{22}-\frac{Z_{12}Z_{21}}{Z_{11}+R_\mathrm{q}}$. Beim T-Zweitor mit 9 V und 5 $\Omega$ sind das 4,5 V und 30 $\Omega$.
+--- falsch
+$U_\mathrm{i}=\frac{Z_{21}}{Z_{11}}\,U_\mathrm{q}$ und $R_\mathrm{i}=Z_{22}$, weil der Quellwiderstand bei offenem Tor 2 keinen Einfluss hat. Beim T-Zweitor sind das 5,14 V und 40 $\Omega$.
+--- falsch
+$U_\mathrm{i}=\frac{Z_{21}}{Z_{11}+R_\mathrm{q}}\,U_\mathrm{q}$ und $R_\mathrm{i}=Z_{22}+R_\mathrm{q}$, weil der Quellwiderstand in Reihe zum Ausgangsleerlaufwiderstand liegt. Beim T-Zweitor sind das 4,5 V und 45 $\Omega$.
+--- falsch
+$U_\mathrm{i}=U_\mathrm{q}$ und $R_\mathrm{i}=Z_{22}-\frac{Z_{12}Z_{21}}{Z_{11}+R_\mathrm{q}}$, weil im Leerlauf die volle Quellenspannung am Ausgang ankommt. Beim T-Zweitor sind das 9 V und 30 $\Omega$.
+:::
+:::karte herleitung Eingangswiderstand bei Last
+Leite aus den Gleichungen der Z-Form und der Lastgleichung $U_2=-Z_\mathrm{L}I_2$ den Eingangswiderstand $Z_1$ her.
+---
+Die rechte Masche gibt $U_2=Z_{21}I_1+Z_{22}I_2=-Z_\mathrm{L}I_2$, weil die Last an Tor 2 dieselbe Spannung $U_2$ trägt.
+---
+Nach $I_2$ umgestellt folgt $I_2=-\frac{Z_{21}}{Z_{22}+Z_\mathrm{L}}\,I_1$, weil man alle Glieder mit $I_2$ auf eine Seite bringt und durch $Z_{22}+Z_\mathrm{L}$ teilt.
+---
+Eingesetzt in die linke Masche $U_1=Z_{11}I_1+Z_{12}I_2$ ist $U_1$ ein Vielfaches von $I_1$ allein, weil $I_2$ nun durch $I_1$ ausgedrückt ist.
+---
+Durch $I_1$ geteilt folgt $Z_1=Z_{11}-\frac{Z_{12}Z_{21}}{Z_{22}+Z_\mathrm{L}}$, weil der Eingangswiderstand der Quotient aus $U_1$ und $I_1$ ist.
+---
+Für $Z_\mathrm{L}\to\infty$ fällt der Bruch weg, für $Z_\mathrm{L}=0$ folgt $Z_{1,\mathrm{KS}}$, weil der Nenner dann unendlich groß bzw. gleich $Z_{22}$ wird.
+:::
+:::karte herleitung Ersatzquelle am Ausgang
+Leite aus der Z-Form her, welche Ersatzspannungsquelle mit $U_\mathrm{i}$ und $R_\mathrm{i}$ die Last an Tor 2 sieht, wenn eine Quelle $U_\mathrm{q}$, $R_\mathrm{q}$ Tor 1 speist.
+---
+Die Quelle gibt $U_1=U_\mathrm{q}-R_\mathrm{q}I_1$ vor, weil an ihrem Innenwiderstand die Spannung $R_\mathrm{q}I_1$ abfällt.
+---
+Für die Leerlaufspannung ist Tor 2 offen, also $I_2=0$ und $U_1=Z_{11}I_1$; daraus folgt $I_1=U_\mathrm{q}/(Z_{11}+R_\mathrm{q})$, weil Quelle und Eingang denselben Strom führen.
+---
+Es ist $U_\mathrm{i}=Z_{21}I_1$, also $U_\mathrm{i}=\frac{Z_{21}}{Z_{11}+R_\mathrm{q}}\,U_\mathrm{q}$, weil bei $I_2=0$ in der zweiten Gleichung nur der Anteil von $I_1$ bleibt.
+---
+Für $R_\mathrm{i}$ setzt man $U_\mathrm{q}=0$; dann ist Tor 1 durch $R_\mathrm{q}$ abgeschlossen, weil von der Quelle nur ihr Innenwiderstand übrig bleibt.
+---
+$R_\mathrm{i}$ ist nun $Z_1$ mit vertauschten Indizes und $R_\mathrm{q}$ als Last, also $R_\mathrm{i}=Z_{22}-\frac{Z_{12}Z_{21}}{Z_{11}+R_\mathrm{q}}$, weil man jetzt von Tor 2 aus auf ein an Tor 1 belastetes Zweitor blickt.
+:::
+::::

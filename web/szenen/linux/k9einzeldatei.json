@@ -1,0 +1,815 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 30,
+  "nextAnimId": 32,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.2,
+      2.62,
+      0
+     ],
+     "width": 1.9022,
+     "height": 0.28,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#eb6834",
+     "fill_color": "#fdece3",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Text",
+    "props": {
+     "text": "werkzeug_1.4_amd64.deb",
+     "position": [
+      0.2,
+      2.62,
+      0
+     ],
+     "font_size": 17,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o3",
+    "type": "Text",
+    "props": {
+     "text": "@braucht",
+     "position": [
+      1.2711,
+      2.62,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#333333"
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Circle",
+    "props": {
+     "radius": 0.13,
+     "center": [
+      -1.0,
+      2.62,
+      0
+     ],
+     "color": "#7f7f7f",
+     "fill_color": "#7f7f7f",
+     "fill_opacity": 0.0,
+     "stroke_width": 2,
+     "dash": "4,3"
+    }
+   },
+   {
+    "id": "o5",
+    "type": "Text",
+    "props": {
+     "text": "@keinhaken",
+     "position": [
+      -1.22,
+      2.62,
+      0
+     ],
+     "font_size": 18,
+     "align": "right",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Line",
+    "props": {
+     "start": [
+      0,
+      2.25,
+      0
+     ],
+     "end": [
+      0,
+      0.2,
+      0
+     ],
+     "color": "#b5b5b5",
+     "stroke_width": 2,
+     "dash": "6,5"
+    }
+   },
+   {
+    "id": "o7",
+    "type": "Text",
+    "props": {
+     "text": "sudo dpkg -i werkzeug_1.4_amd64.deb",
+     "position": [
+      -1.75,
+      2.0,
+      0
+     ],
+     "font_size": 17,
+     "align": "center",
+     "color": "#333333",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Text",
+    "props": {
+     "text": "sudo apt install ./werkzeug_1.4_amd64.deb",
+     "position": [
+      1.75,
+      2.0,
+      0
+     ],
+     "font_size": 17,
+     "align": "center",
+     "color": "#333333",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o9",
+    "type": "Line",
+    "props": {
+     "start": [
+      -3.3699999999999997,
+      1.5535,
+      0
+     ],
+     "end": [
+      -3.3175,
+      1.4975,
+      0
+     ],
+     "color": "#00823c",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o10",
+    "type": "Line",
+    "props": {
+     "start": [
+      -3.3175,
+      1.4975,
+      0
+     ],
+     "end": [
+      -3.23,
+      1.613,
+      0
+     ],
+     "color": "#00823c",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o11",
+    "type": "Text",
+    "props": {
+     "text": "@ausgepackt",
+     "position": [
+      -3.13,
+      1.55,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Mark",
+    "props": {
+     "center": [
+      -3.3,
+      1.2,
+      0
+     ],
+     "kind": "cross",
+     "size": 0.16,
+     "color": "#c82828",
+     "stroke_width": 4
+    }
+   },
+   {
+    "id": "o13",
+    "type": "Text",
+    "props": {
+     "text": "@fehlt",
+     "position": [
+      -3.13,
+      1.2,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o14",
+    "type": "Line",
+    "props": {
+     "start": [
+      -3.43,
+      0.7369,
+      0
+     ],
+     "end": [
+      -3.17,
+      0.7369,
+      0
+     ],
+     "color": "#eb6834",
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o15",
+    "type": "Line",
+    "props": {
+     "start": [
+      -3.17,
+      0.7369,
+      0
+     ],
+     "end": [
+      -3.3,
+      0.9631,
+      0
+     ],
+     "color": "#eb6834",
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o16",
+    "type": "Line",
+    "props": {
+     "start": [
+      -3.3,
+      0.9631,
+      0
+     ],
+     "end": [
+      -3.43,
+      0.7369,
+      0
+     ],
+     "color": "#eb6834",
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o17",
+    "type": "Text",
+    "props": {
+     "text": "!",
+     "position": [
+      -3.3,
+      0.8229,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#eb6834"
+    }
+   },
+   {
+    "id": "o18",
+    "type": "Text",
+    "props": {
+     "text": "@nicht",
+     "position": [
+      -3.13,
+      0.85,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#eb6834"
+    }
+   },
+   {
+    "id": "o19",
+    "type": "Text",
+    "props": {
+     "text": "dpkg -l: iU",
+     "position": [
+      -3.38,
+      0.45,
+      0
+     ],
+     "font_size": 17,
+     "align": "left",
+     "color": "#eb6834",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o20",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.18,
+      1.5535,
+      0
+     ],
+     "end": [
+      0.23249999999999998,
+      1.4975,
+      0
+     ],
+     "color": "#00823c",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o21",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.23249999999999998,
+      1.4975,
+      0
+     ],
+     "end": [
+      0.32,
+      1.613,
+      0
+     ],
+     "color": "#00823c",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o22",
+    "type": "Text",
+    "props": {
+     "text": "@holt",
+     "position": [
+      0.42,
+      1.55,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o23",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.18,
+      1.2035,
+      0
+     ],
+     "end": [
+      0.23249999999999998,
+      1.1475,
+      0
+     ],
+     "color": "#00823c",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o24",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.23249999999999998,
+      1.1475,
+      0
+     ],
+     "end": [
+      0.32,
+      1.263,
+      0
+     ],
+     "color": "#00823c",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o25",
+    "type": "Text",
+    "props": {
+     "text": "@ausgepackt",
+     "position": [
+      0.42,
+      1.2,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o26",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.18,
+      0.8534999999999999,
+      0
+     ],
+     "end": [
+      0.23249999999999998,
+      0.7975,
+      0
+     ],
+     "color": "#00823c",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o27",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.23249999999999998,
+      0.7975,
+      0
+     ],
+     "end": [
+      0.32,
+      0.913,
+      0
+     ],
+     "color": "#00823c",
+     "stroke_width": 3,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o28",
+    "type": "Text",
+    "props": {
+     "text": "@beide",
+     "position": [
+      0.42,
+      0.85,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#00823c"
+    }
+   },
+   {
+    "id": "o29",
+    "type": "Text",
+    "props": {
+     "text": "dpkg -l: ii",
+     "position": [
+      0.17,
+      0.45,
+      0
+     ],
+     "font_size": 17,
+     "align": "left",
+     "color": "#00823c",
+     "font": "mono",
+     "raw": true
+    }
+   }
+  ],
+  "animations": [
+   {
+    "id": "a1",
+    "type": "FadeIn",
+    "target": "o1",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a2",
+    "type": "FadeIn",
+    "target": "o2",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a3",
+    "type": "FadeIn",
+    "target": "o3",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a4",
+    "type": "FadeIn",
+    "target": "o4",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a5",
+    "type": "FadeIn",
+    "target": "o5",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a6",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.4,
+    "step": 2
+   },
+   {
+    "id": "a7",
+    "type": "FadeIn",
+    "target": "o7",
+    "run_time": 0.5,
+    "step": 3
+   },
+   {
+    "id": "a8",
+    "type": "FadeIn",
+    "target": "o8",
+    "run_time": 0.5,
+    "step": 3
+   },
+   {
+    "id": "a9",
+    "type": "FadeIn",
+    "target": "o6",
+    "run_time": 0.5,
+    "step": 3
+   },
+   {
+    "id": "a10",
+    "type": "FadeIn",
+    "target": "o9",
+    "run_time": 0.45,
+    "step": 4
+   },
+   {
+    "id": "a11",
+    "type": "FadeIn",
+    "target": "o10",
+    "run_time": 0.45,
+    "step": 4
+   },
+   {
+    "id": "a12",
+    "type": "FadeIn",
+    "target": "o11",
+    "run_time": 0.45,
+    "step": 4
+   },
+   {
+    "id": "a13",
+    "type": "FadeIn",
+    "target": "o12",
+    "run_time": 0.45,
+    "step": 5
+   },
+   {
+    "id": "a14",
+    "type": "FadeIn",
+    "target": "o13",
+    "run_time": 0.45,
+    "step": 5
+   },
+   {
+    "id": "a15",
+    "type": "FadeIn",
+    "target": "o14",
+    "run_time": 0.45,
+    "step": 6
+   },
+   {
+    "id": "a16",
+    "type": "FadeIn",
+    "target": "o15",
+    "run_time": 0.45,
+    "step": 6
+   },
+   {
+    "id": "a17",
+    "type": "FadeIn",
+    "target": "o16",
+    "run_time": 0.45,
+    "step": 6
+   },
+   {
+    "id": "a18",
+    "type": "FadeIn",
+    "target": "o17",
+    "run_time": 0.45,
+    "step": 6
+   },
+   {
+    "id": "a19",
+    "type": "FadeIn",
+    "target": "o18",
+    "run_time": 0.45,
+    "step": 6
+   },
+   {
+    "id": "a20",
+    "type": "FadeIn",
+    "target": "o19",
+    "run_time": 0.45,
+    "step": 7
+   },
+   {
+    "id": "a21",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.5,
+    "step": 8
+   },
+   {
+    "id": "a22",
+    "type": "FadeIn",
+    "target": "o20",
+    "run_time": 0.45,
+    "step": 9
+   },
+   {
+    "id": "a23",
+    "type": "FadeIn",
+    "target": "o21",
+    "run_time": 0.45,
+    "step": 9
+   },
+   {
+    "id": "a24",
+    "type": "FadeIn",
+    "target": "o22",
+    "run_time": 0.45,
+    "step": 9
+   },
+   {
+    "id": "a25",
+    "type": "FadeIn",
+    "target": "o23",
+    "run_time": 0.45,
+    "step": 10
+   },
+   {
+    "id": "a26",
+    "type": "FadeIn",
+    "target": "o24",
+    "run_time": 0.45,
+    "step": 10
+   },
+   {
+    "id": "a27",
+    "type": "FadeIn",
+    "target": "o25",
+    "run_time": 0.45,
+    "step": 10
+   },
+   {
+    "id": "a28",
+    "type": "FadeIn",
+    "target": "o26",
+    "run_time": 0.45,
+    "step": 11
+   },
+   {
+    "id": "a29",
+    "type": "FadeIn",
+    "target": "o27",
+    "run_time": 0.45,
+    "step": 11
+   },
+   {
+    "id": "a30",
+    "type": "FadeIn",
+    "target": "o28",
+    "run_time": 0.45,
+    "step": 11
+   },
+   {
+    "id": "a31",
+    "type": "FadeIn",
+    "target": "o29",
+    "run_time": 0.45,
+    "step": 12
+   }
+  ],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "braucht": {
+    "de": "braucht: libonig5",
+    "en": "needs: libonig5",
+    "es": "necesita: libonig5",
+    "zh": "需要：libonig5",
+    "fr": "requiert : libonig5",
+    "tr": "gerektirir: libonig5"
+   },
+   "keinhaken": {
+    "de": "kein Haken der Kette:\nnicht aus einer Paketliste",
+    "en": "no tick from the chain:\nnot from a package list",
+    "es": "sin la marca de la cadena:\nno viene de una lista",
+    "zh": "没有信任链的勾：\n不是来自软件包列表",
+    "fr": "pas de coche de la chaîne :\npas issu d'une liste",
+    "tr": "zincir onayı yok:\nbir paket listesinden değil"
+   },
+   "ausgepackt": {
+    "de": "ausgepackt",
+    "en": "unpacked",
+    "es": "desempaquetado",
+    "zh": "已解包",
+    "fr": "dépaqueté",
+    "tr": "açıldı"
+   },
+   "fehlt": {
+    "de": "libonig5 fehlt",
+    "en": "libonig5 missing",
+    "es": "falta libonig5",
+    "zh": "缺少 libonig5",
+    "fr": "libonig5 manque",
+    "tr": "libonig5 eksik"
+   },
+   "nicht": {
+    "de": "nicht eingerichtet",
+    "en": "not configured",
+    "es": "no configurado",
+    "zh": "未配置",
+    "fr": "non configuré",
+    "tr": "yapılandırılmadı"
+   },
+   "holt": {
+    "de": "libonig5 aus den Paketquellen, geprüft",
+    "en": "libonig5 from the repositories, verified",
+    "es": "libonig5 de los repositorios, verificado",
+    "zh": "libonig5 来自软件源，已校验",
+    "fr": "libonig5 depuis les dépôts, vérifié",
+    "tr": "libonig5 paket depolarından, doğrulandı"
+   },
+   "beide": {
+    "de": "beide eingerichtet",
+    "en": "both configured",
+    "es": "ambos configurados",
+    "zh": "两者都已配置",
+    "fr": "les deux configurés",
+    "tr": "ikisi de yapılandırıldı"
+   }
+  },
+  "drawOrder": "creation"
+ }
+}

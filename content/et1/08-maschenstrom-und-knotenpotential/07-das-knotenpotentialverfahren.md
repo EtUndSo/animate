@@ -189,3 +189,177 @@ Vorhersage: $R_3$ wird durch einen Draht ersetzt. Warum geht das in $\mathbf Y$ 
 (b) $G_3\to\infty$ lässt sich nicht als Zahl eintragen. Der Draht macht aus beiden Knoten einen: $U=(9+4)\,\mathrm{mA}/(1+0{,}25+0{,}1+0{,}2)\,\mathrm{mS}=8{,}39$ V. Der Strom im Draht folgt aus Knoten 2: $4\,\mathrm{mA}-0{,}3\,\mathrm{mS}\cdot8{,}39\,\mathrm{V}=1{,}48$ mA von 2 nach 1. Stufe [9](die-modifizierte-knotenanalyse.html#stufe-9) löst dieselbe Lage mit einer 0-V-Quelle.
 :::
 :::
+
+::::formelsammlung
+**Umwandeln einer realen Spannungsquelle**
+
+$$I_\mathrm q=U_\mathrm q/R$$
+
+Derselbe Widerstand $R$ liegt danach parallel. Erster Schritt des Knotenpotentialverfahrens.
+
+**Strom über einen Leitwert**
+
+$$G_a\,(U_\mu-U_\nu)$$
+
+Strom, der am Knoten $\mu$ über den Leitwert $G_a$ zum Nachbarn $\nu$ abfließt; zum Bezugsknoten fließt $G_a\,U_\mu$ ab.
+
+**Matrixform des Knotenpotentialverfahrens**
+
+$$\begin{pmatrix}Y_{11}&Y_{12}&\dots&Y_{1n}\\Y_{21}&Y_{22}&\dots&Y_{2n}\\\vdots&\vdots&\ddots&\vdots\\Y_{n1}&Y_{n2}&\dots&Y_{nn}\end{pmatrix} \begin{pmatrix}U_1\\U_2\\\vdots\\U_n\end{pmatrix}= \begin{pmatrix}I_\mathrm{q1}\\I_\mathrm{q2}\\\vdots\\I_{\mathrm qn}\end{pmatrix}$$
+
+Kurz $\mathbf Y\,\mathbf U=\mathbf I_\mathrm q$ mit $n=k-1$. $Y_{\mu\mu}$ ist die Summe aller Leitwerte, die am Knoten $\mu$ hängen. $I_{\mathrm q\mu}$ ist die Summe der Quellenströme am Knoten, positiv, wenn sie hineinfließen. Zeile $\mu$ ist die Knotenregel des Knotens $\mu$, Einheit Siemens. Gilt für Leitwerte und feste Stromquellen; eine ideale Spannungsquelle passt nicht hinein.
+
+**Koppelleitwert**
+
+$$Y_{\mu\nu}=Y_{\nu\mu}$$
+
+Minus die Summe der Leitwerte, die direkt zwischen den Knoten $\mu$ und $\nu$ liegen; ohne direkte Verbindung null. Immer mit Minus, weil alle Knotenpotentiale zum selben Bezugsknoten zählen.
+::::
+
+::::lernkarten
+:::karte begriff Knotenpotentialverfahren
+Was ist das Knotenpotentialverfahren, und in welchen Schritten berechnet man damit ein Netz?
+---
+Ein Verfahren mit den $k-1$ Knotenpotentialen als Unbekannten, bei dem nur Knotenregeln aufzustellen sind. Schritte: reale Spannungsquellen in Stromquellen umwandeln, Bezugsknoten festlegen, Matrix ablesen, lösen.
+--- falsch
+Ein Verfahren mit den $k-1$ Knotenpotentialen als Unbekannten, sodass nur Maschenregeln aufzustellen sind. Schritte: reale Stromquellen in Spannungsquellen umwandeln, Bezugsknoten festlegen, Maschenregeln aufstellen, lösen.
+--- falsch
+Ein Verfahren mit allen $k$ Knotenpotentialen als Unbekannten, auch dem des Bezugsknotens. Schritte: Quellen umwandeln, für jeden der $k$ Knoten eine Knotenregel aufstellen, alle $k$ Gleichungen gemeinsam lösen.
+--- falsch
+Ein Verfahren mit den Zweigströmen an jedem Knoten als Unbekannten, sodass Knoten- und Maschenregeln nötig sind. Schritte: Bezugsknoten festlegen, Ströme eintragen, alle Regeln aufstellen, lösen.
+:::
+:::karte formel Matrixform des Knotenpotentialverfahrens
+Welche Matrixgleichung erfüllen die $n=k-1$ Knotenpotentiale eines Netzes, und was steht auf der Diagonale, daneben und rechts?
+---
+$\mathbf Y\,\mathbf U=\mathbf I_\mathrm q$. $Y_{\mu\mu}$ ist die Summe aller Leitwerte am Knoten $\mu$, $Y_{\mu\nu}=Y_{\nu\mu}$ der negative Koppelleitwert, $I_{\mathrm q\mu}$ die Summe der Quellenströme, die in den Knoten hineinfließen. Das gilt für Leitwerte und feste Stromquellen.
+--- falsch
+$\mathbf Y\,\mathbf U=\mathbf I_\mathrm q$. $Y_{\mu\mu}$ ist die Summe aller Leitwerte am Knoten $\mu$, $Y_{\mu\nu}=Y_{\nu\mu}$ der positive Koppelleitwert, $I_{\mathrm q\mu}$ die Summe der Quellenströme, die aus dem Knoten herausfließen.
+--- falsch
+$\mathbf Y\,\mathbf U=\mathbf I_\mathrm q$. $Y_{\mu\mu}$ ist der Leitwert vom Knoten $\mu$ zum Bezugsknoten, $Y_{\mu\nu}$ der negative Koppelleitwert, $I_{\mathrm q\mu}$ die Summe der hineinfließenden Quellenströme. Das gilt auch für ideale Spannungsquellen, deren Leitwert man unendlich setzt.
+--- falsch
+$\mathbf U=\mathbf Y\,\mathbf I_\mathrm q$. $Y_{\mu\mu}$ ist die Summe aller Widerstände am Knoten $\mu$, $Y_{\mu\nu}$ der negative Koppelwiderstand, rechts stehen die Quellenströme. Das gilt für Leitwerte und feste Stromquellen.
+:::
+:::karte begriff Leitwertmatrix
+Was steht in der Leitwertmatrix $\mathbf Y$ des Knotenpotentialverfahrens, und welche Einheit hat sie?
+---
+Auf der Diagonale die Summe der Leitwerte an einem Knoten, daneben der negative Leitwert zwischen zwei Knoten. Jede Zeile ist die Knotenregel eines Knotens, die Matrix ist symmetrisch, ihre Einheit ist Siemens.
+--- falsch
+Auf der Diagonale die Summe der Widerstände einer Masche, daneben die gemeinsamen Widerstände zweier Maschen. Jede Zeile ist die Maschenregel einer Masche, ihre Einheit ist Ohm.
+--- falsch
+Auf der Diagonale die Summe der Leitwerte an einem Knoten, daneben der positive Leitwert zwischen zwei Knoten, weil Leitwerte nie negativ sind. Jede Zeile ist die Knotenregel eines Knotens, ihre Einheit ist Siemens.
+--- falsch
+Auf der Diagonale nur der Leitwert vom Knoten zum Bezugsknoten, daneben der negative Leitwert zwischen zwei Knoten. Jede Zeile ist eine Knotenregel, ihre Einheit ist Ampere.
+:::
+:::karte begriff Koppelleitwert
+Was ist der Koppelleitwert zweier Knoten, und mit welchem Vorzeichen steht er in der Leitwertmatrix?
+---
+Die Summe der Leitwerte, die direkt zwischen den Knoten $\mu$ und $\nu$ liegen. In $\mathbf Y$ steht er immer mit Minus, $Y_{\mu\nu}=Y_{\nu\mu}$; ohne direkte Verbindung steht dort null.
+--- falsch
+Die Summe der Leitwerte, die direkt zwischen den Knoten $\mu$ und $\nu$ liegen. In $\mathbf Y$ steht er mit Plus oder Minus, je nachdem, in welche Richtung man den Strom zwischen den Knoten zählt.
+--- falsch
+Die Summe aller Leitwerte an beiden Knoten zusammen. In $\mathbf Y$ steht er immer mit Minus, $Y_{\mu\nu}=Y_{\nu\mu}$; ohne direkte Verbindung steht dort der Leitwert über den Bezugsknoten.
+--- falsch
+Der Leitwert des Wegs zwischen den Knoten $\mu$ und $\nu$ über den Bezugsknoten. In $\mathbf Y$ steht er immer mit Minus; liegen die Knoten direkt nebeneinander, steht dort null.
+:::
+:::karte formel Umwandeln einer realen Spannungsquelle
+Wie bringt man eine reale Spannungsquelle mit der Quellenspannung $U_\mathrm q$ und dem Reihenwiderstand $R$ in eine Form, die das Knotenpotentialverfahren verarbeiten kann?
+---
+Man wandelt sie in eine reale Stromquelle um: $I_\mathrm q=U_\mathrm q/R$, derselbe Widerstand liegt danach parallel. Im Rechenmodell wird so $I_\mathrm{q1}=U_\mathrm q/R_1=9$ mA mit $G_1=1$ mS parallel.
+--- falsch
+Man wandelt sie in eine reale Stromquelle um: $I_\mathrm q=U_\mathrm q/R$, derselbe Widerstand bleibt in Reihe zur Stromquelle, weil er auch vorher in Reihe lag. So werden aus 9 V und 1 k$\Omega$ 9 mA.
+--- falsch
+Man ersetzt sie durch einen Kurzschluss und rechnet nur mit $R$, weil Spannungsquellen in der Leitwertmatrix keinen Platz haben. Die 9 V setzt man am Ende als Knotenpotential ein.
+--- falsch
+Man wandelt sie in eine ideale Stromquelle um: $I_\mathrm q=U_\mathrm q/R$, den Widerstand lässt man weg, weil er im Quellenstrom schon enthalten ist. So werden aus 9 V und 1 k$\Omega$ 9 mA.
+:::
+:::karte formel Strom über einen Leitwert
+Welcher Strom fließt am Knoten $\mu$ über einen Leitwert $G_a$ zum Nachbarknoten $\nu$ ab, und welcher zum Bezugsknoten?
+---
+$G_a\,(U_\mu-U_\nu)$ zum Nachbarn und $G_a\,U_\mu$ zum Bezugsknoten. Die Spannung am Leitwert ist die Differenz der Knotenpotentiale, und der Bezugsknoten hat das Potenzial null.
+--- falsch
+$G_a\,(U_\mu+U_\nu)$ zum Nachbarn und $G_a\,U_\mu$ zum Bezugsknoten. Beide Knotenpotentiale treiben den Strom gemeinsam, weil sie gegen denselben Bezugsknoten zählen und sich deshalb addieren.
+--- falsch
+$G_a\,(U_\nu-U_\mu)$ zum Nachbarn und $-G_a\,U_\mu$ zum Bezugsknoten. Strom fließt vom niedrigeren zum höheren Potenzial, deshalb zählt das eigene Potenzial negativ.
+--- falsch
+$(U_\mu-U_\nu)/G_a$ zum Nachbarn und $U_\mu/G_a$ zum Bezugsknoten. Die Spannung am Leitwert ist die Differenz der Knotenpotentiale, geteilt durch den Leitwert.
+:::
+:::karte herleitung Von der Knotenregel zur Matrix
+Leite aus der Knotenregel am Knoten $\mu$ die Einträge der Leitwertmatrix her und zeige, dass $\mathbf Y$ symmetrisch ist.
+---
+Über jeden Leitwert $G_a$ fließt zum Nachbarn $\nu$ der Strom $G_a\,(U_\mu-U_\nu)$ ab, zum Bezugsknoten $G_a\,U_\mu$, weil die Spannung am Leitwert die Differenz der Knotenpotentiale ist.
+---
+Die Summe dieser abfließenden Ströme ist gleich dem eingespeisten $I_{\mathrm q\mu}$, weil nach der Knotenregel abfließt, was die Quellen hineinschieben.
+---
+Ordnet man nach Potenzialen, steht vor $U_\mu$ die Summe aller $G_a$ am Knoten, weil das eigene Potenzial in jedem dieser Ströme vorkommt.
+---
+Vor $U_\nu$ steht minus die Summe der Leitwerte zwischen $\mu$ und $\nu$, weil das fremde Potenzial nur im Strom über diese Leitwerte vorkommt, und dort mit Minus.
+---
+Knoten $\nu$ erhält denselben Eintrag, weil ein Leitwert keine Richtung kennt. Deshalb ist $\mathbf Y$ symmetrisch.
+:::
+:::karte zusammenhang Minus vor dem fremden Potenzial
+Warum steht in einer Knotengleichung vor dem Potenzial eines Nachbarknotens ein Minus?
+---
+Weil über den Leitwert zum Nachbarn der Strom $G\,(U_\mu-U_\nu)$ abfließt. Das fremde Potenzial wirkt also gegen den Abfluss: Hebt man den Nachbarn an, fließt weniger ab.
+--- falsch
+Weil das Potenzial des Nachbarknotens in umgekehrter Richtung gegen den Bezugsknoten gezählt wird. Sein Pfeil zeigt vom Bezugsknoten zum Nachbarn, also zählt es negativ.
+--- falsch
+Weil über den Leitwert zum Nachbarn der Strom $G\,(U_\mu-U_\nu)$ abfließt. Hebt man den Nachbarn an, fließt mehr ab, und das Minus gleicht diesen Zuwachs aus.
+--- falsch
+Weil der Strom vom Nachbarn immer in den Knoten hineinfließt und Zuflüsse auf der linken Seite negativ zählen. Das gilt unabhängig davon, welches Potenzial höher liegt.
+:::
+:::karte zusammenhang Vorzeichen in Z und Y
+Warum hängt das Vorzeichen neben der Diagonale in $\mathbf Z$ von der Wahl der Pfeile ab, während in $\mathbf Y$ immer ein Minus steht?
+---
+Maschenströme haben eine gewählte Richtung, im gemeinsamen Zweig gibt es also zwei Möglichkeiten. Knotenpotentiale haben keine Richtung, alle zählen zum selben Bezugsknoten, deshalb trägt das fremde Potenzial immer ein Minus.
+--- falsch
+Weil Leitwerte immer negativ und Widerstände immer positiv sind. In $\mathbf Z$ entscheidet deshalb die Richtung über das Vorzeichen, in $\mathbf Y$ das Vorzeichen des Leitwerts selbst.
+--- falsch
+Weil in $\mathbf Y$ alle Ströme vom Bezugsknoten wegfließen müssen. Die Richtung ist dort durch die Quellen vorgegeben, in $\mathbf Z$ dagegen frei wählbar, also mit beliebigem Vorzeichen.
+--- falsch
+Maschenströme haben eine Richtung, die man wählt. Knotenpotentiale haben auch eine, aber man wählt sie stets vom Knoten weg zum Nachbarn, und dann ergibt sich beim Nachbarn jedes Mal ein Minus, gleich wie die Zweige liegen.
+:::
+:::karte zusammenhang Spalte der Leitwertmatrix
+Welchen Versuch beschreibt die Spalte $\nu$ der Leitwertmatrix?
+---
+Man hält Knoten $\nu$ auf 1 V und alle anderen auf 0 V. Dann muss man an Knoten $\nu$ den Strom $Y_{\nu\nu}$ einspeisen und an jedem Nachbarn $\mu$ den Strom $-Y_{\mu\nu}$ entnehmen. Das ist der Kurzschlussversuch.
+--- falsch
+Man speist an Knoten $\nu$ den Strom 1 mA ein und lässt alle anderen Knoten offen. Die Spalte gibt dann die Potenziale an, die sich an allen Knoten einstellen. Das ist der Leerlaufversuch.
+--- falsch
+Man hält Knoten $\nu$ auf 1 V und alle anderen auf 0 V. Dann muss man an Knoten $\nu$ den Strom $Y_{\nu\nu}$ entnehmen und an jedem Nachbarn $\mu$ den Strom $Y_{\mu\nu}$ einspeisen. Das ist der Leerlaufversuch.
+--- falsch
+Man entfernt Knoten $\nu$ aus dem Netz und misst, wie sich die übrigen Potenziale dadurch ändern. Die Spalte gibt diese Änderungen je Volt an. Das ist der Kurzschlussversuch.
+:::
+:::karte zusammenhang Ideale Spannungsquelle
+Warum passt eine ideale Spannungsquelle nicht in das Gleichungssystem $\mathbf Y\,\mathbf U=\mathbf I_\mathrm q$?
+---
+Weil sie keinen endlichen Leitwert hat und sich auch nicht in eine Stromquelle umwandeln lässt. Eine reale Spannungsquelle wandelt man vorher in eine Stromquelle mit parallelem Widerstand um.
+--- falsch
+Weil ihr Leitwert null ist und eine Null auf der Diagonale die Determinante null macht. Man ersetzt sie deshalb durch einen sehr großen Widerstand und rechnet mit diesem Ersatz ganz normal weiter.
+--- falsch
+Sie passt hinein: Man trägt ihre Spannung $U_\mathrm q$ einfach auf der rechten Seite ein, wie beim Maschenstromverfahren, und rechnet unverändert weiter.
+--- falsch
+Weil ihr Strom immer null ist und sie deshalb in keiner Knotenregel vorkommt. Man lässt sie weg und setzt ihre Spannung am Ende als Knotenpotential ein.
+:::
+:::karte zusammenhang Innere Größen im ursprünglichen Netz
+Warum berechnet man nach dem Umwandeln einer Quelle den Strom in ihrem Widerstand im ursprünglichen Netz und nicht in der umgewandelten Quelle?
+---
+Weil Ersatzquellen nur an den Klemmen stimmen. An den Anschlussknoten liefern beide Formen dasselbe, im Inneren der Quelle bedeutet der Strom Verschiedenes. Innere Größen rechnet man deshalb aus den Klemmenspannungen im ursprünglichen Netz.
+--- falsch
+Weil das Umwandeln die Knotenpotentiale verfälscht. Nach dem Umwandeln stimmen nur die Ströme im Inneren der Quelle, die Klemmenspannungen muss man im ursprünglichen Netz neu berechnen.
+--- falsch
+Das ist nicht nötig, denn umgewandelte Quellen sind in jeder Hinsicht gleichwertig. Der Strom im Widerstand der Quelle ist in beiden Formen gleich groß und gleich gerichtet, man kann ihn deshalb direkt an der umgewandelten Quelle ablesen.
+--- falsch
+Weil die umgewandelte Quelle mehr Leistung liefert als die ursprüngliche. Ihr Widerstand führt deshalb einen größeren Strom, den man im ursprünglichen Netz um den Überschuss verkleinern muss.
+:::
+:::karte zusammenhang Entkoppelte Knoten
+Was geschieht mit den Knotengleichungen, wenn man den einzigen Leitwert zwischen zwei Knoten entfernt?
+---
+Die Einträge neben der Diagonale werden null, und die Gleichungen entkoppeln. Beide Seiten rechnen getrennt wie zwei Netze; im Rechenmodell wird $U_1=9\,\mathrm{mA}/1{,}25\,\mathrm{mS}=7{,}2$ V.
+--- falsch
+Die Diagonale wird null, weil an den Knoten kein Leitwert mehr hängt, und das System ist nicht mehr lösbar. Man muss die beiden Knoten deshalb zu einem zusammenfassen.
+--- falsch
+Die Einträge neben der Diagonale werden unendlich, weil der Widerstand zwischen den Knoten unendlich groß ist. Beide Potenziale werden dadurch gleich groß.
+--- falsch
+Die Einträge neben der Diagonale werden null, aber die Gleichungen bleiben gekoppelt, weil beide Knoten über den Bezugsknoten verbunden sind und sich ihre Ströme teilen.
+:::
+::::

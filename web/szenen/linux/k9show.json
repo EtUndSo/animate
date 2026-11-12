@@ -1,0 +1,614 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 21,
+  "nextAnimId": 28,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Terminal",
+    "props": {
+     "text": "student@labor:~/linuxk9$ \\e|\\e>apt show hello\n\\e|\\e[1mPackage:\\e[22m \\e[32mhello\\e[0m\n\\e[1mVersion:\\e[22m 2.10-5build1\n\\e[1mPriority:\\e[22m optional\n\\e[1mSection:\\e[22m devel\n\\e[1mOrigin:\\e[22m Ubuntu\n\\e[1mMaintainer:\\e[22m Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>\n\\e[1mOriginal-Maintainer:\\e[22m Santiago Vila <sanvila@debian.org>\n\\e[1mBugs:\\e[22m https://bugs.launchpad.net/ubuntu/+filebug\n\\e[1mInstalled-Size:\\e[22m 106 kB\n\\e[1mDepends:\\e[22m libc6 (>= 2.38)\n\\e[1mConflicts:\\e[22m hello-traditional\n\\e[1mBreaks:\\e[22m hello-debhelper (<< 2.9)\n\\e[1mReplaces:\\e[22m hello-debhelper (<< 2.9), hello-traditional\n\\e[1mHomepage:\\e[22m https://www.gnu.org/software/hello/\n\\e[1mDownload-Size:\\e[22m 26.1 kB\n\\e[1mAPT-Sources:\\e[22m http://archive.ubuntu.com/ubuntu resolute/main amd64 Packages\n\\e[1mDescription:\\e[22m example package based on GNU hello\n\\e[90m...\\e[0m\n",
+     "cols": 80,
+     "rows": 0,
+     "font_size": 18.0,
+     "line_height": 1.2,
+     "position": [
+      -3.11,
+      2.85,
+      0
+     ],
+     "frame": "fenster",
+     "theme": "dunkel",
+     "title": "student@labor: ~/linuxk9",
+     "buttons": "drei",
+     "cursor": true,
+     "prompt_colors": true,
+     "shadow": true,
+     "state": "term1"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Parameter",
+    "props": {
+     "name": "term1",
+     "value": 0.0,
+     "min": 0.0,
+     "max": 2.0,
+     "step": 0.01
+    }
+   },
+   {
+    "id": "o3",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.15,
+      1.0033,
+      0
+     ],
+     "width": 1.76,
+     "height": 0.16,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#eb6834",
+     "fill_color": "#ffffff",
+     "fill_opacity": 0.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Text",
+    "props": {
+     "text": "1",
+     "position": [
+      -3.28,
+      1.0033,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#eb6834"
+    }
+   },
+   {
+    "id": "o5",
+    "type": "Text",
+    "props": {
+     "text": "1",
+     "position": [
+      -3.35,
+      -1.0067,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#eb6834"
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Text",
+    "props": {
+     "text": "@sh0",
+     "position": [
+      -3.15,
+      -1.0067,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o7",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.15,
+      0.0433,
+      0
+     ],
+     "width": 1.76,
+     "height": 0.16,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#eb6834",
+     "fill_color": "#ffffff",
+     "fill_opacity": 0.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Text",
+    "props": {
+     "text": "2",
+     "position": [
+      -3.28,
+      0.0433,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#eb6834"
+    }
+   },
+   {
+    "id": "o9",
+    "type": "Text",
+    "props": {
+     "text": "2",
+     "position": [
+      -3.35,
+      -1.2767,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#eb6834"
+    }
+   },
+   {
+    "id": "o10",
+    "type": "Text",
+    "props": {
+     "text": "@sh1",
+     "position": [
+      -3.15,
+      -1.2767,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o11",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.07,
+      -0.1167,
+      0
+     ],
+     "width": 5.92,
+     "height": 0.16,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#eb6834",
+     "fill_color": "#ffffff",
+     "fill_opacity": 0.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Text",
+    "props": {
+     "text": "3",
+     "position": [
+      -3.28,
+      -0.1167,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#eb6834"
+    }
+   },
+   {
+    "id": "o13",
+    "type": "Text",
+    "props": {
+     "text": "3",
+     "position": [
+      0.35,
+      -1.0067,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#eb6834"
+    }
+   },
+   {
+    "id": "o14",
+    "type": "Text",
+    "props": {
+     "text": "@sh2",
+     "position": [
+      0.55,
+      -1.0067,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o15",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.07,
+      0.8433,
+      0
+     ],
+     "width": 1.92,
+     "height": 0.16,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#33da7a",
+     "fill_color": "#ffffff",
+     "fill_opacity": 0.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o16",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.35,
+      -1.2727,
+      0
+     ],
+     "end": [
+      0.41,
+      -1.3367,
+      0
+     ],
+     "color": "#00823c",
+     "stroke_width": 3.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o17",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.41,
+      -1.3367,
+      0
+     ],
+     "end": [
+      0.51,
+      -1.2046999999999999,
+      0
+     ],
+     "color": "#00823c",
+     "stroke_width": 3.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o18",
+    "type": "Text",
+    "props": {
+     "text": "@sh3",
+     "position": [
+      0.59,
+      -1.2767,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#00823c"
+    }
+   },
+   {
+    "id": "o19",
+    "type": "Line",
+    "props": {
+     "start": [
+      -0.9200000000000002,
+      0.8468,
+      0
+     ],
+     "end": [
+      -0.8675,
+      0.7908000000000001,
+      0
+     ],
+     "color": "#33da7a",
+     "stroke_width": 3.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o20",
+    "type": "Line",
+    "props": {
+     "start": [
+      -0.8675,
+      0.7908000000000001,
+      0
+     ],
+     "end": [
+      -0.78,
+      0.9063000000000001,
+      0
+     ],
+     "color": "#33da7a",
+     "stroke_width": 3.5,
+     "dash": ""
+    }
+   }
+  ],
+  "animations": [
+   {
+    "id": "a1",
+    "type": "FadeIn",
+    "target": "o1",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a2",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.3,
+    "step": 1
+   },
+   {
+    "id": "a3",
+    "type": "ChangeValue",
+    "target": "o2",
+    "run_time": 1.071,
+    "step": 2,
+    "value": 1.0,
+    "rate": "linear"
+   },
+   {
+    "id": "a4",
+    "type": "ChangeValue",
+    "target": "o2",
+    "run_time": 0.7,
+    "step": 3,
+    "value": 2.0,
+    "rate": "linear"
+   },
+   {
+    "id": "a5",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.8,
+    "step": 4
+   },
+   {
+    "id": "a6",
+    "type": "FadeIn",
+    "target": "o3",
+    "run_time": 0.6,
+    "step": 5
+   },
+   {
+    "id": "a7",
+    "type": "FadeIn",
+    "target": "o4",
+    "run_time": 0.6,
+    "step": 5
+   },
+   {
+    "id": "a8",
+    "type": "FadeIn",
+    "target": "o5",
+    "run_time": 0.6,
+    "step": 5
+   },
+   {
+    "id": "a9",
+    "type": "FadeIn",
+    "target": "o6",
+    "run_time": 0.6,
+    "step": 5
+   },
+   {
+    "id": "a10",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.5,
+    "step": 6
+   },
+   {
+    "id": "a11",
+    "type": "FadeIn",
+    "target": "o7",
+    "run_time": 0.6,
+    "step": 7
+   },
+   {
+    "id": "a12",
+    "type": "FadeIn",
+    "target": "o8",
+    "run_time": 0.6,
+    "step": 7
+   },
+   {
+    "id": "a13",
+    "type": "FadeIn",
+    "target": "o9",
+    "run_time": 0.6,
+    "step": 7
+   },
+   {
+    "id": "a14",
+    "type": "FadeIn",
+    "target": "o10",
+    "run_time": 0.6,
+    "step": 7
+   },
+   {
+    "id": "a15",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.5,
+    "step": 8
+   },
+   {
+    "id": "a16",
+    "type": "FadeIn",
+    "target": "o11",
+    "run_time": 0.6,
+    "step": 9
+   },
+   {
+    "id": "a17",
+    "type": "FadeIn",
+    "target": "o12",
+    "run_time": 0.6,
+    "step": 9
+   },
+   {
+    "id": "a18",
+    "type": "FadeIn",
+    "target": "o13",
+    "run_time": 0.6,
+    "step": 9
+   },
+   {
+    "id": "a19",
+    "type": "FadeIn",
+    "target": "o14",
+    "run_time": 0.6,
+    "step": 9
+   },
+   {
+    "id": "a20",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.5,
+    "step": 10
+   },
+   {
+    "id": "a21",
+    "type": "FadeIn",
+    "target": "o15",
+    "run_time": 0.6,
+    "step": 11
+   },
+   {
+    "id": "a22",
+    "type": "FadeIn",
+    "target": "o19",
+    "run_time": 0.6,
+    "step": 11
+   },
+   {
+    "id": "a23",
+    "type": "FadeIn",
+    "target": "o20",
+    "run_time": 0.6,
+    "step": 11
+   },
+   {
+    "id": "a24",
+    "type": "FadeIn",
+    "target": "o16",
+    "run_time": 0.6,
+    "step": 11
+   },
+   {
+    "id": "a25",
+    "type": "FadeIn",
+    "target": "o17",
+    "run_time": 0.6,
+    "step": 11
+   },
+   {
+    "id": "a26",
+    "type": "FadeIn",
+    "target": "o18",
+    "run_time": 0.6,
+    "step": 11
+   },
+   {
+    "id": "a27",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.5,
+    "step": 12
+   }
+  ],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "sh0": {
+    "de": "so viel Platz nach dem Installieren: 104 KiB",
+    "en": "space used after installing: 104 KiB",
+    "es": "espacio ocupado tras instalar: 104 KiB",
+    "zh": "安装后占用的空间：104 KiB",
+    "fr": "place occupée après l'installation : 104 Kio",
+    "tr": "kurulumdan sonra kapladığı yer: 104 KiB"
+   },
+   "sh1": {
+    "de": "so groß ist die Paketdatei",
+    "en": "size of the package file",
+    "es": "tamaño del archivo de paquete",
+    "zh": "软件包文件的大小",
+    "fr": "taille du fichier de paquet",
+    "tr": "paket dosyasının boyutu"
+   },
+   "sh2": {
+    "de": "aus dieser Paketliste: resolute/main",
+    "en": "from this package list: resolute/main",
+    "es": "de esta lista: resolute/main",
+    "zh": "来自这个软件包列表：resolute/main",
+    "fr": "de cette liste : resolute/main",
+    "tr": "bu paket listesinden: resolute/main"
+   },
+   "sh3": {
+    "de": "schon installiert",
+    "en": "already installed",
+    "es": "ya instalado",
+    "zh": "已安装",
+    "fr": "déjà installé",
+    "tr": "zaten kurulu"
+   }
+  },
+  "drawOrder": "creation"
+ }
+}

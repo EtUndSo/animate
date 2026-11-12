@@ -260,7 +260,7 @@ WSL 2 reicht für alles, was diese Reihe an der Kommandozeile, beim Programmier
 
 <li>
 
-⁠**Aktualisierungen.** Windows aktualisiert WSL und den Linux-Kernel, aber nicht die Programme der Distribution. Die aktualisierst du in Linux selbst, wie Kapitel 9 zeigt.
+⁠**Aktualisierungen.** Windows aktualisiert WSL und den Linux-Kernel, aber nicht die Programme der Distribution. Die aktualisierst du in Linux selbst, wie [Kapitel 9](/wissen/informatik/linux-und-kommandozeile/software-installieren-paketverwaltung/software-installieren-paketverwaltung.html) zeigt.
 
 </li>
 

@@ -95,3 +95,144 @@ Zum T-Zweitor kommt ein Querwiderstand von 10 $\Omega$ in Reihe, Reihe. Welche
 (a) $\mathbf Y$ verdoppelt sich, also halbiert sich $\mathbf Z$: $Z_{11}=17{,}5\,\Omega$, $Z_{12}=Z_{21}=10\,\Omega$, $Z_{22}=20\,\Omega$. Beide sind Dreipole mit gemeinsamer Masseleitung, die Tore bleiben Tore. (b) $\mathbf Z$ verdoppelt sich: 70, 40, 40, 80 $\Omega$. (c) $\mathbf H$ verdoppelt sich: $H_{11}=50\,\Omega$, $H_{12}=1$, $H_{21}=-1$, $H_{22}=50$ mS. (d) $Z_{11}=45\,\Omega$, $Z_{12}=Z_{21}=30\,\Omega$, $Z_{22}=50\,\Omega$. Das ist ein T mit $R_\mathrm{a}=15\,\Omega$, $R_\mathrm{b}=30\,\Omega$, $R_\mathrm{c}=20\,\Omega$: Der Querwiderstand liegt in Reihe zu $R_\mathrm{b}$, weil er denselben Summenstrom führt.
 :::
 :::
+
+::::formelsammlung
+**Reihe, Reihe**
+
+$$\mathbf Z=\mathbf Z'+\mathbf Z''$$
+
+Gleich für beide Teile sind $I_1$, $I_2$; es summieren sich $U_1$, $U_2$.
+
+**Parallel, parallel**
+
+$$\mathbf Y=\mathbf Y'+\mathbf Y''$$
+
+Gleich für beide Teile sind $U_1$, $U_2$; es summieren sich $I_1$, $I_2$.
+
+**Reihe, parallel**
+
+$$\mathbf H=\mathbf H'+\mathbf H''$$
+
+Gleich für beide Teile sind $I_1$, $U_2$; es summieren sich $U_1$, $I_2$. Daher heißt die H-Matrix auch Reihenparallelmatrix. Zu parallel, Reihe gehört die umgekehrte Hybridform, die man mit der Inversen von $\mathbf H$ erhält.
+
+**Kette**
+
+$$\mathbf A=\mathbf A'\mathbf A''$$
+
+Gleich sind $U_2'=U_1''$ und $-I_2'=I_1''$, nichts summiert sich. Alle Regeln setzen voraus, dass jedes Teil für sich die Torbedingung behält. Sicher ist das bei der Kette und bei Dreipolen mit gemeinsamer Masseleitung in parallel, parallel.
+::::
+
+::::lernkarten
+:::karte formel Reihe, Reihe
+Welche Matrix addiert sich, wenn zwei Zweitore an beiden Toren in Reihe geschaltet sind, und warum gerade diese?
+---
+$\mathbf Z=\mathbf Z'+\mathbf Z''$. In Reihe führen beide Teile dieselben Ströme $I_1$, $I_2$, und die Spannungen summieren sich. Die Ströme sind die Ursachen der Z-Form.
+--- falsch
+$\mathbf Y=\mathbf Y'+\mathbf Y''$. In Reihe liegen an beiden Teilen dieselben Spannungen, und die Ströme summieren sich; die Spannungen sind die Ursachen der Y-Form.
+--- falsch
+$\mathbf A=\mathbf A'\mathbf A''$. In Reihe fließt der Strom erst durch das eine, dann durch das andere Zweitor, wie bei jeder Hintereinanderschaltung von Zweitoren.
+--- falsch
+$\mathbf Z=\mathbf Z'+\mathbf Z''$. In Reihe liegen an beiden Teilen dieselben Spannungen, und Widerstände in Reihe addieren sich immer, gleich in welcher Form.
+:::
+:::karte formel Parallel, parallel
+Welche Matrix addiert sich, wenn zwei Zweitore an beiden Toren parallel geschaltet sind, und warum gerade diese?
+---
+$\mathbf Y=\mathbf Y'+\mathbf Y''$. Parallel liegen an beiden Teilen dieselben Spannungen $U_1$, $U_2$, und die Ströme summieren sich. Die Spannungen sind die Ursachen der Y-Form.
+--- falsch
+$\mathbf Z=\mathbf Z'+\mathbf Z''$. Parallel führen beide Teile dieselben Ströme, und die Spannungen summieren sich; die Ströme sind die Ursachen der Z-Form.
+--- falsch
+$\mathbf Y=\mathbf Y'\mathbf Y''$. Parallel geschaltete Leitwerte multiplizieren sich, deshalb ergibt sich die Y-Matrix der Schaltung als Produkt der beiden Matrizen.
+--- falsch
+$\mathbf H=\mathbf H'+\mathbf H''$. Parallel ist an einem Tor der Strom gleich und am anderen die Spannung, genau wie bei den Ursachen der H-Form.
+:::
+:::karte formel Reihe, parallel
+Welche Matrix addiert sich bei der Schaltung Reihe am Eingang, parallel am Ausgang, und welchen zweiten Namen hat sie deshalb?
+---
+$\mathbf H=\mathbf H'+\mathbf H''$. Gleich für beide Teile sind $I_1$ und $U_2$, die Ursachen der H-Form; $U_1$ und $I_2$ summieren sich. Daher heißt die H-Matrix auch Reihenparallelmatrix.
+--- falsch
+$\mathbf A=\mathbf A'\mathbf A''$. Gleich für beide Teile sind $U_2$ und $-I_2$, die Ursachen der Kettenform, und nichts summiert sich. Daher heißt die Kettenmatrix auch Reihenparallelmatrix.
+--- falsch
+$\mathbf H=\mathbf H'+\mathbf H''$. Gleich für beide Teile sind $U_1$ und $I_2$, die sich bei dieser Schaltung nicht ändern. Daher heißt die H-Matrix auch Reihenparallelmatrix.
+--- falsch
+Keine Matrix addiert sich, denn das Reihentor verlangt die Z-Form und das Paralleltor die Y-Form. Deshalb heißt die gemischte Rechnung Reihenparallelverfahren.
+:::
+:::karte zusammenhang Welche Form sich addiert
+Nach welcher Regel erkennt man, welche Parameterform sich bei einer Zusammenschaltung zweier Zweitore addiert?
+---
+An jedem Tor teilen die Teile entweder den Strom (Reihe) oder die Spannung (parallel). Die geteilten Größen sind die Ursachen, die summierten die Wirkungen; dann steht rechts für beide Teile dasselbe.
+--- falsch
+Die summierten Größen gehören zu den Ursachen, die gemeinsamen zu den Wirkungen. Dann addieren sich die Parameter, weil sich auf der rechten Seite die Ursachen beider Teile addieren und die Wirkungen gleich bleiben.
+--- falsch
+Es addiert sich immer die Z-Form, weil Widerstände bei jeder Zusammenschaltung zusammengezählt werden. Die anderen Formen rechnet man danach aus der Summe um.
+--- falsch
+Es addiert sich die Form, deren Parameter die kleinsten Werte haben, weil kleine Parameter beim Zusammenschalten die geringsten Rechenfehler erzeugen.
+:::
+:::karte zusammenhang Kettenmatrix bei der Reihe
+Warum addiert sich bei der Schaltung Reihe, Reihe nicht die Kettenmatrix?
+---
+Bei der Reihe ist $I_1$ für beide Teile gleich, $U_1$ aber nicht. In der Kettenform stehen $U_1$ und $I_1$ zusammen links; die rechten Spalten beider Teile wären verschieden.
+--- falsch
+Sie addiert sich doch. Die Kettenmatrix addiert sich bei jeder Zusammenschaltung zweier Zweitore, nur bei der Kette selbst multipliziert sie sich stattdessen.
+--- falsch
+Weil die Kettenmatrix Parameter ohne Einheit enthält. Matrizen lassen sich nur addieren, wenn alle ihre Elemente dieselbe Einheit haben, wie bei Z oder Y.
+--- falsch
+Weil bei der Reihe die Ausgangsgrößen beider Teile gleich sind, die Eingangsgrößen aber nicht. Die Kettenform bräuchte gleiche Eingangsgrößen auf der rechten Seite.
+:::
+:::karte zusammenhang Voraussetzung der Additionsregeln
+Unter welcher Voraussetzung gelten die Regeln für zusammengeschaltete Zweitore, und wann ist sie sicher erfüllt?
+---
+Jedes Teil muss für sich die Torbedingung behalten. Sicher ist das bei der Kette, weil das hintere Teil samt Last für das vordere ein Zweipol ist, und bei Dreipolen mit gemeinsamer Masseleitung parallel.
+--- falsch
+Beide Teile müssen gleich sein. Bei verschiedenen Zweitoren gelten die Regeln nur näherungsweise, bei gleichen dagegen immer, gleich wie man sie miteinander verbindet.
+--- falsch
+Beide Teile müssen erdsymmetrisch sein. Zweitore mit Masseleitung darf man weder in Reihe noch parallel zusammenschalten, sondern nur in Kette, weil sonst Ströme über die gemeinsame Masse an den Toren vorbei abfließen.
+--- falsch
+Jedes Teil muss für sich die Torbedingung behalten. Sicher ist das bei Reihe, Reihe, weil dort derselbe Strom nacheinander durch beide Teile fließt und nirgends abzweigen kann.
+:::
+:::karte zusammenhang Zwei T-Zweitore in Reihe
+Was geht schief, wenn man zwei T-Zweitore mit ihren Masseleitungen übereinander in Reihe, Reihe schaltet, und wie hilft man ab?
+---
+Die Masseleitung des oberen schließt die oberen Klemmen des unteren kurz, ein Teil des Stroms läuft durch dessen $R_\mathrm{c}$. Die Torbedingung bricht: $63{,}6\,\Omega$ statt $70\,\Omega$. Abhilfe: das untere T spiegeln.
+--- falsch
+Nichts, denn die Regel $\mathbf Z=\mathbf Z'+\mathbf Z''$ gilt bei Reihe, Reihe immer, weil beide Teile denselben Strom führen. Man misst wie berechnet $Z_{11}=70\,\Omega$, eine Abhilfe ist nicht nötig.
+--- falsch
+Die Masseleitungen der beiden T liegen dann parallel und halbieren so den wirksamen Querwiderstand. Abhilfe: einen der beiden Querwiderstände doppelt so groß wählen.
+--- falsch
+Die Ströme in den beiden Masseleitungen heben sich gegenseitig auf, und $Z_{11}$ wird null. Abhilfe: zwischen die beiden T-Zweitore einen zusätzlichen Längswiderstand setzen, der die Masseleitungen trennt.
+:::
+:::karte zusammenhang Gleiche Zweitore zusammengeschaltet
+Was geschieht mit der Z-Matrix, wenn man zwei gleiche Zweitore parallel, parallel oder in Reihe, Reihe schaltet und die Torbedingung erhalten bleibt?
+---
+Parallel verdoppelt sich $\mathbf Y$, also halbiert sich $\mathbf Z$, so wie gleiche Widerstände parallel den halben Widerstand ergeben. In Reihe verdoppelt sich $\mathbf Z$.
+--- falsch
+Parallel verdoppelt sich $\mathbf Z$, in Reihe halbiert es sich, weil in der Parallelschaltung doppelt so viel Strom fließt wie in einem einzelnen Zweitor allein.
+--- falsch
+Parallel halbieren sich nur $Z_{11}$ und $Z_{22}$, die Transfergrößen bleiben gleich, weil sich die Kopplung der Tore durch das Verbinden nicht ändert.
+--- falsch
+In beiden Fällen bleibt $\mathbf Z$ gleich, weil zwei gleiche Zweitore an ihren Toren dasselbe Verhalten zeigen wie ein einzelnes Zweitor dieser Art.
+:::
+:::karte zusammenhang Parallel, Reihe
+Welche Form gehört zur Schaltung parallel am Eingang, Reihe am Ausgang?
+---
+Die umgekehrte Hybridform mit $U_1$ und $I_2$ als Ursachen, weil diese beiden Größen dann für beide Teile gleich sind. Man erhält sie mit der Inversen von $\mathbf H$.
+--- falsch
+Die Hybridform $\mathbf H$ selbst, weil auch hier ein Tor in Reihe und eines parallel liegt. Auf die Reihenfolge der beiden Tore kommt es dabei nicht an.
+--- falsch
+Keine: Für parallel, Reihe gibt es keine passende Form, man muss die beiden Teile einzeln rechnen und die Ergebnisse von Hand verbinden.
+--- falsch
+Die Kettenform, weil der Ausgang des einen Teils in Reihe am Eingang des anderen liegt und die Kettenmatrix dann ein Produkt ist.
+:::
+:::karte herleitung Warum sich die Parameter addieren
+Leite her, warum sich bei der Schaltung Reihe, Reihe die Z-Matrizen der beiden Teile addieren, und übertrage das Ergebnis auf die anderen Schaltungen.
+---
+In Reihe, Reihe führen beide Teile dieselben Ströme, $\mathbf I'=\mathbf I''=\mathbf I$, weil an jedem Tor derselbe Strom nacheinander durch beide Teile fließt.
+---
+Die Torspannungen addieren sich, $\mathbf U=\mathbf U'+\mathbf U''$, weil die Teile an jedem Tor in Reihe liegen.
+---
+Mit der Z-Form beider Teile folgt $\mathbf Z'\mathbf I+\mathbf Z''\mathbf I=(\mathbf Z'+\mathbf Z'')\mathbf I$, weil man die gemeinsame Ursachenspalte $\mathbf I$ ausklammern kann.
+---
+Parallel gilt dasselbe mit vertauschten Rollen, also $\mathbf Y=\mathbf Y'+\mathbf Y''$, weil dort die Spannungen gemeinsam sind und sich die Ströme addieren.
+---
+Bei Reihe, parallel ist die Ursachenspalte $(I_1,\,U_2)$ für beide gleich und die Wirkungsspalte $(U_1,\,I_2)$ die Summe beider Wirkungsspalten, also $\mathbf H=\mathbf H'+\mathbf H''$, weil $I_1$ am Reihentor und $U_2$ am Paralleltor geteilt werden.
+:::
+::::

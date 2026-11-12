@@ -77,3 +77,184 @@ T arbeitet bei $I_\mathrm{C}=1$ mA und $U_\mathrm{CE}=4{,}3$ V mit $U_\mathr
 (d) $S\,R_\mathrm{E}=181$, $A=0{,}994$. Der Ausgang ist nicht invertiert, der Emitter folgt der Basis gleichphasig.
 :::
 :::
+
+::::formelsammlung
+**Spannungsverstärkung der Grundschaltungen**
+
+$$A_\mathrm{Emitter}=-S\,R_\mathrm{C}=-\frac{U_{R_\mathrm{C}}}{U_T},\qquad A_\mathrm{Kollektor}=\frac{S\,R_\mathrm{E}}{1+S\,R_\mathrm{E}}<1,\qquad A_\mathrm{Basis}=+S\,R_\mathrm{C}$$
+
+$A=u_\mathrm{aus}/u_\mathrm{ein}$ für kleine Signale im aktiven Bereich, $r_\mathrm{CE}$ vernachlässigt, $R_\mathrm{C}\ll r_\mathrm{CE}$, Ansteuerung durch eine Quelle mit kleinem Innenwiderstand. $U_{R_\mathrm{C}}=I_\mathrm{C}R_\mathrm{C}$ ist die Gleichspannung am Kollektorwiderstand. Die Emitterschaltung invertiert, die Basisschaltung nicht.
+
+**Emitterschaltung mit Emitterwiderstand**
+
+$$A=-R_\mathrm{C}/(R_\mathrm{E}+1/S)\approx-R_\mathrm{C}/R_\mathrm{E}$$
+
+Nur $u_\mathrm{be}=u_\mathrm{ein}/(1+S\,R_\mathrm{E})$ steuert, der Großteil von $u_\mathrm{ein}$ liegt an $R_\mathrm{E}$. Die Verstärkung ist fast nur durch zwei Widerstände bestimmt.
+
+**Emitterschaltung mit Ausgangswiderstand**
+
+$$A_\mathrm{Emitter}=-S\,(R_\mathrm{C}\parallel r_\mathrm{CE})$$
+
+Berücksichtigt den endlichen Ausgangswiderstand $r_\mathrm{CE}$.
+
+**Eingangswiderstand der Kollektorschaltung**
+
+$$r_\mathrm{BE}+(1+B)R_\mathrm{E}$$
+
+Kollektorschaltung (Emitterfolger): Ausgangswiderstand $1/S$, Stromverstärkung $1+B$. Emitterschaltung: Eingang $r_\mathrm{BE}$, Ausgang $R_\mathrm{C}$. Basisschaltung: Eingang $1/S$, Ausgang $R_\mathrm{C}$.
+::::
+
+::::lernkarten
+:::karte zusammenhang Gemeinsamer Anschluss
+Warum ist bei einer Verstärkerschaltung mit einem Transistor ein Anschluss für das Signal am Eingang und am Ausgang gemeinsam?
+---
+Eingang und Ausgang brauchen je zwei Klemmen, der Transistor hat insgesamt nur drei. Ein Anschluss wird also für das Signal gemeinsam, und er gibt der Grundschaltung ihren Namen.
+--- falsch
+Damit Eingangs- und Ausgangsstrom gleich groß sind; ein gemeinsamer Anschluss erzwingt nach der Knotenregel denselben Strom. Er gibt der Schaltung deshalb ihre Stromverstärkung 1.
+--- falsch
+Weil der gemeinsame Anschluss immer an der Versorgung liegen muss. Nur so erhält der Transistor Energie, und der Anschluss bestimmt, wie groß die Versorgungsspannung ist.
+--- falsch
+Weil das Signal sonst den Arbeitspunkt verschieben würde. Der gemeinsame Anschluss hält den Gleichstrom fest, er ist deshalb immer der Emitter mit seinem Widerstand.
+:::
+:::karte begriff Emitterschaltung
+Wie wird das Signal in der Emitterschaltung zu- und abgeführt, und warum ist ihr Ausgang invertiert?
+---
+Die Grundschaltung, in der das Signal an die Basis kommt und vom Kollektor weggeht. $u_\mathrm{ein}$ erzeugt $i_\mathrm{c}=S\,u_\mathrm{ein}$, der durch $R_\mathrm{C}$ das Kollektorpotenzial herabzieht: Der Ausgang ist invertiert.
+--- falsch
+Die Grundschaltung, in der das Signal an den Emitter kommt und vom Kollektor weggeht. Sinkt der Emitter, steigt der Strom und hebt das Kollektorpotenzial deutlich an: Der Ausgang ist deshalb invertiert.
+--- falsch
+Die Grundschaltung, in der das Signal an die Basis kommt und vom Emitter weggeht. Der Emitter läuft der Basis entgegen, weil $U_\mathrm{BE}$ konstant bleiben muss: Der Ausgang ist invertiert.
+--- falsch
+Die Grundschaltung, in der das Signal an die Basis kommt und vom Kollektor weggeht. Der Ausgang ist invertiert, weil die Versorgung $U_\mathrm{CC}$ das Vorzeichen jeder Änderung umdreht.
+:::
+:::karte begriff Kollektorschaltung und Emitterfolger
+Wie ist die Kollektorschaltung beschaltet, und warum heißt sie auch Emitterfolger?
+---
+Die Grundschaltung, in der das Signal an die Basis kommt und vom Emitter weggeht. Der Emitter folgt der Basis: Stünde er still, änderte sich $U_\mathrm{BE}$, und der entstehende Strom höbe ihn über $R_\mathrm{E}$ sofort nach.
+--- falsch
+Die Grundschaltung, in der das Signal an den Kollektor kommt und vom Emitter weggeht. Der Emitter folgt dem Kollektor, weil beide über die gesperrte CB-Diode fest miteinander verbunden sind.
+--- falsch
+Die Grundschaltung, in der das Signal an die Basis kommt und vom Kollektor weggeht. Der Emitter folgt dem Kollektor, weil der Kollektorstrom über $R_\mathrm{E}$ das Emitterpotenzial mitnimmt.
+--- falsch
+Die Grundschaltung, in der die Basis festliegt und das Signal vom Emitter kommt. Sie heißt Emitterfolger, weil der Emitter als erster Anschluss das Signal aufnimmt und es unverändert an den Kollektor weitergibt.
+:::
+:::karte begriff Basisschaltung
+Wie ist die Basisschaltung beschaltet, und in welche Richtung bewegt sich ihr Ausgang?
+---
+Die Grundschaltung, in der die Basis festliegt und das Signal an den Emitter kommt, der Ausgang ist der Kollektor. Sinkt der Emitter, steigt $U_\mathrm{BE}$, mehr Strom zieht den Kollektor herab: Ein- und Ausgang bewegen sich gleichsinnig.
+--- falsch
+Die Grundschaltung, in der das Signal an die Basis kommt und vom Emitter weggeht. Steigt die Basis, folgt der Emitter, weil $U_\mathrm{BE}$ fast konstant bleibt: Ein- und Ausgang bewegen sich gleichsinnig, mit Verstärkung knapp unter 1.
+--- falsch
+Die Grundschaltung, in der die Basis festliegt und das Signal an den Emitter kommt. Sinkt der Emitter, sinkt $U_\mathrm{BE}$, weniger Strom hebt den Kollektor an: Ein- und Ausgang bewegen sich gegensinnig.
+--- falsch
+Die Grundschaltung, in der das Signal an die Basis kommt und der Ausgang am Kollektor liegt. Der Emitter liegt fest an Masse, und steigt die Basis, sinkt der Kollektor: Ein- und Ausgang bewegen sich gegensinnig.
+:::
+:::karte formel Spannungsverstärkung der Grundschaltungen
+Wie groß ist die Spannungsverstärkung $A=u_\mathrm{aus}/u_\mathrm{ein}$ der drei Grundschaltungen für kleine Signale?
+---
+$A_\mathrm{Emitter}=-S\,R_\mathrm{C}=-\frac{U_{R_\mathrm{C}}}{U_T}$, $A_\mathrm{Kollektor}=\frac{S\,R_\mathrm{E}}{1+S\,R_\mathrm{E}}<1$, $A_\mathrm{Basis}=+S\,R_\mathrm{C}$. Gültig im aktiven Bereich für $|u_\mathrm{be}|\ll U_T$, mit $r_\mathrm{CE}$ vernachlässigt.
+--- falsch
+$A_\mathrm{Emitter}=-B\,R_\mathrm{C}$, $A_\mathrm{Kollektor}=1+S\,R_\mathrm{E}>1$, $A_\mathrm{Basis}=-S\,R_\mathrm{C}$. Gültig im aktiven Bereich für $|u_\mathrm{be}|\ll U_T$, mit $r_\mathrm{CE}$ vernachlässigt.
+--- falsch
+$A_\mathrm{Emitter}=-S\,R_\mathrm{C}$, $A_\mathrm{Kollektor}=-S\,R_\mathrm{E}$, $A_\mathrm{Basis}=+\frac{S\,R_\mathrm{C}}{1+S\,R_\mathrm{C}}<1$. Gültig für jede Signalgröße, solange der Transistor nicht in die Sättigung gerät.
+--- falsch
+$A_\mathrm{Emitter}=-\frac{U_T}{U_{R_\mathrm{C}}}$, $A_\mathrm{Kollektor}=\frac{1}{1+S\,R_\mathrm{E}}$, $A_\mathrm{Basis}=+\frac{U_T}{U_{R_\mathrm{C}}}$. Gültig im aktiven Bereich für $|u_\mathrm{be}|\ll U_T$, mit $r_\mathrm{CE}$ vernachlässigt.
+:::
+:::karte zusammenhang Verstärkung aus der Spannung am Kollektorwiderstand
+Warum kommen in der Spannungsverstärkung der Emitterschaltung weder $B$ noch der Transistortyp vor?
+---
+Mit $S=I_\mathrm{C}/U_T$ wird $S\,R_\mathrm{C}=I_\mathrm{C}R_\mathrm{C}/U_T$, also die Gleichspannung $U_{R_\mathrm{C}}$ am Kollektorwiderstand geteilt durch $U_T$. Im Rechenmodell ergibt das $-6\,\mathrm{V}/26\,\mathrm{mV}=-231$.
+--- falsch
+Weil $B$ sich zwischen Eingangs- und Ausgangsstrom herauskürzt und nur der Kollektorwiderstand übrig bleibt. Die Verstärkung ist deshalb einfach $-R_\mathrm{C}$ in Kiloohm, im Rechenmodell $-3$.
+--- falsch
+Weil alle Siliziumtransistoren dasselbe $B$ und dasselbe $I_\mathrm{S}$ haben. Die Verstärkung ist deshalb eine Eigenschaft des Werkstoffs, im Rechenmodell immer $-200$.
+--- falsch
+Mit $S=B/r_\mathrm{BE}$ kürzt sich $B$ gegen den Eingangswiderstand heraus, und es bleibt $-R_\mathrm{C}/r_\mathrm{BE}$. Im Rechenmodell ergibt das $-3\,\text{k}\Omega/2{,}6\,\text{k}\Omega\approx-1{,}2$.
+:::
+:::karte formel Emitterschaltung mit Emitterwiderstand
+Wie groß ist die Spannungsverstärkung der Emitterschaltung mit Emitterwiderstand $R_\mathrm{E}$, und wie verändert sie $r_\mathrm{CE}$?
+---
+Mit Emitterwiderstand ist $A=-R_\mathrm{C}/(R_\mathrm{E}+1/S)\approx-R_\mathrm{C}/R_\mathrm{E}$, fast nur durch zwei Widerstände bestimmt. Mit $r_\mathrm{CE}$ ist $A_\mathrm{Emitter}=-S\,(R_\mathrm{C}\parallel r_\mathrm{CE})$, etwas kleiner im Betrag.
+--- falsch
+Mit Emitterwiderstand ist $A=-S\,(R_\mathrm{C}+R_\mathrm{E})$, der Betrag wächst also um den Emitterwiderstand. Mit $r_\mathrm{CE}$ ist $A_\mathrm{Emitter}=-S\,(R_\mathrm{C}+r_\mathrm{CE})$, im Betrag deutlich größer.
+--- falsch
+Mit Emitterwiderstand ist $A=-R_\mathrm{E}/R_\mathrm{C}$, unabhängig vom Transistor. Mit $r_\mathrm{CE}$ ändert sich nichts, weil $r_\mathrm{CE}$ im Kleinsignal-Ersatzschaltbild in Reihe mit der Quelle liegt.
+--- falsch
+Mit Emitterwiderstand ist $A=-S\,R_\mathrm{C}$ wie ohne, weil $R_\mathrm{E}$ nur den Gleichstrom festlegt. Mit $r_\mathrm{CE}$ ist $A_\mathrm{Emitter}=-S\,r_\mathrm{CE}$, weil $R_\mathrm{C}$ dann keine Rolle mehr spielt.
+:::
+:::karte herleitung Drei Maschen im Kleinsignal
+Wie folgen aus den Maschen im Kleinsignal die Verstärkungen der Emitter-, Kollektor- und Basisschaltung?
+---
+$U_\mathrm{CC}$ ist für das Signal Masse, weil eine konstante Spannung im Kleinsignal zum Draht wird.
+---
+Emitterschaltung: $u_\mathrm{be}=u_\mathrm{ein}$ und $u_\mathrm{aus}=-R_\mathrm{C}i_\mathrm{c}=-R_\mathrm{C}S\,u_\mathrm{ein}$, weil das Signal voll an der BE-Strecke liegt und $i_\mathrm{c}$ durch $R_\mathrm{C}$ das Kollektorpotenzial herabzieht.
+---
+Kollektorschaltung: $u_\mathrm{aus}=R_\mathrm{E}S\,u_\mathrm{be}$ mit $u_\mathrm{be}=u_\mathrm{ein}-u_\mathrm{aus}$; Auflösen ergibt $\frac{S\,R_\mathrm{E}}{1+S\,R_\mathrm{E}}$, weil die Steuerspannung zwischen Basis und dem mitlaufenden Emitter liegt.
+---
+Basisschaltung: $u_\mathrm{be}=-u_\mathrm{ein}$ und $u_\mathrm{aus}=-R_\mathrm{C}S\,u_\mathrm{be}=+S\,R_\mathrm{C}u_\mathrm{ein}$, weil die Basis ruht und das Signal am Emitter liegt.
+:::
+:::karte herleitung Emitterwiderstand im Kleinsignal
+Wie folgt im Kleinsignal, dass ein Emitterwiderstand die Verstärkung der Emitterschaltung auf $A=-R_\mathrm{C}/(R_\mathrm{E}+1/S)$ senkt?
+---
+Es gilt $u_\mathrm{ein}=u_\mathrm{be}+R_\mathrm{E}S\,u_\mathrm{be}$, weil der Strom $S\,u_\mathrm{be}$ auch durch $R_\mathrm{E}$ fließt und dort eine Spannung erzeugt.
+---
+Daraus folgt $u_\mathrm{be}=u_\mathrm{ein}/(1+S\,R_\mathrm{E})$, weil man nach $u_\mathrm{be}$ auflöst; nur dieser Rest steuert, der Großteil von $u_\mathrm{ein}$ liegt an $R_\mathrm{E}$.
+---
+Der Ausgang ist weiterhin $-R_\mathrm{C}S\,u_\mathrm{be}$; mit dem Rest $u_\mathrm{be}$ und nach Kürzen durch $S$ folgt $A=-R_\mathrm{C}/(R_\mathrm{E}+1/S)$, weil der Kollektorstrom nur von $u_\mathrm{be}$ abhängt.
+:::
+:::karte begriff Spannungshub
+Was bezeichnet man als Spannungshub, und wie groß ist er bei der Emitterschaltung im Punkt A?
+---
+Eine Ausgangsamplitude, also wie weit die Ausgangsspannung um den Arbeitspunkt schwingen kann. Der Punkt in der Mitte erlaubt fast 6 V, an der Kleinsignalgrenze von 2,6 mV am Eingang sind es nur 0,6 V.
+--- falsch
+Den Unterschied zwischen Versorgungsspannung und Ausgangsspannung, also den Spannungsabfall am Kollektorwiderstand. Im Punkt A sind es 6 V, die Hälfte der Versorgung, die sich mit dem Signal nicht ändert.
+--- falsch
+Eine Eingangsamplitude, also wie weit die Eingangsspannung schwingen darf, bevor der Transistor sperrt. Im Punkt A sind es 0,6 V, genau die Schwellspannung der BE-Diode.
+--- falsch
+Den Sprung der Ausgangsspannung, wenn ein Inverter zwischen Sperrung und Sättigung umschaltet. Im Punkt A sind es 11,8 V, von 12 V bis hinunter auf 0,2 V.
+:::
+:::karte zusammenhang Puffer
+Warum eignet sich der Emitterfolger als Puffer, obwohl seine Spannungsverstärkung kleiner als 1 ist?
+---
+Seine Stärke ist der Strom: Die Stromverstärkung ist $1+B=201$. Mit 606 k$\Omega$ Eingangswiderstand belastet er die Quelle kaum, mit 13 $\Omega$ Ausgangswiderstand treibt er die Last niederohmig.
+--- falsch
+Seine Stärke ist die Phasenumkehr: Er dreht das Signal um, ohne es zu verstärken. Mit 13 $\Omega$ Eingangswiderstand nimmt er der Quelle viel Strom ab und gibt ihn invertiert an die Last.
+--- falsch
+Seine Stärke ist die Spannung: Sie ist bei großer Last höher als bei der Emitterschaltung. Mit 3 k$\Omega$ Eingangs- und 606 k$\Omega$ Ausgangswiderstand trennt er Quelle und Last.
+--- falsch
+Seine Stärke ist die Temperatur: Ohne Verstärkung erwärmt er sich nicht. Mit 2,6 k$\Omega$ Eingangs- und 3 k$\Omega$ Ausgangswiderstand passt er jede Quelle an jede Last an.
+:::
+:::karte formel Widerstände der Grundschaltungen
+Welche Eingangs- und Ausgangswiderstände haben die drei Grundschaltungen im Rechenmodell, und wozu dient deshalb jede?
+---
+Emitter: $r_\mathrm{BE}=2{,}6$ k$\Omega$ und $R_\mathrm{C}=3$ k$\Omega$, Spannung verstärken. Kollektor: $r_\mathrm{BE}+(1+B)R_\mathrm{E}=606$ k$\Omega$ und $1/S=13\,\Omega$, Puffer. Basis: $1/S=13\,\Omega$ und $R_\mathrm{C}=3$ k$\Omega$, niederohmige Quelle verstärken.
+--- falsch
+Emitter: $1/S=13\,\Omega$ und $R_\mathrm{C}=3$ k$\Omega$, Puffer. Kollektor: $r_\mathrm{BE}=2{,}6$ k$\Omega$ und $R_\mathrm{E}=3$ k$\Omega$, Spannung verstärken. Basis: $r_\mathrm{BE}+(1+B)R_\mathrm{E}=606$ k$\Omega$ und $1/S=13\,\Omega$, hochohmige Quelle verstärken.
+--- falsch
+Alle drei haben denselben Eingangswiderstand $r_\mathrm{BE}=2{,}6$ k$\Omega$ und denselben Ausgangswiderstand $R_\mathrm{C}=3$ k$\Omega$, weil der Transistor derselbe ist; sie unterscheiden sich nur im Vorzeichen der Verstärkung.
+--- falsch
+Emitter: $R_\mathrm{C}=3$ k$\Omega$ und $r_\mathrm{BE}=2{,}6$ k$\Omega$, Puffer. Kollektor: $1/S=13\,\Omega$ und $606$ k$\Omega$, Spannung verstärken. Basis: $R_\mathrm{C}=3$ k$\Omega$ und $1/S=13\,\Omega$, Strom verstärken.
+:::
+:::karte zusammenhang Gegengekoppelte Emitterschaltung
+Was gewinnt man mit einem Emitterwiderstand in der Emitterschaltung, obwohl die Verstärkung im Rechenmodell von $-231$ auf $-2{,}96$ sinkt?
+---
+Nur 1,3 % von $u_\mathrm{ein}$ liegen dann an der BE-Strecke, und die Verstärkung ist fast nur durch zwei Widerstände bestimmt, $A\approx-R_\mathrm{C}/R_\mathrm{E}$, nicht mehr durch den Transistor.
+--- falsch
+Die Verstärkung wird positiv, der Ausgang ist also nicht mehr invertiert. Dafür liegt fast das ganze $u_\mathrm{ein}$ an der BE-Strecke, und der Transistor bestimmt die Verstärkung allein.
+--- falsch
+Man gewinnt nichts: Der Emitterwiderstand dient nur dem Arbeitspunkt. Für das Signal ist er ein reiner Verlust, den man immer mit einem Kondensator überbrücken muss.
+--- falsch
+Der Ausgangswiderstand sinkt auf $1/S$, und die Schaltung treibt jede Last. Die Verstärkung hängt dann nur noch von $B$ ab, $A\approx-B$, und nicht mehr von den Widerständen.
+:::
+:::karte zusammenhang Vorwiderstand vor der Basis
+Warum hat eine reale Emitterschaltung mit Vorwiderstand eine flachere Kennlinie als die Basisschaltung, obwohl der Betrag der Verstärkung gleich sein soll?
+---
+Gleich ist er nur bei direkter Ansteuerung. Ein Vorwiderstand bildet mit $r_\mathrm{BE}$ einen Spannungsteiler, nur ein Teil von $u_\mathrm{ein}$ erreicht die BE-Strecke. In der Basisschaltung liegt die niederohmige Quelle am Emitter, der Teiler entfällt.
+--- falsch
+Der Vorwiderstand erhöht den Arbeitspunktstrom und damit $S$, die Kennlinie wird aber flacher, weil der Transistor schneller in die Sättigung gerät. In der Basisschaltung fehlt die Sättigung.
+--- falsch
+Die Emitterschaltung hat grundsätzlich die halbe Verstärkung der Basisschaltung, weil ihr Ausgang invertiert ist. Mit Vorwiderstand ändert sich daran nichts, er erklärt den Unterschied nicht.
+--- falsch
+Der Vorwiderstand bildet mit $R_\mathrm{C}$ einen Teiler am Ausgang, der die Ausgangsspannung ungefähr halbiert. In der Basisschaltung liegt kein Widerstand am Kollektor, deshalb fehlt dort dieser Teiler, und die Kennlinie bleibt steil.
+:::
+::::

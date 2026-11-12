@@ -1,0 +1,864 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 29,
+  "nextAnimId": 34,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Terminal",
+    "props": {
+     "text": "Types: deb\nURIs: http://archive.ubuntu.com/ubuntu/\nSuites: resolute resolute-updates resolute-backports\nComponents: main universe restricted multiverse\nSigned-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg\n\nTypes: deb\nURIs: http://security.ubuntu.com/ubuntu/\nSuites: resolute-security\nComponents: main universe restricted multiverse\nSigned-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg",
+     "cols": 0,
+     "rows": 0,
+     "font_size": 17.0,
+     "line_height": 1.2,
+     "position": [
+      -3.45,
+      2.8,
+      0
+     ],
+     "frame": "datei",
+     "theme": "hell",
+     "title": "/etc/apt/sources.list.d/ubuntu.sources",
+     "buttons": "x",
+     "cursor": false,
+     "prompt_colors": false,
+     "shadow": true,
+     "state": ""
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Text",
+    "props": {
+     "text": "@adresse",
+     "position": [
+      -3.3,
+      0.35,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o3",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.6744,
+      2.2648,
+      0
+     ],
+     "width": 2.4933,
+     "height": 0.1512,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 0.3,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Text",
+    "props": {
+     "text": "http://archive.ubuntu.com/ubuntu/",
+     "position": [
+      -2.9211,
+      2.2648,
+      0
+     ],
+     "font_size": 17.0,
+     "align": "left",
+     "color": "#2a78d6",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o5",
+    "type": "Text",
+    "props": {
+     "text": "@uris",
+     "position": [
+      -2.0533,
+      -0.2,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o6",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.4678,
+      2.1137,
+      0
+     ],
+     "width": 0.6044,
+     "height": 0.1512,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 0.3,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o7",
+    "type": "Text",
+    "props": {
+     "text": "resolute",
+     "position": [
+      -2.77,
+      2.1137,
+      0
+     ],
+     "font_size": 17.0,
+     "align": "left",
+     "color": "#eb6834",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Text",
+    "props": {
+     "text": "@suites",
+     "position": [
+      -0.0511,
+      -0.2,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#eb6834"
+    }
+   },
+   {
+    "id": "o9",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.3167,
+      1.9626,
+      0
+     ],
+     "width": 0.3022,
+     "height": 0.1512,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#00823c",
+     "fill_color": "#00823c",
+     "fill_opacity": 0.3,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o10",
+    "type": "Text",
+    "props": {
+     "text": "main",
+     "position": [
+      -2.4678,
+      1.9626,
+      0
+     ],
+     "font_size": 17.0,
+     "align": "left",
+     "color": "#00823c",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o11",
+    "type": "Text",
+    "props": {
+     "text": "@comp",
+     "position": [
+      0.4778,
+      -0.44,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#00823c"
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Text",
+    "props": {
+     "text": "dists/",
+     "position": [
+      -0.8067,
+      0.05,
+      0
+     ],
+     "font_size": 17,
+     "align": "left",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o13",
+    "type": "Text",
+    "props": {
+     "text": "@fest",
+     "position": [
+      -0.58,
+      -0.44,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o14",
+    "type": "Text",
+    "props": {
+     "text": "/",
+     "position": [
+      0.2511,
+      0.05,
+      0
+     ],
+     "font_size": 17,
+     "align": "left",
+     "color": "#eb6834",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o15",
+    "type": "Text",
+    "props": {
+     "text": "/",
+     "position": [
+      0.6289,
+      0.05,
+      0
+     ],
+     "font_size": 17,
+     "align": "left",
+     "color": "#00823c",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o16",
+    "type": "Text",
+    "props": {
+     "text": "binary-amd64/",
+     "position": [
+      0.7044,
+      0.05,
+      0
+     ],
+     "font_size": 17,
+     "align": "left",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o17",
+    "type": "Text",
+    "props": {
+     "text": "@arch",
+     "position": [
+      1.1956,
+      -0.2,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o18",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.1078,
+      2.1137,
+      0
+     ],
+     "width": 3.3244,
+     "height": 0.1512,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 0.18,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o19",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.1456,
+      1.9626,
+      0
+     ],
+     "width": 2.6445,
+     "height": 0.1512,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#00823c",
+     "fill_color": "#00823c",
+     "fill_opacity": 0.18,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o20",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.1278,
+      1.207,
+      0
+     ],
+     "width": 1.2844,
+     "height": 0.1512,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 0.18,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o21",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.1456,
+      1.0559,
+      0
+     ],
+     "width": 2.6445,
+     "height": 0.1512,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#00823c",
+     "fill_color": "#00823c",
+     "fill_opacity": 0.18,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o22",
+    "type": "Text",
+    "props": {
+     "text": "@e1",
+     "position": [
+      1.4578,
+      2.1137,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o23",
+    "type": "Text",
+    "props": {
+     "text": "@e1b",
+     "position": [
+      1.4578,
+      1.9626,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o24",
+    "type": "Text",
+    "props": {
+     "text": "@e2",
+     "position": [
+      1.4578,
+      1.127,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o25",
+    "type": "Text",
+    "props": {
+     "text": "@summe",
+     "position": [
+      1.4578,
+      0.7848,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#333333"
+    }
+   },
+   {
+    "id": "o26",
+    "type": "Lock",
+    "props": {
+     "center": [
+      1.2078,
+      1.8115,
+      0
+     ],
+     "size": 0.24,
+     "open": false,
+     "color": "#333333"
+    }
+   },
+   {
+    "id": "o27",
+    "type": "Lock",
+    "props": {
+     "center": [
+      1.2078,
+      0.9048,
+      0
+     ],
+     "size": 0.24,
+     "open": false,
+     "color": "#333333"
+    }
+   },
+   {
+    "id": "o28",
+    "type": "Text",
+    "props": {
+     "text": "@schl",
+     "position": [
+      1.4578,
+      1.6604,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#7f7f7f"
+    }
+   }
+  ],
+  "animations": [
+   {
+    "id": "a1",
+    "type": "FadeIn",
+    "target": "o1",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a2",
+    "type": "FadeIn",
+    "target": "o2",
+    "run_time": 0.4,
+    "step": 1
+   },
+   {
+    "id": "a3",
+    "type": "FadeIn",
+    "target": "o3",
+    "run_time": 0.5,
+    "step": 2
+   },
+   {
+    "id": "a4",
+    "type": "FadeIn",
+    "target": "o4",
+    "run_time": 0.5,
+    "step": 2
+   },
+   {
+    "id": "a5",
+    "type": "Shift",
+    "target": "o4",
+    "run_time": 0.9,
+    "step": 3,
+    "vector": [
+     -0.3789,
+     -2.2148,
+     0
+    ]
+   },
+   {
+    "id": "a6",
+    "type": "FadeIn",
+    "target": "o12",
+    "run_time": 0.5,
+    "step": 4
+   },
+   {
+    "id": "a7",
+    "type": "FadeIn",
+    "target": "o13",
+    "run_time": 0.5,
+    "step": 4
+   },
+   {
+    "id": "a8",
+    "type": "FadeIn",
+    "target": "o5",
+    "run_time": 0.5,
+    "step": 4
+   },
+   {
+    "id": "a9",
+    "type": "FadeIn",
+    "target": "o6",
+    "run_time": 0.5,
+    "step": 5
+   },
+   {
+    "id": "a10",
+    "type": "FadeIn",
+    "target": "o7",
+    "run_time": 0.5,
+    "step": 5
+   },
+   {
+    "id": "a11",
+    "type": "Shift",
+    "target": "o7",
+    "run_time": 0.9,
+    "step": 6,
+    "vector": [
+     2.4167,
+     -2.0637,
+     0
+    ]
+   },
+   {
+    "id": "a12",
+    "type": "FadeIn",
+    "target": "o14",
+    "run_time": 0.5,
+    "step": 7
+   },
+   {
+    "id": "a13",
+    "type": "FadeIn",
+    "target": "o8",
+    "run_time": 0.5,
+    "step": 7
+   },
+   {
+    "id": "a14",
+    "type": "FadeIn",
+    "target": "o9",
+    "run_time": 0.5,
+    "step": 8
+   },
+   {
+    "id": "a15",
+    "type": "FadeIn",
+    "target": "o10",
+    "run_time": 0.5,
+    "step": 8
+   },
+   {
+    "id": "a16",
+    "type": "Shift",
+    "target": "o10",
+    "run_time": 0.9,
+    "step": 9,
+    "vector": [
+     2.7945,
+     -1.9126,
+     0
+    ]
+   },
+   {
+    "id": "a17",
+    "type": "FadeIn",
+    "target": "o15",
+    "run_time": 0.5,
+    "step": 10
+   },
+   {
+    "id": "a18",
+    "type": "FadeIn",
+    "target": "o11",
+    "run_time": 0.5,
+    "step": 10
+   },
+   {
+    "id": "a19",
+    "type": "FadeIn",
+    "target": "o16",
+    "run_time": 0.5,
+    "step": 11
+   },
+   {
+    "id": "a20",
+    "type": "FadeIn",
+    "target": "o17",
+    "run_time": 0.5,
+    "step": 11
+   },
+   {
+    "id": "a21",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 12
+   },
+   {
+    "id": "a22",
+    "type": "FadeIn",
+    "target": "o18",
+    "run_time": 0.7,
+    "step": 13
+   },
+   {
+    "id": "a23",
+    "type": "FadeIn",
+    "target": "o19",
+    "run_time": 0.7,
+    "step": 13
+   },
+   {
+    "id": "a24",
+    "type": "FadeIn",
+    "target": "o22",
+    "run_time": 0.7,
+    "step": 13
+   },
+   {
+    "id": "a25",
+    "type": "FadeIn",
+    "target": "o23",
+    "run_time": 0.7,
+    "step": 13
+   },
+   {
+    "id": "a26",
+    "type": "FadeIn",
+    "target": "o20",
+    "run_time": 0.6,
+    "step": 14
+   },
+   {
+    "id": "a27",
+    "type": "FadeIn",
+    "target": "o21",
+    "run_time": 0.6,
+    "step": 14
+   },
+   {
+    "id": "a28",
+    "type": "FadeIn",
+    "target": "o24",
+    "run_time": 0.6,
+    "step": 14
+   },
+   {
+    "id": "a29",
+    "type": "FadeIn",
+    "target": "o25",
+    "run_time": 0.5,
+    "step": 15
+   },
+   {
+    "id": "a30",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.4,
+    "step": 16
+   },
+   {
+    "id": "a31",
+    "type": "GrowFromCenter",
+    "target": "o26",
+    "run_time": 0.6,
+    "step": 17
+   },
+   {
+    "id": "a32",
+    "type": "GrowFromCenter",
+    "target": "o27",
+    "run_time": 0.6,
+    "step": 17
+   },
+   {
+    "id": "a33",
+    "type": "FadeIn",
+    "target": "o28",
+    "run_time": 0.6,
+    "step": 17
+   }
+  ],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "adresse": {
+    "de": "Adresse einer Paketliste:",
+    "en": "address of one package list:",
+    "es": "dirección de una lista de paquetes:",
+    "zh": "一个软件包列表的地址：",
+    "fr": "adresse d'une liste de paquets :",
+    "tr": "bir paket listesinin adresi:"
+   },
+   "uris": {
+    "de": "aus URIs",
+    "en": "from URIs",
+    "es": "de URIs",
+    "zh": "来自 URIs",
+    "fr": "de URIs",
+    "tr": "URIs'ten"
+   },
+   "suites": {
+    "de": "aus Suites",
+    "en": "from Suites",
+    "es": "de Suites",
+    "zh": "来自 Suites",
+    "fr": "de Suites",
+    "tr": "Suites'ten"
+   },
+   "comp": {
+    "de": "aus Components",
+    "en": "from Components",
+    "es": "de Components",
+    "zh": "来自 Components",
+    "fr": "de Components",
+    "tr": "Components'ten"
+   },
+   "fest": {
+    "de": "fest",
+    "en": "fixed",
+    "es": "fijo",
+    "zh": "固定",
+    "fr": "fixe",
+    "tr": "sabit"
+   },
+   "arch": {
+    "de": "Architektur",
+    "en": "architecture",
+    "es": "arquitectura",
+    "zh": "架构",
+    "fr": "architecture",
+    "tr": "mimari"
+   },
+   "e1": {
+    "de": "3 × 4 = 12 Listen",
+    "en": "3 × 4 = 12 lists",
+    "es": "3 × 4 = 12 listas",
+    "zh": "3 × 4 = 12 个列表",
+    "fr": "3 × 4 = 12 listes",
+    "tr": "3 × 4 = 12 liste"
+   },
+   "e1b": {
+    "de": "Ausgaben × Bereiche",
+    "en": "suites × components",
+    "es": "versiones × componentes",
+    "zh": "套件 × 组件",
+    "fr": "versions × sections",
+    "tr": "sürümler × bileşenler"
+   },
+   "e2": {
+    "de": "1 × 4 = 4 Listen",
+    "en": "1 × 4 = 4 lists",
+    "es": "1 × 4 = 4 listas",
+    "zh": "1 × 4 = 4 个列表",
+    "fr": "1 × 4 = 4 listes",
+    "tr": "1 × 4 = 4 liste"
+   },
+   "summe": {
+    "de": "zusammen 16 Listen",
+    "en": "16 lists in total",
+    "es": "16 listas en total",
+    "zh": "共 16 个列表",
+    "fr": "16 listes en tout",
+    "tr": "toplam 16 liste"
+   },
+   "schl": {
+    "de": "Signed-By: Schlüssel",
+    "en": "Signed-By: key",
+    "es": "Signed-By: clave",
+    "zh": "Signed-By：密钥",
+    "fr": "Signed-By : clé",
+    "tr": "Signed-By: anahtar"
+   }
+  },
+  "drawOrder": "creation"
+ }
+}

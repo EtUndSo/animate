@@ -1,0 +1,402 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 14,
+  "nextAnimId": 16,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Text",
+    "props": {
+     "text": "1447 938",
+     "position": [
+      -0.4,
+      2.0,
+      0
+     ],
+     "font_size": 28,
+     "align": "left",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Text",
+    "props": {
+     "text": "1570 3447",
+     "position": [
+      -0.4,
+      1.6889,
+      0
+     ],
+     "font_size": 28,
+     "align": "left",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o3",
+    "type": "Text",
+    "props": {
+     "text": "@vorher_1bf7",
+     "position": [
+      -0.55,
+      2.0,
+      0
+     ],
+     "font_size": 18,
+     "align": "right",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Text",
+    "props": {
+     "text": "@nachher_e14e",
+     "position": [
+      -0.55,
+      1.6889,
+      0
+     ],
+     "font_size": 18,
+     "align": "right",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o5",
+    "type": "Shape",
+    "props": {
+     "points": "-0.38,2.2056;-0.38,2.2756;0.0778,2.2756;0.0778,2.2056",
+     "closed": false,
+     "label": "",
+     "material": "custom",
+     "font_size": 24,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 0.0,
+     "stroke_width": 2.0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Shape",
+    "props": {
+     "points": "0.2422,2.2056;0.2422,2.2756;0.7,2.2756;0.7,2.2056",
+     "closed": false,
+     "label": "",
+     "material": "custom",
+     "font_size": 24,
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 0.0,
+     "stroke_width": 2.0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o7",
+    "type": "Text",
+    "props": {
+     "text": "@kern0_3bf6",
+     "position": [
+      0.0978,
+      2.4256,
+      0
+     ],
+     "font_size": 18,
+     "align": "right",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Text",
+    "props": {
+     "text": "@kern3_ba2b",
+     "position": [
+      0.2222,
+      2.4256,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#eb6834"
+    }
+   },
+   {
+    "id": "o9",
+    "type": "Text",
+    "props": {
+     "text": "@kern3endlossch_5809",
+     "position": [
+      -3.4,
+      1.12,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#333333"
+    }
+   },
+   {
+    "id": "o10",
+    "type": "Text",
+    "props": {
+     "text": "@kern0fastuntae_c1a8",
+     "position": [
+      -3.4,
+      -0.4,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#333333"
+    }
+   },
+   {
+    "id": "o11",
+    "type": "Text",
+    "props": {
+     "text": "@eingestellt250_4534",
+     "position": [
+      0,
+      0.05,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o12",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\frac{3447-938}{10\\,\\mathrm{s}}=\\frac{2509}{10\\,\\mathrm{s}}=250.9\\,\\frac{1}{\\mathrm{s}}",
+     "height": 0.499,
+     "position": [
+      0,
+      0.6,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o13",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\frac{1570-1447}{10\\,\\mathrm{s}}=\\frac{123}{10\\,\\mathrm{s}}=12.3\\,\\frac{1}{\\mathrm{s}}",
+     "height": 0.499,
+     "position": [
+      0,
+      -0.92,
+      0
+     ],
+     "color": "#111111"
+    }
+   }
+  ],
+  "animations": [
+   {
+    "id": "a1",
+    "type": "FadeIn",
+    "target": "o1",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a2",
+    "type": "FadeIn",
+    "target": "o2",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a3",
+    "type": "FadeIn",
+    "target": "o3",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a4",
+    "type": "FadeIn",
+    "target": "o4",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a5",
+    "type": "FadeIn",
+    "target": "o5",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a6",
+    "type": "FadeIn",
+    "target": "o6",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a7",
+    "type": "FadeIn",
+    "target": "o7",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a8",
+    "type": "FadeIn",
+    "target": "o8",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a9",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.5,
+    "step": 1
+   },
+   {
+    "id": "a10",
+    "type": "FadeIn",
+    "target": "o9",
+    "run_time": 0.5,
+    "step": 2
+   },
+   {
+    "id": "a11",
+    "type": "FadeIn",
+    "target": "o12",
+    "run_time": 1.0,
+    "step": 3,
+    "lines": true
+   },
+   {
+    "id": "a12",
+    "type": "FadeIn",
+    "target": "o11",
+    "run_time": 0.6,
+    "step": 4
+   },
+   {
+    "id": "a13",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 5
+   },
+   {
+    "id": "a14",
+    "type": "FadeIn",
+    "target": "o10",
+    "run_time": 0.5,
+    "step": 6
+   },
+   {
+    "id": "a15",
+    "type": "FadeIn",
+    "target": "o13",
+    "run_time": 1.0,
+    "step": 7,
+    "lines": true
+   }
+  ],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "vorher_1bf7": {
+    "de": "vorher",
+    "en": "before",
+    "es": "antes",
+    "zh": "之前",
+    "fr": "avant",
+    "tr": "önce"
+   },
+   "nachher_e14e": {
+    "de": "nachher",
+    "en": "after",
+    "es": "después",
+    "zh": "之后",
+    "fr": "après",
+    "tr": "sonra"
+   },
+   "kern0_3bf6": {
+    "de": "Kern 0",
+    "en": "core 0",
+    "es": "núcleo 0",
+    "zh": "核心 0",
+    "fr": "cœur 0",
+    "tr": "çekirdek 0"
+   },
+   "kern3_ba2b": {
+    "de": "Kern 3",
+    "en": "core 3",
+    "es": "núcleo 3",
+    "zh": "核心 3",
+    "fr": "cœur 3",
+    "tr": "çekirdek 3"
+   },
+   "kern3endlossch_5809": {
+    "de": "Kern 3 (Endlosschleife), Unterbrechungen je Sekunde:",
+    "en": "core 3 (endless loop), interrupts per second:",
+    "es": "núcleo 3 (bucle infinito), interrupciones por segundo:",
+    "zh": "核心 3（死循环），每秒中断次数：",
+    "fr": "cœur 3 (boucle infinie), interruptions par seconde :",
+    "tr": "çekirdek 3 (sonsuz döngü), saniyedeki kesme sayısı:"
+   },
+   "kern0fastuntae_c1a8": {
+    "de": "Kern 0 (fast untätig), Unterbrechungen je Sekunde:",
+    "en": "core 0 (almost idle), interrupts per second:",
+    "es": "núcleo 0 (casi inactivo), interrupciones por segundo:",
+    "zh": "核心 0（几乎空闲），每秒中断次数：",
+    "fr": "cœur 0 (presque inactif), interruptions par seconde :",
+    "tr": "çekirdek 0 (neredeyse boşta), saniyedeki kesme sayısı:"
+   },
+   "eingestellt250_4534": {
+    "de": "eingestellt: 250 je Sekunde, alle 4 ms",
+    "en": "configured: 250 per second, every 4 ms",
+    "es": "configurado: 250 por segundo, cada 4 ms",
+    "zh": "设定值：每秒 250 次，每 4 ms 一次",
+    "fr": "réglé : 250 par seconde, toutes les 4 ms",
+    "tr": "ayarlı: saniyede 250, her 4 ms'de bir"
+   }
+  },
+  "drawOrder": "creation"
+ }
+}

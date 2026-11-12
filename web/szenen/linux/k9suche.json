@@ -1,0 +1,509 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 17,
+  "nextAnimId": 21,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Terminal",
+    "props": {
+     "text": "student@labor:~/linuxk9$ \\e|\\e>apt search 'json processor'\n\\e|\\e[32mjq\\e[0m/resolute-updates,resolute-security 1.8.1-4ubuntu2 amd64\n  lightweight and flexible command-line JSON processor\n\n\\e[32mlibjackson-json-java\\e[0m/resolute 1.9.13-2 all\n  streaming fast powerful standard conformant json processor in java\n\\e[90m...\\e[0m\n",
+     "cols": 70,
+     "rows": 8,
+     "font_size": 18.0,
+     "line_height": 1.2,
+     "position": [
+      -3.45,
+      2.8,
+      0
+     ],
+     "frame": "fenster",
+     "theme": "dunkel",
+     "title": "student@labor: ~/linuxk9",
+     "buttons": "drei",
+     "cursor": true,
+     "prompt_colors": true,
+     "shadow": true,
+     "state": "term1"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Parameter",
+    "props": {
+     "name": "term1",
+     "value": 0.0,
+     "min": 0.0,
+     "max": 2.0,
+     "step": 0.01
+    }
+   },
+   {
+    "id": "o3",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.05,
+      2.2333,
+      0
+     ],
+     "width": 4.64,
+     "height": 0.16,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#eb6834",
+     "fill_color": "#ffffff",
+     "fill_opacity": 0.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Text",
+    "props": {
+     "text": "\\e[38;2;0;130;60mjq\\e[0m/resolute-updates,resolute-security 1.8.1-4ubuntu2 amd64",
+     "position": [
+      -3.3,
+      0.6833,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#111111",
+     "ansi": true,
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o5",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -3.0,
+      2.1433,
+      0
+     ],
+     "end": [
+      -3.0,
+      0.8233,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.09,
+     "font_size": 26,
+     "color": "#eb6834",
+     "stroke_width": 2,
+     "dash": "4,4",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Shape",
+    "props": {
+     "points": "-3.28,0.5433;-3.28,0.4733;-3.16,0.4733;-3.16,0.5433",
+     "closed": false,
+     "label": "",
+     "material": "custom",
+     "font_size": 24,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 0.0,
+     "stroke_width": 2.0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o7",
+    "type": "Text",
+    "props": {
+     "text": "@s_name",
+     "position": [
+      -3.3,
+      0.3333,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Shape",
+    "props": {
+     "points": "-3.04,0.5433;-3.04,0.4733;-0.36,0.4733;-0.36,0.5433",
+     "closed": false,
+     "label": "",
+     "material": "custom",
+     "font_size": 24,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 0.0,
+     "stroke_width": 2.0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o9",
+    "type": "Text",
+    "props": {
+     "text": "@s_ausg",
+     "position": [
+      -1.7,
+      0.0833,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o10",
+    "type": "Shape",
+    "props": {
+     "points": "-0.24,0.5433;-0.24,0.4733;0.84,0.4733;0.84,0.5433",
+     "closed": false,
+     "label": "",
+     "material": "custom",
+     "font_size": 24,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 0.0,
+     "stroke_width": 2.0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o11",
+    "type": "Text",
+    "props": {
+     "text": "@s_version",
+     "position": [
+      0.3,
+      0.3333,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Shape",
+    "props": {
+     "points": "0.96,0.5433;0.96,0.4733;1.32,0.4733;1.32,0.5433",
+     "closed": false,
+     "label": "",
+     "material": "custom",
+     "font_size": 24,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 0.0,
+     "stroke_width": 2.0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o13",
+    "type": "Text",
+    "props": {
+     "text": "@s_arch",
+     "position": [
+      1.14,
+      0.3333,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o14",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.39,
+      2.0733,
+      0
+     ],
+     "width": 1.12,
+     "height": 0.16,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 0.45,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o15",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.87,
+      1.5933,
+      0
+     ],
+     "width": 1.12,
+     "height": 0.16,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 0.45,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o16",
+    "type": "Text",
+    "props": {
+     "text": "@treffer",
+     "position": [
+      2.41,
+      1.9133,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#eb6834"
+    }
+   }
+  ],
+  "animations": [
+   {
+    "id": "a1",
+    "type": "FadeIn",
+    "target": "o1",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a2",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.3,
+    "step": 1
+   },
+   {
+    "id": "a3",
+    "type": "ChangeValue",
+    "target": "o2",
+    "run_time": 2.0,
+    "step": 2,
+    "value": 1.0,
+    "rate": "linear"
+   },
+   {
+    "id": "a4",
+    "type": "ChangeValue",
+    "target": "o2",
+    "run_time": 0.6,
+    "step": 3,
+    "value": 2.0,
+    "rate": "linear"
+   },
+   {
+    "id": "a5",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 4
+   },
+   {
+    "id": "a6",
+    "type": "FadeIn",
+    "target": "o3",
+    "run_time": 0.5,
+    "step": 5
+   },
+   {
+    "id": "a7",
+    "type": "Create",
+    "target": "o5",
+    "run_time": 0.5,
+    "step": 6
+   },
+   {
+    "id": "a8",
+    "type": "FadeIn",
+    "target": "o4",
+    "run_time": 0.6,
+    "step": 6
+   },
+   {
+    "id": "a9",
+    "type": "Create",
+    "target": "o6",
+    "run_time": 0.4,
+    "step": 7
+   },
+   {
+    "id": "a10",
+    "type": "FadeIn",
+    "target": "o7",
+    "run_time": 0.4,
+    "step": 7
+   },
+   {
+    "id": "a11",
+    "type": "Create",
+    "target": "o8",
+    "run_time": 0.4,
+    "step": 8
+   },
+   {
+    "id": "a12",
+    "type": "FadeIn",
+    "target": "o9",
+    "run_time": 0.4,
+    "step": 8
+   },
+   {
+    "id": "a13",
+    "type": "Create",
+    "target": "o10",
+    "run_time": 0.4,
+    "step": 9
+   },
+   {
+    "id": "a14",
+    "type": "FadeIn",
+    "target": "o11",
+    "run_time": 0.4,
+    "step": 9
+   },
+   {
+    "id": "a15",
+    "type": "Create",
+    "target": "o12",
+    "run_time": 0.4,
+    "step": 10
+   },
+   {
+    "id": "a16",
+    "type": "FadeIn",
+    "target": "o13",
+    "run_time": 0.4,
+    "step": 10
+   },
+   {
+    "id": "a17",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.5,
+    "step": 11
+   },
+   {
+    "id": "a18",
+    "type": "FadeIn",
+    "target": "o14",
+    "run_time": 0.7,
+    "step": 12
+   },
+   {
+    "id": "a19",
+    "type": "FadeIn",
+    "target": "o15",
+    "run_time": 0.7,
+    "step": 12
+   },
+   {
+    "id": "a20",
+    "type": "FadeIn",
+    "target": "o16",
+    "run_time": 0.7,
+    "step": 12
+   }
+  ],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "s_name": {
+    "de": "Paketname",
+    "en": "package name",
+    "es": "nombre del paquete",
+    "zh": "软件包名",
+    "fr": "nom du paquet",
+    "tr": "paket adı"
+   },
+   "s_ausg": {
+    "de": "Ausgaben, aus denen die Version stammt",
+    "en": "suites the version comes from",
+    "es": "versiones de las que viene",
+    "zh": "该版本所在的发行套件",
+    "fr": "versions d'où vient la version",
+    "tr": "sürümün geldiği dağıtım sürümleri"
+   },
+   "s_version": {
+    "de": "Version",
+    "en": "version",
+    "es": "versión",
+    "zh": "版本",
+    "fr": "version",
+    "tr": "sürüm"
+   },
+   "s_arch": {
+    "de": "Architektur",
+    "en": "architecture",
+    "es": "arquitectura",
+    "zh": "架构",
+    "fr": "architecture",
+    "tr": "mimari"
+   },
+   "treffer": {
+    "de": "Treffer,\negal ob groß\noder klein",
+    "en": "matches,\nupper or\nlower case",
+    "es": "coincidencias,\nmayúsculas o\nminúsculas",
+    "zh": "命中，\n不区分\n大小写",
+    "fr": "trouvés,\nmajuscules ou\nminuscules",
+    "tr": "eşleşmeler,\nbüyük ya da\nküçük harf"
+   }
+  },
+  "drawOrder": "creation"
+ }
+}

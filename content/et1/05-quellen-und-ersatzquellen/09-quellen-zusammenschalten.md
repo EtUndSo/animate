@@ -71,3 +71,131 @@ Ein neuer Akku (12,6 V, 0,1 $\Omega$) wird zu einem alten (11,8 V, 0,3 $
 (c) Der alte Akku liefert erst, wenn $U<11{,}8$ V ist, also für $I_\mathrm{L}>\frac{12{,}4-11{,}8}{0{,}075}\,\mathrm{A}=8$ A. Darunter fließt Strom in ihn hinein, und der neue Akku lädt ihn.
 :::
 :::
+
+::::formelsammlung
+**Quellen in Reihe**
+
+$$U_\mathrm{ers}=U_\mathrm{q1}+U_\mathrm{q2},\quad R_\mathrm{ers}=R_\mathrm{q1}+R_\mathrm{q2}$$
+
+Derselbe Strom durch beide, die Klemmenspannungen addieren sich (Spannungsquellenform). Zwei gleiche Quellen ergeben $2U_\mathrm{q}$ und $2R_\mathrm{q}$. Zwei ideale Stromquellen mit verschiedenen Strömen darf man nicht in Reihe schalten.
+
+**Quellen parallel, Stromquellenform**
+
+$$I_\mathrm{ers}=I_\mathrm{q1}+I_\mathrm{q2},\quad G_\mathrm{ers}=G_\mathrm{q1}+G_\mathrm{q2}$$
+
+Dieselbe Spannung an beiden, die Ströme addieren sich (Knotenregel).
+
+**Quellen parallel, Spannungsquellenform**
+
+$$U_\mathrm{ers}=\frac{G_\mathrm{q1}U_\mathrm{q1}+G_\mathrm{q2}U_\mathrm{q2}}{G_\mathrm{q1}+G_\mathrm{q2}},\qquad R_\mathrm{ers}=R_\mathrm{q1}\parallel R_\mathrm{q2}$$
+
+Gewichteter Mittelwert, die niederohmigere Quelle zählt stärker. Zwei gleiche Quellen ergeben $U_\mathrm{q}$ und $R_\mathrm{q}/2$. Zwei ideale Spannungsquellen mit verschiedenen Spannungen darf man nicht parallel schalten.
+
+**Ausgleichsstrom**
+
+$$I_\mathrm{ausgl}=\frac{U_\mathrm{q1}-U_\mathrm{q2}}{R_\mathrm{q1}+R_\mathrm{q2}}$$
+
+Kreist bei parallelen Spannungsquellen mit $U_\mathrm{q1}\neq U_\mathrm{q2}$ schon ohne Last, aus der stärkeren in die schwächere Quelle: Umlaufspannung durch den Widerstand des Umlaufs. Mit je 10 m$\Omega$ Innenwiderstand ergibt 1 V Differenz 50 A.
+::::
+
+::::lernkarten
+:::karte zusammenhang Quellen in Reihe und parallel
+Warum rechnet man Quellen in Reihe in der Spannungsquellenform und parallele Quellen in der Stromquellenform?
+---
+In Reihe fließt durch beide derselbe Strom, die Klemmenspannungen addieren sich bei jedem Strom. Parallel liegt an beiden dieselbe Spannung, die Ströme addieren sich bei jeder Spannung. Aus zwei Geraden wird wieder eine Gerade.
+--- falsch
+Weil nur Spannungsquellen in Reihe und nur Stromquellen parallel geschaltet werden dürfen. Die jeweils andere Form ergäbe keine reale Quelle mehr, sondern eine gekrümmte Kennlinie, die man nicht mit zwei Zahlen beschreiben kann.
+--- falsch
+In Reihe liegt an beiden dieselbe Spannung, und ihre Ströme addieren sich. Parallel fließt durch beide derselbe Strom, und ihre Spannungen addieren sich. Das Ergebnis ist deshalb keine Gerade mehr, sondern eine Kurve.
+--- falsch
+Weil die Rechnung in der anderen Form ein anderes Ergebnis lieferte. Die Wahl der Form legt fest, welche Quelle entsteht, und muss deshalb zur Bauart der Quellen passen.
+:::
+:::karte formel Quellen in Reihe
+Welche Ersatzquelle bilden zwei reale Spannungsquellen, die in Reihe geschaltet sind?
+---
+$U_\mathrm{ers}=U_\mathrm{q1}+U_\mathrm{q2}$ und $R_\mathrm{ers}=R_\mathrm{q1}+R_\mathrm{q2}$. Zwei gleiche Quellen ergeben in Reihe $2U_\mathrm{q}$ und $2R_\mathrm{q}$.
+--- falsch
+$U_\mathrm{ers}=U_\mathrm{q1}+U_\mathrm{q2}$ und $R_\mathrm{ers}=R_\mathrm{q1}\parallel R_\mathrm{q2}$. Zwei gleiche Quellen ergeben in Reihe $2U_\mathrm{q}$ und $R_\mathrm{q}/2$.
+--- falsch
+$U_\mathrm{ers}=\frac12(U_\mathrm{q1}+U_\mathrm{q2})$ und $R_\mathrm{ers}=R_\mathrm{q1}+R_\mathrm{q2}$. Zwei gleiche Quellen ergeben in Reihe $U_\mathrm{q}$ und $2R_\mathrm{q}$.
+--- falsch
+$U_\mathrm{ers}=U_\mathrm{q1}+U_\mathrm{q2}$ und $R_\mathrm{ers}=R_\mathrm{q1}$, weil der Strom nur einen Innenwiderstand durchläuft. Zwei gleiche Quellen ergeben $2U_\mathrm{q}$ und $R_\mathrm{q}$.
+:::
+:::karte formel Quellen parallel
+Welche Ersatzquelle bilden zwei reale Quellen parallel, in der Stromquellenform und in der Spannungsquellenform geschrieben?
+---
+$I_\mathrm{ers}=I_\mathrm{q1}+I_\mathrm{q2}$ und $G_\mathrm{ers}=G_\mathrm{q1}+G_\mathrm{q2}$, also $U_\mathrm{ers}=\frac{G_\mathrm{q1}U_\mathrm{q1}+G_\mathrm{q2}U_\mathrm{q2}}{G_\mathrm{q1}+G_\mathrm{q2}}$ und $R_\mathrm{ers}=R_\mathrm{q1}\parallel R_\mathrm{q2}$: ein gewichteter Mittelwert, die niederohmigere Quelle zählt stärker.
+--- falsch
+$I_\mathrm{ers}=I_\mathrm{q1}+I_\mathrm{q2}$ und $G_\mathrm{ers}=G_\mathrm{q1}+G_\mathrm{q2}$, also $U_\mathrm{ers}=U_\mathrm{q1}+U_\mathrm{q2}$ und $R_\mathrm{ers}=R_\mathrm{q1}\parallel R_\mathrm{q2}$. Parallel addieren sich Ströme und Spannungen zugleich, wie bei Batterien in Reihe.
+--- falsch
+$I_\mathrm{ers}=I_\mathrm{q1}+I_\mathrm{q2}$ und $G_\mathrm{ers}=G_\mathrm{q1}+G_\mathrm{q2}$, also $U_\mathrm{ers}=\frac{G_\mathrm{q1}U_\mathrm{q1}+G_\mathrm{q2}U_\mathrm{q2}}{G_\mathrm{q1}+G_\mathrm{q2}}$ und $R_\mathrm{ers}=R_\mathrm{q1}+R_\mathrm{q2}$. Die hochohmigere Quelle zählt dabei stärker, weil an ihr mehr Spannung abfällt.
+--- falsch
+$I_\mathrm{ers}=I_\mathrm{q1}+I_\mathrm{q2}$ und $G_\mathrm{ers}=G_\mathrm{q1}+G_\mathrm{q2}$, also $U_\mathrm{ers}=\frac12(U_\mathrm{q1}+U_\mathrm{q2})$ und $R_\mathrm{ers}=R_\mathrm{q1}\parallel R_\mathrm{q2}$. Die Spannung ist stets der einfache Mittelwert.
+:::
+:::karte herleitung Parallel in der Stromquellenform
+Leite aus der Knotenregel her, welche Ersatzquelle zwei parallel geschaltete reale Quellen bilden.
+---
+Beide Quellen haben dieselbe Spannung $U_\mathrm{AB}$, weil sie an denselben zwei Klemmen hängen.
+---
+Die Knotenregel addiert ihre Ströme: $I_\mathrm{A}=(I_\mathrm{q1}-G_\mathrm{q1}U_\mathrm{AB})+(I_\mathrm{q2}-G_\mathrm{q2}U_\mathrm{AB})$, weil jede Quelle in der Stromquellenform $I_\mathrm{q}-G_\mathrm{q}U_\mathrm{AB}$ nach außen liefert.
+---
+Zusammengefasst ist $I_\mathrm{A}=(I_\mathrm{q1}+I_\mathrm{q2})-(G_\mathrm{q1}+G_\mathrm{q2})U_\mathrm{AB}$, weil man die Glieder ohne und mit $U_\mathrm{AB}$ sammelt; das ist wieder eine reale Stromquelle mit $I_\mathrm{ers}=I_\mathrm{q1}+I_\mathrm{q2}$ und $G_\mathrm{ers}=G_\mathrm{q1}+G_\mathrm{q2}$.
+---
+Mit den Bedingungen der Äquivalenz folgen $U_\mathrm{ers}=\frac{G_\mathrm{q1}U_\mathrm{q1}+G_\mathrm{q2}U_\mathrm{q2}}{G_\mathrm{q1}+G_\mathrm{q2}}$ und $R_\mathrm{ers}=R_\mathrm{q1}\parallel R_\mathrm{q2}$, weil die Ersatzspannung der Gesamtstrom durch den Gesamtleitwert ist und jeder Quellenstrom das Produkt aus Leitwert und Quellenspannung.
+:::
+:::karte begriff Ausgleichsstrom
+Was ist der Ausgleichsstrom zweier parallel geschalteter realer Spannungsquellen, und wie groß ist er?
+---
+Der Strom, der bei $U_\mathrm{q1}\neq U_\mathrm{q2}$ schon ohne Last durch beide Quellen kreist: $I_\mathrm{ausgl}=\frac{U_\mathrm{q1}-U_\mathrm{q2}}{R_\mathrm{q1}+R_\mathrm{q2}}$. Er läuft aus der stärkeren Quelle in die schwächere hinein.
+--- falsch
+Der Strom, der erst unter Last fließt und die Last gleichmäßig auf beide Quellen verteilt: $I_\mathrm{ausgl}=\frac{U_\mathrm{q1}+U_\mathrm{q2}}{R_\mathrm{q1}+R_\mathrm{q2}}$. Ohne Last ist er null, gleich welche Spannungen die Quellen haben.
+--- falsch
+Der Strom, der bei ungleichen Spannungen ohne Last kreist: $I_\mathrm{ausgl}=\frac{U_\mathrm{q1}-U_\mathrm{q2}}{R_\mathrm{q1}\parallel R_\mathrm{q2}}$, weil die Innenwiderstände parallel liegen. Er läuft aus der schwächeren Quelle in die stärkere.
+--- falsch
+Der Strom, der bei ungleichen Spannungen ohne Last kreist: $I_\mathrm{ausgl}=\frac{U_\mathrm{q1}-U_\mathrm{q2}}{R_\mathrm{q1}+R_\mathrm{q2}}$. Er ist harmlos, weil er die Klemmenspannung nicht verändert und keine Energie umsetzt.
+:::
+:::karte zusammenhang Große Akkuzellen parallel
+Warum schaltet man große Akkuzellen nur mit gleicher Spannung parallel?
+---
+Ihr Innenwiderstand ist sehr klein, deshalb wird der Ausgleichsstrom schon bei kleiner Spannungsdifferenz groß: 1 V Differenz bei je 10 m$\Omega$ ergibt 50 A. Für $U_\mathrm{q1}=U_\mathrm{q2}$ verschwindet der Ausgleichsstrom.
+--- falsch
+Weil sich sonst ihre Spannungen addieren und die Last eine zu hohe Spannung erhält. Bei gleichen Spannungen bleibt die Klemmenspannung beim Wert einer einzelnen Zelle, wie die Last es erwartet, und nur so passen die Zellen zusammen.
+--- falsch
+Weil ihr Innenwiderstand groß ist und der Ausgleichsstrom deshalb lange kreist: Bei 1 V Differenz fließen über Stunden einige Milliampere, die beide Zellen nach und nach entladen, ohne Gefahr.
+--- falsch
+Weil die Zelle mit der kleineren Spannung sonst keinen Strom an die Last abgeben kann und ungenutzt bleibt. Gefährlich ist eine solche Schaltung dagegen nicht.
+:::
+:::karte zusammenhang Unmögliche Zusammenschaltungen
+Für welche Zusammenschaltungen idealer Quellen hat das Modell keine Lösung, und warum?
+---
+Zwei ideale Spannungsquellen mit verschiedenen Spannungen parallel: Beide wollen die Spannung zwischen denselben Knoten festlegen. Zwei ideale Stromquellen mit verschiedenen Strömen in Reihe: Beide wollen den Strom desselben Zweigs festlegen.
+--- falsch
+Zwei ideale Spannungsquellen in Reihe und zwei ideale Stromquellen parallel: Dort addieren sich die festgehaltenen Größen ohne Grenze, und das Modell liefert unendliche Spannungen und Ströme, die kein Netz aufnehmen kann.
+--- falsch
+Jede Parallelschaltung von Quellen, auch mit gleichen Werten: Parallel geschaltete Quellen widersprechen sich immer, weil an denselben Knoten zwei Größen festgelegt werden.
+--- falsch
+Zwei ideale Spannungsquellen mit verschiedenen Spannungen in Reihe: Beide wollen den Strom im gemeinsamen Zweig festlegen, und die beiden Ströme passen nicht zusammen. Parallel geschaltet wären sie dagegen unproblematisch, weil sich ihre Ströme dann einfach teilen.
+:::
+:::karte zusammenhang Zwei Batterien parallel
+Bringen zwei gleiche parallel geschaltete Batterien mehr Spannung als eine einzelne?
+---
+Im Leerlauf nein, beide liefern 9 V. Unter Last ein wenig, weil sich der Strom auf zwei Innenwiderstände aufteilt und innen nur die Hälfte abfällt. Der Gewinn ist vor allem der doppelte Kurzschlussstrom und die doppelte Ladungsmenge.
+--- falsch
+Ja, parallel addieren sich die Spannungen wie in Reihe: Zwei 9-V-Batterien liefern 18 V, aber nur den halben Strom einer einzelnen, weil sich der Strom auf beide aufteilt. Die Ladungsmenge bleibt dieselbe wie bei einer Batterie.
+--- falsch
+Nein, unter Last sogar weniger, weil die beiden Innenwiderstände sich addieren und der innere Abfall deshalb doppelt so groß wird wie bei einer einzelnen Batterie.
+--- falsch
+Im Leerlauf nein, unter Last auch nicht: Die Klemmenspannung ist bei jeder Last dieselbe wie bei einer einzelnen Batterie, weil jeder Innenwiderstand den vollen Strom führt. Gewonnen wird allein die doppelte Ladungsmenge.
+:::
+:::karte zusammenhang Alter und neuer Akku
+Was geschieht, wenn ein alter Akku (11,8 V, 0,3 $\Omega$) parallel zu einem neuen (12,6 V, 0,1 $\Omega$) liegt und die Last nur wenig Strom zieht?
+---
+Der alte Akku liefert erst, wenn die Klemmenspannung unter 11,8 V fällt, hier ab 8 A Laststrom. Darunter fließt Strom in ihn hinein, und der neue Akku lädt ihn.
+--- falsch
+Beide liefern je die Hälfte des Laststroms, weil parallele Quellen den Strom immer gleichmäßig aufteilen, gleich wie alt sie sind.
+--- falsch
+Der alte Akku liefert den größeren Teil, weil sein Innenwiderstand größer ist und er deshalb mehr Spannung an den Klemmen bereitstellt als der neue.
+--- falsch
+Der alte Akku ist vom Kreis getrennt, solange die Last wenig zieht. Strom fließt durch ihn erst, wenn der neue Akku ganz leer ist und seine Spannung verloren hat.
+:::
+::::
