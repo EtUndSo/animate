@@ -99,6 +99,26 @@ Grenzfall: Wohin wandert dieser Punkt für $Q_2\to0$? Passt das zum Feld einer e
 :::
 :::
 
+::::formelsammlung
+**Elektrische Feldstärke**
+
+$$\vec E:=\lim_{Q\to0}\frac{\vec F}{Q},\qquad\text{also}\quad\vec F=Q\cdot\vec E$$
+
+$\vec F$ Kraft auf eine kleine Probeladung $Q$; der Grenzwert verhindert, dass die Probeladung die erzeugenden Ladungen verschiebt. Richtung: Kraft auf eine positive Probeladung, auf negative Ladung wirkt die Kraft entgegen $\vec E$. $[E]=\mathrm{N/C}=\mathrm{m\,kg\,A^{-1}\,s^{-3}}=\mathrm{V/m}$; bei $3\cdot10^6$ V/m schlägt Luft durch.
+
+**Feld einer Punktladung**
+
+$$\vec E=k\,\frac{Q_0}{r^2}\cdot\frac{\vec r}{r},\qquad E=k\,\frac{|Q_0|}{r^2}$$
+
+$\vec r$ zeigt von der Ladung $Q_0$ zum Ort; das Feld zeigt von einer positiven Ladung weg und zu einer negativen hin. Für $r\to0$ zeigt das unbegrenzte Wachstum die Grenze des Modells Punktladung.
+
+**Überlagerung der Felder**
+
+$$\vec E=\sum_i\vec E_i$$
+
+Mehrere Ladungen erzeugen zusammen die Summe ihrer Felder. In $\vec F=Q\vec E$ steht nur das Feld der anderen Ladungen.
+::::
+
 ::::lernkarten
 :::karte begriff elektrische Feldstärke
 Was gibt die elektrische Feldstärke $\vec E$ an einem Ort an?

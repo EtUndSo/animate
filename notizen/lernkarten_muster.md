@@ -9,6 +9,7 @@
 
 ## Inhalt
 - **Umfang:** je Artikel etwa 6–12 Karten, je nach Inhalt. Kurze Artikel bekommen weniger Karten. Überblick und „Das Wichtigste“ bekommen keine.
+- **Fragen immer als ganzer Fragesatz** (User 12.11.2026: „Die Fragen sollten immer als ganzer Satz geschrieben sein, nicht einfach nur einzelne Begriffe.“). Lieber konkret als „Was ist X?“: Die Frage nennt den Zusammenhang, in dem der Begriff gebraucht wird.
 - **Begriff:** Die Frage zielt auf die Bedeutung, z. B. „Was gibt die Spannung zwischen zwei Punkten an?“. Die Antwort ist eine echte Bestimmung (Oberbegriff + Merkmal), kein Beispiel, 1–3 Sätze, ggf. mit Formel und Einheit. Diese Antwort dient auch als Bestimmung im Begriffsverzeichnis und in der Zusammenfassung.
 - **Formel:** Die Frage zielt auf den Zusammenhang oder die Formel, z. B. „Wie hängen Spannung, Arbeit und Ladung zusammen?“. Die Antwort enthält die Formel, die Bedeutung der Größen und die Gültigkeit.
 - **Herleitung:** nur, wo der Artikel etwas herleitet. Die Frage nennt Ausgangspunkt und Ziel. Die Antwort besteht aus 3–6 Schritten, jeder mit Begründung („weil …“).
@@ -80,6 +81,6 @@
 - **Prüf-PDF:** `karten_def.tex` mit boxsep=0 und 4 pt Innenabstand, sonst meldet `pdf_pruefen` die Kastenrahmen als „ragt über den Rand“.
 
 ## Stand
-- **11.11.2026 Pilot ET1 Kap. 1:** 98 Karten (37 B, 21 F, 33 Z, 7 H), PDF `C:\Bücher\ET1\Arbeitshefte\Kap1_Feld_Karten.pdf` (30 S.), auf der Website eingebaut. Abnahme durch den User offen.
+- **11.11.2026 Pilot ET1 Kap. 1:** 98 Karten (37 B, 21 F, 33 Z, 7 H), PDF `C:\Bücher\ET1\Arbeitshefte\Kap1_Feld_Karten.pdf` (30 S.), auf der Website eingebaut. **Vom User abgenommen 12.11.** („Sonst alles gut, kannst damit dann weitermachen“); alle weiteren Hefte über `notizen/karten_formeln_schleife.md`.
 - **Umfang:** etwa 100 Karten je Kapitel, also rund 1100 allein für ET1.
   - Das Format aus W4b (`:::karte <art>` / `---`) bleibt gültig; `--- falsch` und der Name sind Erweiterungen.

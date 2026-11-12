@@ -58,9 +58,29 @@ Eine Spule mit 200 Windungen umfasst einen Fluss, der gleichmäßig in 10 ms u
 :::
 :::
 
+::::formelsammlung
+**Induktionsgesetz**
+
+$$u_\mathrm{ind}(t)=-N\,\frac{\mathrm{d}\Phi}{\mathrm{d} t}$$
+
+Spannung zwischen den Enden einer Spule mit $N$ Windungen, wenn sich der magnetische Fluss $\Phi$ ändert; alle Windungen umfassen denselben Fluss. Es zählt nur die Änderung: Für konstanten Fluss ist $u_\mathrm{ind}=0$. Das Minuszeichen sagt: Ein Strom, den diese Spannung treibt, wirkt der Flussänderung entgegen.
+
+**Einheit des magnetischen Flusses**
+
+$$[\Phi]=\mathrm{V\,s}=\mathrm{Wb}$$
+
+Weber; der Fluss misst, wie viel Magnetfeld durch die Spulenfläche tritt.
+
+**Wirbelfeld**
+
+$$\oint_L\vec E\cdot\mathrm{d}\vec s\neq0$$
+
+Für einen Weg $L$ um einen sich ändernden magnetischen Fluss: Das Feld hat geschlossene Linien, auf einem Umlauf gewinnt eine Ladung Energie. Die Arbeit hängt vom Weg ab, ein Ort hat kein eindeutiges Potenzial.
+::::
+
 ::::lernkarten
 :::karte begriff Induktion
-Was ist Induktion?
+Was versteht man unter Induktion, und was ist ihre Ursache?
 ---
 Das Entstehen einer elektrischen Spannung durch einen sich ändernden magnetischen Fluss, etwa an den Enden einer Spule. Ursache ist ein elektrisches Wirbelfeld, erzeugt vom sich ändernden Magnetfeld.
 --- falsch
@@ -71,7 +91,7 @@ Das Entstehen eines Magnetfelds um einen Draht, durch den ein Strom fließt. Ein
 Die Verschiebung der freien Elektronen in einem Metall durch ein äußeres elektrisches Feld. Sie wandern, bis keine Kraft mehr auf sie wirkt und das Innere feldfrei ist.
 :::
 :::karte begriff Wirbelfeld
-Was ist ein elektrisches Wirbelfeld?
+Was kennzeichnet ein elektrisches Wirbelfeld, wie es bei der Induktion auftritt, und was gilt in ihm auf einem geschlossenen Umlauf?
 ---
 Ein elektrisches Feld mit geschlossenen Linien, das ein sich änderndes Magnetfeld erzeugt. Auf einem Umlauf gewinnt eine Ladung darin Energie, $\oint_L\vec E\cdot\mathrm{d}\vec s=0$ gilt nicht mehr.
 --- falsch
@@ -159,7 +179,7 @@ Die elektrische Flussdichte hat keine Quellen, ihre Linien sind geschlossen. Lad
 Ladungen sind Quellen und Senken der elektrischen Flussdichte. Die magnetischen Linien beginnen am Nordpol eines Magneten und enden am Südpol.
 :::
 :::karte begriff technische Stromrichtung
-Was ist die technische Stromrichtung?
+In welche Richtung zeigt die technische Stromrichtung, nach der man etwa den Daumen bei der Rechte-Faust-Regel ausrichtet, und wie laufen dabei die Elektronen?
 ---
 Die vereinbarte Richtung des Stroms von Plus nach Minus. Die Elektronen im Draht laufen ihr entgegen.
 --- falsch

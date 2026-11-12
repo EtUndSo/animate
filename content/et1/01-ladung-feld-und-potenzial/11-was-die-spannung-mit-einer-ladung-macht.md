@@ -101,6 +101,38 @@ Welche Startgeschwindigkeit bräuchte es, um B gerade noch zu erreichen?
 :::
 :::
 
+::::formelsammlung
+**Energiesatz für eine Ladung im Feld**
+
+$$\tfrac12m\,v^2+Q\,\varphi=\text{konstant}$$
+
+Im elektrostatischen Feld bleibt die Summe aus Bewegungsenergie und potenzieller Energie konstant; $m$ Masse in kg, $\varphi$ Potenzial am Ort. Jede Ladung läuft von selbst dorthin, wo $Q\varphi$ kleiner wird, ein Elektron also zum höheren Potenzial.
+
+**Arbeit des Felds wird Bewegungsenergie**
+
+$$\frac12mv_2^2-\frac12mv_1^2=W_{12}=Q(\varphi_1-\varphi_2)$$
+
+Im Vakuum geht die Arbeit des Felds vollständig in Bewegungsenergie über.
+
+**Geschwindigkeit aus der Ruhe**
+
+$$v=\sqrt{\frac{2\,|Q\,U|}{m}}$$
+
+Die Ladung startet aus der Ruhe und durchläuft die Spannung $U$. Der Weg kommt nicht vor, allein die Spannung bestimmt die Energie. Gilt im Vakuum und für $v\ll c$; die Gewichtskraft entfällt.
+
+**Beschleunigung und Flugzeit im homogenen Feld**
+
+$$a=\frac{|Q|\,E}{m},\qquad t=\frac{2\,d}{v}$$
+
+Feld der Stärke $E$ über die Länge $d$, Start aus der Ruhe. Die Beschleunigung ist konstant, die mittlere Geschwindigkeit ist $v/2$.
+
+**Elektronenvolt**
+
+$$1\,\mathrm{eV}=1{,}602\cdot10^{-19}\,\mathrm{J}$$
+
+Energie, die eine Elementarladung beim Durchlaufen von 1 V gewinnt.
+::::
+
 ::::lernkarten
 :::karte formel Energiesatz
 Was bleibt erhalten, wenn sich eine Ladung $Q$ der Masse $m$ im elektrostatischen Feld bewegt?
@@ -182,7 +214,7 @@ Es gewinnt 1836-mal mehr Energie, weil es 1836-mal schwerer ist. Seine Geschwind
 Es gewinnt weniger Energie, weil seine positive Ladung vom Feld gebremst wird. Deshalb ist es deutlich langsamer als das Elektron.
 :::
 :::karte begriff Elektronenvolt
-Was ist ein Elektronenvolt?
+Welche Größe misst man in Elektronenvolt, und wie ist $1\,\mathrm{eV}$ festgelegt?
 ---
 Eine Einheit der Energie: die Energie, die eine Elementarladung beim Durchlaufen von 1 V gewinnt, $1\,\mathrm{eV}=1{,}602\cdot10^{-19}$ J.
 --- falsch

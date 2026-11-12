@@ -76,6 +76,26 @@ Zwei gleiche Metallkugeln tragen $+8$ nC und $-2$ nC. Sie berühren sich und
 :::
 :::
 
+::::formelsammlung
+**Ladung eines Körpers**
+
+$$Q=(N_\mathrm{p}-N_\mathrm{e})\,e,\qquad e=1{,}602\cdot10^{-19}\,\mathrm{C},\qquad[Q]=\mathrm C=\mathrm{A\,s}$$
+
+$N_\mathrm{p}$ Zahl der Protonen, $N_\mathrm{e}$ Zahl der Elektronen. Die Elementarladung $e$ ist die kleinste frei vorkommende Ladung; ein Elektron trägt $-e$, ein Proton $+e$. Ein Coulomb sind $6{,}24\cdot10^{18}$ Elementarladungen; in Schaltungen gilt Ladung als stetige Größe.
+
+**Zahl der fehlenden oder überzähligen Elektronen**
+
+$$N=Q/e$$
+
+Für einen Körper mit der Ladung $Q$: Ein positiver Körper hat Elektronenmangel, ein negativer Elektronenüberschuss.
+
+**Ladungserhaltung**
+
+$$Q_1+Q_2=\bigl[(N_\mathrm{p1}+N_\mathrm{p2})-(N_\mathrm{e1}+N_\mathrm{e2})\bigr]e$$
+
+Gesamtladung zweier Körper. Wechselt ein Elektron den Körper, bleibt die Klammer gleich: In einem abgeschlossenen System bleibt die Summe aller Ladungen konstant.
+::::
+
 ::::lernkarten
 :::karte begriff Ladung
 Was ist die elektrische Ladung $Q$ eines Körpers?
@@ -89,7 +109,7 @@ Die Eigenschaft der Protonen und Elektronen, elektrische Kräfte auszuüben und 
 Die Menge der Elektronen in einem Körper, ausgedrückt in Coulomb. Ein Körper mit $N_\mathrm{e}$ Elektronen trägt $Q=N_\mathrm{e}\,e$, gleich wie viele Protonen er enthält; $\mathrm C=\mathrm{A\,s}$.
 :::
 :::karte begriff Elementarladung
-Was ist die Elementarladung $e$?
+Welche Rolle spielt die Elementarladung $e$ für die Ladung von Proton, Elektron und jedem geladenen Körper?
 ---
 Die kleinste frei vorkommende Ladung, $e=1{,}602\cdot10^{-19}\,\mathrm{C}$. Ein Proton trägt $+e$, ein Elektron $-e$; Ladung kommt nur in Vielfachen von $e$ vor.
 --- falsch
@@ -100,7 +120,7 @@ Die kleinste Ladung, die ein Messgerät noch auflösen kann, $e=1{,}602\cdot10^{
 Die größte Ladung, die ein geriebener Körper tragen kann, rund 10 nC. Mehr Ladung kann er nicht halten, der Überschuss entlädt sich sofort.
 :::
 :::karte begriff Ladungserhaltung
-Was besagt die Ladungserhaltung?
+Was besagt die Ladungserhaltung für die Ladungen in einem abgeschlossenen System, etwa beim Reiben?
 ---
 In einem abgeschlossenen System bleibt die Summe aller Ladungen konstant. Ladung entsteht nicht neu, sie wird nur zwischen Körpern verschoben.
 --- falsch

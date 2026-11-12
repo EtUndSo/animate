@@ -76,3 +76,142 @@ In welche Richtung zeigt $\vec j$ in einem Draht, in dem Elektronen nach rechts 
 (a) $Q=I\,t=20\,\mathrm{mA}\cdot300\,\mathrm{s}=6$ C, das sind $6\,\mathrm{C}/e=3{,}7\cdot10^{19}$ Elektronen. (b) $j=16\,\mathrm{A}/1{,}5\,\mathrm{mm^2}=10{,}7\,\mathrm{A/mm^2}$. (c) Nach links: Für Elektronen ist $q<0$, also zeigt $\vec j=q\,\vec v$ gegen $\vec v$.
 :::
 :::
+
+::::formelsammlung
+**Ladungsdichte**
+
+$$q=\Delta Q/\Delta V$$
+
+Ladung je Volumen, Einheit $\mathrm{C/m^3}$. Für die freien Elektronen eines Metalls mit der Elektronendichte $n$ ist $q=-n\,e$.
+
+**Stromstärke**
+
+$$i=\lim_{\Delta t\to0}\frac{\Delta Q}{\Delta t}=\frac{\mathrm{d} Q}{\mathrm{d} t},\qquad [I]=\mathrm{C/s}=\mathrm A$$
+
+Ladung, die je Zeit durch eine Fläche läuft; $i$ zeitabhängig, $I$ zeitlich konstant. Dauerhaft fließt Strom nur mit einer Quelle in einem geschlossenen Stromkreis; zeitlich konstant heißt er stationär.
+
+**Strom aus Dichte und Geschwindigkeit**
+
+$$I=q\,v\,A$$
+
+Ladungsdichte $q$, Geschwindigkeit $v$ der Ladungsträger, Querschnittsfläche $A$. Gilt, wenn $q$ und $v$ über $A$ gleich sind und $v$ senkrecht auf $A$ steht.
+
+**Stromdichte**
+
+$$j=\frac IA=q\,v,\qquad\vec j=q\,\vec v$$
+
+Strom je Fläche, Einheit $\mathrm{A/m^2}$. $\vec j$ zeigt für $q>0$ in Richtung von $\vec v$, für $q<0$ entgegengesetzt.
+::::
+
+::::lernkarten
+:::karte begriff Stromstärke
+Was gibt die Stromstärke in einem Leiter an, und in welcher Einheit misst man sie?
+---
+Die Ladung, die je Zeit durch eine Fläche läuft: $i=\mathrm{d} Q/\mathrm{d} t$, Einheit Ampere, $[I]=\mathrm{C/s}=\mathrm A$. Kurz heißt sie Strom.
+--- falsch
+Die Ladung, die insgesamt im Leiter sitzt, gemessen in Coulomb. Je mehr freie Ladung ein Draht enthält, desto größer ist sein Strom.
+--- falsch
+Die Geschwindigkeit, mit der die Ladungsträger durch den Leiter laufen, gemessen in Meter je Sekunde. Kurz heißt sie Strom.
+--- falsch
+Die Energie, die je Zeit durch eine Fläche läuft: $i=\mathrm{d} W/\mathrm{d} t$, Einheit Ampere, $[I]=\mathrm{J/s}=\mathrm A$. Kurz heißt sie Strom.
+:::
+:::karte begriff Ladungsdichte
+Was gibt die Ladungsdichte $q$ an, mit der man den Strom in einem Leiter berechnet?
+---
+Die Ladung je Volumen, $q=\Delta Q/\Delta V$, Einheit $\mathrm{C/m^3}$. Für die freien Elektronen im Kupfer ist $q=-n\,e$, also negativ.
+--- falsch
+Die Ladung je Querschnittsfläche, $q=\Delta Q/A$, Einheit $\mathrm{C/m^2}$. Für die freien Elektronen im Kupfer ist sie positiv.
+--- falsch
+Die Zahl der freien Elektronen je Volumen, $q=n$, Einheit $\mathrm{m^{-3}}$. Sie ist immer positiv, auch für Elektronen.
+--- falsch
+Die Ladung, die je Sekunde durch ein Volumen läuft, Einheit $\mathrm{A/m^3}$. Sie ist ein Maß dafür, wie stark der Strom ist.
+:::
+:::karte begriff Stromdichte
+Was gibt die Stromdichte $j$ an, und wie hängt sie mit Ladungsdichte und Geschwindigkeit zusammen?
+---
+Den Strom, der je Querschnittsfläche durch den Leiter läuft: $j=\frac IA=q\,v$, Einheit $\mathrm{A/m^2}$. Als Vektor ist $\vec j=q\,\vec v$.
+--- falsch
+Den Strom je Querschnittsfläche: $j=I\,A=q\,v$, Einheit $\mathrm{A\,m^2}$. Ein dickerer Draht hat bei gleichem Strom die größere Stromdichte.
+--- falsch
+Den Strom je Länge des Leiters: $j=I/L$, Einheit $\mathrm{A/m}$. Je länger der Draht, desto kleiner ist seine Stromdichte.
+--- falsch
+Die Ladung je Volumen mal Querschnitt: $j=q\,A$, Einheit $\mathrm{C/m}$. Sie hängt nicht von der Geschwindigkeit der Ladung ab.
+:::
+:::karte begriff Stromkreis und stationär
+Was ist ein Stromkreis, und wann heißt der Strom darin stationär?
+---
+Ein Weg für den Strom, der in sich zurückläuft. Stationär heißt ein zeitlich konstanter Strom in einem solchen geschlossenen Kreis.
+--- falsch
+Jede Verbindung von einer Quelle zu einem Verbraucher, auch ohne Rückweg. Stationär heißt ein Strom, der nur in eine Richtung fließt.
+--- falsch
+Ein Weg für den Strom, der in sich zurückläuft. Stationär heißt ein Strom, dessen Ladungsträger im Leiter ruhen und nicht driften.
+--- falsch
+Ein Weg, auf dem die Quelle Ladung abgibt, die im Verbraucher bleibt. Stationär heißt ein Strom, der langsam und gleichmäßig fließt.
+:::
+:::karte formel Strom aus Dichte und Geschwindigkeit
+Wie hängt der Strom $I$ in einem Leiter von Ladungsdichte, Geschwindigkeit und Querschnitt ab?
+---
+$I=q\,v\,A$: Ladungsdichte mal Geschwindigkeit mal Querschnittsfläche. Es gilt, wenn $q$ und $v$ über $A$ gleich sind und $v$ senkrecht auf $A$ steht.
+--- falsch
+$I=q\,v/A$: Ladungsdichte mal Geschwindigkeit, geteilt durch die Querschnittsfläche. Ein dünnerer Draht führt bei gleichem $q$ und $v$ deshalb mehr Strom.
+--- falsch
+$I=q\,A/v$: Ladungsdichte mal Querschnittsfläche, geteilt durch die Geschwindigkeit. Langsamere Ladung verweilt länger an der Fläche und ergibt mehr Strom.
+--- falsch
+$I=q\,v\,A$: Ladungsdichte mal Geschwindigkeit mal Querschnittsfläche. Es gilt für jede Richtung von $v$, auch wenn $v$ parallel zur Fläche $A$ liegt.
+:::
+:::karte herleitung Strom aus Dichte und Geschwindigkeit
+Leite aus der Ladungsdichte $q$ und der Geschwindigkeit $v$ der Ladungsträger her, dass durch eine Fläche $A$ der Strom $I=q\,v\,A$ fließt.
+---
+In der Zeit $\Delta t$ läuft genau die Ladung durch $A$, die vorher höchstens den Weg $v\,\Delta t$ entfernt war, weil sie sich mit der Geschwindigkeit $v$ auf die Fläche zubewegt.
+---
+Mit $A=\Delta x\,\Delta y$ hat dieses Stück das Volumen $\Delta V=\Delta x\,\Delta y\,\Delta z$ mit $\Delta z=v\,\Delta t$, weil es die Fläche $A$ um den Weg $v\,\Delta t$ nach hinten verlängert.
+---
+Es enthält die Ladung $\Delta Q=q\,\Delta V=q\,A\,v\,\Delta t$, weil die Ladungsdichte die Ladung je Volumen ist.
+---
+Also ist $\Delta Q/\Delta t=q\,v\,A$, weil der Strom die Ladung je Zeit ist, die durch die Fläche läuft.
+:::
+:::karte zusammenhang Richtung der Stromdichte
+In welche Richtung zeigt die Stromdichte $\vec j$ in einem Draht, in dem Elektronen nach rechts laufen, und warum?
+---
+Nach links: Für Elektronen ist $q<0$, deshalb zeigt $\vec j=q\,\vec v$ entgegen ihrer Geschwindigkeit $\vec v$, also gegen ihre Laufrichtung.
+--- falsch
+Nach rechts, weil $\vec j=q\,\vec v$ immer in die Bewegungsrichtung der Ladungsträger zeigt, gleich welches Vorzeichen sie tragen.
+--- falsch
+Quer zum Draht, weil die Stromdichte durch die Querschnittsfläche zeigt und nicht längs des Leiters.
+--- falsch
+Sie hat keine Richtung, weil die Stromdichte wie der Strom eine Zahl ist; bei Elektronen ist nur ihr Vorzeichen negativ.
+:::
+:::karte zusammenhang Ruhende Ladungsträger
+Warum fließt kein Strom, wenn die Ladungsträger im Mittel ruhen, obwohl ein Meter Draht 6800 C freie Ladung enthält?
+---
+Weil der Strom nach $I=q\,v\,A$ auch von der Geschwindigkeit abhängt: Für $v=0$ ist $I=0$, gleichgültig wie viel Ladung im Draht sitzt.
+--- falsch
+Weil 6800 C zu wenig sind: Ein messbarer Strom braucht mehr Ladung, als in einem Meter Draht steckt, also einige Meter mehr.
+--- falsch
+Weil der Strom nur vom Querschnitt abhängt: Ein dünner Draht führt keinen Strom, gleichgültig wie viel Ladung in ihm sitzt.
+--- falsch
+Weil sich die freie Ladung im Draht ständig neu bildet und wieder verschwindet. Im Mittel ist sie deshalb null und trägt keinen Strom.
+:::
+:::karte zusammenhang Unterbrochener Stromkreis
+Warum endet der Strom, wenn der Stromkreis an einer Stelle unterbrochen ist?
+---
+Weil sich an der Unterbrechung Ladung staut. Ihr Feld hebt das antreibende Feld auf, und die Ladungsträger kommen zur Ruhe.
+--- falsch
+Weil die Quelle ihre Ladung nur in einen geschlossenen Kreis abgeben kann. Ohne Rückweg bleiben ihre Ladungsträger in ihr.
+--- falsch
+Weil die Ladungsträger an der Unterbrechung verbraucht werden. Ohne Rückweg kommen keine neuen nach, und der Leiter wird leer.
+--- falsch
+Weil an der Unterbrechung die Spannung der Quelle verschwindet. Ohne geschlossenen Kreis baut die Quelle gar keine Spannung auf.
+:::
+:::karte zusammenhang Was ein Verbraucher verbraucht
+Was wird in einem Verbraucher verbraucht, wenn Strom durch ihn fließt, und was liefert die Quelle?
+---
+Energie, nicht Ladung: Aus dem Bauteil kommen je Sekunde so viele Elektronen heraus, wie hineinlaufen. Die Quelle liefert Energie; die Ladungsträger sitzen schon im Leiter.
+--- falsch
+Ladung: Ein Teil der Elektronen bleibt im Bauteil zurück, deshalb kommen je Sekunde weniger heraus, als hineinlaufen. Die Quelle muss laufend neue Elektronen in den Leiter nachliefern.
+--- falsch
+Strom: Hinter dem Verbraucher ist der Strom kleiner als davor, weil das Bauteil ihn für seine Arbeit aufnimmt. Die Quelle liefert den Strom.
+--- falsch
+Spannung und Ladung zugleich: Die Elektronen geben im Bauteil ihre Ladung ab und laufen ungeladen zur Quelle zurück, die sie neu auflädt.
+:::
+::::

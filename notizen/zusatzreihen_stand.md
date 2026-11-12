@@ -341,7 +341,7 @@ Reihenfolge: Pilot cyber 1, ml 1 → Abnahme durch den User → danach abwechsel
       - Ziel: Szene ↔ Python-Code (szenen_lib-Stil) in beide Richtungen, „Both“ zeigt beides nebeneinander und synchron.
       - Termin: nach der Vervollständigung des Editors, sofern der User nichts anderes sagt.
     - **Dann Grafiken/Animationen in Wellen:** je Heft ein Agent, der Szenen baut und `\szenenabb` ins Heft setzt, samt Bildunterschriften in allen vorhandenen Sprachen. Erst wenn die ET-Überarbeitung von Python/ML/Cyber durch ist, damit sich nichts überschneidet.
-- Vor Cyber Teil 2 noch offen: Cyber-LERNPFAD auf 12 Hefte und `MODULE["cyber"]` umstellen (nur Kap1 existiert, deshalb Dateinummer = Anzeige-Teil 1–12).
+- **Erledigt 12.11.2026:** Cyber-LERNPFAD auf 12 Hefte und `MODULE["cyber"]` umgestellt (Dateinummer = Anzeige-Teil 1–12; Zuordnung alt → neu oben im LERNPFAD; WISSEN zu Teil 2: `WISSEN_Teil02_schutzgrenzen.md`). Neue Hefte laufen über die Schleife `notizen/hefte_schleife.md`.
 
 ## Koordination
 Wie der Haupt-Agent Agenten beauftragt, prüft und berichtet, steht in `notizen/koordination.md`. Diese Datei vor jedem Arbeitsschritt lesen.

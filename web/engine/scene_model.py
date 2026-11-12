@@ -17,6 +17,7 @@ from .simpleShape import (Circle, Dot, Line, Polygon, Triangle, Rectangle, Squar
 from .text import Text, DecimalNumber, set_number_lang, fmt_number, localize_digits
 from . import figures as _fig
 from . import circuit as _circ
+from . import terminal as _term
 from .value_tracker import ValueTracker
 from .threed import ThreeDAxes, Box, Cube, Sphere, Pyramid, Vector, Ball
 from .svg import MathTex, SVGMobject
@@ -1374,8 +1375,13 @@ def _build_object(spec, objects, axes=None):
                 raise ValueError(f"Zahlenanzeige {spec.get('id', '')}: Ausdruck „{args['value']}“ ergibt keine Zahl "
                                  "(Parametername richtig geschrieben?)")
             args["value"] = 0.0
-    if t == "Text" and isinstance(spec.get("args", {}).get("text"), str) and (args.get("raw") or args.get("font") == "mono"):
+    if t == "Text" and isinstance(spec.get("args", {}).get("text"), str) and (args.get("raw") or args.get("font") == "mono"
+                                                                             or args.get("ansi")):
         args["text"] = _label_text(spec["args"]["text"], digits=False)   # code / file names: 1.5M stays 1.5M
+    if t == "Terminal":                                    # F1: screen content and title stay as written in every language
+        for k in ("text", "title"):                        # (only @key / @{key} are looked up, no decimal comma)
+            if isinstance(spec.get("args", {}).get(k), str):
+                args[k] = _label_text(spec["args"][k], digits=False)
     # Styling is set as attributes AFTER construction (shapes don't take color in __init__).
     style = {k: args.pop(k) for k in list(args) if k in _STYLE_ATTRS}
     layer = args.pop("layer", None)                         # 3D: drawn after all objects of a lower layer (renderer)
@@ -1479,6 +1485,8 @@ def _build_object(spec, objects, axes=None):
         obj = _fig.BUILDERS[t](args, style, axes)
     elif t in _circ.BUILDERS:                               # circuit symbols: components, devices, wires, nodes
         obj = _circ.BUILDERS[t](args, style, axes)
+    elif t in _term.BUILDERS:                               # F1: terminal / file view / full-screen program, lock symbol
+        obj = _term.BUILDERS[t](args, style, axes)
     else:
         # Some classes (3D solids, Vector) take color/fill_opacity/stroke_width in __init__ so the
         # style reaches every face; pass those through when the constructor accepts them.
@@ -1826,7 +1834,7 @@ _NO_PARAM_LINK = {"Axes", "ThreeDAxes", "Parameter", "ValueTracker", "MathTex", 
 # props that never hold an expression with a parameter (labels, names, kinds)
 _NO_REF_KEYS = _LABEL_KEYS | {"name", "kind", "material", "shape", "styles", "symbol_style", "align", "font",
                               "label_pos", "label_at", "label_side", "elbow", "route", "dots", "colors", "dash",
-                              "guide_dash", "marker"}
+                              "guide_dash", "marker", "frame", "theme", "buttons"}
 
 
 def _param_refs(spec, names):

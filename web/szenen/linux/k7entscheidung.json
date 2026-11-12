@@ -1,0 +1,1197 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 39,
+  "nextAnimId": 40,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.5,
+      1.9,
+      0
+     ],
+     "width": 2.8,
+     "height": 0.42,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#e3eefb",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Text",
+    "props": {
+     "text": "@q1",
+     "position": [
+      -1.5,
+      1.9,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o3",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.88,
+      1.9,
+      0
+     ],
+     "width": 2.6,
+     "height": 0.62,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Text",
+    "props": {
+     "text": "@o1a",
+     "position": [
+      1.88,
+      2.02,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o5",
+    "type": "Text",
+    "props": {
+     "text": "@o1b",
+     "position": [
+      1.88,
+      1.78,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o6",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -0.1,
+      1.9,
+      0
+     ],
+     "end": [
+      0.58,
+      1.9,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.11,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o7",
+    "type": "Text",
+    "props": {
+     "text": "@ja0",
+     "position": [
+      0.24,
+      2.05,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#00823c"
+    }
+   },
+   {
+    "id": "o8",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.5,
+      0.8,
+      0
+     ],
+     "width": 2.8,
+     "height": 0.42,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#e3eefb",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o9",
+    "type": "Text",
+    "props": {
+     "text": "@q2",
+     "position": [
+      -1.5,
+      0.8,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o10",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.88,
+      0.8,
+      0
+     ],
+     "width": 2.6,
+     "height": 0.42,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o11",
+    "type": "Text",
+    "props": {
+     "text": "@o2",
+     "position": [
+      1.88,
+      0.8,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o12",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -0.1,
+      0.8,
+      0
+     ],
+     "end": [
+      0.58,
+      0.8,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.11,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o13",
+    "type": "Text",
+    "props": {
+     "text": "@ja1",
+     "position": [
+      0.24,
+      0.95,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#00823c"
+    }
+   },
+   {
+    "id": "o14",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.5,
+      -0.4,
+      0
+     ],
+     "width": 2.8,
+     "height": 0.62,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#e3eefb",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o15",
+    "type": "Text",
+    "props": {
+     "text": "@q3a",
+     "position": [
+      -1.5,
+      -0.28,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o16",
+    "type": "Text",
+    "props": {
+     "text": "@q3b",
+     "position": [
+      -1.5,
+      -0.52,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o17",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.88,
+      -0.4,
+      0
+     ],
+     "width": 2.6,
+     "height": 0.42,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o18",
+    "type": "Text",
+    "props": {
+     "text": "@o3",
+     "position": [
+      1.88,
+      -0.4,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o19",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -0.1,
+      -0.4,
+      0
+     ],
+     "end": [
+      0.58,
+      -0.4,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.11,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o20",
+    "type": "Text",
+    "props": {
+     "text": "@ja2",
+     "position": [
+      0.24,
+      -0.25,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#00823c"
+    }
+   },
+   {
+    "id": "o21",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.5,
+      -1.45,
+      0
+     ],
+     "width": 2.8,
+     "height": 0.42,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o22",
+    "type": "Text",
+    "props": {
+     "text": "@o4",
+     "position": [
+      -1.5,
+      -1.45,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o23",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -1.5,
+      1.68,
+      0
+     ],
+     "end": [
+      -1.5,
+      1.02,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.11,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o24",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -1.5,
+      0.58,
+      0
+     ],
+     "end": [
+      -1.5,
+      -0.08,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.11,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o25",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -1.5,
+      -0.72,
+      0
+     ],
+     "end": [
+      -1.5,
+      -1.23,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.11,
+     "font_size": 26,
+     "color": "#111111",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o26",
+    "type": "Text",
+    "props": {
+     "text": "@n0",
+     "position": [
+      -1.38,
+      1.35,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o27",
+    "type": "Text",
+    "props": {
+     "text": "@n1",
+     "position": [
+      -1.38,
+      0.25,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o28",
+    "type": "Text",
+    "props": {
+     "text": "@n2",
+     "position": [
+      -1.38,
+      -0.975,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o29",
+    "type": "Text",
+    "props": {
+     "text": "@bsp",
+     "position": [
+      1.88,
+      -1.33,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#eb6834"
+    }
+   },
+   {
+    "id": "o30",
+    "type": "Text",
+    "props": {
+     "text": "----r--r-- student student einkauf.txt",
+     "position": [
+      1.88,
+      -1.59,
+      0
+     ],
+     "font_size": 17,
+     "align": "center",
+     "color": "#333333",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o31",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.5,
+      1.9,
+      0
+     ],
+     "width": 2.9,
+     "height": 0.52,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#eb6834",
+     "fill_color": "#ffffff",
+     "fill_opacity": 0.0,
+     "stroke_width": 3.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o32",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.5,
+      0.8,
+      0
+     ],
+     "width": 2.9,
+     "height": 0.52,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#eb6834",
+     "fill_color": "#ffffff",
+     "fill_opacity": 0.0,
+     "stroke_width": 3.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o33",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.88,
+      0.8,
+      0
+     ],
+     "width": 2.7,
+     "height": 0.52,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#eb6834",
+     "fill_color": "#ffffff",
+     "fill_opacity": 0.0,
+     "stroke_width": 3.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o34",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -1.5,
+      1.68,
+      0
+     ],
+     "end": [
+      -1.5,
+      1.02,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.11,
+     "font_size": 26,
+     "color": "#eb6834",
+     "stroke_width": 4,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o35",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -0.1,
+      0.8,
+      0
+     ],
+     "end": [
+      0.58,
+      0.8,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.11,
+     "font_size": 26,
+     "color": "#eb6834",
+     "stroke_width": 4,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o36",
+    "type": "Text",
+    "props": {
+     "text": "u: ---",
+     "position": [
+      1.13,
+      0.35,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#c82828",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o37",
+    "type": "Text",
+    "props": {
+     "text": "@verb",
+     "position": [
+      1.98,
+      0.35,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o38",
+    "type": "Text",
+    "props": {
+     "text": "@obwohl",
+     "position": [
+      1.88,
+      0.05,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   }
+  ],
+  "animations": [
+   {
+    "id": "a1",
+    "type": "FadeIn",
+    "target": "o1",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a2",
+    "type": "FadeIn",
+    "target": "o2",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a3",
+    "type": "Create",
+    "target": "o6",
+    "run_time": 0.5,
+    "step": 1
+   },
+   {
+    "id": "a4",
+    "type": "FadeIn",
+    "target": "o7",
+    "run_time": 0.5,
+    "step": 1
+   },
+   {
+    "id": "a5",
+    "type": "GrowFromCenter",
+    "target": "o3",
+    "run_time": 0.5,
+    "step": 1
+   },
+   {
+    "id": "a6",
+    "type": "FadeIn",
+    "target": "o4",
+    "run_time": 0.5,
+    "step": 1
+   },
+   {
+    "id": "a7",
+    "type": "FadeIn",
+    "target": "o5",
+    "run_time": 0.5,
+    "step": 1
+   },
+   {
+    "id": "a8",
+    "type": "Create",
+    "target": "o23",
+    "run_time": 0.5,
+    "step": 2
+   },
+   {
+    "id": "a9",
+    "type": "FadeIn",
+    "target": "o26",
+    "run_time": 0.5,
+    "step": 2
+   },
+   {
+    "id": "a10",
+    "type": "GrowFromCenter",
+    "target": "o8",
+    "run_time": 0.5,
+    "step": 2
+   },
+   {
+    "id": "a11",
+    "type": "FadeIn",
+    "target": "o9",
+    "run_time": 0.5,
+    "step": 2
+   },
+   {
+    "id": "a12",
+    "type": "Create",
+    "target": "o12",
+    "run_time": 0.5,
+    "step": 3
+   },
+   {
+    "id": "a13",
+    "type": "FadeIn",
+    "target": "o13",
+    "run_time": 0.5,
+    "step": 3
+   },
+   {
+    "id": "a14",
+    "type": "GrowFromCenter",
+    "target": "o10",
+    "run_time": 0.5,
+    "step": 3
+   },
+   {
+    "id": "a15",
+    "type": "FadeIn",
+    "target": "o11",
+    "run_time": 0.5,
+    "step": 3
+   },
+   {
+    "id": "a16",
+    "type": "Create",
+    "target": "o24",
+    "run_time": 0.5,
+    "step": 4
+   },
+   {
+    "id": "a17",
+    "type": "FadeIn",
+    "target": "o27",
+    "run_time": 0.5,
+    "step": 4
+   },
+   {
+    "id": "a18",
+    "type": "GrowFromCenter",
+    "target": "o14",
+    "run_time": 0.5,
+    "step": 4
+   },
+   {
+    "id": "a19",
+    "type": "FadeIn",
+    "target": "o15",
+    "run_time": 0.5,
+    "step": 4
+   },
+   {
+    "id": "a20",
+    "type": "FadeIn",
+    "target": "o16",
+    "run_time": 0.5,
+    "step": 4
+   },
+   {
+    "id": "a21",
+    "type": "Create",
+    "target": "o19",
+    "run_time": 0.5,
+    "step": 5
+   },
+   {
+    "id": "a22",
+    "type": "FadeIn",
+    "target": "o20",
+    "run_time": 0.5,
+    "step": 5
+   },
+   {
+    "id": "a23",
+    "type": "GrowFromCenter",
+    "target": "o17",
+    "run_time": 0.5,
+    "step": 5
+   },
+   {
+    "id": "a24",
+    "type": "FadeIn",
+    "target": "o18",
+    "run_time": 0.5,
+    "step": 5
+   },
+   {
+    "id": "a25",
+    "type": "Create",
+    "target": "o25",
+    "run_time": 0.5,
+    "step": 6
+   },
+   {
+    "id": "a26",
+    "type": "FadeIn",
+    "target": "o28",
+    "run_time": 0.5,
+    "step": 6
+   },
+   {
+    "id": "a27",
+    "type": "GrowFromCenter",
+    "target": "o21",
+    "run_time": 0.5,
+    "step": 6
+   },
+   {
+    "id": "a28",
+    "type": "FadeIn",
+    "target": "o22",
+    "run_time": 0.5,
+    "step": 6
+   },
+   {
+    "id": "a29",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.8,
+    "step": 7
+   },
+   {
+    "id": "a30",
+    "type": "FadeIn",
+    "target": "o29",
+    "run_time": 0.6,
+    "step": 8
+   },
+   {
+    "id": "a31",
+    "type": "FadeIn",
+    "target": "o30",
+    "run_time": 0.6,
+    "step": 8
+   },
+   {
+    "id": "a32",
+    "type": "FadeIn",
+    "target": "o31",
+    "run_time": 0.4,
+    "step": 9
+   },
+   {
+    "id": "a33",
+    "type": "Create",
+    "target": "o34",
+    "run_time": 0.5,
+    "step": 10
+   },
+   {
+    "id": "a34",
+    "type": "FadeIn",
+    "target": "o32",
+    "run_time": 0.5,
+    "step": 10
+   },
+   {
+    "id": "a35",
+    "type": "Create",
+    "target": "o35",
+    "run_time": 0.5,
+    "step": 11
+   },
+   {
+    "id": "a36",
+    "type": "FadeIn",
+    "target": "o33",
+    "run_time": 0.5,
+    "step": 11
+   },
+   {
+    "id": "a37",
+    "type": "FadeIn",
+    "target": "o36",
+    "run_time": 0.6,
+    "step": 12
+   },
+   {
+    "id": "a38",
+    "type": "FadeIn",
+    "target": "o37",
+    "run_time": 0.6,
+    "step": 12
+   },
+   {
+    "id": "a39",
+    "type": "FadeIn",
+    "target": "o38",
+    "run_time": 0.5,
+    "step": 13
+   }
+  ],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "q1": {
+    "de": "Benutzernummer des Prozesses = 0?",
+    "en": "process user ID = 0?",
+    "es": "¿número de usuario del proceso = 0?",
+    "zh": "进程的用户号 = 0？",
+    "fr": "numéro d'utilisateur du processus = 0 ?",
+    "tr": "sürecin kullanıcı numarası = 0?"
+   },
+   "o1a": {
+    "de": "erlaubt",
+    "en": "allowed",
+    "es": "permitido",
+    "zh": "允许",
+    "fr": "autorisé",
+    "tr": "izin verilir"
+   },
+   "o1b": {
+    "de": "(Starten nur mit einem x)",
+    "en": "(running only with an x)",
+    "es": "(ejecutar solo con una x)",
+    "zh": "（运行需有一个 x）",
+    "fr": "(exécuter seulement avec un x)",
+    "tr": "(çalıştırma yalnızca bir x ile)"
+   },
+   "ja0": {
+    "de": "ja",
+    "en": "yes",
+    "es": "sí",
+    "zh": "是",
+    "fr": "oui",
+    "tr": "evet"
+   },
+   "q2": {
+    "de": "Ist sie die des Besitzers?",
+    "en": "Is it the owner's?",
+    "es": "¿Es la del propietario?",
+    "zh": "是所有者的吗？",
+    "fr": "Est-ce celui du propriétaire ?",
+    "tr": "Sahibinki mi?"
+   },
+   "o2": {
+    "de": "nur die u-Bits zählen",
+    "en": "only the u bits count",
+    "es": "solo cuentan los bits u",
+    "zh": "只看 u 位",
+    "fr": "seuls les bits u comptent",
+    "tr": "yalnızca u bitleri sayılır"
+   },
+   "ja1": {
+    "de": "ja",
+    "en": "yes",
+    "es": "sí",
+    "zh": "是",
+    "fr": "oui",
+    "tr": "evet"
+   },
+   "q3a": {
+    "de": "Ist die Gruppe der Datei",
+    "en": "Is the file's group",
+    "es": "¿Es el grupo del archivo",
+    "zh": "文件的组是否为",
+    "fr": "Le groupe du fichier est-il",
+    "tr": "Dosyanın grubu"
+   },
+   "q3b": {
+    "de": "eine Gruppe des Prozesses?",
+    "en": "a group of the process?",
+    "es": "un grupo del proceso?",
+    "zh": "进程的某个组？",
+    "fr": "un groupe du processus ?",
+    "tr": "sürecin bir grubu mu?"
+   },
+   "o3": {
+    "de": "nur die g-Bits zählen",
+    "en": "only the g bits count",
+    "es": "solo cuentan los bits g",
+    "zh": "只看 g 位",
+    "fr": "seuls les bits g comptent",
+    "tr": "yalnızca g bitleri sayılır"
+   },
+   "ja2": {
+    "de": "ja",
+    "en": "yes",
+    "es": "sí",
+    "zh": "是",
+    "fr": "oui",
+    "tr": "evet"
+   },
+   "o4": {
+    "de": "die o-Bits zählen",
+    "en": "the o bits count",
+    "es": "cuentan los bits o",
+    "zh": "看 o 位",
+    "fr": "les bits o comptent",
+    "tr": "o bitleri sayılır"
+   },
+   "n0": {
+    "de": "nein",
+    "en": "no",
+    "es": "no",
+    "zh": "否",
+    "fr": "non",
+    "tr": "hayır"
+   },
+   "n1": {
+    "de": "nein",
+    "en": "no",
+    "es": "no",
+    "zh": "否",
+    "fr": "non",
+    "tr": "hayır"
+   },
+   "n2": {
+    "de": "nein",
+    "en": "no",
+    "es": "no",
+    "zh": "否",
+    "fr": "non",
+    "tr": "hayır"
+   },
+   "bsp": {
+    "de": "Beispiel: student liest",
+    "en": "example: student reads",
+    "es": "ejemplo: student lee",
+    "zh": "例：student 读取",
+    "fr": "exemple : student lit",
+    "tr": "örnek: student okur"
+   },
+   "verb": {
+    "de": "verboten",
+    "en": "denied",
+    "es": "denegado",
+    "zh": "禁止",
+    "fr": "refusé",
+    "tr": "reddedilir"
+   },
+   "obwohl": {
+    "de": "obwohl g und o lesen dürften",
+    "en": "although g and o may read",
+    "es": "aunque g y o podrían leer",
+    "zh": "尽管 g 和 o 可以读取",
+    "fr": "bien que g et o puissent lire",
+    "tr": "g ve o okuyabilse de"
+   }
+  },
+  "drawOrder": "creation"
+ }
+}

@@ -88,3 +88,114 @@ Wie viele Elektronen haben den Isolator durchquert?
 (c) Keines. Die Elektronen auf B kommen aus dem Draht, die Elektronen von A sind in den Draht gelaufen.
 :::
 :::
+
+::::formelsammlung
+**Ladung der beiden Elektroden**
+
+$$Q+(-Q)=0$$
+
+$Q$ ist die Ladung der positiven Elektrode, die andere trägt $-Q$: Laden trennt Ladung, es fügt keine hinzu. An beiden Anschlüssen fließt im selben Moment derselbe Strom, durch die Lücke läuft keine Ladung.
+
+**Verschobene Ladung bei konstantem Strom**
+
+$$Q=I\,t,\qquad N=Q/e$$
+
+$I$ Strom in einer Zuleitung, $t$ Dauer; $N$ Zahl der Elektronen, die die eine Platte verlassen. Ebenso viele kommen auf der anderen an, aus dem Draht davor.
+
+**Potenzial einer Nettoladung**
+
+$$\varphi=k\,Q_\mathrm{n}/r$$
+
+Kugel vom Radius $r$ mit der Nettoladung $Q_\mathrm{n}$; bei $r=1$ cm ergäbe 1 µC schon 900 kV. Deshalb bleibt die Nettoladung eines Bauteils praktisch null, und die Knotenregel gilt für das Bauteil als Ganzes.
+::::
+
+::::lernkarten
+:::karte begriff Kondensator, Elektrode und Dielektrikum
+Woraus besteht ein Kondensator, und wie heißen seine Teile?
+---
+Aus zwei Elektroden, die ein Dielektrikum trennt: Jede der beiden Platten ist eine Elektrode, der Isolator dazwischen heißt Dielektrikum.
+--- falsch
+Aus zwei Dielektrika, die eine Elektrode trennt: Jede der beiden Platten ist ein Dielektrikum, der leitende Kern dazwischen heißt Elektrode.
+--- falsch
+Aus zwei Elektroden aus Isolierstoff, zwischen denen ein leitendes Dielektrikum liegt, durch das der Strom von Platte zu Platte fließt.
+--- falsch
+Aus einer einzigen Elektrode, die ein Dielektrikum ringsum umhüllt: Die Elektrode speichert die Ladung, das Dielektrikum hält sie dort fest.
+:::
+:::karte begriff Ladung eines Kondensators
+Was meint man mit der Ladung $Q$ eines geladenen Kondensators, und wie groß ist seine Gesamtladung?
+---
+$Q$ ist die Ladung der positiven Elektrode, die andere trägt $-Q$. Geladen heißt: Ladung ist getrennt, nicht hinzugefügt; die Gesamtladung bleibt null.
+--- falsch
+$Q$ ist die Summe der Ladungen beider Elektroden. Geladen heißt: Die Batterie hat Ladung hinzugefügt; die Gesamtladung des Bauteils ist deshalb $Q$.
+--- falsch
+$Q$ ist die Ladung jeder der beiden Elektroden, beide tragen $+Q$. Die Gesamtladung ist $2Q$, die Batterie hat sie aus ihrem Vorrat abgegeben.
+--- falsch
+$Q$ ist die Ladung, die durch den Isolator von einer Elektrode zur anderen gewandert ist. Die Gesamtladung bleibt null, weil sie nur die Seite wechselt.
+:::
+:::karte zusammenhang Strom durch den Kondensator
+Was geschieht an den Anschlüssen und in der Lücke, wenn man sagt, durch einen Kondensator fließe Strom?
+---
+An einem Anschluss fließt Strom hinein, am anderen im selben Moment derselbe Strom heraus. Durch die Lücke läuft keine Ladung, und der Strom dauert nur, solange sich die Ladung ändert.
+--- falsch
+Elektronen springen durch das Dielektrikum von Platte zu Platte, deshalb kommt am anderen Anschluss derselbe Strom heraus, und zwar so lange, wie die Batterie angeschlossen bleibt.
+--- falsch
+An einem Anschluss fließt Strom hinein; am anderen fließt erst dann Strom heraus, wenn die erste Platte voll ist. Bis dahin bleibt der zweite Anschluss ganz stromlos.
+--- falsch
+An beiden Anschlüssen fließt Strom in den Kondensator hinein. Die Ladung sammelt sich auf beiden Platten, bis der Kondensator voll ist; die Lücke dazwischen bleibt leer.
+:::
+:::karte zusammenhang Ladestrom trotz Lücke
+Warum fließt Strom in den Zuleitungen, sobald man einen ungeladenen Kondensator an eine Batterie anschließt, obwohl sich die Platten nicht berühren?
+---
+Im ersten Moment liegen beide Platten auf demselben Potenzial, die Pole nicht. Das Gefälle liegt längs der Drähte; ihr Feld schiebt Elektronen von der einen Platte zum Pluspol und vom Minuspol auf die andere.
+--- falsch
+Die Batterie drückt Elektronen durch das Dielektrikum, das im ersten Moment noch leitet. Erst die getrennte Ladung macht es wieder zum Isolator, dann endet der Strom in den Zuleitungen.
+--- falsch
+Die Batterie gibt aus ihrem Vorrat neue Ladung ab, die sich auf beiden Platten sammelt; deshalb fließt in beiden Drähten Strom zum Kondensator hin, bis die Platten voll sind.
+--- falsch
+Zwischen den Platten herrscht von Anfang an das volle Feld der Batterie. Es zieht die Elektronen über die Drähte auf beide Platten, bis diese so viel Ladung tragen, wie auf ihre Fläche überhaupt hineinpasst.
+:::
+:::karte zusammenhang Ende des Ladestroms
+Warum hört der Ladestrom von selbst auf, wenn die Spannung zwischen den Platten die Spannung der Batterie erreicht?
+---
+Jede verschobene Ladung verstärkt das Feld zwischen den Platten und verkleinert das Gefälle längs der Drähte. Am Ende liegt jede Platte auf dem Potenzial ihres Pols; die Kraft auf die Elektronen ist null.
+--- falsch
+Weil die Platten dann voll sind: Jede Platte fasst nur eine feste Menge Ladung, und weitere Elektronen finden auf ihr keinen Platz mehr, gleich wie stark die Batterie drückt.
+--- falsch
+Weil die Batterie dann leer ist: Sie hat ihre gesamte Ladung an den Kondensator abgegeben und kann deshalb keinen weiteren Strom mehr durch die Drähte treiben.
+--- falsch
+Weil sich die Drähte durch den Strom erwärmen und ihr Widerstand dabei so stark steigt, dass der Strom schließlich auf null sinkt, genau in dem Moment, in dem die Spannung am Kondensator die der Batterie erreicht.
+:::
+:::karte herleitung Gleicher Strom an beiden Anschlüssen
+Begründe, ausgehend von der Annahme, es fließe mehr Strom hinein als heraus, dass an beiden Anschlüssen eines Kondensators derselbe Strom fließt.
+---
+Flösse mehr hinein als heraus, sammelte sich im Bauteil eine Nettoladung $Q_\mathrm{n}$, weil die Differenz der beiden Ströme im Bauteil bliebe.
+---
+Das ganze Bauteil höbe sich dadurch im Potenzial gegen seine Umgebung, weil Ladung ein Potenzial erzeugt: Eine Kugel mit $r=1$ cm hat $\varphi=k\,Q_\mathrm{n}/r$, schon 1 µC ergäbe 900 kV.
+---
+Das Feld dieser Nettoladung bremst den Zufluss, lange bevor ein messbarer Unterschied entsteht, weil schon winzige Ladungen riesige Potenziale erzeugen.
+---
+Also bleibt $Q_\mathrm{n}$ praktisch null, und die Knotenregel gilt für das Bauteil als Ganzes, weil sich Zufluss und Abfluss ohne Stau angleichen.
+:::
+:::karte zusammenhang Ladung nach dem Abklemmen
+Warum bleibt die Ladung auf den Platten sitzen, wenn man die Batterie abklemmt?
+---
+Die Elektronen der negativen Platte werden von der positiven angezogen, aber der Isolator lässt sie nicht durch, und die Drahtenden sind offen. Erst ein Leiter zwischen den Anschlüssen schafft einen Weg.
+--- falsch
+Weil mit dem Abklemmen die Anziehung zwischen den Platten verschwindet: Ohne Batterie wirkt auf die Ladungen keine Kraft mehr, die sie von ihrer Platte wegbewegen könnte.
+--- falsch
+Weil die Elektronen fest an die Atome der Platte gebunden werden, sobald sie dort ankommen; auch über einen Draht zwischen den Anschlüssen können sie die Platte nicht mehr verlassen, sie bleiben dort gebunden.
+--- falsch
+Weil beide Platten gleichnamig geladen sind und sich gegenseitig abstoßen; diese Abstoßung drückt jede Ladung fest auf ihre eigene Platte, solange die Drahtenden offen sind.
+:::
+:::karte zusammenhang Geladener Kondensator an gleicher Spannung
+Was geschieht, wenn man einen auf 9 V geladenen Kondensator mit gleicher Polung an eine 9-V-Batterie anschließt?
+---
+Nichts: Die Platten liegen schon auf den Potenzialen der Pole, längs der Drähte gibt es kein Gefälle, also fließt kein Strom.
+--- falsch
+Es fließt kurz Strom, bis der Kondensator 18 V trägt, weil sich die Spannungen von Batterie und Kondensator addieren.
+--- falsch
+Es fließt derselbe Ladestrom wie bei einem leeren Kondensator, weil die Batterie ihre Spannung unabhängig vom Zustand der Platten anlegt.
+--- falsch
+Es fließt ein dauernder Strom, weil der volle Kondensator nun wie ein Draht wirkt und die Batterie kurzschließt.
+:::
+::::

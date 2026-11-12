@@ -593,3 +593,202 @@ linear), Größe der `.anim.svg` (de):
 - Flächen mit vielen Zellen machen die Datei groß (jede Zelle ist ein Element mit Weltpunkten): et1/k10flaeche
   (2071 Facetten) hat statisch schon 617 KB, mit Fahrt 873 KB. `aufloesung` 15–24 genügt meist.
 - Mittelpunktsmarken (`show_center`) bewegen sich bei einer Fahrt nicht mit.
+
+## 11. Bildschirme und Fenster (F1, 12.11.2026)
+
+Terminal, Datei-Ansicht, Vollbild-Programme (`top`, Pager wie bei `systemctl status`) und Zeichenraster mit
+Spalten-Funktionen. Plan und Bedarf: `notizen/editor_bildschirme_plan.md`, `notizen/f1_funktionsliste.md`. Farben und
+Maße: `notizen/f1_terminal_palette.md`. Beispiele: `tools/szenen/linux_f1_pilot.py` (`linux/k2sitzungen_f1`,
+`linux/k4cateingabe_f1`, `linux/k6awkfelder_f1`, `beispiel/anim_f1_top`, `beispiel/anim_f1_pager`).
+
+Was es gibt:
+- **Ein Fenster ist ein Objekt** der Engine (Typ `Terminal`, `web/engine/terminal.py`). Es zerfällt beim Zeichnen in
+  Pfade (Rahmen, Titelleiste, Knöpfe, Hinterlegungen, Cursor) und Texte. Editor, Export, `.anim.svg`, PDF und Spieler
+  brauchen keinen neuen Weg.
+- **Eine Bildschirmzeile ist ein `<text>`** mit farbigen `<tspan>`-Abschnitten (Text-Attribut `spans`), nie ein
+  Objekt je Zeichen. Jedes Zeichen sitzt in seiner Zelle von 0,6 em: Spalten, Rahmen- und Baumzeichen (`─ │ └─ ├─ ●`)
+  stehen exakt untereinander, in jeder Schreibmaschinenschrift.
+- **Stil:** dunkel, an Ubuntu angelehnt. Titelleiste mit Titel und drei runden Knöpfen (– □ ×). Der Prompt am
+  Zeilenanfang (`student@labor:~$ `) bekommt die Farben der Standard-`.bashrc`. Die Datei-Ansicht ist hell, mit
+  Dateiname als Titel und nur ×.
+- **Inhalt = Datenstrom wie bei einem echten Terminal**, mit ANSI-Kürzeln als `\e[…` (Farben, fett, invers,
+  Cursor-Stellung, Leeren). Er ist in allen Sprachen gleich.
+- **Zustände sind Schritte der Zeitachse:** tippen, Ausgabe, neuer Prompt, warten (Cursor blinkt), leeren, Wert
+  wechselt, Fenster schließen. Rollen geschieht von selbst, sobald das Fenster voll ist.
+- **Raster ohne Fenster** (`s.raster`): Zeilen in Schreibmaschinenschrift, eine `s.text` je Zeile, mit denselben
+  Spalten-Funktionen. Sie ersetzen `tt`, `ttz`, `sp`, `msp`, `mark` und `klammer` aus `linux_hilfen.py`.
+
+### 11.1 Raster: Zeilen zerlegen (`s.raster`)
+
+```python
+s = Szene("linux/k7passwd", reihenfolge="anlegen")        # "anlegen": Hinterlegungen liegen unter dem Text
+g = s.raster("student:x:1000:1000:Student:/home/student:/bin/bash", (0, 0.3), groesse=24, ausrichtung="mitte")
+punkte = [g.markieren(0, k, k, ORANGE, 0.4) for k in g.trenner(0, ":")]    # Doppelpunkte hinterlegen
+leuchten = [g.teil(0, k, k) for k in g.trenner(0, ":")]                     # Kopien, die einzeln leuchten
+kl = [g.klammer(0, f.a, f.b, "UID" if j == 2 else "", seite="oben") for j, f in enumerate(g.felder(0, ":"))]
+f4 = g.felder(0, ":")[3]                                  # Feld 4 (GID): Spalten f4.a..f4.b
+pf = s.pfeil((g.xm(f4.a, f4.b), g.unten(0) - 0.6), g.anker(0, f4.a, f4.b, "unten"))   # Pfeil von unten auf Feld 4
+s.einblenden(*g.ids)
+schritt(s, EIN(punkte), BETONE(leuchten))                 # schritt/EIN/BETONE aus linux_hilfen
+s.zeichnen(pf)
+s.speichern()
+```
+
+| Aufruf | Ergebnis |
+|---|---|
+| `s.raster(zeilen, pos, groesse=20, ausrichtung="links", zeilenabstand=1.35, farbe=SCHWARZ, ansi=None)` | `Raster`; `zeilen` Text mit `\n` oder Liste; `pos` = linke Kante von Spalte 0 und Mitte von Zeile 0 (`"links"`) oder Mitte des Blocks (`"mitte"`); ANSI-Kürzel färben Abschnitte (`farbig`) |
+| `g.ids`, `g.zeile(z)` | ids der Zeilen (einzeln animierbar) |
+| `g.x(sp)`, `g.xr(sp)`, `g.xm(a, b)`, `g.y(z)`, `g.oben(z)`, `g.unten(z)`, `g.zelle`, `g.links`, `g.rechts` | Kanten und Mitten in Szeneneinheiten (Zeile und Spalte ab 0, a..b einschließlich) |
+| `g.anker(z, a=None, b=None, seite="mitte")` | Punkt für Pfeile: `mitte`, `oben`, `unten`, `links`, `rechts`, `oben_links` … (ohne a: ganze Zeile) |
+| `g.felder(z, trenner=None)` | `[Feld(a, b, text)]`: durch Leerraum oder an jedem `trenner` getrennt, leere Felder inklusive |
+| `g.trenner(z, ":")`, `g.finde(z, muster, n=1, regex=False)` | Spalten der Trennzeichen; `(a, b)` des n-ten Treffers |
+| `g.markieren(z, a, b, farbe=ORANGE, deckung=0.3, bis=None)` | Hinterlegung über die Zeilen z..bis, beim Raster **unter** dem Text |
+| `g.rahmen(z, a, b, farbe=ORANGE, dicke=2.5, bis=None)` | abgerundeter Umriss |
+| `g.klammer(z, a, b, text="", seite="oben", farbe=BLAU, groesse=18, schrift=None)` | eckige Klammer (ein offener Linienzug, `zeichnen` geht) und Beschriftung; `(id, id_text)` |
+| `g.teil(z, a, b, farbe=None)` | deckungsgleiche Kopie der Spalten a..b: wandert (`verschieben`, `bewegen_zu`), leuchtet (`betonen`), wird ersetzt |
+| `g.wert(z, a, b, neu, farbe=None)` | Wert wechselt an fester Spalte (Zeile behält eine Lücke, der Teil wird `neu`); `(id_teil, id_animation)` |
+| `g.faerben(z, [(a, b, farbe)], rest=GRAU)` | Zeile neu einfärben, z. B. „Rest grau“ (Animation, `s.ersetzen` mit ANSI) |
+
+`s.text(..., ansi=True)` färbt einen einzelnen Text mit ANSI-Kürzeln (helle Palette, für die weiße Seite).
+
+### 11.2 Terminal und Abläufe (`s.terminal`)
+
+```python
+s = Szene("linux/k8journalfolgen", reihenfolge="anlegen")
+t = s.terminal(pos=(-3.45, 1.9), spalten=60, zeilen=7, titel="student@labor: ~/linuxk8")   # Größe fest: Anker
+#                                                         # gelten für jeden Zustand; Prompt student@labor:~$ , dunkel
+s.einblenden(t.id)                                        # oder s.wachsen(t.id): Fenster öffnet sich
+t.eingabe("journalctl --user -f -u eieruhr")              # tippen (14 Zeichen/s), Eingabetaste
+t.ausgabe("Nov 10 15:29:25 labor eieruhr[654]: Eieruhr zum Üben")       # Zeile erscheint
+t.warten(1.2)                                             # Cursor blinkt dreimal
+u = s.terminal(pos=(-3.45, -0.4), spalten=52, zeilen=3)
+u.befehl("systemctl --user restart eieruhr")              # tippen, dann Ausgabe + neuer Prompt
+pf = s.pfeil(u.anker(0, seite="links"), t.anker(2, seite="links"), knick="hv")
+with s.gleichzeitig():                                    # zwei Fenster: ein Schritt
+    t.ausgabe("Nov 10 15:29:31 labor systemd[512]: Stopping …", zeilenweise=True)
+    s.einblenden(pf)
+t.ausgabe(farbig("^C", "gelb"))                           # Strg+C, dann wieder die Eingabeaufforderung
+t.prompt(pfad="~/linuxk8")
+with s.gleichzeitig():
+    t.schliessen()                                        # × leuchtet, Fenster blendet aus (fehlt im Endbild)
+    s.ausblenden(pf)
+s.speichern()
+```
+
+| Aufruf | Was |
+|---|---|
+| `s.terminal(text=None, pos=(-3.4, 1.6), spalten=0, zeilen=0, titel=None, prompt="student@labor:~$ ", groesse=None, stil="dunkel", rahmen="fenster", knoepfe="drei", cursor=True, farbprompt=True, max_breite=6.9)` | `pos` = linke obere Ecke. `spalten`/`zeilen` 0 = so viel, wie über alle Zustände nötig ist. `titel` None = `user@host: ~` aus dem Prompt. `text` = Anfangsinhalt (None: nur der Prompt). `groesse` None = 20 px oder kleiner, bis das Fenster höchstens `max_breite` breit ist. `rahmen`: fenster, datei, ohne; `knoepfe`: drei, x, keine; `stil`: dunkel, hell |
+| `t.eingabe(befehl, tempo=14, enter=True)`, `t.tippen(text)` | ein Schritt: Zeichen für Zeichen, Cursor läuft mit |
+| `t.ausgabe(text, zeilenweise=False, dauer=0.6)` | Zeilen erscheinen (ANSI erlaubt); zeilenweise = je Zeile ein Schritt |
+| `t.prompt(pfad=None, root=False)` | neue Eingabeaufforderung, z. B. nach `cd`: `pfad="/etc"`; `root=True` gibt `#` |
+| `t.befehl(befehl, ausgabe="", pfad=None)` | zwei Schritte: tippen; Ausgabe + neuer Prompt |
+| `t.warten(1.2)`, `t.leeren()`, `t.schliessen(1.0)` | Cursor blinkt; `clear`; Fenster schließen |
+| `t.setze(z, sp, text)` oder `t.setze([(z, sp, text), …])` | Wert wechselt an fester Stelle (Cursor bleibt, wo er war) |
+| `t.schritt(roh, dauer=0.6)` | beliebiger Schritt: Text, `\e[…`-Kürzel, `\e>` (ab hier getippt), `\e~` (warten) |
+| Spalten-Funktionen wie beim Raster | `x`, `xm`, `y`, `anker`, `felder`, `finde`, `markieren`, `rahmen`, `klammer`, `teil` auf den Bildschirmzellen (Zeile 0 = oberste Bildschirmzeile; `felder(z)` liest den Endzustand, `zeilen(zustand)` jeden anderen). Overlays liegen über dem Fenster; `teil` übernimmt Farben und Fettschrift |
+| `t.links`, `t.rechts`, `t.oben_kante`, `t.unten_kante`, `t.mitte`, `t.groesse`, `t.titel_anker`, `t.kreuz_anker()` | Fensterkanten und -mitten |
+| `s.datei(name, inhalt, pos, …)` | Datei-Ansicht (hell, Titel = Dateiname, nur ×, kein Cursor); `zeile_dazu(text)` = eine Zeile kommt hinzu |
+| `s.top(kopf, tabelle, pos, spalten=0)` | `top`: Kopf (Zahlen fett), Leerzeile, Spaltenzeile invers über die ganze Breite, Prozesse (zu lange Zeilen enden mit `+`). `bild(kopf=…, tabelle=…)` = nächstes Bild; nur geänderte Zeilen werden neu geschrieben |
+| `s.pager(zeilen, pos, sichtbar=None, status=None)` | Pager: sichtbare Zeilen, darunter die Statuszeile invers (`lines 1-8/11`, am Ende `(END)`); `weiter(n)` blättert (n < 0 zurück) |
+| `s.schloss(mitte, groesse=0.3, offen=False, farbe=GRAU)` | kleines neutrales Schloss (Objekt `Lock`) |
+| `farbig(text, farbe, fett=False)`, `fett(text)`, `invers(text)` | ANSI-Kürzel: `farbe` = rot, gruen, gelb, blau, magenta, cyan, weiss, grau, schwarz oder eine Abbildungsfarbe (`ORANGE`, 24 Bit) |
+
+Regeln:
+- **Jeder Ablauf-Aufruf ist ein Schritt** (ChangeValue auf einen eigenen Parameter `term1`, `term2` …, Rate linear).
+  Er steht in `with s.gleichzeitig():` mit anderen Animationen zusammen. Zwei Schritte **desselben** Terminals dürfen
+  nicht im selben Schritt stehen.
+- **Anker hängen an der Fenstergröße.** Bei `spalten`/`zeilen` = 0 wächst das Fenster mit jedem Schritt, der eine
+  längere Zeile bringt. Deshalb Größe fest setzen oder Anker erst nach dem letzten Schritt abfragen. `speichern()` und
+  der nächste Schritt melden einen Fehler, wenn sich die Größe nach einer Ankerabfrage geändert hat.
+- **Größe in der Artikelspalte:** zwei Fenster nebeneinander je höchstens 38 Spalten bei 17 px. Eines über die ganze
+  Breite fasst 84 Spalten (18 px). Darunter warnt `szenen_lib`.
+- **Wachsen, Einblenden, Ausblenden** gehen wie bei jedem Objekt. Verschieben, Skalieren und Betonen wirken auf ein
+  Terminal mit Zeitachse nur vor seinem ersten Schritt (§8.2). Bewegen lässt man Kopien (`teil`) oder Beschriftungen.
+- **`teil` und `felder` lesen den Bildschirm beim Aufruf**, also den Stand nach den bis dahin angelegten Schritten.
+  Eine Kopie von getipptem Text deshalb erst nach `eingabe`/`tippen` anlegen. Sind die Zellen noch leer, meldet `teil`
+  einen Fehler. Objekte dürfen jederzeit angelegt werden; ihre Animationen stehen trotzdem an der richtigen Stelle.
+- **Dunkler Text auf weißer Seite:** `teil` aus einem dunklen Fenster ist hell. Wandert der Teil aus dem Fenster, dann
+  `farbe=SCHWARZ` setzen oder eine Karte darunterlegen (Muster in `k4cateingabe_f1`).
+
+### 11.3 Der Datenstrom (Prop `text`, auch im Editor)
+
+| Zeichen | Bedeutung |
+|---|---|
+| Text, Zeilenumbruch | wie im Terminal; ein Umbruch geht an den Zeilenanfang. Bei festen `spalten` bricht eine lange Zeile um, bei festen `zeilen` rollt das Fenster |
+| `\e[1;32m … \e[0m` | ANSI-SGR: 0 zurück, 1 fett, 2 blass, 7 invers, 30–37/90–97 Farbe, 40–47/100–107 Hintergrund, 38;5;n, 38;2;r;g;b |
+| `\e[r;cH`, `\e[2J`, `\e[K`, `\e[s`/`\e[u`, `\e[?25l`/`\e[?25h` | Cursor an Zeile r, Spalte c (ab 1); Bildschirm bzw. Zeilenrest leeren; Cursor sichern/zurück; Cursor aus/an |
+| `\e\|` | **neuer Zustand** (Schritt). Zustand 0 ist alles vor der ersten Marke |
+| `\e>` | ab hier bis zum Ende des Schritts **getippt** (Zeichen für Zeichen über die Dauer des Schritts) |
+| `\e~` | in diesem Schritt **wartet** der Cursor (blinkt dreimal) |
+| `\e!` | das **Fenster schließt** (× leuchtet, dann blendet alles aus) |
+| `\\` | ein Backslash (nur nötig vor einem `e`; `C:\` und `grep '\w'` bleiben, wie sie sind) |
+
+Prop `state`: Zahl oder Name eines Parameters. k zeigt die Schritte 0..k, zwischen k−1 und k läuft Schritt k. Leer =
+Endzustand. Ein Terminal ohne Zeitachse braucht kein `state`.
+
+### 11.4 Im Editor
+
+- Palette **„Bildschirm & Fenster“**: Terminal, Datei-Ansicht, TUI: top, TUI: Pager, Textblock (Text in
+  Schreibmaschinenschrift mit `ansi`), Schloss. Ein Bildschirm schaltet eine 3D-Ansicht auf 2D um.
+- Eigenschaften:
+  - `text` ist ein Textfeld (Datenstrom wie oben);
+  - Auswahllisten für `frame`, `theme` und `buttons`;
+  - `cols`/`rows` 0 = nach Bedarf.
+- **„Zustände als Schritte anlegen“** (unter den Eigenschaften):
+  - legt bei Bedarf den Parameter `term1` an und trägt ihn in `state` ein;
+  - schreibt je Marke `\e|` einen ChangeValue-Schritt (linear) und ersetzt dabei vorhandene Schritte;
+  - Dauer: getippt 14 Zeichen/s (mindestens 0,5 s), warten 1,2 s, schließen 1 s, sonst 0,6 s;
+  - der Hinweis darüber zählt die Zustände.
+- Der Regler des Parameters zeigt jeden Zustand. Die Bearbeitungsansicht zeigt den Startwert (Zustand 0), ▶ spielt ab.
+- Eine Farbe ist jetzt genau `#rrggbb`. Ein Text, der mit `#` beginnt (`#!/bin/bash`, Kommentarzeile, root-Prompt),
+  bleibt Text (`editor.js` `isHexColor`, `export_szenen._to_args`).
+
+### 11.5 Export
+
+- `export_szenen.py --animiert` wie immer. Getippter Text und wechselnde Zeilen werden Inhaltsspuren `h` je Zeile, der
+  Cursor eine Matrixspur, Blinken eine Deckkraftspur.
+- **Mindestschrift:** Jede Szene meldet „Schrift zu klein: o19 hat 16,0 Szenenpixel → 8,80 px im Artikel“, wenn ein
+  sichtbarer Text unter 9,3 px im Artikel landet (Szenenpixel × 0,55 × Verkleinerung bei Bildern über 548 px). Das gilt
+  für alle Szenen, nicht nur für Fenster.
+- Größe:
+  - Ein Terminal mit 80 × 24 voll beschriebenen Zeilen hat statisch etwa 20 KB.
+  - Mit Farben und Hinterlegungen in jeder Zeile sind es etwa 25 KB (Test `web/tests/test_f1_terminal.py`, Budget
+    100 KB).
+  - Ein wachsendes Fenster kostet je Pfad eine Matrixspur. Einblenden ist billiger.
+- PDF (`szenen_pdf.py`): Zeilen sind echter, durchsuchbarer Text mit Farben.
+
+### 11.6 Pilot (12.11.2026)
+
+| Szene | Code (Hand → F1) | Spaltenrechnung von Hand | `.svg` | `.anim.svg` |
+|---|---:|---:|---:|---:|
+| `linux/k2sitzungen` → `_f1` | 33 → 26 Zeilen | 7 → 0 | 111 → 10 KB | 136 → 41 KB |
+| `linux/k4cateingabe` → `_f1` | 47 → 51 Zeilen | 6 → 1 | 77 → 20 KB | 114 → 50 KB |
+| `linux/k6awkfelder` → `_f1` | 44 → 41 Zeilen | 21 → 1 | 11 → 9 KB | 20 → 15 KB |
+
+Code = Zeilen ohne Docstring, Leer- und Kommentarzeilen; de und en sind gleich groß.
+
+- Die Größe sinkt bei k2 und k4 vor allem, weil Formel-tt wegfällt.
+- Der eigentliche Gewinn von F1 liegt bei k6: Es gibt keine Spaltenrechnung von Hand mehr (`sp`, `msp`, `cw`), und
+  die Spalten stimmen per Konstruktion.
+- Dazu kommen ein echtes Fenster, Tippen mit Cursor und Prompt-Farben.
+- Vorführszenen: `beispiel/anim_f1_top` (16 / 31 KB), `beispiel/anim_f1_pager` (11 / 18 KB).
+- Kontaktblatt und Messwerte liegen beim Bau-Bericht.
+
+### 11.7 Grenzen und Vorrat
+
+- Kein Unterstreichen, keine 256-Farben-Hintergründe im Text-Objekt (`ansi=True` färbt nur die Schrift; Hinterlegung
+  und invers gibt es im Terminal).
+- Nicht gebaut (Vorrat laut Plan): Mitschrift-Import, Kürzen mit `…` (für `k8journalfolgen` nicht mehr nötig),
+  Tastenkappen, Maus, Lupe, Ausschnitt, Stile Windows/macOS, `nano` und Dialoge (F3).
+- Ein Terminal mit Zeitachse wird in jedem Bild neu gebaut (L3). Das kostet im Editor wenige Millisekunden je Bild.
+
+### 11.8 Tests
+
+Aus `web/`:
+- `python tests/test_f1_terminal.py`: Engine (ANSI, Datenstrom, Zustände, Zeichnen, Canvas wie SVG, Vertrag, Budget).
+- `python tests/test_f1_bausteine.py`: je Baustein Export = Editor; die Umwandlung aus `editor.js` läuft in node.
+- `python tests/test_f1_szenen_api.py`: `szenen_lib`, Anker gegen gezeichnete Zellen.
+- `test_contract.py` hat zwei F1-Fälle.
+
+Im Browser: `python tools/editor_terminal_test.py <ordner> [http://localhost:8000/editor.html]` (Palette, Inhalt
+ändern, Zustände als Schritte, abspielen, PNG-Export).

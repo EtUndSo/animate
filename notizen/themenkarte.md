@@ -38,8 +38,8 @@ und verweisen mit Link darauf.
     Darstellung, Rundungsfehler, Maschinengenauigkeit, Absorption, Auslöschung, `inf`, `nan`; Variable, Zuweisung, Namensregeln,
     erweiterte Zuweisung; `bool`, Vergleichsoperatoren, Toleranzvergleich (`math.isclose`), `is`, `None`; Modul/`import` (nur
     `import x`), `math`, `sys.float_info`; `complex`, `cmath`; Zeichenketten-Operatoren und `len`, f-String, `input`,
-    Typumwandlung, `round`. Cyber T02 (Bit/Byte/Hex) und Grundlagen, Kapitel 3, Abschnitt 11.3 (Gleitkommazahlen) können darauf
-    verweisen. Unicode-Nummern von Zeichen (U+201E): Python, Kapitel 9.
+    Typumwandlung, `round`. Cybersecurity (Bit/Byte/Hex nur als Voraussetzung, z. B. Kapitel 2 und 4) und Grundlagen, Kapitel 3,
+    Abschnitt 11.3 (Gleitkommazahlen) verweisen darauf. Unicode-Nummern von Zeichen (U+201E): Python, Kapitel 9.
   - Python, Kapitel 3 erklärt vollständig: verkettete Vergleiche, Vergleich von Zeichenketten, `not`/`and`/`or`, Rangfolge,
     Kurzschlussauswertung, Wahrheitswert von Objekten (ohne Behälter), Ergebnis von `and`/`or`; `if`/`elif`/`else`, Block und
     Einrückung (Kopfzeile, IndentationError, TabError), `match` nur als Hintergrund; `while`, Endlosschleife, Strg+C/
@@ -50,8 +50,9 @@ und verweisen mit Link darauf.
     Ratenkredits numerisch (Restschuld, Annuitätenformel, effektiver Jahreszins nur als Umrechnung (1+i)^12 − 1, Ableitung per
     Schleife, Absicherung von Newton durch Bisektion und Dämpfung als Hintergrund). Numerik-Hefte und ML-Grundlagen
     (Gradientenabstieg, Optimierung) können für Bisektion/Newton darauf verweisen. Eigene Funktionen: Python, Kapitel 4; Listen: Python, Kapitel 5.
-- **Linux und Kommandozeile** (Informatik / Linux und Kommandozeile, Kapitel 1–6 fertig): Shell, Dateien, Rechte, Prozesse.
-  Cybersecurity, Kapitel 3 bis 5 werden nach der Recherche cyber-spezifisch oder entfallen.
+- **Linux und Kommandozeile** (Informatik / Linux und Kommandozeile, Kapitel 1–8 fertig): Shell, Dateien, Rechte (vollständig erklärt in Linux, Kapitel 7 „Benutzer, Gruppen und Rechte“), Prozesse, Signale und Dienste (Linux, Kapitel 8).
+  Cybersecurity hat seit 11.11.2026 einen Stamm mit 12 Teilen: Die alten Hefte „Linux vom USB-Stick“ und „Die Shell als Werkzeug“
+  entfallen (Inhalt in Linux, Kapitel 1–6, 8, 10), Cybersecurity, Kapitel 3 ist das Fachheft „Linux-Sicherheit“ (siehe unten).
   - Linux, Kapitel 1 erklärt vollständig (spätere Hefte, auch Cyber und ML, verweisen mit „Linux, Kapitel~1, Abschnitt~M“): Betriebssystem,
     Anwendungsprogramm, Kernel-Modus/Benutzermodus, privilegierter Befehl, Kernel, Treiber, Systemaufruf (feste
     Einsprungstelle, Tabelle der Dienste), Linux als Kernel (GPL v2, GNU), Distribution, Paketverwaltung (nur Begriff),
@@ -67,8 +68,9 @@ und verweisen mit Link darauf.
     Hintergrund-Kasten); VirtualBox-Praxis (7.x); Einhängen/Einhängepunkt, Live-System, squashfs, tmpfs, Overlay,
     initramfs/casper (Hintergrund), Persistenz (8.x); Schreibwerkzeug, Schnellstart, Risiken des Live-Sticks,
     `lsblk` im Live-System (9.x).
-  - Bleibt Cybersecurity: Kali als Werkzeug, Laborumgebung mit Host-only/Internal, Signaturprüfung (GPG) als Kryptographie,
-    Measured Boot/TPM als Vertrauenskette, Aufbau von Hashfunktionen, Ventoy-Lieferkettenfrage.
+  - Bleibt Cybersecurity: Kali als Werkzeug und Laborumgebung mit Host-only/internem Netz (Kapitel 3), Signaturprüfung (GPG) als
+    Kryptographie (Kapitel 10), Secure Boot vertieft, Measured Boot/TPM als Vertrauenskette (Kapitel 2), Aufbau von Hashfunktionen
+    (Kapitel 9), Ventoy-Lieferkettenfrage (Kapitel 3, Hintergrund).
   - Linux, Kapitel 1 benutzt als Rezepte ohne Erklärung: `cat`, `ls`, `uname -r`, `systemd-detect-virt`, `lsblk`, `mount`,
     `strace` (nur Ausgabe), `explorer.exe .`; erklärt werden sie in Linux, Kapitel 2 (Befehl/Option/Argument), Linux, Kapitel 3
     (Pfade, Dateien, `cat`/`ls`, `lsblk`/Einhängen in der Praxis; seit 10.11.2026), Linux, Kapitel 7 (`sudo`, Rechte), Linux,
@@ -117,7 +119,7 @@ und verweisen mit Link darauf.
     Begriff bleibt in Kapitel 2, Abschnitt 3.4). Zuständigkeiten: Kapitel 6 reguläre Ausdrücke und „Muster sind keine regulären
     Ausdrücke“, `grep` vertieft, `seq`; Kapitel 7 Ausführungsrecht, `chmod`; Kapitel 8 Prozesse vertieft, `/proc/<PID>/environ`;
     Kapitel 10 Skripte, Positionsparameter, `if`, Schleifen (auch `{1..$n}`), Funktionen, `set -x`, Felder; Kapitel 11 SSH;
-    Cybersecurity Injection und PATH-Hijacking (in 3.8 nur ein Hinweis). Weggelassen: weitere `${…}`-Formen (nur Verweis auf
+    Cybersecurity, Kapitel 12 Injection und Cybersecurity, Kapitel 3 PATH-Hijacking (in 3.8 nur ein Hinweis). Weggelassen: weitere `${…}`-Formen (nur Verweis auf
     `man bash`), extglob, globstar, `declare`, `BASH_ENV`.
   - Textwerkzeuge und reguläre Ausdrücke, vollständig erklärt in Linux, Kapitel 6 (seit 11.11.2026): Datensatz, Feld,
     Trennzeichen, Spalte (1.2), CSV-Datei, Kopfzeile (1.3), Wagenrücklauf und Windows-Zeilenende, `cat -A` (1.4), `tail -n +K`,
@@ -135,12 +137,59 @@ und verweisen mit Link darauf.
     `for (k in s)` (9.5); Werkzeugwahl (10.1), Pipeline schrittweise bauen (10.2), Wörter zählen (10.3).
     Zuständigkeiten: Kapitel 10 verweist für Windows-Zeilenenden in Skripten (`bad interpreter`) auf „Linux, Kapitel 6,
     Abschnitt 1.4“ zurück und benutzt `awk` in Schleifen über Dateien (Kapitel 6 erklärt `awk` selbst, Kapitel 10 nur die
-    Schleife); Cybersecurity wertet Anmeldeprotokolle mit `grep`/`awk`/`sort | uniq -c` aus und verweist hierher; ein späteres
+    Schleife); Cybersecurity, Kapitel 3 wertet Anmeldeprotokolle mit `grep`/`awk`/`sort | uniq -c` aus und verweist hierher; ein späteres
     Python-Heft zum Modul `re` verweist für reguläre Ausdrücke auf Linux, Kapitel 6, Abschnitte 6–7 und erklärt nur die
     Unterschiede (Hintergrund in 7.6: Python probiert der Reihe nach, kürzeste Treffer `*?`). Weggelassen: `join`, `comm`, `tac`, `rev`, `expand`, `sort -m/-b/-g/-V/-s`, `uniq -f/-s/-i`,
     `cut --complement`, `sed y/a/i/c/-f`, `grep -w/-x/-h/-L/-P`, `\b \< \>`, `awk -v`, awk-Funktionen, `getline`, `patch`.
   - Paketverwaltung `apt` und `sudo`: in Python, Kapitel 1, Abschnitt 3.3 nur je ein Satz; ausführlich im Linux-Bereich
     (Heftnummer laut Linux-Lernpfad).
+- **Cybersecurity** (Informatik / Cybersecurity, Kapitel 1 fertig; Stamm seit 11.11.2026 mit 12 Teilen, Kapitel N = Teil N = Datei
+  `Kap<N>`, Zuordnung und Einträge in `C:\Bücher\EtUndSo\Cybersecurity\Recherche\LERNPFAD.md`). Setzt Linux, Python und C voraus und
+  erklärt nur das Sicherheitsspezifische. Geplant (noch ohne Heft; Einträge aus den Grenztabellen der Linux- und Programmieren-
+  Lernpfade übernommen):
+  - Cybersecurity, Kapitel 2 „Schutzgrenzen in Hardware und Betriebssystem“ (geplant) erklärt vollständig: Schutzgrenze,
+    Referenzmonitor, Befehlszeiger, Von-Neumann-Prinzip, Privilegstufe/Schutzring (vertieft; Grundbegriff Kernel-/Benutzermodus:
+    Linux, Kapitel 1, Abschnitt 1.2), privilegierte Befehle, Einsprungtabelle und drei Wege in den Kernel, Prüfung der Argumente
+    (Grundbegriff Systemaufruf: Linux, Kapitel 1, Abschnitt 1.4), Unterbrechung, Zeitgeber-Unterbrechung (Zeitteilung: Linux,
+    Kapitel 8, Abschnitt 1.3), virtueller Adressraum, Seite, Seitentabelle, MMU, Wurzelregister, Seitenfehler, Seitenrechte,
+    NX/W^X, SMEP/SMAP, `/proc/self/maps`; Startkette als Schutzgrenze, Bootkit, Vertrauensanker, Secure Boot vertieft (PK, KEK,
+    db, dbx, Widerruf, SBAT; Grundbegriff: Linux, Kapitel 1, Abschnitt 6.4), Measured Boot, PCR, Erweitern, Ereignisprotokoll,
+    TPM, Versiegeln, Attestierung (Geräteverschlüsselung als Anwendung: Linux, Kapitel 1, Abschnitt 6.5). Bit/Byte/Hex nur als
+    Voraussetzung (Python, Kapitel 2, Abschnitt 3).
+  - Cybersecurity, Kapitel 3 „Linux-Sicherheit: Labor, Rechteausweitung, Fehlkonfigurationen“ (geplant): Labor (Host-only und
+    internes Netz, Snapshot-Routine; VM, Snapshot, NAT: Linux, Kapitel 1, Abschnitt 3), Kali als Werkzeug-Distribution,
+    Plattformzugänge; Rechteausweitung, SUID-Missbrauch und GTFOBins, zu weite sudo-Regeln, gespeicherte Benutzernummer als
+    Angriffsfolge (Begriff: Linux, Kapitel 8, Abschnitt 2.8), PATH-Hijacking, schreibbare Startdateien, lesbare Geheimnisse,
+    Geheimnisse in Verlauf und Prozessliste (`ps`), Symlink-/TOCTTOU-Angriffe in `/tmp`, „complete mediation“ und Deskriptor als
+    Capability (Prüfung beim Öffnen: Linux, Kapitel 7, Abschnitt 5.3), DAC/MAC/Bell-LaPadula, Linux-Capabilities (Begriff
+    „Fähigkeiten“: Linux, Kapitel 7, Abschnitt 6.4), Auswertung von `auth.log`/Journal, Updates als wichtigste Schutzmaßnahme,
+    `curl | bash` als Lieferkettenrisiko. Mechanismus von Benutzern, Rechten, SUID/SGID/Sticky, sudo: Linux, Kapitel 7;
+    Prozesse, Signale, Dienste, Journal: Linux, Kapitel 8; apt und Paketsignaturen („signierte Liste“): Linux, Kapitel 9.
+  - Cybersecurity, Kapitel 4–5 „Netzwerke I/II“ (geplant): Schichten bis Firewall; die Netzbefehle `ip`, `ss`, `ping`, `dig`,
+    `nc` werden dort erklärt (nicht im Bereich Linux); `python3 -m http.server` nur als Rezept mit Verweis Python, Kapitel 11.
+  - Cybersecurity, Kapitel 6 „Python für die Sicherheitsarbeit“ (geplant): Hex/Base64/URL-Kodierung, „Kodierung ≠ Verschlüsselung“,
+    `struct` und Netzwerk-Bytereihenfolge für Protokollköpfe, XOR auf Bytes, `subprocess` mit/ohne Shell (Command Injection,
+    `--`), Sockets (TCP-Bytestrom, `recv`-Schleife, Echo-Server), pwntools, `hashlib` als Werkzeug. Voraussetzung: Python, Kapitel 9
+    (`str`/`bytes`, Kodierung, Binärdateien, `int.to_bytes`, `re`, `hashlib`-Grundaufruf), Python, Kapitel 11 (venv, pip,
+    `argparse`, `subprocess`-Grundaufruf).
+  - Cybersecurity, Kapitel 7 „Speicherfehler: wenn ein Programm über den Rand schreibt“ (geplant): Speicherfehler als
+    Schwachstellenklasse (räumlich/zeitlich), Vorzeichen-Falle bei Längenprüfungen (CWE-195/190), Überlauf bei der
+    Größenberechnung, struct-Überlauf als Datenmanipulation, gefährliche String-Funktionen als Angriffsfläche, 70-%-Statistik mit
+    Vorbehalt, speichersichere Sprachen (CISA/NSA/BSI), Fortify/Stack-Protector/PIE als Voreinstellungen, Fuzzing. Voraussetzung:
+    C, Kapitel 1–9 (Typen, Zweierkomplement, Arrays, Strings, Zeiger, Speicherbereiche, Heap, UB, Sanitizer).
+  - Cybersecurity, Kapitel 8 „Maschinencode, Assembler und Debugger“ (geplant): x86-64, Aufrufkonvention, Stackrahmen,
+    Rücksprungadresse, Systemaufruf in Assembler, ELF/PLT/GOT, gdb auf Maschinenebene (`stepi`, `x`, Register). gdb für
+    C-Programme (Haltepunkte, Variablen, Backtrace): C, Kapitel 9.
+  - Cybersecurity, Kapitel 9 „Kryptographie I“ (geplant): kryptographische Hashfunktion und ihre Eigenschaften, Passwort-Hashing
+    (Hash, Salt, yescrypt, Knacken; Linux, Kapitel 7, Abschnitt 1.8 sagt nur „Prüfwert“), CSPRNG und warum `random` vorhersagbar
+    ist (Pseudozufall, Seed: Python, Kapitel 13).
+  - Cybersecurity, Kapitel 10 „Kryptographie II“ (geplant): Signaturverfahren, GPG-Signaturprüfung, Zertifikate, TLS,
+    SSH-Protokoll, Hostschlüssel/TOFU, Schlüsselaustausch (SSH-Bedienung, Schlüssel erzeugen: Linux, Kapitel 11).
+  - Cybersecurity, Kapitel 11–12 „Das Web I/II“ (geplant): HTTP bis Zugriffskontrolle; Injection beginnt mit der ungequoteten
+    Variable als Vorform (Linux, Kapitel 5, Abschnitte 3.2 und 3.8); Lieferkette als OWASP-Klasse; Python-/Flask-Übungen verweisen
+    auf Python, Kapitel 11 (venv, pip).
+  - Ast F (Verteidigung): Protokollauswertung und Angriffserkennung über Kapitel 3 hinaus; Lieferkettenangriffe und BSI-Lagezahlen
+    vertieft.
 - **ML-Grundlagen gegen Höhere Mathematik:** Was ein HöMa-Heft vollständig erklärt (Beweise, Herleitungen), steht in den
   Grundlagen nur als Kurzfassung mit Verweis. Prüfen bei der nächsten Überarbeitung der Grundlagen.
 - **Geplant (noch ohne Heft):** Grundlagen, Kapitel 6 Optimierung (Lernpfad T06, vor dem Gradientenabstieg); ML-Pfad ab Machine Learning, Kapitel 1
@@ -907,6 +956,19 @@ Je Zeile ein Abschnitt: Verweis-Wendung, Abschnittstitel, dann die Unterabschnit
 - Linux, Kapitel 8, Abschnitt 6 „Last und Priorität“: 6.1 Die Last, genauer · 6.2 Die Priorität: der Nice-Wert · 6.3 Wie viel ein Nice-Wert ausmacht · 6.4 Die Priorität ändern: renice
 - Linux, Kapitel 8, Abschnitt 7 „Dienste und systemd“: 7.1 Der Dienst · 7.2 systemd: der Prozess mit der Nummer 1 · 7.3 Die Unit · 7.4 Den Zustand ansehen: systemctl status · 7.5 Die Unit-Datei · 7.6 Ein eigener Dienst: starten und stoppen · 7.7 systemd wacht: Neustart nach einem Absturz · 7.8 Beim Start mitstarten: enable · 7.9 Dienste unter eigenen Benutzern
 - Linux, Kapitel 8, Abschnitt 8 „Protokolle: das Journal“: 8.1 Das Journal · 8.2 Die Meldungen einer Unit: journalctl -u · 8.3 Mitlesen: journalctl -f · 8.4 Seit dem Start: journalctl -b und `--since` · 8.5 Wer welche Meldungen lesen darf · 8.6 Aufräumen
+
+### Linux, Kapitel 9: Software installieren: Paketverwaltung (`Kap9_Pakete`, Modul linux)
+
+- Linux, Kapitel 9, Abschnitt 1 „Pakete und ihre Beziehungen“: 1.1 Was du dafür brauchst: Distribution, Verzeichnisse, Bibliotheken und root · 1.2 Das Paket · 1.3 Die Paketbeschreibung · 1.4 Version und Architektur · 1.5 Die Abhängigkeit · 1.6 Empfehlung und Vorschlag · 1.7 Der Konflikt · 1.8 Das virtuelle Paket
+- Linux, Kapitel 9, Abschnitt 2 „Die Paketverwaltung und ihre Datenbank“: 2.1 Die Paketverwaltung · 2.2 Zwei Ebenen: dpkg und apt · 2.3 Die Liste der installierten Pakete: dpkg -l · 2.4 Die Dateien eines Pakets: dpkg -L · 2.5 Zu welchem Paket gehört eine Datei: dpkg -S · 2.6 Der Zustand eines Pakets: dpkg -s · 2.7 Wo die Paketdatenbank liegt
+- Linux, Kapitel 9, Abschnitt 3 „Paketquellen und Paketlisten“: 3.1 Die Paketquelle · 3.2 Der Spiegelserver · 3.3 Ausgabe und Bereich · 3.4 Die Quellenliste · 3.5 Die Paketliste · 3.6 Die Paketlisten holen: apt update
+- Linux, Kapitel 9, Abschnitt 4 „Pakete suchen und ansehen“: 4.1 Suchen: apt search · 4.2 Ansehen: apt show · 4.3 Auflisten: apt list · 4.4 Die Kandidatenversion: apt policy · 4.5 Abhängigkeiten anzeigen: apt-cache depends
+- Linux, Kapitel 9, Abschnitt 5 „Ein Paket von innen“: 5.1 Eine Paketdatei herunterladen: apt download · 5.2 Der Aufbau einer Paketdatei · 5.3 Der Steuerteil: dpkg-deb -I · 5.4 Der Datenteil: dpkg-deb -c und -x
+- Linux, Kapitel 9, Abschnitt 6 „Installieren, entfernen, aktualisieren“: 6.1 Die Sperre: warum Installieren root braucht · 6.2 Die Simulation · 6.3 Installieren: apt install · 6.4 Manuell und automatisch installiert · 6.5 Entfernen: remove, purge und autoremove · 6.6 Aktualisieren: upgrade und full-upgrade
+- Linux, Kapitel 9, Abschnitt 7 „Warum man den Paketen trauen kann“: 7.1 Was du dafür brauchst: die Prüfsumme · 7.2 Die Prüfsumme der Paketdatei · 7.3 Die Release-Datei · 7.4 Das Schlüsselpaar · 7.5 Die digitale Signatur · 7.6 Der Schlüsselbund und Signed-By · 7.7 Der Weg eines Pakets · 7.8 Was die Prüfung nicht leistet
+- Linux, Kapitel 9, Abschnitt 8 „Aktualisieren als Schutz“: 8.1 Das Sicherheitsupdate · 8.2 Das Zeitfenster nach der Veröffentlichung · 8.3 Nach dem Update: laufende Programme · 8.4 Automatische Sicherheitsupdates · 8.5 Der Pflegezeitraum
+- Linux, Kapitel 9, Abschnitt 9 „Alternativen: ein Befehl, mehrere Pakete“: 9.1 Das Alternativsystem · 9.2 sudo und sudo-rs · 9.3 Die Grundbefehle: coreutils-from-uutils · 9.4 Unverzichtbare und geschützte Pakete
+- Linux, Kapitel 9, Abschnitt 10 „Software von außerhalb der Paketquellen“: 10.1 Eine zusätzliche Paketquelle · 10.2 Eine einzelne Paketdatei · 10.3 Installationsskripte aus dem Netz · 10.4 Snap und Flatpak · 10.5 Aufräumen
 
 ## Informatik / Cybersecurity
 

@@ -4,7 +4,8 @@ Labels go through richtext (sub/superscripts as <tspan>, several lines as severa
 Geometry stays in the scene's pixel space (1920x1080); to_svg(view, size) crops it with the viewBox
 and sets the displayed size (engine/export.py decides both for article figures)."""
 from .richtext import (parse as _parse_rich, is_plain as _is_plain, layout as _layout, text_lines as _text_lines,
-                       mono_line as _mono_line, MONO_CELL)
+                       mono_line as _mono_line, mono_line_ix as _mono_line_ix, span_at as _span_at,
+                       line_offsets as _line_offsets, MONO_CELL)
 
 # A FIXED, metric-compatible font family: Arial, Helvetica, Liberation Sans and Nimbus Sans share the same
 # advance widths, so on Windows, macOS/iOS and most Linux systems the text is exactly as wide as
@@ -37,6 +38,29 @@ def _num(v):
 
 
 _LINE_H = 1.25
+
+
+def _runs(chars, spans):
+    """The content of one <text> with coloured sections: [(char, index in the label)] -> plain text for characters
+    without a section, <tspan fill=… font-weight="bold"> around each run of equal style (F1, Text.spans)."""
+    out, cur, buf = [], None, []
+
+    def flush():
+        if not buf:
+            return
+        s = _esc("".join(buf))
+        col, bold = cur
+        a = (' fill="%s"' % _hex(col) if col is not None else "") + (' font-weight="bold"' if bold else "")
+        out.append("<tspan%s>%s</tspan>" % (a, s) if a else s)
+        buf.clear()
+    for ch, i in chars:
+        st = _span_at(spans, i)
+        if st != cur:
+            flush()
+            cur = st
+        buf.append(ch)
+    flush()
+    return "".join(out)
 
 
 class SvgPainter:
@@ -86,11 +110,12 @@ class SvgPainter:
             a.append('stroke-linejoin="round" stroke-linecap="butt"')
         self.parts.append('<path d="%s" %s%s/>' % (d, " ".join(a), rule))
 
-    def draw_text(self, text, px, py, font_size, color, opacity, align="center", font=None, raw=False):
+    def draw_text(self, text, px, py, font_size, color, opacity, align="center", font=None, raw=False, spans=None):
         anchor = {"left": "start", "right": "end"}.get(align, "middle")
         op = '' if opacity >= 1 else ' fill-opacity="%s"' % _num(opacity)
         if font == "mono" or raw:
-            self._draw_lines(text, px, py, font_size, color, op, align, anchor, font == "mono", raw)
+            self._draw_lines(text, px, py, font_size, color, op, align, anchor, font == "mono", raw,
+                             spans if raw else None)
             return
         if _is_plain(text):
             self.parts.append('<text x="%s" y="%s" font-size="%s" font-family="%s" fill="%s" text-anchor="%s" '
@@ -116,35 +141,41 @@ class SvgPainter:
                               'dominant-baseline="central"%s>%s</text>'
                               % (_num(px), _num(y), _num(font_size), self.font, _hex(color), anchor, op, "".join(spans)))
 
-    def _draw_lines(self, text, px, py, font_size, color, op, align, anchor, mono, raw):
+    def _draw_lines(self, text, px, py, font_size, color, op, align, anchor, mono, raw, spans=None):
         """Raw and/or typewriter text: one <text> per line, no rich syntax. Mono: every character (spaces too, so copied
         text keeps them) at the centre of its cell (x list, text-anchor middle, xml:space preserve), so columns and runs
         of spaces hold in any monospace font. Raw in the
-        normal font: the line as written, spaces kept (xml:space) when it has runs of them or spaces at its ends."""
+        normal font: the line as written, spaces kept (xml:space) when it has runs of them or spaces at its ends.
+        spans (Text.spans, raw only): coloured / bold sections become <tspan fill=… font-weight="bold"> inside the ONE
+        <text> of the line; the x list of the <text> still places every character of every section (F1)."""
         lines = _text_lines(text, raw)
         n = len(lines)
         fs = float(font_size)
         lh = _LINE_H * fs
+        offs = _line_offsets(lines) if spans else None
         for i, line in enumerate(lines):
             y = py + (i - (n - 1) / 2.0) * lh
             if mono:
-                cells, chars = _mono_line(line)
+                cells, chars = _mono_line_ix(line)
                 if not chars:
                     continue
                 cw = MONO_CELL * fs
                 w = cells * cw
                 left = px - w / 2.0 if align not in ("left", "right") else (px if align == "left" else px - w)
-                xs = " ".join(_num(left + c * cw) for _, c in chars)       # one x per character, spaces included
+                xs = " ".join(_num(left + c * cw) for _, c, _ in chars)    # one x per character, spaces included
+                body = (_runs([(ch, offs[i] + j) for ch, _, j in chars], spans) if spans
+                        else _esc("".join(ch for ch, _, _ in chars)))
                 self.parts.append('<text x="%s" y="%s" font-size="%s" font-family="%s" fill="%s" text-anchor="middle" '
                                   'dominant-baseline="central" xml:space="preserve"%s>%s</text>'
-                                  % (xs, _num(y), _num(fs), MONO_FONT, _hex(color), op, _esc("".join(ch for ch, _ in chars))))
+                                  % (xs, _num(y), _num(fs), MONO_FONT, _hex(color), op, body))
             else:
                 if not line.strip():
                     continue
                 keep = ' xml:space="preserve"' if ("  " in line or line != line.strip()) else ""
+                body = _runs([(ch, offs[i] + j) for j, ch in enumerate(line)], spans) if spans else _esc(line)
                 self.parts.append('<text x="%s" y="%s" font-size="%s" font-family="%s" fill="%s" text-anchor="%s" '
                                   'dominant-baseline="central"%s%s>%s</text>'
-                                  % (_num(px), _num(y), _num(fs), self.font, _hex(color), anchor, op, keep, _esc(line)))
+                                  % (_num(px), _num(y), _num(fs), self.font, _hex(color), anchor, op, keep, body))
 
     def to_svg(self, view=None, size=None):
         """The SVG document. view = (x0, y0, x1, y1) in scene pixels shown through the viewBox (default: the

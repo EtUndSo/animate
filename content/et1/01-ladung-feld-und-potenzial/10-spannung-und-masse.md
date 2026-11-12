@@ -144,6 +144,44 @@ Berechne $U_{24}$ und $U_{13}$ in beiden Fällen. Was fällt auf?
 :::
 :::
 
+::::formelsammlung
+**Spannung**
+
+$$U_{12}=\varphi(P_1)-\varphi(P_2)=\int_{P_1}^{P_2}\vec E\cdot\mathrm{d}\vec s=\frac{W_{12}}{Q}$$
+
+Energie je Ladung, die das Feld auf dem Weg von $P_1$ nach $P_2$ abgibt; im Schaltplan ein Zählpfeil von 1 nach 2. $[U]=\mathrm V$. Das Integral hängt nur im elektrostatischen Feld nicht vom Weg ab.
+
+**Richtung der Spannung**
+
+$$U_{21}=-U_{12}$$
+
+Die Reihenfolge zählt. Ist $U_{12}>0$, liegt Punkt 1 höher; eine positive Ladung gewinnt dann beim Lauf längs des Pfeils Bewegungsenergie, ein Elektron verliert sie.
+
+**Potenziale von der Masse aus**
+
+$$\varphi_1=\varphi_2+U_{12}$$
+
+Die Masse (Bezugspotenzial, GND) ist der Punkt einer Schaltung mit $\varphi:=0$ V; mit dem Erdboden verbunden heißt er Erde. Potenziale dürfen negativ sein, also tiefer als die Masse liegen.
+
+**Homogenes Feld zwischen Platten**
+
+$$E=\frac{U}{d}$$
+
+Zwei parallele Platten im Abstand $d$ mit der Spannung $U$; die Feldstärke sagt, wie viel Spannung je Meter Weg abfällt.
+
+**Freiheit des Bezugspunkts**
+
+$$\varphi'(P)=\varphi(P)+c\quad\Longrightarrow\quad\varphi'_1-\varphi'_2=U_{12}$$
+
+Verschiebt man den Bezugspunkt, ändern sich alle Potenziale um dieselbe Konstante $c$; alle Spannungen bleiben gleich.
+
+**Energie aus Ladung und Spannung**
+
+$$W=Q\,U$$
+
+Energie, die das Feld an die Ladung $Q$ abgibt, wenn sie die Spannung $U$ durchläuft; folgt aus der Spannung als Arbeit je Ladung.
+::::
+
 ::::lernkarten
 :::karte begriff Spannung
 Was gibt die Spannung $U_{12}$ zwischen zwei Punkten $P_1$ und $P_2$ an?
@@ -179,7 +217,7 @@ $W=U$: Spannung und Energie sind dieselbe Größe, nur in anderer Einheit angege
 $W=Q\,U$: Die Arbeit an einer Ladung ist Ladung mal durchlaufene Spannung. 9 V heißen also, dass die Batterie insgesamt 9 C Ladung gespeichert hat, die sie von einem Anschluss zum anderen abgeben kann.
 :::
 :::karte begriff Masse
-Was ist die Masse einer Schaltung?
+Welchen Punkt einer Schaltung nennt man Masse, und welche Rolle spielt er, wenn man Potenziale und Spannungen angibt?
 ---
 Der Punkt der Schaltung, dem man $\varphi:=0$ V zuordnet, auch Bezugspotenzial oder GND; mit dem Erdboden verbunden heißt er Erde. Seine Lage ist frei wählbar und ändert keine Spannung.
 --- falsch

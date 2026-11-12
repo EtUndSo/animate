@@ -1,0 +1,151 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 5,
+  "nextAnimId": 6,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Text",
+    "props": {
+     "text": "@g160",
+     "position": [
+      0.75,
+      0.88,
+      0
+     ],
+     "font_size": 20,
+     "align": "left",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Text",
+    "props": {
+     "text": "@g254",
+     "position": [
+      0.75,
+      -0.72,
+      0
+     ],
+     "font_size": 20,
+     "align": "left",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o3",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\begin{aligned} L(30\\,\\mathrm{s}) &= 4 \\cdot \\left(1 - \\mathrm{e}^{-30/60}\\right)\\\\ &= 4 \\cdot (1 - 0.607)\\\\ &= 4 \\cdot 0.393\\\\ &= 1.57 \\end{aligned}",
+     "height": 1.15,
+     "position": [
+      -1.0,
+      1.35,
+      0
+     ],
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o4",
+    "type": "MathTex",
+    "props": {
+     "tex": "\\begin{aligned} L(60\\,\\mathrm{s}) &= 4 \\cdot \\left(1 - \\mathrm{e}^{-1}\\right)\\\\ &= 4 \\cdot (1 - 0.368)\\\\ &= 4 \\cdot 0.632\\\\ &= 2.53 \\end{aligned}",
+     "height": 1.15,
+     "position": [
+      -1.0,
+      -0.25,
+      0
+     ],
+     "color": "#111111"
+    }
+   }
+  ],
+  "animations": [
+   {
+    "id": "a1",
+    "type": "FadeIn",
+    "target": "o3",
+    "run_time": 4.0,
+    "step": 0,
+    "lines": true
+   },
+   {
+    "id": "a2",
+    "type": "FadeIn",
+    "target": "o1",
+    "run_time": 0.5,
+    "step": 1
+   },
+   {
+    "id": "a3",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a4",
+    "type": "FadeIn",
+    "target": "o4",
+    "run_time": 4.0,
+    "step": 3,
+    "lines": true
+   },
+   {
+    "id": "a5",
+    "type": "FadeIn",
+    "target": "o2",
+    "run_time": 0.5,
+    "step": 4
+   }
+  ],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "g160": {
+    "de": "gemessen: 1,60",
+    "en": "measured: 1.60",
+    "es": "medido: 1,60",
+    "zh": "实测：1.60",
+    "fr": "mesuré : 1,60",
+    "tr": "ölçülen: 1,60"
+   },
+   "g254": {
+    "de": "gemessen: 2,54",
+    "en": "measured: 2.54",
+    "es": "medido: 2,54",
+    "zh": "实测：2.54",
+    "fr": "mesuré : 2,54",
+    "tr": "ölçülen: 2,54"
+   }
+  },
+  "drawOrder": "creation"
+ }
+}

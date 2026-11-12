@@ -10,6 +10,13 @@ Grundlage: `notizen/f1_funktionsliste.md` (Auswertung der 58 Szenen von Linux 7/
 2. **Terminalstil: alte und neue dunkel, an echtes Ubuntu angelehnt** (dunkler Hintergrund, Titelleiste mit drei Fensterknöpfen). Die Terminalbilder von Linux 1–6 werden damit nachgerüstet (Nachrüst-Loop C5, mit dem F1-Terminal statt `tt`/`ttz`). Keine Logos oder Originalgrafiken.
 3. **„journalctl folgen“ (k8journalfolgen):** untereinander mit vollem Wortlaut, Bildunterschrift anpassen.
 
+**Stand 12.11.2026: F1 gebaut** (Bau-Agent, Patch zur Prüfung).
+- Gebaut: Terminal mit Zeichenraster, ANSI, Abläufen und TUI (`top`, Pager); Datei-Ansicht; Raster mit
+  Spalten-Funktionen; Schloss; Palette „Bildschirm & Fenster“ im Editor; Prüfung der Mindestschrift im Export.
+- Anleitung: `notizen/animationen.md` §11. Farben: `notizen/f1_terminal_palette.md`.
+- Pilot: `tools/szenen/linux_f1_pilot.py`.
+- Nicht gebaut (Vorrat): Mitschrift-Import, Kürzen mit `…`, Tastenkappen, Maus/Lupe/Ausschnitt, weitere Stile.
+
 ## Effizient umsetzen (Vorschlag, 11.11.2026)
 1. **Nur bauen, was gebraucht wird:** Vor jeder Welle die Szenentabellen der nächsten Hefte auswerten (Linux 7/8: `uebergabe_kap7.md`/`uebergabe_kap8.md`, 58 Szenen; später Cyber 2, Python 4). Daraus entsteht die genaue Funktionsliste; der Rest des Plans bleibt Vorrat.
 2. **Einmal bauen, überall nutzen:** Die neuen Vorlagen sind zusammengesetzte Objekte in der Python-Engine (`web/engine`), die beim Zeichnen in vorhandene Grundformen zerfallen. Editor (Pyodide), Export, Vektor-PDF und Spieler nutzen dieselbe Stelle. Kein neuer Renderweg, kaum JavaScript: Das Eigenschaftsfeld des Editors zeigt Props ohnehin generisch, neu sind nur die Palette-Einträge.

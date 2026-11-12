@@ -202,7 +202,7 @@ _UI_LERNEN = {
            "lk_kapitel": "Kapitel", "lk_alle_kap": "Alle Kapitel", "lk_faellig": "Heute fällig: {n}", "lk_davon_neu": "davon neu: {n}",
            "lk_umdrehen": "Umdrehen", "lk_gut": "Wusste ich", "lk_mittel": "Unsicher", "lk_schlecht": "Wusste ich nicht",
            "lk_stelle": "Zur Stelle im Artikel", "lk_fertig": "Für heute ist in dieser Auswahl nichts mehr fällig.",
-           "lk_mehr_neu": "{n} weitere neue Karten", "lk_liste": "Alle Karten als Liste ({n})", "lk_begriff": "Begriff",
+           "lk_mehr_neu": "{n} weitere neue Karten", "lk_liste": "Alle Karten als Liste ({n})", "lk_begriff": "Begriff", "lk_frage_b": "Was bedeutet „{b}“?", "lk_frage_f": "Wie lautet die Formel „{b}“?", "lk_frage_h": "Wie lässt sich „{b}“ herleiten?",
            "lk_formel": "Formel", "lk_luecke": "Lückentext", "lk_reset": "Lernstand zurücksetzen", "reset_sicher": "Wirklich zurücksetzen?",
            "lk_ohne_speicher": "Dieser Browser speichert gerade nichts. Der Lernstand gilt nur, solange die Seite offen ist.",
            "lk_heute": "gleich noch einmal", "lk_morgen": "morgen", "lk_tage": "in {n} Tagen",
@@ -221,7 +221,7 @@ _UI_LERNEN = {
            "lk_kapitel": "Chapter", "lk_alle_kap": "All chapters", "lk_faellig": "Due today: {n}", "lk_davon_neu": "new: {n}",
            "lk_umdrehen": "Flip", "lk_gut": "I knew it", "lk_mittel": "Unsure", "lk_schlecht": "I didn't know",
            "lk_stelle": "Go to the place in the article", "lk_fertig": "Nothing more is due today in this selection.",
-           "lk_mehr_neu": "{n} more new cards", "lk_liste": "All cards as a list ({n})", "lk_begriff": "Term",
+           "lk_mehr_neu": "{n} more new cards", "lk_liste": "All cards as a list ({n})", "lk_begriff": "Term", "lk_frage_b": "What does “{b}” mean?", "lk_frage_f": "What is the formula “{b}”?", "lk_frage_h": "How can “{b}” be derived?",
            "lk_formel": "Formula", "lk_luecke": "Fill in the blank", "lk_reset": "Reset learning progress", "reset_sicher": "Really reset?",
            "lk_ohne_speicher": "This browser is not saving anything right now. Progress lasts only while the page is open.",
            "lk_heute": "again shortly", "lk_morgen": "tomorrow", "lk_tage": "in {n} days",
@@ -240,7 +240,7 @@ _UI_LERNEN = {
            "lk_kapitel": "Capítulo", "lk_alle_kap": "Todos los capítulos", "lk_faellig": "Pendientes hoy: {n}", "lk_davon_neu": "nuevas: {n}",
            "lk_umdrehen": "Dar la vuelta", "lk_gut": "Lo sabía", "lk_mittel": "Dudoso", "lk_schlecht": "No lo sabía",
            "lk_stelle": "Ir al lugar en el artículo", "lk_fertig": "Hoy no queda nada pendiente en esta selección.",
-           "lk_mehr_neu": "{n} tarjetas nuevas más", "lk_liste": "Todas las tarjetas en lista ({n})", "lk_begriff": "Término",
+           "lk_mehr_neu": "{n} tarjetas nuevas más", "lk_liste": "Todas las tarjetas en lista ({n})", "lk_begriff": "Término", "lk_frage_b": "¿Qué significa «{b}»?", "lk_frage_f": "¿Cuál es la fórmula «{b}»?", "lk_frage_h": "¿Cómo se deduce «{b}»?",
            "lk_formel": "Fórmula", "lk_luecke": "Completar", "lk_reset": "Reiniciar el progreso de estudio", "reset_sicher": "¿Reiniciar de verdad?",
            "lk_ohne_speicher": "Este navegador no guarda nada ahora mismo. El progreso solo dura mientras la página esté abierta.",
            "lk_heute": "otra vez enseguida", "lk_morgen": "mañana", "lk_tage": "en {n} días",
@@ -259,7 +259,7 @@ _UI_LERNEN = {
            "lk_kapitel": "章节", "lk_alle_kap": "全部章节", "lk_faellig": "今天到期：{n}", "lk_davon_neu": "其中新卡：{n}",
            "lk_umdrehen": "翻面", "lk_gut": "记得", "lk_mittel": "不确定", "lk_schlecht": "不记得",
            "lk_stelle": "跳到文章中的位置", "lk_fertig": "此范围内今天已没有到期的卡片。",
-           "lk_mehr_neu": "再学 {n} 张新卡", "lk_liste": "以列表显示全部卡片（{n}）", "lk_begriff": "术语",
+           "lk_mehr_neu": "再学 {n} 张新卡", "lk_liste": "以列表显示全部卡片（{n}）", "lk_begriff": "术语", "lk_frage_b": "“{b}”是什么意思？", "lk_frage_f": "“{b}”的公式是什么？", "lk_frage_h": "如何推导“{b}”？",
            "lk_formel": "公式", "lk_luecke": "填空", "lk_reset": "重置学习进度", "reset_sicher": "确定要重置吗？",
            "lk_ohne_speicher": "此浏览器目前无法保存数据，学习进度只在页面打开期间有效。",
            "lk_heute": "稍后再来一次", "lk_morgen": "明天", "lk_tage": "{n} 天后",
@@ -279,7 +279,7 @@ _UI_LERNEN = {
            "lk_davon_neu": "dont nouvelles : {n}", "lk_umdrehen": "Retourner", "lk_gut": "Je savais", "lk_mittel": "Incertain",
            "lk_schlecht": "Je ne savais pas", "lk_stelle": "Aller à l’endroit dans l’article",
            "lk_fertig": "Plus rien à revoir aujourd’hui dans cette sélection.", "lk_mehr_neu": "{n} nouvelles fiches de plus",
-           "lk_liste": "Toutes les fiches en liste ({n})", "lk_begriff": "Terme", "lk_formel": "Formule", "lk_luecke": "Texte à trous",
+           "lk_liste": "Toutes les fiches en liste ({n})", "lk_begriff": "Terme", "lk_frage_b": "Que signifie « {b} » ?", "lk_frage_f": "Quelle est la formule « {b} » ?", "lk_frage_h": "Comment établir « {b} » ?", "lk_formel": "Formule", "lk_luecke": "Texte à trous",
            "lk_reset": "Réinitialiser la progression", "reset_sicher": "Vraiment réinitialiser ?",
            "lk_ohne_speicher": "Ce navigateur n’enregistre rien pour le moment. La progression ne dure que tant que la page est ouverte.",
            "lk_heute": "encore une fois tout de suite", "lk_morgen": "demain", "lk_tage": "dans {n} jours",
@@ -298,7 +298,7 @@ _UI_LERNEN = {
            "lk_kapitel": "Bölüm", "lk_alle_kap": "Tüm bölümler", "lk_faellig": "Bugün sırası gelen: {n}", "lk_davon_neu": "yeni: {n}",
            "lk_umdrehen": "Çevir", "lk_gut": "Biliyordum", "lk_mittel": "Emin değilim", "lk_schlecht": "Bilmiyordum",
            "lk_stelle": "Makaledeki yerine git", "lk_fertig": "Bu seçimde bugün için başka kart yok.",
-           "lk_mehr_neu": "{n} yeni kart daha", "lk_liste": "Tüm kartlar liste olarak ({n})", "lk_begriff": "Terim",
+           "lk_mehr_neu": "{n} yeni kart daha", "lk_liste": "Tüm kartlar liste olarak ({n})", "lk_begriff": "Terim", "lk_frage_b": "“{b}” ne anlama gelir?", "lk_frage_f": "“{b}” formülü nedir?", "lk_frage_h": "“{b}” nasıl türetilir?",
            "lk_formel": "Formül", "lk_luecke": "Boşluk doldurma", "lk_reset": "Öğrenme ilerlemesini sıfırla", "reset_sicher": "Gerçekten sıfırlansın mı?",
            "lk_ohne_speicher": "Bu tarayıcı şu anda hiçbir şey kaydetmiyor. İlerleme yalnızca sayfa açıkken geçerli.",
            "lk_heute": "birazdan tekrar", "lk_morgen": "yarın", "lk_tage": "{n} gün sonra",
@@ -2943,6 +2943,7 @@ def modul_karten(mp, arts, begriffe, lang):
         k.update({x: v for x, v in extra.items() if v})
         karten.append(k)
     gewaehlt = {b["id"] + "|" + b["art"]["path"]: b for b in begriffe.values()}
+    mit_eigenen = {kapitel_ordner(x["path"]) for x in arts if (x.get("bloecke") or {}).get("lernkarten")}   # User 12.11.: Kapitel mit geschriebenen Karten ganz ohne automatische (Überblick, „Das Wichtigste“)
     for a in arts:
         z = SAMMEL.get(a["path"]) or {}
         eigene = (a.get("bloecke") or {}).get("lernkarten")
@@ -2954,6 +2955,8 @@ def modul_karten(mp, arts, begriffe, lang):
                 else:
                     neu(a, typ, key, _karte_md(frage, a["path"]), _karte_md(antwort[0], a["path"]), "", w=1,
                         x=[_karte_md(f, a["path"]) for f in falsch], n=name)
+            continue
+        if kapitel_ordner(a["path"]) in mit_eigenen:
             continue
         fb = [b for b in z.get("fb", []) if b["id"] + "|" + a["path"] in gewaehlt]
         i = 0                                          # Begriffe mit demselben Satz: eine Karte (wie in der Zusammenfassung)
@@ -2977,7 +2980,7 @@ def modul_karten(mp, arts, begriffe, lang):
                 stat["Verweis"] += len(gleich)
                 continue
             vorne = ", ".join(inline(_ohne_links(b["md"])) for b in gleich)
-            neu(a, "b", "|".join(fold(klartext(b["md"])) for b in gleich), vorne, inline(bestimmung), gleich[0]["id"])
+            neu(a, "b", "|".join(fold(klartext(b["md"])) for b in gleich), T("lk_frage_b").format(b=vorne), inline(bestimmung), gleich[0]["id"])
         formeln = {}                                   # benannte Formeln: je Name (Kastentitel, Abschnitt) eine Karte
         for f in z.get("fm", []):
             titel = (f["titel"] or "").strip()
@@ -2990,7 +2993,7 @@ def modul_karten(mp, arts, begriffe, lang):
             formeln.setdefault(titel, []).append(f)
         for titel, fs in formeln.items():
             hinten = "".join(f'<div class="lk-formel">{inline("$$" + f["tex"] + "$$")}</div>' for f in fs)
-            neu(a, "f", fold(klartext(titel)) + "|" + re.sub(r"\s+", "", fs[0]["tex"]), inline(_ohne_links(titel)), hinten, fs[0]["id"])
+            neu(a, "f", fold(klartext(titel)) + "|" + re.sub(r"\s+", "", fs[0]["tex"]), T("lk_frage_f").format(b=inline(_ohne_links(titel))), hinten, fs[0]["id"])
         for k in z.get("kg", []):
             if _LK_VERWEIS.search(klartext(k["md"])):
                 stat["Verweis"] += 1
@@ -3012,7 +3015,7 @@ def modul_karten(mp, arts, begriffe, lang):
                 continue
             zkey = re.sub(r"\s+", "", zmd or "")
             neu(a, "h", f"{art_stamm(a)}|{fold(klartext(titel))}|{zkey}",
-                inline(_ohne_links(titel)) if titel else html.escape(T("herleitung")), "", hl["id"],
+                T("lk_frage_h").format(b=inline(_ohne_links(titel))) if titel else html.escape(T("herleitung")), "", hl["id"],
                 z=_karte_md(zmd, a["path"]) if zmd else "",
                 s0=_karte_md(schritte[0], a["path"]) if len(schritte) > 1 else "",
                 s=[_karte_md(x, a["path"]) for x in (schritte[1:] if len(schritte) > 1 else schritte)])
@@ -6545,7 +6548,7 @@ var BEREICHE_UI=/*UI_BEREICHE*/{};
       return pool.length<3 ? null : mische([c.id].concat(pool)); }
     function karteVon(id){ for(var i=0;i<D.karten.length;i++) if(D.karten[i].id===id) return D.karten[i]; return null; }
     function optText(o){ var m=/^x:(.+):(\d+)$/.exec(o||""); if(m){ var c=karteVon(m[1]); return c&&c.x?(c.x[+m[2]]||""):""; } var k=karteVon(o); return k?antwort(k):""; }   // Text einer Quiz-Option
-    function frageText(c){ return c.w ? w("quiz_p_w") : w("quiz_p_"+c.t); }
+    function frageText(c){ return (c.w || c.t==="b" || c.t==="f") ? w("quiz_p_w") : w("quiz_p_"+c.t); }   // b/f: Vorderseite ist seit 12.11. ein Fragesatz
     function zahlWahl(){ var l=tx("label","lw-feld"), s=tx("select","lw-sel lw-zahl"); l.appendChild(tx("span",null,w("quiz_zahl"))); l.appendChild(s);
       [10,20,30].forEach(function(n){ s.appendChild(new Option(String(n),String(n))); }); return [l,s]; }
     // Eine Mehrfachauswahl-Frage zeichnen. modus "quiz": nach der Wahl gleich zeigen, ob richtig; "test": nur die Wahl

@@ -201,8 +201,12 @@ def _hex_to_rgb(h):
     return [((n >> 16) & 255) / 255, ((n >> 8) & 255) / 255, (n & 255) / 255]
 
 
+_HEX = re.compile(r"#[0-9a-fA-F]{6}")
+
+
 def _to_args(props):
-    return {k: (_hex_to_rgb(v) if isinstance(v, str) and v.startswith("#") else v) for k, v in (props or {}).items()}
+    """editor.js toArgs: a colour is exactly #rrggbb (F1: other text starting with # stays text, e.g. #!/bin/bash)."""
+    return {k: (_hex_to_rgb(v) if isinstance(v, str) and _HEX.fullmatch(v) else v) for k, v in (props or {}).items()}
 
 
 def _obj_spec(o):
@@ -467,7 +471,7 @@ class _Ebenen:
             xs, ys = [p[0] for p in pts], [p[1] for p in pts]
             self.items.append(("p", self.oid, (min(xs), min(ys), max(xs), max(ys))))
 
-    def draw_text(self, text, px, py, font_size, color, opacity, align="center", font=None, raw=False):
+    def draw_text(self, text, px, py, font_size, color, opacity, align="center", font=None, raw=False, spans=None):
         if opacity > 0.05:
             b = _export.text_box(text, px, py, font_size, align, font, raw)
             if b is not None:
@@ -501,6 +505,38 @@ def verdeckter_text(sc, axes_on_top=False):
             if ov >= 0.8 * w * h and (tid, oid) not in out:
                 out.append((tid, oid))
     return out
+
+
+class _Schriften:
+    """Painter für die Prüfung der Mindestschriftgröße: kleinste sichtbare Schrift (Szenenpixel) und ihr Objekt."""
+
+    def __init__(self):
+        self.min, self.oid, self.cur = None, None, None
+
+    def background(self, color):
+        pass
+
+    def draw_path(self, *a, **k):
+        pass
+
+    def draw_text(self, text, px, py, font_size, color, opacity, align="center", font=None, raw=False, spans=None):
+        if opacity > 0.05 and str(text).strip() and (self.min is None or font_size < self.min):
+            self.min, self.oid = float(font_size), self.cur
+
+
+def kleinste_schrift(sc, info):
+    """(px im Artikel, Szenenpixel, Objekt-id) der kleinsten sichtbaren Schrift im Endbild, oder None (kein Text). Im
+    Artikel = Szenenpixel × Maßstab × Verkleinerung (ein Bild breiter als die Spalte schrumpft im Browser mit, F1)."""
+    from engine.renderer import paint_object
+    ids = {id(o): k for k, o in (getattr(sc, "objects_by_id", None) or {}).items()}
+    rec = _Schriften()
+    for o in sc.objectList:
+        rec.cur = ids.get(id(o), "?")
+        paint_object(rec, o, sc.camera)
+    if rec.min is None:
+        return None
+    shrink = min(1.0, info["column"] / float(info["width"]))
+    return rec.min * info["scale"] * shrink, rec.min, rec.oid
 
 
 _UNSICHTBAR = re.compile(r'<path d="[^"]*" fill="none"(?: fill-rule="evenodd")?/>\n?'
@@ -559,6 +595,13 @@ def export_scene(name, out_dir, lang, defaults, kinds, write=True, tex=None, ani
         notes.append("Text liegt unter einer deckenden Fläche: " + ", ".join(f"{t} unter {p}" for t, p in verdeckt[:6])
                      + (" …" if len(verdeckt) > 6 else "")
                      + " (gewollt? sonst Fläche zuerst einblenden oder Szene(…, reihenfolge=\"anlegen\"), notizen/animationen.md §7.4)")
+    klein = kleinste_schrift(sc, info)
+    if klein is not None:
+        info["min_text_px"] = klein[0]
+        if klein[0] < _export.MIN_TEXT_PX - 1e-6:
+            notes.append(f"Schrift zu klein: {klein[2]} hat {_de(klein[1])} Szenenpixel → {_de(klein[0], 2)} px im Artikel "
+                         f"(Mindestmaß {_de(_export.MIN_TEXT_PX)} px; Schreibmaschinenschrift ab 17 Szenenpixel, "
+                         "Fenster schmaler oder weniger Spalten)")
     if write:
         dest = out_dir / lang / (name + ".svg")
         dest.parent.mkdir(parents=True, exist_ok=True)

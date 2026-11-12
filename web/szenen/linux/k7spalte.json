@@ -1,0 +1,626 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 24,
+  "nextAnimId": 28,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Text",
+    "props": {
+     "text": "-rw-r--r-- 1 student student 25 Nov 10 12:32 einkauf.txt",
+     "position": [
+      -2.7378,
+      0.2,
+      0
+     ],
+     "font_size": 22,
+     "align": "left",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true,
+     "ansi": true
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Shape",
+    "props": {
+     "points": "-2.62,0.36;-2.62,0.43;-2.3667,0.43;-2.3667,0.36",
+     "closed": false,
+     "label": "",
+     "material": "custom",
+     "font_size": 24,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 0.0,
+     "stroke_width": 2.0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o3",
+    "type": "Text",
+    "props": {
+     "text": "u",
+     "position": [
+      -2.4933,
+      0.5589,
+      0
+     ],
+     "font_size": 20,
+     "align": "center",
+     "color": "#2a78d6",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Shape",
+    "props": {
+     "points": "-2.3267,0.36;-2.3267,0.43;-2.0733,0.43;-2.0733,0.36",
+     "closed": false,
+     "label": "",
+     "material": "custom",
+     "font_size": 24,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 0.0,
+     "stroke_width": 2.0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o5",
+    "type": "Text",
+    "props": {
+     "text": "g",
+     "position": [
+      -2.2,
+      0.5589,
+      0
+     ],
+     "font_size": 20,
+     "align": "center",
+     "color": "#2a78d6",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Shape",
+    "props": {
+     "points": "-2.0333,0.36;-2.0333,0.43;-1.78,0.43;-1.78,0.36",
+     "closed": false,
+     "label": "",
+     "material": "custom",
+     "font_size": 24,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 0.0,
+     "stroke_width": 2.0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o7",
+    "type": "Text",
+    "props": {
+     "text": "o",
+     "position": [
+      -1.9066,
+      0.5589,
+      0
+     ],
+     "font_size": 20,
+     "align": "center",
+     "color": "#2a78d6",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Text",
+    "props": {
+     "text": "r",
+     "position": [
+      -2.5911,
+      -0.05,
+      0
+     ],
+     "font_size": 17,
+     "align": "center",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o9",
+    "type": "Text",
+    "props": {
+     "text": "w",
+     "position": [
+      -2.4933,
+      -0.05,
+      0
+     ],
+     "font_size": 17,
+     "align": "center",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o10",
+    "type": "Text",
+    "props": {
+     "text": "x",
+     "position": [
+      -2.3956,
+      -0.05,
+      0
+     ],
+     "font_size": 17,
+     "align": "center",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o11",
+    "type": "Text",
+    "props": {
+     "text": "r",
+     "position": [
+      -2.2978,
+      -0.05,
+      0
+     ],
+     "font_size": 17,
+     "align": "center",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Text",
+    "props": {
+     "text": "w",
+     "position": [
+      -2.2,
+      -0.05,
+      0
+     ],
+     "font_size": 17,
+     "align": "center",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o13",
+    "type": "Text",
+    "props": {
+     "text": "x",
+     "position": [
+      -2.1022,
+      -0.05,
+      0
+     ],
+     "font_size": 17,
+     "align": "center",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o14",
+    "type": "Text",
+    "props": {
+     "text": "r",
+     "position": [
+      -2.0045,
+      -0.05,
+      0
+     ],
+     "font_size": 17,
+     "align": "center",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o15",
+    "type": "Text",
+    "props": {
+     "text": "w",
+     "position": [
+      -1.9067,
+      -0.05,
+      0
+     ],
+     "font_size": 17,
+     "align": "center",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o16",
+    "type": "Text",
+    "props": {
+     "text": "x",
+     "position": [
+      -1.8089,
+      -0.05,
+      0
+     ],
+     "font_size": 17,
+     "align": "center",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o17",
+    "type": "Text",
+    "props": {
+     "text": "@stelle",
+     "position": [
+      -2.7378,
+      -0.36,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o18",
+    "type": "Text",
+    "props": {
+     "text": "@strich",
+     "position": [
+      -2.7378,
+      -0.66,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o19",
+    "type": "ParametricCurve",
+    "props": {
+     "fx": "-2.5333+1.4089*t",
+     "fy": "0.75+-0.4*t+0.45*4*t*(1-t)",
+     "t_min": 0,
+     "t_max": 1,
+     "samples": 41,
+     "show_arrow": true,
+     "arrow_at": "0.97",
+     "color": "#2a78d6",
+     "stroke_width": 2.5,
+     "dash": "",
+     "head_size": 0.12
+    }
+   },
+   {
+    "id": "o20",
+    "type": "ParametricCurve",
+    "props": {
+     "fx": "-2.16+1.8178*t",
+     "fy": "0.75+-0.4*t+0.62*4*t*(1-t)",
+     "t_min": 0,
+     "t_max": 1,
+     "samples": 41,
+     "show_arrow": true,
+     "arrow_at": "0.97",
+     "color": "#00823c",
+     "stroke_width": 2.5,
+     "dash": "",
+     "head_size": 0.12
+    }
+   },
+   {
+    "id": "o21",
+    "type": "Text",
+    "props": {
+     "text": "@bes",
+     "position": [
+      -1.1244,
+      -0.11,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o22",
+    "type": "Text",
+    "props": {
+     "text": "@grp",
+     "position": [
+      -0.3422,
+      -0.36,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#00823c"
+    }
+   },
+   {
+    "id": "o23",
+    "type": "Text",
+    "props": {
+     "text": "\\e[38;2;127;127;127m-\\e[0m\\e[38;2;17;17;17mrw-r--r--\\e[0m\\e[38;2;127;127;127m 1 \\e[0m\\e[38;2;17;17;17mstudent\\e[0m\\e[38;2;127;127;127m \\e[0m\\e[38;2;17;17;17mstudent\\e[0m\\e[38;2;127;127;127m 25 Nov 10 12:32 einkauf.txt\\e[0m",
+     "position": [
+      -2.7378,
+      0.2,
+      0
+     ],
+     "font_size": 22,
+     "align": "left",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true,
+     "ansi": true
+    }
+   }
+  ],
+  "animations": [
+   {
+    "id": "a1",
+    "type": "FadeIn",
+    "target": "o1",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a2",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.4,
+    "step": 1
+   },
+   {
+    "id": "a3",
+    "type": "Transform",
+    "target": "o1",
+    "run_time": 0.7,
+    "step": 2,
+    "to": "o23"
+   },
+   {
+    "id": "a4",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.5,
+    "step": 3
+   },
+   {
+    "id": "a5",
+    "type": "Create",
+    "target": "o2",
+    "run_time": 0.45,
+    "step": 4
+   },
+   {
+    "id": "a6",
+    "type": "FadeIn",
+    "target": "o3",
+    "run_time": 0.45,
+    "step": 4
+   },
+   {
+    "id": "a7",
+    "type": "Create",
+    "target": "o4",
+    "run_time": 0.45,
+    "step": 5
+   },
+   {
+    "id": "a8",
+    "type": "FadeIn",
+    "target": "o5",
+    "run_time": 0.45,
+    "step": 5
+   },
+   {
+    "id": "a9",
+    "type": "Create",
+    "target": "o6",
+    "run_time": 0.45,
+    "step": 6
+   },
+   {
+    "id": "a10",
+    "type": "FadeIn",
+    "target": "o7",
+    "run_time": 0.45,
+    "step": 6
+   },
+   {
+    "id": "a11",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.5,
+    "step": 7
+   },
+   {
+    "id": "a12",
+    "type": "FadeIn",
+    "target": "o8",
+    "run_time": 0.7,
+    "step": 8
+   },
+   {
+    "id": "a13",
+    "type": "FadeIn",
+    "target": "o9",
+    "run_time": 0.7,
+    "step": 8
+   },
+   {
+    "id": "a14",
+    "type": "FadeIn",
+    "target": "o10",
+    "run_time": 0.7,
+    "step": 8
+   },
+   {
+    "id": "a15",
+    "type": "FadeIn",
+    "target": "o11",
+    "run_time": 0.7,
+    "step": 8
+   },
+   {
+    "id": "a16",
+    "type": "FadeIn",
+    "target": "o12",
+    "run_time": 0.7,
+    "step": 8
+   },
+   {
+    "id": "a17",
+    "type": "FadeIn",
+    "target": "o13",
+    "run_time": 0.7,
+    "step": 8
+   },
+   {
+    "id": "a18",
+    "type": "FadeIn",
+    "target": "o14",
+    "run_time": 0.7,
+    "step": 8
+   },
+   {
+    "id": "a19",
+    "type": "FadeIn",
+    "target": "o15",
+    "run_time": 0.7,
+    "step": 8
+   },
+   {
+    "id": "a20",
+    "type": "FadeIn",
+    "target": "o16",
+    "run_time": 0.7,
+    "step": 8
+   },
+   {
+    "id": "a21",
+    "type": "FadeIn",
+    "target": "o17",
+    "run_time": 0.7,
+    "step": 8
+   },
+   {
+    "id": "a22",
+    "type": "FadeIn",
+    "target": "o18",
+    "run_time": 0.5,
+    "step": 9
+   },
+   {
+    "id": "a23",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 10
+   },
+   {
+    "id": "a24",
+    "type": "Create",
+    "target": "o19",
+    "run_time": 0.8,
+    "step": 11
+   },
+   {
+    "id": "a25",
+    "type": "FadeIn",
+    "target": "o21",
+    "run_time": 0.8,
+    "step": 11
+   },
+   {
+    "id": "a26",
+    "type": "Create",
+    "target": "o20",
+    "run_time": 0.8,
+    "step": 12
+   },
+   {
+    "id": "a27",
+    "type": "FadeIn",
+    "target": "o22",
+    "run_time": 0.8,
+    "step": 12
+   }
+  ],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "stelle": {
+    "de": "Stelle: r w x je Klasse",
+    "en": "position: r w x per class",
+    "es": "posición: r w x por clase",
+    "zh": "位置：每类 r w x",
+    "fr": "position : r w x par classe",
+    "tr": "konum: her sınıf için r w x"
+   },
+   "strich": {
+    "de": "„-“ = Recht fehlt",
+    "en": "“-” = right missing",
+    "es": "«-» = falta el permiso",
+    "zh": "“-” = 没有该权限",
+    "fr": "« - » = droit absent",
+    "tr": "„-“ = izin yok"
+   },
+   "bes": {
+    "de": "Besitzer",
+    "en": "owner",
+    "es": "propietario",
+    "zh": "所有者",
+    "fr": "propriétaire",
+    "tr": "sahip"
+   },
+   "grp": {
+    "de": "Gruppe",
+    "en": "group",
+    "es": "grupo",
+    "zh": "组",
+    "fr": "groupe",
+    "tr": "grup"
+   }
+  },
+  "drawOrder": "creation"
+ }
+}

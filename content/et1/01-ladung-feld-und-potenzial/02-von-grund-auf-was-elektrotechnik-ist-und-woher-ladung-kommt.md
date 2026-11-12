@@ -21,7 +21,7 @@ Fünf Fragen führen durch das Kapitel: Was ist Ladung (Stufe [2](ladung.html#s
 
 ::::lernkarten
 :::karte begriff Elektrotechnik
-Was ist die Elektrotechnik?
+Was macht die Elektrotechnik aus, auf der Kraftwerke, Motoren, Funknetze und Prozessoren beruhen?
 ---
 Die Ingenieurwissenschaft, die elektrische Ladungen gezielt bewegt, um Energie zu übertragen und Informationen zu verarbeiten.
 --- falsch
@@ -32,7 +32,7 @@ Die Ingenieurwissenschaft, die mechanische Kräfte gezielt einsetzt, um Maschine
 Die Ingenieurwissenschaft, die elektrische Ladungen in Bauelementen festhält, damit sie sich nicht bewegen und keine Energie verlieren.
 :::
 :::karte begriff Atom
-Was ist ein Atom?
+Was ist ein Atom, und wie sind Protonen, Neutronen und Elektronen darin angeordnet?
 ---
 Der Baustein, aus dem alle Stoffe bestehen: ein winziger Kern aus Protonen und Neutronen, um den sich Elektronen bewegen.
 --- falsch
@@ -65,7 +65,7 @@ Wenn es keine Elektronen enthält: Ohne Elektronen bleibt im Atom keine Ladung �
 Wenn seine Elektronen fest im Kern sitzen: Dort sind sie von den Protonen umschlossen und wirken deshalb nicht mehr nach außen.
 :::
 :::karte begriff Ion
-Was ist ein Ion?
+Was ist ein Ion, und wodurch unterscheidet es sich von einem neutralen Atom?
 ---
 Ein Atom mit überzähliger Ladung, weil die Zahl seiner Elektronen von der seiner Protonen abweicht. Hat es ein Elektron verloren, ist es positiv geladen.
 --- falsch

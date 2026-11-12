@@ -25,7 +25,8 @@ def snap(scene):
         if len(o.points):
             rows.append((np.round(o.points, 4).tobytes(), round(o.fill_opacity, 4),
                          round(o.stroke_opacity, 4), tuple(np.round(np.asarray(o.color, float), 3)),
-                         getattr(o, "text", None), round(float(getattr(o, "font_size", 0) or 0), 4)))   # a label's content too
+                         getattr(o, "text", None), round(float(getattr(o, "font_size", 0) or 0), 4),   # a label's content too
+                         getattr(o, "spans", None)))                                                     # and its colours (F1)
         for s in o.subObjects:
             w(s)
     for o in scene.objectList:
@@ -386,6 +387,23 @@ _L4_RIDE = {"objects": _L4_OBJS, "camera": {"mode": "3d", "theta": 0.6, "phi": 0
 cases.append(("L4 camera ride: turn, tilt + zoom + look-at with FadeIn and a parameter, back (model)", model_scene(_L4_RIDE)))
 cases.append(("L4 2D zoom (model)", model_scene({"objects": [_AXL, {"id": "g", "type": "FunctionGraph", "args": {"func": "sin(x)"}}],
     "animations": [{"type": "MoveCamera", "target": None, "run_time": 2, "step": 0, "args": {"zoom": 4, "center": [1, 0.5, 0]}}],
+    "background": [1, 1, 1]})))
+# F1 (12.11.2026): a Terminal whose states are steps of a parameter (typed text, output, waiting cursor, closing), a
+# Terminal that grows while its state runs, a Text whose colour sections (ANSI) change by Transform. tests/test_f1_*.py
+# check the values.
+_TERM = {"id": "t", "type": "Terminal", "args": {"text": "student@labor:~$ \\e|\\e>ls -l\n\\e|insgesamt 4\n\\e|\\e~\\e|\\e!",
+                                                  "position": [-3, 2, 0], "font_size": 20, "state": "z"}}
+_ZP = {"id": "z", "type": "Parameter", "args": {"name": "z", "value": 0}}
+cases.append(("F1 Terminal: states typed / output / wait / close (model)", model_scene({"objects": [_ZP, _TERM],
+    "animations": [{"type": "FadeIn", "target": "t", "run_time": 0.5, "step": 0}]
+    + [{"type": "ChangeValue", "target": "z", "run_time": 0.8, "step": k, "args": {"value": k, "rate": "linear"}}
+       for k in range(1, 5)], "background": [1, 1, 1]})))
+cases.append(("F1 Terminal grows while typing + ANSI text transform (model)", model_scene({"objects": [_ZP, _TERM,
+    {"id": "a", "type": "Text", "args": {"text": "eins zwei", "position": [0, 0, 0], "font_size": 20, "font": "mono", "raw": True}},
+    {"id": "b", "type": "Text", "args": {"text": "eins \\e[1;34mzwei\\e[0m", "position": [0, 0, 0], "font_size": 20, "ansi": True}}],
+    "animations": [{"type": "GrowFromCenter", "target": "t", "run_time": 1.0, "step": 0},
+                   {"type": "ChangeValue", "target": "z", "run_time": 1.0, "step": 0, "args": {"value": 2, "rate": "linear"}},
+                   {"type": "Transform", "target": "a", "run_time": 1.0, "step": 1, "args": {"to": "b"}}],
     "background": [1, 1, 1]})))
 
 

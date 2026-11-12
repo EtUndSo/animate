@@ -233,7 +233,7 @@ var BEREICHE_UI={"de":{"lw_modul":"Modul","lw_artikel":"Artikel","lw_alle_art":"
       return pool.length<3 ? null : mische([c.id].concat(pool)); }
     function karteVon(id){ for(var i=0;i<D.karten.length;i++) if(D.karten[i].id===id) return D.karten[i]; return null; }
     function optText(o){ var m=/^x:(.+):(\d+)$/.exec(o||""); if(m){ var c=karteVon(m[1]); return c&&c.x?(c.x[+m[2]]||""):""; } var k=karteVon(o); return k?antwort(k):""; }   // Text einer Quiz-Option
-    function frageText(c){ return c.w ? w("quiz_p_w") : w("quiz_p_"+c.t); }
+    function frageText(c){ return (c.w || c.t==="b" || c.t==="f") ? w("quiz_p_w") : w("quiz_p_"+c.t); }   // b/f: Vorderseite ist seit 12.11. ein Fragesatz
     function zahlWahl(){ var l=tx("label","lw-feld"), s=tx("select","lw-sel lw-zahl"); l.appendChild(tx("span",null,w("quiz_zahl"))); l.appendChild(s);
       [10,20,30].forEach(function(n){ s.appendChild(new Option(String(n),String(n))); }); return [l,s]; }
     // Eine Mehrfachauswahl-Frage zeichnen. modus "quiz": nach der Wahl gleich zeigen, ob richtig; "test": nur die Wahl

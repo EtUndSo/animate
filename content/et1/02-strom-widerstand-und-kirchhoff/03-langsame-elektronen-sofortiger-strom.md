@@ -97,3 +97,147 @@ Vorhersage: Wie ändert sich $v_\mathrm D$, wenn der Querschnitt bei gleichem St
 (c) Sie halbiert sich: Doppelt so viele Ladungsträger je Meter teilen sich denselben Strom, $v_\mathrm D=I/(n\,e\,A)$.
 :::
 :::
+
+::::formelsammlung
+**Höchste gerichtete Geschwindigkeit**
+
+$$|\vec v_\mathrm{max}|=\frac{e\,|\vec E|}{m_\mathrm e}\,T$$
+
+Am Ende eines Flugs der Dauer $T$ zwischen zwei Stößen, Beschleunigung $a=e\,E/m_\mathrm e$. Jeder Stoß setzt den gerichteten Anteil wieder auf null.
+
+**Driftgeschwindigkeit und Beweglichkeit**
+
+$$\vec v_\mathrm D=-\mu\,\vec E,\qquad\mu=\frac{e\,T}{2\,m_\mathrm e}$$
+
+$\vec v_\mathrm D$ ist der Mittelwert des Sägezahns, $v_\mathrm D=v_\mathrm{max}/2$; Elektronen laufen gegen $\vec E$. $\mu$ Beweglichkeit in $\mathrm{m^2/(V\,s)}$, eine Materialkonstante. Das Modell zählt nur den vom Feld erzeugten Anteil der Geschwindigkeit; die ungeordnete Bewegung trägt keinen Strom.
+
+**Driftgeschwindigkeit aus dem Strom**
+
+$$v_\mathrm D=j/(n\,e)=I/(n\,e\,A)$$
+
+$n$ Dichte der freien Elektronen, $A$ Querschnitt: der Strom geteilt durch die freie Ladung je Meter. Die Drift ist winzig, weil der Draht sehr viele Ladungsträger enthält; der Strom ist trotzdem sofort da, weil sich das Feld mit rund $2\cdot10^8$ m/s ausbreitet.
+::::
+
+::::lernkarten
+:::karte begriff Kristallgitter
+Was ist das Kristallgitter eines Metalls, in dem sich die freien Elektronen bewegen?
+---
+Die regelmäßige Anordnung der positiven Ionen, die zurückbleiben, weil je Atom mindestens ein Elektron nicht mehr gebunden ist.
+--- falsch
+Die regelmäßige Anordnung der freien Elektronen, die zwischen den neutralen Atomen fest auf ihren Plätzen sitzen und dort nur schwingen.
+--- falsch
+Ein Netz aus feinen Kanälen im Metall, durch das die freien Elektronen fließen, ohne je an Atome zu stoßen.
+--- falsch
+Die regelmäßige Anordnung der neutralen Atome, deren Elektronen alle fest an ihr eigenes Atom gebunden bleiben.
+:::
+:::karte begriff Driftgeschwindigkeit
+Was versteht man unter der Driftgeschwindigkeit der Elektronen in einem Draht?
+---
+Die mittlere Geschwindigkeit längs des Leiters, die das Feld den Elektronen zwischen den Stößen gibt. Sie ist dem Feld proportional, $\vec v_\mathrm D=-\mu\,\vec E$.
+--- falsch
+Die Geschwindigkeit, mit der sich das Feld beim Einschalten längs des Drahts ausbreitet. Sie liegt nahe der Lichtgeschwindigkeit.
+--- falsch
+Die ungeordnete Geschwindigkeit, mit der die Elektronen in alle Richtungen fliegen. Sie beträgt rund 1600 km/s und trägt den Strom.
+--- falsch
+Die größte Geschwindigkeit, die ein Elektron kurz vor einem Stoß erreicht. Sie wächst mit jedem weiteren Flug immer weiter an, solange das Feld im Draht wirkt.
+:::
+:::karte begriff Beweglichkeit
+Was gibt die Beweglichkeit $\mu$ der Elektronen in einem Metall an, und wovon hängt sie im Stoßmodell ab?
+---
+Die Driftgeschwindigkeit je Feldstärke, in $\mathrm{m^2/(V\,s)}$; eine Materialkonstante. Im Modell ist $\mu=\frac{e\,T}{2\,m_\mathrm e}$, sie wächst mit der Flugzeit $T$ zwischen zwei Stößen.
+--- falsch
+Die Driftgeschwindigkeit je Feldstärke, in $\mathrm{m^2/(V\,s)}$; eine Materialkonstante. Im Modell ist $\mu=\frac{2\,m_\mathrm e}{e\,T}$, sie sinkt mit der Flugzeit $T$ zwischen zwei aufeinanderfolgenden Stößen.
+--- falsch
+Die Zahl der freien Elektronen je Volumen, in $\mathrm{m^{-3}}$; eine Materialkonstante. Je mehr Elektronen im Metall frei sind, desto größer ist sie.
+--- falsch
+Die ungeordnete Geschwindigkeit der Elektronen, in m/s. Sie hängt von der angelegten Spannung ab und ist deshalb keine Materialkonstante.
+:::
+:::karte begriff mittlere freie Weglänge
+Was ist die mittlere freie Weglänge eines Elektrons in einem Metall?
+---
+Der Weg, den ein Elektron im Mittel zwischen zwei Stößen zurücklegt, also während einer Flugzeit. Er ist viel länger als der Abstand zweier Atome.
+--- falsch
+Der Abstand zweier benachbarter Atome im Kristallgitter, weil ein Elektron im Metall an jedem Atom stößt, an dem es vorbeikommt.
+--- falsch
+Der Weg, den ein Elektron je Sekunde längs des Drahts driftet, also seine Driftgeschwindigkeit mal einer Sekunde. Er ist deshalb dem Strom proportional.
+--- falsch
+Der Weg, den die Feldfront beim Einschalten zurücklegt, bevor ein Elektron zu driften beginnt. Er ist so lang wie der ganze Draht.
+:::
+:::karte formel Driftgeschwindigkeit im Stoßmodell
+Welche Driftgeschwindigkeit ergibt das Stoßmodell, wenn jeder Flug zwischen zwei Stößen die Zeit $T$ dauert?
+---
+$\vec v_\mathrm D=-\mu\,\vec E$ mit $\mu=\frac{e\,T}{2\,m_\mathrm e}$. Das Minuszeichen sagt: Elektronen laufen gegen $\vec E$.
+--- falsch
+$\vec v_\mathrm D=\mu\,\vec E$ mit $\mu=\frac{e\,T}{2\,m_\mathrm e}$. Elektronen laufen also in Richtung von $\vec E$ wie jede Ladung.
+--- falsch
+$\vec v_\mathrm D=-\mu\,\vec E$ mit $\mu=\frac{e\,T}{m_\mathrm e}$. Das ist die Geschwindigkeit kurz vor dem Stoß, die über den Flug gleich bleibt.
+--- falsch
+$\vec v_\mathrm D=-\frac{e\,\vec E}{m_\mathrm e}\,t$. Die Geschwindigkeit wächst mit der Zeit $t$ immer weiter, solange das Feld anliegt.
+:::
+:::karte formel Drift aus dem Strom
+Wie berechnet man die Driftgeschwindigkeit aus dem Strom $I$ in einem Draht mit dem Querschnitt $A$ und der Elektronendichte $n$?
+---
+$v_\mathrm D=j/(n\,e)=I/(n\,e\,A)$: Man teilt den Strom durch die freie Ladung je Meter Draht, $n\,e\,A$. Doppelter Strom ergibt doppelte Drift.
+--- falsch
+$v_\mathrm D=I\,n\,e/A$: Je mehr freie Elektronen der Draht enthält, desto schneller laufen sie bei gleichem Strom.
+--- falsch
+$v_\mathrm D=I/(n\,e)$: Der Querschnitt spielt keine Rolle, weil der Strom in jedem Draht gleich schnell fließt.
+--- falsch
+$v_\mathrm D=I\,A/(n\,e)$: Ein dickerer Draht führt denselben Strom mit schnelleren Elektronen, weil sie mehr Platz haben.
+:::
+:::karte herleitung Vom Feld zur Drift
+Leite aus $F=e\,E$ und dem Stoßmodell her, dass die Driftgeschwindigkeit $v_\mathrm D=e\,E\,T/(2\,m_\mathrm e)$ beträgt.
+---
+Aus $F=m_\mathrm e\,a$ und $F=e\,E$ folgt die Beschleunigung $a=e\,E/m_\mathrm e$, weil zwischen zwei Stößen nur die Feldkraft das Elektron beschleunigt.
+---
+Ein Flug beginnt beim gerichteten Anteil null, also $v(t)=a\,t$ und $v_\mathrm{max}=a\,T$, weil der vorige Stoß die gewonnene gerichtete Geschwindigkeit an das Gitter abgegeben hat.
+---
+Der gerichtete Anteil wächst in jedem Flug gleichmäßig von 0 bis $v_\mathrm{max}$ und fällt dann auf null, weil die Beschleunigung konstant ist; er bildet einen Sägezahn.
+---
+Der Sägezahn hat den Mittelwert $v_\mathrm{max}/2=e\,E\,T/(2\,m_\mathrm e)$, weil eine gleichmäßig wachsende Größe im Mittel den halben Endwert hat. Er wächst nicht weiter an, weil jeder Stoß ihn zurücksetzt.
+:::
+:::karte zusammenhang Konstante Drift
+Warum wird ein Elektron im Draht nicht immer schneller, obwohl das Feld es ständig beschleunigt?
+---
+Weil es nach kurzer Zeit gestreut wird und die gewonnene gerichtete Geschwindigkeit an das Gitter abgibt. Die Stöße nehmen im Mittel genau so viel, wie das Feld gibt.
+--- falsch
+Weil das Feld im Draht nur beim Einschalten wirkt. Danach rollen die Elektronen ohne Antrieb mit der einmal erreichten Geschwindigkeit weiter.
+--- falsch
+Weil die Elektronen schon nach kurzer Zeit eine Grenzgeschwindigkeit nahe der Lichtgeschwindigkeit erreichen. Schneller als die Feldfront können sie im Draht nicht werden.
+--- falsch
+Weil sich die Elektronen gegenseitig abstoßen. Die Kraft der vorderen Elektronen bremst jedes folgende genau auf die Driftgeschwindigkeit ab.
+:::
+:::karte zusammenhang Kleine Drift
+Woran liegt es, dass die Elektronen in einem Kupferdraht mit $0{,}5\,\mathrm{mm^2}$ bei 3 mA nur mit 0,44 µ m/s driften?
+---
+An der riesigen Zahl freier Ladungsträger: Ein Meter Draht enthält 6800 C freie Ladung, für 3 mA müssen davon nur 3 mC je Sekunde vorbeikommen.
+--- falsch
+An den vielen Stößen: Jedes Elektron prallt an jedem einzelnen Atom ab und kommt deshalb kaum voran, gleich wie viele Elektronen im Draht frei sind.
+--- falsch
+An der großen Masse der Elektronen: Sie sind so schwer, dass das schwache Feld im Draht sie zwischen den Stößen kaum beschleunigen kann.
+--- falsch
+An der Isolation des Drahts: Sie hält die Elektronen zurück, damit sie nicht aus dem Draht austreten, und bremst sie dabei ab.
+:::
+:::karte zusammenhang Strom ist sofort da
+Warum leuchtet eine Lampe sofort beim Einschalten, obwohl die Elektronen im Draht nur langsam driften?
+---
+Weil nicht die Elektronen vom Schalter zur Lampe laufen, sondern das Feld, mit rund $2\cdot10^8$ m/s. Die Elektronen sitzen schon überall und driften los, sobald die Feldfront sie erreicht.
+--- falsch
+Weil beim Einschalten einzelne Elektronen sehr schnell vom Schalter zur Lampe fliegen und sie zum Leuchten bringen. Erst wenn sie angekommen sind, stellt sich die langsame Drift ein.
+--- falsch
+Weil die ungeordnete Bewegung der Elektronen mit rund 1600 km/s die Energie zur Lampe trägt. Die langsame Drift spielt für das Leuchten keine Rolle.
+--- falsch
+Weil jedes Elektron mechanisch gegen das nächste drückt wie die Glieder einer Kette. Die Wirkung läuft so mit Schallgeschwindigkeit durch das Metall.
+:::
+:::karte zusammenhang Feld im Draht
+Warum gibt es im stromdurchflossenen Draht ein Feld, obwohl im Metall in Ruhe $\vec E=0$ gilt?
+---
+Weil die Quelle keinen Ruhezustand zulässt: Sie führt an einem Ende Elektronen ab und am anderen zu. Ladungen an Biegungen lenken das kleine Restfeld in Drahtrichtung.
+--- falsch
+Weil das Feld der Quelle durch die Isolation in den Draht dringt. In einem blanken Metall ohne Isolation wäre $\vec E=0$ auch dann, wenn Strom fließt.
+--- falsch
+Weil die Elektronen beim Driften ein eigenes Feld erzeugen, das mit ihrer Geschwindigkeit wächst. Ruhende Elektronen erzeugen dagegen kein Feld, dann ist $\vec E=0$.
+--- falsch
+Weil die Quelle so stark ist, dass sie die Abschirmung des Metalls überwindet. Eine schwache Quelle erzeugt im Draht weder Feld noch Strom.
+:::
+::::

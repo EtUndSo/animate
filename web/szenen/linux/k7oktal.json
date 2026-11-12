@@ -1,0 +1,557 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 19,
+  "nextAnimId": 24,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Text",
+    "props": {
+     "text": "    u          g          o",
+     "position": [
+      -1.35,
+      1.75,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Text",
+    "props": {
+     "text": "  r w x      r - x      - - -",
+     "position": [
+      -1.35,
+      1.4478,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o3",
+    "type": "Text",
+    "props": {
+     "text": "  1 1 1      1 0 1      0 0 0",
+     "position": [
+      -1.35,
+      1.1456,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Text",
+    "props": {
+     "text": "  4 2 1      4 2 1      4 2 1",
+     "position": [
+      -1.35,
+      0.8433,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o5",
+    "type": "Text",
+    "props": {
+     "text": "",
+     "position": [
+      -1.35,
+      0.5411,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Text",
+    "props": {
+     "text": "",
+     "position": [
+      -1.35,
+      0.2389,
+      0
+     ],
+     "font_size": 24,
+     "align": "left",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o7",
+    "type": "Text",
+    "props": {
+     "text": "4+2+1 = 7",
+     "position": [
+      -1.1367,
+      0.5411,
+      0
+     ],
+     "font_size": 24.0,
+     "align": "left",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Text",
+    "props": {
+     "text": "4+0+1 = 5",
+     "position": [
+      0.0367,
+      0.5411,
+      0
+     ],
+     "font_size": 24.0,
+     "align": "left",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o9",
+    "type": "Text",
+    "props": {
+     "text": "0+0+0 = 0",
+     "position": [
+      1.21,
+      0.5411,
+      0
+     ],
+     "font_size": 24.0,
+     "align": "left",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o10",
+    "type": "Text",
+    "props": {
+     "text": "@l0",
+     "position": [
+      -1.55,
+      1.4478,
+      0
+     ],
+     "font_size": 18,
+     "align": "right",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o11",
+    "type": "Text",
+    "props": {
+     "text": "@l1",
+     "position": [
+      -1.55,
+      1.1456,
+      0
+     ],
+     "font_size": 18,
+     "align": "right",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Text",
+    "props": {
+     "text": "@l2",
+     "position": [
+      -1.55,
+      0.8433,
+      0
+     ],
+     "font_size": 18,
+     "align": "right",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o13",
+    "type": "Text",
+    "props": {
+     "text": "@l3",
+     "position": [
+      -1.55,
+      0.5411,
+      0
+     ],
+     "font_size": 18,
+     "align": "right",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o14",
+    "type": "Text",
+    "props": {
+     "text": "@okt",
+     "position": [
+      -1.55,
+      0.2389,
+      0
+     ],
+     "font_size": 18,
+     "align": "right",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o15",
+    "type": "Text",
+    "props": {
+     "text": "7",
+     "position": [
+      -0.2833,
+      0.5411,
+      0
+     ],
+     "font_size": 24.0,
+     "align": "left",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o16",
+    "type": "Text",
+    "props": {
+     "text": "5",
+     "position": [
+      0.89,
+      0.5411,
+      0
+     ],
+     "font_size": 24.0,
+     "align": "left",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o17",
+    "type": "Text",
+    "props": {
+     "text": "0",
+     "position": [
+      2.0633,
+      0.5411,
+      0
+     ],
+     "font_size": 24.0,
+     "align": "left",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o18",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.5167,
+      0.2389,
+      0
+     ],
+     "width": 0.38,
+     "height": 0.3622,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#eb6834",
+     "fill_color": "#ffffff",
+     "fill_opacity": 0.0,
+     "stroke_width": 3,
+     "dash": ""
+    }
+   }
+  ],
+  "animations": [
+   {
+    "id": "a1",
+    "type": "FadeIn",
+    "target": "o1",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a2",
+    "type": "FadeIn",
+    "target": "o2",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a3",
+    "type": "FadeIn",
+    "target": "o10",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a4",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a5",
+    "type": "FadeIn",
+    "target": "o3",
+    "run_time": 0.7,
+    "step": 2
+   },
+   {
+    "id": "a6",
+    "type": "FadeIn",
+    "target": "o11",
+    "run_time": 0.7,
+    "step": 2
+   },
+   {
+    "id": "a7",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.4,
+    "step": 3
+   },
+   {
+    "id": "a8",
+    "type": "FadeIn",
+    "target": "o4",
+    "run_time": 0.7,
+    "step": 4
+   },
+   {
+    "id": "a9",
+    "type": "FadeIn",
+    "target": "o12",
+    "run_time": 0.7,
+    "step": 4
+   },
+   {
+    "id": "a10",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 5
+   },
+   {
+    "id": "a11",
+    "type": "FadeIn",
+    "target": "o7",
+    "run_time": 0.8,
+    "step": 6
+   },
+   {
+    "id": "a12",
+    "type": "FadeIn",
+    "target": "o13",
+    "run_time": 0.8,
+    "step": 6
+   },
+   {
+    "id": "a13",
+    "type": "FadeIn",
+    "target": "o8",
+    "run_time": 0.8,
+    "step": 7
+   },
+   {
+    "id": "a14",
+    "type": "FadeIn",
+    "target": "o9",
+    "run_time": 0.8,
+    "step": 8
+   },
+   {
+    "id": "a15",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 9
+   },
+   {
+    "id": "a16",
+    "type": "FadeIn",
+    "target": "o15",
+    "run_time": 0.3,
+    "step": 10
+   },
+   {
+    "id": "a17",
+    "type": "FadeIn",
+    "target": "o16",
+    "run_time": 0.3,
+    "step": 10
+   },
+   {
+    "id": "a18",
+    "type": "FadeIn",
+    "target": "o17",
+    "run_time": 0.3,
+    "step": 10
+   },
+   {
+    "id": "a19",
+    "type": "MoveTo",
+    "target": "o15",
+    "run_time": 0.9,
+    "step": 11,
+    "point": [
+     0.3567,
+     0.2389,
+     0
+    ]
+   },
+   {
+    "id": "a20",
+    "type": "MoveTo",
+    "target": "o16",
+    "run_time": 0.9,
+    "step": 11,
+    "point": [
+     0.4633,
+     0.2389,
+     0
+    ]
+   },
+   {
+    "id": "a21",
+    "type": "MoveTo",
+    "target": "o17",
+    "run_time": 0.9,
+    "step": 11,
+    "point": [
+     0.57,
+     0.2389,
+     0
+    ]
+   },
+   {
+    "id": "a22",
+    "type": "FadeIn",
+    "target": "o14",
+    "run_time": 0.9,
+    "step": 11
+   },
+   {
+    "id": "a23",
+    "type": "Create",
+    "target": "o18",
+    "run_time": 0.6,
+    "step": 12
+   }
+  ],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "l0": {
+    "de": "Rechte",
+    "en": "permissions",
+    "es": "permisos",
+    "zh": "权限",
+    "fr": "droits",
+    "tr": "izinler"
+   },
+   "l1": {
+    "de": "Bits",
+    "en": "bits",
+    "es": "bits",
+    "zh": "位",
+    "fr": "bits",
+    "tr": "bitler"
+   },
+   "l2": {
+    "de": "Stellenwerte",
+    "en": "place values",
+    "es": "valores posicionales",
+    "zh": "位权",
+    "fr": "poids",
+    "tr": "basamak değerleri"
+   },
+   "l3": {
+    "de": "Summen",
+    "en": "sums",
+    "es": "sumas",
+    "zh": "和",
+    "fr": "sommes",
+    "tr": "toplamlar"
+   },
+   "okt": {
+    "de": "oktal",
+    "en": "octal",
+    "es": "octal",
+    "zh": "八进制",
+    "fr": "octal",
+    "tr": "sekizlik"
+   }
+  },
+  "drawOrder": "creation"
+ }
+}

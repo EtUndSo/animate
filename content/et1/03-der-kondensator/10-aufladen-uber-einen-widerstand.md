@@ -165,3 +165,189 @@ Warum kommt $R$ im Ergebnis nicht vor, obwohl der ganze Verlust in $R$ entsteht?
 (c) Kleineres $R$ erhöht den Strom, verkürzt aber die Zeit. In $W_R=\frac{U_0^2}{R}\cdot\frac{\tau}{2}=\frac{U_0^2}{R}\cdot\frac{RC}{2}$ kürzt sich $R$ deshalb genau heraus. Der Wirkungsgrad des Ladens aus einer festen Spannung ist immer 50 %, solange der Kondensator von null startet. Dieselbe Rechnung steckt im Verlust [(8.3)](ladungserhaltung-beim-umschalten.html#gl-8-3).
 :::
 :::
+
+::::formelsammlung
+**Gleichung des RC-Kreises**
+
+$$U_0=R\,C\,\frac{\mathrm{d} u_C}{\mathrm{d} t}+u_C$$
+
+Aus der Maschenregel $U_0=u_R+u_C$ mit $u_R=R\,i$ und $i=C\,\mathrm{d} u_C/\mathrm{d} t$. Eine Differenzialgleichung: Gesucht ist die Funktion $u_C(t)$.
+
+**Steigung der Ladekurve**
+
+$$\frac{\mathrm{d} u_C}{\mathrm{d} t}=\frac{U_0-u_C}{\tau}$$
+
+Die Steigung ist der Abstand zum Endwert, geteilt durch $\tau$; zu jedem Startwert gehört genau eine Kurve.
+
+**Aufladen**
+
+$$u_C(t)=U_0\bigl(1-\mathrm{e}^{-t/\tau}\bigr),\qquad i(t)=\frac{U_0}{R}\,\mathrm{e}^{-t/\tau},\qquad u_R(t)=U_0\,\mathrm{e}^{-t/\tau},\qquad\tau=R\,C$$
+
+Für $u_C(0)=0$ und $t\ge0$; ideale Bauteile, konstante Quelle, $t=0$ ist der Moment des Schaltens. Leer wirkt der Kondensator im ersten Moment wie ein Kurzschluss, $i(0)=U_0/R$; voll wie eine Unterbrechung, $i=0$.
+
+**Zeitkonstante aus dem Anfangsstrom**
+
+$$C\,U_0/(U_0/R)=RC$$
+
+$\tau$ ist die Endladung geteilt durch den Anfangsstrom: Die Tangente am Start erreicht den Endwert genau bei $t=\tau$.
+
+**Zeit bis zu einem Ladestand**
+
+$$t=\tau\ln2,\qquad t=\tau\ln100$$
+
+Aus $\mathrm{e}^{-t/\tau}=\frac12$ bzw. $\mathrm{e}^{-t/\tau}=0{,}01$: Zeit bis zur halben Endspannung bzw. bis 99 % der Endspannung.
+
+**Energiebilanz des Ladens**
+
+$$W_\mathrm{B}=C\,U_0^2,\qquad W_R=\frac12CU_0^2$$
+
+Ab $u_C=0$ gibt die Batterie $C\,U_0^2$ ab; je die Hälfte geht in den Kondensator und als Wärme in den Widerstand, unabhängig von $R$. Der Wirkungsgrad des Ladens aus einer festen Spannung ist 50 %.
+::::
+
+::::lernkarten
+:::karte begriff RC-Kreis
+Was ist ein RC-Kreis, und wie lädt und entlädt man darin den Kondensator?
+---
+Die Reihenschaltung aus Widerstand und Kondensator an einer Quelle. Ein Schalter legt in einer Stellung die Quelle an (Laden) und schließt in der anderen den Kreis ohne Quelle über $R$ (Entladen).
+--- falsch
+Die Parallelschaltung aus Widerstand und Kondensator an einer Quelle. Der Widerstand entlädt den Kondensator laufend, während die Quelle ihn im selben Moment wieder auflädt; seine Spannung bleibt so konstant.
+--- falsch
+Die Reihenschaltung aus Widerstand und Kondensator ganz ohne Quelle. Der Kondensator gibt seine Ladung im Kreis an den Widerstand ab und bekommt sie von dort wieder zurück.
+--- falsch
+Ein Kreis, in dem ein Widerstand vor dem Kondensator dessen Kapazität erhöht, damit dieser bei gleicher Spannung mehr Ladung aufnimmt, als er ohne Widerstand könnte.
+:::
+:::karte begriff Kurzschluss und Unterbrechung
+Wie verhält sich ein Kondensator im RC-Kreis im ersten Moment des Ladens und nach langer Zeit?
+---
+Leer wirkt er im ersten Moment wie ein Kurzschluss, ein Draht: Strom fließt, seine Spannung ist null. Voll wirkt er wie eine Unterbrechung, offene Klemmen: Spannung liegt an, aber kein Strom fließt.
+--- falsch
+Leer wirkt er wie eine Unterbrechung, weil er noch keine Ladung trägt, die den Strom weiterleiten könnte. Voll wirkt er wie ein Kurzschluss, weil seine getrennte Ladung dann den Strom zwischen den Platten leitet.
+--- falsch
+Leer und voll wirkt er gleich, nämlich wie ein Kurzschluss: Ein Kondensator lässt den Ladestrom immer ungehindert durch, nur seine Spannung wächst dabei langsam an.
+--- falsch
+Leer wirkt er wie ein Widerstand mit dem Wert $R$, voll wie einer mit dem doppelten Wert; der Strom halbiert sich deshalb beim Laden genau einmal und bleibt dann konstant.
+:::
+:::karte zusammenhang Warum der leere Kondensator kurzschließt
+Warum verhält sich der leere Kondensator im ersten Moment nach dem Einschalten wie ein Kurzschluss?
+---
+Weil seine Spannung nicht springen kann, $u_C(0)=0$: Noch ist keine Ladung getrennt, kein Feld wirkt dem Strom entgegen. Die ganze Batteriespannung liegt an $R$, es fließt $i(0)=U_0/R$.
+--- falsch
+Weil das Dielektrikum im ungeladenen Zustand leitet; erst die getrennte Ladung macht es zum Isolator, und dann sinkt der Strom langsam auf null.
+--- falsch
+Weil die Batterie beim Einschalten kurz eine höhere Spannung abgibt, die den Kondensator überbrückt, bis sie sich nach einer Weile wieder auf ihren Nennwert beruhigt.
+--- falsch
+Weil seine Spannung im ersten Moment auf $U_0$ springt und dadurch den Widerstand überbrückt; deshalb fließt kurz ein sehr großer Strom an $R$ vorbei.
+:::
+:::karte formel Gleichung des RC-Kreises
+Welche Gleichung gilt für die Kondensatorspannung $u_C$ beim Laden im RC-Kreis, und woraus folgt sie?
+---
+$U_0=R\,C\,\frac{\mathrm{d} u_C}{\mathrm{d} t}+u_C$, aus der Maschenregel $U_0=u_R+u_C$ mit $u_R=R\,i$ und $i=C\,\mathrm{d} u_C/\mathrm{d} t$.
+--- falsch
+$U_0=R\,C\,u_C+\frac{\mathrm{d} u_C}{\mathrm{d} t}$, aus der Maschenregel $U_0=u_R+u_C$ mit $u_R=R\,i$ und $i=C\,u_C$.
+--- falsch
+$U_0=R\,C\,\frac{\mathrm{d} u_C}{\mathrm{d} t}-u_C$, aus der Maschenregel $U_0=u_R-u_C$, weil die Kondensatorspannung der Quelle entgegenwirkt.
+--- falsch
+$U_0=\frac{1}{RC}\,\frac{\mathrm{d} u_C}{\mathrm{d} t}+u_C$, aus der Maschenregel $U_0=u_R+u_C$ mit $u_R=i/R$ und $i=C\,\mathrm{d} u_C/\mathrm{d} t$.
+:::
+:::karte begriff Differenzialgleichung
+Was ist eine Differenzialgleichung, wie sie beim Laden im RC-Kreis entsteht, und was sucht man darin?
+---
+Eine Gleichung, in der die gesuchte Größe zusammen mit ihrer Ableitung steht. Gesucht ist keine Zahl, sondern eine ganze Funktion, hier $u_C(t)$.
+--- falsch
+Eine Gleichung zwischen den Differenzen zweier Spannungen. Gesucht ist eine einzelne Zahl, hier der Endwert der Spannung am Kondensator.
+--- falsch
+Eine Gleichung, in der nur Ableitungen stehen, nicht die gesuchte Größe selbst. Gesucht ist die Steigung der Kurve zu einem Zeitpunkt.
+--- falsch
+Eine Gleichung, die man durch Ableiten einer bekannten Funktion erhält. Gesucht ist deren Ableitung, hier der Strom $i(t)$ im Kreis.
+:::
+:::karte formel Steigung der Ladekurve
+Was sagt die Gleichung $\frac{\mathrm{d} u_C}{\mathrm{d} t}=\frac{U_0-u_C}{\tau}$ über die Steigung der Ladekurve?
+---
+Die Steigung ist der Abstand zum Endwert, geteilt durch $\tau$: weit unter $U_0$ groß, bei $U_0$ null, darüber negativ. Deshalb gehört zu jedem Startwert genau eine Kurve.
+--- falsch
+Die Steigung ist überall gleich, nämlich $U_0/\tau$; die Spannung steigt deshalb gerade bis $U_0$ an und bleibt dort stehen. Jeder Startwert ergibt dieselbe Gerade.
+--- falsch
+Die Steigung wächst mit der Spannung: Je voller der Kondensator, desto schneller steigt $u_C$, bis er bei $U_0$ voll ist; über $U_0$ steigt sie weiter.
+--- falsch
+Die Steigung ist der Abstand zum Endwert mal $\tau$; ein größeres $\tau$ lässt die Spannung deshalb schneller steigen, und der Endwert ist früher erreicht.
+:::
+:::karte formel Aufladen
+Wie verlaufen Kondensatorspannung, Strom und Widerstandsspannung, wenn ein leerer Kondensator über $R$ an $U_0$ geladen wird?
+---
+$u_C(t)=U_0\bigl(1-\mathrm{e}^{-t/\tau}\bigr)$, $i(t)=\frac{U_0}{R}\,\mathrm{e}^{-t/\tau}$ und $u_R(t)=U_0\,\mathrm{e}^{-t/\tau}$ mit $\tau=R\,C$, für $u_C(0)=0$ und $t\ge0$.
+--- falsch
+$u_C(t)=U_0\,\mathrm{e}^{-t/\tau}$, $i(t)=\frac{U_0}{R}\bigl(1-\mathrm{e}^{-t/\tau}\bigr)$ und $u_R(t)=U_0\bigl(1-\mathrm{e}^{-t/\tau}\bigr)$ mit $\tau=R\,C$: Der Strom beginnt bei null.
+--- falsch
+$u_C(t)=U_0\bigl(1-\mathrm{e}^{-t/\tau}\bigr)$, $i(t)=\frac{U_0}{R}\,\mathrm{e}^{-t/\tau}$ und $u_R(t)=U_0\,\mathrm{e}^{-t/\tau}$ mit $\tau=R/C$, für $u_C(0)=0$ und $t\ge0$.
+--- falsch
+$u_C(t)=\frac{U_0}{\tau}\,t$, $i(t)=\frac{U_0}{R}$ und $u_R(t)=U_0$ mit $\tau=R\,C$: Der Strom bleibt konstant, und die Spannung steigt gerade an, bis sie $U_0$ erreicht.
+:::
+:::karte herleitung Die Ladegleichung lösen
+Löse die Gleichung $\frac{\mathrm{d} u_C}{\mathrm{d} t}=\frac{U_0-u_C}{\tau}$ mit $u_C(0)=0$ und leite $u_C(t)=U_0\bigl(1-\mathrm{e}^{-t/\tau}\bigr)$ her.
+---
+Setze $x(t)=U_0-u_C(t)$. Dann gilt $\frac{\mathrm{d} x}{\mathrm{d} t}=-\frac{x}{\tau}$ mit $x(0)=U_0$, weil $U_0$ konstant ist und deshalb $\mathrm{d} x/\mathrm{d} t=-\mathrm{d} u_C/\mathrm{d} t$.
+---
+Für $x>0$ ist $\frac1x\,\frac{\mathrm{d} x}{\mathrm{d} t}=-\frac1\tau$, und die linke Seite ist die Ableitung von $\ln x(t)$, weil nach der Kettenregel $\frac{\mathrm{d}}{\mathrm{d} t}\ln x(t)=\frac1x\,\frac{\mathrm{d} x}{\mathrm{d} t}$ gilt.
+---
+Also ist $\ln x(t)=-t/\tau+K$ mit einer Konstanten $K$, weil eine Funktion mit der konstanten Steigung $-1/\tau$ eine Gerade ist.
+---
+Die e-Funktion auf beide Seiten ergibt $x(t)=\mathrm{e}^{K}\,\mathrm{e}^{-t/\tau}$, und es ist $\mathrm{e}^{K}=U_0$, weil bei $t=0$ dort $x(0)=\mathrm{e}^{K}$ steht.
+---
+Zurückgerechnet ist $u_C=U_0-x=U_0(1-\mathrm{e}^{-t/\tau})$, weil $x$ der Abstand zum Endwert war; Ableiten liefert $i=\frac{U_0}{R}\mathrm{e}^{-t/\tau}$.
+:::
+:::karte zusammenhang Rückkopplung beim Laden
+Warum steigt die Kondensatorspannung beim Laden über einen Widerstand immer langsamer?
+---
+Der Strom bringt Ladung, $u_C$ steigt. Nach der Maschenregel bleibt für $R$ weniger Spannung, der Strom sinkt, und $u_C$ steigt langsamer. Diese Rückkopplung formt die ganze Kurve.
+--- falsch
+Weil sich die Batterie beim Laden erschöpft und ihre Spannung dabei sinkt; mit einer idealen Quelle stiege $u_C$ gleichmäßig bis $U_0$ an und bliebe dann stehen.
+--- falsch
+Weil sich der Widerstand durch den Strom erwärmt und dabei immer größer wird; dadurch sinkt der Ladestrom, und die Spannung am Kondensator steigt deshalb immer langsamer an.
+--- falsch
+Weil die Platten mit jeder Ladung voller werden und neuen Elektronen weniger Platz bieten; der Strom bleibt dabei gleich, nur kommt weniger Ladung an.
+:::
+:::karte zusammenhang Tangente am Start
+Was bedeutet es, dass die Tangente an die Ladekurve im Startpunkt den Endwert genau bei $t=\tau$ erreicht?
+---
+Bliebe der Anfangsstrom $U_0/R$ konstant, wäre der Kondensator nach $\tau$ voll: $\tau$ ist die Endladung geteilt durch den Anfangsstrom, $C\,U_0/(U_0/R)=RC$.
+--- falsch
+Dass der Kondensator nach $t=\tau$ tatsächlich voll ist; danach fließt kein Strom mehr, die Kurve endet dort und bleibt danach beim Endwert stehen.
+--- falsch
+Dass die Spannung bei $t=\tau$ genau ihren halben Endwert erreicht; die Tangente zeigt also den Mittelwert der ganzen Ladekurve an.
+--- falsch
+Dass der Strom bei $t=\tau$ sein Vorzeichen wechselt; ab diesem Moment entlädt sich der Kondensator über $R$ wieder in die Quelle.
+:::
+:::karte zusammenhang Wann der Kondensator voll ist
+Wird der Kondensator beim Laden über einen Widerstand jemals ganz voll?
+---
+Rechnerisch nie, denn $\mathrm{e}^{-t/\tau}$ erreicht null nicht. Praktisch nach wenigen $\tau$: Nach $5\tau$ fehlen nur noch 0,7 % der Endspannung.
+--- falsch
+Ja, genau nach $t=\tau$: Dann hat $u_C$ den Wert $U_0$ erreicht, und der Strom endet in diesem Moment ganz.
+--- falsch
+Ja, sobald der Strom auf die Hälfte seines Anfangswerts gefallen ist; danach fließt keine Ladung mehr nach, und die Spannung steht.
+--- falsch
+Praktisch nie: Selbst nach $100\tau$ fehlt noch rund ein Drittel der Endspannung, weil die Kurve so flach wird.
+:::
+:::karte zusammenhang Kleiner Widerstand beim Laden
+Was geschieht beim Laden, wenn der Widerstand im Ladekreis gegen null geht?
+---
+Für $R\to0$ geht $\tau\to0$ und $i(0)\to\infty$: Der Kondensator lädt fast sofort, aber mit einem sehr großen Anfangsstrom, den nur der Leitungswiderstand begrenzt.
+--- falsch
+Der Kondensator lädt gar nicht mehr, weil ohne Widerstand kein Spannungsabfall entsteht, der den Strom treiben könnte; die Spannung am Kondensator bleibt null.
+--- falsch
+$\tau$ wird unendlich groß, weil ohne Widerstand nichts den Strom in den Kondensator lenkt; das Laden dauert dann beliebig lange, der Strom bleibt winzig.
+--- falsch
+Nichts ändert sich: $\tau$ hängt nur von $C$ ab, und der Widerstand begrenzt lediglich die Endspannung, die der Kondensator am Ende des Ladens erreicht.
+:::
+:::karte zusammenhang Energiebilanz des Ladens
+Wie teilt sich die Energie der Batterie auf, wenn ein leerer Kondensator über einen Widerstand auf $U_0$ geladen wird?
+---
+Die Batterie gibt $C\,U_0^2$ ab, je die Hälfte, $\frac12CU_0^2$, geht in den Kondensator und als Wärme in den Widerstand. Das gilt für jedes $R$: Kleineres $R$ erhöht den Strom, verkürzt aber die Zeit.
+--- falsch
+Die Batterie gibt nur $\frac12CU_0^2$ ab, und alles davon geht in den Kondensator; in einem idealen Widerstand entsteht beim Laden überhaupt keine Wärme, weil der Strom am Ende ganz auf null zurückgeht.
+--- falsch
+Die Batterie gibt $C\,U_0^2$ ab; je kleiner $R$ ist, desto mehr davon landet im Kondensator, und mit $R\to0$ geht fast die ganze Energie in sein Feld, ohne Verlust.
+--- falsch
+Die Batterie gibt $C\,U_0^2$ ab; drei Viertel davon gehen in den Kondensator, ein Viertel wird im Widerstand zu Wärme, gleich wie groß der Widerstand ist.
+:::
+::::

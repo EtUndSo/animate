@@ -40,8 +40,13 @@ class Text(AnimObject):
     the label exactly like any other object.
     font: "sans" (default, Arial-compatible) or "mono" (typewriter font on a fixed grid of cells, richtext.MONO_CELL).
     raw:  True = the text is taken literally (no rich syntax: _ ^ \\ $ { } are ordinary characters, richtext.text_lines).
+    ansi: True = the text carries ANSI colour codes (\\e[1;32m …, engine/ansi.py, light palette): they become coloured
+          sections (`spans`) of the one label, the text itself is shown without them; implies raw (F1, 12.11.2026).
+    spans: ((start, end, rgb or None, bold), ...) over `text` (end exclusive), only for raw text: coloured and bold
+          sections of the label (rgb None = the label's colour). Painters get them as keyword `spans` (text_style).
     """
-    def __init__(self, text, position=ORIGIN, font_size=28, color=(0.0, 0.0, 0.0), align="center", font="sans", raw=False):
+    def __init__(self, text, position=ORIGIN, font_size=28, color=(0.0, 0.0, 0.0), align="center", font="sans", raw=False,
+                 ansi=False):
         super().__init__()
         self.text = text                                           # may be rich: U_{GS}, 10^{-3}, \alpha (richtext.py)
         self.font_size = font_size                                 # in pixels
@@ -49,6 +54,12 @@ class Text(AnimObject):
         self.align = align                                         # "center" | "left" | "right" (relative to the anchor)
         self.font = font if font in FONTS else "sans"
         self.raw = bool(raw)
+        self.spans = None
+        if ansi:
+            from .ansi import parse_sgr
+            self.text, spans = parse_sgr(text, "hell")
+            self.spans = spans or None
+            self.raw = True
         self.points = np.array([np.asarray(position, dtype=float)])  # (1,3): the anchor
 
 
@@ -60,6 +71,8 @@ def text_style(obj):
         st["font"] = "mono"
     if getattr(obj, "raw", False):
         st["raw"] = True
+        if getattr(obj, "spans", None):                          # coloured sections (F1): only with raw text
+            st["spans"] = tuple(obj.spans)
     return st
 
 

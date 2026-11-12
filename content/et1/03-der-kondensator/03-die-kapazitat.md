@@ -83,3 +83,108 @@ Zwei Kondensatoren mit 10 µF und 1 µF tragen je 50 µC. Welche Spannunge
 (d) $U=Q/C$: 5 V am 10-µF-Kondensator, 50 V am 1-µF-Kondensator. Dieselbe Ladung erzeugt am kleineren die größere Spannung.
 :::
 :::
+
+::::formelsammlung
+**Kapazität**
+
+$$C=\frac{Q}{U},\qquad Q=C\,U$$
+
+$Q$ Ladung der positiven Platte, $U$ Spannung zwischen den Platten. $C$ hängt nur von Form, Abstand und Stoff ab, nicht von $Q$ oder $U$; bei gleicher Ladung zeigt der kleinere Kondensator die größere Spannung. Gilt, wenn sich der Stoff zwischen den Platten mit dem Feld nicht ändert.
+
+**Einheit Farad**
+
+$$[C]=\frac{\mathrm{A\,s}}{\mathrm V}=\mathrm F$$
+
+Bei 1 F hält ein Volt ein Coulomb, das ist sehr viel. Übliche Werte: fF, pF, nF und µF, Elektrolytkondensatoren bis in den mF-Bereich. Kursiv ist $C$ die Kapazität, aufrecht ist C das Coulomb.
+::::
+
+::::lernkarten
+:::karte begriff Kapazität
+Was gibt die Kapazität $C$ eines Kondensators an, und in welcher Einheit misst man sie?
+---
+Das Verhältnis von Ladung und Spannung, $C=\frac{Q}{U}$: wie viel Ladung je Volt auf den Platten sitzt. Einheit $[C]=\frac{\mathrm{A\,s}}{\mathrm V}=\mathrm F$ (Farad).
+--- falsch
+Das Produkt aus Ladung und Spannung, $C=Q\,U$: die Energie, die auf den Platten sitzt. Einheit $\mathrm{A\,s\,V}=\mathrm F$ (Farad).
+--- falsch
+Das Verhältnis von Spannung und Ladung, $C=U/Q$: wie viel Spannung je Coulomb an den Platten liegt. Einheit $\mathrm V/(\mathrm{A\,s})=\mathrm F$ (Farad).
+--- falsch
+Die größte Ladung, die der Kondensator aufnehmen kann, bevor er voll ist. Einheit Coulomb; mehr Spannung bringt danach keine weitere Ladung.
+:::
+:::karte begriff Farad
+Wie groß ist eine Kapazität von 1 F, und welche Werte haben übliche Kondensatoren?
+---
+Bei 1 F hält ein Volt ein Coulomb, das ist sehr viel. Übliche Werte liegen bei fF, pF, nF und µF, Elektrolytkondensatoren reichen bis in den mF-Bereich.
+--- falsch
+Bei 1 F hält ein Volt ein einziges Elektron, das ist sehr wenig. Übliche Werte liegen deshalb bei kF und MF, Elektrolytkondensatoren reichen bis in den GF-Bereich.
+--- falsch
+Bei 1 F hält ein Volt ein Ampere, das ist ein mittlerer Wert. Übliche Kondensatoren liegen zwischen 0,1 F und 10 F, kleinere Werte kommen nur selten vor.
+--- falsch
+Bei 1 F hält ein Volt ein Mikrocoulomb, das ist wenig. Übliche Werte liegen bei einigen Farad, Elektrolytkondensatoren reichen bis zu einigen tausend Farad.
+:::
+:::karte formel Ladung und Spannung
+Wie hängen Ladung und Spannung an einem Kondensator zusammen, und was setzt dieser Zusammenhang voraus?
+---
+$Q=C\,U$: Die Ladung ist proportional zur Spannung, $C$ ist der feste Faktor des Bauteils. Vorausgesetzt ist, dass sich der Stoff zwischen den Platten mit dem Feld nicht ändert.
+--- falsch
+$Q=C\,U$: Die Ladung ist proportional zur Spannung. Das gilt für jeden Stoff zwischen den Platten und bei jeder noch so hohen Spannung, auch wenn sich der Stoff im Feld merklich verändert.
+--- falsch
+$Q=U/C$: Die Ladung ist proportional zur Spannung; ein Kondensator mit größerem $C$ trägt bei gleicher Spannung deshalb weniger Ladung auf seinen Platten.
+--- falsch
+$Q=C\,U$, wobei $C$ mit der Ladung wächst: Je mehr Ladung schon auf den Platten sitzt, desto leichter kommt bei gleicher Spannung weitere Ladung hinzu.
+:::
+:::karte zusammenhang Warum Ladung und Spannung proportional sind
+Warum ist die Ladung eines Kondensators proportional zu seiner Spannung?
+---
+Doppelte Ladung trägt ihr Feld doppelt bei: Nach der Überlagerung verdoppelt sich das Feld an jedem Ort, seine Form bleibt. Die Spannung ist das Integral des Felds von Platte zu Platte, also verdoppelt sie sich auch.
+--- falsch
+Weil die Batterie bei doppelter Spannung doppelt so lange Strom liefert und so doppelt so viel Ladung auf die Platten bringt; Form und Stärke des Felds zwischen den Platten spielen für die Spannung dabei gar keine Rolle.
+--- falsch
+Weil die Platten bei doppelter Ladung doppelt so weit auseinanderrücken, denn ihre Ladungen drücken stärker; bei gleichem Feld verdoppelt der größere Abstand die Spannung zwischen ihnen.
+--- falsch
+Weil doppelte Ladung das Feld nur in der Mitte zwischen den Platten verdoppelt und am Rand gleich lässt; im Mittel über die ganze Fläche ergibt das ungefähr die doppelte Spannung.
+:::
+:::karte zusammenhang Wovon die Kapazität abhängt
+Wovon hängt die Kapazität eines Kondensators ab, und wovon hängt sie nicht ab?
+---
+Nur von Form, Abstand und Stoff zwischen den Platten. Sie hängt nicht davon ab, wie viel Ladung gerade auf den Platten sitzt oder welche Spannung anliegt.
+--- falsch
+Von der angelegten Spannung: Je höher die Spannung, desto größer die Kapazität, weil dann mehr Ladung auf den Platten sitzt. Form und Abstand legen nur die Höchstspannung fest.
+--- falsch
+Von der gespeicherten Ladung: Ein leerer Kondensator hat die Kapazität null, ein voll geladener hat seine größte Kapazität; dazwischen wächst sie mit jeder Ladung.
+--- falsch
+Nur vom Metall der Platten: Ein Metall mit mehr freien Elektronen ergibt eine größere Kapazität, Form, Abstand und Stoff dazwischen spielen dagegen keine Rolle.
+:::
+:::karte zusammenhang Gleiche Ladung, verschiedene Kapazität
+Zwei Kondensatoren tragen dieselbe Ladung. Welcher zeigt die größere Spannung, und warum?
+---
+Der mit der kleineren Kapazität: Nach $U=Q/C$ ergibt dieselbe Ladung bei kleinerem $C$ die größere Spannung.
+--- falsch
+Der mit der größeren Kapazität: Nach $U=C\,Q$ ergibt dieselbe Ladung bei größerem $C$ die größere Spannung.
+--- falsch
+Keiner: Gleiche Ladung erzeugt zwischen den Platten immer dasselbe Feld und dieselbe Spannung, gleich welches Bauteil.
+--- falsch
+Der mit der größeren Kapazität, weil er die Ladung dichter auf seinen Platten zusammendrängt und sie dort stärker drückt.
+:::
+:::karte zusammenhang Wann ein Kondensator voll ist
+Kapazität klingt nach Fassungsvermögen: Was begrenzt die Ladung, die ein Kondensator aufnehmen kann?
+---
+Nicht $C$: Mehr Spannung bringt immer mehr Ladung, $C$ bleibt dabei gleich. Die Grenze setzt das Dielektrikum, das über einer bestimmten Feldstärke durchschlägt.
+--- falsch
+Die Kapazität selbst: Sie ist die größte Ladung, die er fasst. Ist sie erreicht, bringt weitere Spannung keine weitere Ladung mehr auf die Platten.
+--- falsch
+Die Zahl der freien Elektronen in den Platten: Sind sie alle von der einen Platte auf die andere gewandert, ist der Kondensator voll und nimmt nichts mehr auf.
+--- falsch
+Die Batterie: Ein Kondensator nimmt höchstens so viel Ladung auf, wie in der Batterie gespeichert ist; danach ist er voll, auch wenn die Spannung steigt.
+:::
+:::karte zusammenhang Metall der Platten
+Warum bleibt das Metall der Platten beim Laden praktisch unverändert?
+---
+Weil nur ein winziger Bruchteil seiner freien Elektronen wandert, beim Plattenpaar mit 9 V nur eines von $5\cdot10^{14}$. Diese sitzen auf der Innenseite der Platte.
+--- falsch
+Weil jedes Elektron, das die Platte verlässt, sofort aus dem Draht ersetzt wird; jede Platte behält deshalb genau so viele freie Elektronen wie vor dem Laden.
+--- falsch
+Weil sich die Ladung im Inneren des Metalls gleichmäßig verteilt und dort von den positiven Ionen des Gitters sofort neutralisiert wird.
+--- falsch
+Weil beim Laden gar keine Elektronen wandern; es baut sich nur das Feld zwischen den Platten auf, die Ladung im Metall bleibt gleich.
+:::
+::::

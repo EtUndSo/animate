@@ -127,7 +127,7 @@ def fingerabdruck(lang, marke, titel, modul, svg):
     h.update(json.dumps([VORLAGE, lang, marke, titel, modul, svg.relative_to(ROOT).as_posix() if svg else ""],
                         ensure_ascii=False).encode("utf-8"))
     if svg:
-        h.update(svg.read_bytes())
+        h.update(svg.read_bytes().replace(b"\r\n", b"\n"))   # Zeilenenden egal (git-Arbeitskopien mit CRLF, 12.11.2026)
     return h.hexdigest()[:20]
 
 

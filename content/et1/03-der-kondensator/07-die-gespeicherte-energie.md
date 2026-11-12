@@ -92,3 +92,142 @@ Dasselbe, aber die Batterie bleibt angeschlossen. Nun sinkt $W$, obwohl die Hand
 (c) $U=9$ V bleibt. $C=14{,}8$ pF, $Q=133$ pC, $E=1{,}5$ kV/m, $W=0{,}60$ nJ. Das Feld verliert 0,60 nJ. Dazu kommen 0,60 nJ von der Hand. Beides fließt in die Batterie, denn 133 pC laufen bei 9 V zurück: $133\,\mathrm{pC}\cdot9\,\mathrm{V}=1{,}20$ nJ. Die Batterie wird ein wenig geladen.
 :::
 :::
+
+::::formelsammlung
+**Energie im Kondensator**
+
+$$W=\int_0^Q\frac qC\,\mathrm{d} q=\frac{Q^2}{2C}=\frac12\,Q\,U=\frac12\,C\,U^2$$
+
+$W$ in J; $q$ Ladung während des Ladens, $Q$ ihr Endwert. Jede weitere Ladung läuft gegen die schon vorhandene Spannung, im Mittel gegen $U/2$; die Spannung geht im Quadrat ein. Gilt für konstantes $C$ ohne Leckstrom.
+
+**Energie aus der Leistung**
+
+$$W=\int u\,i\,\mathrm{d} t=C\int_0^Uu\,\mathrm{d} u=\frac12CU^2$$
+
+Dasselbe Ergebnis von der Schaltungsseite, mit $p=u\,i$ und $i=C\,\mathrm{d} u/\mathrm{d} t$.
+
+**Energie und Energiedichte im Feld**
+
+$$W=\frac12\,\varepsilon\,E^2\cdot A\,d,\qquad w=\frac WV=\frac12\,\varepsilon\,E^2$$
+
+Plattenkondensator mit dem Volumen $V=A\,d$; $w$ in J/m$^3$. Die Energie steckt im Feld zwischen den Platten, im Metall ist $E=0$.
+
+**Kraft zwischen den Platten**
+
+$$F=\frac12QE$$
+
+Jede Platte spürt nur das Feld der anderen, die Hälfte von $E$. Zieht man die Platten eines abgetrennten Kondensators um $\Delta d$ auseinander, verrichtet die Hand $\frac12\varepsilon E^2A\,\Delta d$, genau den Zuwachs der Feldenergie.
+::::
+
+::::lernkarten
+:::karte formel Energie im Kondensator
+Wie viel Energie speichert ein Kondensator mit der Ladung $Q$ und der Spannung $U$, und was setzt die Formel voraus?
+---
+$W=\int_0^Q\frac qC\,\mathrm{d} q=\frac{Q^2}{2C}=\frac12\,Q\,U=\frac12\,C\,U^2$, gespeichert im Feld zwischen den Platten. Vorausgesetzt sind ein konstantes $C$ und kein Leckstrom.
+--- falsch
+$W=Q\,U=C\,U^2$, weil jede Ladung die volle Spannung durchläuft; gespeichert im Feld zwischen den Platten. Vorausgesetzt sind ein konstantes $C$ und kein Leckstrom.
+--- falsch
+$W=\frac12\,C\,U$: Die Energie wächst proportional zur Spannung und steckt in den verschobenen Elektronen auf den Platten. Vorausgesetzt ist ein konstantes $C$.
+--- falsch
+$W=\frac12\,C\,U^2$, gespeichert im Metall der Platten, in den verschobenen Elektronen. Die Formel gilt auch, wenn $C$ sich mit der Spannung ändert.
+:::
+:::karte herleitung Energie aus Kraft und Weg
+Leite aus der Kraft auf eine kleine Ladung $\Delta q$ im Feld her, dass ein Kondensator die Energie $W=\int_0^Q\frac qC\,\mathrm{d} q=\frac{Q^2}{2C}$ speichert.
+---
+Die Kraft auf $\Delta q$ im Feld ist $F=\Delta q\,E$, weil die Feldstärke die Kraft je Ladung ist.
+---
+Über den Abstand $\Delta s$ zwischen den Platten kostet das $\Delta W=F\,\Delta s=\Delta q\,E\,\Delta s$, weil Arbeit Kraft mal Weg in Kraftrichtung ist.
+---
+Mit $E\,\Delta s=u$ folgt $\Delta W=\Delta q\,u$ und mit $u=q/C$ dann $\Delta W=\frac qC\,\Delta q$, weil die Spannung von der schon getrennten Ladung $q$ abhängt.
+---
+Für kleine $\Delta q$ wird die Summe aller Portionen zum Integral $W=\int_0^Q\frac qC\,\mathrm{d} q=\frac{Q^2}{2C}$, weil die Fläche unter der Geraden $u=q/C$ ein Dreieck ist.
+:::
+:::karte zusammenhang Der Faktor ein Halb
+Warum speichert ein Kondensator nur $\frac12\,Q\,U$ und nicht $Q\,U$, obwohl Spannung mal Ladung eine Energie ist?
+---
+Weil die Spannung beim Laden von null an wächst: Die ersten Ladungen kosten fast nichts, die letzten $U$ je Coulomb, im Mittel zahlt jede $U/2$. Nur die Batterie gibt $Q\,U$ ab.
+--- falsch
+Weil die Hälfte der Ladung beim Laden durch das Dielektrikum verloren geht und nie auf der Gegenplatte ankommt; ohne diesen Verlust speicherte der Kondensator die vollen $Q\,U$.
+--- falsch
+Weil nur die positive Platte Energie speichert; die negative trägt nichts bei, weil ihre Ladung negativ ist und sich mit der positiven aufhebt. Deshalb zählt nur eine der beiden Platten.
+--- falsch
+Weil auch die Batterie nur $\frac12\,Q\,U$ abgibt; die andere Hälfte ihrer Energie bleibt in ihr, da sie beim Laden gegen den Kondensator arbeiten muss und dabei Spannung verliert.
+:::
+:::karte begriff Energiedichte und Feldenergie
+Was gibt die Energiedichte $w$ im Feld eines Kondensators an, und wie groß ist sie?
+---
+Die Energie je Volumen, $w=\frac WV=\frac12\,\varepsilon\,E^2$, in J/m$^3$. Sie sagt, wo die Feldenergie steckt: Jeder Kubikmeter Feld zwischen den Platten enthält $\frac12\varepsilon E^2$.
+--- falsch
+Die Energie je Plattenfläche, $w=\frac12\,\varepsilon\,E^2$, in J/m$^2$. Sie sagt, wie viel Energie in den Metallplatten selbst steckt, je Quadratmeter Platte.
+--- falsch
+Die Energie je Volumen, $w=\varepsilon\,E$, in J/m$^3$. Sie wächst linear mit der Feldstärke, weil jede Feldlinie dieselbe Energie trägt, gleich wo sie zwischen den Platten verläuft.
+--- falsch
+Die Energie je Ladung, $w=W/Q$, in J/C. Sie sagt, wie viel Energie jedes Elektron auf der negativen Platte mitbringt, wenn der Kondensator geladen ist.
+:::
+:::karte herleitung Vom Bauteil zum Feld
+Leite aus $W=\frac12CU^2$ die Energiedichte $w=\frac WV=\frac12\,\varepsilon\,E^2$ im Plattenkondensator her.
+---
+Einsetzen von $C=\varepsilon A/d$ ist erlaubt, weil die Platten mit dem Dielektrikum einen Plattenkondensator bilden.
+---
+Einsetzen von $U=E\,d$ ist erlaubt, weil das Feld zwischen den Platten überall gleich ist.
+---
+Das ergibt $W=\frac12\,\varepsilon\,E^2\cdot A\,d$, weil sich ein $d$ aus dem Nenner von $C$ gegen das Quadrat von $U$ kürzt.
+---
+Teilen durch das Volumen $V=A\,d$ ergibt $w=\frac WV=\frac12\,\varepsilon\,E^2$, weil die Energiedichte die Energie je Volumen ist.
+:::
+:::karte zusammenhang Wo die Energie steckt
+Wo steckt die Energie eines geladenen Kondensators, und warum nicht im Metall der Platten?
+---
+Im Feld zwischen den Platten, je Volumen $\frac12\varepsilon E^2$. Im Metall ist $E=0$, und die Elektronen sind dort nur eine Winzigkeit verschoben.
+--- falsch
+In den verschobenen Elektronen auf den Platten; das Feld zwischen den Platten ist nur ein Rechenhilfsmittel und enthält selbst keine Energie.
+--- falsch
+Im Dielektrikum als Wärme; das Metall bleibt kalt, weil es Strom leitet und deshalb selbst keine Energie aufnehmen kann.
+--- falsch
+In der Batterie, die sie nur ausleiht; der Kondensator speichert selbst keine Energie, er hält nur die Spannung fest.
+:::
+:::karte zusammenhang Platten auseinanderziehen
+Was geschieht mit der Feldenergie, wenn man die Platten eines abgetrennten, geladenen Kondensators auseinanderzieht, und woher kommt die Änderung?
+---
+Sie wächst um $\frac12\varepsilon E^2A\,\Delta d$: $Q$ und $E=Q/(\varepsilon A)$ bleiben, aber das Feld füllt mehr Volumen. Die Energie kommt von der Hand, die gegen die Anziehung $F=\frac12QE$ zieht.
+--- falsch
+Sie bleibt gleich, weil Ladung und Feldstärke beim Auseinanderziehen gleich bleiben; die Platten ziehen sich nicht an, und die Hand verrichtet deshalb keine Arbeit.
+--- falsch
+Sie sinkt, weil die Kapazität kleiner wird und nach $W=\frac12\,C\,U^2$ mit $C$ auch die Energie fällt; der Rest fließt als Arbeit in die Hand zurück.
+--- falsch
+Sie wächst, weil die Hand beim Ziehen Ladung von Platte zu Platte schiebt; die Anziehung zwischen den Platten beträgt dabei $F=Q\,E$.
+:::
+:::karte zusammenhang Kraft zwischen den Platten
+Warum zieht eine geladene Platte die andere nur mit $F=\frac12QE$ an und nicht mit $Q\,E$?
+---
+Weil jede Platte nur das Feld der anderen Platte spürt, und das ist die Hälfte des Felds $E$ zwischen den Platten.
+--- falsch
+Weil die Hälfte der Ladung auf der Außenseite der Platte sitzt, wo kein Feld herrscht; nur die Innenseite spürt eine Kraft.
+--- falsch
+Weil das Dielektrikum die Hälfte des Felds abschirmt; ohne Dielektrikum, also in Luft, wäre die Kraft genau $Q\,E$.
+--- falsch
+Weil die Kraft beim Auseinanderziehen von $Q\,E$ auf null abnimmt und deshalb im Mittel $\frac12QE$ beträgt.
+:::
+:::karte zusammenhang Spannung im Quadrat
+Warum geht die Spannung im Quadrat in die gespeicherte Energie ein?
+---
+Doppelte Spannung bedeutet doppelte Ladung, und diese doppelte Ladung läuft gegen die doppelte Spannung. Zusammen ergibt das die vierfache Energie.
+--- falsch
+Weil sich bei doppelter Spannung der Plattenabstand halbiert, da sich die Platten stärker anziehen, und das Feld zwischen ihnen dadurch viermal so stark wird.
+--- falsch
+Weil die Energie in beiden Platten getrennt gespeichert wird; jede der beiden Platten trägt dazu einen Faktor $U$ bei.
+--- falsch
+Weil doppelte Spannung die Ladung auf den Platten vervierfacht; die Energie selbst wächst dagegen nur linear mit der Ladung.
+:::
+:::karte zusammenhang Kondensator und Batterie
+Wofür eignet sich ein Kondensator als Energiespeicher, verglichen mit einer Batterie?
+---
+Er speichert wenig Energie, eine 9-V-Blockbatterie das Vier-Millionen-Fache eines 100-µF-Kondensators bei 9 V. Dafür gibt er sie sehr schnell ab, etwa im Kamerablitz.
+--- falsch
+Er speichert mehr Energie als eine Batterie gleicher Größe, gibt sie aber nur langsam wieder ab; deshalb dient er vor allem als Langzeitspeicher, etwa in Uhren.
+--- falsch
+Er speichert etwa gleich viel Energie wie eine Batterie gleicher Größe, verliert sie aber innerhalb weniger Sekunden durch Selbstentladung.
+--- falsch
+Er speichert gar keine Energie, sondern nur Ladung; die Energie liefert beim Entladen immer eine Batterie, die an den Kreis angeschlossen ist.
+:::
+::::

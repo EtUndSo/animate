@@ -89,6 +89,26 @@ Die gleich großen Kugeln berühren sich kurz und werden wieder auf 2 cm gebra
 :::
 :::
 
+::::formelsammlung
+**Coulomb-Gesetz**
+
+$$F=k\,\frac{|Q_\mathrm{A}\,Q_\mathrm{B}|}{r^2},\qquad k=\frac{1}{4\pi\varepsilon_0}=8{,}99\cdot10^{9}\,\frac{\mathrm{N\,m^2}}{\mathrm{C^2}}$$
+
+Betrag der Kraft zwischen zwei punktförmigen, ruhenden Ladungen im Abstand $r$, im Vakuum (in Luft nur 0,06 % kleiner). Gleichnamige Ladungen stoßen sich ab, ungleichnamige ziehen sich an. $\varepsilon_0=8{,}854\cdot10^{-12}$ A s/(V m) ist die elektrische Feldkonstante.
+
+**Coulomb-Kraft als Vektor**
+
+$$\vec F_\mathrm{A}=k\,\frac{Q_\mathrm{A}\,Q_\mathrm{B}}{r^2}\cdot\frac{\vec r}{r}$$
+
+Kraft auf A, Ladungen mit Vorzeichen; $\vec r$ zeigt von B nach A, $\vec r/r$ hat die Länge 1. Für $Q_\mathrm{A}Q_\mathrm{B}>0$ zeigt $\vec F_\mathrm{A}$ von B weg. Beide Ladungen spüren gleich große, entgegengesetzte Kräfte; mehrere Ladungen wirken unabhängig, ihre Kräfte addieren sich als Vektoren.
+
+**Kraftmessung mit dem Pendel**
+
+$$\tan\alpha=F/(m\,g)$$
+
+Ausschlag $\alpha$ einer Kugel der Masse $m$ am Faden, wenn die elektrische Kraft $F$ waagerecht wirkt.
+::::
+
 ::::lernkarten
 :::karte formel Coulomb-Gesetz
 Wie groß ist die Kraft zwischen zwei Ladungen $Q_\mathrm{A}$ und $Q_\mathrm{B}$ im Abstand $r$?
@@ -113,7 +133,7 @@ $\vec F_\mathrm{A}=k\,\frac{Q_\mathrm{A}\,Q_\mathrm{B}}{r^2}\cdot\frac{\vec r}{r
 $\vec F_\mathrm{A}=k\,\frac{Q_\mathrm{A}\,Q_\mathrm{B}}{r^2}\cdot\frac{\vec r}{r}$, $\vec r$ zeigt von B nach A. Es entscheidet allein das Vorzeichen von $Q_\mathrm{A}$: Ist A positiv, wird A abgestoßen, ist A negativ, angezogen.
 :::
 :::karte begriff Punktladung
-Was ist eine Punktladung?
+Was versteht man unter einer Punktladung, wie sie das Coulomb-Gesetz voraussetzt?
 ---
 Ein geladener Körper, der klein gegen den Abstand $r$ zu den anderen Ladungen ist. Für ruhende Punktladungen gilt das Coulomb-Gesetz.
 --- falsch
@@ -124,7 +144,7 @@ Ein geladener Körper, der an einem festen Punkt gehalten wird, sodass ihn die K
 Ein geladener Körper beliebiger Größe, dessen Ladung sich in dem Punkt seiner Oberfläche sammelt, der der anderen Ladung am nächsten liegt.
 :::
 :::karte begriff Überlagerung
-Was besagt die Überlagerung bei mehreren Ladungen?
+Wie bestimmt man nach dem Prinzip der Überlagerung die Kraft auf eine Ladung, wenn mehrere andere Ladungen auf sie wirken?
 ---
 Mehrere Ladungen wirken unabhängig voneinander: Die Kraft auf eine Ladung ist die Vektorsumme der Kräfte, die jede andere Ladung allein auf sie ausüben würde.
 --- falsch

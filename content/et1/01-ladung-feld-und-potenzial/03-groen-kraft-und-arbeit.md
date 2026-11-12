@@ -138,9 +138,89 @@ Berechne und gib das Ergebnis in einer passenden Einheit an: (a) $3\,\mathrm{kN}
 :::
 :::
 
+::::formelsammlung
+**Physikalische Größe**
+
+$$\text{Größe}=\text{Zahlenwert}\cdot\text{Einheit}$$
+
+Formelzeichen kursiv, Einheit aufrecht; eckige Klammern fragen nach der Einheit, etwa $[U]=\mathrm V$. Der Zahlenwert hängt von der Einheit ab, die Größe nicht.
+
+**Einheiten der Mechanik**
+
+$$1\,\mathrm{N}=1\,\mathrm{kg\,m/s^2},\qquad1\,\mathrm{J}=1\,\mathrm{N\,m}=1\,\mathrm{W\,s}$$
+
+Newton für die Kraft, Joule für Energie und Arbeit, in Basiseinheiten $\mathrm{kg\,m^2/s^2}$. Die Leistung ist Energie je Zeit, Einheit Watt.
+
+**Elektrische Einheiten**
+
+$$1\,\mathrm{C}=1\,\mathrm{A\,s},\qquad1\,\mathrm{V}=1\,\mathrm{J/C},\qquad1\,\mathrm{W}=1\,\mathrm{V\,A}$$
+
+Coulomb für die Ladung, Volt für die Spannung, Watt für die Leistung. Ein Ampere transportiert je Sekunde ein Coulomb.
+
+**SI-Vorsätze für Teile**
+
+$$\mathrm a=10^{-18},\ \mathrm f=10^{-15},\ \mathrm p=10^{-12},\ \mathrm n=10^{-9},\ \mu\text{}=10^{-6},\ \mathrm m=10^{-3},\ \mathrm c=10^{-2},\ \mathrm d=10^{-1}$$
+
+Atto, Femto, Piko, Nano, Mikro, Milli, Zenti, Dezi; Teile schreibt man klein. Vor einer Einheit steht nur ein Vorsatz, er bildet mit ihr ein einziges Symbol.
+
+**SI-Vorsätze für Vielfache**
+
+$$\mathrm{da}=10^{1},\ \mathrm h=10^{2},\ \mathrm k=10^{3},\ \mathrm M=10^{6},\ \mathrm G=10^{9},\ \mathrm T=10^{12},\ \mathrm P=10^{15},\ \mathrm E=10^{18}$$
+
+Deka, Hekto, Kilo, Mega, Giga, Tera, Peta, Exa; Vielfache schreibt man groß, nur Deka, Hekto und Kilo weichen aus historischen Gründen ab.
+
+**Umrechnen von Einheiten**
+
+$$1\,\mathrm{Wh}=3600\,\mathrm{W\,s},\qquad1\,\mathrm{km/h}=\frac{1}{3{,}6}\,\mathrm{m/s},\qquad1\,\mathrm{km^2}=(1000\,\mathrm{m})^2=10^6\,\mathrm{m^2}$$
+
+Addieren nur bei gleicher Einheit, Vorsätze vorher angleichen; multiplizieren immer, Einheiten kürzen sich wie Zahlen. Weil Vorsatz und Einheit ein Symbol sind, wirkt eine Potenz auf beide.
+
+**Geschwindigkeit und Beschleunigung**
+
+$$v=\mathrm{d} s/\mathrm{d} t,\qquad a=\mathrm{d} v/\mathrm{d} t$$
+
+Geschwindigkeit: Änderung des Wegs je Zeit; Beschleunigung: Änderung der Geschwindigkeit je Zeit.
+
+**Kraft**
+
+$$F=m\,a,\qquad F=\gamma\,\frac{m\,M}{r^2}$$
+
+Kraft auf einen Körper der Masse $m$ mit der Beschleunigung $a$; Kraft zwischen zwei Massen $m$, $M$ im Abstand $r$ mit der Gravitationskonstante $\gamma=6{,}674\cdot10^{-11}\,\mathrm{N\,m^2/kg^2}$. $[F]=\mathrm N$.
+
+**Gewichtskraft**
+
+$$F_\mathrm{G}=m\,g$$
+
+An der Erdoberfläche, $g=9{,}81\,\mathrm{m/s^2}$; auf 100 g wirkt rund 1 N.
+
+**Arbeit auf einem geraden Wegstück**
+
+$$\Delta W=\vec F\cdot\Delta\vec s=F\,\Delta s\cos\alpha$$
+
+$\alpha$ Winkel zwischen Kraft und Wegstück; es zählt nur der Kraftanteil in Wegrichtung. Das Skalarprodukt ergibt eine Zahl. Für $\alpha<90^\circ$ gibt die Kraft Energie an den Körper ab, für $\alpha>90^\circ$ entzieht sie ihm welche, für $\alpha=90^\circ$ ist $\Delta W=0$. $[W]=\mathrm J$.
+
+**Arbeit längs eines Wegs**
+
+$$W=\int_{P_1}^{P_2}\vec F\cdot\mathrm{d}\vec s$$
+
+Linienintegral: Man zerlegt den Weg von $P_1$ nach $P_2$ in kurze gerade Stücke und summiert ihre Beiträge.
+
+**Konstante Beschleunigung**
+
+$$v(t)=v_0+a\,t,\qquad s(t)=s_0+v_0\,t+\tfrac12a\,t^2$$
+
+Startwerte $s_0$ und $v_0$ bei $t=0$; gilt nur für konstantes $a$.
+
+**Bewegungsenergie**
+
+$$W_\mathrm{kin}=\tfrac12m\,v^2$$
+
+Körper der Masse $m$ mit der Geschwindigkeit $v$. Eine konstante Kraft, die einen Körper aus der Ruhe beschleunigt, überträgt genau diese Energie.
+::::
+
 ::::lernkarten
 :::karte begriff physikalische Größe
-Was ist eine physikalische Größe?
+Was zeichnet eine physikalische Größe aus, mit der die Physik ihre Gesetze formuliert, und wie schreibt man ihren Wert?
 ---
 Eine messbare Eigenschaft, angegeben als Produkt aus Zahlenwert und Einheit: $\text{Größe}=\text{Zahlenwert}\cdot\text{Einheit}$. Der Zahlenwert hängt von der Einheit ab, die Größe nicht.
 --- falsch
@@ -162,7 +242,7 @@ Die Größen mit eigenem Einheitennamen wie Newton, Joule, Volt und Watt. Die Ei
 Die sieben Größen, die man am häufigsten misst: Länge, Masse, Zeit, Kraft, Energie, Spannung und Leistung. Die übrigen Größen haben eigene Einheiten, die mit diesen nicht zusammenhängen.
 :::
 :::karte begriff SI-Vorsatz
-Was ist ein SI-Vorsatz?
+Was ist ein SI-Vorsatz, und welche Regeln gelten, wenn man ihn vor eine Einheit schreibt?
 ---
 Ein Zeichen vor einer Einheit, das den Zahlenwert um eine Zehnerpotenz skaliert, etwa k für $10^{3}$. Vorsatz und Einheit bilden ein Symbol; vor einer Einheit steht immer nur ein Vorsatz.
 --- falsch
@@ -184,7 +264,7 @@ Weil man die Vorsätze vorher angleichen muss, $40\,\mathrm{V}=0{,}4\,\mathrm{kV
 Weil eine Summe immer die Einheit des kleineren Summanden bekommt. Die richtige Summe ist also $2\,\mathrm{kV}+40\,\mathrm{V}=42\,\mathrm{V}$.
 :::
 :::karte begriff Kraft
-Was ist eine Kraft?
+Was versteht man unter einer Kraft, die auf einen Körper wirkt?
 ---
 Eine vektorielle Größe, die einen festgehaltenen Körper verformt oder einen beweglichen beschleunigt: $F=m\,a$, Einheit Newton, $1\,\mathrm{N}=1\,\mathrm{kg\,m/s^2}$.
 --- falsch

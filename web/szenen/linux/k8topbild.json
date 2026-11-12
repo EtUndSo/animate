@@ -1,0 +1,787 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 26,
+  "nextAnimId": 40,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Terminal",
+    "props": {
+     "text": "\\e[?25ltop - 15:25:53 up 1 min,  1 user,  load average: 0.20, 0.08, 0.03\nTasks:  \\e[1m29\\e[22m total,   \\e[1m1\\e[22m running,  \\e[1m28\\e[22m sleeping,   \\e[1m0\\e[22m stopped,   \\e[1m0\\e[22m zombie\n%Cpu(s):  \\e[1m0.0\\e[22m us,  \\e[1m0.7\\e[22m sy,  \\e[1m0.0\\e[22m ni, \\e[1m98.7\\e[22m id,  \\e[1m0.7\\e[22m wa,  \\e[1m0.0\\e[22m hi,  \\e[1m0.0\\e[22m si,  \\e[1m0.0\\e[22m st\nMiB Mem :  \\e[1m31846.7\\e[22m total,  \\e[1m30985.9\\e[22m free,    \\e[1m736.2\\e[22m used,    \\e[1m433.1\\e[22m buff/cache\nMiB Swap:   \\e[1m8192.0\\e[22m total,   \\e[1m8192.0\\e[22m free,      \\e[1m0.0\\e[22m used.  \\e[1m31110.5\\e[22m avail Mem\n\n\\e[7m    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND  \\e[27m\n      1 root      20   0   24332  14060  10860 S   0.0   0.0   0:01.06 systemd\n      2 root      20   0    3120   2048   1920 S   0.0   0.0   0:00.02 init-sy+\n      6 root      20   0    3120   1792   1792 S   0.0   0.0   0:00.00 init\n     49 root      19  -1   42192  15744  14720 S   0.0   0.0   0:00.24 systemd+\n     83 systemd+  20   0   22412  14080  11648 S   0.0   0.0   0:00.11 systemd+",
+     "cols": 80,
+     "rows": 12,
+     "font_size": 18.0,
+     "line_height": 1.2,
+     "position": [
+      -3.11,
+      1.95,
+      0
+     ],
+     "frame": "fenster",
+     "theme": "dunkel",
+     "title": "student@labor: ~/linuxk8",
+     "buttons": "drei",
+     "cursor": false,
+     "prompt_colors": false,
+     "shadow": true,
+     "state": ""
+    }
+   },
+   {
+    "id": "o2",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.43,
+      1.5433,
+      0
+     ],
+     "width": 5.24,
+     "height": 0.2,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#eb6834",
+     "fill_color": "#ffffff",
+     "fill_opacity": 0.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o3",
+    "type": "Text",
+    "props": {
+     "text": "1",
+     "position": [
+      -3.28,
+      1.5433,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#eb6834"
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Text",
+    "props": {
+     "text": "1",
+     "position": [
+      -3.35,
+      -0.62,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#eb6834"
+    }
+   },
+   {
+    "id": "o5",
+    "type": "Text",
+    "props": {
+     "text": "@top0",
+     "position": [
+      -3.15,
+      -0.62,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o6",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.31,
+      1.3833,
+      0
+     ],
+     "width": 5.48,
+     "height": 0.2,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#eb6834",
+     "fill_color": "#ffffff",
+     "fill_opacity": 0.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o7",
+    "type": "Text",
+    "props": {
+     "text": "2",
+     "position": [
+      -3.28,
+      1.3833,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#eb6834"
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Text",
+    "props": {
+     "text": "2",
+     "position": [
+      -3.35,
+      -0.89,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#eb6834"
+    }
+   },
+   {
+    "id": "o9",
+    "type": "Text",
+    "props": {
+     "text": "@top1",
+     "position": [
+      -3.15,
+      -0.89,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o10",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.13,
+      1.2233,
+      0
+     ],
+     "width": 6.36,
+     "height": 0.2,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#eb6834",
+     "fill_color": "#ffffff",
+     "fill_opacity": 0.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o11",
+    "type": "Text",
+    "props": {
+     "text": "3",
+     "position": [
+      -3.28,
+      1.2233,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#eb6834"
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Text",
+    "props": {
+     "text": "3",
+     "position": [
+      -3.35,
+      -1.16,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#eb6834"
+    }
+   },
+   {
+    "id": "o13",
+    "type": "Text",
+    "props": {
+     "text": "@top2",
+     "position": [
+      -3.15,
+      -1.16,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o14",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.03,
+      0.9833,
+      0
+     ],
+     "width": 6.04,
+     "height": 0.36,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#eb6834",
+     "fill_color": "#ffffff",
+     "fill_opacity": 0.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o15",
+    "type": "Text",
+    "props": {
+     "text": "4",
+     "position": [
+      -3.28,
+      0.9833,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#eb6834"
+    }
+   },
+   {
+    "id": "o16",
+    "type": "Text",
+    "props": {
+     "text": "4",
+     "position": [
+      0.15,
+      -0.62,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#eb6834"
+    }
+   },
+   {
+    "id": "o17",
+    "type": "Text",
+    "props": {
+     "text": "@top3",
+     "position": [
+      0.35,
+      -0.62,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o18",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.17,
+      0.5833,
+      0
+     ],
+     "width": 6.44,
+     "height": 0.2,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#eb6834",
+     "fill_color": "#ffffff",
+     "fill_opacity": 0.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o19",
+    "type": "Text",
+    "props": {
+     "text": "5",
+     "position": [
+      -3.28,
+      0.5833,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#eb6834"
+    }
+   },
+   {
+    "id": "o20",
+    "type": "Text",
+    "props": {
+     "text": "5",
+     "position": [
+      0.15,
+      -0.89,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#eb6834"
+    }
+   },
+   {
+    "id": "o21",
+    "type": "Text",
+    "props": {
+     "text": "@top4",
+     "position": [
+      0.35,
+      -0.89,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o22",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.09,
+      0.4233,
+      0
+     ],
+     "width": 6.28,
+     "height": 0.2,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#eb6834",
+     "fill_color": "#ffffff",
+     "fill_opacity": 0.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o23",
+    "type": "Text",
+    "props": {
+     "text": "6",
+     "position": [
+      -3.28,
+      0.4233,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#eb6834"
+    }
+   },
+   {
+    "id": "o24",
+    "type": "Text",
+    "props": {
+     "text": "6",
+     "position": [
+      0.15,
+      -1.16,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#eb6834"
+    }
+   },
+   {
+    "id": "o25",
+    "type": "Text",
+    "props": {
+     "text": "@top5",
+     "position": [
+      0.35,
+      -1.16,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#111111"
+    }
+   }
+  ],
+  "animations": [
+   {
+    "id": "a1",
+    "type": "FadeIn",
+    "target": "o1",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a2",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a3",
+    "type": "FadeIn",
+    "target": "o2",
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a4",
+    "type": "FadeIn",
+    "target": "o3",
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a5",
+    "type": "FadeIn",
+    "target": "o4",
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a6",
+    "type": "FadeIn",
+    "target": "o5",
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a7",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.5,
+    "step": 3
+   },
+   {
+    "id": "a8",
+    "type": "FadeIn",
+    "target": "o6",
+    "run_time": 0.6,
+    "step": 4
+   },
+   {
+    "id": "a9",
+    "type": "FadeIn",
+    "target": "o7",
+    "run_time": 0.6,
+    "step": 4
+   },
+   {
+    "id": "a10",
+    "type": "FadeIn",
+    "target": "o8",
+    "run_time": 0.6,
+    "step": 4
+   },
+   {
+    "id": "a11",
+    "type": "FadeIn",
+    "target": "o9",
+    "run_time": 0.6,
+    "step": 4
+   },
+   {
+    "id": "a12",
+    "type": "FadeOut",
+    "target": "o2",
+    "run_time": 0.5,
+    "step": 4
+   },
+   {
+    "id": "a13",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.5,
+    "step": 5
+   },
+   {
+    "id": "a14",
+    "type": "FadeIn",
+    "target": "o10",
+    "run_time": 0.6,
+    "step": 6
+   },
+   {
+    "id": "a15",
+    "type": "FadeIn",
+    "target": "o11",
+    "run_time": 0.6,
+    "step": 6
+   },
+   {
+    "id": "a16",
+    "type": "FadeIn",
+    "target": "o12",
+    "run_time": 0.6,
+    "step": 6
+   },
+   {
+    "id": "a17",
+    "type": "FadeIn",
+    "target": "o13",
+    "run_time": 0.6,
+    "step": 6
+   },
+   {
+    "id": "a18",
+    "type": "FadeOut",
+    "target": "o6",
+    "run_time": 0.5,
+    "step": 6
+   },
+   {
+    "id": "a19",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.5,
+    "step": 7
+   },
+   {
+    "id": "a20",
+    "type": "FadeIn",
+    "target": "o14",
+    "run_time": 0.6,
+    "step": 8
+   },
+   {
+    "id": "a21",
+    "type": "FadeIn",
+    "target": "o15",
+    "run_time": 0.6,
+    "step": 8
+   },
+   {
+    "id": "a22",
+    "type": "FadeIn",
+    "target": "o16",
+    "run_time": 0.6,
+    "step": 8
+   },
+   {
+    "id": "a23",
+    "type": "FadeIn",
+    "target": "o17",
+    "run_time": 0.6,
+    "step": 8
+   },
+   {
+    "id": "a24",
+    "type": "FadeOut",
+    "target": "o10",
+    "run_time": 0.5,
+    "step": 8
+   },
+   {
+    "id": "a25",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.5,
+    "step": 9
+   },
+   {
+    "id": "a26",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.4,
+    "step": 10
+   },
+   {
+    "id": "a27",
+    "type": "FadeIn",
+    "target": "o18",
+    "run_time": 0.6,
+    "step": 11
+   },
+   {
+    "id": "a28",
+    "type": "FadeIn",
+    "target": "o19",
+    "run_time": 0.6,
+    "step": 11
+   },
+   {
+    "id": "a29",
+    "type": "FadeIn",
+    "target": "o20",
+    "run_time": 0.6,
+    "step": 11
+   },
+   {
+    "id": "a30",
+    "type": "FadeIn",
+    "target": "o21",
+    "run_time": 0.6,
+    "step": 11
+   },
+   {
+    "id": "a31",
+    "type": "FadeOut",
+    "target": "o14",
+    "run_time": 0.5,
+    "step": 11
+   },
+   {
+    "id": "a32",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.5,
+    "step": 12
+   },
+   {
+    "id": "a33",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.4,
+    "step": 13
+   },
+   {
+    "id": "a34",
+    "type": "FadeIn",
+    "target": "o22",
+    "run_time": 0.6,
+    "step": 14
+   },
+   {
+    "id": "a35",
+    "type": "FadeIn",
+    "target": "o23",
+    "run_time": 0.6,
+    "step": 14
+   },
+   {
+    "id": "a36",
+    "type": "FadeIn",
+    "target": "o24",
+    "run_time": 0.6,
+    "step": 14
+   },
+   {
+    "id": "a37",
+    "type": "FadeIn",
+    "target": "o25",
+    "run_time": 0.6,
+    "step": 14
+   },
+   {
+    "id": "a38",
+    "type": "FadeOut",
+    "target": "o18",
+    "run_time": 0.5,
+    "step": 14
+   },
+   {
+    "id": "a39",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.5,
+    "step": 15
+   }
+  ],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "top0": {
+    "de": "Zeit, Laufzeit, Last (wie uptime)",
+    "en": "time, uptime, load (as uptime)",
+    "es": "hora, tiempo activo, carga (como uptime)",
+    "zh": "时间、运行时长、负载（同 uptime）",
+    "fr": "heure, durée, charge (comme uptime)",
+    "tr": "saat, çalışma süresi, yük (uptime gibi)"
+   },
+   "top1": {
+    "de": "Prozesse nach Zuständen",
+    "en": "processes by state",
+    "es": "procesos por estado",
+    "zh": "按状态统计的进程",
+    "fr": "processus par état",
+    "tr": "duruma göre süreçler"
+   },
+   "top2": {
+    "de": "Aufteilung der Rechenzeit",
+    "en": "split of CPU time",
+    "es": "reparto del tiempo de CPU",
+    "zh": "CPU 时间的分配",
+    "fr": "répartition du temps CPU",
+    "tr": "CPU süresinin dağılımı"
+   },
+   "top3": {
+    "de": "Speicher (wie free)",
+    "en": "memory (as free)",
+    "es": "memoria (como free)",
+    "zh": "内存（同 free）",
+    "fr": "mémoire (comme free)",
+    "tr": "bellek (free gibi)"
+   },
+   "top4": {
+    "de": "Spaltenzeile (invers)",
+    "en": "column header (inverse)",
+    "es": "fila de columnas (invertida)",
+    "zh": "列标题行（反色）",
+    "fr": "ligne d'en-tête (inversée)",
+    "tr": "sütun başlığı (ters renkli)"
+   },
+   "top5": {
+    "de": "sortiert: hier nach PID (-o -PID)",
+    "en": "sorted: here by PID (-o -PID)",
+    "es": "orden: aquí por PID (-o -PID)",
+    "zh": "排序：此处按 PID（-o -PID）",
+    "fr": "tri : ici par PID (-o -PID)",
+    "tr": "sıralama: burada PID'ye göre (-o -PID)"
+   }
+  },
+  "drawOrder": "creation"
+ }
+}

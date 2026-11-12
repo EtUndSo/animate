@@ -1,0 +1,779 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 27,
+  "nextAnimId": 31,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.25,
+      1.75,
+      0
+     ],
+     "width": 2.2,
+     "height": 0.62,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#333333",
+     "fill_color": "#efefef",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Text",
+    "props": {
+     "text": "@sys",
+     "position": [
+      2.25,
+      1.88,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o3",
+    "type": "Text",
+    "props": {
+     "text": "@inhalt",
+     "position": [
+      2.25,
+      1.62,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o4",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      2.25,
+      0.75,
+      0
+     ],
+     "width": 2.2,
+     "height": 0.62,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#333333",
+     "fill_color": "#efefef",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o5",
+    "type": "Text",
+    "props": {
+     "text": "@ben",
+     "position": [
+      2.25,
+      0.88,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Text",
+    "props": {
+     "text": "k8eieruhr",
+     "position": [
+      2.25,
+      0.62,
+      0
+     ],
+     "font_size": 17,
+     "align": "center",
+     "color": "#7f7f7f",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o7",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.6,
+      1.95,
+      0
+     ],
+     "width": 1.0,
+     "height": 0.34,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#e3eefb",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Text",
+    "props": {
+     "text": "student",
+     "position": [
+      -2.6,
+      1.95,
+      0
+     ],
+     "font_size": 17,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o9",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.6,
+      1.2,
+      0
+     ],
+     "width": 1.55,
+     "height": 0.34,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#e3eefb",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o10",
+    "type": "Text",
+    "props": {
+     "text": "@adm",
+     "position": [
+      -2.6,
+      1.2,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o11",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.6,
+      0.45,
+      0
+     ],
+     "width": 1.55,
+     "height": 0.34,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#e3eefb",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Text",
+    "props": {
+     "text": "@root",
+     "position": [
+      -2.6,
+      0.45,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o13",
+    "type": "Line",
+    "props": {
+     "start": [
+      -1.8,
+      1.95,
+      0
+     ],
+     "end": [
+      1.15,
+      0.9,
+      0
+     ],
+     "color": "#00823c",
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o14",
+    "type": "Line",
+    "props": {
+     "start": [
+      -1.8,
+      1.95,
+      0
+     ],
+     "end": [
+      1.15,
+      1.9,
+      0
+     ],
+     "color": "#c82828",
+     "stroke_width": 2.5,
+     "dash": "10,7"
+    }
+   },
+   {
+    "id": "o15",
+    "type": "Lock",
+    "props": {
+     "center": [
+      -0.325,
+      1.99,
+      0
+     ],
+     "size": 0.24,
+     "open": false,
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o16",
+    "type": "Text",
+    "props": {
+     "text": "… not seeing messages …",
+     "position": [
+      -3.4,
+      1.62,
+      0
+     ],
+     "font_size": 17,
+     "align": "left",
+     "color": "#c82828",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o17",
+    "type": "Line",
+    "props": {
+     "start": [
+      -1.8,
+      1.2,
+      0
+     ],
+     "end": [
+      1.15,
+      1.75,
+      0
+     ],
+     "color": "#00823c",
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o18",
+    "type": "Line",
+    "props": {
+     "start": [
+      -1.8,
+      1.2,
+      0
+     ],
+     "end": [
+      1.15,
+      0.75,
+      0
+     ],
+     "color": "#00823c",
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o19",
+    "type": "Line",
+    "props": {
+     "start": [
+      -1.8,
+      0.45,
+      0
+     ],
+     "end": [
+      1.15,
+      1.6,
+      0
+     ],
+     "color": "#00823c",
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o20",
+    "type": "Line",
+    "props": {
+     "start": [
+      -1.8,
+      0.45,
+      0
+     ],
+     "end": [
+      1.15,
+      0.6,
+      0
+     ],
+     "color": "#00823c",
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o21",
+    "type": "Text",
+    "props": {
+     "text": "adm:x:4:syslog",
+     "position": [
+      -0.85,
+      -0.25,
+      0
+     ],
+     "font_size": 20,
+     "align": "left",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o22",
+    "type": "Text",
+    "props": {
+     "text": "@test",
+     "position": [
+      -1.0,
+      -0.25,
+      0
+     ],
+     "font_size": 18,
+     "align": "right",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o23",
+    "type": "Text",
+    "props": {
+     "text": "@fehlt",
+     "position": [
+      0.45,
+      -0.25,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o26",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.51,
+      -0.6,
+      0
+     ],
+     "width": 0.6044,
+     "height": 0.17,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#00823c",
+     "fill_color": "#00823c",
+     "fill_opacity": 0.25,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o24",
+    "type": "Text",
+    "props": {
+     "text": "adm:x:4:syslog,student",
+     "position": [
+      -0.85,
+      -0.6,
+      0
+     ],
+     "font_size": 17,
+     "align": "left",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o25",
+    "type": "Text",
+    "props": {
+     "text": "@gew",
+     "position": [
+      -1.0,
+      -0.6,
+      0
+     ],
+     "font_size": 18,
+     "align": "right",
+     "color": "#7f7f7f"
+    }
+   }
+  ],
+  "animations": [
+   {
+    "id": "a1",
+    "type": "FadeIn",
+    "target": "o1",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a2",
+    "type": "FadeIn",
+    "target": "o2",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a3",
+    "type": "FadeIn",
+    "target": "o3",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a4",
+    "type": "FadeIn",
+    "target": "o4",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a5",
+    "type": "FadeIn",
+    "target": "o5",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a6",
+    "type": "FadeIn",
+    "target": "o6",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a7",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.4,
+    "step": 1
+   },
+   {
+    "id": "a8",
+    "type": "FadeIn",
+    "target": "o7",
+    "run_time": 0.5,
+    "step": 2
+   },
+   {
+    "id": "a9",
+    "type": "FadeIn",
+    "target": "o8",
+    "run_time": 0.5,
+    "step": 2
+   },
+   {
+    "id": "a10",
+    "type": "Create",
+    "target": "o13",
+    "run_time": 0.7,
+    "step": 2
+   },
+   {
+    "id": "a11",
+    "type": "Create",
+    "target": "o14",
+    "run_time": 0.6,
+    "step": 3
+   },
+   {
+    "id": "a12",
+    "type": "GrowFromCenter",
+    "target": "o15",
+    "run_time": 0.6,
+    "step": 3
+   },
+   {
+    "id": "a13",
+    "type": "FadeIn",
+    "target": "o16",
+    "run_time": 0.5,
+    "step": 4
+   },
+   {
+    "id": "a14",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.5,
+    "step": 5
+   },
+   {
+    "id": "a15",
+    "type": "FadeIn",
+    "target": "o9",
+    "run_time": 0.5,
+    "step": 6
+   },
+   {
+    "id": "a16",
+    "type": "FadeIn",
+    "target": "o10",
+    "run_time": 0.5,
+    "step": 6
+   },
+   {
+    "id": "a17",
+    "type": "Create",
+    "target": "o17",
+    "run_time": 0.7,
+    "step": 6
+   },
+   {
+    "id": "a18",
+    "type": "Create",
+    "target": "o18",
+    "run_time": 0.7,
+    "step": 6
+   },
+   {
+    "id": "a19",
+    "type": "FadeIn",
+    "target": "o11",
+    "run_time": 0.5,
+    "step": 7
+   },
+   {
+    "id": "a20",
+    "type": "FadeIn",
+    "target": "o12",
+    "run_time": 0.5,
+    "step": 7
+   },
+   {
+    "id": "a21",
+    "type": "Create",
+    "target": "o19",
+    "run_time": 0.7,
+    "step": 7
+   },
+   {
+    "id": "a22",
+    "type": "Create",
+    "target": "o20",
+    "run_time": 0.7,
+    "step": 7
+   },
+   {
+    "id": "a23",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 8
+   },
+   {
+    "id": "a24",
+    "type": "FadeIn",
+    "target": "o21",
+    "run_time": 0.6,
+    "step": 9
+   },
+   {
+    "id": "a25",
+    "type": "FadeIn",
+    "target": "o22",
+    "run_time": 0.6,
+    "step": 9
+   },
+   {
+    "id": "a26",
+    "type": "Indicate",
+    "target": "o21",
+    "run_time": 0.7,
+    "step": 10
+   },
+   {
+    "id": "a27",
+    "type": "FadeIn",
+    "target": "o23",
+    "run_time": 0.5,
+    "step": 10
+   },
+   {
+    "id": "a28",
+    "type": "FadeIn",
+    "target": "o24",
+    "run_time": 0.6,
+    "step": 11
+   },
+   {
+    "id": "a29",
+    "type": "FadeIn",
+    "target": "o25",
+    "run_time": 0.6,
+    "step": 11
+   },
+   {
+    "id": "a30",
+    "type": "FadeIn",
+    "target": "o26",
+    "run_time": 0.6,
+    "step": 11
+   }
+  ],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "sys": {
+    "de": "System",
+    "en": "system",
+    "es": "sistema",
+    "zh": "系统",
+    "fr": "système",
+    "tr": "sistem"
+   },
+   "inhalt": {
+    "de": "Kernel, cron, sudo, systemd",
+    "en": "kernel, cron, sudo, systemd",
+    "es": "kernel, cron, sudo, systemd",
+    "zh": "内核、cron、sudo、systemd",
+    "fr": "noyau, cron, sudo, systemd",
+    "tr": "çekirdek, cron, sudo, systemd"
+   },
+   "ben": {
+    "de": "Benutzer 1000",
+    "en": "user 1000",
+    "es": "usuario 1000",
+    "zh": "用户 1000",
+    "fr": "utilisateur 1000",
+    "tr": "kullanıcı 1000"
+   },
+   "adm": {
+    "de": "Mitglied von adm",
+    "en": "member of adm",
+    "es": "miembro de adm",
+    "zh": "adm 组成员",
+    "fr": "membre de adm",
+    "tr": "adm üyesi"
+   },
+   "root": {
+    "de": "root (über sudo)",
+    "en": "root (via sudo)",
+    "es": "root (con sudo)",
+    "zh": "root（通过 sudo）",
+    "fr": "root (via sudo)",
+    "tr": "root (sudo ile)"
+   },
+   "test": {
+    "de": "/etc/group, Testsystem:",
+    "en": "/etc/group, test system:",
+    "es": "/etc/group, sistema de prueba:",
+    "zh": "/etc/group，测试系统：",
+    "fr": "/etc/group, système de test :",
+    "tr": "/etc/group, test sistemi:"
+   },
+   "fehlt": {
+    "de": "student fehlt",
+    "en": "student is missing",
+    "es": "falta student",
+    "zh": "缺少 student",
+    "fr": "student manque",
+    "tr": "student yok"
+   },
+   "gew": {
+    "de": "gewöhnliche Installation:",
+    "en": "usual installation:",
+    "es": "instalación habitual:",
+    "zh": "常规安装：",
+    "fr": "installation ordinaire :",
+    "tr": "olağan kurulum:"
+   }
+  },
+  "drawOrder": "creation"
+ }
+}

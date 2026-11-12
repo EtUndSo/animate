@@ -1,0 +1,365 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 11,
+  "nextAnimId": 16,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Terminal",
+    "props": {
+     "text": "student@labor:~$ \\e|\\e>cd /etc\n\\e|student@labor:/etc$ \\e|\\e>exit\n\\e[?25l",
+     "cols": 26,
+     "rows": 3,
+     "font_size": 20.0,
+     "line_height": 1.2,
+     "position": [
+      -3.4,
+      0.62,
+      0
+     ],
+     "frame": "fenster",
+     "theme": "dunkel",
+     "title": "student@labor: ~",
+     "buttons": "drei",
+     "cursor": true,
+     "prompt_colors": true,
+     "shadow": true,
+     "state": "term1"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Terminal",
+    "props": {
+     "text": "student@labor:~$ ",
+     "cols": 26,
+     "rows": 3,
+     "font_size": 20.0,
+     "line_height": 1.2,
+     "position": [
+      0.1,
+      0.62,
+      0
+     ],
+     "frame": "fenster",
+     "theme": "dunkel",
+     "title": "student@labor: ~",
+     "buttons": "drei",
+     "cursor": true,
+     "prompt_colors": true,
+     "shadow": true,
+     "state": ""
+    }
+   },
+   {
+    "id": "o3",
+    "type": "Text",
+    "props": {
+     "text": "@f1",
+     "position": [
+      -2.1556,
+      0.84,
+      0
+     ],
+     "font_size": 20,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Text",
+    "props": {
+     "text": "@f2",
+     "position": [
+      1.3444,
+      0.84,
+      0
+     ],
+     "font_size": 20,
+     "align": "center",
+     "color": "#111111"
+    }
+   },
+   {
+    "id": "o5",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.1556,
+      0.1385,
+      0
+     ],
+     "width": 2.4889,
+     "height": 0.963,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#ffffff",
+     "fill_color": "#ffffff",
+     "fill_opacity": 0.6,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Text",
+    "props": {
+     "text": "@beendet",
+     "position": [
+      -2.1556,
+      -0.593,
+      0
+     ],
+     "font_size": 20,
+     "align": "center",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o7",
+    "type": "Text",
+    "props": {
+     "text": "@bleibt",
+     "position": [
+      1.3444,
+      -0.593,
+      0
+     ],
+     "font_size": 20,
+     "align": "center",
+     "color": "#00823c"
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Text",
+    "props": {
+     "text": "@weiter",
+     "position": [
+      1.3444,
+      -0.893,
+      0
+     ],
+     "font_size": 20,
+     "align": "center",
+     "color": "#00823c"
+    }
+   },
+   {
+    "id": "o9",
+    "type": "Text",
+    "props": {
+     "text": "\\e[0;1;38;2;51;218;122mstudent@labor\\e[0;38;2;208;207;204m:\\e[0;1;38;2;94;161;240m~\\e[0;38;2;208;207;204m$ \\e[0m",
+     "position": [
+      0.1889,
+      0.1681,
+      0
+     ],
+     "font_size": 20.0,
+     "align": "left",
+     "color": "#d0cfcc",
+     "ansi": true,
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o10",
+    "type": "Parameter",
+    "props": {
+     "name": "term1",
+     "value": 0.0,
+     "min": 0.0,
+     "max": 3.0,
+     "step": 0.01
+    }
+   }
+  ],
+  "animations": [
+   {
+    "id": "a1",
+    "type": "GrowFromCenter",
+    "target": "o1",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a2",
+    "type": "GrowFromCenter",
+    "target": "o2",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a3",
+    "type": "FadeIn",
+    "target": "o3",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a4",
+    "type": "FadeIn",
+    "target": "o4",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a5",
+    "type": "FadeIn",
+    "target": "o9",
+    "run_time": 0.01,
+    "step": 1
+   },
+   {
+    "id": "a6",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.4,
+    "step": 2
+   },
+   {
+    "id": "a7",
+    "type": "ChangeValue",
+    "target": "o10",
+    "run_time": 0.571,
+    "step": 3,
+    "value": 1.0,
+    "rate": "linear"
+   },
+   {
+    "id": "a8",
+    "type": "ChangeValue",
+    "target": "o10",
+    "run_time": 0.6,
+    "step": 4,
+    "value": 2.0,
+    "rate": "linear"
+   },
+   {
+    "id": "a9",
+    "type": "Indicate",
+    "target": "o9",
+    "run_time": 0.8,
+    "step": 5
+   },
+   {
+    "id": "a10",
+    "type": "FadeIn",
+    "target": "o7",
+    "run_time": 0.8,
+    "step": 5
+   },
+   {
+    "id": "a11",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 6
+   },
+   {
+    "id": "a12",
+    "type": "ChangeValue",
+    "target": "o10",
+    "run_time": 0.5,
+    "step": 7,
+    "value": 3.0,
+    "rate": "linear"
+   },
+   {
+    "id": "a13",
+    "type": "FadeIn",
+    "target": "o5",
+    "run_time": 0.8,
+    "step": 8
+   },
+   {
+    "id": "a14",
+    "type": "FadeIn",
+    "target": "o6",
+    "run_time": 0.8,
+    "step": 8
+   },
+   {
+    "id": "a15",
+    "type": "FadeIn",
+    "target": "o8",
+    "run_time": 0.6,
+    "step": 9
+   }
+  ],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "f1": {
+    "de": "Fenster 1: Sitzung 1",
+    "en": "window 1: session 1",
+    "es": "ventana 1: sesión 1",
+    "zh": "窗口 1：会话 1",
+    "fr": "fenêtre 1 : session 1",
+    "tr": "pencere 1: oturum 1"
+   },
+   "f2": {
+    "de": "Fenster 2: Sitzung 2",
+    "en": "window 2: session 2",
+    "es": "ventana 2: sesión 2",
+    "zh": "窗口 2：会话 2",
+    "fr": "fenêtre 2 : session 2",
+    "tr": "pencere 2: oturum 2"
+   },
+   "beendet": {
+    "de": "Shell beendet",
+    "en": "shell has ended",
+    "es": "la shell terminó",
+    "zh": "Shell 已结束",
+    "fr": "shell terminé",
+    "tr": "kabuk sona erdi"
+   },
+   "bleibt": {
+    "de": "bleibt in ~",
+    "en": "stays in ~",
+    "es": "sigue en ~",
+    "zh": "仍在 ~",
+    "fr": "reste dans ~",
+    "tr": "~ içinde kalır"
+   },
+   "weiter": {
+    "de": "läuft weiter",
+    "en": "keeps running",
+    "es": "sigue en marcha",
+    "zh": "继续运行",
+    "fr": "continue de tourner",
+    "tr": "çalışmaya devam eder"
+   }
+  },
+  "drawOrder": "creation"
+ }
+}

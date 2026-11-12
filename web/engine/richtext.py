@@ -240,17 +240,41 @@ def mono_line(line):
     """(cells, [(char, centre)]) of one line: the number of cells and, for every character, the centre of its cell(s)
     counted in cells from the line start. A space stays a character (so copied text keeps its spaces), a tab becomes
     spaces up to the next tab stop; trailing spaces are dropped (they draw nothing)."""
+    pos, out = mono_line_ix(line)
+    return pos, [(ch, c) for ch, c, _ in out]
+
+
+def mono_line_ix(line):
+    """mono_line with the index of every character in `line` (a tab's spaces all carry the tab's index): (cells,
+    [(char, centre, index)]). The painters use the index to find a character's coloured section (Text.spans)."""
     pos, out = 0, []
-    for ch in line.rstrip():
+    for i, ch in enumerate(line.rstrip()):
         if ch == "\t":
             stop = (pos // TAB_CELLS + 1) * TAB_CELLS
             while pos < stop:
-                out.append((" ", pos + 0.5))
+                out.append((" ", pos + 0.5, i))
                 pos += 1
             continue
         if ch.isspace():
             ch = " "
         w = 2 if is_wide(ch) else 1
-        out.append((ch, pos + w / 2.0))
+        out.append((ch, pos + w / 2.0, i))
         pos += w
     return pos, out
+
+
+def span_at(spans, i):
+    """(rgb or None, bold) of the character with index i in a label with coloured sections (Text.spans)."""
+    for a, b, col, bold in spans or ():
+        if a <= i < b:
+            return col, bool(bold)
+    return None, False
+
+
+def line_offsets(lines):
+    """Index of the first character of every line in the label they were split from (lines joined by one newline)."""
+    out, o = [], 0
+    for ln in lines:
+        out.append(o)
+        o += len(ln) + 1
+    return out

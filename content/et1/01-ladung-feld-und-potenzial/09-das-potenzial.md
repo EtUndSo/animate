@@ -98,6 +98,44 @@ Wo zwischen den Ladungen ist $\varphi=0$? Wie groß ist $E$ dort?
 :::
 :::
 
+::::formelsammlung
+**Potenzial**
+
+$$\varphi(P)=\int_{P}^{P_0}\vec E\cdot\mathrm{d}\vec s=-\int_{P_0}^{P}\vec E\cdot\mathrm{d}\vec s,\qquad[\varphi]=\frac{\mathrm J}{\mathrm C}=\mathrm V$$
+
+Arbeit je Ladung, die das Feld auf dem Weg von $P$ zum Bezugspunkt $P_0$ abgibt; eine Zahl je Ort, kein Vektor. Setzt ein elektrostatisches Feld voraus. Rückt $P_0$ woanders hin, ändern sich alle Potenziale um denselben Betrag.
+
+**Potenzielle Energie**
+
+$$W_\mathrm{pot}=Q\,\varphi(P)$$
+
+Energie einer Ladung $Q$ am Ort $P$, gegenüber dem Bezugspunkt.
+
+**Arbeit als Potenzialdifferenz**
+
+$$W_{12}=Q\,\bigl(\varphi(P_1)-\varphi(P_2)\bigr)$$
+
+Folgt aus der Wegunabhängigkeit: Man darf von $P_1$ über $P_0$ nach $P_2$ gehen.
+
+**Potenzial im homogenen Feld**
+
+$$\varphi(x)=\varphi(0)-E\,x$$
+
+Feld in $x$-Richtung; in Feldrichtung fällt $\varphi$.
+
+**Potenzial einer Punktladung**
+
+$$\varphi(r)=k\,\frac{Q_0}{r}$$
+
+Bezugspunkt im Unendlichen.
+
+**Feldstärke als Gefälle des Potenzials**
+
+$$E_x=-\mathrm{d}\varphi/\mathrm{d} x$$
+
+Das Feld hängt vom Gefälle ab, nicht vom Wert. Äquipotenzialflächen (Orte gleichen Potenzials) stehen senkrecht auf den Feldlinien; im Plattenpaar sind es Ebenen, um eine Punktladung Kugeln. Ein ruhender Metallkörper hat überall dasselbe Potenzial.
+::::
+
 ::::lernkarten
 :::karte begriff Potenzial
 Was gibt das Potenzial $\varphi$ eines Punkts $P$ an?
@@ -111,7 +149,7 @@ Die Kraft je Ladung an diesem Ort: $\varphi(P)=\vec F/Q$, Einheit V/m. Es ist ei
 Die gesamte Energie, die eine Ladung $Q$ an diesem Ort hat: $\varphi(P)=Q\int_{P}^{P_0}\vec E\cdot\mathrm{d}\vec s$, Einheit J. Es hängt von der Ladung ab, die man an den Ort bringt, und setzt ein elektrostatisches Feld voraus.
 :::
 :::karte begriff Bezugspunkt
-Was ist der Bezugspunkt des Potenzials?
+Welche Rolle spielt der Bezugspunkt, wenn man jedem Ort ein Potenzial zuordnet, und was ändert sich, wenn man ihn verschiebt?
 ---
 Der frei gewählte Punkt $P_0$ mit dem Potenzial null, bis zu dem die Arbeit je Ladung gezählt wird. Verschiebt man ihn, ändern sich alle Potenziale um denselben Betrag.
 --- falsch
@@ -177,7 +215,7 @@ $W_\mathrm{pot}=Q\,\varphi(P)$, gemessen vom Bezugspunkt aus. Für $Q<0$ ist sie
 $W_\mathrm{pot}=\varphi(P)$ für jede Ladung, weil das Potenzial schon die Energie am Ort ist. Das Vorzeichen von $Q$ spielt keine Rolle.
 :::
 :::karte begriff Äquipotenzialfläche
-Was ist eine Äquipotenzialfläche?
+Was ist eine Äquipotenzialfläche, und wie stehen die Feldlinien zu ihr?
 ---
 Eine Fläche aus Orten gleichen Potenzials. Auf ihr lässt sich eine Ladung ohne Arbeit verschieben, deshalb stehen die Feldlinien senkrecht auf ihr.
 --- falsch

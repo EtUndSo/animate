@@ -41,7 +41,7 @@ class CairoPainter:
         else:
             ctx.new_path()                                 # clear the kept path
 
-    def draw_text(self, text, px, py, font_size, color, opacity, align="center", font=None, raw=False):
+    def draw_text(self, text, px, py, font_size, color, opacity, align="center", font=None, raw=False, spans=None):
         from .richtext import plain
         if not raw:
             text = plain(text)                             # Cairo path: sub/superscripts flattened to plain text

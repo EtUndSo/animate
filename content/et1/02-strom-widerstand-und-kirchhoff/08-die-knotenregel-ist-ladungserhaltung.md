@@ -85,3 +85,108 @@ Vorhersage: Ein Überschuss von nur 1 µ A bliebe 1 s lang auf der Kugel aus
 (c) $Q=1\,\mu\text{C}$ ergibt $\varphi=k_\mathrm C\,Q/r=0{,}9$ MV. Lange bevor dieser Wert erreicht wäre, treibt das steigende Potenzial den Überschuss ab. Das ist die Selbstregelung.
 :::
 :::
+
+::::formelsammlung
+**Knotenregel (erstes kirchhoffsches Gesetz)**
+
+$$\sum_{\nu=1}^{N}I_\nu=0\quad\text{(alle Pfeile zum Knoten)},\qquad\sum I_\mathrm{zu}=\sum I_\mathrm{ab}$$
+
+Gilt in jedem Zeitpunkt, solange der Knoten keine nennenswerte Ladung speichert, und auch für eine Hülle um einen Teil des Netzes. Für ein Netz mit $k$ Knoten sind $k-1$ dieser Gleichungen unabhängig.
+
+**Ladung auf dem Knoten**
+
+$$\mathrm{d} Q_\mathrm K/\mathrm{d} t=\sum I_\nu$$
+
+Ladungserhaltung: Was mehr zu- als abfließt, sammelt sich auf dem Knoten und verschiebt sein Potenzial, bis Zu- und Abfluss gleich sind. Schon winzige Ladungen genügen dafür, deshalb bleibt $\sum I_\nu=0$.
+::::
+
+::::lernkarten
+:::karte formel Knotenregel
+Was besagt die Knotenregel, das erste kirchhoffsche Gesetz, über die Ströme an einem Knoten?
+---
+$\sum_{\nu=1}^{N}I_\nu=0$, wenn alle Pfeile zum Knoten zeigen, oder $\sum I_\mathrm{zu}=\sum I_\mathrm{ab}$; in jedem Zeitpunkt, solange der Knoten keine nennenswerte Ladung speichert.
+--- falsch
+$\sum_{\nu=1}^{N}I_\nu=0$, wenn alle Pfeile zum Knoten zeigen. Das heißt: Jeder einzelne Strom an einem Knoten ist null, sonst wäre die Summe nicht null.
+--- falsch
+$\sum I_\mathrm{zu}=\sum I_\mathrm{ab}$, aber nur im Mittel über längere Zeit. In jedem einzelnen Zeitpunkt kann ein Knoten beliebig viel Ladung aufnehmen und später wieder abgeben.
+--- falsch
+Die Summe der Spannungen aller Zweige an einem Knoten ist null, $\sum U=0$. Der Strom teilt sich dabei im Verhältnis der Widerstände auf.
+:::
+:::karte zusammenhang Knotenregel und Ladungserhaltung
+Warum ist die Knotenregel eine Folge der Ladungserhaltung?
+---
+Weil für die Ladung auf dem Knoten $\mathrm{d} Q_\mathrm K/\mathrm{d} t=\sum I_\nu$ gilt: Ladung entsteht und verschwindet nicht. Der Knoten speichert fast nichts, also bleibt $\sum I_\nu=0$.
+--- falsch
+Weil an einem Knoten Energie weder entsteht noch verschwindet: Die Spannungen aller Zweige ergeben zusammen null, und daraus folgen die Ströme.
+--- falsch
+Weil die Ladungsträger am Knoten gleichmäßig verteilt werden: Jeder abgehende Zweig erhält gleich viel Ladung, gleich welchen Widerstand er hat und wie lang er ist.
+--- falsch
+Weil ein Knoten beliebig viel Ladung speichern kann: Was mehr hineinfließt, sammelt sich dort an, ohne sein Potenzial zu ändern.
+:::
+:::karte herleitung Knotenregel aus der Ladungserhaltung
+Leite aus der Ladungserhaltung her, dass an einem Knoten $\sum I_\nu=0$ gilt, und begründe, warum die Ladung auf dem Knoten vernachlässigbar bleibt.
+---
+Für die Ladung $Q_\mathrm K$ auf dem Knoten gilt $\mathrm{d} Q_\mathrm K/\mathrm{d} t=\sum I_\nu$, weil Ladung weder entsteht noch verschwindet; die zufließenden Ströme ändern nur $Q_\mathrm K$.
+---
+Schätzt man den Knoten als Metallkugel mit 1 cm Radius ab, hat er das Potenzial $\varphi=k_\mathrm C\,Q/r$. Für 9 V reichen $Q=10$ pC, weil die Coulomb-Konstante $k_\mathrm C$ sehr groß ist.
+---
+Ein Überschuss von 3 mA liefert diese Ladung schon in 3,3 ns, weil der Strom die Ladung je Zeit ist.
+---
+Deshalb ist $\mathrm{d} Q_\mathrm K/\mathrm{d} t$ gegen die Ströme vernachlässigbar und es bleibt $\sum I_\nu=0$, weil schon winzige Ladungen das Potenzial des Knotens so verschieben, dass der Überschuss abfließt.
+:::
+:::karte zusammenhang Selbstregelung am Knoten
+Was passiert, wenn in einen Knoten kurzzeitig mehr Strom hinein- als herausfließt?
+---
+Auf ihm sammelt sich Ladung, sein Potenzial steigt. Dadurch sinkt die Spannung an den zuführenden Widerständen und steigt an den abführenden, bis Zu- und Abfluss gleich sind.
+--- falsch
+Die überschüssige Ladung sammelt sich dauerhaft auf dem Knoten an. Sein Potenzial bleibt dabei trotzdem gleich, weil ein Knoten ein ideales Stück Draht ist.
+--- falsch
+Der Überschuss fließt in die Masse ab. Dafür braucht jeder Knoten eine eigene Verbindung zur Masse, sonst gilt die Knotenregel dort nicht.
+--- falsch
+Die Elektronen stauen sich vor dem Knoten und werden langsamer. Dadurch sinkt der Strom in den zuführenden Zweigen, während das Potenzial des Knotens dabei unverändert bleibt.
+:::
+:::karte zusammenhang Eine Knotengleichung zu viel
+Warum sind in einem Netz mit $k$ Knoten nur $k-1$ Knotengleichungen unabhängig?
+---
+Weil jeder Zweigstrom in genau zwei Knotengleichungen steht, einmal mit $+$, einmal mit $-$. Addiert man alle $k$ Gleichungen, bleibt null: Eine folgt aus den übrigen.
+--- falsch
+Weil ein Knoten immer an der Quelle liegt. An ihm gilt die Knotenregel nicht, denn die Quelle bringt dort ständig zusätzliche Ladung in das Netz hinein.
+--- falsch
+Weil ein Knoten die Masse ist. An der Masse fließt Strom aus dem Netz ab, deshalb gilt dort keine Knotengleichung.
+--- falsch
+Weil jeder Zweigstrom in allen Knotengleichungen vorkommt. Eine Gleichung ist deshalb die Summe aller anderen, gleich welche man weglässt.
+:::
+:::karte zusammenhang Hülle um einen Netzteil
+Gilt die Knotenregel auch für eine Hülle um einen Teil des Netzes, und warum?
+---
+Ja: Sie ist die Summe der Knotengleichungen aller Knoten in der Hülle. Ströme in Zweigen ganz innerhalb der Hülle treten dabei mit $+$ und $-$ auf und fallen heraus.
+--- falsch
+Nein: Die Regel gilt nur für einen einzelnen Punkt. In einer Hülle können die Widerstände Ladung speichern, deshalb geht die Summe nicht auf.
+--- falsch
+Ja, aber nur, wenn in der Hülle kein Widerstand liegt. Ein Widerstand in der Hülle verbraucht Strom, und die Summe wäre nicht mehr null.
+--- falsch
+Ja: Die Ströme aller Zweige in der Hülle ergeben zusammen null, auch die der inneren Zweige. Man muss deshalb jeden Zweig mitzählen, der irgendwo in der Hülle liegt.
+:::
+:::karte zusammenhang Gleicher Strom in Reihe
+Warum fließt durch hintereinanderliegende Bauteile derselbe Strom?
+---
+Weil an ihrem Verbindungspunkt nur zwei Zweige zusammentreffen: Die Knotenregel ergibt dort $I_1=I_2$.
+--- falsch
+Weil die Quelle jedem Bauteil gleich viel Strom zuteilt, gleich ob es in Reihe oder parallel liegt.
+--- falsch
+Weil hintereinanderliegende Bauteile denselben Widerstand haben müssen; sonst wären auch die Ströme verschieden.
+--- falsch
+Weil der Strom im ersten Bauteil verbraucht und im zweiten im selben Maß wieder erzeugt wird.
+:::
+:::karte zusammenhang Kondensator am Knoten
+Gilt die Knotenregel auch, wenn an einem Knoten ein Kondensator hängt?
+---
+Ja: Der Strom zur Platte ist ein Zweigstrom wie jeder andere. Die Ladung sammelt sich nicht auf dem Knoten, sondern auf der Platte.
+--- falsch
+Nein: Ein Kondensator speichert Ladung, deshalb ist die Summe der Ströme am Knoten nicht null, solange er geladen oder entladen wird.
+--- falsch
+Nur wenn sich die Spannung am Kondensator nicht ändert: Sonst sammelt sich seine Ladung auf dem Knoten an.
+--- falsch
+Ja, aber nur, wenn man den Kondensatorstrom weglässt: Er fließt in keinem Zweig, sondern endet auf der Platte.
+:::
+::::

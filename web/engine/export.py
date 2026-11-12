@@ -35,6 +35,8 @@ SCALE = 0.55              # scene px -> article px (24-28 px labels -> 13.2-15.4
 MARGIN = 24               # scene px around the content box (= 13 article px at SCALE)
 COLUMN_PX = 548           # widest image in an :::abbildung box on desktop (see module docstring)
 REF_TEXT_PX = 26          # "normal" label size of the editor catalogue (Legend, Component, Band: 26; ticks 24; arrows 28)
+MIN_TEXT_PX = 9.3         # smallest readable text in the article (px): 17 scene px at SCALE; tools/export_szenen.py warns
+#                           below it (F1, 12.11.2026; in Linux 5, 16 scene px = 8.8 px read like 9 px and too small)
 MODES = ("content", "frame", "canvas")
 # The editor paints its canvas grey (#d4d7dc) in night mode and stores that as the background while it is
 # still the theme default (editor.js THEME_BG). An article figure is never grey: it becomes white.
@@ -159,7 +161,7 @@ class BBoxPainter:
         lo, hi = a.min(axis=0), a.max(axis=0)
         self._add(lo[0] - h, lo[1] - h, hi[0] + h, hi[1] + h)
 
-    def draw_text(self, text, px, py, font_size, color, opacity, align="center", font=None, raw=False):
+    def draw_text(self, text, px, py, font_size, color, opacity, align="center", font=None, raw=False, spans=None):
         if opacity <= 0:
             return
         b = text_box(text, px, py, font_size, align, font, raw)

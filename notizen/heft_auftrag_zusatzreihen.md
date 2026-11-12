@@ -106,7 +106,7 @@ Alles, was du liest, schreibst oder ausgibst, bleibt in deinem Kontext und wird 
 | linux | `C:\Bücher\EtUndSo\Linux\Arbeitshefte` | `C:\Bücher\EtUndSo\Linux\Recherche` | `tools/szenen/linux_teil<N>.py`, Namen `linux/k<N>name` |
 
 **Nummern:** Dateien, Szenen, Labels und der Umwandler (`--kap N`) zählen immer nach der **Lernpfad-Nummer** T<NN>: `Kap<N>_<Name>`, `kap<N>_stufen.tex`, `ml_teil<N>.py`, `ml/k<N>name`, `fig:k<N>…`. Angezeigt wird überall „Kapitel N“, gezählt im Bereich (Benennung seit 09.11.2026, Wunsch des Users; Formen aller Sprachen in `notizen/kapitel_umstellung.md`):
-- Cybersecurity: Kapitel N = T<NN> (Kapitel 1 = T01).
+- Cybersecurity: Kapitel N = Teil N des Stamms mit 12 Heften (seit 11.11.2026), Datei `Kap<N>` (Kapitel 1 = Teil 1 = `Kap1_Sicherheit`, Kapitel 2 = `Kap2_Schutzgrenzen` …). Die alten Nummern T01–T14 leben nur noch in den Namen der WISSEN-Dateien und in `AUFGABEN.md` weiter; Zuordnung alt → neu im Cyber-LERNPFAD.
 - Machine Learning: T01–T06 im Bereich „Mathematische Grundlagen“ als Kapitel 1–6, ab T08 im ML-Pfad als Kapitel N mit **N = Lernpfad-Nummer − 7** (Kapitel 1 = T08 = `Kap8_Lernen`, Szenen `ml/k8…`, Datei `ml_teil8.py`).
 - Programmieren: Python Kapitel N = `Kap<N>`, C Kapitel N = `Kap<100+N>`, C++ Kapitel N = `Kap<200+N>`; Linux und Kommandozeile: Kapitel N = `Kap<N>`.
 - Im Baum der Website steht „Kapitel N: Titel“, der Überblicksartikel heißt „Überblick: <Titel>“ (ohne Nummer).
@@ -167,7 +167,7 @@ Der Dateiname `Kap<N>_<Name>` steht in `tools/heft_zu_artikel.py` unter `MODULE[
 
 ## Praxis: Aufgaben, Code, Labor
 - **Jeder Abschnitt** endet mit mindestens einer Aufgabe; die Aufgaben benutzen nur, was bis dahin erklärt ist. Gemischt: verstehen, rechnen, vorhersagen, praktisch ausführen; Schwierigkeit \stern\ bis \stern\stern\stern. Jede Aufgabe mit `\label{a:...}` und ausführlicher Lösung `\loesung{a:...}` in `kap<N>_loesungen.tex`: der Weg, das Ergebnis und warum es so ist.
-- **Cybersecurity:** Praxis heißt Konsole und Labor, aber erst ab dem Heft, das das Werkzeug einführt (Konsole ab Teil 3; vorher Browser, Papier, Windows-Bordmittel, soweit erklärt).
+- **Cybersecurity:** Praxis heißt Konsole und Labor, aber erst ab dem Heft, das das Werkzeug einführt oder voraussetzt (seit 11.11.2026: Konsole ab Kapitel 2, weil Kapitel 2 Linux, Kapitel 1–8 voraussetzt; Labor-VM mit abgeschottetem Netz ab Kapitel 3; Kapitel 1 nur Browser, Papier, Windows-Bordmittel).
   - Grundregel in jedem Heft mit praktischen Übungen als Kasten `warnung`: nur eigene Systeme, erlaubte Lernplattformen innerhalb ihrer Regeln oder isolierte Labore. Der Rechtsstand muss exakt und aktuell sein; das Heft ist keine Rechtsberatung und sagt das.
   - Riskante Schritte (Datenträger beschreiben, Bootreihenfolge, Secure Boot, BitLocker) stehen mit ihrem Risiko und der Absicherung in einem `warnung`-Kasten, bevor der Schritt kommt.
   - Lösungen von Plattform-Aufgaben werden nie abgedruckt (pwn.college und OverTheWire verbieten es): Dort nur gestufte Hinweise. Vollständige Lösungen gibt es für die eigenen Aufgaben des Hefts.

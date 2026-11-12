@@ -109,18 +109,22 @@ class _Recorder:
                                          tuple(int(c) for c in contours) if contours else None,
                                          tuple(float(v) for v in dash) if dash else None)))
 
-    def draw_text(self, text, px, py, font_size, color, opacity, align="center", font=None, raw=False):
+    def draw_text(self, text, px, py, font_size, color, opacity, align="center", font=None, raw=False, spans=None):
         self.items.append((self._key(), ("t", str(text), float(px), float(py), float(font_size), _rgb(color),
-                                         float(opacity), align, _text_style(font, raw))))
+                                         float(opacity), align, _text_style(font, raw, spans))))
 
 
-def _text_style(font, raw):
-    """Die Zusatz-Schlüsselwörter eines Texts für SvgPainter.draw_text (wie engine/text.text_style)."""
+def _text_style(font, raw, spans=None):
+    """Die Zusatz-Schlüsselwörter eines Texts für SvgPainter.draw_text (wie engine/text.text_style); spans (farbige
+    Abschnitte, F1) als Tupel, damit ein Wechsel der Farben wie ein Wechsel des Inhalts eine Spur "h" ergibt."""
     st = {}
     if font == "mono":
         st["font"] = "mono"
     if raw:
         st["raw"] = True
+        if spans:
+            st["spans"] = tuple((int(a), int(b), tuple(round(float(c), 4) for c in col) if col is not None else None,
+                                 bool(bold)) for a, b, col, bold in spans)
     return tuple(sorted(st.items()))
 
 
@@ -441,7 +445,10 @@ def _path_tracks(el, frames, base, geo3d=None):
                 m = None
             else:
                 aff = _affine(B, pts) if (pts.shape == B.shape and cont == bcont) else None
-                if (aff is not None and MIN_SCALE <= _det_scale(aff) <= MAX_SCALE
+                # Unter einem Parameter (L3, z. B. ein Terminal mit Zeitachse, das wächst) gilt auch ein fast auf einen
+                # Punkt geschrumpftes Bild als Matrix: sonst fiele das ganze Element auf Zahlenspuren aller Punkte (F1).
+                lo = 0.0 if getattr(el, "l3", False) else MIN_SCALE
+                if (aff is not None and lo <= _det_scale(aff) <= MAX_SCALE
                         and (bdash is None or abs(_det_scale(aff) - 1) < 0.01)):
                     m = aff
                 else:

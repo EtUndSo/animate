@@ -89,6 +89,32 @@ Was ändert sich für $Q=-2$ nC?
 :::
 :::
 
+::::formelsammlung
+**Arbeit des Felds an einer Ladung**
+
+$$W_{12}=\int_{P_1}^{P_2}\vec F\cdot\mathrm{d}\vec s=Q\int_{P_1}^{P_2}\vec E\cdot\mathrm{d}\vec s$$
+
+Ladung $Q$ mit Vorzeichen, Weg von $P_1$ nach $P_2$. $W_{12}>0$: Das Feld gibt Energie an die Ladung ab. $W_{12}<0$: Von außen muss $W_\text{außen}=-W_{12}$ aufgewendet werden, sofern die Ladung dabei nicht schneller oder langsamer wird.
+
+**Arbeit im homogenen Feld**
+
+$$W_{12}=Q\,E\,s\cos\alpha$$
+
+Gerader Weg der Länge $s$ unter dem Winkel $\alpha$ zu $\vec E$; quer zum Feld wird keine Arbeit verrichtet.
+
+**Arbeit im Feld einer Punktladung**
+
+$$W_{12}=k\,Q\,Q_0\Bigl(\frac{1}{r_1}-\frac{1}{r_2}\Bigr)$$
+
+$Q$ läuft im Feld von $Q_0$ vom Abstand $r_1$ zum Abstand $r_2$; nur die Änderung des Abstands zählt. Für $r_2\to\infty$ bleibt $W_{12}=kQQ_0/r_1$ endlich.
+
+**Wirbelfreiheit**
+
+$$\oint_L\vec E\cdot\mathrm{d}\vec s=0$$
+
+Im elektrostatischen Feld (ruhende Ladungen, kein sich änderndes Magnetfeld) hängt $W_{12}$ nur von $P_1$ und $P_2$ ab, nicht vom Weg. Gleichbedeutend ist das Integral über jeden geschlossenen Weg $L$ null.
+::::
+
 ::::lernkarten
 :::karte formel Arbeit im elektrischen Feld
 Welche Arbeit $W_{12}$ verrichtet das Feld an einer Ladung $Q$, die von $P_1$ nach $P_2$ geht?
@@ -113,13 +139,13 @@ Wenn seine Feldlinien nirgends gekrümmt sind. Gekrümmte Linien, wie zwischen z
 Wenn $\vec E$ überall null ist. Nur dann hängt die Arbeit an einer Ladung nicht vom Weg ab, weil das Feld auf keinem Weg Arbeit verrichtet.
 :::
 :::karte begriff elektrostatisches Feld
-Was ist ein elektrostatisches Feld?
+Was kennzeichnet ein elektrostatisches Feld, und was gilt in ihm für die Arbeit an einer Ladung auf verschiedenen Wegen?
 ---
 Das elektrische Feld ruhender Ladungen ohne ein sich änderndes Magnetfeld. In ihm gilt $\oint_L\vec E\cdot\mathrm{d}\vec s=0$: Die Arbeit an einer Ladung hängt nicht vom Weg ab.
 --- falsch
 Ein elektrisches Feld, dessen Betrag und Richtung überall gleich sind. In ihm gilt $W_{12}=Q\,E\,s\cos\alpha$ für jeden geraden Weg, an jedem Ort.
 --- falsch
-Das elektrische Feld ruhender Ladungen, in dem ruhende Ladungen keine Kraft erfahren. Nur Ladungen, die sich bewegen, spüren dieses Feld.
+Das elektrische Feld ruhender Ladungen, in dem ruhende Ladungen keine Kraft erfahren. Nur bewegte Ladungen spüren es, und die Arbeit an ihnen wächst mit der Länge des Wegs.
 --- falsch
 Das elektrische Feld ruhender Ladungen, in dem die Arbeit an einer Ladung vom gewählten Weg abhängt, nicht nur von Start und Ziel; Umwege kosten mehr Arbeit.
 :::

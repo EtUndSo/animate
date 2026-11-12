@@ -103,9 +103,23 @@ In die Mitte einer isolierten, neutralen Metallhohlkugel wird eine Ladung $+Q$ g
 :::
 :::
 
+::::formelsammlung
+**Feld im Leiter**
+
+$$\vec E=0$$
+
+Im Inneren eines Leiters mit ruhenden Ladungen: Die freien Elektronen wandern (Influenz), bis die verschobenen Ladungen das äußere Feld im Inneren aufheben; überschüssige Ladung sitzt auf der Oberfläche. Feldlinien stehen senkrecht auf der Oberfläche, ein vom Leiter umschlossener ladungsfreier Hohlraum ist feldfrei (Abschirmung).
+
+**Dichte der Feldlinien einer Punktladung**
+
+$$N/(4\pi r^2)$$
+
+$N$ Linien laufen gleichmäßig in alle Richtungen durch eine Kugel der Fläche $4\pi r^2$. Die Dichte fällt mit $1/r^2$ wie das Coulomb-Gesetz, daher der Faktor $4\pi$ in $k=1/(4\pi\varepsilon_0)$.
+::::
+
 ::::lernkarten
 :::karte begriff Feldlinie
-Was ist eine Feldlinie?
+Was ist eine Feldlinie, und wie liest man aus Feldlinien Richtung und Stärke eines elektrischen Felds ab?
 ---
 Eine Kurve, deren Tangente in jedem Punkt die Richtung von $\vec E$ hat. Die Dichte der Feldlinien zeigt die Stärke des Felds.
 --- falsch
@@ -116,7 +130,7 @@ Eine Kurve, die in jedem Punkt senkrecht zur Richtung von $\vec E$ verläuft. Di
 Eine Kurve, deren Tangente in jedem Punkt die Richtung von $\vec E$ hat. Die Länge einer Feldlinie zeigt die Stärke des Felds.
 :::
 :::karte begriff Quellen und Senken
-Was sind Quellen und Senken der Feldlinien?
+Was meint man, wenn man Ladungen als Quellen und Senken der elektrischen Feldlinien bezeichnet?
 ---
 Quellen sind die positiven Ladungen, auf denen Feldlinien beginnen, Senken die negativen, auf denen sie enden. Dabei fließt nichts; die Wörter meinen Anfang und Ende der Linien.
 --- falsch
@@ -127,7 +141,7 @@ Quellen sind Orte, aus denen Ladung ins Feld hinausfließt, Senken Orte, an dene
 Quellen und Senken sind Punkte im leeren Raum, an denen sich Felder aufheben. Dort beginnen und enden Feldlinien, ohne dass eine Ladung nötig ist.
 :::
 :::karte begriff Influenz
-Was ist Influenz?
+Was versteht man unter Influenz, und welche Ladungen verschieben sich dabei?
 ---
 Die Verschiebung der freien Elektronen in einem Metall durch ein äußeres Feld. Sie wandern, bis keine Kraft mehr auf sie wirkt.
 --- falsch

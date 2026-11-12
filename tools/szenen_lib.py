@@ -23,6 +23,9 @@ Regeln für Artikelbilder (engine/export.py):
   s.welt() als erstes Objekt aufrufen oder Texte und Legenden mit on=<achsen> in Datenkoordinaten setzen.
 """
 import json
+import re
+import sys
+from collections import namedtuple
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -89,6 +92,561 @@ def duenn(pts, tol=1e-3):
 
 def _zahl(v):
     return ("%.6g" % v)
+
+
+# ---------------------------------------------------------------------------- Bildschirme und Fenster (F1)
+# Terminal, Datei-Ansicht, top, Pager und Raster (Schreibmaschinenzeilen mit Spalten-Funktionen). Anleitung:
+# notizen/animationen.md §11, Farben: notizen/f1_terminal_palette.md. Die Geometrie kommt aus web/engine/terminal.py,
+# damit Anker (Spalte -> Szenenkoordinate) genau dort liegen, wo Editor und Export zeichnen.
+MIN_TT = 17.0              # kleinste Schreibmaschinenschrift in Szenenpixeln (9,35 px im Artikel bei Maßstab 0,55)
+Feld = namedtuple("Feld", "a b text")        # Spalten a..b (einschließlich, ab 0) und Inhalt eines Felds
+ANSI_FARBEN = {"schwarz": 30, "rot": 31, "gruen": 32, "gelb": 33, "blau": 34, "magenta": 35, "cyan": 36, "weiss": 37,
+               "grau": 90}
+
+
+def _warnung(text):
+    """Hinweis auf die Konsole, auch wenn sie kein UTF-8 kann (Windows-Konsole: ⚠ wird zu ?)."""
+    enc = getattr(sys.stdout, "encoding", None) or "utf-8"
+    print(str(text).encode(enc, "replace").decode(enc, "replace"))
+
+
+def _engine():
+    web = str(ROOT / "web")
+    if web not in sys.path:
+        sys.path.insert(0, web)
+    from engine import terminal, ansi          # noqa: E402  (die Engine ist reines Python + numpy)
+    return terminal, ansi
+
+
+def farbig(text, farbe, fett=False):
+    """text in einer Farbe als ANSI-Kürzel für s.terminal/s.raster: farbe = ANSI-Name (rot, gruen, gelb, blau, magenta,
+    cyan, weiss, grau, schwarz) oder eine Farbe der Abbildungen ("#eb6834", ORANGE; 24 Bit). Ergebnis mit \\e-Kürzeln."""
+    if isinstance(farbe, str) and farbe.startswith("#"):
+        r, g, b = (int(farbe[i:i + 2], 16) for i in (1, 3, 5))
+        code = "%s38;2;%d;%d;%d" % ("1;" if fett else "", r, g, b)
+    else:
+        if farbe not in ANSI_FARBEN:
+            raise ValueError("farbig: farbe ist eine von %s oder #rrggbb" % ", ".join(ANSI_FARBEN))
+        code = ("1;" if fett else "") + str(ANSI_FARBEN[farbe])
+    return "\\e[%sm%s\\e[0m" % (code, text)
+
+
+def fett(text):
+    return "\\e[1m%s\\e[22m" % text
+
+
+def invers(text):
+    return "\\e[7m%s\\e[27m" % text
+
+
+def _roh(text):
+    """Inhalt für den Datenstrom: ein echtes ESC wird zum lesbaren Kürzel \\e (im Editor sichtbar)."""
+    return str(text).replace("\x1b", "\\e")
+
+
+class _Gitter:
+    """Spalten-Funktionen eines Zeichenrasters (Raster ohne Fenster, Bildschirm eines Terminals). Zeile z und Spalte
+    sp zählen ab 0; a..b sind Spalten einschließlich. Alle Ergebnisse in Szeneneinheiten."""
+
+    def _geo(self):                               # (sx, y0c, cw, lh): linke Kante von Spalte 0, Mitte von Zeile 0
+        raise NotImplementedError
+
+    def _zeile_text(self, z):
+        raise NotImplementedError
+
+    def _groesse(self):
+        raise NotImplementedError
+
+    def x(self, sp):
+        """Linke Kante der Spalte sp."""
+        sx, _, cw, _ = self._geo()
+        return round(sx + sp * cw, 4)
+
+    def xr(self, sp):
+        """Rechte Kante der Spalte sp."""
+        sx, _, cw, _ = self._geo()
+        return round(sx + (sp + 1) * cw, 4)
+
+    def xm(self, a, b=None):
+        """Mitte der Spalten a..b (b fehlt: nur Spalte a)."""
+        return round((self.x(a) + self.xr(a if b is None else b)) / 2, 4)
+
+    def y(self, z):
+        """Mitte der Zeile z."""
+        _, y0, _, lh = self._geo()
+        return round(y0 - z * lh, 4)
+
+    def oben(self, z):
+        return round(self.y(z) + self._geo()[3] / 2, 4)
+
+    def unten(self, z):
+        return round(self.y(z) - self._geo()[3] / 2, 4)
+
+    @property
+    def zelle(self):
+        """(Breite, Höhe) einer Zelle."""
+        g = self._geo()
+        return round(g[2], 4), round(g[3], 4)
+
+    def _ab(self, z, a, b):
+        if a is None:
+            t = self._zeile_text(z)
+            return 0, max(0, len(t) - 1)
+        return a, (a if b is None else b)
+
+    def anker(self, z, a=None, b=None, seite="mitte"):
+        """Punkt (x, y) an Zeile z, Spalten a..b (ohne a: ganze Zeile): seite = mitte, oben, unten, links, rechts,
+        oben_links, oben_rechts, unten_links, unten_rechts. Für Pfeile, Linien, Beschriftungen."""
+        a, b = self._ab(z, a, b)
+        xs = {"links": self.x(a), "rechts": self.xr(b)}
+        ys = {"oben": self.oben(z), "unten": self.unten(z)}
+        if seite == "mitte":
+            return (self.xm(a, b), self.y(z))
+        if seite in ys:
+            return (self.xm(a, b), ys[seite])
+        if seite in xs:
+            return (xs[seite], self.y(z))
+        teile = seite.split("_")
+        if len(teile) == 2 and teile[0] in ys and teile[1] in xs:
+            return (xs[teile[1]], ys[teile[0]])
+        raise ValueError("anker: seite ist mitte, oben, unten, links, rechts oder oben_links …")
+
+    def felder(self, z, trenner=None):
+        """Felder der Zeile z: trenner=None = durch Leerraum getrennt, sonst an jedem trenner (":" , ","); auch leere
+        Felder (a = Spalte, b = a - 1). Ergebnis [Feld(a, b, text)]."""
+        t = self._zeile_text(z)
+        if trenner is None:
+            return [Feld(m.start(), m.end() - 1, m.group()) for m in re.finditer(r"\S+", t)]
+        out, pos = [], 0
+        for f in t.split(trenner):
+            out.append(Feld(pos, pos + len(f) - 1, f))
+            pos += len(f) + len(trenner)
+        return out
+
+    def trenner(self, z, zeichen):
+        """Spalten aller Vorkommen von zeichen in Zeile z (z. B. die Doppelpunkte einer passwd-Zeile)."""
+        t = self._zeile_text(z)
+        return [m.start() for m in re.finditer(re.escape(zeichen), t)]
+
+    def finde(self, z, muster, n=1, regex=False):
+        """Spalten (a, b) des n-ten Vorkommens von muster in Zeile z (regex=True: regulärer Ausdruck)."""
+        t = self._zeile_text(z)
+        treffer = list(re.finditer(muster if regex else re.escape(muster), t))
+        if len(treffer) < n:
+            raise ValueError("finde: %r kommt in Zeile %d nur %d-mal vor: %r" % (muster, z, len(treffer), t))
+        m = treffer[n - 1]
+        return m.start(), m.end() - 1
+
+    def _rechteck(self, z, a, b, bis):
+        a, b = self._ab(z, a, b)
+        z2 = z if bis is None else bis
+        x0, x1 = self.x(a), self.xr(b)
+        y0, y1 = self.unten(z2), self.oben(z)
+        return ((x0 + x1) / 2, (y0 + y1) / 2), x1 - x0, y1 - y0
+
+    def markieren(self, z, a=None, b=None, farbe=ORANGE, deckung=0.3, bis=None):
+        """Hinterlegung der Spalten a..b in den Zeilen z..bis (ohne a: ganze Zeile). Beim Raster liegt sie UNTER dem
+        Text (wird vor dessen erster Zeile eingereiht; dafür Szene(..., reihenfolge="anlegen")), beim Terminal darüber.
+        Ergebnis: id."""
+        m, w, h = self._rechteck(z, a, b, bis)
+        oid = self.s.box("", (round(m[0], 4), round(m[1], 4)), breite=round(w, 4), hoehe=round(h, 4), form="rect",
+                         farbe=farbe, fuellung=farbe, deckung=deckung, dicke=0)
+        self._unter_text(oid)
+        return oid
+
+    def _unter_text(self, oid):
+        pass
+
+    def rahmen(self, z, a=None, b=None, farbe=ORANGE, dicke=2.5, bis=None, rand=0.03):
+        """Umriss (abgerundet, ohne Füllung) um Spalten a..b, Zeilen z..bis. Ergebnis: id."""
+        m, w, h = self._rechteck(z, a, b, bis)
+        return self.s.box("", (round(m[0], 4), round(m[1], 4)), breite=round(w + 2 * rand, 4), hoehe=round(h + 2 * rand, 4),
+                          form="round", farbe=farbe, fuellung="#ffffff", deckung=0.0, dicke=dicke)
+
+    def klammer(self, z, a, b, text="", seite="oben", farbe=BLAU, groesse=18, abstand=0.05, tiefe=0.07, dicke=2.0,
+                schrift=None, textfarbe=None):
+        """Eckige Klammer über (seite="oben") oder unter Spalten a..b der Zeile z, Schenkel zum Text hin, mit
+        Beschriftung (Text oder s.tr-Schlüssel; schrift="tt" für Code wie $1). Ergebnis (id Klammer, id Text oder
+        None)."""
+        if seite not in ("oben", "unten"):
+            raise ValueError('klammer: seite ist "oben" oder "unten"')
+        xa, xb = self.x(a) + 0.02, self.xr(b) - 0.02
+        if seite == "oben":
+            y_fuss = self.oben(z) + abstand
+            y_bal = y_fuss + tiefe
+            yt = y_bal + 0.04 + groesse * 0.6 / PX
+        else:
+            y_fuss = self.unten(z) - abstand
+            y_bal = y_fuss - tiefe
+            yt = y_bal - 0.04 - groesse * 0.6 / PX
+        pts = [(xa, y_fuss), (xa, y_bal), (xb, y_bal), (xb, y_fuss)]
+        k = self.s._add("Shape", {"points": ";".join("%s,%s" % (_zahl(round(px, 4)), _zahl(round(py, 4))) for px, py in pts),
+                                  "closed": False, "label": "", "material": "custom", "font_size": 24, "color": farbe,
+                                  "fill_color": farbe, "fill_opacity": 0.0, "stroke_width": dicke, "dash": ""})
+        t = None
+        if text:
+            t = self.s.text(None, text, (self.xm(a, b), round(yt, 4)), groesse, "center", textfarbe or farbe, schrift=schrift)
+        return k, t
+
+    def teil(self, z, a, b, farbe=None, text=None):
+        """Deckungsgleiche Kopie der Spalten a..b von Zeile z als eigener Text (Schreibmaschinenschrift): löst sich und
+        wandert (s.verschieben, s.bewegen_zu) oder wird ersetzt (s.ersetzen). farbe fehlt: Farbe der Zeichen.
+        Ergebnis: id."""
+        t = text if text is not None else self._zeile_text(z)[a:b + 1]
+        return self.s.text(None, t, (self.x(a), self.y(z)), self._groesse(), "left", farbe or self._farbe(z, a),
+                           schrift="tt")
+
+    def _farbe(self, z, a):
+        return SCHWARZ
+
+
+class Raster(_Gitter):
+    """Zeilen in Schreibmaschinenschrift ohne Fenster (s.raster): eine s.text-Zeile je Zeile, jede einzeln animierbar.
+    ids: die Zeilen; zeile(z) = id der Zeile z."""
+
+    def __init__(self, s, zeilen, pos, groesse, ausrichtung, zeilenabstand, farbe, ansi):
+        _, an = _engine()
+        self.s, self.groesse, self.farbe = s, float(groesse), farbe
+        roh = zeilen.split("\n") if isinstance(zeilen, str) else [str(z) for z in zeilen]
+        self.zeilen = [an.strip(z) if ("\x1b" in z or "\\e[" in z) else z for z in roh]
+        n, breit = len(roh), max((len(z) for z in self.zeilen), default=0)
+        self.cw = tt_breite(groesse, 1)
+        self.lh = zeilenabstand * groesse / PX
+        if ausrichtung == "mitte":
+            self.sx, self.y0 = pos[0] - breit * self.cw / 2, pos[1] + (n - 1) * self.lh / 2
+        elif ausrichtung == "links":
+            self.sx, self.y0 = pos[0], pos[1]
+        else:
+            raise ValueError('raster: ausrichtung ist "links" (pos = linke Kante, Mitte der ersten Zeile) oder "mitte"')
+        self.ids = []
+        for i, z in enumerate(roh):
+            farbig_ = ansi if ansi is not None else ("\x1b" in z or "\\e[" in z)
+            self.ids.append(s.text(None, _roh(z), (round(self.sx, 4), round(self.y0 - i * self.lh, 4)), groesse, "left",
+                                   farbe, schrift="tt", ansi=bool(farbig_)))
+
+    def _geo(self):
+        return self.sx, self.y0, self.cw, self.lh
+
+    def _zeile_text(self, z):
+        return self.zeilen[z]
+
+    def _groesse(self):
+        return self.groesse
+
+    def _farbe(self, z, a):
+        return self.farbe
+
+    def zeile(self, z):
+        return self.ids[z]
+
+    @property
+    def links(self):
+        return round(self.sx, 4)
+
+    @property
+    def rechts(self):
+        return round(self.sx + max(len(z) for z in self.zeilen) * self.cw, 4)
+
+    def _unter_text(self, oid):                    # die Hinterlegung vor die erste Zeile setzen (liegt darunter)
+        objs = self.s.objects
+        neu = next(o for o in objs if o["id"] == oid)
+        objs.remove(neu)
+        i = next(k for k, o in enumerate(objs) if o["id"] == self.ids[0])
+        objs.insert(i, neu)
+
+    def faerben(self, z, abschnitte, rest=None, dauer=0.8):
+        """Zeile z neu einfärben (Animation, s.ersetzen): abschnitte = [(a, b, farbe)] (Farben der Abbildungen oder
+        ANSI-Namen), rest = Farbe aller übrigen Zeichen (z. B. GRAU: „Rest grau“). Ergebnis: id der Animation."""
+        t = self.zeilen[z]
+        farbe_von = {}
+        for a, b, f in abschnitte:
+            for i in range(a, b + 1):
+                farbe_von[i] = f
+        teile, i = [], 0
+        while i < len(t):
+            f = farbe_von.get(i, rest)
+            j = i
+            while j < len(t) and farbe_von.get(j, rest) == f:
+                j += 1
+            teile.append(farbig(t[i:j], f) if f else t[i:j])
+            i = j
+        o = next(x for x in self.s.objects if x["id"] == self.ids[z])
+        o["props"]["ansi"] = True                  # die Vorlage von s.ersetzen übernimmt das
+        return self.s.ersetzen(self.ids[z], "".join(teile), dauer=dauer)
+
+    def wert(self, z, a, b, neu, farbe=None, dauer=0.8):
+        """Wert an fester Spalte wechseln: Spalten a..b werden ein eigener Text, der in neu übergeht; der Rest der
+        Zeile bleibt stehen. Ergebnis (id des Teils, id der Animation)."""
+        o = next(x for x in self.s.objects if x["id"] == self.ids[z])
+        t = self.zeilen[z]
+        tid = self.teil(z, a, b)
+        self.zeilen[z] = t[:a] + " " * (b - a + 1) + t[b + 1:]     # die Zeile behält eine Lücke (auch für faerben)
+        o["props"]["text"] = _roh(self.zeilen[z])
+        return tid, self.s.ersetzen(tid, neu, farbe=farbe, dauer=dauer)
+
+
+class Terminal(_Gitter):
+    """Ein Fenster der Engine (Objekt "Terminal"): s.terminal, s.datei, s.top, s.pager. id = Objekt-id. Zeile z und
+    Spalte sp der Spalten-Funktionen zählen auf dem Bildschirm (Zeile 0 = oberste Bildschirmzeile). Jeder Zustand ist ein
+    Schritt der Zeitachse (Parameter, ChangeValue linear); Anker hängen an der Fenstergröße: entweder spalten/zeilen fest
+    setzen oder Anker erst nach dem letzten Schritt abfragen (speichern() prüft das)."""
+
+    def __init__(self, s, props):
+        self.s = s
+        self.id = s._add("Terminal", props)
+        self.props = next(o for o in s.objects if o["id"] == self.id)["props"]
+        self.param = None
+        self.schritte = 0
+        self._ext_fest = None
+        m = re.match(r"([\w.-]+)@([\w.-]+):", props.get("text", ""))
+        self.user, self.host = (m.group(1), m.group(2)) if m else ("student", "labor")
+        s.__dict__.setdefault("_terminals", []).append(self)
+
+    # Geometrie
+    def _ext(self):
+        term, _ = _engine()
+        p = self.props
+        e = term.extent(p["text"], int(p.get("cols", 0)), int(p.get("rows", 0)), bool(p.get("cursor", True)),
+                        bool(p.get("prompt_colors", True)))
+        return e
+
+    def _g(self):
+        term, _ = _engine()
+        e = self._ext()
+        if self._ext_fest is None:
+            self._ext_fest = e
+        return term.geometry(self.props, *e)
+
+    def _geo(self):
+        g = self._g()
+        return g["sx"], g["sy0"] - g["lh"] / 2, g["cw"], g["lh"]
+
+    def _groesse(self):
+        return float(self.props.get("font_size", 20))
+
+    def _zeile_text(self, z, zustand=None):
+        term, _ = _engine()
+        p = self.props
+        rows = term.screen_rows(p["text"], zustand, int(p.get("cols", 0)), int(p.get("rows", 0)),
+                                bool(p.get("cursor", True)), bool(p.get("prompt_colors", True)))
+        return rows[z] if z < len(rows) else ""
+
+    def zeilen(self, zustand=None):
+        """Text aller Bildschirmzeilen im Zustand zustand (None = Ende)."""
+        return [self._zeile_text(z, zustand) for z in range(self._ext()[1])]
+
+    def _zellen(self, z, zustand=None):
+        term, _ = _engine()
+        p = self.props
+        e = self._ext()
+        sc = term.run(p["text"], zustand, e[0], e[1], p.get("theme", "dunkel"), bool(p.get("prompt_colors", True)))["screen"]
+        return sc.lines[z] if z < len(sc.lines) else []
+
+    def _farbe(self, z, a):
+        _, an = _engine()
+        row = self._zellen(z)
+        fg = row[a][1] if a < len(row) else None
+        return fg or an.palette(self.props.get("theme", "dunkel"))["fg"]
+
+    def teil(self, z, a, b, farbe=None, text=None, zustand=None):
+        """Deckungsgleiche Kopie der Spalten a..b (Bildschirmzeile z) mit den Farben und der Fettschrift der Zellen
+        (farbe gesetzt: einfarbig). Liest den Bildschirm beim Aufruf (Endzustand der bis dahin angelegten Schritte):
+        erst nach dem Schritt aufrufen, der die Zeichen schreibt, oder text= angeben. Ergebnis: id (s.text in
+        Schreibmaschinenschrift)."""
+        if text is None and not self._zeile_text(z, zustand)[a:b + 1].strip():
+            raise ValueError("teil: Zeile %d, Spalten %d..%d sind (noch) leer; teil nach dem Schritt aufrufen, der sie "
+                             "schreibt, oder text= angeben" % (z, a, b))
+        if farbe is not None or text is not None:
+            return super().teil(z, a, b, farbe, text)
+        _, an = _engine()
+        fg0 = an.palette(self.props.get("theme", "dunkel"))["fg"]
+        row = self._zellen(z, zustand)
+        teile, last = [], None
+        for c in range(a, b + 1):
+            ch, fg, _bg, bold = row[c] if c < len(row) else (" ", None, None, False)
+            if ch == "":
+                continue
+            st = (fg or fg0, bool(bold))
+            if st != last:
+                r_, g_, b_ = (int(st[0][i:i + 2], 16) for i in (1, 3, 5))
+                teile.append("\\e[0;%s38;2;%d;%d;%dm" % ("1;" if st[1] else "", r_, g_, b_))
+                last = st
+            teile.append("\\\\" if ch == "\\" else ch)          # ein Backslash bleibt einer (\\\\ im Datenstrom)
+        return self.s.text(None, "".join(teile) + "\\e[0m", (self.x(a), self.y(z)), self._groesse(), "left", fg0,
+                           schrift="tt", ansi=True)
+
+    @property
+    def groesse(self):
+        """(Breite, Höhe) des Fensters."""
+        g = self._g()
+        return round(g["w"], 4), round(g["h"], 4)
+
+    @property
+    def links(self):
+        return round(self._g()["x0"], 4)
+
+    @property
+    def rechts(self):
+        g = self._g()
+        return round(g["x0"] + g["w"], 4)
+
+    @property
+    def oben_kante(self):
+        return round(self._g()["y0"], 4)
+
+    @property
+    def unten_kante(self):
+        g = self._g()
+        return round(g["y0"] - g["h"], 4)
+
+    @property
+    def mitte(self):
+        g = self._g()
+        return round(g["x0"] + g["w"] / 2, 4), round(g["y0"] - g["h"] / 2, 4)
+
+    @property
+    def titel_anker(self):
+        """Mitte der Titelleiste."""
+        g = self._g()
+        return round(g["x0"] + g["w"] / 2, 4), round(g["y0"] - g["bar"] / 2, 4)
+
+    def kreuz_anker(self):
+        """Mitte des Schließen-Knopfs (×)."""
+        g = self._g()
+        return round(g["x0"] + g["w"] - 0.28 * g["bar"] - 0.275 * g["bar"], 4), round(g["y0"] - g["bar"] / 2, 4)
+
+    # Zeitachse
+    def _schritt(self, roh, dauer):
+        if self._ext_fest is not None:
+            alt = self._ext_fest
+        if self.param is None:
+            nr = len(self.s.__dict__.get("_params") or {}) + 1
+            name = "term%d" % nr
+            while name in (self.s.__dict__.get("_params") or {}):
+                nr += 1
+                name = "term%d" % nr
+            self.param = name
+            self.s.parameter(name, 0)
+            self.props["state"] = name
+        self.props["text"] += "\\e|" + _roh(roh)
+        self.schritte += 1
+        if self._ext_fest is not None and self._ext() != alt:
+            raise ValueError("terminal %s: ein Schritt ändert die Fenstergröße %s -> %s, nachdem schon Anker abgefragt "
+                             "wurden; spalten/zeilen fest setzen oder Anker erst nach dem letzten Schritt abfragen"
+                             % (self.id, alt, self._ext()))
+        return self.s.verstellen(self.param, self.schritte, dauer=dauer, rate="linear")
+
+    def _prompt_text(self, pfad=None, root=False):
+        return "%s@%s:%s%s " % ("root" if root else self.user, self.host, pfad if pfad is not None else "~",
+                                "#" if root else "$")
+
+    def eingabe(self, befehl, tempo=14.0, enter=True, dauer=None):
+        """Befehl wird Zeichen für Zeichen getippt (tempo Zeichen je Sekunde), dann die Eingabetaste (enter=False:
+        ohne). Ein Schritt; Ergebnis: id der Animation."""
+        roh = "\\e>" + befehl + ("\n" if enter else "")
+        d = dauer if dauer is not None else max(0.5, (len(befehl) + (1 if enter else 0)) / float(tempo))
+        return self._schritt(roh, round(d, 3))
+
+    def tippen(self, text, tempo=14.0, dauer=None):
+        """Wie eingabe, aber ohne Eingabetaste."""
+        return self.eingabe(text, tempo, enter=False, dauer=dauer)
+
+    def ausgabe(self, text, zeilenweise=False, dauer=0.6):
+        """Ausgabezeilen erscheinen (ANSI-Kürzel erlaubt), auf einmal oder zeilenweise (je Zeile ein Schritt).
+        Ergebnis: id der (letzten) Animation."""
+        zeilen = str(text).split("\n")
+        if not zeilenweise:
+            return self._schritt("\n".join(zeilen) + "\n", dauer)
+        a = None
+        for z in zeilen:
+            a = self._schritt(z + "\n", dauer)
+        return a
+
+    def prompt(self, pfad=None, root=False, dauer=0.4):
+        """Neue Eingabeaufforderung (user@host:pfad$ ), ein Schritt."""
+        return self._schritt(self._prompt_text(pfad, root), dauer)
+
+    def befehl(self, befehl, ausgabe="", pfad=None, root=False, tempo=14.0, dauer=0.6, prompt=True):
+        """Befehl tippen (ein Schritt), dann Ausgabe und neue Eingabeaufforderung zusammen (zweiter Schritt; pfad =
+        Verzeichnis danach, z. B. nach cd). Ergebnis: id der zweiten Animation."""
+        self.eingabe(befehl, tempo)
+        roh = (str(ausgabe) + "\n" if ausgabe else "") + (self._prompt_text(pfad, root) if prompt else "")
+        return self._schritt(roh, dauer)
+
+    def warten(self, dauer=1.2):
+        """Der Cursor blinkt dreimal (das Programm wartet), dann steht er ruhig."""
+        return self._schritt("\\e~", dauer)
+
+    def leeren(self, prompt=True, pfad=None, dauer=0.4):
+        """Bildschirm leeren (clear), danach wieder die Eingabeaufforderung."""
+        return self._schritt("\\e[H\\e[2J" + (self._prompt_text(pfad) if prompt else ""), dauer)
+
+    def setze(self, zeile, spalte=None, text=None, dauer=0.5):
+        """Wert wechselt an fester Stelle: setze(z, sp, "0.7") oder setze([(z, sp, text), …]) in einem Schritt (Cursor
+        bleibt, wo er war)."""
+        liste = zeile if isinstance(zeile, (list, tuple)) else [(zeile, spalte, text)]
+        roh = "\\e[s" + "".join("\\e[%d;%dH%s" % (z + 1, sp + 1, t) for z, sp, t in liste) + "\\e[u"
+        return self._schritt(roh, dauer)
+
+    def schritt(self, roh, dauer=0.6):
+        """Ein beliebiger Schritt im Format des Datenstroms (Text, ANSI-Kürzel, \\e> getippt, \\e~ warten)."""
+        return self._schritt(roh, dauer)
+
+    def schliessen(self, dauer=1.0):
+        """Fenster schließen: × leuchtet, das Fenster blendet aus (fehlt danach im Endbild)."""
+        return self._schritt("\\e!", dauer)
+
+    def zeile_dazu(self, text, dauer=0.6):
+        """Datei-Ansicht: eine Zeile kommt am Ende hinzu."""
+        return self._schritt("\n" + text, dauer)
+
+
+def _top_kopf(zeilen):
+    """Kopfzeilen von top: Zahlen ab Zeile 2 fett (wie top sie hervorhebt)."""
+    out = []
+    for i, z in enumerate(zeilen):
+        out.append(z if i == 0 else re.sub(r"(?<![\w.])(\d+(?:\.\d+)?)", lambda m: fett(m.group(1)), z))
+    return out
+
+
+class Top(Terminal):
+    """Vollbild top (s.top): Kopf, Leerzeile, inverse Spaltenzeile, Prozesse. bild(...) = nächstes Bild: nur
+    geänderte Zeilen werden neu geschrieben (ein Schritt)."""
+
+    def _schirm(self, kopf, tabelle):
+        breite = int(self.props.get("cols", 0)) or max(len(z) for z in list(kopf) + list(tabelle))
+        kopf = [z[:breite] for z in kopf]                # top kürzt jede Zeile auf die Fensterbreite,
+        tabelle = [z if len(z) <= breite else z[:breite - 1] + "+" for z in tabelle]   # Prozesszeilen mit +
+        return (_top_kopf(kopf) + [""] + [invers(tabelle[0].ljust(breite))] + tabelle[1:]), breite
+
+    def bild(self, kopf=None, tabelle=None, dauer=0.8):
+        kopf = list(kopf if kopf is not None else self._kopf)
+        tabelle = list(tabelle if tabelle is not None else self._tabelle)
+        alt, _ = self._schirm(self._kopf, self._tabelle)
+        neu, _ = self._schirm(kopf, tabelle)
+        roh = []
+        for z, (a, b) in enumerate(zip(alt + [""] * (len(neu) - len(alt)), neu)):
+            if a != b:
+                roh.append("\\e[%d;1H\\e[K%s" % (z + 1, b))
+        self._kopf, self._tabelle = kopf, tabelle
+        return self._schritt("".join(roh), dauer)
+
+
+class Pager(Terminal):
+    """Pager (s.pager, z. B. systemctl status, journalctl, less): sichtbare Zeilen und die Statuszeile invers.
+    weiter(n) blättert n Zeilen vor (ein Schritt)."""
+
+    def _schirm(self, ab):
+        teil = self._alle[ab:ab + self._sicht]
+        n = len(self._alle)
+        ende = ab + len(teil)
+        status = self._status or ("lines %d-%d/%d%s" % (ab + 1, ende, n, " (END)" if ende >= n else ""))
+        return "\n".join(teil + [""] * (self._sicht - len(teil))) + "\n" + invers(status)
+
+    def weiter(self, n=1, dauer=0.6):
+        """n Zeilen weiter blättern (n < 0: zurück), ein Schritt."""
+        self._von = max(0, min(max(0, len(self._alle) - self._sicht), self._von + n))
+        return self._schritt("\\e[H\\e[2J" + self._schirm(self._von), dauer)
 
 
 def det_ausdruck(matrix, p="s"):
@@ -234,7 +792,7 @@ class Szene:
                                     "font_size": groesse, "row_gap": zeile, "swatch_len": 0.4, "gap": 0.12, "color": SCHWARZ, "stroke_width": 4}, on)
 
     # ---------------------------------------------------------------------------- Text und Blöcke
-    def text(self, on, s, pos, groesse=TEXT, ausrichtung="left", farbe=SCHWARZ, schrift=None, roh=None):
+    def text(self, on, s, pos, groesse=TEXT, ausrichtung="left", farbe=SCHWARZ, schrift=None, roh=None, ansi=False):
         """Beschriftung. Ohne Zusatz Rich-Text: _x tief, ^x hoch, \\alpha, \\\\ Zeilenumbruch; $ { } verschwinden;
         Dezimalpunkte werden in de/es/fr/tr zum Komma.
         schrift="tt": Schreibmaschinenschrift (Terminalzeilen, Code, Werkzeugausgaben). Jedes Zeichen steht in einer
@@ -242,9 +800,12 @@ class Szene:
           Zeichen belegt zwei Zellen; ' und ` bleiben gerade; Dezimalpunkte bleiben Punkte. Kostet nur die Zeichen
           selbst (keine Formel-Glyphen). Ohne roh=False ist tt immer roh.
         roh=True: der Text wörtlich (_ ^ \\ $ { } sind gewöhnliche Zeichen, Dateinamen wie einkauf_alt.txt oder C:\\
-          ohne Maskierung; ein echter Zeilenumbruch "\\n" bricht die Zeile). @schluessel aus s.tr gilt weiter."""
+          ohne Maskierung; ein echter Zeilenumbruch "\\n" bricht die Zeile). @schluessel aus s.tr gilt weiter.
+        ansi=True (F1): ANSI-Kürzel im Text (\\e[1;32m …, farbig(...)) färben Abschnitte der einen Zeile; roh."""
         p = {"text": s, "position": [pos[0], pos[1], pos[2] if len(pos) > 2 else 0], "font_size": groesse, "align": ausrichtung,
              "color": farbe}
+        if ansi:
+            p["ansi"] = True
         if schrift not in (None, "sans", "tt", "mono"):
             raise ValueError('schrift ist None, "tt" oder "sans"')
         mono = schrift in ("tt", "mono")
@@ -796,6 +1357,111 @@ class Szene:
         """Gleichmäßige Drehung um die senkrechte Achse (wie Manims ambient rotation) über dauer Sekunden."""
         return self.kamera(drehen=grad, dauer=dauer, rate="linear")
 
+    # ---------------------------------------------------------------------------- Bildschirme und Fenster (F1)
+    # Anleitung: notizen/animationen.md §11. Inhalte von Terminal und Datei sind in allen Sprachen gleich (roh);
+    # \\e[…m sind ANSI-Kürzel (farbig, fett, invers), \\\\ schreibt einen Backslash vor einem e.
+    def raster(self, zeilen, pos, groesse=20, ausrichtung="links", zeilenabstand=1.35, farbe=SCHWARZ, ansi=None):
+        """Zeilen in Schreibmaschinenschrift ohne Fenster (Datei- oder Ausgabezeilen zum Zerlegen). zeilen = Text mit
+        \\n oder Liste; pos = (linke Kante der Spalte 0, Mitte der Zeile 0) bei ausrichtung="links", Mitte des Blocks
+        bei "mitte". Jede Zeile ist ein s.text (einzeln animierbar), ANSI-Kürzel färben Abschnitte. Ergebnis: Raster mit
+        ids, zeile(z), x, xr, xm, y, oben, unten, anker, felder, trenner, finde, markieren, rahmen, klammer, teil, wert,
+        faerben."""
+        if groesse < MIN_TT:
+            _warnung("⚠ raster: Schrift %.1f px ist kleiner als %.0f px (im Artikel unter 9,4 px)" % (groesse, MIN_TT))
+        return Raster(self, zeilen, pos, groesse, ausrichtung, zeilenabstand, farbe, ansi)
+
+    def _fenster(self, cls, text, pos, spalten, zeilen, titel, groesse, stil, rahmen, knoepfe, cursor, farbprompt,
+                 max_breite, schatten=True):
+        term, _ = _engine()
+        if rahmen not in term.FRAMES:
+            raise ValueError("rahmen ist einer von %s" % ", ".join(term.FRAMES))
+        if knoepfe not in term.BUTTONS:
+            raise ValueError("knoepfe ist einer von %s" % ", ".join(term.BUTTONS))
+        if groesse is None:                      # so groß wie möglich (höchstens 20 px), aber nicht breiter als max_breite
+            c = spalten or term.extent(_roh(text), 0, 0, cursor, farbprompt)[0]
+            groesse = min(20.0, int(10 * max_breite * PX / (TT_ZELLE * c + 2 * term.PAD_X_EM)) / 10.0)
+        if groesse < MIN_TT:
+            _warnung("⚠ %s: Schrift %.1f px ist kleiner als %.0f px (im Artikel unter 9,4 px): weniger Spalten"
+                  % (self.name, groesse, MIN_TT))
+        p = {"text": _roh(text), "cols": int(spalten), "rows": int(zeilen), "font_size": float(groesse),
+             "line_height": 1.2, "position": [round(pos[0], 4), round(pos[1], 4), 0], "frame": rahmen, "theme": stil,
+             "title": titel, "buttons": knoepfe, "cursor": bool(cursor), "prompt_colors": bool(farbprompt),
+             "shadow": bool(schatten), "state": ""}
+        t = cls(self, p)
+        t.max_breite = float(max_breite)
+        return t
+
+    def terminal(self, text=None, pos=(-3.4, 1.6), spalten=0, zeilen=0, titel=None, prompt="student@labor:~$ ",
+                 groesse=None, stil="dunkel", rahmen="fenster", knoepfe="drei", cursor=True, farbprompt=True,
+                 max_breite=6.9):
+        """Terminalfenster (dunkel, an Ubuntu angelehnt): pos = linke obere Ecke; spalten/zeilen 0 = so viel wie nötig
+        (über alle Zustände); titel None = "user@host: ~" aus dem Prompt; text = Anfangsinhalt (None: nur der Prompt).
+        Ablauf: eingabe, tippen, ausgabe, prompt, befehl, warten, leeren, setze, schritt, schliessen (je ein Schritt der
+        Zeitachse). groesse None = 20 px oder kleiner, damit das Fenster höchstens max_breite breit ist.
+        Ergebnis: Terminal (Spalten-Funktionen wie beim Raster, dazu links, rechts, oben_kante, unten_kante, mitte,
+        titel_anker, kreuz_anker())."""
+        start = prompt if text is None else text
+        if titel is None:
+            m = re.match(r"([\w.-]+@[\w.-]+):(\S*?)[$#] ?", prompt or "")
+            titel = "%s: %s" % (m.group(1), m.group(2) or "~") if m else ""
+        return self._fenster(Terminal, start, pos, spalten, zeilen, titel, groesse, stil, rahmen, knoepfe, cursor,
+                             farbprompt, max_breite)
+
+    def datei(self, name, inhalt, pos=(-3.4, 1.6), spalten=0, zeilen=0, groesse=None, stil="hell", knoepfe="x",
+              max_breite=6.9):
+        """Datei-Ansicht: Fenster mit dem Dateinamen als Titel und dem Inhalt (ohne Cursor, ohne Prompt-Farben).
+        zeile_dazu(text) lässt eine Zeile hinzukommen; markieren/rahmen/klammer/teil wie beim Raster."""
+        return self._fenster(Terminal, inhalt, pos, spalten, zeilen, name, groesse, stil, "datei", knoepfe, False, False,
+                             max_breite)
+
+    def top(self, kopf, tabelle, pos=(-3.4, 1.6), spalten=0, titel="student@labor: ~", groesse=None, stil="dunkel",
+            max_breite=6.9):
+        """Vollbild top: kopf = Kopfzeilen (Liste), tabelle = [Spaltenzeile, Prozesszeile, …]; die Spaltenzeile ist
+        invers über die ganze Breite, Zahlen im Kopf fett. bild(kopf=…, tabelle=…) = nächstes Bild (nur geänderte Zeilen,
+        ein Schritt); setze(z, sp, wert) für einen einzelnen Wert."""
+        breite = spalten or max(len(z) for z in list(kopf) + list(tabelle))
+        t = Top.__new__(Top)
+        t._kopf, t._tabelle = list(kopf), list(tabelle)
+        t.props = {"cols": breite}
+        zeilen, _ = Top._schirm(t, kopf, tabelle)
+        text = "\\e[?25l" + "\n".join(zeilen)
+        obj = self._fenster(Top, text, pos, breite, len(zeilen), titel, groesse, stil, "fenster", "drei", False, False,
+                            max_breite)
+        obj._kopf, obj._tabelle = list(kopf), list(tabelle)
+        return obj
+
+    def pager(self, zeilen, pos=(-3.4, 1.6), sichtbar=None, status=None, spalten=0, titel="student@labor: ~",
+              groesse=None, stil="dunkel", max_breite=6.9):
+        """Pager (less, systemctl status, journalctl): zeilen (Liste, ANSI-Kürzel erlaubt), sichtbar = so viele Zeilen
+        auf dem Bildschirm (None = alle), darunter die Statuszeile invers (status None = "lines 1-12/12 (END)").
+        weiter(n) blättert n Zeilen vor."""
+        _, an = _engine()
+        alle = [str(z) for z in zeilen]
+        sicht = sichtbar or len(alle)
+        breite = spalten or max(len(an.strip(z)) for z in alle)
+        t = Pager.__new__(Pager)
+        t._alle, t._sicht, t._status, t._von = alle, sicht, status, 0
+        text = Pager._schirm(t, 0)
+        obj = self._fenster(Pager, text, pos, breite, sicht + 1, titel, groesse, stil, "fenster", "drei", True, True,
+                            max_breite)
+        obj._alle, obj._sicht, obj._status, obj._von = alle, sicht, status, 0
+        return obj
+
+    def schloss(self, mitte, groesse=0.3, offen=False, farbe=GRAU):
+        """Kleines neutrales Schloss (zu oder offen); groesse = Höhe in Szeneneinheiten. Ergebnis: id."""
+        return self._add("Lock", {"center": [mitte[0], mitte[1], 0], "size": float(groesse), "open": bool(offen),
+                                  "color": farbe})
+
+    def _fenster_pruefen(self):
+        for t in self.__dict__.get("_terminals", ()):
+            if t._ext_fest is not None and t._ext() != t._ext_fest:
+                raise ValueError("terminal %s: Anker wurden bei Fenstergröße %s abgefragt, am Ende ist sie %s; "
+                                 "spalten/zeilen fest setzen" % (t.id, t._ext_fest, t._ext()))
+            g = t._g()
+            if g["w"] > getattr(t, "max_breite", 99.0) + 1e-6:
+                _warnung("⚠ %s: Fenster %s ist %.2f breit (höchstens %.2f): groesse oder spalten kleiner"
+                      % (self.name, t.id, g["w"], t.max_breite))
+
     # ---------------------------------------------------------------------------- Ablegen
     def model(self):
         m = {"v": 1, "counters": {"nextId": self.n + 1, "nextAnimId": 1, "nextCompId": 1},
@@ -810,6 +1476,7 @@ class Szene:
         return m
 
     def speichern(self):
+        self._fenster_pruefen()
         p = SZENEN / (self.name + ".json")
         p.parent.mkdir(parents=True, exist_ok=True)
         p.write_text(json.dumps(self.model(), ensure_ascii=False, indent=1), encoding="utf-8", newline="\n")

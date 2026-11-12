@@ -116,6 +116,19 @@ added there and pass** before it is considered done.
   intermediate times, composition, rotation path keeps |p|, round dot, ghost grid stays, camera between keyframes, scene
   file → `python_model` → engine for both).
 
+## Screens and windows (F1, 12.11.2026)
+- `Terminal` (engine/terminal.py) is ONE composite object built from paths and labels: shadow, window, title bar,
+  buttons, cell backgrounds, cursor, one mono `Text` per screen row. The tree has the same seven children in every
+  state (the cursor stays as a transparent node, cell backgrounds live in their own group), so the animated export keys
+  stay stable.
+- Its states come from its `text` (a terminal stream, marks `\e|` between states) and its prop `state` (a number,
+  usually a scene Parameter moved by ChangeValue). It is therefore exactly an L3 object: rebuilt per frame from its
+  spec, a pure function of the parameter value (typed characters = floor(f · n), blinking and closing from f).
+- `Text.spans` ((start, end, rgb | None, bold), …) colours sections of a raw label; painters get it as keyword `spans`
+  (text.text_style), only when set. `Text(ansi=True)` parses ANSI codes (engine/ansi.py). Transform Text → Text takes
+  the template's spans with its text.
+- Contract cases: two "F1 …" models in `tests/test_contract.py`; values in `tests/test_f1_terminal.py`.
+
 ## Adding a new primitive — checklist
 - [ ] Geometry lives in `points` (cubic Bézier, `N = 3k+1`); multi-contour glyphs keep contours in one
       leaf via `_contours` (even-odd fill).

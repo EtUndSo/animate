@@ -120,3 +120,108 @@ Vorhersage: Durch die Masche aus Quelle, $R_1$ und $R_2$ tritt ein Stabmagnet, d
 (d) Die Maschenregel. Der sich ändernde Fluss erzeugt längs der Masche ein Wirbelfeld, $\oint\vec E\cdot\mathrm{d}\vec s$ ist nicht null, und die Summe der Spannungen wird gleich der Induktionsspannung. Die Knotenregel bleibt gültig.
 :::
 :::
+
+::::formelsammlung
+**Maschenregel (zweites kirchhoffsches Gesetz)**
+
+$$\sum_{\nu=1}^{N}U_\nu=0$$
+
+$U_\nu$ positiv mit dem Umlauf, negativ gegen den Umlauf gezählt; gilt in jedem Umlaufsinn und in jedem Zeitpunkt. Für ein Netz sind $z-k+1$ dieser Gleichungen unabhängig. Der magnetische Fluss durch die Masche darf sich nicht ändern; der Weg darf über offene Klemmen führen.
+
+**Maschenregel aus Potenzialen**
+
+$$(\varphi_1-\varphi_2)+(\varphi_2-\varphi_3)+\dots+(\varphi_N-\varphi_1)=0$$
+
+Jedes Potenzial tritt einmal mit $+$ und einmal mit $-$ auf. Mit der Ladung $Q$ multipliziert ist das die Energiebilanz eines Umlaufs: Die Summe aller $Q\,U_\nu$ ist null.
+::::
+
+::::lernkarten
+:::karte formel Maschenregel
+Was besagt die Maschenregel, das zweite kirchhoffsche Gesetz, über die Spannungen längs einer Masche?
+---
+$\sum_{\nu=1}^{N}U_\nu=0$ in jedem Umlaufsinn und in jedem Zeitpunkt; $U_\nu$ zählt positiv mit dem Umlauf, negativ gegen ihn. Für ein Netz sind $z-k+1$ dieser Gleichungen unabhängig.
+--- falsch
+$\sum_{\nu=1}^{N}U_\nu=0$, wobei alle Spannungen positiv zählen, gleich wie ihr Pfeil zum Umlauf liegt. Für ein Netz sind $k-1$ dieser Gleichungen voneinander unabhängig.
+--- falsch
+$\sum_{\nu=1}^{N}U_\nu=0$, aber nur, wenn alle Zweige der Masche Drähte enthalten. Über offene Klemmen hinweg darf eine Masche nicht führen.
+--- falsch
+Die Summe aller Ströme längs einer Masche ist null, $\sum I_\nu=0$, in jedem Umlaufsinn. Für ein Netz sind $z-k+1$ dieser Gleichungen unabhängig.
+:::
+:::karte zusammenhang Maschenregel und Energieerhaltung
+Warum ist die Maschenregel eine Form der Energieerhaltung?
+---
+Wer im Kreis läuft, kommt auf demselben Potenzial an. Mit $Q$ multipliziert: Was eine Ladung in der Quelle an Energie gewinnt, gibt sie in den Widerständen wieder ab.
+--- falsch
+Weil die Quelle in jeder Masche genau so viel Ladung liefert, wie die Widerstände aufnehmen. Die Summe aller Ladungen längs des Umlaufs ist deshalb null, wie die der Spannungen.
+--- falsch
+Weil die Widerstände Energie speichern und sie beim Umlauf wieder an die Quelle zurückgeben. Nach einem Umlauf ist alle Energie wieder in der Quelle.
+--- falsch
+Weil sich die Ströme an jedem Knoten der Masche aufheben: Was in einen Knoten fließt, kommt wieder heraus, und mit dem Strom auch die Energie.
+:::
+:::karte herleitung Maschenregel aus dem Potenzial
+Leite die Maschenregel $\sum U_\nu=0$ aus dem Potenzial her und deute sie als Energiebilanz.
+---
+Jeder Punkt des Netzes hat ein Potenzial, und jede Zweigspannung ist eine Potenzialdifferenz, $U_{12}=\varphi_1-\varphi_2$, weil das Feld wirbelfrei ist: $\oint\vec E\cdot\mathrm{d}\vec s=0$.
+---
+Für Punkte $P_1,\dots,P_N$ längs einer Masche ist die Summe der Spannungen $(\varphi_1-\varphi_2)+(\varphi_2-\varphi_3)+\dots+(\varphi_N-\varphi_1)$, weil jede Zweigspannung die Differenz der Potenziale ihrer Enden ist.
+---
+Diese Summe ist null, weil jedes Potenzial einmal mit $+$ und einmal mit $-$ auftritt: Der Umlauf endet auf dem Startpotenzial.
+---
+Mit der Ladung $Q$ multipliziert ist das die Energiebilanz eines Umlaufs, weil $Q\,U_\nu$ die Energie ist, die die Ladung im Zweig $\nu$ abgibt oder gewinnt.
+:::
+:::karte zusammenhang Potenzial längs der Masche
+Wie ändert sich das Potenzial, wenn man längs einer Masche einer positiven Spannung in Pfeilrichtung folgt, und wie, wenn man gegen den Pfeil läuft?
+---
+In Pfeilrichtung sinkt es um die Spannung, gegen den Pfeil steigt es um sie, weil $U_{12}=\varphi_1-\varphi_2$ ist. So endet jeder Umlauf beim Start.
+--- falsch
+In Pfeilrichtung steigt es um die Spannung, gegen den Pfeil sinkt es um sie, weil der Spannungspfeil stets zum höheren Potenzial zeigt.
+--- falsch
+Es ändert sich nur an der Quelle; an den Widerständen bleibt es gleich, weil dort der Strom die Spannung aufbraucht.
+--- falsch
+In beiden Richtungen sinkt es um die Spannung, weil das Potenzial längs eines Stromkreises immer weiter abnimmt.
+:::
+:::karte zusammenhang Bewegter Magnet in der Masche
+Was stimmt an den kirchhoffschen Regeln nicht mehr, wenn sich der magnetische Fluss durch eine Masche ändert, etwa durch einen bewegten Magneten?
+---
+Die Maschenregel: Das Feld ist nicht mehr wirbelfrei, $\oint\vec E\cdot\mathrm{d}\vec s$ ist nicht null, und die Summe der Spannungen ist nicht mehr null. Die Knotenregel bleibt gültig.
+--- falsch
+Nichts: Beide Regeln gelten immer, weil jeder Ort ein festes Potenzial hat, gleich was das Magnetfeld tut.
+--- falsch
+Die Knotenregel: Der bewegte Magnet zieht Elektronen aus den Knoten heraus, und die Summe der Ströme ist nicht mehr null. Die Maschenregel bleibt dagegen gültig.
+--- falsch
+Das ohmsche Gesetz: Im Magnetfeld ändern die Drähte ihren Widerstand; Knoten- und Maschenregel bleiben aber gültig.
+:::
+:::karte zusammenhang Aufteilung beim Einschalten
+Woher „weiß“ der Strom beim Einschalten, wie er sich auf die Zweige eines Netzes aufteilen muss?
+---
+Er weiß nichts: An den Knoten sammeln sich winzige Ladungen und verschieben deren Potenziale, bis nirgends mehr etwas hängen bleibt. Das geschieht in Nanosekunden.
+--- falsch
+Die Quelle misst die Widerstände der Zweige und teilt jedem Zweig vorab den passenden Strom zu, bevor sie ihre Spannung anlegt.
+--- falsch
+Die ersten Elektronen probieren alle Wege aus und nehmen den mit dem kleinsten Widerstand; erst danach folgen die übrigen Elektronen auf den anderen Wegen nach.
+--- falsch
+Der Strom fließt zuerst ganz durch den kürzesten Zweig. Erst nach einigen Sekunden verteilt er sich gleichmäßig auf alle Zweige des Netzes, gleich wie groß sie sind.
+:::
+:::karte zusammenhang Maschen über offene Klemmen
+Warum darf eine Masche auch über offene Klemmen führen, an denen kein Bauteil liegt?
+---
+Weil ein Weg keinem Draht folgen muss: Jeder Punkt hat ein Potenzial, und die Spannung zwischen den Klemmen zählt im Umlauf wie jede andere.
+--- falsch
+Weil zwischen offenen Klemmen keine Spannung liegt. Sie zählen im Umlauf mit null und stören die Summe deshalb nicht.
+--- falsch
+Weil über offene Klemmen trotzdem ein kleiner Strom fließt, der die Masche schließt. Ohne ihn gälte die Regel dort nicht.
+--- falsch
+Sie darf es eigentlich nicht: Eine Masche muss aus Zweigen bestehen, in denen Strom fließt, sonst ist die Summe der Spannungen nicht null.
+:::
+:::karte zusammenhang Umlaufsinn
+Was ändert sich an einer Maschengleichung, wenn man den Umlaufsinn umkehrt?
+---
+Nur das Gesamtvorzeichen: Alle Spannungen wechseln das Vorzeichen, und die Gleichung $\sum U_\nu=0$ sagt dasselbe.
+--- falsch
+Die Gleichung wird falsch: Der Umlauf muss in Richtung des Stroms laufen, sonst ist die Summe nicht null.
+--- falsch
+Es ändern sich die Beträge der Spannungen, weil man die Widerstände in anderer Reihenfolge durchläuft.
+--- falsch
+Quellenspannungen zählen dann doppelt, einmal beim Hinweg und einmal beim Rückweg durch die Quelle.
+:::
+::::

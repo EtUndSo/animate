@@ -1,0 +1,574 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 20,
+  "nextAnimId": 25,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Text",
+    "props": {
+     "text": "Uid:    1000    1000    1000    1000",
+     "position": [
+      -2.45,
+      1.05,
+      0
+     ],
+     "font_size": 26,
+     "align": "left",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Text",
+    "props": {
+     "text": "Uid:    1000    0",
+     "position": [
+      -2.45,
+      0.2,
+      0
+     ],
+     "font_size": 26,
+     "align": "left",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o3",
+    "type": "Text",
+    "props": {
+     "text": "bash",
+     "position": [
+      -3.4,
+      1.05,
+      0
+     ],
+     "font_size": 17,
+     "align": "left",
+     "color": "#7f7f7f",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Text",
+    "props": {
+     "text": "sudo",
+     "position": [
+      -3.4,
+      0.2,
+      0
+     ],
+     "font_size": 17,
+     "align": "left",
+     "color": "#7f7f7f",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o5",
+    "type": "Shape",
+    "props": {
+     "points": "-1.5056,1.5;-1.5056,1.57;-1.0833,1.57;-1.0833,1.5",
+     "closed": false,
+     "label": "",
+     "material": "custom",
+     "font_size": 24,
+     "color": "#7f7f7f",
+     "fill_color": "#7f7f7f",
+     "fill_opacity": 0.0,
+     "stroke_width": 2.0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Text",
+    "props": {
+     "text": "@real",
+     "position": [
+      -1.2944,
+      1.69,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o7",
+    "type": "Shape",
+    "props": {
+     "points": "-0.5811,1.23;-0.5811,1.3;-0.1589,1.3;-0.1589,1.23",
+     "closed": false,
+     "label": "",
+     "material": "custom",
+     "font_size": 24,
+     "color": "#7f7f7f",
+     "fill_color": "#7f7f7f",
+     "fill_opacity": 0.0,
+     "stroke_width": 2.0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Text",
+    "props": {
+     "text": "@eff",
+     "position": [
+      -0.37,
+      1.42,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o9",
+    "type": "Shape",
+    "props": {
+     "points": "0.3433,1.5;0.3433,1.57;0.7656,1.57;0.7656,1.5",
+     "closed": false,
+     "label": "",
+     "material": "custom",
+     "font_size": 24,
+     "color": "#2a78d6",
+     "fill_color": "#2a78d6",
+     "fill_opacity": 0.0,
+     "stroke_width": 2.0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o10",
+    "type": "Text",
+    "props": {
+     "text": "@gesp",
+     "position": [
+      0.5544,
+      1.69,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o11",
+    "type": "Shape",
+    "props": {
+     "points": "1.2678,1.23;1.2678,1.3;1.69,1.3;1.69,1.23",
+     "closed": false,
+     "label": "",
+     "material": "custom",
+     "font_size": 24,
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 0.0,
+     "stroke_width": 2.0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Text",
+    "props": {
+     "text": "@dsys",
+     "position": [
+      1.4789,
+      1.42,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#eb6834"
+    }
+   },
+   {
+    "id": "o13",
+    "type": "Text",
+    "props": {
+     "text": "0",
+     "position": [
+      -0.6011,
+      0.2,
+      0
+     ],
+     "font_size": 26.0,
+     "align": "left",
+     "color": "#2a78d6",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o14",
+    "type": "Text",
+    "props": {
+     "text": "0",
+     "position": [
+      1.2478,
+      0.2,
+      0
+     ],
+     "font_size": 26.0,
+     "align": "left",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o15",
+    "type": "ParametricCurve",
+    "props": {
+     "fx": "-0.5433+0.9244*t",
+     "fy": "0.35+0.0*t+0.18*4*t*(1-t)",
+     "t_min": 0,
+     "t_max": 1,
+     "samples": 41,
+     "show_arrow": true,
+     "arrow_at": "0.55",
+     "color": "#2a78d6",
+     "stroke_width": 2.5,
+     "dash": "",
+     "head_size": 0.12
+    }
+   },
+   {
+    "id": "o16",
+    "type": "Text",
+    "props": {
+     "text": "@kopie",
+     "position": [
+      -0.0811,
+      0.75,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o17",
+    "type": "ParametricCurve",
+    "props": {
+     "fx": "-0.5433+1.8488*t",
+     "fy": "0.05+0.0*t+-0.22*4*t*(1-t)",
+     "t_min": 0,
+     "t_max": 1,
+     "samples": 41,
+     "show_arrow": true,
+     "arrow_at": "0.55",
+     "color": "#eb6834",
+     "stroke_width": 2.5,
+     "dash": "",
+     "head_size": 0.12
+    }
+   },
+   {
+    "id": "o18",
+    "type": "Text",
+    "props": {
+     "text": "@fs1",
+     "position": [
+      0.3811,
+      -0.35,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#eb6834"
+    }
+   },
+   {
+    "id": "o19",
+    "type": "Text",
+    "props": {
+     "text": "@fs2",
+     "position": [
+      0.3811,
+      -0.59,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#333333"
+    }
+   }
+  ],
+  "animations": [
+   {
+    "id": "a1",
+    "type": "FadeIn",
+    "target": "o1",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a2",
+    "type": "FadeIn",
+    "target": "o2",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a3",
+    "type": "FadeIn",
+    "target": "o3",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a4",
+    "type": "FadeIn",
+    "target": "o4",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a5",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.4,
+    "step": 1
+   },
+   {
+    "id": "a6",
+    "type": "Create",
+    "target": "o5",
+    "run_time": 0.45,
+    "step": 2
+   },
+   {
+    "id": "a7",
+    "type": "FadeIn",
+    "target": "o6",
+    "run_time": 0.45,
+    "step": 2
+   },
+   {
+    "id": "a8",
+    "type": "Create",
+    "target": "o7",
+    "run_time": 0.45,
+    "step": 3
+   },
+   {
+    "id": "a9",
+    "type": "FadeIn",
+    "target": "o8",
+    "run_time": 0.45,
+    "step": 3
+   },
+   {
+    "id": "a10",
+    "type": "Create",
+    "target": "o9",
+    "run_time": 0.45,
+    "step": 4
+   },
+   {
+    "id": "a11",
+    "type": "FadeIn",
+    "target": "o10",
+    "run_time": 0.45,
+    "step": 4
+   },
+   {
+    "id": "a12",
+    "type": "Create",
+    "target": "o11",
+    "run_time": 0.45,
+    "step": 5
+   },
+   {
+    "id": "a13",
+    "type": "FadeIn",
+    "target": "o12",
+    "run_time": 0.45,
+    "step": 5
+   },
+   {
+    "id": "a14",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 6
+   },
+   {
+    "id": "a15",
+    "type": "FadeIn",
+    "target": "o13",
+    "run_time": 0.3,
+    "step": 7
+   },
+   {
+    "id": "a16",
+    "type": "MoveTo",
+    "target": "o13",
+    "run_time": 0.9,
+    "step": 8,
+    "point": [
+     0.3233,
+     0.2,
+     0
+    ]
+   },
+   {
+    "id": "a17",
+    "type": "Create",
+    "target": "o15",
+    "run_time": 0.9,
+    "step": 8
+   },
+   {
+    "id": "a18",
+    "type": "FadeIn",
+    "target": "o16",
+    "run_time": 0.6,
+    "step": 9
+   },
+   {
+    "id": "a19",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 10
+   },
+   {
+    "id": "a20",
+    "type": "Create",
+    "target": "o17",
+    "run_time": 0.8,
+    "step": 11
+   },
+   {
+    "id": "a21",
+    "type": "FadeIn",
+    "target": "o14",
+    "run_time": 0.8,
+    "step": 11
+   },
+   {
+    "id": "a22",
+    "type": "FadeIn",
+    "target": "o18",
+    "run_time": 0.6,
+    "step": 12
+   },
+   {
+    "id": "a23",
+    "type": "FadeIn",
+    "target": "o19",
+    "run_time": 0.6,
+    "step": 12
+   },
+   {
+    "id": "a24",
+    "type": "Indicate",
+    "target": "o14",
+    "run_time": 0.8,
+    "step": 12
+   }
+  ],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "real": {
+    "de": "real",
+    "en": "real",
+    "es": "real",
+    "zh": "实际",
+    "fr": "réel",
+    "tr": "gerçek"
+   },
+   "eff": {
+    "de": "effektiv",
+    "en": "effective",
+    "es": "efectivo",
+    "zh": "有效",
+    "fr": "effectif",
+    "tr": "etkin"
+   },
+   "gesp": {
+    "de": "gespeichert",
+    "en": "saved",
+    "es": "guardado",
+    "zh": "保存",
+    "fr": "sauvegardé",
+    "tr": "kaydedilmiş"
+   },
+   "dsys": {
+    "de": "Dateisystem",
+    "en": "file system",
+    "es": "sistema de archivos",
+    "zh": "文件系统",
+    "fr": "système de fichiers",
+    "tr": "dosya sistemi"
+   },
+   "kopie": {
+    "de": "Kopie vom Start, für den Rückweg",
+    "en": "copy from the start, for the way back",
+    "es": "copia del inicio, para volver",
+    "zh": "启动时的副本，用于切换回来",
+    "fr": "copie du démarrage, pour le retour",
+    "tr": "başlangıçtaki kopya, geri dönüş için"
+   },
+   "fs1": {
+    "de": "folgt der effektiven Nummer:",
+    "en": "follows the effective ID:",
+    "es": "sigue al número efectivo:",
+    "zh": "跟随有效用户号：",
+    "fr": "suit le numéro effectif :",
+    "tr": "etkin numarayı izler:"
+   },
+   "fs2": {
+    "de": "mit ihr prüft der Kernel Dateizugriffe",
+    "en": "the kernel checks file access with it",
+    "es": "con él el kernel comprueba los accesos a archivos",
+    "zh": "内核用它检查文件访问",
+    "fr": "le noyau contrôle avec lui les accès aux fichiers",
+    "tr": "çekirdek dosya erişimini onunla denetler"
+   }
+  },
+  "drawOrder": "creation"
+ }
+}

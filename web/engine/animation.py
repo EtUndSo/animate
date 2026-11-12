@@ -565,6 +565,7 @@ class Transform(Animation):
         src, k = (s, 1.0 - 2.0 * a) if a < 0.5 else (e, 2.0 * a - 1.0)
         t.text, t.align = src.text, getattr(src, "align", "center")
         t.font, t.raw = getattr(src, "font", "sans"), getattr(src, "raw", False)
+        t.spans = getattr(src, "spans", None)            # coloured sections (F1) come with the text
         t.fill_opacity = src.fill_opacity * k
         t.stroke_opacity = src.stroke_opacity * k
 

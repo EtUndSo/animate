@@ -3,8 +3,8 @@
 
 const ENGINE_FILES = [
   "__init__.py", "constants.py", "camera.py", "renderer.py", "AnimObject.py",
-  "bezier.py", "plotting.py", "simpleShape.py", "text.py", "richtext.py", "svg.py", "svg_painter.py", "axes.py", "threed.py", "legend.py", "value_tracker.py",
-  "figures.py", "circuit.py",
+  "bezier.py", "plotting.py", "simpleShape.py", "text.py", "richtext.py", "ansi.py", "svg.py", "svg_painter.py", "axes.py", "threed.py", "legend.py", "value_tracker.py",
+  "figures.py", "circuit.py", "terminal.py",
   "results.py", "calc.py", "geometry.py", "processes.py", "arithmetic.py", "animation.py", "rate_functions.py", "scene.py", "scene_model.py",
   "export.py",
 ];
@@ -220,6 +220,24 @@ const CATALOG = {
     // Named node / junction with a label (potential name); offset of the label in world units; dot:false = label only.
     Node:      { center:[0,0,0], label:"K_1", offset:[0.25,0.25,0], dot:true, radius:0.08, font_size:26, color:"#000000" },
   },
+  // F1 (12.11.2026): screens and windows, guide notizen/animationen.md §11, palette notizen/f1_terminal_palette.md.
+  // A Terminal is ONE object: window (title bar with – □ × or only ×), screen on a grid of cells. `text` is a stream as a
+  // real terminal receives it: ANSI codes written \e[…m (colours 30-37/90-97, 1 bold, 7 inverse, 38;2;r;g;b), cursor
+  // position \e[r;cH, erase \e[2J / \e[K, cursor off/on \e[?25l / \e[?25h; plus four marks for the timeline:
+  // \e| next state · \e> typed from here (character by character) · \e~ cursor waits (blinks) · \e! window closes.
+  // A prompt user@host:path$ at a line start gets the colours of the default .bashrc (prompt_colors). cols/rows 0 = as
+  // needed over all states. state = a number or the name of a Parameter (empty = end state); the button „Zustände als
+  // Schritte anlegen“ below the properties makes one ChangeValue step per state. frame: fenster | datei | ohne,
+  // theme: dunkel | hell, buttons: drei | x | keine. Textblock = a Text in the typewriter font with ANSI colours.
+  "Bildschirm & Fenster": {
+    Terminal: { text:"student@labor:~$ ls --color\n\\e[1;34mDokumente\\e[0m  notizen.txt  \\e[1;32mskript.sh\\e[0m\n\\e|student@labor:~$ \\e>cd Dokumente\n\\e|student@labor:~/Dokumente$ ", cols:0, rows:0, font_size:20, line_height:1.2, position:[-3.4,1.6,0], frame:"fenster", theme:"dunkel", title:"student@labor: ~", buttons:"drei", cursor:true, prompt_colors:true, shadow:true, state:"" },
+    "Datei-Ansicht": { _type:"Terminal", text:"root:x:0:0:root:/root:/bin/bash\nstudent:x:1000:1000:Student:/home/student:/bin/bash", cols:0, rows:0, font_size:20, line_height:1.2, position:[-3.4,1.6,0], frame:"datei", theme:"hell", title:"/etc/passwd", buttons:"x", cursor:false, prompt_colors:false, shadow:true, state:"" },
+    "TUI: top": { _type:"Terminal", text:"\\e[?25ltop - 00:04:48 up 0 min,  1 user,  load average: 0.24, 0.05, 0.02\nTasks:  \\e[1m73\\e[22m total,   \\e[1m1\\e[22m running,  \\e[1m72\\e[22m sleeping,   \\e[1m0\\e[22m stopped,   \\e[1m0\\e[22m zombie\n%Cpu(s):  \\e[1m0.0\\e[22m us,  \\e[1m0.0\\e[22m sy,  \\e[1m0.0\\e[22m ni,\\e[1m100.0\\e[22m id,  \\e[1m0.0\\e[22m wa,  \\e[1m0.0\\e[22m hi,  \\e[1m0.0\\e[22m si,  \\e[1m0.0\\e[22m st\nMiB Mem :  \\e[1m31846.7\\e[22m total,  \\e[1m30927.2\\e[22m free,    \\e[1m741.4\\e[22m used,    \\e[1m486.3\\e[22m buff/cache\nMiB Swap:   \\e[1m8192.0\\e[22m total,   \\e[1m8192.0\\e[22m free,      \\e[1m0.0\\e[22m used.  \\e[1m31105.3\\e[22m avail Mem\n\n\\e[7m    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND  \\e[27m\n      1 root      20   0   24512  14592  11008 S   0.0   0.0   0:01.28 systemd\n     46 root      19  -1   42060  15752  14728 S   0.0   0.0   0:00.26 systemd-+\n     83 systemd+  20   0   22412  13952  11520 S   0.0   0.0   0:00.13 systemd-+\n    112 root      20   0    4464   2816   2688 S   0.0   0.0   0:00.01 cron\n    113 message+  20   0    8784   4864   4352 S   0.0   0.0   0:00.11 dbus-dae+", cols:80, rows:12, font_size:19, line_height:1.2, position:[-3.45,1.6,0], frame:"fenster", theme:"dunkel", title:"student@labor: ~", buttons:"drei", cursor:false, prompt_colors:false, shadow:true, state:"" },
+    "TUI: Pager": { _type:"Terminal", text:"\\e[1;32m●\\e[0m cron.service - Regular background program processing daemon\n     Loaded: loaded (/usr/lib/systemd/system/cron.service; \\e[32menabled\\e[0m; preset: \\e[32menabled\\e[0m)\n     Active: \\e[1;32mactive (running)\\e[0m since Thu 2026-11-12 00:04:44 CET; 8s ago\n Invocation: a074ad10927f48989da488ac53ddbe7a\n       Docs: man:cron(8)\n   Main PID: 112 (cron)\n      Tasks: 1 (limit: 38204)\n     Memory: 512K (peak: 2M)\n        CPU: 18ms\n     CGroup: /system.slice/cron.service\n             \\e[90m└─\\e[0m112 /usr/sbin/cron -f -P\n\\e[7mlines 1-11/11 (END)\\e[27m", cols:84, rows:12, font_size:18, line_height:1.2, position:[-3.45,1.6,0], frame:"fenster", theme:"dunkel", title:"student@labor: ~", buttons:"drei", cursor:true, prompt_colors:false, shadow:true, state:"" },
+    Textblock: { _type:"Text", text:"drwxr-xr-x 2 student student 4096 Nov 10 \\e[1;34mDokumente\\e[0m", position:[-3,0,0], font_size:20, align:"left", font:"mono", raw:true, ansi:true, color:"#111111" },
+    // A small neutral lock (closed / open), size = height in scene units.
+    Schloss: { _type:"Lock", center:[0,0,0], size:0.4, open:false, color:"#7f7f7f" },
+  },
 };
 
 // Ready-made scenes. Each is an editor model (objects + animations) the user can load and then
@@ -395,6 +413,7 @@ function ensureDefaults(o){
   if (o.children) for (const c of o.children) ensureDefaults(c);
 }
 const CIRCUIT_TYPES = new Set(["Component","Device","Wire","Node"]);   // schematic elements (grid, snap, wiring)
+const SCREEN_TYPES = new Set(["Terminal","Lock"]);                     // F1: screens, windows, symbols (2D)
 function migrateModel(){
   for (const o of (model.objects || [])) ensureDefaults(o);
   // Σ/∏ saved before the all-steps figure and line wrapping existed: show both settings, keep the old look.
@@ -598,9 +617,12 @@ let bgFn = null;                      // fast background recolour (theme toggle 
 
 // ---------- model -> python ----------
 function hexToRgb(h){ const n=parseInt(h.slice(1),16); return [((n>>16)&255)/255,((n>>8)&255)/255,(n&255)/255]; }
+// A colour prop is exactly #rrggbb; any other text that starts with # (a comment line, #!/bin/bash, a root prompt in a
+// Terminal) stays text (F1, 12.11.2026; tools/export_szenen.py _to_args uses the same rule).
+const isHexColor = (v) => typeof v==="string" && /^#[0-9a-fA-F]{6}$/.test(v);
 function toArgs(props){
   const a={};
-  for(const [k,v] of Object.entries(props)) a[k] = (typeof v==="string" && v.startsWith("#")) ? hexToRgb(v) : v;
+  for(const [k,v] of Object.entries(props)) a[k] = isHexColor(v) ? hexToRgb(v) : v;
   return a;
 }
 function objToSpec(o){                                 // editor node -> interpreter spec (recursive)
@@ -1029,7 +1051,7 @@ function freshColor(){
 // their colour: circuit symbols, text boxes, tables, arrows, braces; Text/LaTeX and the green/red Mark too.
 // (Recolouring a TextBox also set fill = text colour -> invisible text.)
 function wantsAutoColor(type, props){
-  return type!=="Text" && type!=="MathTex" && type!=="Mark" && props && typeof props.color==="string"
+  return type!=="Text" && type!=="MathTex" && type!=="Mark" && type!=="Lock" && props && typeof props.color==="string"
          && !/^#(?:000000|111111|000|111)$/i.test(props.color);
 }
 // Give a copied spec a colour no other element has (mirrors addObject's auto-colour).
@@ -1053,6 +1075,8 @@ function addObject(type, defaults){
   // "select panel (b), add a graph" lands the graph in panel (b). Circuit elements always go onto the
   // 1:1 schematic panel (created with the first one), and a part then hangs at the cursor until placed.
   const cur = selected();
+  if(SCREEN_TYPES.has(type) && model.camera.mode==="3d"){              // F1: screens and windows are flat (2D view)
+    model.camera.mode="2d"; const vm=$("view-mode"); if(vm) vm.value="2d"; }
   if(CIRCUIT_TYPES.has(type)){
     if(model.camera.mode==="3d"){ model.camera.mode="2d"; const vm=$("view-mode"); if(vm) vm.value="2d"; }   // schematics are 2D
     node.on = ensureSchematicPanel().id;
@@ -1762,6 +1786,9 @@ const ENUMS = {
   "Axes.y_axis_at":        ["auto", "left"],
   "Wire.route":            ["direct", "hv", "vh"],
   "DotProduct.display":    ["rechnung", "komponenten", "matrix"],
+  "Terminal.frame":        ["fenster", "datei", "ohne"],             // F1: window with title bar, file view, bare screen
+  "Terminal.theme":        ["dunkel", "hell"],
+  "Terminal.buttons":      ["drei", "x", "keine"],
 };
 // Dash presets offered in the `dash` field (free "on,off" pixel patterns also work).
 const DASH_PRESETS = ["", "10,7", "4,4", "2,5", "14,6,3,6"];
@@ -1797,10 +1824,10 @@ function propInput(obj,key,val){
     commitOnEnter(i); wrap.appendChild(s); wrap.appendChild(i);
     return propRow(key, wrap);
   }
-  if(typeof val==="string" && MULTILINE_KEYS.has(key) && !val.startsWith("#")){
+  if(typeof val==="string" && MULTILINE_KEYS.has(key) && !isHexColor(val)){
     const t=document.createElement("textarea"); t.value=val; t.rows=Math.min(8, Math.max(2, val.split("\n").length));
     t.style="flex:1 1 0;min-width:0;padding:4px 6px;border:1px solid var(--border);border-radius:6px;font:inherit;font-family:ui-monospace,Consolas,monospace;font-size:12px;background:var(--field);resize:vertical;";
-    t.onchange=()=>{ obj.props[key]=t.value; renderPreview(); };
+    t.onchange=()=>{ obj.props[key]=t.value; renderPreview(); if(obj.type==="Terminal") renderProps(); };   // F1: the state count below follows the text
     return propRow(key, t);
   }
   if(Array.isArray(val)){
@@ -1811,7 +1838,7 @@ function propInput(obj,key,val){
   if(typeof val==="boolean"){ const i=document.createElement("input"); i.type="checkbox"; i.checked=val; i.onchange=()=>{ obj.props[key]=i.checked; renderPreview(); }; return propRow(key,i); }
   const numProp = typeof val==="number" || (typeof val==="string" && typeof ((OBJ_DEFAULTS[obj.type]||{})[key])==="number");
   if(numProp) return propRow(key, propNumberInput(obj, val, (x)=>{ obj.props[key]=x; renderPreview(); }));   // L3: or an expression
-  if(typeof val==="string" && val.startsWith("#")){ const i=document.createElement("input"); i.type="color"; i.value=val; i.oninput=()=>{ obj.props[key]=i.value; renderPreview(); }; return propRow(key,i); }
+  if(isHexColor(val)){ const i=document.createElement("input"); i.type="color"; i.value=val; i.oninput=()=>{ obj.props[key]=i.value; renderPreview(); }; return propRow(key,i); }
   const i=document.createElement("input"); i.type="text"; i.value=val; i.onchange=()=>{ obj.props[key]=i.value; renderPreview(); }; commitOnEnter(i); return propRow(key,i);
 }
 function renderProps(){
@@ -2428,6 +2455,7 @@ function renderAnimations(container, o){
       renderL5Fields(wrap, a, o);
     }
   }
+  if(o.type==="Terminal") renderTerminalStates(wrap, o);              // F1: its states = steps of the timeline
   const adder=document.createElement("div"); adder.style="margin-top:6px";
   for(const [grp,types] of Object.entries(ANIM_GROUPS)){                // grouped by kind of motion
     if((grp===PARAM_ANIM_GROUP) !== (o.type==="Parameter")) continue;  // a Parameter is only moved, nothing else is
@@ -2437,6 +2465,49 @@ function renderAnimations(container, o){
       b.textContent = t==="ChangeValue" ? "+ Verstellen (ChangeValue)" : "+ "+t; b.onclick=()=>addAnimation(t); adder.appendChild(b); }
   }
   wrap.appendChild(adder); container.appendChild(wrap);
+}
+
+// ---------- F1: the states of a Terminal as steps of the timeline ----------
+// A Terminal's text is split into states by the mark \e| (written by tools/szenen_lib.py or by hand). Its prop `state`
+// names a scene Parameter; one ChangeValue (rate linear) per state moves it 0 -> 1 -> 2 …, exactly as szenen_lib writes
+// them. Duration: typed text (after \e>) 14 characters a second (at least 0.5 s), waiting (\e~) 1.2 s, closing (\e!)
+// 1 s, everything else 0.6 s.
+function terminalSegments(text){ return String(text||"").split(/\\e\||\x1b\|/); }
+function terminalStepTime(seg){
+  if(/\\e~|\x1b~/.test(seg)) return 1.2;
+  if(/\\e!|\x1b!/.test(seg)) return 1.0;
+  const m = seg.split(/\\e>|\x1b>/);
+  if(m.length>1){ const typed=m.slice(1).join("").replace(/\\e\[[0-?]*[ -\/]*[@-~]|\x1b\[[0-?]*[ -\/]*[@-~]/g,"");
+    return Math.round(Math.max(0.5, typed.length/14)*100)/100; }
+  return 0.6;
+}
+function terminalParam(o){ return model.objects.find(x=>x.type==="Parameter" && x.props && x.props.name===o.props.state); }
+function makeTerminalSteps(o){
+  const segs=terminalSegments(o.props.text), n=segs.length-1;
+  let p=terminalParam(o);
+  if(!p){
+    const names=new Set(model.objects.filter(x=>x.type==="Parameter").map(x=>x.props.name));
+    let i=1, name; do { name="term"+(i++); } while(names.has(name));
+    p={ id:"o"+(nextId++), type:"Parameter", props:{ ...structuredClone(OBJ_DEFAULTS.Parameter||{}), name, value:0, min:0, max:Math.max(1,n), step:0.01, integer:false } };
+    model.objects.push(p);
+    o.props.state=name;
+  }
+  p.props.value=0; p.props.min=0; p.props.max=Math.max(1,n);
+  model.animations=model.animations.filter(a=>!(a.type==="ChangeValue" && a.target===p.id));
+  for(let k=1;k<=n;k++)
+    model.animations.push({ id:"a"+(nextAnimId++), type:"ChangeValue", target:p.id, run_time:terminalStepTime(segs[k]), value:k, rate:"linear" });
+  renderSceneObjs(); renderProps(); renderSceneAnims(); renderPreview();
+  setStatus(n ? `Terminal: ${n} Zustände als Schritte (Parameter ${p.props.name})` : "Terminal: keine Marke \\e| im Text");
+}
+function renderTerminalStates(wrap, o){
+  const n=terminalSegments(o.props.text).length-1, p=terminalParam(o);
+  const steps=p ? model.animations.filter(a=>a.type==="ChangeValue" && a.target===p.id).length : 0;
+  const h=document.createElement("div"); h.className="hint"; h.style="margin:4px 0";
+  h.textContent=`Zustände: ${n} (Marken \\e| im Text)` + (p ? ` · Parameter ${p.props.name}: ${steps} Schritte` : " · noch kein Parameter");
+  const b=document.createElement("span"); b.className="palette-item"; b.id="terminal-steps";
+  b.textContent="Zustände als Schritte anlegen"; b.title="Je Zustand ein Schritt der Zeitleiste (ChangeValue auf den Parameter in „state“, linear); vorhandene Schritte dieses Parameters werden ersetzt";
+  b.onclick=()=>makeTerminalSteps(o);
+  wrap.appendChild(h); wrap.appendChild(b);
 }
 
 // ---------- Σ summation / ∏ product / scalar product uᵀv: LaTeX pieces, revealed step by step ----------

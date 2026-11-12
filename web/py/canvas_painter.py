@@ -3,7 +3,8 @@
 # bezierCurveTo, so there is no quality loss. Labels go through engine.richtext, so every label
 # may carry subscripts, superscripts, Greek letters and line breaks (U_{GS}, 10^{-16}, \alpha).
 from engine.richtext import (parse as _parse_rich, is_plain as _is_plain, layout as _layout, text_lines as _text_lines,
-                             mono_line as _mono_line, MONO_CELL)
+                             mono_line as _mono_line, mono_line_ix as _mono_line_ix, span_at as _span_at,
+                             line_offsets as _line_offsets, MONO_CELL)
 from engine.svg_painter import MONO_FONT as _MONO_FONT   # the same typewriter fonts as the SVG export
 
 try:                                                # Pyodide: a JS method wants a real JS array
@@ -79,7 +80,7 @@ class CanvasPainter:
         except Exception:                               # stub contexts (tests): rough estimate
             return 0.55 * self._size * len(s)
 
-    def draw_text(self, text, px, py, font_size, color, opacity, align="center", font=None, raw=False):
+    def draw_text(self, text, px, py, font_size, color, opacity, align="center", font=None, raw=False, spans=None):
         ctx = self.ctx
         ctx.fillStyle = _rgba(color, opacity)
         ctx.textBaseline = "middle"
@@ -87,18 +88,58 @@ class CanvasPainter:
             fs = float(font_size)
             lines = _text_lines(text, raw)
             n, lh = len(lines), _LINE_H * fs
-            ctx.font = f"{fs}px {_MONO_FONT}" if font == "mono" else f"{fs}px sans-serif"
+            family = _MONO_FONT if font == "mono" else "sans-serif"
+            ctx.font = f"{fs}px {family}"
+            spans = spans if raw else None
+            offs = _line_offsets(lines) if spans else None
             for i, line in enumerate(lines):
                 y = py + (i - (n - 1) / 2.0) * lh
                 if font == "mono":
-                    cells, chars = _mono_line(line)
+                    cells, chars = _mono_line_ix(line)
                     cw = MONO_CELL * fs
                     w = cells * cw
                     left = px - w / 2.0 if align not in ("left", "right") else (px if align == "left" else px - w)
                     ctx.textAlign = "center"
-                    for ch, c in chars:
-                        if ch != " ":
-                            ctx.fillText(ch, left + c * cw, y)
+                    cur = (None, False)
+                    for ch, c, j in chars:
+                        if ch == " ":
+                            continue
+                        if spans:                       # coloured / bold sections (F1, Text.spans)
+                            st = _span_at(spans, offs[i] + j)
+                            if st != cur:
+                                cur = st
+                                ctx.fillStyle = _rgba(st[0] if st[0] is not None else color, opacity)
+                                ctx.font = f"{'bold ' if st[1] else ''}{fs}px {family}"
+                        ctx.fillText(ch, left + c * cw, y)
+                    if spans:
+                        ctx.fillStyle = _rgba(color, opacity)
+                        ctx.font = f"{fs}px {family}"
+                elif spans:                             # sections in the normal font: measure, then draw run by run
+                    runs, cur, buf = [], None, []
+                    for j, ch in enumerate(line):
+                        st = _span_at(spans, offs[i] + j)
+                        if st != cur and buf:
+                            runs.append((cur, "".join(buf)))
+                            buf = []
+                        cur = st
+                        buf.append(ch)
+                    if buf:
+                        runs.append((cur, "".join(buf)))
+                    laid = []
+                    for (col, bold), s_ in runs:
+                        ctx.font = f"{'bold ' if bold else ''}{fs}px {family}"
+                        self._size = fs
+                        laid.append((col, bold, s_, self._measure(s_)))
+                    W = sum(r[3] for r in laid)
+                    x = px - W / 2.0 if align not in ("left", "right") else (px if align == "left" else px - W)
+                    ctx.textAlign = "left"
+                    for col, bold, s_, wd in laid:
+                        ctx.font = f"{'bold ' if bold else ''}{fs}px {family}"
+                        ctx.fillStyle = _rgba(col if col is not None else color, opacity)
+                        ctx.fillText(s_, x, y)
+                        x += wd
+                    ctx.fillStyle = _rgba(color, opacity)
+                    ctx.font = f"{fs}px {family}"
                 else:
                     ctx.textAlign = align if align in ("left", "right", "center") else "center"
                     ctx.fillText(line, px, y)

@@ -100,3 +100,169 @@ Ein Kupferwiderstand mit $100\,\Omega$ soll mit Kohle in Reihe temperaturunabhä
 (d) $R_\mathrm{Cu}\,\alpha_\mathrm{Cu}+R_\mathrm K\,\alpha_\mathrm K=0$: $R_\mathrm K=100\,\Omega\cdot3{,}9/0{,}5=780\,\Omega$.
 :::
 :::
+
+::::formelsammlung
+**E-Reihe**
+
+$$w=\bigl(\sqrt[N]{10}\,\bigr)^{i}=\sqrt[N]{10^{i}},\qquad i=0,1,\dots,N-1$$
+
+E$N$ hat $N$ Werte je Zehnerstufe; $w$ ist der Vorfaktor, die Dekade wählt man frei. Aufeinanderfolgende Werte haben denselben prozentualen Abstand, bei E12 den Faktor $\sqrt[12]{10}=1{,}21$; die Normwerte sind gerundet. E6 gehört zu $\pm20\,\%$, E12 zu $\pm10\,\%$, E24 zu $\pm5\,\%$.
+
+**Temperaturabhängigkeit**
+
+$$R(\vartheta)=R(\vartheta_0)\,\bigl(1+\alpha_{\vartheta_0}\,(\vartheta-\vartheta_0)\bigr)$$
+
+$\vartheta$ Temperatur in °C, meist $\vartheta_0=20$ °C; $\alpha$ Temperaturkoeffizient in 1/K. $\alpha>0$: PTC oder Kaltleiter (Metalle), $\alpha<0$: NTC oder Heißleiter (Halbleiter, Kohle). Tangente an die wahre Kurve: Bei Metallen trägt sie weit, bei Halbleitern nur wenige Kelvin.
+
+**Temperaturkompensation in Reihe**
+
+$$R_1\alpha_1+R_2\alpha_2=0$$
+
+Ein PTC und ein NTC in Reihe: Die Zunahme des einen gleicht die Abnahme des anderen aus. Kompensierte Legierungen wie Konstantan (rund $10^{-5}$/K) erreichen dasselbe im Material.
+::::
+
+::::lernkarten
+:::karte begriff E-Reihe
+Was ist eine E-Reihe, nach der die Werte gekaufter Widerstände gestuft sind?
+---
+Eine genormte Reihe mit $N$ Werten je Zehnerstufe, die im festen Faktor $\sqrt[N]{10}$ aufeinander folgen: $w=\bigl(\sqrt[N]{10}\,\bigr)^{i}$, $i=0,1,\dots,N-1$. Die Normwerte sind gerundet.
+--- falsch
+Eine genormte Reihe mit $N$ gleichmäßig verteilten Werten je Zehnerstufe: Benachbarte Werte haben denselben absoluten Abstand, $w=1+9\,i/N$, $i=0,1,\dots,N-1$.
+--- falsch
+Eine genormte Reihe mit $N$ Werten, deren Vorfaktor sich von Wert zu Wert verdoppelt: $w=2^{i}$, $i=0,1,\dots,N-1$. So deckt E12 mehr als drei Zehnerstufen ab.
+--- falsch
+Eine Reihe gleicher Widerstände, die man hintereinanderschaltet, um Zwischenwerte zu erhalten. $N$ gibt an, wie viele Stück in einer Packung zusammen verkauft werden.
+:::
+:::karte zusammenhang E-Reihe und Toleranz
+Warum gehört die E12-Reihe mit dem Schrittfaktor $\sqrt[12]{10}=1{,}21$ zur Toleranz $\pm10\,\%$?
+---
+Weil dann die Toleranzbereiche benachbarter Werte lückenlos aneinanderschließen: Jedes gefertigte Stück gehört zu einem Normwert. Ebenso gehören E6 zu $\pm20\,\%$ und E24 zu $\pm5\,\%$.
+--- falsch
+Weil sich bei $\pm10\,\%$ benachbarte Bereiche zur Hälfte überlappen: Jedes Stück passt zu zwei Normwerten. Ebenso gehört E24 zu $\pm20\,\%$.
+--- falsch
+Weil die Toleranz bei allen E-Reihen $\pm10\,\%$ beträgt. Die Zahl $N$ legt nur fest, wie viele Werte angeboten werden, nicht die Genauigkeit.
+--- falsch
+Weil sich Widerstände im Betrieb um bis zu 10 % erwärmen. Der Schrittfaktor sorgt dafür, dass ein warmer Widerstand nie in den Toleranzbereich des nächsthöheren Normwerts gerät.
+:::
+:::karte begriff Temperaturkoeffizient
+Was gibt der Temperaturkoeffizient $\alpha$ eines Widerstandsmaterials an?
+---
+Um welchen Bruchteil von $R(\vartheta_0)$ sich der Widerstand je Kelvin Erwärmung ändert; Einheit 1/K. Kupfer hat $3{,}9\cdot10^{-3}$/K, Kohle $-0{,}5\cdot10^{-3}$/K.
+--- falsch
+Um wie viel Ohm sich der Widerstand je Kelvin Erwärmung ändert, gleich wie groß er ist; Einheit $\Omega$/K. Er ist bei allen Metallen gleich.
+--- falsch
+Die Temperatur, bei der ein Widerstand seinen aufgedruckten Wert hat; Einheit °C. In Datenblättern sind das meist 20 °C.
+--- falsch
+Um welchen Bruchteil sich der Widerstand je Kelvin Erwärmung ändert; Einheit 1/K. Für Metalle ist er negativ, für Halbleiter positiv.
+:::
+:::karte formel Temperaturabhängigkeit
+Wie hängt der Widerstand $R(\vartheta)$ in der Nähe einer Bezugstemperatur $\vartheta_0$ von der Temperatur ab?
+---
+$R(\vartheta)=R(\vartheta_0)\,\bigl(1+\alpha_{\vartheta_0}\,(\vartheta-\vartheta_0)\bigr)$. Das ist die Tangente an die wahre Kurve: Bei Metallen trägt sie weit, bei Halbleitern nur wenige Kelvin.
+--- falsch
+$R(\vartheta)=R(\vartheta_0)\,\bigl(1+\alpha_{\vartheta_0}\,(\vartheta-\vartheta_0)\bigr)$. Die Gleichung ist exakt und gilt für jedes Material über den ganzen Temperaturbereich, auch für Halbleiter.
+--- falsch
+$R(\vartheta)=R(\vartheta_0)+\alpha_{\vartheta_0}\,(\vartheta-\vartheta_0)$. Das ist die Tangente an die wahre Kurve: Bei Metallen trägt sie weit, bei Halbleitern nur wenige Kelvin.
+--- falsch
+$R(\vartheta)=R(\vartheta_0)\,\alpha_{\vartheta_0}\,(\vartheta-\vartheta_0)$. Das ist die Tangente an die wahre Kurve: Bei Metallen trägt sie weit, bei Halbleitern nur wenige Kelvin.
+:::
+:::karte begriff PTC und Kaltleiter
+Was bezeichnet man als PTC oder Kaltleiter, und welche Stoffe verhalten sich so?
+---
+Ein Material mit positivem Temperaturkoeffizienten, $\alpha>0$: Sein Widerstand steigt mit der Temperatur, es leitet kalt besser. So verhalten sich Metalle wie Kupfer und Wolfram.
+--- falsch
+Ein Material mit negativem Temperaturkoeffizienten, $\alpha<0$: Sein Widerstand sinkt mit der Temperatur, es leitet kalt schlechter. So verhalten sich Halbleiter wie Silizium und Germanium.
+--- falsch
+Ein Material mit positivem Temperaturkoeffizienten, $\alpha>0$: Sein Widerstand sinkt mit der Temperatur, es leitet warm besser. So verhält sich Kohle.
+--- falsch
+Ein Material, dessen Widerstand nicht von der Temperatur abhängt, $\alpha=0$: Es leitet kalt und warm gleich gut. So verhält sich Konstantan.
+:::
+:::karte begriff NTC und Heißleiter
+Was bezeichnet man als NTC oder Heißleiter, und welche Stoffe verhalten sich so?
+---
+Ein Material mit negativem Temperaturkoeffizienten, $\alpha<0$: Sein Widerstand sinkt mit der Temperatur, es leitet heiß besser. So verhalten sich Halbleiter und Kohle.
+--- falsch
+Ein Material mit negativem Temperaturkoeffizienten, $\alpha<0$: Sein Widerstand steigt mit der Temperatur, es leitet heiß schlechter. So verhalten sich Metalle wie Kupfer.
+--- falsch
+Ein Material mit positivem Temperaturkoeffizienten, $\alpha>0$: Sein Widerstand steigt mit der Temperatur, es leitet kalt besser. So verhalten sich Metalle wie Wolfram.
+--- falsch
+Ein Material, das sich bei Stromfluss stark erwärmt, weil sein Widerstand besonders groß ist. So verhalten sich Widerstände aus Konstantan.
+:::
+:::karte zusammenhang Metalle in der Wärme
+Warum steigt der Widerstand eines Metalls, wenn es wärmer wird?
+---
+Weil das wärmere Gitter stärker schwingt: Die Flugzeit $T$ sinkt, damit sinkt $\mu$ und mit ihm $\sigma=n\,e\,\mu$. Die Zahl $n$ der freien Elektronen steht im Metall fest.
+--- falsch
+Weil Wärme freie Elektronen bindet: Ihre Zahl $n$ sinkt, damit sinkt $\sigma=n\,e\,\mu$. Die Flugzeit zwischen den Stößen bleibt dabei gleich.
+--- falsch
+Weil sich das Metall ausdehnt: Der Draht wird länger, und nach $R=\rho\,L/A$ wächst sein Widerstand mit der Länge. Am Material selbst ändert sich dabei nichts.
+--- falsch
+Weil die Elektronen in der Wärme schneller driften: Bei höherer Driftgeschwindigkeit stoßen sie öfter, und der Strom sinkt.
+:::
+:::karte zusammenhang Halbleiter in der Wärme
+Warum sinkt der Widerstand eines Halbleiters wie Silizium, wenn er wärmer wird?
+---
+Weil Wärme weitere Elektronen befreit: Bei Raumtemperatur sind nur wenige frei, und $n$ wächst viel schneller, als $\mu$ fällt.
+--- falsch
+Weil das Gitter in der Wärme weniger schwingt: Die Flugzeit zwischen den Stößen wird länger, $\mu$ steigt, während $n$ gleich bleibt.
+--- falsch
+Weil Wärme die freien Elektronen bindet, die sonst an das Gitter stoßen würden. Weniger Stöße bedeuten weniger Widerstand.
+--- falsch
+Weil sich Halbleiter in der Wärme zusammenziehen: Der Querschnitt bleibt gleich, aber die Länge sinkt und mit ihr der Widerstand.
+:::
+:::karte begriff kompensierte Legierungen
+Was sind kompensierte Legierungen wie Konstantan, und warum hängt ihr Widerstand kaum von der Temperatur ab?
+---
+Legierungen, in denen die Stöße an den unregelmäßig eingebauten Fremdatomen überwiegen. Diese Stöße hängen kaum von der Temperatur ab; bei Konstantan ist $\alpha$ nur rund $10^{-5}$/K.
+--- falsch
+Legierungen aus einem Metall und einem Halbleiter zu gleichen Teilen. Die Zunahme des einen Anteils gleicht die Abnahme des anderen bei jeder Temperatur genau aus, deshalb ist $\alpha=0$.
+--- falsch
+Legierungen, die bei Erwärmung ihre freien Elektronen behalten. In reinen Metallen verdampfen freie Elektronen in der Wärme, deshalb steigt dort der Widerstand.
+--- falsch
+Legierungen mit besonders hohem Schmelzpunkt. Sie erwärmen sich im Betrieb kaum, deshalb ändert sich ihr Widerstand nicht.
+:::
+:::karte formel Temperaturkompensation in Reihe
+Welche Bedingung müssen ein PTC und ein NTC in Reihe erfüllen, damit der Gesamtwiderstand nicht von der Temperatur abhängt?
+---
+$R_1\alpha_1+R_2\alpha_2=0$: Die Zunahme des einen Widerstands gleicht die Abnahme des anderen genau aus.
+--- falsch
+$\alpha_1+\alpha_2=0$: Die Koeffizienten müssen entgegengesetzt gleich sein, gleich welche Werte die beiden Widerstände haben.
+--- falsch
+$R_1\alpha_1=R_2\alpha_2$: Beide Widerstände müssen sich gleich stark ändern, damit ihre Summe gleich bleibt.
+--- falsch
+$R_1/\alpha_1+R_2/\alpha_2=0$: Der größere Widerstand braucht dafür auch den größeren Betrag von $\alpha$.
+:::
+:::karte begriff Metall- oder Kohleschichtwiderstände
+Wie sind Metall- oder Kohleschichtwiderstände aufgebaut, und wofür sind sie üblich?
+---
+Eine dünne Widerstandsschicht auf einem Keramikkörper. Sie sind die übliche Bauform für 0,1 bis 2 W; der Wert steht als Farbcode darauf.
+--- falsch
+Ein aufgewickelter Draht auf einem Keramikkörper. Sie sind die übliche Bauform für hohe Leistung und hohe Temperatur.
+--- falsch
+Ein winziger Block ohne Anschlussdrähte, der direkt auf die Leiterplatte gelötet wird. Sie sind die übliche Bauform für hohe Frequenzen.
+--- falsch
+Ein massiver Stab aus Metall oder Kohle ohne Träger. Sie sind die übliche Bauform für Werte unter einem Ohm; ihr Wert ist nicht aufgedruckt.
+:::
+:::karte begriff Drahtwiderstände
+Wofür eignen sich Drahtwiderstände besonders?
+---
+Sie verkraften hohe Leistung und hohe Temperatur und sind für kleine Widerstandswerte geeignet.
+--- falsch
+Sie eignen sich für hohe Frequenzen, weil sie keine Anschlussdrähte haben, und für sehr große Widerstandswerte.
+--- falsch
+Sie eignen sich für kleine Leistung auf engem Raum, weil man sie direkt auf die Leiterplatte lötet.
+--- falsch
+Sie eignen sich als Temperaturfühler, weil ihr Widerstand in der Wärme stark sinkt, und für große Werte.
+:::
+:::karte begriff SMD
+Was sind SMD-Widerstände, und welche Vor- und Nachteile haben sie?
+---
+Widerstände, die direkt auf die Leiterplatte gelötet werden (Surface Mounted Device): sehr klein, hohe Packungsdichte, ohne Anschlussdrähte gut für hohe Frequenzen, aber nur für wenig Leistung.
+--- falsch
+Widerstände mit langen Anschlussdrähten, die durch Löcher der Leiterplatte gesteckt werden. Sie vertragen viel Leistung, eignen sich wegen der Drähte aber nicht für hohe Frequenzen.
+--- falsch
+Widerstände, die direkt auf die Leiterplatte gelötet werden. Sie sind sehr klein und vertragen dank der großen Lötfläche besonders viel Leistung, eignen sich aber nicht für hohe Frequenzen.
+--- falsch
+Widerstände aus einem aufgewickelten Draht, die für Messungen bei hoher Temperatur gebaut sind. Sie sind groß, vertragen viel Leistung und eignen sich für kleine Werte.
+:::
+::::
