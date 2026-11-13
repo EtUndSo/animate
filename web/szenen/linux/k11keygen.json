@@ -1,0 +1,577 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 18,
+  "nextAnimId": 29,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Terminal",
+    "props": {
+     "text": "student@labor:~/linuxk11$ \\e|\\e>ssh-keygen -t ed25519 -f uebungsschluessel\n\\e|Generating public/private ed25519 key pair.\n\\e|Enter passphrase for \"uebungsschluessel\" (empty for no passphrase): \\e|\\e~\\e|\\e>\n\\e|Enter same passphrase again: \\e|\\e>\n\\e|Your identification has been saved in uebungsschluessel\nYour public key has been saved in uebungsschluessel.pub\nThe key fingerprint is:\nSHA256:263611uAvZia1OHwR0Wp8jBvtQdiBkiiPZTlU1NH+L4 student@labor\nThe key's randomart image is:\n\\e|+--[ED25519 256]--+\n|      o+o.o..oo o|\n|     +.o...... o |\n|    . o o  . .. .|\n|       . . +++oo |\n|        S .oOo=..|\n|         o * O.+.|\n|        . o O.o.o|\n|         . +..E. |\n|        .o=.  .. |\n+----[SHA256]-----+\n\\e|student@labor:~/linuxk11$ ",
+     "cols": 68,
+     "rows": 21,
+     "font_size": 18.0,
+     "line_height": 1.2,
+     "position": [
+      -3.0,
+      2.9,
+      0
+     ],
+     "frame": "fenster",
+     "theme": "dunkel",
+     "title": "student@labor: ~/linuxk11",
+     "buttons": "drei",
+     "cursor": true,
+     "prompt_colors": true,
+     "shadow": true,
+     "state": "term1"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Parameter",
+    "props": {
+     "name": "term1",
+     "value": 0.0,
+     "min": 0.0,
+     "max": 10.0,
+     "step": 0.01
+    }
+   },
+   {
+    "id": "o3",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.495,
+      0.5733,
+      0
+     ],
+     "width": 3.15,
+     "height": 0.62,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Circle",
+    "props": {
+     "radius": 0.085,
+     "center": [
+      -0.913,
+      0.6533,
+      0
+     ],
+     "color": "#2a78d6",
+     "fill_color": "#e3eefb",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o5",
+    "type": "Line",
+    "props": {
+     "start": [
+      -0.828,
+      0.6533,
+      0
+     ],
+     "end": [
+      -0.522,
+      0.6533,
+      0
+     ],
+     "color": "#2a78d6",
+     "stroke_width": 4,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Line",
+    "props": {
+     "start": [
+      -0.6155,
+      0.6533,
+      0
+     ],
+     "end": [
+      -0.6155,
+      0.5853,
+      0
+     ],
+     "color": "#2a78d6",
+     "stroke_width": 3.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o7",
+    "type": "Line",
+    "props": {
+     "start": [
+      -0.539,
+      0.6533,
+      0
+     ],
+     "end": [
+      -0.539,
+      0.5683,
+      0
+     ],
+     "color": "#2a78d6",
+     "stroke_width": 3.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Lock",
+    "props": {
+     "center": [
+      -0.3600000000000001,
+      0.6533,
+      0
+     ],
+     "size": 0.22,
+     "open": false,
+     "color": "#333333"
+    }
+   },
+   {
+    "id": "o9",
+    "type": "Text",
+    "props": {
+     "text": "uebungsschluessel",
+     "position": [
+      -0.16,
+      0.6733,
+      0
+     ],
+     "font_size": 17,
+     "align": "left",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o10",
+    "type": "Text",
+    "props": {
+     "text": "@privat",
+     "position": [
+      -0.16,
+      0.4233,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#2a78d6"
+    }
+   },
+   {
+    "id": "o11",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.495,
+      -0.0667,
+      0
+     ],
+     "width": 3.15,
+     "height": 0.62,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Circle",
+    "props": {
+     "radius": 0.085,
+     "center": [
+      -0.913,
+      0.0133,
+      0
+     ],
+     "color": "#2a78d6",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o13",
+    "type": "Line",
+    "props": {
+     "start": [
+      -0.828,
+      0.0133,
+      0
+     ],
+     "end": [
+      -0.522,
+      0.0133,
+      0
+     ],
+     "color": "#2a78d6",
+     "stroke_width": 4,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o14",
+    "type": "Line",
+    "props": {
+     "start": [
+      -0.6155,
+      0.0133,
+      0
+     ],
+     "end": [
+      -0.6155,
+      -0.0547,
+      0
+     ],
+     "color": "#2a78d6",
+     "stroke_width": 3.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o15",
+    "type": "Line",
+    "props": {
+     "start": [
+      -0.539,
+      0.0133,
+      0
+     ],
+     "end": [
+      -0.539,
+      -0.0717,
+      0
+     ],
+     "color": "#2a78d6",
+     "stroke_width": 3.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o16",
+    "type": "Text",
+    "props": {
+     "text": "uebungsschluessel.pub",
+     "position": [
+      -0.4,
+      0.0333,
+      0
+     ],
+     "font_size": 17,
+     "align": "left",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o17",
+    "type": "Text",
+    "props": {
+     "text": "@oeff",
+     "position": [
+      -0.4,
+      -0.2167,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#2a78d6"
+    }
+   }
+  ],
+  "animations": [
+   {
+    "id": "a1",
+    "type": "FadeIn",
+    "target": "o1",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a2",
+    "type": "ChangeValue",
+    "target": "o2",
+    "run_time": 1.792,
+    "step": 1,
+    "value": 1.0,
+    "rate": "linear"
+   },
+   {
+    "id": "a3",
+    "type": "ChangeValue",
+    "target": "o2",
+    "run_time": 0.4,
+    "step": 2,
+    "value": 2.0,
+    "rate": "linear"
+   },
+   {
+    "id": "a4",
+    "type": "ChangeValue",
+    "target": "o2",
+    "run_time": 0.5,
+    "step": 3,
+    "value": 3.0,
+    "rate": "linear"
+   },
+   {
+    "id": "a5",
+    "type": "ChangeValue",
+    "target": "o2",
+    "run_time": 0.8,
+    "step": 4,
+    "value": 4.0,
+    "rate": "linear"
+   },
+   {
+    "id": "a6",
+    "type": "ChangeValue",
+    "target": "o2",
+    "run_time": 0.3,
+    "step": 5,
+    "value": 5.0,
+    "rate": "linear"
+   },
+   {
+    "id": "a7",
+    "type": "ChangeValue",
+    "target": "o2",
+    "run_time": 0.4,
+    "step": 6,
+    "value": 6.0,
+    "rate": "linear"
+   },
+   {
+    "id": "a8",
+    "type": "ChangeValue",
+    "target": "o2",
+    "run_time": 0.3,
+    "step": 7,
+    "value": 7.0,
+    "rate": "linear"
+   },
+   {
+    "id": "a9",
+    "type": "ChangeValue",
+    "target": "o2",
+    "run_time": 0.6,
+    "step": 8,
+    "value": 8.0,
+    "rate": "linear"
+   },
+   {
+    "id": "a10",
+    "type": "ChangeValue",
+    "target": "o2",
+    "run_time": 0.6,
+    "step": 9,
+    "value": 9.0,
+    "rate": "linear"
+   },
+   {
+    "id": "a11",
+    "type": "ChangeValue",
+    "target": "o2",
+    "run_time": 0.4,
+    "step": 10,
+    "value": 10.0,
+    "rate": "linear"
+   },
+   {
+    "id": "a12",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.5,
+    "step": 11
+   },
+   {
+    "id": "a13",
+    "type": "FadeIn",
+    "target": "o3",
+    "run_time": 0.6,
+    "step": 12
+   },
+   {
+    "id": "a14",
+    "type": "FadeIn",
+    "target": "o4",
+    "run_time": 0.6,
+    "step": 12
+   },
+   {
+    "id": "a15",
+    "type": "FadeIn",
+    "target": "o5",
+    "run_time": 0.6,
+    "step": 12
+   },
+   {
+    "id": "a16",
+    "type": "FadeIn",
+    "target": "o6",
+    "run_time": 0.6,
+    "step": 12
+   },
+   {
+    "id": "a17",
+    "type": "FadeIn",
+    "target": "o7",
+    "run_time": 0.6,
+    "step": 12
+   },
+   {
+    "id": "a18",
+    "type": "FadeIn",
+    "target": "o8",
+    "run_time": 0.6,
+    "step": 12
+   },
+   {
+    "id": "a19",
+    "type": "FadeIn",
+    "target": "o9",
+    "run_time": 0.6,
+    "step": 12
+   },
+   {
+    "id": "a20",
+    "type": "FadeIn",
+    "target": "o10",
+    "run_time": 0.6,
+    "step": 12
+   },
+   {
+    "id": "a21",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.3,
+    "step": 13
+   },
+   {
+    "id": "a22",
+    "type": "FadeIn",
+    "target": "o11",
+    "run_time": 0.6,
+    "step": 14
+   },
+   {
+    "id": "a23",
+    "type": "FadeIn",
+    "target": "o12",
+    "run_time": 0.6,
+    "step": 14
+   },
+   {
+    "id": "a24",
+    "type": "FadeIn",
+    "target": "o13",
+    "run_time": 0.6,
+    "step": 14
+   },
+   {
+    "id": "a25",
+    "type": "FadeIn",
+    "target": "o14",
+    "run_time": 0.6,
+    "step": 14
+   },
+   {
+    "id": "a26",
+    "type": "FadeIn",
+    "target": "o15",
+    "run_time": 0.6,
+    "step": 14
+   },
+   {
+    "id": "a27",
+    "type": "FadeIn",
+    "target": "o16",
+    "run_time": 0.6,
+    "step": 14
+   },
+   {
+    "id": "a28",
+    "type": "FadeIn",
+    "target": "o17",
+    "run_time": 0.6,
+    "step": 14
+   }
+  ],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "privat": {
+    "de": "privat, bleibt hier",
+    "en": "private, stays here",
+    "es": "privada, se queda aquí",
+    "zh": "私有，留在这里",
+    "fr": "privée, reste ici",
+    "tr": "özel, burada kalır"
+   },
+   "oeff": {
+    "de": "öffentlich, darf weitergegeben werden",
+    "en": "public, may be passed on",
+    "es": "pública, se puede compartir",
+    "zh": "公开，可以分发",
+    "fr": "publique, peut être transmise",
+    "tr": "açık, paylaşılabilir"
+   }
+  },
+  "drawOrder": "creation"
+ }
+}

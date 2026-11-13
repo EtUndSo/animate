@@ -1,0 +1,856 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 27,
+  "nextAnimId": 41,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.795,
+      0.6,
+      0
+     ],
+     "width": 3.29,
+     "height": 3.7,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#e3eefb",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Text",
+    "props": {
+     "text": "@srv",
+     "position": [
+      0.28,
+      2.25,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#333333"
+    }
+   },
+   {
+    "id": "o3",
+    "type": "Text",
+    "props": {
+     "text": "@hg",
+     "position": [
+      0.28,
+      2.0,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#7f7f7f",
+     "raw": true
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Terminal",
+    "props": {
+     "text": "Schritt 3\nSchritt 4\\e|\nSchritt 5\\e|\nSchritt 6\\e|\nSchritt 7\\e|\nSchritt 8\\e|\nSchritt 9",
+     "cols": 18,
+     "rows": 2,
+     "font_size": 17.0,
+     "line_height": 1.2,
+     "position": [
+      0.32,
+      1.7,
+      0
+     ],
+     "frame": "ohne",
+     "theme": "dunkel",
+     "title": "student@labor: ~",
+     "buttons": "keine",
+     "cursor": false,
+     "prompt_colors": true,
+     "shadow": true,
+     "state": "term1"
+    }
+   },
+   {
+    "id": "o5",
+    "type": "Terminal",
+    "props": {
+     "text": "student@labor:~$ ",
+     "cols": 18,
+     "rows": 2,
+     "font_size": 17.0,
+     "line_height": 1.2,
+     "position": [
+      0.32,
+      0.85,
+      0
+     ],
+     "frame": "ohne",
+     "theme": "dunkel",
+     "title": "student@labor: ~",
+     "buttons": "keine",
+     "cursor": false,
+     "prompt_colors": true,
+     "shadow": true,
+     "state": ""
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Terminal",
+    "props": {
+     "text": "student@labor:~$ ",
+     "cols": 18,
+     "rows": 2,
+     "font_size": 17.0,
+     "line_height": 1.2,
+     "position": [
+      0.32,
+      0.0,
+      0
+     ],
+     "frame": "ohne",
+     "theme": "dunkel",
+     "title": "student@labor: ~",
+     "buttons": "keine",
+     "cursor": false,
+     "prompt_colors": true,
+     "shadow": true,
+     "state": ""
+    }
+   },
+   {
+    "id": "o7",
+    "type": "Text",
+    "props": {
+     "text": "pts/4 · bash",
+     "position": [
+      1.98,
+      1.4922,
+      0
+     ],
+     "font_size": 17,
+     "align": "left",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Text",
+    "props": {
+     "text": "pts/5 · bash",
+     "position": [
+      1.98,
+      0.6422,
+      0
+     ],
+     "font_size": 17,
+     "align": "left",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o9",
+    "type": "Text",
+    "props": {
+     "text": "pts/6 · bash",
+     "position": [
+      1.98,
+      -0.2078,
+      0
+     ],
+     "font_size": 17,
+     "align": "left",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o10",
+    "type": "Terminal",
+    "props": {
+     "text": "Schritt 3\nSchritt 4\\e|\nSchritt 5\\e|\\e!",
+     "cols": 22,
+     "rows": 2,
+     "font_size": 17.0,
+     "line_height": 1.2,
+     "position": [
+      -3.4,
+      2.3,
+      0
+     ],
+     "frame": "fenster",
+     "theme": "dunkel",
+     "title": "student@labor: ~",
+     "buttons": "drei",
+     "cursor": false,
+     "prompt_colors": true,
+     "shadow": true,
+     "state": "term2"
+    }
+   },
+   {
+    "id": "o11",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.0,
+      1.9663,
+      0
+     ],
+     "width": 0.6022,
+     "height": 0.4,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#e3eefb",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Text",
+    "props": {
+     "text": "tmux",
+     "position": [
+      -1.0,
+      1.9663,
+      0
+     ],
+     "font_size": 17,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o13",
+    "type": "Line",
+    "props": {
+     "start": [
+      -1.5867,
+      1.9663,
+      0
+     ],
+     "end": [
+      -1.3,
+      1.9663,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 1.5,
+     "dash": "3,3"
+    }
+   },
+   {
+    "id": "o14",
+    "type": "Text",
+    "props": {
+     "text": "@client13",
+     "position": [
+      -1.0,
+      1.6363,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o15",
+    "type": "Line",
+    "props": {
+     "start": [
+      -0.7,
+      1.9663,
+      0
+     ],
+     "end": [
+      0.31,
+      1.5222,
+      0
+     ],
+     "color": "#eb6834",
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o16",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.4933,
+      1.9663,
+      0
+     ],
+     "width": 1.8133,
+     "height": 0.6674,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#ffffff",
+     "fill_opacity": 0.0,
+     "stroke_width": 2,
+     "dash": "5,4"
+    }
+   },
+   {
+    "id": "o17",
+    "type": "Text",
+    "props": {
+     "text": "@zu",
+     "position": [
+      -2.4933,
+      1.9663,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o18",
+    "type": "Terminal",
+    "props": {
+     "text": "Schritt 6\nSchritt 7\\e|\nSchritt 8\\e|\nSchritt 9",
+     "cols": 22,
+     "rows": 2,
+     "font_size": 17.0,
+     "line_height": 1.2,
+     "position": [
+      -3.4,
+      0.4,
+      0
+     ],
+     "frame": "fenster",
+     "theme": "dunkel",
+     "title": "student@labor: ~",
+     "buttons": "drei",
+     "cursor": false,
+     "prompt_colors": true,
+     "shadow": true,
+     "state": "term3"
+    }
+   },
+   {
+    "id": "o19",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.0,
+      0.0663,
+      0
+     ],
+     "width": 0.6022,
+     "height": 0.4,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#e3eefb",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o20",
+    "type": "Text",
+    "props": {
+     "text": "tmux",
+     "position": [
+      -1.0,
+      0.0663,
+      0
+     ],
+     "font_size": 17,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o21",
+    "type": "Line",
+    "props": {
+     "start": [
+      -1.5867,
+      0.0663,
+      0
+     ],
+     "end": [
+      -1.3,
+      0.0663,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 1.5,
+     "dash": "3,3"
+    }
+   },
+   {
+    "id": "o22",
+    "type": "Text",
+    "props": {
+     "text": "@client21",
+     "position": [
+      -1.0,
+      -0.2637,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o23",
+    "type": "Line",
+    "props": {
+     "start": [
+      -0.7,
+      0.0663,
+      0
+     ],
+     "end": [
+      0.31,
+      1.5222,
+      0
+     ],
+     "color": "#eb6834",
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o24",
+    "type": "Parameter",
+    "props": {
+     "name": "term1",
+     "value": 0.0,
+     "min": 0.0,
+     "max": 5.0,
+     "step": 0.01
+    }
+   },
+   {
+    "id": "o25",
+    "type": "Parameter",
+    "props": {
+     "name": "term2",
+     "value": 0.0,
+     "min": 0.0,
+     "max": 2.0,
+     "step": 0.01
+    }
+   },
+   {
+    "id": "o26",
+    "type": "Parameter",
+    "props": {
+     "name": "term3",
+     "value": 0.0,
+     "min": 0.0,
+     "max": 2.0,
+     "step": 0.01
+    }
+   }
+  ],
+  "animations": [
+   {
+    "id": "a1",
+    "type": "FadeIn",
+    "target": "o1",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a2",
+    "type": "FadeIn",
+    "target": "o2",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a3",
+    "type": "FadeIn",
+    "target": "o3",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a4",
+    "type": "FadeIn",
+    "target": "o4",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a5",
+    "type": "FadeIn",
+    "target": "o5",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a6",
+    "type": "FadeIn",
+    "target": "o6",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a7",
+    "type": "FadeIn",
+    "target": "o7",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a8",
+    "type": "FadeIn",
+    "target": "o8",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a9",
+    "type": "FadeIn",
+    "target": "o9",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a10",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.4,
+    "step": 2
+   },
+   {
+    "id": "a11",
+    "type": "FadeIn",
+    "target": "o10",
+    "run_time": 0.6,
+    "step": 3
+   },
+   {
+    "id": "a12",
+    "type": "FadeIn",
+    "target": "o11",
+    "run_time": 0.6,
+    "step": 3
+   },
+   {
+    "id": "a13",
+    "type": "FadeIn",
+    "target": "o12",
+    "run_time": 0.6,
+    "step": 3
+   },
+   {
+    "id": "a14",
+    "type": "FadeIn",
+    "target": "o13",
+    "run_time": 0.6,
+    "step": 3
+   },
+   {
+    "id": "a15",
+    "type": "FadeIn",
+    "target": "o14",
+    "run_time": 0.6,
+    "step": 3
+   },
+   {
+    "id": "a16",
+    "type": "Create",
+    "target": "o15",
+    "run_time": 0.5,
+    "step": 4
+   },
+   {
+    "id": "a17",
+    "type": "ChangeValue",
+    "target": "o24",
+    "run_time": 0.5,
+    "step": 5,
+    "value": 1.0,
+    "rate": "linear"
+   },
+   {
+    "id": "a18",
+    "type": "ChangeValue",
+    "target": "o25",
+    "run_time": 0.5,
+    "step": 5,
+    "value": 1.0,
+    "rate": "linear"
+   },
+   {
+    "id": "a19",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.4,
+    "step": 6
+   },
+   {
+    "id": "a20",
+    "type": "ChangeValue",
+    "target": "o25",
+    "run_time": 1.0,
+    "step": 7,
+    "value": 2.0,
+    "rate": "linear"
+   },
+   {
+    "id": "a21",
+    "type": "FadeOut",
+    "target": "o11",
+    "run_time": 1.0,
+    "step": 7
+   },
+   {
+    "id": "a22",
+    "type": "FadeOut",
+    "target": "o12",
+    "run_time": 1.0,
+    "step": 7
+   },
+   {
+    "id": "a23",
+    "type": "FadeOut",
+    "target": "o13",
+    "run_time": 1.0,
+    "step": 7
+   },
+   {
+    "id": "a24",
+    "type": "FadeOut",
+    "target": "o14",
+    "run_time": 1.0,
+    "step": 7
+   },
+   {
+    "id": "a25",
+    "type": "FadeOut",
+    "target": "o15",
+    "run_time": 1.0,
+    "step": 7
+   },
+   {
+    "id": "a26",
+    "type": "FadeIn",
+    "target": "o16",
+    "run_time": 1.0,
+    "step": 7
+   },
+   {
+    "id": "a27",
+    "type": "FadeIn",
+    "target": "o17",
+    "run_time": 1.0,
+    "step": 7
+   },
+   {
+    "id": "a28",
+    "type": "ChangeValue",
+    "target": "o24",
+    "run_time": 0.5,
+    "step": 8,
+    "value": 2.0,
+    "rate": "linear"
+   },
+   {
+    "id": "a29",
+    "type": "ChangeValue",
+    "target": "o24",
+    "run_time": 0.5,
+    "step": 9,
+    "value": 3.0,
+    "rate": "linear"
+   },
+   {
+    "id": "a30",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.3,
+    "step": 10
+   },
+   {
+    "id": "a31",
+    "type": "FadeIn",
+    "target": "o18",
+    "run_time": 0.6,
+    "step": 11
+   },
+   {
+    "id": "a32",
+    "type": "FadeIn",
+    "target": "o19",
+    "run_time": 0.6,
+    "step": 11
+   },
+   {
+    "id": "a33",
+    "type": "FadeIn",
+    "target": "o20",
+    "run_time": 0.6,
+    "step": 11
+   },
+   {
+    "id": "a34",
+    "type": "FadeIn",
+    "target": "o21",
+    "run_time": 0.6,
+    "step": 11
+   },
+   {
+    "id": "a35",
+    "type": "FadeIn",
+    "target": "o22",
+    "run_time": 0.6,
+    "step": 11
+   },
+   {
+    "id": "a36",
+    "type": "Create",
+    "target": "o23",
+    "run_time": 0.5,
+    "step": 12
+   },
+   {
+    "id": "a37",
+    "type": "ChangeValue",
+    "target": "o24",
+    "run_time": 0.5,
+    "step": 13,
+    "value": 4.0,
+    "rate": "linear"
+   },
+   {
+    "id": "a38",
+    "type": "ChangeValue",
+    "target": "o26",
+    "run_time": 0.5,
+    "step": 13,
+    "value": 1.0,
+    "rate": "linear"
+   },
+   {
+    "id": "a39",
+    "type": "ChangeValue",
+    "target": "o24",
+    "run_time": 0.5,
+    "step": 14,
+    "value": 5.0,
+    "rate": "linear"
+   },
+   {
+    "id": "a40",
+    "type": "ChangeValue",
+    "target": "o26",
+    "run_time": 0.5,
+    "step": 14,
+    "value": 2.0,
+    "rate": "linear"
+   }
+  ],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "srv": {
+    "de": "tmux-Server",
+    "en": "tmux server",
+    "es": "servidor tmux",
+    "zh": "tmux 服务器",
+    "fr": "serveur tmux",
+    "tr": "tmux sunucusu"
+   },
+   "hg": {
+    "de": "(läuft im Hintergrund, kein Terminal)",
+    "en": "(runs in the background, no terminal)",
+    "es": "(se ejecuta en segundo plano, sin terminal)",
+    "zh": "（在后台运行，没有终端）",
+    "fr": "(tourne en arrière-plan, sans terminal)",
+    "tr": "(arka planda çalışır, uçbirimi yok)"
+   },
+   "client13": {
+    "de": "Client",
+    "en": "client",
+    "es": "cliente",
+    "zh": "客户端",
+    "fr": "client",
+    "tr": "istemci"
+   },
+   "zu": {
+    "de": "Fenster\ngeschlossen",
+    "en": "window\nclosed",
+    "es": "ventana\ncerrada",
+    "zh": "窗口\n已关闭",
+    "fr": "fenêtre\nfermée",
+    "tr": "pencere\nkapandı"
+   },
+   "client21": {
+    "de": "Client",
+    "en": "client",
+    "es": "cliente",
+    "zh": "客户端",
+    "fr": "client",
+    "tr": "istemci"
+   }
+  },
+  "drawOrder": "creation"
+ }
+}

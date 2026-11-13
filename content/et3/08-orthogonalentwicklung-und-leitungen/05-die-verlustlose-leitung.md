@@ -90,3 +90,140 @@ Bis zu welcher Frequenz kann man die 5 m noch als „kurz“ behandeln, wenn d
 (c) $\lambda=v/f\ge50$ m, also $f\le\frac{1{,}67\cdot10^8}{50}\,\mathrm{Hz}=3{,}3$ MHz.
 :::
 :::
+
+::::formelsammlung
+**Verlustlose Leitung**
+
+$$\gamma=\mathrm{j}2\pi f\sqrt{L'C'},\qquad Z=\sqrt{\frac{L'}{C'}},\qquad v=\frac{1}{\sqrt{L'C'}}$$
+
+Für $R'=G'=0$: keine Dämpfung ($\alpha=0$), $\beta$ proportional zu $f$. Wellenwiderstand und Geschwindigkeit hängen nicht von der Frequenz ab.
+
+**Wellengleichung der verlustlosen Leitung**
+
+$$\frac{\partial^2u}{\partial s^2}=L'C'\frac{\partial^2u}{\partial t^2}$$
+
+Aus den Leitungsgleichungen mit $R'=G'=0$: die erste nach $s$, die zweite nach $t$ ableiten und $i$ eliminieren.
+
+**d'Alembert-Lösung**
+
+$$u(s,t)=u_\mathrm{hin}(s-vt)+u_\mathrm{rück}(s+vt)$$
+
+Jede Lösung der Wellengleichung, mit beliebigen (zweimal differenzierbaren) Funktionen $u_\mathrm{hin}$ und $u_\mathrm{rück}$. Jede Signalform läuft unverändert mit $v$; die Leitung ist ein verzerrungsfreies System mit der Verzögerung $l/v$.
+
+**Strom der hinlaufenden Welle**
+
+$$i=u_\mathrm{hin}(x)/Z$$
+
+Mit $x=s-vt$: In der hinlaufenden Welle stehen Spannung und Strom überall im Verhältnis $Z$.
+::::
+
+::::lernkarten
+:::karte formel Verlustlose Leitung
+Welche Ausbreitungskonstante, welchen Wellenwiderstand und welche Geschwindigkeit hat eine verlustlose Leitung mit $R'=G'=0$?
+---
+$\gamma=\mathrm{j}2\pi f\sqrt{L'C'}$, also $\alpha=0$ und $\beta$ proportional zu $f$. Daraus folgen $Z=\sqrt{\frac{L'}{C'}}$ und $v=\frac{1}{\sqrt{L'C'}}$, beide unabhängig von der Frequenz.
+--- falsch
+$\gamma=\mathrm{j}2\pi f\sqrt{L'C'}$, also $\alpha=0$. Daraus folgen $Z=\sqrt{L'C'}$ und $v=\frac{1}{\sqrt{L'C'}}$; der Wellenwiderstand wächst mit Induktivität und Kapazität gleichermaßen.
+--- falsch
+$\gamma=\mathrm{j}2\pi f\sqrt{L'C'}$, also $\alpha=0$. Daraus folgen $Z=\sqrt{\frac{L'}{C'}}$ und $v=2\pi f\sqrt{L'C'}$; hohe Frequenzen laufen auf der Leitung schneller als tiefe.
+--- falsch
+$\gamma=\sqrt{L'C'}$, also $\beta=0$ und keine Phasendrehung. Daraus folgen $Z=\sqrt{\frac{L'}{C'}}$ und $v=\sqrt{L'C'}$, beide unabhängig von der Frequenz.
+:::
+:::karte herleitung Wellengleichung der verlustlosen Leitung
+Wie folgt aus den Leitungsgleichungen mit $R'=G'=0$ die Wellengleichung $\frac{\partial^2u}{\partial s^2}=L'C'\frac{\partial^2u}{\partial t^2}$?
+---
+Mit $R'=G'=0$ lauten die Leitungsgleichungen $\frac{\partial u}{\partial s}=-L'\frac{\partial i}{\partial t}$ und $\frac{\partial i}{\partial s}=-C'\frac{\partial u}{\partial t}$, weil die Verlustglieder wegfallen.
+---
+Man leitet die erste Gleichung nach $s$ ab, weil links dann die zweite Ortsableitung $\frac{\partial^2u}{\partial s^2}$ steht; rechts steht $-L'$ mal die gemischte Ableitung von $i$ nach $s$ und $t$.
+---
+Man leitet die zweite Gleichung nach $t$ ab, weil dann dieselbe gemischte Ableitung von $i$ auftritt; sie ist gleich $-C'\frac{\partial^2u}{\partial t^2}$.
+---
+Einsetzen eliminiert $i$ und ergibt $\frac{\partial^2u}{\partial s^2}=L'C'\frac{\partial^2u}{\partial t^2}$, weil die Reihenfolge der Ableitungen nach $s$ und $t$ keine Rolle spielt.
+:::
+:::karte formel d'Alembert-Lösung
+Welche Form hat jede Lösung der Wellengleichung $\frac{\partial^2u}{\partial s^2}=L'C'\frac{\partial^2u}{\partial t^2}$ der verlustlosen Leitung?
+---
+$u(s,t)=u_\mathrm{hin}(s-vt)+u_\mathrm{rück}(s+vt)$ mit beliebigen, zweimal differenzierbaren Funktionen und $v=1/\sqrt{L'C'}$: eine hin- und eine rücklaufende Welle beliebiger Form.
+--- falsch
+$u(s,t)=u_\mathrm{hin}(s-vt)+u_\mathrm{rück}(s+vt)$, aber nur mit sinusförmigen Funktionen einer festen Frequenz; Signale anderer Form laufen auf der Leitung auseinander.
+--- falsch
+$u(s,t)=u_\mathrm{hin}(s)\cdot u_\mathrm{rück}(t)$ mit beliebigen Funktionen: ein fester räumlicher Verlauf, dessen Höhe sich an allen Orten gleichzeitig mit der Zeit ändert.
+--- falsch
+$u(s,t)=u_\mathrm{hin}(s-vt)-u_\mathrm{rück}(s-vt)$: zwei Wellen beliebiger Form, die beide in Richtung wachsender $s$ laufen und sich dabei teilweise gegenseitig auslöschen.
+:::
+:::karte herleitung d'Alembert prüfen
+Wie zeigt man durch Einsetzen, dass $u(s,t)=u_\mathrm{hin}(s-vt)$ die Wellengleichung der verlustlosen Leitung löst, und welche Geschwindigkeit $v$ folgt daraus?
+---
+Mit $x=s-vt$ ist $\frac{\partial^2u}{\partial s^2}=u_\mathrm{hin}''(x)$, weil $x$ mit dem Faktor 1 von $s$ abhängt.
+---
+Ebenso ist $\frac{\partial^2u}{\partial t^2}=v^2u_\mathrm{hin}''(x)$, weil jede Ableitung nach $t$ nach der Kettenregel den Faktor $-v$ bringt.
+---
+Die Wellengleichung verlangt $u''=L'C'v^2u''$, also $v^2=\frac{1}{L'C'}$, weil die Gleichung für jede Signalform $u_\mathrm{hin}$ gelten soll.
+:::
+:::karte zusammenhang Strom in der hinlaufenden Welle
+Wie hängt in einer hinlaufenden Welle auf der verlustlosen Leitung der Strom mit der Spannung zusammen, und warum?
+---
+Es gilt $i=u_\mathrm{hin}(x)/Z$: Spannung und Strom stehen überall im Verhältnis $Z$. Das folgt aus der ersten Leitungsgleichung mit $R'=0$, weil $L'v/Z=1$ ist.
+--- falsch
+Der Strom ist überall null, weil auf einer verlustlosen Leitung keine Leistung umgesetzt wird. Die Welle besteht deshalb nur aus einer wandernden Spannung.
+--- falsch
+Es gilt $i=Z\,u_\mathrm{hin}(x)$: Der Strom ist das $Z$-fache der Spannung, weil der Wellenwiderstand angibt, wie viel Strom je Volt in der Welle fließt.
+--- falsch
+Es gilt $i=u_\mathrm{hin}(x)/Z$ nur am Ende der Leitung; an anderen Orten hängt das Verhältnis davon ab, wie lange die Welle bis dorthin gebraucht hat.
+:::
+:::karte zusammenhang Leitung als verzerrungsfreies System
+Warum läuft auf einer verlustlosen Leitung eine beliebige Signalform unverändert die Leitung entlang?
+---
+Weil alle Frequenzanteile gleich schnell sind und gleich wenig gedämpft werden: $\alpha=0$ und $\beta$ proportional zu $f$. Die Leitung ist damit ein verzerrungsfreies System mit der Verzögerung $l/v$.
+--- falsch
+Weil alle Frequenzanteile gleich wenig gedämpft werden. Dass hohe Frequenzen schneller laufen als tiefe, ändert die Form nicht, weil die Amplituden aller Anteile erhalten bleiben.
+--- falsch
+Weil die Leitung jede Frequenz um denselben Phasenwinkel dreht. Ein fester Winkel für alle Frequenzen verschiebt jedes Signal als Ganzes, ohne es zu verformen.
+--- falsch
+Weil der Wellenwiderstand $Z=\sqrt{L'/C'}$ reell ist. Ein reeller Widerstand dreht keine Phase, deshalb kommen alle Frequenzen ohne jede Verzögerung am Ende an.
+:::
+:::karte formel Koaxialkabel
+Wie berechnet man aus dem Wellenwiderstand $Z$ und dem Belag $C'$ eines verlustlosen Kabels den Belag $L'$ und die Geschwindigkeit $v$?
+---
+$L'=Z^2C'$ und $v=\frac{1}{\sqrt{L'C'}}$, weil $Z=\sqrt{L'/C'}$ gilt. Für $Z=50\,\Omega$ und $C'=100$ pF/m ergeben sich $L'=250$ nH/m und $v=2\cdot10^8$ m/s, zwei Drittel der Lichtgeschwindigkeit.
+--- falsch
+$L'=Z\,C'$ und $v=\frac{1}{\sqrt{L'C'}}$, weil $Z=L'/C'$ gilt. Für $Z=50\,\Omega$ und $C'=100$ pF/m ergibt sich $L'=5$ nH/m, und das Signal läuft dann schneller als Licht im freien Raum.
+--- falsch
+$L'=Z^2C'$ und $v=\sqrt{L'C'}$, weil $Z=\sqrt{L'/C'}$ gilt. Für $Z=50\,\Omega$ und $C'=100$ pF/m ergibt sich $L'=250$ nH/m; die Geschwindigkeit ist umso größer, je größer beide Beläge sind.
+--- falsch
+$L'=Z^2C'$ und $v=\frac{1}{\sqrt{L'C'}}$, weil $Z=\sqrt{L'/C'}$ gilt. Die Geschwindigkeit ist aber bei jedem Kabel gleich der Lichtgeschwindigkeit, weil sich die beiden Beläge immer gegenseitig ausgleichen.
+:::
+:::karte zusammenhang Echo bei falschem Abschluss
+Was passiert, wenn man ein verlustloses Kabel mit $Z=50\,\Omega$ am Ende mit 75 $\Omega$ statt mit 50 $\Omega$ abschließt?
+---
+Am Ende entsteht eine rücklaufende Welle mit $r=\frac{75-50}{75+50}=0{,}2$: 20 % der Spannungsamplitude laufen als Echo zurück, das nach der doppelten Laufzeit wieder am Anfang ankommt.
+--- falsch
+Am Ende entsteht eine rücklaufende Welle mit $r=\frac{50}{75}=0{,}67$: Zwei Drittel der Spannungsamplitude laufen als Echo zurück, weil der Abschluss um die Hälfte zu groß ist.
+--- falsch
+Es entsteht keine rücklaufende Welle, weil 75 $\Omega$ größer als der Wellenwiderstand ist. Nur ein zu kleiner Abschluss reflektiert, ein zu großer nimmt die ankommende Welle vollständig auf.
+--- falsch
+Am Ende entsteht eine rücklaufende Welle mit $r=-0{,}2$: 20 % der Spannungsamplitude laufen mit umgekehrtem Vorzeichen zurück, weil der Abschluss größer als $Z$ ist.
+:::
+:::karte zusammenhang Spannung am Ende der Leitung
+Welche Spannung stellt sich am Ende einer Leitung ein, wenn dort eine Welle der Höhe 1 V ankommt und mit dem Reflexionsfaktor $r$ reflektiert wird, und warum?
+---
+$(1+r)\cdot1$ V, weil am Ende hin- und rücklaufende Welle gleichzeitig vorhanden sind und sich addieren. Bei Leerlauf ($r=+1$) verdoppelt sich die Spannung, bei Kurzschluss ($r=-1$) ist sie null.
+--- falsch
+$r\cdot1$ V, weil am Ende nur die reflektierte Welle gemessen wird. Die hinlaufende Welle ist dort schon vollständig im Abschluss verschwunden, wenn die reflektierte entsteht.
+--- falsch
+$(1-r)\cdot1$ V, weil die reflektierte Welle der ankommenden entgegenläuft und deshalb von ihr abgezogen wird. Bei Leerlauf ($r=+1$) ist die Spannung am Ende deshalb null.
+--- falsch
+Immer 1 V, weil die Spannung am Ende nur von der Quelle abhängt. Der Reflexionsfaktor bestimmt allein, wie groß das Echo ist, das später am Anfang der Leitung ankommt.
+:::
+:::karte formel Wann eine Leitung kurz ist
+Wie bestimmt man die höchste Frequenz, bei der eine Leitung der Länge $l$ noch als kurz gilt, wenn sie höchstens ein Zehntel der Wellenlänge lang sein soll?
+---
+Man verlangt $\lambda=v/f\ge10\,l$, also $f\le v/(10\,l)$: Je länger die Leitung, desto tiefer liegt die Grenze. Für 5 m Kabel mit $v=1{,}67\cdot10^8$ m/s ergibt das $f\le3{,}3$ MHz.
+--- falsch
+Aus $\lambda=v\,f\ge10\,l$ folgt $f\ge10\,l/v$: Die Leitung gilt erst oberhalb einer Mindestfrequenz als kurz, weil die Wellenlänge mit der Frequenz wächst.
+--- falsch
+Aus $\lambda=v/f\ge l/10$ folgt $f\le10\,v/l$: Die Leitung darf zehnmal so lang sein wie die Wellenlänge. Für 5 m Kabel mit $v=1{,}67\cdot10^8$ m/s ergibt das $f\le334$ MHz.
+--- falsch
+Die Frequenz spielt keine Rolle; ob eine Leitung kurz ist, hängt nur von ihrer Länge ab. Unter 10 m gilt jede Leitung als kurz, gleich welches Signal sie führt.
+:::
+::::

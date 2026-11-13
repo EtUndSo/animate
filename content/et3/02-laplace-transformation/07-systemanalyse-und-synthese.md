@@ -435,3 +435,204 @@ $$H(p)=G(p)/S(p)$$
 
 Eingang $s(t)$ und Ausgang $g(t)$ je für sich transformiert; die Pole des Eingangs kürzen sich heraus.
 ::::
+
+::::lernkarten
+:::karte begriff Rückkopplung
+Was versteht man bei der Verbindung zweier LTI-Systeme unter einer Rückkopplung?
+---
+Eine Verbindung, bei der ein Teil des Ausgangs zum Eingang zurückgeführt wird. Das System $H_1(p)$ erhält die Differenz aus dem Eingang und dem zurückgeführten Signal, das vorher das System $H_2(p)$ durchlaufen hat.
+--- falsch
+Eine Verbindung, bei der zwei Systeme denselben Eingang bekommen und ihre Ausgänge addiert werden. Das System $H_2(p)$ arbeitet dabei parallel zu $H_1(p)$ und gleicht dessen Fehler aus, bevor sie den Ausgang erreichen.
+--- falsch
+Eine Verbindung, bei der der Ausgang des ersten Systems der Eingang des zweiten ist, ohne dass das zweite das erste belastet. Das Signal läuft dabei nur in einer Richtung, vom Eingang zum Ausgang, und nie zurück.
+--- falsch
+Eine Verbindung, bei der der Eingang eines Systems aus seinem eigenen künftigen Ausgang gebildet wird. Das System $H_1(p)$ erhält die Summe aus Eingang und vorausberechnetem Ausgang, den $H_2(p)$ vorhersagt.
+:::
+:::karte begriff Vorwärtszweig und Rückführung
+Welche Aufgaben haben bei einer Rückkopplung das System im Vorwärtszweig und das System in der Rückführung?
+---
+Das System $H_1(p)$ im Vorwärtszweig erhält die Differenz aus Eingang und zurückgeführtem Signal und liefert den Ausgang. Das System $H_2(p)$ in der Rückführung formt den Ausgang, bevor er vom Eingang abgezogen wird.
+--- falsch
+Das System $H_2(p)$ im Vorwärtszweig formt den Eingang, bevor er abgezogen wird. Das System $H_1(p)$ in der Rückführung erhält den Ausgang und liefert die Differenz, die am Ende als Ausgang des Ganzen erscheint.
+--- falsch
+Das System im Vorwärtszweig verstärkt den Eingang, das System in der Rückführung schwächt ihn um denselben Faktor wieder ab. Beide zusammen lassen das Signal deshalb unverändert, und der Ausgang ist gleich dem Eingang.
+--- falsch
+Das System $H_1(p)$ im Vorwärtszweig liefert den Ausgang für positive Zeiten, das System $H_2(p)$ in der Rückführung den für negative Zeiten. Zusammen ergeben sie eine zweiseitige Impulsantwort des ganzen Systems.
+:::
+:::karte begriff Summierstelle
+Was leistet eine Summierstelle in einem Blockschaltbild aus LTI-Systemen?
+---
+Sie addiert zwei oder mehr Signale mit den Vorzeichen, die an ihren Eingängen stehen. Bei der Rückkopplung bildet sie so die Differenz $S(p)-H_2(p)\,G(p)$.
+--- falsch
+Sie multipliziert zwei Signale miteinander; das Vorzeichen an ihrem Eingang gibt an, ob eines davon vorher invertiert wird. Bei der Rückkopplung bildet sie so das Produkt $S(p)\cdot H_2(p)\,G(p)$.
+--- falsch
+Sie summiert ein Signal über die Zeit auf, integriert es also, und hat deshalb nur einen einzigen Eingang. Bei der Rückkopplung bildet sie so das Integral des Ausgangs, das zurückgeführt wird.
+--- falsch
+Sie verzweigt ein Signal auf mehrere Leitungen, damit es zugleich verschiedene Systeme erreicht. Die Vorzeichen geben an, welche Leitung das Signal unverändert und welche es invertiert weitergibt.
+:::
+:::karte formel Übertragungsfunktion der Rückkopplung
+Welche Übertragungsfunktion hat eine Rückkopplung mit $H_1(p)$ im Vorwärtszweig und $H_2(p)$ in der Rückführung, und wie erhält man sie?
+---
+Aus dem Blockbild liest man $G(p)=H_1(p)\cdot\bigl[S(p)-H_2(p)\cdot G(p)\bigr]$ ab, weil die Summierstelle den zurückgeführten Ausgang vom Eingang abzieht. Bringt man alle $G$ auf eine Seite, $G\,(1+H_1H_2)=H_1\,S$, ergibt sich $H(p)=\frac{G(p)}{S(p)}=\frac{H_1(p)}{1+H_1(p)\cdot H_2(p)}=\frac{1}{1/H_1(p)+H_2(p)}$.
+--- falsch
+Aus dem Bild liest man $G(p)=H_1(p)\cdot\bigl[S(p)+H_2(p)\cdot G(p)\bigr]$ ab, weil die Summierstelle addiert. Damit ist $H(p)=\frac{H_1(p)}{1-H_1(p)\cdot H_2(p)}$, und die Rückführung vergrößert in jedem Fall die Verstärkung des Ganzen.
+--- falsch
+Die beiden Systeme liegen hintereinander, Vorwärtszweig und Rückführung in Kette. Damit ist $H(p)=H_1(p)\cdot H_2(p)$, denn in einer Kette multiplizieren sich die Übertragungsfunktionen, gleichgültig, in welcher Richtung das Signal läuft.
+--- falsch
+Aus dem Bild liest man $G(p)=H_1(p)\cdot S(p)-H_2(p)\cdot G(p)$ ab. Bringt man alle $G$ auf eine Seite, ergibt sich $H(p)=\frac{H_1(p)}{1+H_2(p)}$; der Vorwärtszweig wirkt also nur im Zähler, die Rückführung nur im Nenner.
+:::
+:::karte zusammenhang Gegenkopplung
+Warum hängt eine Rückkopplung mit sehr starkem Vorwärtszweig, $|H_1H_2|\gg1$, fast nur noch von der Rückführung ab, und wozu nutzt man das?
+---
+Dann ist die $1$ im Nenner vernachlässigbar: $H(p)=\frac{H_1}{1+H_1H_2}\approx\frac{H_1}{H_1H_2}=\frac{1}{H_2(p)}$. Ein Verstärker mit großer, aber ungenauer Verstärkung ergibt mit einem Spannungsteiler aus genauen Widerständen als $H_2$ ein System, das so genau ist wie die Widerstände.
+--- falsch
+Dann ist $H_2$ gegen $H_1$ vernachlässigbar, und es gilt $H(p)\approx H_1(p)$. Die Rückführung wird praktisch nicht mehr gebraucht, und man nutzt das, um einen Verstärker ohne Rückführung zu betreiben, sobald seine Verstärkung groß genug ist und nicht mehr schwankt.
+--- falsch
+Dann ist der Nenner sehr groß und $H(p)\approx0$: Das System lässt fast nichts mehr durch. Man nutzt das, um Störungen vollständig zu unterdrücken, und baut deshalb Rückkopplungen mit möglichst großem Vorwärtszweig als Sperrfilter für einzelne Frequenzen.
+--- falsch
+Dann ist die $1$ im Nenner vernachlässigbar, und es gilt $H(p)\approx H_1(p)\cdot H_2(p)$. Das System verhält sich wie eine Kette, und man nutzt das, um zwei Verstärker zu einem einzigen mit dem Produkt der beiden Verstärkungen zu verbinden.
+:::
+:::karte formel Empfindlichkeit gegen Schwankungen
+Um welchen Faktor verkleinert eine Rückkopplung relative Änderungen der Verstärkung $H_1$, und was bedeutet das für $H_1=10^5$ und $H_2=0{,}01$?
+---
+Um den Faktor $1+H_1H_2$, denn $\frac{\mathrm{d} H/H}{\mathrm{d} H_1/H_1}=\frac{1}{1+H_1H_2}$. Mit $H_1H_2=1000$ ändert sich $H$ nur um etwa 0,01 %, wenn sich $H_1$ um 10 % ändert.
+--- falsch
+Um den Faktor $1/H_2$, denn $\frac{\mathrm{d} H/H}{\mathrm{d} H_1/H_1}=H_2$. Mit $H_2=0{,}01$ ändert sich $H$ nur um 0,1 %, wenn sich $H_1$ um 10 % ändert; die Größe von $H_1$ spielt dabei keine Rolle.
+--- falsch
+Gar nicht, denn $\frac{\mathrm{d} H/H}{\mathrm{d} H_1/H_1}=1$, weil $H_1$ im Zähler steht und sich jede relative Änderung unverändert fortpflanzt. Ändert sich $H_1$ um 10 %, ändert sich auch $H$ um 10 %.
+--- falsch
+Um den Faktor $H_1$, denn $\frac{\mathrm{d} H/H}{\mathrm{d} H_1/H_1}=\frac{1}{H_1}$. Mit $H_1=10^5$ ändert sich $H$ nur um 0,0001 %, wenn sich $H_1$ um 10 % ändert, ganz unabhängig von der Rückführung.
+:::
+:::karte begriff Integrierer
+Welche Impulsantwort und welche Übertragungsfunktion hat der Integrierer als Grundbaustein, und wie zeichnet man ihn?
+---
+Er hat die Impulsantwort $\varepsilon(t)$ und die Übertragungsfunktion $H(p)=1/p$; man zeichnet ihn als Kasten „$1/p$“. Er ist einer der vier Grundbausteine, aus denen sich jede rationale Übertragungsfunktion aufbauen lässt.
+--- falsch
+Er hat die Impulsantwort $\delta'(t)$ und die Übertragungsfunktion $H(p)=p$; man zeichnet ihn als Kasten „$p$“. Er ist einer der vier Grundbausteine und wird in der Praxis wegen seiner Störfestigkeit bevorzugt.
+--- falsch
+Er hat die Impulsantwort $t\,\varepsilon(t)$ und die Übertragungsfunktion $H(p)=1/p^2$; man zeichnet ihn als Kreis mit der Zahl $1/p$. Für jede Ordnung des Systems braucht man genau einen solchen Baustein.
+--- falsch
+Er hat die Impulsantwort $\varepsilon(t)$ und die Übertragungsfunktion $H(p)=p$, weil er die Fläche unter dem Signal bildet; man zeichnet ihn als Kasten mit Integralzeichen. Er ist der einzige Grundbaustein mit Gedächtnis.
+:::
+:::karte begriff Proportionalglied
+Was macht das Proportionalglied als Grundbaustein mit einem Signal, und welche Übertragungsfunktion hat es?
+---
+Es multipliziert das Signal mit einer festen Zahl $b$, hat also $H(p)=b$; man zeichnet es als Kreis mit der Zahl.
+--- falsch
+Es verzögert das Signal um eine feste Zeit $b$, hat also $H(p)=\mathrm{e}^{-pb}$; man zeichnet es als Kreis mit der Zahl.
+--- falsch
+Es addiert eine feste Zahl $b$ zum Signal, hat also $H(p)=b/p$; man zeichnet es als Kreis mit der Zahl.
+--- falsch
+Es multipliziert das Signal mit einer Zahl $b$, hat aber $H(p)=b\,p$, weil jedes LTI-System eine Ableitung enthält.
+:::
+:::karte zusammenhang Differenzierer
+Warum zieht man beim Aufbau aus Grundbausteinen Integrierer den Differenzierern vor?
+---
+Ein Differenzierer verstärkt schnelle Schwingungen umso mehr, je schneller sie sind, denn $|H(\mathrm{j}2\pi f)|=2\pi f$. Damit verstärkt er auch jede Störung.
+--- falsch
+Ein Differenzierer schwächt schnelle Schwingungen umso mehr, je schneller sie sind, denn $|H(\mathrm{j}2\pi f)|=1/(2\pi f)$. Damit gehen auch die Nutzsignale verloren.
+--- falsch
+Ein Differenzierer ist nicht kausal, weil er zur Ableitung den künftigen Verlauf des Signals kennen muss. Deshalb lässt er sich gar nicht bauen, nur der Integrierer.
+--- falsch
+Ein Differenzierer hat einen Pol bei $p=0$ und ist deshalb instabil, während der Integrierer an dieser Stelle eine Nullstelle hat und stets stabil bleibt.
+:::
+:::karte formel System erster Ordnung aus Grundbausteinen
+Wie baut man das System $H(p)=\frac{1}{p+b}$ aus Grundbausteinen auf, ohne einen Differenzierer zu verwenden?
+---
+Mit einem Integrierer $H_1(p)=1/p$ im Vorwärtszweig und einem Proportionalglied $H_2(p)=b$ in der Rückführung, denn $\frac{1}{p+b}=\frac{1}{1/H_1+H_2}$. Der Integrierer bekommt $\frac{\mathrm{d} g}{\mathrm{d} t}=s-b\,g$ und gibt $g$ aus.
+--- falsch
+Mit einem Proportionalglied $H_1(p)=\frac1b$ im Vorwärtszweig und einem Integrierer $H_2(p)=1/p$ in der Rückführung, denn $\frac{1}{p+b}=\frac{1}{1/H_1+H_2}$. Der Integrierer bildet das Integral des Ausgangs und führt es zurück.
+--- falsch
+Mit einem Integrierer $1/p$ und einem Proportionalglied $b$ in Kette, ohne Rückführung, denn in einer Kette multiplizieren sich die Übertragungsfunktionen zu $\frac{1}{p+b}$. Der Integrierer bekommt $s$ und gibt $g/b$ aus.
+--- falsch
+Mit einem Integrierer $H_1(p)=1/p$ im Vorwärtszweig und einem Proportionalglied $H_2(p)=-b$ in der Rückführung, weil die Summierstelle das zurückgeführte Signal ohnehin abzieht. Der Integrierer bekommt $\frac{\mathrm{d} g}{\mathrm{d} t}=s+b\,g$.
+:::
+:::karte formel Polynomform, Produktform und Parallelform
+Wie schreibt man die Übertragungsfunktion eines Systems zweiter Ordnung mit den Polen $-c_1$ und $-c_2$, $c_1\ne c_2$, in Polynomform, Produktform und Parallelform?
+---
+$H(p)=\frac{1}{p^2+(c_1+c_2)\,p+c_1c_2}=\frac{1}{p+c_1}\cdot\frac{1}{p+c_2}=\frac{1}{c_2-c_1}\Bigl[\frac{1}{p+c_1}-\frac{1}{p+c_2}\Bigr]$. Die Parallelform prüft man über den Hauptnenner: $\frac{1}{p+c_1}-\frac{1}{p+c_2}=\frac{c_2-c_1}{(p+c_1)(p+c_2)}$.
+--- falsch
+$H(p)=\frac{1}{p^2+(c_1+c_2)\,p+c_1c_2}=\frac{1}{p+c_1}+\frac{1}{p+c_2}$; Produktform und Parallelform stimmen überein, weil sich bei zwei Polen die Brüche einfach addieren. Prüfen kann man das über den Hauptnenner $(p+c_1)(p+c_2)$.
+--- falsch
+$H(p)=\frac{1}{p^2+c_1c_2\,p+(c_1+c_2)}=\frac{1}{p+c_1}\cdot\frac{1}{p+c_2}=\frac{1}{c_1-c_2}\Bigl[\frac{1}{p+c_1}-\frac{1}{p+c_2}\Bigr]$. Der Vorfaktor der Parallelform ist der Kehrwert des Abstands der Pole.
+--- falsch
+$H(p)=\frac{1}{p^2-(c_1+c_2)\,p+c_1c_2}=\frac{1}{p-c_1}\cdot\frac{1}{p-c_2}=\frac{1}{c_2-c_1}\Bigl[\frac{1}{p-c_1}-\frac{1}{p-c_2}\Bigr]$, weil die Pole bei $-c_1$ und $-c_2$ liegen und das Minus in jeden Faktor eingeht.
+:::
+:::karte zusammenhang Drei Aufbauten eines Systems zweiter Ordnung
+Welche drei Aufbauten aus Grundbausteinen gehören zur Polynomform, zur Produktform und zur Parallelform eines Systems zweiter Ordnung?
+---
+Polynomform: direkte Darstellung, zwei Integrierer hintereinander mit zwei Rückführungen. Produktform: Kaskadendarstellung, zwei Systeme erster Ordnung in Kette. Parallelform: Paralleldarstellung, zwei Systeme erster Ordnung am selben Eingang, deren Ausgänge man voneinander abzieht und mit $\frac{1}{c_2-c_1}$ multipliziert.
+--- falsch
+Polynomform: zwei Systeme erster Ordnung mit demselben Eingang, deren Ausgänge addiert werden. Produktform: zwei Integrierer hintereinander mit zwei Rückführungen, deren Gewichte die Koeffizienten sind. Parallelform: zwei Systeme erster Ordnung in Kette, verbunden durch ein Proportionalglied $\frac{1}{c_2-c_1}$.
+--- falsch
+Alle drei Formen führen auf denselben Aufbau mit zwei Integrierern hintereinander; sie unterscheiden sich nur in der Schreibweise auf dem Papier, nicht in der Schaltung. Verschiedene Aufbauten gibt es erst bei Systemen dritter Ordnung, weil man dort die Pole verschieden gruppieren kann.
+--- falsch
+Polynomform: zwei Differenzierer hintereinander, weil die Differentialgleichung zwei Ableitungen enthält. Produktform: zwei Differenzierer nebeneinander am selben Eingang. Parallelform: ein Integrierer und ein Differenzierer in Kette, deren Ausgänge am Ende addiert und mit $\frac{1}{c_2-c_1}$ multipliziert werden.
+:::
+:::karte begriff direkte Form
+Was ist die direkte Form eines Systems $H(p)=\frac{\beta_2p^2+\beta_1p+\beta_0}{p^2+\alpha_1p+\alpha_0}$, und warum braucht sie keinen Differenzierer?
+---
+Ein Aufbau aus einer Kette von Integrierern, deren Rückführungen die Nennerkoeffizienten $\alpha_1$, $\alpha_0$ tragen. Die Kette liefert schon $\ddot g_1$, $\dot g_1$ und $g_1$; diese greift man ab und gewichtet sie mit den Zählerkoeffizienten $\beta_2$, $\beta_1$, $\beta_0$, statt den Zähler mit Differenzierern zu bauen.
+--- falsch
+Ein Aufbau, bei dem man Zähler und Nenner getrennt baut: zuerst den Zähler mit zwei Differenzierern, dann den Kehrwert des Nenners mit zwei Integrierern. Die Differenzierer heben sich mit den Integrierern auf, sodass am Ende effektiv keine Ableitung übrig bleibt.
+--- falsch
+Ein Aufbau, der $H(p)$ in die Produktform zerlegt und für jedes Paar aus Nullstelle und Pol ein eigenes System erster Ordnung baut. Diese Teile kommen ohne Differenzierer aus, weil jedes nur einen Pol und eine Nullstelle hat und sich beide gegenseitig aufheben.
+--- falsch
+Ein Aufbau aus einer Kette von Integrierern, deren Rückführungen die Zählerkoeffizienten $\beta_2$, $\beta_1$, $\beta_0$ tragen; die Abgriffe tragen die Nennerkoeffizienten $\alpha_1$, $\alpha_0$. Differenzierer braucht sie nicht, weil der Zähler im Rückweg liegt.
+:::
+:::karte begriff Impedanz
+Was ist die Impedanz eines Bauelements im Bildbereich, und welche Werte haben Widerstand, Kapazität und Induktivität?
+---
+Der Quotient $Z(p)=U(p)/I(p)$ aus Spannung und Strom im Bildbereich: $R$ für den Widerstand, $\frac{1}{pC}$ für die Kapazität und $pL$ für die Induktivität. Damit rechnet man ein Netzwerk im Bildbereich wie eine Schaltung aus Widerständen.
+--- falsch
+Der Quotient $Z(p)=I(p)/U(p)$ aus Strom und Spannung im Bildbereich: $1/R$ für den Widerstand, $pC$ für die Kapazität und $\frac{1}{pL}$ für die Induktivität. Damit rechnet man ein Netzwerk wie eine Schaltung aus Leitwerten.
+--- falsch
+Der Quotient $Z(p)=U(p)/I(p)$ im Bildbereich: $R$ für den Widerstand, $pC$ für die Kapazität und $\frac{1}{pL}$ für die Induktivität, weil die Spannung an der Kapazität die Ableitung des Stroms ist. Damit rechnet man wie mit Widerständen.
+--- falsch
+Der Gleichstromwiderstand eines Bauelements, gemessen bei $p=0$: $R$ für den Widerstand, unendlich für die Kapazität und null für die Induktivität. Im Bildbereich ist er für alle $p$ derselbe, weil Bauteilwerte nicht von der Frequenz abhängen.
+:::
+:::karte zusammenhang Rechnen mit Impedanzen
+Warum darf man ein Netzwerk aus $R$, $L$ und $C$ im Bildbereich wie eine Schaltung aus Widerständen berechnen?
+---
+Sind alle Spannungen und Ströme Vielfache derselben Eigenfunktion $\mathrm{e}^{pt}$, bleibt das im ganzen Netzwerk so; jede Ableitung wird ein Faktor $p$, jedes Integral ein Faktor $1/p$. An jedem Bauelement stehen Spannung und Strom dann im festen Verhältnis $Z(p)$, und die Kirchhoffschen Regeln gelten auch für die Vorfaktoren.
+--- falsch
+Weil Spulen und Kondensatoren im Bildbereich ihre Energiespeicher verlieren und zu Ohmschen Widerständen werden. Die Ableitungen in ihren Gleichungen verschwinden ganz, und es bleiben reine Proportionalitäten zwischen Strom und Spannung mit reellen Faktoren.
+--- falsch
+Weil die Kirchhoffschen Regeln im Bildbereich nicht mehr gelten und durch das Ohmsche Gesetz ersetzt werden. Jedes Bauelement wird für sich mit seiner eigenen Spannung berechnet, und die Spannungen an den einzelnen Bauelementen addiert man am Ende einfach auf, ohne auf Maschen zu achten.
+--- falsch
+Sind alle Spannungen und Ströme Vielfache von $\mathrm{e}^{pt}$, wird jede Ableitung zum Faktor $1/p$ und jedes Integral zum Faktor $p$. An jedem Bauelement stehen Spannung und Strom dann im festen Verhältnis $Z(p)$, das allerdings nur für reelle $p$ gilt.
+:::
+:::karte formel Spannungsteiler im Bildbereich
+Wie erhält man die Übertragungsfunktionen des RC-Tiefpasses und des RLC-Systems mit Impedanzen, ohne die Differentialgleichung aufzustellen?
+---
+Mit der Spannungsteilerregel: $H(p)=\frac{\frac{1}{pC}}{R+\frac{1}{pC}}=\frac{1}{1+pRC}$ für den RC-Tiefpass und $H(p)=\frac{\frac{1}{pC}}{R+pL+\frac{1}{pC}}=\frac{1}{LCp^2+RCp+1}$ für das RLC-System.
+--- falsch
+Mit der Spannungsteilerregel: $H(p)=\frac{R}{R+\frac{1}{pC}}=\frac{pRC}{1+pRC}$ für den RC-Tiefpass und entsprechend $\frac{R}{R+pL+\frac{1}{pC}}$ für das RLC-System, weil die Ausgangsspannung am Widerstand liegt.
+--- falsch
+Mit der Spannungsteilerregel: $H(p)=\frac{pC}{R+pC}$ für den RC-Tiefpass und $H(p)=\frac{pC}{R+pL+pC}$ für das RLC-System, weil die Impedanz des Kondensators $pC$ ist und mit der Frequenz wächst.
+--- falsch
+Mit der Reihenschaltung: $H(p)=R+\frac{1}{pC}$ für den RC-Tiefpass und $H(p)=R+pL+\frac{1}{pC}$ für das RLC-System, weil sich in Reihe die Impedanzen addieren und das Verhältnis der Spannungen ergeben.
+:::
+:::karte zusammenhang System aus Messungen
+Wie bestimmt man ein unbekanntes LTI-System aus einem gemessenen Eingang und Ausgang, und was geschieht dabei mit den Polen des Eingangs?
+---
+Man transformiert beide Signale, jedes für sich, und teilt: Nach dem Faltungssatz ist $H(p)=G(p)/S(p)$. Die Pole des Eingangs kürzen sich dabei heraus, und übrig bleiben die des Systems; aus den Messungen kennt man nur $H$, nicht die Bauteile.
+--- falsch
+Man teilt den gemessenen Ausgang zu jedem Zeitpunkt durch den Eingang, $h(t)=g(t)/s(t)$, und transformiert das Ergebnis. Die Pole des Eingangs bleiben dabei erhalten und erscheinen zusätzlich zu denen des Systems in $H(p)$.
+--- falsch
+Man transformiert beide Signale und multipliziert sie: $H(p)=G(p)\cdot S(p)$. Die Pole des Eingangs verdoppeln sich dabei, und die doppelten Pole kennzeichnet man als Pole des Eingangs, die einfachen als Pole des Systems.
+--- falsch
+Man transformiert beide Signale und teilt: $H(p)=G(p)/S(p)$. Die Pole des Eingangs werden dabei zu Nullstellen des Systems, und aus diesen Polen und Nullstellen kann man die Bauteile der Schaltung samt ihren Werten eindeutig zurückrechnen.
+:::
+:::karte zusammenhang Impedanz und Zeigerrechnung
+Wie hängt die Rechnung mit Impedanzen $Z(p)$ mit der Wechselstromrechnung mit Zeigern zusammen?
+---
+Für $p=\mathrm{j}2\pi F$ ist sie genau die Zeigerrechnung; der Kondensator hat dann die Impedanz $\frac{1}{\mathrm{j}2\pi FC}$. Die Laplace-Fassung erweitert sie auf wachsende und abklingende Signale und damit auf Einschaltvorgänge.
+--- falsch
+Für reelle $p$ ist sie genau die Zeigerrechnung; der Kondensator hat dann die Impedanz $\frac{1}{pC}$. Die Laplace-Fassung beschränkt sie auf abklingende Signale, weil Zeiger nur für gedämpfte Schwingungen gelten.
+--- falsch
+Beide haben nichts miteinander zu tun: Die Zeigerrechnung gilt für Gleichspannung, die Impedanzrechnung für Wechselspannung. Der Kondensator hat in der Zeigerrechnung deshalb immer die Impedanz unendlich.
+--- falsch
+Für $p=\mathrm{j}2\pi F$ ist sie die Zeigerrechnung, aber mit vertauschten Rollen: Der Kondensator hat dort die Impedanz $\mathrm{j}2\pi FC$. Die Laplace-Fassung erweitert sie auf Gleichspannung, die in der Zeigerrechnung fehlt.
+:::
+::::

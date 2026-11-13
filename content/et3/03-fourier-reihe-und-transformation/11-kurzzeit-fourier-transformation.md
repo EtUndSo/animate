@@ -99,3 +99,105 @@ $$\sum_nw(\tau-nT)=1$$
 
 Für $T=T_0/2$, also $c=1$, weil $\cos^2x+\sin^2x=1$.
 ::::
+
+::::lernkarten
+:::karte begriff Kurzzeit-Fourier-Transformation
+Was berechnet die Kurzzeit-Fourier-Transformation $S_T(f,t)$ eines Signals, und wie ist sie definiert?
+---
+Das Spektrum eines Ausschnitts um den Zeitpunkt $t$: $S_T(f,t)=\int_{-\infty}^{\infty}s(\tau)\,w(\tau-t)\,\mathrm{e}^{-\mathrm{j}2\pi f\tau}\,\mathrm{d}\tau$. Das Fenster $w$ wird um $t$ verschoben, $\tau$ ist die Zeit des Signals. Es entsteht ein Spektrum, das von der Zeit abhängt.
+--- falsch
+Das Spektrum des ganzen Signals, ausgewertet zur Zeit $t$: $S_T(f,t)=S(f)\,\mathrm{e}^{\mathrm{j}2\pi ft}$. Es beschreibt, welchen Wert jede Schwingung zum Zeitpunkt $t$ hat, und kommt deshalb ganz ohne Fenster aus.
+--- falsch
+Das Spektrum eines Ausschnitts um den Zeitpunkt $t$: $S_T(f,t)=\int_{-\infty}^{\infty}s(\tau-t)\,w(\tau)\,\mathrm{e}^{-\mathrm{j}2\pi ft}\,\mathrm{d}\tau$. Das Signal wird um $t$ verschoben, das Fenster bleibt fest, und im Exponenten steht die Lage $t$ des Ausschnitts.
+--- falsch
+Die Fourier-Transformation eines kurzen Signals, das nur zwischen $0$ und $T$ von null verschieden ist: $S_T(f)=\int_0^Ts(\tau)\,\mathrm{e}^{-\mathrm{j}2\pi f\tau}\,\mathrm{d}\tau$. Für lange Signale ist sie nicht erklärt, sie braucht ein kurzes Signal.
+:::
+:::karte begriff Fenster
+Welche Aufgabe hat das Fenster $w$ bei der Kurzzeit-Fourier-Transformation, und welches ist das einfachste?
+---
+Mit dem Fenster multipliziert man das Signal, um einen Ausschnitt um den Zeitpunkt $t$ herauszuschneiden; nur dieser wird transformiert. Das einfachste ist das Rechteckfenster der Breite $T_0$, $\operatorname{rect}\Bigl(\frac{\tau-t}{T_0}\Bigr)$.
+--- falsch
+Mit dem Fenster faltet man das Signal, um es zu glätten; transformiert wird danach das ganze geglättete Signal über alle Zeiten. Das einfachste ist das Rechteckfenster, das jeweils über die Breite $T_0$ mittelt.
+--- falsch
+Mit dem Fenster multipliziert man das Spektrum, um ein Frequenzband herauszuschneiden; nur dieses wird zurücktransformiert. Das einfachste ist das Rechteck $\operatorname{rect}(f/T_0)$ der Breite $T_0$ um die Frequenz null.
+--- falsch
+Mit dem Fenster addiert man zum Signal eine Rampe, damit es an den Rändern des Ausschnitts auf null abfällt. Das einfachste ist das Dreieckfenster, weil es die Ränder des Ausschnitts gleichmäßig linear absenkt.
+:::
+:::karte zusammenhang Verschmierung durch das Fenster
+Warum ist das Spektrum eines Ausschnitts nicht das wahre Spektrum $S(f)$, sondern eine verschmierte Fassung davon?
+---
+Das Fenster multipliziert das Signal, im Frequenzbereich wird das Spektrum also mit dem Spektrum des Fensters gefaltet. Beim Rechteckfenster ist $S_T(f,t)=S(f)*\bigl[T_0\operatorname{si}(\pi T_0f)\,\mathrm{e}^{-\mathrm{j}2\pi tf}\bigr]$.
+--- falsch
+Weil der Ausschnitt weniger Energie enthält als das ganze Signal. Das Spektrum wird deshalb gleichmäßig um den Faktor $T_0$ kleiner, behält aber seine Form, und Linien im Spektrum bleiben scharfe Linien.
+--- falsch
+Das Fenster multipliziert das Signal, im Frequenzbereich wird das Spektrum also mit dem Spektrum des Fensters multipliziert: Bei den Nullstellen der si-Funktion des Rechteckfensters fehlen deshalb Frequenzen ganz.
+--- falsch
+Weil man nur über eine endliche Zeit integriert und das Integral deshalb nicht konvergiert. Die Verschmierung ist ein Rundungsfehler, der mit feinerer Abtastung des Ausschnitts beliebig klein wird.
+:::
+:::karte zusammenhang Kurzes und langes Fenster
+Was passiert mit der Auflösung in Zeit und Frequenz, wenn man das Fenster der Kurzzeit-Fourier-Transformation kürzer macht?
+---
+Die Zeitauflösung wird besser, die Frequenzauflösung schlechter: Nach dem Ähnlichkeitssatz hat ein kurzes Fenster ein breites Spektrum und verschmiert das wahre Spektrum stark. Beides zugleich beliebig scharf geht nicht.
+--- falsch
+Beide Auflösungen werden besser: Ein kurzes Fenster lokalisiert genauer in der Zeit, und weil es weniger Signal enthält, sind auch weniger Frequenzen überlagert, sodass das Spektrum des Ausschnitts schärfer wird.
+--- falsch
+Die Frequenzauflösung wird besser, die Zeitauflösung schlechter: Ein kurzes Fenster hat nach dem Ähnlichkeitssatz ein schmales Spektrum, verschmiert also wenig, verwischt aber die Lage in der Zeit.
+--- falsch
+Nur die Zeitauflösung ändert sich; die Frequenzauflösung hängt allein von der Form des Fensters ab, nicht von seiner Länge. Ein kurzes Hann-Fenster trennt Frequenzen deshalb genauso gut wie ein langes.
+:::
+:::karte begriff Nebenzipfel
+Was sind Nebenzipfel im Spektrum eines Fensters, und warum erzeugt das Rechteckfenster besonders störende?
+---
+Die Nebenmaxima neben dem Hauptmaximum des Fensterspektrums. Die harten Kanten des Rechtecks erzeugen langsam abfallende Nebenzipfel; weiche Fenster wie das Hann-Fenster dämpfen sie.
+--- falsch
+Die Nebenmaxima neben dem Hauptmaximum des Fensterspektrums. Das Rechteckfenster erzeugt besonders störende, weil es zu kurz ist; ein längeres Rechteckfenster hat gar keine Nebenzipfel mehr.
+--- falsch
+Die Teile des Signals, die außerhalb des Fensters liegen und deshalb im Ausschnitt fehlen. Beim Rechteckfenster sind sie besonders groß, weil es keine Übergangszone zwischen innen und außen hat.
+--- falsch
+Die Nullstellen des Fensterspektrums zwischen den Maxima. Das Rechteckfenster erzeugt besonders viele davon, weil seine Kanten senkrecht sind; weiche Fenster haben dagegen keine Nullstellen.
+:::
+:::karte begriff Hann-Fenster
+Wie ist das Hann-Fenster der Breite $T_0$ definiert, und warum ist es dem Rechteckfenster meist vorzuziehen?
+---
+$w(\tau)=\tfrac12\Bigl[1+\cos\Bigl(\frac{2\pi\tau}{T_0}\Bigr)\Bigr]\operatorname{rect}\Bigl(\frac{\tau}{T_0}\Bigr)=\cos^2\Bigl(\frac{\pi\tau}{T_0}\Bigr)\operatorname{rect}\Bigl(\frac{\tau}{T_0}\Bigr)$. Es hat weiche statt harter Kanten, deshalb fallen seine Nebenzipfel schneller ab.
+--- falsch
+$w(\tau)=\cos\Bigl(\frac{\pi\tau}{T_0}\Bigr)\operatorname{rect}\Bigl(\frac{\tau}{T_0}\Bigr)$, eine halbe Kosinuswelle. Es ist schmaler als das Rechteckfenster gleicher Breite, deshalb lokalisiert es zugleich besser in der Zeit und in der Frequenz.
+--- falsch
+$w(\tau)=\tfrac12\Bigl[1-\cos\Bigl(\frac{2\pi\tau}{T_0}\Bigr)\Bigr]\operatorname{rect}\Bigl(\frac{\tau}{T_0}\Bigr)=\sin^2\Bigl(\frac{\pi\tau}{T_0}\Bigr)\operatorname{rect}\Bigl(\frac{\tau}{T_0}\Bigr)$. Es betont die Ränder des Ausschnitts.
+--- falsch
+$w(\tau)=\Lambda\Bigl(\frac{\tau}{T_0}\Bigr)$, ein Dreieck. Es hat Knicke statt Sprüngen und ist deshalb besser als das Rechteck, aber seine Nebenzipfel fallen noch langsamer ab als beim Rechteck, weil es spitz zuläuft.
+:::
+:::karte formel Zusammensetzen aus Ausschnitten
+Unter welcher Bedingung setzen sich die Ausschnitte der Kurzzeit-Fourier-Transformation wieder zum ganzen Signal und ihre Spektren zum ganzen Spektrum zusammen?
+---
+Wenn sich die um $T$ verschobenen Fenster zu einer Konstanten ergänzen, $\sum_nw(\tau-nT)=c$. Dann ist $s(\tau)=\frac1c\sum_ns(\tau)\,w(\tau-nT)$ und $S(f)=\frac1c\sum_nS_T(f,nT)$.
+--- falsch
+Wenn sich die um $T$ verschobenen Fenster nirgends überlappen. Dann ist $S(f)=\sum_nS_T(f,nT)$, allerdings nur für das Rechteckfenster, weil sich weiche Fenster immer überlappen und Teile doppelt zählen würden.
+--- falsch
+Wenn jedes Fenster die Fläche 1 hat, das Integral über $w$ also 1 ist. Dann ist $S(f)=\sum_nS_T(f,nT)$ für jeden beliebigen Versatz $T$, weil jeder Ausschnitt genau sein Gewicht beiträgt.
+--- falsch
+Wenn sich die um $T$ verschobenen Fenster zu einer Konstanten ergänzen, $\sum_nw(\tau-nT)=c$. Dann ist $S(f)=c\sum_nS_T(f,nT)$, denn die Summe der Fenster multipliziert das Signal mit $c$.
+:::
+:::karte herleitung Hann-Fenster mit halbem Versatz
+Wie zeigt man, dass sich Hann-Fenster der Breite $T_0$ mit dem Versatz $T=T_0/2$ überall zu 1 ergänzen?
+---
+Zwischen $nT$ und $(n+1)T$ sind genau die Fenster $n$ und $n+1$ von null verschieden, weil jedes Fenster doppelt so breit ist wie der Versatz.
+---
+Mit $x=\pi(\tau-nT)/T_0$ ist das erste Fenster $\cos^2x$, weil das Hann-Fenster $\cos^2\Bigl(\frac{\pi\tau}{T_0}\Bigr)$ ist, hier um $nT$ verschoben.
+---
+Das zweite Fenster ist $\cos^2\Bigl(x-\frac\pi2\Bigr)$, also $\sin^2x$, weil es um $T=T_0/2$ weiter verschoben ist und das im Argument $\frac\pi2$ ausmacht.
+---
+Die Summe ist $\cos^2x+\sin^2x=1$, weil das für jeden Winkel gilt. Also ist $c=1$, und die Ausschnitte setzen sich lückenlos zusammen.
+:::
+:::karte begriff Spektrogramm
+Was zeigt ein Spektrogramm, und woraus entsteht es?
+---
+Wie sich die Frequenzen eines Signals mit der Zeit ändern: Man trägt den Betrag $|S_T|$ der Kurzzeit-Fourier-Transformation über der Zeit $t$ und der Frequenz $f$ auf.
+--- falsch
+Wie sich die Frequenzen eines Signals mit der Zeit ändern: Man trägt das Signal über der Zeit und darunter seinen Spektralbetrag $|S(f)|$ über der Frequenz auf, beide getrennt.
+--- falsch
+Welche Leistung jede Harmonische eines periodischen Signals trägt: Man trägt $|S_p(k)|^2$ über der Nummer $k$ auf, als Balken bei den Vielfachen der Grundfrequenz.
+--- falsch
+Wie sich die Phase des Spektrums über der Frequenz ändert: Man trägt den Winkel von $S(f)$ über $f$ auf und liest an der Steigung die Verzögerung des Signals ab.
+:::
+::::

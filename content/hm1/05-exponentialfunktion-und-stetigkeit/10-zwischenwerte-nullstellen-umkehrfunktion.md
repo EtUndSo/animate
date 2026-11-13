@@ -164,3 +164,217 @@ Sei $f(x)=x^3+x-1$ auf $[0,1]$. (a) Führe drei Halbierungsschritte aus. (b) Fü
 (a) Auf $[0,1]$ ist $\frac13\le f(x)\le\frac23$, also $\mathcal W(f)\subset[0,1]$. $x^2-3x+1=0$ gibt $x=\frac{3-\sqrt5}2=0{,}382$; die zweite Lösung $2{,}618$ liegt außerhalb. (b) $g(x)=x$ gibt $x=1\notin[0,1)$. Das Intervall ist nicht abgeschlossen. (c) $|x-y|=\frac1n\to0$, aber $|x^2-y^2|=2+\frac1{n^2}\ge2$. Für $\varepsilon=2$ gewinnt kein $\delta_0$.
 :::
 :::
+
+::::formelsammlung
+**Zwischenwertsatz: Nullstelle**
+
+$$f(a)\cdot f(b)<0\quad\Longrightarrow\quad f(x_0)=0\ \text{für ein }x_0\in(a,b)$$
+
+Für $f:[a,b]\to\mathbb{R}$ stetig. Beweis durch Halbieren.
+
+**Zwischenwertsatz: Wertebereich**
+
+$$\mathcal W(f)=[m,M]$$
+
+Mit $m:=\inf\mathcal W(f)$ und $M:=\sup\mathcal W(f)$: Zu jedem $\mu\in[m,M]$ gibt es ein $x\in[a,b]$ mit $f(x)=\mu$.
+
+**Fehler der Intervallhalbierung**
+
+$$b_n-a_n=2^{-n}(b-a)$$
+
+Neuer Rand $\frac{a_{n-1}+b_{n-1}}2$; der Fehler nach $n$ Schritten ist höchstens $2^{-n}(b-a)$.
+
+**Sekante**
+
+$$P_1(x):=f(a)+\frac{f(b)-f(a)}{b-a}\,(x-a),\qquad\alpha:=a-\frac{b-a}{f(b)-f(a)}\cdot f(a)$$
+
+Dann $[a_1,b_1]:=[a,\alpha]$, falls $f(a)\cdot f(\alpha)<0$, und $[a_1,b_1]:=[\alpha,b]$, falls $f(\alpha)\cdot f(b)<0$.
+
+**Stetigkeit der Umkehrfunktion**
+
+$$g=f^{-1}:[A,B]\to[a,b]$$
+
+Für $f:[a,b]\to\mathbb{R}$ stetig und streng monoton wachsend, $A:=f(a)$, $B:=f(b)$: $f:[a,b]\to[A,B]$ ist bijektiv, $g$ streng monoton wachsend und stetig.
+
+**Fixpunkt**
+
+$$f(x_0)=x_0$$
+
+Schnittpunkt des Graphen mit der Winkelhalbierenden; gleichbedeutend hat $g(x):=f(x)-x$ dort eine Nullstelle.
+
+**Fixpunktsatz**
+
+$$\mathcal W(f)\subset[a,b]$$
+
+Ist $f:[a,b]\to\mathbb{R}$ stetig mit $\mathcal W(f)\subset[a,b]$, so hat $f$ mindestens einen Fixpunkt.
+::::
+
+::::lernkarten
+:::karte formel Zwischenwertsatz
+Was besagt der Zwischenwertsatz von Bolzano für eine stetige Funktion $f:[a,b]\to\mathbb{R}$?
+---
+(i) Aus $f(a)\cdot f(b)<0$ folgt eine Nullstelle $x_0\in(a,b)$. (ii) Mit $m:=\inf\mathcal W(f)$ und $M:=\sup\mathcal W(f)$ gilt $\mathcal W(f)=[m,M]$: Das Bild eines abgeschlossenen Intervalls ist wieder ein abgeschlossenes Intervall.
+--- falsch
+(i) Aus $f(a)\cdot f(b)<0$ folgt eine Nullstelle in $(a,b)$. (ii) Jeder Wert zwischen $f(a)$ und $f(b)$ wird angenommen, aber keiner außerhalb: $\mathcal W(f)$ ist genau das Intervall zwischen $f(a)$ und $f(b)$.
+--- falsch
+(i) Aus $f(a)\cdot f(b)>0$ folgt, dass $f$ in $(a,b)$ keine Nullstelle hat. (ii) Mit $m:=\inf\mathcal W(f)$ und $M:=\sup\mathcal W(f)$ gilt $\mathcal W(f)=(m,M)$, die beiden Ränder werden nicht angenommen.
+--- falsch
+(i) Aus $f(a)\cdot f(b)<0$ folgt genau eine Nullstelle in $(a,b)$. (ii) Mit $m:=\inf\mathcal W(f)$ und $M:=\sup\mathcal W(f)$ gilt $\mathcal W(f)=[m,M]$, und jeder Wert wird genau einmal angenommen.
+:::
+:::karte herleitung Halbieren bis zur Nullstelle
+Wie beweist man durch Halbieren, dass eine stetige Funktion mit $f(a)<0<f(b)$ eine Nullstelle in $(a,b)$ hat?
+---
+Ist $f(\frac{a+b}2)=0$, ist man fertig; ist der Wert positiv, nimmt man $[a,\frac{a+b}2]$, ist er negativ, $[\frac{a+b}2,b]$, weil dann wieder $f(a_1)<0<f(b_1)$ gilt.
+---
+Fortsetzen liefert eine Nullstelle oder eine Intervallschachtelung mit $f(a_n)<0<f(b_n)$ und $b_n-a_n=2^{-n}(b-a)$, weil jeder Schritt die Länge halbiert.
+---
+Sie definiert ein $x_0\in[a,b]$ mit $a_n\to x_0$ und $b_n\to x_0$, weil geschachtelte Intervalle mit Längen gegen 0 genau einen Punkt enthalten.
+---
+Die Folgenstetigkeit gibt $0\ge\lim_{n\to\infty}f(a_n)=f(x_0)=\lim_{n\to\infty}f(b_n)\ge0$, weil alle $f(a_n)$ negativ und alle $f(b_n)$ positiv sind; also ist $f(x_0)=0$.
+---
+$x_0$ liegt in $(a,b)$, weil $f(a)\ne0$ und $f(b)\ne0$ ist.
+:::
+:::karte zusammenhang Nullstelle
+Warum verlangt der Zwischenwertsatz in (i) das echte $f(a)\cdot f(b)<0$, um eine Nullstelle in $(a,b)$ zu sichern?
+---
+Bei $f(a)=0$ liegt eine Nullstelle am Rand; im Inneren $(a,b)$ muss es dann keine geben. Mit dem echten $<$ sind $f(a)$ und $f(b)$ nicht null und haben verschiedene Vorzeichen, also liegt die gefundene Nullstelle im Inneren.
+--- falsch
+Weil bei $f(a)\cdot f(b)=0$ die Funktion auf ganz $[a,b]$ null ist; der Satz wäre dann trivial, und man schließt diesen Fall nur der Übersicht halber aus, ohne dass sich an der Aussage etwas ändern würde.
+--- falsch
+Weil das Produkt bei einer Nullstelle am Rand positiv wird; mit $\le0$ würde man deshalb Funktionen ohne jeden Vorzeichenwechsel zulassen, die im ganzen Intervall nie eine Nullstelle haben.
+--- falsch
+Weil die Halbierung bei $f(a)\cdot f(b)=0$ nicht startet: Man weiß dann nicht, welche Hälfte man behalten soll, und das Verfahren findet die Nullstelle am Rand deshalb nie, auch nicht nach vielen Schritten.
+:::
+:::karte zusammenhang Voraussetzungen des Zwischenwertsatzes
+Welche Beispiele zeigen, dass der Zwischenwertsatz die Stetigkeit und ein Intervall als Definitionsbereich braucht?
+---
+Ohne Stetigkeit: $H$ auf $[-1,1]$ lässt den Wert $\frac12$ aus. Ohne Intervall: $1/x$ auf $[-1,0)\cup(0,1]$ ist stetig, wechselt das Vorzeichen und hat keine Nullstelle.
+--- falsch
+Ohne Stetigkeit: $x^2+1$ auf $[-1,1]$ hat keine Nullstelle. Ohne Intervall: $H$ auf $[-1,1]$ lässt den Wert $\frac12$ aus, weil die Stelle 0 im Definitionsbereich fehlt.
+--- falsch
+Ohne Stetigkeit: $1/x$ auf $[-1,0)\cup(0,1]$ springt bei 0 und hat keine Nullstelle. Ohne Intervall: $x^2$ auf $[-1,1]$ nimmt die negativen Werte nicht an.
+--- falsch
+Es gibt keine solchen Beispiele: Jede Funktion mit Werten beider Vorzeichen hat eine Nullstelle; die Voraussetzungen erleichtern nur den Beweis durch Halbieren.
+:::
+:::karte zusammenhang Polynome ungeraden Grades
+Warum hat jedes reelle Polynom ungeraden Grades mindestens eine reelle Nullstelle, eines geraden Grades aber nicht unbedingt?
+---
+Bei positivem führenden Koeffizienten überwiegt die höchste Potenz: $P(x)\to+\infty$ für $x\to\infty$ und $P(x)\to-\infty$ für $x\to-\infty$. Also gibt es $a<b$ mit $P(a)<0<P(b)$, und der Zwischenwertsatz greift. Bei geradem Grad geht das nicht: $x^2+1$ hat keine.
+--- falsch
+Weil Polynome ungeraden Grades streng monoton sind und deshalb jeden reellen Wert genau einmal annehmen, also auch die Null. Bei geradem Grad sind sie nie monoton und verfehlen deshalb die Null, sobald ihr Scheitel oberhalb der Achse liegt.
+--- falsch
+Weil ein Polynom ungeraden Grades nur ungerade Potenzen enthält und deshalb $P(0)=0$ gilt. Bei geradem Grad kommt ein konstantes Glied hinzu, das den Graphen nach oben oder unten verschiebt und die Nullstelle dabei verlieren kann.
+--- falsch
+Weil der Zwischenwertsatz für Polynome ungeraden Grades schon auf $[0,1]$ greift: $P(0)$ und $P(1)$ haben bei ungeradem Grad stets verschiedene Vorzeichen. Bei geradem Grad haben sie dasselbe Vorzeichen, und der Satz greift nicht.
+:::
+:::karte formel Stetigkeit der Umkehrfunktion
+Was gilt nach dem Satz über die Stetigkeit der Umkehrfunktion für eine stetige, streng monoton wachsende Funktion $f:[a,b]\to\mathbb{R}$?
+---
+Mit $A:=f(a)$, $B:=f(b)$ ist $f:[a,b]\to[A,B]$ bijektiv, und die Umkehrfunktion $g=f^{-1}:[A,B]\to[a,b]$ ist ebenfalls streng monoton wachsend und stetig.
+--- falsch
+Mit $A:=f(a)$, $B:=f(b)$ ist $f:[a,b]\to[A,B]$ bijektiv, die Umkehrfunktion $g=f^{-1}$ ist streng monoton wachsend, aber nicht unbedingt stetig; dafür braucht $f$ eine Formel.
+--- falsch
+$f$ ist injektiv, die Surjektivität auf $[A,B]$ muss man aber zusätzlich fordern; ist sie gegeben, so ist $g=f^{-1}:[A,B]\to[a,b]$ stetig und streng monoton fallend.
+--- falsch
+Mit $A:=f(a)$, $B:=f(b)$ ist $f:[a,b]\to[A,B]$ bijektiv, und $g=f^{-1}$ ist stetig, aber streng monoton fallend, weil die Spiegelung an $y=x$ die Richtung umkehrt.
+:::
+:::karte zusammenhang Umkehrfunktion
+Warum muss man im Satz über die Stetigkeit der Umkehrfunktion die Surjektivität nicht fordern, anders als in [Kapitel 3](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/funktionen-und-polynome/funktionen-und-polynome.html)?
+---
+Weil der Zwischenwertsatz sie liefert: Aus $a<x<b$ folgt $A<f(x)<B$, also $\mathcal W(f)\subset[A,B]$, und $\mathcal W(f)=[m,M]$ gibt $\mathcal W(f)=[A,B]$. Jeder Wert zwischen $A$ und $B$ wird getroffen.
+--- falsch
+Weil streng monotone Funktionen immer surjektiv auf $\mathbb{R}$ sind: Sie wachsen über jede Grenze und treffen deshalb jeden reellen Wert, auch ohne Stetigkeit und ohne Intervall.
+--- falsch
+Weil die Umkehrfunktion nur auf $\mathcal W(f)$ erklärt wird und $\mathcal W(f)$ ohnehin $[A,B]$ ist, gleich ob $f$ stetig ist; die Stetigkeit von $f$ braucht man nur für die Stetigkeit von $g$.
+--- falsch
+Weil strenge Monotonie die Surjektivität schon enthält: Eine streng wachsende Funktion kann keinen Wert auslassen, weil sie sonst an dieser Stelle konstant sein müsste.
+:::
+:::karte zusammenhang Umkehrfunktion ohne Intervall
+Warum kann die Umkehrfunktion einer stetigen, streng wachsenden Funktion springen, wenn deren Definitionsbereich kein Intervall ist?
+---
+$f(x)=x$ auf $[0,1]$, $f(x)=x-1$ auf $(2,3]$ ist stetig und streng wachsend mit $\mathcal W(f)=[0,2]$. Die Umkehrfunktion $g$ springt aber bei $y=1$ von 1 auf 2, weil im Definitionsbereich die Stellen zwischen 1 und 2 fehlen.
+--- falsch
+Sie kann nicht springen: Ist $f$ stetig und streng wachsend, so ist $g$ immer stetig, gleich wie der Definitionsbereich aussieht; Lücken im Definitionsbereich überträgt die Spiegelung nicht.
+--- falsch
+Weil $f$ an der Lücke selbst springen muss: Eine Funktion auf $[0,1]\cup(2,3]$ ist an der Lücke zwischen 1 und 2 unstetig, und dieser Sprung von $f$ geht beim Spiegeln an $g$ über.
+--- falsch
+Weil $\mathcal W(f)$ dann ebenfalls eine Lücke hat, in der $g$ nicht erklärt ist; $g$ springt über diese Lücke im Wertebereich, obwohl $g$ auf jedem Teilstück für sich stetig bleibt.
+:::
+:::karte begriff Intervallhalbierungsmethode
+Wie arbeitet die Intervallhalbierungsmethode zur Berechnung einer Nullstelle, und wie groß ist ihr Fehler nach $n$ Schritten?
+---
+Ein konstruktives Verfahren: Man berechnet den neuen Rand $\frac{a_{n-1}+b_{n-1}}2$, behält die Hälfte mit Vorzeichenwechsel, und $\lim a_n=\lim b_n$ ist die Nullstelle. Der Fehler nach $n$ Schritten ist höchstens $2^{-n}(b-a)$.
+--- falsch
+Ein Näherungsverfahren ohne Fehlerschranke: Man halbiert das Intervall und behält die Hälfte mit dem kleineren Funktionswert; wie genau das Ergebnis ist, weiß man erst, wenn die Rechnung beendet ist.
+--- falsch
+Ein konstruktives Verfahren: Man halbiert das Intervall und behält die Hälfte mit Vorzeichenwechsel. Der Fehler nach $n$ Schritten ist höchstens $\frac{b-a}{n}$, er sinkt also in jedem Schritt um denselben Betrag.
+--- falsch
+Ein konstruktives Verfahren: Man halbiert das Intervall und behält die Hälfte mit Vorzeichenwechsel. Der Fehler nach $n$ Schritten ist höchstens $2^{-n}(b-a)$, und schon zehn Schritte geben zehn Dezimalstellen.
+:::
+:::karte begriff Sekante und Sekantenverfahren
+Was ist das Sekantenverfahren zur Nullstellenberechnung, und welche Gerade heißt dabei Sekante?
+---
+Ein Verfahren, das das Intervall statt bei $\frac{a+b}2$ an der Nullstelle $\alpha$ der Sekante teilt und das Teilintervall mit Vorzeichenwechsel behält. Die Sekante ist die Gerade durch $(a\,|\,f(a))$ und $(b\,|\,f(b))$.
+--- falsch
+Ein Verfahren, das das Intervall an der Stelle teilt, an der die Tangente in $a$ die Achse schneidet. Die Sekante ist dabei die Gerade, die den Graphen im Punkt $(a\,|\,f(a))$ nur berührt.
+--- falsch
+Ein Verfahren, das das Intervall stets bei $\frac{a+b}2$ teilt und die Sekante nur zur Kontrolle zeichnet. Die Sekante ist die Gerade durch die Achsenpunkte $(a\,|\,0)$ und $(b\,|\,0)$.
+--- falsch
+Ein Verfahren, das das Intervall an der Nullstelle $\alpha$ der Sekante teilt und immer das linke Teilintervall $[a,\alpha]$ behält. Die Sekante ist die Gerade durch $(a\,|\,f(a))$ und $(b\,|\,f(b))$.
+:::
+:::karte formel Nullstelle der Sekante
+Wie lauten die Sekante $P_1$ durch $(a\,|\,f(a))$ und $(b\,|\,f(b))$ und ihre Nullstelle $\alpha$, und welches Teilintervall behält man?
+---
+$P_1(x):=f(a)+\frac{f(b)-f(a)}{b-a}\,(x-a)$ und $\alpha:=a-\frac{b-a}{f(b)-f(a)}\cdot f(a)$. Man nimmt $[a,\alpha]$, falls $f(a)\cdot f(\alpha)<0$, und $[\alpha,b]$, falls $f(\alpha)\cdot f(b)<0$.
+--- falsch
+$P_1(x):=f(a)+\frac{b-a}{f(b)-f(a)}\,(x-a)$ und $\alpha:=a-\frac{f(b)-f(a)}{b-a}\cdot f(a)$. Man nimmt $[a,\alpha]$, falls $f(a)\cdot f(\alpha)<0$, und $[\alpha,b]$, falls $f(\alpha)\cdot f(b)<0$.
+--- falsch
+$P_1(x):=f(a)+\frac{f(b)-f(a)}{b-a}\,(x-a)$ und $\alpha:=\frac{a+b}2$. Man nimmt $[a,\alpha]$, falls $f(a)\cdot f(\alpha)>0$, und $[\alpha,b]$, falls $f(\alpha)\cdot f(b)>0$.
+--- falsch
+$P_1(x):=f(a)+\frac{f(b)-f(a)}{b-a}\,(x-a)$ und $\alpha:=a+\frac{b-a}{f(b)-f(a)}\cdot f(a)$. Man nimmt stets $[\alpha,b]$, weil die Nullstelle rechts vom Schnittpunkt der Sekante liegt.
+:::
+:::karte zusammenhang Halbieren und Sekante im Vergleich
+Welches der beiden Verfahren kommt bei der Gleichung $k(x)=2$ schneller an die Lösung, und welchen Vorteil hat das andere?
+---
+Die Sekante: Nach sechs Schritten liegt sie nur $1{,}1\cdot10^{-5}$ neben $x^*=0{,}44285$, die Halbierung kennt $x^*$ nur auf $0{,}016$ genau. Dafür ist der Fehler der Halbierung vorab bekannt, höchstens $2^{-n}(b-a)$.
+--- falsch
+Die Halbierung: Nach sechs Schritten kennt sie $x^*$ auf $10^{-5}$ genau, die Sekante liegt noch $0{,}016$ daneben. Dafür braucht die Sekante keine Prüfung der Vorzeichen an den Rändern.
+--- falsch
+Beide sind gleich schnell, weil beide in jedem Schritt das Intervall genau halbieren; die Sekante hat nur den Vorteil, dass ihr Fehler nach $n$ Schritten vorab bekannt ist.
+--- falsch
+Die Sekante: Nach sechs Schritten liegt sie nur $1{,}1\cdot10^{-5}$ daneben, und ihr Fehler ist wie bei der Halbierung vorab bekannt, höchstens $2^{-n}(b-a)$; die Halbierung hat keinen Vorteil.
+:::
+:::karte begriff Fixpunkt
+Was ist ein Fixpunkt einer Funktion $f:M\to\mathbb{R}$, und wie erkennt man ihn am Graphen?
+---
+Eine Stelle $x_0\in M$ mit $f(x_0)=x_0$. Am Graphen ist das ein Schnittpunkt mit der Winkelhalbierenden $\{y=x\}$; gleichbedeutend hat $g(x):=f(x)-x$ dort eine Nullstelle.
+--- falsch
+Eine Stelle $x_0\in M$ mit $f(x_0)=0$. Am Graphen ist das ein Schnittpunkt mit der $x$-Achse; gleichbedeutend hat $f$ dort eine Nullstelle mit Vorzeichenwechsel.
+--- falsch
+Eine Stelle $x_0\in M$, an der $f$ ihr Maximum annimmt. Am Graphen ist das der höchste Punkt; dort bleibt der Wert fest, wenn man $x$ ein wenig ändert.
+--- falsch
+Eine Stelle $x_0\in M$ mit $f(x_0)=f(-x_0)$. Am Graphen ist das ein Punkt, der beim Spiegeln an der $y$-Achse fest bleibt; gerade Funktionen haben nur solche.
+:::
+:::karte formel Fixpunktsatz
+Unter welchen Voraussetzungen hat eine Funktion nach dem Fixpunktsatz mindestens einen Fixpunkt, und wie folgt das aus dem Zwischenwertsatz?
+---
+$f:[a,b]\to\mathbb{R}$ stetig mit $\mathcal W(f)\subset[a,b]$. Dann ist $g(x):=f(x)-x$ stetig mit $g(a)\ge0\ge g(b)$; ist kein Rand Nullstelle, liefert der Zwischenwertsatz ein $x_0$ mit $g(x_0)=0$.
+--- falsch
+$f:[a,b]\to\mathbb{R}$ stetig, sonst nichts: Jede stetige Funktion auf einem abgeschlossenen Intervall schneidet die Winkelhalbierende, weil $g(x):=f(x)-x$ immer das Vorzeichen wechselt.
+--- falsch
+$f:[a,b]\to\mathbb{R}$ mit $\mathcal W(f)\subset[a,b]$, Stetigkeit ist nicht nötig: Ein Graph, der im Quadrat $[a,b]\times[a,b]$ bleibt, muss die Diagonale treffen, auch wenn er springt.
+--- falsch
+$f:[a,b]\to\mathbb{R}$ stetig und streng monoton wachsend mit $\mathcal W(f)\subset[a,b]$: Ohne Monotonie kann $g(x):=f(x)-x$ mehrfach das Vorzeichen wechseln, und der Satz greift dann nicht.
+:::
+:::karte zusammenhang Voraussetzungen des Fixpunktsatzes
+Warum haben $x+1$ auf $[0,1]$ und $1-H(x-\frac12)$ auf $[0,1]$ keinen Fixpunkt?
+---
+$x+1$ verlässt das Intervall, es fehlt $\mathcal W(f)\subset[a,b]$. $1-H(x-\frac12)$ bleibt in $[0,1]$, springt aber über die Winkelhalbierende; es fehlt die Stetigkeit.
+--- falsch
+Beide sind nicht stetig: $x+1$ springt am Rand 1 aus dem Intervall heraus, und $1-H(x-\frac12)$ springt bei $\frac12$ über die Winkelhalbierende hinweg.
+--- falsch
+Beide verlassen das Intervall $[0,1]$: $x+1$ nimmt Werte bis 2 an, und $1-H(x-\frac12)$ nimmt ab der Stelle $\frac12$ den Wert $-1$ an.
+--- falsch
+Beide haben doch einen Fixpunkt: $x+1$ bei $x=1$, weil der Rand mitzählt, und $1-H(x-\frac12)$ bei $x=\frac12$, weil dort der Sprung liegt.
+:::
+::::

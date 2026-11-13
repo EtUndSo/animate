@@ -102,3 +102,128 @@ Gehe den Weg und entscheide: konvergent (absolut oder bedingt) oder divergent. (
 (a) Glieder streben gegen $\frac34$: divergent. (b) $\frac{n^2}{n^4+1}\le\frac1{n^2}$: absolut konvergent. (c) $\frac1{\log n}$ fällt gegen 0, Leibniz gibt Konvergenz. Wegen $\log n<n$ ist $\frac1{\log n}>\frac1n$, die Beträge divergieren: bedingt konvergent. (d) Quotient $\frac43\cdot\frac n{n+1}\to\frac43$: divergent. (e) Wurzel $\frac{2n}{3n+1}\to\frac23$: absolut konvergent. (f) Verdichten gibt $\frac1{\sqrt{k\log2}}$, also eine Reihe mit $s=\frac12$: divergent.
 :::
 :::
+
+::::formelsammlung
+**Cauchyscher Verdichtungssatz**
+
+$$\sum_{n=1}^\infty a_n\ \text{ist konvergent}\quad\iff\quad\sum_{k=0}^\infty2^k\,a_{(2^k)}\ \text{ist konvergent}$$
+
+Für $\{a_n\}$ monoton fallend und $a_n>0$. Über die Werte sagt der Satz nichts; ohne Monotonie kann er falsch werden.
+
+**Schranken beim Verdichten**
+
+$$S_{2^m-1}\le\sum_{k=0}^{m-1}2^k\,a_{(2^k)},\qquad S_{2^m}\ge\frac12\sum_{k=1}^m2^k\,a_{(2^k)}$$
+
+Blöcke aus $2^k$ beziehungsweise $2^{k-1}$ Gliedern, jedes höchstens beziehungsweise mindestens $a_{(2^k)}$.
+
+**Logarithmus im Nenner**
+
+$$2^k\,a_{(2^k)}=\frac1{\log2}\cdot\frac1k$$
+
+Für $a_n=\frac1{n\log n}$, $n\ge2$, und $k\ge1$: die harmonische Reihe mal einer Zahl, also divergiert $\sum_{n=2}^\infty\frac1{n\log n}$.
+
+**Lücke zwischen den Vergleichsreihen**
+
+$$\frac1{n^{1+\varepsilon}}<\frac1{n\log n}<\frac1n\qquad\text{für große }n\in\mathbb{N}$$
+
+Für jedes noch so kleine $\varepsilon$, weil $1<\log x<\sqrt[m]x=x^{\frac1m}$ für alle $x>(4m^2)^m$ ([Kapitel 5](/wissen/elektrotechnik/1-semester/hohere-mathematik-1/exponentialfunktion-und-stetigkeit/exponentialfunktion-und-stetigkeit.html)). Die obere Reihe divergiert, die untere konvergiert: Keine taugt zum Vergleich.
+
+**Die Lücke vermessen**
+
+$$c_n=\frac1{n(\log n)^\beta},\qquad2^k\,c_{(2^k)}=(\log2)^{-\beta}\frac1{k^\beta}$$
+
+Für $\beta>0$, $n\ge2$ und $k\ge1$: Die Reihe konvergiert für $\beta>1$ und divergiert für $\beta\le1$.
+::::
+
+::::lernkarten
+:::karte formel Cauchyscher Verdichtungssatz
+Was sagt der Cauchysche Verdichtungssatz über eine Reihe $\sum a_n$, deren Glieder $a_n>0$ monoton fallen?
+---
+$\sum_{n=1}^\infty a_n$ ist genau dann konvergent, wenn $\sum_{k=0}^\infty2^k\,a_{(2^k)}$ konvergent ist. Über die Werte der beiden Reihen sagt der Satz nichts.
+--- falsch
+$\sum_{n=1}^\infty a_n$ ist genau dann konvergent, wenn $\sum_{k=0}^\infty2^k\,a_{(2^k)}$ konvergent ist, und dann haben beide Reihen denselben Wert.
+--- falsch
+$\sum_{n=1}^\infty a_n$ ist genau dann konvergent, wenn $\sum_{k=0}^\infty a_{(2^k)}$ konvergent ist: Es genügt, die Glieder an den Zweierpotenzen ohne Gewicht zu summieren.
+--- falsch
+Ist $\sum_{k=0}^\infty2^k\,a_{(2^k)}$ konvergent, so ist es auch $\sum_{n=1}^\infty a_n$; die Umkehrung gilt nicht, weil die verdichtete Reihe größer ist.
+:::
+:::karte zusammenhang Monotonie beim Verdichten
+Was passiert beim Verdichten, wenn die Glieder $a_n>0$ nicht monoton fallen?
+---
+Dann kann der Satz falsch werden: Für $a_n=\frac1{n^2}$ an den Zweierpotenzen und $a_n=\frac1n$ sonst konvergiert die verdichtete Reihe $\sum(\frac12)^k$, die Reihe selbst divergiert.
+--- falsch
+Nichts: Die Glieder an den Zweierpotenzen bestimmen das Verhalten der Reihe immer, die Monotonie vereinfacht nur den Beweis mit den beiden Blockzerlegungen.
+--- falsch
+Dann ist die verdichtete Reihe gar nicht erklärt, weil $a_{(2^k)}$ nur für monoton fallende Folgen gebildet werden darf.
+--- falsch
+Dann gilt der Satz noch in einer Richtung: Divergiert die verdichtete Reihe, so divergiert auch $\sum a_n$; nur die Umkehrung geht verloren, weil sich die Blöcke nicht mehr nach oben abschätzen lassen.
+:::
+:::karte herleitung Zwei Blockzerlegungen
+Wie beweist man den Cauchyschen Verdichtungssatz mit zwei Zerlegungen der Teilsummen in Blöcke?
+---
+„$\Leftarrow$“: Der Block $n=2^k,\dots,2^{k+1}-1$ hat $2^k$ Glieder, jedes höchstens $a_{(2^k)}$, weil die Glieder monoton fallen.
+---
+Also gilt $S_{2^m-1}\le\sum_{k=0}^{m-1}2^k\,a_{(2^k)}$; konvergiert die rechte Reihe, ist $\{S_N\}$ beschränkt und konvergiert, weil $S_N$ wegen $a_n>0$ wächst und das Monotonie-Lemma greift.
+---
+„$\Rightarrow$“: Der Block $n=2^{k-1}+1,\dots,2^k$ hat $2^{k-1}$ Glieder, jedes mindestens $a_{(2^k)}$, weil die Glieder monoton fallen.
+---
+Also gilt $S_{2^m}\ge\sum_{k=1}^m2^{k-1}\,a_{(2^k)}=\frac12\sum_{k=1}^m2^k\,a_{(2^k)}$, weil $S_{2^m}$ aus $a_1>0$ und diesen Blöcken besteht.
+---
+Ist $\{S_N\}$ beschränkt, sind die Teilsummen der verdichteten Reihe beschränkt und wachsen, also konvergiert sie, weil das Monotonie-Lemma gilt.
+:::
+:::karte zusammenhang Logarithmus im Nenner
+Warum divergiert die Reihe $\sum_{n=2}^\infty\frac1{n\log n}$, und welcher Test zeigt es?
+---
+Der Verdichtungssatz: Die Glieder fallen, weil $n$ und $\log n$ wachsen, und $2^k\,a_{(2^k)}=\frac1{\log2}\cdot\frac1k$ ergibt die harmonische Reihe mal einer Zahl, die divergiert.
+--- falsch
+Die notwendige Bedingung: $n\log n$ wächst langsamer als $n$, also bleiben die Glieder $\frac1{n\log n}$ über einer festen positiven Schranke und bilden keine Nullfolge.
+--- falsch
+Das Quotientenkriterium: Der Quotient $\frac{n\log n}{(n+1)\log(n+1)}$ strebt gegen eine Zahl über 1, also wachsen die Glieder am Ende.
+--- falsch
+Sie divergiert gar nicht: Verdichten ergibt $2^k\,a_{(2^k)}=\frac1{\log2}\cdot\frac1{k^2}$, eine konvergente Reihe, also konvergiert sie, nur sehr langsam.
+:::
+:::karte zusammenhang Lücke zwischen den Vergleichsreihen
+Warum helfen die Vergleichsreihen $\sum\frac1{n^s}$ bei den Gliedern $\frac1{n\log n}$ nicht weiter?
+---
+Weil $\log n$ langsamer wächst als jede Wurzel, gilt $\frac1{n^{1+\varepsilon}}<\frac1{n\log n}<\frac1n$ für große $n$. Die obere Reihe divergiert, die untere konvergiert: Keine taugt zum Vergleich.
+--- falsch
+Weil $\frac1{n\log n}$ größer als $\frac1n$ ist; die harmonische Reihe wäre eine divergente Minorante, aber Minoranten liefern nie eine Aussage über die Konvergenz einer anderen Reihe.
+--- falsch
+Weil $\log n$ schneller wächst als jede Potenz $n^\varepsilon$; dann liegt $\frac1{n\log n}$ unter $\frac1{n^{1+\varepsilon}}$, und die Reihe konvergiert schon nach dem Vergleich.
+--- falsch
+Weil die Vergleichsreihen nur für ganzzahlige Exponenten $s$ erklärt sind, und das Glied $\frac1{n\log n}$ entspricht keinem ganzzahligen Exponenten.
+:::
+:::karte zusammenhang Entscheidungsweg
+Nach welchem Grundsatz ist der Entscheidungsweg für Reihen geordnet, und was messen alle seine Tests?
+---
+Von billig zu teuer: zuerst die Frage, ob die Glieder gegen 0 gehen, dann die Bauform des Glieds. Alle Tests messen, wie schnell die Glieder fallen: an $q^n$, an $\frac1{n^s}$ oder in Blöcken.
+--- falsch
+Von teuer zu billig: zuerst die feinsten Werkzeuge wie die Verdichtung, weil sie immer eine Antwort geben, und zuletzt die notwendige Bedingung als Probe.
+--- falsch
+Von billig zu teuer; die Tests messen aber Verschiedenes: Quotient und Wurzel die Größe der Glieder, Vergleich und Verdichtung ihr Vorzeichenmuster und ihre Reihenfolge.
+--- falsch
+Von billig zu teuer: zuerst der Quotient, weil er für jede Reihe einen Wert $\alpha$ liefert, und erst danach die Frage, ob die Glieder gegen 0 gehen.
+:::
+:::karte zusammenhang wenn ein Test schweigt
+Was bedeutet es, wenn ein Test im Entscheidungsweg schweigt, und welcher von mehreren möglichen Wegen ist der richtige?
+---
+Schweigt ein Test, ist das keine Aussage über die Reihe, sondern über den Test. Richtig ist jeder Weg, der ein Ergebnis liefert; das Schema nennt nur den meist kürzesten.
+--- falsch
+Schweigt ein Test, divergiert die Reihe, denn eine konvergente Reihe würde jeder passende Test erkennen. Richtig ist nur der Weg, den das Schema nennt.
+--- falsch
+Schweigt ein Test, konvergiert die Reihe höchstens bedingt, weil absolute Konvergenz immer erkannt wird. Richtig ist jeder Weg, der ein Ergebnis liefert.
+--- falsch
+Schweigt ein Test, kann auch kein anderer Test die Frage mehr entscheiden. Richtig ist deshalb immer der Weg, der zuerst angewandt wurde.
+:::
+:::karte formel Die Lücke vermessen
+Für welche $\beta>0$ konvergiert die Reihe mit den Gliedern $c_n=\frac1{n(\log n)^\beta}$, $n\ge2$, und wie zeigt man das?
+---
+Verdichten gibt $2^k\,c_{(2^k)}=(\log2)^{-\beta}\frac1{k^\beta}$ für $k\ge1$. Nach den Reihen $\sum\frac1{n^s}$ konvergiert das genau für $\beta>1$; für $\beta\le1$ divergiert die Reihe.
+--- falsch
+Verdichten gibt $2^k\,c_{(2^k)}=(\log2)^{-\beta}\frac1{k^\beta}$ für $k\ge1$. Das konvergiert für alle $\beta>0$, weil der Logarithmus im Nenner die Glieder genug verkleinert.
+--- falsch
+Verdichten gibt $2^k\,c_{(2^k)}=(\log2)^{-\beta}\frac1{k^\beta}$ für $k\ge1$. Das konvergiert genau für $\beta\ge1$, der Grenzfall $\beta=1$ gehört zur konvergenten Seite.
+--- falsch
+Verdichten gibt $2^k\,c_{(2^k)}=(\log2)^{-\beta}\frac1{2^{k\beta}}$, eine geometrische Reihe mit $q=2^{-\beta}<1$; sie konvergiert für alle $\beta>0$.
+:::
+::::

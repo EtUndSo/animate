@@ -661,3 +661,292 @@ $$\frac{t^{\,j-1}}{(j-1)!}\,\mathrm{e}^{p_0t}\,\varepsilon(t)\quad\longleftright
 
 $\operatorname{Re} p>\operatorname{Re} p_0$.
 ::::
+
+::::lernkarten
+:::karte begriff Koeffizienten und Ordnung
+Was sind bei einer linearen Differentialgleichung $\sum_{r=0}^{R}\alpha_r\,\frac{\mathrm{d}^r u_2(t)}{\mathrm{d} t^r}=\sum_{q=0}^{Q}\beta_q\,\frac{\mathrm{d}^q u_1(t)}{\mathrm{d} t^q}$ die Koeffizienten und die Ordnung?
+---
+Die Koeffizienten sind die Zahlen $\alpha_r$ und $\beta_q$; sie sind reell und hängen nicht von der Zeit ab, weil sie aus den Bauteilwerten stammen. Die Ordnung ist die höchste Ableitung $R$ des Ausgangs.
+--- falsch
+Die Koeffizienten sind die Ableitungen $\frac{\mathrm{d}^r u_2}{\mathrm{d} t^r}$, die in der Gleichung vorkommen; sie ändern sich mit der Zeit. Die Ordnung ist die Zahl $Q+R$ aller Ableitungen von Eingang und Ausgang zusammen.
+--- falsch
+Die Koeffizienten sind die Zahlen $\alpha_r$ und $\beta_q$; sie dürfen von der Zeit abhängen, solange sie reell bleiben, weil Bauteile altern. Die Ordnung ist die höchste Ableitung $Q$ des Eingangs.
+--- falsch
+Die Koeffizienten sind die Zahlen $\alpha_r$ und $\beta_q$; sie sind komplex, weil die Gleichung später im Bildbereich gelöst wird. Die Ordnung ist die Zahl der Bauteile in der Schaltung, beim RC-Tiefpass also 2.
+:::
+:::karte zusammenhang Lineare Differentialgleichung im Bildbereich
+Warum wird eine lineare Differentialgleichung mit konstanten Koeffizienten im Bildbereich zu einer algebraischen Gleichung?
+---
+Die Transformation ist linear, also darf man jeden Summanden einzeln transformieren, und jede $r$-te Ableitung wird zum Faktor $p^r$. Es entsteht $\Bigl(\sum_{r=0}^{R}\alpha_r\,p^r\Bigr)\,U_2(p)=\Bigl(\sum_{q=0}^{Q}\beta_q\,p^q\Bigr)\,U_1(p)$, also nur noch Multiplikationen mit Polynomen in $p$.
+--- falsch
+Weil man die Gleichung vorher für jede Zeit $t$ einzeln auswertet und die Ableitungen durch Differenzen benachbarter Werte ersetzt. Die Transformation fasst diese vielen Gleichungen zu einer einzigen zusammen, in der statt der Ableitungen nur noch Zahlenwerte stehen.
+--- falsch
+Die Transformation ist linear, also darf man jeden Summanden einzeln transformieren, und jede $r$-te Ableitung wird zum Faktor $r\,p$. Es entsteht eine Gleichung, in der $U_1$ und $U_2$ nur noch mit Konstanten multipliziert werden, unabhängig von der Ordnung der Gleichung.
+--- falsch
+Weil die Koeffizienten konstant sind und sich deshalb vor die Transformation ziehen lassen; die Ableitungen bleiben im Bildbereich als Ableitungen nach $p$ stehen. Algebraisch wird die Gleichung erst, wenn man zusätzlich $p=0$ setzt und damit den Gleichanteil betrachtet.
+:::
+:::karte formel Übertragungsfunktion als Polynombruch
+Wie liest man die Übertragungsfunktion $H(p)$ aus der Differentialgleichung ab, und wo liegen ihre Nullstellen und Pole?
+---
+$H(p)=\frac{U_2(p)}{U_1(p)}=\frac{\sum_{q=0}^{Q}\beta_q\,p^q}{\sum_{r=0}^{R}\alpha_r\,p^r}$. Die Nullstellen sind die $Q$ Lösungen von $\sum_{q=0}^{Q}\beta_q\,p^q=0$, die Pole die $R$ Lösungen von $\sum_{r=0}^{R}\alpha_r\,p^r=0$; die Pole hängen also nur von der linken Seite ab, die den Ausgang enthält.
+--- falsch
+$H(p)=\frac{\sum_{r=0}^{R}\alpha_r\,p^r}{\sum_{q=0}^{Q}\beta_q\,p^q}$, der Ausgang steht im Zähler. Die Pole sind die Lösungen von $\sum_q\beta_q\,p^q=0$, die Nullstellen die von $\sum_r\alpha_r\,p^r=0$; die Pole hängen also nur davon ab, wie der Eingang in die Gleichung eingeht.
+--- falsch
+$H(p)=\frac{U_2(p)}{U_1(p)}=\frac{\sum_{q=0}^{Q}\beta_q\,p^q}{\sum_{r=0}^{R}\alpha_r\,p^r}$. Pole und Nullstellen hängen von beiden Seiten gemeinsam ab; man findet sie nur, indem man die Differentialgleichung im Zeitbereich vollständig löst und die Impulsantwort transformiert.
+--- falsch
+$H(p)=\sum_{q=0}^{Q}\beta_q\,p^q-\sum_{r=0}^{R}\alpha_r\,p^r$, die Differenz beider Seiten. Die Nullstellen dieser Differenz sind zugleich die Pole des Systems, und Nullstellen im eigentlichen Sinn hat ein solches System nicht, weil der Bruch fehlt.
+:::
+:::karte begriff charakteristisches Polynom
+Was ist das charakteristische Polynom einer homogenen linearen Differentialgleichung, und wie hängt es mit $H(p)$ zusammen?
+---
+Setzt man $u_2(t)=\mathrm{e}^{\lambda t}$ in $\sum_{r=0}^{R}\alpha_r\,\frac{\mathrm{d}^r u_2}{\mathrm{d} t^r}=0$ ein, bleibt $\bigl(\sum_r\alpha_r\lambda^r\bigr)\mathrm{e}^{\lambda t}=0$. Das charakteristische Polynom $\sum_r\alpha_r\lambda^r$ muss also null sein; es ist genau der Nenner von $H(p)$, und seine Nullstellen sind die Pole.
+--- falsch
+Das Polynom $\sum_q\beta_q\lambda^q$ der rechten Seite, das entsteht, wenn man $u_1(t)=\mathrm{e}^{\lambda t}$ in die Gleichung einsetzt. Es ist der Zähler von $H(p)$, und seine Nullstellen sind die Pole, weil dort der Eingang aus der Gleichung verschwindet.
+--- falsch
+Setzt man $u_2(t)=\mathrm{e}^{\lambda t}$ ein, bleibt $\bigl(\sum_r\alpha_r\lambda^r\bigr)\mathrm{e}^{\lambda t}=0$. Weil $\mathrm{e}^{\lambda t}$ nie null ist, muss $\lambda$ selbst null sein; das charakteristische Polynom liefert deshalb nur den einen Pol $p=0$ des Systems.
+--- falsch
+Das Polynom $\sum_r\alpha_r\lambda^r$, das entsteht, wenn man $u_2(t)=t^\lambda$ in die homogene Gleichung einsetzt. Es ist der Zähler von $H(p)$, und seine Nullstellen sind die Nullstellen des Systems, also die Eingänge, die es vollständig sperrt.
+:::
+:::karte begriff Eigenbewegungen
+Was sind die Eigenbewegungen eines Systems, und was haben sie mit seinen Polen zu tun?
+---
+Die Bewegungen, die das System ohne jeden Eingang ausführen kann. Die Pole sind ihre Exponenten: Ein RC-Glied mit geladenem Kondensator entlädt sich mit $\mathrm{e}^{-t/RC}$, und sein Pol liegt bei $-1/RC$.
+--- falsch
+Die Bewegungen, die ein Eingang dem System aufzwingt, etwa die Endspannung nach einem Sprung. Die Pole sind ihre Endwerte: Ein RC-Glied am Sprung lädt sich auf 1 auf, und sein Pol liegt deshalb bei $1$.
+--- falsch
+Die Schwingungen, die das System bei der Frequenz eines Eingangs ausführt. Die Pole sind die Stellen, an denen es nichts durchlässt: Ein RC-Glied hat seinen Pol bei $-1/RC$, weil es dort sperrt.
+--- falsch
+Die Bewegungen, die das System ohne jeden Eingang ausführen kann. Die Nullstellen sind ihre Exponenten: Ein RC-Glied mit geladenem Kondensator entlädt sich mit $\mathrm{e}^{-t/RC}$, und seine Nullstelle liegt bei $-1/RC$.
+:::
+:::karte zusammenhang Übertragungsfunktion am Pol
+Warum ist die Übertragungsfunktion $H(p)$ an einem Pol $p_\mathrm P$ unendlich groß?
+---
+$H(p)$ ist das Verhältnis von Ausgang zu Eingang für $\mathrm{e}^{pt}$. Für $p=p_\mathrm P$ gibt es einen Ausgang $\mathrm{e}^{p_\mathrm Pt}$ ganz ohne Eingang, eine Eigenbewegung. Liegt der Eingang in der Nähe einer Eigenbewegung, antwortet das System entsprechend stark; das ist Resonanz.
+--- falsch
+Weil das System an einem Pol instabil wird und seine Impulsantwort dort über alle Grenzen wächst. $H(p)$ übernimmt dieses Wachstum unmittelbar, denn $H(p_\mathrm P)$ ist der Wert der Impulsantwort zur Zeit $t=p_\mathrm P$, und der ist für jedes System unendlich.
+--- falsch
+$H(p)$ ist das Verhältnis von Ausgang zu Eingang für $\mathrm{e}^{pt}$. Am Pol ist der Ausgang null, aber der Eingang ebenfalls; das Verhältnis $0/0$ wird als unendlich gewertet, weil keine endliche Zahl dazu passt.
+--- falsch
+Weil am Pol der Eingang $\mathrm{e}^{p_\mathrm Pt}$ selbst null wird, sodass man durch null teilt. Das System antwortet dort gar nicht, und der unendliche Wert ist nur eine Folge der Rechnung ohne Bedeutung für die Schaltung.
+:::
+:::karte formel Übertragungsfunktion des RLC-Systems
+Welche Differentialgleichung und welche Übertragungsfunktion hat das RLC-System, dessen Ausgang $u_2$ am Kondensator abgegriffen wird?
+---
+$LC\,\frac{\mathrm{d}^2u_2(t)}{\mathrm{d} t^2}+RC\,\frac{\mathrm{d} u_2(t)}{\mathrm{d} t}+u_2(t)=u_1(t)$ aus der Maschenregel mit $i=C\,\frac{\mathrm{d} u_2}{\mathrm{d} t}$. Im Bildbereich werden die Ableitungen zu den Faktoren $p^2$ und $p$, und das Verhältnis $U_2/U_1$ ist $H(p)=\frac{1}{LCp^2+RCp+1}=\frac{1/LC}{p^2+(R/L)\,p+1/LC}$.
+--- falsch
+$LC\,\frac{\mathrm{d}^2u_2(t)}{\mathrm{d} t^2}+RC\,\frac{\mathrm{d} u_2(t)}{\mathrm{d} t}+u_2(t)=u_1(t)$ aus der Maschenregel. Daraus folgt $H(p)=LCp^2+RCp+1$, weil jede Ableitung im Bildbereich ein Faktor $p$ wird und man die Gleichung durch $U_2$ teilt.
+--- falsch
+$L\,\frac{\mathrm{d}^2u_2(t)}{\mathrm{d} t^2}+R\,\frac{\mathrm{d} u_2(t)}{\mathrm{d} t}+C\,u_2(t)=u_1(t)$ aus der Maschenregel. Daraus folgt $H(p)=\frac{1}{Lp^2+Rp+C}$, mit den Bauteilwerten unmittelbar als Koeffizienten der Ableitungen.
+--- falsch
+$LC\,\frac{\mathrm{d}^2u_2(t)}{\mathrm{d} t^2}+RC\,\frac{\mathrm{d} u_2(t)}{\mathrm{d} t}+u_2(t)=u_1(t)$ aus der Maschenregel. Daraus folgt $H(p)=\frac{1}{LCp^2+RCp}$; der Summand $u_2(t)$ fällt weg, weil er keine Ableitung enthält und deshalb keinen Faktor $p$ bekommt.
+:::
+:::karte begriff Kennkreisfrequenz und Dämpfungsgrad
+Wie sind beim RLC-System die Kennkreisfrequenz $\omega_0$ und der Dämpfungsgrad $\xi$ definiert, und wie schreibt man damit die Pole?
+---
+$\omega_0=\frac{1}{\sqrt{LC}}$, gemessen in $1/\mathrm s$, und $\xi=\frac R2\sqrt{\frac CL}$, eine reine Zahl. Die Pole sind $p_{\mathrm P1,2}=-\xi\,\omega_0\pm\omega_0\sqrt{\xi^2-1}$; dabei ist $\xi\omega_0=\frac{R}{2L}$.
+--- falsch
+$\omega_0=\sqrt{LC}$, gemessen in s, und $\xi=\frac{R}{2L}$, gemessen in $1/\mathrm s$. Die Pole sind $p_{\mathrm P1,2}=-\xi\pm\omega_0\sqrt{\xi^2-1}$; dabei ist $\xi$ selbst die Abklingrate der Impulsantwort.
+--- falsch
+$\omega_0=\frac{1}{\sqrt{LC}}$, gemessen in $1/\mathrm s$, und $\xi=2R\sqrt{\frac LC}$, eine reine Zahl. Die Pole sind $p_{\mathrm P1,2}=\xi\,\omega_0\pm\omega_0\sqrt{1-\xi^2}$; dabei ist $\xi\omega_0=2R/L$.
+--- falsch
+$\omega_0=\frac{1}{LC}$, gemessen in $1/\mathrm s^2$, und $\xi=\frac R2\sqrt{\frac CL}$, eine reine Zahl. Die Pole sind $p_{\mathrm P1,2}=-\xi\,\omega_0\pm\mathrm{j}\omega_0$, immer konjugiert komplex, gleichgültig, wie groß $\xi$ ist.
+:::
+:::karte formel Lage der RLC-Pole
+Wo liegen die beiden Pole des RLC-Systems für $\xi>1$ und für $\xi<1$?
+---
+Für $\xi>1$ liegen zwei reelle Pole auf der negativen reellen Achse, symmetrisch um $-\xi\omega_0$ im Abstand $\omega_0\sqrt{\xi^2-1}$. Für $\xi<1$ bilden sie ein konjugiert komplexes Paar $-\xi\omega_0\pm\mathrm{j}\omega_0\sqrt{1-\xi^2}$ auf dem Kreis mit dem Radius $\omega_0$, denn $\xi^2\omega_0^2+\omega_0^2(1-\xi^2)=\omega_0^2$.
+--- falsch
+Für $\xi>1$ bilden sie ein konjugiert komplexes Paar $-\xi\omega_0\pm\mathrm{j}\omega_0\sqrt{\xi^2-1}$, weil die Wurzel dann reell ist und als Imaginärteil erscheint. Für $\xi<1$ liegen zwei reelle Pole auf der negativen reellen Achse, beide innerhalb des Kreises mit dem Radius $\omega_0$ um den Ursprung.
+--- falsch
+Für $\xi>1$ liegen zwei reelle Pole auf der positiven reellen Achse, symmetrisch um $\xi\omega_0$, weil der Widerstand die Pole nach rechts schiebt. Für $\xi<1$ bilden sie ein konjugiert komplexes Paar $\pm\mathrm{j}\omega_0\sqrt{1-\xi^2}$ genau auf der imaginären Achse, weil der Realteil dann verschwindet.
+--- falsch
+Für $\xi>1$ liegen zwei reelle Pole auf der negativen reellen Achse, beide genau bei $-\omega_0$, also als doppelter Pol. Für $\xi<1$ bilden sie ein konjugiert komplexes Paar $-\xi\omega_0\pm\mathrm{j}\omega_0\sqrt{1-\xi^2}$ auf dem Kreis mit dem Radius $\xi\omega_0$ um den Ursprung.
+:::
+:::karte begriff Kennwiderstand
+Was ist der Kennwiderstand eines RLC-Kreises, und was sagt der Vergleich des Widerstands $R$ mit ihm?
+---
+Die Größe $\sqrt{L/C}$ mit der Einheit $\Omega$. Der Dämpfungsgrad vergleicht beide, $\xi=\frac{R}{2\sqrt{L/C}}$: Ist $R$ klein gegen den Kennwiderstand, verliert der Kreis pro Schwingung wenig Energie und schwingt lange; ist $R$ groß, kriecht die Spannung ohne Schwingung zurück.
+--- falsch
+Die Größe $\sqrt{LC}$ mit der Einheit s. Der Dämpfungsgrad vergleicht beide, $\xi=R\sqrt{LC}$: Ist $R$ groß gegen den Kennwiderstand, verliert der Kreis pro Schwingung wenig Energie und schwingt lange; ist $R$ klein, kriecht die Spannung ohne Schwingung zurück.
+--- falsch
+Die Größe $\sqrt{L/C}$ mit der Einheit $\Omega$, also der Widerstand, den man mindestens in Reihe schalten muss, damit der Kreis überhaupt schwingen kann. Ist $R$ kleiner als der Kennwiderstand, schwingt er nicht; ist $R$ größer, schwingt er umso länger.
+--- falsch
+Der Widerstand $R$ selbst, gemessen bei der Kennkreisfrequenz $\omega_0$, bei der sich Spule und Kondensator aufheben. Er ist bei jedem RLC-Kreis gleich dem Gleichstromwiderstand und hat deshalb keinen Einfluss darauf, ob und wie lange der Kreis schwingt.
+:::
+:::karte zusammenhang Energie im RLC-Kreis
+Warum schwingt ein RLC-Kreis, und warum klingt die Schwingung ab?
+---
+Die Energie pendelt zwischen dem elektrischen Feld des Kondensators, $\frac12Cu_2^2$, und dem Magnetfeld der Spule, $\frac12Li^2$: Der geladene Kondensator treibt einen Strom durch die Spule, die ihn aufrechterhält und den Kondensator mit umgekehrter Polarität wieder lädt. Der Widerstand wandelt dabei die Leistung $R\,i^2$ in Wärme um.
+--- falsch
+Weil die Spannungsquelle am Eingang den Kreis im Takt der Kennkreisfrequenz anstößt. Ohne Eingang steht der Kreis sofort still; die Schwingung klingt ab, weil die Quelle immer schwächer nachliefert, je länger sie eingeschaltet ist und je wärmer der Widerstand wird.
+--- falsch
+Die Energie pendelt zwischen Widerstand und Kondensator: Der Widerstand speichert sie als Wärme und gibt sie an den Kondensator zurück, sobald dieser entladen ist. Die Spule bremst dabei den Strom und wandelt bei jedem Durchgang die Leistung $L\,i^2$ in Wärme um, sodass die Schwingung allmählich abklingt.
+--- falsch
+Die Energie pendelt zwischen Kondensator und Spule, ohne dass dabei etwas verloren geht. Die Schwingung klingt nur scheinbar ab, weil die Spule den Strom mit jeder Periode stärker begrenzt; die Energie bleibt dabei vollständig im Magnetfeld der Spule gespeichert.
+:::
+:::karte begriff Partialbruchzerlegung
+Was ist die Partialbruchzerlegung eines Polynombruchs $H(p)$ mit $R$ einfachen Polen und $Q\le R$, und wie bestimmt man ihre Koeffizienten?
+---
+Die Zerlegung $H(p)=A_0+\sum_{r=1}^{R}\frac{A_r}{p-p_{\mathrm P,r}}$ in Brüche mit je einem Pol im Nenner. Dabei ist $A_0=\lim_{p\to\infty}H(p)$ und $A_r=\lim_{p\to p_{\mathrm P,r}}\bigl[H(p)\,(p-p_{\mathrm P,r})\bigr]$; die $A_r$ heißen Partialbruchkoeffizienten.
+--- falsch
+Die Zerlegung $H(p)=\sum_{r=1}^{R}\frac{A_r}{p-p_{\mathrm P,r}}$ in Brüche mit je einem Pol im Nenner. Dabei ist $A_r=H(p_{\mathrm P,r})$, der Wert von $H$ am Pol selbst; einen konstanten Summanden gibt es bei dieser Zerlegung nie.
+--- falsch
+Die Zerlegung von Zähler und Nenner in Linearfaktoren, $H(p)=H_0\,\frac{\prod_q(p-p_{\mathrm N,q})}{\prod_r(p-p_{\mathrm P,r})}$. Die Koeffizienten sind die Nullstellen und Pole, die man mit der Lösungsformel für Polynome bestimmt.
+--- falsch
+Die Zerlegung $H(p)=A_0+\sum_{r=1}^{R}\frac{A_r}{p-p_{\mathrm P,r}}$ in Brüche mit je einem Pol. Dabei ist $A_0=\lim_{p\to0}H(p)$ und $A_r=\lim_{p\to\infty}\bigl[H(p)\,(p-p_{\mathrm P,r})\bigr]$, für alle Pole mit demselben Grenzübergang.
+:::
+:::karte begriff Residuum
+Was gibt der Partialbruchkoeffizient $A_r$ über das Signal an, und wie heißt er in der Funktionentheorie?
+---
+Er ist die Stärke, mit der der Anteil $A_r\,\mathrm{e}^{p_{\mathrm P,r}t}$ im Signal vorkommt, bei einer Impulsantwort die Anfangsamplitude der Eigenbewegung $\mathrm{e}^{p_{\mathrm P,r}t}$. In der Funktionentheorie heißt $A_r$ das Residuum von $H$ am Pol $p_{\mathrm P,r}$.
+--- falsch
+Er ist der Abstand des Pols $p_{\mathrm P,r}$ vom Ursprung und gibt an, wie schnell der zugehörige Anteil schwingt. In der Funktionentheorie heißt $A_r$ der Betrag des Pols; bei konjugiert komplexen Polen ist er für beide gleich.
+--- falsch
+Er ist der Rest, der bei der Division des Zählers durch den Nenner übrig bleibt, und gibt den Gleichanteil des Signals an. In der Funktionentheorie heißt $A_r$ das Residuum, weil es als Rest dieser Polynomdivision entsteht.
+--- falsch
+Er ist die Abklingrate des Anteils $\mathrm{e}^{p_{\mathrm P,r}t}$, also der Kehrwert seiner Zeitkonstante. In der Funktionentheorie heißt $A_r$ die Ordnung des Pols, weil er angibt, wie schnell $H$ dort über alle Grenzen wächst.
+:::
+:::karte formel Impulsantwort aus den Partialbrüchen
+Welche Impulsantwort gehört bei einem kausalen System zur Zerlegung $H(p)=A_0+\sum_{r=1}^{R}\frac{A_r}{p-p_{\mathrm P,r}}$, und warum?
+---
+$h(t)=A_0\,\delta(t)+\sum_{r=1}^{R}A_r\,\mathrm{e}^{p_{\mathrm P,r}t}\,\varepsilon(t)$. Der Konvergenzbereich liegt rechts aller Pole, also gehört jeder Bruch zu einem rechtsseitigen Exponentialimpuls, und $A_0$ gehört zu $A_0\,\delta(t)$. Die Pole sind die Exponenten, die Koeffizienten die Vorfaktoren.
+--- falsch
+$h(t)=A_0+\sum_{r=1}^{R}A_r\,\mathrm{e}^{-p_{\mathrm P,r}t}\,\varepsilon(t)$. Der Konvergenzbereich liegt rechts aller Pole, also klingt jeder Anteil ab, und der Exponent bekommt das Minus aus der Probe $\mathrm{e}^{-pt}$. Die Konstante $A_0$ bleibt für alle Zeiten als Gleichanteil stehen, weil sie keinen Pol hat.
+--- falsch
+$h(t)=A_0\,\delta(t)+\sum_{r=1}^{R}A_r\,\mathrm{e}^{p_{\mathrm P,r}t}\,\varepsilon(-t)$. Bei einem kausalen System liegt der Konvergenzbereich links aller Pole, also gehört jeder Bruch zu einem linksseitigen Exponentialimpuls, der zeitlich vor seiner Wirkung liegt.
+--- falsch
+$h(t)=A_0\,\delta(t)+\sum_{r=1}^{R}\frac{1}{A_r}\,\mathrm{e}^{p_{\mathrm P,r}t}\,\varepsilon(t)$. Jeder Bruch gehört zu einem rechtsseitigen Impuls, dessen Vorfaktor der Kehrwert des Koeffizienten ist, weil $A_r$ beim Rücktransformieren in den Nenner wandert.
+:::
+:::karte zusammenhang Pole von Eingang und System
+Woher stammen die beiden Anteile der Sprungantwort $g(t)=\bigl(1-\mathrm{e}^{-t}\bigr)\,\varepsilon(t)$ des RC-Tiefpasses mit $RC=1\,\mathrm{s}$?
+---
+Der Ausgang $G(p)=\frac1p\cdot\frac{1}{p+1}$ hat die Pole $0$ und $-1$, und die Zerlegung ergibt $G(p)=\frac1p-\frac{1}{p+1}$. Der Pol $0$ stammt vom Sprung und liefert die vom Eingang erzwungene Endspannung 1, der Pol $-1$ stammt vom System und liefert seine Eigenbewegung, das Abklingen mit $\mathrm{e}^{-t}$.
+--- falsch
+Beide Anteile stammen vom System: Der Pol $0$ beschreibt das Aufladen des Kondensators, der Pol $-1$ das Abklingen des Ladestroms. Der Sprung am Eingang trägt keinen eigenen Pol bei, weil er für $t>0$ konstant ist und deshalb im Bildbereich nur als Faktor 1 erscheint.
+--- falsch
+Der Ausgang $G(p)=\frac1p+\frac{1}{p+1}$ hat die Pole $0$ und $-1$. Der Pol $-1$ stammt vom Sprung, weil der Sprung bei $t=0$ seinen Wert um 1 ändert, und der Pol $0$ stammt vom System, dessen Ausgang anfangs null ist und deshalb zum Exponenten 0 gehört.
+--- falsch
+Der Ausgang $G(p)=\frac1p\cdot\frac{1}{p+1}$ hat nur den Pol $-1$, weil sich der Pol $0$ des Sprungs gegen eine Nullstelle des Systems kürzt. Die Endspannung 1 entsteht erst bei der Rücktransformation als Integrationskonstante, die man aus dem Anfangswert bestimmt.
+:::
+:::karte begriff Sinus hyperbolicus
+Wie ist der Sinus hyperbolicus definiert, und wo tritt er in der Impulsantwort des RLC-Systems auf?
+---
+$\sinh x=\frac{\mathrm{e}^{x}-\mathrm{e}^{-x}}{2}$. Mit den Polen $p_{\mathrm P1,2}=-a\pm b$ ist $h(t)=\frac{1}{bLC}\,\mathrm{e}^{-at}\Bigl(\frac{\mathrm{e}^{bt}-\mathrm{e}^{-bt}}{2}\Bigr)\cdot\varepsilon(t)$, und die Klammer ist $\sinh(bt)$.
+--- falsch
+$\sinh x=\frac{\mathrm{e}^{x}+\mathrm{e}^{-x}}{2}$. Mit den Polen $p_{\mathrm P1,2}=-a\pm b$ ist $h(t)=\frac{1}{bLC}\,\mathrm{e}^{-at}\Bigl(\frac{\mathrm{e}^{bt}+\mathrm{e}^{-bt}}{2}\Bigr)\cdot\varepsilon(t)$, und die Klammer ist $\sinh(bt)$.
+--- falsch
+$\sinh x=\frac{\mathrm{e}^{\mathrm{j} x}-\mathrm{e}^{-\mathrm{j} x}}{2\mathrm{j}}$, also der gewöhnliche Sinus unter anderem Namen. Er tritt beim RLC-System nur im Schwingfall auf, in der Form $h(t)=\frac{1}{\beta LC}\,\mathrm{e}^{-at}\sinh(\beta t)\cdot\varepsilon(t)$.
+--- falsch
+$\sinh x=\sin(x)\cdot\mathrm{e}^{-x}$, ein gedämpfter Sinus. Mit den Polen $p_{\mathrm P1,2}=-a\pm b$ ist $h(t)=\frac{1}{bLC}\,\sinh(bt)\cdot\varepsilon(t)$; der Faktor $\mathrm{e}^{-at}$ steckt bereits im Sinus hyperbolicus.
+:::
+:::karte begriff Kriechfall
+Was kennzeichnet beim RLC-System den Kriechfall, und wie sieht die Impulsantwort dann aus?
+---
+$b$ ist reell, $\frac{1}{LC}<\frac{R^2}{4L^2}$, also $\xi>1$, und es gibt zwei reelle Pole. Die Impulsantwort $h(t)=\frac{1}{bLC}\,\mathrm{e}^{-at}\sinh(bt)\cdot\varepsilon(t)$ ist eine Differenz zweier abklingender Exponentialfunktionen, ohne Schwingung.
+--- falsch
+$b$ ist imaginär, $\frac{1}{LC}>\frac{R^2}{4L^2}$, also $\xi<1$, und es gibt zwei komplexe Pole. Die Impulsantwort kriecht als Schwingung mit sehr kleiner Kreisfrequenz zurück auf null, weil der Widerstand die Schwingung verlangsamt.
+--- falsch
+$b=0$, $\frac{1}{LC}=\frac{R^2}{4L^2}$, also $\xi=1$, und es gibt einen doppelten Pol. Die Impulsantwort $h(t)=\frac{1}{LC}\,t\,\mathrm{e}^{-at}\cdot\varepsilon(t)$ kriecht langsamer als in jedem anderen Fall auf null zurück.
+--- falsch
+$b$ ist reell und größer als $a$, sodass ein Pol rechts der imaginären Achse liegt. Die Impulsantwort $h(t)=\frac{1}{bLC}\,\mathrm{e}^{-at}\sinh(bt)\cdot\varepsilon(t)$ wächst deshalb zunächst und kriecht erst nach langer Zeit zurück.
+:::
+:::karte begriff aperiodischer Grenzfall
+Was kennzeichnet beim RLC-System den aperiodischen Grenzfall, und welche Impulsantwort hat er?
+---
+$b=0$, also $\frac{1}{LC}=\frac{R^2}{4L^2}$: Die beiden Pole fallen zu einem doppelten Pol bei $-a$ zusammen. Die Impulsantwort ist $h(t)=\frac{1}{LC}\,t\,\mathrm{e}^{-at}\cdot\varepsilon(t)$; der Kreis kehrt auf dem schnellsten Weg ohne Überschwingen zur Ruhe zurück.
+--- falsch
+$b=0$, also $\frac{1}{LC}=\frac{R^2}{4L^2}$: Die beiden Pole heben sich gegenseitig auf. Die Impulsantwort ist $h(t)=\frac{1}{LC}\,\mathrm{e}^{-at}\cdot\varepsilon(t)$, eine einzelne Exponentialfunktion, weil nur noch eine Eigenbewegung übrig bleibt.
+--- falsch
+$a=0$, also $R=0$: Die Pole liegen auf der imaginären Achse. Die Impulsantwort ist eine ungedämpfte Schwingung mit $\omega_0$, die gerade noch nicht wächst; deshalb liegt sie genau an der Grenze zwischen Abklingen und Wachsen.
+--- falsch
+$b=0$, also $\frac{1}{LC}=\frac{R^2}{4L^2}$: ein doppelter Pol bei $-a$. Die Impulsantwort ist $h(t)=0$, weil in $\frac{1}{bLC}\,\mathrm{e}^{-at}\sinh(bt)$ der Faktor $\sinh(0)=0$ steht; der Kreis reagiert in diesem Fall überhaupt nicht.
+:::
+:::karte begriff Schwingfall
+Was kennzeichnet beim RLC-System den Schwingfall, und welche Impulsantwort hat er?
+---
+$b=\mathrm{j}\beta$ ist imaginär, $\frac{1}{LC}>\frac{R^2}{4L^2}$, mit $\beta=\sqrt{\frac{1}{LC}-\frac{R^2}{4L^2}}$. Wegen $\sinh(\mathrm{j}\beta t)=\mathrm{j}\sin(\beta t)$ ist $h(t)=\frac{1}{\beta LC}\,\mathrm{e}^{-at}\sin(\beta t)\cdot\varepsilon(t)$: eine Schwingung mit der Kreisfrequenz $\beta$, die mit $\mathrm{e}^{-at}$ abklingt.
+--- falsch
+$b$ ist reell, $\frac{1}{LC}<\frac{R^2}{4L^2}$, mit $\beta=b$. Wegen $\sinh(\beta t)\approx\sin(\beta t)$ ist $h(t)=\frac{1}{\beta LC}\,\mathrm{e}^{-at}\sin(\beta t)\cdot\varepsilon(t)$: eine Schwingung, die umso schneller ist, je größer der Widerstand $R$ gewählt wird.
+--- falsch
+$b=\mathrm{j}\beta$ ist imaginär, $\frac{1}{LC}>\frac{R^2}{4L^2}$. Die Impulsantwort ist $h(t)=\frac{1}{\beta LC}\,\sin(\beta t)\cdot\varepsilon(t)$: eine Schwingung mit konstanter Amplitude, weil imaginäre Werte von $b$ kein Abklingen enthalten und der Faktor mit $a$ wegfällt.
+--- falsch
+$b=\mathrm{j}\beta$ ist imaginär, $\frac{1}{LC}>\frac{R^2}{4L^2}$, mit $\beta=\sqrt{\frac{1}{LC}+\frac{R^2}{4L^2}}$. Die Impulsantwort ist $h(t)=\frac{1}{\beta LC}\,\mathrm{e}^{-at}\cos(\beta t)\cdot\varepsilon(t)$, weil sie bei $t=0$ mit ihrem Höchstwert beginnt.
+:::
+:::karte herleitung Aperiodischer Grenzfall mit der Regel von l'Hospital
+Wie erhält man die Impulsantwort im aperiodischen Grenzfall aus $h(t)=\frac{1}{bLC}\,\mathrm{e}^{-at}\sinh(bt)\cdot\varepsilon(t)$, obwohl dort $b=0$ ist?
+---
+Für $b\to0$ entsteht ein Ausdruck der Form „$0/0$“, weil sowohl $\sinh(bt)$ als auch der Faktor $b$ im Nenner gegen null gehen.
+---
+Man bildet den Grenzwert mit der Regel von l'Hospital, weil sie bei „$0/0$“ erlaubt, Zähler und Nenner nach $b$ abzuleiten.
+---
+Die Ableitung des Zählers nach $b$ ist $t\cosh(bt)$, die des Nenners 1, weil $\sinh x=\frac{\mathrm{e}^{x}-\mathrm{e}^{-x}}{2}$ abgeleitet $\cosh x=\frac{\mathrm{e}^x+\mathrm{e}^{-x}}{2}$ ergibt und die Kettenregel den Faktor $t$ liefert.
+---
+Mit $\cosh0=1$ bleibt $h(t)=\frac{1}{LC}\,t\,\mathrm{e}^{-at}\cdot\varepsilon(t)$, weil der Grenzwert an der Stelle $b=0$ ausgewertet wird.
+:::
+:::karte begriff Abklingrate
+Was ist die Abklingrate $\gamma$ eines konjugiert komplexen Polpaars, und welches Zeitsignal gehört zu Polen bei $-\gamma\pm\mathrm{j}\omega_1$?
+---
+Man schreibt den Pol als $p_\mathrm P=-\gamma-\mathrm{j}\omega_1$ mit der reellen Abklingrate $\gamma$ und der reellen Kreisfrequenz $\omega_1$. Das Paar gehört zu einer Schwingung mit der Kreisfrequenz $\omega_1$, die mit $\mathrm{e}^{-\gamma t}$ abklingt.
+--- falsch
+Man schreibt den Pol als $p_\mathrm P=-\gamma-\mathrm{j}\omega_1$, und $\gamma$ ist die Kreisfrequenz der Schwingung, weil sie im Realteil steht. Das Paar gehört zu einer Schwingung mit der Kreisfrequenz $\gamma$, die mit $\mathrm{e}^{-\omega_1t}$ abklingt.
+--- falsch
+Die Abklingrate ist der Betrag $|p_\mathrm P|$ des Pols, sein Abstand vom Ursprung. Das Paar gehört zu einer Schwingung mit der Kreisfrequenz $\omega_1$, die mit $\mathrm{e}^{-|p_\mathrm P|t}$ abklingt, also umso schneller, je höher sie schwingt.
+--- falsch
+Man schreibt den Pol als $p_\mathrm P=-\gamma-\mathrm{j}\omega_1$ mit der Abklingrate $\gamma$. Das Paar gehört zu einer Schwingung mit der Kreisfrequenz $\omega_1$, die mit $\mathrm{e}^{+\gamma t}$ abklingt, weil der Realteil des Pols negativ ist und sich das Minus aufhebt.
+:::
+:::karte formel Gedämpfter Kosinus und Sinus
+Welche Laplace-Transformierten haben die gedämpften Schwingungen $\mathrm{e}^{-\gamma t}\cos(\omega_1t)\cdot\varepsilon(t)$ und $\mathrm{e}^{-\gamma t}\sin(\omega_1t)\cdot\varepsilon(t)$?
+---
+$\frac{p+\gamma}{(p+\gamma)^2+\omega_1^2}$ und $\frac{\omega_1}{(p+\gamma)^2+\omega_1^2}$, beide für $\operatorname{Re} p>-\gamma$. Der gemeinsame Nenner ist $(p-p_\mathrm P)(p-p_\mathrm P^*)=(p+\gamma)^2+\omega_1^2$ mit dem Polpaar $-\gamma\pm\mathrm{j}\omega_1$.
+--- falsch
+$\frac{\omega_1}{(p+\gamma)^2+\omega_1^2}$ und $\frac{p+\gamma}{(p+\gamma)^2+\omega_1^2}$, beide für $\operatorname{Re} p>-\gamma$: Der Kosinus bekommt den konstanten Zähler, weil er bei $t=0$ seinen Höchstwert hat, der Sinus den Zähler mit $p$.
+--- falsch
+$\frac{p-\gamma}{(p-\gamma)^2+\omega_1^2}$ und $\frac{\omega_1}{(p-\gamma)^2+\omega_1^2}$, beide für $\operatorname{Re} p>\gamma$. Der gemeinsame Nenner ist $(p-\gamma)^2+\omega_1^2$, weil die Dämpfung $\mathrm{e}^{-\gamma t}$ das Polpaar nach rechts verschiebt.
+--- falsch
+$\frac{p+\gamma}{(p+\gamma)^2-\omega_1^2}$ und $\frac{\omega_1}{(p+\gamma)^2-\omega_1^2}$, beide für $\operatorname{Re} p>-\gamma$. Der gemeinsame Nenner ist $(p+\gamma)^2-\omega_1^2$, das Produkt der Faktoren der beiden reellen Pole $-\gamma\pm\omega_1$.
+:::
+:::karte begriff Pol des Grades
+Was ist ein Pol des Grades $k$, und wie ändert er die Partialbruchzerlegung?
+---
+Ein Pol, an dessen Stelle $k$ Pole zusammenfallen; im Pol-Nullstellen-Diagramm steht „$(k)$“ neben dem Kreuz. Zu ihm gehören $k$ Summanden $\frac{A_{i,j}}{(p-p_{\mathrm P,i})^j}$ mit den Potenzen $j=1$ bis $k$ im Nenner.
+--- falsch
+Ein Pol, der $k$-mal so weit vom Ursprung entfernt liegt wie der nächste; im Diagramm steht „$(k)$“ neben dem Kreuz. Zu ihm gehört ein einziger Summand $\frac{A_k}{p-p_{\mathrm P,k}}$, dessen Koeffizient $k$-mal so groß ist.
+--- falsch
+Ein Pol, an dessen Stelle $k$ Pole zusammenfallen. Zu ihm gehört ein einziger Summand $\frac{A_i}{(p-p_{\mathrm P,i})^k}$ mit der höchsten Potenz im Nenner; die niedrigeren Potenzen kürzen sich weg, weil sie im selben Pol stecken.
+--- falsch
+Ein Pol, an dessen Stelle $k$ Pole zusammenfallen; im Diagramm zeichnet man $k$ Kreuze übereinander. Zu ihm gehören $k$ gleiche Summanden $\frac{A_i}{p-p_{\mathrm P,i}}$, die man zu $\frac{k\,A_i}{p-p_{\mathrm P,i}}$ zusammenfasst.
+:::
+:::karte formel Paar für mehrfache Pole
+Welches rechtsseitige Zeitsignal gehört zu $\frac{1}{(p-p_0)^j}$, und was bedeutet das für einen Pol des Grades $k$?
+---
+$\frac{t^{\,j-1}}{(j-1)!}\,\mathrm{e}^{p_0t}\,\varepsilon(t)\longleftrightarrow\frac{1}{(p-p_0)^j}$ für $\operatorname{Re} p>\operatorname{Re} p_0$. Ein Pol des Grades $k$ liefert also die Exponentialfunktion des Pols, multipliziert mit Potenzen von $t$ bis $t^{k-1}$.
+--- falsch
+$\frac{1}{j!}\,\mathrm{e}^{j\,p_0t}\,\varepsilon(t)\longleftrightarrow\frac{1}{(p-p_0)^j}$ für $\operatorname{Re} p>j\,\operatorname{Re} p_0$. Ein Pol des Grades $k$ liefert also Exponentialfunktionen mit den Exponenten $p_0$ bis $k\,p_0$, die immer schneller abklingen.
+--- falsch
+$t^{\,j}\,\mathrm{e}^{p_0t}\,\varepsilon(t)\longleftrightarrow\frac{1}{(p-p_0)^j}$ für $\operatorname{Re} p>\operatorname{Re} p_0$. Ein Pol des Grades $k$ liefert also die Exponentialfunktion des Pols, multipliziert mit Potenzen von $t$ bis $t^{k}$, ohne Fakultät im Nenner.
+--- falsch
+$\bigl(\mathrm{e}^{p_0t}\,\varepsilon(t)\bigr)^j\longleftrightarrow\frac{1}{(p-p_0)^j}$ für $\operatorname{Re} p>\operatorname{Re} p_0$, weil eine Potenz im Bildbereich einer Potenz im Zeitbereich entspricht. Ein Pol des Grades $k$ liefert also $\mathrm{e}^{k\,p_0t}$.
+:::
+:::karte herleitung Paar für mehrfache Pole durch partielle Integration
+Wie zeigt man mit partieller Integration, dass $\int_0^\infty t^n\,\mathrm{e}^{-(p-p_0)t}\,\mathrm{d} t=\frac{n!}{(p-p_0)^{n+1}}$ ist?
+---
+Man setzt $c=p-p_0$ mit $\operatorname{Re} c>0$, weil dann $\mathrm{e}^{-ct}$ für $t\to\infty$ abklingt; für $n=0$ ist die Formel das Grundpaar $\frac{1}{p-p_0}$.
+---
+Partielle Integration ergibt $\int_0^\infty t^n\,\mathrm{e}^{-ct}\,\mathrm{d} t=\frac nc\int_0^\infty t^{n-1}\,\mathrm{e}^{-ct}\,\mathrm{d} t$, weil der Randterm $\bigl[-\frac{t^n\,\mathrm{e}^{-ct}}{c}\bigr]_0^\infty$ an beiden Grenzen verschwindet.
+---
+Jeder weitere Schritt senkt die Potenz von $t$ um eins und liefert einen Faktor $\frac nc$, $\frac{n-1}{c}$, …, weil man dieselbe partielle Integration wiederholt.
+---
+Nach $n$ Schritten bleibt $\frac{n!}{c^n}\cdot\frac1c=\frac{n!}{c^{n+1}}$, weil das letzte Integral über $\mathrm{e}^{-ct}$ den Wert $\frac1c$ hat.
+:::
+:::karte zusammenhang Faktor t beim doppelten Pol
+Woher kommt der Faktor $t$ in der Impulsantwort, wenn zwei einfache Pole zu einem doppelten Pol zusammenrücken?
+---
+Solange die Pole getrennt sind, enthält die Antwort die Differenz zweier Eigenbewegungen, geteilt durch den Abstand der Pole: $\frac{\mathrm{e}^{p_{\mathrm P1}t}-\mathrm{e}^{p_{\mathrm P2}t}}{p_{\mathrm P1}-p_{\mathrm P2}}$. Rücken sie zusammen, wird daraus im Grenzfall die Ableitung nach dem Exponenten, $\frac{\mathrm{d}}{\mathrm{d} p}\,\mathrm{e}^{pt}=t\,\mathrm{e}^{pt}$.
+--- falsch
+Der Faktor $t$ entsteht, weil sich die beiden Eigenbewegungen beim Zusammenrücken addieren und dadurch doppelt so lange dauern. Die Antwort wird zunächst $2\,\mathrm{e}^{p_\mathrm Pt}$, und der Faktor $t$ beschreibt diese verlängerte Dauer, die mit der Zeit wächst.
+--- falsch
+Solange die Pole getrennt sind, enthält die Antwort das Produkt $\mathrm{e}^{p_{\mathrm P1}t}\cdot\mathrm{e}^{p_{\mathrm P2}t}$ der beiden Eigenbewegungen. Rücken sie zusammen, wird daraus $\mathrm{e}^{2p_\mathrm Pt}$, und für kleine $t$ ist das näherungsweise $1+2p_\mathrm P\,t$; daher stammt der Faktor $t$, der für größere $t$ wieder verschwindet.
+--- falsch
+Der Faktor $t$ stammt aus dem Eingang: Ein doppelter Pol entsteht nur, wenn der Eingang eine Rampe $t\,\varepsilon(t)$ ist, und deren Form überträgt sich auf den Ausgang. Ohne Rampe am Eingang gibt es keinen Faktor $t$, auch nicht im aperiodischen Grenzfall.
+:::
+::::

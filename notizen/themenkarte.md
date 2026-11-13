@@ -50,7 +50,7 @@ und verweisen mit Link darauf.
     Ratenkredits numerisch (Restschuld, Annuitätenformel, effektiver Jahreszins nur als Umrechnung (1+i)^12 − 1, Ableitung per
     Schleife, Absicherung von Newton durch Bisektion und Dämpfung als Hintergrund). Numerik-Hefte und ML-Grundlagen
     (Gradientenabstieg, Optimierung) können für Bisektion/Newton darauf verweisen. Eigene Funktionen: Python, Kapitel 4; Listen: Python, Kapitel 5.
-- **Linux und Kommandozeile** (Informatik / Linux und Kommandozeile, Kapitel 1–9 fertig): Shell, Dateien, Rechte (vollständig erklärt in Linux, Kapitel 7 „Benutzer, Gruppen und Rechte“), Prozesse, Signale und Dienste (Linux, Kapitel 8).
+- **Linux und Kommandozeile** (Informatik / Linux und Kommandozeile, Kapitel 1–11 fertig): Shell, Dateien, Rechte (vollständig erklärt in Linux, Kapitel 7 „Benutzer, Gruppen und Rechte“), Prozesse, Signale und Dienste (Linux, Kapitel 8), SSH, Dateiübertragung und tmux (Linux, Kapitel 11).
   Cybersecurity hat seit 11.11.2026 einen Stamm mit 12 Teilen: Die alten Hefte „Linux vom USB-Stick“ und „Die Shell als Werkzeug“
   entfallen (Inhalt in Linux, Kapitel 1–6, 8, 10), Cybersecurity, Kapitel 3 ist das Fachheft „Linux-Sicherheit“ (siehe unten).
   - Linux, Kapitel 1 erklärt vollständig (spätere Hefte, auch Cyber und ML, verweisen mit „Linux, Kapitel~1, Abschnitt~M“): Betriebssystem,
@@ -969,6 +969,28 @@ Je Zeile ein Abschnitt: Verweis-Wendung, Abschnittstitel, dann die Unterabschnit
 - Linux, Kapitel 9, Abschnitt 8 „Aktualisieren als Schutz“: 8.1 Das Sicherheitsupdate · 8.2 Das Zeitfenster nach der Veröffentlichung · 8.3 Nach dem Update: laufende Programme · 8.4 Automatische Sicherheitsupdates · 8.5 Der Pflegezeitraum
 - Linux, Kapitel 9, Abschnitt 9 „Alternativen: ein Befehl, mehrere Pakete“: 9.1 Das Alternativsystem · 9.2 sudo und sudo-rs · 9.3 Die Grundbefehle: coreutils-from-uutils · 9.4 Unverzichtbare und geschützte Pakete
 - Linux, Kapitel 9, Abschnitt 10 „Software von außerhalb der Paketquellen“: 10.1 Eine zusätzliche Paketquelle · 10.2 Eine einzelne Paketdatei · 10.3 Installationsskripte aus dem Netz · 10.4 Snap und Flatpak · 10.5 Aufräumen
+
+### Linux, Kapitel 10: Shell-Skripte (`Kap10_Skripte`, Modul linux)
+
+- Linux, Kapitel 10, Abschnitt 1 „Vom Befehl zum Skript“: 1.1 Was du dafür brauchst: Editor, Ausführungsrecht und Kindprozess · 1.2 Das Skript · 1.3 Der Interpreter · 1.4 Der Kommentar · 1.5 Ein Skript läuft in einem eigenen Prozess · 1.6 Die Shebang-Zeile · 1.7 Ein Skript direkt starten · 1.8 Ein Skript wie einen Befehl aufrufen · 1.9 Die Zeilenenden-Falle
+- Linux, Kapitel 10, Abschnitt 2 „Argumente übergeben: Positionsparameter“: 2.1 Der Positionsparameter · 2.2 Der Name des Skripts: `$0` · 2.3 Die Zahl der Argumente: `$#` · 2.4 Alle Argumente: `"$@"` · 2.5 `$*` und `"$*"` · 2.6 Argumente verschieben: `shift`
+- Linux, Kapitel 10, Abschnitt 3 „Verzweigen: `if` und `test`“: 3.1 Die Verzweigung: `if` · 3.2 Die Alternativen: `else` und `elif` · 3.3 Der Befehl `test` und die eckige Klammer · 3.4 Dateien prüfen · 3.5 Text vergleichen · 3.6 Zahlen vergleichen
+- Linux, Kapitel 10, Abschnitt 4 „Bequemer prüfen: `[[ ]]`, `(( ))` und `case`“: 4.1 Die doppelte eckige Klammer: `[[ ]]` · 4.2 Eingaben prüfen mit regulären Ausdrücken: `=~` · 4.3 Rechnen als Bedingung: `(( ))` · 4.4 Bedingungen verknüpfen · 4.5 Die Fallunterscheidung: `case`
+- Linux, Kapitel 10, Abschnitt 5 „Schleifen: `for` und `while`“: 5.1 Die `for`-Schleife · 5.2 Schleifen über Dateien · 5.3 Die `for`-Schleife mit Zähler · 5.4 Die `while`-Schleife · 5.5 Schleifen steuern: `break` und `continue`
+- Linux, Kapitel 10, Abschnitt 6 „Zeilen lesen und Listen speichern“: 6.1 Der Befehl `read` · 6.2 Eine Datei Zeile für Zeile lesen · 6.3 Felder trennen: `IFS` · 6.4 Die Pipe-Falle · 6.5 Das Array
+- Linux, Kapitel 10, Abschnitt 7 „Funktionen“: 7.1 Die Funktion · 7.2 Die Argumente einer Funktion · 7.3 Lokale Variablen: `local` · 7.4 Ein Ergebnis als Exit-Status: `return` · 7.5 Ein Ergebnis als Ausgabe · 7.6 Funktion oder Skript
+- Linux, Kapitel 10, Abschnitt 8 „Fehler erkennen und melden“: 8.1 Der Exit-Status eines Skripts: `exit` · 8.2 Meldungen auf die Fehlerausgabe · 8.3 Jeden kritischen Schritt prüfen · 8.4 Unbelegte Variablen melden: `set -u` · 8.5 Abbrechen bei Fehlern: `set -e` und seine Grenzen · 8.6 Fehler in Pipelines: `pipefail`
+- Linux, Kapitel 10, Abschnitt 9 „Aufräumen: temporäre Dateien und `trap`“: 9.1 Was du dafür brauchst: Archive mit `tar` und das Datum · 9.2 Die temporäre Datei: `mktemp` · 9.3 Aufräumen beim Beenden: `trap … EXIT` · 9.4 Das Skriptgerüst
+- Linux, Kapitel 10, Abschnitt 10 „Skripte prüfen und Fehler finden“: 10.1 Die Syntax prüfen: `bash -n` · 10.2 Den Ablauf verfolgen: `bash -x` · 10.3 Typische Fehler finden: ShellCheck · 10.4 Der Probelauf mit `echo` · 10.5 Testfälle · 10.6 Aufräumen
+
+### Linux, Kapitel 11: Auf entfernten Rechnern arbeiten: SSH, Dateien übertragen, tmux (`Kap11_SSH`, Modul linux)
+
+- Linux, Kapitel 11, Abschnitt 1 „Entfernte Anmeldung: Client, Server und ein Übungsserver“: 1.1 Was du dafür brauchst: Rechnername, Adresse und Port · 1.2 Die entfernte Anmeldung · 1.3 Client und Server · 1.4 SSH · 1.5 Ein Übungsserver auf dem eigenen Rechner · 1.6 Die Socket-Aktivierung
+- Linux, Kapitel 11, Abschnitt 2 „Die erste Verbindung: Hostschlüssel und Fingerabdruck“: 2.1 Was du dafür brauchst: Prüfsumme, Schlüsselpaar und Signatur · 2.2 Der Hostschlüssel · 2.3 Der Fingerabdruck · 2.4 Die erste Verbindung · 2.5 Die Liste der bekannten Rechner: known_hosts · 2.6 Wenn sich der Hostschlüssel ändert
+- Linux, Kapitel 11, Abschnitt 3 „Anmelden mit einem Schlüsselpaar“: 3.1 Die Anmeldung mit öffentlichem Schlüssel · 3.2 Ein Schlüsselpaar erzeugen: ssh-keygen · 3.3 Privater und öffentlicher Schlüssel · 3.4 Die Datei authorized_keys · 3.5 Einen Schlüssel auf einen Server bringen: ssh-copy-id · 3.6 Die erste Anmeldung mit dem Schlüssel · 3.7 Warum ssh auf strenge Rechte achtet · 3.8 Den privaten Schlüssel mit einer Passphrase schützen · 3.9 Der ssh-agent
+- Linux, Kapitel 11, Abschnitt 4 „Bequemer verbinden und Befehle aus der Ferne“: 4.1 Die Datei ~/.ssh/config · 4.2 Einen Befehl auf dem Server ausführen · 4.3 Muster für Dateinamen: wer erweitert? · 4.4 Ströme und Exit-Status über die Verbindung · 4.5 Mit und ohne Terminal: ssh -t
+- Linux, Kapitel 11, Abschnitt 5 „Dateien übertragen: scp, sftp und rsync“: 5.1 Kopieren über die Verbindung: scp · 5.2 Dateien im Gespräch übertragen: sftp · 5.3 Abgleichen statt kopieren: rsync · 5.4 Der Schrägstrich am Quellverzeichnis · 5.5 Abgleichen mit --delete und der Probelauf · 5.6 Wie rsync nur die Änderungen überträgt · 5.7 Welches Werkzeug wofür
+- Linux, Kapitel 11, Abschnitt 6 „Programme weiterlaufen lassen: nohup, disown und tmux“: 6.1 Was du dafür brauchst: SIGHUP, nohup und disown · 6.2 Was bei einem Verbindungsabbruch geschieht · 6.3 nohup und disown über SSH · 6.4 Der Terminal-Multiplexer tmux · 6.5 Die tmux-Sitzung und die Präfixtaste · 6.6 Das Fenster · 6.7 Der Bereich · 6.8 Trennen und wieder anhängen · 6.9 Warum tmux Programme am Leben hält · 6.10 tmux über SSH: eine Rechnung übersteht den Abbruch · 6.11 Aufräumen
 
 ## Informatik / Cybersecurity
 

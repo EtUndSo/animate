@@ -662,3 +662,182 @@ $$s(t)=-\sum_{\text{Pole rechts der Geraden}}A_r\,\mathrm{e}^{p_r t}$$
 
 Weg nach rechts geschlossen. Die Lage der Geraden entscheidet, welche Pole rechts- und welche linksseitige Anteile liefern.
 ::::
+
+::::lernkarten
+:::karte formel Verschiebung in der Zeit
+Was wird aus einem verzögerten Signal $s(t-t_0)$ im Bildbereich, und was ändert die Verzögerung an Polen und Betrag?
+---
+Es wird $S(p)\,\mathrm{e}^{-pt_0}$, der Konvergenzbereich bleibt gleich. Der Faktor $\mathrm{e}^{-pt_0}$ hat weder Pole noch Nullstellen: Das Signal besteht aus denselben Exponentialfunktionen, nur später. Auf der imaginären Achse ist $|\mathrm{e}^{-\mathrm{j}2\pi Ft_0}|=1$, die Verzögerung ändert nur die Phase.
+--- falsch
+Es wird $S(p-t_0)$, und der Konvergenzbereich verschiebt sich um $t_0$ nach rechts. Alle Pole wandern um $t_0$, weil ein späteres Signal langsamer abklingt; auf der imaginären Achse wird der Betrag dadurch bei allen Frequenzen kleiner.
+--- falsch
+Es wird $S(p)\,\mathrm{e}^{pt_0}$, der Konvergenzbereich bleibt gleich. Der Faktor $\mathrm{e}^{pt_0}$ fügt bei $p=t_0$ einen zusätzlichen Pol hinzu, der die Verzögerung beschreibt; auf der imaginären Achse wächst der Betrag mit der Frequenz.
+--- falsch
+Es wird $S(p)-t_0$, weil sich das Signal nur entlang der Zeitachse verschiebt und die Transformation linear ist. Pole und Nullstellen bleiben gleich, aber der Betrag auf der imaginären Achse sinkt bei allen Frequenzen um denselben Wert $t_0$, gemessen in Sekunden.
+:::
+:::karte formel Verschiebung in der komplexen Frequenz
+Was wird aus dem Signal $s(t)\cdot\mathrm{e}^{p_0t}$ im Bildbereich, und was passiert dabei mit den Polen?
+---
+Es wird $S(p-p_0)$, der Konvergenzbereich ist um $\operatorname{Re} p_0$ verschoben. Aus jedem Anteil $\mathrm{e}^{p_rt}$ wird $\mathrm{e}^{(p_r+p_0)t}$, alle Pole wandern um $p_0$; bei $\mathrm{e}^{\mathrm{j}2\pi F_0t}$ wandern sie um $2\pi F_0$ nach oben, und alle Frequenzen steigen um $F_0$.
+--- falsch
+Es wird $S(p+p_0)$, der Konvergenzbereich ist um $-\operatorname{Re} p_0$ verschoben. Aus jedem Anteil $\mathrm{e}^{p_rt}$ wird $\mathrm{e}^{(p_r-p_0)t}$, alle Pole wandern um $-p_0$, weil im Laplace-Integral $\mathrm{e}^{-pt}$ steht und das Vorzeichen umdreht.
+--- falsch
+Es wird $S(p)\cdot\frac{1}{p-p_0}$, weil zum Signal ein neuer Anteil $\mathrm{e}^{p_0t}$ hinzukommt. Die alten Pole bleiben an ihrem Ort, und ein zusätzlicher Pol bei $p_0$ erscheint; die Frequenzen des Signals ändern sich dabei nicht.
+--- falsch
+Es wird $S(p)\,\mathrm{e}^{-pt_0}$ mit $t_0=p_0$, denn eine Multiplikation mit einer Exponentialfunktion ist dasselbe wie eine Verzögerung. Die Pole bleiben an ihrem Ort, nur die Phase auf der imaginären Achse ändert sich.
+:::
+:::karte formel Zeitspiegelung und Zeitdehnung
+Welche Transformierten haben das gespiegelte Signal $s(-t)$ und das gedehnte Signal $s\bigl(\frac tT\bigr)$, und was geschieht mit den Polen?
+---
+Zu $s(-t)$ gehört $S(-p)$: Pole und Konvergenzbereich werden an der imaginären Achse gespiegelt, rechtsseitige Anteile werden linksseitig. Zu $s\bigl(\frac tT\bigr)$ gehört $|T|\,S(pT)$ mit $T\ne0$; ein Pol $p_r$ wird zu $p_r/T$.
+--- falsch
+Zu $s(-t)$ gehört $-S(p)$, weil sich nur das Vorzeichen der Zeit ändert; Pole und Konvergenzbereich bleiben gleich. Zu $s\bigl(\frac tT\bigr)$ gehört $\frac{1}{T}\,S\bigl(\frac pT\bigr)$, und ein Pol $p_r$ wird zu $p_r\,T$.
+--- falsch
+Zu $s(-t)$ gehört $S^*(p)$, die konjugierte Transformierte, und die Pole werden an der reellen Achse gespiegelt. Zu $s\bigl(\frac tT\bigr)$ gehört $S(pT)$ ohne Vorfaktor; ein Pol $p_r$ wird zu $p_r/T$, für jedes Vorzeichen von $T$.
+--- falsch
+Zu $s(-t)$ gehört $S(-p)$, aber der Konvergenzbereich bleibt derselbe, weil er nur von $\operatorname{Re} p$ abhängt. Zu $s\bigl(\frac tT\bigr)$ gehört $|T|\,S(pT)$; läuft das Signal schneller ab, rücken die Pole näher an den Ursprung.
+:::
+:::karte formel Konjugation
+Welche Transformierte hat das konjugiert komplexe Signal $s^*(t)$, und was folgt daraus für ein reelles Signal?
+---
+Zu $s^*(t)$ gehört $S^*(p^*)$, denn $(\mathrm{e}^{-p^*t})^*=\mathrm{e}^{-pt}$. Für ein reelles Signal ist $s^*=s$, also $S(p^*)=S(p)^*$: Am konjugierten Punkt hat die Transformierte den konjugierten Wert.
+--- falsch
+Zu $s^*(t)$ gehört $S^*(p)$, weil man nur das Ergebnis konjugieren muss. Für ein reelles Signal ist deshalb $S(p)$ selbst reell, für jedes komplexe $p$, und hat nirgends einen Imaginärteil.
+--- falsch
+Zu $s^*(t)$ gehört $S(-p)$, weil Konjugieren einer Spiegelung der Zeit entspricht. Für ein reelles Signal ist deshalb $S(-p)=S(p)$: Die Transformierte ist symmetrisch zum Ursprung der $p$-Ebene.
+--- falsch
+Zu $s^*(t)$ gehört $S(p^*)$ ohne weitere Konjugation. Für ein reelles Signal ist deshalb $S(p^*)=S(p)$: Am konjugierten Punkt hat die Transformierte denselben Wert, auch im Imaginärteil.
+:::
+:::karte herleitung Regel für die Zeitdehnung
+Wie folgt aus der Definition der Laplace-Transformation die Regel, dass zu $s\bigl(\frac tT\bigr)$ die Transformierte $|T|\,S(pT)$ gehört?
+---
+Man substituiert $u=t/T$ mit $\mathrm{d} t=T\,\mathrm{d} u$, weil dann im Signal nur noch $s(u)$ steht.
+---
+Für $T>0$ ist $\int s(t/T)\,\mathrm{e}^{-pt}\mathrm{d} t=T\int s(u)\,\mathrm{e}^{-(pT)u}\mathrm{d} u=T\,S(pT)$, weil der Exponent $-(pT)u$ lautet und die Grenzen erhalten bleiben.
+---
+Für $T<0$ vertauschen sich die Grenzen, weil $u$ dann von $+\infty$ nach $-\infty$ läuft; das gibt ein zusätzliches Minus.
+---
+Zusammen entsteht $|T|\,S(pT)$, weil $T$ für $T>0$ und $-T$ für $T<0$ gerade der Betrag $|T|$ ist.
+:::
+:::karte formel Umkehrformel
+Wie lautet die Umkehrformel der Laplace-Transformation, und auf welchem Weg wird integriert?
+---
+$s(t)=\mathcal{L}^{-1}\{S(p)\}=\frac{1}{2\pi\mathrm{j}}\int_{\sigma_0-\mathrm{j}\infty}^{\sigma_0+\mathrm{j}\infty}S(p)\,\mathrm{e}^{pt}\,\mathrm{d} p$. Integriert wird längs der senkrechten Geraden $\operatorname{Re} p=\sigma_0$ von unten nach oben; $\sigma_0$ muss im Konvergenzbereich liegen und darf dort beliebig gewählt werden.
+--- falsch
+$s(t)=\frac{1}{2\pi\mathrm{j}}\int_{\sigma_0-\mathrm{j}\infty}^{\sigma_0+\mathrm{j}\infty}S(p)\,\mathrm{e}^{-pt}\,\mathrm{d} p$, mit demselben Vorzeichen im Exponenten wie bei der Hintransformation. Integriert wird längs der Geraden $\operatorname{Re} p=\sigma_0$, die genau durch den am weitesten rechts liegenden Pol gehen muss.
+--- falsch
+$s(t)=\int_{-\infty}^{\infty}S(p)\,\mathrm{e}^{pt}\,\mathrm{d} p$ über die reelle Achse der $p$-Ebene. Integriert wird von links nach rechts über alle reellen $p$, gleichgültig, wo der Konvergenzbereich liegt, weil das Signal reell ist und nur reelle $p$ braucht.
+--- falsch
+$s(t)=\frac{1}{2\pi\mathrm{j}}\int_{\sigma_0-\mathrm{j}\infty}^{\sigma_0+\mathrm{j}\infty}S(p)\,\mathrm{e}^{pt}\,\mathrm{d} p$. Integriert wird längs der imaginären Achse, also stets mit $\sigma_0=0$; andere Geraden liefern ein anderes Signal, das um den Faktor $\mathrm{e}^{\sigma_0t}$ verfälscht ist.
+:::
+:::karte zusammenhang Transformierte als Gewicht
+Was gibt $S(p)$ nach der Umkehrformel über das Signal $s(t)$ an, und welche Einheit hat es, wenn $s$ eine Spannung ist?
+---
+Wie stark die Funktion $\mathrm{e}^{pt}$ im Signal vertreten ist: Die Umkehrformel überlagert die $\mathrm{e}^{pt}$ auf der Geraden, jede mit dem komplexen Gewicht $S(p)\,\mathrm{d} f$. $S(p)$ ist also eine Dichte, ein Gewicht pro Frequenzintervall; ist $s$ eine Spannung in V, hat $S$ die Einheit V s.
+--- falsch
+Den Wert des Signals zur komplexen Zeit $t=p$: Die Umkehrformel rechnet diese Werte auf reelle Zeiten zurück. $S(p)$ hat deshalb dieselbe Einheit wie das Signal, bei einer Spannung also V, und ist für reelles $p$ der Wert des Signals selbst.
+--- falsch
+Wie stark die Funktion $\mathrm{e}^{pt}$ im Signal vertreten ist, und zwar als Amplitude, nicht als Dichte: Jede Funktion geht mit dem Gewicht $S(p)$ ein. $S(p)$ hat deshalb dieselbe Einheit wie das Signal, bei einer Spannung also V, unabhängig von der Frequenz.
+--- falsch
+Die Energie des Signals bei der komplexen Frequenz $p$: Die Umkehrformel addiert die Energien aller Funktionen $\mathrm{e}^{pt}$ auf. $S(p)$ hat deshalb die Einheit einer Energie je Frequenz, bei einer Spannung also $\mathrm V^2\,\mathrm s$.
+:::
+:::karte zusammenhang Wert an einer Sprungstelle
+Was liefert die Umkehrformel an einer Sprungstelle des Signals, etwa beim Einheitssprung zur Zeit $t=0$?
+---
+Den Mittelwert aus links- und rechtsseitigem Grenzwert; an jeder Stelle, an der $s$ stetig ist, liefert sie $s(t)$. Beim Sprung $\varepsilon(t)$ strebt die Überlagerung bei $t=0$ deshalb gegen $\tfrac12$.
+--- falsch
+Den rechtsseitigen Grenzwert, weil die Umkehrformel nur für $t>0$ gilt. Beim Sprung $\varepsilon(t)$ liefert sie bei $t=0$ deshalb den Wert 1, wie für alle späteren Zeiten auch.
+--- falsch
+Den linksseitigen Grenzwert, weil das Integral vom unteren Ende der Geraden her läuft. Beim Sprung $\varepsilon(t)$ liefert sie bei $t=0$ deshalb den Wert 0, wie für alle früheren Zeiten.
+--- falsch
+Gar keinen Wert: An einer Sprungstelle divergiert das Integral, weil dort beliebig schnelle Anteile nötig sind. Beim Sprung $\varepsilon(t)$ wächst die Überlagerung bei $t=0$ über alle Grenzen.
+:::
+:::karte begriff Fourier-Darstellung und Spektrum
+Was beschreiben die Fourier-Darstellung eines absolut integrierbaren Signals und sein Spektrum?
+---
+Die Fourier-Darstellung setzt das Signal aus reinen Schwingungen $\mathrm{e}^{\mathrm{j}2\pi ft}$ zusammen: $s(t)=\int_{-\infty}^{\infty}\mathcal{F}\{s\}(f)\,\mathrm{e}^{\mathrm{j}2\pi ft}\,\mathrm{d} f$. Das Spektrum $\mathcal{F}\{s\}(f)=\int_{-\infty}^{\infty}s(t)\,\mathrm{e}^{-\mathrm{j}2\pi ft}\,\mathrm{d} t$ gibt das Gewicht der Schwingung mit der Frequenz $f$ an.
+--- falsch
+Die Fourier-Darstellung setzt das Signal aus gedämpften Schwingungen $\mathrm{e}^{pt}$ zusammen, für jedes Signal, auch für wachsende. Das Spektrum ist die Laplace-Transformierte auf der reellen Achse, $S(\sigma)$, und gibt die Dämpfung jedes einzelnen Anteils an.
+--- falsch
+Die Fourier-Darstellung zerlegt das Signal in Rechteckimpulse gleicher Breite: $s(t)=\sum_k s(k)\operatorname{rect}(t-k)$. Das Spektrum ist die Folge der Höhen $s(k)$ dieser Impulse und gibt den Wert des Signals zu jeder ganzzahligen Zeit an.
+--- falsch
+Die Fourier-Darstellung setzt das Signal aus reinen Schwingungen zusammen: $s(t)=\int_{-\infty}^{\infty}\mathcal{F}\{s\}(f)\,\mathrm{e}^{-\mathrm{j}2\pi ft}\,\mathrm{d} f$. Das Spektrum $\mathcal{F}\{s\}(f)$ ist der Betrag des Signals zur Zeit $t=1/f$, also eine reelle, nicht negative Größe.
+:::
+:::karte herleitung Umkehrformel aus der Fourier-Darstellung
+Wie gewinnt man die Umkehrformel aus der Fourier-Darstellung, wenn das Signal selbst nicht absolut integrierbar ist?
+---
+Dämpfen: Man multipliziert mit $\mathrm{e}^{-\sigma_0t}$, weil $s(t)\,\mathrm{e}^{-\sigma_0t}$ absolut integrierbar ist, wenn $\sigma_0$ im Konvergenzbereich liegt.
+---
+Zerlegen: Das Spektrum des gedämpften Signals ist $S(\sigma_0+\mathrm{j}2\pi f)$, weil sich die Faktoren zu $\mathrm{e}^{-(\sigma_0+\mathrm{j}2\pi f)t}$ zusammenfassen. Die Fourier-Darstellung gibt $s(t)\,\mathrm{e}^{-\sigma_0t}=\int S(\sigma_0+\mathrm{j}2\pi f)\,\mathrm{e}^{\mathrm{j}2\pi ft}\,\mathrm{d} f$.
+---
+Zurückmultiplizieren: Man multipliziert mit $\mathrm{e}^{\sigma_0t}$ und zieht den Faktor ins Integral, weil er nicht von $f$ abhängt: $s(t)=\int_{-\infty}^{\infty}S(\sigma_0+\mathrm{j}2\pi f)\,\mathrm{e}^{(\sigma_0+\mathrm{j}2\pi f)t}\,\mathrm{d} f$.
+---
+Mit $p=\sigma_0+\mathrm{j}2\pi f$, also $\mathrm{d} f=\mathrm{d} p/(2\pi\mathrm{j})$, entsteht die Umkehrformel, weil die Grenzen $f=\mp\infty$ zu $p=\sigma_0\mp\mathrm{j}\infty$ werden.
+:::
+:::karte zusammenhang Laplace enthält Fourier
+Was wird aus der Laplace-Transformation, wenn die imaginäre Achse im Konvergenzbereich liegt und man $\sigma_0=0$ wählt?
+---
+Dann ist $S(\mathrm{j}2\pi f)=\mathcal{F}\{s\}(f)$ das Spektrum des Signals, und die Umkehrformel wird zur Fourier-Darstellung. Die Laplace-Transformation enthält die Fourier-Transformation also als Spezialfall.
+--- falsch
+Dann ist $S(\mathrm{j}2\pi f)=0$ für alle $f$, weil auf der imaginären Achse keine gedämpften Anteile liegen. Die Umkehrformel liefert in diesem Fall nur das Nullsignal und ist deshalb nicht anwendbar.
+--- falsch
+Dann ist $S(\mathrm{j}2\pi f)$ der Betrag des Spektrums, $|\mathcal{F}\{s\}(f)|$, ohne Phase. Die Umkehrformel wird zur Fourier-Darstellung, aber nur für gerade Signale, deren Spektrum reell ist.
+--- falsch
+Dann ist $S(0)=\mathcal{F}\{s\}(f)$ für jede Frequenz $f$, weil der Realteil null ist. Die Laplace-Transformation und die Fourier-Transformation stimmen deshalb nur im Ursprung der $p$-Ebene überein.
+:::
+:::karte zusammenhang Jede Gerade liefert dasselbe Signal
+Warum liefert jede senkrechte Gerade im Konvergenzbereich in der Umkehrformel dasselbe Signal?
+---
+Die Herleitung dämpft das Signal mit $\mathrm{e}^{-\sigma_0t}$ und multipliziert am Ende mit $\mathrm{e}^{\sigma_0t}$ zurück. Bei größerem $\sigma_0$ dämpft man stärker und multipliziert stärker zurück; beides hebt sich auf.
+--- falsch
+Weil $S(p)$ auf allen senkrechten Geraden dieselben Werte hat: Es hängt wie der Konvergenzbereich nur vom Imaginärteil von $p$ ab. Das Integral ist deshalb auf jeder Geraden dasselbe.
+--- falsch
+Weil die Gerade die Pole nicht berührt und das Integral zwischen zwei Polen nach dem Residuensatz immer null ist. Deshalb trägt nur der Punkt der Geraden bei, der auf der reellen Achse liegt.
+--- falsch
+Weil die Umkehrformel nur die Pole auswertet und alle Geraden dieselben Pole umschließen. Auch eine Gerade außerhalb des Konvergenzbereichs liefert deshalb dasselbe Signal, solange sie keinen Pol schneidet.
+:::
+:::karte zusammenhang Reelles Signal aus komplexen Anteilen
+Warum kommt bei der Umkehrformel für ein reelles Signal eine reelle Kurve heraus, obwohl die Anteile $\mathrm{e}^{pt}$ komplex sind?
+---
+Zu $f$ gehört $-f$, zu $p$ also der konjugierte Punkt $p^*$, und für ein reelles Signal ist $S(p^*)=S(p)^*$. Jedes Paar ergibt $S\,\mathrm{e}^{pt}+(S\,\mathrm{e}^{pt})^*=2\operatorname{Re}\{S(p)\,\mathrm{e}^{pt}\}$, eine reelle gedämpfte oder wachsende Schwingung.
+--- falsch
+Weil man von der Umkehrformel am Ende nur den Realteil nimmt und den Imaginärteil verwirft. Der Imaginärteil enthält die negativen Frequenzen, die physikalisch keine Bedeutung haben und deshalb wegfallen dürfen.
+--- falsch
+Weil $S(p)$ für ein reelles Signal auf der ganzen Geraden reell ist und $\mathrm{e}^{pt}$ sich über eine Periode zu einer reellen Zahl mittelt. Die Imaginärteile heben sich deshalb in jedem einzelnen Anteil für sich auf.
+--- falsch
+Zu $f$ gehört $-f$, und für ein reelles Signal ist $S(p^*)=-S(p)$. Jedes Paar ergibt deshalb $S\,\mathrm{e}^{pt}-S\,\mathrm{e}^{p^*t}$, und weil die Exponentialfunktionen konjugiert sind, bleibt nur ein reeller Rest übrig.
+:::
+:::karte zusammenhang Residuensatz und Konvergenzbereich
+Warum entscheidet bei der Auswertung der Umkehrformel mit dem Residuensatz die Lage der Integrationsgeraden, welche Pole rechtsseitige und welche linksseitige Anteile liefern?
+---
+Für $t>0$ verschwindet $\mathrm{e}^{pt}$ für $\operatorname{Re} p\to-\infty$; man schließt die Gerade nach links, und die Pole links von ihr liefern $\sum_rA_r\,\mathrm{e}^{p_rt}$. Für $t<0$ schließt man nach rechts, im Uhrzeigersinn, und die Pole rechts der Geraden liefern mit Minuszeichen die linksseitigen Anteile.
+--- falsch
+Für $t>0$ schließt man die Gerade nach rechts, weil dort die Zukunft liegt, und die Pole rechts liefern die rechtsseitigen Anteile. Für $t<0$ schließt man nach links; die Lage der Geraden ist dabei gleichgültig, es zählen allein die Pole.
+--- falsch
+Für jedes $t$ schließt man die Gerade nach links und erfasst so alle Pole der $p$-Ebene. Ob ein Anteil rechtsseitig ist, entscheidet dann das Vorzeichen seines Residuums: Positive Residuen gehören zu rechtsseitigen, negative zu linksseitigen Anteilen.
+--- falsch
+Für $t>0$ schließt man die Gerade nach links, und die Pole links liefern linksseitige Anteile, weil sie links in der $p$-Ebene liegen. Für $t<0$ liefern die Pole rechts entsprechend die rechtsseitigen Anteile, und zwar ohne Minuszeichen.
+:::
+:::karte zusammenhang Wozu man den Eingang transformiert
+Warum ergibt ein Ausdruck wie $H(p)\cdot s(t)$ keinen Sinn, und wozu transformiert man deshalb auch den Eingang?
+---
+$H(p)$ darf nur auf eine Funktion $\mathrm{e}^{pt}$ angewandt werden, und für ein beliebiges $s(t)$ ist nicht klar, welches $p$ gemeint ist. Erst $S(p)$ zerlegt den Eingang in Funktionen $\mathrm{e}^{pt}$; dann ist $G(p)=H(p)\,S(p)$ das Rezept des Ausgangs.
+--- falsch
+Weil $H(p)$ eine komplexe und $s(t)$ eine reelle Größe ist und man beide nicht multiplizieren darf. Transformiert man den Eingang, wird er ebenfalls komplex, und das Produkt $H(p)\,S(p)$ ist dann erlaubt.
+--- falsch
+Weil $H(p)$ eine reine Zahl ist und $s(t)$ in V gemessen wird, sodass die Einheiten nicht zusammenpassen. Transformiert man den Eingang, bekommt er die Einheit V s, und das Produkt hat wieder die Einheit einer Spannung.
+--- falsch
+Weil $H(p)\cdot s(t)$ nur für $t>0$ definiert ist und der Eingang auch vor dem Einschalten Werte haben kann. Die Transformation schneidet den Eingang bei $t=0$ ab, sodass das Produkt danach überall definiert ist.
+:::
+:::karte zusammenhang Die Kante verschwindet
+Warum hat die Sprungantwort $g(t)=1-\mathrm{e}^{-t}$ des RC-Tiefpasses mit $RC=1$ s keine Kante, obwohl der Sprung am Eingang eine hat?
+---
+Die Kante besteht aus den schnellen Anteilen, deren Gewichte $|S|$ im Sprung wie $1/f$ fallen. Der Tiefpass schwächt sie zusätzlich etwa um den Faktor $2\pi f\cdot RC$; im Ausgang fallen sie wie $1/f^2$ und reichen für keine Kante mehr. Das zeigen erst $S$ und $H$ zusammen.
+--- falsch
+Weil der Tiefpass alle schnellen Anteile vollständig entfernt: Oberhalb einer Grenzfrequenz ist $|H|=0$. Ohne diese Anteile bleibt nur der Gleichanteil übrig, der langsam aufgebaut wird; $S(p)$ spielt für diese Erklärung keine Rolle, nur $H(p)$.
+--- falsch
+Weil der Sprung selbst gar keine schnellen Anteile enthält; seine Kante entsteht allein aus dem Pol bei $p=0$. Der Tiefpass verschiebt diesen Pol nach $-1$, und ein Pol links der imaginären Achse kann keine Kante erzeugen.
+--- falsch
+Weil der Tiefpass die langsamen Anteile so stark verstärkt, dass sie die schnellen überdecken. Die schnellen Anteile bleiben dabei in voller Stärke erhalten, fallen aber neben den verstärkten langsamen Anteilen nicht mehr auf.
+:::
+::::

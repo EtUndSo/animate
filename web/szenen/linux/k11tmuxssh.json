@@ -1,0 +1,759 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 24,
+  "nextAnimId": 37,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Terminal",
+    "props": {
+     "text": "student@labor:~/linuxk11$ ./zaehler.sh\nSchritt 1\nSchritt 2\nSchritt 3\nSchritt 4\nSchritt 5\nSchritt 6\n\\e[s\\e[21;1H\\e[42;30m[rechnung] 0:bash*                               \"labor\" 03:43 13-Nov-26\\e[0m\\e[u\\e|Schritt 7\n\\e|Schritt 8\n\\e|Schritt 9\n\\e|Schritt 10\n\\e|Schritt 11\n\\e|Schritt 12\n\\e|Schritt 13\n\\e|Schritt 14\n\\e|Schritt 15\n\\e|Schritt 16\n\\e[s\\e[21;58H\\e[42;30m03:44\\e[0m\\e[u\\e|Schritt 17\n\\e|Schritt 18\n",
+     "cols": 72,
+     "rows": 21,
+     "font_size": 17.0,
+     "line_height": 1.2,
+     "position": [
+      -2.8,
+      3.2,
+      0
+     ],
+     "frame": "fenster",
+     "theme": "dunkel",
+     "title": "student@labor: ~/linuxk11",
+     "buttons": "drei",
+     "cursor": true,
+     "prompt_colors": true,
+     "shadow": true,
+     "state": "term1"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.0044,
+      1.4307,
+      0
+     ],
+     "width": 5.6110999999999995,
+     "height": 3.5585,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#ffffff",
+     "fill_color": "#ffffff",
+     "fill_opacity": 0.6,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o3",
+    "type": "Line",
+    "props": {
+     "start": [
+      -2.8,
+      -0.75,
+      0
+     ],
+     "end": [
+      -2.3341,
+      -0.75,
+      0
+     ],
+     "color": "#00823c",
+     "stroke_width": 6,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Line",
+    "props": {
+     "start": [
+      -2.3341,
+      -0.75,
+      0
+     ],
+     "end": [
+      -1.8681,
+      -0.75,
+      0
+     ],
+     "color": "#00823c",
+     "stroke_width": 6,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o5",
+    "type": "Line",
+    "props": {
+     "start": [
+      -1.8681,
+      -0.75,
+      0
+     ],
+     "end": [
+      -1.4022,
+      -0.75,
+      0
+     ],
+     "color": "#00823c",
+     "stroke_width": 6,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Line",
+    "props": {
+     "start": [
+      -1.4022,
+      -0.75,
+      0
+     ],
+     "end": [
+      -0.9363,
+      -0.75,
+      0
+     ],
+     "color": "#00823c",
+     "stroke_width": 6,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o7",
+    "type": "Line",
+    "props": {
+     "start": [
+      -0.9363,
+      -0.75,
+      0
+     ],
+     "end": [
+      -0.4704,
+      -0.75,
+      0
+     ],
+     "color": "#00823c",
+     "stroke_width": 6,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Line",
+    "props": {
+     "start": [
+      -0.4704,
+      -0.75,
+      0
+     ],
+     "end": [
+      -0.0044,
+      -0.75,
+      0
+     ],
+     "color": "#00823c",
+     "stroke_width": 6,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o9",
+    "type": "Line",
+    "props": {
+     "start": [
+      -0.0044,
+      -0.75,
+      0
+     ],
+     "end": [
+      0.4615,
+      -0.75,
+      0
+     ],
+     "color": "#00823c",
+     "stroke_width": 6,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o10",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.4615,
+      -0.75,
+      0
+     ],
+     "end": [
+      0.9274,
+      -0.75,
+      0
+     ],
+     "color": "#00823c",
+     "stroke_width": 6,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o11",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.9274,
+      -0.75,
+      0
+     ],
+     "end": [
+      1.3933,
+      -0.75,
+      0
+     ],
+     "color": "#00823c",
+     "stroke_width": 6,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Line",
+    "props": {
+     "start": [
+      1.3933,
+      -0.75,
+      0
+     ],
+     "end": [
+      1.8593,
+      -0.75,
+      0
+     ],
+     "color": "#00823c",
+     "stroke_width": 6,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o13",
+    "type": "Line",
+    "props": {
+     "start": [
+      1.8593,
+      -0.75,
+      0
+     ],
+     "end": [
+      2.3252,
+      -0.75,
+      0
+     ],
+     "color": "#00823c",
+     "stroke_width": 6,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o14",
+    "type": "Line",
+    "props": {
+     "start": [
+      2.3252,
+      -0.75,
+      0
+     ],
+     "end": [
+      2.7911,
+      -0.75,
+      0
+     ],
+     "color": "#00823c",
+     "stroke_width": 6,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o15",
+    "type": "Text",
+    "props": {
+     "text": "@laeuft",
+     "position": [
+      -2.8,
+      -0.56,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#00823c"
+    }
+   },
+   {
+    "id": "o16",
+    "type": "Line",
+    "props": {
+     "start": [
+      -2.8,
+      -0.92,
+      0
+     ],
+     "end": [
+      2.7911,
+      -0.92,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o17",
+    "type": "Mark",
+    "props": {
+     "center": [
+      -1.8681,
+      -0.92,
+      0
+     ],
+     "kind": "cross",
+     "size": 0.14,
+     "color": "#c82828",
+     "stroke_width": 4
+    }
+   },
+   {
+    "id": "o18",
+    "type": "Text",
+    "props": {
+     "text": "@zu",
+     "position": [
+      -1.8681,
+      -1.24,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o19",
+    "type": "Line",
+    "props": {
+     "start": [
+      -0.0044,
+      -0.84,
+      0
+     ],
+     "end": [
+      -0.0044,
+      -1.0,
+      0
+     ],
+     "color": "#333333",
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o20",
+    "type": "Text",
+    "props": {
+     "text": "@anm",
+     "position": [
+      -0.0044,
+      -1.24,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#333333"
+    }
+   },
+   {
+    "id": "o21",
+    "type": "Line",
+    "props": {
+     "start": [
+      1.3933,
+      -0.84,
+      0
+     ],
+     "end": [
+      1.3933,
+      -1.0,
+      0
+     ],
+     "color": "#333333",
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o22",
+    "type": "Text",
+    "props": {
+     "text": "tmux attach -t rechnung",
+     "position": [
+      1.3933,
+      -1.16,
+      0
+     ],
+     "font_size": 17,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o23",
+    "type": "Parameter",
+    "props": {
+     "name": "term1",
+     "value": 0.0,
+     "min": 0.0,
+     "max": 12.0,
+     "step": 0.01
+    }
+   }
+  ],
+  "animations": [
+   {
+    "id": "a1",
+    "type": "FadeIn",
+    "target": "o1",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a2",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.4,
+    "step": 1
+   },
+   {
+    "id": "a3",
+    "type": "FadeIn",
+    "target": "o16",
+    "run_time": 0.5,
+    "step": 2
+   },
+   {
+    "id": "a4",
+    "type": "FadeIn",
+    "target": "o15",
+    "run_time": 0.5,
+    "step": 2
+   },
+   {
+    "id": "a5",
+    "type": "ChangeValue",
+    "target": "o23",
+    "run_time": 0.35,
+    "step": 3,
+    "value": 1.0,
+    "rate": "linear"
+   },
+   {
+    "id": "a6",
+    "type": "Create",
+    "target": "o3",
+    "run_time": 0.35,
+    "step": 3
+   },
+   {
+    "id": "a7",
+    "type": "ChangeValue",
+    "target": "o23",
+    "run_time": 0.35,
+    "step": 4,
+    "value": 2.0,
+    "rate": "linear"
+   },
+   {
+    "id": "a8",
+    "type": "Create",
+    "target": "o4",
+    "run_time": 0.35,
+    "step": 4
+   },
+   {
+    "id": "a9",
+    "type": "FadeIn",
+    "target": "o17",
+    "run_time": 0.6,
+    "step": 5
+   },
+   {
+    "id": "a10",
+    "type": "FadeIn",
+    "target": "o18",
+    "run_time": 0.6,
+    "step": 5
+   },
+   {
+    "id": "a11",
+    "type": "FadeIn",
+    "target": "o2",
+    "run_time": 0.6,
+    "step": 5
+   },
+   {
+    "id": "a12",
+    "type": "ChangeValue",
+    "target": "o23",
+    "run_time": 0.35,
+    "step": 6,
+    "value": 3.0,
+    "rate": "linear"
+   },
+   {
+    "id": "a13",
+    "type": "Create",
+    "target": "o5",
+    "run_time": 0.35,
+    "step": 6
+   },
+   {
+    "id": "a14",
+    "type": "ChangeValue",
+    "target": "o23",
+    "run_time": 0.35,
+    "step": 7,
+    "value": 4.0,
+    "rate": "linear"
+   },
+   {
+    "id": "a15",
+    "type": "Create",
+    "target": "o6",
+    "run_time": 0.35,
+    "step": 7
+   },
+   {
+    "id": "a16",
+    "type": "ChangeValue",
+    "target": "o23",
+    "run_time": 0.35,
+    "step": 8,
+    "value": 5.0,
+    "rate": "linear"
+   },
+   {
+    "id": "a17",
+    "type": "Create",
+    "target": "o7",
+    "run_time": 0.35,
+    "step": 8
+   },
+   {
+    "id": "a18",
+    "type": "ChangeValue",
+    "target": "o23",
+    "run_time": 0.35,
+    "step": 9,
+    "value": 6.0,
+    "rate": "linear"
+   },
+   {
+    "id": "a19",
+    "type": "Create",
+    "target": "o8",
+    "run_time": 0.35,
+    "step": 9
+   },
+   {
+    "id": "a20",
+    "type": "FadeIn",
+    "target": "o19",
+    "run_time": 0.5,
+    "step": 10
+   },
+   {
+    "id": "a21",
+    "type": "FadeIn",
+    "target": "o20",
+    "run_time": 0.5,
+    "step": 10
+   },
+   {
+    "id": "a22",
+    "type": "ChangeValue",
+    "target": "o23",
+    "run_time": 0.35,
+    "step": 11,
+    "value": 7.0,
+    "rate": "linear"
+   },
+   {
+    "id": "a23",
+    "type": "Create",
+    "target": "o9",
+    "run_time": 0.35,
+    "step": 11
+   },
+   {
+    "id": "a24",
+    "type": "ChangeValue",
+    "target": "o23",
+    "run_time": 0.35,
+    "step": 12,
+    "value": 8.0,
+    "rate": "linear"
+   },
+   {
+    "id": "a25",
+    "type": "Create",
+    "target": "o10",
+    "run_time": 0.35,
+    "step": 12
+   },
+   {
+    "id": "a26",
+    "type": "ChangeValue",
+    "target": "o23",
+    "run_time": 0.35,
+    "step": 13,
+    "value": 9.0,
+    "rate": "linear"
+   },
+   {
+    "id": "a27",
+    "type": "Create",
+    "target": "o11",
+    "run_time": 0.35,
+    "step": 13
+   },
+   {
+    "id": "a28",
+    "type": "FadeIn",
+    "target": "o21",
+    "run_time": 0.5,
+    "step": 14
+   },
+   {
+    "id": "a29",
+    "type": "FadeIn",
+    "target": "o22",
+    "run_time": 0.5,
+    "step": 14
+   },
+   {
+    "id": "a30",
+    "type": "FadeOut",
+    "target": "o2",
+    "run_time": 0.5,
+    "step": 14
+   },
+   {
+    "id": "a31",
+    "type": "ChangeValue",
+    "target": "o23",
+    "run_time": 0.35,
+    "step": 15,
+    "value": 10.0,
+    "rate": "linear"
+   },
+   {
+    "id": "a32",
+    "type": "Create",
+    "target": "o12",
+    "run_time": 0.35,
+    "step": 15
+   },
+   {
+    "id": "a33",
+    "type": "ChangeValue",
+    "target": "o23",
+    "run_time": 0.35,
+    "step": 16,
+    "value": 11.0,
+    "rate": "linear"
+   },
+   {
+    "id": "a34",
+    "type": "Create",
+    "target": "o13",
+    "run_time": 0.35,
+    "step": 16
+   },
+   {
+    "id": "a35",
+    "type": "ChangeValue",
+    "target": "o23",
+    "run_time": 0.35,
+    "step": 17,
+    "value": 12.0,
+    "rate": "linear"
+   },
+   {
+    "id": "a36",
+    "type": "Create",
+    "target": "o14",
+    "run_time": 0.35,
+    "step": 17
+   }
+  ],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "laeuft": {
+    "de": "Zähler läuft ohne Unterbrechung",
+    "en": "the counter runs without a break",
+    "es": "el contador sigue sin interrupción",
+    "zh": "计数器不间断地运行",
+    "fr": "le compteur tourne sans interruption",
+    "tr": "sayaç kesintisiz çalışır"
+   },
+   "zu": {
+    "de": "Fenster\ngeschlossen",
+    "en": "window\nclosed",
+    "es": "ventana\ncerrada",
+    "zh": "窗口\n已关闭",
+    "fr": "fenêtre\nfermée",
+    "tr": "pencere\nkapandı"
+   },
+   "anm": {
+    "de": "neue\nAnmeldung",
+    "en": "new\nlogin",
+    "es": "nuevo inicio\nde sesión",
+    "zh": "新的\n登录",
+    "fr": "nouvelle\nconnexion",
+    "tr": "yeni\noturum"
+   }
+  },
+  "drawOrder": "creation"
+ }
+}

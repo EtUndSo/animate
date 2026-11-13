@@ -452,3 +452,195 @@ $$S(p)=\mathcal{L}_1\{s(t)\}=\int_{0}^{\infty}s(t)\,\mathrm{e}^{-pt}\,\mathrm{d}
 
 Untere Grenze knapp links von null, damit ein Dirac-Impuls bei $t=0$ mitzählt. Gleich der zweiseitigen, wenn $s(t)=0$ für $t<0$. $\mathcal{L}$ ohne Index bedeutet die zweiseitige Transformation.
 ::::
+
+::::lernkarten
+:::karte zusammenhang Realteil und Imaginärteil im Exponenten
+Warum entscheidet bei $\mathrm{e}^{(\sigma+\mathrm{j}\omega)t}$ der Realteil des Exponenten über Abklingen oder Wachsen und der Imaginärteil über die Schwingung?
+---
+Wegen $\mathrm{e}^{(\sigma+\mathrm{j}\omega)t}=\mathrm{e}^{\sigma t}\cdot\mathrm{e}^{\mathrm{j}\omega t}$. Der Faktor $\mathrm{e}^{\mathrm{j}\omega t}$ ist ein Punkt auf dem Kreis mit Radius 1, der sich mit der Kreisfrequenz $\omega$ dreht. Den Betrag legt allein $\mathrm{e}^{\sigma t}$ fest, der für $\sigma<0$ abklingt und für $\sigma>0$ wächst.
+--- falsch
+Wegen $\mathrm{e}^{(\sigma+\mathrm{j}\omega)t}=\mathrm{e}^{\sigma t}+\mathrm{e}^{\mathrm{j}\omega t}$. Der Summand $\mathrm{e}^{\mathrm{j}\omega t}$ liefert die Schwingung, der Summand $\mathrm{e}^{\sigma t}$ verschiebt sie nach oben oder unten. Diese Verschiebung wächst für $\sigma>0$ und klingt für $\sigma<0$ ab.
+--- falsch
+Weil der Imaginärteil $\omega$ als Faktor vor der Zeit steht und deshalb die Amplitude festlegt. Der Realteil $\sigma$ bestimmt, wie schnell $\mathrm{e}^{(\sigma+\mathrm{j}\omega)t}$ um den Ursprung kreist, und für $\sigma<0$ kreist der Punkt im Uhrzeigersinn.
+--- falsch
+Weil beide Teile den Betrag gemeinsam bestimmen: $|\mathrm{e}^{(\sigma+\mathrm{j}\omega)t}|=\mathrm{e}^{(\sigma+\omega)t}$. Die Schwingung entsteht erst, wenn man davon den Realteil bildet. Für $\sigma+\omega<0$ klingt sie ab, sonst wächst sie.
+:::
+:::karte zusammenhang konjugiert komplexe Zahl
+Warum gewinnt man Kosinus und Sinus, indem man $\mathrm{e}^{\mathrm{j}\varphi}$ und die konjugiert komplexe Zahl $\mathrm{e}^{-\mathrm{j}\varphi}$ addiert oder voneinander abzieht?
+---
+Die Zahl $\mathrm{e}^{-\mathrm{j}\varphi}$ ist das Spiegelbild von $\mathrm{e}^{\mathrm{j}\varphi}$ an der waagerechten Achse: gleicher Realteil $\cos\varphi$, entgegengesetzter Imaginärteil. In der Summe heben sich die Imaginärteile auf, in der Differenz die Realteile: $\cos\varphi=\frac{\mathrm{e}^{\mathrm{j}\varphi}+\mathrm{e}^{-\mathrm{j}\varphi}}{2}$ und $\sin\varphi=\frac{\mathrm{e}^{\mathrm{j}\varphi}-\mathrm{e}^{-\mathrm{j}\varphi}}{2\mathrm{j}}$.
+--- falsch
+Die Zahl $\mathrm{e}^{-\mathrm{j}\varphi}$ ist das Spiegelbild von $\mathrm{e}^{\mathrm{j}\varphi}$ an der senkrechten Achse: entgegengesetzter Realteil, gleicher Imaginärteil. In der Summe bleibt deshalb der Imaginärteil, in der Differenz der Realteil: $\sin\varphi=\frac{\mathrm{e}^{\mathrm{j}\varphi}+\mathrm{e}^{-\mathrm{j}\varphi}}{2\mathrm{j}}$ und $\cos\varphi=\frac{\mathrm{e}^{\mathrm{j}\varphi}-\mathrm{e}^{-\mathrm{j}\varphi}}{2}$.
+--- falsch
+In der Summe heben sich die Imaginärteile auf, in der Differenz die Realteile. Weil beide Zahlen den Betrag 1 haben, genügt jeweils die Division durch 2: $\cos\varphi=\frac{\mathrm{e}^{\mathrm{j}\varphi}+\mathrm{e}^{-\mathrm{j}\varphi}}{2}$ und $\sin\varphi=\frac{\mathrm{e}^{\mathrm{j}\varphi}-\mathrm{e}^{-\mathrm{j}\varphi}}{2}$, beide reell.
+--- falsch
+Die Zahl $\mathrm{e}^{-\mathrm{j}\varphi}$ gehört zur negativen Frequenz und überlagert sich mit $\mathrm{e}^{\mathrm{j}\varphi}$ zu einer stehenden Schwingung. So lässt sich nur der Kosinus gewinnen, $\cos\varphi=\frac{\mathrm{e}^{\mathrm{j}\varphi}+\mathrm{e}^{-\mathrm{j}\varphi}}{2}$; den Sinus erhält man erst durch Ableiten des Kosinus nach $\varphi$.
+:::
+:::karte begriff Eigenfunktion und Eigenwert
+Wann heißt ein Signal $s_\mathrm{E}(t)$ Eigenfunktion eines LTI-Systems mit der Impulsantwort $h(t)$, und was ist der zugehörige Eigenwert?
+---
+Wenn das System es nur mit einer Konstanten multipliziert: $s_\mathrm{E}(t)*h(t)=H\cdot s_\mathrm{E}(t)$ für alle $t$. Die Konstante $H$ ist der Eigenwert; sie darf komplex sein, aber nicht von $t$ abhängen. Die Form des Signals bleibt also erhalten.
+--- falsch
+Wenn das System es nur um eine feste Zeit verzögert: $s_\mathrm{E}(t)*h(t)=s_\mathrm{E}(t-T)$ für alle $t$. Die Verzögerung $T$ ist der Eigenwert; sie darf von System zu System verschieden sein, aber nicht vom Signal abhängen.
+--- falsch
+Wenn das System es mit einer Funktion $H(t)$ multipliziert, die von der Zeit abhängen darf: $s_\mathrm{E}(t)*h(t)=H(t)\cdot s_\mathrm{E}(t)$. Diese Funktion ist der Eigenwert; sie muss reell sein, damit die Form des Signals erhalten bleibt.
+--- falsch
+Wenn das System es unverändert durchlässt: $s_\mathrm{E}(t)*h(t)=s_\mathrm{E}(t)$ für alle $t$. Der Eigenwert ist dann die Impulsantwort $h(t)$ selbst, die bei einer Eigenfunktion stets ein Dirac-Impuls mit dem Gewicht 1 sein muss.
+:::
+:::karte herleitung Exponentialfunktion als Eigenfunktion
+Wie folgt aus dem Faltungsintegral, dass $\mathrm{e}^{pt}$ eine Eigenfunktion jedes LTI-Systems ist, und welcher Eigenwert gehört dazu?
+---
+Man setzt $\mathrm{e}^{pt}$ in das Faltungsintegral ein, weil es den Ausgang jedes LTI-Systems liefert: $h(t)*\mathrm{e}^{pt}=\int_{-\infty}^{\infty}h(\tau)\,\mathrm{e}^{p(t-\tau)}\,\mathrm{d}\tau$.
+---
+Man zerlegt $\mathrm{e}^{p(t-\tau)}=\mathrm{e}^{pt}\cdot\mathrm{e}^{-p\tau}$, weil die Rechenregel $\mathrm{e}^{z_1+z_2}=\mathrm{e}^{z_1}\,\mathrm{e}^{z_2}$ auch für komplexe Zahlen gilt.
+---
+Man zieht $\mathrm{e}^{pt}$ vor das Integral, weil dieser Faktor nicht von der Integrationsvariablen $\tau$ abhängt.
+---
+Das verbleibende Integral $H(p)=\int_{-\infty}^{\infty}h(\tau)\,\mathrm{e}^{-p\tau}\,\mathrm{d}\tau$ ist eine Zahl, weil darin kein $t$ mehr vorkommt; sie hängt nur von $p$ und vom System ab.
+---
+Also gilt $\mathrm{e}^{pt}*h=H(p)\,\mathrm{e}^{pt}$, und $\mathrm{e}^{pt}$ ist eine Eigenfunktion mit dem Eigenwert $H(p)$, weil die Rechnung für jedes LTI-System und jedes $p$ gilt, für das das Integral existiert.
+:::
+:::karte zusammenhang Verschieben ist Multiplizieren
+Warum behält $\mathrm{e}^{pt}$ beim Durchgang durch ein LTI-System seine Form, obwohl der Ausgang eine Summe verzögerter Kopien des Eingangs ist?
+---
+Jede um $\tau$ verzögerte Kopie ist $\mathrm{e}^{p(t-\tau)}=\mathrm{e}^{-p\tau}\cdot\mathrm{e}^{pt}$, also das Original mal der konstanten Zahl $\mathrm{e}^{-p\tau}$. Alle Kopien sind Vielfache derselben Funktion, also auch ihre gewichtete Summe. Das System bestimmt nur, welches Vielfache.
+--- falsch
+Weil sich beim Verzögern zwar die Form jeder einzelnen Kopie ändert, diese Änderungen sich beim Aufsummieren aber gegenseitig aufheben. Das gelingt allerdings nur, wenn die Gewichte $h(\tau)$ symmetrisch um $\tau=0$ liegen, also bei geraden Impulsantworten.
+--- falsch
+Weil $\mathrm{e}^{pt}$ ihre eigene Ableitung ist und ein LTI-System den Eingang nur ableitet. Jede Ableitung lässt die Form unverändert; die verzögerten Kopien spielen dabei keine Rolle, sie sind nur ein anschauliches Bild.
+--- falsch
+Jede um $\tau$ verzögerte Kopie ist $\mathrm{e}^{p(t-\tau)}=\mathrm{e}^{pt}-\mathrm{e}^{p\tau}$, also das Original minus eine Konstante. Die Konstanten heben sich in der gewichteten Summe gegenseitig auf, und übrig bleibt ein Vielfaches des Originals.
+:::
+:::karte zusammenhang Komplexer Exponent
+Warum ist ein reeller Sinus $\sin(\omega_0t)$ im Allgemeinen keine Eigenfunktion eines LTI-Systems, $\mathrm{e}^{\mathrm{j}\omega_0t}$ aber schon?
+---
+Beim Verschieben entsteht aus dem Sinus ein Kosinusanteil, die Kopie hat eine andere Form; eine Phasenverschiebung ist keine Multiplikation mit einer reellen Zahl. Bei $\mathrm{e}^{\mathrm{j}\omega_0t}$ ist sie die Multiplikation mit $\mathrm{e}^{\mathrm{j}\varphi}$. Der Sinus besteht aus zwei solchen Funktionen mit je eigenem Eigenwert.
+--- falsch
+Weil ein Sinus auch negative Werte annimmt und ein LTI-System nur Signale, die ihr Vorzeichen nicht wechseln, mit einer Zahl multiplizieren kann. $\mathrm{e}^{\mathrm{j}\omega_0t}$ hat dagegen stets den Betrag 1 und wird deshalb unverändert durchgelassen; sein Eigenwert ist immer 1.
+--- falsch
+Beim Verschieben bleibt der Sinus ein Sinus derselben Frequenz, nur seine Amplitude ändert sich, weil eine Verzögerung den Sinus lediglich abschwächt. Er ist deshalb doch eine Eigenfunktion, allerdings mit einem reellen Eigenwert. $\mathrm{e}^{\mathrm{j}\omega_0t}$ hat dagegen einen komplexen Eigenwert, der zusätzlich die Phase dreht.
+--- falsch
+Weil ein LTI-System auf eine Summe nicht mit der Summe der Einzelantworten antwortet. Der Sinus besteht aus $\mathrm{e}^{\mathrm{j}\omega_0t}$ und $\mathrm{e}^{-\mathrm{j}\omega_0t}$, deren Antworten sich im System gegenseitig stören; eine einzelne Exponentialfunktion hat dieses Problem nicht.
+:::
+:::karte begriff komplexe Frequenz
+Was versteht man unter der komplexen Frequenz $p$ der Funktion $\mathrm{e}^{pt}$, und was legen ihre beiden Teile fest?
+---
+Die Zahl $p=\sigma+\mathrm{j}2\pi f$ im Exponenten. Der Realteil $\sigma=\operatorname{Re} p$, gemessen in $1/\mathrm s$, ist die Wachstumsrate: Für $\sigma<0$ klingt $\mathrm{e}^{pt}$ ab, für $\sigma>0$ wächst es. Der Imaginärteil $\operatorname{Im} p=2\pi f$ legt die Frequenz $f$ der Schwingung fest.
+--- falsch
+Die Zahl $p=\sigma+\mathrm{j}2\pi f$ im Exponenten. Der Realteil $\sigma$ legt die Frequenz der Schwingung fest, gemessen in Hz. Der Imaginärteil $2\pi f$ ist die Wachstumsrate: Für $f<0$ klingt $\mathrm{e}^{pt}$ ab, für $f>0$ wächst es, für $f=0$ bleibt es konstant.
+--- falsch
+Der Betrag $|p|$ des Exponenten, gemessen in Hz. Er gibt an, wie schnell $\mathrm{e}^{pt}$ schwingt. Ob die Schwingung abklingt oder wächst, hängt nicht von $p$ ab, sondern allein vom System, durch das sie läuft, also von seiner Impulsantwort.
+--- falsch
+Die Zahl $p=\sigma+\mathrm{j}2\pi f$ im Exponenten. Der Realteil $\sigma$ ist die Wachstumsrate, doch auch für $\sigma<0$ wächst $\mathrm{e}^{pt}$, nur langsamer. Abklingen kann es erst, wenn der Imaginärteil $2\pi f$ größer ist als $|\sigma|$ und die Schwingung überwiegt.
+:::
+:::karte begriff p-Ebene
+Was ist die $p$-Ebene, und was zeigt die Lage eines Punktes $p$ darin über die Funktion $\mathrm{e}^{pt}$?
+---
+Die Ebene mit $\operatorname{Re} p$ nach rechts und $\operatorname{Im} p$ nach oben; jeder Punkt steht für eine Funktion $\mathrm{e}^{pt}$. Der Abstand von der senkrechten Achse bestimmt das Abklingen oder Wachsen: links davon klingt sie ab, rechts wächst sie. Die Höhe bestimmt die Frequenz.
+--- falsch
+Die Ebene mit der Zeit $t$ nach rechts und dem Wert von $\mathrm{e}^{pt}$ nach oben; jede Kurve darin ist eine Funktion $\mathrm{e}^{pt}$. Steigt die Kurve an, ist $p$ positiv, fällt sie, ist $p$ negativ. Schwingungen lassen sich darin nicht darstellen.
+--- falsch
+Die Ebene mit $\operatorname{Re} p$ nach rechts und $\operatorname{Im} p$ nach oben; jeder Punkt steht für eine Funktion $\mathrm{e}^{pt}$. Die Höhe bestimmt das Abklingen oder Wachsen: unterhalb der waagerechten Achse klingt sie ab, oberhalb wächst sie. Der Abstand von der senkrechten Achse bestimmt die Frequenz.
+--- falsch
+Die Ebene mit $\operatorname{Re} p$ nach rechts und $\operatorname{Im} p$ nach oben; jeder Punkt steht für eine Funktion $\mathrm{e}^{pt}$. Der Abstand vom Ursprung bestimmt die Frequenz, der Winkel zur waagerechten Achse das Abklingen: Punkte oberhalb der Achse klingen ab, Punkte darunter wachsen.
+:::
+:::karte begriff Laplace-Übertragungsfunktion
+Wie ist die Laplace-Übertragungsfunktion $H(p)$ eines LTI-Systems definiert, und welche Rolle spielt sie für die Eigenfunktion $\mathrm{e}^{pt}$?
+---
+$H(p)=\int_{-\infty}^{\infty}h(t)\,\mathrm{e}^{-pt}\,\mathrm{d} t$ mit der Impulsantwort $h(t)$, erklärt für alle $p$, für die das Integral existiert. Sie ist der Eigenwert, mit dem das System die Eigenfunktion $\mathrm{e}^{pt}$ multipliziert.
+--- falsch
+$H(p)=\int_{-\infty}^{\infty}h(t)\,\mathrm{e}^{pt}\,\mathrm{d} t$ mit der Impulsantwort $h(t)$, erklärt für alle komplexen Zahlen $p$ ohne Einschränkung. Sie gibt an, um welche Zeit das System die Eigenfunktion $\mathrm{e}^{pt}$ verzögert.
+--- falsch
+Der Quotient aus Ausgang und Eingang, $H(p)=g(t)/s(t)$, gebildet für ein beliebiges Eingangssignal. Er hängt im Allgemeinen von $t$ ab und wird nur für die Eigenfunktion $\mathrm{e}^{pt}$ zu einer Konstanten, dem Eigenwert.
+--- falsch
+$H(p)=\int_{0}^{\infty}h(t)\,\mathrm{e}^{-pt}\,\mathrm{d} t$, erklärt für alle $p$ mit $\operatorname{Re} p>0$ und nur für kausale Systeme. Sie ist die Impulsantwort des Systems, ausgewertet an der komplexen Zeit $t=p$.
+:::
+:::karte formel Übertragungsfunktion des RC-Tiefpasses
+Welche Laplace-Übertragungsfunktion hat der RC-Tiefpass mit $h(t)=\frac{1}{RC}\,\mathrm{e}^{-t/RC}\varepsilon(t)$, und für welche $p$ existiert sie?
+---
+$H(p)=\frac{1}{1+pRC}$ für $\operatorname{Re} p>-1/RC$. Nur dort klingt $\bigl|\mathrm{e}^{-(p+1/RC)t}\bigr|=\mathrm{e}^{-(\sigma+1/RC)t}$ für $t\to\infty$ ab, und das Integral existiert. Mit $RC=1\,\mathrm{s}$ ist $H(p)=1/(p+1)$.
+--- falsch
+$H(p)=\frac{1}{1+pRC}$ für alle $p$, denn die Impulsantwort ist für $t<0$ null, und ein Integral über eine kausale Funktion existiert immer. Mit $RC=1\,\mathrm{s}$ ist $H(p)=1/(p+1)$ in der ganzen $p$-Ebene.
+--- falsch
+$H(p)=\frac{RC}{1+pRC}$ für $\operatorname{Re} p>-1/RC$. Der Faktor $RC$ im Zähler stammt aus der Integration über $\mathrm{e}^{-t/RC}$, die die Zeitkonstante liefert; der Vorfaktor $\frac{1}{RC}$ der Impulsantwort kürzt sich dabei nicht heraus.
+--- falsch
+$H(p)=\frac{1}{1-pRC}$ für $\operatorname{Re} p<1/RC$. Nur dort klingt der Integrand $\mathrm{e}^{-(1/RC-p)t}$ für $t\to\infty$ ab, und das Integral existiert. Mit $RC=1\,\mathrm{s}$ ist $H(p)=1/(1-p)$.
+:::
+:::karte begriff rückwirkungsfrei
+Wann heißt eine Kette aus zwei LTI-Systemen rückwirkungsfrei, und wie erreicht man das in einer Schaltung?
+---
+Wenn das zweite System den Ausgang des ersten nicht verändert. Das erreicht man zum Beispiel mit einem Trennverstärker zwischen beiden, der das erste System nicht belastet.
+--- falsch
+Wenn das erste System den Eingang des zweiten nicht verändert, beide also dasselbe Signal sehen. Das erreicht man, indem man beide Systeme an dieselbe Quelle anschließt.
+--- falsch
+Wenn kein Teil des Ausgangs zum Eingang zurückgeführt wird. Das erreicht man, indem man die Systeme so anordnet, dass das Signal nur in einer Richtung durch die Kette läuft.
+--- falsch
+Wenn beide Systeme dieselbe Impulsantwort haben, sodass keines das andere verändern kann. Das erreicht man, indem man zwei gleich gebaute Glieder hintereinanderschaltet.
+:::
+:::karte zusammenhang Systeme in Kette
+Warum multiplizieren sich die Übertragungsfunktionen zweier LTI-Systeme, die rückwirkungsfrei in Kette geschaltet sind?
+---
+Das erste System macht aus $s_\mathrm{E}(t)=\mathrm{e}^{pt}$ das Signal $H_1(p)\,s_\mathrm{E}(t)$. Das ist immer noch ein Vielfaches von $\mathrm{e}^{pt}$, also eine Eigenfunktion des zweiten Systems, und dieses multipliziert mit $H_2(p)$. Insgesamt entsteht $H_1(p)\,H_2(p)\,s_\mathrm{E}(t)$.
+--- falsch
+Weil sich in einer Kette die Impulsantworten der beiden Systeme multiplizieren, $h(t)=h_1(t)\cdot h_2(t)$. Die Transformation überführt ein Produkt im Zeitbereich in ein Produkt im Bildbereich, also gilt dasselbe für $H_1(p)$ und $H_2(p)$.
+--- falsch
+Das erste System macht aus $\mathrm{e}^{pt}$ ein Signal anderer Form, das keine Eigenfunktion des zweiten Systems mehr ist. Erst der Trennverstärker stellt die Form $\mathrm{e}^{pt}$ wieder her, sodass auch das zweite System nur mit seinem Eigenwert multipliziert.
+--- falsch
+Weil beide Systeme gleichzeitig am selben Eingang liegen und ihre Ausgänge am Ende miteinander multipliziert werden. Ohne Trennverstärker würden sich die Ausgänge stattdessen addieren, ebenso die Übertragungsfunktionen.
+:::
+:::karte begriff Laplace-Transformation
+Was leistet die Laplace-Transformation bei der Untersuchung von LTI-Systemen?
+---
+Sie ist eine andere Darstellung der Signale: Sie ordnet jedem Signal $s(t)$ seine Laplace-Transformierte $S(p)$ zu, die angibt, wie viel von jeder Funktion $\mathrm{e}^{pt}$ darin steckt. Dort multipliziert ein LTI-System nur noch mit Zahlen, und aus einer Differentialgleichung wird eine algebraische Gleichung.
+--- falsch
+Sie rechnet das Faltungsintegral schneller aus, indem sie das Signal in kurze Stöße zerlegt und jeden einzeln durch das System schickt. Die Faltung bleibt dabei ein Integral je Zeitpunkt, wird aber übersichtlicher. Differentialgleichungen muss man weiterhin im Zeitbereich lösen.
+--- falsch
+Sie ersetzt jedes Signal durch seinen Mittelwert über alle Zeiten und das System durch seine Verstärkung für Gleichspannung. In dieser Darstellung multipliziert ein LTI-System nur noch mit einer einzigen Zahl, die für jedes Eingangssignal gleich ist, und Differentialgleichungen entfallen ganz.
+--- falsch
+Sie verschiebt jedes Signal so, dass es bei $t=0$ beginnt, und ersetzt die Zeit $t$ durch die komplexe Zahl $p$. Ein LTI-System wird dadurch zeitinvariant, und aus einer Differentialgleichung in $t$ wird eine Differentialgleichung derselben Ordnung in $p$.
+:::
+:::karte begriff Laplace-Transformierte
+Was ist die Laplace-Transformierte $S(p)$ eines Signals $s(t)$, und für welche $p$ ist sie erklärt?
+---
+$S(p)=\mathcal{L}_2\{s(t)\}=\int_{-\infty}^{\infty}s(t)\,\mathrm{e}^{-pt}\,\mathrm{d} t$, also dieselbe Rechenvorschrift wie für $H(p)$, angewandt auf ein beliebiges Signal. Sie ist für alle $p$ erklärt, für die das Integral konvergiert.
+--- falsch
+$S(p)=\int_{-\infty}^{\infty}s(t)\,\mathrm{e}^{pt}\,\mathrm{d} t$, also dieselbe Rechenvorschrift wie für $H(p)$, nur mit positivem Exponenten, weil ein Signal kein System ist. Sie ist für jedes komplexe $p$ erklärt.
+--- falsch
+$S(p)=s(t)\cdot\mathrm{e}^{-pt}$, also das Signal multipliziert mit der Probefunktion, ausgewertet zu jeder Zeit $t$. Sie ist für alle $p$ erklärt, für die dieses Produkt für alle Zeiten beschränkt bleibt.
+--- falsch
+$S(p)=\int_{-\infty}^{\infty}s(t)\,\mathrm{e}^{-pt}\,\mathrm{d} t$, aber nur für Impulsantworten; ein Eingangssignal hat keine Transformierte, weil es nicht vom System abhängt. Sie ist erklärt, solange $s(t)$ beschränkt ist.
+:::
+:::karte begriff Zeitbereich und Bildbereich
+Was unterscheidet bei der Laplace-Transformation den Zeitbereich vom Bildbereich, und wie schreibt man zusammengehörige Funktionen?
+---
+Im Zeitbereich lebt das Signal $s(t)$, im Bildbereich seine Transformierte $S(p)$. Zeitsignale schreibt man mit kleinen, Transformierte mit großen Buchstaben, ein zusammengehöriges Paar als $s(t)\longleftrightarrow S(p)$. So ist $H(p)=\mathcal{L}_2\{h(t)\}$.
+--- falsch
+Im Zeitbereich lebt die Impulsantwort $h(t)$ des Systems, im Bildbereich das Eingangssignal $S(p)$. Systeme schreibt man mit kleinen, Signale mit großen Buchstaben, ein zusammengehöriges Paar als Produkt $h(t)\cdot S(p)$.
+--- falsch
+Im Zeitbereich lebt das Signal $s(t)$, im Bildbereich seine Transformierte $S(p)$. Transformierte schreibt man mit kleinen, Zeitsignale mit großen Buchstaben, ein zusammengehöriges Paar als $S(t)\longleftrightarrow s(p)$. So ist $h(p)=\mathcal{L}_2\{H(t)\}$.
+--- falsch
+Der Zeitbereich ist der Teil der $p$-Ebene mit $\operatorname{Im} p=0$, der Bildbereich der ganze Rest. Funktionen mit reellem $p$ schreibt man mit kleinen, solche mit komplexem $p$ mit großen Buchstaben, ein Paar als $s(\sigma)=S(p)$.
+:::
+:::karte zusammenhang Suchfilter für Exponentialfunktionen
+Warum wird die Laplace-Transformierte des Signals $A\,\mathrm{e}^{p_0t}\,\varepsilon(t)$ an der Stelle $p=p_0$ unendlich?
+---
+Das Integral multipliziert das Signal mit der Probe $\mathrm{e}^{-pt}$. Für $p=p_0$ wird der Integrand $A\,\mathrm{e}^{(p_0-p)t}$ zur Konstanten $A$, die weder schwingt noch abklingt, und $\int_0^\infty A\,\mathrm{d} t$ wächst über alle Grenzen. Für $\operatorname{Re} p>\operatorname{Re} p_0$ bleibt das Integral endlich, $\frac{A}{p-p_0}$.
+--- falsch
+Weil $\mathrm{e}^{p_0t}$ für $t\to\infty$ in jedem Fall über alle Grenzen wächst, gleichgültig, welches $p$ man in die Probe einsetzt. Bei $p=p_0$ wird dieses Wachstum nur zusätzlich mit $A$ verstärkt; an allen anderen Stellen ist $S(p)$ ebenfalls unendlich, nur weniger steil.
+--- falsch
+Weil sich bei $p=p_0$ Probe und Signal genau aufheben: Der Integrand ist dann null, und weil die Transformierte als Kehrwert dieses Integrals gebildet wird, entsteht eine Division durch null. An allen anderen Stellen ist $S(p)$ gleich der Stärke $A$.
+--- falsch
+Weil der Integrand für $p=p_0$ mit der doppelten Frequenz schwingt und sich die Schwingungen beim Integrieren immer weiter aufschaukeln. Für $p\ne p_0$ mitteln sie sich über alle Zeiten heraus, und das Integral ist dort null.
+:::
+:::karte begriff einseitige Laplace-Transformation
+Wie lautet die einseitige Laplace-Transformation, und wann liefert sie denselben Wert wie die zweiseitige?
+---
+$S(p)=\mathcal{L}_1\{s(t)\}=\int_{0}^{\infty}s(t)\,\mathrm{e}^{-pt}\,\mathrm{d} t$, wobei das Integral knapp links von null beginnt, damit ein Dirac-Impuls bei $t=0$ mitgezählt wird. Ist $s(t)=0$ für $t<0$, liefert sie denselben Wert wie die zweiseitige.
+--- falsch
+$S(p)=\int_{0}^{\infty}s(t)\,\mathrm{e}^{-pt}\,\mathrm{d} t$, wobei das Integral knapp rechts von null beginnt, damit ein Dirac-Impuls bei $t=0$ nicht stört. Sie liefert immer denselben Wert wie die zweiseitige, weil Signale vor $t=0$ physikalisch keine Rolle spielen.
+--- falsch
+$S(p)=2\int_{0}^{\infty}s(t)\,\mathrm{e}^{-pt}\,\mathrm{d} t$, also die halbe Integrationsstrecke mit doppeltem Gewicht. Sie liefert denselben Wert wie die zweiseitige, wenn das Signal gerade ist, also $s(-t)=s(t)$ für alle $t$ gilt.
+--- falsch
+$S(p)=\int_{-\infty}^{0}s(t)\,\mathrm{e}^{-pt}\,\mathrm{d} t$, also nur über die Vergangenheit bis zum Einschalten. Sie liefert denselben Wert wie die zweiseitige, wenn das Signal erst bei $t=0$ eingeschaltet wird und vorher null ist.
+:::
+::::

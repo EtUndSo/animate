@@ -1,0 +1,512 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 16,
+  "nextAnimId": 20,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Terminal",
+    "props": {
+     "text": "student@labor:~/linuxk11$ \\e|\\e>ssh -o UserKnownHostsFile=falsch_known_hosts localhost\n\\e|@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\nIT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!\nSomeone could be eavesdropping on you right now (man-in-the-middle attack)!\nIt is also possible that a host key has just been changed.\nThe fingerprint for the ED25519 key sent by the remote host is\nSHA256:wNZ8yXKbBf8Si12Ie8pjqJdgbEqnuvLvD4qb6M7qYnw.\nPlease contact your system administrator.\nAdd correct host key in falsch_known_hosts to get rid of this message.\nOffending ED25519 key in falsch_known_hosts:1\n  remove with:\n  ssh-keygen -f 'falsch_known_hosts' -R 'localhost'\nHost key for localhost has changed and you have requested strict checking.\n\\e|Host key verification failed.\n\\e|student@labor:~/linuxk11$ ",
+     "cols": 80,
+     "rows": 17,
+     "font_size": 18.0,
+     "line_height": 1.2,
+     "position": [
+      -3.3,
+      3.1,
+      0
+     ],
+     "frame": "fenster",
+     "theme": "dunkel",
+     "title": "student@labor: ~/linuxk11",
+     "buttons": "drei",
+     "cursor": true,
+     "prompt_colors": true,
+     "shadow": true,
+     "state": "term1"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Parameter",
+    "props": {
+     "name": "term1",
+     "value": 0.0,
+     "min": 0.0,
+     "max": 4.0,
+     "step": 0.01
+    }
+   },
+   {
+    "id": "o3",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.86,
+      2.3733,
+      0
+     ],
+     "width": 4.72,
+     "height": 0.48,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#c82828",
+     "fill_color": "#ffffff",
+     "fill_opacity": 0.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o4",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.06,
+      0.2933,
+      0
+     ],
+     "width": 2.32,
+     "height": 0.16,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#c82828",
+     "fill_color": "#c82828",
+     "fill_opacity": 0.35,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o5",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.55,
+      -1.1067,
+      0
+     ],
+     "width": 1.6,
+     "height": 0.62,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#333333",
+     "fill_color": "#fff3c4",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Text",
+    "props": {
+     "text": "@geaendert",
+     "position": [
+      -2.55,
+      -1.1067,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#333333"
+    }
+   },
+   {
+    "id": "o7",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.28,
+      -0.7067,
+      0
+     ],
+     "width": 4.25,
+     "height": 0.92,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#00823c",
+     "fill_color": "#e6f3ea",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Text",
+    "props": {
+     "text": "@neu",
+     "position": [
+      -0.75,
+      -0.4267,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#333333"
+    }
+   },
+   {
+    "id": "o9",
+    "type": "Text",
+    "props": {
+     "text": "ssh-keygen -R",
+     "position": [
+      -0.75,
+      -0.7067,
+      0
+     ],
+     "font_size": 17,
+     "align": "left",
+     "color": "#333333",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o10",
+    "type": "Text",
+    "props": {
+     "text": "@dann",
+     "position": [
+      -0.75,
+      -0.9867,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#333333"
+    }
+   },
+   {
+    "id": "o11",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.28,
+      -1.6567,
+      0
+     ],
+     "width": 4.25,
+     "height": 0.62,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#c82828",
+     "fill_color": "#f9e1e1",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Text",
+    "props": {
+     "text": "@unbek",
+     "position": [
+      -0.75,
+      -1.5367,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o13",
+    "type": "Text",
+    "props": {
+     "text": "@nicht",
+     "position": [
+      -0.75,
+      -1.7767,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#333333"
+    }
+   },
+   {
+    "id": "o14",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -1.74,
+      -0.9567,
+      0
+     ],
+     "end": [
+      -0.88,
+      -0.7067,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.09,
+     "font_size": 26,
+     "color": "#00823c",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o15",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -1.74,
+      -1.2567,
+      0
+     ],
+     "end": [
+      -0.88,
+      -1.6567,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.09,
+     "font_size": 26,
+     "color": "#c82828",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   }
+  ],
+  "animations": [
+   {
+    "id": "a1",
+    "type": "FadeIn",
+    "target": "o1",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a2",
+    "type": "ChangeValue",
+    "target": "o2",
+    "run_time": 1.833,
+    "step": 1,
+    "value": 1.0,
+    "rate": "linear"
+   },
+   {
+    "id": "a3",
+    "type": "ChangeValue",
+    "target": "o2",
+    "run_time": 0.8,
+    "step": 2,
+    "value": 2.0,
+    "rate": "linear"
+   },
+   {
+    "id": "a4",
+    "type": "ChangeValue",
+    "target": "o2",
+    "run_time": 0.5,
+    "step": 3,
+    "value": 3.0,
+    "rate": "linear"
+   },
+   {
+    "id": "a5",
+    "type": "ChangeValue",
+    "target": "o2",
+    "run_time": 0.4,
+    "step": 4,
+    "value": 4.0,
+    "rate": "linear"
+   },
+   {
+    "id": "a6",
+    "type": "FadeIn",
+    "target": "o3",
+    "run_time": 0.6,
+    "step": 5
+   },
+   {
+    "id": "a7",
+    "type": "FadeIn",
+    "target": "o4",
+    "run_time": 0.6,
+    "step": 5
+   },
+   {
+    "id": "a8",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 6
+   },
+   {
+    "id": "a9",
+    "type": "FadeIn",
+    "target": "o5",
+    "run_time": 0.6,
+    "step": 7
+   },
+   {
+    "id": "a10",
+    "type": "FadeIn",
+    "target": "o6",
+    "run_time": 0.6,
+    "step": 7
+   },
+   {
+    "id": "a11",
+    "type": "Create",
+    "target": "o14",
+    "run_time": 0.5,
+    "step": 8
+   },
+   {
+    "id": "a12",
+    "type": "FadeIn",
+    "target": "o7",
+    "run_time": 0.6,
+    "step": 8
+   },
+   {
+    "id": "a13",
+    "type": "FadeIn",
+    "target": "o8",
+    "run_time": 0.6,
+    "step": 8
+   },
+   {
+    "id": "a14",
+    "type": "FadeIn",
+    "target": "o9",
+    "run_time": 0.6,
+    "step": 8
+   },
+   {
+    "id": "a15",
+    "type": "FadeIn",
+    "target": "o10",
+    "run_time": 0.6,
+    "step": 8
+   },
+   {
+    "id": "a16",
+    "type": "Create",
+    "target": "o15",
+    "run_time": 0.5,
+    "step": 9
+   },
+   {
+    "id": "a17",
+    "type": "FadeIn",
+    "target": "o11",
+    "run_time": 0.6,
+    "step": 9
+   },
+   {
+    "id": "a18",
+    "type": "FadeIn",
+    "target": "o12",
+    "run_time": 0.6,
+    "step": 9
+   },
+   {
+    "id": "a19",
+    "type": "FadeIn",
+    "target": "o13",
+    "run_time": 0.6,
+    "step": 9
+   }
+  ],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "geaendert": {
+    "de": "Fingerabdruck\ngeändert",
+    "en": "fingerprint\nchanged",
+    "es": "huella\ncambiada",
+    "zh": "指纹\n变了",
+    "fr": "empreinte\nmodifiée",
+    "tr": "parmak izi\ndeğişti"
+   },
+   "neu": {
+    "de": "Server neu installiert, vom Betreuer bestätigt?",
+    "en": "Server reinstalled, confirmed by the admin?",
+    "es": "¿Servidor reinstalado, confirmado por el administrador?",
+    "zh": "服务器重装过，并经管理员确认？",
+    "fr": "Serveur réinstallé, confirmé par l'administrateur ?",
+    "tr": "Sunucu yeniden kuruldu, yönetici onayladı mı?"
+   },
+   "dann": {
+    "de": "neu verbinden, neuen Fingerabdruck prüfen",
+    "en": "reconnect, check the new fingerprint",
+    "es": "reconectar, comprobar la nueva huella",
+    "zh": "重新连接，核对新指纹",
+    "fr": "se reconnecter, vérifier la nouvelle empreinte",
+    "tr": "yeniden bağlan, yeni parmak izini denetle"
+   },
+   "unbek": {
+    "de": "unbekannt",
+    "en": "unknown",
+    "es": "desconocido",
+    "zh": "不明",
+    "fr": "inconnu",
+    "tr": "bilinmiyor"
+   },
+   "nicht": {
+    "de": "nicht verbinden, nachfragen",
+    "en": "do not connect, ask",
+    "es": "no conectar, preguntar",
+    "zh": "不要连接，先询问",
+    "fr": "ne pas se connecter, demander",
+    "tr": "bağlanma, sor"
+   }
+  },
+  "drawOrder": "creation"
+ }
+}

@@ -1,0 +1,1791 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 55,
+  "nextAnimId": 86,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Text",
+    "props": {
+     "text": "@args",
+     "position": [
+      -1.8833,
+      2.45,
+      0
+     ],
+     "font_size": 18,
+     "align": "right",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.3333,
+      2.45,
+      0
+     ],
+     "width": 0.6178,
+     "height": 0.28,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#e3eefb",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o3",
+    "type": "Text",
+    "props": {
+     "text": "Milch",
+     "position": [
+      -1.3333,
+      2.45,
+      0
+     ],
+     "font_size": 17,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o4",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.0,
+      2.45,
+      0
+     ],
+     "width": 1.4489,
+     "height": 0.28,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#e3eefb",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o5",
+    "type": "Text",
+    "props": {
+     "text": "Äpfel und Birnen",
+     "position": [
+      0.0,
+      2.45,
+      0
+     ],
+     "font_size": 17,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o6",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.3333,
+      2.45,
+      0
+     ],
+     "width": 0.6178,
+     "height": 0.28,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#e3eefb",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o7",
+    "type": "Text",
+    "props": {
+     "text": "*.txt",
+     "position": [
+      1.3333,
+      2.45,
+      0
+     ],
+     "font_size": 17,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Text",
+    "props": {
+     "text": "\"$@\"",
+     "position": [
+      -2.55,
+      1.9,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#eb6834",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o9",
+    "type": "Text",
+    "props": {
+     "text": "$*",
+     "position": [
+      -0.6,
+      1.9,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#eb6834",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o10",
+    "type": "Text",
+    "props": {
+     "text": "\"$*\"",
+     "position": [
+      1.95,
+      1.9,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#eb6834",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o11",
+    "type": "Line",
+    "props": {
+     "start": [
+      -1.6,
+      2.05,
+      0
+     ],
+     "end": [
+      -1.6,
+      -1.25,
+      0
+     ],
+     "color": "#b5b5b5",
+     "stroke_width": 2,
+     "dash": "6,5"
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.4,
+      2.05,
+      0
+     ],
+     "end": [
+      0.4,
+      1.0,
+      0
+     ],
+     "color": "#b5b5b5",
+     "stroke_width": 2,
+     "dash": "6,5"
+    }
+   },
+   {
+    "id": "o13",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.3333,
+      2.45,
+      0
+     ],
+     "width": 0.6178,
+     "height": 0.28,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#e3eefb",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o14",
+    "type": "Text",
+    "props": {
+     "text": "Milch",
+     "position": [
+      -1.3333,
+      2.45,
+      0
+     ],
+     "font_size": 17,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o15",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.0,
+      2.45,
+      0
+     ],
+     "width": 1.4489,
+     "height": 0.28,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#e3eefb",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o16",
+    "type": "Text",
+    "props": {
+     "text": "Äpfel und Birnen",
+     "position": [
+      0.0,
+      2.45,
+      0
+     ],
+     "font_size": 17,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o17",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.3333,
+      2.45,
+      0
+     ],
+     "width": 0.6178,
+     "height": 0.28,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#e3eefb",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o18",
+    "type": "Text",
+    "props": {
+     "text": "*.txt",
+     "position": [
+      1.3333,
+      2.45,
+      0
+     ],
+     "font_size": 17,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o19",
+    "type": "Text",
+    "props": {
+     "text": "@w3",
+     "position": [
+      -2.55,
+      -0.95,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#00823c"
+    }
+   },
+   {
+    "id": "o20",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.3333,
+      2.45,
+      0
+     ],
+     "width": 0.6178,
+     "height": 0.28,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#e3eefb",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o21",
+    "type": "Text",
+    "props": {
+     "text": "Milch",
+     "position": [
+      -1.3333,
+      2.45,
+      0
+     ],
+     "font_size": 17,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o22",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.0,
+      2.45,
+      0
+     ],
+     "width": 1.4489,
+     "height": 0.28,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#e3eefb",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o23",
+    "type": "Text",
+    "props": {
+     "text": "Äpfel und Birnen",
+     "position": [
+      0.0,
+      2.45,
+      0
+     ],
+     "font_size": 17,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o24",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.3333,
+      2.45,
+      0
+     ],
+     "width": 0.6178,
+     "height": 0.28,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#e3eefb",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o25",
+    "type": "Text",
+    "props": {
+     "text": "*.txt",
+     "position": [
+      1.3333,
+      2.45,
+      0
+     ],
+     "font_size": 17,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o26",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.6,
+      1.09,
+      0
+     ],
+     "width": 0.6178,
+     "height": 0.28,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o27",
+    "type": "Text",
+    "props": {
+     "text": "Äpfel",
+     "position": [
+      -0.6,
+      1.09,
+      0
+     ],
+     "font_size": 17,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o28",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.6,
+      0.73,
+      0
+     ],
+     "width": 0.4667,
+     "height": 0.28,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o29",
+    "type": "Text",
+    "props": {
+     "text": "und",
+     "position": [
+      -0.6,
+      0.73,
+      0
+     ],
+     "font_size": 17,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o30",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.6,
+      0.37,
+      0
+     ],
+     "width": 0.6933,
+     "height": 0.28,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o31",
+    "type": "Text",
+    "props": {
+     "text": "Birnen",
+     "position": [
+      -0.6,
+      0.37,
+      0
+     ],
+     "font_size": 17,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o32",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.6,
+      0.01,
+      0
+     ],
+     "width": 1.0711,
+     "height": 0.28,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#00823c",
+     "fill_color": "#e6f3ea",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o33",
+    "type": "Text",
+    "props": {
+     "text": "einkauf.txt",
+     "position": [
+      -0.6,
+      0.01,
+      0
+     ],
+     "font_size": 17,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o34",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.6,
+      -0.35,
+      0
+     ],
+     "width": 1.4489,
+     "height": 0.28,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#00823c",
+     "fill_color": "#e6f3ea",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o35",
+    "type": "Text",
+    "props": {
+     "text": "mein einkauf.txt",
+     "position": [
+      -0.6,
+      -0.35,
+      0
+     ],
+     "font_size": 17,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o36",
+    "type": "Line",
+    "props": {
+     "start": [
+      -0.19,
+      1.21,
+      0
+     ],
+     "end": [
+      -0.12,
+      1.21,
+      0
+     ],
+     "color": "#eb6834",
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o37",
+    "type": "Line",
+    "props": {
+     "start": [
+      -0.12,
+      1.21,
+      0
+     ],
+     "end": [
+      -0.12,
+      0.25,
+      0
+     ],
+     "color": "#eb6834",
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o38",
+    "type": "Line",
+    "props": {
+     "start": [
+      -0.12,
+      0.25,
+      0
+     ],
+     "end": [
+      -0.19,
+      0.25,
+      0
+     ],
+     "color": "#eb6834",
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o39",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.15,
+      0.13,
+      0
+     ],
+     "end": [
+      0.22,
+      0.13,
+      0
+     ],
+     "color": "#eb6834",
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o40",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.22,
+      0.13,
+      0
+     ],
+     "end": [
+      0.22,
+      -0.47,
+      0
+     ],
+     "color": "#eb6834",
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o41",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.22,
+      -0.47,
+      0
+     ],
+     "end": [
+      0.15,
+      -0.47,
+      0
+     ],
+     "color": "#eb6834",
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o42",
+    "type": "Text",
+    "props": {
+     "text": "@wt",
+     "position": [
+      -0.02,
+      0.73,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#eb6834"
+    }
+   },
+   {
+    "id": "o43",
+    "type": "Text",
+    "props": {
+     "text": "@pn",
+     "position": [
+      0.32,
+      -0.17,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#eb6834"
+    }
+   },
+   {
+    "id": "o44",
+    "type": "Text",
+    "props": {
+     "text": "@w6",
+     "position": [
+      -0.6,
+      -0.95,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#eb6834"
+    }
+   },
+   {
+    "id": "o45",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.3333,
+      2.45,
+      0
+     ],
+     "width": 0.6178,
+     "height": 0.28,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#e3eefb",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o46",
+    "type": "Text",
+    "props": {
+     "text": "Milch",
+     "position": [
+      -1.3333,
+      2.45,
+      0
+     ],
+     "font_size": 17,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o47",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.0,
+      2.45,
+      0
+     ],
+     "width": 1.4489,
+     "height": 0.28,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#e3eefb",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o48",
+    "type": "Text",
+    "props": {
+     "text": "Äpfel und Birnen",
+     "position": [
+      0.0,
+      2.45,
+      0
+     ],
+     "font_size": 17,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o49",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.3333,
+      2.45,
+      0
+     ],
+     "width": 0.6178,
+     "height": 0.28,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#e3eefb",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o50",
+    "type": "Text",
+    "props": {
+     "text": "*.txt",
+     "position": [
+      1.3333,
+      2.45,
+      0
+     ],
+     "font_size": 17,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o51",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.95,
+      1.45,
+      0
+     ],
+     "width": 2.3556,
+     "height": 0.28,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#e3eefb",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o52",
+    "type": "Text",
+    "props": {
+     "text": "Milch Äpfel und Birnen *.txt",
+     "position": [
+      1.95,
+      1.45,
+      0
+     ],
+     "font_size": 17,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o53",
+    "type": "Text",
+    "props": {
+     "text": "@kleb",
+     "position": [
+      1.95,
+      1.04,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o54",
+    "type": "Text",
+    "props": {
+     "text": "@w1",
+     "position": [
+      1.95,
+      -0.95,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   }
+  ],
+  "animations": [
+   {
+    "id": "a1",
+    "type": "FadeIn",
+    "target": "o2",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a2",
+    "type": "FadeIn",
+    "target": "o3",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a3",
+    "type": "FadeIn",
+    "target": "o4",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a4",
+    "type": "FadeIn",
+    "target": "o5",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a5",
+    "type": "FadeIn",
+    "target": "o6",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a6",
+    "type": "FadeIn",
+    "target": "o7",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a7",
+    "type": "FadeIn",
+    "target": "o1",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a8",
+    "type": "FadeIn",
+    "target": "o8",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a9",
+    "type": "FadeIn",
+    "target": "o9",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a10",
+    "type": "FadeIn",
+    "target": "o10",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a11",
+    "type": "FadeIn",
+    "target": "o11",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a12",
+    "type": "FadeIn",
+    "target": "o12",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a13",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.5,
+    "step": 2
+   },
+   {
+    "id": "a14",
+    "type": "FadeIn",
+    "target": "o13",
+    "run_time": 0.3,
+    "step": 3
+   },
+   {
+    "id": "a15",
+    "type": "FadeIn",
+    "target": "o14",
+    "run_time": 0.3,
+    "step": 3
+   },
+   {
+    "id": "a16",
+    "type": "FadeIn",
+    "target": "o15",
+    "run_time": 0.3,
+    "step": 3
+   },
+   {
+    "id": "a17",
+    "type": "FadeIn",
+    "target": "o16",
+    "run_time": 0.3,
+    "step": 3
+   },
+   {
+    "id": "a18",
+    "type": "FadeIn",
+    "target": "o17",
+    "run_time": 0.3,
+    "step": 3
+   },
+   {
+    "id": "a19",
+    "type": "FadeIn",
+    "target": "o18",
+    "run_time": 0.3,
+    "step": 3
+   },
+   {
+    "id": "a20",
+    "type": "Shift",
+    "target": "o13",
+    "run_time": 0.9,
+    "step": 4,
+    "vector": [
+     -1.2167,
+     -1.0,
+     0
+    ]
+   },
+   {
+    "id": "a21",
+    "type": "Shift",
+    "target": "o14",
+    "run_time": 0.9,
+    "step": 4,
+    "vector": [
+     -1.2167,
+     -1.0,
+     0
+    ]
+   },
+   {
+    "id": "a22",
+    "type": "Shift",
+    "target": "o15",
+    "run_time": 0.9,
+    "step": 4,
+    "vector": [
+     -2.55,
+     -1.36,
+     0
+    ]
+   },
+   {
+    "id": "a23",
+    "type": "Shift",
+    "target": "o16",
+    "run_time": 0.9,
+    "step": 4,
+    "vector": [
+     -2.55,
+     -1.36,
+     0
+    ]
+   },
+   {
+    "id": "a24",
+    "type": "Shift",
+    "target": "o17",
+    "run_time": 0.9,
+    "step": 4,
+    "vector": [
+     -3.8833,
+     -1.72,
+     0
+    ]
+   },
+   {
+    "id": "a25",
+    "type": "Shift",
+    "target": "o18",
+    "run_time": 0.9,
+    "step": 4,
+    "vector": [
+     -3.8833,
+     -1.72,
+     0
+    ]
+   },
+   {
+    "id": "a26",
+    "type": "FadeIn",
+    "target": "o19",
+    "run_time": 0.5,
+    "step": 5
+   },
+   {
+    "id": "a27",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 6
+   },
+   {
+    "id": "a28",
+    "type": "FadeIn",
+    "target": "o20",
+    "run_time": 0.3,
+    "step": 7
+   },
+   {
+    "id": "a29",
+    "type": "FadeIn",
+    "target": "o21",
+    "run_time": 0.3,
+    "step": 7
+   },
+   {
+    "id": "a30",
+    "type": "FadeIn",
+    "target": "o22",
+    "run_time": 0.3,
+    "step": 7
+   },
+   {
+    "id": "a31",
+    "type": "FadeIn",
+    "target": "o23",
+    "run_time": 0.3,
+    "step": 7
+   },
+   {
+    "id": "a32",
+    "type": "FadeIn",
+    "target": "o24",
+    "run_time": 0.3,
+    "step": 7
+   },
+   {
+    "id": "a33",
+    "type": "FadeIn",
+    "target": "o25",
+    "run_time": 0.3,
+    "step": 7
+   },
+   {
+    "id": "a34",
+    "type": "Shift",
+    "target": "o20",
+    "run_time": 0.9,
+    "step": 8,
+    "vector": [
+     0.7333,
+     -1.0,
+     0
+    ]
+   },
+   {
+    "id": "a35",
+    "type": "Shift",
+    "target": "o21",
+    "run_time": 0.9,
+    "step": 8,
+    "vector": [
+     0.7333,
+     -1.0,
+     0
+    ]
+   },
+   {
+    "id": "a36",
+    "type": "Shift",
+    "target": "o22",
+    "run_time": 0.9,
+    "step": 8,
+    "vector": [
+     -0.6,
+     -1.36,
+     0
+    ]
+   },
+   {
+    "id": "a37",
+    "type": "Shift",
+    "target": "o23",
+    "run_time": 0.9,
+    "step": 8,
+    "vector": [
+     -0.6,
+     -1.36,
+     0
+    ]
+   },
+   {
+    "id": "a38",
+    "type": "Shift",
+    "target": "o24",
+    "run_time": 0.9,
+    "step": 8,
+    "vector": [
+     -1.9333,
+     -2.44,
+     0
+    ]
+   },
+   {
+    "id": "a39",
+    "type": "Shift",
+    "target": "o25",
+    "run_time": 0.9,
+    "step": 8,
+    "vector": [
+     -1.9333,
+     -2.44,
+     0
+    ]
+   },
+   {
+    "id": "a40",
+    "type": "FadeOut",
+    "target": "o22",
+    "run_time": 0.6,
+    "step": 9
+   },
+   {
+    "id": "a41",
+    "type": "FadeOut",
+    "target": "o23",
+    "run_time": 0.6,
+    "step": 9
+   },
+   {
+    "id": "a42",
+    "type": "FadeIn",
+    "target": "o26",
+    "run_time": 0.6,
+    "step": 9
+   },
+   {
+    "id": "a43",
+    "type": "FadeIn",
+    "target": "o27",
+    "run_time": 0.6,
+    "step": 9
+   },
+   {
+    "id": "a44",
+    "type": "FadeIn",
+    "target": "o28",
+    "run_time": 0.6,
+    "step": 9
+   },
+   {
+    "id": "a45",
+    "type": "FadeIn",
+    "target": "o29",
+    "run_time": 0.6,
+    "step": 9
+   },
+   {
+    "id": "a46",
+    "type": "FadeIn",
+    "target": "o30",
+    "run_time": 0.6,
+    "step": 9
+   },
+   {
+    "id": "a47",
+    "type": "FadeIn",
+    "target": "o31",
+    "run_time": 0.6,
+    "step": 9
+   },
+   {
+    "id": "a48",
+    "type": "Create",
+    "target": "o36",
+    "run_time": 0.6,
+    "step": 9
+   },
+   {
+    "id": "a49",
+    "type": "Create",
+    "target": "o37",
+    "run_time": 0.6,
+    "step": 9
+   },
+   {
+    "id": "a50",
+    "type": "Create",
+    "target": "o38",
+    "run_time": 0.6,
+    "step": 9
+   },
+   {
+    "id": "a51",
+    "type": "FadeIn",
+    "target": "o42",
+    "run_time": 0.6,
+    "step": 9
+   },
+   {
+    "id": "a52",
+    "type": "FadeOut",
+    "target": "o24",
+    "run_time": 0.6,
+    "step": 10
+   },
+   {
+    "id": "a53",
+    "type": "FadeOut",
+    "target": "o25",
+    "run_time": 0.6,
+    "step": 10
+   },
+   {
+    "id": "a54",
+    "type": "FadeIn",
+    "target": "o32",
+    "run_time": 0.6,
+    "step": 10
+   },
+   {
+    "id": "a55",
+    "type": "FadeIn",
+    "target": "o33",
+    "run_time": 0.6,
+    "step": 10
+   },
+   {
+    "id": "a56",
+    "type": "FadeIn",
+    "target": "o34",
+    "run_time": 0.6,
+    "step": 10
+   },
+   {
+    "id": "a57",
+    "type": "FadeIn",
+    "target": "o35",
+    "run_time": 0.6,
+    "step": 10
+   },
+   {
+    "id": "a58",
+    "type": "Create",
+    "target": "o39",
+    "run_time": 0.6,
+    "step": 10
+   },
+   {
+    "id": "a59",
+    "type": "Create",
+    "target": "o40",
+    "run_time": 0.6,
+    "step": 10
+   },
+   {
+    "id": "a60",
+    "type": "Create",
+    "target": "o41",
+    "run_time": 0.6,
+    "step": 10
+   },
+   {
+    "id": "a61",
+    "type": "FadeIn",
+    "target": "o43",
+    "run_time": 0.6,
+    "step": 10
+   },
+   {
+    "id": "a62",
+    "type": "FadeIn",
+    "target": "o44",
+    "run_time": 0.5,
+    "step": 11
+   },
+   {
+    "id": "a63",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.6,
+    "step": 12
+   },
+   {
+    "id": "a64",
+    "type": "FadeIn",
+    "target": "o45",
+    "run_time": 0.3,
+    "step": 13
+   },
+   {
+    "id": "a65",
+    "type": "FadeIn",
+    "target": "o46",
+    "run_time": 0.3,
+    "step": 13
+   },
+   {
+    "id": "a66",
+    "type": "FadeIn",
+    "target": "o47",
+    "run_time": 0.3,
+    "step": 13
+   },
+   {
+    "id": "a67",
+    "type": "FadeIn",
+    "target": "o48",
+    "run_time": 0.3,
+    "step": 13
+   },
+   {
+    "id": "a68",
+    "type": "FadeIn",
+    "target": "o49",
+    "run_time": 0.3,
+    "step": 13
+   },
+   {
+    "id": "a69",
+    "type": "FadeIn",
+    "target": "o50",
+    "run_time": 0.3,
+    "step": 13
+   },
+   {
+    "id": "a70",
+    "type": "Shift",
+    "target": "o45",
+    "run_time": 0.9,
+    "step": 14,
+    "vector": [
+     3.2833,
+     -1.0,
+     0
+    ]
+   },
+   {
+    "id": "a71",
+    "type": "Shift",
+    "target": "o46",
+    "run_time": 0.9,
+    "step": 14,
+    "vector": [
+     3.2833,
+     -1.0,
+     0
+    ]
+   },
+   {
+    "id": "a72",
+    "type": "Shift",
+    "target": "o47",
+    "run_time": 0.9,
+    "step": 14,
+    "vector": [
+     1.95,
+     -1.0,
+     0
+    ]
+   },
+   {
+    "id": "a73",
+    "type": "Shift",
+    "target": "o48",
+    "run_time": 0.9,
+    "step": 14,
+    "vector": [
+     1.95,
+     -1.0,
+     0
+    ]
+   },
+   {
+    "id": "a74",
+    "type": "Shift",
+    "target": "o49",
+    "run_time": 0.9,
+    "step": 14,
+    "vector": [
+     0.6167,
+     -1.0,
+     0
+    ]
+   },
+   {
+    "id": "a75",
+    "type": "Shift",
+    "target": "o50",
+    "run_time": 0.9,
+    "step": 14,
+    "vector": [
+     0.6167,
+     -1.0,
+     0
+    ]
+   },
+   {
+    "id": "a76",
+    "type": "FadeOut",
+    "target": "o45",
+    "run_time": 0.6,
+    "step": 15
+   },
+   {
+    "id": "a77",
+    "type": "FadeOut",
+    "target": "o46",
+    "run_time": 0.6,
+    "step": 15
+   },
+   {
+    "id": "a78",
+    "type": "FadeOut",
+    "target": "o47",
+    "run_time": 0.6,
+    "step": 15
+   },
+   {
+    "id": "a79",
+    "type": "FadeOut",
+    "target": "o48",
+    "run_time": 0.6,
+    "step": 15
+   },
+   {
+    "id": "a80",
+    "type": "FadeOut",
+    "target": "o49",
+    "run_time": 0.6,
+    "step": 15
+   },
+   {
+    "id": "a81",
+    "type": "FadeOut",
+    "target": "o50",
+    "run_time": 0.6,
+    "step": 15
+   },
+   {
+    "id": "a82",
+    "type": "GrowFromCenter",
+    "target": "o51",
+    "run_time": 0.6,
+    "step": 15
+   },
+   {
+    "id": "a83",
+    "type": "FadeIn",
+    "target": "o52",
+    "run_time": 0.6,
+    "step": 15
+   },
+   {
+    "id": "a84",
+    "type": "FadeIn",
+    "target": "o53",
+    "run_time": 0.6,
+    "step": 15
+   },
+   {
+    "id": "a85",
+    "type": "FadeIn",
+    "target": "o54",
+    "run_time": 0.5,
+    "step": 16
+   }
+  ],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "args": {
+    "de": "drei Argumente",
+    "en": "three arguments",
+    "es": "tres argumentos",
+    "zh": "三个参数",
+    "fr": "trois arguments",
+    "tr": "üç argüman"
+   },
+   "w3": {
+    "de": "3 Wörter, unverändert",
+    "en": "3 words, unchanged",
+    "es": "3 palabras, sin cambios",
+    "zh": "3 个词，原样不变",
+    "fr": "3 mots, inchangés",
+    "tr": "3 sözcük, değişmeden"
+   },
+   "wt": {
+    "de": "Worttrennung",
+    "en": "word splitting",
+    "es": "división en palabras",
+    "zh": "分词",
+    "fr": "découpage en mots",
+    "tr": "sözcük bölme"
+   },
+   "pn": {
+    "de": "Pfadnamen-Erweiterung",
+    "en": "pathname expansion",
+    "es": "expansión de nombres de ruta",
+    "zh": "路径名扩展",
+    "fr": "développement des chemins",
+    "tr": "yol adı genişletme"
+   },
+   "w6": {
+    "de": "6 Wörter",
+    "en": "6 words",
+    "es": "6 palabras",
+    "zh": "6 个词",
+    "fr": "6 mots",
+    "tr": "6 sözcük"
+   },
+   "kleb": {
+    "de": "mit Leerzeichen\nverklebt",
+    "en": "glued together\nwith spaces",
+    "es": "pegados\ncon espacios",
+    "zh": "用空格\n粘在一起",
+    "fr": "collés avec\ndes espaces",
+    "tr": "boşluklarla\nyapıştırılmış"
+   },
+   "w1": {
+    "de": "1 Wort",
+    "en": "1 word",
+    "es": "1 palabra",
+    "zh": "1 个词",
+    "fr": "1 mot",
+    "tr": "1 sözcük"
+   }
+  },
+  "drawOrder": "creation"
+ }
+}

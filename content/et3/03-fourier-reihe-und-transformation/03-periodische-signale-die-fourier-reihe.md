@@ -210,3 +210,173 @@ $$S_p(0)=\frac{T_1}{T},\qquad S_p(k)=\frac{\sin(\pi kT_1/T)}{\pi k}\quad(k\neq0)
 
 Signal 1 für $|t|\le T_1/2$ und 0 im Rest der Periode $T$. Das Signal ist gerade, deshalb sind alle Koeffizienten reell. Bei $T_1=T/2$ fehlen die geraden Harmonischen.
 ::::
+
+::::lernkarten
+:::karte begriff Grundfrequenz und Harmonische
+Was versteht man bei einem Signal mit der Periode $T$ unter der Grundfrequenz und unter den Harmonischen?
+---
+Die Grundfrequenz ist $F=1/T$. Die Harmonischen sind die Schwingungen mit den Frequenzen $f_k=kF$ für ganzzahliges $k$, also bei den Vielfachen der Grundfrequenz. Nur sie kommen im Signal vor.
+--- falsch
+Die Grundfrequenz ist die Periode $T$ selbst, gemessen in Hertz. Die Harmonischen sind die Schwingungen mit den Frequenzen $F/k$ für ganzzahliges $k$, also bei den Bruchteilen der Grundfrequenz.
+--- falsch
+Die Grundfrequenz ist die höchste Frequenz, die im Signal vorkommt. Die Harmonischen sind alle Frequenzen darunter, die sich zur Grundfrequenz addieren lassen; zwischen ihnen ist jede Frequenz möglich.
+--- falsch
+Die Grundfrequenz ist $F=1/T$. Die Harmonischen sind die Schwingungen mit den Frequenzen $f_k=kF$, aber nur für ungerade $k$; die geraden Vielfachen kommen in einem periodischen Signal nie vor.
+:::
+:::karte zusammenhang Nur Vielfache der Grundfrequenz
+Warum kommen in einem Signal mit der Periode $T$ keine Frequenzen zwischen den Harmonischen vor, etwa $f=1{,}5F$?
+---
+Jede Schwingung der Summe muss selbst die Periode $T$ haben, und $\mathrm{e}^{\mathrm{j}2\pi ft}$ wiederholt sich nach $T$ genau dann, wenn $fT$ ganzzahlig ist. Bei $1{,}5F$ hat sie nach $T$ erst anderthalb Umdrehungen gemacht, und kein Gewicht gleicht das aus.
+--- falsch
+Sie kommen durchaus vor, sind aber so schwach, dass man sie vernachlässigt. Ihre Gewichte nehmen mit dem Abstand zur nächsten Harmonischen schnell ab, und die Fourier-Reihe lässt sie nur der Einfachheit halber weg, weil der Fehler unter jeder Messgenauigkeit liegt.
+--- falsch
+Weil ein periodisches Signal nur endlich viele Frequenzen enthalten kann. Zwischen zwei Harmonischen lägen unendlich viele Frequenzen, und deren Summe hätte eine unendliche Leistung, die kein reales Signal besitzt; deshalb bleibt es bei den Vielfachen.
+--- falsch
+Jede Schwingung muss die Periode $T$ haben, und das gilt genau dann, wenn $f/T$ ganzzahlig ist. Bei $1{,}5F$ ist das nicht erfüllt. Frequenzen dazwischen könnten nur mit komplexen Gewichten vorkommen, die bei reellen Signalen verboten sind.
+:::
+:::karte begriff Fourier-Reihe
+Was ist die Fourier-Reihe eines Signals $s_p(t)$ mit der Periode $T=1/F$, und welche Bedeutung hat $S_p(k)$ darin?
+---
+Die Darstellung des Signals als Summe seiner Harmonischen (Synthese): $s_p(t)=\sum_{k=-\infty}^{\infty}S_p(k)\,\mathrm{e}^{\mathrm{j}2\pi kFt}$. $S_p(k)$ ist das komplexe Gewicht der $k$-ten Harmonischen. Sie gilt für Signale endlicher Leistung.
+--- falsch
+Die Darstellung des Signals als Summe seiner Harmonischen: $s_p(t)=\sum_{k=0}^{\infty}S_p(k)\,\mathrm{e}^{\mathrm{j}2\pi kFt}$, nur mit nicht negativen $k$. $S_p(k)$ ist die reelle Amplitude der $k$-ten Harmonischen, ihre Phase ist stets null.
+--- falsch
+Die Darstellung des Signals als Integral über alle Frequenzen: $s_p(t)=\int S_p(f)\,\mathrm{e}^{\mathrm{j}2\pi ft}\,\mathrm{d} f$. $S_p(f)$ ist das komplexe Gewicht der Frequenz $f$; die Darstellung gilt für jedes beliebige Signal.
+--- falsch
+Die Darstellung des Signals als Summe verschobener Kopien einer einzigen Periode: $s_p(t)=\sum_{k}S_p(k)\,s(t-kT)$. $S_p(k)$ gibt an, wie stark die $k$-te Kopie zum Signal beiträgt.
+:::
+:::karte begriff orthogonal
+Was bedeutet es, dass Schwingungen verschiedener Frequenz orthogonal sind, und warum gilt das für die Harmonischen?
+---
+Multipliziert man die eine mit der konjugierten anderen und mittelt über eine Periode, kommt null heraus: $\frac1T\int_0^T\mathrm{e}^{\mathrm{j}2\pi(k-n)Ft}\,\mathrm{d} t$ ist 0 für $k\neq n$ und 1 für $k=n$. Der Zeiger dreht sich in der Periode $|k-n|$-mal ganz herum.
+--- falsch
+Ihre Frequenzen stehen im Verhältnis einer ganzen Zahl zueinander, $f_k/f_n$ ist also ganzzahlig. Deshalb haben alle Harmonischen eine gemeinsame Periode, und ihr Produkt ist über diese Periode gemittelt stets 1, gleich welche beiden man wählt.
+--- falsch
+Ihre Zeiger stehen zu jedem Zeitpunkt senkrecht aufeinander, sind also um $90^\circ$ gegeneinander gedreht. Das gilt für die Harmonischen, weil jede gegenüber der nächsten um eine Viertelperiode verschoben ist und dieser Abstand erhalten bleibt.
+--- falsch
+Multipliziert man die eine mit der anderen und mittelt über eine Periode, kommt 1 heraus: $\frac1T\int_0^T\mathrm{e}^{\mathrm{j}2\pi(k-n)Ft}\,\mathrm{d} t$ ist 1 für alle $k$ und $n$. Die Zeiger drehen sich gemeinsam, ihr Mittelwert ist deshalb eins.
+:::
+:::karte formel Analyseformel
+Wie berechnet man das Gewicht $S_p(k)$ der $k$-ten Harmonischen eines Signals mit der Periode $T=1/F$?
+---
+$S_p(k)=\frac1T\int_{t_1}^{t_1+T}s_p(t)\,\mathrm{e}^{-\mathrm{j}2\pi kFt}\,\mathrm{d} t$ mit beliebigem $t_1$. Integriert wird über irgendeine Periode, weil der Integrand die Periode $T$ hat.
+--- falsch
+$S_p(k)=\frac1T\int_{t_1}^{t_1+T}s_p(t)\,\mathrm{e}^{\mathrm{j}2\pi kFt}\,\mathrm{d} t$ mit beliebigem $t_1$. Das Signal wird mit der $k$-ten Harmonischen selbst multipliziert, damit sich ihr Anteil verstärkt und die anderen wegfallen.
+--- falsch
+$S_p(k)=\int_{-\infty}^{\infty}s_p(t)\,\mathrm{e}^{-\mathrm{j}2\pi kFt}\,\mathrm{d} t$. Integriert wird über alle Zeiten, weil das Signal unendlich lange dauert; die Periode spielt für die Gewichte deshalb keine Rolle.
+--- falsch
+$S_p(k)=\frac1T\int_{0}^{T}s_p(t)\,\mathrm{e}^{-\mathrm{j}2\pi kFt}\,\mathrm{d} t$, und zwar nur mit der Untergrenze 0. Bei einer anderen Untergrenze ändert sich die Phase der Gewichte, weil die Harmonischen dann anders beginnen.
+:::
+:::karte herleitung Analyseformel aus der Orthogonalität
+Wie gewinnt man aus der Fourier-Reihe $s_p(t)=\sum_{k=-\infty}^{\infty}S_p(k)\,\mathrm{e}^{\mathrm{j}2\pi kFt}$ die Formel für ein einzelnes Gewicht $S_p(n)$?
+---
+Man multipliziert die Reihe mit $\mathrm{e}^{-\mathrm{j}2\pi nFt}$, weil das die $n$-te Harmonische zum Stillstand bringt.
+---
+Man integriert über eine Periode und vertauscht Summe und Integral, weil sich so jede Harmonische einzeln behandeln lässt: $\int_0^Ts_p(t)\mathrm{e}^{-\mathrm{j}2\pi nFt}\mathrm{d} t=\sum_kS_p(k)\int_0^T\mathrm{e}^{\mathrm{j}2\pi(k-n)Ft}\mathrm{d} t$.
+---
+Für $k\neq n$ ist das Integral $\frac{\mathrm{e}^{\mathrm{j}2\pi(k-n)FT}-1}{\mathrm{j}2\pi(k-n)F}=0$, weil $\mathrm{e}^{\mathrm{j}2\pi(k-n)}=1$ ist: Der Zeiger dreht sich ganze Male herum.
+---
+Für $k=n$ ist der Integrand 1 und das Integral $T$, weil der Zeiger stillsteht. Es bleibt $S_p(n)\,T$, und die Division durch $T$ ergibt die Analyseformel.
+---
+Man darf über jedes Intervall der Länge $T$ integrieren, weil der Integrand die Periode $T$ hat; daher die beliebige Untergrenze $t_1$.
+:::
+:::karte zusammenhang Entgegendrehen und Mitteln
+Warum bleibt in der Analyseformel nur der Anteil der $k$-ten Harmonischen übrig, wenn man das Signal mit $\mathrm{e}^{-\mathrm{j}2\pi kFt}$ multipliziert und mittelt?
+---
+Die Multiplikation dreht das Signal mit der $k$-ten Harmonischen entgegen. Deren Zeiger steht danach still, ihr Anteil bleibt im Mittel übrig. Alle anderen drehen sich weiter, ganze Male in einer Periode, und mitteln sich weg.
+--- falsch
+Die Multiplikation verstärkt die $k$-te Harmonische um den Faktor $T$, die anderen nur um den Faktor 1. Beim Mitteln wird alles durch $T$ geteilt, sodass die anderen fast verschwinden und die $k$-te als einzige mit nennenswertem Gewicht übrig bleibt.
+--- falsch
+Die Multiplikation verschiebt das Signal zeitlich um $k$ Perioden. Dadurch liegen alle Harmonischen außer der $k$-ten außerhalb des Integrationsbereichs, und beim Mitteln über eine Periode zählt nur noch sie, mit ihrem vollen Gewicht.
+--- falsch
+Die Multiplikation filtert die hohen Frequenzen heraus, ähnlich wie ein Tiefpass. Übrig bleiben die Harmonischen bis $k$, und das Mitteln trennt die $k$-te von den niedrigeren, weil sie am schnellsten schwingt.
+:::
+:::karte begriff Gleichanteil
+Was ist der Gleichanteil eines periodischen Signals, und welcher Fourier-Koeffizient gibt ihn an?
+---
+Der Mittelwert des Signals über eine Periode. Ihn gibt $S_p(0)$ an, denn für $k=0$ ist die Harmonische die Konstante 1, und die Analyseformel mittelt nur das Signal selbst.
+--- falsch
+Der größte Wert des Signals in einer Periode. Ihn gibt $S_p(1)$ an, denn die Grundschwingung erreicht als stärkste Harmonische den Spitzenwert, während die übrigen Harmonischen nur Feinheiten beitragen.
+--- falsch
+Der Mittelwert des Signals über eine Periode. Ihn gibt die Summe aller $S_p(k)$ an, denn jede Harmonische trägt mit ihrem Gewicht zum Mittelwert bei, auch die mit $k\neq0$.
+--- falsch
+Der Mittelwert des Betrags $|s_p(t)|$ über eine Periode. Ihn gibt $S_p(0)$ an, denn für $k=0$ mittelt die Analyseformel den Betrag des Signals, sodass er nie negativ wird.
+:::
+:::karte formel Koeffizienten reeller Signale
+Welche Beziehung besteht bei einem reellen periodischen Signal zwischen $S_p(-k)$ und $S_p(k)$, und woher kommt sie?
+---
+$S_p(-k)=S_p^*(k)$. Für ein reelles Signal ist $s_p=s_p^*$. Konjugiert man die Reihe, wird aus der Harmonischen $k$ die mit $-k$, und der Vergleich der Koeffizienten ergibt die Beziehung.
+--- falsch
+$S_p(-k)=S_p(k)$. Für ein reelles Signal ist $s_p(-t)=s_p(t)$. Spiegelt man die Reihe, wird aus der Harmonischen $k$ die mit $-k$, und der Vergleich der Koeffizienten ergibt die Beziehung.
+--- falsch
+$S_p(-k)=-S_p(k)$. Für ein reelles Signal heben sich die Beiträge der Harmonischen $k$ und $-k$ im Imaginärteil auf, und das gelingt nur, wenn ihre Gewichte entgegengesetzt gleich sind.
+--- falsch
+$S_p(-k)=S_p^*(k)$, aber nur für gerade Signale. Bei einem reellen, nicht geraden Signal haben die Harmonischen $k$ und $-k$ unabhängige Gewichte, und die Reihe liefert trotzdem reelle Werte.
+:::
+:::karte formel Kosinusform
+Wie schreibt man die Fourier-Reihe eines reellen Signals mit $S_p(k)=|S_p(k)|\,\mathrm{e}^{\mathrm{j}\varphi_p(k)}$ als Summe reeller Kosinusschwingungen?
+---
+$s_p(t)=S_p(0)+2\sum_{k=1}^{\infty}|S_p(k)|\cos\bigl(2\pi kFt+\varphi_p(k)\bigr)$. Jedes Paar $k,-k$ ergibt $2\operatorname{Re}\{S_p(k)\mathrm{e}^{\mathrm{j}2\pi kFt}\}$, eine Kosinusschwingung mit der Amplitude $2|S_p(k)|$.
+--- falsch
+$s_p(t)=S_p(0)+\sum_{k=1}^{\infty}|S_p(k)|\cos\bigl(2\pi kFt+\varphi_p(k)\bigr)$. Jede Harmonische mit $k\ge1$ ergibt eine Kosinusschwingung mit der Amplitude $|S_p(k)|$; die mit $k<0$ sind überzählig und fallen weg.
+--- falsch
+$s_p(t)=2\sum_{k=0}^{\infty}|S_p(k)|\cos\bigl(2\pi kFt+\varphi_p(k)\bigr)$. Jedes Paar $k,-k$ ergibt die doppelte Kosinusschwingung, auch für $k=0$, sodass der Gleichanteil ebenfalls doppelt zählt.
+--- falsch
+$s_p(t)=S_p(0)+2\sum_{k=1}^{\infty}|S_p(k)|\cos(2\pi kFt)$. Die Phasen $\varphi_p(k)$ fallen bei reellen Signalen weg, weil $S_p(-k)=S_p^*(k)$ die Imaginärteile der Koeffizienten aufhebt.
+:::
+:::karte formel Kosinus-Sinus-Form
+Wie lautet die Fourier-Reihe eines reellen Signals, wenn man Real- und Imaginärteil der Koeffizienten $S_p(k)$ statt Betrag und Phase verwendet?
+---
+$s_p(t)=S_p(0)+2\sum_{k=1}^{\infty}\Bigl[\operatorname{Re}\{S_p(k)\}\cos(2\pi kFt)-\operatorname{Im}\{S_p(k)\}\sin(2\pi kFt)\Bigr]$. Der Realteil gehört zum Kosinus, der Imaginärteil mit Minuszeichen zum Sinus.
+--- falsch
+$s_p(t)=S_p(0)+2\sum_{k=1}^{\infty}\Bigl[\operatorname{Re}\{S_p(k)\}\cos(2\pi kFt)+\operatorname{Im}\{S_p(k)\}\sin(2\pi kFt)\Bigr]$. Der Realteil gehört zum Kosinus, der Imaginärteil mit Pluszeichen zum Sinus.
+--- falsch
+$s_p(t)=S_p(0)+2\sum_{k=1}^{\infty}\Bigl[\operatorname{Re}\{S_p(k)\}\sin(2\pi kFt)+\operatorname{Im}\{S_p(k)\}\cos(2\pi kFt)\Bigr]$. Der Realteil gehört zum Sinus, der Imaginärteil zum Kosinus.
+--- falsch
+$s_p(t)=\sum_{k=0}^{\infty}\Bigl[\operatorname{Re}\{S_p(k)\}\cos(2\pi kFt)-\operatorname{Im}\{S_p(k)\}\sin(2\pi kFt)\Bigr]$. Ein Faktor 2 entfällt, weil der Gleichanteil schon im Glied mit $k=0$ steckt.
+:::
+:::karte formel Koeffizienten der Rechteckschwingung
+Welche Fourier-Koeffizienten hat eine Rechteckschwingung, die in jeder Periode $T$ für $|t|\le T_1/2$ den Wert 1 und sonst den Wert 0 hat?
+---
+$S_p(0)=\frac{T_1}{T}$ und $S_p(k)=\frac{\sin(\pi kT_1/T)}{\pi k}$ für $k\neq0$. Alle Koeffizienten sind reell, weil das Signal gerade ist.
+--- falsch
+$S_p(0)=\frac{T_1}{T}$ und $S_p(k)=\frac{\cos(\pi kT_1/T)}{\pi k}$ für $k\neq0$. Alle Koeffizienten sind reell, weil das Signal nur die Werte 0 und 1 annimmt.
+--- falsch
+$S_p(0)=\frac{T}{T_1}$ und $S_p(k)=\frac{\sin(\pi kT_1/T)}{\pi k}$ für $k\neq0$. Alle Koeffizienten sind rein imaginär, weil das Signal an seinen Kanten springt.
+--- falsch
+$S_p(0)=\frac{T_1}{T}$ und $S_p(k)=\frac{T_1}{T}\cdot\frac1k$ für $k\neq0$. Die Koeffizienten fallen wie $1/k$ ab und sind reell, aber keiner von ihnen wird je null.
+:::
+:::karte zusammenhang Fehlende Harmonische
+Warum fehlen bei der Rechteckschwingung mit $T_1=T/2$ alle geraden Harmonischen und bei $T_1=T/4$ jede vierte?
+---
+$S_p(k)$ verschwindet, wenn eine ganze Zahl von Perioden der $k$-ten Harmonischen in den Impuls passt: Ihr Zeiger macht über den Impuls volle Umdrehungen, und der Mittelwert ist null. Bei $T_1=T/2$ ist das für gerade $k$ der Fall, denn $\sin(\pi k/2)=0$.
+--- falsch
+Weil die geraden Harmonischen bei $T_1=T/2$ genau gegenphasig zu den ungeraden liegen und sich mit ihnen aufheben. Bei $T_1=T/4$ heben sich entsprechend jede vierte und jede zweite Harmonische gegenseitig auf, die übrigen bleiben erhalten.
+--- falsch
+Weil ein Signal, das nur die Werte 0 und 1 annimmt, grundsätzlich keine geraden Harmonischen enthält. Bei $T_1=T/4$ fehlt zusätzlich jede vierte, weil der Impuls dort auf ein Viertel der Periode schrumpft und entsprechend weniger Harmonische braucht.
+--- falsch
+$S_p(k)$ verschwindet, wenn eine ganze Zahl von Impulsen in eine Periode der $k$-ten Harmonischen passt: Der Impuls wiederholt sich dann im Takt der Harmonischen. Bei $T_1=T/2$ ist das für gerade $k$ der Fall.
+:::
+:::karte zusammenhang Reelle Koeffizienten der Rechteckschwingung
+Warum sind die Fourier-Koeffizienten der Rechteckschwingung, die für $|t|\le T_1/2$ den Wert 1 hat, alle reell?
+---
+Weil das Signal gerade ist, $s(-t)=s(t)$. Der Imaginärteil von $S_p(k)$ ist $-\frac1T\int_{-T/2}^{T/2}s(t)\sin(2\pi kFt)\,\mathrm{d} t$. Der Integrand ist ungerade, die Beiträge links und rechts von null heben sich auf.
+--- falsch
+Weil das Signal nur die Werte 0 und 1 annimmt, also nie negativ wird. Ein nicht negatives Signal hat stets reelle Koeffizienten, denn ein Imaginärteil entsteht erst durch Vorzeichenwechsel des Signals.
+--- falsch
+Weil das Signal reell ist. Der Imaginärteil von $S_p(k)$ ist $-\frac1T\int_{-T/2}^{T/2}s(t)\sin(2\pi kFt)\,\mathrm{d} t$, und dieses Integral verschwindet für jedes reelle Signal, gleich welche Form es hat.
+--- falsch
+Weil der Impuls genau die Hälfte der Periode einnimmt und sie in zwei gleich große Teile teilt. Ein Imaginärteil entstünde erst, wenn der Impuls breiter oder schmaler als $T/2$ wäre.
+:::
+:::karte zusammenhang Gleichheit im quadratischen Mittel
+In welchem Sinn ist ein Signal endlicher Leistung gleich seiner Fourier-Reihe, und was folgt daraus für Sprungstellen?
+---
+Im quadratischen Mittel: Die Leistung des Fehlers zwischen dem Signal und der Summe der Harmonischen mit $|k|\le N$ geht für $N\to\infty$ gegen null. An Sprungstellen muss die Reihe den Signalwert nicht liefern.
+--- falsch
+In jedem einzelnen Punkt: Für jedes $t$ konvergiert die Reihe gegen den Signalwert. Auch an Sprungstellen liefert sie genau den Wert, den das Signal dort hat, sobald man genug Harmonische in die Summe aufnimmt.
+--- falsch
+Nur im Mittelwert: Der Gleichanteil der Reihe stimmt mit dem des Signals überein, die Form im Einzelnen aber nicht. An Sprungstellen und auch dazwischen weicht die Reihe deshalb beliebig weit vom Signal ab.
+--- falsch
+Im quadratischen Mittel, aber nur bei stetigen Signalen. Ein Signal mit Sprungstellen hat keine Fourier-Reihe, weil die Leistung des Fehlers an den Sprüngen nicht kleiner werden kann.
+:::
+::::

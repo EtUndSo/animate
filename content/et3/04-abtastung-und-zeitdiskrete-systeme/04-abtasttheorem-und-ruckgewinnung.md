@@ -131,3 +131,166 @@ Bei $t=2{,}5T$ ist $\operatorname{si}(\pi(2{,}5-k))$ für $k\in\{2,3\}$ gleich $
 $$s(2{,}5T)=\frac2\pi\Bigl[-\tfrac13\cdot1+0{,}6-0{,}4-\tfrac13\cdot0{,}8\Bigr]=\frac2\pi\cdot(-0{,}4)=-0{,}255.$$
 :::
 :::
+
+::::formelsammlung
+**Abtasttheorem**
+
+$$T\le\frac{1}{2f_\mathrm g}\qquad\text{also}\qquad f_\mathrm A=\frac1T\ge2f_\mathrm g$$
+
+Für ein Tiefpasssignal (Spektrum verschwindet oberhalb von $f_\mathrm g$): Dann ist es durch $s(nT)$ eindeutig bestimmt. Die Mindestrate $2f_\mathrm g$ heißt Nyquist-Rate. Genau an der Grenze darf das Spektrum bei $f_\mathrm g$ keine Linie haben, sonst braucht man $f_\mathrm A>2f_\mathrm g$. Bei zu langsamer Abtastung erscheint eine Frequenz über $f_\mathrm A/2$ als tiefere Frequenz, ihr Alias.
+
+**Idealer Tiefpass zur Rückgewinnung**
+
+$$H_\mathrm{TP}(f)=T\operatorname{rect}\bigl(\frac{f}{2f_\mathrm g}\bigr)$$
+
+Schneidet aus $S_\mathrm a(f)$ die Kopie bei $f=0$ aus; der Faktor $T$ hebt das $1/T$ auf.
+
+**Rückgewinnung im Zeitbereich**
+
+$$s(t)=s_\mathrm a(t)*\bigl[2f_\mathrm gT\operatorname{si}(2\pi f_\mathrm gt)\bigr]$$
+
+Faltung mit der Impulsantwort des idealen Tiefpasses; gilt, solange das Abtasttheorem erfüllt ist.
+
+**si-Interpolation**
+
+$$s(t)=\sum_{n=-\infty}^{\infty}s(nT)\,\operatorname{si}\Bigl(\pi\frac{t-nT}{T}\Bigr)$$
+
+Bei $T=1/(2f_\mathrm g)$. Jede si-Funktion ist an ihrem eigenen Abtastpunkt 1 und an allen anderen null; die Summe trifft alle Abtastwerte und enthält keine Frequenz über $f_\mathrm g$.
+::::
+
+::::lernkarten
+:::karte begriff Tiefpasssignal
+Was ist ein Tiefpasssignal im Sinne des Abtasttheorems?
+---
+Ein Signal, dessen Spektrum oberhalb einer Grenzfrequenz $f_\mathrm g$ verschwindet. Es enthält also keine Anteile mit Frequenzen über $f_\mathrm g$.
+--- falsch
+Ein Signal, das bereits durch einen Tiefpass gelaufen ist und deshalb zeitlich glatt verläuft. Sein Spektrum darf beliebig hohe Frequenzen enthalten, solange sie schwach sind.
+--- falsch
+Ein Signal, dessen Spektrum unterhalb einer Grenzfrequenz $f_\mathrm g$ verschwindet. Es enthält also nur Anteile mit Frequenzen über $f_\mathrm g$.
+--- falsch
+Ein Signal, dessen Frequenzen alle unter der Abtastrate liegen. Die Grenze ist also $f_\mathrm A$ selbst, und jedes Signal mit tieferen Frequenzen lässt sich exakt zurückgewinnen.
+:::
+:::karte formel Abtasttheorem
+Unter welcher Bedingung ist ein Tiefpasssignal mit der Grenzfrequenz $f_\mathrm g$ durch seine Abtastwerte $s(nT)$ eindeutig bestimmt?
+---
+Wenn $T\le\frac{1}{2f_\mathrm g}$ ist, also $f_\mathrm A=\frac1T\ge2f_\mathrm g$: Die Abtastrate muss mindestens doppelt so hoch sein wie die höchste Frequenz. Genau an der Grenze darf das Spektrum bei $f_\mathrm g$ keine Linie haben.
+--- falsch
+Wenn $T\le\frac{1}{f_\mathrm g}$ ist, also $f_\mathrm A\ge f_\mathrm g$: Die Abtastrate muss mindestens so hoch sein wie die höchste Frequenz, damit jede Schwingung mindestens einmal je Periode erfasst und so eindeutig erkannt wird.
+--- falsch
+Wenn $T\ge\frac{1}{2f_\mathrm g}$ ist, also $f_\mathrm A\le2f_\mathrm g$: Die Abtastrate darf höchstens doppelt so hoch sein wie die höchste Frequenz, sonst überlappen die Kopien im Spektrum.
+--- falsch
+Wenn $T\le\frac{1}{2f_\mathrm g}$ ist und das Signal zusätzlich periodisch ist. Nur dann wiederholen sich die Abtastwerte, und das Signal lässt sich aus einer einzigen Periode eindeutig bestimmen.
+:::
+:::karte begriff Nyquist-Rate
+Was gibt die Nyquist-Rate eines Tiefpasssignals mit der Grenzfrequenz $f_\mathrm g$ an?
+---
+Die Mindestabtastrate $2f_\mathrm g$, die das Abtasttheorem verlangt. Mit ihr liegen die Kopien im Spektrum gerade noch getrennt nebeneinander.
+--- falsch
+Die höchste Frequenz $f_\mathrm g$ im Signal selbst. Die Abtastrate muss genau diesen Wert haben, damit die Kopien im Spektrum lückenlos aneinanderstoßen.
+--- falsch
+Die halbe Abtastrate $f_\mathrm A/2$. Frequenzen darüber werden bei der Rückgewinnung als tiefere Frequenzen gedeutet, Frequenzen darunter bleiben unverändert.
+--- falsch
+Die Abtastrate $4f_\mathrm g$, die man in der Praxis wählt. Sie lässt dem Anti-Aliasing-Filter genug Platz, weil reale Filter nicht senkrecht abfallen.
+:::
+:::karte formel Rückgewinnung mit dem idealen Tiefpass
+Wie gewinnt man ein Tiefpasssignal aus dem ideal abgetasteten Signal $s_\mathrm a(t)$ zurück, wenn $f_\mathrm A\ge2f_\mathrm g$ ist?
+---
+Mit dem idealen Tiefpass $H_\mathrm{TP}(f)=T\operatorname{rect}\bigl(\frac{f}{2f_\mathrm g}\bigr)$. Er schneidet die Kopie bei $f=0$ aus; im Zeitbereich ist das die Faltung $s(t)=s_\mathrm a(t)*\bigl[2f_\mathrm gT\operatorname{si}(2\pi f_\mathrm gt)\bigr]$.
+--- falsch
+Mit dem idealen Tiefpass $H_\mathrm{TP}(f)=\operatorname{rect}\bigl(\frac{f}{f_\mathrm g}\bigr)$. Er schneidet alle Kopien bis zur Frequenz $f_\mathrm g$ aus; im Zeitbereich multipliziert man $s_\mathrm a(t)$ dazu mit einer si-Funktion.
+--- falsch
+Mit einem Hochpass, der die Kopie bei $f=0$ entfernt. Übrig bleiben die Kopien bei den Vielfachen der Abtastrate, deren Summe im Zeitbereich wieder das ursprüngliche Signal ergibt.
+--- falsch
+Mit dem idealen Tiefpass $H_\mathrm{TP}(f)=T\operatorname{rect}\bigl(\frac{f}{2f_\mathrm g}\bigr)$. Er schneidet die Kopie bei $f=0$ aus; im Zeitbereich hält man dazu jeden Abtastwert bis zum nächsten fest, das ergibt genau das Original.
+:::
+:::karte formel si-Interpolation
+Wie berechnet man ein mit $T=1/(2f_\mathrm g)$ abgetastetes Tiefpasssignal $s(t)$ für jede Zeit $t$ aus seinen Abtastwerten?
+---
+Mit der si-Interpolation $s(t)=\sum_{n=-\infty}^{\infty}s(nT)\,\operatorname{si}\Bigl(\pi\frac{t-nT}{T}\Bigr)$: Jeder Abtastwert wird durch eine si-Funktion ersetzt, die an ihrem Abtastpunkt 1 und an allen anderen null ist.
+--- falsch
+Mit der linearen Interpolation: Zwischen zwei benachbarten Abtastwerten $s(nT)$ und $s((n+1)T)$ verbindet man die Werte durch eine Gerade. Bei einem Tiefpasssignal ist das exakt.
+--- falsch
+Mit $s(t)=\sum_{n=-\infty}^{\infty}s(nT)\,\operatorname{si}\bigl(\pi\frac{t-nT}{T}\bigr)$, wobei jede si-Funktion an allen Abtastpunkten den Wert 1 hat. Die Summe ist deshalb an jedem Abtastpunkt die Summe aller Abtastwerte.
+--- falsch
+Mit $s(t)=\sum_{n=-\infty}^{\infty}s(nT)\,\operatorname{rect}\bigl(\frac{t-nT}{T}\bigr)$: Jeder Abtastwert wird für die Dauer $T$ festgehalten. Diese Treppe enthält keine Frequenz über $f_\mathrm g$.
+:::
+:::karte herleitung Rückgewinnung
+Wie folgt aus dem periodischen Spektrum $S_\mathrm a(f)$, dass bei $2f_\mathrm g=1/T$ die si-Interpolation $\sum_ns(nT)\operatorname{si}(\pi(t-nT)/T)$ das Original liefert?
+---
+Für $|f|\le f_\mathrm g$ liegt nur die Kopie $k=0$, also $S_\mathrm a(f)=\frac1TS(f)$, weil die Kopien bei $f_\mathrm A\ge2f_\mathrm g$ getrennt liegen.
+---
+Man multipliziert mit $H_\mathrm{TP}=T\operatorname{rect}(f/2f_\mathrm g)$ und erhält $S_\mathrm a\cdot H_\mathrm{TP}=S$, weil der Tiefpass alle übrigen Kopien wegschneidet und der Faktor $T$ das $1/T$ aufhebt.
+---
+Im Zeitbereich wird daraus eine Faltung von $s_\mathrm a$ mit $2f_\mathrm gT\operatorname{si}(2\pi f_\mathrm gt)$, weil Rechteck und si-Funktion ein Fourier-Paar sind ([Kapitel 3](/wissen/elektrotechnik/3-semester/signale-und-systeme/fourier-reihe-und-transformation/fourier-reihe-und-transformation.html)) und ein Produkt der Spektren einer Faltung entspricht.
+---
+Mit $2f_\mathrm g=1/T$ wird dieser Kern zu $\operatorname{si}(\pi t/T)$, weil dann der Vorfaktor $2f_\mathrm gT$ gleich 1 ist.
+---
+Die Faltung von $s_\mathrm a(t)=\sum_ns(nT)\delta(t-nT)$ mit dem Kern setzt ihn an jeden Abtastpunkt, weil die Faltung mit $\delta(t-nT)$ um $nT$ verschiebt; es entsteht die si-Interpolation.
+:::
+:::karte zusammenhang si-Funktionen treffen die Abtastwerte
+Warum trifft die Summe der gewichteten si-Funktionen bei der si-Interpolation jeden Abtastwert genau?
+---
+Jede si-Funktion $\operatorname{si}\bigl(\pi\frac{t-nT}{T}\bigr)$ ist an ihrem eigenen Abtastpunkt $nT$ gleich 1 und an allen anderen Abtastpunkten null. An einem Abtastpunkt trägt deshalb nur der Summand dieses Punktes bei, mit seinem Gewicht $s(nT)$.
+--- falsch
+Weil die si-Funktionen so schmal sind, dass sie sich nicht überlappen. Jede wirkt nur in einem Intervall der Breite $T$ um ihren eigenen Abtastpunkt, und dort ist sie gleich 1.
+--- falsch
+Weil man die Gewichte nachträglich so anpasst, dass die Summe stimmt. Die Gewichte sind nicht die Abtastwerte selbst, sondern werden aus einem Gleichungssystem für alle Abtastpunkte bestimmt, das man vor der Interpolation lösen muss.
+--- falsch
+Sie trifft sie nur näherungsweise, weil sich die Ausläufer der si-Funktionen an jedem Abtastpunkt aufsummieren. Erst bei unendlich hoher Abtastrate verschwindet dieser Fehler ganz.
+:::
+:::karte begriff Alias
+Was ist der Alias einer Frequenz, die beim Abtasten über der halben Abtastrate $f_\mathrm A/2$ liegt?
+---
+Die falsche, tiefere Frequenz, als die sie nach der Rückgewinnung erscheint. Sie hat dieselben Abtastwerte wie die ursprüngliche Frequenz, etwa 300 Hz statt 700 Hz bei $f_\mathrm A=1$ kHz.
+--- falsch
+Eine zusätzliche Frequenz, die neben der ursprünglichen erscheint. Nach der Rückgewinnung sind beide vorhanden, etwa 700 Hz und zusätzlich 300 Hz bei $f_\mathrm A=1$ kHz.
+--- falsch
+Die höhere Frequenz, als die sie nach der Rückgewinnung erscheint. Sie liegt um die Abtastrate darüber, etwa 1700 Hz statt 700 Hz bei $f_\mathrm A=1$ kHz.
+--- falsch
+Die ursprüngliche Frequenz selbst, die nach der Rückgewinnung nur gedämpft erscheint. Der Tiefpass schwächt sie ab, weil sie über der halben Abtastrate $f_\mathrm A/2$ liegt, lässt ihre Frequenz aber unverändert.
+:::
+:::karte zusammenhang Alias bei 700 Hz
+Warum lassen sich bei $f_\mathrm A=1$ kHz ein Kosinus mit 700 Hz und einer mit 300 Hz an ihren Abtastwerten nicht unterscheiden?
+---
+Mit der Frequenz bezogen auf die Abtastrate gilt $\cos(2\pi\cdot0{,}7n)=\cos(2\pi n-2\pi\cdot0{,}3n)=\cos(2\pi\cdot0{,}3n)$, weil $2\pi n$ ganze Umdrehungen sind und der Kosinus gerade ist. Die Abtastwerte sind exakt gleich.
+--- falsch
+Weil 700 Hz und 300 Hz zusammen die Abtastrate ergeben und sich ihre Abtastwerte deshalb gegenseitig auslöschen. Übrig bleibt eine Folge aus Nullen, die zu beiden Frequenzen passt.
+--- falsch
+Sie lassen sich unterscheiden, nur nicht mit einem Tiefpass. Die Abtastwerte des 700-Hz-Kosinus haben das umgekehrte Vorzeichen, und erst nach einer Gleichrichtung sind sie gleich.
+--- falsch
+Weil sich ihre Abtastwerte nur in der Phase unterscheiden: $\cos(2\pi\cdot0{,}7n)=\sin(2\pi\cdot0{,}3n)$. Ein Rechner wertet jedoch nur die Beträge aus, und die stimmen bei beiden überein.
+:::
+:::karte begriff Anti-Aliasing-Filter
+Was ist ein Anti-Aliasing-Filter, und warum sitzt es vor dem Abtaster und nicht dahinter?
+---
+Ein Tiefpass vor dem Abtaster, der Frequenzen über $f_\mathrm A/2$ entfernt. Er muss vorher wirken, weil ein Alias nach dem Abtasten dieselben Abtastwerte hat wie ein echtes Signal und sich nicht mehr abtrennen lässt.
+--- falsch
+Ein Tiefpass hinter dem Abtaster, der die Kopien im Spektrum entfernt. Er könnte auch davor sitzen, hinter dem Abtaster arbeitet er aber genauer, weil die Frequenzen dort schon getrennt vorliegen.
+--- falsch
+Ein Hochpass vor dem Abtaster, der tiefe Frequenzen entfernt. Er muss vorher wirken, weil tiefe Frequenzen sonst in die Kopien bei den Vielfachen der Abtastrate überlaufen würden und dort nicht mehr zu trennen wären.
+--- falsch
+Ein Tiefpass vor dem Abtaster, der die Abtastrate erhöht, bis kein Alias mehr entsteht. Er muss vorher wirken, weil der Abtaster seinen Takt aus der Grenzfrequenz des Filters ableitet.
+:::
+:::karte zusammenhang Abtasten genau an der Grenze
+Warum genügt $f_\mathrm A=2f_\mathrm g$ nicht, wenn das Signal einen Sinus mit genau der Frequenz $f_\mathrm g$ enthält?
+---
+Ein Sinus mit $f_\mathrm g=f_\mathrm A/2$ kann bei ungünstiger Phase immer im Nulldurchgang abgetastet werden, dann sind alle Abtastwerte null. Das Theorem verlangt deshalb, dass das Spektrum bei $f_\mathrm g$ keine Linie hat, oder $f_\mathrm A>2f_\mathrm g$.
+--- falsch
+Weil der Sinus dann zwischen zwei Abtastpunkten genau eine ganze Periode durchläuft. Alle Abtastwerte sind deshalb gleich, und der Sinus erscheint nach der Rückgewinnung als Gleichanteil mit dem Wert, den er im ersten Abtastpunkt hatte.
+--- falsch
+Es genügt durchaus; das Problem tritt nur bei realen Abtastern auf, deren Schließzeit $T_0$ den Sinus verschmiert. Ein idealer Abtaster erfasst auch den Sinus an der Grenze stets fehlerfrei.
+--- falsch
+Weil ein Sinus mit $f_\mathrm g=f_\mathrm A/2$ bei der si-Interpolation doppelt gezählt wird. Die Kopien bei $\pm f_\mathrm g$ fallen übereinander, und die Amplitude erscheint verdoppelt, unabhängig von der Phase.
+:::
+:::karte zusammenhang Schneller abtasten als nötig
+Warum tastet man in der Praxis schneller ab als mit der Nyquist-Rate, etwa Telefonsprache, die auf 3,4 kHz begrenzt ist, mit 8 kHz?
+---
+Reale Tiefpässe fallen nicht senkrecht ab und brauchen Platz für ihren Übergangsbereich. Bei 8 kHz liegt $f_\mathrm A/2$ bei 4 kHz, und zwischen 3,4 und 4 kHz kann das Anti-Aliasing-Filter von Durchlass auf Sperrung übergehen.
+--- falsch
+Weil die Nyquist-Rate nur für periodische Signale gilt. Sprache ist nicht periodisch, deshalb verlangt das Abtasttheorem für sie eine um etwa ein Fünftel höhere Abtastrate, und 8 kHz erfüllen genau diese Forderung.
+--- falsch
+Weil der Rechner sonst nicht schnell genug rechnet. Bei der Nyquist-Rate muss jeder Wert sofort verarbeitet werden, mit höherer Rate bleibt ihm mehr Zeit für jeden einzelnen Wert.
+--- falsch
+Weil schnelleres Abtasten die Kopien im Spektrum schmaler macht. Bei 8 kHz reicht jede Kopie nur noch bis 3,4 kHz, und der ideale Tiefpass trennt sie dann ohne jeden Übergangsbereich.
+:::
+::::

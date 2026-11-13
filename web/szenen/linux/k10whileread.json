@@ -1,0 +1,1726 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 55,
+  "nextAnimId": 82,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Text",
+    "props": {
+     "text": "while read -r zeile; do echo \"- $zeile\"; done < einkauf.txt",
+     "position": [
+      -3.3,
+      2.65,
+      0
+     ],
+     "font_size": 17,
+     "align": "left",
+     "color": "#333333",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Terminal",
+    "props": {
+     "text": "Milch\nBrot\nÄpfel\nKaffee",
+     "cols": 16,
+     "rows": 5,
+     "font_size": 18.0,
+     "line_height": 1.2,
+     "position": [
+      -3.3,
+      2.4,
+      0
+     ],
+     "frame": "datei",
+     "theme": "hell",
+     "title": "einkauf.txt",
+     "buttons": "x",
+     "cursor": false,
+     "prompt_colors": false,
+     "shadow": true,
+     "state": ""
+    }
+   },
+   {
+    "id": "o3",
+    "type": "Text",
+    "props": {
+     "text": "\\n",
+     "position": [
+      -2.79,
+      1.9933,
+      0
+     ],
+     "font_size": 17,
+     "align": "left",
+     "color": "#eb6834",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Text",
+    "props": {
+     "text": "\\n",
+     "position": [
+      -2.87,
+      1.8333,
+      0
+     ],
+     "font_size": 17,
+     "align": "left",
+     "color": "#eb6834",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o5",
+    "type": "Text",
+    "props": {
+     "text": "\\n",
+     "position": [
+      -2.79,
+      1.6733,
+      0
+     ],
+     "font_size": 17,
+     "align": "left",
+     "color": "#eb6834",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Text",
+    "props": {
+     "text": "\\n",
+     "position": [
+      -2.71,
+      1.5133,
+      0
+     ],
+     "font_size": 17,
+     "align": "left",
+     "color": "#eb6834",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o7",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -1.81,
+      1.8,
+      0
+     ],
+     "end": [
+      -0.52,
+      1.8,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.09,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "stroke_width": 4.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Text",
+    "props": {
+     "text": "< einkauf.txt",
+     "position": [
+      -1.18,
+      2.0,
+      0
+     ],
+     "font_size": 17,
+     "align": "center",
+     "color": "#2a78d6",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o9",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.65,
+      1.8,
+      0
+     ],
+     "width": 2.3,
+     "height": 1.0,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#e3eefb",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o10",
+    "type": "Text",
+    "props": {
+     "text": "while read -r zeile",
+     "position": [
+      -0.42,
+      2.08,
+      0
+     ],
+     "font_size": 17,
+     "align": "left",
+     "color": "#2a78d6",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o11",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.25,
+      1.6,
+      0
+     ],
+     "width": 1.36,
+     "height": 0.4,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#efefef",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o12",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.09,
+      1.6,
+      0
+     ],
+     "width": 0.54,
+     "height": 0.28,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o13",
+    "type": "Text",
+    "props": {
+     "text": "zeile",
+     "position": [
+      -0.09,
+      1.6,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o14",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.55,
+      1.6,
+      0
+     ],
+     "width": 0.62,
+     "height": 0.28,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#b5b5b5",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": "4,4"
+    }
+   },
+   {
+    "id": "o15",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.55,
+      1.6,
+      0
+     ],
+     "width": 0.62,
+     "height": 0.28,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#fff3c4",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o16",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.45,
+      2.08,
+      0
+     ],
+     "width": 0.34,
+     "height": 0.3,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#00823c",
+     "fill_color": "#e6f3ea",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o17",
+    "type": "Text",
+    "props": {
+     "text": "0",
+     "position": [
+      1.45,
+      2.08,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#00823c",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o18",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.45,
+      2.08,
+      0
+     ],
+     "width": 0.34,
+     "height": 0.3,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#c82828",
+     "fill_color": "#f9e1e1",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o19",
+    "type": "Text",
+    "props": {
+     "text": "1",
+     "position": [
+      1.45,
+      2.08,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#c82828",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o20",
+    "type": "Text",
+    "props": {
+     "text": "Milch",
+     "position": [
+      -3.22,
+      1.9933,
+      0
+     ],
+     "font_size": 18.0,
+     "align": "left",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o21",
+    "type": "Text",
+    "props": {
+     "text": "Brot",
+     "position": [
+      -3.22,
+      1.8333,
+      0
+     ],
+     "font_size": 18.0,
+     "align": "left",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o22",
+    "type": "Text",
+    "props": {
+     "text": "Äpfel",
+     "position": [
+      -3.22,
+      1.6733,
+      0
+     ],
+     "font_size": 18.0,
+     "align": "left",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o23",
+    "type": "Text",
+    "props": {
+     "text": "Kaffee",
+     "position": [
+      -3.22,
+      1.5133,
+      0
+     ],
+     "font_size": 18.0,
+     "align": "left",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o24",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.58,
+      1.9933,
+      0
+     ],
+     "width": 1.28,
+     "height": 0.16,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 0.3,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o25",
+    "type": "Text",
+    "props": {
+     "text": "@lz",
+     "position": [
+      -3.3,
+      1.0433,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#eb6834"
+    }
+   },
+   {
+    "id": "o26",
+    "type": "Text",
+    "props": {
+     "text": "@ausg",
+     "position": [
+      2.05,
+      2.3,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o27",
+    "type": "Text",
+    "props": {
+     "text": "- Milch",
+     "position": [
+      2.05,
+      2.02,
+      0
+     ],
+     "font_size": 17,
+     "align": "left",
+     "color": "#00823c",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o28",
+    "type": "Text",
+    "props": {
+     "text": "- Brot",
+     "position": [
+      2.05,
+      1.76,
+      0
+     ],
+     "font_size": 17,
+     "align": "left",
+     "color": "#00823c",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o29",
+    "type": "Text",
+    "props": {
+     "text": "- Äpfel",
+     "position": [
+      2.05,
+      1.5,
+      0
+     ],
+     "font_size": 17,
+     "align": "left",
+     "color": "#00823c",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o30",
+    "type": "Text",
+    "props": {
+     "text": "- Kaffee",
+     "position": [
+      2.05,
+      1.24,
+      0
+     ],
+     "font_size": 17,
+     "align": "left",
+     "color": "#00823c",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o31",
+    "type": "Text",
+    "props": {
+     "text": "@ende",
+     "position": [
+      0.65,
+      1.0,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o32",
+    "type": "Line",
+    "props": {
+     "start": [
+      -3.3,
+      0.55,
+      0
+     ],
+     "end": [
+      3.3,
+      0.55,
+      0
+     ],
+     "color": "#b5b5b5",
+     "stroke_width": 2,
+     "dash": "6,5"
+    }
+   },
+   {
+    "id": "o33",
+    "type": "Text",
+    "props": {
+     "text": "while read -r zeile; do echo \"- $zeile\"; done < ohne_ende.txt",
+     "position": [
+      -3.3,
+      0.3,
+      0
+     ],
+     "font_size": 17,
+     "align": "left",
+     "color": "#333333",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o34",
+    "type": "Terminal",
+    "props": {
+     "text": "Milch\nBrot",
+     "cols": 16,
+     "rows": 2,
+     "font_size": 18.0,
+     "line_height": 1.2,
+     "position": [
+      -3.3,
+      0.05,
+      0
+     ],
+     "frame": "datei",
+     "theme": "hell",
+     "title": "ohne_ende.txt",
+     "buttons": "x",
+     "cursor": false,
+     "prompt_colors": false,
+     "shadow": true,
+     "state": ""
+    }
+   },
+   {
+    "id": "o35",
+    "type": "Text",
+    "props": {
+     "text": "\\n",
+     "position": [
+      -2.79,
+      -0.3567,
+      0
+     ],
+     "font_size": 17,
+     "align": "left",
+     "color": "#eb6834",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o36",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -1.81,
+      -0.3,
+      0
+     ],
+     "end": [
+      -0.52,
+      -0.3,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "none",
+     "thick": 0,
+     "head_size": 0.09,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "stroke_width": 4.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o37",
+    "type": "Text",
+    "props": {
+     "text": "< ohne_ende.txt",
+     "position": [
+      -1.18,
+      -0.1,
+      0
+     ],
+     "font_size": 17,
+     "align": "center",
+     "color": "#2a78d6",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o38",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.65,
+      -0.3,
+      0
+     ],
+     "width": 2.3,
+     "height": 0.8,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#2a78d6",
+     "fill_color": "#e3eefb",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o39",
+    "type": "Text",
+    "props": {
+     "text": "while read -r zeile",
+     "position": [
+      -0.42,
+      -0.12,
+      0
+     ],
+     "font_size": 17,
+     "align": "left",
+     "color": "#2a78d6",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o40",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.25,
+      -0.4,
+      0
+     ],
+     "width": 1.36,
+     "height": 0.4,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#efefef",
+     "fill_opacity": 1.0,
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o41",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -0.09,
+      -0.4,
+      0
+     ],
+     "width": 0.54,
+     "height": 0.28,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o42",
+    "type": "Text",
+    "props": {
+     "text": "zeile",
+     "position": [
+      -0.09,
+      -0.4,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o43",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.55,
+      -0.4,
+      0
+     ],
+     "width": 0.62,
+     "height": 0.28,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#b5b5b5",
+     "fill_color": "#ffffff",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": "4,4"
+    }
+   },
+   {
+    "id": "o44",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      0.55,
+      -0.4,
+      0
+     ],
+     "width": 0.62,
+     "height": 0.28,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#7f7f7f",
+     "fill_color": "#fff3c4",
+     "fill_opacity": 1.0,
+     "stroke_width": 1.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o45",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.45,
+      -0.12,
+      0
+     ],
+     "width": 0.34,
+     "height": 0.3,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#00823c",
+     "fill_color": "#e6f3ea",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o46",
+    "type": "Text",
+    "props": {
+     "text": "0",
+     "position": [
+      1.45,
+      -0.12,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#00823c",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o47",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      1.45,
+      -0.12,
+      0
+     ],
+     "width": 0.34,
+     "height": 0.3,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#c82828",
+     "fill_color": "#f9e1e1",
+     "fill_opacity": 1.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o48",
+    "type": "Text",
+    "props": {
+     "text": "1",
+     "position": [
+      1.45,
+      -0.12,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#c82828",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o49",
+    "type": "Text",
+    "props": {
+     "text": "Milch",
+     "position": [
+      -3.22,
+      -0.3567,
+      0
+     ],
+     "font_size": 18.0,
+     "align": "left",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o50",
+    "type": "Text",
+    "props": {
+     "text": "Brot",
+     "position": [
+      -3.22,
+      -0.5167,
+      0
+     ],
+     "font_size": 18.0,
+     "align": "left",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o51",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -2.58,
+      -0.3567,
+      0
+     ],
+     "width": 1.28,
+     "height": 0.16,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 0.3,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o52",
+    "type": "Text",
+    "props": {
+     "text": "@kein",
+     "position": [
+      -3.3,
+      -0.8267,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o53",
+    "type": "Text",
+    "props": {
+     "text": "- Milch",
+     "position": [
+      2.05,
+      -0.1,
+      0
+     ],
+     "font_size": 17,
+     "align": "left",
+     "color": "#00823c",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o54",
+    "type": "Text",
+    "props": {
+     "text": "@trotz",
+     "position": [
+      0.65,
+      -1.12,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#c82828"
+    }
+   }
+  ],
+  "animations": [
+   {
+    "id": "a1",
+    "type": "FadeIn",
+    "target": "o1",
+    "run_time": 0.5,
+    "step": 0
+   },
+   {
+    "id": "a2",
+    "type": "FadeIn",
+    "target": "o2",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a3",
+    "type": "FadeIn",
+    "target": "o3",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a4",
+    "type": "FadeIn",
+    "target": "o4",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a5",
+    "type": "FadeIn",
+    "target": "o5",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a6",
+    "type": "FadeIn",
+    "target": "o6",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a7",
+    "type": "Create",
+    "target": "o7",
+    "run_time": 0.5,
+    "step": 2
+   },
+   {
+    "id": "a8",
+    "type": "FadeIn",
+    "target": "o8",
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a9",
+    "type": "FadeIn",
+    "target": "o9",
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a10",
+    "type": "FadeIn",
+    "target": "o10",
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a11",
+    "type": "FadeIn",
+    "target": "o11",
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a12",
+    "type": "FadeIn",
+    "target": "o12",
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a13",
+    "type": "FadeIn",
+    "target": "o13",
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a14",
+    "type": "FadeIn",
+    "target": "o14",
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a15",
+    "type": "FadeIn",
+    "target": "o26",
+    "run_time": 0.6,
+    "step": 2
+   },
+   {
+    "id": "a16",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.4,
+    "step": 3
+   },
+   {
+    "id": "a17",
+    "type": "FadeIn",
+    "target": "o24",
+    "run_time": 0.4,
+    "step": 4
+   },
+   {
+    "id": "a18",
+    "type": "FadeIn",
+    "target": "o25",
+    "run_time": 0.4,
+    "step": 4
+   },
+   {
+    "id": "a19",
+    "type": "FadeIn",
+    "target": "o20",
+    "run_time": 0.4,
+    "step": 4
+   },
+   {
+    "id": "a20",
+    "type": "Shift",
+    "target": "o20",
+    "run_time": 0.6,
+    "step": 5,
+    "vector": [
+     3.57,
+     -0.3933,
+     0
+    ]
+   },
+   {
+    "id": "a21",
+    "type": "FadeIn",
+    "target": "o27",
+    "run_time": 0.6,
+    "step": 5
+   },
+   {
+    "id": "a22",
+    "type": "FadeIn",
+    "target": "o15",
+    "run_time": 0.6,
+    "step": 5
+   },
+   {
+    "id": "a23",
+    "type": "FadeIn",
+    "target": "o16",
+    "run_time": 0.6,
+    "step": 5
+   },
+   {
+    "id": "a24",
+    "type": "FadeIn",
+    "target": "o17",
+    "run_time": 0.6,
+    "step": 5
+   },
+   {
+    "id": "a25",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.2,
+    "step": 6
+   },
+   {
+    "id": "a26",
+    "type": "Shift",
+    "target": "o24",
+    "run_time": 0.4,
+    "step": 7,
+    "vector": [
+     0,
+     -0.16,
+     0
+    ]
+   },
+   {
+    "id": "a27",
+    "type": "FadeIn",
+    "target": "o21",
+    "run_time": 0.4,
+    "step": 7
+   },
+   {
+    "id": "a28",
+    "type": "Shift",
+    "target": "o21",
+    "run_time": 0.6,
+    "step": 8,
+    "vector": [
+     3.61,
+     -0.2333,
+     0
+    ]
+   },
+   {
+    "id": "a29",
+    "type": "FadeIn",
+    "target": "o28",
+    "run_time": 0.6,
+    "step": 8
+   },
+   {
+    "id": "a30",
+    "type": "FadeOut",
+    "target": "o20",
+    "run_time": 0.4,
+    "step": 8
+   },
+   {
+    "id": "a31",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.2,
+    "step": 9
+   },
+   {
+    "id": "a32",
+    "type": "Shift",
+    "target": "o24",
+    "run_time": 0.4,
+    "step": 10,
+    "vector": [
+     0,
+     -0.16,
+     0
+    ]
+   },
+   {
+    "id": "a33",
+    "type": "FadeIn",
+    "target": "o22",
+    "run_time": 0.4,
+    "step": 10
+   },
+   {
+    "id": "a34",
+    "type": "Shift",
+    "target": "o22",
+    "run_time": 0.6,
+    "step": 11,
+    "vector": [
+     3.57,
+     -0.0733,
+     0
+    ]
+   },
+   {
+    "id": "a35",
+    "type": "FadeIn",
+    "target": "o29",
+    "run_time": 0.6,
+    "step": 11
+   },
+   {
+    "id": "a36",
+    "type": "FadeOut",
+    "target": "o21",
+    "run_time": 0.4,
+    "step": 11
+   },
+   {
+    "id": "a37",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.2,
+    "step": 12
+   },
+   {
+    "id": "a38",
+    "type": "Shift",
+    "target": "o24",
+    "run_time": 0.4,
+    "step": 13,
+    "vector": [
+     0,
+     -0.16,
+     0
+    ]
+   },
+   {
+    "id": "a39",
+    "type": "FadeIn",
+    "target": "o23",
+    "run_time": 0.4,
+    "step": 13
+   },
+   {
+    "id": "a40",
+    "type": "Shift",
+    "target": "o23",
+    "run_time": 0.6,
+    "step": 14,
+    "vector": [
+     3.53,
+     0.0867,
+     0
+    ]
+   },
+   {
+    "id": "a41",
+    "type": "FadeIn",
+    "target": "o30",
+    "run_time": 0.6,
+    "step": 14
+   },
+   {
+    "id": "a42",
+    "type": "FadeOut",
+    "target": "o22",
+    "run_time": 0.4,
+    "step": 14
+   },
+   {
+    "id": "a43",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.2,
+    "step": 15
+   },
+   {
+    "id": "a44",
+    "type": "Shift",
+    "target": "o24",
+    "run_time": 0.4,
+    "step": 16,
+    "vector": [
+     0,
+     -0.16,
+     0
+    ]
+   },
+   {
+    "id": "a45",
+    "type": "FadeOut",
+    "target": "o23",
+    "run_time": 0.5,
+    "step": 17
+   },
+   {
+    "id": "a46",
+    "type": "FadeOut",
+    "target": "o15",
+    "run_time": 0.5,
+    "step": 17
+   },
+   {
+    "id": "a47",
+    "type": "FadeOut",
+    "target": "o16",
+    "run_time": 0.5,
+    "step": 17
+   },
+   {
+    "id": "a48",
+    "type": "FadeOut",
+    "target": "o17",
+    "run_time": 0.5,
+    "step": 17
+   },
+   {
+    "id": "a49",
+    "type": "FadeIn",
+    "target": "o18",
+    "run_time": 0.5,
+    "step": 17
+   },
+   {
+    "id": "a50",
+    "type": "FadeIn",
+    "target": "o19",
+    "run_time": 0.5,
+    "step": 17
+   },
+   {
+    "id": "a51",
+    "type": "FadeIn",
+    "target": "o31",
+    "run_time": 0.5,
+    "step": 17
+   },
+   {
+    "id": "a52",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.7,
+    "step": 18
+   },
+   {
+    "id": "a53",
+    "type": "FadeIn",
+    "target": "o32",
+    "run_time": 0.6,
+    "step": 19
+   },
+   {
+    "id": "a54",
+    "type": "FadeIn",
+    "target": "o33",
+    "run_time": 0.6,
+    "step": 19
+   },
+   {
+    "id": "a55",
+    "type": "FadeIn",
+    "target": "o34",
+    "run_time": 0.6,
+    "step": 19
+   },
+   {
+    "id": "a56",
+    "type": "FadeIn",
+    "target": "o35",
+    "run_time": 0.6,
+    "step": 19
+   },
+   {
+    "id": "a57",
+    "type": "FadeIn",
+    "target": "o52",
+    "run_time": 0.6,
+    "step": 19
+   },
+   {
+    "id": "a58",
+    "type": "Create",
+    "target": "o36",
+    "run_time": 0.5,
+    "step": 20
+   },
+   {
+    "id": "a59",
+    "type": "FadeIn",
+    "target": "o37",
+    "run_time": 0.6,
+    "step": 20
+   },
+   {
+    "id": "a60",
+    "type": "FadeIn",
+    "target": "o38",
+    "run_time": 0.6,
+    "step": 20
+   },
+   {
+    "id": "a61",
+    "type": "FadeIn",
+    "target": "o39",
+    "run_time": 0.6,
+    "step": 20
+   },
+   {
+    "id": "a62",
+    "type": "FadeIn",
+    "target": "o40",
+    "run_time": 0.6,
+    "step": 20
+   },
+   {
+    "id": "a63",
+    "type": "FadeIn",
+    "target": "o41",
+    "run_time": 0.6,
+    "step": 20
+   },
+   {
+    "id": "a64",
+    "type": "FadeIn",
+    "target": "o42",
+    "run_time": 0.6,
+    "step": 20
+   },
+   {
+    "id": "a65",
+    "type": "FadeIn",
+    "target": "o43",
+    "run_time": 0.6,
+    "step": 20
+   },
+   {
+    "id": "a66",
+    "type": "FadeIn",
+    "target": "o51",
+    "run_time": 0.4,
+    "step": 21
+   },
+   {
+    "id": "a67",
+    "type": "FadeIn",
+    "target": "o49",
+    "run_time": 0.4,
+    "step": 21
+   },
+   {
+    "id": "a68",
+    "type": "Shift",
+    "target": "o49",
+    "run_time": 0.6,
+    "step": 22,
+    "vector": [
+     3.57,
+     -0.0433,
+     0
+    ]
+   },
+   {
+    "id": "a69",
+    "type": "FadeIn",
+    "target": "o44",
+    "run_time": 0.6,
+    "step": 22
+   },
+   {
+    "id": "a70",
+    "type": "FadeIn",
+    "target": "o45",
+    "run_time": 0.6,
+    "step": 22
+   },
+   {
+    "id": "a71",
+    "type": "FadeIn",
+    "target": "o46",
+    "run_time": 0.6,
+    "step": 22
+   },
+   {
+    "id": "a72",
+    "type": "FadeIn",
+    "target": "o53",
+    "run_time": 0.6,
+    "step": 22
+   },
+   {
+    "id": "a73",
+    "type": "Shift",
+    "target": "o51",
+    "run_time": 0.4,
+    "step": 23,
+    "vector": [
+     0,
+     -0.16,
+     0
+    ]
+   },
+   {
+    "id": "a74",
+    "type": "FadeIn",
+    "target": "o50",
+    "run_time": 0.4,
+    "step": 23
+   },
+   {
+    "id": "a75",
+    "type": "Shift",
+    "target": "o50",
+    "run_time": 0.6,
+    "step": 24,
+    "vector": [
+     3.61,
+     0.1167,
+     0
+    ]
+   },
+   {
+    "id": "a76",
+    "type": "FadeOut",
+    "target": "o49",
+    "run_time": 0.4,
+    "step": 24
+   },
+   {
+    "id": "a77",
+    "type": "FadeOut",
+    "target": "o45",
+    "run_time": 0.4,
+    "step": 24
+   },
+   {
+    "id": "a78",
+    "type": "FadeOut",
+    "target": "o46",
+    "run_time": 0.4,
+    "step": 24
+   },
+   {
+    "id": "a79",
+    "type": "FadeIn",
+    "target": "o47",
+    "run_time": 0.6,
+    "step": 24
+   },
+   {
+    "id": "a80",
+    "type": "FadeIn",
+    "target": "o48",
+    "run_time": 0.6,
+    "step": 24
+   },
+   {
+    "id": "a81",
+    "type": "FadeIn",
+    "target": "o54",
+    "run_time": 0.6,
+    "step": 25
+   }
+  ],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "lz": {
+    "de": "Lesezeichen",
+    "en": "bookmark",
+    "es": "marcador",
+    "zh": "书签",
+    "fr": "marque-page",
+    "tr": "yer imi"
+   },
+   "ausg": {
+    "de": "Ausgabe",
+    "en": "output",
+    "es": "salida",
+    "zh": "输出",
+    "fr": "sortie",
+    "tr": "çıktı"
+   },
+   "ende": {
+    "de": "nichts mehr da: read meldet 1,\ndie Schleife endet",
+    "en": "nothing left: read reports 1,\nthe loop ends",
+    "es": "no queda nada: read devuelve 1,\nel bucle termina",
+    "zh": "没有内容了：read 返回 1，\n循环结束",
+    "fr": "plus rien : read renvoie 1,\nla boucle se termine",
+    "tr": "bir şey kalmadı: read 1 döndürür,\ndöngü biter"
+   },
+   "kein": {
+    "de": "Brot: kein Zeilenende",
+    "en": "Brot: no line end",
+    "es": "Brot: sin fin de línea",
+    "zh": "Brot：没有行尾",
+    "fr": "Brot : pas de fin de ligne",
+    "tr": "Brot: satır sonu yok"
+   },
+   "trotz": {
+    "de": "Brot steht in der Variablen,\naber read meldet 1:\ndie Schleife gibt Brot nicht mehr aus",
+    "en": "Brot is in the variable,\nbut read reports 1:\nthe loop no longer prints Brot",
+    "es": "Brot está en la variable,\npero read devuelve 1:\nel bucle ya no imprime Brot",
+    "zh": "Brot 已在变量中，\n但 read 返回 1：\n循环不再输出 Brot",
+    "fr": "Brot est dans la variable,\nmais read renvoie 1 :\nla boucle n'affiche plus Brot",
+    "tr": "Brot değişkende,\nama read 1 döndürür:\ndöngü Brot'u artık yazdırmaz"
+   }
+  },
+  "drawOrder": "creation"
+ }
+}

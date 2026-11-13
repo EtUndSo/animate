@@ -1,0 +1,480 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 14,
+  "nextAnimId": 28,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Terminal",
+    "props": {
+     "text": "echo \"Benutzer: $USER\"\necho \"Verzeichnis: $PWD\"\necho \"Inhalt:\"\nls",
+     "cols": 26,
+     "rows": 0,
+     "font_size": 18.0,
+     "line_height": 1.2,
+     "position": [
+      -3.0,
+      2.95,
+      0
+     ],
+     "frame": "datei",
+     "theme": "hell",
+     "title": "ueberblick.sh",
+     "buttons": "x",
+     "cursor": false,
+     "prompt_colors": false,
+     "shadow": true,
+     "state": ""
+    }
+   },
+   {
+    "id": "o2",
+    "type": "Text",
+    "props": {
+     "text": "1",
+     "position": [
+      -3.17,
+      2.5433,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o3",
+    "type": "Text",
+    "props": {
+     "text": "2",
+     "position": [
+      -3.17,
+      2.3833,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Text",
+    "props": {
+     "text": "3",
+     "position": [
+      -3.17,
+      2.2233,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o5",
+    "type": "Text",
+    "props": {
+     "text": "4",
+     "position": [
+      -3.17,
+      2.0633,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Text",
+    "props": {
+     "text": "@liest",
+     "position": [
+      -3.0,
+      3.15,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#eb6834"
+    }
+   },
+   {
+    "id": "o7",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.88,
+      2.5433,
+      0
+     ],
+     "width": 2.08,
+     "height": 0.16,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 0.3,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Terminal",
+    "props": {
+     "text": "student@labor:~/linuxk10$ \\e|\\e>bash ueberblick.sh\n\\e|Benutzer: student\n\\e|Verzeichnis: /home/student/linuxk10\n\\e|Inhalt:\n\\e| einkauf.txt  'mein einkauf.txt'   ueberblick.sh\n\\e|student@labor:~/linuxk10$ ",
+     "cols": 72,
+     "rows": 6,
+     "font_size": 18.0,
+     "line_height": 1.2,
+     "position": [
+      -3.0,
+      1.6233,
+      0
+     ],
+     "frame": "fenster",
+     "theme": "dunkel",
+     "title": "student@labor: ~/linuxk10",
+     "buttons": "drei",
+     "cursor": true,
+     "prompt_colors": true,
+     "shadow": true,
+     "state": "term1"
+    }
+   },
+   {
+    "id": "o9",
+    "type": "Text",
+    "props": {
+     "text": "1",
+     "position": [
+      -3.17,
+      1.0566,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#eb6834"
+    }
+   },
+   {
+    "id": "o10",
+    "type": "Text",
+    "props": {
+     "text": "2",
+     "position": [
+      -3.17,
+      0.8966,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#eb6834"
+    }
+   },
+   {
+    "id": "o11",
+    "type": "Text",
+    "props": {
+     "text": "3",
+     "position": [
+      -3.17,
+      0.7366,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#eb6834"
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Text",
+    "props": {
+     "text": "4",
+     "position": [
+      -3.17,
+      0.5766,
+      0
+     ],
+     "font_size": 18,
+     "align": "center",
+     "color": "#eb6834"
+    }
+   },
+   {
+    "id": "o13",
+    "type": "Parameter",
+    "props": {
+     "name": "term1",
+     "value": 0.0,
+     "min": 0.0,
+     "max": 6.0,
+     "step": 0.01
+    }
+   }
+  ],
+  "animations": [
+   {
+    "id": "a1",
+    "type": "FadeIn",
+    "target": "o1",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a2",
+    "type": "FadeIn",
+    "target": "o2",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a3",
+    "type": "FadeIn",
+    "target": "o3",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a4",
+    "type": "FadeIn",
+    "target": "o4",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a5",
+    "type": "FadeIn",
+    "target": "o5",
+    "run_time": 0.7,
+    "step": 0
+   },
+   {
+    "id": "a6",
+    "type": "FadeIn",
+    "target": "o6",
+    "run_time": 0.5,
+    "step": 1
+   },
+   {
+    "id": "a7",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.4,
+    "step": 2
+   },
+   {
+    "id": "a8",
+    "type": "FadeIn",
+    "target": "o8",
+    "run_time": 0.6,
+    "step": 3
+   },
+   {
+    "id": "a9",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.3,
+    "step": 4
+   },
+   {
+    "id": "a10",
+    "type": "ChangeValue",
+    "target": "o13",
+    "run_time": 1.357,
+    "step": 5,
+    "value": 1.0,
+    "rate": "linear"
+   },
+   {
+    "id": "a11",
+    "type": "FadeIn",
+    "target": "o7",
+    "run_time": 0.5,
+    "step": 6
+   },
+   {
+    "id": "a12",
+    "type": "FadeIn",
+    "target": "o9",
+    "run_time": 0.5,
+    "step": 6
+   },
+   {
+    "id": "a13",
+    "type": "ChangeValue",
+    "target": "o13",
+    "run_time": 0.5,
+    "step": 6,
+    "value": 2.0,
+    "rate": "linear"
+   },
+   {
+    "id": "a14",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.4,
+    "step": 7
+   },
+   {
+    "id": "a15",
+    "type": "Shift",
+    "target": "o7",
+    "run_time": 0.5,
+    "step": 8,
+    "vector": [
+     0,
+     -0.16,
+     0
+    ]
+   },
+   {
+    "id": "a16",
+    "type": "FadeIn",
+    "target": "o10",
+    "run_time": 0.5,
+    "step": 8
+   },
+   {
+    "id": "a17",
+    "type": "ChangeValue",
+    "target": "o13",
+    "run_time": 0.5,
+    "step": 8,
+    "value": 3.0,
+    "rate": "linear"
+   },
+   {
+    "id": "a18",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.4,
+    "step": 9
+   },
+   {
+    "id": "a19",
+    "type": "Shift",
+    "target": "o7",
+    "run_time": 0.5,
+    "step": 10,
+    "vector": [
+     0,
+     -0.16,
+     0
+    ]
+   },
+   {
+    "id": "a20",
+    "type": "FadeIn",
+    "target": "o11",
+    "run_time": 0.5,
+    "step": 10
+   },
+   {
+    "id": "a21",
+    "type": "ChangeValue",
+    "target": "o13",
+    "run_time": 0.5,
+    "step": 10,
+    "value": 4.0,
+    "rate": "linear"
+   },
+   {
+    "id": "a22",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.4,
+    "step": 11
+   },
+   {
+    "id": "a23",
+    "type": "Shift",
+    "target": "o7",
+    "run_time": 0.5,
+    "step": 12,
+    "vector": [
+     0,
+     -0.16,
+     0
+    ]
+   },
+   {
+    "id": "a24",
+    "type": "FadeIn",
+    "target": "o12",
+    "run_time": 0.5,
+    "step": 12
+   },
+   {
+    "id": "a25",
+    "type": "ChangeValue",
+    "target": "o13",
+    "run_time": 0.5,
+    "step": 12,
+    "value": 5.0,
+    "rate": "linear"
+   },
+   {
+    "id": "a26",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.4,
+    "step": 13
+   },
+   {
+    "id": "a27",
+    "type": "ChangeValue",
+    "target": "o13",
+    "run_time": 0.4,
+    "step": 14,
+    "value": 6.0,
+    "rate": "linear"
+   }
+  ],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "liest": {
+    "de": "bash liest die Datei Zeile für Zeile",
+    "en": "bash reads the file line by line",
+    "es": "bash lee el archivo línea a línea",
+    "zh": "bash 逐行读取这个文件",
+    "fr": "bash lit le fichier ligne par ligne",
+    "tr": "bash dosyayı satır satır okur"
+   }
+  },
+  "drawOrder": "creation"
+ }
+}

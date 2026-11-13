@@ -88,3 +88,83 @@ $$\operatorname{si}^M(\pi f)=\mathrm{e}^{M\ln\operatorname{si}(\pi f)}\approx\ma
 
 $\operatorname{si}^M(\pi f)$ ist das Spektrum von $M$ miteinander gefalteten Rechtecken $\operatorname{rect}(t)$. Mit $\operatorname{si}(\pi f)\approx1-\frac{(\pi f)^2}{6}$ für kleine $f$; umso genauer, je größer $M$. Die Gaußkurve hat die Fläche 1 wie die Faltung der Rechtecke.
 ::::
+
+::::lernkarten
+:::karte formel Laplace als gewichtete Fourier-Transformation
+Wie hängt die Laplace-Transformierte $S_{\mathcal{L}}(\sigma+\mathrm{j}2\pi f)$ mit der Fourier-Transformation zusammen, und worauf untersucht sie ein Signal?
+---
+$S_{\mathcal{L}}(\sigma+\mathrm{j}2\pi f)=\mathcal{F}\bigl\{s(t)\mathrm{e}^{-\sigma t}\bigr\}(f)$: Sie ist die Fourier-Transformierte des vorher mit $\mathrm{e}^{-\sigma t}$ gewichteten Signals. Damit untersucht sie ein Signal auf Frequenzanteile und auf exponentielles Wachsen oder Abklingen.
+--- falsch
+$S_{\mathcal{L}}(\sigma+\mathrm{j}2\pi f)=\mathcal{F}\bigl\{s(t)\bigr\}(f)\,\mathrm{e}^{-\sigma}$: Sie ist die Fourier-Transformierte, nachträglich mit $\mathrm{e}^{-\sigma}$ gewichtet. Damit untersucht sie ein Signal nur auf Frequenzanteile, genau wie die Fourier-Transformation.
+--- falsch
+$S_{\mathcal{L}}(\sigma+\mathrm{j}2\pi f)=\mathcal{F}\bigl\{s(t)\mathrm{e}^{\sigma t}\bigr\}(f)$: Sie ist die Fourier-Transformierte des mit $\mathrm{e}^{\sigma t}$ verstärkten Signals. Damit untersucht sie ein Signal nur darauf, wie schnell es für große $t$ abklingt.
+--- falsch
+$S_{\mathcal{L}}(\sigma+\mathrm{j}2\pi f)=\mathcal{F}\bigl\{s(t)\bigr\}(\sigma+f)$: Sie ist die Fourier-Transformierte, an einer verschobenen Frequenz ausgewertet. Damit untersucht sie ein Signal auf Frequenzanteile oberhalb von $\sigma$.
+:::
+:::karte zusammenhang Fourier aus Laplace
+Wann darf man die Fourier-Transformierte durch Einsetzen von $p=\mathrm{j}2\pi f$ aus der Laplace-Transformierten gewinnen, und was geht beim Sprung schief?
+---
+Wenn $\sigma=0$ im Konvergenzbereich liegt; dann ist die Fourier-Transformierte die Laplace-Transformierte auf der imaginären Achse. Liegt die Achse nur auf dem Rand, wie beim Sprung $\varepsilon(t)$, liefert das Einsetzen nur $\frac{1}{\mathrm{j}2\pi f}$, und die Linie $\tfrac12\delta(f)$ fehlt.
+--- falsch
+Immer, denn die Laplace-Transformierte ist eine Funktion, die man überall auswerten darf, auch außerhalb ihres Konvergenzbereichs. Beim Sprung liefert das Einsetzen $\frac{1}{\mathrm{j}2\pi f}$, und das ist bereits sein vollständiges Spektrum ohne weiteren Anteil.
+--- falsch
+Wenn $\sigma=0$ im Konvergenzbereich liegt. Beim Sprung ist das der Fall, denn sein Konvergenzbereich schließt die imaginäre Achse ein; das Einsetzen liefert also das richtige und vollständige Spektrum $\frac{1}{\mathrm{j}2\pi f}$, ohne Linie bei $f=0$.
+--- falsch
+Nur bei kausalen Signalen, weil die Laplace-Transformation nur kausale Signale erfasst. Beim Sprung liefert das Einsetzen deshalb schon das ganze Spektrum $\tfrac12\delta(f)+\frac{1}{\mathrm{j}2\pi f}$, gerade weil er kausal ist und bei null beginnt.
+:::
+:::karte zusammenhang Existenz mit Dirac-Impulsen
+Welche Signale fasst die Fourier-Transformation mit Dirac-Impulsen im Spektrum, und welche fasst nur die Laplace-Transformation?
+---
+Es genügt, dass das Signal höchstens so schnell wächst wie eine Potenz von $t$: $\int|s(t)|\,(1+t^2)^{-n}\mathrm{d} t<\infty$ für ein $n\ge0$. Das erfüllen Konstanten, Schwingungen, der Sprung und $t^n$. Exponentiell wachsende Signale wie $\mathrm{e}^{t}\varepsilon(t)$ fasst nur die Laplace-Transformation.
+--- falsch
+Nur absolut integrierbare Signale, $\int|s(t)|\mathrm{d} t<\infty$; Dirac-Impulse im Spektrum ändern daran nichts, sie sind nur eine Schreibweise. Konstanten, Schwingungen und der Sprung lassen sich deshalb nur mit der Laplace-Transformation behandeln.
+--- falsch
+Alle Signale, auch exponentiell wachsende wie $\mathrm{e}^{t}\varepsilon(t)$: Mit Dirac-Impulsen im Spektrum lässt sich jedes noch so schnelle Wachstum darstellen. Die Laplace-Transformation ist deshalb nur eine Rechenvereinfachung für Einschaltvorgänge.
+--- falsch
+Nur Signale, die beschränkt bleiben, also Konstanten, Schwingungen und der Sprung, nicht aber $t^n$. Was über alle Grenzen wächst, ob wie eine Potenz oder exponentiell, fasst ausschließlich die Laplace-Transformation mit ihrem Faktor $\mathrm{e}^{-\sigma t}$.
+:::
+:::karte formel Gaußnäherung der Mehrfachfaltung
+Welche Form nähert die Faltung von $M$ Rechtecken $\operatorname{rect}(t)$ für großes $M$ an, und wie gewinnt man sie aus dem Spektrum?
+---
+Eine Gaußkurve: $\operatorname{si}^M(\pi f)=\mathrm{e}^{M\ln\operatorname{si}(\pi f)}\approx\mathrm{e}^{-M(\pi f)^2/6}\;\bullet\!\!-\!\!\circ\;\sqrt{\frac{6}{\pi M}}\,\mathrm{e}^{-6t^2/M}$, mit $\operatorname{si}(\pi f)\approx1-\frac{(\pi f)^2}{6}$ und $\ln(1+w)\approx w$ für kleine $f$. Für großes $M$ trägt nur der Bereich kleiner $f$ bei.
+--- falsch
+Ein breites Rechteck: $\operatorname{si}^M(\pi f)\approx\operatorname{si}(\pi Mf)\;\bullet\!\!-\!\!\circ\;\frac1M\operatorname{rect}\Bigl(\frac tM\Bigr)$. Die Faltung von Rechtecken bleibt ein Rechteck, das mit jedem weiteren Schritt nur breiter und niedriger wird.
+--- falsch
+Eine Gaußkurve: $\operatorname{si}^M(\pi f)\approx\mathrm{e}^{-M(\pi f)^2/6}\;\bullet\!\!-\!\!\circ\;\sqrt{\frac{6}{\pi M}}\,\mathrm{e}^{-6t^2/M}$, aber nur für kleine $M$. Für großes $M$ wird die Näherung schlechter, weil sich die Fehler der einzelnen Faktoren aufsummieren.
+--- falsch
+Ein Dirac-Impuls: $\operatorname{si}^M(\pi f)$ geht für $M\to\infty$ überall gegen 1, weil die si-Funktion bei $f=0$ den Wert 1 hat. Die Faltung vieler Rechtecke zieht sich deshalb auf einen einzigen Punkt zusammen.
+:::
+:::karte zusammenhang zentraler Grenzwertsatz
+Was geschieht, wenn man viele gleiche positive Impulse endlicher Fläche miteinander faltet, und welche Bedingung müssen die Impulse dafür erfüllen?
+---
+Das Ergebnis nähert sich einer Gaußkurve, ein Fall des zentralen Grenzwertsatzes. Die Impulse müssen schnell genug abklingen, genauer: Ihr zweites Moment $\int t^2s(t)\,\mathrm{d} t$ muss endlich sein.
+--- falsch
+Das Ergebnis nähert sich einer Gaußkurve, und zwar für jede Form der Impulse ohne weitere Bedingung. Es genügt, dass sie positiv sind und eine endliche Fläche haben; wie schnell sie abklingen, spielt für das Ergebnis keine Rolle.
+--- falsch
+Das Ergebnis nähert sich einem Rechteck, weil sich die Impulse beim Falten gegenseitig auffüllen und die Spitzen einebnen. Die Impulse müssen dafür eine endliche Dauer haben; nur dann wird das Rechteck mit jeder Faltung breiter.
+--- falsch
+Das Ergebnis nähert sich einer Gaußkurve, sofern die Impulse endliche Energie haben, das Integral von $s^2(t)$ also endlich ist. Ein Gegenbeispiel sind Impulse mit Sprüngen wie das Rechteck, die nie gaußförmig werden.
+:::
+:::karte zusammenhang Kein Gauß bei unendlichem zweitem Moment
+Warum wird die mehrfache Faltung von $\frac{1}{1+t^2}$ mit sich selbst nicht gaußförmig?
+---
+Weil $\frac{1}{1+t^2}$ ein unendliches zweites Moment hat und damit die Bedingung des zentralen Grenzwertsatzes verletzt. Die $M$-fache Faltung hat das Spektrum $\pi^M\mathrm{e}^{-2\pi M|f|}$ und ist wieder eine gedehnte Kurve der Form $\frac{1}{1+t^2}$.
+--- falsch
+Weil $\frac{1}{1+t^2}$ nicht überall positiv ist und der zentrale Grenzwertsatz nur für positive Impulse gilt. Die $M$-fache Faltung schwingt deshalb mit jedem Schritt stärker und nähert sich keiner festen Form an, auch nicht für großes $M$.
+--- falsch
+Sie wird doch gaußförmig, nur langsamer: Das Spektrum $\pi^M\mathrm{e}^{-2\pi M|f|}$ nähert sich für großes $M$ einer Gaußkurve, weil die Exponentialfunktion für kleine $f$ fast linear abfällt wie ein si-Spektrum.
+--- falsch
+Weil $\frac{1}{1+t^2}$ eine unendliche Fläche hat und die Faltung deshalb schon nach dem ersten Schritt nicht mehr existiert. Entsprechend ist ihr Spektrum $\pi\,\mathrm{e}^{-2\pi|f|}$ bei $f=0$ unendlich groß.
+:::
+:::karte zusammenhang Fläche der Gaußnäherung
+Warum muss die Gaußkurve $\sqrt{6/(\pi M)}\,\mathrm{e}^{-6t^2/M}$, die die Faltung von $M$ Rechtecken nähert, die Fläche 1 haben?
+---
+Die Fläche einer Faltung ist das Produkt der Flächen, hier $1^M=1$. Im Spektrum ist das der Wert bei $f=0$: $\operatorname{si}^M(0)=1$, und die Näherung $\mathrm{e}^{-M(\pi f)^2/6}$ hat dort ebenfalls den Wert 1.
+--- falsch
+Die Fläche einer Faltung ist die Summe der Flächen, hier also $M$. Die Gaußkurve hat deshalb erst nach Division durch $M$ die Fläche 1, und genau dafür steht der Vorfaktor $\sqrt{6/(\pi M)}$ vor der Exponentialfunktion.
+--- falsch
+Weil jede Gaußkurve die Fläche 1 hat, unabhängig von Höhe und Breite. Der Vorfaktor $\sqrt{6/(\pi M)}$ ist nur nötig, damit der Wert bei $t=0$ mit dem exakten Ergebnis der Faltung übereinstimmt.
+--- falsch
+Die Fläche einer Faltung ist das Produkt der Flächen, hier $1^M=1$. Im Spektrum ist das der Wert bei $f=0$, und dort ist $\operatorname{si}^M(0)=0$, weil die si-Funktion bei null eine Nullstelle hat.
+:::
+::::

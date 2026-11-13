@@ -434,3 +434,171 @@ $$t\,\varepsilon(t)\longleftrightarrow\frac{1}{p^2}$$
 
 $\operatorname{Re} p>0$.
 ::::
+
+::::lernkarten
+:::karte begriff rechtsseitig
+Wann heißt ein Signal bei der Laplace-Transformation rechtsseitig, und welches ist das einfachste Beispiel dafür?
+---
+Wenn es für $t<0$ null ist; man nennt es auch kausal. Das einfachste Beispiel ist der rechtsseitige Exponentialimpuls $s_1(t)=\mathrm{e}^{-bt}\cdot\varepsilon(t)$ mit einer Konstanten $b$, die auch komplex sein darf.
+--- falsch
+Wenn es für $t>0$ null ist und nur vor dem Einschalten Werte hat; man nennt es auch antikausal. Das einfachste Beispiel ist der Impuls $\mathrm{e}^{-bt}\cdot\varepsilon(-t)$ mit einer Konstanten $b$, die auch komplex sein darf.
+--- falsch
+Wenn es nur positive Werte annimmt, sein Graph also ganz oberhalb der Zeitachse liegt. Das einfachste Beispiel ist der Sprung $\varepsilon(t)$, weil er nie negativ wird und für große $t$ konstant bleibt.
+--- falsch
+Wenn es für $t\to\infty$ abklingt, also rechts auf der Zeitachse verschwindet. Das einfachste Beispiel ist der Exponentialimpuls $\mathrm{e}^{-bt}$ für alle Zeiten $t$, mit einer reellen Konstanten $b>0$.
+:::
+:::karte formel Rechtsseitiger Exponentialimpuls
+Welche Laplace-Transformierte hat der rechtsseitige Exponentialimpuls $\mathrm{e}^{-bt}\cdot\varepsilon(t)$, und für welche $p$ gilt sie?
+---
+$S_1(p)=\frac{1}{b+p}$ für $\sigma=\operatorname{Re}\{p\}>-\operatorname{Re}\{b\}$. Nur dann geht $\bigl|\mathrm{e}^{-(b+p)t}\bigr|=\mathrm{e}^{-\operatorname{Re}(b+p)\,t}$ für $t\to\infty$ gegen null, und der Wert der Stammfunktion an der oberen Grenze verschwindet.
+--- falsch
+$S_1(p)=-\frac{1}{b+p}$ für $\operatorname{Re}\{p\}>-\operatorname{Re}\{b\}$. Das Minus stammt aus der Stammfunktion $-\frac{\mathrm{e}^{-(b+p)t}}{b+p}$ und bleibt beim Einsetzen der Grenzen stehen, weil an der unteren Grenze $\mathrm{e}^0=1$ ist.
+--- falsch
+$S_1(p)=\frac{1}{b+p}$ für $\operatorname{Re}\{p\}>\operatorname{Re}\{b\}$. Nur dann ist der Exponent des Integranden negativ, weil $p$ größer als $b$ sein muss, damit $\mathrm{e}^{-(b+p)t}$ für $t\to\infty$ verschwindet.
+--- falsch
+$S_1(p)=\frac{1}{b+p}$ für alle $p$ mit $|p|>|b|$, also außerhalb eines Kreises um den Ursprung. Dort ist der Betrag des Integranden kleiner als 1, und das Integral über $\mathrm{e}^{-(b+p)t}$ konvergiert.
+:::
+:::karte herleitung Transformierte des rechtsseitigen Exponentialimpulses
+Wie berechnet man aus dem Laplace-Integral die Transformierte $\frac{1}{b+p}$ des rechtsseitigen Exponentialimpulses $\mathrm{e}^{-bt}\cdot\varepsilon(t)$?
+---
+Das Integral beginnt bei null, weil $\varepsilon(t)=0$ für $t<0$ ist, und die beiden Exponentialfunktionen werden zusammengefasst: $\int_0^{\infty}\mathrm{e}^{-bt}\,\mathrm{e}^{-pt}\,\mathrm{d} t=\int_0^\infty\mathrm{e}^{-(b+p)t}\mathrm{d} t$.
+---
+Die Stammfunktion ist $-\frac{\mathrm{e}^{-(b+p)t}}{b+p}$, mit Minus, weil Ableiten den Faktor $-(b+p)$ liefert.
+---
+Der Wert an der oberen Grenze verschwindet, weil $\bigl|\mathrm{e}^{-(b+p)t}\bigr|=\mathrm{e}^{-\operatorname{Re}(b+p)\,t}$ für $\operatorname{Re}(b+p)>0$, also für $\operatorname{Re} p>-\operatorname{Re} b$, gegen null geht.
+---
+An der unteren Grenze steht $-\frac{1}{b+p}$, weil $\mathrm{e}^0=1$ ist. Sie wird abgezogen: $0-\bigl(-\frac{1}{b+p}\bigr)=\frac{1}{b+p}$, mit Plus, weil Minus mal Minus Plus ergibt.
+:::
+:::karte begriff Konvergenzbereich
+Was ist der Konvergenzbereich einer Laplace-Transformierten $S(p)$, und warum wird er von senkrechten Geraden begrenzt?
+---
+Die Menge aller $p$, für die das Integral absolut konvergiert, für die also $\int_{-\infty}^{\infty}\bigl|s(t)\,\mathrm{e}^{-pt}\bigr|\,\mathrm{d} t<\infty$ ist. Wegen $|\mathrm{e}^{-pt}|=\mathrm{e}^{-\sigma t}$ hängt das nur von $\sigma=\operatorname{Re} p$ ab, nie vom Imaginärteil; deshalb besteht er aus ganzen senkrechten Linien.
+--- falsch
+Die Menge aller $p$, für die $S(p)$ einen endlichen Wert hat, also alle Punkte außer den Polen. Er wird von senkrechten Geraden begrenzt, weil die Pole bei reellen Signalen stets auf der reellen Achse liegen und man ihre Umgebung als Streifen ausspart.
+--- falsch
+Die Menge aller $p$, für die das Signal $s(t)$ selbst absolut integrierbar ist. Weil das Signal nicht von $p$ abhängt, ist er entweder die ganze $p$-Ebene oder leer; senkrechte Grenzen entstehen erst durch die Pole des Systems, durch das das Signal läuft.
+--- falsch
+Die Menge aller $p$, für die das Integral absolut konvergiert. Weil $|\mathrm{e}^{-pt}|=\mathrm{e}^{-\operatorname{Im} p\cdot t}$ nur vom Imaginärteil abhängt, besteht er aus ganzen waagerechten Linien; senkrechte Grenzen hat er nur bei Signalen, die reell sind.
+:::
+:::karte begriff linksseitig
+Wann heißt ein Signal linksseitig, und wo liegt der Konvergenzbereich des linksseitigen Exponentialimpulses $\mathrm{e}^{-bt}\cdot\varepsilon(-t)$?
+---
+Wenn es für $t>0$ null ist; man nennt es auch antikausal. Der linksseitige Exponentialimpuls hat die Transformierte $-\frac{1}{b+p}$ für $\operatorname{Re}\{p\}<-\operatorname{Re}\{b\}$, also links der Geraden $\operatorname{Re} p=-\operatorname{Re} b$, weil nur dort $\mathrm{e}^{-(b+p)t}$ für $t\to-\infty$ verschwindet.
+--- falsch
+Wenn es für $t<0$ null ist; man nennt es auch antikausal. Der linksseitige Exponentialimpuls hat die Transformierte $\frac{1}{b+p}$ für $\operatorname{Re}\{p\}>-\operatorname{Re}\{b\}$, also rechts der Geraden $\operatorname{Re} p=-\operatorname{Re} b$, wie jeder Exponentialimpuls, der für große $t$ abklingt.
+--- falsch
+Wenn es für $t>0$ null ist; man nennt es auch antikausal. Sein Konvergenzbereich ist dieselbe Halbebene $\operatorname{Re} p>-\operatorname{Re} b$ wie beim rechtsseitigen Impuls, weil der Betrag $|\mathrm{e}^{-pt}|$ nicht davon abhängt, auf welcher Seite der Zeitachse das Signal liegt.
+--- falsch
+Wenn es für $t>0$ null ist; man nennt es auch antikausal. Es hat keine Laplace-Transformierte, weil das Integral über $\mathrm{e}^{-bt}$ für $t\to-\infty$ für jedes $p$ über alle Grenzen wächst; man muss es vorher an der senkrechten Achse spiegeln.
+:::
+:::karte zusammenhang Ein Ausdruck, zwei Signale
+Warum legt der Ausdruck $\frac{1}{b+p}$ allein noch nicht fest, welches Signal gemeint ist?
+---
+Rechts der Geraden $\operatorname{Re} p=-\operatorname{Re} b$ ist er das Integral über den rechtsseitigen Impuls $\mathrm{e}^{-bt}\varepsilon(t)$, links davon das Integral über den linksseitigen Impuls $-\mathrm{e}^{-bt}\varepsilon(-t)$. Die Grenzgerade durch den Pol teilt die Ebene in zwei Hälften, die zu verschiedenen Signalen gehören; erst der Konvergenzbereich entscheidet.
+--- falsch
+Weil man aus $\frac{1}{b+p}$ nur den Betrag des Signals ablesen kann, nicht sein Vorzeichen. Ob $\mathrm{e}^{-bt}\varepsilon(t)$ oder $-\mathrm{e}^{-bt}\varepsilon(t)$ gemeint ist, muss man deshalb zusätzlich angeben; der Konvergenzbereich ist für beide Signale derselbe Bereich rechts des Pols und hilft bei dieser Entscheidung nicht.
+--- falsch
+Weil $b$ komplex sein darf und $\frac{1}{b+p}$ dann zu einem reellen und einem komplexen Signal gehört. Welches gemeint ist, entscheidet der Imaginärteil von $b$: Ist er null, ist das Signal reell und rechtsseitig, sonst komplex und linksseitig, und zwar für alle $p$.
+--- falsch
+Weil der Ausdruck bei $p=-b$ nicht definiert ist und das Signal genau an dieser Stelle offenbleibt. Man ergänzt deshalb den Wert des Signals bei $t=0$; danach ist es eindeutig festgelegt, gleichgültig, auf welcher Seite der Grenzgeraden der Konvergenzbereich liegt.
+:::
+:::karte zusammenhang Linearität und Superposition
+Warum enthält der Konvergenzbereich einer Summe $a_1s_1(t)+a_2s_2(t)$ den Durchschnitt der beiden einzelnen Konvergenzbereiche?
+---
+Das Laplace-Integral ist linear: $\mathcal{L}\{a_1s_1(t)+a_2s_2(t)\}=a_1S_1(p)+a_2S_2(p)$. Diese Gleichung gilt überall dort, wo beide Integrale konvergieren, also mindestens im Durchschnitt der beiden Bereiche.
+--- falsch
+Weil sich die Konvergenzbereiche bei einer Summe ebenfalls addieren: Der Bereich der Summe ist die Vereinigung beider Bereiche, und die enthält den Durchschnitt mit. Wo eines der beiden Integrale konvergiert, konvergiert auch die Summe.
+--- falsch
+Weil die Laplace-Transformierte einer Summe das Produkt der Transformierten ist, $S_1(p)\,S_2(p)$. Ein Produkt existiert nur dort, wo beide Faktoren existieren, also genau im Durchschnitt der beiden Bereiche.
+--- falsch
+Das Laplace-Integral ist linear, $\mathcal{L}\{a_1s_1+a_2s_2\}=a_1S_1+a_2S_2$, aber nur für positive Konstanten $a_1,a_2$. Für negative Konstanten kehrt sich der Konvergenzbereich um, und der Durchschnitt wird zur Vereinigung.
+:::
+:::karte formel Zweiseitiger Exponentialimpuls
+Welche Laplace-Transformierte hat der zweiseitige Exponentialimpuls $\mathrm{e}^{-b|t|}$, und in welchem Bereich gilt sie?
+---
+$S_3(p)=\frac{1}{b+p}-\frac{1}{p-b}=\frac{2b}{b^2-p^2}$ für $-\operatorname{Re}\{b\}<\operatorname{Re}\{p\}<\operatorname{Re}\{b\}$: die Summe aus dem rechten Teil $\mathrm{e}^{-bt}\varepsilon(t)$ und dem linken Teil $\mathrm{e}^{bt}\cdot\varepsilon(-t)$, die beide zugleich nur in diesem Streifen konvergieren.
+--- falsch
+$S_3(p)=\frac{1}{b+p}+\frac{1}{p-b}=\frac{2p}{p^2-b^2}$ für $\operatorname{Re}\{p\}>|\operatorname{Re}\{b\}|$: die Summe aus dem rechten und dem linken Teil, die beide rechts beider Pole konvergieren, weil das Signal nach beiden Seiten abklingt.
+--- falsch
+$S_3(p)=\frac{2b}{b^2-p^2}$ für alle $p$ außer $\pm b$: Weil das Signal nach beiden Seiten abklingt, konvergiert das Integral überall in der $p$-Ebene, und nur die beiden Pole selbst sind ausgenommen.
+--- falsch
+$S_3(p)=\frac{2}{b+p}$ für $\operatorname{Re}\{p\}>-\operatorname{Re}\{b\}$: Wegen $|t|$ ist das Signal symmetrisch, die linke Hälfte trägt dasselbe bei wie die rechte, und man verdoppelt einfach die Transformierte des rechtsseitigen Impulses.
+:::
+:::karte begriff Streifen
+Wann ist der Konvergenzbereich ein Streifen, und wann ist dieser Streifen beim zweiseitigen Exponentialimpuls $\mathrm{e}^{-b|t|}$ leer?
+---
+Bei einem zweiseitigen Signal: Der rechte Teil verlangt $\operatorname{Re} p>-\operatorname{Re} b$, der linke $\operatorname{Re} p<\operatorname{Re} b$, dazwischen liegt ein senkrechter Streifen. Er ist nur für $\operatorname{Re} b>0$ nicht leer. Für $\operatorname{Re} b\le0$ wächst das Signal nach mindestens einer Seite und hat keine Laplace-Transformierte.
+--- falsch
+Bei einem rechtsseitigen Signal, dessen Pole konjugiert komplex sind: Der Streifen liegt zwischen den beiden Polen. Beim zweiseitigen Exponentialimpuls ist er leer, wenn $b$ reell ist, weil dann beide Pole auf derselben senkrechten Geraden liegen.
+--- falsch
+Bei einem zweiseitigen Signal: Der rechte Teil verlangt $\operatorname{Re} p>-\operatorname{Re} b$, der linke $\operatorname{Re} p<\operatorname{Re} b$. Der Streifen ist nur für $\operatorname{Re} b<0$ nicht leer, weil das Signal dann nach beiden Seiten wächst und erst die Dämpfung $\mathrm{e}^{-\sigma t}$ es integrierbar macht.
+--- falsch
+Bei einem zweiseitigen Signal ist der Konvergenzbereich ein waagerechter Streifen um die reelle Achse, weil die beiden Hälften verschiedene Frequenzen haben. Er ist leer, wenn $b$ rein imaginär ist, weil das Signal dann auf keiner Seite abklingt.
+:::
+:::karte begriff Polstelle
+Was ist eine Polstelle einer Laplace-Transformierten $S(p)$, und wo liegt sie, wenn $S(p)$ ein Bruch aus zwei Polynomen ist?
+---
+Eine Stelle $p$, an der $S(p)$ über alle Grenzen wächst, kurz Pol. Ist $S(p)$ ein Bruch aus zwei Polynomen in $p$, so sind die Pole die Nullstellen des Nennerpolynoms, sofern sie sich nicht gegen Nullstellen des Zählers kürzen.
+--- falsch
+Eine Stelle $p$, an der $S(p)$ null wird, kurz Pol. Ist $S(p)$ ein Bruch aus zwei Polynomen in $p$, so sind die Pole die Nullstellen des Zählerpolynoms, sofern sie sich nicht gegen Nullstellen des Nenners kürzen.
+--- falsch
+Ein Zeitpunkt $t$, an dem das Signal $s(t)$ springt oder unendlich wird, kurz Pol. Ist $S(p)$ ein Bruch aus zwei Polynomen, so liest man diese Zeitpunkte an den Nullstellen des Nennerpolynoms ab, gemessen in Sekunden.
+--- falsch
+Eine Stelle $p$, an der das Laplace-Integral gerade noch konvergiert, kurz Pol. Pole bilden deshalb ganze senkrechte Linien, nämlich die Grenzen des Konvergenzbereichs, und gehören selbst noch zum Konvergenzbereich dazu.
+:::
+:::karte zusammenhang Pole auf der Grenze des Konvergenzbereichs
+Warum liegen die Pole einer Laplace-Transformierten auf den Grenzen ihres Konvergenzbereichs, aber nie in ihm?
+---
+Ein Pol liegt beim Exponenten $p_0$ eines Anteils $\mathrm{e}^{p_0t}$. Auf der Geraden $\operatorname{Re} p=\operatorname{Re} p_0$ hat der Integrand $\mathrm{e}^{(p_0-p)t}$ den konstanten Betrag 1: Die Probe gleicht Wachsen oder Abklingen genau aus, und das Integral konvergiert nicht. Deshalb endet der Konvergenzbereich genau an der Senkrechten durch den Pol.
+--- falsch
+Weil der Konvergenzbereich so definiert ist, dass man um jeden Pol einen kleinen Kreis ausspart. Die Grenzen des Bereichs sind die Ränder dieser Kreise, und weil die Kreise sehr klein sind, sehen sie in der Zeichnung wie senkrechte Geraden aus, die durch die Pole gehen.
+--- falsch
+Weil an einem Pol der Integrand selbst unendlich wird: Das Signal hat an dieser Stelle einen Dirac-Impuls. Das Integral über einen Dirac-Impuls konvergiert nur von einer Seite aus, deshalb bildet der Pol den Rand des Konvergenzbereichs und liegt nie in seinem Inneren.
+--- falsch
+Weil der Pol beim Kehrwert $1/p_0$ des Exponenten liegt. Auf der Geraden durch $1/p_0$ wechselt der Integrand sein Vorzeichen, und das Integral konvergiert nur auf einer Seite davon; die Grenze des Konvergenzbereichs verläuft deshalb genau durch den Pol.
+:::
+:::karte zusammenhang Abklingende Schwingung
+Was liefert eine abklingende Schwingung wie $\mathrm{e}^{-t}\cdot\cos(3t)\cdot\varepsilon(t)$ in der Laplace-Transformierten, und woran sieht man Abklingen und Frequenz?
+---
+Ein Paar konjugiert komplexer Pole, hier $-1\pm3\mathrm{j}$, weil der Kosinus nach der Eulerschen Formel aus zwei Exponentialfunktionen besteht. Der Realteil $-1$ der Pole gehört zum Abklingen mit $\mathrm{e}^{-t}$, der Imaginärteil $\pm3$ zur Kreisfrequenz.
+--- falsch
+Einen einzelnen reellen Pol bei $-1$, weil der Kosinus reell ist, beschränkt bleibt und deshalb keine eigenen Pole hat. Das Abklingen liest man an diesem Pol ab, die Kreisfrequenz 3 dagegen an den beiden Nullstellen des Zählers.
+--- falsch
+Ein Paar konjugiert komplexer Pole bei $-3\pm\mathrm{j}$: Der Realteil gibt die Kreisfrequenz an, der Imaginärteil das Abklingen mit $\mathrm{e}^{-t}$, weil der Faktor $\mathrm{j}$ im Exponenten die Abklingrate kennzeichnet.
+--- falsch
+Zwei reelle Pole bei $-1$ und $-3$, je einen für jeden Faktor des Signals. Der Pol bei $-1$ gehört zum Abklingen, der Pol bei $-3$ zur Schwingung, deren Kreisfrequenz der Betrag dieses Pols ist.
+:::
+:::karte formel Grundpaare der Exponentialimpulse
+Welche Transformierten haben die Exponentialimpulse $\mathrm{e}^{p_0t}\,\varepsilon(t)$ und $-\mathrm{e}^{p_0t}\,\varepsilon(-t)$ mit einer komplexen Zahl $p_0$, und wie folgt daraus der Sprung?
+---
+Beide haben den Ausdruck $\frac{1}{p-p_0}$: $\mathrm{e}^{p_0t}\,\varepsilon(t)$ für $\operatorname{Re} p>\operatorname{Re} p_0$, $-\mathrm{e}^{p_0t}\,\varepsilon(-t)$ für $\operatorname{Re} p<\operatorname{Re} p_0$. Mit $p_0=0$ folgt aus dem ersten der Sprung: $\varepsilon(t)\leftrightarrow1/p$ für $\operatorname{Re} p>0$.
+--- falsch
+Beide haben den Ausdruck $\frac{1}{p-p_0}$, und beide gelten für $\operatorname{Re} p>\operatorname{Re} p_0$; das Minuszeichen beim linksseitigen Signal gleicht die Spiegelung der Zeitachse aus. Mit $p_0=0$ folgt der Sprung: $\varepsilon(t)\leftrightarrow1/p$ für alle $p$.
+--- falsch
+$\mathrm{e}^{p_0t}\,\varepsilon(t)$ hat $\frac{1}{p-p_0}$ für $\operatorname{Re} p>\operatorname{Re} p_0$, $-\mathrm{e}^{p_0t}\,\varepsilon(-t)$ hat $\frac{1}{p+p_0}$ für $\operatorname{Re} p<-\operatorname{Re} p_0$, gespiegelt an der imaginären Achse. Mit $p_0=0$ folgt der Sprung: $\varepsilon(t)\leftrightarrow1/p$ für $\operatorname{Re} p>0$.
+--- falsch
+Beide haben den Ausdruck $\frac{1}{p_0-p}$: $\mathrm{e}^{p_0t}\,\varepsilon(t)$ für $\operatorname{Re} p<\operatorname{Re} p_0$, $-\mathrm{e}^{p_0t}\,\varepsilon(-t)$ für $\operatorname{Re} p>\operatorname{Re} p_0$. Mit $p_0=0$ folgt aus dem ersten der Sprung: $\varepsilon(t)\leftrightarrow-1/p$ für $\operatorname{Re} p<0$.
+:::
+:::karte formel Dirac-Impuls und Rampe
+Welche Laplace-Transformierten haben der Dirac-Impuls $\delta(t)$ und die Rampe $t\,\varepsilon(t)$, und wie erhält man sie?
+---
+$\delta(t)\longleftrightarrow1$ für alle $p$, wegen der Siebeigenschaft $\int\delta(t)\mathrm{e}^{-pt}\mathrm{d} t=\mathrm{e}^{0}=1$: Der Impuls sitzt bei $t=0$, wo die Probe den Wert 1 hat. Dazu $t\,\varepsilon(t)\longleftrightarrow\frac{1}{p^2}$ für $\operatorname{Re} p>0$, durch partielle Integration.
+--- falsch
+$\delta(t)\longleftrightarrow0$ für alle $p$, weil der Dirac-Impuls außerhalb von $t=0$ überall null ist und das Integral verschwindet. Dazu $t\,\varepsilon(t)\longleftrightarrow\frac{1}{p}$ für $\operatorname{Re} p>0$, weil die Rampe das Integral des Sprungs ist.
+--- falsch
+$\delta(t)\longleftrightarrow1$ nur für $\operatorname{Re} p>0$, weil der Impuls bei $t=0$ sitzt und wie ein rechtsseitiges Signal behandelt wird. Dazu $t\,\varepsilon(t)\longleftrightarrow\frac{1}{p^2}$ für alle $p$, weil die Rampe keinen Pol hat.
+--- falsch
+$\delta(t)\longleftrightarrow\infty$ für alle $p$, weil der Dirac-Impuls bei $t=0$ unendlich hoch ist und das Integral diesen Wert übernimmt. Dazu $t\,\varepsilon(t)\longleftrightarrow\frac{1}{p^2}$ für $\operatorname{Re} p>0$, durch partielle Integration.
+:::
+:::karte zusammenhang Signal ohne Laplace-Transformierte
+Warum hat die Konstante $s(t)=1$ für alle $t$ keine Laplace-Transformierte?
+---
+Die rechte Hälfte konvergiert nur für $\sigma>0$, die linke nur für $\sigma<0$. Beides zugleich geht nicht, der Konvergenzbereich ist leer. Eine Laplace-Transformierte haben aber nur Funktionen mit nicht leerem Konvergenzbereich.
+--- falsch
+Weil eine Konstante keine Exponentialfunktion ist und die Transformation nur Signale erfasst, die aus Exponentialfunktionen bestehen. Schreibt man die Konstante als $\mathrm{e}^{0\cdot t}$, hat sie dagegen die Transformierte $1/p$.
+--- falsch
+Weil eine Konstante unendlich viel Energie enthält und deshalb schon das Signal selbst nicht integrierbar ist. Jedes Signal, das nicht absolut integrierbar ist, hat keine Laplace-Transformierte, auch nicht der Sprung.
+--- falsch
+Die rechte Hälfte konvergiert nur für $\sigma<0$, die linke nur für $\sigma>0$, und beide Bereiche treffen sich nur auf der imaginären Achse. Dort ist der Integrand eine reine Schwingung, deren Integral nicht konvergiert.
+:::
+::::

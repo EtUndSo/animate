@@ -116,3 +116,215 @@ $K_0=2000$ Euro, $p=3$, $k=20$. (a) Berechne $E_k$, $E_k^{(12)}$ und $E_k^{(\inf
 (a) $E_{20}=2000\cdot1{,}03^{20}=3612{,}22$ Euro, $E_{20}^{(12)}=2000\,(1+\frac{0{,}03}{12})^{240}=3641{,}51$ Euro, $E_{20}^{(\infty)}=2000\,\mathrm{e}^{0{,}6}=3644{,}24$ Euro. (b) Nein, $z_n(x)$ bleibt unter $\mathrm{e}^x$: $n=365$ ergibt $3644{,}15$ Euro. (c) $z_4(2)=1{,}5^4=5{,}0625$, $z_{50}(2)=1{,}04^{50}=7{,}1067$, $\mathrm{e}^2=7{,}3891$.
 :::
 :::
+
+::::formelsammlung
+**Zinseszins**
+
+$$E_k=K_0(1+\frac p{100})^k$$
+
+Kapital $K_0$, $p$ Prozent Zins im Jahr, Betrag nach $k$ Jahren.
+
+**Verzinsung in Raten**
+
+$$E_k^{(n)}=K_0\Bigl(1+\frac p{n\cdot100}\Bigr)^{n\cdot k}$$
+
+$n$ Zinstermine im Jahr mit je $p/n$ Prozent; die gezahlten Zinsen verzinsen sich mit. Mit $x=p/100$ steht in der Klammer $(1+\frac xn)^n$.
+
+**Exponentialfolge**
+
+$$z_n(x):=\bigl(1+\frac xn\bigr)^n,\qquad\frac{z_{n+1}(x)}{z_n(x)}>1\quad\text{für }n>|x|$$
+
+Für festes $x\ne0$, bei $x>0$ für alle $n\in\mathbb{N}$. Für $n>|x|$ ist $z_n(x)>0$; die Folge ist beschränkt und konvergiert nach dem Monotonie-Lemma.
+
+**Schranke**
+
+$$z_n(x)\,z_n(-x)=\Bigl(1-\frac{x^2}{n^2}\Bigr)^n\le1$$
+
+Für $n>|x|$; also $z_n(x)\le b_n:=1/z_n(-x)$, und $b_n$ fällt.
+
+**Exponentialfunktion**
+
+$$\exp:\mathbb{R}\to\mathbb{R},\qquad\exp(x):=\lim_{n\to\infty}\Bigl(1+\frac xn\Bigr)^n$$
+
+Jedes $x$ hat seine eigene Folge; ihr Grenzwert ist der Funktionswert.
+
+**Eulersche Zahl**
+
+$$\mathrm{e}:=\exp(1)=\lim_{n\to\infty}(1+\frac1n)^n\approx2{,}71828$$
+
+Die Konvergenz ist langsam: Hundertmal so viele Schritte machen den Abstand zu $\mathrm{e}$ rund hundertmal kleiner.
+
+**Erste Eigenschaften**
+
+$$\exp(0)=1,\quad\exp(x+y)=\exp(x)\cdot\exp(y),\quad\exp(x)>0,\quad\exp(-x)=1/\exp(x)$$
+
+Für alle $x,y\in\mathbb{R}$; die zweite Gleichung ist die Funktionalgleichung von $\exp$: Aus einer Addition am Eingang wird eine Multiplikation am Ausgang.
+
+**Differenz zweier Potenzen**
+
+$$a^n-b^n=(a-b)\sum_{k=1}^na^{n-k}\,b^{k-1}$$
+
+Für $a,b\in\mathbb{R}$, $n\in\mathbb{N}$; für $b=1$ die geometrische Summe.
+
+**Rationale Potenz**
+
+$$a^{p/q}:=\sqrt[q]{a^p}=(\sqrt[q]a)^p,\qquad\exp(\frac pq)=\sqrt[q]{\mathrm{e}^p}=\mathrm{e}^{p/q}$$
+
+Für $a>0$, $p\in\mathbb{Z}$, $q\in\mathbb{N}$. Für irrationale $x$ definiert man $\mathrm{e}^x:=\exp(x)$, damit gilt $\mathrm{e}^x=\exp(x)$ für alle $x\in\mathbb{R}$.
+
+**Kontinuierliche Verzinsung**
+
+$$E_k^{(\infty)}=K_0\,(\mathrm{e}^{p/100})^k$$
+
+Grenzfall $n\to\infty$ der Verzinsung in Raten; jeder Betrag mit endlich vielen Raten bleibt darunter.
+::::
+
+::::lernkarten
+:::karte formel Verzinsung in Raten
+Welchen Betrag $E_k^{(n)}$ erreicht ein Kapital $K_0$ nach $k$ Jahren bei $p$ Prozent Jahreszins, wenn der Zins in $n$ Raten pro Jahr gezahlt wird?
+---
+$E_k^{(n)}=K_0\Bigl(1+\frac p{n\cdot100}\Bigr)^{n\cdot k}$: Je Termin gibt es $p/n$ Prozent, es gibt $n\cdot k$ Termine, und die gezahlten Zinsen verzinsen sich mit.
+--- falsch
+$E_k^{(n)}=K_0\Bigl(1+\frac p{100}\Bigr)^{n\cdot k}$: Je Termin gibt es die vollen $p$ Prozent, es gibt $n\cdot k$ Termine, und die gezahlten Zinsen verzinsen sich mit.
+--- falsch
+$E_k^{(n)}=K_0\Bigl(1+\frac p{n\cdot100}\Bigr)^{k}$: Je Termin gibt es $p/n$ Prozent; gezählt werden nur die $k$ Jahre, weil die Raten eines Jahres zusammengehören.
+--- falsch
+$E_k^{(n)}=K_0\Bigl(1+\frac{p\cdot k}{100}\Bigr)$: Die Zinsen werden in jedem Jahr nur auf $K_0$ gezahlt, die Zahl $n$ der Raten ändert deshalb nichts am Betrag.
+:::
+:::karte formel Exponentialfolge
+Was sagt der Satz über die Exponentialfolge $z_n(x)=\bigl(1+\frac xn\bigr)^n$ über Vorzeichen, Monotonie und Konvergenz bei festem $x$?
+---
+Für $n>|x|$ ist $z_n(x)>0$. Für $x\ne0$ wächst die Folge streng ab $n>|x|$, für $x>0$ sogar ab $n=1$. Sie ist beschränkt und konvergiert deshalb nach dem Monotonie-Lemma.
+--- falsch
+Für alle $n$ ist $z_n(x)>0$. Für $x\ne0$ fällt die Folge streng, weil die Klammer $1+\frac xn$ gegen 1 schrumpft. Sie ist beschränkt und konvergiert deshalb gegen 1.
+--- falsch
+Für $n>|x|$ ist $z_n(x)>0$. Für $x\ne0$ wächst die Folge streng ab $n>|x|$, ist aber unbeschränkt, weil die Zahl der Faktoren wächst; sie konvergiert deshalb nicht.
+--- falsch
+Für $n>|x|$ ist $z_n(x)>0$. Für $x>0$ wächst die Folge streng, für $x<0$ fällt sie streng. Sie ist beschränkt und konvergiert deshalb nach dem Monotonie-Lemma.
+:::
+:::karte herleitung Monotonie mit Bernoulli
+Wie zeigt man mit der Bernoulli-Ungleichung, dass $z_n(x)=\bigl(1+\frac xn\bigr)^n$ für $x\ne0$ und $n>|x|$ streng wächst?
+---
+Wegen $n>|x|$ sind $1+\frac xn>0$ und $1+\frac x{n+1}>0$; man setzt $A:=\bigl(1+\frac x{n+1}\bigr)\big/\bigl(1+\frac xn\bigr)>0$ und $h:=A-1>-1$, weil $A$ positiv ist.
+---
+Es ist $h=\frac{-x}{n(n+1)\bigl(1+\frac xn\bigr)}\ne0$, weil der Zähler $\frac x{n+1}-\frac xn$ von $A-1$ für $x\ne0$ nicht null ist.
+---
+Der Quotient ist $\frac{z_{n+1}(x)}{z_n(x)}=A^{n+1}\Bigl(1+\frac xn\Bigr)$, weil man im Zähler $n+1$ Faktoren $1+\frac x{n+1}$ hat und im Nenner nur $n$ Faktoren $1+\frac xn$.
+---
+Bernoulli mit $m=n+1\ge2$ gibt $A^{n+1}>1+(n+1)h$, weil $h>-1$ und $h\ne0$ ist.
+---
+Also $\frac{z_{n+1}(x)}{z_n(x)}>\bigl(1+(n+1)h\bigr)\Bigl(1+\frac xn\Bigr)=1+\frac xn-\frac xn=1$, weil $(n+1)h$ mal $1+\frac xn$ genau $-\frac xn$ ergibt.
+:::
+:::karte zusammenhang Schranke mit dem Spiegelbild
+Warum ist die Exponentialfolge $z_n(x)$ nach oben beschränkt, und welche Rolle spielt dabei das Spiegelbild $z_n(-x)$?
+---
+Weil $z_n(x)\,z_n(-x)=\Bigl(1-\frac{x^2}{n^2}\Bigr)^n\le1$ ist, gilt $z_n(x)\le b_n:=1/z_n(-x)$. Da $z_n(-x)$ wächst, fällt $b_n$, also $z_n(x)\le b_{n_0}$ für alle $n\ge n_0:=\lfloor|x|\rfloor+1$.
+--- falsch
+Weil jeder Faktor $1+\frac xn$ höchstens $1+x$ ist, ist das Produkt durch $1+x$ beschränkt; das Spiegelbild $z_n(-x)$ wird dafür gar nicht gebraucht.
+--- falsch
+Weil $z_n(x)+z_n(-x)=2$ ist, gilt $z_n(x)\le2$: Was die Folge bei $x$ gewinnt, verliert sie bei $-x$. Deshalb ist 2 eine gemeinsame Schranke für alle $x$.
+--- falsch
+Weil $z_n(x)\,z_n(-x)=\Bigl(1-\frac{x^2}{n^2}\Bigr)^n\le1$ ist, gilt $z_n(x)\le1$ für alle $n$, denn auch das Spiegelbild $z_n(-x)$ ist stets mindestens 1.
+:::
+:::karte begriff Exponentialfunktion
+Wie ist die Exponentialfunktion $\exp(x)$ für jedes reelle $x$ definiert?
+---
+Als Funktion $\exp:\mathbb{R}\to\mathbb{R}$, $\exp(x):=\lim_{n\to\infty}\Bigl(1+\frac xn\Bigr)^n$: Jedes $x$ hat seine eigene Folge, und deren Grenzwert ist der Funktionswert.
+--- falsch
+Als Funktion $\exp:\mathbb{R}\to\mathbb{R}$, $\exp(x):=x\cdot\lim_{n\to\infty}\Bigl(1+\frac 1n\Bigr)^{n}$: Man berechnet einmal den Grenzwert $\mathrm{e}$ und multipliziert ihn mit $x$.
+--- falsch
+Als Funktion $\exp:\mathbb{N}\to\mathbb{R}$, $\exp(n):=\Bigl(1+\frac 1n\Bigr)^n$: Erklärt ist sie nur für natürliche Zahlen, an denen man die Folge direkt auswertet.
+--- falsch
+Als Funktion $\exp:\mathbb{R}\to\mathbb{R}$, $\exp(x):=\lim_{n\to\infty}\Bigl(1+\frac xn\Bigr)$: Die Klammer läuft für jedes $x$ gegen einen Grenzwert, und dieser ist der Funktionswert.
+:::
+:::karte begriff Eulersche Zahl
+Wie ist die Eulersche Zahl $\mathrm{e}$ über die Exponentialfunktion definiert, und welchen Wert hat sie ungefähr?
+---
+$\mathrm{e}:=\exp(1)=\lim_{n\to\infty}(1+\frac1n)^n\approx2{,}71828$: der Wert der Exponentialfunktion an der Stelle 1.
+--- falsch
+$\mathrm{e}:=\exp(0)=\lim_{n\to\infty}(1+\frac0n)^n\approx2{,}71828$: der Wert der Exponentialfunktion an der Stelle 0, also ihr Startwert.
+--- falsch
+$\mathrm{e}:=\exp(1)\approx2{,}5937$, also $(1+\frac1{10})^{10}$: Schon zehn Schritte liefern den Grenzwert, weitere ändern nichts mehr.
+--- falsch
+$\mathrm{e}:=\exp(1)=\lim_{n\to\infty}(1+\frac1n)^n=3$: Die Folge wächst und bleibt unter 3, also ist 3 ihr Grenzwert.
+:::
+:::karte begriff Funktionalgleichung
+Was besagt die Funktionalgleichung der Exponentialfunktion, und wie lässt sie sich anschaulich lesen?
+---
+$\exp(x+y)=\exp(x)\cdot\exp(y)$ für alle $x,y\in\mathbb{R}$: Aus einer Addition am Eingang wird eine Multiplikation am Ausgang; zehn Jahre Verzinsung sind fünf und noch einmal fünf.
+--- falsch
+$\exp(x\cdot y)=\exp(x)+\exp(y)$ für alle $x,y\in\mathbb{R}$: Aus einer Multiplikation am Eingang wird eine Addition am Ausgang, so wie beim Rechnen mit einem Rechenschieber.
+--- falsch
+$\exp(x+y)=\exp(x)+\exp(y)$ für alle $x,y\in\mathbb{R}$: Die Funktion ist additiv; zehn Jahre Verzinsung bringen genau doppelt so viel wie fünf Jahre Verzinsung.
+--- falsch
+$\exp(x+y)=\exp(x)\cdot\exp(y)$, aber nur für $x,y>0$: Für negative Zahlen bricht sie zusammen, weil die Klammer $1+\frac xn$ dann negativ werden kann.
+:::
+:::karte formel Erste Eigenschaften der Exponentialfunktion
+Welche Werte und Vorzeichen hat die Exponentialfunktion nach ihren ersten Eigenschaften, und wie hängen $\exp(x)$ und $\exp(-x)$ zusammen?
+---
+$\exp(0)=1$, $\exp(x)>0$ für alle $x\in\mathbb{R}$ und $\exp(-x)=1/\exp(x)$; das Letzte folgt aus $1=\exp(x-x)=\exp(x)\exp(-x)$.
+--- falsch
+$\exp(0)=0$, $\exp(x)>0$ nur für $x>0$ und $\exp(-x)=-\exp(x)$; die Funktion ist also ungerade wie $x^3$.
+--- falsch
+$\exp(0)=1$, $\exp(x)\ge0$ mit $\exp(x)=0$ für sehr negative $x$, und $\exp(-x)=1/\exp(x)$ nur für $x\ge0$.
+--- falsch
+$\exp(0)=1$, $\exp(x)>0$ für alle $x\in\mathbb{R}$ und $\exp(-x)=1-\exp(x)$; das folgt aus $\exp(x)+\exp(-x)=\exp(0)=1$.
+:::
+:::karte herleitung Beweis der Funktionalgleichung
+Wie zeigt man $\exp(x+y)=\exp(x)\cdot\exp(y)$ für $x,y\ne0$ mit $a:=1+\frac{x+y}n$ und $b:=(1+\frac xn)(1+\frac yn)$?
+---
+Es ist $a-b=-\frac{xy}{n^2}$, weil sich beim Ausmultiplizieren von $b$ alles außer dem Glied $\frac{xy}{n^2}$ gegen $a$ weghebt.
+---
+Nach den Rechenregeln ist $\exp(x+y)-\exp(x)\exp(y)=\lim_{n\to\infty}(a^n-b^n)$, weil $a^n=z_n(x+y)$ und $b^n=z_n(x)\,z_n(y)$ ist.
+---
+Mit $a^n-b^n=(a-b)\sum_{k=1}^na^{n-k}\,b^{k-1}$ steht im Grenzwert $-\frac{xy}{n^2}\sum_{k=1}^na^{n-k}b^{k-1}$, weil man so den kleinen Faktor $a-b$ abspaltet.
+---
+Jeder der $n$ Summanden ist betragsmäßig höchstens $D:=\exp(|x|)\exp(|y|)$, weil $|a|,|b|\le c:=(1+\frac{|x|}n)(1+\frac{|y|}n)$ und $c^{\,n-1}\le z_n(|x|)\,z_n(|y|)$ gilt und $z_n(|x|)$ gegen $\exp(|x|)$ wächst.
+---
+Die Klammer ist damit betragsmäßig höchstens $\frac{|xy|}{n^2}\cdot n\,D=\frac{|xy|D}n$, eine Nullfolge, weil $D$ nicht von $n$ abhängt; also ist die Differenz null.
+:::
+:::karte formel Differenz zweier Potenzen
+Welche Formel zerlegt $a^n-b^n$ in den Faktor $a-b$ und eine Summe, und welcher Spezialfall ist die geometrische Summe?
+---
+$a^n-b^n=(a-b)\sum_{k=1}^na^{n-k}\,b^{k-1}$ für $a,b\in\mathbb{R}$, $n\in\mathbb{N}$. Für $b=1$ ist das die geometrische Summe; Ausmultiplizieren gibt eine Teleskopsumme.
+--- falsch
+$a^n-b^n=(a-b)^n$ für $a,b\in\mathbb{R}$, $n\in\mathbb{N}$. Für $b=1$ ist das die geometrische Summe; Ausmultiplizieren mit dem binomischen Satz lässt nur diesen einen Term übrig.
+--- falsch
+$a^n-b^n=(a-b)\sum_{k=1}^na^{n-k}\,b^{k-1}$, aber nur für $a>b>0$. Für negative Zahlen fehlt die Teleskopsumme, weil sich die Vorzeichen nicht mehr wegheben.
+--- falsch
+$a^n-b^n=(a-b)\sum_{k=1}^n a^{k}\,b^{k}$ für $a,b\in\mathbb{R}$, $n\in\mathbb{N}$. Für $b=1$ ist das die geometrische Summe; jeder Summand ist ein Produkt gleich hoher Potenzen.
+:::
+:::karte zusammenhang Schreibweise als Potenz
+Warum passt die Schreibweise $\mathrm{e}^x$ für $\exp(x)$, und wie ist sie für irrationale $x$ erklärt?
+---
+Für $x=\frac pq$ gibt die Funktionalgleichung $\bigl(\exp(x)\bigr)^q=\exp(p)=\mathrm{e}^p$, und wegen $\exp(x)>0$ folgt $\exp(\frac pq)=\sqrt[q]{\mathrm{e}^p}=\mathrm{e}^{p/q}$. Für irrationale $x$ definiert man $\mathrm{e}^x:=\exp(x)$.
+--- falsch
+Weil $\exp(x)=\mathrm{e}\cdot x$ für alle $x$ gilt, ist $\mathrm{e}^x$ nur eine Kurzschrift für dieses Produkt; für irrationale $x$ rechnet man ebenso mit dem Produkt aus $\mathrm{e}$ und $x$.
+--- falsch
+Für $x=\frac pq$ gibt die Funktionalgleichung $\exp(\frac pq)=\mathrm{e}^{p/q}$. Für irrationale $x$ ist $\mathrm{e}^x$ dagegen nicht erklärt, weil man keine Wurzel mit irrationalem Index ziehen kann.
+--- falsch
+Für natürliche $x$ gilt $\exp(x)=\mathrm{e}^x$, für rationale $x$ dagegen nicht, weil Wurzeln nicht zur Funktionalgleichung passen. Für irrationale $x$ definiert man $\mathrm{e}^x:=\exp(x)$.
+:::
+:::karte begriff kontinuierliche Verzinsung
+Was versteht man unter kontinuierlicher Verzinsung, und welchen Betrag $E_k^{(\infty)}$ liefert sie nach $k$ Jahren?
+---
+Den Grenzfall $n\to\infty$ der Verzinsung in $n$ Raten pro Jahr: $E_k^{(\infty)}=K_0\,(\mathrm{e}^{p/100})^k$. Kein Betrag mit endlich vielen Raten erreicht ihn, denn $z_n(x)$ bleibt unter $\mathrm{e}^x$.
+--- falsch
+Den Grenzfall $n\to\infty$ der Verzinsung in $n$ Raten pro Jahr; der Betrag wächst dabei über jede Grenze, weil unendlich viele Zinstermine auch unendlich viel Zins bringen.
+--- falsch
+Die jährliche Verzinsung ohne Zinseszins: $E_k^{(\infty)}=K_0\,(1+\frac{p\,k}{100})$. Der Zins wird stetig auf das Anfangskapital gezahlt und verzinst sich nicht mit.
+--- falsch
+Den Grenzfall $n\to\infty$ der Verzinsung in $n$ Raten pro Jahr: $E_k^{(\infty)}=K_0\,\mathrm{e}^{k}$. Der Zinssatz $p$ fällt im Grenzfall heraus, weil die Raten beliebig klein werden.
+:::
+:::karte zusammenhang Grenzwert der Zinsfolge
+Warum ist der Grenzwert von $(1+\frac1n)^n$ nicht 1, obwohl die Klammer gegen 1 geht?
+---
+Die Rechenregeln gelten nur für eine feste Zahl von Faktoren. Hier wächst die Zahl der Faktoren mit, während jeder gegen 1 geht; beide Effekte konkurrieren, der Grenzwert liegt zwischen 2 und 3.
+--- falsch
+Er ist doch 1: Nach der Produktregel geht ein Produkt aus Faktoren, die alle gegen 1 gehen, gegen $1\cdot1\cdots1=1$; die Werte über 2 entstehen nur durch Rundung beim Rechnen.
+--- falsch
+Weil die Folge unbeschränkt wächst: Jeder Faktor ist größer als 1, und ein Produkt aus immer mehr Faktoren über 1 übersteigt schließlich jede noch so große Schranke.
+--- falsch
+Weil die Klammer erst für sehr große $n$ nahe bei 1 liegt; vorher ist sie deutlich größer, und diese ersten Glieder der Folge bestimmen allein den Grenzwert, die späteren kaum noch.
+:::
+::::

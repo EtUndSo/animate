@@ -130,3 +130,105 @@ $$G_p(k)=S_p(k)\,H(kF)$$
 
 $G_p(k)$ Fourier-Koeffizienten des Ausgangs, $H(f)$ Frequenzgang. Der Ausgang hat dieselbe Periode wie der Eingang.
 ::::
+
+::::lernkarten
+:::karte begriff Leistung
+Was versteht man unter der mittleren Leistung $L_s$ eines periodischen Signals $s_p(t)$?
+---
+Den Mittelwert des Betragsquadrats über eine Periode: $L_s=\frac1T\int_0^T|s_p(t)|^2\,\mathrm{d} t$. Ist er endlich, hat das Signal eine endliche Leistung, und die Fourier-Reihe stellt es im quadratischen Mittel dar.
+--- falsch
+Den Mittelwert des Signals selbst über eine Periode: $L_s=\frac1T\int_0^Ts_p(t)\,\mathrm{d} t$. Ist er endlich, hat das Signal eine endliche Leistung, und die Fourier-Reihe stellt es in jedem Punkt dar.
+--- falsch
+Das Integral des Betragsquadrats über alle Zeiten: $L_s=\int_{-\infty}^{\infty}|s_p(t)|^2\,\mathrm{d} t$. Bei einem periodischen Signal ist es immer endlich, weil sich das Signal ständig wiederholt.
+--- falsch
+Den größten Wert von $|s_p(t)|^2$ in einer Periode, also das Quadrat der Spitzenamplitude. Ist er endlich, hat das Signal eine endliche Leistung, und die Fourier-Reihe stellt es in jedem Punkt dar.
+:::
+:::karte formel Parseval für Fourier-Reihen
+Wie verteilt sich nach dem Satz von Parseval die mittlere Leistung eines periodischen Signals auf seine Harmonischen?
+---
+$L_s=\frac1T\int_0^T|s_p(t)|^2\,\mathrm{d} t=\sum_{k=-\infty}^{\infty}|S_p(k)|^2$: Die Leistung ist die Summe der Leistungen der einzelnen Harmonischen. Mischterme fallen weg, weil verschiedene Harmonische orthogonal sind.
+--- falsch
+$L_s=\frac1T\int_0^T|s_p(t)|^2\,\mathrm{d} t=\Bigl|\sum_{k=-\infty}^{\infty}S_p(k)\Bigr|^2$: Man addiert erst alle Koeffizienten und quadriert dann den Betrag der Summe, weil sich die Harmonischen im Signal zu einer einzigen Kurve überlagern.
+--- falsch
+$L_s=\frac1T\int_0^T|s_p(t)|^2\,\mathrm{d} t=\sum_{k=-\infty}^{\infty}|S_p(k)|$: Die Leistung ist die Summe der Beträge der Koeffizienten, weil jede Harmonische mit ihrer Amplitude zur Leistung beiträgt, nicht mit deren Quadrat.
+--- falsch
+$L_s=\frac1T\int_0^T|s_p(t)|^2\,\mathrm{d} t=\sum_{k=1}^{\infty}|S_p(k)|^2$: Die Leistung ist die Summe über die positiven Harmonischen; der Gleichanteil und die negativen $k$ tragen keine Leistung.
+:::
+:::karte herleitung Parseval aus der Orthogonalität
+Wie folgt aus der Fourier-Reihe und der Orthogonalität der Harmonischen, dass $\frac1T\int_0^T|s_p(t)|^2\,\mathrm{d} t=\sum_{k=-\infty}^{\infty}|S_p(k)|^2$ ist?
+---
+Man schreibt das Betragsquadrat als Produkt mit dem konjugierten Signal, weil das Betragsquadrat einer komplexen Zahl das Produkt mit ihrer konjugierten ist.
+---
+Für beide Faktoren setzt man die Reihe ein, und es entsteht eine Doppelsumme, weil jede Harmonische mit jeder anderen multipliziert wird: $|s_p|^2=s_ps_p^*=\sum_k\sum_lS_p(k)S_p^*(l)\,\mathrm{e}^{\mathrm{j}2\pi(k-l)Ft}$.
+---
+Man mittelt über eine Periode, weil die mittlere Leistung genau dieser Mittelwert ist.
+---
+Es bleibt nur $k=l$ übrig, weil der Mittelwert von $\mathrm{e}^{\mathrm{j}2\pi(k-l)Ft}$ nach der Orthogonalität für verschiedene $k$ und $l$ null und für $k=l$ eins ist. Das Ergebnis ist $\sum_k|S_p(k)|^2$.
+:::
+:::karte begriff Teilsumme
+Was ist die Teilsumme $s_{p,N}(t)$ einer Fourier-Reihe, und wie groß ist die Leistung ihres Fehlers?
+---
+Die abgebrochene Reihe aus den Harmonischen mit $|k|\le N$: $s_{p,N}(t)=\sum_{k=-N}^{N}S_p(k)\mathrm{e}^{\mathrm{j}2\pi kFt}$. Die Leistung des Fehlers $s_p-s_{p,N}$ ist die Summe der weggelassenen $|S_p(k)|^2$.
+--- falsch
+Die abgebrochene Reihe aus den Harmonischen mit $0\le k\le N$: $s_{p,N}(t)=\sum_{k=0}^{N}S_p(k)\mathrm{e}^{\mathrm{j}2\pi kFt}$. Die Leistung des Fehlers ist das Betragsquadrat des ersten weggelassenen Koeffizienten.
+--- falsch
+Die abgebrochene Reihe aus den Harmonischen mit $|k|\le N$: $s_{p,N}(t)=\sum_{k=-N}^{N}S_p(k)\mathrm{e}^{\mathrm{j}2\pi kFt}$. Die Leistung des Fehlers ist die Summe der Beträge $|S_p(k)|$ der weggelassenen Koeffizienten.
+--- falsch
+Die Summe der ersten $N$ Abtastwerte des Signals in einer Periode, gleichmäßig verteilt. Die Leistung des Fehlers ist der Abstand zwischen dem letzten Abtastwert und dem Mittelwert, zum Quadrat genommen.
+:::
+:::karte begriff Gibbs-Phänomen
+Was beschreibt das Gibbs-Phänomen bei den Teilsummen der Fourier-Reihe eines Signals mit Sprungstelle?
+---
+Den Überschwinger, der an einer Sprungstelle stehen bleibt. Mit wachsendem $N$ wird er nur schmaler, seine Höhe strebt gegen etwa 9 % der Sprunghöhe (Grenzwert 8,95 %).
+--- falsch
+Den Überschwinger an einer Sprungstelle, der mit wachsendem $N$ immer niedriger wird. Seine Höhe nimmt etwa wie $1/N$ ab und liegt bei $N=27$ schon unter 1 % der Sprunghöhe.
+--- falsch
+Das Schwingen der Teilsumme zwischen den Sprungstellen, das mit wachsendem $N$ immer stärker wird. Die Reihe nähert das Signal deshalb nur für kleine $N$ gut und weicht für große $N$ wieder ab.
+--- falsch
+Den Überschwinger, der an einer Sprungstelle stehen bleibt. Mit wachsendem $N$ wird er nur schmaler, seine Höhe strebt aber gegen die halbe Sprunghöhe, also gegen 50 %.
+:::
+:::karte zusammenhang Gibbs-Phänomen und Konvergenz
+Warum widerspricht der stehende Überschwinger an einer Sprungstelle nicht der Aussage, dass die Fourier-Reihe gegen das Signal konvergiert?
+---
+Die Reihe konvergiert im quadratischen Mittel, also in der Fehlerleistung. Der Überschwinger wird mit wachsendem $N$ immer schmaler. Seine Fläche und damit die Fehlerleistung gehen gegen null, auch wenn seine Höhe bleibt.
+--- falsch
+Weil die Reihe in jedem Punkt konvergiert und der Überschwinger nur bei endlichem $N$ auftritt. Für $N\to\infty$ verschwindet er in einem einzigen Schritt, sodass seine Höhe am Ende doch null ist.
+--- falsch
+Weil der Überschwinger genau auf der Sprungstelle liegt, wo das Signal ohnehin keinen festen Wert hat. Außerhalb dieses einen Punktes stimmt die Teilsumme schon bei endlichem $N$ exakt mit dem Signal überein.
+--- falsch
+Die Reihe konvergiert im quadratischen Mittel. Der Überschwinger wird zwar nicht schmaler, aber seine Höhe ist mit 9 % so klein, dass seine Leistung gegenüber der Signalleistung nicht ins Gewicht fällt.
+:::
+:::karte formel LTI-System mit periodischem Eingang
+Welche Fourier-Koeffizienten $G_p(k)$ hat der Ausgang eines LTI-Systems mit dem Frequenzgang $H(f)$, wenn der periodische Eingang die Koeffizienten $S_p(k)$ hat?
+---
+$G_p(k)=S_p(k)\,H(kF)$. Jede Harmonische ist eine Eigenfunktion und wird mit dem Frequenzgang bei ihrer Frequenz $kF$ multipliziert. Der Ausgang hat deshalb dieselbe Periode wie der Eingang.
+--- falsch
+$G_p(k)=S_p(k)\,H(F)$ für alle $k$. Das System sieht nur die Grundfrequenz, weil sich das ganze Signal mit ihr wiederholt; alle Harmonischen erhalten deshalb denselben Faktor.
+--- falsch
+$G_p(k)=S_p(k)*H(kF)$, die Faltung von Eingangskoeffizienten und Frequenzgang. Der Ausgang hat deshalb mehr Harmonische als der Eingang und im Allgemeinen eine längere Periode.
+--- falsch
+$G_p(k)=S_p(k)+H(kF)$. Jede Harmonische ist eine Eigenfunktion, und das System addiert zu ihr den Frequenzgang bei ihrer Frequenz. Der Ausgang hat dieselbe Periode wie der Eingang.
+:::
+:::karte zusammenhang RC-Tiefpass rundet die Kanten
+Warum sieht die Rechteckschwingung des Rechenmodells nach dem RC-Tiefpass mit $H(kF)=1/(1+\mathrm{j} k)$ sinusähnlicher aus als am Eingang?
+---
+Wegen $|H(kF)|=1/\sqrt{1+k^2}\approx1/k$ werden die Oberschwingungen umso stärker geschwächt, je höher sie sind, und gerade sie bilden die Kanten. Übrig bleibt vor allem die Grundschwingung: Die dritte Harmonische ist am Ausgang nur noch 15 % so groß wie die erste statt 33 %.
+--- falsch
+Weil der RC-Tiefpass die Grundschwingung verstärkt und die Oberschwingungen unverändert lässt. Dadurch wird die Grundschwingung im Verhältnis größer; am Ausgang ist sie etwa dreimal so stark wie am Eingang, die Kanten treten dagegen zurück.
+--- falsch
+Weil der RC-Tiefpass die Phasen aller Harmonischen gleich macht. Liegen alle Harmonischen in Phase, addieren sie sich zu einer sinusähnlichen Kurve; die Amplituden der Harmonischen bleiben dabei unverändert, nur ihre Lage ändert sich.
+--- falsch
+Wegen $|H(kF)|=1/(1+k^2)$ werden nur die geraden Harmonischen geschwächt, die ungeraden bleiben erhalten. Da die Kanten aus den geraden Harmonischen bestehen, werden sie abgerundet, und die Grundschwingung bleibt unverändert stehen.
+:::
+:::karte zusammenhang Reihe statt Differentialgleichung
+Wozu rechnet man einen periodischen Eingang über seine Harmonischen, obwohl man beim RC-Glied Lade- und Entladekurve direkt hinschreiben kann?
+---
+Die Reihe zeigt, warum der Ausgang so aussieht: Die Kanten bestehen aus den hohen Harmonischen, und genau diese schwächt das RC-Glied. Außerdem gilt $G_p(k)=S_p(k)\,H(kF)$ für jedes LTI-System, auch wenn man nur seinen gemessenen Frequenzgang kennt.
+--- falsch
+Weil die Reihe genauer ist: Die Lade- und Entladekurve ist nur eine Näherung für kleine Zeitkonstanten, während die Summe der Harmonischen den Ausgang für jedes $RC$ exakt liefert, und zwar schon mit wenigen Gliedern.
+--- falsch
+Weil die Differentialgleichung für periodische Eingänge keine Lösung hat. Sie gilt nur für einmalige Signale wie den Sprung, sodass man bei periodischen Signalen auf die Fourier-Reihe ausweichen muss, um überhaupt etwas zu erhalten.
+--- falsch
+Weil die Reihe weniger Rechenaufwand braucht: Schon die Grundschwingung allein gibt den Ausgang exakt wieder, denn alle Oberschwingungen werden vom RC-Glied vollständig gesperrt und tragen zum Ausgang nichts bei.
+:::
+::::

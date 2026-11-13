@@ -130,3 +130,176 @@ Entscheide mit einem Vergleich: (a) $\sum\frac{n+2}{n^3+1}$, (b) $\sum\frac1{\sq
 (a) $\frac{n+2}{n^3+1}\le\frac{3n}{n^3}=\frac3{n^2}$: absolut konvergent. (b) Aus $\sqrt n+4\le5\sqrt n$ folgt $\frac1{\sqrt n+4}\ge\frac15\cdot\frac1{\sqrt n}$, eine divergente Minorante mit $s=\frac12$: divergent. (c) $\bigl|\frac{\cos n}{2^n}\bigr|\le(\frac12)^n$: absolut konvergent. (d) $s>1$: absolut konvergent. $0<s\le1$: konvergent nach Leibniz, die Beträge divergieren, also bedingt konvergent. $s\le0$: keine Nullfolge, divergent.
 :::
 :::
+
+::::formelsammlung
+**Absolute und bedingte Konvergenz**
+
+$$\sum_{n=1}^\infty|a_n|\ \text{konvergent}$$
+
+Dann heißt $\sum_{n=1}^\infty a_n$ absolut konvergent. Ist $\sum a_n$ konvergent, aber $\sum|a_n|$ nicht, heißt die Reihe bedingt konvergent.
+
+**Absolut konvergent ergibt konvergent**
+
+$$\Bigl|\sum_{k=m+1}^na_k\Bigr|\le\sum_{k=m+1}^n|a_k|$$
+
+Mit dem Cauchy-Kriterium folgt: Jede absolut konvergente Reihe ist konvergent. Die Umkehrung gilt nicht.
+
+**Teilsummen der Beträge**
+
+$$\bar S_N:=\sum_{k=1}^N|a_k|$$
+
+$\sum_{n=1}^\infty a_n$ ist absolut konvergent $\iff$ $\{\bar S_N\}_{N=1}^\infty$ ist beschränkt; $\bar S_N$ wächst monoton.
+
+**Vergleichskriterium**
+
+$$|a_n|\le b_n\quad\text{für alle }n\in\mathbb{N}$$
+
+(i) Ist $\sum b_n$ konvergent (eine Majorante von $\sum|a_n|$), dann ist $\sum a_n$ absolut konvergent. (ii) Ist $\sum|a_n|$ divergent (eine divergente Minorante von $\sum b_n$), dann ist auch $\sum b_n$ divergent. Die Bedingung genügt ab einem Index.
+
+**Reihen mit festem Exponenten**
+
+$$\sum_{n=1}^\infty\frac1{n^s}$$
+
+Für festes $s\in\mathbb{R}$ konvergent, falls $s>1$, und divergent, falls $s\le1$; $s=1$ ist die harmonische Reihe. Für $s=2$ ist der Wert $\frac{\pi^2}6$ (ohne Beweis).
+
+**Blockschranke**
+
+$$B_k\le2^k\cdot\frac1{(2^k)^s}=\bigl(2^{1-s}\bigr)^k=q^k\qquad\text{mit}\qquad q:=2^{1-s}<1$$
+
+Für $s>1$ und den Block $B_k:=\sum_{n=2^k}^{2^{k+1}-1}\frac1{n^s}$ aus $2^k$ Gliedern; daraus folgt $S_N\le\frac1{1-q}$ für alle $N$.
+::::
+
+::::lernkarten
+:::karte begriff absolut konvergent und absolute Konvergenz
+Wann heißt eine Reihe $\sum_{n=1}^\infty a_n$ absolut konvergent, und welche Reihe muss man dafür untersuchen?
+---
+Wenn die Reihe der Beträge $\sum_{n=1}^\infty|a_n|$ konvergiert, die Reihe also auch dann konvergiert, wenn man alle Minuszeichen durch Pluszeichen ersetzt.
+--- falsch
+Wenn der Betrag $\bigl|\sum_{n=1}^\infty a_n\bigr|$ des Grenzwerts endlich ist; man untersucht also die Reihe selbst, das ist dasselbe wie gewöhnliche Konvergenz der Reihe.
+--- falsch
+Wenn alle Glieder positiv sind und die Reihe konvergiert; Reihen mit negativen Gliedern können deshalb nie absolut konvergent sein.
+--- falsch
+Wenn $\sum_{n=1}^\infty a_n$ konvergiert und die Beträge $|a_n|$ monoton fallen; man untersucht also die Folge der Beträge, nicht ihre Reihe.
+:::
+:::karte begriff bedingt konvergent
+Wann heißt eine Reihe bedingt konvergent, und welche Reihe aus dem Rechenmodell ist ein Beispiel dafür?
+---
+Wenn $\sum_{n=1}^\infty a_n$ konvergiert, $\sum_{n=1}^\infty|a_n|$ aber nicht. Beispiel ist die alternierende harmonische Reihe: $L_N$ konvergiert, die Beträge bilden die harmonische Reihe.
+--- falsch
+Wenn $\sum_{n=1}^\infty|a_n|$ konvergiert, $\sum_{n=1}^\infty a_n$ aber nicht. Beispiel ist die alternierende harmonische Reihe, deren Beträge die harmonische Reihe bilden.
+--- falsch
+Wenn $\sum_{n=1}^\infty a_n$ nur unter einer Bedingung an die Glieder konvergiert, etwa $a_n\to0$. Beispiel ist die harmonische Reihe, deren Glieder gegen 0 gehen, obwohl ihre Teilsummen wachsen.
+--- falsch
+Wenn $\sum_{n=1}^\infty a_n$ konvergiert, $\sum_{n=1}^\infty|a_n|$ aber nicht. Beispiel ist $\sum\frac{(-1)^n}{n^2}$, weil ihre Glieder ihr Vorzeichen wechseln.
+:::
+:::karte formel absolut konvergente Reihen
+Was folgt aus der absoluten Konvergenz einer Reihe, und wie lässt sie sich mit den Teilsummen der Beträge $\bar S_N$ prüfen?
+---
+Jede absolut konvergente Reihe ist auch konvergent. Mit $\bar S_N:=\sum_{k=1}^N|a_k|$ gilt: $\sum_{n=1}^\infty a_n$ ist absolut konvergent $\iff$ $\{\bar S_N\}_{N=1}^\infty$ ist beschränkt.
+--- falsch
+Jede konvergente Reihe ist auch absolut konvergent. Mit $\bar S_N:=\sum_{k=1}^N|a_k|$ gilt: $\sum_{n=1}^\infty a_n$ ist absolut konvergent $\iff$ $\{\bar S_N\}_{N=1}^\infty$ ist beschränkt.
+--- falsch
+Jede absolut konvergente Reihe ist auch konvergent. Mit $\bar S_N:=\sum_{k=1}^N|a_k|$ gilt: $\sum_{n=1}^\infty a_n$ ist absolut konvergent $\iff$ $\bar S_N\to0$ für $N\to\infty$.
+--- falsch
+Jede absolut konvergente Reihe ist auch konvergent. Mit $\bar S_N:=\bigl|\sum_{k=1}^Na_k\bigr|$ gilt: $\sum_{n=1}^\infty a_n$ ist absolut konvergent $\iff$ $\{\bar S_N\}_{N=1}^\infty$ ist beschränkt.
+:::
+:::karte herleitung Dreiecksungleichung und Cauchy-Kriterium
+Wie folgt mit dem Cauchy-Kriterium und der Dreiecksungleichung, dass jede absolut konvergente Reihe konvergiert?
+---
+Zu $\varepsilon>0$ gibt das Cauchy-Kriterium für $\sum|a_k|$ ein $N_0$ mit $\sum_{k=m+1}^n|a_k|<\varepsilon$ für alle $n>m>N_0$, weil $\sum|a_k|$ konvergiert.
+---
+Die Dreiecksungleichung ergibt $\bigl|\sum_{k=m+1}^na_k\bigr|\le\sum_{k=m+1}^n|a_k|<\varepsilon$, weil sie für endlich viele Summanden gilt.
+---
+Damit erfüllt $\sum a_k$ das Cauchy-Kriterium und konvergiert, weil das Kriterium gleichbedeutend mit Konvergenz ist.
+:::
+:::karte formel Vergleichskriterium
+Was folgt nach dem Vergleichskriterium aus $|a_n|\le b_n$ für alle $n\in\mathbb{N}$, und zwar in beiden Richtungen?
+---
+Ist $\sum b_n$ konvergent, dann ist $\sum a_n$ absolut konvergent. Ist $\sum|a_n|$ divergent, dann ist auch $\sum b_n$ divergent. Die Bedingung braucht nur ab einem Index zu gelten.
+--- falsch
+Ist $\sum b_n$ divergent, dann ist auch $\sum|a_n|$ divergent. Ist $\sum|a_n|$ konvergent, dann ist auch $\sum b_n$ konvergent. Die Bedingung braucht nur ab einem Index zu gelten.
+--- falsch
+Ist $\sum b_n$ konvergent, dann ist $\sum a_n$ konvergent, aber nicht unbedingt absolut. Ist $\sum|a_n|$ divergent, dann ist auch $\sum b_n$ divergent. Die Bedingung muss für alle $n$ gelten.
+--- falsch
+Ist $\sum b_n$ konvergent, dann ist $\sum a_n$ absolut konvergent, und beide Reihen haben denselben Wert. Ist $\sum|a_n|$ divergent, dann ist auch $\sum b_n$ divergent.
+:::
+:::karte zusammenhang Majorante und majorisiert
+Was heißt es, dass $\sum b_n$ die Reihe $\sum|a_n|$ majorisiert, und warum liefert eine konvergente Majorante die absolute Konvergenz von $\sum a_n$?
+---
+Es heißt $|a_n|\le b_n$, und $\sum b_n$ heißt Majorante. Dann ist jedes Stück $\sum_{k=m+1}^n|a_k|$ höchstens $\sum_{k=m+1}^nb_k<\varepsilon$, das Cauchy-Kriterium überträgt sich also von $\sum b_n$ auf $\sum|a_n|$.
+--- falsch
+Es heißt $a_n\le b_n$ ohne Betrag, und $\sum b_n$ heißt Majorante. Dann ist jede Teilsumme von $\sum a_n$ höchstens die von $\sum b_n$, und eine Decke nach oben reicht für die Konvergenz.
+--- falsch
+Es heißt $b_n\le|a_n|$, und $\sum b_n$ heißt Majorante. Dann ist jedes Stück der Betragstreppe mindestens so hoch wie das von $\sum b_n$, und die Konvergenz überträgt sich nach oben.
+--- falsch
+Es heißt $|a_n|\le b_n$, und $\sum b_n$ heißt Majorante. Dann haben beide Reihen denselben Grenzwert, weil die kleinere Reihe von der größeren Schritt für Schritt mitgezogen wird.
+:::
+:::karte begriff Minorante
+Was ist im Vergleichskriterium eine divergente Minorante, und welchen Schluss erlaubt sie?
+---
+Gilt $|a_n|\le b_n$ und divergiert $\sum|a_n|$, so ist $\sum|a_n|$ eine divergente Minorante von $\sum b_n$: eine Reihe, die gliedweise darunter liegt. Dann divergiert auch $\sum b_n$.
+--- falsch
+Gilt $|a_n|\le b_n$ und divergiert $\sum b_n$, so ist $\sum b_n$ eine divergente Minorante von $\sum|a_n|$: eine Reihe, die gliedweise darüber liegt. Dann divergiert auch die kleinere $\sum|a_n|$.
+--- falsch
+Gilt $|a_n|\le b_n$ und konvergiert $\sum|a_n|$, so ist $\sum|a_n|$ eine Minorante von $\sum b_n$: eine Reihe, die gliedweise darunter liegt. Dann konvergiert auch $\sum b_n$.
+--- falsch
+Gilt $|a_n|\ge b_n$ und divergiert $\sum|a_n|$, so ist $\sum|a_n|$ eine divergente Minorante von $\sum b_n$: eine Reihe, die gliedweise darüber liegt. Dann divergiert auch $\sum b_n$.
+:::
+:::karte zusammenhang Richtung beachten
+Was folgt, wenn die Beträge $|a_n|$ über einer konvergenten oder unter einer divergenten Reihe liegen?
+---
+Nichts: $\frac1n\ge\frac1{n^2}$ liegt über einer konvergenten Reihe und divergiert, $\frac1{n^2}\le\frac1n$ liegt unter einer divergenten und konvergiert. Schlüsse gibt es nur unter einer konvergenten oder über einer divergenten Reihe.
+--- falsch
+Liegen sie über einer konvergenten Reihe, konvergiert $\sum|a_n|$ erst recht; liegen sie unter einer divergenten, divergiert $\sum|a_n|$ erst recht, denn der Vergleich wirkt in beide Richtungen.
+--- falsch
+Liegen sie über einer konvergenten Reihe, divergiert $\sum|a_n|$; liegen sie unter einer divergenten, konvergiert $\sum|a_n|$, denn die Vergleichsreihe wirkt dann als Gegenbeispiel.
+--- falsch
+Über $\sum|a_n|$ folgt nichts, wohl aber über $\sum a_n$: Liegen die Beträge über einer konvergenten Reihe, ist $\sum a_n$ bedingt konvergent, sonst divergent.
+:::
+:::karte formel Reihen mit festem Exponenten
+Für welche festen $s\in\mathbb{R}$ konvergiert die Reihe $\sum_{n=1}^\infty\frac1{n^s}$, und zu welcher Seite gehört der Grenzfall $s=1$?
+---
+Sie konvergiert, falls $s>1$, und divergiert, falls $s\le1$. Der Grenzfall $s=1$ ist die harmonische Reihe und gehört zur divergenten Seite.
+--- falsch
+Sie konvergiert, falls $s\ge1$, und divergiert, falls $s<1$. Der Grenzfall $s=1$ gehört zur konvergenten Seite, weil die Glieder dort eine Nullfolge bilden.
+--- falsch
+Sie konvergiert, falls $s>0$, weil die Glieder dann eine Nullfolge bilden, und divergiert, falls $s\le0$. Auch $s=1$ konvergiert also.
+--- falsch
+Sie konvergiert, falls $s\ge2$, und divergiert, falls $s<2$. Der Grenzfall $s=2$ ist die Quadratreihe und gehört zur konvergenten Seite.
+:::
+:::karte herleitung Blöcke und drei Fälle
+Wie zeigt man mit drei Fällen und Blöcken aus $2^k$ Gliedern, dass $\sum_{n=1}^\infty\frac1{n^s}$ genau für $s>1$ konvergiert?
+---
+Für $s\le0$ divergiert die Reihe, weil $\frac1{n^s}=n^{|s|}\ge1$ keine Nullfolge ist.
+---
+Für $0<s\le1$ divergiert sie, weil $\frac1{n^s}=\frac1n\,n^{1-s}\ge\frac1n$ gilt und die harmonische Reihe eine divergente Minorante ist.
+---
+Für $s>1$ gilt für den Block $B_k:=\sum_{n=2^k}^{2^{k+1}-1}\frac1{n^s}$ die Schranke $B_k\le2^k\cdot\frac1{(2^k)^s}=q^k$ mit $q:=2^{1-s}<1$, weil $x^s$ wächst und deshalb jedes der $2^k$ Glieder höchstens das erste ist.
+---
+Also ist $S_{2^m-1}=\sum_{k=0}^{m-1}B_k\le\sum_{k=0}^{m-1}q^k\le\frac1{1-q}$, weil die Teilsummen der geometrischen Reihe mit $0<q<1$ unter ihrem Wert bleiben.
+---
+Wegen $N\le2^N-1$ gilt $S_N\le\frac1{1-q}$ für alle $N$, weil $S_N$ wächst; das Monotonie-Lemma gibt die Konvergenz.
+:::
+:::karte zusammenhang geometrische Reihe auf der Grenze
+Warum ist die harmonische Reihe im Blockbild die geometrische Reihe auf der Grenze?
+---
+Weil blockweise gelesen jede Reihe $\sum\frac1{n^s}$ unter einer geometrischen Reihe mit $q=2^{1-s}$ liegt, $B_k\le q^k$. Für $s=1$ ist $q=1$: Die Blöcke bleiben zwischen $\frac12$ und 1, ihre Summe wächst ohne Ende.
+--- falsch
+Weil ihre Glieder $\frac1n$ selbst eine geometrische Folge mit $q=\frac12$ bilden; das Blockbild macht nur sichtbar, dass sie gerade noch konvergiert.
+--- falsch
+Weil blockweise $q=2^{1-s}$ gilt und $q=1$ schon bei $s=0$ erreicht ist; die harmonische Reihe mit $s=1$ hat deshalb $q=\frac12$ und ist bereits eine konvergente geometrische Reihe.
+--- falsch
+Weil ihre Blöcke genau wie $(\frac12)^k$ fallen: Die Grenze liegt darin, dass ihre Summe den Wert 2 erreicht, aber nicht überschreitet.
+:::
+:::karte zusammenhang Betrag in der Bedingung
+Warum verlangt das Vergleichskriterium $|a_n|\le b_n$ und nicht bloß $a_n\le b_n$?
+---
+Weil eine Decke nur die Höhe nach oben begrenzt: $a_n=-1$ liegt unter $b_n=(\frac12)^n$, und $\sum a_n$ divergiert trotzdem. Erst der Betrag verhindert auch den Absturz nach unten; für positive Glieder ist beides dasselbe.
+--- falsch
+Weil man den Betrag nur der Schreibweise wegen setzt: Für Reihen mit negativen Gliedern liefert $a_n\le b_n$ dieselben Schlüsse, denn negative Glieder verkleinern die Reihe nur.
+--- falsch
+Weil das Kriterium nur für Reihen mit positiven Gliedern gilt und der Betrag das ausdrückt; bei Reihen mit negativen Gliedern ist es nicht anwendbar, auch nicht mit Betrag.
+--- falsch
+Weil ohne Betrag die Majorante negativ sein könnte; der Betrag sorgt allein dafür, dass $b_n\ge0$ ist, an die $a_n$ selbst stellt er keine Bedingung.
+:::
+::::

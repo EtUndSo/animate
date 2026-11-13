@@ -88,3 +88,183 @@ Links und rechts stehen Polynome, das stimmt. Die Gleichung ist aber nur für $x
 (a) Rechts steht $ax^2+(b-2a)x+(a-b+c)$. Vergleich: $a=2$, $b-4=-1$, also $b=3$, und $2-3+c=3$, also $c=4$. (b) $(x+1)(x-2)(x-4)=x^3-5x^2+2x+8$. Also $a_2=-5=-(x_1+x_2+x_3)$, $a_1=2=x_1x_2+x_1x_3+x_2x_3$, $a_0=8=-x_1x_2x_3$.
 :::
 :::
+
+::::formelsammlung
+**Polynom**
+
+$$f(x)=a_nx^n+a_{n-1}x^{n-1}+\dots+a_1x+a_0=\sum_{i=0}^na_ix^i$$
+
+Für $f:\mathbb{R}\to\mathbb{R}$ mit reellen Koeffizienten $a_0,\dots,a_n$ und $a_n\neq0$; man schreibt $P_n:=f$ und $\operatorname{grad}P_n:=n$. Eine Konstante $c\neq0$ hat Grad 0, die Funktion $0$ hat keinen Grad.
+
+**Identitätssatz für Polynome**
+
+$$P_n(x)=Q_n(x)\text{ für alle }x\in\mathbb{R}\quad\Leftrightarrow\quad a_k=b_k\text{ für }k=0,\dots,n$$
+
+Für $P_n(x)=\sum_{k=0}^na_kx^k$ und $Q_n(x)=\sum_{k=0}^nb_kx^k$ vom Grad $\le n$ (also $a_n=0$ oder $b_n=0$ erlaubt); Grundlage des Koeffizientenvergleichs. Polynome verschiedenen Grades sind verschieden.
+
+**Koeffizienten und Nullstellen bei Grad 2**
+
+$$b=-a(x_1+x_2),\qquad c=a\,x_1x_2$$
+
+Koeffizientenvergleich in $ax^2+bx+c=a(x-x_1)(x-x_2)$.
+
+**Mitternachtsformel**
+
+$$x_{1}=\frac{-b+\sqrt D}{2a},\qquad x_{2}=\frac{-b-\sqrt D}{2a}$$
+
+Für $a\neq0$ und die Diskriminante $D:=b^2-4ac\ge0$; bei $D=0$ ist $x_1=x_2$.
+
+**Keine reelle Nullstelle**
+
+$$ax^2+bx+c=a\bigl[(x+\frac{b}{2a})^2-\frac{D}{4a^2}\bigr]$$
+
+Für $D<0$ ist die Klammer positiv. Also hat $x^2+\beta x+\gamma$ genau dann keine reelle Nullstelle, wenn $\beta^2-4\gamma<0$ ist.
+::::
+
+::::lernkarten
+:::karte begriff Polynom
+Wann heißt eine Funktion $f:\mathbb{R}\to\mathbb{R}$ ein Polynom vom Grad $n$, und wie schreibt man es?
+---
+Wenn es reelle Zahlen $a_0,\dots,a_n$ mit $a_n\neq0$ gibt, so dass $f(x)=a_nx^n+a_{n-1}x^{n-1}+\dots+a_1x+a_0=\sum_{i=0}^na_ix^i$ für alle $x$ gilt; man schreibt $P_n:=f$.
+--- falsch
+Wenn es reelle Zahlen $a_0,\dots,a_n$ gibt, so dass $f(x)=\sum_{i=0}^na_ix^i$ gilt, wobei auch $a_n=0$ erlaubt ist; der Grad ist dann die Zahl $n$ der Summanden ohne $a_0$.
+--- falsch
+Wenn sich $f$ aus Potenzen von $x$ mit beliebigen reellen Exponenten zusammensetzt, etwa $x^{1/2}+3x^2$; der Grad ist der größte vorkommende Exponent, man schreibt $P_n$.
+--- falsch
+Wenn es reelle Zahlen $a_0,\dots,a_n$ mit $a_0\neq0$ gibt, so dass $f(x)=\sum_{i=0}^na_ix^i$ gilt; der Grad ist $n$, und der Summand ohne $x$ darf nie fehlen.
+:::
+:::karte begriff Grad
+Was gibt der Grad $\operatorname{grad}P_n$ eines Polynoms an, und welchen Grad haben Konstanten und die Nullfunktion?
+---
+Die höchste Potenz $n$ mit Koeffizient $a_n\neq0$, $\operatorname{grad}P_n:=n$. Eine Konstante $c\neq0$ hat Grad 0; die Funktion $0$ hat keine solche Darstellung und daher keinen Grad.
+--- falsch
+Die Zahl der Summanden des Polynoms, also $n+1$. Eine Konstante $c\neq0$ hat Grad 1, die Funktion $0$ hat Grad 0, weil sie keinen einzigen Summanden hat.
+--- falsch
+Die höchste Potenz $n$, die in der Formel vorkommt, auch wenn ihr Koeffizient null ist. Konstanten und die Funktion $0$ haben beide Grad 0, weil kein $x$ vorkommt.
+--- falsch
+Die Zahl der Nullstellen des Polynoms, $\operatorname{grad}P_n:=n$. Eine Konstante $c\neq0$ hat deshalb Grad 0, die Funktion $0$ einen unendlichen Grad, weil sie überall null ist.
+:::
+:::karte begriff Koeffizienten
+Welche Zahlen heißen die Koeffizienten eines Polynoms $P_n$, und welcher von ihnen gehört zum Summanden ohne $x$?
+---
+Die festen Zahlen $a_0,\dots,a_n$ vor den Potenzen. Wegen $x^0=1$ ist $a_0$ der Summand ohne $x$; im Rechenmodell $P$ ist $a_3=2$, $a_2=-3$, $a_1=-11$, $a_0=6$.
+--- falsch
+Die Exponenten $0,\dots,n$ der Potenzen von $x$. Der Exponent $0$ gehört zum Summanden ohne $x$; im Rechenmodell $P$ sind die Koeffizienten also $3$, $2$, $1$ und $0$.
+--- falsch
+Die festen Zahlen $a_0,\dots,a_n$ vor den Potenzen. Der Summand ohne $x$ zählt nicht dazu, weil er keine Potenz von $x$ trägt; im Rechenmodell $P$ sind es $2$, $-3$ und $-11$.
+--- falsch
+Die Nullstellen des Polynoms, aus denen es sich zusammensetzt. Im Rechenmodell $P$ sind es $3$, $\tfrac12$ und $-2$; der Summand ohne $x$ ist dann ihr Produkt.
+:::
+:::karte formel Identitätssatz für Polynome
+Was besagt der Identitätssatz für zwei Polynome $P_n(x)=\sum_{k=0}^na_kx^k$ und $Q_n(x)=\sum_{k=0}^nb_kx^k$ vom Grad höchstens $n$?
+---
+$P_n(x)=Q_n(x)$ für alle $x\in\mathbb{R}$ $\Leftrightarrow$ $a_k=b_k$ für $k=0,\dots,n$. Die Gleichheit muss für alle $x$ gelten; $a_n=0$ oder $b_n=0$ ist erlaubt.
+--- falsch
+$P_n(x)=Q_n(x)$ an einer Stelle $x\in\mathbb{R}$ $\Leftrightarrow$ $a_k=b_k$ für $k=0,\dots,n$. Eine einzige gemeinsame Stelle genügt, weil ein Polynom durch einen Wert festgelegt ist.
+--- falsch
+$P_n(x)=Q_n(x)$ für alle $x\in\mathbb{R}$ $\Leftrightarrow$ $a_0=b_0$. Es genügt, die Summanden ohne $x$ zu vergleichen, weil die übrigen bei $x=0$ verschwinden.
+--- falsch
+$P_n(x)=Q_n(x)$ für alle $x\in\mathbb{R}$ $\Leftrightarrow$ $a_k=b_k$ für $k=0,\dots,n$, aber nur, wenn beide Polynome genau den Grad $n$ haben, also $a_n\neq0$ und $b_n\neq0$.
+:::
+:::karte begriff Koeffizientenvergleich
+Was versteht man unter einem Koeffizientenvergleich, und worauf beruht er?
+---
+Um zwei Polynome als Funktionen zu vergleichen, vergleicht man ihre Koeffizienten Potenz für Potenz. Er beruht auf dem Identitätssatz: Gleich für alle $x$ heißt gleiche Koeffizienten.
+--- falsch
+Man vergleicht zwei Polynome an einigen gewählten Stellen; stimmen die Werte dort überein, sind die Koeffizienten gleich. Er beruht darauf, dass Polynome durch wenige Werte festliegen.
+--- falsch
+Man vergleicht die höchsten Koeffizienten $a_n$ und $b_n$ zweier Polynome; sind sie gleich, sind die Polynome gleich. Er beruht darauf, dass die höchste Potenz das Verhalten bestimmt.
+--- falsch
+Man vergleicht die Koeffizienten eines Polynoms untereinander, um die größte Potenz zu finden. Er beruht darauf, dass der größte Koeffizient den Grad des Polynoms festlegt.
+:::
+:::karte herleitung Identitätssatz
+Wie folgt aus $P_n(x)=Q_n(x)$ für alle $x\in\mathbb{R}$, dass alle Koeffizienten der beiden Polynome übereinstimmen?
+---
+Bei $x=0$ steht $a_0=b_0$, weil dort alle Potenzen von $x$ verschwinden.
+---
+Abziehen von $a_0$ und Teilen durch $x\neq0$ ergibt $a_1+a_2x+\dots+a_nx^{n-1}=b_1+b_2x+\dots+b_nx^{n-1}$ für alle $x\neq0$; $x=0$ darf man hier nicht einsetzen, weil durch $x$ geteilt wurde.
+---
+Für $0<|x|\le1$ folgt $|a_1-b_1|\le C\,|x|$ mit $C:=\sum_{k=2}^n\bigl(|a_k|+|b_k|\bigr)$, weil alle Potenzen von $|x|$ höchstens 1 sind und die Dreiecksungleichung gilt.
+---
+Da $|x|$ beliebig klein sein darf, ist $|a_1-b_1|<\varepsilon$ für jedes $\varepsilon>0$, also $a_1=b_1$, weil eine Zahl $a$ mit $|a|<\varepsilon$ für alle $\varepsilon>0$ null ist: $|a|>0$ ergäbe mit $\varepsilon=|a|/2$ den Widerspruch $|a|<|a|/2$.
+---
+Abziehen von $a_0+a_1x$ und Teilen durch $x^2$ ergibt ebenso $a_2=b_2$, und so weiter bis $a_n=b_n$, weil sich derselbe Schluss wiederholt.
+:::
+:::karte formel Mitternachtsformel
+Wie lauten die Lösungen $x_1,x_2$ der Mitternachtsformel für $ax^2+bx+c$, und unter welchen Bedingungen gilt sie?
+---
+$x_{1}=\frac{-b+\sqrt D}{2a}$ und $x_{2}=\frac{-b-\sqrt D}{2a}$ mit der Diskriminante $D:=b^2-4ac$, für $a\neq0$ und $D\ge0$. Dann ist $ax^2+bx+c=a(x-x_1)(x-x_2)$ für alle $x$.
+--- falsch
+$x_{1}=\frac{-b+\sqrt D}{2a}$ und $x_{2}=\frac{-b-\sqrt D}{2a}$ mit $D:=b^2+4ac$, für $a\neq0$ und jedes $D$. Für $D<0$ nimmt man einfach den Betrag $|D|$ unter der Wurzel.
+--- falsch
+$x_{1}=\frac{-b+\sqrt D}{a}$ und $x_{2}=\frac{-b-\sqrt D}{a}$ mit der Diskriminante $D:=b^2-4ac$, für $a\neq0$ und $D\ge0$; der Faktor 2 entfällt, weil $a$ schon vor $x^2$ steht.
+--- falsch
+$x_{1}=\frac{b+\sqrt D}{2a}$ und $x_{2}=\frac{b-\sqrt D}{2a}$ mit der Diskriminante $D:=b^2-4ac$, für $a\neq0$ und $D\ge0$. Dann ist $ax^2+bx+c=a(x+x_1)(x+x_2)$ für alle $x$.
+:::
+:::karte formel Nullstellen und Koeffizienten
+Wie hängen bei $ax^2+bx+c=a(x-x_1)(x-x_2)$ die Koeffizienten $b$ und $c$ mit $x_1$ und $x_2$ zusammen, und woher kommt das?
+---
+$b=-a(x_1+x_2)$ und $c=a\,x_1x_2$, also $x_1+x_2=-b/a$ und $x_1x_2=c/a$. Das liefert der Koeffizientenvergleich nach dem Ausmultiplizieren der rechten Seite.
+--- falsch
+$b=a(x_1+x_2)$ und $c=a\,x_1x_2$, also $x_1+x_2=b/a$ und $x_1x_2=c/a$. Das liefert der Koeffizientenvergleich nach dem Ausmultiplizieren der rechten Seite.
+--- falsch
+$b=-a\,x_1x_2$ und $c=a(x_1+x_2)$, also ist $b$ das Produkt und $c$ die Summe der Nullstellen, bis auf den Faktor $a$; das liefert Einsetzen von $x=1$.
+--- falsch
+$b=-(x_1+x_2)$ und $c=x_1x_2$, unabhängig von $a$, weil sich $a$ beim Ausmultiplizieren herauskürzt; das liefert der Koeffizientenvergleich beider Seiten.
+:::
+:::karte zusammenhang Diskriminante
+Was sagt die Diskriminante $D:=b^2-4ac$ darüber, ob $ax^2+bx+c$ mit $a\neq0$ reelle Nullstellen hat, und warum?
+---
+Für $D\ge0$ liefert die Mitternachtsformel $x_1$ und $x_2$, bei $D=0$ fallen sie zusammen. Für $D<0$ gibt es keine, weil $ax^2+bx+c=a\bigl[(x+\frac{b}{2a})^2-\frac{D}{4a^2}\bigr]$ ist und die Klammer dann positiv ist.
+--- falsch
+Für $D>0$ gibt es zwei Nullstellen, für $D<0$ ebenfalls zwei, nur mit vertauschtem Vorzeichen, weil die Wurzel aus $D$ dann $\sqrt{-D}$ ist. Nur $D=0$ ergibt keine reelle Nullstelle.
+--- falsch
+Für $D\ge0$ liefert die Mitternachtsformel $x_1$ und $x_2$, bei $D=0$ gibt es keine, weil der Nenner $2a$ dann null wird. Für $D<0$ gibt es genau eine, nämlich $-\frac{b}{2a}$.
+--- falsch
+Die Diskriminante entscheidet nur über das Vorzeichen der Nullstellen: Für $D>0$ sind beide positiv, für $D<0$ beide negativ, für $D=0$ ist eine davon null.
+:::
+:::karte zusammenhang Gleichheit für alle x
+Warum genügt es für einen Koeffizientenvergleich nicht, dass zwei Polynome an einigen Stellen übereinstimmen?
+---
+Weil der Identitätssatz Gleichheit für alle $x$ verlangt: $x^2-x$ und $0$ stimmen bei $x=0$ und $x=1$ überein, ihre Koeffizienten aber nicht. Erst die Gleichheit überall legt jeden Koeffizienten fest.
+--- falsch
+Es genügt doch: Stimmen zwei Polynome an zwei Stellen überein, haben sie gleiche Koeffizienten. $x^2-x$ und $0$ stimmen bei $x=0$ und $x=1$ überein und sind deshalb dasselbe Polynom.
+--- falsch
+Weil Polynome an einzelnen Stellen gar nicht erklärt sein müssen; erst als Funktion auf ganz $\mathbb{R}$ hat ein Polynom Koeffizienten, an einzelnen Stellen nur Werte ohne Koeffizienten.
+--- falsch
+Weil die Stellen nahe null liegen müssen, denn nur dort sieht man die Koeffizienten. Stimmen zwei Polynome an zwei Stellen nahe null überein, sind ihre Koeffizienten gleich.
+:::
+:::karte zusammenhang verschiedener Grad
+Warum sind zwei Polynome verschiedenen Grades nie dieselbe Funktion?
+---
+Wegen des Identitätssatzes: Gleiche Funktionen haben gleiche Koeffizienten. Beim Polynom höheren Grades $n$ ist $a_n\neq0$, beim anderen ist der Koeffizient von $x^n$ null.
+--- falsch
+Weil Polynome verschiedenen Grades verschiedene Definitionsbereiche haben: Ein Polynom vom Grad $n$ ist nur auf $\mathbb{R}_0^+$ erklärt, wenn $n$ gerade ist, sonst auf ganz $\mathbb{R}$.
+--- falsch
+Sie können durchaus dieselbe Funktion sein, wenn ihre Werte an genügend vielen Stellen übereinstimmen; der Grad hängt nur von der Schreibweise ab, nicht von der Funktion.
+--- falsch
+Weil ihre Graphen verschieden steil sind: Ein Polynom höheren Grades wächst überall schneller als eines kleineren Grades, also unterscheiden sich ihre Werte an jeder Stelle $x$.
+:::
+:::karte zusammenhang Umweg über kleine x
+Warum setzt der Beweis des Identitätssatzes nach dem Teilen durch $x$ nicht einfach $x=0$ ein, obwohl dort wieder Polynome stehen?
+---
+Weil die Gleichung nach dem Teilen nur für $x\neq0$ hergeleitet ist; daraus folgt nicht sofort etwas über die Stelle 0. Der Umweg über kleine $|x|$ schließt genau diese Lücke.
+--- falsch
+Weil man $x=0$ zwar einsetzen dürfte, dabei aber alle Koeffizienten außer $a_0$ verloren gingen; der Umweg über kleine $|x|$ ist nur ein Rechentrick, der Schreibarbeit spart.
+--- falsch
+Weil Polynome bei $x=0$ nicht erklärt sind, wenn ihr Grad größer als null ist; erst für kleine $|x|$ mit $x\neq0$ sind die Potenzen von $x$ überhaupt definiert.
+--- falsch
+Weil beim Einsetzen von $x=0$ der Ausdruck $0/0$ entstünde; der Umweg über kleine $|x|$ ersetzt $0/0$ durch den Wert $1$, den man für kleine $|x|$ beobachtet.
+:::
+:::karte zusammenhang Koeffizienten nahe null
+Warum sieht man die Koeffizienten eines Polynoms nahe $x=0$ der Reihe nach, zuerst $a_0$ und dann $a_1$?
+---
+Weil der Wert bei null $a_0$ ist und die höheren Potenzen für kleine $|x|$ winzig sind; nahe null verhält sich $P$ wie die Gerade $a_0+a_1x$. Bei $P$ weicht $6-11x$ bei $x=0{,}1$ nur um 0,028 ab.
+--- falsch
+Weil ein Polynom nahe null mit seinem höchsten Koeffizienten beginnt: Zuerst sieht man $a_n$, dann $a_{n-1}$; die kleinen Potenzen fallen nahe null kaum ins Gewicht.
+--- falsch
+Weil nahe null alle Potenzen gleich groß sind, nämlich etwa 1; deshalb trägt jeder Koeffizient gleich viel bei, und man liest sie in der Reihenfolge ab, in der sie geschrieben sind.
+--- falsch
+Weil der Wert bei null $a_1$ ist und die Steigung dort $a_0$; die höheren Potenzen sind für kleine $|x|$ winzig, und $P$ verhält sich nahe null wie die Gerade $a_1+a_0x$.
+:::
+::::

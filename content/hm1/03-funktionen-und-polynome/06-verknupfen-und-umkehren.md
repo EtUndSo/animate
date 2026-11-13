@@ -125,3 +125,221 @@ Seien $f(x)=2x+1$, $g(x)=x^3$ auf $\mathbb{R}$. (a) Berechne $(g\circ f)(1)$ und
 (a) $(g\circ f)(1)=g(3)=27$, $(f\circ g)(1)=f(1)=3$. (b) $f^{-1}\bigl(g^{-1}(g(f(x)))\bigr)=f^{-1}(f(x))=x$, ebenso in der anderen Reihenfolge für $y\in C$. Damit gelten (I) und (S), und nach Satz [4.2](#satz-4-2)(iii) gibt es nur eine solche Funktion. Der Rückweg muss den letzten Schritt zuerst rückgängig machen. (c) $g^{-1}(y)=\sqrt[3]{y}$, $f^{-1}(y)=\frac{y-1}{2}$, also $(g\circ f)^{-1}(y)=\frac{\sqrt[3]{y}-1}{2}$. Bei $y=27$: $(3-1)/2=1$.
 :::
 :::
+
+::::formelsammlung
+**Summe, Differenz, Produkt und Quotient**
+
+$$(f\pm g)(x):=f(x)\pm g(x),\qquad(f\cdot g)(x):=f(x)\cdot g(x),\qquad\Bigl(\frac fg\Bigr)(x):=\frac{f(x)}{g(x)}$$
+
+Summe, Differenz und Produkt auf $M:=\mathcal D(f)\cap\mathcal D(g)$, der Quotient auf $M':=\{x\in M:g(x)\neq0\}$; gerechnet wird Stelle für Stelle.
+
+**Komposition**
+
+$$(g\circ f)(x):=g\bigl(f(x)\bigr)\quad\text{für alle }x\in A$$
+
+Für $f:A\to B$ und $g:B\to C$ ist $g\circ f:A\to C$, gesprochen „$g$ nach $f$“: $f$ wirkt zuerst. Die Reihenfolge zählt.
+
+**Charakterisierung von injektiv, surjektiv, bijektiv**
+
+$$(g\circ f)(x)=x,\qquad(f\circ g)(y)=y$$
+
+Für $f:A\to B$ mit nicht leerem $A$ und $g:B\to A$. Die linke Gleichung für alle $x\in A$ heißt (I), die rechte für alle $y\in B$ heißt (S). $f$ injektiv $\Leftrightarrow$ es gibt $g$ mit (I); $f$ surjektiv $\Leftrightarrow$ es gibt $g$ mit (S); $f$ bijektiv $\Leftrightarrow$ es gibt genau ein $g$ mit (I) und (S).
+
+**Umkehrfunktion**
+
+$$f(x)=y\ \Leftrightarrow\ x=f^{-1}(y),\qquad f^{-1}\bigl(f(x)\bigr)=x,\qquad f\bigl(f^{-1}(y)\bigr)=y$$
+
+Für bijektives $f:A\to B$ ist $f^{-1}:=g$ die eindeutige Funktion mit (I) und (S); die Gleichungen gelten für alle $x\in A$, $y\in B$. Achtung: $f^{-1}(y)$ ist nicht $1/f(y)$.
+
+**Graph der Umkehrfunktion**
+
+$$\mathcal G(f)=\{(g(y),y):y\in B\},\qquad\mathcal G(g)=\{(y,g(y)):y\in B\}$$
+
+Für $g=f^{-1}$: Die Paare sind vertauscht, der Graph von $f^{-1}$ ist der an der Winkelhalbierenden $y=x$ gespiegelte Graph von $f$.
+
+**$n$-te Wurzel**
+
+$$f^{-1}(y)=\sqrt[n]{y}=y^{1/n},\qquad\sqrt[n]{y^n}=y,\qquad(\sqrt[n]{y})^n=y$$
+
+Umkehrfunktion von $x\mapsto x^n$, auf $\mathbb{R}_0^+$ für gerades $n$ und auf $\mathbb{R}$ für ungerades $n$; die Gleichungen gelten dort. Für alle reellen $y$ gilt nur $\sqrt{y^2}=|y|$.
+
+**Monotonie vererbt sich**
+
+$$g=f^{-1}:B\to A$$
+
+Ist $f:A\to B$ reell, surjektiv und streng monoton wachsend (fallend), so existiert $g$ und ist ebenfalls streng monoton wachsend (fallend); so ist $\sqrt[n]{y}$ streng monoton wachsend.
+
+**Umkehrung einer Kette**
+
+$$(g\circ f)^{-1}=f^{-1}\circ g^{-1}$$
+
+Für bijektive $f:A\to B$ und $g:B\to C$; der Rückweg macht den letzten Schritt zuerst rückgängig.
+::::
+
+::::lernkarten
+:::karte formel Summe, Differenz, Produkt und Quotient
+Wie sind Summe, Differenz, Produkt und Quotient zweier reeller Funktionen $f$ und $g$ erklärt, und auf welchen Mengen?
+---
+$(f\pm g)(x):=f(x)\pm g(x)$ und $(f\cdot g)(x):=f(x)\cdot g(x)$ auf $M:=\mathcal D(f)\cap\mathcal D(g)$, $\bigl(\frac fg\bigr)(x):=\frac{f(x)}{g(x)}$ auf $M':=\{x\in M:g(x)\neq0\}$; gerechnet wird Stelle für Stelle.
+--- falsch
+$(f\pm g)(x):=f(x)\pm g(x)$ und $(f\cdot g)(x):=f(x)\cdot g(x)$ auf $M:=\mathcal D(f)\cup\mathcal D(g)$, $\bigl(\frac fg\bigr)(x):=\frac{f(x)}{g(x)}$ auf ganz $M$; wo eine Funktion fehlt, zählt sie als null.
+--- falsch
+$(f\pm g)(x):=f(x)\pm g(x)$ und $(f\cdot g)(x):=f(g(x))$ auf $M:=\mathcal D(f)\cap\mathcal D(g)$, $\bigl(\frac fg\bigr)(x):=\frac{f(x)}{g(x)}$ auf $M':=\{x\in M:g(x)\neq0\}$; das Produkt ist die Hintereinanderausführung.
+--- falsch
+$(f\pm g)(x):=f(x)\pm g(x)$ und $(f\cdot g)(x):=f(x)\cdot g(x)$ auf $M:=\mathcal D(f)\cap\mathcal D(g)$, $\bigl(\frac fg\bigr)(x):=\frac{f(x)}{g(x)}$ auf $M':=\{x\in M:f(x)\neq0\}$; der Zähler darf nicht null werden.
+:::
+:::karte zusammenhang Quotient
+Warum ist der Quotient $f/g$ zweier reeller Funktionen nur auf einer kleineren Menge erklärt als Summe und Produkt?
+---
+Weil er Stelle für Stelle als $\frac{f(x)}{g(x)}$ gerechnet wird und man durch null nicht teilen kann: Neben $x\in\mathcal D(f)\cap\mathcal D(g)$ braucht er $g(x)\neq0$. Summe und Produkt brauchen nur beide Werte.
+--- falsch
+Weil man $f$ durch $g$ nur teilen kann, wenn $g$ nirgends null ist: Hat $g$ auch nur eine einzige Nullstelle, ist der Quotient $f/g$ auf keiner Menge erklärt.
+--- falsch
+Weil beim Teilen der Wertebereich kleiner wird: Der Quotient nimmt weniger Werte an als $f$ und $g$, deshalb verkleinert man auch seinen Definitionsbereich auf $\mathcal W(f)\cap\mathcal W(g)$.
+--- falsch
+Weil man durch null nicht teilen kann: Er braucht $f(x)\neq0$ und $g(x)\neq0$, denn auch null geteilt durch $g(x)$ ist nicht erklärt. Summe und Produkt brauchen nur, dass beide Werte existieren.
+:::
+:::karte begriff Komposition
+Was ist die Komposition $g\circ f$ zweier Funktionen $f:A\to B$ und $g:B\to C$, und welche der beiden wirkt zuerst?
+---
+Die Hintereinanderausführung $g\circ f:A\to C$, $(g\circ f)(x):=g\bigl(f(x)\bigr)$ für alle $x\in A$, gesprochen „$g$ nach $f$“: $f$ wirkt zuerst, $f(x)$ liegt in $B$, dort wirkt $g$.
+--- falsch
+Die Hintereinanderausführung $g\circ f:A\to C$, $(g\circ f)(x):=f\bigl(g(x)\bigr)$ für alle $x\in A$, gesprochen „$g$ vor $f$“: $g$ wirkt zuerst, weil es links steht, danach wirkt $f$.
+--- falsch
+Das Produkt $g\circ f:A\to C$, $(g\circ f)(x):=g(x)\cdot f(x)$ für alle $x\in A$; der Kreis ist nur ein anderes Malzeichen, beide Faktoren wirken gleichzeitig an derselben Stelle.
+--- falsch
+Die Hintereinanderausführung $g\circ f:A\to C$, $(g\circ f)(x):=g\bigl(f(x)\bigr)$; welche Funktion zuerst wirkt, spielt keine Rolle, weil stets $g\circ f=f\circ g$ gilt.
+:::
+:::karte zusammenhang Reihenfolge der Komposition
+Warum kommt es bei der Komposition auf die Reihenfolge an, und welches Beispiel zeigt das?
+---
+Weil die zweite Funktion auf das Ergebnis der ersten wirkt: Für $f(x)=2x$ und $g(x)=x+1$ ist $(g\circ f)(1)=3$, aber $(f\circ g)(1)=4$. Erst verdoppeln und dann addieren ist etwas anderes als umgekehrt.
+--- falsch
+Weil die Komposition nur für Funktionen mit gleichem Definitionsbereich erklärt ist; in der anderen Reihenfolge passt er meist nicht, sonst ergäben $g\circ f$ und $f\circ g$ dasselbe.
+--- falsch
+Sie kommt nur bei nicht linearen Funktionen darauf an: Für $f(x)=2x$ und $g(x)=x+1$ ist $(g\circ f)(1)=(f\circ g)(1)=3$, weil lineare Funktionen vertauschbar sind.
+--- falsch
+Weil die links stehende Funktion zuerst wirkt: Für $f(x)=2x$ und $g(x)=x+1$ ist $(g\circ f)(1)=4$, aber $(f\circ g)(1)=3$, also hängt das Ergebnis davon ab, was links steht.
+:::
+:::karte formel Charakterisierung von injektiv, surjektiv, bijektiv
+Wie lassen sich injektiv, surjektiv und bijektiv für $f:A\to B$ mit nicht leerem $A$ durch eine Funktion $g:B\to A$ ausdrücken?
+---
+Injektiv $\Leftrightarrow$ es gibt $g$ mit $(g\circ f)(x)=x$ für alle $x\in A$ (I); surjektiv $\Leftrightarrow$ es gibt $g$ mit $(f\circ g)(y)=y$ für alle $y\in B$ (S); bijektiv $\Leftrightarrow$ es gibt genau ein $g$ mit (I) und (S).
+--- falsch
+Injektiv $\Leftrightarrow$ es gibt $g$ mit $(f\circ g)(y)=y$ für alle $y\in B$; surjektiv $\Leftrightarrow$ es gibt $g$ mit $(g\circ f)(x)=x$ für alle $x\in A$; bijektiv $\Leftrightarrow$ es gibt genau ein $g$ mit beidem.
+--- falsch
+Injektiv $\Leftrightarrow$ es gibt $g$ mit $(g\circ f)(x)=x$ für alle $x\in A$ (I); surjektiv $\Leftrightarrow$ es gibt $g$ mit $(f\circ g)(y)=y$ für alle $y\in B$ (S); bijektiv $\Leftrightarrow$ es gibt ein $g$ mit (I) oder (S).
+--- falsch
+Injektiv $\Leftrightarrow$ es gibt genau ein $g$ mit $(g\circ f)(x)=x$ für alle $x\in A$; surjektiv $\Leftrightarrow$ es gibt genau ein $g$ mit $(f\circ g)(y)=y$ für alle $y\in B$; bijektiv, wenn beide $g$ verschieden sind.
+:::
+:::karte herleitung Charakterisierung
+Wie zeigt man, dass (I) injektiv und (S) surjektiv ergibt, und dass es zu bijektivem $f$ genau eine Funktion $g$ mit (I) und (S) gibt?
+---
+(I) ergibt injektiv: Aus $f(x_1)=f(x_2)$ folgt $x_1=g(f(x_1))=g(f(x_2))=x_2$, weil $g$ jedes $f(x)$ auf $x$ zurückführt.
+---
+(S) ergibt surjektiv: Zu $y\in B$ setzt man $z:=g(y)\in A$; dann ist $f(z)=(f\circ g)(y)=y$, weil (S) für alle $y\in B$ gilt, also ist $y\in\mathcal W(f)$.
+---
+Ist $f$ bijektiv, hat jedes $y$ genau ein Urbild $g(y)$; dieses $g$ erfüllt (I) und (S), weil es jedem Bild sein einziges Urbild zuordnet.
+---
+Erfüllt auch $\hat g$ beide, ist $\hat g(y)=\hat g\bigl(f(g(y))\bigr)=g(y)$, weil das innere $f(g(y))=y$ nach (S) für $g$ gilt und $\hat g$ nach (I) jedes Bild $f(x)$ auf $x$ zurückführt.
+:::
+:::karte zusammenhang Eindeutigkeit braucht bijektiv
+Warum gibt es zu einer nur surjektiven Funktion wie $h:\mathbb{R}\to[-1,\infty)$ keine eindeutige Funktion $g$ mit (S)?
+---
+Weil manche $y$ mehrere Urbilder haben und $g$ eines davon wählen darf: $g_1(y)=2+\sqrt{y+1}$ und $g_2(y)=2-\sqrt{y+1}$ erfüllen beide (S). Eindeutig wird $g$ erst, wenn $f$ bijektiv ist.
+--- falsch
+Weil es gar keine Funktion mit (S) gibt: (S) verlangt, dass $h$ injektiv ist, und $h$ trifft die Höhe $3$ zweimal. Erst wenn $h$ bijektiv ist, existiert überhaupt ein solches $g$.
+--- falsch
+Weil $g$ nur auf $\mathcal W(h)$ festliegt und außerhalb beliebig ist: Für $y<-1$ darf $g(y)$ jeden Wert haben. Bei surjektivem $h$ ist das die einzige Freiheit, die $g$ hat.
+--- falsch
+Weil $g_1(y)=2+\sqrt{y+1}$ zwar (S) erfüllt, $g_2(y)=2-\sqrt{y+1}$ aber nicht, da es negative Werte liefert. Eindeutig ist $g$ also doch, nur schwer zu finden.
+:::
+:::karte begriff Umkehrfunktion
+Was ist die Umkehrfunktion $f^{-1}$ einer bijektiven Funktion $f:A\to B$, und welche Gleichungen erfüllt sie?
+---
+Die eindeutige Funktion $g:B\to A$ mit (I) und (S), $f^{-1}:=g$. Für alle $x\in A$, $y\in B$ gilt $f(x)=y\ \Leftrightarrow\ x=f^{-1}(y)$, $f^{-1}\bigl(f(x)\bigr)=x$ und $f\bigl(f^{-1}(y)\bigr)=y$.
+--- falsch
+Der Kehrwert $f^{-1}(y):=1/f(y)$, erklärt für alle $y$ mit $f(y)\neq0$. Für ihn gilt $f(y)\cdot f^{-1}(y)=1$, so wie für Zahlen das Produkt mit dem Inversen eins ergibt.
+--- falsch
+Die eindeutige Funktion $g:B\to A$ mit (I) und (S), $f^{-1}:=g$. Für alle $x\in A$, $y\in B$ gilt $f(x)=y\ \Leftrightarrow\ y=f^{-1}(x)$, $f^{-1}\bigl(f(x)\bigr)=f(x)$ und $f\bigl(f^{-1}(y)\bigr)=f(y)$.
+--- falsch
+Eine Funktion $g:B\to A$ mit (S), die zu jeder surjektiven Funktion existiert; sie ist eindeutig, weil jedes $y$ ein Urbild hat. Es gilt $f\bigl(g(y)\bigr)=y$ für alle $y\in B$.
+:::
+:::karte zusammenhang Umkehrfunktion und Kehrwert
+Warum darf man den Wert $f^{-1}(y)$ der Umkehrfunktion nicht mit dem Kehrwert $1/f(y)$ verwechseln?
+---
+Weil $f^{-1}(y)$ die Lösung $x$ von $f(x)=y$ ist und $1/f(y)$ nur den Wert von $f$ an der Stelle $y$ umkehrt: Für $h$ auf $[2,\infty)$ ist $h^{-1}(8)=5$, aber $1/h(8)=1/35$.
+--- falsch
+Weil sie sich nur im Vorzeichen unterscheiden: Es gilt $f^{-1}(y)=-1/f(y)$, denn die Umkehrfunktion spiegelt den Graphen, und Spiegeln bringt ein Minuszeichen.
+--- falsch
+Man darf sie verwechseln, sie sind gleich: Das Zeichen ${}^{-1}$ bedeutet wie bei Zahlen den Kehrwert, also $f^{-1}(y)=1/f(y)$; „Umkehrfunktion“ ist nur ein anderer Name dafür.
+--- falsch
+Weil $1/f(y)$ nur für bijektive $f$ erklärt ist, $f^{-1}(y)$ dagegen für jede Funktion: Für $h$ auf $\mathbb{R}$ ist $h^{-1}(8)$ erklärt, der Kehrwert $1/h(8)$ dagegen nicht.
+:::
+:::karte begriff n-te Wurzel
+Wie ist die $n$-te Wurzel als Umkehrfunktion erklärt, und welche Gleichungen gelten für sie?
+---
+Als Umkehrfunktion von $x\mapsto x^n$, auf $\mathbb{R}_0^+$ für gerades $n$ und auf $\mathbb{R}$ für ungerades $n$: $f^{-1}(y)=\sqrt[n]{y}=y^{1/n}$. Dort gilt $\sqrt[n]{y^n}=y$ und $(\sqrt[n]{y})^n=y$.
+--- falsch
+Als Umkehrfunktion von $x\mapsto x^n$ auf ganz $\mathbb{R}$ für jedes $n$: $f^{-1}(y)=\sqrt[n]{y}=y^{1/n}$. Für alle reellen $y$ gilt $\sqrt[n]{y^n}=y$ und $(\sqrt[n]{y})^n=y$.
+--- falsch
+Als Kehrwert der $n$-ten Potenz, $\sqrt[n]{y}:=1/y^n$, erklärt für alle $y\neq0$ und für jedes $n$. Es gilt $\sqrt[n]{y}\cdot y^n=1$; deshalb schreibt man die $n$-te Wurzel auch als $y^{-n}$.
+--- falsch
+Als Umkehrfunktion von $x\mapsto x^n$, auf $\mathbb{R}$ für gerades $n$ und auf $\mathbb{R}_0^+$ für ungerades $n$: $f^{-1}(y)=\sqrt[n]{y}=y^{1/n}$. Dort gilt $\sqrt[n]{y^n}=y$ und $(\sqrt[n]{y})^n=y$.
+:::
+:::karte zusammenhang Graph der Umkehrfunktion
+Warum ist der Graph der Umkehrfunktion $g=f^{-1}$ der an der Geraden $y=x$ gespiegelte Graph von $f$?
+---
+Weil $\mathcal G(f)=\{(x,f(x))\}=\{(g(y),y):y\in B\}$ und $\mathcal G(g)=\{(y,g(y)):y\in B\}$ dieselben Paare mit vertauschten Koordinaten enthalten; das Vertauschen ist die Spiegelung an der Winkelhalbierenden.
+--- falsch
+Weil $g$ die Werte von $f$ mit $-1$ multipliziert: Aus jedem Punkt $(x,f(x))$ wird $(x,-f(x))$. Das ist die Spiegelung an der Winkelhalbierenden, die durch den Ursprung geht.
+--- falsch
+Weil $g$ rückwärts läuft: Aus jedem Punkt $(x,f(x))$ wird $(-x,f(x))$, der Graph wird also von rechts nach links durchlaufen. Das ist die Spiegelung an der Geraden $y=x$.
+--- falsch
+Weil $\mathcal G(g)=\mathcal G(f)$ gilt: Beide Graphen bestehen aus denselben Punkten, man liest sie nur einmal von der $x$-Achse und einmal von der $y$-Achse aus; gespiegelt wird nur die Beschriftung.
+:::
+:::karte formel Monotonie vererbt sich
+Was sagt der Satz „Monotonie vererbt sich“ über die Umkehrfunktion einer streng monotonen Funktion, und was setzt er voraus?
+---
+Ist $f:A\to B$ reell, surjektiv und streng monoton wachsend (fallend), so existiert $g=f^{-1}:B\to A$ und ist ebenfalls streng monoton wachsend (fallend). Ohne „surjektiv“ fehlt $g$ für manche $y\in B$.
+--- falsch
+Ist $f:A\to B$ reell, surjektiv und streng monoton wachsend (fallend), so existiert $g=f^{-1}:B\to A$ und ist streng monoton fallend (wachsend), denn die Spiegelung an $y=x$ kehrt die Richtung um.
+--- falsch
+Ist $f:A\to B$ reell und monoton wachsend (fallend), so existiert $g=f^{-1}:B\to A$ immer und ist ebenfalls monoton wachsend (fallend). Weitere Voraussetzungen braucht der Satz nicht.
+--- falsch
+Ist $f:A\to B$ reell und streng monoton wachsend (fallend), so existiert $g=f^{-1}:B\to A$ auch ohne Surjektivität, denn streng monotone Funktionen treffen jede Höhe in $B$.
+:::
+:::karte herleitung Monotonie vererbt sich
+Wie zeigt man, dass die Umkehrfunktion einer surjektiven, streng monoton wachsenden reellen Funktion $f:A\to B$ existiert und ebenfalls streng monoton wächst?
+---
+$g=f^{-1}$ existiert, weil $f$ bijektiv ist: injektiv wie im Satz „Streng monoton ergibt bijektiv“ und surjektiv nach Voraussetzung.
+---
+Seien $y_1<y_2$ in $B$; zu zeigen ist $g(y_1)<g(y_2)$, weil das die Definition von streng wachsend für $g$ ist.
+---
+Wäre $g(y_1)\ge g(y_2)$, ergäbe Anwenden von $f$ den Widerspruch $y_1\ge y_2$, weil $f$ wachsend ist und $f(g(y))=y$ gilt.
+---
+Also ist $g(y_1)<g(y_2)$; der fallende Fall geht gleich, weil sich dort nur beide Ungleichungen umdrehen.
+:::
+:::karte zusammenhang Wurzel aus einem Quadrat
+Warum gilt die Gleichung $\sqrt{y^2}=y$ nicht für alle reellen $y$, obwohl die Wurzel die Umkehrfunktion des Quadrats ist?
+---
+Weil die Umkehrung nur zur Funktion $x^2$ auf $\mathbb{R}_0^+$ gehört: Für $y=-3$ ist $\sqrt{(-3)^2}=3$, allgemein $\sqrt{y^2}=|y|$. Der Fehler entsteht, wenn man den Definitionsbereich vergisst.
+--- falsch
+Weil die Wurzel zwei Werte hat, $\pm y$: Für $y=-3$ ist $\sqrt{(-3)^2}=\pm3$, und man muss je nach Aufgabe den passenden Wert wählen. Die Gleichung gilt also nur bis aufs Vorzeichen.
+--- falsch
+Doch, sie gilt für alle reellen $y$, denn Quadrieren und Wurzelziehen heben sich immer auf; $\sqrt{(-3)^2}=-3$ ist nur ungewohnt, weil Wurzeln meist positiv geschrieben werden.
+--- falsch
+Weil $y^2$ für negative $y$ negativ ist und die Wurzel daraus nicht existiert: Für $y=-3$ ist $\sqrt{(-3)^2}$ nicht erklärt, die Gleichung gilt deshalb nur für $y\ge0$.
+:::
+:::karte zusammenhang Umkehren einer Kette
+Warum dreht sich beim Umkehren einer Komposition bijektiver Funktionen die Reihenfolge um, also $(g\circ f)^{-1}=f^{-1}\circ g^{-1}$?
+---
+Weil der Rückweg den letzten Schritt zuerst rückgängig machen muss: $f^{-1}\bigl(g^{-1}(g(f(x)))\bigr)=f^{-1}(f(x))=x$, ebenso andersherum, und es gibt nur eine solche Funktion.
+--- falsch
+Sie dreht sich gar nicht um: $(g\circ f)^{-1}=g^{-1}\circ f^{-1}$, denn man kehrt jede Funktion einzeln um und behält ihre Reihenfolge bei, wie beim Kehrwert eines Produkts von Zahlen.
+--- falsch
+Weil die Komposition vertauschbar ist: $f^{-1}\circ g^{-1}$ und $g^{-1}\circ f^{-1}$ sind dieselbe Funktion, man schreibt nur gewöhnlich die zuerst umgekehrte Funktion links.
+--- falsch
+Weil $g\circ f$ als Produkt $g\cdot f$ zu lesen ist und für den Kehrwert $(g\cdot f)^{-1}=f^{-1}\cdot g^{-1}$ gilt; die Reihenfolge der Faktoren kehrt sich beim Kehrwert immer um.
+:::
+::::

@@ -125,3 +125,105 @@ $$\mathcal{F}\{\mathrm{e}^{-a|t|}\}=\frac{2a}{a^2+(2\pi f)^2}$$
 
 Für $a>0$. Reell und gerade in $f$, weil das Signal reell und gerade ist.
 ::::
+
+::::lernkarten
+:::karte formel Koeffizienten der periodischen Fortsetzung
+Wie hängen die Fourier-Koeffizienten eines Impulses, der mit der Periode $T=1/F$ fortgesetzt wird, mit der Fourier-Transformierten $S(f)$ des einzelnen Impulses zusammen?
+---
+$S_p(k)=F\cdot S(kF)$, sofern der Impuls kürzer als $T$ ist: Die Linien sind die Werte der festen Hüllkurve $S(f)$ an den Stellen $kF$, mal $F$. Jede Linie vertritt ein Band der Breite $F$.
+--- falsch
+$S_p(k)=S(kF)/F$: Die Linien sind die Werte der Hüllkurve $S(f)$ an den Stellen $kF$, geteilt durch $F$. Je länger die Periode, desto kleiner $F$ und desto höher die Linien, bis sie für $T\to\infty$ unendlich sind.
+--- falsch
+$S_p(k)=S(k/F)$: Die Linien sind die Werte der Hüllkurve an den Stellen $k/F$, also bei Vielfachen der Periode. Verlängert man die Periode, rücken die Linien deshalb auseinander und tasten die Hüllkurve gröber ab.
+--- falsch
+$S_p(k)=F\cdot S(kF)$, aber die Hüllkurve $S(f)$ hängt von der Periode ab: Verdoppelt man $T$, ändert sich ihre Form, und die neuen Linien liegen auf einer anderen Kurve als die alten.
+:::
+:::karte zusammenhang Von der Reihe zum Integral
+Was passiert mit den Linien der Fourier-Reihe eines periodisch fortgesetzten Impulses, wenn die Periode $T$ gegen unendlich geht?
+---
+Der Linienabstand $F=1/T$ schrumpft, und die Linien tasten dieselbe Hüllkurve $S(f)$ immer dichter ab. Im Grenzfall wird aus dem Abstand $F$ das Differential $\mathrm{d} f$ und aus der Summe $\sum_kS(kF)\mathrm{e}^{\mathrm{j}2\pi kFt}F$ das Fourier-Integral.
+--- falsch
+Der Linienabstand $F=1/T$ wächst, und die Linien rücken auseinander, bis nur noch der Gleichanteil übrig bleibt. Im Grenzfall besteht das Spektrum eines einzelnen Impulses deshalb aus einer einzigen Linie bei $f=0$.
+--- falsch
+Der Linienabstand bleibt gleich, aber die Linien werden immer höher, weil jede Periode mehr Energie enthält. Im Grenzfall werden alle Linien unendlich hoch, und ein Spektrum lässt sich nicht mehr angeben.
+--- falsch
+Der Linienabstand $F=1/T$ schrumpft, die Hüllkurve wird dabei aber immer schmaler, bis sie für $T\to\infty$ zu einer einzigen Linie bei $f=0$ zusammenfällt. Aus dieser Linie entsteht das Integral.
+:::
+:::karte begriff Fourier-Transformation
+Wie sind die Fourier-Transformation eines einmaligen Signals $s(t)$ und ihre Rücktransformation definiert, und wie schreibt man sie kurz?
+---
+$S(f)=\int_{-\infty}^{\infty}s(t)\,\mathrm{e}^{-\mathrm{j}2\pi ft}\,\mathrm{d} t$ und $s(t)=\int_{-\infty}^{\infty}S(f)\,\mathrm{e}^{\mathrm{j}2\pi ft}\,\mathrm{d} f$. Kurz: $s(t)\;\circ\!\!-\!\!\bullet\;S(f)$ oder $S(f)=\mathcal{F}\{s(t)\}$.
+--- falsch
+$S(f)=\int_{-\infty}^{\infty}s(t)\,\mathrm{e}^{\mathrm{j}2\pi ft}\,\mathrm{d} t$ und $s(t)=\int_{-\infty}^{\infty}S(f)\,\mathrm{e}^{\mathrm{j}2\pi ft}\,\mathrm{d} f$, mit demselben Vorzeichen im Exponenten. Kurz: $s(t)\;\circ\!\!-\!\!\bullet\;S(f)$.
+--- falsch
+$S(f)=\frac1T\int_{0}^{T}s(t)\,\mathrm{e}^{-\mathrm{j}2\pi ft}\,\mathrm{d} t$ und $s(t)=\sum_kS(kF)\,\mathrm{e}^{\mathrm{j}2\pi kFt}$, gemittelt über eine Periode. Kurz: $s(t)\;\circ\!\!-\!\!\bullet\;S(f)$ oder $S(f)=\mathcal{F}\{s(t)\}$.
+--- falsch
+$S(f)=\int_{-\infty}^{\infty}s(t)\,\mathrm{e}^{-\mathrm{j}2\pi ft}\,\mathrm{d} t$ und $s(t)=\frac{1}{2\pi}\int_{-\infty}^{\infty}S(f)\,\mathrm{e}^{\mathrm{j}2\pi ft}\,\mathrm{d} f$, mit dem Faktor $\frac{1}{2\pi}$ vor der Rücktransformation.
+:::
+:::karte begriff Spektraldichte
+Was bedeutet es, dass die Fourier-Transformierte $S(f)$ eines einmaligen Signals eine Spektraldichte ist, und welche Einheit hat sie bei einer Spannung?
+---
+$S(f)$ ist ein Gewicht pro Frequenzintervall: Keine einzelne Frequenz hat eine endliche Amplitude, erst ein Band der Breite $\Delta f$ trägt etwa $S(f)\,\Delta f$. Ist $s$ eine Spannung in V, hat $S$ die Einheit V/Hz.
+--- falsch
+$S(f)$ ist die Amplitude der Schwingung mit der Frequenz $f$: Jede einzelne Frequenz trägt genau den Anteil $S(f)$. Ist $s$ eine Spannung in V, hat $S$ ebenfalls die Einheit V, wie die Fourier-Koeffizienten.
+--- falsch
+$S(f)$ ist ein Gewicht pro Zeitintervall: Erst ein Zeitabschnitt der Dauer $\Delta t$ trägt etwa $S(f)\,\Delta t$ zum Signal bei. Ist $s$ eine Spannung in V, hat $S$ deshalb die Einheit V/s.
+--- falsch
+$S(f)$ ist eine Leistung pro Frequenzintervall: Ein Band der Breite $\Delta f$ trägt etwa die Leistung $S(f)\,\Delta f$. Ist $s$ eine Spannung in V, hat $S$ deshalb die Einheit $\mathrm V^2$/Hz.
+:::
+:::karte zusammenhang Spektrum
+Wie setzt die Rücktransformation ein Signal aus seinem Spektrum $S(f)$ zusammen, und was legt $S(f)$ dabei für jede Frequenz fest?
+---
+Sie setzt das Signal aus allen Schwingungen $\mathrm{e}^{\mathrm{j}2\pi ft}$ zusammen, jede mit dem komplexen Gewicht $S(f)\,\mathrm{d} f$. Das Spektrum sagt damit, mit welcher Amplitude und Phase jede Frequenz im Signal steckt.
+--- falsch
+Sie setzt das Signal aus verschobenen Dirac-Impulsen zusammen, einen für jede Frequenz. $S(f)$ legt fest, zu welcher Zeit der Impuls mit der Nummer $f$ auftritt; Amplitude und Phase spielen dabei keine Rolle.
+--- falsch
+Sie setzt das Signal aus allen Schwingungen $\mathrm{e}^{\mathrm{j}2\pi ft}$ zusammen, jede mit dem reellen Gewicht $|S(f)|\,\mathrm{d} f$. Das Spektrum legt damit nur die Amplituden fest; die Phasen aller Schwingungen sind null.
+--- falsch
+Sie setzt das Signal nur aus den Schwingungen mit $S(f)\neq0$ zusammen, jede mit dem Gewicht 1. $S(f)$ entscheidet also nur, ob eine Frequenz vorkommt, nicht, wie stark sie im Signal vertreten ist.
+:::
+:::karte formel Hinreichende Existenzbedingung
+Welche Bedingung an ein einmaliges Signal $s(t)$ reicht aus, damit seine Fourier-Transformierte $S(f)$ als Integral existiert?
+---
+$\int|s(t)|\mathrm{d} t<\infty$: Das Signal ist absolut integrierbar, das Integral seines Betrags über alle Zeiten ist endlich. Diese Bedingung ist hinreichend für die Existenz des Fourier-Integrals.
+--- falsch
+$\int s(t)\,\mathrm{d} t=0$: Die Fläche unter dem Signal muss verschwinden. Sonst wächst das Fourier-Integral bei $f=0$ über alle Grenzen, und die Fourier-Transformierte existiert für kein $f$.
+--- falsch
+$|s(t)|<\infty$ für alle $t$: Das Signal muss nur beschränkt sein, also nirgends unendlich werden. Wie lange es dauert, spielt keine Rolle, weil der Faktor $\mathrm{e}^{-\mathrm{j}2\pi ft}$ für die Konvergenz sorgt.
+--- falsch
+$\int|s(t)|\mathrm{d} t<\infty$, aber nur über eine Periode genommen: Das Signal muss periodisch sein und in jeder Periode eine endliche Fläche haben, sonst gibt es keine Fourier-Transformierte.
+:::
+:::karte formel Faltungssatz und Dirac-Impuls
+Was wird bei der Fourier-Transformation aus der Faltung $s(t)*h(t)$, und welches Spektrum folgt daraus für den Dirac-Impuls?
+---
+$s(t)*h(t)\;\circ\!\!-\!\!\bullet\;S(f)\,H(f)$: Faltung wird Produkt. Aus $s*\delta=s$ folgt $S(f)\cdot\mathcal{F}\{\delta\}=S(f)$, also $\delta(t)\;\circ\!\!-\!\!\bullet\;1$: Der Dirac-Impuls enthält alle Frequenzen mit gleichem Gewicht.
+--- falsch
+$s(t)*h(t)\;\circ\!\!-\!\!\bullet\;S(f)*H(f)$: Faltung bleibt Faltung. Aus $s*\delta=s$ folgt, dass $\mathcal{F}\{\delta\}$ selbst ein Dirac-Impuls ist, $\delta(t)\;\circ\!\!-\!\!\bullet\;\delta(f)$: Er enthält nur die Frequenz null.
+--- falsch
+$s(t)*h(t)\;\circ\!\!-\!\!\bullet\;S(f)\,H(f)$: Faltung wird Produkt. Aus $s*\delta=s$ folgt $\mathcal{F}\{\delta\}=0$, denn der Dirac-Impuls ist nur in einem einzigen Punkt von null verschieden und enthält keine Frequenzen.
+--- falsch
+$s(t)*h(t)\;\circ\!\!-\!\!\bullet\;S(f)+H(f)$: Faltung wird Summe. Aus $s*\delta=s$ folgt $\mathcal{F}\{\delta\}=0$; der Dirac-Impuls enthält also keine Frequenzen, weil er keine Dauer hat, in der er schwingen könnte.
+:::
+:::karte formel Exponentialimpuls
+Welche Fourier-Transformierte hat die Impulsantwort $h(t)=\frac1{RC}\varepsilon(t)\mathrm{e}^{-t/RC}$ des RC-Glieds, und was zeigt der Vergleich mit der Wechselstromrechnung?
+---
+$H(f)=\frac{1}{1+\mathrm{j}2\pi f\,RC}$, derselbe Frequenzgang wie aus der Wechselstromrechnung. Die Impulsantwort enthält also die ganze Information über das Frequenzverhalten.
+--- falsch
+$H(f)=\frac{RC}{1+\mathrm{j}2\pi f\,RC}$, also der Frequenzgang aus der Wechselstromrechnung mal der Zeitkonstanten. Die Impulsantwort enthält das Frequenzverhalten nur bis auf einen Faktor.
+--- falsch
+$H(f)=\frac{1}{1-\mathrm{j}2\pi f\,RC}$, also der konjugierte Frequenzgang der Wechselstromrechnung. Die Impulsantwort enthält das Frequenzverhalten, aber mit umgekehrtem Vorzeichen der Phase.
+--- falsch
+$H(f)=\frac{1}{1+\mathrm{j}2\pi f\,RC}$, aber nur für $f>0$; für negative Frequenzen existiert das Integral nicht. Die Impulsantwort enthält also nur einen Teil der Information über das Frequenzverhalten.
+:::
+:::karte formel Zweiseitiger Exponentialimpuls
+Welche Fourier-Transformierte hat der zweiseitige Exponentialimpuls $\mathrm{e}^{-a|t|}$ mit $a>0$, und welche Eigenschaften hat sie?
+---
+$\mathcal{F}\{\mathrm{e}^{-a|t|}\}=\frac{2a}{a^2+(2\pi f)^2}$, die Summe der Beiträge von $t<0$ und $t>0$. Sie ist reell und gerade in $f$, so wie das Signal reell und gerade in $t$ ist.
+--- falsch
+$\mathcal{F}\{\mathrm{e}^{-a|t|}\}=\frac{1}{a+\mathrm{j}2\pi f}$, wie beim einseitigen Impuls, weil der Anteil für $t<0$ dasselbe Integral liefert. Sie ist komplex, nur ihr Betrag ist gerade in $f$.
+--- falsch
+$\mathcal{F}\{\mathrm{e}^{-a|t|}\}=\frac{2a}{a^2-(2\pi f)^2}$, die Summe der Beiträge von $t<0$ und $t>0$. Sie ist reell und gerade in $f$, hat aber bei $2\pi f=a$ einen Pol.
+--- falsch
+$\mathcal{F}\{\mathrm{e}^{-a|t|}\}=\frac{-\mathrm{j}4\pi f}{a^2+(2\pi f)^2}$, die Differenz der Beiträge von $t>0$ und $t<0$. Sie ist rein imaginär und ungerade in $f$, weil das Signal bei $t=0$ einen Knick hat.
+:::
+::::

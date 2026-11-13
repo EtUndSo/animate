@@ -380,3 +380,171 @@ $$\mathcal{L}\{\delta(t)\}=1$$
 
 Für alle $p$; folgt aus $s(t)=s(t)*\delta(t)$.
 ::::
+
+::::lernkarten
+:::karte begriff Nullstelle
+Was ist eine Nullstelle einer Laplace-Transformierten $S(p)$, und wo liegt sie, wenn $S(p)$ ein Bruch aus zwei Polynomen ist?
+---
+Eine Stelle $p$, an der $S(p)=0$ ist. Ist $S(p)$ ein Bruch aus zwei Polynomen, so sind die Nullstellen die Nullstellen des Zählerpolynoms, sofern sie sich nicht gegen Pole kürzen.
+--- falsch
+Eine Stelle $p$, an der $S(p)=0$ ist. Ist $S(p)$ ein Bruch aus zwei Polynomen, so sind die Nullstellen die Nullstellen des Nennerpolynoms, weil der Bruch dort keinen Wert hat und null gesetzt wird.
+--- falsch
+Ein Zeitpunkt $t$, an dem das Signal $s(t)$ durch null geht. Ist $S(p)$ ein Bruch aus zwei Polynomen, so liest man diese Nulldurchgänge an den Nullstellen des Zählerpolynoms ab, gemessen in Sekunden.
+--- falsch
+Die Stelle $p=0$, also der Ursprung der $p$-Ebene, an der $S(p)$ den Gleichanteil des Signals angibt. Ein Bruch aus zwei Polynomen hat deshalb genau eine Nullstelle, gleichgültig, welchen Grad der Zähler hat.
+:::
+:::karte begriff Produktform
+Was ist die Produktform eines Polynombruchs $H(p)$, und durch welche Größen ist er damit festgelegt?
+---
+$H(p)=H_0\,\frac{\prod_{q=1}^{Q}\bigl(p-p_{\mathrm N,q}\bigr)}{\prod_{r=1}^{R}\bigl(p-p_{\mathrm P,r}\bigr)}$, Zähler und Nenner in Linearfaktoren zerlegt. Der Bruch ist durch seine $Q$ Nullstellen, seine $R$ Pole und den Faktor $H_0$ festgelegt, den Quotienten der höchsten Koeffizienten von Zähler und Nenner.
+--- falsch
+$H(p)=H_0\,\frac{\prod_{q=1}^{Q}\bigl(p+p_{\mathrm N,q}\bigr)}{\prod_{r=1}^{R}\bigl(p+p_{\mathrm P,r}\bigr)}$, Zähler und Nenner in Linearfaktoren zerlegt. Der Bruch ist durch Nullstellen, Pole und den Faktor $H_0$ festgelegt, den Quotienten der konstanten Glieder von Zähler und Nenner, also $H_0=H(0)$.
+--- falsch
+$H(p)=\frac{\prod_{q=1}^{Q}\bigl(p-p_{\mathrm N,q}\bigr)}{\prod_{r=1}^{R}\bigl(p-p_{\mathrm P,r}\bigr)}$, Zähler und Nenner in Linearfaktoren zerlegt. Der Bruch ist allein durch seine $Q$ Nullstellen und $R$ Pole vollständig festgelegt; ein zusätzlicher Faktor ist nicht nötig, weil er sich stets herauskürzt.
+--- falsch
+$H(p)=H_0\,\prod_{r=1}^{R}\frac{1}{p-p_{\mathrm P,r}}$, also ein Produkt aus einfachen Brüchen, einer je Pol. Die Nullstellen gehen nicht ein, weil sie sich bei einem Polynombruch stets gegen Pole kürzen; festgelegt ist der Bruch durch die Pole und den Faktor $H_0$.
+:::
+:::karte begriff Pol-Nullstellen-Diagramm
+Was zeigt das Pol-Nullstellen-Diagramm einer Laplace-Transformierten, und was braucht man zusätzlich, um das Signal festzulegen?
+---
+Die Pole als Kreuze ($\times$) und die Nullstellen als Kreise ($\circ$) in der $p$-Ebene. Zusammen mit dem Faktor $H_0$ legt es den Ausdruck $S(p)$ fest; um das Signal festzulegen, braucht man zusätzlich den Konvergenzbereich.
+--- falsch
+Die Pole als Kreise ($\circ$) und die Nullstellen als Kreuze ($\times$) in der $p$-Ebene. Zusammen mit dem Konvergenzbereich legt es das Signal vollständig fest; der Faktor $H_0$ wird nicht gebraucht, weil er nur die Einheit festlegt.
+--- falsch
+Den Verlauf des Signals $s(t)$ über der Zeit, mit Kreuzen an den Maxima und Kreisen an den Nulldurchgängen. Es legt das Signal vollständig fest; zusätzlich braucht man nur die Einheit der Zeitachse, etwa Sekunden.
+--- falsch
+Die Pole als Kreuze ($\times$) und die Nullstellen als Kreise ($\circ$) in der $p$-Ebene. Es legt das Signal allein schon fest, weil die Lage jedes Pols zeigt, ob sein Anteil rechtsseitig ist: Pole links der imaginären Achse gehören zu rechtsseitigen Anteilen.
+:::
+:::karte zusammenhang Landschaft über der p-Ebene
+Warum wird $|H(p)|$ in der Nähe eines Pols groß und in der Nähe einer Nullstelle klein?
+---
+Nach der Produktform ist $|H(p)|=|H_0|\,\frac{\prod_q|p-p_{\mathrm N,q}|}{\prod_r|p-p_{\mathrm P,r}|}$, weil der Betrag eines Produkts das Produkt der Beträge ist. Jeder Faktor ist ein Abstand: Nahe an einem Pol wird ein Nenner klein, nahe an einer Nullstelle ein Zähler.
+--- falsch
+Weil Pole die Stellen sind, an denen das Signal $s(t)$ selbst groß ist, und Nullstellen die Stellen, an denen es null ist. $|H(p)|$ übernimmt diese Werte unmittelbar, weil die Transformation den Betrag des Signals an jeder Stelle erhält.
+--- falsch
+Nach der Produktform ist $|H(p)|=|H_0|\,\frac{\prod_r|p-p_{\mathrm P,r}|}{\prod_q|p-p_{\mathrm N,q}|}$. Jeder Faktor ist ein Abstand: Weit weg von einem Pol wird ein Zähler groß, weit weg von einer Nullstelle ein Nenner, und dazwischen wechselt $|H|$ zwischen groß und klein.
+--- falsch
+Weil $|H(p)|$ wie der Konvergenzbereich nur von $\operatorname{Re} p$ abhängt. Pole liegen auf Geraden, auf denen das Integral nicht konvergiert, Nullstellen auf Geraden, auf denen es genau null ergibt; dazwischen ändert sich $|H|$ stetig.
+:::
+:::karte zusammenhang Nullstelle sperrt
+Was macht ein System mit dem Eingang $\mathrm{e}^{p_\mathrm Nt}$, wenn $p_\mathrm N$ eine Nullstelle seiner Übertragungsfunktion ist, die im Konvergenzbereich liegt?
+---
+Es antwortet mit $H(p_\mathrm N)\,\mathrm{e}^{p_\mathrm Nt}=0$, sperrt diese Exponentialfunktion also vollständig. Deshalb hat ein Sperrfilter gegen 50-Hz-Brummen ein Nullstellenpaar bei $p=\pm\mathrm{j}2\pi\cdot50\,\mathrm{Hz}$.
+--- falsch
+Es verstärkt diese Exponentialfunktion unbegrenzt, weil der Nenner von $1/H$ dort null wird. Deshalb baut man Oszillatoren für 50 Hz mit einem Nullstellenpaar bei $p=\pm\mathrm{j}2\pi\cdot50\,\mathrm{Hz}$.
+--- falsch
+Es lässt diese Exponentialfunktion unverändert durch, weil eine Nullstelle den Eigenwert 1 bedeutet. Ein Sperrfilter gegen 50-Hz-Brummen braucht deshalb Pole bei $p=\pm\mathrm{j}2\pi\cdot50\,\mathrm{Hz}$, keine Nullstellen.
+--- falsch
+Es verzögert diese Exponentialfunktion um eine halbe Periode, weil $H(p_\mathrm N)=0$ eine Phasendrehung um $180^\circ$ bedeutet. Erst zwei Nullstellen hintereinander sperren das Signal vollständig.
+:::
+:::karte zusammenhang Frequenzgang als Schnitt
+Warum fällt der Betrag des Frequenzgangs beim RC-Tiefpass $H(p)=\frac{1/RC}{p+1/RC}$ für hohe Frequenzen wie $1/F$?
+---
+Der Frequenzgang ist $H(p)$ an der Stelle $p=\mathrm{j}2\pi F$, also auf der imaginären Achse. Der Abstand dieses Punkts vom Pol $-1/RC$ steht im Nenner; er ist bei $F=0$ gleich $1/RC$ und wächst für große $F$ etwa wie $2\pi F$. Deshalb fällt $|H|$ wie $1/F$.
+--- falsch
+Der Frequenzgang ist $H(p)$ an der Stelle $p=F$, also auf der reellen Achse. Für große $F$ wächst der Nenner $p+1/RC$ wie $F$, und $|H|$ fällt wie $1/F$; auf der imaginären Achse wäre $|H|$ dagegen für alle Frequenzen konstant.
+--- falsch
+Weil der RC-Tiefpass eine Nullstelle bei $p=\infty$ hat, an der der Frequenzgang null wird. Je höher die Frequenz, desto näher liegt $\mathrm{j}2\pi F$ an dieser Nullstelle, und der Abstand zu ihr fällt wie $1/F$, also auch der Betrag $|H|$.
+--- falsch
+Der Frequenzgang ist $H(p)$ an der Stelle $p=\mathrm{j}2\pi F$. Der Abstand dieses Punkts vom Pol $-1/RC$ bleibt für alle $F$ gleich $1/RC$, weil der Pol auf der reellen Achse liegt; der Abfall kommt allein von der Phase, die mit $F$ wächst.
+:::
+:::karte zusammenhang Lage des Konvergenzbereichs
+Wo liegt der Konvergenzbereich bei rein rechtsseitigen, rein linksseitigen und zweiseitigen Signalen, und warum liegt er dort?
+---
+Jeder Pol gehört zu einem Exponentialimpuls, dessen Konvergenzbereich eine Halbebene ist, die am Pol endet; der ganze Bereich ist ihr Durchschnitt. Rechtsseitig liegt er rechts des am weitesten rechts gelegenen Pols, linksseitig links des am weitesten links gelegenen, zweiseitig in einem Streifen dazwischen.
+--- falsch
+Rechtsseitig in der rechten Halbebene $\operatorname{Re} p>0$, linksseitig in der linken Halbebene $\operatorname{Re} p<0$, zweiseitig auf der imaginären Achse. Die Lage der Pole spielt keine Rolle, weil der Konvergenzbereich nur von der Seite der Zeitachse abhängt, auf der das Signal liegt.
+--- falsch
+Jeder Pol gehört zu einem Exponentialimpuls mit einer Halbebene als Konvergenzbereich; der ganze Bereich ist ihre Vereinigung. Rechtsseitig liegt er rechts des am weitesten links gelegenen Pols, linksseitig links des am weitesten rechts gelegenen, zweiseitig überall außer an den Polen.
+--- falsch
+Rechtsseitig links aller Pole, weil das Signal dort abklingt, linksseitig rechts aller Pole. Zweiseitig ist er ein Kreis um den Ursprung, der vom nächstgelegenen Pol begrenzt wird, weil das Signal nach beiden Seiten gleich stark abklingt und keine Richtung in der $p$-Ebene bevorzugt ist.
+:::
+:::karte formel Ein Ausdruck, drei Signale
+Welche Signale gehören zu $S(p)=\frac{1}{(p+1)(p+2)}=\frac{1}{p+1}-\frac{1}{p+2}$ bei den Konvergenzbereichen $\operatorname{Re} p>-1$, $\operatorname{Re} p<-2$ und $-2<\operatorname{Re} p<-1$?
+---
+$\bigl(\mathrm{e}^{-t}-\mathrm{e}^{-2t}\bigr)\cdot\varepsilon(t)$, $-\bigl(\mathrm{e}^{-t}-\mathrm{e}^{-2t}\bigr)\cdot\varepsilon(-t)$ und $-\mathrm{e}^{-t}\cdot\varepsilon(-t)-\mathrm{e}^{-2t}\cdot\varepsilon(t)$. Im Streifen liegt der Pol $-1$ rechts, sein Bruch gehört zu einem linksseitigen Impuls; der Pol $-2$ liegt links und liefert einen rechtsseitigen.
+--- falsch
+$\bigl(\mathrm{e}^{-t}-\mathrm{e}^{-2t}\bigr)\cdot\varepsilon(t)$, $-\bigl(\mathrm{e}^{-t}-\mathrm{e}^{-2t}\bigr)\cdot\varepsilon(-t)$ und $\mathrm{e}^{-t}\cdot\varepsilon(t)+\mathrm{e}^{-2t}\cdot\varepsilon(-t)$. Im Streifen liegt der Pol $-1$ rechts und gehört deshalb zu einem rechtsseitigen Impuls; der Pol $-2$ liefert einen linksseitigen.
+--- falsch
+In allen drei Fällen $\bigl(\mathrm{e}^{-t}-\mathrm{e}^{-2t}\bigr)\cdot\varepsilon(t)$, weil die Partialbrüche nur von den Polen abhängen. Der Konvergenzbereich legt lediglich fest, für welche $p$ man die Formel auswerten darf, nicht das Signal selbst.
+--- falsch
+$\bigl(\mathrm{e}^{t}-\mathrm{e}^{2t}\bigr)\cdot\varepsilon(t)$, $\bigl(\mathrm{e}^{t}-\mathrm{e}^{2t}\bigr)\cdot\varepsilon(-t)$ und $\mathrm{e}^{t}\cdot\varepsilon(-t)-\mathrm{e}^{2t}\cdot\varepsilon(t)$: Die Pole $-1$ und $-2$ werden zu den Exponenten $+1$ und $+2$, weil im Laplace-Integral der Faktor $\mathrm{e}^{-pt}$ steht.
+:::
+:::karte begriff Faltungssatz
+Was besagt der Faltungssatz der Laplace-Transformation, und für welche $p$ gilt er?
+---
+Aus der Faltung im Zeitbereich wird ein Produkt im Bildbereich: $\mathcal{L}\{s(t)*h(t)\}=S(p)\cdot H(p)$. Er gilt für alle $p$, die in den Konvergenzbereichen von $S$ und von $H$ liegen.
+--- falsch
+Aus dem Produkt im Zeitbereich wird eine Faltung im Bildbereich: $\mathcal{L}\{s(t)\cdot h(t)\}=S(p)*H(p)$. Er gilt für alle $p$, die in mindestens einem der beiden Konvergenzbereiche liegen.
+--- falsch
+Aus der Faltung im Zeitbereich wird eine Summe im Bildbereich: $\mathcal{L}\{s(t)*h(t)\}=S(p)+H(p)$. Er gilt für alle $p$, die in den Konvergenzbereichen von $S$ und von $H$ liegen.
+--- falsch
+Aus der Faltung im Zeitbereich wird ein Produkt im Bildbereich: $\mathcal{L}\{s(t)*h(t)\}=S(p)\cdot H(p)$. Er gilt aber nur, wenn $s(t)$ eine Eigenfunktion $\mathrm{e}^{pt}$ ist, für andere Signale nicht.
+:::
+:::karte herleitung Faltungssatz durch Vertauschen der Integrale
+Wie folgt der Faltungssatz $\mathcal{L}\{s(t)*h(t)\}=S(p)\cdot H(p)$, wenn man das Faltungsintegral in die Laplace-Transformation einsetzt?
+---
+Man setzt das Faltungsintegral ein, weil $s*h$ das zu transformierende Signal ist: $\mathcal{L}\{s*h\}=\int_{-\infty}^{\infty}\Bigl[\int_{-\infty}^{\infty}s(\tau)\,h(t-\tau)\,\mathrm{d}\tau\Bigr]\mathrm{e}^{-pt}\,\mathrm{d} t$.
+---
+Man vertauscht die Reihenfolge der Integrationen, weil das Doppelintegral absolut konvergiert, wenn $p$ in beiden Konvergenzbereichen liegt.
+---
+Im inneren Integral über $t$ substituiert man $u=t-\tau$, weil bei festem $\tau$ dann $\mathrm{d} t=\mathrm{d} u$ ist, und zerlegt $\mathrm{e}^{-pt}=\mathrm{e}^{-p\tau}\,\mathrm{e}^{-pu}$, weil $t$ die Summe von $\tau$ und $u$ ist.
+---
+Das innere Integral $\int_{-\infty}^{\infty}h(u)\,\mathrm{e}^{-pu}\,\mathrm{d} u$ ist $H(p)$, weil es nicht mehr von $\tau$ abhängt. Übrig bleibt $\int_{-\infty}^{\infty}s(\tau)\,\mathrm{e}^{-p\tau}\,\mathrm{d}\tau\cdot H(p)=S(p)\,H(p)$.
+:::
+:::karte zusammenhang Warum gerade ein Produkt
+Warum wird aus der Faltung, die im Zeitbereich jeden Ausgangswert mit allen Eingangswerten koppelt, im Bildbereich ein einfaches Produkt?
+---
+$S(p)$ beschreibt den Eingang im Koordinatensystem der Funktionen $\mathrm{e}^{pt}$, und $H(p)$ ist der Eigenwert, mit dem das System jede von ihnen multipliziert. Im Bildbereich gibt es deshalb keine Kopplung mehr: Jede Stelle $p$ wird für sich mit ihrem Eigenwert multipliziert.
+--- falsch
+Weil die Transformation die Zeitachse so stark staucht, dass alle Eingangswerte praktisch zur selben Zeit liegen. Dann schrumpft das Faltungsintegral auf ein einziges Produkt, und die Kopplung zwischen den einzelnen Zeitpunkten fällt weg.
+--- falsch
+$S(p)$ beschreibt den Eingang im Koordinatensystem der Funktionen $\mathrm{e}^{pt}$. Das System koppelt im Bildbereich zwar weiterhin alle Stellen $p$ miteinander, aber diese Kopplung ist so schwach, dass man sie vernachlässigen darf; übrig bleibt das Produkt.
+--- falsch
+Weil Faltung und Multiplikation dasselbe sind, sobald man mit komplexen Zahlen rechnet. Im Zeitbereich rechnet man nur mit reellen Signalen, deshalb erscheint dort die Faltung; der Bildbereich lässt die Rechnung in komplexer Form unmittelbar zu.
+:::
+:::karte formel Ableiten im Zeitbereich
+Was wird aus der $n$-fachen Ableitung eines Signals im Bildbereich, und warum hat der Differenzierer den Eigenwert $p$?
+---
+$\frac{\mathrm{d}^n}{\mathrm{d} t^n}s(t)\longleftrightarrow p^n\,S(p)$; der Konvergenzbereich ist mindestens der von $S(p)$. Der Differenzierer hat die Impulsantwort $\delta'(t)$, und wegen $\mathrm{e}^{pt}*\delta'(t)=\frac{\mathrm{d}}{\mathrm{d} t}\mathrm{e}^{pt}=p\,\mathrm{e}^{pt}$ ist sein Eigenwert $p$, also $\mathcal{L}\{\delta'(t)\}=p$.
+--- falsch
+$\frac{\mathrm{d}^n}{\mathrm{d} t^n}s(t)\longleftrightarrow\frac{1}{p^n}\,S(p)$, zusätzlich $\operatorname{Re} p>0$. Der Differenzierer hat die Impulsantwort $\varepsilon(t)$, und wegen $\int_{-\infty}^t\mathrm{e}^{p\tau}\mathrm{d}\tau=\mathrm{e}^{pt}/p$ ist sein Eigenwert $1/p$, für jede Ableitung einmal.
+--- falsch
+$\frac{\mathrm{d}^n}{\mathrm{d} t^n}s(t)\longleftrightarrow n\,p\,S(p)$; der Konvergenzbereich bleibt gleich. Der Differenzierer hat die Impulsantwort $\delta'(t)$, und jede weitere Ableitung addiert noch einmal den Eigenwert $p$, weil die Transformation linear ist und sich die Beiträge summieren.
+--- falsch
+$\frac{\mathrm{d}^n}{\mathrm{d} t^n}s(t)\longleftrightarrow p^n\,S(p)$, aber nur für $\operatorname{Re} p>0$. Der Differenzierer hat die Impulsantwort $\delta(t)$, weil der Dirac-Impuls die Ableitung des Sprungs ist; deshalb ist sein Eigenwert $p$, und jede Ableitung braucht einen eigenen Sprung.
+:::
+:::karte formel Integrieren im Zeitbereich
+Was wird aus dem Integral $\int_{-\infty}^{t}s(\tau)\,\mathrm{d}\tau$ im Bildbereich, und welche Bedingung kommt hinzu?
+---
+$\frac1p\,S(p)$: Der Integrator hat die Impulsantwort $\varepsilon(t)$ mit $\mathcal{L}\{\varepsilon(t)\}=1/p$, und nach dem Faltungssatz wird mit dieser Transformierten multipliziert. Der Konvergenzbereich ist mindestens der Durchschnitt des Bereichs von $S(p)$ mit der Halbebene $\operatorname{Re} p>0$.
+--- falsch
+$p\,S(p)$: Der Integrator hat die Impulsantwort $\delta'(t)$ mit $\mathcal{L}\{\delta'(t)\}=p$, und nach dem Faltungssatz wird mit dieser Transformierten multipliziert. Der Konvergenzbereich bleibt derselbe wie der von $S(p)$, eine Bedingung kommt nicht hinzu.
+--- falsch
+$\frac1p\,S(p)$: Der Integrator hat die Impulsantwort $\varepsilon(t)$ mit $\mathcal{L}\{\varepsilon(t)\}=1/p$. Der Konvergenzbereich ist der Durchschnitt des Bereichs von $S(p)$ mit der Halbebene $\operatorname{Re} p<0$, weil dort die Vergangenheit des Signals abklingt und das Integral endlich bleibt.
+--- falsch
+$S(p)-\frac1p$: Das Integral zieht vom Signal den Sprung ab, mit dem es beginnt, und es gilt $\mathcal{L}\{\varepsilon(t)\}=1/p$. Der Konvergenzbereich ist mindestens der Durchschnitt des Bereichs von $S(p)$ mit der Halbebene $\operatorname{Re} p>0$.
+:::
+:::karte zusammenhang Bedingung beim Integrieren
+Warum kommt beim Integrieren im Zeitbereich die Bedingung $\operatorname{Re} p>0$ hinzu, beim Ableiten aber keine?
+---
+Der Integrator macht aus $\mathrm{e}^{pt}$ den Ausgang $\frac{\mathrm{e}^{pt}}{p}$ nur, wenn $\mathrm{e}^{p\tau}$ für $\tau\to-\infty$ verschwindet, also für $\operatorname{Re} p>0$; sonst summiert er aus der Vergangenheit unendlich viel auf. $\frac{\mathrm{d}}{\mathrm{d} t}\mathrm{e}^{pt}=p\,\mathrm{e}^{pt}$ gilt dagegen für jedes $p$.
+--- falsch
+Weil ein Integral immer eine positive Fläche liefert und deshalb nur für positive $p$ erklärt ist. Beim Ableiten entsteht eine Steigung, die auch negativ sein darf; deshalb gilt die Ableitungsregel in der ganzen $p$-Ebene ohne Einschränkung.
+--- falsch
+Weil $\frac1p$ bei $p=0$ nicht definiert ist und man deshalb vorsichtshalber die ganze linke Halbebene samt imaginärer Achse ausschließt. Beim Ableiten ist der Eigenwert $p$ überall definiert, deshalb entfällt dort jede Bedingung.
+--- falsch
+Weil ein Integrator nur bei Gleichspannung arbeitet und alle Schwingungen mit $\operatorname{Re} p\le0$ herausfiltert. Beim Ableiten werden Schwingungen dagegen verstärkt, deshalb ist dort jedes $p$ zugelassen, auch auf der imaginären Achse.
+:::
+:::karte zusammenhang Transformierte des Dirac-Impulses
+Warum muss nach dem Faltungssatz $\mathcal{L}\{\delta(t)\}=1$ für alle $p$ gelten?
+---
+Faltung mit $\delta(t)$ lässt jedes Signal unverändert, $s(t)=s(t)*\delta(t)$. Im Bildbereich heißt das $S(p)=S(p)\cdot\mathcal{L}\{\delta(t)\}$, also muss der Faktor $\mathcal{L}\{\delta(t)\}$ gleich 1 sein, und zwar für alle $p$.
+--- falsch
+Faltung mit $\delta(t)$ verschiebt jedes Signal um eine Zeiteinheit. Im Bildbereich heißt das $S(p)\,\mathrm{e}^{-p}$, und für kleine $p$ ist dieser Faktor ungefähr 1; die Gleichung $\mathcal{L}\{\delta(t)\}=1$ ist also nur eine Näherung.
+--- falsch
+Weil der Dirac-Impuls die Fläche 1 hat und die Laplace-Transformation an jeder Stelle $p$ die Fläche des Signals angibt. Das gilt für jedes Signal: $S(p)$ ist stets gleich $\int s(t)\,\mathrm{d} t$, unabhängig von $p$.
+--- falsch
+Faltung mit $\delta(t)$ liefert die Impulsantwort des Systems, und die ist für ein System ohne Bauteile gleich 1. Im Bildbereich heißt das $H(p)=1$; der Faktor gilt aber nur für $\operatorname{Re} p>0$, weil der Impuls rechtsseitig ist.
+:::
+::::

@@ -1,0 +1,733 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 24,
+  "nextAnimId": 31,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Terminal",
+    "props": {
+     "text": "\\e[90m...\\e[0m\nInclude /etc/ssh/sshd_config.d/*.conf\n\\e[90m...\\e[0m\\e|\\e[3;1H\\e[K\\e[8;1H\\e[90m...\\e[0m",
+     "cols": 38,
+     "rows": 8,
+     "font_size": 17.0,
+     "line_height": 1.2,
+     "position": [
+      -3.42,
+      3.0,
+      0
+     ],
+     "frame": "datei",
+     "theme": "hell",
+     "title": "/etc/ssh/sshd_config",
+     "buttons": "x",
+     "cursor": false,
+     "prompt_colors": false,
+     "shadow": true,
+     "state": "term1"
+    }
+   },
+   {
+    "id": "o2",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.9466,
+      2.4648,
+      0
+     ],
+     "width": 2.7955,
+     "height": 0.1512,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#eb6834",
+     "fill_color": "#eb6834",
+     "fill_opacity": 0.25,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o3",
+    "type": "Terminal",
+    "props": {
+     "text": "ListenAddress 127.0.0.1\nListenAddress ::1\nPasswordAuthentication no\nKbdInteractiveAuthentication no\nPermitRootLogin no",
+     "cols": 38,
+     "rows": 0,
+     "font_size": 17.0,
+     "line_height": 1.2,
+     "position": [
+      -2.9,
+      1.05,
+      0
+     ],
+     "frame": "datei",
+     "theme": "hell",
+     "title": "/etc/ssh/sshd_config.d/10-linuxk11.conf",
+     "buttons": "x",
+     "cursor": false,
+     "prompt_colors": false,
+     "shadow": true,
+     "state": ""
+    }
+   },
+   {
+    "id": "o4",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.19219999999999998,
+      0.7265,
+      0
+     ],
+     "end": [
+      0.2522,
+      0.7265,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o5",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.2522,
+      0.7265,
+      0
+     ],
+     "end": [
+      0.2522,
+      0.4542,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o6",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.2522,
+      0.4542,
+      0
+     ],
+     "end": [
+      0.19219999999999998,
+      0.4542,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o7",
+    "type": "Text",
+    "props": {
+     "text": "@lh",
+     "position": [
+      0.3722,
+      0.5904,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#333333"
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.19219999999999998,
+      0.4243,
+      0
+     ],
+     "end": [
+      0.2522,
+      0.4243,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o9",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.2522,
+      0.4243,
+      0
+     ],
+     "end": [
+      0.2522,
+      0.152,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o10",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.2522,
+      0.152,
+      0
+     ],
+     "end": [
+      0.19219999999999998,
+      0.152,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o11",
+    "type": "Text",
+    "props": {
+     "text": "@pw",
+     "position": [
+      0.3722,
+      0.2882,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#333333"
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.19219999999999998,
+      0.1221,
+      0
+     ],
+     "end": [
+      0.2522,
+      0.1221,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o13",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.2522,
+      0.1221,
+      0
+     ],
+     "end": [
+      0.2522,
+      0.0009,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o14",
+    "type": "Line",
+    "props": {
+     "start": [
+      0.2522,
+      0.0009,
+      0
+     ],
+     "end": [
+      0.19219999999999998,
+      0.0009,
+      0
+     ],
+     "color": "#7f7f7f",
+     "stroke_width": 2,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o15",
+    "type": "Text",
+    "props": {
+     "text": "@root",
+     "position": [
+      0.3722,
+      0.0615,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#333333"
+    }
+   },
+   {
+    "id": "o16",
+    "type": "LabeledArrow",
+    "props": {
+     "start": [
+      -0.4889,
+      2.4648,
+      0
+     ],
+     "end": [
+      -0.25,
+      1.08,
+      0
+     ],
+     "label": "",
+     "label_at": "mid",
+     "double": false,
+     "elbow": "hv",
+     "thick": 0,
+     "head_size": 0.09,
+     "font_size": 26,
+     "color": "#eb6834",
+     "stroke_width": 2.5,
+     "dash": "",
+     "label_side": "left"
+    }
+   },
+   {
+    "id": "o17",
+    "type": "Text",
+    "props": {
+     "text": "@ein",
+     "position": [
+      -0.1,
+      2.0115,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#eb6834"
+    }
+   },
+   {
+    "id": "o18",
+    "type": "Text",
+    "props": {
+     "text": "ListenAddress 127.0.0.1",
+     "position": [
+      -2.8244,
+      0.6659,
+      0
+     ],
+     "font_size": 17.0,
+     "align": "left",
+     "color": "#eb6834",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o19",
+    "type": "Text",
+    "props": {
+     "text": "ListenAddress ::1",
+     "position": [
+      -2.8244,
+      0.5148,
+      0
+     ],
+     "font_size": 17.0,
+     "align": "left",
+     "color": "#eb6834",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o20",
+    "type": "Text",
+    "props": {
+     "text": "PasswordAuthentication no",
+     "position": [
+      -2.8244,
+      0.3637,
+      0
+     ],
+     "font_size": 17.0,
+     "align": "left",
+     "color": "#eb6834",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o21",
+    "type": "Text",
+    "props": {
+     "text": "KbdInteractiveAuthentication no",
+     "position": [
+      -2.8244,
+      0.2126,
+      0
+     ],
+     "font_size": 17.0,
+     "align": "left",
+     "color": "#eb6834",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o22",
+    "type": "Text",
+    "props": {
+     "text": "PermitRootLogin no",
+     "position": [
+      -2.8244,
+      0.0615,
+      0
+     ],
+     "font_size": 17.0,
+     "align": "left",
+     "color": "#eb6834",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o23",
+    "type": "Parameter",
+    "props": {
+     "name": "term1",
+     "value": 0.0,
+     "min": 0.0,
+     "max": 1.0,
+     "step": 0.01
+    }
+   }
+  ],
+  "animations": [
+   {
+    "id": "a1",
+    "type": "FadeIn",
+    "target": "o1",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a2",
+    "type": "FadeIn",
+    "target": "o2",
+    "run_time": 0.5,
+    "step": 1
+   },
+   {
+    "id": "a3",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.3,
+    "step": 2
+   },
+   {
+    "id": "a4",
+    "type": "FadeIn",
+    "target": "o3",
+    "run_time": 0.6,
+    "step": 3
+   },
+   {
+    "id": "a5",
+    "type": "FadeIn",
+    "target": "o4",
+    "run_time": 0.6,
+    "step": 4
+   },
+   {
+    "id": "a6",
+    "type": "FadeIn",
+    "target": "o5",
+    "run_time": 0.6,
+    "step": 4
+   },
+   {
+    "id": "a7",
+    "type": "FadeIn",
+    "target": "o6",
+    "run_time": 0.6,
+    "step": 4
+   },
+   {
+    "id": "a8",
+    "type": "FadeIn",
+    "target": "o7",
+    "run_time": 0.6,
+    "step": 4
+   },
+   {
+    "id": "a9",
+    "type": "FadeIn",
+    "target": "o8",
+    "run_time": 0.6,
+    "step": 4
+   },
+   {
+    "id": "a10",
+    "type": "FadeIn",
+    "target": "o9",
+    "run_time": 0.6,
+    "step": 4
+   },
+   {
+    "id": "a11",
+    "type": "FadeIn",
+    "target": "o10",
+    "run_time": 0.6,
+    "step": 4
+   },
+   {
+    "id": "a12",
+    "type": "FadeIn",
+    "target": "o11",
+    "run_time": 0.6,
+    "step": 4
+   },
+   {
+    "id": "a13",
+    "type": "FadeIn",
+    "target": "o12",
+    "run_time": 0.6,
+    "step": 4
+   },
+   {
+    "id": "a14",
+    "type": "FadeIn",
+    "target": "o13",
+    "run_time": 0.6,
+    "step": 4
+   },
+   {
+    "id": "a15",
+    "type": "FadeIn",
+    "target": "o14",
+    "run_time": 0.6,
+    "step": 4
+   },
+   {
+    "id": "a16",
+    "type": "FadeIn",
+    "target": "o15",
+    "run_time": 0.6,
+    "step": 4
+   },
+   {
+    "id": "a17",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.5,
+    "step": 5
+   },
+   {
+    "id": "a18",
+    "type": "Create",
+    "target": "o16",
+    "run_time": 0.7,
+    "step": 6
+   },
+   {
+    "id": "a19",
+    "type": "ChangeValue",
+    "target": "o23",
+    "run_time": 0.5,
+    "step": 7,
+    "value": 1.0,
+    "rate": "linear"
+   },
+   {
+    "id": "a20",
+    "type": "FadeIn",
+    "target": "o18",
+    "run_time": 0.5,
+    "step": 7
+   },
+   {
+    "id": "a21",
+    "type": "FadeIn",
+    "target": "o19",
+    "run_time": 0.5,
+    "step": 7
+   },
+   {
+    "id": "a22",
+    "type": "FadeIn",
+    "target": "o20",
+    "run_time": 0.5,
+    "step": 7
+   },
+   {
+    "id": "a23",
+    "type": "FadeIn",
+    "target": "o21",
+    "run_time": 0.5,
+    "step": 7
+   },
+   {
+    "id": "a24",
+    "type": "FadeIn",
+    "target": "o22",
+    "run_time": 0.5,
+    "step": 7
+   },
+   {
+    "id": "a25",
+    "type": "Shift",
+    "target": "o18",
+    "run_time": 1.0,
+    "step": 8,
+    "vector": [
+     -0.52,
+     1.6478,
+     0
+    ]
+   },
+   {
+    "id": "a26",
+    "type": "Shift",
+    "target": "o19",
+    "run_time": 1.0,
+    "step": 8,
+    "vector": [
+     -0.52,
+     1.6478,
+     0
+    ]
+   },
+   {
+    "id": "a27",
+    "type": "Shift",
+    "target": "o20",
+    "run_time": 1.0,
+    "step": 8,
+    "vector": [
+     -0.52,
+     1.6478,
+     0
+    ]
+   },
+   {
+    "id": "a28",
+    "type": "Shift",
+    "target": "o21",
+    "run_time": 1.0,
+    "step": 8,
+    "vector": [
+     -0.52,
+     1.6478,
+     0
+    ]
+   },
+   {
+    "id": "a29",
+    "type": "Shift",
+    "target": "o22",
+    "run_time": 1.0,
+    "step": 8,
+    "vector": [
+     -0.52,
+     1.6478,
+     0
+    ]
+   },
+   {
+    "id": "a30",
+    "type": "FadeIn",
+    "target": "o17",
+    "run_time": 1.0,
+    "step": 8
+   }
+  ],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "lh": {
+    "de": "nur über localhost erreichbar",
+    "en": "reachable only via localhost",
+    "es": "accesible solo por localhost",
+    "zh": "只能通过 localhost 访问",
+    "fr": "accessible seulement via localhost",
+    "tr": "yalnızca localhost üzerinden erişilebilir"
+   },
+   "pw": {
+    "de": "keine Passwörter",
+    "en": "no passwords",
+    "es": "sin contraseñas",
+    "zh": "不用密码",
+    "fr": "pas de mots de passe",
+    "tr": "parola yok"
+   },
+   "root": {
+    "de": "kein root",
+    "en": "no root",
+    "es": "sin root",
+    "zh": "禁止 root",
+    "fr": "pas de root",
+    "tr": "root yok"
+   },
+   "ein": {
+    "de": "an dieser Stelle\neingelesen",
+    "en": "read in\nat this point",
+    "es": "se lee\nen este punto",
+    "zh": "在此处\n读入",
+    "fr": "lu à\ncet endroit",
+    "tr": "bu noktada\nokunur"
+   }
+  },
+  "drawOrder": "creation"
+ }
+}

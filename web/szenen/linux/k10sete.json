@@ -1,0 +1,667 @@
+{
+ "v": 1,
+ "counters": {
+  "nextId": 23,
+  "nextAnimId": 26,
+  "nextCompId": 1
+ },
+ "model": {
+  "objects": [
+   {
+    "id": "o1",
+    "type": "Terminal",
+    "props": {
+     "text": "#!/bin/bash\n# abbruch.sh: wo set -e greift und wo nicht\nset -e\n\npruefen() {\n    false\n    echo \"  in pruefen nach false weiter\"\n}\n\npruefen || echo \"  pruefen meldet einen Fehler\"\necho \"1: nach 'pruefen || ...'\"\nif pruefen; then\n    echo \"2: im if-Zweig\"\nfi\npruefen\necho \"3: diese Zeile erscheint nie\"",
+     "cols": 47,
+     "rows": 0,
+     "font_size": 17.0,
+     "line_height": 1.2,
+     "position": [
+      -3.4,
+      2.75,
+      0
+     ],
+     "frame": "datei",
+     "theme": "hell",
+     "title": "abbruch.sh",
+     "buttons": "x",
+     "cursor": false,
+     "prompt_colors": false,
+     "shadow": true,
+     "state": ""
+    }
+   },
+   {
+    "id": "o2",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -3.0978,
+      2.0637,
+      0
+     ],
+     "width": 0.4533,
+     "height": 0.1512,
+     "shape": "round",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#eb6834",
+     "fill_color": "#ffffff",
+     "fill_opacity": 0.0,
+     "stroke_width": 2.5,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o3",
+    "type": "Text",
+    "props": {
+     "text": "@waechter",
+     "position": [
+      0.4222,
+      2.0637,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#eb6834"
+    }
+   },
+   {
+    "id": "o4",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.5488,
+      1.0059,
+      0
+     ],
+     "width": 3.5511,
+     "height": 0.1512,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#00823c",
+     "fill_color": "#00823c",
+     "fill_opacity": 0.22,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o5",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.5488,
+      0.7037,
+      0
+     ],
+     "width": 3.5511,
+     "height": 0.1512,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#00823c",
+     "fill_color": "#00823c",
+     "fill_opacity": 0.22,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o6",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.5488,
+      0.2504,
+      0
+     ],
+     "width": 3.5511,
+     "height": 0.1512,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#c82828",
+     "fill_color": "#c82828",
+     "fill_opacity": 0.22,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o7",
+    "type": "TextBox",
+    "props": {
+     "text": "",
+     "center": [
+      -1.5488,
+      0.0993,
+      0
+     ],
+     "width": 3.5511,
+     "height": 0.1512,
+     "shape": "rect",
+     "padding": 0.2,
+     "font_size": 26,
+     "color": "#ffffff",
+     "fill_color": "#ffffff",
+     "fill_opacity": 0.6,
+     "stroke_width": 0,
+     "dash": ""
+    }
+   },
+   {
+    "id": "o8",
+    "type": "Text",
+    "props": {
+     "text": "@geprueft",
+     "position": [
+      0.4222,
+      1.0059,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#00823c"
+    }
+   },
+   {
+    "id": "o9",
+    "type": "Text",
+    "props": {
+     "text": "@geprueft",
+     "position": [
+      0.4222,
+      0.7037,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#00823c"
+    }
+   },
+   {
+    "id": "o10",
+    "type": "Text",
+    "props": {
+     "text": "@greift",
+     "position": [
+      0.4222,
+      0.2504,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#c82828"
+    }
+   },
+   {
+    "id": "o11",
+    "type": "Text",
+    "props": {
+     "text": "$ bash abbruch.sh",
+     "position": [
+      -3.3,
+      -0.3,
+      0
+     ],
+     "font_size": 17,
+     "align": "left",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o12",
+    "type": "Text",
+    "props": {
+     "text": "  in pruefen nach false weiter",
+     "position": [
+      -3.3,
+      -0.47,
+      0
+     ],
+     "font_size": 17,
+     "align": "left",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o13",
+    "type": "Text",
+    "props": {
+     "text": "1: nach 'pruefen || ...'",
+     "position": [
+      -3.3,
+      -0.64,
+      0
+     ],
+     "font_size": 17,
+     "align": "left",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o14",
+    "type": "Text",
+    "props": {
+     "text": "  in pruefen nach false weiter",
+     "position": [
+      -3.3,
+      -0.81,
+      0
+     ],
+     "font_size": 17,
+     "align": "left",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o15",
+    "type": "Text",
+    "props": {
+     "text": "2: im if-Zweig",
+     "position": [
+      -3.3,
+      -0.98,
+      0
+     ],
+     "font_size": 17,
+     "align": "left",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o16",
+    "type": "Text",
+    "props": {
+     "text": "$ echo $?",
+     "position": [
+      -3.3,
+      -1.15,
+      0
+     ],
+     "font_size": 17,
+     "align": "left",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o17",
+    "type": "Text",
+    "props": {
+     "text": "1",
+     "position": [
+      -3.3,
+      -1.32,
+      0
+     ],
+     "font_size": 17,
+     "align": "left",
+     "color": "#111111",
+     "font": "mono",
+     "raw": true
+    }
+   },
+   {
+    "id": "o18",
+    "type": "Text",
+    "props": {
+     "text": "@titel",
+     "position": [
+      0.45,
+      -0.3,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#333333"
+    }
+   },
+   {
+    "id": "o19",
+    "type": "Text",
+    "props": {
+     "text": "@e1",
+     "position": [
+      0.6,
+      -0.58,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o20",
+    "type": "Text",
+    "props": {
+     "text": "@e2",
+     "position": [
+      0.6,
+      -0.84,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o21",
+    "type": "Text",
+    "props": {
+     "text": "@e3",
+     "position": [
+      0.6,
+      -1.1,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#7f7f7f"
+    }
+   },
+   {
+    "id": "o22",
+    "type": "Text",
+    "props": {
+     "text": "@e4",
+     "position": [
+      0.6,
+      -1.36,
+      0
+     ],
+     "font_size": 18,
+     "align": "left",
+     "color": "#7f7f7f"
+    }
+   }
+  ],
+  "animations": [
+   {
+    "id": "a1",
+    "type": "FadeIn",
+    "target": "o1",
+    "run_time": 0.6,
+    "step": 0
+   },
+   {
+    "id": "a2",
+    "type": "FadeIn",
+    "target": "o2",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a3",
+    "type": "FadeIn",
+    "target": "o3",
+    "run_time": 0.6,
+    "step": 1
+   },
+   {
+    "id": "a4",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.4,
+    "step": 2
+   },
+   {
+    "id": "a5",
+    "type": "FadeIn",
+    "target": "o11",
+    "run_time": 0.4,
+    "step": 3
+   },
+   {
+    "id": "a6",
+    "type": "FadeIn",
+    "target": "o4",
+    "run_time": 0.6,
+    "step": 4
+   },
+   {
+    "id": "a7",
+    "type": "FadeIn",
+    "target": "o8",
+    "run_time": 0.6,
+    "step": 4
+   },
+   {
+    "id": "a8",
+    "type": "FadeIn",
+    "target": "o12",
+    "run_time": 0.5,
+    "step": 5
+   },
+   {
+    "id": "a9",
+    "type": "FadeIn",
+    "target": "o13",
+    "run_time": 0.5,
+    "step": 5
+   },
+   {
+    "id": "a10",
+    "type": "FadeIn",
+    "target": "o5",
+    "run_time": 0.6,
+    "step": 6
+   },
+   {
+    "id": "a11",
+    "type": "FadeIn",
+    "target": "o9",
+    "run_time": 0.6,
+    "step": 6
+   },
+   {
+    "id": "a12",
+    "type": "FadeIn",
+    "target": "o14",
+    "run_time": 0.5,
+    "step": 7
+   },
+   {
+    "id": "a13",
+    "type": "FadeIn",
+    "target": "o15",
+    "run_time": 0.5,
+    "step": 7
+   },
+   {
+    "id": "a14",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.3,
+    "step": 8
+   },
+   {
+    "id": "a15",
+    "type": "FadeIn",
+    "target": "o6",
+    "run_time": 0.6,
+    "step": 9
+   },
+   {
+    "id": "a16",
+    "type": "FadeIn",
+    "target": "o10",
+    "run_time": 0.6,
+    "step": 9
+   },
+   {
+    "id": "a17",
+    "type": "FadeIn",
+    "target": "o7",
+    "run_time": 0.5,
+    "step": 10
+   },
+   {
+    "id": "a18",
+    "type": "FadeIn",
+    "target": "o16",
+    "run_time": 0.5,
+    "step": 10
+   },
+   {
+    "id": "a19",
+    "type": "FadeIn",
+    "target": "o17",
+    "run_time": 0.5,
+    "step": 10
+   },
+   {
+    "id": "a20",
+    "type": "Wait",
+    "target": null,
+    "run_time": 0.5,
+    "step": 11
+   },
+   {
+    "id": "a21",
+    "type": "FadeIn",
+    "target": "o18",
+    "run_time": 0.7,
+    "step": 12
+   },
+   {
+    "id": "a22",
+    "type": "FadeIn",
+    "target": "o19",
+    "run_time": 0.7,
+    "step": 12
+   },
+   {
+    "id": "a23",
+    "type": "FadeIn",
+    "target": "o20",
+    "run_time": 0.7,
+    "step": 12
+   },
+   {
+    "id": "a24",
+    "type": "FadeIn",
+    "target": "o21",
+    "run_time": 0.7,
+    "step": 12
+   },
+   {
+    "id": "a25",
+    "type": "FadeIn",
+    "target": "o22",
+    "run_time": 0.7,
+    "step": 12
+   }
+  ],
+  "computations": [],
+  "background": {
+   "color": "#ffffff",
+   "transparent": false,
+   "shadows": true,
+   "axes_on_top": false
+  },
+  "playMode": "sequential",
+  "angleUnit": "rad",
+  "domain": "real",
+  "camera": {
+   "mode": "2d",
+   "theta": 0.6,
+   "phi": 1.0,
+   "zoom": 1.0
+  },
+  "export": {
+   "mode": "content",
+   "margin": 24,
+   "scale": 0.55,
+   "frame": null
+  },
+  "lang": "de",
+  "strings": {
+   "waechter": {
+    "de": "Wächter am Eingang",
+    "en": "guard at the entrance",
+    "es": "guardián en la entrada",
+    "zh": "入口处的守卫",
+    "fr": "gardien à l'entrée",
+    "tr": "girişteki bekçi"
+   },
+   "geprueft": {
+    "de": "Status geprüft: Wächter schaut weg",
+    "en": "status checked: guard looks away",
+    "es": "estado comprobado: el guardián no mira",
+    "zh": "状态被检查：守卫不管",
+    "fr": "code testé : le gardien ignore",
+    "tr": "durum denetlendi: bekçi bakmaz"
+   },
+   "greift": {
+    "de": "ungeprüft: Wächter greift, Ende mit 1",
+    "en": "unchecked: guard steps in, exit with 1",
+    "es": "sin comprobar: actúa el guardián, sale con 1",
+    "zh": "未检查：守卫出手，以 1 结束",
+    "fr": "non testé : le gardien agit, fin avec 1",
+    "tr": "denetlenmedi: bekçi girer, 1 ile biter"
+   },
+   "titel": {
+    "de": "Hier schaut der Wächter weg:",
+    "en": "Here the guard looks away:",
+    "es": "Aquí el guardián no mira:",
+    "zh": "守卫在这些地方不管：",
+    "fr": "Ici, le gardien ne regarde pas :",
+    "tr": "Bekçi burada bakmaz:"
+   },
+   "e1": {
+    "de": "Bedingung von if, while, until",
+    "en": "condition of if, while, until",
+    "es": "condición de if, while, until",
+    "zh": "if、while、until 的条件",
+    "fr": "condition de if, while, until",
+    "tr": "if, while, until koşulu"
+   },
+   "e2": {
+    "de": "links von && und ||",
+    "en": "left of && and ||",
+    "es": "a la izquierda de && y ||",
+    "zh": "&& 和 || 的左边",
+    "fr": "à gauche de && et ||",
+    "tr": "&& ve ||'nin solunda"
+   },
+   "e3": {
+    "de": "vorn in einer Pipeline",
+    "en": "front part of a pipeline",
+    "es": "parte delantera de una tubería",
+    "zh": "管道中靠前的命令",
+    "fr": "début d'un tube",
+    "tr": "boru hattının ön kısmı"
+   },
+   "e4": {
+    "de": "hinter !",
+    "en": "after !",
+    "es": "tras !",
+    "zh": "! 之后",
+    "fr": "après !",
+    "tr": "! işaretinden sonra"
+   }
+  },
+  "drawOrder": "creation"
+ }
+}

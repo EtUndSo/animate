@@ -99,3 +99,131 @@ Jemand nennt $z$ positiv, wenn $\operatorname{Re}(z)>0$ ist. Prüfe (T1), (T2) u
 (T1) ist verletzt: Für $\mathrm{i}$ ist $\operatorname{Re}(\mathrm{i})=0$ und $\operatorname{Re}(-\mathrm{i})=0$, also ist weder $\mathrm{i}$ noch $-\mathrm{i}$ positiv, obwohl $\mathrm{i}\ne0$. (T2) gilt, denn nach Stufe [3](spiegeln-an-der-reellen-achse.html#stufe-3) ist $\operatorname{Re}(z+w)=\operatorname{Re}(z)+\operatorname{Re}(w)>0$. (T3) ist verletzt: $z=1+2\mathrm{i}$ ist positiv, aber $z\cdot z=-3+4\mathrm{i}$ hat den Realteil $-3$. Der Grund ist das Glied $-y_1y_2$ im Realteil des Produkts.
 :::
 :::
+
+::::formelsammlung
+**Kehrwert**
+
+$$z^{-1}=\frac1z=\frac{\overline{z}}{z\overline{z}}=\frac{x}{x^2+y^2}-\mathrm{i}\,\frac{y}{x^2+y^2}\qquad\text{mit}\qquad z\cdot z^{-1}=1$$
+
+Für $z=x+\mathrm{i}y\ne0$; dann ist $x^2+y^2>0$. Geometrisch: an der reellen Achse spiegeln, durch $x^2+y^2$ teilen. Für $z=0$ gibt es keinen Kehrwert, denn $0\cdot w=0\ne1$.
+
+**Division**
+
+$$\frac wz=w\cdot z^{-1}=\frac{w\,\overline{z}}{x^2+y^2}$$
+
+Für $z=x+\mathrm{i}y\ne0$ und beliebiges $w$: mit der konjugierten Zahl des Nenners erweitern, der Nenner wird reell.
+
+**$\mathbb{C}$ ist ein Körper**
+
+$$-z=-x-\mathrm{i}y,\qquad(1,0)\odot(x,y)=(x,y)$$
+
+Alle Körperaxiome gelten, mit dem Negativen $-z$, dem Einselement $(1,0)$ und dem Kehrwert $1/z$ für $z\ne0$. Deshalb gelten Bruchrechnung, binomische Formeln und der Schluss von $zw=0$ auf $z=0$ oder $w=0$.
+
+**$\mathbb{C}$ ist nicht angeordnet**
+
+$$1\cdot1+\mathrm{i}\cdot\mathrm{i}=1+(-1)=0$$
+
+Wären $1\cdot1>0$ und $\mathrm{i}\cdot\mathrm{i}>0$ wie jedes Quadrat einer Zahl $\ne0$ in einem angeordneten Körper, folgte mit (T2) $0>0$, gegen (T1). Vergleichen darf man nur reelle Größen wie $\operatorname{Re}(z)$ oder $|z|$.
+::::
+
+::::lernkarten
+:::karte formel Kehrwert
+Wie berechnet man den Kehrwert einer komplexen Zahl $z=x+\mathrm{i}y\ne0$ in Normalform?
+---
+$z^{-1}=\frac1z=\frac{\overline{z}}{z\overline{z}}=\frac{x}{x^2+y^2}-\mathrm{i}\,\frac{y}{x^2+y^2}$ mit $z\cdot z^{-1}=1$. Wegen $z\ne0$ ist der reelle Nenner $x^2+y^2>0$.
+--- falsch
+$\frac1z=\frac1x+\mathrm{i}\,\frac1y$: Man nimmt die Kehrwerte von Realteil und Imaginärteil einzeln, wie man auch einzeln addiert. Das geht, solange $x\ne0$ und $y\ne0$ sind.
+--- falsch
+$z^{-1}=\frac1z=\frac{\overline{z}}{z\overline{z}}=\frac{x}{x^2+y^2}+\mathrm{i}\,\frac{y}{x^2+y^2}$ mit $z\cdot z^{-1}=1$. Wegen $z\ne0$ ist der reelle Nenner $x^2+y^2>0$.
+--- falsch
+$z^{-1}=\frac1z=\frac{\overline{z}}{z\overline{z}}=\frac{x}{x^2-y^2}-\mathrm{i}\,\frac{y}{x^2-y^2}$ mit $z\cdot z^{-1}=1$. Der Nenner ist reell, darf aber nicht null sein, also $x\ne\pm y$.
+:::
+:::karte formel Division
+Wie teilt man eine komplexe Zahl $w$ durch $z=x+\mathrm{i}y\ne0$, und warum funktioniert das?
+---
+Man erweitert mit der konjugierten Zahl des Nenners: $\frac wz=\frac{w\,\overline{z}}{x^2+y^2}$. Der Wert bleibt gleich, der Nenner wird reell, und durch eine reelle Zahl teilt man Realteil und Imaginärteil einzeln.
+--- falsch
+Man teilt Realteil durch Realteil und Imaginärteil durch Imaginärteil. Das ist erlaubt, weil die Division wie die Addition getrennt je Koordinate läuft; der Nenner muss dafür in beiden Teilen von null verschieden sein.
+--- falsch
+Man erweitert mit $z$ selbst: $\frac wz=\frac{wz}{z^2}$. Der Wert bleibt gleich, und der Nenner $z^2$ ist reell, weil beim Quadrieren das $\mathrm{i}$ zu $-1$ wird; dann teilt man Realteil und Imaginärteil einzeln.
+--- falsch
+Man erweitert mit der konjugierten Zahl des Nenners: $\frac wz=\frac{w\,\overline{z}}{x^2-y^2}$. Der Wert bleibt gleich, und der Nenner wird nach der dritten binomischen Formel reell, solange $x\ne\pm y$ ist.
+:::
+:::karte zusammenhang Kehrwert in der Ebene
+Wie entsteht der Kehrwert $1/z$ geometrisch aus dem Punkt $z$ in der komplexen Ebene?
+---
+In zwei Schritten: an der reellen Achse spiegeln, dann durch $x^2+y^2$ teilen. Der Kehrwert liegt deshalb auf dem Pfeil von $\overline{z}$; für $z_2$ ist er ein Fünftel von $\overline{z_2}$.
+--- falsch
+In zwei Schritten: um $90^\circ$ gegen den Uhrzeigersinn drehen, dann durch $x^2+y^2$ teilen. Der Kehrwert steht deshalb immer senkrecht auf dem Pfeil von $z$.
+--- falsch
+In einem Schritt: am Nullpunkt spiegeln. Der Kehrwert ist der umgekehrte Pfeil $-z$, weil $z+(-z)=0$ ist und der Kehrwert die Rechnung mit $z$ wieder aufhebt.
+--- falsch
+In zwei Schritten: an der reellen Achse spiegeln, dann mit $x^2+y^2$ multiplizieren. Der Kehrwert liegt deshalb auf dem Pfeil von $\overline{z}$, aber weiter außen als $z$ selbst.
+:::
+:::karte zusammenhang kein Kehrwert der Null
+Warum hat $z=0$ keinen Kehrwert, während jedes $z\ne0$ einen hat?
+---
+Für $z=0$ ist $0\cdot w=0\ne1$ für jedes $w$, kein Produkt mit der Null ergibt also 1. Für $z\ne0$ ist $x\ne0$ oder $y\ne0$, also $x^2+y^2>0$, und der Bruch mit diesem Nenner ist erklärt.
+--- falsch
+Auch $z=0$ hat in $\mathbb{C}$ einen Kehrwert, eine unendlich ferne Zahl auf der imaginären Achse; nur in $\mathbb{R}$ fehlt er, weil dort die zweite Achse fehlt.
+--- falsch
+Keinen Kehrwert haben alle $z$ mit $x=0$ oder $y=0$, weil dann einer der Brüche $\frac x{x^2+y^2}$ und $\frac y{x^2+y^2}$ den Zähler null hat und wegfällt.
+--- falsch
+Für $z=0$ ist $\overline{z}=0$, und man müsste durch $\overline{z}$ teilen. Für $z\ne0$ gibt es den Kehrwert nur, wenn zusätzlich $x^2-y^2\ne0$ ist, sonst verschwindet der Nenner.
+:::
+:::karte zusammenhang Körper
+Warum ist $\mathbb{C}$ ein Körper, und welche Rechenregeln gelten deshalb auch in $\mathbb{C}$?
+---
+Die Addition läuft getrennt und erbt alle Gesetze von $\mathbb{R}$; die Multiplikation ist kommutativ, assoziativ und distributiv, mit Einselement $(1,0)$ und Kehrwert für jedes $z\ne0$. Deshalb gelten Bruchrechnung, binomische Formeln und der Schluss von $zw=0$ auf $z=0$ oder $w=0$.
+--- falsch
+Weil $\mathbb{C}$ die reellen Zahlen enthält und jede Menge, die einen Körper enthält, selbst ein Körper ist. Deshalb gelten Bruchrechnung und binomische Formeln, aber nur für die reellen Zahlen in $\mathbb{C}$; für alle anderen muss man jede Regel neu prüfen.
+--- falsch
+Weil es auf $\mathbb{C}$ eine Anordnung mit allen Anordnungsaxiomen gibt, aus der die Körperaxiome folgen. Deshalb gelten Bruchrechnung, binomische Formeln und das Rechnen mit Ungleichungen in $\mathbb{C}$ genau wie in $\mathbb{R}$, auch das Quadrieren.
+--- falsch
+Alle Körperaxiome gelten, und sogar die Null hat einen Kehrwert, weil $\overline{0}=0$ ist und man mit ihm erweitern kann. Deshalb gelten Bruchrechnung und binomische Formeln, aber nicht der Schluss von $zw=0$ auf $z=0$ oder $w=0$.
+:::
+:::karte herleitung Produkt mit dem Kehrwert
+Wie bestätigt man mit der Multiplikation für Paare, dass $(x/N,\,-y/N)$ mit $N:=x^2+y^2>0$ der Kehrwert von $(x,y)$ ist?
+---
+Die erste Koordinate des Produkts ist $\frac{x\cdot x}N-\frac{y\cdot(-y)}N$, weil man $x_1x_2-y_1y_2$ mit dem zweiten Faktor $\Bigl(\frac xN,\frac{-y}N\Bigr)$ bildet; sie ergibt $\frac{x^2+y^2}N$.
+---
+Die zweite Koordinate ist $\frac{x\cdot(-y)}N+\frac{y\cdot x}N$, und sie ist null, weil sich die beiden Mischglieder aufheben.
+---
+Das Produkt ist also $\Bigl(\frac{x^2+y^2}N,\;0\Bigr)=(1,0)$, weil $N=x^2+y^2$ ist; und $(1,0)$ ist das Einselement.
+---
+Teilen durch $N$ ist erlaubt, weil aus $z\ne0$ folgt, dass $x\ne0$ oder $y\ne0$ ist, und damit $N>0$.
+:::
+:::karte herleitung keine Anordnung auf den komplexen Zahlen
+Wie führt die Annahme einer Relation „$>0$“ auf $\mathbb{C}$ mit den Anordnungsaxiomen (T1) bis (T3) zu einem Widerspruch?
+---
+Für jedes $x\ne0$ wäre $x\cdot x>0$, weil bei $x>0$ das Axiom (T3) greift und bei $-x>0$ ebenfalls (T3) mit $(-x)(-x)=x\cdot x$.
+---
+Insbesondere wären $1\cdot1>0$ und $\mathrm{i}\cdot\mathrm{i}>0$, weil $1\ne0$ und $\mathrm{i}\ne0$ gilt.
+---
+Nach (T2) folgte $1\cdot1+\mathrm{i}\cdot\mathrm{i}>0$, weil die Summe positiver Zahlen positiv ist.
+---
+Das ist $1+(-1)=0>0$, ein Widerspruch zu (T1), weil für $0$ nur die Beziehung $0=0$ gelten darf und nicht zugleich $0>0$.
+:::
+:::karte zusammenhang nur reelle Größen vergleichen
+Welche Vergleiche mit „kleiner“ und „größer“ sind bei komplexen Zahlen noch erlaubt, da $\mathbb{C}$ nicht angeordnet ist?
+---
+Nur Vergleiche reeller Größen wie $\operatorname{Re}(z)$ oder $|z|$, denn dort gelten die Anordnungsaxiome von $\mathbb{R}$. Für nicht reelle Zahlen haben $z<w$ und $z>0$ keine Bedeutung.
+--- falsch
+Alle Vergleiche wie in $\mathbb{R}$, sofern man zuerst nach dem Realteil und bei Gleichheit nach dem Imaginärteil sortiert; diese Reihenfolge verträgt sich mit allen Rechenarten.
+--- falsch
+Nur Vergleiche zwischen Zahlen mit gleichem Imaginärteil. Für sie gilt $z<w$ genau dann, wenn $\mathrm{i}z<\mathrm{i}w$, weil die Drehung die Reihenfolge erhält.
+--- falsch
+Gar keine: Auch Realteile und andere reelle Größen, die aus komplexen Zahlen berechnet werden, darf man nicht mehr vergleichen, weil sie aus $\mathbb{C}$ stammen.
+:::
+:::karte zusammenhang Sortieren nach Realteil und Imaginärteil
+Warum ergibt das Sortieren zuerst nach dem Realteil und dann nach dem Imaginärteil keine Anordnung von $\mathbb{C}$?
+---
+Sortieren kann man so, aber es verträgt sich nicht mit der Multiplikation: Es ergäbe $\mathrm{i}>0$, aber $\mathrm{i}\cdot\mathrm{i}=-1<0$, gegen (T3). Das trifft jede Festlegung.
+--- falsch
+Weil dabei zwei verschiedene Zahlen gleich eingeordnet würden: Zahlen mit gleichem Realteil ließen sich nicht mehr unterscheiden, und damit wäre (T1) verletzt.
+--- falsch
+Weil es sich nicht mit der Addition verträgt: Die Summe zweier so positiver Zahlen kann einen negativen Realteil haben, und damit wäre (T2) verletzt.
+--- falsch
+Weil der Imaginärteil keine reelle Zahl ist und man ihn deshalb nicht der Größe nach sortieren kann; nur die Realteile lassen sich miteinander vergleichen.
+:::
+::::
